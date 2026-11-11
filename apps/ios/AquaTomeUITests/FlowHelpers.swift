@@ -17,6 +17,13 @@ extension XCUIApplication {
     launch()
   }
 
+  /// The photo viewer's words (its caption, who took it, its place and the strip), shown by a tap on the photo: it opens on
+  /// the photo alone (the owner, 11 Nov).
+  func showViewerWords() {
+    XCTAssertTrue(buttons["viewer-close"].waitForExistence(timeout: 5), "no viewer")
+    coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.45)).tap()
+  }
+
   /// Tìm's home has the handbook: its first shelf's chips, on the first screen under the tools.
   func handbookShown(timeout: TimeInterval = 5) -> Bool {
     descendants(matching: .any)["shelf"].firstMatch.waitForExistence(timeout: timeout)

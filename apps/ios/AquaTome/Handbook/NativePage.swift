@@ -934,7 +934,7 @@ private struct GalleryRow: View {
     }
     // Full screen, on black (PhotoViewer).
     .fullScreenCover(isPresented: Binding(get: { shown != nil }, set: { if !$0 { shown = nil } })) {
-      GalleryViewer(title: title, note: note, photos: photos, readers: readers, index: shown ?? 0)
+      GalleryViewer(note: note, photos: photos, readers: readers, index: shown ?? 0)
     }
   }
 

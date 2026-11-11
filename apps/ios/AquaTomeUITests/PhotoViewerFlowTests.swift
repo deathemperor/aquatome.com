@@ -24,6 +24,7 @@ final class PhotoViewerFlowTests: XCTestCase {
   func testAPhotoOpensWhereItWasTapped() {
     let app = launch()
     rowPhoto(app, "Cá neon gần cây").tap()
+    app.showViewerWords()
     XCTAssertTrue(counter(app, "2/3").waitForExistence(timeout: 5), "not on the photo tapped")
     // The pager on it too, not only the counter.
     XCTAssertTrue(viewerPhoto(app, "Ảnh 2 trên 3").isHittable, "the second photo isn't the one on screen")
@@ -48,6 +49,7 @@ final class PhotoViewerFlowTests: XCTestCase {
     rowPhoto(app, "Ảnh thử 1").tap()
     let asked = app.descendants(matching: .any)["picture-requests"]
     XCTAssertTrue(wait(asked, label: "1 2 3", timeout: 5), "fetched \(asked.label), not 1 2 3")
+    app.showViewerWords()
     let eighth = app.buttons["Ảnh 8 trên 28"]
     XCTAssertTrue(eighth.waitForExistence(timeout: 3), "no photo 8 in the strip")
     eighth.tap()
@@ -69,6 +71,7 @@ final class PhotoViewerFlowTests: XCTestCase {
   func testAPhotoPickedInTheStripShowsItsThumbnailSharp() {
     let app = launch("-slow-pictures", "-large-gallery")
     rowPhoto(app, "Ảnh thử 1").tap()
+    app.showViewerWords()
     let eighth = app.buttons["Ảnh 8 trên 28"]
     XCTAssertTrue(eighth.waitForExistence(timeout: 5), "no photo 8 in the strip")
     eighth.tap()
@@ -119,17 +122,54 @@ final class PhotoViewerFlowTests: XCTestCase {
     XCTAssertTrue(counter(app, "2/3").waitForExistence(timeout: 3), "a swipe on the fade didn't page")
   }
 
-  /// A tap hides the bar, the words and the counter; another shows them again.
-  func testATapHidesAndShowsWhatsAroundThePhoto() throws {
-    let app = openViewer()
+  /// It opens on the photo alone, as Photos full screen (the owner, 11 Nov): no bar, its ✕ at the top right, who took it on
+  /// one line at the foot, and no caption, count or strip. Before, the bar's title and the caption showed at once.
+  func testItOpensOnThePhotoAloneWithItsCloseAndWhoTookIt() {
+    let app = launch()
+    rowPhoto(app, "Đàn cá neon trong bể").tap()
+    let close = app.buttons["viewer-close"]
+    XCTAssertTrue(close.waitForExistence(timeout: 5), "no ✕")
+    XCTAssertTrue(close.isHittable, "the ✕ can't be tapped")
+    XCTAssertEqual(close.label, "Đóng")
+    XCTAssertGreaterThan(close.frame.maxX, app.frame.width - 24, "the ✕ isn't at the right: \(close.frame)")
+    XCTAssertLessThan(close.frame.minY, 120, "the ✕ isn't at the top: \(close.frame)")
+    XCTAssertFalse(app.navigationBars.firstMatch.exists, "a bar over the photo")
+    XCTAssertFalse(app.staticTexts["Đàn cá neon trong bể"].exists, "its caption as it opens")
+    XCTAssertFalse(counter(app, "1/3").exists, "its count as it opens")
+    XCTAssertFalse(app.buttons["Ảnh 2 trên 3"].exists, "the strip as it opens")
+    let foot = app.links.matching(NSPredicate(format: "label == %@", "Ảnh: Tác giả 1 · CC BY 2.0")).allElementsBoundByIndex
+      .first { $0.frame.minY > app.frame.height * 0.8 && $0.isHittable }
+    XCTAssertNotNil(foot, "who took it isn't at the foot")
+    XCTAssertLessThan(foot?.frame.height ?? 99, 30, "who took it is more than one line")
+  }
+
+  /// A tap shows its words, the caption, the count and the strip, the ✕ where it was; another hides them again.
+  func testATapShowsItsWordsAndAnotherHidesThem() throws {
+    let app = launch()
+    rowPhoto(app, "Đàn cá neon trong bể").tap()
+    let close = app.buttons["viewer-close"]
+    XCTAssertTrue(close.waitForExistence(timeout: 5), "no viewer")
+    middle(app).tap()
+    XCTAssertTrue(counter(app, "1/3").waitForExistence(timeout: 3), "the count didn't come")
+    XCTAssertTrue(app.staticTexts["Đàn cá neon trong bể"].exists, "the caption didn't come")
+    XCTAssertTrue(app.buttons["Ảnh 2 trên 3"].exists, "the strip didn't come")
+    XCTAssertTrue(close.isHittable, "the ✕ went with a tap")
     try app.performAccessibilityAudit(for: .sufficientElementDescription)
     middle(app).tap()
-    XCTAssertTrue(gone(counter(app, "1/3")), "the counter stayed")
-    XCTAssertFalse(app.buttons["Đóng"].isHittable, "the bar stayed")
-    XCTAssertFalse(app.staticTexts["Đàn cá neon trong bể"].exists, "the words stayed")
-    middle(app).tap()
-    XCTAssertTrue(counter(app, "1/3").waitForExistence(timeout: 3), "the counter didn't come back")
-    XCTAssertTrue(app.buttons["Đóng"].waitForExistence(timeout: 3), "the bar didn't come back")
+    XCTAssertTrue(gone(counter(app, "1/3")), "the count stayed")
+    XCTAssertFalse(app.staticTexts["Đàn cá neon trong bể"].exists, "the caption stayed")
+    XCTAssertTrue(close.isHittable, "the ✕ went with a second tap")
+  }
+
+  /// A short pull down springs back: the viewer stays, its ✕ with it.
+  func testAShortPullDownSpringsBack() {
+    let app = openViewer()
+    let start = middle(app)
+    start.press(forDuration: 0.05, thenDragTo: start.withOffset(CGVector(dx: 0, dy: 50)), withVelocity: XCUIGestureVelocity(100),
+                thenHoldForDuration: 0.2)
+    settle(1)
+    XCTAssertTrue(app.descendants(matching: .any)["gallery"].exists, "a short pull closed it")
+    XCTAssertTrue(app.buttons["viewer-close"].waitForExistence(timeout: 3), "the ✕ didn't come back")
   }
 
   /// Pulled down, it closes, back on the page.
@@ -164,6 +204,10 @@ final class PhotoViewerFlowTests: XCTestCase {
     rowPhoto(app, "Ảnh của Lan").tap()
     let menu = app.buttons["Tùy chọn cho ảnh của Lan"].firstMatch
     XCTAssertTrue(menu.waitForExistence(timeout: 10), "no options in the photo's viewer: \(app.debugDescription)")
+    // At the top left, as it opens: the ✕ mirrored.
+    XCTAssertTrue(menu.isHittable, "its options can't be tapped")
+    XCTAssertLessThan(menu.frame.minX, 24, "its options aren't at the left: \(menu.frame)")
+    XCTAssertLessThan(menu.frame.minY, 120, "its options aren't at the top: \(menu.frame)")
     menu.tap()
     XCTAssertTrue(app.buttons["Báo cáo"].waitForExistence(timeout: 3), "no report in the menu")
     XCTAssertTrue(app.buttons["Chặn người này"].exists, "no block in the menu")
@@ -217,6 +261,7 @@ final class PhotoViewerFlowTests: XCTestCase {
   private func openViewer() -> XCUIApplication {
     let app = launch()
     rowPhoto(app, "Đàn cá neon trong bể").tap()
+    app.showViewerWords()
     XCTAssertTrue(counter(app, "1/3").waitForExistence(timeout: 5), "no viewer on the first photo")
     let shown = app.descendants(matching: .any)["picture-shown"]
     XCTAssertTrue(wait(shown, label: "full", timeout: 15), "the full photo didn't come: \(shown.label)")

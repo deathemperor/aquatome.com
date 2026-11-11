@@ -197,7 +197,7 @@ struct SpeciesPage: View {
     .sensoryFeedback(.success, trigger: savedFromMore)
     .v2PutOnTank(item, isPresented: $putting)
     .fullScreenCover(isPresented: Binding(get: { viewing != nil }, set: { if !$0 { viewing = nil } })) {
-      GalleryViewer(title: galleryTitle, note: galleryNote, photos: viewerPhotos, readers: nil, index: viewing ?? 0)
+      GalleryViewer(note: galleryNote, photos: viewerPhotos, readers: nil, index: viewing ?? 0)
     }
     // Runs on each appearing too: nothing to do with the page here. A page that didn't come isn't one read.
     // "Thử lại" asks its photos again too.
@@ -536,12 +536,6 @@ struct SpeciesPage: View {
     var line = AttributedString(" ")
     line.font = .caption2
     return line
-  }
-
-  /// The first gallery's title, the full-screen viewer's.
-  private var galleryTitle: String {
-    for case let .gallery(title, _, _, _, _) in doc?.blocks ?? [] { return title }
-    return item.name
   }
 
   /// Where the galleries' photos come from and on what licences, under them full screen.

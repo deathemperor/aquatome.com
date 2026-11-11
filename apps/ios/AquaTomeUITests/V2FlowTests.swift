@@ -557,6 +557,7 @@ final class V2FlowTests: XCTestCase {
     let row = app.descendants(matching: .any)["v2-photos-row"].firstMatch
     reveal(app, row)
     row.buttons.firstMatch.tap()
+    app.showViewerWords()
     let counter = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "2/3 · 3 ảnh")).firstMatch
     XCTAssertTrue(counter.waitForExistence(timeout: 5),
                   "the viewer doesn't count the gallery: \(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", " ảnh")).firstMatch.label)")

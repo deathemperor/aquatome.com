@@ -47,6 +47,7 @@ final class PhotoGridFlowTests: XCTestCase {
     reveal(app, all)
     all.tap()
     XCTAssertTrue(app.descendants(matching: .any)["gallery"].waitForExistence(timeout: 5), "no viewer")
+    app.showViewerWords()
     XCTAssertTrue(app.staticTexts["1/2"].waitForExistence(timeout: 5), "not on the readers' first photo")
   }
 
@@ -208,6 +209,7 @@ final class PhotoGridFlowTests: XCTestCase {
     XCTAssertEqual(post.label, "Gửi ảnh của bạn")
     XCTAssertEqual(app.buttons["grid-reader-2"].label, "Ảnh của Minh, Ảnh 2 trên 2")
     app.buttons["grid-reader-2"].tap()
+    app.showViewerWords()
     XCTAssertTrue(app.staticTexts["2/2"].waitForExistence(timeout: 5), "not on their own count")
     let menu = app.buttons["Tùy chọn cho ảnh của Minh"].firstMatch
     XCTAssertTrue(menu.waitForExistence(timeout: 5), "no report menu")
