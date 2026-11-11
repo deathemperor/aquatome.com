@@ -1,4 +1,4 @@
-import { spawn, spawnSync } from 'node:child_process'
+import { spawn, spawnSync } from './sim-run-turn'
 import { chmodSync, existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, readlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -39,6 +39,8 @@ const status = (m: ReturnType<typeof mac>, ...args: string[]) => spawnSync('pyth
 const THREE: [string, string][] = [['A', 'one'], ['B', 'two'], ['C', 'three']]
 const FOURTH: [string, string][] = [['D', 'four']]
 
+// One mac-status.py per reading. Beside the rest of the suite, at default workers, these readings took 22 s
+// on 2026-11-11, against the package's 30 s.
 test('quiet enough to record is the load and the cores the takes held at', () => {
   expect(status(mac({ load: '200' })).status).toBe(0)
   const loaded = status(mac({ load: '201' }))
@@ -48,7 +50,7 @@ test('quiet enough to record is the load and the cores the takes held at', () =>
   const hot = status(mac({ load: '50', cores: 10 }))
   expect(hot.status).toBe(1)
   expect(hot.stdout).toContain('heat has left 10 cores')
-})
+}, 60_000)
 
 test("what can't be read isn't quiet, and a counter that wrapped isn't either", () => {
   const unread = status(mac({ cores: null }))

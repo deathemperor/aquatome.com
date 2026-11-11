@@ -1,4 +1,4 @@
-import { spawn, spawnSync } from 'node:child_process'
+import { spawn, spawnSync, withSimRunTurn } from './sim-run-turn'
 import { chmodSync, existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, symlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -118,30 +118,63 @@ test("this Mac's runner's simulator run waits while cores are taken away, and a 
 // on the Mac took up to 23 s. Stand-ins, named as the daemons are, inside a simulator's runtime and outside it. macOS's
 // alone, as simulators and taskpolicy are (and nice goes to 20 there, 19 on Linux): CI's Linux skips it, the Mac's cycles run it.
 test.skipIf(process.platform !== 'darwin')("while a run has its turn, its simulator's photo and media analysis runs in the background, and the Mac's own doesn't", async () => {
-  const dir = home()
-  const daemon = (path: string) => {
-    mkdirSync(dirname(join(dir, path)), { recursive: true })
-    symlinkSync('/bin/sleep', join(dir, path))
-    return spawn(join(dir, path), ['30'], { stdio: 'ignore' })
-  }
-  const sim = daemon('CoreSimulator/Volumes/iOS/RuntimeRoot/System/Library/PrivateFrameworks/MediaAnalysis.framework/mediaanalysisd')
-  const mac = daemon('System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versions/A/Support/photoanalysisd')
-  const nice = (pid?: number) => Number(spawnSync('ps', ['-o', 'nice=', '-p', String(pid)], { encoding: 'utf8' }).stdout.trim())
-  try {
-    await wait(200)
-    const before = nice(mac.pid)
-    expect(nice(sim.pid)).toBe(before)
-    // The run lasts until the stand-in is in the background, or 20 s: a fixed second ran out on a busy Mac, at nice 10,
-    // before sim-run had looked once (2026-11-08).
-    const until = `i=0; until [ "$(ps -o nice= -p ${sim.pid} | tr -d ' ')" = 20 ] || [ $i -ge 400 ]; do sleep 0.05; i=$((i + 1)); done`
-    expect(spawnSync(SIM_RUN, ['sh', '-c', until], { env: { ...process.env, HOME: dir, SIM_RUN_QUIET_PAUSE: '0.1' } }).status).toBe(0)
-    expect(nice(sim.pid)).toBe(20)
-    expect(nice(mac.pid)).toBe(before)
-  } finally {
-    sim.kill()
-    mac.kill()
-  }
+  // The turn covers the stand-ins, not only the scan: quiet-recording's sim-run was lowering this stand-in
+  // before the two priorities had been read (2026-11-11).
+  await withSimRunTurn(async () => {
+    const dir = home()
+    const daemon = (path: string) => {
+      mkdirSync(dirname(join(dir, path)), { recursive: true })
+      symlinkSync('/bin/sleep', join(dir, path))
+      return spawn(join(dir, path), ['30'], { stdio: 'ignore' })
+    }
+    const sim = daemon('CoreSimulator/Volumes/iOS/RuntimeRoot/System/Library/PrivateFrameworks/MediaAnalysis.framework/mediaanalysisd')
+    const mac = daemon('System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versions/A/Support/photoanalysisd')
+    const nice = (pid?: number) => Number(spawnSync('ps', ['-o', 'nice=', '-p', String(pid)], { encoding: 'utf8' }).stdout.trim())
+    try {
+      await wait(200)
+      const before = nice(mac.pid)
+      expect(nice(sim.pid)).toBe(before)
+      // The run lasts until the stand-in is in the background, or 20 s: a fixed second ran out on a busy Mac, at nice 10,
+      // before sim-run had looked once (2026-11-08).
+      const until = `i=0; until [ "$(ps -o nice= -p ${sim.pid} | tr -d ' ')" = 20 ] || [ $i -ge 400 ]; do sleep 0.05; i=$((i + 1)); done`
+      expect(spawnSync(SIM_RUN, ['sh', '-c', until], { env: { ...process.env, HOME: dir, SIM_RUN_QUIET_PAUSE: '0.1' } }).status).toBe(0)
+      expect(nice(sim.pid)).toBe(20)
+      expect(nice(mac.pid)).toBe(before)
+    } finally {
+      sim.kill()
+      mac.kill()
+    }
+  })
 }, 30_000)
+
+// The two files start sim-run.py, whose scan sees every analysis daemon. Dropping either file's import, or the
+// turn itself, lets those scans overlap again. The check uses its own file: the suite's turn is the one
+// quiet-recording holds, and waiting that out ran past 30 s (2026-11-11).
+test('sim-run and quiet-recording take one turn, so their scans cannot overlap', async () => {
+  const here = readFileSync(fileURLToPath(new URL('./sim-run.test.ts', import.meta.url)), 'utf8')
+  const turn = readFileSync(fileURLToPath(new URL('./sim-run-turn.ts', import.meta.url)), 'utf8')
+  expect(here).toContain('await withSimRunTurn(')
+  expect(turn).toContain("endsWith('/sim-run.py')")
+  expect(turn).toContain("endsWith('/quiet-recording.py')")
+  for (const name of ['sim-run.test.ts', 'quiet-recording.test.ts']) {
+    const imports = readFileSync(fileURLToPath(new URL(`./${name}`, import.meta.url)), 'utf8').split('\n').filter(l => l.startsWith('import '))
+    expect(imports.some(l => /\{[^}]*\bspawn\b[^}]*\} from '\.\/sim-run-turn'/.test(l)), name).toBe(true)
+    expect(imports.some(l => l.includes('node:child_process')), name).toBe(false)
+  }
+  // Its own file, not the suite's turn: quiet-recording holds that one for longer than this test's limit.
+  const lock = join(home(), 'turn.lock')
+  await withSimRunTurn(() => {
+    const taken = spawnSync('python3', ['-c', `import os, sys
+try:
+    os.open(sys.argv[1], os.O_CREAT | os.O_EXCL | os.O_RDWR)
+except FileExistsError:
+    raise SystemExit(0)
+raise SystemExit(1)
+`, lock])
+    expect(taken.status).toBe(0)
+  }, lock)
+  expect(existsSync(lock)).toBe(false)
+})
 
 test("the runner's second ask ends the command, so nothing is left running when the turn passes on", async () => {
   const dir = home()

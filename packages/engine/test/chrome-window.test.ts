@@ -84,6 +84,8 @@ E`)
   return (...args: string[]) => spawnSync(join(ROOT, 'scripts/chrome-windows.py'), args, { encoding: 'utf8', env: { ...process.env, PATH: `${home}/bin:${process.env.PATH}` } })
 }
 
+// chrome-windows.py, four times. Beside the rest of the suite, at default workers, that took 22 s on
+// 2026-11-11, against the package's 30 s.
 test('chrome-windows says which of the engine\'s Chromes are on the screen, and leaves out anyone else\'s', () => {
   const none = fakeMac([14, 13, 99])()
   expect(none.status).toBe(0)
@@ -93,4 +95,4 @@ test('chrome-windows says which of the engine\'s Chromes are on the screen, and 
   expect(one.stdout).toContain('chrome-profile-sf')
   expect(fakeMac([11, 12])('--count').stdout.trim()).toBe('2')
   expect(fakeMac([])('--count').status).toBe(0)
-})
+}, 60_000)
