@@ -8,7 +8,7 @@ import { hedged, hedgesLost, text } from './hedges'
 import { marketFor, type ProblemId } from './market'
 import type { Page } from './pages'
 import { VI_STYLE } from './phrases'
-import { DOSE_WATER, GALLON, US_TANKS, withTanks } from './round'
+import { clauseBefore, DOSE_WATER, GALLON, US_TANKS, withTanks } from './round'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 
 /**
@@ -72,7 +72,7 @@ export function amountsOutside(text: string, allowed: string): string[] {
   const near = (l: number) => tanks.has(l) || gallons.some(g => Math.abs(g - l) <= g * 0.1)
   // A dose's water ("Pha 5 ml vào 38 lít" for 10 gallons) keeps the exact conversion, to the litre.
   const exact = [...given.map(g => g * GALLON), ...(/\bper gallon\b|\ba gallon\b/i.test(allowed) ? [GALLON] : [])]
-  const water = (l: number, at: number) => DOSE_WATER.test(text.slice(0, at).split(/[.;!?\n>]/).at(-1) ?? '') && exact.some(g => Math.abs(g - l) <= 1)
+  const water = (l: number, at: number) => DOSE_WATER.test(clauseBefore(text, at)) && exact.some(g => Math.abs(g - l) <= 1)
   return [...new Set([...text.matchAll(AMOUNTS)].flatMap(m => {
     const n = m[1]!.replace(',', '.'), u = m[2]!.toLowerCase().replace(/^lít$/, 'l')
     return figures.has(n) || (u === 'l' && (near(Number(n)) || water(Number(n), m.index))) ? [] : [`${n} ${u}`]

@@ -6,7 +6,8 @@ import { expect, test } from 'vitest'
 import { fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
 import { loadPages } from '../src/pages'
 import { amountsOutside } from '../src/for-reader'
-import { numberIn, TANK_RULE, US_TANKS, usTankOf, withTanks } from '../src/round'
+import { clauseBefore, DOSE_WATER, numberIn, TANK_RULE, US_TANKS, usTankOf, withTanks } from '../src/round'
+import { reviewRewrite } from '../src/quality'
 import { namesTwice, onlyFigures, unitsMend, UNITS_MEND_FROM } from '../src/units-mend'
 
 const FIXTURE = new URL('../../../apps/site/test/fixture-content', import.meta.url).pathname
@@ -248,4 +249,24 @@ test('the guide writer\'s figure check lets the water a dose goes into keep its 
   expect(amountsOutside('Pha 5 ml vào 114 lít nước.', 'Add 5 ml to 30 gallons of water.')).toEqual([])
   expect(amountsOutside('Bể 38 lít là đủ.', 'A 10 gallon tank is enough.')).toEqual(['38 l'])
   expect(amountsOutside('Bể 115 lít, pha 5 ml vào 120 lít nước.', 'A 30 gallon tank; add 5 ml to 30 gallons.')).toEqual(['115 l'])
+})
+
+// The independent reader's fourth round, 2026-11-11: a dose's water written seven more ways, and a flow by the hour.
+test("a dose's water keeps its figure however many words come between the dose and its water, a dose unit's period, grams and the Indonesian and Thai joiners; a flow \"một tiếng\" too", async () => {
+  const kept = ['Cho 5 ml dung dịch Easy Life Profito vào 115 lít nước.', 'Pha 5 ml. vào 115 lít nước.', '1 gam muối vào 115 lít nước.', 'Máy bơm 115 lít một tiếng.']
+  const root = await held(`<p>Bể 115 lít.</p>${kept.map(k => `<p>${k}</p>`).join('')}`, ['Bể 115 lít'])
+  await unitsMend(root, { now: after })
+  expect((await file(root)).body).toBe(`<p>Bể 120 lít.</p>${kept.map(k => `<p>${k}</p>`).join('')}`)
+  const water = (s: string) => DOSE_WATER.test(clauseBefore(s, s.search(/\d+ (?:lít|liter|ลิตร)/)))
+  expect(['5 มล. ใน 115 ลิตร', '5 ml dengan 38 liter air.', '5 ml bagi 38 liter air.', 'Pha 5 ml. vào 38 lít nước.', '1 gram muối vào 38 lít.'].map(water)).toEqual([true, true, true, true, true])
+  expect(['Cho ăn 1 viên trong bể 115 lít.', 'Pha 5 ml. Bể 38 lít là đủ.', 'Thả cá. Bể 115 lít.'].map(water)).toEqual([false, false, false])
+  // The writer check reads the clause the same way.
+  expect(amountsOutside('Pha 5 ml. vào 38 lít nước.', 'Add 5 ml per 10 gallons of water.')).toEqual([])
+  expect(amountsOutside('1 gam muối vào 38 lít nước.', 'Add 1 gram of salt to 10 gallons.')).toEqual([])
+})
+
+test("the style rewrite's reviewer has the tank table its writer has", async () => {
+  let asked = ''
+  await reviewRewrite((async (r: { system?: string; prompt: string }) => { asked = `${r.system ?? ''}\n${r.prompt}`; return { score: 1, notes: [] } }) as never, [{ before: 'Bể 115 lít.', after: 'Bể 120 lít.' }])
+  expect(asked).toContain(TANK_RULE.en)
 })

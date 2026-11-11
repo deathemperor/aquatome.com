@@ -4,7 +4,7 @@ import { fitFindings, fitKey, fitRules, fitSource, fitText, type FitFinding, typ
 import { gateChecks, GATE_KINDS, HELD_BY_HAND, type HandHold, type Held } from './gate'
 import { loadPages, type Page } from './pages'
 import { norm, readable, render } from './reader'
-import { DOSE_WATER, metricFigures, numberIn, usTankOf } from './round'
+import { clauseBefore, DOSE_WATER, metricFigures, numberIn, usTankOf } from './round'
 
 /**
  * The units mender: a page the gate holds for units alone, whose saved read of its text as it stands quotes a tank's
@@ -30,12 +30,11 @@ const RANGE_BEFORE = /\d(?:\s*(?:lít|liter|litre|ลิตร|l(?![\p{L}\p{N}])
 const RANGE_AFTER = /^\s*(?:[–-]|đến|tới|hingga|sampai|ถึง|to)\s*\d/iu
 /** A dose's water: "cho mỗi 38 lít", "per 38 liter" (round.ts keeps these too). */
 const PER = /(?:mỗi|cho|trên|per|setiap|untuk|ต่อ|\/)\s*(?:khoảng\s*)?$/iu
-/** A flow, not a tank: "115 lít mỗi giờ", "lít/giờ", "per hour". Not "một giờ sau" (an hour later) or "lít/hồ". */
-const RATE_AFTER = /^\s*(?:\/\s*(?:h|giờ|jam|ชม)(?![\p{L}])|(?:mỗi|một) giờ(?![\p{L}])(?!\s+(?:sau|nữa|trước))|trong (?:một|1) giờ(?![\p{L}])|per hour|an hour|per jam|sejam|ต่อชั่วโมง)/iu
+/** A flow, not a tank: "115 lít mỗi giờ", "một tiếng", "lít/giờ", "per hour". Not "một giờ sau" (an hour later) or "lít/hồ". */
+const RATE_AFTER = /^\s*(?:\/\s*(?:h|giờ|tiếng|jam|ชม)(?![\p{L}])|(?:mỗi|một|1) (?:giờ|tiếng)(?![\p{L}])(?!\s+(?:sau|nữa|trước))|trong (?:một|1) (?:giờ|tiếng)(?![\p{L}])|per hour|an hour|per jam|sejam|ต่อชั่วโมง)/iu
 /** Whether the volume at `at` in `text` is a tank's: not a range's end, a dose's water, or a flow. */
 const tankAt = (text: string, at: number, end: number) => {
-  const clause = text.slice(0, at).split(/[.;!?\n>]/).at(-1) ?? ''
-  return !PER.test(text.slice(Math.max(0, at - 24), at)) && !DOSE_WATER.test(clause) && !RANGE_BEFORE.test(text.slice(0, at)) && !RANGE_AFTER.test(text.slice(end)) && !RATE_AFTER.test(text.slice(end))
+  return !PER.test(text.slice(Math.max(0, at - 24), at)) && !DOSE_WATER.test(clauseBefore(text, at)) && !RANGE_BEFORE.test(text.slice(0, at)) && !RANGE_AFTER.test(text.slice(end)) && !RATE_AFTER.test(text.slice(end))
 }
 /** A metric figure that isn't a volume: a length or a temperature, which only a writer can put right. */
 const NOT_VOLUME = /\d\s*(?:cm|mm|ซม|มม|°|độ C)|\d\s*m(?![\p{L}\p{N}])/iu
