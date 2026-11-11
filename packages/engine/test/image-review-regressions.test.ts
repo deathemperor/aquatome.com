@@ -3,7 +3,7 @@ import { cp, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/pr
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { IMAGE_SWITCHES, type Photo } from '@aq/schema'
+import { IMAGE_SWITCHES, PHOTO_SCREEN_FILE, type Photo } from '@aq/schema'
 import { fixtureGeneratedCalibration, fixtureMarkCalibration, fixtureJudgments } from './image-fixtures'
 import { ACCEPTED_MARK_RESIDUE, subLimitMarkMisses, noTraceCalibrationReady } from '../src/image-transforms'
 import { originalSpecies } from '../src/image-real-checks'
@@ -60,6 +60,8 @@ test('review: an interrupted original-species cache write can be retried',async(
 
 test('popular generation may supplement a passing real photograph under the owner’s order',async()=>{
  const f=await fixture();f.e.photos=[real];await save(f.file,f.e);await save(join(f.root,'engine-state/_photo-subjects.json'),{[real.url]:{alpha:{ok:'yes',person:false,logo:false}}})
+ // A passing real photo has completed both the species check and the watermark screen.
+ await save(join(f.root,'engine-state',PHOTO_SCREEN_FILE),{[real.url]:{ocr:[],watermark:false}})
  f.d.judge=vi.fn(async(_file,prompt)=>prompt.startsWith('Check only')?{verdict:'consistent',conflicts:[]}:passed) as ImageStepDeps['judge']
  const result=await imageSteps(f.root,async()=>f.d,{...IMAGE_SWITCHES,generatePopular:true,publishGenerated:true})
  expect(result.failed).toEqual([]);expect(f.d.native).toHaveBeenCalledTimes(1)

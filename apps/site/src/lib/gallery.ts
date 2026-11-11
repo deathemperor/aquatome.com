@@ -12,6 +12,19 @@ export function licenceUrl(licence: string): string | undefined {
   if (/\bby\b/.test(l)) return `https://creativecommons.org/licenses/by/${v}/`
   return undefined
 }
+
+/** A CC BY deed (any BY variant) requires saying the work was changed. CC0 and public domain use the public-domain deeds, not /licenses/. */
+export const ccRequiresChangeNote = (licence: string) => licenceUrl(licence)?.includes('/licenses/') === true
+
+/**
+ * The words a credit adds when a photo was altered. A mark-crop alone adds none, unless the licence requires saying the
+ * work was changed, which then uses the plain edited notice. Every other alteration keeps that plain notice.
+ */
+export function alterationNotice(p: Pick<Photo, 'licence' | 'altered'>): 'Ảnh đã chỉnh sửa' | undefined {
+  if (!p.altered?.length) return
+  if (p.altered.every(a => a.method === 'mark-crop') && !ccRequiresChangeNote(p.licence)) return
+  return 'Ảnh đã chỉnh sửa'
+}
 /** A gallery page needs enough photos to be worth a page of its own. */
 export const GALLERY_MIN = 6
 /** Photos shown in the strip on the species page. */

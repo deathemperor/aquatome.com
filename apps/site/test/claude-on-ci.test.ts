@@ -6,9 +6,8 @@ import { expect, test } from 'vitest'
 
 const DIR = new URL('../../../.github/workflows/', import.meta.url)
 const GATE = "vars.CLAUDE_ON_CI != 'off'"
-// The rewrite alone has a second switch: ENGINE_ON_CI=on runs it while CLAUDE_ON_CI is off. Its model calls are logged
-// and under each step's daily ceiling (packages/engine/src/ceilings.json); the other workflows' are not, so none of
-// them may have it.
+// The rewrite alone has a second switch: ENGINE_ON_CI=on runs it while CLAUDE_ON_CI is off. It is the rewrite's own, so
+// no other workflow may have it.
 const ENGINE_GATE = `(${GATE} || vars.ENGINE_ON_CI == 'on')`
 const TOKEN = /secrets\.CLAUDE_CODE_OAUTH_TOKEN(?![A-Za-z0-9_])/
 const EXEMPT = new Set(['moderate.yml'])

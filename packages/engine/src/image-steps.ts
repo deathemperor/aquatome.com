@@ -3,7 +3,7 @@ import { beforeDeadline } from './image-deadline'
 import { mkdir, readdir, readFile, writeFile, rename } from 'node:fs/promises'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { IMAGE_SWITCHES, loadAll, mayPublish, POPULAR, realPhotosFirst, slugify, SourcesSchema, STAPLE_SPECIES, type GeneratedRecord, type ImageSwitches, type Photo, type SourceId } from '@aq/schema'
+import { awaitsScreen, IMAGE_SWITCHES, loadAll, mayPublish, PHOTO_SCREEN_FILE, POPULAR, realPhotosFirst, slugify, SourcesSchema, STAPLE_SPECIES, type GeneratedRecord, type ImageSwitches, type Photo, type PhotoScreenEntry, type SourceId } from '@aq/schema'
 import type { NativeAttemptObserver } from './codex-images'
 import { imageCache, meteredImage, type NativeImage, type QuotaReading } from './codex-images'
 import { activeSourceConflicts, appearanceReference, calibrationReady, GENERATED_CHECK_MODEL, GENERATED_CHECK_SCHEMA, generatedCheckPrompt, generatedGateVersion, hasGenerationReference, positiveGeneratedVerdict, REFERENCE_CHECK_SCHEMA, referenceCheckPrompt, type ReferenceVerdict, referenceHash, referenceText, sourceConflicts, sha256, verifyCheckingImages, type AppearanceFact, type Calibration, type GeneratedVerdict, type ImageReference, type ImageConflict, type ReferenceEntity } from './image-reference'
@@ -19,16 +19,17 @@ import { permittedCheckingImages } from './image-reference'
 import { IMAGE_PAIR_POLICY, pairedJudgments, judgmentReceipt, judgmentHashes, validJudgmentPair, type JudgmentPairReceipt } from './image-judgments'
 
 export type ImagePage = { kind: 'species' | 'plants'; id: string; empty: boolean; popular: boolean; waitingReal: boolean }
-/** An unjudged real image is work for the real-photo check, never justification for manufacturing its replacement. */
+/** A real image awaiting its species or watermark check defers generation, even while hidden from readers. */
 export async function imagePlan(root: string, switches: Readonly<ImageSwitches> = IMAGE_SWITCHES): Promise<ImagePage[]> {
   const c = await loadAll({ root: join(root, 'content'), lang: 'vi', publicBuild: true, leaveOutHeld: true, imageSwitches: switches })
   const judged = await json<Record<string, Record<string, PhotoVerdict>>>(join(root, 'engine-state/_photo-subjects.json'), {})
+  const screen = await json<Record<string, PhotoScreenEntry>>(join(root, 'engine-state', PHOTO_SCREEN_FILE), {})
   const popular = new Set([...STAPLE_SPECIES, ...POPULAR.map(slugify)])
   const out: ImagePage[] = []
   for (const kind of ['species', 'plants'] as const) for (const p of c[kind]) {
     const gallery = JSON.parse(await readFile(join(root, 'content/gallery', `${p.id}.json`), 'utf8').catch(() => '{"photos":[]}')) as { photos: (Photo & { unchecked?: boolean })[] }
     const raw = await json<{ photos: Photo[] }>(join(root, 'content', kind, p.id, 'entity.json'), { photos: [] })
-    const waitingReal = [...raw.photos, ...gallery.photos].some(photo => !photo.generated && (('unchecked' in photo && photo.unchecked) || !judged[photo.url]?.[p.id]?.ok || judged[photo.url]?.[p.id]?.person === undefined || judged[photo.url]?.[p.id]?.guide === true))
+    const waitingReal = [...raw.photos, ...gallery.photos].some(photo => !photo.generated && (awaitsScreen(photo.url, screen[photo.url]) || ('unchecked' in photo && photo.unchecked) || !judged[photo.url]?.[p.id]?.ok || judged[photo.url]?.[p.id]?.person === undefined || judged[photo.url]?.[p.id]?.guide === true))
     const real = [...p.photos, ...(c.galleries[p.id] ?? [])].filter(p => !p.generated)
     out.push({ kind, id: p.id, empty: !real.length, popular: kind === 'species' && [p.id, slugify(p.scientificName), ...('synonyms' in p ? p.synonyms ?? [] : []).map(slugify)].some(id => popular.has(id)), waitingReal })
   }

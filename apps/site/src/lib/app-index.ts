@@ -156,7 +156,8 @@ export type AppHome = {
   /**
    * Khám phá's longer shelves. Fish start with `fish` in its order, so what shows first stays first, and go on with
    * those hobbyists keep most. Plants and guides are Curation's lists in their order (FIRST_PLANTS, FIRST_GUIDES), then
-   * the home's own ranking, as long as Curation's list. An app that predates it shows `fish`, `plants` and `guides`.
+   * the home's own ranking. Each holds at most seven columns, as the App Store's shelves do (BROWSE). An app that
+   * predates it shows `fish`, `plants` and `guides`.
    */
   browse?: { fish: string[]; plants: string[]; guides: string[] }
 } & AppCuration
@@ -294,15 +295,15 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   // Khám phá's longer shelves. Fish start with that row in its order and go on with those hobbyists keep most, most kept
   // first, each with a photo: past its staples the site's own ranking is the richest profile, not the best known. Plants
   // and guides are Curation's lists in their order, each page only as this index lists it (one that stops passing reader
-  // fit drops out), then the home's own ranking, as long as Curation's list: a language with fewer of Curation's pages
-  // (most are Vietnamese) still fills its shelf, never shorter than the home's row.
+  // fit drops out), then the home's own ranking: a language with fewer of Curation's pages (most are Vietnamese) still
+  // fills its shelf.
   const pictured = new Map(items.filter(i => i.kind === 'fish' && i.img).map(i => [i.id, i.path]))
   const popular = [...STAPLE_SPECIES, ...POPULAR.map(slugify)].flatMap(id => pictured.get(id) ?? [])
   const plantAt = new Map(items.filter(i => i.kind === 'plant').map(i => [i.id, i.path]))
   home.browse = {
-    fish: [...new Set([...row.fish, ...popular])].slice(0, BROWSE_FISH),
-    plants: [...new Set([...FIRST_PLANTS.flatMap(id => plantAt.get(id) ?? []), ...listed('plants')])].slice(0, FIRST_PLANTS.length),
-    guides: [...new Set([...FIRST_GUIDES.flatMap(id => guideAt.get(id) ?? []), ...listed('guides')])].slice(0, FIRST_GUIDES.length),
+    fish: [...new Set([...row.fish, ...popular])].slice(0, BROWSE.fish),
+    plants: [...new Set([...FIRST_PLANTS.flatMap(id => plantAt.get(id) ?? []), ...listed('plants')])].slice(0, BROWSE.plants),
+    guides: [...new Set([...FIRST_GUIDES.flatMap(id => guideAt.get(id) ?? []), ...listed('guides')])].slice(0, BROWSE.guides),
   }
   Object.assign(home, row)
   const groups = new Set(items.map(i => i.group))
@@ -382,9 +383,9 @@ const TOOLS: readonly (readonly [string, string, readonly string[], string?])[] 
 ]
 
 /**
- * How many fish Khám phá's list holds (the Design Lead's spec, 2026-11-11): its shelf shows 24 after the pages shown above
- * it, and this leaves it 6 to spare.
+ * How long Khám phá's lists are: at most seven columns, as the App Store's shelves show (the owner's note, 11 Nov). Fish
+ * and plants go three to a column, guides one. The top always takes the home's first 3 fish, so the fish shelf shows 21.
  */
-const BROWSE_FISH = 30
+const BROWSE = { fish: 24, plants: 21, guides: 7 }
 /** Leaves out empty fields, so the file stays small. */
 const clean = (i: AppItem): AppItem => Object.fromEntries(Object.entries(i).filter(([, v]) => v !== undefined)) as AppItem

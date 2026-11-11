@@ -70,13 +70,18 @@ test('a page is featured only if it passes reader fit and has a checked photo bi
 
 test('a photo leads a card only when judged the right subject, typical, with no person, logo or face', () => {
   const v = { subjects: { [big(1)]: { a: { ok: 'yes' as const, typical: true, note: '' } }, [big(2)]: { a: { ok: 'yes' as const, typical: true, note: '', person: true } }, [big(3)]: { a: { ok: 'yes' as const, typical: false, note: '' } } }, legacy: {}, rejected: {}, faces: { [big(4)]: 1 } }
-  expect(cardWorthy(big(1), 'a', v, {})).toBe(true)
-  expect(cardWorthy(big(1), 'a', v, { [big(1)]: 'a sick fish' })).toBe(false)
-  expect(cardWorthy(big(2), 'a', v, {})).toBe(false)
-  expect(cardWorthy(big(3), 'a', v, {})).toBe(false)
-  expect(cardWorthy(big(4), 'b', v, {}, true)).toBe(false)
+  expect(cardWorthy({ url: big(1) }, 'a', v, {})).toBe(true)
+  expect(cardWorthy({ url: big(1) }, 'a', v, { [big(1)]: 'a sick fish' })).toBe(false)
+  expect(cardWorthy({ url: big(2) }, 'a', v, {})).toBe(false)
+  expect(cardWorthy({ url: big(3) }, 'a', v, {})).toBe(false)
+  expect(cardWorthy({ url: big(4) }, 'b', v, {}, true)).toBe(false)
   // A guide's photo with no verdict has passed the face and watermark checks only: allowed, a person looks at it.
-  expect(cardWorthy(big(5), 'g', v, {}, true)).toBe(true)
+  expect(cardWorthy({ url: big(5) }, 'g', v, {}, true)).toBe(true)
+  // A fish its source's caption calls unwell, or names a split fin of, never leads a card. A guide's photo is not asked.
+  expect(cardWorthy({ url: big(1), caption: 'Adult male.' }, 'a', v, {})).toBe(true)
+  expect(cardWorthy({ url: big(1), caption: 'Adult specimen with slight caudal-fin damage.' }, 'a', v, {})).toBe(false)
+  expect(cardWorthy({ url: big(1), caption: 'Skinny juvenile.' }, 'a', v, {})).toBe(false)
+  expect(cardWorthy({ url: big(5), caption: 'A fish with a damaged tail fin.' }, 'g', v, {}, true)).toBe(true)
 })
 
 test('the planner fills every day from the week\'s list in order, never the same fish within four weeks', () => {

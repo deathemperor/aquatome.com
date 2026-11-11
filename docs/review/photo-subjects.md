@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules: docs/governance.md, "Photos".
-6099 verdicts. Shows it: 4164; its habitat (asked again): 3; something else: 306; not a photo of it: 208; dead or as food: 301; a person in it: 100; a logo on it: 39; can't tell: 958.
+6099 verdicts. Shows it: 4164; its habitat (asked again): 3; something else: 306; not a photo of it: 208; dead or as food: 301; a person in it: 100; a logo on it: 39; can't tell: 956.
 
 ## Left with no photo (66)
 
@@ -72,7 +72,7 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 - species/thayeria-ifati
 - species/xenotilapia-sima
 
-## Can't tell: still shown (958)
+## Can't tell: still shown (956)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -292,7 +292,6 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 | plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/flickr/24760273561.webp) | wild terrestrial moss mat with leaf litter; species can't be confirmed |
 | plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/inaturalist/472757565.webp) | yellow-green wild moss on the ground; can't confirm the species |
 | plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/tropica/28bf736b6e6aadd1.webp) | planted tank with guppies; moss on wood but species can't be confirmed |
-| species/carassius-auratus | [photo](https://media.aquatome.com/inaturalist/172831572.webp) | very blurry red fish in murky water, can't identify |
 | species/carassius-auratus | [photo](https://media.aquatome.com/inaturalist/221208693.webp) | pond fish in orange, pale and dark colours, could be koi |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/commons/2b2afd251f08b1a2.webp) | emersed moss mat on rock, could be another moss |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/commons/81db0ee988f0156a.webp) | submerged trailing moss in stream, fine branched look, ID unclear |
@@ -958,7 +957,6 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 | species/dario-tigris | [photo](https://media.aquatome.com/commons/7e5a72bb82589d86.webp) | tan fish with red bars and spotted head; possibly a female Dario but species unclear |
 | species/dermogenys-pusilla | [photo](https://media.aquatome.com/commons/34ed03cded916901.webp) | dark halfbeak at the surface with its reflection; species unclear |
 | species/doryichthys-boaja | [photo](https://media.aquatome.com/commons/2158af2cd2193375.webp) | pipefish partly hidden behind leaf, foreshortened; species unclear |
-| species/esomus-metallicus | [photo](https://media.aquatome.com/inaturalist/642230652.webp) | blurry grey silhouette of a fish, can't be identified |
 | species/garra-ceylonensis | [photo](https://media.aquatome.com/inaturalist/614307660.webp) | small distant fish seen through rippled surface, hard to identify |
 | species/gymnothorax-tile | [photo](https://media.aquatome.com/inaturalist/576184543.webp) | pale spotted eel in shallow water at night, flash-lit, hard to confirm species |
 | species/hemiancistrus-aspidolepis | [photo](https://media.aquatome.com/inaturalist/349527911.webp) | dark spotted pleco from above in very shallow water; tail cut off, can't confirm species against Hypostomus look-alikes |
