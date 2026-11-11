@@ -59,7 +59,7 @@ import { backfillThumbs } from './thumbs'
 import { tidyCredits } from './wiki-author'
 import { fillLifespans } from './lifespans'
 import { hashPictures } from './picture-hashes'
-import { extractTraits } from './traits'
+import { extractTraits, schoolFromSeriouslyFish } from './traits'
 import { namePlacesVi } from './place-names'
 import { speciesRanges } from './range'
 import { gbifClient } from './range-records'
@@ -626,6 +626,9 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // those read with an older prompt; --only id,id reads those again whatever their state.
   const r = await extractTraits(join(ROOT, 'content'), claudeCli, { limit: Number(values.limit ?? 100), now: () => new Date(), only: values.only?.split(',').map(x => x.trim()).filter(Boolean) })
   console.log(`traits: ${r.done.length} done, ${r.failed.length} failed${r.failed.length ? ` (${r.failed.join(', ')})` : ''}`)
+  // Then the school size Seriously Fish gives, over the model's reading of all the sources (no model call).
+  const sf = await schoolFromSeriouslyFish(join(ROOT, 'content'))
+  console.log(`traits: ${sf.length} school sizes set to Seriously Fish's${sf.length ? ` (${sf.join(', ')})` : ''}`)
 } else if (cmd === 'range') {
   // Where each species lives in the wild (range.ts): its sources' countries and regions, --limit model calls (species
   // whose sources' text is new or changed), then GBIF's wild records for --records species, monthly, most-read first.
