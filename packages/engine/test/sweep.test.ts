@@ -392,3 +392,49 @@ test('a name as hobbyists write it: "Rêu Java", "Vallisneria (cỏ lươn)"; a 
   expect(r.text.name?.sort()).toEqual(['plants/taxiphyllum-barbieri/vi', 'plants/vallisneria/vi'])
   expect((await sweep(root)).files).toEqual([])
 })
+
+test('a picked gallery photo leads, keeping every page photo and its gallery copy', async () => {
+  const root = await store()
+  await sweep(root)
+  const at = 'content/species/corydoras-sterbai/entity.json'
+  const e = await json(root, at)
+  const old = e.photos[0]
+  const other = photo('https://media.aquatome.com/commons/other.webp', 'Corydoras sterbai')
+  const picked = { ...photo('https://media.aquatome.com/commons/picked.webp', 'Corydoras sterbai'), best: true, kind: 'wild', unchecked: false }
+  const gallery = { id: 'corydoras-sterbai', photos: [picked], seen: 1, updatedAt: '2026-11-10T00:00:00.000Z' }
+  await writeFile(join(root, at), JSON.stringify({ ...e, photos: [old, other] }))
+  await writeFile(join(root, 'content/gallery/corydoras-sterbai.json'), JSON.stringify(gallery))
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/corydoras-sterbai': picked.url }))
+  const r = await sweep(root)
+  const { best: _b, kind: _k, unchecked: _u, ...clean } = picked
+  expect((await json(root, at)).photos).toEqual([clean, old, other])
+  expect(await json(root, 'content/gallery/corydoras-sterbai.json')).toEqual(gallery)
+  expect(r.heads).toEqual([`species/corydoras-sterbai: ${old.url} -> ${picked.url}`])
+  expect((await sweep(root)).heads).toEqual([])
+})
+
+test('a picked photo further down the page moves first and the rest keep their order', async () => {
+  const root = await store()
+  await sweep(root)
+  const at = 'content/species/corydoras-sterbai/entity.json'
+  const e = await json(root, at)
+  const other = photo('https://media.aquatome.com/commons/other.webp', 'Corydoras sterbai')
+  const picked = photo('https://media.aquatome.com/commons/picked.webp', 'Corydoras sterbai')
+  await writeFile(join(root, at), JSON.stringify({ ...e, photos: [e.photos[0], other, picked] }))
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/corydoras-sterbai': picked.url }))
+  const r = await sweep(root)
+  expect((await json(root, at)).photos).toEqual([picked, e.photos[0], other])
+  expect(r.heads).toEqual([`species/corydoras-sterbai: ${e.photos[0].url} -> ${picked.url}`])
+})
+
+test("a picked photo on neither list changes nothing and is reported", async () => {
+  const root = await store()
+  await sweep(root)
+  const at = 'content/species/corydoras-sterbai/entity.json'
+  const before = await readFile(join(root, at), 'utf8')
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/corydoras-sterbai': 'https://media.aquatome.com/commons/missing.webp' }))
+  const r = await sweep(root)
+  expect(await readFile(join(root, at), 'utf8')).toBe(before)
+  expect(r.heads).toEqual(["species/corydoras-sterbai: picked photo isn't on the page"])
+  expect(r.files).toEqual([])
+})
