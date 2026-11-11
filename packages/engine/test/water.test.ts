@@ -6,6 +6,7 @@ import { SpeciesSchema } from '@aq/schema'
 import { LlmError, type Llm } from '../src/claude'
 import type { Block } from '../src/range'
 import { checkAnswer, speciesWater } from '../src/water'
+import { atCeiling } from './at-ceiling'
 
 // The green spotted puffer's, the guppy's and the climbing perch's own sentences on Seriously Fish.
 const PUFFER = 'Occurs in brackish water in coastal areas; freshwater rivers, streams, lakes and flooded areas. Although it\'s often considered a true freshwater species, it tends to be more long-lived with the addition of marine salt to a sg of around 1.005.'
@@ -107,13 +108,14 @@ async function saltyPair() {
 }
 const waterDeps = (llm: Llm) => ({ llm, now: () => new Date('2026-11-07T00:00:00Z'), order: ['brackish-a', 'brackish-b'] })
 
-test('a usage limit leaves each audit as it was and stops the step\'s model calls', async () => {
+// Claude's own limit, and the step's ceiling for the day (ceiling.ts), which is to leave exactly the same: nothing.
+test.each([WEEKLY, atCeiling('water')])('a usage limit leaves each audit as it was and stops the step\'s model calls: %s', async limit => {
   const s = await saltyPair()
   let calls = 0
-  const r = await speciesWater(s.root, waterDeps((async () => { calls++; throw new LlmError(WEEKLY) }) as Llm), { limit: 5 })
+  const r = await speciesWater(s.root, waterDeps((async () => { calls++; throw new LlmError(limit) }) as Llm), { limit: 5 })
   expect(calls).toBe(1)
   expect(r.failed).toEqual([])
-  expect(r.stopped).toBe(WEEKLY)
+  expect(r.stopped).toBe(limit)
   expect(await s.audit('brackish-a')).toBe(s.prior('brackish-a'))
   expect(await s.audit('brackish-b')).toBe(s.prior('brackish-b'))
 })

@@ -6,6 +6,10 @@ import { expect, test } from 'vitest'
 
 const DIR = new URL('../../../.github/workflows/', import.meta.url)
 const GATE = "vars.CLAUDE_ON_CI != 'off'"
+// The rewrite alone has a second switch: ENGINE_ON_CI=on runs it while CLAUDE_ON_CI is off. Its model calls are logged
+// and under each step's daily ceiling (packages/engine/src/ceilings.json); the other workflows' are not, so none of
+// them may have it.
+const ENGINE_GATE = `(${GATE} || vars.ENGINE_ON_CI == 'on')`
 const TOKEN = /secrets\.CLAUDE_CODE_OAUTH_TOKEN(?![A-Za-z0-9_])/
 const EXEMPT = new Set(['moderate.yml'])
 
@@ -160,10 +164,16 @@ test('every step or job that passes CLAUDE_CODE_OAUTH_TOKEN is behind CLAUDE_ON_
 
 test('taking the condition off a workflow leaves that Claude step ungated', () => {
   for (const file of ['ci.yml', 'watch.yml', 'fix.yml', 'engine.yml']) {
-    const stripped = read(file).replaceAll(` && ${GATE}`, '').replaceAll(`${GATE} && `, '')
+    const stripped = read(file).replaceAll(` && ${ENGINE_GATE}`, '').replaceAll(` && ${GATE}`, '').replaceAll(`${GATE} && `, '')
     const open = usesIn(file, stripped).filter(u => !u.behind)
     expect(open.length, file).toBeGreaterThan(0)
   }
+})
+
+test('ENGINE_ON_CI=on runs the rewrite alone while CLAUDE_ON_CI is off: no other workflow has that switch', () => {
+  const cycle = jobsIn(read('engine.yml')).find(j => j.id === 'cycle')!
+  expect(cycle.if).toBe(`needs.due.outputs.run == 'true' && ${ENGINE_GATE}`)
+  for (const file of files.filter(f => f !== 'engine.yml')) expect(read(file), file).not.toContain('ENGINE_ON_CI')
 })
 
 test('an or in front of the condition does not count as a gate', () => {

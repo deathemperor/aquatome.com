@@ -1,4 +1,5 @@
 import { EventEmitter } from 'node:events'
+import { readFileSync, writeFileSync } from 'node:fs'
 import { mkdtemp, readdir, readFile, realpath } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -23,15 +24,22 @@ vi.mock('node:child_process', () => ({
     return child
   },
 }))
-const { claudeCli, claudeResearch } = await import('../src/claude')
-const { resetAccounts, tokenHash } = await import('../src/claude-accounts')
+const { LlmError, claudeCli, claudeResearch } = await import('../src/claude')
+const { accountReport, resetAccounts, tokenHash } = await import('../src/claude-accounts')
+const { errorKind } = await import('../src/state')
 const call = () => claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {}, model: 'opus' })
 
 // No account but a test's own: the engine's runs have theirs in the environment (on 8 November GitHub's
 // CLAUDE_CODE_OAUTH_TOKEN made a line name it, and the rewrite part's cycle didn't publish).
 const noAccounts = () => { delete process.env.CLAUDE_CODE_OAUTH_TOKEN; delete process.env.CLAUDE_CODE_OAUTH_TOKENS; resetAccounts() }
-beforeEach(noAccounts)
-afterEach(() => { delete process.env.ENGINE_COST_LOG; noAccounts() })
+// A stand-in call must not be written to a real cost log (vitest.config.ts): `off` is no log.
+// These calls are made as the gate, the step with no ceiling (ceiling.ts), so a test that names a cost log doesn't go by
+// the day it is run on. The ceiling's own test names its step.
+const ARGV = [...process.argv]
+const asStep = (step: string) => process.argv.splice(1, process.argv.length - 1, '/repo/packages/engine/src/cli.ts', step)
+beforeEach(() => { process.env.ENGINE_COST_LOG = 'off'; asStep('gate'); noAccounts() })
+afterEach(() => { process.argv.splice(0, process.argv.length, ...ARGV) })
+afterEach(() => { process.env.ENGINE_COST_LOG = 'off'; noAccounts() })
 
 test('a call that reads no files runs from an empty folder, not /tmp, whose every checkout the CLI would list', async () => {
   spawned.length = 0
@@ -67,11 +75,12 @@ test('a character the pipe cuts in two between chunks of the answer is read whol
   expect(await claudeCli<{ text: string }>({ system: 's', prompt: 'p', schema: {} })).toEqual({ text })
 })
 
-test('ENGINE_COST_LOG gets a line a call; a log it cannot write never fails the call', async () => {
+test('ENGINE_COST_LOG gets a line a call; a log it cannot write never fails the gate\'s call', async () => {
   const log = join(await mkdtemp(join(tmpdir(), 'cost-')), 'cost.jsonl')
   process.env.ENGINE_COST_LOG = log
   expect(await call()).toEqual({ ok: true })
-  expect(JSON.parse(await readFile(log, 'utf8'))).toMatchObject({ model: 'opus', usd: 0.12, in: 3, out: 40, error: false, account: 'login' })
+  expect(JSON.parse(await readFile(log, 'utf8'))).toMatchObject({ step: 'gate', model: 'opus', usd: 0.12, in: 3, out: 40, error: false, account: 'login' })
+  // The gate is never stopped. A step with a ceiling is, by a log it can't write (ceiling.test.ts).
   process.env.ENGINE_COST_LOG = join(log, 'not-a-folder', 'cost.jsonl')
   vi.spyOn(console, 'warn').mockImplementation(() => {})
   expect(await call()).toEqual({ ok: true })
@@ -137,5 +146,44 @@ test('a call with no account still gets a cleaned env, and so does claudeResearc
     expect(research!.AQ_TEST_KEEP).toBe('keep')
   } finally {
     clearSession()
+  }
+})
+
+// The ceiling is the engine's own limit (ceiling.ts). At it, the call fails the way a usage limit does, before any
+// account is tried, so the account stays in use.
+test('under its ceiling the call is made; at the ceiling no claude is spawned and no account is set aside', async () => {
+  const log = join(await mkdtemp(join(tmpdir(), 'cost-')), 'aquatome-cost-test.jsonl')
+  const github = process.env.GITHUB_ACTIONS
+  process.env.ENGINE_COST_LOG = log
+  delete process.env.GITHUB_ACTIONS // the Mac's share, on GitHub's test run too
+  asStep('run')
+  vi.useFakeTimers({ toFake: ['Date'] })
+  vi.setSystemTime(new Date('2026-11-12T08:00:00Z')) // 15:00 in Vietnam on 12 Nov, one sign-in's day: `run` has $30 on the Mac
+  process.env.CLAUDE_CODE_OAUTH_TOKENS = 'tok-ceiling'
+  resetAccounts()
+  spawned.length = 0
+  try {
+    expect(await call()).toEqual({ ok: true })
+    expect(spawned).toHaveLength(1)
+    // The call's own line names the step it is counted under.
+    expect(JSON.parse(readFileSync(log, 'utf8').trim().split('\n').at(-1)!).step).toBe('run')
+    writeFileSync(log, `${JSON.stringify({ at: new Date().toISOString(), step: 'run', usd: 30 })}\n`)
+    spawned.length = 0
+    const e = await call().catch((err: unknown) => err)
+    expect(spawned).toHaveLength(0)
+    expect(e).toBeInstanceOf(LlmError)
+    expect((e as Error).message).toBe('claude failed: the engine\'s daily limit reached for run ($30.00 of $30 today)')
+    expect(errorKind((e as Error).message)).toBe('usage')
+    expect(accountReport()).toEqual([`token 1 (${tokenHash('tok-ceiling')}): 1 answered`])
+    // Another step is not stopped by it.
+    process.argv[2] = 'summaries'
+    expect(await call()).toEqual({ ok: true })
+  } finally {
+    vi.useRealTimers()
+    if (github === undefined) delete process.env.GITHUB_ACTIONS
+    else process.env.GITHUB_ACTIONS = github
+    process.env.ENGINE_COST_LOG = 'off'
+    delete process.env.CLAUDE_CODE_OAUTH_TOKENS
+    resetAccounts()
   }
 })
