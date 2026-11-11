@@ -41,3 +41,11 @@ for(const lang of LANGS) test(`${lang}: complete fish data labels AI lead and in
  const figure=doc.blocks.find(b=>b.t==='figure'&&b.img.src===generatedInline.url);expect(figure?.t==='figure'&&figure.img.credit?.licence).toBe('')
  const galleries=doc.blocks.filter(b=>b.t==='gallery');expect(galleries).toHaveLength(1);expect(galleries[0]!.photos.every(p=>!p.src.includes('generated'))).toBe(true);expect(galleries[0]!.photos).toHaveLength(6)
 })
+
+for(const lang of LANGS)test(`${lang}: cropped credit keeps source, licence and the specific crop notice in app and site text`,()=>{
+ const p:Photo={...real,ownerCrop:{id:'fixture',pixelHash:'a'.repeat(64)},altered:[{method:'mark-crop',date:'2026-11-11',originalHash:'a'.repeat(64)}]}
+ const label=translator(lang)('Đã cắt bỏ dấu của nguồn ảnh'),credit=photoCredit(lang,p),mark=photoMark(lang,p)
+ expect(credit.text).toContain('Source');expect(credit.text).toContain(label);expect(credit.licence).toBe('CC BY-SA 4.0');expect(mark).toContain(label)
+ const {blocks}=htmlBlocks(`<figure><img src="${p.url}" width="800" height="600" alt="Fish"><figcaption>${mark}</figcaption></figure>`)
+ expect(blocks[0]?.t==='figure'&&blocks[0].img.credit?.text).toContain(label)
+})

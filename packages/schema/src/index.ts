@@ -1,5 +1,5 @@
 export * from './schemas'
-export { APPROVED_GENERATED_GATE, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, IMAGE_SWITCHES, generatedApproved, isGenerated, realPhotosFirst, validImageJudgmentHashes, type Alteration, type GeneratedRecord, type ImageSwitches } from './image-policy'
+export { APPROVED_GENERATED_GATE, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, IMAGE_SWITCHES, generatedApproved, isGenerated, isOwnerCrop, realPhotosFirst, validImageJudgmentHashes, type Alteration, type GeneratedRecord, type ImageSwitches } from './image-policy'
 export { containsBox, coverWindow, validPixelBox, validCropGeometry, cropFitsFrame, markOutsideCrop, photoFitsHead, photoFitsCard, type CropGeometry, type PixelBox } from './image-geometry'
 export type * from './types'
 export { slugify } from './slug'
@@ -27,3 +27,5 @@ export { cleanPhoto, fitsCard, hashDistance, PictureSet, pictureOf, SAME_PICTURE
 export * from './tanks'
 export * from './devices'
 export { pageMatcher, sciKey, type MatchPage } from './unlisted'
+
+export { OWNER_CROPS, ownerCropApproved, ownerCropCanonical, type OwnerCropApproval } from './owner-crops'

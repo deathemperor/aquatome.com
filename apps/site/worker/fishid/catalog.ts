@@ -5,7 +5,7 @@
  * @aq/schema only the language table's type.
  */
 import type { Lang } from '@aq/schema/langs'
-import { isGenerated } from '@aq/schema/image-policy'
+import { isGenerated, isOwnerCrop } from '@aq/schema/image-policy'
 import { LOOK_SHORT, lookOf, type Section } from './look'
 
 export type { Lang }
@@ -52,7 +52,7 @@ export function buildCatalog<P>(langs: LangPages<P>[], thumb: (photo: P) => stri
       if (p.synonyms?.length) e.syn = p.synonyms
       if (p.basedOn) e.basedOn = p.basedOn
       if (key === 'breeds' && p.t.altNames.length) e.alt = p.t.altNames
-      const real = p.photos.find(p => !isGenerated(p))
+      const real = p.photos.find(p => !isGenerated(p) && !isOwnerCrop(p))
       if (real) e.img = thumb(real)
       const look = key === 'breeds' ? undefined : lookOf(p.sections, LOOK_SHORT, key === 'plants')
       if (look) e.look = look

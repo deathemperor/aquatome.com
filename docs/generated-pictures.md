@@ -23,3 +23,40 @@ Readiness pins all 58 paired controls and validates every measurement's shape, v
 The ledger counts observed native calls and stops its child at the second; already-started calls may overshoot by an unknown amount. Malformed/truncated/unclean runs are uncertain, charged at least two or all observed calls if more; another launch needs a fresh successful quota read. Live quota refusal is the real limit. Existing three-hour launchd cycles call the off step. Children/image uploads have bounded cancellation; unsignalled ordinary uploads retain their prior behavior.
 
 **Maintenance.** Add controls by (1) freezing private inputs/references and ground truth, (2) reviewing them, (3) extending pinned identities/tests, (4) exporting sanitized evidence and (5) rerunning the exact full set before activation. Partial uploads can leave orphaned objects: retry identical keys; cleanup separately inventories objects minus content/pending work, waits for in-flight runs and reviews deletion. Originals remain. No uploads or publication occurred in these studies. [Evidence, limitations and historical results](image-check-evidence.md).
+
+### Six individually approved crops, 11 November 2026
+
+The owner approved only the board 3 crops of Anablepsoides ornatus, Aphanius
+farsicus, Apteronotus macrostomus, Leptodoras cataniai, Macrognathus aculeatus and
+Ailia coila. A finite registry binds each approval to its page and scientific
+name, original bytes, decoded crop pixels, exact served addresses, geometry,
+paired species/ownership receipts, licence and complete credit. No source-wide
+permission or general alteration switch is enabled. Another crop, including a
+later edit of one of these six, needs another individual approval. An explicit
+source off switch still vetoes the individual approval.
+
+The scheduled images step publishes these already judged files from a durable
+private bundle. It verifies the original, lossless crop and retained pixels again;
+it never creates an image or calls a judge. It carries the two original species
+judgments into the ordinary photo-check cache, with the removed mark absent by
+geometry. Publication is acknowledged only after entity and gallery writes; a
+later refusal is not resurrected. An interrupted media upload can leave an
+unreferenced deterministic object; retry uses the same key, and ordinary media
+orphan cleanup can remove objects left without a content reference.
+
+The original is retained. Credits preserve the board's source/photographer and
+licence, followed by “Cropped to remove a source mark” in the reader's language.
+These six are excluded from Fish ID and the day's card regardless of their shape.
+Leptodoras cataniai fits the current head; the other five remain album-only.
+A lone album-only picture is currently invisible because the strip starts at six.
+The optional photo field `headFit: "contain"` is defined here but not assigned.
+The site lead implements whole-photo fitting first; a later reviewed placement
+change may assign it only where no safely framed real head exists. This change
+neither assigns that field nor changes the site's head renderer.
+
+The owner's “look OK” on small compressed, pre-fix previews of Acanthocobitis
+rubidipinnis, Acheilognathus tonkinensis, Apistogramma atahualpa and Bangana behri
+is a calibration observation only. All four kept repaints stay held and require
+fresh edits after the CLI pin is settled. It does not override the 0.400 cutoff
+or either judgment. Aphanius vladykovi stays held on the species disagreement;
+the dead Clupisoma stays refused. No generated picture is approved or made.

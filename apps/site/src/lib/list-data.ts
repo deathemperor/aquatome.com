@@ -23,14 +23,14 @@ import { taxonKeys } from './taxa-places'
  */
 
 /** The photo a card shows: its small picture, and its credit (author, licence as shown, its page on the source; an Unsplash photographer's page). */
-export type CardPhoto = { src: string; w: number; h: number; author: string; authorUrl?: string; licence: string; url: string; altered?: true }
+export type CardPhoto = { src: string; w: number; h: number; author: string; authorUrl?: string; licence: string; url: string; altered?: true; cropped?: true }
 /** Only what the filter reads (no gh, sizeCm), and the card's photo. */
 /** `water`: kept in brackish or sea water (the card says so under its name). */
 export type SpeciesListItem = Omit<SpeciesIndexItem, 'gh' | 'sizeCm'> & { photo?: CardPhoto; water?: 'brackish' | 'marine' }
 /** The filter's figures, and the card's name, line about light and CO₂ (in the page's language) and photo. */
 export type PlantListItem = PlantIndexItem & { name: string; scientificName: string; meta: string; photo?: CardPhoto }
 
-export const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.width, h: p.height, author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), licence: licenceLabel(p.licence), url: p.sourceUrl, ...(p.altered?.length ? { altered: true as const } : {}) })
+export const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.width, h: p.height, author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), licence: licenceLabel(p.licence), url: p.sourceUrl, ...(p.altered?.length ? { altered: true as const } : {}), ...(p.altered?.some(a=>a.method==='mark-crop') ? {cropped:true as const} : {}) })
 
 /** Species as a list's data file has them, with the photo each card shows (`photos`, the list's: lib/pictures.ts listPictures). */
 export const speciesItems = (species: Localized<SpeciesEntity>[], photos: (Photo | null)[]): SpeciesListItem[] => species.map((s, n) => {
