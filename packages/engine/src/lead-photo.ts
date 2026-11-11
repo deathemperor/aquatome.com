@@ -1,7 +1,7 @@
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import type { Photo } from '@aq/schema'
+import { photoFitsHead, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { across, cardWorthy, LARGE_PX, ownMarkOnly, readCalendar, readVerdicts, SLOT_RATIO } from './curation'
@@ -57,6 +57,7 @@ export const cardCrop = (bytes: Uint8Array) => sharp(bytes).rotate().resize(640,
 
 /** What a fish's head should do: lead with this photo, or ask about this pair first; nothing if it stays. */
 export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Photo) => boolean, compared: Compared, marked: (p: Photo) => boolean = () => false): { lead: Photo } | { ask: { head: Photo; photo: Photo } } | undefined {
+  own=own.filter(photoFitsHead);gallery=gallery.filter(photoFitsHead)
   // A passing real photograph takes the lead back even when the generated head already fills the card.
   if (own[0]?.generated) {
     const real = [...own, ...gallery].find(p => !p.generated && passes(p))

@@ -1,0 +1,2688 @@
+{
+  "date": "2026-11-11",
+  "model": "gpt-6.1-sol",
+  "qualified": false,
+  "requirement": "Every known residue must be refused by the paired visual and numeric gate; the retained 3% miss keeps repaint closed.",
+  "version": "c6938cbeb384cac10c52b0bbbd4d38c8aa200b3fcb641e980e2ba0596e201a6f",
+  "cutoff": 0.4,
+  "pairPolicy": "two-independent-judgments-v1",
+  "summary": {
+    "frozenCases": 58,
+    "version": "c6938cbeb384cac10c52b0bbbd4d38c8aa200b3fcb641e980e2ba0596e201a6f",
+    "cutoff": 0.4,
+    "perKind": {
+      "clean": {
+        "count": 5,
+        "singlePass": 5,
+        "pairedPass": 5,
+        "knownRightRefused": []
+      },
+      "frozen": {
+        "count": 8,
+        "singlePass": 4,
+        "pairedPass": 4,
+        "knownRightRefused": [
+          "frozen-3"
+        ]
+      },
+      "natural": {
+        "count": 20,
+        "singlePass": 15,
+        "pairedPass": 15,
+        "knownRightRefused": [
+          "natural-plants-1",
+          "natural-plants-2",
+          "natural-plants-3",
+          "natural-plants-6",
+          "natural-plants-8"
+        ]
+      },
+      "residue": {
+        "count": 25,
+        "singlePass": 1,
+        "pairedPass": 1,
+        "knownRightRefused": []
+      }
+    },
+    "byStrength": {
+      "0.03": {
+        "count": 5,
+        "combinedRefused": 4,
+        "visionPairRefused": 4,
+        "measurementRefused": 3
+      },
+      "0.05": {
+        "count": 5,
+        "combinedRefused": 5,
+        "visionPairRefused": 5,
+        "measurementRefused": 5
+      },
+      "0.08": {
+        "count": 5,
+        "combinedRefused": 5,
+        "visionPairRefused": 5,
+        "measurementRefused": 5
+      },
+      "0.12": {
+        "count": 5,
+        "combinedRefused": 5,
+        "visionPairRefused": 5,
+        "measurementRefused": 5
+      },
+      "0.2": {
+        "count": 5,
+        "combinedRefused": 5,
+        "visionPairRefused": 5,
+        "measurementRefused": 5
+      }
+    },
+    "misses": [
+      "residue-2-0.03"
+    ],
+    "disagreements": [
+      "frozen-3"
+    ],
+    "addedCodexSecondsPerPhotoMean": 15.401741379310344,
+    "knownCleanScores": [
+      0.3316159236999394,
+      0.3622661944427214,
+      0.24315017815697926,
+      0.24887186972598824,
+      0.33408596211634833
+    ],
+    "oldCleanRange": [
+      0.214,
+      0.363
+    ],
+    "qualified": false,
+    "nativeImageAttempts": 0,
+    "engineClaudeDollars": 0,
+    "published": 0,
+    "provenMinimumTestedStrength": 0.05,
+    "fainterResidue": "unproven, never established clean by this calibration"
+  },
+  "visionDisagreements": [
+    "residue-8-0.03",
+    "frozen-3"
+  ],
+  "naturalUnderlyingPhotos": 3,
+  "cases": [
+    {
+      "id": "clean-1",
+      "kind": "clean",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "2054b3c71810ec7b359eed334907ac841cfa01cecf666ffce5f5db6ced380f22",
+      "pixelHash": "f3af0c952d9700cb7a6b17da08d3d449ebdf9438bbeddafb2f684b8b7cec189d",
+      "box": {
+        "x0": 409,
+        "y0": 830,
+        "x1": 794,
+        "y1": 885
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3316159236999394,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 9207.000000000678
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "69454dbced1421ef4f0aaee40b02dfd66814feac40811780cb1f76756edd932a",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "b8410d84baecc624447dc207a7babe4f1a022ed79fd7a7118c8b4752fdf6f7d1",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-1-0.03",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "2054b3c71810ec7b359eed334907ac841cfa01cecf666ffce5f5db6ced380f22",
+      "pixelHash": "c23e87cd2272ca395d920910c23f8ca057ac16d67f1e09f22694b35a3c49bd42",
+      "box": {
+        "x0": 409,
+        "y0": 830,
+        "x1": 794,
+        "y1": 885
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.5371945107086371,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 11630.666666667832
+      },
+      "outsideChanged": 0,
+      "strength": 0.03,
+      "first": {
+        "identity": "167133266964c8be3cfb8056dff2643132be1cbdf6291edc2425da2d79bf7f93",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "efda5b85af21149bcfb321f0d6db0db2df0031f032fdb3f341953cbe420e85ab",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-1-0.05",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "2054b3c71810ec7b359eed334907ac841cfa01cecf666ffce5f5db6ced380f22",
+      "pixelHash": "267082bab68bf1f08b4593c9607c6f518607160ad4a67640b4a5a6ef322038bf",
+      "box": {
+        "x0": 409,
+        "y0": 830,
+        "x1": 794,
+        "y1": 885
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.6758538333425563,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 14884.333333334866
+      },
+      "outsideChanged": 0,
+      "strength": 0.05,
+      "first": {
+        "identity": "041ed47d97d530e5299654711f67402162adae7a5f21f6b699afe5d2db41b205",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "17e5cf96fc2504fb7fa4e3371f3ac4ee5fd347233b5b4dcee20aaa1bd6cfde0a",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-1-0.08",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "2054b3c71810ec7b359eed334907ac841cfa01cecf666ffce5f5db6ced380f22",
+      "pixelHash": "b55fabeadd890f9d08cfbef76a91f4eeb0b9299ded75a7a0ccbde8d6e552bdba",
+      "box": {
+        "x0": 409,
+        "y0": 830,
+        "x1": 794,
+        "y1": 885
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.8138101983444201,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 22598.666666664194
+      },
+      "outsideChanged": 0,
+      "strength": 0.08,
+      "first": {
+        "identity": "b15a6873fb6a4d3c35c304f8971ae5ec8824dbfc0870b33459775c3a69965ac4",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "7d285ec1ffb29387d1281fc8c4c8ed47b16fdd0024bc4443c5259353336054ef",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-1-0.12",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "2054b3c71810ec7b359eed334907ac841cfa01cecf666ffce5f5db6ced380f22",
+      "pixelHash": "06be5856e301ccc079bf490620caebc05263c9a33fed191c6ef2b373b60f3add",
+      "box": {
+        "x0": 409,
+        "y0": 830,
+        "x1": 794,
+        "y1": 885
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.9051443188062408,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 39371.66666666545
+      },
+      "outsideChanged": 0,
+      "strength": 0.12,
+      "first": {
+        "identity": "f5574c561fbf99243e15f939ac20e9ff297ad4c477129c56561b45062ef0b7e9",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "8d995dd04aaddccccd19e4a6b338f0ba6235e2a75ab643cf3884e28b4e2c456f",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-1-0.2",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "2054b3c71810ec7b359eed334907ac841cfa01cecf666ffce5f5db6ced380f22",
+      "pixelHash": "c5a79731e5eccf8eae696789d1a3a6b23dcd1229c4a549e4dce9d65651233ca3",
+      "box": {
+        "x0": 409,
+        "y0": 830,
+        "x1": 794,
+        "y1": 885
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.9672527572621789,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 93180.22222220963
+      },
+      "outsideChanged": 0,
+      "strength": 0.2,
+      "first": {
+        "identity": "cfe93e0f5c4f661d6e5b51868a5c771df3fc2c618be7d58f57edf057c8e1e8ab",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "2837544298580d68910928e9e4b16df624df7b988724ea7c5c48be1f5eb757a8",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "clean-2",
+      "kind": "clean",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "7400c2f6bd1571aabdf10e17c931ee24654dd798d5bf1483b2d8f9f9383e9373",
+      "pixelHash": "5e0439108c467894dab0ca4b18e4439a4eb5d692d452eb791eaf61dcd910df19",
+      "box": {
+        "x0": 463,
+        "y0": 823,
+        "x1": 922,
+        "y1": 887
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3622661944427214,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 300647.3333333495
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "b01155ce81e91f1a9237c461237fa189b92c24324a975eb43671976d9bfb62c6",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "9e8ba7b847baf157548ceb9d45cac64d26647c13f7be2a92907d033f5ad76cd9",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-2-0.03",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "pass",
+      "originalHash": "7400c2f6bd1571aabdf10e17c931ee24654dd798d5bf1483b2d8f9f9383e9373",
+      "pixelHash": "0b89c5146e0e49a12e7165d3fdc4985290a2c9efeef0ec90df7159968258a3bd",
+      "box": {
+        "x0": 463,
+        "y0": 823,
+        "x1": 922,
+        "y1": 887
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3903539555209733,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 293807.33333334944
+      },
+      "outsideChanged": 0,
+      "strength": 0.03,
+      "first": {
+        "identity": "b4a11b2aaf94456872e3ac5d0ab0d4b119072db0f5095080afe9891252de1743",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "c56c3e7fed4a1811c62144433d613f327e578910592b552f22aa8064a2b2cfed",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-2-0.05",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "7400c2f6bd1571aabdf10e17c931ee24654dd798d5bf1483b2d8f9f9383e9373",
+      "pixelHash": "61a1348bf1b2518c7cd32d1e019ca0c4f31848bcf121613f4853c7d276ce6798",
+      "box": {
+        "x0": 463,
+        "y0": 823,
+        "x1": 922,
+        "y1": 887
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.42268685049182325,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 291008.7777777925
+      },
+      "outsideChanged": 0,
+      "strength": 0.05,
+      "first": {
+        "identity": "b65fbcd61eb99b6537dd7651745b365c6690d10a9c4f98110e5b4832e6719b31",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "1ec046e570deb2b72cf5694180856847228b0fb6fd881c3ca6a6cd570cb2a1df",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-2-0.08",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "7400c2f6bd1571aabdf10e17c931ee24654dd798d5bf1483b2d8f9f9383e9373",
+      "pixelHash": "62a2ea215026ad74f919d9e6741bd48a1408ee4385224f6270227b91b1accf53",
+      "box": {
+        "x0": 463,
+        "y0": 823,
+        "x1": 922,
+        "y1": 887
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.4823241287789418,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 290927.4444444604
+      },
+      "outsideChanged": 0,
+      "strength": 0.08,
+      "first": {
+        "identity": "6120ce098219a8ec294edd3369707033a10d2dd1071d76b3cf0667ec44ba26c1",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "fe3f06380ca6b7feb8389867a48f361926a29a60da5cade90711d82d2d0f04d2",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-2-0.12",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "7400c2f6bd1571aabdf10e17c931ee24654dd798d5bf1483b2d8f9f9383e9373",
+      "pixelHash": "09b98835ad4b18e99a5142b953668d6fe7e56d812b2af83cdc1d36e56e3ed83e",
+      "box": {
+        "x0": 463,
+        "y0": 823,
+        "x1": 922,
+        "y1": 887
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.567726013548325,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 301071.7777777941
+      },
+      "outsideChanged": 0,
+      "strength": 0.12,
+      "first": {
+        "identity": "7bc89af5f88666ddb337b2c2a96f94c6f37ce42ab4d701b6ffefb33c842ed041",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "09422c48e5cae789f39ee0a58f8e9d4dd0427cb660c968b914f34112ec61e6d2",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-2-0.2",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "7400c2f6bd1571aabdf10e17c931ee24654dd798d5bf1483b2d8f9f9383e9373",
+      "pixelHash": "5bbf8dc7ae855ea4a373c820a1e4e6124cffc7b5b8890a368a54d1ac8e6de5b0",
+      "box": {
+        "x0": 463,
+        "y0": 823,
+        "x1": 922,
+        "y1": 887
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.7189104329964149,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 348371.7777777706
+      },
+      "outsideChanged": 0,
+      "strength": 0.2,
+      "first": {
+        "identity": "350bbfc3d3748b6c2711eb593e1ed4400d9931dc44eca5f8971b78b85311af62",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "dd449e91c703fbaa0389cc88ebbbad7e06d08fff9cf461cfad7da4402612dd83",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "clean-3",
+      "kind": "clean",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "403e3a3e2ce435d66104d1f5211965037c5279a93a3a37c5d4a3b9af8b28e423",
+      "pixelHash": "c61047b458537476c1bb6ac322e127cd229303f0ed4e3a92f31d7157ce58bcb9",
+      "box": {
+        "x0": 385,
+        "y0": 440,
+        "x1": 672,
+        "y1": 485
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.24315017815697926,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 7463.0000000004975
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "9afd9873a2940ca353d42ee2ab64aa59a7005d1a72ba458c264c89771e19c44e",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "37bf3cbd7184c573f72605351dfad0bae9bd7a769259d5be0350e109204686b2",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-3-0.03",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "403e3a3e2ce435d66104d1f5211965037c5279a93a3a37c5d4a3b9af8b28e423",
+      "pixelHash": "f67cc69d600055240fa2ff069744875fa9f34175c7dda361be8bb324f550b3dc",
+      "box": {
+        "x0": 385,
+        "y0": 440,
+        "x1": 672,
+        "y1": 485
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.6893194877336245,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 13216.888888890082
+      },
+      "outsideChanged": 0,
+      "strength": 0.03,
+      "first": {
+        "identity": "370905d93836b4a699bad7e79f89f75348daba76bd1cb002c7bb84ee5c91d1aa",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "9e779cfdc25940697c10c7a4d113890d86b0abb909448609c86c33200b1af55a",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-3-0.05",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "403e3a3e2ce435d66104d1f5211965037c5279a93a3a37c5d4a3b9af8b28e423",
+      "pixelHash": "6c357a055285f57d49528826296512f4ad92a9b99e465ba8624c0ac50baed793",
+      "box": {
+        "x0": 385,
+        "y0": 440,
+        "x1": 672,
+        "y1": 485
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.8329777458208363,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 22203.555555553532
+      },
+      "outsideChanged": 0,
+      "strength": 0.05,
+      "first": {
+        "identity": "2c5758fc1320e24f86211df29ec539fa818a61bb3c7ec563f9f584c1e6d79b82",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "017a91053464ae37233479e4e714238fbe36463c924ccc0fbde9c4fd2d67fdc9",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-3-0.08",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "403e3a3e2ce435d66104d1f5211965037c5279a93a3a37c5d4a3b9af8b28e423",
+      "pixelHash": "8533d573d5520a6bc730817da7d6758793c91beb5a3fb4df48d28dc01598a66e",
+      "box": {
+        "x0": 385,
+        "y0": 440,
+        "x1": 672,
+        "y1": 485
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.9265975113344573,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 44784.77777777734
+      },
+      "outsideChanged": 0,
+      "strength": 0.08,
+      "first": {
+        "identity": "3dd4926b6ecaae9ddcec280a1c4286d842fd9018338ed4eedab0054427d1763f",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "fc0c4d9316051b47036b68712f08aa5df3f0877a7601eaa3ce5685dfbb37a721",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-3-0.12",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "403e3a3e2ce435d66104d1f5211965037c5279a93a3a37c5d4a3b9af8b28e423",
+      "pixelHash": "6a005765ad9cfc795f188ca519dd7f507fc9f98f81a8836b8e54efd682d89b7a",
+      "box": {
+        "x0": 385,
+        "y0": 440,
+        "x1": 672,
+        "y1": 485
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.9678081960799978,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 91028.11111110139
+      },
+      "outsideChanged": 0,
+      "strength": 0.12,
+      "first": {
+        "identity": "63a9d85d1bbc498e48a1864ab81ff5257e2787fd6912885c972fa26fc9c08964",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "6b107e332bbb62037efbd377ef636fef4bd3ddcbb42972f1f1fc00aedba1c2cf",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-3-0.2",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "403e3a3e2ce435d66104d1f5211965037c5279a93a3a37c5d4a3b9af8b28e423",
+      "pixelHash": "ad7f34b5983fab85a8c390fd63eff43e83db158d8a58d0e3fd04a1468c6392c0",
+      "box": {
+        "x0": 385,
+        "y0": 440,
+        "x1": 672,
+        "y1": 485
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.98970862182342,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 239217.55555557576
+      },
+      "outsideChanged": 0,
+      "strength": 0.2,
+      "first": {
+        "identity": "ec7f04a26b5ecf2192db9e9a13ccead17b9cf0ab634c94a44387f7d981b520f4",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "f3c928094e9c447a804e65c2b0821072fc1edc43b61e9de2d37b08673528466f",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "clean-6",
+      "kind": "clean",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "c278a315945937d26a1f3a2529a487d6aa21fad80d8e34dec59bb0228747d9d5",
+      "pixelHash": "003d8a422661242bf7c30248acd83234b26abd098804eac43aaa5fad7cc00589",
+      "box": {
+        "x0": 101,
+        "y0": 17,
+        "x1": 343,
+        "y1": 76
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.24887186972598824,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 50349.555555555235
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "c85ccf9e23319959de29d793e6fa547b1b36149c39fbf3e378641a358e5b66af",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "19e3a8d06f7534842ea83500a3a9df1e09d3a39e43f4661b5a8a16e9c613da89",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-6-0.03",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "c278a315945937d26a1f3a2529a487d6aa21fad80d8e34dec59bb0228747d9d5",
+      "pixelHash": "26103ca0d2094b786df4f9d8997034be057a54458daa660b8e79c944abf2a849",
+      "box": {
+        "x0": 101,
+        "y0": 17,
+        "x1": 343,
+        "y1": 76
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3734579590854066,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 52566.22222222177
+      },
+      "outsideChanged": 0,
+      "strength": 0.03,
+      "first": {
+        "identity": "10b766bcce91fec75b659732fbcac8a86454e49130b2af65128a5ab7fdb3d707",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "9f60b906a99409b5ff9cfd6677ec7a0aa9b12af53dc1155cf61010676c66c014",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-6-0.05",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "c278a315945937d26a1f3a2529a487d6aa21fad80d8e34dec59bb0228747d9d5",
+      "pixelHash": "6cc2be7c72006de7d14b0e41cc156916e46278d458051fe7b5d52461c0901c36",
+      "box": {
+        "x0": 101,
+        "y0": 17,
+        "x1": 343,
+        "y1": 76
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.48588980824708194,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 56382.333333333336
+      },
+      "outsideChanged": 0,
+      "strength": 0.05,
+      "first": {
+        "identity": "dac08083424f42aa302452c7d91cada7b30fa8d5d509bea064c844880327e3ee",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "110ac4f2bdb8a2c0bc2a99fb1d62dadee5a74839b1f41d4c95eeb5bf3de5f868",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-6-0.08",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "c278a315945937d26a1f3a2529a487d6aa21fad80d8e34dec59bb0228747d9d5",
+      "pixelHash": "11404ca83f23a42be5735903b179b2c1bc385de6418f65b08e949b6fb7dfebe4",
+      "box": {
+        "x0": 101,
+        "y0": 17,
+        "x1": 343,
+        "y1": 76
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.6289269754148613,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 66809.4444444428
+      },
+      "outsideChanged": 0,
+      "strength": 0.08,
+      "first": {
+        "identity": "32cf5d0051bb9eab1c895b6d4f0abab3790dc6192447520b24e2544b2096a57a",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "43c14fcf309bc0b9e50a6dcafd0495a2b32b30889282aa494a4a91928eefefe5",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-6-0.12",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "c278a315945937d26a1f3a2529a487d6aa21fad80d8e34dec59bb0228747d9d5",
+      "pixelHash": "008a26ea03c224e44560d379b2546f3c63a468f713cad0cd6b13cfadcc82acca",
+      "box": {
+        "x0": 101,
+        "y0": 17,
+        "x1": 343,
+        "y1": 76
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.7647012407369344,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 87962.88888888688
+      },
+      "outsideChanged": 0,
+      "strength": 0.12,
+      "first": {
+        "identity": "9ed60e2448a64ecef5e8ea26824c99de0fdc8b5edd22fe2e95a1c208043cd31c",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "5fd41ac6a78946ad8f78b92610024784bd3c2abbd588625748f201333fa52d84",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-6-0.2",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "c278a315945937d26a1f3a2529a487d6aa21fad80d8e34dec59bb0228747d9d5",
+      "pixelHash": "75fc5595a2fd9669e9b8aabada99e36e34172770bbd5b696efe129b04ae494be",
+      "box": {
+        "x0": 101,
+        "y0": 17,
+        "x1": 343,
+        "y1": 76
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.8997076119618503,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 156886.77777777382
+      },
+      "outsideChanged": 0,
+      "strength": 0.2,
+      "first": {
+        "identity": "1e2ec09e48338d5e0a34b97765ad962d33db53a57ab9b9c966eee44fefdb7cbb",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "d2139ecd52bd10e9270c14b7e8e59ce4def05c70b6483e72874a619838eba8da",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "clean-8",
+      "kind": "clean",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "2a44c3ac4a2a6b3a7356cb051fde2d174d288bf6091ef1a226d36d7d6991e6b9",
+      "pixelHash": "b3dd692836146bc4a9009cce334eec01e5c3c2a4c73d5d25176b751f89663400",
+      "box": {
+        "x0": 0,
+        "y0": 422,
+        "x1": 233,
+        "y1": 500
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.33408596211634833,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 2069.333333333088
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "d3b567c8f0c33b9a6a4816236c3cafd65424fa030d77de651591408c674222d1",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "71183cb44538626ede581f4f33ed958eadd0637b2f9ea6207a5cfc9324bf7d20",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-8-0.03",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "2a44c3ac4a2a6b3a7356cb051fde2d174d288bf6091ef1a226d36d7d6991e6b9",
+      "pixelHash": "454bb56cc0ab102b308b8a0a9d921ba3d58171642e0eb948866b6c12a94fbec9",
+      "box": {
+        "x0": 0,
+        "y0": 422,
+        "x1": 233,
+        "y1": 500
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.6106197857560033,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 3150.000000000163
+      },
+      "outsideChanged": 0,
+      "strength": 0.03,
+      "first": {
+        "identity": "a65021ea794392e9a036789d0cf0c66b67dfe30e3697487a45ac63b891259666",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "92bb63312769ec83923713495a4e150ad4e046cebd09a79cf2ef02ea5b857261",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": true
+    },
+    {
+      "id": "residue-8-0.05",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "2a44c3ac4a2a6b3a7356cb051fde2d174d288bf6091ef1a226d36d7d6991e6b9",
+      "pixelHash": "fcce1fafc508427e06b852e8ece361f979cb57fc6f6353e6484e4ec65efdb1d7",
+      "box": {
+        "x0": 0,
+        "y0": 422,
+        "x1": 233,
+        "y1": 500
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.7569958081878356,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 4675.222222222579
+      },
+      "outsideChanged": 0,
+      "strength": 0.05,
+      "first": {
+        "identity": "fdba61e898dd432da26cb2f0ebbe798d346456190f8f70d177e9218fa844923c",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "fe133d045fdfff1299a39b1420f31d170cf9c28381da3141c09fe2a963f6cbd5",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-8-0.08",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "2a44c3ac4a2a6b3a7356cb051fde2d174d288bf6091ef1a226d36d7d6991e6b9",
+      "pixelHash": "7803c6151a154dceec47a22d5e08699be551217a4ec197e613b9e0cb7826f658",
+      "box": {
+        "x0": 0,
+        "y0": 422,
+        "x1": 233,
+        "y1": 500
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.8680001300802094,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 7994.1111111113905
+      },
+      "outsideChanged": 0,
+      "strength": 0.08,
+      "first": {
+        "identity": "08283bd52263003fc8123874c1a1af404429ce4d8e8ec90704df91f2eee91963",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "25173115886dbed84d29876bb2d5b012ac9dab1d1cbdc4c1d808fb12441d591b",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-8-0.12",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "2a44c3ac4a2a6b3a7356cb051fde2d174d288bf6091ef1a226d36d7d6991e6b9",
+      "pixelHash": "268766c07e32bb0d63a7edf832809588d81ba4c3119ae777440efcd17d770e9d",
+      "box": {
+        "x0": 0,
+        "y0": 422,
+        "x1": 233,
+        "y1": 500
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.9322216517622035,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 14353.555555556615
+      },
+      "outsideChanged": 0,
+      "strength": 0.12,
+      "first": {
+        "identity": "0cc7bae1b73bdbc42d9833832ec194f7fbe9c2a178d7f0719464d2d86b2a0a02",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "357cbf13c7be7a8ad302de32c4a6eec5e707131d363a20d8aee4a4f09218614a",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "residue-8-0.2",
+      "kind": "residue",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "2a44c3ac4a2a6b3a7356cb051fde2d174d288bf6091ef1a226d36d7d6991e6b9",
+      "pixelHash": "d8dceb478856ee353dc5ed802d159a3d8e17fccf0dc975d70a3e1a465273811a",
+      "box": {
+        "x0": 0,
+        "y0": 422,
+        "x1": 233,
+        "y1": 500
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.974831024717608,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 35074.55555555295
+      },
+      "outsideChanged": 0,
+      "strength": 0.2,
+      "first": {
+        "identity": "4a541e2d83ced2508e13a32e05e2f6fe049e16e33fe8a1bf9d53c3114f382ebb",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "0072580e2647688dc1600ddc3338efcb840a7e8506ef6b863b8dbc2c8ab293fc",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-sand-1",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "box": {
+        "x0": 15,
+        "y0": 370,
+        "x1": 400,
+        "y1": 425
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3028588373243415,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 12984.444444447012
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "ce742b25f8574bea938b2c2939b323ac6143da1c9bb04533187b40b31252c4fc",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "b4a04e9befdec16c4e5cc0b13da8ea4f2d5680edfb281381f65a6966ce55d495",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-sand-2",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "box": {
+        "x0": 30,
+        "y0": 370,
+        "x1": 489,
+        "y1": 434
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3218829279190965,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 20948.33333333135
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "63ff8b92070d2cc093c0295e12059eb9c280b8400d6317cd92fa6eaf976d1073",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "abb025f7b623f1d74f9687a6a710815a637d4ed18baffb640bca08e38267be9a",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-sand-3",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "box": {
+        "x0": 0,
+        "y0": 370,
+        "x1": 287,
+        "y1": 415
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3415520371261012,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 5609.333333333612
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "e680b197b051bdb8be8c388a3d210006860c3eee6ddc77fb79d68886fbeb11ce",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "07646b070a671d48ca0428ddfa1fb395192b75a9ae5470dba44d2755a54557e8",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-sand-6",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "box": {
+        "x0": 0,
+        "y0": 370,
+        "x1": 242,
+        "y1": 429
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.34865582054527494,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 5617.111111111466
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "8ee6bd59e64275a89009caf20f56e312c9c3e16b5462f556c720a1adfb041344",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "1106138675839d490816ad4de438ccb4cf6b7541de9584cb7f8de0c8069c4303",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-sand-8",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "box": {
+        "x0": 30,
+        "y0": 370,
+        "x1": 263,
+        "y1": 448
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.33021572290071693,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 6979.555555556055
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "79ca4f19f62a3f9f04ef15ec81b61ce6f60bbae07df7db0dc1573a67322386c4",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "645b060b54d3de3db51616b0a68d7c177110347aeffc18bb951a691411981883",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-plants-1",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "refuse",
+      "originalHash": "66f379905bc4b1ff997b4660c5035f253632840bd7ab06f0fcabbc6ccceb1118",
+      "pixelHash": "16350c5be870bcce981b94998457b714dd739d109b8a790982963dec503622b5",
+      "box": {
+        "x0": 115,
+        "y0": 60,
+        "x1": 500,
+        "y1": 115
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3311992264320715,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 193264.88888889915
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "b10ef6b4ed7fa3190ccb9b5e9fd27b9436f375cf413f6d8606fa084a8051546e",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "7a4768efed0f8e05a99e2d63a38dbb18f074004b5aee4fe54be3df04935c5f46",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-plants-2",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "refuse",
+      "originalHash": "66f379905bc4b1ff997b4660c5035f253632840bd7ab06f0fcabbc6ccceb1118",
+      "pixelHash": "16350c5be870bcce981b94998457b714dd739d109b8a790982963dec503622b5",
+      "box": {
+        "x0": 130,
+        "y0": 60,
+        "x1": 589,
+        "y1": 124
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3582252209554337,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 268995.5555555785
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "2e67e45b4ae0a423645fcdd70bd3861f3c040a4bb61c8e586966c56030ead136",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "f3660e996e191dda445a8a6a1dee176cf20ec877afecf48270967afb523ad45f",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-plants-3",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "refuse",
+      "originalHash": "66f379905bc4b1ff997b4660c5035f253632840bd7ab06f0fcabbc6ccceb1118",
+      "pixelHash": "16350c5be870bcce981b94998457b714dd739d109b8a790982963dec503622b5",
+      "box": {
+        "x0": 100,
+        "y0": 60,
+        "x1": 387,
+        "y1": 105
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.2537977071525059,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 120787.44444444083
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "3b2c5e19f276e20a21a8fdf8b21ae12053a9ea92f4b595832ebdbb05c33b3dd8",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "457d0e7f10709e59acfe8b7ebb37530b1f019832c56c19cb9ffdf0334ce93084",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": true,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-plants-6",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "refuse",
+      "originalHash": "66f379905bc4b1ff997b4660c5035f253632840bd7ab06f0fcabbc6ccceb1118",
+      "pixelHash": "16350c5be870bcce981b94998457b714dd739d109b8a790982963dec503622b5",
+      "box": {
+        "x0": 100,
+        "y0": 60,
+        "x1": 342,
+        "y1": 119
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.27989023554788395,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 119487.99999999405
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "e0ea8de786ce0638db930d1ee4d7edb1d98e8b0ea587a5cd5c5e355dde3ef24a",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "c6c07439f10958e8475cf699f2a074dd4ae92f8e468ff31cbe24c144c615d847",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-plants-8",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "refuse",
+      "originalHash": "66f379905bc4b1ff997b4660c5035f253632840bd7ab06f0fcabbc6ccceb1118",
+      "pixelHash": "16350c5be870bcce981b94998457b714dd739d109b8a790982963dec503622b5",
+      "box": {
+        "x0": 130,
+        "y0": 60,
+        "x1": 363,
+        "y1": 138
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.30946333247483254,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 154676.55555555652
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "be9dcce2b49b303beac1c1664590156079bc81c82d1d229c42745ecdb1fb7870",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "79c9ab090c9acb28034a6b237475ab6937eedf5ec24dd744b5273c8faa877d62",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-fins-1",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "box": {
+        "x0": 25,
+        "y0": 115,
+        "x1": 410,
+        "y1": 170
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.2663166507675018,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 214839.2222222351
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "f559540cd46701c8cf022a8f305d230bc27077f525b0348074638494e115d286",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "3bab45676d1c9b8637d20ff458db10070f3f8416fe232fe0a305feb13fc486f2",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-fins-2",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "box": {
+        "x0": 40,
+        "y0": 115,
+        "x1": 499,
+        "y1": 179
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.26471974219327304,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 472325.7777777675
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "be8b486df60db79d3c36a82ee51be8fea2a616e964a1689e8e6f876530dac674",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "5e72a930d883d2f928196df31a59b579b6ba933a817aa2507dd95c6305cd9b45",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-fins-3",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "box": {
+        "x0": 10,
+        "y0": 115,
+        "x1": 297,
+        "y1": 160
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.288326736621822,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 156071.55555555428
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "b1399bdd0ef105bebaef9776b5166e3c7f4bbd0329df1ec0afd8dff35797a53d",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "b79468b27601d309d10c8e1d905d983a23e55b9d767a39e9c5fc0eb8586349e5",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-fins-6",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "box": {
+        "x0": 10,
+        "y0": 115,
+        "x1": 252,
+        "y1": 174
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3053014399117282,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 200990.888888895
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "ef22638171ab2d1db2cfb78dd18e37c1363456ef922919e4a50fed0b554d09a5",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "5ccc144d9b3fff9062f111902e1f051344954ba990992238dc2129d04ad22d3d",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-fins-8",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "box": {
+        "x0": 40,
+        "y0": 115,
+        "x1": 273,
+        "y1": 193
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3381121281981292,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 264381.0000000146
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "24f4f8424b9fab81d622e5f78d82b87a71108f7ac69c6e9026db50da7d16f622",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "00958a4ff38a409aa7a4e37fb5edcad08ca2527012672c90bbb66a26feaab948",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-water-1",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "a5d54b125dbdd3e90d107fad4f3e0ff5f74f9b7c379fc429bcbe0e295fb4aa02",
+      "pixelHash": "2215a5ffe8e95c6121a56473099db038609315ab713788d15d4df935e148a393",
+      "box": {
+        "x0": 20,
+        "y0": 5,
+        "x1": 405,
+        "y1": 60
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 0
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "755f130fa905a8c6268ad1111076e57913b8cca392116e14a97025a181ada65d",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "5667545f4ae22e8c6eb62c4d41e41460dfc0ac25c6b7370697a733b95e4807a5",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-water-2",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "a5d54b125dbdd3e90d107fad4f3e0ff5f74f9b7c379fc429bcbe0e295fb4aa02",
+      "pixelHash": "2215a5ffe8e95c6121a56473099db038609315ab713788d15d4df935e148a393",
+      "box": {
+        "x0": 35,
+        "y0": 5,
+        "x1": 494,
+        "y1": 69
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 0
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "3478034401e287e93eef6785af74a012228a587376f66ca39e9ea25dddd1c266",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "52337d752ea7598329f9e28d598c355a7560f8a65a212bc4c924c8c8deedc11e",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-water-3",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "a5d54b125dbdd3e90d107fad4f3e0ff5f74f9b7c379fc429bcbe0e295fb4aa02",
+      "pixelHash": "2215a5ffe8e95c6121a56473099db038609315ab713788d15d4df935e148a393",
+      "box": {
+        "x0": 5,
+        "y0": 5,
+        "x1": 292,
+        "y1": 50
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 0
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "2e3c47204dcfb9db0353d6075625c8c3f41581df9c406cddfe48f077ff7aa55e",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "913230cf57d59309d114f3b5c30e92ffb75168b2d5bab0baf85d3ad7577cb93f",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-water-6",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "a5d54b125dbdd3e90d107fad4f3e0ff5f74f9b7c379fc429bcbe0e295fb4aa02",
+      "pixelHash": "2215a5ffe8e95c6121a56473099db038609315ab713788d15d4df935e148a393",
+      "box": {
+        "x0": 5,
+        "y0": 5,
+        "x1": 247,
+        "y1": 64
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 0
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "0e38ee88e649fb677f80178c4708e8fd7b3f3bf1deef6c4d95b0ac1ed2dfeeed",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "159d03c65485dd0393f8e2f5e4e0fc6fbf1ce4a0bb7e339d4ca63025e3fe987b",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "natural-water-8",
+      "kind": "natural",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "a5d54b125dbdd3e90d107fad4f3e0ff5f74f9b7c379fc429bcbe0e295fb4aa02",
+      "pixelHash": "2215a5ffe8e95c6121a56473099db038609315ab713788d15d4df935e148a393",
+      "box": {
+        "x0": 35,
+        "y0": 5,
+        "x1": 268,
+        "y1": 83
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 0
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "3c5be93f0f13f78f813f3b1c37dae8db6215f20530904d5ac778ca0d699a0945",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "5a420c3479aefecc576c1187fcf6b3381a95d1bf4e1cd01f763e788498d16c25",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "frozen-1",
+      "kind": "frozen",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "2054b3c71810ec7b359eed334907ac841cfa01cecf666ffce5f5db6ced380f22",
+      "pixelHash": "21b4df72e87e129dc9d0f8390b890923cc774254376107021f1e7bd7ebfab2b0",
+      "box": {
+        "x0": 409,
+        "y0": 830,
+        "x1": 794,
+        "y1": 885
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.31750499517673075,
+        "limit": 0.4,
+        "originalEnergy": 2155369.55555544,
+        "candidateEnergy": 9687.444444445235
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "33739387554e2038548f72aa9b4dc052db133785ed820f0115bddf495ed6c740",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "8ff332c9dada45564feb67e160c1174d055ce3caee47da6e498adc4e85ea47b5",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "frozen-2",
+      "kind": "frozen",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "7400c2f6bd1571aabdf10e17c931ee24654dd798d5bf1483b2d8f9f9383e9373",
+      "pixelHash": "d9671a4de5fe2fd013198a5825c8bbc7c55079771f22f4f49b65695b0ddb3361",
+      "box": {
+        "x0": 463,
+        "y0": 823,
+        "x1": 922,
+        "y1": 887
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.3631685115061895,
+        "limit": 0.4,
+        "originalEnergy": 2953389.777777969,
+        "candidateEnergy": 298990.88888890453
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "1b0c3b6b3ac8a4338f6cd8dfa52e15d87cada9fb780a75705135788ab89fc276",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "388e1b242bc697044835990043d1bd82bc55b53b4856fe3d485ae6694e8c9671",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "frozen-3",
+      "kind": "frozen",
+      "expected": "pass",
+      "actual": "refuse",
+      "originalHash": "403e3a3e2ce435d66104d1f5211965037c5279a93a3a37c5d4a3b9af8b28e423",
+      "pixelHash": "a6c7816561ce42332b2d3b5f3bac9ff910594a30bff6105453324da4ca3f027d",
+      "box": {
+        "x0": 385,
+        "y0": 440,
+        "x1": 672,
+        "y1": 485
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.21436848810661838,
+        "limit": 0.4,
+        "originalEnergy": 5823445.999999517,
+        "candidateEnergy": 8073.222222222707
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "e1a2581d0f6626c89d5c17a1cd4065c7057f62112c895470a2db6c8569b35357",
+        "vision": {
+          "verdict": "unsure",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region cannot be confirmed clear."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "68ce22ec9876cf417005d834b5f800e15644cfc699d2a4c00c51159aac46add4",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": true,
+      "visionDisagreement": true
+    },
+    {
+      "id": "frozen-4",
+      "kind": "frozen",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "b1078d12e8b32a9dbf30234aa51a25815af771872aa6df21aa400ca3edfe865c",
+      "pixelHash": "8b210d68be20cdfe659b76886ace075eae14a87f3b2925248985cf48b32ed8b9",
+      "box": {
+        "x0": 566,
+        "y0": 556,
+        "x1": 900,
+        "y1": 596
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.41452033826633217,
+        "limit": 0.4,
+        "originalEnergy": 6373345.999999532,
+        "candidateEnergy": 128804.66666665989
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "673240d5b704e22620b0dba80173c98bf4f5474b21696ff1956095f15c164cdc",
+        "vision": {
+          "verdict": "fail",
+          "residual": false,
+          "newMark": true,
+          "note": "A new mark is present in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "096eac9b26f2a6fdc5a28f564977db1f84d09cd9731911d4c929275f2ae13629",
+        "vision": {
+          "verdict": "fail",
+          "residual": true,
+          "newMark": false,
+          "note": "Residual lettering or unnatural patch detail remains in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "frozen-5",
+      "kind": "frozen",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "38c4d4a08b7f5e342f7617df05c32ee952ee9b067ee80bc24337c2cc9e9019df",
+      "pixelHash": "09f8cf806eaf15e2a90ac1873e024e596793625e68da9deb2258c59fd040dfbf",
+      "box": {
+        "x0": 14,
+        "y0": 183,
+        "x1": 174,
+        "y1": 214
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.4685358199244786,
+        "limit": 0.4,
+        "originalEnergy": 126202.7777777743,
+        "candidateEnergy": 15079.222222222466
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "71a9f3735ff8828b1994072bfc7d86aa4c2328714a9ff0e9d24669fd0453360e",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "f8cf8f8098a73d68d93f164a9cc2bafafec14798839aa69fe618b30d39f73bc7",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "frozen-6",
+      "kind": "frozen",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "c278a315945937d26a1f3a2529a487d6aa21fad80d8e34dec59bb0228747d9d5",
+      "pixelHash": "e9455e6da8b7d0b848a193d5cf205344f694d3e7150e3470b229abe32bcfa169",
+      "box": {
+        "x0": 101,
+        "y0": 17,
+        "x1": 343,
+        "y1": 76
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.25241058661128507,
+        "limit": 0.4,
+        "originalEnergy": 2818652.9999999492,
+        "candidateEnergy": 46012.77777777768
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "5706c48222d1c5414efe5214acead1782cad616ab0bb0ab12bcc0a033bd3e0e2",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "3b1fbda04fb2a190fb7c296d790543eca96f6781bac7c3feaf1d1be5a103fde0",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "frozen-7",
+      "kind": "frozen",
+      "expected": "refuse",
+      "actual": "refuse",
+      "originalHash": "d37aafb53e6a27761cadd6c5ee6c76db0de56d88793fcc2578261bb3c7acc787",
+      "pixelHash": "21a6dfcbc8a5d189e2c53e4b7c96d09cdb3b1f698f49d1c0deef94d21d2dd92a",
+      "box": {
+        "x0": 363,
+        "y0": 346,
+        "x1": 564,
+        "y1": 381
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.37004232258364084,
+        "limit": 0.4,
+        "originalEnergy": 3333742.555555577,
+        "candidateEnergy": 29342.666666665962
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "2f05ebc65ed52654ace7dd010c24ba9940bfe711cd3a578696937e8915739130",
+        "vision": {
+          "verdict": "fail",
+          "residual": false,
+          "newMark": true,
+          "note": "A new mark is present in the checked region."
+        },
+        "admitted": false
+      },
+      "second": {
+        "identity": "f527f3289587f8c5e5b12ccb01dbfc3535590fd01a46f578c71333b159c30b37",
+        "vision": {
+          "verdict": "fail",
+          "residual": false,
+          "newMark": true,
+          "note": "A new mark is present in the checked region."
+        },
+        "admitted": false
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    },
+    {
+      "id": "frozen-8",
+      "kind": "frozen",
+      "expected": "pass",
+      "actual": "pass",
+      "originalHash": "2a44c3ac4a2a6b3a7356cb051fde2d174d288bf6091ef1a226d36d7d6991e6b9",
+      "pixelHash": "12d227cb1bf4a7419528f0fe601be6051c1d31e4bb55efa226860858884722e7",
+      "box": {
+        "x0": 0,
+        "y0": 422,
+        "x1": 233,
+        "y1": 500
+      },
+      "measurement": {
+        "version": "box-detail-cosine-v1",
+        "score": 0.2930276361148778,
+        "limit": 0.4,
+        "originalEnergy": 816076.5555555914,
+        "candidateEnergy": 2170.9999999997895
+      },
+      "outsideChanged": 0,
+      "first": {
+        "identity": "a3b258d21bef7d9378a5c2b6374852550f1c54898a25bf1f509cac4de183c4c5",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "second": {
+        "identity": "ce45165eb1aac2f3f7bd64ba016f47260dd306af3d6f15c4011079542db07dc0",
+        "vision": {
+          "verdict": "pass",
+          "residual": false,
+          "newMark": false,
+          "note": "The checked region is clear."
+        },
+        "admitted": true
+      },
+      "fullGateDisagreement": false,
+      "visionDisagreement": false
+    }
+  ]
+}

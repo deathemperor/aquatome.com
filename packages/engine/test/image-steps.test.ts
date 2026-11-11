@@ -1,3 +1,4 @@
+import { fixtureGeneratedCalibration, fixtureMarkCalibration, fixtureJudgments } from './image-fixtures'
 import reviewed from '../src/image-controls.json'
 import generatedResults from '../../../docs/image-calibration-results.json'
 import markResults from '../../../docs/mark-calibration-results.json'
@@ -78,11 +79,11 @@ describe('the reference and positive generated gate', () => {
   })
   it('requires a complete correct calibration, and invalidates it when the reviewer changes', () => {
     expect(generatedGateVersion()).toBe(APPROVED_GENERATED_GATE)
-    const c = { ...generatedResults, model: generatedResults.reviewer } as Calibration
+    const c = fixtureGeneratedCalibration()
     expect(calibrationReady(c)).toBe(true)
     expect(calibrationReady({ ...c, cases: c.cases.map(x => x.id === 'neon-conflict' ? { ...x, actual: 'pass' } : x) })).toBe(false)
     expect(calibrationReady({ ...c, cases: c.cases.slice(1) })).toBe(false)
-    expect(calibrationReady({ ...c, cases: c.cases.map(x => x.id === 'right-fish' ? { ...x, actual: 'unsure', reason: 'A second fish obscures its fins.' } : x) })).toBe(true)
+    expect(calibrationReady({ ...c, cases: c.cases.map(x => x.id === 'right-fish' ? { ...x, actual: 'unsure', judgments:fixtureJudgments(false,'unsure'), reason: 'A second fish obscures its fins.' } : x) })).toBe(true)
     expect(calibrationReady({ ...c, cases: c.cases.map(x => x.id === 'right-fish' ? { ...x, actual: 'unsure', reason: '' } : x) })).toBe(false)
     expect(calibrationReady({ ...c, cases: c.cases.map(x => x.id.startsWith('lookalike-') ? { ...x, actual: 'pass' } : x) })).toBe(false)
     expect(calibrationReady({ ...c, cases: c.cases.map(x => x.id === 'neon-conflict' ? { ...x, conflicts: 0 } : x) })).toBe(false)
@@ -99,7 +100,7 @@ describe('the reference and positive generated gate', () => {
   it('does not let the old photo check stand in for generated approval', () => {
     const g: GeneratedRecord = { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', prompt: 'fish', date: '2026-11-10', referenceHash: hash }
     expect(generatedApproved({ generated: g })).toBe(false)
-    expect(generatedApproved({ generated: { ...g, check: { verdict: 'pass', version: APPROVED_GENERATED_GATE, model: 'gpt-5.6-sol', at: 'today', referenceHash: hash, pixelHash: hash, calibrationHash: hash } } })).toBe(true)
+    expect(generatedApproved({ generated: { ...g, check: { passes:2,judgments:['a'.repeat(64),'b'.repeat(64)],verdict: 'pass', version: APPROVED_GENERATED_GATE, model: 'gpt-5.6-sol', at: 'today', referenceHash: hash, pixelHash: hash, calibrationHash: hash } } })).toBe(true)
   })
 })
 
@@ -131,7 +132,7 @@ describe('source ownership, permission and the immutable original', () => {
     await expect(composeMarkPatch(original, edit, { ...mark.box, x0: -1 })).rejects.toThrow('box')
   })
   it('requires the trial no-trace controls, including all three faint failures', () => {
-    const c = { version: noTraceVersion(), cases: markResults.cases.map(x => ({ ...x, ...reviewed.marks.find(f => f.n === x.n)! })) } as import('../src/image-transforms').NoTraceCalibration
+    const c = fixtureMarkCalibration()
     expect(noTraceCalibrationReady(c)).toBe(true)
     expect(noTraceCalibrationReady({ ...c, cases: c.cases.map(x => x.n === 4 ? { ...x, actual: 'pass' } : x) })).toBe(false)
     expect(noTraceCalibrationReady({ ...c, version: 'old' })).toBe(false)
@@ -142,7 +143,7 @@ describe('source ownership, permission and the immutable original', () => {
     for (const verdict of ['fail', 'unsure'] as const) {
       const noTrace = vi.fn(async () => ({ verdict, residual: true, newMark: false, note: 'faint band' }))
       const result = await removeSourceMark(photo, original, source, { ...mark, box: { x0: 0, y0: 0, x1: 100, y1: 80 } }, { cache, edit, noTrace, now: () => new Date() }, switches)
-      expect(noTrace).toHaveBeenCalledOnce()
+      expect(noTrace).toHaveBeenCalledTimes(2)
       expect(result).toBeUndefined()
       expect(await readFile(join(cache, 'alterations', sha256(original), 'original'))).toEqual(original)
     }

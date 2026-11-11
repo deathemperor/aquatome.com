@@ -9,7 +9,7 @@ import { APPROVED_GENERATED_GATE, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, IMAG
 const dirs: string[] = []
 afterEach(async () => { await Promise.all(dirs.splice(0).map(p => rm(p, { recursive: true, force: true }))) })
 const hash = 'a'.repeat(64)
-const generated: GeneratedRecord = { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', date: '2026-11-10', prompt: 'fish', referenceHash: hash, check: { verdict: 'pass', version: APPROVED_GENERATED_GATE, model: 'gpt-5.6-sol', at: '2026-11-10', referenceHash: hash, pixelHash: hash, calibrationHash: hash } }
+const generated: GeneratedRecord = { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', date: '2026-11-10', prompt: 'fish', referenceHash: hash, check: { passes:2,judgments:['a'.repeat(64),'b'.repeat(64)],verdict: 'pass', version: APPROVED_GENERATED_GATE, model: 'gpt-5.6-sol', at: '2026-11-10', referenceHash: hash, pixelHash: hash, calibrationHash: hash } }
 const real: Photo = { url: 'https://media.aquatome.com/real.webp', width: 800, height: 600, licence: 'CC0', author: 'Source', sourceUrl: 'https://example.org/photo' }
 const ai: Photo = { ...real, url: 'https://media.aquatome.com/ai.webp', licence: 'AI-generated', author: 'AI', generated }
 async function fixture(photos: Photo[], gallery: Photo[] = []) {
@@ -46,7 +46,8 @@ test('source mark-removal permission is absent/off unless it has a dated explici
 })
 
 test('each source can revoke its altered pictures in one build; Glaser falls back to its original with no altered thumb', async () => {
-  const altered = [{ method: 'mark-removal' as const, date: '2026-11-10', permissionDate: '2026-11-10', originalHash: hash, box: { x0: 0, y0: 0, x1: 20, y1: 10 }, outsideChanged: 0 as const, noTrace: 'pass' as const, residue: { version: MARK_RESIDUE_VERSION, score: 0.1, limit: MARK_RESIDUE_LIMIT } }]
+  const pair:[string,string]=[hash,'b'.repeat(64)]
+  const altered = [{ method: 'mark-removal' as const, date: '2026-11-10', permissionDate: '2026-11-10', originalHash: hash, box: { x0: 0, y0: 0, x1: 20, y1: 10 }, outsideChanged: 0 as const, noTrace: 'pass' as const, checks:{species:pair,ownership:pair,noTrace:pair,preservation:pair}, residue: { version: MARK_RESIDUE_VERSION, score: 0.1, limit: MARK_RESIDUE_LIMIT } }]
   const glaser: Photo = { ...real, source: 'glaser', licence: 'dùng với sự cho phép', url: 'https://media.aquatome.com/clean-glaser.webp', thumb: 'https://media.aquatome.com/clean-glaser-480.webp', altered, original: { url: 'https://media.aquatome.com/glaser/original.webp', width: 800, height: 600 } }
   const bw: Photo = { ...glaser, source: 'bwaquatics', url: 'https://media.aquatome.com/clean-bw.webp' }
   const root = await fixture([glaser, bw]), file = join(root, 'sources.json'), sources = JSON.parse(await readFile(file, 'utf8'))
@@ -70,4 +71,12 @@ test('withdrawing a generated head retains its real album lead, including build-
 })
 test('ordinary empty pages keep the pre-feature loader behavior with switches off',async()=>{
  const root=await fixture([],[real]);expect((await load(root)).species[0]!.photos).toEqual([])
+})
+
+test('an album-only real crop keeps its full image in the album and prevents an AI lead',async()=>{
+ const pair:[string,string]=[hash,'b'.repeat(64)],crop={originalWidth:800,originalHeight:600,window:{x0:0,y0:0,x1:800,y1:520},subject:{x0:30,y0:180,x1:760,y1:420},margin:15}
+ const p:Photo={...real,source:'glaser',width:800,height:520,altered:[{method:'mark-crop',date:'2026-11-11',permissionDate:'2026-11-10',originalHash:hash,crop,excludedMarks:[{x0:20,y0:550,x1:780,y1:590}],retainedChanged:0,checks:{species:pair,ownership:pair}}]}
+ const root=await fixture([ai,p]),file=join(root,'sources.json'),sources=JSON.parse(await readFile(file,'utf8'));sources.glaser={name:'Fixture source',homepage:'https://example.org/',publish:true,permission:{date:'2026-11-10',file:'owner word',scope:['photos'],markRemoval:{allowed:true,date:'2026-11-10'}}};await writeFile(file,JSON.stringify(sources))
+ const c=await loadAll({root,lang:'vi',publicBuild:true,imageSwitches:{...IMAGE_SWITCHES,publishGenerated:true,publishAltered:true,removeMarks:true}})
+ expect(c.species[0]!.photos).toEqual([]);expect(c.galleries.alpha?.map(p=>p.url)).toEqual([p.url,ai.url])
 })

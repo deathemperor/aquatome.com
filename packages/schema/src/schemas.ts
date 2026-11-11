@@ -37,14 +37,19 @@ const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceU
  * show `url`, at most 1,200 wide.
  */
 const Hash = z.string().regex(/^[a-f0-9]{64}$/)
+const PixelBox = z.object({ x0:z.number().int().nonnegative(),y0:z.number().int().nonnegative(),x1:z.number().int().positive(),y1:z.number().int().positive() })
+const HashPair = z.tuple([Hash,Hash])
 const Generated = z.object({
   model: z.string().min(1), driverModel: z.string().min(1), date: z.string().min(1), prompt: z.string().min(1), referenceHash: Hash,
-  check: z.object({ verdict: z.literal('pass'), version: Hash, model: z.string().min(1), at: z.string().min(1), referenceHash: Hash, pixelHash: Hash, calibrationHash: Hash }).optional(),
+  check: z.object({ passes: z.literal(2).optional(), judgments: z.tuple([Hash, Hash]).optional(), verdict: z.literal('pass'), version: Hash, model: z.string().min(1), at: z.string().min(1), referenceHash: Hash, pixelHash: Hash, calibrationHash: Hash }).optional(),
 })
 const Alteration = z.object({
-  method: z.enum(['mark-removal', 'lanczos3-upscale']), date: z.string().min(1), originalHash: Hash,
+  method: z.enum(['mark-removal', 'mark-crop', 'lanczos3-upscale']), date: z.string().min(1), originalHash: Hash,
   box: z.object({ x0: z.number().int().nonnegative(), y0: z.number().int().nonnegative(), x1: z.number().int().positive(), y1: z.number().int().positive() }).optional(),
   outsideChanged: z.literal(0).optional(), noTrace: z.literal('pass').optional(), permissionDate: z.string().optional(), residue: z.object({ version: z.string(), score: z.number().min(0).max(1), limit: z.number().min(0).max(1) }).optional(),
+  retainedChanged:z.literal(0).optional(), crop:z.object({originalWidth:z.number().int().positive(),originalHeight:z.number().int().positive(),window:PixelBox,subject:PixelBox,margin:z.number().int().nonnegative()}).optional(),
+  excludedMarks:z.array(PixelBox).optional(),
+  checks:z.object({species:HashPair,ownership:HashPair,noTrace:HashPair.optional(),preservation:HashPair.optional()}).optional(),
 })
 const OriginalPicture = z.object({ url: z.string(), width: z.number(), height: z.number(), thumb: z.string().optional(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional() })
 const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional() })
