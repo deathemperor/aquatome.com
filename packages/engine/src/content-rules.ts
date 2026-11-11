@@ -489,27 +489,36 @@ export const notAlive = (c: { caption: string; file?: string }) => {
  * guides, where a guide on a disease shows a sick fish. A first, wider list hit 21 of 14,615 captions, 7 of them wrongly:
  * a shipwreck ornament, "dead corals", "physical damage is rare", breeding tubercules twice, an owner's story of a fish
  * that died years after the photo, and a caption of ours.
- * "Unwell" takes a photo off for good with nobody looking, so the lists lean to missing one (a reader's probes,
- * 2026-11-11): damage or injuries said to be rare are none; damage is weighed in its own sentence, so a later one on
- * how the fish behaves doesn't make it a fight's; damage to a place ("habitat heavily damaged") is not the fish's; a
- * fungus counts only as an infection or on the fish; and on a breed's page a deformity or a growth is not asked, since
- * it can be the breed's own shape (a balloon molly's spine, an oranda's cap).
+ * "Unwell" takes a photo off for good with nobody looking, so the lists lean to missing one (two readers' probes,
+ * 2026-11-11): damage or injuries said to be rare are none, and nothing a sentence denies ("no signs of infection");
+ * damage is weighed in its own sentence, so a later one on how the fish behaves doesn't make it a fight's, and only
+ * another fish causes a fight's damage, not transport; a place named before the damage is what was damaged ("habitat
+ * heavily damaged"); an infection, fin rot or a fungus counts only where the caption says the fish has it; and on a
+ * breed's page a deformity or a growth is not asked, since it can be the breed's own shape (a balloon molly's spine, an
+ * oranda's cap). Kept on purpose: a fish "feeding on a dead fish" has a dead fish in the picture, which no page shows.
  */
-const UNWELL = /\b(?:deceased|dead (?:specimens?|fish|individuals?|males?|females?|juveniles?|adults?)|skinny|emaciated|underweight|starv(?:ed|ing)|wounded|injured|missing an? (?:eye|fin)|diseased|infect(?:ed|ion)|fungal|fungus(?= (?:infection|growth|on (?:its|the|his|her)\b))|tumou?rs?|ulcers?|lesions?|dropsy|deform(?:ed|ity|ities)|sick|moribund)\b/gi
+const UNWELL = /\b(?:deceased|dead (?:specimens?|fish|individuals?|males?|females?|juveniles?|adults?)|skinny|emaciated|underweight|starv(?:ed|ing)|wounded|injured|missing an? (?:eye|fin)|diseased|infected|(?:with|has|have|having|shows?|showing|suffering from) (?:an? )?(?:[a-z-]+ ){0,2}(?:infections?|fin[- ]?rot|fungus)|fungus on (?:its|his|her)|tumou?rs?|ulcers?|lesions?|dropsy|deform(?:ed|ity|ities)|sick|moribund)\b/gi
 const BREED_SHAPE = /^(?:deform|tumou?r)/i
 const DAMAGE = /\b(?:damaged?|injur(?:y|ies)|torn|split (?:caudal|dorsal|anal|pectoral|pelvic|tail)?[- ]?fins?)\b(?! (?:is|are) rare)/i
 /** Damage with a fight behind it, or more than slight: not a blemish. */
-const BADLY = /\b(?:caused by|fight\w*|fought|attack\w*|aggress\w*|bitten|bites?|badly|severe(?:ly)?|heavily|serious(?:ly)?)\b/i
+const BADLY = /\b(?:caused by (?:(?:an?other|an?|rival|dominant|conspecific) )?(?:males?|females?|fish|individuals?|conspecifics?|tank ?mates?|specimens?)|fight\w*|fought|attack\w*|aggress\w*|bitten|bites?|badly|severe(?:ly)?|heavily|serious(?:ly)?)\b/i
 const PLACE = /\b(?:habitats?|localit(?:y|ies)|rivers?|streams?|creeks?|lakes?|swamps?|forests?|reefs?|sites?)\b/i
+const DENIED = /\b(?:no|not|without|never|none|free (?:of|from)|lack(?:s|ing)?|absence of)\b/i
+/** What a sentence says before a word: the caption up to it, from the last full stop or semicolon. */
+const before = (text: string, at: number) => text.slice(0, at).split(/[.;]/).pop()!
 export function captionFlaw(caption: string | undefined, breed = false): { kind: 'unwell' | 'blemish'; word: string } | undefined {
   if (!caption || VI_LETTER.test(caption)) return undefined
-  const unwell = [...caption.matchAll(UNWELL)].find(m => !breed || !BREED_SHAPE.test(m[0]))
+  const unwell = [...caption.matchAll(UNWELL)].find(m => !(breed && BREED_SHAPE.test(m[0])) && !DENIED.test(before(caption, m.index)))
   if (unwell) return { kind: 'unwell', word: unwell[0].toLowerCase() }
+  let blemish: { kind: 'blemish'; word: string } | undefined
   for (const sentence of caption.split(/[.;]+/)) {
-    const damage = PLACE.test(sentence) ? null : DAMAGE.exec(sentence)
-    if (damage) return { kind: BADLY.test(sentence) ? 'unwell' : 'blemish', word: damage[0].toLowerCase() }
+    const damage = DAMAGE.exec(sentence)
+    // A place named before the damage is what was damaged, not a fish.
+    if (!damage || DENIED.test(sentence.slice(0, damage.index)) || PLACE.test(sentence.slice(0, damage.index))) continue
+    if (BADLY.test(sentence)) return { kind: 'unwell', word: damage[0].toLowerCase() }
+    blemish ??= { kind: 'blemish', word: damage[0].toLowerCase() }
   }
-  return undefined
+  return blemish
 }
 /**
  * The photos of a fish's or a breed's page that come off as unwell: every one, its gallery's too, but the first of the
@@ -521,7 +530,15 @@ export function captionFlaw(caption: string | undefined, breed = false): { kind:
  */
 export function unwellOff(p: Pick<Page, 'kind' | 'captions' | 'album' | 'own' | 'picked'>, gone: ReadonlySet<string> = new Set()): { off: { url: string; word: string }[]; kept?: { url: string; word: string }; picked?: { url: string; word: string } } {
   if (p.kind !== 'species' && p.kind !== 'breeds') return { off: [] }
-  const unwell = [...p.captions, ...(p.album ?? [])].flatMap(c => { const f = captionFlaw(c.caption, p.kind === 'breeds'); return f?.kind === 'unwell' ? [{ url: c.url, word: f.word }] : [] })
+  // Once a photo: one that is the page's own and in its gallery too (a head picked from the gallery keeps its copy
+  // there) is one photo, kept or taken off as one.
+  const seen = new Set<string>()
+  const unwell = [...p.captions, ...(p.album ?? [])].flatMap(c => {
+    const f = seen.has(c.url) ? undefined : captionFlaw(c.caption, p.kind === 'breeds')
+    if (f?.kind !== 'unwell') return []
+    seen.add(c.url)
+    return [{ url: c.url, word: f.word }]
+  })
   const bad = new Set(unwell.map(x => x.url))
   const own = (p.own ?? []).filter(u => !gone.has(u))
   const picked = unwell.find(x => x.url === p.picked)

@@ -418,7 +418,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // The owner, 2026-11-10: a card and its page's head are always the same photo, so a photo picked for a card becomes the head.
   // Before the photo rules read the pages: a head picked from the gallery is one of the page's own photos from here on,
   // so an unwell photo beside it is not kept as the page's only one and left for the next sweep (the cycle tests after
-  // one). No later step here moves a head, so the pick still has the last word.
+  // one). No later step puts another photo ahead of the pick. One can still take the picked photo off its page, as it
+  // could before: a caption that names another fish, a map or a plate, or a variety's source.
   const headPicks = JSON.parse(await readFile(join(root, 'engine-state', '_photo-head-picks.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   for (const [ref, url] of Object.entries(headPicks)) {
     const file = join(content, ref, 'entity.json')

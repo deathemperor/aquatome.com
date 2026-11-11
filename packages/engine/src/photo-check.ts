@@ -498,8 +498,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       if (v && (v.person !== undefined || v.file)) delete p.unchecked
     }
     const s = byId.get(file.split('/').at(-2)!)
-    // A fish its source's caption calls unwell or blemished (a split fin) counts as not typical, whatever the model said.
-    const flawed = (x: Photo) => s?.kind === 'species' && !!captionFlaw(x.caption)
+    // A fish its source's caption calls unwell or blemished (a split fin) counts as not typical, whatever the model said:
+    // a fish's in the order below, and a fish's or a breed's where a photo goes ahead of a lead the check can't tell.
+    const flawed = (x: Photo) => !!s && s.kind !== 'plants' && !!captionFlaw(x.caption, s.kind === 'breeds')
     if (s && s.kind !== 'breeds' && file.endsWith('entity.json') && data.photos) {
       // A typical photo first, other photos of it next, an old "habitat" verdict last (until it is asked again), each
       // group in the order it had. So a lead the check passes as typical stays the lead, and one that passes but isn't
