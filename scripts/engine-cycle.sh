@@ -213,6 +213,70 @@ if part pages sf photos; then
   pnpm engine picture-hashes || log "picture-hashes: failed (new pictures compared by address only)"
 fi
 if part rewrite; then
+  # First in this part, then every translation, then the rest (chief of staff, 2026-11-11: the rewrites and translations
+  # go before any other step spends, so a sign-in that runs out part way, or a ceiling, takes the steps after them).
+  # Older Vietnamese rewritten in the site's style, a few pages a cycle, each kept only if the reviewer passes it.
+  # --first: the seven rewrites 11 Nov's outage lost, which redo-unread makes due again (the chief of staff, 11 Nov: they
+  # go first). A page done is passed over, so the list does nothing once they are; it can go then.
+  pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" --first species/biotodoma-cupido,species/dicrossus-filamentosus,species/distichodus-affinis,species/exostoma-labiatum,species/farlowella-oxyrryncha,species/fossorochromis-rostratus,species/garra-rufa || log "rewrite-vi: failed"
+  # Species pages in Indonesian and Thai, most-read first, from their English sources (and again when that English changes).
+  for lang in id th; do pnpm engine localize --lang "$lang" --limit "${LOCALIZE_LIMIT:-20}" || log "localize $lang: failed"; done
+  # Malay's ten species right after them, outside the time gate below (the chief of staff, 2026-11-11: Malay's ten are
+  # not skipped). Indonesian and Thai species take about an hour, so a gated block after them started at 94-123 minutes
+  # on 10-11 Nov and skipped most of its steps.
+  pnpm engine localize --lang ms --limit "${LOCALIZE_AHEAD_LIMIT:-10}" || log "localize ms: failed"
+  # Their other names gain the ones Wikidata gives (CC0), where no other page uses the name: pages made or remade this cycle too.
+  for lang in id th; do pnpm engine wikidata-names --lang "$lang" || log "wikidata-names $lang: failed"; done
+  for lang in vi id th; do pnpm engine shop-names --lang "$lang" || log "shop-names $lang: failed"; done
+  # Rivers and regions under the names Vietnamese readers use, before the other languages name them.
+  pnpm engine name-places-vi || log "name-places-vi: failed"
+  # Plants, glossary terms, place names, AquaTome's own guides, breed pages, photo captions, buying guides and the app's
+  # short cards in both: only what is new or whose source changed.
+  for lang in id th; do
+    pnpm engine localize --lang "$lang" --kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}" || log "localize plants $lang: failed"
+    pnpm engine localize-glossary --lang "$lang" || log "localize-glossary $lang: failed"
+    pnpm engine localize-places --lang "$lang" || log "localize-places $lang: failed"
+    pnpm engine localize-guides --lang "$lang" --limit "${LOCALIZE_GUIDES_LIMIT:-2}" || log "localize-guides $lang: failed"
+    pnpm engine localize-breeds --lang "$lang" --limit "${LOCALIZE_BREEDS_LIMIT:-2}" || log "localize-breeds $lang: failed"
+    pnpm engine localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}" || log "localize-captions $lang: failed"
+    pnpm engine localize-equipment --lang "$lang" || log "localize-equipment $lang: failed"
+    pnpm engine localize-cards --lang "$lang" || log "localize-cards $lang: failed"
+  done
+  # UI text those pages need that src/i18n lacks (a label no page used before): translated now, committed with the content.
+  if I18N_MISSING_OUT=/tmp/aq-i18n-missing.json PUBLIC_BUILD=1 pnpm --filter site build >/dev/null 2>&1 \
+    && node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
+    pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/aq-i18n-missing.json || log "translate-ui: failed"
+  fi
+  # Languages the site doesn't serve yet (the language table's `served: false`): their pages, written ahead of going live;
+  # and Malay, served since its UI text was complete, still at a new language's pace (10 species a cycle) here, its new UI
+  # strings now asked for by the build above.
+  # Each step starts only while the cycle has run under AHEAD_BEFORE_MINUTES. From 2026-11-06 the block came last and gave
+  # first when a cycle ran long (cycles took 91-135 min in November 2026, and 135 left the longest step, 10 species at
+  # about 20 min, and the build, tests and push, about 6, inside the 170 min the next cycle waited for). Since 2026-11-12
+  # it comes right after the other translations, and its ten species run before it, ungated (above); its other steps
+  # still give when the cycle has run long. They add about 20 min a cycle.
+  ahead() {
+    if [ "$SECONDS" -lt $(( ${AHEAD_BEFORE_MINUTES:-135} * 60 )) ]; then "$@" || log "$*: failed"
+    else log "$*: skipped, the cycle has run $(( SECONDS / 60 )) min"; fi
+  }
+  # Their UI text first: a language goes live only once it has every string (the build fails on a missing key), and no
+  # build asks for it, so the strings the served languages have, 500 a cycle (60 a model call, a few minutes). Last in
+  # this block, cycles past AHEAD_BEFORE_MINUTES skipped it from 2026-11-06 23:19 on, with Malay at 360 of 1,298.
+  ahead pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts --unserved --limit "${UI_AHEAD_LIMIT:-500}"
+  for lang in ms; do
+    # Its species run above. The rest at the others' pace; the first run's glossary (59 terms) and places (757, in 8
+    # batches) are once only and short enough to go whole, but the buying guides take minutes each.
+    ahead pnpm engine wikidata-names --lang "$lang"
+    ahead pnpm engine shop-names --lang "$lang"
+    ahead pnpm engine localize --lang "$lang" --kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}"
+    ahead pnpm engine localize-glossary --lang "$lang"
+    ahead pnpm engine localize-places --lang "$lang"
+    ahead pnpm engine localize-guides --lang "$lang" --limit "${LOCALIZE_GUIDES_LIMIT:-2}"
+    ahead pnpm engine localize-breeds --lang "$lang" --limit "${LOCALIZE_BREEDS_LIMIT:-2}"
+    ahead pnpm engine localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}"
+    ahead pnpm engine localize-equipment --lang "$lang" --limit "${LOCALIZE_EQUIPMENT_AHEAD_LIMIT:-2}"
+    ahead pnpm engine localize-cards --lang "$lang"
+  done
   # Diễn Đàn Cá Cảnh's guide sections, read for orientation (notes on each thread, never its text), 5 s between requests:
   # leads for breed and guide research (forum.ts).
   pnpm engine forum --limit "${FORUM_LIMIT:-10}" --pages 3 || log "forum: failed"
@@ -233,39 +297,18 @@ if part rewrite; then
   pnpm engine breed-care --limit "${BREED_CARE_LIMIT:-2}" || log "breed-care: failed"
   # Plant pages that say nothing on where the plant goes or how to plant it get a short part on it, written from the page
   # and the video guides that cover it, kept only when its reviewer passes it; PLANTING_LIMIT plants a cycle, each once.
-  # Before localizing, so the plant's Indonesian and Thai pages follow.
+  # After translation, so the plant's Indonesian, Thai and Malay pages follow at the next cycle.
   pnpm engine planting --limit "${PLANTING_LIMIT:-4}" || log "planting: failed"
   # Pages under the bar whose review left no notes (written before reviews were kept, engine-state/reviews/), reviewed
-  # again as they are, nothing rewritten: REVIEW_BACKFILL_LIMIT model calls a kind (video guides: video-cycle.sh). Before
-  # rewrite-vi, which starts a page from its last review's notes.
+  # again as they are, nothing rewritten: REVIEW_BACKFILL_LIMIT model calls a kind (video guides: video-cycle.sh).
+  # rewrite-vi starts a page from its last review's notes: those written here, it reads at the next cycle.
   pnpm engine review-backfill --kind translation,localize,places --limit "${REVIEW_BACKFILL_LIMIT:-10}" || log "review-backfill: failed"
-  # Older Vietnamese rewritten in the site's style, a few pages a cycle, each kept only if the reviewer passes it.
-  pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
-  # Guides keep to their title's subject (before localizing, so the copies follow): off-topic sections dropped.
+  # Guides keep to their title's subject: off-topic sections dropped (the copies follow at the next cycle).
   pnpm engine topic-check --limit "${TOPIC_CHECK_LIMIT:-40}" || log "topic-check: failed"
   # A reader's eye: the model reads READER_LIMIT pages as a reader would (not read yet first, then changed ones), against
   # a rubric; Vietnamese wording it flags is rewritten, reviewer-gated, READER_REWRITES parts at most; the rest goes to
   # docs/review/reader.md.
   pnpm engine reader --limit "${READER_LIMIT:-20}" --rewrites "${READER_REWRITES:-3}" || log "reader: failed"
-  # Species pages in Indonesian and Thai, most-read first, from their English sources (and again when that English changes).
-  for lang in id th; do pnpm engine localize --lang "$lang" --limit "${LOCALIZE_LIMIT:-20}" || log "localize $lang: failed"; done
-  # Their other names gain the ones Wikidata gives (CC0), where no other page uses the name: pages made or remade this cycle too.
-  for lang in id th; do pnpm engine wikidata-names --lang "$lang" || log "wikidata-names $lang: failed"; done
-  for lang in vi id th; do pnpm engine shop-names --lang "$lang" || log "shop-names $lang: failed"; done
-  # Rivers and regions under the names Vietnamese readers use, before the other languages name them.
-  pnpm engine name-places-vi || log "name-places-vi: failed"
-  # Plants, glossary terms, place names, AquaTome's own guides, breed pages, photo captions, buying guides and the app's
-  # short cards in both: only what is new or whose source changed.
-  for lang in id th; do
-    pnpm engine localize --lang "$lang" --kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}" || log "localize plants $lang: failed"
-    pnpm engine localize-glossary --lang "$lang" || log "localize-glossary $lang: failed"
-    pnpm engine localize-places --lang "$lang" || log "localize-places $lang: failed"
-    pnpm engine localize-guides --lang "$lang" --limit "${LOCALIZE_GUIDES_LIMIT:-2}" || log "localize-guides $lang: failed"
-    pnpm engine localize-breeds --lang "$lang" --limit "${LOCALIZE_BREEDS_LIMIT:-2}" || log "localize-breeds $lang: failed"
-    pnpm engine localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}" || log "localize-captions $lang: failed"
-    pnpm engine localize-equipment --lang "$lang" || log "localize-equipment $lang: failed"
-    pnpm engine localize-cards --lang "$lang" || log "localize-cards $lang: failed"
-  done
   # AquaTome's own guides on the most asked ideas, IDEAS_PER_DAY a day, last: each is a full research run (up to ~25
   # min), so only with an hour and a half left of the job's 355 minutes (a rewrite job has taken 266).
   if [ "$SECONDS" -lt $(( ${IDEAS_BEFORE_MINUTES:-260} * 60 )) ]; then
@@ -273,41 +316,6 @@ if part rewrite; then
   else
     log "write-ideas: skipped, the cycle has run $(( SECONDS / 60 )) min"
   fi
-  # UI text those pages need that src/i18n lacks (a label no page used before): translated now, committed with the content.
-  if I18N_MISSING_OUT=/tmp/aq-i18n-missing.json PUBLIC_BUILD=1 pnpm --filter site build >/dev/null 2>&1 \
-    && node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
-    pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/aq-i18n-missing.json || log "translate-ui: failed"
-  fi
-  # Languages the site doesn't serve yet (the language table's `served: false`): their pages, written ahead of going live;
-  # and Malay, served since its UI text was complete, still at a new language's pace (10 species a cycle) here, its new UI
-  # strings now asked for by the build above.
-  # After everything readers see, and each step starts only while the cycle has run under AHEAD_BEFORE_MINUTES: they give
-  # first when a cycle runs long. A cycle starts every 3 hours and took 91-135 min in November 2026, so 135 leaves the
-  # longest step here (10 species, about 20 min) and the build, tests and push (about 6) inside the 170 min the next cycle
-  # waits for. They add about 40 min a cycle.
-  ahead() {
-    if [ "$SECONDS" -lt $(( ${AHEAD_BEFORE_MINUTES:-135} * 60 )) ]; then "$@" || log "$*: failed"
-    else log "$*: skipped, the cycle has run $(( SECONDS / 60 )) min"; fi
-  }
-  # Their UI text first: a language goes live only once it has every string (the build fails on a missing key), and no
-  # build asks for it, so the strings the served languages have, 500 a cycle (60 a model call, a few minutes). Last in
-  # this block, cycles past AHEAD_BEFORE_MINUTES skipped it from 2026-11-06 23:19 on, with Malay at 360 of 1,298.
-  ahead pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts --unserved --limit "${UI_AHEAD_LIMIT:-500}"
-  for lang in ms; do
-    # Most-read first. The rest at the others' pace; the first run's glossary (59 terms) and places (757, in 8 batches) are
-    # once only and short enough to go whole, but the buying guides take minutes each.
-    ahead pnpm engine localize --lang "$lang" --limit "${LOCALIZE_AHEAD_LIMIT:-10}"
-    ahead pnpm engine wikidata-names --lang "$lang"
-    ahead pnpm engine shop-names --lang "$lang"
-    ahead pnpm engine localize --lang "$lang" --kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}"
-    ahead pnpm engine localize-glossary --lang "$lang"
-    ahead pnpm engine localize-places --lang "$lang"
-    ahead pnpm engine localize-guides --lang "$lang" --limit "${LOCALIZE_GUIDES_LIMIT:-2}"
-    ahead pnpm engine localize-breeds --lang "$lang" --limit "${LOCALIZE_BREEDS_LIMIT:-2}"
-    ahead pnpm engine localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}"
-    ahead pnpm engine localize-equipment --lang "$lang" --limit "${LOCALIZE_EQUIPMENT_AHEAD_LIMIT:-2}"
-    ahead pnpm engine localize-cards --lang "$lang"
-  done
 fi
 # Letters lost in transit put back, one by one ("ที่��พาะ" for "ที่เพาะ": claude.ts decoded the model's answer chunk by chunk
 # until 2026-11-10, and 40 pages had one). No page with one, no call (ungarble.ts).
