@@ -213,6 +213,9 @@ test("a photo of an unwell fish fails its page where the page has another photo 
   expect(unwellOff(page({ kind: 'species', own: ['a', 'b'], captions: [dead, well], picked: 'a' }))).toEqual({ off: [], picked: { url: 'a', word: 'deceased' } })
   expect(unwellOff(page({ kind: 'species', own: ['a', 'g'], captions: [dead, album], picked: 'a' }))).toEqual({ off: [{ url: 'g', word: 'dead specimens' }], picked: { url: 'a', word: 'deceased' } })
   expect(found(page({ kind: 'species', own: ['a', 'b'], captions: [dead, well], picked: 'a' }), 'unwell')).toEqual([])
+  // A picked head another rule takes off in the same run shields nothing: the page's other unwell photo is kept as its
+  // only one, so the page is not left empty.
+  expect(unwellOff(page({ kind: 'species', own: ['a', 'g'], captions: [dead, album], picked: 'a' }), new Set(['a']))).toEqual({ off: [{ url: 'a', word: 'deceased' }], kept: { url: 'g', word: 'dead specimens' } })
   // Another rule taking the page's other photo off in the same run leaves this one the only photo.
   expect(unwellOff(page({ kind: 'species', own: ['a', 'b'], captions: [dead, well] }), new Set(['b'])).kept?.url).toBe('a')
   expect(found(page({ kind: 'plants', own: ['a', 'b'], captions: [dead, well] }), 'unwell')).toEqual([])

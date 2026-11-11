@@ -546,7 +546,8 @@ export function unwellOff(p: Pick<Page, 'kind' | 'captions' | 'album' | 'own' | 
   })
   const bad = new Set(unwell.map(x => x.url))
   const own = (p.own ?? []).filter(u => !gone.has(u))
-  const picked = unwell.find(x => x.url === p.picked)
+  // A pick another rule takes off in this run shields nothing: the page's other photo is then the one to keep.
+  const picked = unwell.find(x => x.url === p.picked && !gone.has(x.url))
   const kept = picked || own.some(u => !bad.has(u)) ? undefined : unwell.find(x => x.url === own.find(u => bad.has(u)))
   return { off: unwell.filter(x => x !== kept && x !== picked), ...(kept ? { kept } : {}), ...(picked ? { picked } : {}) }
 }

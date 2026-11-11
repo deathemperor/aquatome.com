@@ -460,21 +460,28 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // A fish its source's caption calls unwell (dead, thin, wounded, sick: content-rules.ts captionFlaw) is not shown where
   // its page has another photo of its own: off the page and its gallery, and never picked again. A page's only photo
   // stays, off every card (curation.ts cardWorthy), and is listed for a person.
-  const keptUnwell = new Set<string>()
+  const everyPage = new Set<string>() // the photos this rule alone would take off every page
   for (const p of all) {
     const key = `${p.kind}/${p.id}`
     const { off: gone, kept, picked } = unwellOff(p, new Set(off.get(key)?.keys()))
-    if (kept) { keptUnwell.add(kept.url); report.unwell.push(`${key}: ${kept.url} (${kept.word}; the page's only photo)`) }
+    if (kept) report.unwell.push(`${key}: ${kept.url} (${kept.word}; the page's only photo)`)
     // A head a person picked stays until a person says it goes: listed each run with its caption, at the size readers see.
-    if (picked) { keptUnwell.add(picked.url); report.unwell.push(`${key}: ${picked.url} (${picked.word}; a head a person picked. Its caption: "${p.captions.find(c => c.url === picked.url)?.caption ?? ''}")`) }
+    if (picked) report.unwell.push(`${key}: ${picked.url} (${picked.word}; a head a person picked. Its caption: "${p.captions.find(c => c.url === picked.url)?.caption ?? ''}")`)
     for (const x of gone) {
       const why = `unwell: its source's caption says "${x.word}"`
-      off.set(key, (off.get(key) ?? new Map()).set(x.url, why))
-      maps.set(x.url, `${why} (${key})`)
+      const drop = off.get(key) ?? new Map<string, string>()
+      if (!drop.has(x.url)) off.set(key, drop.set(x.url, why))
+      if (!maps.has(x.url)) { maps.set(x.url, `${why} (${key})`); everyPage.add(x.url) }
     }
   }
-  // A photo that is some page's only one, or a head a person picked, is not taken off every page.
-  for (const url of keptUnwell) maps.delete(url)
+  // A photo that is left as some page's only one, or is a head a person picked there, is not taken off every page on
+  // this rule's word: it leaves the page whose caption calls it unwell and stays on the other, whatever that page's own
+  // caption says of it. Another rule's word (a map, a plate) still takes it off every page.
+  for (const p of all) {
+    const drop = off.get(`${p.kind}/${p.id}`)
+    const left = (p.own ?? []).filter(u => !drop?.has(u))
+    for (const url of [...(left.length === 1 ? left : []), ...(p.picked && left.includes(p.picked) ? [p.picked] : [])]) if (everyPage.has(url)) maps.delete(url)
+  }
   if (maps.size > cap) {
     // Too many to take off for good with nobody looking: they stay where they are, and a person is told (PHOTO_CAP).
     report.held = [...maps].map(([url, why]) => `${url} (${why})`)

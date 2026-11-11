@@ -244,6 +244,35 @@ test("a fish its source's caption calls unwell leaves a page that has another ph
   expect((await sweep(root)).photos).toEqual([`species/fff-other: ${pick.url} (unwell: its source's caption says "skinny")`])
   expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).not.toContain(pick.url)
   expect((await json(root, 'content/species/eee-chosen/entity.json')).photos[0].url).toBe(pick.url)
+  // One photo with two captions: healthy on the page that picked it, or on the page it is the only photo of, and unwell
+  // on another page. It leaves the other page and stays off the never-again list, so the first page keeps it.
+  const two = sf('two', 'Adult male.'), three = sf('three', 'Adult female.')
+  await put('species/ggg-picker/entity.json', species('ggg-picker', 'Ggg picker', { photos: [two, sf('plain-3', 'Adult male.')] }))
+  await put('species/ggg-picker/vi.json', vi('Cá chạch suối nhất', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('species/hhh-single/entity.json', species('hhh-single', 'Hhh single', { photos: [three] }))
+  await put('species/hhh-single/vi.json', vi('Cá chạch suối nhì', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('species/iii-says/entity.json', species('iii-says', 'Iii says', { photos: [sf('plain-4', 'Adult male.'), { ...two, caption: 'Skinny juvenile.' }, { ...three, caption: 'Emaciated female.' }] }))
+  await put('species/iii-says/vi.json', vi('Cá chạch suối ba', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/eee-chosen': pick.url, 'species/ggg-picker': two.url }))
+  expect((await sweep(root)).photos).toEqual([
+    `species/iii-says: ${two.url} (unwell: its source's caption says "skinny")`,
+    `species/iii-says: ${three.url} (unwell: its source's caption says "emaciated")`,
+  ])
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).not.toContain(two.url)
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).not.toContain(three.url)
+  await checkPagePhotos(root, { get: never, look: never }, { limit: 0 })
+  expect((await json(root, 'content/species/ggg-picker/entity.json')).photos[0].url).toBe(two.url)
+  expect((await json(root, 'content/species/hhh-single/entity.json')).photos).toEqual([three])
+  expect(await unwell()).toBe(0)
+  // Another rule's word still takes a photo off every page: a paper's plate on one page, though it is another page's
+  // only photo and called unwell there.
+  const plate = { ...sf('plate', 'Skinny juvenile.'), sourceUrl: 'https://commons.wikimedia.org/wiki/File:Jjj_lone.jpg' }
+  await put('species/jjj-lone/entity.json', species('jjj-lone', 'Jjj lone', { photos: [plate] }))
+  await put('species/jjj-lone/vi.json', vi('Cá chạch suối tư', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('species/kkk-plate/entity.json', species('kkk-plate', 'Kkk plate', { photos: [sf('plain-5', 'Adult male.'), { ...plate, caption: 'Figure 1; (a) the whole fish, (b) its scales' }] }))
+  await put('species/kkk-plate/vi.json', vi('Cá chạch suối năm', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  expect((await sweep(root)).photos).toEqual([`species/kkk-plate: ${plate.url} (not a photo: a paper's plate, (a), (b), not Kkk plate)`])
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).toContain(plate.url)
   // A breed's gallery is read too.
   const bred = sf('bred', 'Two dead specimens of different ages.')
   await put('breeds/ddd-breed/entity.json', { id: 'ddd-breed', kind: 'variety', parents: [], care: {}, photos: [sf('breed-own', 'Adult male.')], sources: [{ url: 'https://x/a', title: 'A', kind: 'article', at: '2026-10-01' }], updatedAt: '2026-10-01' })
