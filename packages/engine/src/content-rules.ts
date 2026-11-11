@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import { HTMLElement, parse } from 'node-html-parser'
 import { headingRoles, imperialLeft, LANGS, ownNumber, WRITTEN_LANGS, type DataCardField, type Lang, type WrittenLang } from '@aq/schema'
 import { tidyName } from './alt-names'
+import { onlyAName, titleKey } from './guide-titles'
 import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
 import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice, viWording, wordingSlips } from './sanitize'
@@ -32,7 +33,8 @@ export type Rule = {
   tally?: true
 }
 /** `genera`: every genus the site has a page in; `species`: every Latin name with a page, lower case. */
-export type Ctx = { genera: Set<string>; species: Set<string> }
+/** `titles`: how many guides in a language have each title (guide-titles.ts titleKey), keyed "<lang>\t<title>". */
+export type Ctx = { genera: Set<string>; species: Set<string>; titles?: Map<string, number> }
 export type Finding = { rule: string; page: Page; detail: string }
 
 const YEAR = /\b(1[789]\d\d|20[0-2]\d)\b/
@@ -552,6 +554,15 @@ export const RULES: Rule[] = [
     check: p => p.fields.filter(f => f.field === 'body').flatMap(f => countMismatch(p.title, f.html) ?? []),
   },
   {
+    id: 'guide-title', title: 'Two guides with one title, or a title that is only a name',
+    about: 'A guide whose title another guide in its language has, so a list of guides shows the same row twice, or whose title is only a name ("Dou Mok", four tanks by one aquascaper in a row: the owner, 2026-11-11). The sweep has the title written again (guide-titles.ts), the name kept as the credit.',
+    check: (p, ctx) => {
+      if (p.kind !== 'guides') return []
+      const n = ctx.titles?.get(`${p.lang}\t${titleKey(p.title)}`) ?? 1
+      return [...(n > 1 ? [`"${p.title}" is the title of ${n} guides`] : []), ...(onlyAName(p.title, p.lang) ? [`"${p.title}" is only a name`] : [])]
+    },
+  },
+  {
     id: 'name', title: 'A name not as hobbyists write it',
     about: 'A species\', plant\'s or breed\'s Vietnamese name with a place in lower case ("Rêu java" beside "Dương xỉ Java"), or a plant\'s name with "Cây thủy sinh" before it, which a list of plants says already ("Cây thủy sinh Vallisneria (cỏ lươn)"). The sweep writes it as hobbyists do (alt-names.ts tidyName) and keeps the address; a name a person fixed is left.',
     check: p => {
@@ -794,6 +805,7 @@ export function renameStored<T extends { name?: string; nameFixed?: boolean; sec
 export const ctxOf = (pages: Page[]): Ctx => ({
   genera: new Set(pages.flatMap(p => (p.sci ? [p.sci.split(' ')[0]!] : []))),
   species: new Set(pages.flatMap(p => (p.sci ? [p.sci.split(/\s+/).slice(0, 2).join(' ').toLowerCase()] : []))),
+  titles: pages.filter(p => p.kind === 'guides').reduce((m, p) => m.set(`${p.lang}\t${titleKey(p.title)}`, (m.get(`${p.lang}\t${titleKey(p.title)}`) ?? 0) + 1), new Map<string, number>()),
 })
 
 /** Every rule on every page; a rule that throws on a page is reported as such and the others still run. */

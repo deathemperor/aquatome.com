@@ -748,6 +748,14 @@ The layers above still check the result.
   Pets' "10 gallons (about 38 litres)" became 40 cm on 19 cards), when the engine reads a page and again at every build
   (`tankIsVolume`). Where sources disagree, every page shows the range they all accept; a lifespan, no care target,
   the widest (Seriously Fish's when it gives one).
+- **A guide's title says what it is about, and no two share one.** The owner's "Duplicated" (2026-11-11): the app's
+  list of guides showed four rows reading "Dou Mok". 2Hr Aquarist's tank pages were titled with the aquascaper's name
+  alone (27 pages), and two videos from one channel had one title. The `guide-title` content rule finds a guide whose
+  title another guide in its language has, or whose title has no word of its language (`guide-titles.ts onlyAName`), in
+  every language. The real-content test fails on any page beyond those of 11 Nov. The sweep has each one written again
+  by the model, `GUIDE_RETITLES` a run, reviewer-gated: what the page is about, from its own text. A finished tank is
+  titled by its style and what stands out, with the aquascaper as the credit after a dash ("… – Dou Mok"). A title a
+  person chose (`nameFixed`) stays. The writer of new guides is told the same (`prompts/process.md`).
 - **Card figures from sources that state them.** A data card lacks a figure when no source read for the page states
   it. On 2026-11-01, 445 of 1,016 species pages showed no minimum tank, among them the betta, neon tetra and cherry
   barb, whose sources (The Spruce Pets, Aquarium Co-op, BW Aquatics, Glaser) give a tank as a volume or not at all.

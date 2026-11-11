@@ -203,3 +203,14 @@ test("every card's school size is Seriously Fish's where it gives one, never bel
   expect(wrong).toEqual([])
   expect((await readTraits(root)).find(t => t.id === 'paracheirodon-axelrodi')?.schoolMin).toBe(8)
 })
+
+// The owner, 2026-11-11, on the app's list of guides: "Duplicated". No two guides in a language share a title, and none is
+// only a name (content-rules.ts guide-title), in every language. The pages here had one on 11 Nov: 2Hr Aquarist's 27 tank
+// pages, titled with the aquascaper's name, and two videos with one title: all 29 titled by hand (nameFixed). A new one
+// the sweep doesn't title (guide-titles.ts, ten a run) fails here.
+test('no two guides in a language share a title, and none is only a name', async () => {
+  const guides = (await loadPages(fileURLToPath(new URL('../../../content', import.meta.url)))).filter(p => p.kind === 'guides')
+  const { findings, errors } = checkPages(guides, RULES.filter(r => r.id === 'guide-title'))
+  expect(errors).toEqual([])
+  expect(findings.map(f => `${f.page.lang}/${f.page.id}: ${f.detail}`)).toEqual([])
+}, 300_000)
