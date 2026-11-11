@@ -270,3 +270,17 @@ test("the style rewrite's reviewer has the tank table its writer has", async () 
   await reviewRewrite((async (r: { system?: string; prompt: string }) => { asked = `${r.system ?? ''}\n${r.prompt}`; return { score: 1, notes: [] } }) as never, [{ before: 'Bể 115 lít.', after: 'Bể 120 lít.' }])
   expect(asked).toContain(TANK_RULE.en)
 })
+
+// The independent reader's fifth round, 2026-11-12: where the looser reading of round four went too far.
+test("a new sentence after a dose, a comma, a fish's weight, a later hour and \"đồng hồ\" leave a tank a tank; a Thai unit's period keeps a dose's water", async () => {
+  const tanks = ['Pha 5 ml. Với 115 lít là đủ.', 'Pha 5 ml. Cho cá vào 115 lít.', 'Pha 5 ml thuốc trị nấm một lần, với 115 lít là đủ cho cả đàn.', 'Cá nặng 5 gam trong 115 lít.', 'Thả vào bể 115 lít trong một tiếng sau.', 'Ngâm trong bể 115 lít một tiếng đồng hồ.']
+  const root = await held(tanks.map(t => `<p>${t}</p>`).join(''), ['Với 115 lít là đủ'])
+  await unitsMend(root, { now: after })
+  expect((await file(root)).body).toBe(tanks.map(t => `<p>${t.replace('115', '120')}</p>`).join(''))
+  const water = (s: string) => DOSE_WATER.test(clauseBefore(s, s.search(/\d+ (?:lít|liter|ลิตร)/)))
+  expect(['5 มิลลิลิตร. ใน 115 ลิตร', '5 กรัม. ใน 115 ลิตร', '5 gam muối trong 115 lít nước', 'Pha 5 ml. vào 38 lít nước.'].map(water)).toEqual([true, true, true, true])
+  expect(['5 ml. Tangki dengan 115 liter.', 'Cá nặng khoảng 5 gam trong 115 lít.', 'Pha 15 ml thuốc, với 115 lít là đủ.'].map(water)).toEqual([false, false, false])
+  // The writer check refuses the exact conversion of a tank in each.
+  for (const s of ['Pha 5 ml. Với 38 lít là đủ.', 'Pha 5 ml thuốc trị nấm một lần, với 38 lít là đủ.', 'Cá nặng 5 gam trong 38 lít.'])
+    expect(amountsOutside(s, 'Add 5 ml of medicine to a 10 gallon tank.'), s).toEqual(['38 l'])
+})

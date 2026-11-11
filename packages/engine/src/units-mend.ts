@@ -30,8 +30,8 @@ const RANGE_BEFORE = /\d(?:\s*(?:lít|liter|litre|ลิตร|l(?![\p{L}\p{N}])
 const RANGE_AFTER = /^\s*(?:[–-]|đến|tới|hingga|sampai|ถึง|to)\s*\d/iu
 /** A dose's water: "cho mỗi 38 lít", "per 38 liter" (round.ts keeps these too). */
 const PER = /(?:mỗi|cho|trên|per|setiap|untuk|ต่อ|\/)\s*(?:khoảng\s*)?$/iu
-/** A flow, not a tank: "115 lít mỗi giờ", "một tiếng", "lít/giờ", "per hour". Not "một giờ sau" (an hour later) or "lít/hồ". */
-const RATE_AFTER = /^\s*(?:\/\s*(?:h|giờ|tiếng|jam|ชม)(?![\p{L}])|(?:mỗi|một|1) (?:giờ|tiếng)(?![\p{L}])(?!\s+(?:sau|nữa|trước))|trong (?:một|1) (?:giờ|tiếng)(?![\p{L}])|per hour|an hour|per jam|sejam|ต่อชั่วโมง)/iu
+/** A flow, not a tank: "115 lít mỗi giờ", "một tiếng", "lít/giờ", "per hour". Not "một giờ sau" (an hour later), "một tiếng đồng hồ" (for an hour) or "lít/hồ". */
+const RATE_AFTER = /^\s*(?:\/\s*(?:h|giờ|tiếng|jam|ชม)(?![\p{L}])|(?:(?:mỗi|một|1)|trong (?:một|1)) (?:giờ|tiếng)(?![\p{L}])(?!\s+(?:sau|nữa|trước|đồng hồ))|per hour|an hour|per jam|sejam|ต่อชั่วโมง)/iu
 /** Whether the volume at `at` in `text` is a tank's: not a range's end, a dose's water, or a flow. */
 const tankAt = (text: string, at: number, end: number) => {
   return !PER.test(text.slice(Math.max(0, at - 24), at)) && !DOSE_WATER.test(clauseBefore(text, at)) && !RANGE_BEFORE.test(text.slice(0, at)) && !RANGE_AFTER.test(text.slice(end)) && !RATE_AFTER.test(text.slice(end))

@@ -60,16 +60,28 @@ export const TANK_RULE = {
   en: `a tank given in US gallons is named by the size keepers here say, never its exact conversion or one to the nearest 5 litres: ${sizes('gallons', 'litres').map(s => s.replaceAll(' hoặc ', ' or ').replace(/(\d),(\d)/g, '$1.$2')).join(', ')}. A tank size not listed is converted and rounded to whole litres`,
   vi: `bể ghi theo gallon Mỹ thì gọi bằng cỡ người chơi ở đây vẫn gọi, không đổi chính xác, không làm tròn tới 5 lít: ${sizes('gallon', 'lít').join(', ')}. Cỡ bể không có ở đây thì đổi ra lít, làm tròn tới số nguyên`,
 }
-/** A writer's or reviewer's prompt with the table in place of {{TANKS_EN}} and {{TANKS_VI}}. */
 /**
  * Text before a volume that makes it a dose's water, not a tank: an amount in a dose's unit that goes into it ("Pha 5 ml
- * vào 38 lít", "cho 5 ml dung dịch Easy Life Profito vào 115 lít", "1 gói cho mỗi 25 lít", "5 มล. ใน 115 ลิตร"), the
- * words between as many as the clause has. The dose's own water keeps its exact figure. "Cho ăn 1 viên trong bể 115 lít"
- * names a tank: the pellet is food, and the litres are the tank's.
+ * vào 38 lít", "cho 5 ml dung dịch Easy Life Profito vào 115 lít", "1 gói cho mỗi 25 lít", "5 มล. ใน 115 ลิตร"), any
+ * number of words between, up to a comma. The dose's own water keeps its exact figure. "Cho ăn 1 viên trong bể 115 lít"
+ * names a tank (the pellet is food, the litres the tank's), and "Cá nặng 5 gam trong 115 lít" a weight, no dose.
  */
-export const DOSE_WATER = /\d[\d.,–-]*\s*(?:ml|mg|gam|gram|gr|g|gói|viên|thìa|muỗng|giọt|nắp|sachet|tablet|butir|sendok|มล|มิลลิลิตร|กรัม|ซอง|เม็ด|หยด|ช้อน)\.?(?![\p{L}])(?:\s+[^\s\d.;!?<>]+)*?(?:\s+(?:vào|cho|trong|với|per|for|into|in|to|ke|dalam|untuk|dengan|bagi)|\s*(?:ใน|ลงใน|ต่อ))\s*(?:(?:mỗi|khoảng|chừng|every|each|about|setiap|sekitar|ประมาณ)\s*)*$/iu
-/** The clause a figure at `at` is in, up to the figure: from the sentence's end before it, a dose unit's period ("5 ml.") not one. */
-export const clauseBefore = (text: string, at: number) => text.slice(0, at).split(/(?<!\d\s*(?:ml|mg|gam|gram|gr|g|มล))\.|[;!?\n>]/iu).at(-1) ?? ''
+export const DOSE_WATER = /(?<![\d.,])(?<!(?:nặng|weighs?|weighing|berat|หนัก)\s*(?:(?:khoảng|chừng|about|sekitar|ประมาณ)\s*)?)\d[\d.,–-]*\s*(?:ml|mg|gam|gram|gr|g|gói|viên|thìa|muỗng|giọt|nắp|sachet|tablet|butir|sendok|มล|มิลลิลิตร|กรัม|ซอง|เม็ด|หยด|ช้อน)\.?(?![\p{L}])(?:\s+[^\s\d.,;!?<>]+)*?(?:\s+(?:vào|cho|trong|với|per|for|into|in|to|ke|dalam|untuk|dengan|bagi)|\s*(?:ใน|ลงใน|ต่อ))\s*(?:(?:mỗi|khoảng|chừng|every|each|about|setiap|sekitar|ประมาณ)\s*)*$/iu
+/**
+ * The clause a figure at `at` is in, up to the figure: from the sentence's end before it. A dose unit's period ("5 ml.
+ * vào", "5 มล. ใน") isn't one, unless a capital follows it ("Pha 5 ml. Với 115 lít là đủ": the tank is a new sentence).
+ */
+export function clauseBefore(text: string, at: number): string {
+  const before = text.slice(0, at)
+  let from = 0
+  for (const m of before.matchAll(/[.;!?\n>]/g)) {
+    const i = m.index!
+    if (m[0] === '.' && /\d\s*(?:ml|mg|gam|gram|gr|g|มล|มิลลิลิตร|กรัม)$/iu.test(before.slice(Math.max(0, i - 16), i)) && !/^\s*\p{Lu}/u.test(before.slice(i + 1))) continue
+    from = i + 1
+  }
+  return before.slice(from)
+}
+/** A writer's or reviewer's prompt with the table in place of {{TANKS_EN}} and {{TANKS_VI}}. */
 export const withTanks = (prompt: string) => prompt.replaceAll('{{TANKS_EN}}', TANK_RULE.en).replaceAll('{{TANKS_VI}}', TANK_RULE.vi)
 const side = (n: number) => (n < 100 ? Math.round(n / 5) * 5 : Math.round(n / 10) * 10)
 
