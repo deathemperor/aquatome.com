@@ -853,23 +853,26 @@
     ]
   },
   "oryzias-latipes": {
-    "at": "2026-11-10",
-    "from": "2026-11-09",
+    "at": "2026-11-11",
+    "from": "2026-11-11",
     "name": "Ikan medaka",
     "confidence": "high",
-    "score": 0.6,
-    "notes": [
-      "Item 3: 'sekumpulan telur ... menetas di sana' – English says they mated and laid eggs that hatched in space; fine, but 'beberapa ringgit' for 'a few dollars' changes currency; use neutral wording such as 'beberapa dolar' or keep as converted price.",
-      "Item 8: '45 × 30 cm ... (kira-kira 41 liter)' – 41 litres kept as is, acceptable; but 'liter' is Indonesian spelling, use 'liter/liter' consistently as 'liter' is accepted in Malaysia; prefer 'L' or 'liter' fine.",
-      "Item 6: 'tasik ladam' for 'oxbows' is fine, but 'dikutip' for 'collected' is awkward; use 'ditangkap' or 'dikumpulkan'.",
-      "Item 15: 'jentik-jentik' is Indonesian; use 'jentik-jentik nyamuk' or 'larva nyamuk' in Malaysian Malay.",
-      "Item 21: 'kiambang kecil (dwarf water lettuce)' and 'keladi bunting' for water hyacinth: 'keladi bunting' is the local name for Eichhornia, OK, but 'kiambang' is Salvinia; check dwarf water lettuce (Pistia) is 'kiambang' - acceptable. 'tukar air yang kerap' is awkward: use 'penukaran air yang kerap'.",
-      "Item 17/21: 'tangki' is acceptable; 'penghobi' acceptable.",
-      "Item 1: 'ricefish' left untranslated in the intro, while elsewhere 'ikan medaka'; use consistent 'ikan padi (ricefish)'.",
-      "Item 22: 'Universiti Kebangsaan Taiwan' for National University of Taiwan: use 'Universiti Kebangsaan Taiwan' fine, but 'Cyprinodontiformes' as 'famili' – English says family (error in source); keep as is.",
-      "Item 12/11: 'tahan suhu' should be 'tahan pada suhu' or 'bertoleransi terhadap suhu'.",
-      "Item 16: 'kelihatan paling menarik' for 'look most effective' acceptable."
-    ]
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "98ac6f5ee287",
+      "distribution:seriouslyfish": "0251f62e8ec5",
+      "habitat:seriouslyfish": "f156cb3388ba",
+      "aquariumSize:seriouslyfish": "953e94ec52c0",
+      "maintenance:seriouslyfish": "9eb5e20452b7",
+      "waterConditions:seriouslyfish": "04b50f14b92f",
+      "diet:seriouslyfish": "40e629a16d80",
+      "behaviour:seriouslyfish": "47e3dd64bea4",
+      "dimorphism:seriouslyfish": "db0f016c95b2",
+      "reproduction:seriouslyfish": "9fdde5124fdf",
+      "notes:seriouslyfish": "bdf17fefdf41",
+      "references:seriouslyfish": "4fca405fd490"
+    }
   },
   "osteoglossum-bicirrhosum": {
     "at": "2026-11-06",
@@ -1007,21 +1010,34 @@
     ]
   },
   "poecilia-wingei": {
-    "at": "2026-11-08",
+    "at": "2026-11-11",
     "from": "2026-11-08",
     "name": "Endler",
     "confidence": "medium",
-    "score": 0.6,
-    "notes": [
-      "Item 20: \"Parents eat their own young\" is rendered as \"Induk akan memakan anaknya sendiri\". This is correct, but it contradicts item 19, so check the consistency of the source rather than the Malay. No fix is needed here.",
-      "Item 14: \"supaya kemungkinan buli tersebar\" is awkward and unclear. Use \"supaya gangguan/buli dapat disebarkan merata\" or \"supaya buli tidak tertumpu pada seekor betina\".",
-      "Item 6: \"sangat panas, keras\" is a clumsy rendering of \"very warm, hard water\". Use \"sangat suam dan keras\", because \"panas\" suggests scalding.",
-      "Item 3: the English \"Pure-bred Endlers are called class N Endlers; care for hybrids is somewhat similar\" has been split into two sentences and slightly reworded. The meaning is intact, so this is fine.",
-      "Item 16: \"Endler's Guppy ialah ikan yang lincah\" is plural in the English (\"Endler's Guppys are lively fish\"). Use \"Endler's Guppy ialah ikan-ikan yang lincah\" or rephrase it as a generic statement.",
-      "Item 21: \"tahap kekerasan\" and \"dihuraikan dari Trinidad\" are acceptable. However, \"guppy biasanya ditemui di air mengalir yang lebih sejuk\" is fine, so no change is needed.",
-      "Item 15: \"ikan komuniti yang aman dan terlalu besar untuk memakannya\" is ambiguous. Use \"terlalu besar untuk dimakan oleh Endler\"; the current wording could be read as the community fish being too big for the Endler to eat, which reverses the meaning. The English means the fish are too big to eat the Endlers.",
-      "Item 7: the translator dropped the imperial figure. This is allowed. The 41 L figure is kept as in the source, which is fine."
-    ]
+    "score": 0.9,
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "5b3701db39bf",
+      "quickFacts:aquariumcoop": "370676d73ab1",
+      "beforeYouBuy:aquariumcoop": "81ec51983e54",
+      "distribution:seriouslyfish": "46f03cd33c76",
+      "habitat:seriouslyfish": "e616e9266bb9",
+      "aquariumSize:seriouslyfish": "673010bef4d0",
+      "aquariumSize:aquariumcoop": "5c6d6338eae2",
+      "maintenance:seriouslyfish": "24fc83fb43b2",
+      "waterConditions:seriouslyfish": "46a6d75eef3a",
+      "waterConditions:aquariumcoop": "2a57564e407d",
+      "diet:seriouslyfish": "28c5eced6fba",
+      "diet:aquariumcoop": "1d2a006fae06",
+      "behaviour:seriouslyfish": "512a8c31cab2",
+      "behaviour:aquariumcoop": "19327a35a23a",
+      "dimorphism:seriouslyfish": "9db5dd062d89",
+      "dimorphism:aquariumcoop": "12d7f60b0d70",
+      "reproduction:seriouslyfish": "6f0404119c9a",
+      "reproduction:aquariumcoop": "01509db9d017",
+      "notes:seriouslyfish": "3cba68e365ad",
+      "references:seriouslyfish": "a86e14027c6f"
+    }
   },
   "pomacea-diffusa": {
     "at": "2026-11-08",

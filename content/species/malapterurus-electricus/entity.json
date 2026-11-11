@@ -682,7 +682,12 @@
       "author": "Stan Shebs",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Malapterurus_electricus_1.jpg",
       "caption": "Photo of Malapterurus electricus (electric catfish) at the Steinhart Aquarium in San Francisco",
-      "thumb": "https://media.aquatome.com/commons/24c1648410e5de5d-480.webp"
+      "thumb": "https://media.aquatome.com/commons/24c1648410e5de5d-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/24c1648410e5de5d-large.webp",
+        "width": 1200,
+        "height": 716
+      }
     },
     {
       "url": "https://media.aquatome.com/scotcat/8921951075ffe67c.webp",

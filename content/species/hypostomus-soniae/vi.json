@@ -3,26 +3,36 @@
   "name": "Cá lau kiếng L137",
   "altNames": [
     "Cá tỳ bà L137",
-    "L137"
+    "L137",
+    "Cá tỳ bà mắt xanh vây đỏ",
+    "Cá lau kiếng Rusty",
+    "Blue Eyed Red Fin Pleco",
+    "Rusty Pleco"
   ],
   "sections": {
     "quickFacts:glaser": "<p>L137 đến từ sông Rio Tapajós, là một con cá đẹp có đôi mắt xanh, ít khi thấy bán. Loài này thuộc chi Hypostomus, cỡ vừa, dài tối đa khoảng 20 cm.</p>",
     "distribution:glaser": "<p>Rio Tapajós, Brazil.</p>",
     "dimorphism:glaser": "<p>Màu của loài này khá thất thường. Có con vây hơi nâu, có con vây lốm đốm, lại có con vây đỏ cam rực. Những con vây đỏ cam dễ bị nhầm với con “Bruno” từ Paraguay (mã 27510) vì hai con trông khá giống nhau. Nhưng L137 lúc nào cũng nhận ra được nhờ đôi mắt xanh, vì trong chi Hypostomus chỉ loài này có mắt như vậy.</p>",
-    "notes:glaser": "<p>Nguồn gốc tên gọi: Hypostomus lấy từ tiếng Hy Lạp cổ, nghĩa là “miệng nằm phía dưới”. Cochliodon nghĩa là “răng hình vỏ trai”. Tên soniae đặt để vinh danh Sonia Fisch-Muller, người phụ trách bộ sưu tập cá của Bảo tàng Geneva.</p>"
+    "notes:glaser": "<p>Nguồn gốc tên gọi: Hypostomus lấy từ tiếng Hy Lạp cổ, nghĩa là “miệng nằm phía dưới”. Cochliodon nghĩa là “răng hình vỏ trai”. Tên soniae đặt để vinh danh Sonia Fisch-Muller, người phụ trách bộ sưu tập cá của Bảo tàng Geneva.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Blue Eyed Red Fin Pleco, Rusty Pleco, L137, L077</li><li>Tên đồng nghĩa: không có</li></ul>",
+    "distribution:scotcat": "<p>Brazil: bang Pará, sông Tapajós (đoạn Pimental–Itaituba). Nơi thu mẫu chuẩn: Brazil, bang Pará, các vũng nước tạm ven sông Tapajós, giữa Vila Nova và Urua.</p>",
+    "aquariumSize:scotcat": "<p>Bể phải dài từ 120 cm trở lên.</p>",
+    "maintenance:scotcat": "<p>Loài này có lưng cao và có thể lớn khá to. Nó không chịu ở chung với cá lau kiếng khác. Cá khá dễ nuôi, nhưng phải thay nước thường xuyên vì tốc độ trao đổi chất của nó cao.</p>",
+    "waterConditions:scotcat": "<p>Nhiệt độ: 26–30 °C. pH: 5,5–7,0.</p>",
+    "diet:scotcat": "<p>Đây là loài ăn gỗ, nên trong bể cần có cả lũa còn mới lẫn lũa đã để lâu. Ngoài ra cho ăn thức ăn viên và rau xanh.</p>",
+    "notes:scotcat": "<p>Loài này thuộc nhóm Hypostomus cochliodon. Cá trong nhóm này có thân ngắn hơn và lưng cao hơn các loài Hypostomus khác. Chúng chỉ có ít răng, răng hình thìa với một mấu nhọn, và hai hàm xếp thành hình chữ V. Lúc đầu L137 được xếp vào chi Cochliodon (nay là tên đồng nghĩa). Sau công trình của Jon Armbruster về nhóm Hypostomus/Cochliodon, nó được chuyển sang chi Hypostomus, một chi lớn hơn.</p><p>Nguồn gốc tên: tên loài soniae đặt để vinh danh Sonia Fisch-Muller ở Muséum d'histoire naturelle (Geneva). Bà là chuyên gia phân loại họ cá lau kiếng Loricariidae và là một trong những người thu bộ mẫu chuẩn.</p><p>Sách Đỏ IUCN: Hypostomus soniae là loài đặc hữu của Brazil, sống ở sông Tapajós. Ngoài tự nhiên, cá vốn ít gặp và số lượng không nhiều, nhưng hiện chưa thấy mối đe dọa đáng kể nào tới quần thể của nó. IUCN xếp loài này vào mức Ít quan tâm (LC) (IUCN 2022).</p>",
+    "references:scotcat": "<p>Armbruster W, Jonathon. The species of the Hypostomus cochliodon group (Siluriformes: Loricariidae). Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.8
-    },
-    "reason": "thin"
+      "glaser": 0.8,
+      "scotcat": 0.8
+    }
   },
   "held": {
-    "checks": [
-      "source"
-    ],
+    "checks": [],
     "at": "2026-11-11"
   }
 }

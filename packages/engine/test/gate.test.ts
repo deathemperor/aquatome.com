@@ -1,10 +1,11 @@
 import { execFileSync } from 'node:child_process'
+import { existsSync } from 'node:fs'
 import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
-import { fitKey, fitText, type FitState } from '../src/fit'
+import { fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
 import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, wrongChecks } from '../src/gate'
 import { loadPages, type Page } from '../src/pages'
 import { lastKept, logReviews, readReviews } from '../src/review-log'
@@ -105,6 +106,104 @@ test('a text put back is the page\'s again in the review log: reviews of the tex
   expect((await lastKept(root, guide, ['video-guide']))?.notes).toEqual(['the text readers have'])
   expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-r53ZQW0m8VM']!.map(t => t.kept)).toEqual([false, true])
   expect((await lastKept(root, other, ['translation']))?.notes).toEqual(['the rewrite'])
+})
+
+const PUT_BACK = 'engine-state/put-back/guides/youtube-r53ZQW0m8VM.vi.json'
+/** A mender that takes the paragraphs naming Petco out of the guide, as the video's editor would, and says what it was sent. */
+const cutter = (root: string, sent: FitFinding[][] = [], file = GUIDE) => async (_p: Page, findings: FitFinding[]) => {
+  sent.push(findings)
+  await edit(root, file, t => { t.body = (t.body as string).replace(/<p>[^<]*Petco[^<]*<\/p>/g, '') })
+  return true
+}
+
+// The recheck job's runs of 8 to 10 Nov 2026 put 94 new texts back, 43 of them ones the video reviewer had passed, most
+// for one check, and kept none of them: each guide had had its one go.
+test('a text worse for a sentence the mender may fix is mended and read again, not put back: only the new faults are sent', async () => {
+  const root = await repo()
+  // The text readers have converts a tank from gallons, which a read of it finds; the new text also names a shop abroad.
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Bể 38 lít là đủ.</p>` })
+  git(root, 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'units')
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p><p>Thay nước mỗi tuần.</p>` })
+  const calls: string[] = [], sent: FitFinding[][] = []
+  const r = await gate(root, { llm: reader(calls), now, mend: cutter(root, sent) })
+  expect(r.report.revert).toEqual([])
+  expect(r.report.mended).toEqual(['/vi/huong-dan/' + (await readJson(root, GUIDE)).slug + '/ (shop)'])
+  expect(r.report.pass).toHaveLength(1)
+  const body = (await readJson(root, GUIDE)).body as string
+  expect(body).toContain('Thay nước mỗi tuần')
+  expect(body).not.toContain('Petco')
+  expect(sent.map(fs => fs.map(f => [f.check, f.quote]))).toEqual([[['shop', 'Petco']]]) // not the units the old text has too
+  expect(calls).toHaveLength(3) // the new text, the old one, the mended one
+  // The saved read is of the text on disk, and nothing was thrown away, so nothing is saved.
+  const page = (await loadPages(join(root, 'content'), ['vi'])).find(p => p.id === 'youtube-r53ZQW0m8VM')!
+  expect(r.state[fitKey(page)]!.hash).toBe(fitText(page).hash)
+  expect(r.pages.find(p => p.id === 'youtube-r53ZQW0m8VM')!.fields[0]!.html).not.toContain('Petco')
+  expect(existsSync(join(root, PUT_BACK))).toBe(false)
+})
+
+test('a text put back is kept, with its checks and their quotes: the text before a mend that failed, not the mend', async () => {
+  const root = await repo()
+  const before = await readFile(join(root, GUIDE), 'utf8')
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>` })
+  expect((await gate(root, { llm: reader(), now })).report.revert).toHaveLength(1)
+  expect(await readFile(join(root, GUIDE), 'utf8')).toBe(before)
+  const kept = await readJson(root, PUT_BACK)
+  expect(kept).toMatchObject({ at: '2026-11-09T00:00:00Z', checks: ['shop'], findings: [{ check: 'shop', quote: 'Petco', why: 'a US shop' }] })
+  expect(kept.text.body).toContain('<p>Mua ở Petco.</p>')
+  expect(kept.text.slug).toBe(JSON.parse(before).slug)
+
+  // A mend that leaves the fault: the text goes back, and what is kept is the text the mender was given.
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua lọc ở Petco.</p>` })
+  const worse = async () => { await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Hoặc Petco gần nhà.</p>` }); return true }
+  const r = await gate(root, { llm: reader(), now, mend: worse })
+  expect(r.report.revert).toHaveLength(1)
+  expect(r.report.mended).toEqual([])
+  expect(await readFile(join(root, GUIDE), 'utf8')).toBe(before)
+  const again = await readJson(root, PUT_BACK)
+  expect(again.text.body).toContain('<p>Mua lọc ở Petco.</p>')
+  expect(again.text.body).not.toContain('gần nhà')
+  const page = (await loadPages(join(root, 'content'), ['vi'])).find(p => p.id === 'youtube-r53ZQW0m8VM')!
+  expect(r.state[fitKey(page)]!.hash).toBe(fitText(page).hash) // the old text's read, as it stays
+
+  // A mender with nothing to offer (not a video guide, no transcript, an edit its reviewer fails): put back as before.
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Đặt hàng ở Petco.</p>` })
+  expect((await gate(root, { llm: reader(), now, mend: async () => false })).report.revert).toHaveLength(1)
+  expect((await readJson(root, PUT_BACK)).text.body).toContain('Đặt hàng ở Petco')
+})
+
+test('advice that would hurt is never the mender\'s to reword, and it mends so many pages a run', async () => {
+  const root = await repo()
+  const sent: FitFinding[][] = []
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Nên tắt lọc cho dễ bắt cá, rồi mua vợt ở Petco.</p>` })
+  const r = await gate(root, { llm: reader(), now, mend: cutter(root, sent) })
+  expect(r.report.revert).toEqual([expect.stringContaining('(harm, shop)')])
+  expect(sent).toEqual([])
+  expect((await readJson(root, PUT_BACK)).checks).toEqual(['harm', 'shop'])
+
+  // Two guides worse for a shop, and one mend a run: one is mended, the other goes back and is kept.
+  const OTHER = 'content/guides/youtube-vl1Lx9iWDYU/vi.json'
+  for (const f of [GUIDE, OTHER]) await edit(root, f, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>` })
+  const both = async (p: Page, fs: FitFinding[]) => cutter(root, sent, `content/guides/${p.id}/vi.json`)(p, fs)
+  const capped = await gate(root, { llm: reader(), now, mend: both, mends: 1, jobs: 1 })
+  expect(capped.report.mended).toHaveLength(1)
+  expect(capped.report.revert).toHaveLength(1)
+  expect(sent).toHaveLength(1)
+})
+
+// The pages run put back 10 fish pages on 11 Nov 2026 for a sentence a mender may fix. The video guides' mender turns
+// each away with no call, and each would take one of the run's 6 mends: a guide after six of them would go back unmended.
+test('a page the mender turns away, with no editor called, is not one of the run\'s mends', async () => {
+  const root = await repo()
+  const OTHER = 'content/guides/youtube-vl1Lx9iWDYU/vi.json'
+  for (const f of [GUIDE, OTHER]) await edit(root, f, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>` })
+  // The first page offered is turned away, the second goes to the editor.
+  const sent: FitFinding[][] = []
+  let offered = 0
+  const second = async (p: Page, fs: FitFinding[]) => (offered++ ? cutter(root, sent, `content/guides/${p.id}/vi.json`)(p, fs) : undefined)
+  const r = await gate(root, { llm: reader(), now, mend: second, mends: 1, jobs: 1 })
+  expect(offered).toBe(2)
+  expect(r.report.mended).toHaveLength(1)
+  expect(r.report.revert).toHaveLength(1)
 })
 
 test('a fault the old text had too, found again on a fresh read, is not worse', async () => {

@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { z } from 'zod'
-import { loadAll, TraitsSchema, type Traits } from '@aq/schema'
+import { loadAll, mayPublish, TraitsSchema, type Traits } from '@aq/schema'
 import type { Llm } from './claude'
 import { profile } from './summaries'
 
@@ -65,4 +65,73 @@ export async function extractTraits(contentRoot: string, llm: Llm, opts: { limit
     done.push(s.id)
   }
   return { done, failed }
+}
+
+const COUNT: Record<string, number> = { 'half a dozen': 6, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, twelve: 12, fifteen: 15, twenty: 20 }
+const N = String.raw`(\d+|${Object.keys(COUNT).join('|')})`
+/** Seriously Fish's way of giving the group to keep: "a group of at least 8-10 specimens", "a minimum of 6 individuals". */
+const SF_GROUP = new RegExp(String.raw`\b(?:(?:group|shoal|school|colony)s?\s+of\s+|(?=at least|a minimum|a group))(?:at least\s+|a minimum of\s+|no fewer than\s+)?${N}(?:\s*(?:-|–|to|or)\s*${N})?\s*\+?\s*(?:or more\s+)?(?:specimens|individuals)\b`, 'gi')
+/** A sentence about breeding, a pair or a harem, fish in the wild, or what a fish only can be kept in: no group it needs. */
+const NOT_A_GROUP = /\bpairs?\b|harem|juvenile|spawn|fry|trio|alone|singly|breeding|in nature|in the wild|observed|were found|occurr?(?:s|ing)? in|can be kept|can sometimes/i
+
+/** Sections that say nothing of the group to keep: papers, breeding, the sexes, and the wild ("schools of 30 in the river"). */
+const NOT_SCHOOL = ['references', 'reproduction', 'dimorphism', 'habitat', 'distribution']
+/**
+ * The smallest group Seriously Fish says to keep the fish in, in its own words, or null where it gives none. The card's
+ * school size takes it first, as the card's other figures take Seriously Fish's (the chief of staff, 2026-11-11: the
+ * cardinal tetra's card said 6, from another source's "at least six", where Seriously Fish says 8-10).
+ */
+export function sfSchool(sections: { key: string; source: string; html: string }[]): number | null {
+  const found: number[] = []
+  for (const s of sections) {
+    if (s.source !== 'seriouslyfish' || NOT_SCHOOL.includes(s.key)) continue
+    for (const sentence of s.html.replace(/<[^>]+>/g, ' ').split(/(?<=[.!?])\s+/)) {
+      if (NOT_A_GROUP.test(sentence)) continue
+      for (const m of sentence.matchAll(SF_GROUP)) {
+        const w = m[1]!.toLowerCase()
+        const n = COUNT[w] ?? Number(w)
+        if (n >= 2 && n <= 50) found.push(n)
+      }
+    }
+  }
+  return found.length ? Math.min(...found) : null
+}
+
+/** Another source's minimum in the words such pages use: "groups of 10 specimens or more", "never in groups of fewer than 10–12 individuals", "a school of at least six". */
+const OTHER_GROUP = new RegExp(String.raw`\b(?:(?:group|shoal|school|colony)s?\s+of\s+(?:(?:at least|a minimum of|no fewer than|not fewer than|fewer than)\s+${N}(?:\s*(?:-|–|to|or)\s*${N})?(?!\s*(?:cm|mm|in|l|litres?|liters?|gallons?)\b)|${N}(?:\s*(?:-|–|to|or)\s*${N})?\s*\+?\s*(?:or more\s+)?(?:specimens|individuals|fish|or more)\b)|(?:at least|a minimum of|no fewer than)\s+${N}(?:\s*(?:-|–|to)\s*${N})?\s+(?:specimens|individuals|fish)\b)`, 'gi')
+type Sec = { key: string; source: string; html: string }
+const groups = (sections: Sec[], take: (s: Sec) => boolean, re: RegExp) => sections.filter(s => take(s) && !NOT_SCHOOL.includes(s.key))
+  .flatMap(s => s.html.replace(/<[^>]+>/g, ' ').split(/(?<=[.!?])\s+/)).filter(x => !NOT_A_GROUP.test(x))
+  .flatMap(x => [...x.matchAll(re)].map(m => { const w = m.slice(1).find(Boolean)!.toLowerCase(); return COUNT[w] ?? Number(w) })).filter(n => n >= 2 && n <= 50)
+
+/**
+ * The card's school size: Seriously Fish's (sfSchool), never below the minimum another source the page shows tells the
+ * reader (the chief of staff, 2026-11-11: Glaser's "groups of 10 or more" keeps a card at 10 where Seriously Fish says
+ * 8-10). Null where Seriously Fish gives none: the card keeps the reading of the page's text.
+ */
+export function cardSchool(sections: Sec[], shows: (source: string) => boolean): number | null {
+  const sf = sfSchool(sections)
+  if (sf === null) return null
+  // Each source's own minimum ("at least 6, ideally 12 or more" is 6), then the highest of them.
+  const others = [...new Set(sections.filter(s => s.source !== 'seriouslyfish' && shows(s.source)).map(s => s.source))]
+  const floors = others.map(src => groups(sections, s => s.source === src, OTHER_GROUP)).filter(ns => ns.length).map(ns => Math.min(...ns))
+  return Math.max(sf, ...floors)
+}
+
+/**
+ * Every card whose school size isn't cardSchool's, where Seriously Fish gives one, takes it; no model is asked. A source
+ * counts if a public build shows its text. The ids changed.
+ */
+export async function schoolFromSeriouslyFish(contentRoot: string): Promise<string[]> {
+  const sources = JSON.parse(await readFile(join(contentRoot, 'sources.json'), 'utf8')) as Record<string, Parameters<typeof mayPublish>[0]>
+  const shows = (s: string) => mayPublish(sources[s], 'text')
+  const changed: string[] = []
+  for (const t of await readTraits(contentRoot)) {
+    const e = JSON.parse(await readFile(join(contentRoot, 'species', t.id, 'entity.json'), 'utf8').catch(() => '{"sections":[]}')) as { sections: Sec[] }
+    const n = cardSchool(e.sections, shows)
+    if (n === null || n === t.schoolMin) continue
+    await writeFile(join(dir(contentRoot), `${t.id}.json`), `${JSON.stringify({ ...t, schoolMin: n }, null, 2)}\n`)
+    changed.push(t.id)
+  }
+  return changed
 }

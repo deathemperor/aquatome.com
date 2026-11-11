@@ -33,12 +33,11 @@
     }
   ],
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
       "glaser": 0.9,
-      "seriouslyfish": 0.7
-    },
-    "reason": "score"
+      "seriouslyfish": 0.93
+    }
   }
 }

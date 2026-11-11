@@ -6,11 +6,11 @@ import { PassThrough } from 'node:stream'
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 
 // A `claude` that answers at once with what the CLI prints: the structured output, its cost and tokens.
-const spawned = vi.hoisted(() => [] as { cwd: string }[])
+const spawned = vi.hoisted(() => [] as { cwd: string; env?: NodeJS.ProcessEnv }[])
 // What the next `claude` prints instead, as the pipe hands it over: in these chunks.
 const printed = vi.hoisted(() => ({ chunks: undefined as Buffer[] | undefined }))
 vi.mock('node:child_process', () => ({
-  spawn: (_cmd: string, _args: string[], opts: { cwd: string }) => {
+  spawn: (_cmd: string, _args: string[], opts: { cwd: string; env?: NodeJS.ProcessEnv }) => {
     spawned.push(opts)
     const child = Object.assign(new EventEmitter(), { stdout: new PassThrough(), stderr: new PassThrough(), stdin: new PassThrough(), kill: () => true })
     child.stdin.on('finish', () => {
@@ -87,4 +87,55 @@ test('each line names the account the call went to, by its token\'s hash, never 
   const text = await readFile(log, 'utf8')
   expect(JSON.parse(text)).toMatchObject({ account: tokenHash('tok-first'), model: 'opus' })
   expect(text).not.toContain('tok-first')
+})
+
+// A hand run from inside a session carried these into the child; a scheduled run has none of them. Both must call the
+// model the same way (2026-11-11).
+const SESSION = ['CLAUDE_EFFORT', 'CLAUDECODE', 'CLAUDE_AGENT_SDK_VERSION', 'CLAUDE_CODE_CHILD_SESSION', 'CLAUDE_CODE_ENTRYPOINT', 'CLAUDE_CODE_EXECPATH', 'CLAUDE_CODE_MESSAGING_SOCKET', 'CLAUDE_CODE_MESSAGING_TOKEN', 'CLAUDE_CODE_SESSION_ATTENDED', 'CLAUDE_CODE_SESSION_ID', 'CLAUDE_PID', 'ANTHROPIC_MODEL', 'MAX_THINKING_TOKENS']
+const setSession = () => { for (const name of SESSION) process.env[name] = 'from-session'; process.env.AQ_TEST_KEEP = 'keep' }
+const clearSession = () => { for (const name of SESSION) delete process.env[name]; delete process.env.AQ_TEST_KEEP }
+const dropped = (env: NodeJS.ProcessEnv) => { for (const name of SESSION) expect(env[name]).toBeUndefined() }
+
+test('a call with an account drops the session variables and keeps only that account\'s token', async () => {
+  setSession()
+  // The list is set so the child must not see it; the account the call uses is tok-a.
+  process.env.CLAUDE_CODE_OAUTH_TOKENS = 'tok-a'
+  process.env.CLAUDE_CODE_OAUTH_TOKEN = 'tok-a'
+  resetAccounts()
+  spawned.length = 0
+  try {
+    await call()
+    const env = spawned[0]?.env
+    expect(env).toBeDefined()
+    dropped(env!)
+    expect(env!.CLAUDE_CODE_OAUTH_TOKENS).toBeUndefined()
+    expect(env!.CLAUDE_CODE_OAUTH_TOKEN).toBe('tok-a')
+    expect(env!.AQ_TEST_KEEP).toBe('keep')
+    expect(env!.PATH).toBe(process.env.PATH)
+  } finally {
+    clearSession()
+  }
+})
+
+test('a call with no account still gets a cleaned env, and so does claudeResearch', async () => {
+  setSession()
+  spawned.length = 0
+  try {
+    await call()
+    const env = spawned[0]?.env
+    expect(env).toBeDefined()
+    dropped(env!)
+    expect(env!.CLAUDE_CODE_OAUTH_TOKEN).toBeUndefined()
+    expect(env!.CLAUDE_CODE_OAUTH_TOKENS).toBeUndefined()
+    expect(env!.AQ_TEST_KEEP).toBe('keep')
+    expect(env!.PATH).toBe(process.env.PATH)
+    spawned.length = 0
+    await claudeResearch<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
+    const research = spawned[0]?.env
+    expect(research).toBeDefined()
+    dropped(research!)
+    expect(research!.AQ_TEST_KEEP).toBe('keep')
+  } finally {
+    clearSession()
+  }
 })

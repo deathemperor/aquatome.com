@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-11). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 554 | 28 | 9 | 18 | 573 |
-| rest | 20 | 1686 | 76 | 0 | 54 | 1708 |
+| covered | 30 | 580 | 29 | 9 | 18 | 600 |
+| rest | 20 | 1687 | 75 | 0 | 52 | 1710 |
 
-## Short of target: every source read (294)
+## Short of target: every source read (296)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -276,6 +276,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/denticetopsis-seducta | covered | 0 | 30 |
 | species/hypancistrus-inspector | covered | 0 | 30 |
 | species/hypancistrus-zebra | covered | 0 | 30 |
+| species/hypostomus-luteus | covered | 0 | 30 |
 | species/kryptopterus-geminus | covered | 0 | 30 |
 | species/lepthoplosternum-pectorale | covered | 0 | 30 |
 | species/loricaria-simillima | covered | 0 | 30 |
@@ -290,6 +291,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/stiphodon-ornatus | covered | 0 | 30 |
 | species/tetraodon-mbu | covered | 21 | 30 |
 | species/trichogaster-chuna | covered | 10 | 30 |
+| species/xyliphius-lepturus | covered | 0 | 30 |
 | species/acentronichthys-leptos | covered | 0 | 30 |
 | species/acestridium-dichromum | covered | 0 | 30 |
 | species/acestrorhynchus-altus | covered | 0 | 30 |

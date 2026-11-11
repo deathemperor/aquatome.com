@@ -5,7 +5,8 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies } from './thumb'
-import { generatedApproved, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
+import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
+import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
 import { markOutsideCrop, photoFitsCard, photoFitsHead, validCropGeometry } from './image-geometry'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
@@ -130,7 +131,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   /** Photos copied from a source follow that source's publish gate; others need an open licence. */
   // A public build shows no photo from a host that sets third-party cookies: it waits for `pnpm engine mirror-photos`
   // (2026-10-31: 487 Commons photos put on pages straight from Wikimedia failed best practices on every live page).
-  const cleanPhotos = <P extends Photo>(xs: P[]): P[] => realPhotosFirst(xs.flatMap(p => {
+  const cleanPhotos = <P extends Photo>(xs: P[], page = '', scientificName = ''): P[] => realPhotosFirst(xs.flatMap(p => {
+    if (isOwnerCrop(p)) {
+      const valid=ownerCropApproved(p,page,scientificName,createHash('sha256').update(ownerCropCanonical(p,page,scientificName)).digest('hex'))
+      const veto=p.source && sources[p.source]?.permission?.markRemoval?.allowed===false
+      return valid && !veto ? [p] : []
+    }
     const removedMark = p.altered?.find(a => a.method === 'mark-removal' || a.method === 'mark-crop')
     const permission = p.source && sources[p.source]?.permission?.markRemoval
     const markOn = images.removeMarks && !!permission && permission.allowed && permission.date === removedMark?.permissionDate
@@ -147,12 +153,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (publicBuild && setsCookies(p.url)) return false
     if (p.generated) return images.publishGenerated && generatedUrls.has(p.url) && generatedApproved(p) && !p.altered?.some(a => a.method === 'mark-removal' || a.method === 'mark-crop')
     if (p.altered?.length) {
-      if (!images.publishAltered) return false
+      if (!images.publishAltered && !isOwnerCrop(p)) return false
       for (const a of p.altered) {
         if (a.method === 'lanczos3-upscale' && !images.upscaleReal) return false
         if (a.method === 'mark-removal' || a.method === 'mark-crop') {
           const permission = p.source && sources[p.source]?.permission?.markRemoval
-          if (!images.removeMarks || !permission || !permission.allowed || permission.date !== a.permissionDate || !validImageJudgmentHashes(a.checks?.species) || !validImageJudgmentHashes(a.checks?.ownership)) return false
+          if ((!isOwnerCrop(p) && (!images.removeMarks || !permission || !permission.allowed || permission.date !== a.permissionDate)) || !validImageJudgmentHashes(a.checks?.species) || !validImageJudgmentHashes(a.checks?.ownership)) return false
           if(a.method==='mark-removal' && (a.outsideChanged !== 0 || a.noTrace !== 'pass' || !a.box || !validImageJudgmentHashes(a.checks?.noTrace) || !validImageJudgmentHashes(a.checks?.preservation) || a.residue?.version !== MARK_RESIDUE_VERSION || a.residue.limit !== MARK_RESIDUE_LIMIT || !Number.isFinite(a.residue.score) || a.residue.score >= MARK_RESIDUE_LIMIT))return false
           if(a.method==='mark-crop' && (a.retainedChanged!==0 || !validCropGeometry(a.crop) || p.width!==a.crop.window.x1-a.crop.window.x0 || p.height!==a.crop.window.y1-a.crop.window.y0 || !a.excludedMarks?.length || a.excludedMarks.some(m=>!markOutsideCrop(a.crop!,m))))return false
         }
@@ -186,7 +192,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const generatedPages = new Set<string>()
   const rememberGenerated = <E extends { id: string; photos: Photo[] }>(page: E): E => { if (page.photos.some(p => p.generated)) generatedPages.add(page.id); return page }
   const species = (await loadKind(root, 'species', SpeciesSchema, lang, leaveOutHeld)).map(rememberGenerated)
-    .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
+    .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos, `species/${s.id}`, s.scientificName), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
     .filter(s => s.sections.length > 0)
   const plants = (await loadKind(root, 'plants', PlantSchema, lang, leaveOutHeld)).map(rememberGenerated)
     .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
@@ -219,7 +225,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   for (const f of (await readdir(join(root, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const g = await readJson(join(root, 'gallery', f), GallerySchema)
     // A photo the photo check has not judged yet (`unchecked`) waits: no page shows it, and it counts towards no album.
-    const photos = cleanPhotos(g.photos.filter(p => !p.unchecked))
+    const speciesPage=species.find(p=>p.id===g.id)
+    const photos = cleanPhotos(g.photos.filter(p => !p.unchecked), speciesPage ? `species/${g.id}` : '', speciesPage?.scientificName ?? '')
     if (photos.length) galleries[g.id] = photos
   }
 
@@ -228,12 +235,15 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const shownCare = (care: BreedEntity['care']) => Object.fromEntries(Object.entries(care).map(([f, vs]) => [f, (vs ?? []).filter(v => !v.hidden)] as const).filter(([, vs]) => vs.length)) as BreedEntity['care']
   const breeds = (await loadKind(root, 'breeds', BreedSchema, lang, leaveOutHeld)).map(rememberGenerated).map(b => ({ ...b, care: shownCare(b.care), photos: cleanPhotos(b.photos) }))
   // A newly passed real album photo immediately leads a formerly generated-only page, even before lead-photos runs.
-  for (const page of [...species, ...plants, ...breeds]) if (page.photos.some(p=>!photoFitsHead(p)) || page.photos[0]?.generated || (!page.photos.length && generatedPages.has(page.id))) {
+  // A photo marked to show whole (`headFit: "contain"`) may head a page though no crop of it fits the frame: the page
+  // draws it uncut (PhotoGallery.astro).
+  const fitsHead = (p: Photo) => p.headFit === 'contain' || photoFitsHead(p)
+  for (const page of [...species, ...plants, ...breeds]) if (page.photos.some(p=>!fitsHead(p)) || page.photos[0]?.generated || (!page.photos.length && generatedPages.has(page.id))) {
     const all=realPhotosFirst([...new Map([...page.photos,...(galleries[page.id]??[])].map(p=>[p.url,p])).values()])
-    const albumOnly=page.photos.filter(p=>!photoFitsHead(p))
+    const albumOnly=page.photos.filter(p=>!fitsHead(p))
     if(albumOnly.length)galleries[page.id]=realPhotosFirst([...new Map([...(galleries[page.id]??[]),...albumOnly].map(p=>[p.url,p])).values()])
-    page.photos=page.photos.filter(photoFitsHead)
-    const real = all.find(p => !p.generated && photoFitsHead(p))
+    page.photos=page.photos.filter(fitsHead)
+    const real = all.find(p => !p.generated && fitsHead(p))
     if (real) page.photos = [real, ...page.photos.filter(p => p.url !== real.url)]
     else if(all.some(p=>!p.generated))page.photos=page.photos.filter(p=>!p.generated)
   }
@@ -261,7 +271,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (t.held) continue
     const { photo, ...card } = await readJson(join(cardsDir, id, 'entity.json'), CardSchema)
     if (!cardShownIn(card, lang)) continue
-    const shown = photo && !photo.generated && photoFitsCard(photo) ? cleanPhotos([photo])[0] : undefined
+    const shown = photo && !photo.generated && !isOwnerCrop(photo) && photoFitsCard(photo) ? cleanPhotos([photo])[0] : undefined
     cards.push({ ...card, ...(shown ? { photo: shown } : {}), t })
   }
 

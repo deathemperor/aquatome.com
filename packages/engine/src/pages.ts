@@ -25,8 +25,8 @@ export type Page = {
   fields: { field: string; html: string }[]
   /** Plain-text lines (the title aside): summary points, FAQ questions and answers, the equipment page's lead and picks. */
   lines: { field: string; text: string }[]
-  /** Captions of the page's photos and, for species and plants, of its gallery. */
-  captions: { url: string; caption: string }[]
+  /** Captions of the page's photos and, for species and plants, of its gallery; `file`: a Wikimedia Commons photo's file there ("File:….jpg"). */
+  captions: { url: string; caption: string; file?: string }[]
   /** Species, plants and breeds: a person chose the name (`nameFixed`), and the engine leaves it as it is. */
   nameFixed?: boolean
   /** Species and plants: the Latin name, and the other Latin names the page goes by. */
@@ -81,7 +81,14 @@ const textOf = (t: Extra, sections: Record<string, string> = {}) => ({
 })
 /** The Latin names among a page's other names: "Corydoras paleatus", a cultivar's "Echinodorus 'Vesuvius'". */
 const latin = (names: string[]) => names.filter(n => /^[A-Z][a-z]+ (?:[a-z]{3,}|['‘’"][A-Z])/.test(n))
-const captionsOf = (photos: { url: string; caption?: string }[]) => photos.flatMap(p => (p.caption ? [{ url: p.url, caption: p.caption }] : []))
+const commonsFile = (sourceUrl = '') => {
+  const file = /^https?:\/\/commons\.wikimedia\.org\/wiki\/(File:[^?#]+)/.exec(sourceUrl)?.[1]
+  try { return file && decodeURIComponent(file) } catch { return file }
+}
+const captionsOf = (photos: { url: string; caption?: string; sourceUrl?: string }[]) => photos.flatMap(p => {
+  const file = commonsFile(p.sourceUrl)
+  return p.caption ? [{ url: p.url, caption: p.caption, ...(file ? { file } : {}) }] : []
+})
 /** A product's review summary and test notes, as lines of plain text. */
 export const reviewLines = (t: Pick<Translation, 'reviews' | 'tested'>) => [
   ...(t.reviews?.agree ?? []).map((x, i) => ({ field: `reviews.agree.${i}`, text: x.text })),

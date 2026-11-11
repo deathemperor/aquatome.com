@@ -1,0 +1,85 @@
+{
+  "id": "youtube-pIfVV_CAMmQ",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=pIfVV_CAMmQ",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "lilaeopsis-brasiliensis",
+    "staurogyne-repens",
+    "helanthium-tenellum",
+    "hygrophila-pinnatifida",
+    "marsilea-hirsuta"
+  ],
+  "updatedAt": "2026-11-11",
+  "video": {
+    "youtubeId": "pIfVV_CAMmQ",
+    "title": "Beginner's Guide to Aquascaping on a Budget - Non CO2 Low Tech Fluval Flex",
+    "channel": "George Farmer",
+    "channelUrl": "https://www.youtube.com/channel/UC210QPUiYoCjm9IEuu5SHLQ",
+    "durationSec": 1777,
+    "publishedAt": "2020-04-02",
+    "chapters": [],
+    "series": {
+      "id": "PLKedE6P1X5OzHvLkpRy5WEFF6gjX0U3mN",
+      "position": 15
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/pIfVV_CAMmQ/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Lilaeopsis brasiliensis",
+      "Micranthemus tweediei",
+      "Staurogyne repens",
+      "Hemianthus callitrichoides",
+      "Helanthium tenellum",
+      "Hygrophila pinnatifida",
+      "Hygrophila sp.",
+      "Marsilea hirsuta"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "brand": "Fluval",
+        "model": "Flex",
+        "t": 90
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Fluval",
+        "model": "Flex",
+        "t": 170
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "t": 190
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Tropica",
+        "model": "Aquarium Soil Powder",
+        "t": 311
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Premium Nutrition",
+        "t": 972
+      },
+      {
+        "category": "co2",
+        "type": "mini",
+        "brand": "Tropica",
+        "model": "CO2 System Nano",
+        "t": 945
+      }
+    ]
+  }
+}

@@ -16,6 +16,34 @@
       {
         "source": "glaser",
         "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 5.5,
+          "max": 7
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 120
       }
     ]
   },
@@ -27,10 +55,46 @@
       "html": "<p>The pretty, blue-eyed L137 from the Rio Tapajós is only rarely offered. It is a medium-sized species of Hypostomus that can reach a maximum length of about 20 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_soniae.htm",
+      "html": "<ul><li>Common names: Blue Eyed Red Fin Pleco, Rusty Pleco, L137, L077</li><li>Synonyms: none</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l137_hypostomus_soniae_cochliodon_soniae_en/",
       "html": "<p>Rio Tapajós, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_soniae.htm",
+      "html": "<p>Brazil: Pará, Rio Tapajós (Pimental-Itaituba). Type locality: Brazil: Pará: temporary pools on the river sides of the Rio Tapajós, between Vila Nova and Urua.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_soniae.htm",
+      "html": "<p>Aquarium size would need to be 4ft (120cm) or over.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_soniae.htm",
+      "html": "<p>A high backed species which can grow quite large and is intolerant of other Loricariids. Quite easy to keep but needs frequent water changes on account of its high metabolic rate.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_soniae.htm",
+      "html": "<p>Temperature: 26–30°C. pH: 5.5–7.0.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_soniae.htm",
+      "html": "<p>Wood eaters, so they need a supply of fresh and seasoned wood. Food tablets and also green foods.</p>"
     },
     {
       "key": "dimorphism",
@@ -43,16 +107,97 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l137_hypostomus_soniae_cochliodon_soniae_en/",
       "html": "<p>Etymology: Hypostomus: from ancient Greek, means “with inferior mouth”. Cochliodon: means “with mussel-shaped tooth”. soniae: dedication name for Sonia Fisch-Muller, curator for fishes at the Museum of Geneva.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_soniae.htm",
+      "html": "<p>Placed in the Hypostomus cochliodon species group, which have a shorter body and are more high backed than other members of Hypostomus. They have a small number of spatulate teeth with a single cusp, with the jaws arranged in a V shape. L137 was first placed in the genus Cochliodon (now a synonym) but was moved into this larger genus due to the work of Jon Armbruster on the Hypostomus/Cochliodon group.</p><p>Etymology: the specific name soniae honours Sonia Fisch-Muller, Muséum d'histoire naturelle (Geneva), specialist in loricariid systematics and one of the collectors of the type series.</p><p>IUCN Red List: Hypostomus soniae is endemic to Brazil, occurring in the Tapajós River, where it is naturally infrequent and not very abundant. However, no significant threats to its population have been identified. It is categorised as Least Concern (LC) (IUCN 2022).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_soniae.htm",
+      "html": "<p>Armbruster W, Jonathon. The species of the Hypostomus cochliodon group (Siluriformes: Loricariidae). Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/7ec9ee9ed2c01c0f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/7ec9ee9ed2c01c0f-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "Jörn Regul / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_soniae.htm",
+      "caption": "Hypostomus soniae",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/63cf356532f514b8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/63cf356532f514b8-480.webp",
+      "width": 500,
+      "height": 312,
+      "licence": "dùng với sự cho phép",
+      "author": "Jörn Regul / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_soniae.htm",
+      "caption": "Hypostomus soniae",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f25d071884afb972.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f25d071884afb972-480.webp",
+      "width": 500,
+      "height": 357,
+      "licence": "dùng với sự cho phép",
+      "author": "clunk / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_soniae.htm",
+      "caption": "Hypostomus soniae",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9005150e4e350e50.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9005150e4e350e50-480.webp",
+      "width": 500,
+      "height": 305,
+      "licence": "dùng với sự cho phép",
+      "author": "clunk / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_soniae.htm",
+      "caption": "Hypostomus soniae",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "qR4qdU0-DUA",
+      "title": "Juvie Hypostomus soniae L137 (8/18/2023)",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "435Tng1iDs8",
+      "title": "L137 Bruno Pleco",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cDQJr247FOE",
+      "title": "L-137 Blue Eyed Redfin Pleco",
+      "durationSec": 27,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mRpwvHsWAWU",
+      "title": "L137 Blue eye Red fin pleco Hypostomus soniae Fantasy Aquatic)",
+      "durationSec": 42,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá lớn nuôi cá lau kiếng"
+        "bể cá 120cm"
       ]
     },
     {

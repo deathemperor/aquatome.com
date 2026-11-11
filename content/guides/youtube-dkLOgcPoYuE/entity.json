@@ -1,0 +1,80 @@
+{
+  "id": "youtube-dkLOgcPoYuE",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=dkLOgcPoYuE",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "lilaeopsis-brasiliensis",
+    "sagittaria-subulata",
+    "lobelia-cardinalis",
+    "cryptocoryne-wendtii",
+    "hygrophila-pinnatifida",
+    "rotala-rotundifolia",
+    "microsorum-pteropus"
+  ],
+  "updatedAt": "2026-11-11",
+  "video": {
+    "youtubeId": "dkLOgcPoYuE",
+    "title": "How to Aquascape a Fluval Flex",
+    "channel": "George Farmer",
+    "channelUrl": "https://www.youtube.com/channel/UC210QPUiYoCjm9IEuu5SHLQ",
+    "durationSec": 717,
+    "publishedAt": "2019-01-05",
+    "chapters": [],
+    "series": {
+      "id": "PLKedE6P1X5OzHvLkpRy5WEFF6gjX0U3mN",
+      "position": 8
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/dkLOgcPoYuE/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Lilaeopsis brasiliensis",
+      "Sagittaria subulata",
+      "Lobelia cardinalis",
+      "Cryptocoryne wendtii",
+      "Hygrophila pinnatifida",
+      "Rotala rotundifolia",
+      "Cabomba caroliniana",
+      "Microsorum pteropus"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "brand": "Fluval",
+        "model": "Flex 57 L",
+        "t": 60
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Tropica",
+        "model": "Tropica Aquarium Soil",
+        "t": 134
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Tropica hardscape (driftwood and lava stone)",
+        "t": 165
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Tropica liquid fertiliser",
+        "t": 71
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Tropica Basic Aero system",
+        "t": 71
+      }
+    ]
+  }
+}

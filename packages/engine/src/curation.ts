@@ -1,3 +1,4 @@
+import { isOwnerCrop } from '@aq/schema/image-policy'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { addDays, cardShownIn, CardSchema, CurationSchema, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Photo, photoFitsCard } from '@aq/schema'
@@ -11,8 +12,10 @@ import type { PhotoVerdict } from './photo-check'
  * - it passes the reader-fit gate (gate.ts): not held back, and no finding the gate holds a page for;
  * - its card photo is its page's head photo, checked (the right fish, typical, no person, logo or watermark) and big
  *   enough for the card. A card shows the head photo or none, never another (the chief of staff, 2026-11-10: the Altum's
- *   card and page differed, and the page flashed as one replaced the other). The one exception is a photo the owner chose
- *   from the page's album for that day (`imgChosen`), kept while it passes.
+ *   card and page differed, and the page flashed as one replaced the other).
+ * Khám phá's top cards that open a fish's page show its head photo too; a head too small for the card is shown and
+ * reported, never swapped for another photo. A week has five top cards, all from pages that show: one whose page fails
+ * reader fit would be hidden, so it gives its place to a fish that passes.
  * A person's choice (`fixed`, or a week's own lists) is kept while it passes; a pick that stops passing is replaced.
  * Picks come from the week's theme (its `tags` and lists), how well known a fish is, readers' searches (Search Console),
  * and what's new, never the same fish twice in four weeks.
@@ -33,6 +36,8 @@ export const across = (p: Pick<Photo, 'width' | 'height'>, slot: Slot) => Math.r
 
 /** No fish or guide comes back on Hôm nay within this many days. */
 export const REPEAT_DAYS = 28
+/** Khám phá's top cards a week shows (the chief of staff, 2026-11-11: a week had shown one of its five). */
+export const HERO_COUNT = 5
 
 /** Each tag as the owner's daily report says it, in the day's `why`. */
 const TAG_WORDS: Record<string, string> = { cold: 'takes cool water', heater: 'needs a heater when it turns cold', beginner: 'easy to keep', nano: 'a small schooling fish for a small tank', local: 'native to Vietnam' }
@@ -131,7 +136,7 @@ export function ownMarkOnly(p: Pick<Photo, 'url' | 'sourceUrl'>, page: string, v
 export function photosFor(photos: Photo[], ok: (p: Photo) => boolean): Pick<Candidate, 'photo' | 'checked'> {
   const photo: Candidate['photo'] = {}
   const checked: Candidate['checked'] = {}
-  for (const p of photos.filter(p => !p.generated && photoFitsCard(p) && ok(p))) {
+  for (const p of photos.filter(p => !p.generated && !isOwnerCrop(p) && photoFitsCard(p) && ok(p))) {
     for (const x of p.large ? [p, p.large] : [p]) checked[x.url] = Object.fromEntries(SLOTS.map(slot => [slot, across(x, slot)])) as Record<Slot, number>
     const big = p.large ?? p
     for (const slot of SLOTS) if (!photo[slot] || across(big, slot) > photo[slot].px) photo[slot] = { url: big.url, px: across(big, slot) }
@@ -142,7 +147,7 @@ export function photosFor(photos: Photo[], ok: (p: Photo) => boolean): Pick<Cand
 /** A page's head photo for its cards, when it passes its checks: by its large copy, the address the app loads. */
 export function headOf(own: Photo[], ok: (p: Photo) => boolean): Candidate['head'] {
   const p = own[0]
-  if (!p || p.generated || !photoFitsCard(p) || !ok(p)) return undefined
+  if (!p || p.generated || isOwnerCrop(p) || !photoFitsCard(p) || !ok(p)) return undefined
   const big = p.large ?? p
   return { url: big.url, px: Object.fromEntries(SLOTS.map(slot => [slot, across(big, slot)])) as Record<Slot, number> }
 }
@@ -262,6 +267,15 @@ export function fishProblem(c: Candidate | undefined): string | undefined {
   return undefined
 }
 
+/** Why a fish's Khám phá card is wrong: it shows its page's head photo, which has to pass and fill the wide card. */
+function fishHeroProblem(c: Candidate | undefined): string | undefined {
+  if (!c) return 'no such page'
+  if (!c.fit) return `reader fit: ${c.fitWhy}`
+  if (!c.head) return 'no checked head photo'
+  if (c.head.px.wide < LARGE_PX) return `head photo ${c.head.px.wide} px across, under ${LARGE_PX}`
+  return undefined
+}
+
 /** A fish with a loop scores as much again as a large photo does: it moves up on its own, never past a week's own list. */
 const LOOP_BONUS = 1
 /** A week with no video guide yet takes one, after its own list's guides and before the rest. */
@@ -282,7 +296,7 @@ const score = (c: Candidate, w: CurationWeek | undefined, today: string, bonus =
  * a 40 cm predator had filled small-tank days). */
 const fitsWeek = (c: Candidate, w: CurationWeek | undefined) => !w?.tags.length || w.fish.includes(c.ref) || w.tags.some(t => TAGS[t]?.(c.facts))
 
-export type PlanReport = { kept: string[]; filled: string[]; replaced: { date: string; slot: string; was: string; why: string }[]; empty: string[] }
+export type PlanReport = { kept: string[]; filled: string[]; replaced: { date: string; slot: string; was: string; why: string }[]; empty: string[]; heroes: string[] }
 
 /**
  * Fill `days` days from `from`: a day a person chose keeps its picks while they pass; any other pick that no longer
@@ -290,7 +304,7 @@ export type PlanReport = { kept: string[]; filled: string[]; replaced: { date: s
  */
 export function plan(cur: Curation, cands: Candidate[], from: string, days: number): { calendar: Curation; report: PlanReport } {
   const byRef = new Map(cands.map(c => [c.ref, c]))
-  const report: PlanReport = { kept: [], filled: [], replaced: [], empty: [] }
+  const report: PlanReport = { kept: [], filled: [], replaced: [], empty: [], heroes: [] }
   const out = new Map(cur.days.map(d => [d.date, { ...d }]))
   // On Hôm nay in the four weeks either side, or as the day's own story.
   const used = (ref: string, date: string) => out.get(date)?.story?.page === ref || [...out.values()].some(d => d.date !== date && Math.abs(Date.parse(d.date) - Date.parse(date)) < REPEAT_DAYS * 86400_000 && (d.fish === ref || d.guide === ref || d.story?.page === ref))
@@ -310,9 +324,8 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
         : 'empty'
       if (ref && !p) {
         report.kept.push(`${date} ${slot}`)
-        if (slot === 'fish') {
-          if (!d.imgChosen || problem(c, 'square', d.img)) { d.img = c!.head!.url; delete d.imgChosen }
-        } else guidePhoto(d, c!)
+        if (slot === 'fish') d.img = c!.head!.url
+        else guidePhoto(d, c!)
         continue
       }
       if (ref) report.replaced.push({ date, slot, was: ref, why: p! })
@@ -338,7 +351,6 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       if (slot === 'fish') d.img = best.head!.url
       else { delete d.guideImg; guidePhoto(d, best) }
       delete d.fixed
-      if (slot === 'fish') delete d.imgChosen
       report.filled.push(`${date} ${slot}: ${best.ref}`)
       const reasons = [
         ...(pool.includes(best.ref) ? ["on this week's list"] : []),
@@ -361,7 +373,41 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
     out.set(date, d)
   }
   const sorted = [...out.values()].sort((a, b) => a.date.localeCompare(b.date))
-  return { calendar: { ...cur, days: sorted, off: offPages({ ...cur, days: sorted }, byRef, from) }, report }
+  // Khám phá's top cards, week by week from the one that holds `from`. A card whose page fails reader fit would be hidden,
+  // so a fish that passes takes its place, and a week short of five takes more: its own list first, then its tags, never
+  // a fish another week's top cards had or have within four weeks (the chief of staff, 2026-11-11). A fish's card shows
+  // its page's head photo, even one too small for the wide card, which the check reports until the head is fixed (the
+  // owner, 2026-11-11). A guide's card keeps its photo.
+  const weeks = [...cur.weeks]
+  weeks.forEach((w, i) => {
+    if (w.to < from) return
+    const near = (ref: string) => weeks.some(o => o !== w && Math.abs(Date.parse(o.from) - Date.parse(w.from)) < REPEAT_DAYS * 86400_000 && o.hero.some(h => h.page === ref))
+    const pool = cands
+      .filter(x => x.kind !== 'guides' && !fishHeroProblem(x) && fitsWeek(x, w) && !w.hero.some(h => h.page === x.ref) && !near(x.ref))
+      .map(x => ({ x, s: score(x, w, from) }))
+      .sort((a, b) => b.s - a.s || a.x.ref.localeCompare(b.x.ref))
+      .map(({ x }) => x)
+    const hero = w.hero.flatMap(h => {
+      const c = byRef.get(h.page)
+      if (c?.fit) return [h]
+      const x = pool.shift()
+      report.heroes.push(`${w.from} ${h.page} out (${c ? `reader fit: ${c.fitWhy}` : 'no such page'}), ${x ? `${x.ref} in` : 'no fish left to take its place'}`)
+      return x ? [{ page: x.ref, img: x.head!.url }] : []
+    })
+    while (hero.length < HERO_COUNT && pool.length) {
+      const x = pool.shift()!
+      report.heroes.push(`${w.from} ${x.ref} in, to make ${HERO_COUNT}`)
+      hero.push({ page: x.ref, img: x.head!.url })
+    }
+    const shown = hero.map(h => {
+      const c = byRef.get(h.page)
+      if (!c || c.kind === 'guides' || !c.head || h.img === c.head.url) return h
+      report.heroes.push(`${w.from} ${h.page}: ${h.img ?? 'none'} -> ${c.head.url}`)
+      return { ...h, img: c.head.url }
+    })
+    if (shown.length !== w.hero.length || shown.some((h, j) => h !== w.hero[j])) weeks[i] = { ...w, hero: shown }
+  })
+  return { calendar: { ...cur, weeks, days: sorted, off: offPages({ ...cur, weeks, days: sorted }, byRef, from) }, report }
 }
 
 /** A guide card's photo: its page's head photo when that is big enough for the card, else none. */
@@ -401,8 +447,8 @@ export async function cardsOf(root: string): Promise<Map<string, CardShow>> {
         out.set(`cards/${id}`, { bad: parsed.error.issues.map(i => `${i.path.join('.') || 'entity'}: ${i.message}`).join('; ') })
         continue
       }
-      if (parsed.data.photo?.generated) {
-        out.set(`cards/${id}`, { bad: 'a generated image may not be the day\'s card' })
+      if (parsed.data.photo?.generated || isOwnerCrop(parsed.data.photo)) {
+        out.set(`cards/${id}`, { bad: parsed.data.photo?.generated ? 'a generated image may not be the day\'s card' : 'an individually approved crop may not be the day\'s card' })
         continue
       }
       const langs: string[] = []
@@ -425,6 +471,7 @@ export async function cardsOf(root: string): Promise<Map<string, CardShow>> {
 export function checkCalendar(cur: Curation, cands: Candidate[], from: string, days: number, cards: Map<string, CardShow> = new Map()): string[] {
   const byRef = new Map(cands.map(c => [c.ref, c]))
   const out: string[] = []
+  const notHead = (img: string | undefined, ref: string) => (img && img !== byRef.get(ref)?.head?.url ? "its card's photo isn't the page's head photo" : undefined)
   for (let i = 0; i < days; i++) {
     const date = addDays(from, i)
     const d = cur.days.find(x => x.date === date)
@@ -432,8 +479,7 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
     if (!d?.guide) out.push(`${date}: no guide`)
   }
   for (const d of cur.days.filter(x => x.date >= from)) {
-    const notHead = (img: string | undefined, ref: string) => (img && img !== byRef.get(ref)?.head?.url ? "its card's photo isn't the page's head photo" : undefined)
-    const fish = d.fish && (fishProblem(byRef.get(d.fish)) ?? (!d.img ? 'no photo set for the card' : d.imgChosen ? problem(byRef.get(d.fish), 'square', d.img) : notHead(d.img, d.fish)))
+    const fish = d.fish && (fishProblem(byRef.get(d.fish)) ?? (d.img ? notHead(d.img, d.fish) : 'no photo set for the card'))
     if (fish) out.push(`${d.date} fish ${d.fish}: ${fish}`)
     const guide = d.guide && (problem(byRef.get(d.guide), 'guide', d.guideImg, { photo: false }) ?? notHead(d.guideImg, d.guide))
     if (guide) out.push(`${d.date} guide ${d.guide}: ${guide}`)
@@ -455,10 +501,13 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
     }
   }
   for (const w of cur.weeks.filter(x => x.to >= from)) {
-    for (const h of w.hero.filter(h => !cur.off[h.page])) {
-      const p = problem(byRef.get(h.page), 'wide', h.img)
+    // A top card whose page fails reader fit is hidden, and a week shows five.
+    for (const h of w.hero) {
+      const c = byRef.get(h.page)
+      const p = c?.kind === 'guides' ? problem(c, 'wide', h.img) : (fishHeroProblem(c) ?? notHead(h.img, h.page))
       if (p) out.push(`week ${w.from} hero ${h.page}: ${p}`)
     }
+    if (w.hero.length < HERO_COUNT) out.push(`week ${w.from}: ${w.hero.length} top cards of ${HERO_COUNT}`)
     for (const s of w.shelves) for (const ref of s.pages.filter(r => !cur.off[r])) {
       const c = byRef.get(ref)
       if (!c) out.push(`week ${w.from} shelf ${s.id} ${ref}: no such page`)

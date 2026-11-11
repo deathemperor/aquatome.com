@@ -1,0 +1,73 @@
+{
+  "id": "youtube-q8ttVMAorSY",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=q8ttVMAorSY",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "corydoras-pygmaeus",
+    "neocaridina-davidi",
+    "corydoras-aeneus",
+    "corydoras-panda",
+    "tanichthys-albonubes",
+    "caridina-multidentata",
+    "hydrocotyle-tripartita"
+  ],
+  "updatedAt": "2026-11-11",
+  "video": {
+    "youtubeId": "q8ttVMAorSY",
+    "title": "Making a Self Balancing Ecosystem Aquarium From Start To Finish (Minisode)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 489,
+    "publishedAt": "2025-09-25",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvZYP0uLmei829zZ6UHKHWr",
+      "position": 1
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/q8ttVMAorSY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Corydoras pygmaeus",
+      "Physa acuta",
+      "Planorbella sp.",
+      "Neocaridina davidi",
+      "Corydoras aeneus",
+      "Corydoras panda",
+      "Tanichthys albonubes",
+      "Caridina multidentata",
+      "Hydrocotyle tripartita",
+      "Adiantum sp."
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "t": 30
+      },
+      {
+        "category": "den",
+        "t": 62
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 220
+      }
+    ]
+  }
+}

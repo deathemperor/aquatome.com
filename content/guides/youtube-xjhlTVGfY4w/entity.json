@@ -1,0 +1,74 @@
+{
+  "id": "youtube-xjhlTVGfY4w",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=xjhlTVGfY4w",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "betta-splendens",
+    "helanthium-tenellum",
+    "cryptocoryne-wendtii",
+    "microsorum-pteropus"
+  ],
+  "updatedAt": "2026-11-11",
+  "video": {
+    "youtubeId": "xjhlTVGfY4w",
+    "title": "How to Aquascape a Fluval Flex Planted Tank",
+    "channel": "George Farmer",
+    "channelUrl": "https://www.youtube.com/channel/UC210QPUiYoCjm9IEuu5SHLQ",
+    "durationSec": 1066,
+    "publishedAt": "2019-07-12",
+    "chapters": [],
+    "series": {
+      "id": "PLKedE6P1X5OzHvLkpRy5WEFF6gjX0U3mN",
+      "position": 11
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/xjhlTVGfY4w/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Betta splendens",
+      "Helanthium tenellum",
+      "Cryptocoryne wendtii",
+      "Hydrophila sp.",
+      "Microsorum pteropus"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "brand": "Fluval",
+        "model": "Flex 57 L",
+        "t": 33
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Fluval",
+        "model": "Flex",
+        "t": 65
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Tropica",
+        "model": "Plant Soil",
+        "t": 158
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "t": 885
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Premium Nutrition",
+        "t": 595
+      }
+    ]
+  }
+}

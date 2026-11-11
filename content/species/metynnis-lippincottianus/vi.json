@@ -28,12 +28,11 @@
     "references:seriouslyfish": "<ul><li>Cope, E. D. (1870). Contribution to the ichthyology of the Marañon. Proceedings of the American Philosophical Society v. 11, 559-570</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.7,
+      "glaser": 0.8,
       "seriouslyfish": 0.88
-    },
-    "reason": "score"
+    }
   }
 }

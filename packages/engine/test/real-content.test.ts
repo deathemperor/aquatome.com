@@ -3,11 +3,12 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { loadAll, resolveDataCard, type Translation } from '@aq/schema'
+import { loadAll, mayPublish, resolveDataCard, type Translation } from '@aq/schema'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
 import { ENGLISH_PLACE_WORD } from '../src/place-names'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
+import { cardSchool, readTraits } from '../src/traits'
 
 // The real content/, not the test store, as a public build shows it. Each class of defect here has a fix the engine
 // makes on every page each cycle, before the build (`pnpm engine sweep`, sweep.ts; `pnpm engine metric` for units), so a
@@ -171,3 +172,34 @@ test('a heading whose sources could not both be true speaks with one voice', asy
   const heard = (id: string, key: string) => species.find(s => s.id === id)?.sections.filter(x => x.key === key).map(x => x.source)
   for (const [id, keep] of Object.entries(voices)) for (const [key, source] of Object.entries(keep)) expect(heard(id, key), `${id} ${key}`).toEqual([source])
 }, 120_000)
+
+// The neon tetra's blue stripe: The Spruce Pets said it starts at the tip of the nose, photos start it at the eye, and no
+// other source says where it starts (2026-11-11). The page keeps what the sources agree on: it runs to the adipose fin.
+test('the neon tetra\'s stripe has no starting point no source agrees on, in any language, and the engine keeps it so', async () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const notes = (JSON.parse(readFileSync(join(root, 'species/paracheirodon-innesi/entity.json'), 'utf8')) as { sections: { key: string; source: string; html: string; fixed?: boolean }[] })
+    .sections.find(s => s.key === 'notes' && s.source === 'sprucepets')!
+  expect(notes.fixed).toBe(true)
+  expect(notes.html).not.toMatch(/tip of the nose/)
+  expect(notes.html).toMatch(/blue stripe that runs along the body to the adipose fin/)
+  const nose = { vi: /chóp mõm đến vây mỡ/, id: /ujung moncong hingga/, th: /ปลายจมูกถึงครีบไขมัน/, ms: /hujung muncung hingga/ }
+  for (const [lang, said] of Object.entries(nose)) {
+    const t = JSON.parse(readFileSync(join(root, `species/paracheirodon-innesi/${lang}.json`), 'utf8')) as { sections: Record<string, string> }
+    expect(t.sections['notes:sprucepets'], lang).not.toMatch(said)
+  }
+})
+
+// The chief of staff, 2026-11-11: a card's school size is Seriously Fish's where it gives one (traits.ts sfSchool), as the
+// card's other figures are. The cardinal tetra's card said 6 from another source, where Seriously Fish says 8-10.
+test("every card's school size is Seriously Fish's where it gives one, never below another source's on the page; the cardinal tetra's is 8", async () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const sources = JSON.parse(readFileSync(join(root, 'sources.json'), 'utf8')) as Record<string, Parameters<typeof mayPublish>[0]>
+  const wrong: string[] = []
+  for (const t of await readTraits(root)) {
+    const e = JSON.parse(readFileSync(join(root, 'species', t.id, 'entity.json'), 'utf8')) as { sections: { key: string; source: string; html: string }[] }
+    const n = cardSchool(e.sections, s => mayPublish(sources[s], 'text'))
+    if (n !== null && n !== t.schoolMin) wrong.push(`${t.id}: ${t.schoolMin} (should be ${n})`)
+  }
+  expect(wrong).toEqual([])
+  expect((await readTraits(root)).find(t => t.id === 'paracheirodon-axelrodi')?.schoolMin).toBe(8)
+})

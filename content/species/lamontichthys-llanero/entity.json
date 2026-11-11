@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "venezuela",
-    "orinoco"
+    "orinoco",
+    "llanos"
   ],
   "range": {
     "native": {
@@ -144,6 +145,10 @@
       {
         "source": "seriouslyfish",
         "value": 20
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "tankCm": [
@@ -167,10 +172,22 @@
       "html": "<p>Lamontichthys llanero is a suckermouth catfish from the Orinoco basin in Venezuela. It lives among rocky substrates and driftwood snags in shallow, flowing water, and needs well-oxygenated water with plenty of movement. Unaggressive and peaceful with conspecifics, it is rarely seen in the hobby.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lamontichthys_llanero_en/",
+      "html": "<ul><li>Origin: Venezuela</li><li>Size: about 15 cm in length (without the caudal filaments, which are sometimes even longer than the body)</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-llanero",
       "html": "<p>Orinoco basin, Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lamontichthys_llanero_en/",
+      "html": "<p>This catfish comes from Venezuela. The species is named after the Llanos in Venezuela, where it occurs.</p>"
     },
     {
       "key": "habitat",
@@ -209,6 +226,12 @@
       "html": "<p>Unaggressive but perhaps not the best choice for a general community tank, due to its rather specialised requirements. Possible tankmates include peaceful characins that can tolerate water movement, reophilic cichlids such as Retroculus or the African Steatocranus and other Loricariids requiring similar conditions. It's peaceful enough with conspecifics and can be kept in groups.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lamontichthys_llanero_en/",
+      "html": "<p>Lamontichthys are very sensitive and need extremely clean water. Another problem is that they often refuse food, obviously due to the shyness of the fish. Even relatively small disturbances make them stop feeding for hours. For this reason Lamontichthys are best kept in single-species tanks.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-llanero",
@@ -221,13 +244,36 @@
       "html": "<p>Has been achieved, but few details are available. The fish spawn on a flat surface, sometimes using the aquarium glass.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lamontichthys_llanero_en/",
+      "html": "<p>In a single-species tank breeding can be successful. Roughly speaking, breeding behaviour is similar to that of the closely related genus Sturisoma.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-llanero",
       "html": "<p>A rarely seen species in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lamontichthys_llanero_en/",
+      "html": "<p>Lamontichthys: dedication name (ichthys is ancient Greek and means \"fish\") for Francesca La Monte. llanero: after the Llanos in Venezuela where the species occurs.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/25441ac9e1bc0f92.webp",
+      "thumb": "https://media.aquatome.com/glaser/25441ac9e1bc0f92-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lamontichthys_llanero_en/",
+      "caption": "Lamontichthys llanero",
+      "source": "glaser"
+    },
     {
       "url": "https://media.aquatome.com/scotcat/f00ee62d572c23d8.webp",
       "thumb": "https://media.aquatome.com/scotcat/f00ee62d572c23d8-480.webp",
@@ -273,7 +319,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "4sMbyJ5ymLQ",
+      "title": "The Lamontichthys llanero guards its clutch 😊",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "txxmtoIVRnY",
+      "title": "Lamontichthys llanero- one week old",
+      "durationSec": 17,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "imf_Cby9ViU",
+      "title": "The Lamontichthys \"llanero\" gang- Part I",
+      "durationSec": 49,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vP2OK12uDWY",
+      "title": "Lamontichthys llanero",
+      "durationSec": 17,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -297,5 +368,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-11"
 }

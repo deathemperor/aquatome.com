@@ -1,0 +1,124 @@
+import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { expect, test } from 'vitest'
+import type { Llm } from '../src/claude'
+import type { FitFinding } from '../src/fit'
+import type { Page } from '../src/pages'
+import { readReviews } from '../src/review-log'
+import { videoMend } from '../src/video-mend'
+
+const LONG = 'Cây khỏe và mọc nhanh thì rêu hại khó chen vào. '.repeat(6).trim()
+const BODY = `<p>Bể nhỏ dễ dựng.</p><h3>Mua đồ</h3><p>Mua lọc ở Petco, giá khoảng 5 USD.</p><p>${LONG}</p>`
+const FIXED = `<p>Bể nhỏ dễ dựng.</p><h3>Mua đồ</h3><p>Lọc mua ở tiệm cá cảnh. Bể 38 lít là vừa.</p><p>${LONG}</p>`
+const shop: FitFinding = { check: 'shop', part: 'P1', quote: 'Mua lọc ở Petco', why: 'a US shop', by: 'model' }
+const price: FitFinding = { check: 'price', part: 'P1', quote: 'giá khoảng 5 USD', why: 'a price in dollars', by: 'rule' }
+const page = (over: Partial<Page> = {}): Page => ({ lang: 'vi', kind: 'guides', id: 'youtube-a1', title: 'Dựng bể nhỏ', path: '/vi/huong-dan/dung-be-nho/', fields: [], lines: [], captions: [], latinNames: [], card: [], ...over })
+const now = () => new Date('2026-11-10T00:00:00Z')
+
+async function setup(vi: object = {}, entity: object = {}) {
+  const root = await mkdtemp(join(tmpdir(), 'mend-'))
+  const dir = join(root, 'content/guides/youtube-a1')
+  await mkdir(dir, { recursive: true })
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ id: 'youtube-a1', kind: 'setup', source: 'youtube', sourceUrl: 'https://www.youtube.com/watch?v=a1', html: '', photos: [], updatedAt: '2026-11-09', mentions: [], video: { youtubeId: 'a1', title: 'Nano tank', channel: 'MJ Aquascaping', channelUrl: 'https://www.youtube.com/@MJ', durationSec: 600, chapters: [], thumb: { url: 'https://i.ytimg.com/vi/a1/mqdefault.jpg', width: 320, height: 180 } }, ...entity }))
+  const file = join(dir, 'vi.json')
+  await writeFile(file, `${JSON.stringify({ slug: 'dung-be-nho', name: 'Dựng bể nhỏ', altNames: [], sections: {}, body: BODY, summary: ['Bể nhỏ dễ dựng.'], faq: [{ q: 'Mua lọc ở đâu?', a: 'Mua lọc ở Petco.' }], quality: { score: 0.85, indexable: true, bySource: { youtube: 0.85 } }, cover: 'Bể nhỏ', ...vi }, null, 2)}\n`)
+  return { root, file, was: await readFile(file, 'utf8') }
+}
+/** The editor returns `fixed` (default: the shop and the price gone); the reviewer scores it. */
+function deps(root: string, o: { score?: number; fixed?: object; transcript?: string | null } = {}) {
+  const prompts: string[] = []
+  const llm = (async (a: { prompt: string; schema: object }) => {
+    prompts.push(a.prompt)
+    if (Object.keys((a.schema as { properties: object }).properties).includes('score')) return { score: o.score ?? 0.9, notes: ['fine'] }
+    return { relevant: true, kind: 'setup', viTitle: 'Tên khác', summary: ['Bể nhỏ dễ dựng.'], body: FIXED, faq: [{ q: 'Mua lọc ở đâu?', a: 'Ở tiệm cá cảnh.' }], chapters: [], ...o.fixed }
+  }) as Llm
+  const yt = { transcript: async () => (o.transcript !== undefined ? o.transcript : '[0:00] buy the filter at Petco for five dollars') }
+  return { mend: videoMend(root, { llm, yt, now }), prompts }
+}
+
+test('the sentences the gate quotes go to the video\'s editor with the transcript, and the mended guide is written with its review', async () => {
+  const { root, file } = await setup()
+  const { mend, prompts } = deps(root, { score: 0.8 })
+  expect(await mend(page(), [shop, price])).toBe(true)
+  const vi = JSON.parse(await readFile(file, 'utf8'))
+  expect(vi.body).toBe(FIXED.replace('38 lít', '40 lít')) // rounded, as where the video writer writes
+  expect(vi.faq).toEqual([{ q: 'Mua lọc ở đâu?', a: 'Ở tiệm cá cảnh.' }])
+  expect(vi).toMatchObject({ name: 'Dựng bể nhỏ', slug: 'dung-be-nho', cover: 'Bể nhỏ', quality: { score: 0.8, indexable: true, bySource: { youtube: 0.8 } } })
+  // The editor: the transcript, the guide, and the notes as the reader's, each with its quote and what the check is.
+  expect(prompts[0]).toContain('Ghi chú về người đọc:\n- "Mua lọc ở Petco": A foreign shop (a US shop)\n- "giá khoảng 5 USD": A foreign price or shipping cost (a price in dollars)')
+  expect(prompts[0]).toContain('Video có nói vậy thì vẫn sửa')
+  expect(prompts[0]).toContain('buy the filter at Petco')
+  // A foreign price becomes the comparison it was there to make, with no number: the editor is told so, and the
+  // reviewer is told that is the video's fact kept, so the mend isn't scored down for the price it took out.
+  expect(prompts[0]).toContain('viết lại thành điều mà cái giá ấy muốn nói')
+  expect(prompts[0]).toContain('trừ khi video nêu giá bằng đồng Việt Nam')
+  expect(prompts[0]).toContain('Câu nào cho liều của một sản phẩm thì giữ tên sản phẩm; không đổi thành loại.')
+  expect(prompts[1]).toContain('TRANSCRIPT:')
+  expect(prompts[1]).toContain('by MJ Aquascaping')
+  expect(prompts[1]).toContain('turned into the comparison the price was there to make')
+  expect(prompts[1]!.indexOf('fact kept, not lost')).toBeLessThan(prompts[1]!.indexOf('TRANSCRIPT:'))
+  expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-a1']).toMatchObject([{ score: 0.8, attempt: 'rewrite', kept: true }])
+})
+
+test('a mend the page can\'t have leaves the file as it was', async () => {
+  // The last column: false once an editor was called, which the gate counts among a run's mends; nothing when none was.
+  const cases: [string, Parameters<typeof setup>, Parameters<typeof deps>[1], Partial<Page>, false | undefined][] = [
+    ['another language', [], {}, { lang: 'id' }, undefined],
+    ['not a guide', [], {}, { kind: 'species' }, undefined],
+    ['a guide from an article', [{}, { source: 'aquariumcoop', video: undefined }], {}, {}, undefined],
+    ['a body a person fixed', [{ bodyFixed: true }], {}, {}, undefined],
+    ['questions a person fixed', [{ faqFixed: true }], {}, {}, undefined],
+    ['no transcript on this Mac', [], { transcript: null }, {}, undefined],
+    ['an edit that came back broken', [], { fixed: { relevant: false } }, {}, false],
+    ['an edit that left a quoted sentence in, here in the FAQ', [], { fixed: { faq: [{ q: 'Mua lọc ở đâu?', a: 'Mua lọc ở Petco.' }] } }, {}, false],
+    ['a review under the bar and under the page\'s', [], { score: 0.7 }, {}, false],
+  ]
+  for (const [name, s, d, p, out] of cases) {
+    const { root, file, was } = await setup(...s)
+    const { mend, prompts } = deps(root, d)
+    expect(await mend(page(p), [shop, price]), name).toBe(out)
+    expect(prompts.length > 0, name).toBe(out === false)
+    expect(await readFile(file, 'utf8'), name).toBe(was)
+  }
+})
+
+test('a product or a price quoted in a sentence that gives a dose is not mended: one product\'s dose would become its kind\'s', async () => {
+  const dosed = `<p>Bể nhỏ dễ dựng. Châm 5 ml Seachem Prime cho 200 lít mỗi lần thay nước. Lọc thì mua loại nào cũng được.</p><p>Thức ăn Hikari gói 20 g giá 5 USD là đủ dùng lâu.</p><p>${LONG}</p>`
+  const product: FitFinding = { check: 'product', part: 'P1', quote: 'Seachem Prime', why: 'a product not sold here', by: 'model' }
+  const packet: FitFinding = { check: 'price', part: 'P2', quote: 'giá 5 USD', why: 'a price in dollars', by: 'rule' }
+  for (const [name, findings] of [['a product in a dose sentence', [product]], ['a price beside an amount', [packet]], ['one of several', [shop, product]]] as const) {
+    const { root, file, was } = await setup({ body: `${dosed}<p>Mua lọc ở Petco.</p>` })
+    const { mend, prompts } = deps(root)
+    expect(await mend(page(), [...findings]), name).toBeUndefined()
+    expect(prompts, name).toEqual([]) // no editor, no reviewer: the text goes back as before
+    expect(await readFile(file, 'utf8'), name).toBe(was)
+  }
+  // The same product named where no dose is given goes to the editor as before, and so does a shop in a guide that gives a dose elsewhere.
+  for (const [body, findings] of [[`<p>Seachem Prime là loại khử clo quen thuộc.</p><p>${LONG}</p>`, [product]], [`${dosed}<p>Mua lọc ở Petco.</p>`, [shop]]] as const) {
+    const { root } = await setup({ body })
+    const { mend, prompts } = deps(root, { fixed: { body: `<p>Bể nhỏ dễ dựng.</p><p>${LONG}</p>` } })
+    expect(await mend(page(), [...findings])).toBe(true)
+    expect(prompts).toHaveLength(2)
+  }
+})
+
+test('a mend never leaves a guide worse: under the bar it is kept only when no lower than the text it mends, whose reviews say which', async () => {
+  const low = { quality: { score: 0.6, indexable: false, bySource: { youtube: 0.6 }, chat: false } }
+  const a = await setup(low)
+  expect(await deps(a.root, { score: 0.6 }).mend(page(), [shop])).toBe(true)
+  expect(JSON.parse(await readFile(a.file, 'utf8')).quality).toEqual({ score: 0.6, indexable: false, bySource: { youtube: 0.6 }, chat: false }) // still held out of the chat
+  const b = await setup(low)
+  expect(await deps(b.root, { score: 0.5 }).mend(page(), [shop])).toBe(false)
+  expect((await readReviews(b.root, 'video-guide'))['vi/guides/youtube-a1']).toMatchObject([{ score: 0.5, attempt: 'rewrite', kept: false }])
+  // At the bar, a guide held out of the chat is let back, as when the video writer writes one.
+  const c = await setup(low)
+  expect(await deps(c.root, { score: 0.8 }).mend(page(), [shop])).toBe(true)
+  expect(JSON.parse(await readFile(c.file, 'utf8')).quality).toEqual({ score: 0.8, indexable: true, bySource: { youtube: 0.8 } })
+})
+
+test('the title is the editor\'s only when a fault was in it', async () => {
+  const { root, file } = await setup({ name: 'Mua lọc ở Petco cho bể nhỏ' })
+  expect(await deps(root).mend(page(), [{ ...shop, part: 'T' }])).toBe(true)
+  expect(JSON.parse(await readFile(file, 'utf8'))).toMatchObject({ name: 'Tên khác', slug: 'dung-be-nho' })
+})

@@ -15428,8 +15428,8 @@
   ]
  },
  "id/species/puntius-titteya": {
-  "at": "2026-11-08",
-  "hash": "2d906dc89adc7822",
+  "at": "2026-11-11",
+  "hash": "b53fa228e9679821",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -35453,25 +35453,24 @@
   "products": []
  },
  "th/species/sphaerichthys-osphromenoides": {
-  "at": "2026-11-09",
-  "hash": "142c99b244d7fab7",
+  "at": "2026-11-11",
+  "hash": "9edf592be0f583ee",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P10",
-    "quote": "ที่แหล่งอาศัยที่ 1 ในภาพด้านบน",
-    "why": "Refers to a habitat photo from the source article that the page does not have.",
+    "part": "P6",
+    "quote": "ที่แหล่งที่อยู่อาศัย #1 ในภาพด้านบน",
+    "why": "It points to a picture in the source article, and this page has no pictures.",
     "by": "model"
    },
    {
-    "check": "words",
-    "part": "P20",
-    "quote": "ปลาหมูงู (kuhli loach)",
-    "why": "Calque of 'kuhli loach'; Thai keepers call Pangio kuhli ปลาปล้องอ้อย.",
-    "by": "model",
-    "fix": "ปลาปล้องอ้อย"
+    "check": "elsewhere",
+    "part": "P8",
+    "quote": "ใบบีช ใบโอ๊ก หรือใบหูกวางล้วนเหมาะสม",
+    "why": "Beech and oak leaves are temperate leaves that a keeper abroad can pick up; a keeper in Thailand would use Indian almond leaves (ใบหูกวาง).",
+    "by": "model"
    }
   ],
   "products": []

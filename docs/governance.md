@@ -399,6 +399,14 @@ The layers above still check the result.
     add something. `packages/engine/scripts/eval-fidelity.ts` measures it on the guides under the bar. Found by the
     owner (2026-11-06): a fresh draft fixed the old notes and invented new details, and every guide reviewed scored
     0.50–0.70.
+  - **A translation whose English grew keeps what passed** (`localizeSpecies`, `localize.ts`): the Indonesian, Thai and
+    Malay species and plant pages record each part's English (a hash) as it was translated. When the English changes,
+    a part whose English is the same keeps its text, and only new and changed parts are translated and reviewed, with the
+    kept ones shown beside them for names and words. Each source keeps its own score. New parts under the bar stay off the
+    page, which keeps its text and score, and are tried again after a week or when their English changes. A page made
+    before the parts were recorded is translated whole as before, but a passing translation is never replaced by one under
+    the bar. Found 2026-11-11: 18 pages had lost a passing translation that way, though no section they were made from had
+    changed, and in 110 of the reviewers' 158 notes on those redos the fault was in a part whose English was the same.
   - **A rewrite starts from them.** `videos --redo`, `breed --redo`, `topic --redo`, `product --redo`, the localizers'
     `--redo` and `rewrite-vi` give the writer the last kept review's notes, under the same rule as the rewrite within a
     run (under the bar, or any note for the pages checked against their research).
@@ -557,8 +565,17 @@ The layers above still check the result.
     words say it is no photo of it alive (`unfitCommons` and `ARTWORK` in `packages/engine/src/photos.ts`): a Commons
     file's title and categories naming art (a drawing, illustration, engraving, plate, print, stamp, "1865 in art", a
     book scan), a map or X-ray, a preserved or taxidermied specimen, food or a fish market, or its description saying it
-    is misidentified; a source article's caption naming a drawing, plate or stamp ("Liobagrus kingi: line drawing"). The
-    Commons fallback for a page with no photo (`findPhotos`) also skips rejected photos. Each word counts only where it
+    is misidentified; a source article's caption naming a drawing, plate or stamp ("Liobagrus kingi: line drawing"). A
+    paper's plate is none either (`paperPlate`): a file named as a microscope's picture, or a description that lists
+    its panels by letter or number ("(a–c) …", "(A) … (B) … (C) …", "(73) … (74) … (75) …"): three panels, or two in a
+    file named as a figure, since "male (a) and female (b)" is one photo of a pair. The owner found one on 2026-11-11
+    as the only photo of Hemichromis elongatus, a parasite paper's plate: the search for a fish's name finds the papers
+    on its parasites, bones and eggs. 25 such plates were on 16 pages; the photo check had looked at one of them and
+    could not tell. The Commons fallback for a
+    page with no photo (`findPhotos`) also skips rejected photos, and any file named as a paper's figure
+    (`paperFigure`): its photo goes on a page with no look at it, and some figures are one plain photo of the fish, which
+    the words can't tell from a plate, so a figure reaches a page only through a gallery, where the screen and the photo
+    check look first. Each word counts only where it
     means that: "specimens" in a category is a botanical garden's live plants, "Fishing in India" files a gourami in a
     tank, "museum" a public aquarium, and a description's "illustration for a quiz", "30 mm SL" or "sold in markets"
     are about live fish (the first sweep's false hits, looked at by eye). A guide's pictures aren't screened this way:
@@ -612,7 +629,7 @@ The layers above still check the result.
       preserved, a hand, a person and the like, or whose verdict was the old habitat; then it finds none and calls no
       model. Found by the owner (2026-11-05): dead peacock bass piled at a market, with a round logo, leading their
       page; its note said so and the verdict was "yes".
-  - **A fish's head photo.** A card shows its page's head photo or none, never another, unless the owner chose it from the page's album for that day (`imgChosen`, kept while it passes; `curation.ts`). `pnpm engine lead-photos` gives way a head under the card's 1,140 px to a photo that passes the checks, once the model, shown the two side by side, says it shows the fish as well and that the second photo, as the card crops it, holds the fish's whole head, snout tip to gill cover with a little room (an eye inside isn't enough); no answer is no change, and each pair is asked once (`engine-state/_photo-leads.json`). Neither the site's cards nor the app's place a crop, so a photo whose crop leaves the head out doesn't lead and the old head stays (the chief of staff, 2026-11-10: five of 43 replacements looked at had it out). A change of head goes back with no model call when the old head now fills the card or a look has since said no. Where a head is under the card's size and its source holds a larger original (Commons, iNaturalist, Unsplash), `pnpm engine large-photos --heads` (each photos cycle, before `lead-photos`) keeps a copy large enough: the same picture larger, so it needs no look, and only the head, since another photo growing large enough could change what leads. A fish whose head doesn't pass stays off the calendar, and `pnpm engine curate --check` fails on a card whose photo isn't the head. Found by the owner (2026-11-10): the Altum on Hôm nay was a different photo from its page's, which flashed as one replaced the other. A page with no photo takes the best that passes, whatever its size, plants too, so no page shows nothing while a passed photo of it exists; a photo carrying a mark its source may keep leads only where nothing else passes, and is never a card.
+  - **A fish's head photo.** A card shows its page's head photo or none, never another (`curation.ts`). A person picks a page's head in `engine-state/_photo-head-picks.json`, and the sweep puts it first on its page every cycle. `pnpm engine lead-photos` gives way a head under the card's 1,140 px to a photo that passes the checks, once the model, shown the two side by side, says it shows the fish as well and that the second photo, as the card crops it, holds the fish's whole head, snout tip to gill cover with a little room (an eye inside isn't enough); no answer is no change, and each pair is asked once (`engine-state/_photo-leads.json`). Neither the site's cards nor the app's place a crop, so a photo whose crop leaves the head out doesn't lead and the old head stays (the chief of staff, 2026-11-10: five of 43 replacements looked at had it out). A change of head goes back with no model call when the old head now fills the card or a look has since said no. Where a head is under the card's size and its source holds a larger original (Commons, iNaturalist, Unsplash), `pnpm engine large-photos --heads` (each photos cycle, before `lead-photos`) keeps a copy large enough: the same picture larger, so it needs no look, and only the head, since another photo growing large enough could change what leads. A fish whose head doesn't pass stays off the calendar, and `pnpm engine curate --check` fails on a card whose photo isn't the head. Found by the owner (2026-11-10): the Altum on Hôm nay was a different photo from its page's, which flashed as one replaced the other. A page with no photo takes the best that passes, whatever its size, plants too, so no page shows nothing while a passed photo of it exists; a photo carrying a mark its source may keep leads only where nothing else passes, and is never a card.
   - **A source's "read next" cards.** The picker leaves out an image wrapped in a link to another page of the same site (`pickSourcePhotos`): that's the card of another article, not a picture of this one. The sweep takes any already stored off (the unplaced photos at exactly the source's `cardWidth`, `sources.ts`, that end a guide's list, never its lead) and onto `_photo-rejected.json`, so a re-read can't bring it back. Found by the owner (2026-11-10): arowanas and a corydoras on the platy guide; 23 card images sat in 107 places on 25 of The Spruce Pets' 26 guides.
   - **Guides' photos.** `pnpm engine guide-photos` (each photos cycle and the Mac's video job, 20 model calls each, 6
     photos a call, leads first) looks at what the subject check doesn't: every guide's photos (its lead and those under
@@ -741,6 +758,13 @@ The layers above still check the result.
     text yet, found by the name in the address.
   - The profile is read like any page: translated, reviewed, and its figures go through the same prompt rules and
     guards (a volume gives no length). A figure no published source states stays empty.
+- **A card's school size: Seriously Fish first, never below the page's own text.** The traits step's model read the
+  smallest group from the Vietnamese profile, so the cardinal tetra's card said 6 (The Spruce Pets) where Seriously Fish
+  says 8 to 10. After each traits run, `schoolFromSeriouslyFish` (`traits.ts`, no model) sets each card whose Seriously
+  Fish profile gives a group ("a group of at least 8-10 specimens": 8) to that figure. It never sets it below the
+  minimum another source on the page tells the reader ("groups of 10 specimens or more": 10). Only sources a public
+  build shows count. A pair, a harem, fish in the wild and breeding groups are not a school. A card with no Seriously
+  Fish figure keeps the model's reading (the chief of staff, 2026-11-11).
 - **Where a fish lives, from its sources only.** A species' `range` (`pnpm engine range`, `range.ts`, each rewrite cycle):
   - `native`: the model reads what its cited sources say (distribution, habitat, quick facts, notes; `RANGE_LIMIT`
     species a cycle whose text is new or changed) and gives each country with the source's sentence. The engine keeps
@@ -828,8 +852,12 @@ The layers above still check the result.
       dropped, its paragraph too when it is all there is (owner, 2026-11-05). A sentence that only has the words ("Chỉ
       bắt cá với sự cho phép của cơ quan quản lý.") stays. No audit rule holds it at zero yet: the sweep alone
     - a photo whose caption names another species the site has a page for, with nothing saying the fish is still the
-      page's ("in a batch of", "here with", "known as"), or that is a map: off its page. A map leaves every page
-      (`engine-state/_photo-rejected.json`); a photo of another fish only that page, so it may still join its own fish's
+      page's ("in a batch of", "here with", "known as"), or that is a map, or a Wikimedia Commons photo whose file name
+      or description says it is no photo of the living fish (a paper's plate, a microscope picture, a drawing, a dish:
+      the screen a new photo passes, `unfitCommons`, run again on every page): off its page. A map or a plate leaves
+      every page (`engine-state/_photo-rejected.json`), at most 10 a run (`PHOTO_CAP`): nobody looks first, so a run
+      that finds more takes none off and lists them, this check keeps failing, and a person looks before running
+      `pnpm engine sweep --photo-cap <N>` (the chief of staff, 2026-11-11). A photo of another fish leaves only that page, so it may still join its own fish's
       (taken off again if a later run brings it back). A Latin name no page has is listed for a person ("may name
       another fish"), not removed.
     - a card figure out of bounds, upside down, or a minimum tank shorter than twice the fish: hidden from the card
@@ -959,6 +987,18 @@ The layers above still check the result.
     passes is let out. A page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps
     its committed text and a new one waits, held. The run still publishes; only a crash in the gate stops it
     (`gate.test.ts`).
+  - A text that goes back isn't thrown away. When all that is worse is a sentence that can go or be reworded (a shop,
+    a price or a product from abroad, talk about the source, something only true elsewhere: `MENDABLE`), the gate sends
+    the quotes to a mender and reads the page again, and puts it back only if it is still worse; harm, a dose and what a
+    dose lacks are never reworded this way. A video guide's mender is its own editor, with the transcript, and the video
+    reviewer reads the result (`video-mend.ts`; 6 pages a run, `--mends`). A price in a foreign currency isn't deleted:
+    it becomes the comparison it was there to make ("far cheaper than a ready-made one"), with no number and no
+    currency unless the video gives one in dong, and the mend's reviewer is told that is a fact kept, not lost (the
+    Writing Lead, 2026-11-11, after a guide on a cheap build lost its review with its five dollar prices). What does go back is kept as it was before
+    any mend, with the checks and their quotes, one file a page (`engine-state/put-back/`). The video writer rounds a
+    converted volume where it writes (`round.ts`), since the video jobs have no rounding step before their gate. Found
+    on 2026-11-10: of 94 new texts the recheck job's gate put back in two days, 43 had passed the video reviewer, most
+    were worse on one check, none was kept, and each guide had had its one go.
   - The rewrite (`pnpm engine fit-rewrite`, in small batches, the most-read pages first) writes a failing Vietnamese
     page again: a guide whole, from its source's facts and the market table; a fish, plant or breed page part by part,
     each part a finding quotes, kept only when its reviewer passes it and it says nothing more surely than what it was

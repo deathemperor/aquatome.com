@@ -42,9 +42,9 @@ const groups = groupCredits(credits).map(g => ({ ...g, unsplash: isUnsplash(g.li
       </div>
       <ul>
         {groups.map(g => (
-          <li data-author={later ? g.author : undefined} data-licence={later ? g.licence : undefined} data-author-url={later ? g.authorUrl : undefined} data-altered={g.altered ? '' : undefined}>
+          <li data-author={later ? g.author : undefined} data-licence={later ? g.licence : undefined} data-author-url={later ? g.authorUrl : undefined} data-altered={g.altered ? '' : undefined} data-cropped={g.cropped ? '' : undefined}>
             {g.generated ? <span>{t('Ảnh do AI tạo')}</span> : g.unsplash ? <Fragment set:html={partsHtml(unsplashLine(lang, g, g.nums ? undefined : g.urls[0]))} /> : g.urls.length === 1 ? <a href={g.urls[0]} rel="noopener">{g.author}</a> : <strong>{g.author}</strong>}
-            {g.altered && <span> · {t('Ảnh đã chỉnh sửa')}</span>}
+            {g.altered && <span> · {t(g.cropped ? 'Đã cắt bỏ dấu của nguồn ảnh' : 'Ảnh đã chỉnh sửa')}</span>}
             {(g.licence || g.nums) && <span class="lic"> · {[g.licence, g.nums ? t('{n} ảnh', { n: g.urls.length }) : ''].filter(Boolean).join(' · ')}</span>}
             {g.nums && <span class="nums">{g.urls.map((u, i) => <a href={u} rel="noopener" aria-label={t('{author}, ảnh {n}', { author: g.author, n: i + 1 })}>{i + 1}</a>)}</span>}
           </li>

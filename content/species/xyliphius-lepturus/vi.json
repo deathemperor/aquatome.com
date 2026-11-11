@@ -21,13 +21,12 @@
     "references:scotcat": "<p>DoNascimiento, CD, Herrera-Collazos, E.E., Mojica, J.I., Rodríguez-Olarte, D., Taphorn, D.C. &amp; Usma, S. 2022. Xyliphius lepturus. The IUCN Red List of Threatened Species 2022. Figueiredo Carlos A, Britto Marcelo R. A new species of Xyliphius, a rarely sampled banjo catfish (Siluriformes: Aspredinidae) from the rio Tocantins-Araguaia system. Neotrop. ichthyol. 2010.</p>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.7,
+      "planetcatfish": 0.85,
       "glaser": 0.9,
       "scotcat": 0.88
-    },
-    "reason": "score"
+    }
   }
 }
