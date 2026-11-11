@@ -28,10 +28,10 @@ test("Malay's steps: 10 species a cycle right after Indonesian and Thai, never g
   for (const line of block.split('\n').filter(l => l.includes('pnpm'))) expect(line.trim(), line).toMatch(/^ahead pnpm /)
 })
 
-test('the rewrite part spends on the Vietnamese rewrite and every translation first, Malay inside them, then the rest; the gate leaves room for the longest step inside the slot', () => {
+test('the rewrite part spends on the Vietnamese rewrite and every translation first, Malay inside them, then the rest; a gated step started at the gate ends inside the job', () => {
   const at = (s: string) => { const i = script.indexOf(s); expect(i, s).toBeGreaterThan(-1); return i }
   // The chief of staff, 2026-11-11: the rewrites and translations go before any other step spends, so a sign-in that runs
-  // out part way, or a step's ceiling, takes the steps after them; and Malay's ten reach the 135-minute gate early.
+  // out part way, or a step's ceiling, takes the steps after them; Malay's ten species run ungated (the test above).
   const part = script.slice(at('if part rewrite; then'), at('pnpm engine ungarble'))
   const steps = [...part.matchAll(/^\s*(?:for [^;]+; do )?(?:ahead )?pnpm engine ([a-z-]+)/gm)].map(m => m[1]!)
   expect(steps[0]).toBe('rewrite-vi')
@@ -41,13 +41,12 @@ test('the rewrite part spends on the Vietnamese rewrite and every translation fi
   expect(at('scripts/translate-ui.ts /tmp/aq-i18n-missing.json')).toBeLessThan(at('for lang in ms; do'))
   expect(at('for lang in ms; do')).toBeLessThan(at('pnpm engine range'))
   expect(at('for lang in ms; do')).toBeLessThan(at('pnpm engine metric'))
-  const gate = Number(/AHEAD_BEFORE_MINUTES:-(\d+)/.exec(script)![1])
-  // engine.yml's job `due`: ENGINE_EVERY_MINUTES since the last cycle started, 170 when unset. A longer one leaves more room.
-  const nextCycle = 170
-  const longestStep = 20
-  const buildTestPush = 6
-  expect(gate + longestStep + buildTestPush).toBeLessThanOrEqual(nextCycle)
-  expect(readFileSync(new URL('../../../.github/workflows/engine.yml', import.meta.url), 'utf8')).toContain(`\${EVERY:-${nextCycle}} * 60`)
+  // The gate's default, and the 300 the chief set (the repository variable, 2026-11-11, for 350-minute cycles), each leave
+  // the longest gated step (a buying guide, a few minutes; 20 allowed) and the build, tests and push (about 6) inside the
+  // job's limit. A cycle that runs past its slot waits for the last (engine.yml's concurrency group), never overlaps it.
+  const workflow = readFileSync(new URL('../../../.github/workflows/engine.yml', import.meta.url), 'utf8')
+  const jobLimit = Math.max(...[...workflow.matchAll(/timeout-minutes: (\d+)/g)].map(m => Number(m[1])))
+  for (const gate of [Number(/AHEAD_BEFORE_MINUTES:-(\d+)/.exec(script)![1]), 300]) expect(gate + 20 + 6, String(gate)).toBeLessThanOrEqual(jobLimit)
 })
 
 test("a cycle that changed only UI text still publishes it, or the next would drop it and pay for it again", () => {
