@@ -28,7 +28,7 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
     const args = ['-p', '--model', modelOf(opts.model), '--output-format', 'json', '--tools', opts.tools, ...(opts.tools ? ['--allowedTools', opts.tools] : []), ...(opts.deny?.length ? ['--disallowedTools', opts.deny.join(',')] : []),
       '--setting-sources', '', '--strict-mcp-config', '--system-prompt', system, '--json-schema', JSON.stringify(schema)]
     const started = Date.now()
-    const child = spawn('claude', args, { cwd: opts.cwd, stdio: ['pipe', 'pipe', 'pipe'], ...(token ? { env: envFor(token) } : {}) })
+    const child = spawn('claude', args, { cwd: opts.cwd, stdio: ['pipe', 'pipe', 'pipe'], env: envFor(token) })
     let out = ''
     let err = ''
     const timer = setTimeout(() => child.kill('SIGTERM'), opts.timeoutMs ?? 10 * 60_000)
