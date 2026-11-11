@@ -57,6 +57,7 @@ const WRITE = readFileSync(new URL('./prompts/video-guide.md', import.meta.url),
 const REVIEW = readFileSync(new URL('./prompts/video-review.md', import.meta.url), 'utf8')
 const EDIT = readFileSync(new URL('./prompts/video-edit.md', import.meta.url), 'utf8')
 const FIX = readFileSync(new URL('./prompts/video-fix.md', import.meta.url), 'utf8')
+const MEND = readFileSync(new URL('./prompts/video-mend.md', import.meta.url), 'utf8')
 const str = { type: 'string' }
 const DRAFT_SCHEMA = {
   type: 'object', required: ['relevant', 'kind', 'viTitle', 'summary', 'body', 'faq', 'chapters'],
@@ -351,9 +352,9 @@ export async function editDraft(llm: Llm, d: Draft, model?: string): Promise<Dra
  * The reviewer's notes applied to the draft they are about, checked against the transcript: what the video doesn't say goes,
  * nothing new comes in. A fresh draft fixed the old notes and brought new inventions. null: the edit came back broken.
  */
-export async function fixDraft(llm: Llm, transcript: string, d: Draft, notes: string[], o: WriteOpts & { lang?: string } = {}): Promise<Draft | null> {
+export async function fixDraft(llm: Llm, transcript: string, d: Draft, notes: string[], o: WriteOpts & { lang?: string; /** The notes are the reader-fit check's (video-mend.ts): what the video says but a reader here can't use. */ reader?: boolean } = {}): Promise<Draft | null> {
   const own = o.lang === 'vi' ? ['Video bằng tiếng Việt: không chép lại câu nói trong bản ghi; chỗ nào sửa thì viết bằng lời của bạn.'] : []
-  const e = await llm<Draft>({ system: SYSTEM, prompt: [FIX, ...(o.style ? [STYLE] : []), ...own, `Bản ghi:\n${transcript.slice(0, 120_000)}`, `Bài cần sửa (JSON):\n${JSON.stringify(d)}`, `Ghi chú của người duyệt:\n${notes.map(n => `- ${n}`).join('\n')}`].join('\n\n'), schema: DRAFT_SCHEMA, model: o.model })
+  const e = await llm<Draft>({ system: SYSTEM, prompt: [FIX, ...(o.reader ? [MEND] : []), ...(o.style ? [STYLE] : []), ...own, `Bản ghi:\n${transcript.slice(0, 120_000)}`, `Bài cần sửa (JSON):\n${JSON.stringify(d)}`, `${o.reader ? 'Ghi chú về người đọc' : 'Ghi chú của người duyệt'}:\n${notes.map(n => `- ${n}`).join('\n')}`].join('\n\n'), schema: DRAFT_SCHEMA, model: o.model })
   if (!e.relevant || !usable(e)) return null
   return { ...e, kind: d.kind, relevant: d.relevant, chapters: e.chapters.length === d.chapters.length ? e.chapters : d.chapters }
 }
@@ -376,11 +377,12 @@ export function crowdLines(d: Pick<Draft, 'summary' | 'body' | 'faq'>): string[]
   return [...new Set(text.split(/(?<=[.?!:])\s+|\n+/).map(s => s.trim()).filter(s => CROWD.test(s)))]
 }
 
-export async function reviewDraft(llm: Llm, transcript: string, d: Pick<Draft, 'viTitle' | 'summary' | 'body' | 'faq'>, m?: Pick<VideoMeta, 'title' | 'channel' | 'lang'>) {
+/** `also`: what this guide's editor was told beyond the writer's rules, so the reviewer doesn't fault it (video-mend.ts). */
+export async function reviewDraft(llm: Llm, transcript: string, d: Pick<Draft, 'viTitle' | 'summary' | 'body' | 'faq'>, m?: Pick<VideoMeta, 'title' | 'channel' | 'lang'>, also?: string) {
   const guide = `<h2>${d.viTitle}</h2>\n<ul>${d.summary.map(s => `<li>${s}</li>`).join('')}</ul>\n${d.body}\n${d.faq.map(f => `<p><strong>${f.q}</strong> ${f.a}</p>`).join('\n')}`
   const crowd = crowdLines(d)
   const check = crowd.length ? `\n\nCHECK THESE SENTENCES: each speaks for many people or ranks something. A note for each one the speaker doesn't say, at that strength:\n${crowd.map(s => `- ${s}`).join('\n')}` : ''
-  const r = await llm<{ score: number; notes: string[] }>({ system: 'You are a strict reviewer of Vietnamese aquarium guides. Reply only with JSON.', prompt: `${REVIEW}\n\n${m ? `VIDEO: "${m.title}" by ${m.channel} (the creator; the guide must not name them or the channel), spoken in ${m.lang ?? 'en'}${m.lang === 'vi' ? '. The transcript is Vietnamese too: sentences copied from it, or barely changed, count as faults (below 0.75 if there are several)' : ''}\n\n` : ''}TRANSCRIPT:\n${transcript.slice(0, 120_000)}\n\nGUIDE:\n${guide}${check}`, schema: REVIEW_SCHEMA })
+  const r = await llm<{ score: number; notes: string[] }>({ system: 'You are a strict reviewer of Vietnamese aquarium guides. Reply only with JSON.', prompt: `${REVIEW}\n\n${also ? `${also.trim()}\n\n` : ''}${m ? `VIDEO: "${m.title}" by ${m.channel} (the creator; the guide must not name them or the channel), spoken in ${m.lang ?? 'en'}${m.lang === 'vi' ? '. The transcript is Vietnamese too: sentences copied from it, or barely changed, count as faults (below 0.75 if there are several)' : ''}\n\n` : ''}TRANSCRIPT:\n${transcript.slice(0, 120_000)}\n\nGUIDE:\n${guide}${check}`, schema: REVIEW_SCHEMA })
   return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 10) }
 }
 

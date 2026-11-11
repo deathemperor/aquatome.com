@@ -212,6 +212,10 @@ test('the reviewer gets each sentence that speaks for many people or ranks somet
   expect(prompts[0]).not.toContain('- Lá vàng thì tỉa đi.')
   await reviewDraft(llm, 'I trim yellow leaves.', { ...d, summary: [], body: '<p>Lá vàng thì tỉa đi.</p>' })
   expect(prompts[1]).not.toContain('CHECK THESE SENTENCES')
+  // What a mender's editor was told reaches the reviewer only for a mended guide (video-mend.ts).
+  expect(prompts[1]).not.toContain('edited for readers in Vietnam')
+  await reviewDraft(llm, 'I trim yellow leaves.', d, undefined, 'This guide was edited for readers in Vietnam.')
+  expect(prompts[2]).toContain('This guide was edited for readers in Vietnam.\n\nTRANSCRIPT:')
 })
 
 test('every review of a guide is kept: the first draft\'s and the rewrite\'s, with the one on the page marked', async () => {
