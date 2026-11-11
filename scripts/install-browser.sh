@@ -2,8 +2,10 @@
 # Playwright's Chromium or WebKit, and the system packages it needs.
 # GitHub's ubuntu-26.04 runners sometimes cannot resolve archive.ubuntu.com, azure.archive.ubuntu.com or
 # security.ubuntu.com, and apt-get then stops the install. When archive.ubuntu.com does not resolve, point apt
-# at a second full mirror for this job only. mirrors.edge.kernel.org carries resolute, resolute-updates,
-# resolute-security and resolute-backports, including amd64v3. Suites, components and Signed-By stay as the
+# at a second full mirror for this job only. The image lists those three hosts in /etc/apt/apt-mirrors.txt
+# (priority 1, 2, 3) and the deb822 source names that file, mirror+file:/etc/apt/apt-mirrors.txt, rather than
+# the hosts. mirrors.edge.kernel.org carries resolute, resolute-updates, resolute-security and
+# resolute-backports, including amd64v3. Suites, components, Signed-By and the mirror priorities stay as the
 # image set them, and the packages stay signed by Ubuntu's own keys.
 set -euo pipefail
 
@@ -47,6 +49,11 @@ rewrite_tree() {
   local root=$1 f found=0
   if [ -f "$root/sources.list" ]; then
     rewrite_file "$root/sources.list"
+    found=1
+  fi
+  # The hosts the runner actually fetches. ubuntu.sources only points at this list.
+  if [ -f "$root/apt-mirrors.txt" ]; then
+    rewrite_file "$root/apt-mirrors.txt"
     found=1
   fi
   shopt -s nullglob

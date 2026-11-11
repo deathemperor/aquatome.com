@@ -33,12 +33,20 @@ Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 
 const other = `\
 Types: deb
+URIs: mirror+file:/etc/apt/apt-mirrors.txt
+Suites: resolute resolute-updates resolute-backports resolute-security
+Components: main universe restricted multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 URIs: https://packages.microsoft.com/repos/edge
-Suites: stable
-Components: main
-Signed-By: /usr/share/keyrings/microsoft-edge.gpg
 URIs: http://us.archive.ubuntu.com/ubuntu/
 URIs: http://archive.ubuntu.com/ubuntu-ports
+`
+
+// ubuntu-26.04's list, as images/ubuntu/scripts/build/configure-apt-sources.sh writes it. A tab, then priority.
+const mirrors = 'http://azure.archive.ubuntu.com/ubuntu/\tpriority:1\nhttps://archive.ubuntu.com/ubuntu/\tpriority:2\nhttps://security.ubuntu.com/ubuntu/\tpriority:3\n'
+const mirrorsExpected = `https://mirrors.edge.kernel.org/ubuntu/\tpriority:1
+https://mirrors.edge.kernel.org/ubuntu/\tpriority:2
+https://mirrors.edge.kernel.org/ubuntu/\tpriority:3
 `
 
 const sourcesList = `\
@@ -55,10 +63,12 @@ test("the three Ubuntu hosts point at the second mirror", () => {
   const sources = join(listDir, 'ubuntu.sources')
   const untouched = join(listDir, 'other.sources')
   const list = join(dir, 'sources.list')
+  const mirrorList = join(dir, 'apt-mirrors.txt')
   const originalOther = Buffer.from(other)
   writeFileSync(sources, deb822)
   writeFileSync(untouched, originalOther)
   writeFileSync(list, sourcesList)
+  writeFileSync(mirrorList, mirrors)
   execFileSync('bash', [SCRIPT, '--rewrite', dir], { stdio: 'pipe' })
 
   const out = readFileSync(sources, 'utf8')
@@ -67,6 +77,7 @@ test("the three Ubuntu hosts point at the second mirror", () => {
   expect(out.split('\n').filter(line => line.startsWith('Suites:') || line.startsWith('Components:') || line.startsWith('Signed-By:')))
     .toEqual(deb822.split('\n').filter(line => line.startsWith('Suites:') || line.startsWith('Components:') || line.startsWith('Signed-By:')))
   expect(readFileSync(untouched).equals(originalOther)).toBe(true)
+  expect(readFileSync(mirrorList, 'utf8')).toBe(mirrorsExpected)
   expect(readFileSync(list, 'utf8')).toBe(`\
 deb ${MIRROR} resolute main restricted
 deb ${MIRROR} resolute-updates main
