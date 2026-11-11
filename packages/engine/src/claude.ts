@@ -2,7 +2,7 @@ import { spawn } from 'node:child_process'
 import { appendFileSync, mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { ceilingMessage, CEILINGS } from './ceiling'
+import { ceilingMessage, stepName } from './ceiling'
 import { envFor, onAccounts, tokenHash } from './claude-accounts'
 import { MARKETPLACE_DOMAINS } from './marketplaces'
 
@@ -23,10 +23,11 @@ type RunOpts = { tools: string; deny?: string[]; cwd: string; model?: string; ti
 
 /**
  * One call on the owner's Claude accounts, the next one when an account is out of its limit or rejected (claude-accounts.ts).
- * The day's ceiling is the engine's own limit, so it fails before onAccounts and the account stays in use.
+ * First the step's ceiling for the day (ceiling.ts): the engine's own limit, so a step at it fails here, with no call
+ * made and no account set aside.
  */
 const run = <T>(system: string, prompt: string, schema: object, opts: RunOpts): Promise<T> => {
-  const capped = ceilingMessage(process.argv[2], process.env.ENGINE_COST_LOG, CEILINGS)
+  const capped = ceilingMessage(stepName(), process.env.ENGINE_COST_LOG)
   if (capped) return Promise.reject(new LlmError(capped))
   return onAccounts(token => once<T>(system, prompt, schema, opts, token), m => new LlmError(m))
 }
@@ -56,7 +57,7 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
         if (process.env.ENGINE_COST_LOG) {
           const u = r.usage ?? {}
           try {
-            appendFileSync(process.env.ENGINE_COST_LOG, `${JSON.stringify({ at: new Date().toISOString(), step: process.argv[2], account: token ? tokenHash(token) : 'login', model: modelOf(opts.model), ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
+            appendFileSync(process.env.ENGINE_COST_LOG, `${JSON.stringify({ at: new Date().toISOString(), step: stepName(), account: token ? tokenHash(token) : 'login', model: modelOf(opts.model), ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
           } catch (e) {
             console.warn(`ENGINE_COST_LOG: ${(e as Error).message}`) // a log it can't write never fails the call
           }

@@ -1,23 +1,60 @@
-[
-  {
-    "from": "2026-11-12T00:00:00+07:00",
-    "default": 1,
-    "steps": {
-      "gate": null,
-      "run": 30,
-      "localize": 25,
-      "videos": 10,
-      "summaries": 8,
-      "rewrite-vi": 8,
-      "review-backfill": 8,
-      "check-photos": 6,
-      "reader": 5,
-      "watermarks": 4,
-      "guide-photos": 3,
-      "traits": 2,
-      "range": 2,
-      "gallery": 2,
-      "localize-guides": 2
+{
+  "clock": "Asia/Saigon (UTC+7). A day runs from 00:00 to 24:00 there. A table is in force from its `from` until the next table's `from`.",
+  "tables": [
+    {
+      "from": "2026-11-11T00:00:00+07:00",
+      "note": "Both of the engine's sign-ins are out of their week. Nothing calls but the gate and moderation.",
+      "mac": { "default": 0, "backstop": 90, "steps": { "gate": null, "moderate": null } },
+      "github": { "default": 0, "backstop": 60, "steps": { "gate": null, "moderate": null } }
+    },
+    {
+      "from": "2026-11-12T13:00:00+07:00",
+      "note": "The third sign-in is back, on GitHub alone. Until 13 Nov 08:00 it has one allowance: the pages 11 Nov lost, translation and the Vietnamese rewrite. Everything else waits.",
+      "mac": { "default": 0, "backstop": 90, "steps": { "gate": null, "moderate": null } },
+      "github": { "default": 0, "backstop": 60, "steps": { "gate": null, "moderate": null, "localize": 25, "rewrite-vi": 3 } }
+    },
+    {
+      "from": "2026-11-13T00:00:00+07:00",
+      "note": "The allowance above was for the whole stretch to 08:00, not for each calendar day in it. From midnight nothing more is spent until the first sign-in returns.",
+      "mac": { "default": 0, "backstop": 90, "steps": { "gate": null, "moderate": null } },
+      "github": { "default": 0, "backstop": 60, "steps": { "gate": null, "moderate": null } }
+    },
+    {
+      "from": "2026-11-13T08:00:00+07:00",
+      "note": "One sign-in's week, about $140 a day (the chief of staff, 11 Nov 2026). The steps' ceilings add up to $129 and the backstop to $150, split between the machines by where each step runs. Second reads are $12: $8 on the Mac (video guides) and $4 on GitHub. With two sign-ins every figure doubles, with three it triples.",
+      "mac": {
+        "default": 1,
+        "backstop": 90,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "run": 30,
+          "videos": 10,
+          "review-backfill-97": 10,
+          "summaries": 8,
+          "review-backfill": 8,
+          "check-photos": 6,
+          "watermarks": 4,
+          "guide-photos": 3,
+          "traits": 2,
+          "gallery": 2
+        }
+      },
+      "github": {
+        "default": 1,
+        "backstop": 60,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "localize": 25,
+          "fit-rewrite": 5,
+          "reader": 5,
+          "review-backfill": 4,
+          "rewrite-vi": 3,
+          "range": 2,
+          "localize-guides": 2
+        }
+      }
     }
-  }
-]
+  ]
+}

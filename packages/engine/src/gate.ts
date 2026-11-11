@@ -62,6 +62,12 @@ export const FIT_BASELINE = { day: '2026-11-08', pct: { vi: 50, id: 37, th: 31, 
 /** The Asia/Saigon day. Counted in ceiling.ts, with what a step has spent that day. */
 export { vnDay }
 
+/**
+ * A failed call that says the accounts can't be had, not that the page is at fault: out of their usage limit, a step at
+ * its day's ceiling (ceiling.ts), a credential rejected. The page isn't read, and the gate makes no more calls this run.
+ */
+export const accountsOut = (e: unknown): e is LlmError => e instanceof LlmError && /limit|rejected|no account/i.test(e.message)
+
 export type Held = { checks: string[]; at: string }
 export type GateCall = { action: 'pass' | 'hold' | 'release' | 'revert'; checks: FitCheck[] }
 
@@ -205,7 +211,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     try {
       return await readFit(d.llm, p, d.model, now(), await fitSource(root, p))
     } catch (e) {
-      if (e instanceof LlmError && /limit|rejected|no account/i.test(e.message)) report.stopped = e.message.slice(0, 200)
+      if (accountsOut(e)) report.stopped = e.message.slice(0, 200)
       else report.failed.push(`${fitKey(p)}: ${(e as Error).message.slice(0, 200)}`)
       return undefined
     }
@@ -252,7 +258,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
       if (done === undefined) mends++
       if (!done) return undefined
     } catch (e) {
-      if (e instanceof LlmError && /limit|rejected|no account/i.test(e.message)) report.stopped = e.message.slice(0, 200)
+      if (accountsOut(e)) report.stopped = e.message.slice(0, 200)
       else report.failed.push(`${fitKey(p)}: mend: ${(e as Error).message.slice(0, 200)}`)
       return undefined
     }
