@@ -247,6 +247,12 @@ if part rewrite; then
   # a rubric; Vietnamese wording it flags is rewritten, reviewer-gated, READER_REWRITES parts at most; the rest goes to
   # docs/review/reader.md.
   pnpm engine reader --limit "${READER_LIMIT:-20}" --rewrites "${READER_REWRITES:-3}" || log "reader: failed"
+  # The front list's pages whose saved reader-fit read is of older text are read again first (fit-front.json), so the
+  # rewrite below can take them.
+  pnpm engine fit --front --limit "${FIT_FRONT_LIMIT:-6}" || log "fit: failed"
+  # The reader-fit rewrite (fit-rewrite.ts): pages on the site that fail reader fit, the front list first, then the
+  # most read. Held after its first run until its pages have been looked at (fit-front.json, cleared).
+  pnpm engine fit-rewrite --front --limit "${FIT_REWRITE_LIMIT:-12}" || log "fit-rewrite: failed"
   # Species pages in Indonesian and Thai, most-read first, from their English sources (and again when that English changes).
   for lang in id th; do pnpm engine localize --lang "$lang" --limit "${LOCALIZE_LIMIT:-20}" || log "localize $lang: failed"; done
   # Their other names gain the ones Wikidata gives (CC0), where no other page uses the name: pages made or remade this cycle too.

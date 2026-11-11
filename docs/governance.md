@@ -1032,7 +1032,11 @@ The layers above still check the result.
     written from (`hedges.ts`, which holds the guide writer too). Units, words and a kit are left to the rounding,
     the phrase list and the gate, and harm on a fish, plant or breed page to the gate and a person. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash; a page
     tried and not kept waits until its text changes (`engine-state/_fit-rewrite.json`), and a title the owner fixed stays
-    (`fit-rewrite.test.ts`).
+    (`fit-rewrite.test.ts`). It runs in GitHub's rewrite cycle before the gate, from 13 Nov 2026 08:00: the front list
+    first (`packages/engine/src/fit-front.json`: pages kept off Khám phá's cards and the Hôm nay card, then the
+    staples), then the most read, after a fresh read of the front list's pages whose read is of older text. After its
+    first run it waits until the chief of staff has looked at that run's pages and `cleared` is set in that file
+    (`fit-front.test.ts`).
   - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a
     dated source is expected on a card; a new species is "described", with its paper's date, never "discovered" unless
     the source says so; a trend names its figures and where they come from. A held card stays out of the app, and the
