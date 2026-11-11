@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import { metricPage, QUALITY_THRESHOLD, TranslationSchema, type Section } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { review, TARGETS, translatableIn, type TargetLang } from './localize'
+import { NEAR_BAR, steadyRead } from './quality'
 import { sourceTextHash } from './recheck-score'
 import { logReviews, readReviews, type Store } from './review-log'
 import { sanitizeHtml } from './sanitize'
@@ -15,15 +16,20 @@ import { sanitizeHtml } from './sanitize'
  * second read of a page as it is passed 40 of 263: the reviewer finds the same faults again.
  *
  * So the faults are fixed where they are, from a read of the text the page has now. A review is that read when it
- * stored this text's hash. Where none is on file the reviewer reads the page first (logged as a recheck, with the
- * hash), and a page that passes needs no fix: the recheck rule opens it. Otherwise the notes name parts by number
- * ("Item 4: …"). Only those parts go to the editor, each with its English and its notes, and it corrects what a note
- * rightly names and leaves every other sentence as it is (prompts/localize-fix.md). The same reviewer then reads the
- * whole page, and the fixed page is kept only if it scores higher than both the page's score and the read of the
- * unfixed text. One go a text: a fix that didn't score higher is logged with the hash of the text it was a fix of.
+ * stored this text's hash and is a steady one: near the bar, the middle of three reads (quality.ts steadyRead). The 14
+ * head pages read three times on 2026-11-11 gave the other verdict on one read in 20 within minutes and one in 4
+ * across the afternoon, and 8 of them read 0.15 to 0.35 over their score on file, so a score on file is not that read.
+ * Where none is on file the reviewer reads the page first (logged as a recheck, with the hash), and a page that passes
+ * needs no fix: the recheck rule opens it. Otherwise the notes name parts by number ("Item 4: …"). Only those parts go
+ * to the editor, each with its English and its notes, and it corrects what a note rightly names and leaves every other
+ * sentence as it is (prompts/localize-fix.md). The same reviewer then reads the whole page the same steady way, and the
+ * fixed page is kept only if it scores higher than both the page's score and the read of the unfixed text. One go a
+ * text: a fix that didn't score higher is logged with the hash of the text it was a fix of.
  *
  * Left alone: a page with a note about a dose, a medicine or harm (a dose is never reworded without its source: that
- * page waits for the dose and harm check), a page whose notes name no part, and a part whose "fix" rewrote it.
+ * page waits for the dose and harm check), a page whose notes name no part, a part whose "fix" rewrote it, and a page
+ * that lacks a part of the English (the reviewer reads it as left out and scores the page down: that is the
+ * translator's to add, not a fix in place).
  */
 const FIX = readFileSync(new URL('./prompts/localize-fix.md', import.meta.url), 'utf8')
 const SCHEMA = { type: 'object', required: ['parts'], properties: { parts: { type: 'array', items: { type: 'object', required: ['id', 'text'], properties: { id: { type: 'string' }, text: { type: 'string' } } } } } }
@@ -90,15 +96,16 @@ export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, id
       const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { sections: Section[] }
       // The reviewer's numbering: every translatable part with text, in the page's order (localize.ts `review`).
       const parts: Part[] = e.sections.filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
+      if (parts.some(p => !page.sections[p.id]?.trim())) { report.skipped.push(`${id}: a part of the English is not on the page`); continue }
       const hash = pageTextHash(parts, page.sections)
       const traces = store[`${lang}/${kind}/${id}`] ?? []
       if (traces.some(t => !t.kept && t.attempt === 'rewrite' && t.textHash === hash)) { report.skipped.push(`${id}: a fix of this text was tried`); continue }
-      let read: { score: number; notes: string[] } | undefined = traces.find(t => t.kept && t.textHash === hash)
+      let read: { score: number; notes: string[]; reads?: number[] } | undefined = traces.find(t => t.kept && t.textHash === hash && (t.reads || Math.abs(t.score - QUALITY_THRESHOLD) >= NEAR_BAR))
       if (read && read.score >= QUALITY_THRESHOLD) { report.skipped.push(`${id}: its read passes, and the recheck rule opens it`); continue }
       if (!read) {
         if (o.dry) { report.skipped.push(`${id}: needs a new read first (dry run)`); sent++; continue }
         sent++
-        read = await review(llm, lang, parts, new Map(Object.entries(page.sections)))
+        read = await steadyRead(() => review(llm, lang, parts, new Map(Object.entries(page.sections))))
         await logReviews(root, 'localize', ref, [read], read, { now: now(), recheck: true, textHash: hash })
         report.read.push(`${id}: ${was} then ${read.score}, ${read.notes.length} notes${read.score >= QUALITY_THRESHOLD ? ', passes as it is' : ''}`)
         if (read.score >= QUALITY_THRESHOLD) continue
@@ -109,8 +116,7 @@ export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, id
       if (notes.some(doseOrHarm)) { report.skipped.push(`${id}: a note on a dose, a medicine or harm`); continue }
       const notesOf = new Map<number, string[]>()
       for (const n of notes) for (const i of partsNamed(n)) if (i >= 1 && i <= parts.length) notesOf.set(i, [...(notesOf.get(i) ?? []), n])
-      // A part the translator left out has nothing to fix in place: that is a new translation's job.
-      const named = [...notesOf.keys()].sort((a, b) => a - b).filter(i => page.sections[parts[i - 1]!.id]?.trim())
+      const named = [...notesOf.keys()].sort((a, b) => a - b)
       if (!named.length) { report.skipped.push(`${id}: its notes name no part`); continue }
       const line = `${id}: ${named.length} of ${parts.length} parts, ${notes.length} notes`
       if (o.dry) { report.skipped.push(`${line} (dry run)`); sent++; continue }
@@ -132,7 +138,7 @@ export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, id
       }
       if (!changed.length) { report.skipped.push(`${line}: the fix changed nothing`); continue }
       const next = TranslationSchema.parse(metricPage({ ...page, sections }, lang)) as unknown as Page
-      const r = await review(llm, lang, parts, new Map(Object.entries(next.sections)))
+      const r = await steadyRead(() => review(llm, lang, parts, new Map(Object.entries(next.sections))))
       const bar = Math.max(was, read.score)
       const kept = r.score > bar
       await o.onTry?.({ id, was, read: read.score, score: r.score, kept, parts: changed.map(k => ({ id: k, notes: notesOf.get(parts.findIndex(p => p.id === k) + 1)!, before: page.sections[k]!, after: next.sections[k]! })) })
