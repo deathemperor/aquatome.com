@@ -206,13 +206,11 @@ test("every card's school size is Seriously Fish's where it gives one, never bel
 
 // The owner, 2026-11-11, on the app's list of guides: "Duplicated". No two guides in a language share a title, and none is
 // only a name (content-rules.ts guide-title), in every language. The pages here had one on 11 Nov: 2Hr Aquarist's 27 tank
-// pages, titled with the aquascaper's name, and two videos with one title. The sweep writes them again (guide-titles.ts)
-// once the chief of staff has seen samples, ten a run; a new one fails. Empty the list once none is left.
-const TITLES_HELD = ['ada-15', 'ada-hardscape-focused-tank', 'ada-hardscape-only-tank', 'andre-longarco', 'art-commissio', 'chonlatee-jaturonrusmee-2018', 'cory-hopkins', 'cory-hopkins-1', 'cory-hopkins-2', 'cory-hopkins-natural-biotope-1', 'craftspeak', 'dennis-wong', 'dennis-wong-1', 'dou-mok', 'dou-mok-1', 'dou-mok-2', 'dou-mok-4', 'dutch-style', 'dutch-style-1', 'dutch-style-2', 'dutch-style-mc', 'dutch-style-rf', 'dutch-style-sp', 'fernando-ferreira', 'fernando-ferreira-2', 'fernando-ferreira-3', 'george-farmer']
-  .map(x => `vi/2hraquarist-blogs-aquascaping-ideas-${x}`).concat(['vi/youtube-7EUCwvZpKvg', 'vi/youtube-9Ve-eoniVlw'])
-test('no two guides in a language share a title, and none is only a name, beyond those held of 11 Nov', async () => {
+// pages, titled with the aquascaper's name, and two videos with one title: all 29 titled by hand (nameFixed). A new one
+// the sweep doesn't title (guide-titles.ts, ten a run) fails here.
+test('no two guides in a language share a title, and none is only a name', async () => {
   const guides = (await loadPages(fileURLToPath(new URL('../../../content', import.meta.url)))).filter(p => p.kind === 'guides')
   const { findings, errors } = checkPages(guides, RULES.filter(r => r.id === 'guide-title'))
   expect(errors).toEqual([])
-  expect([...new Set(findings.map(f => `${f.page.lang}/${f.page.id}`))].filter(x => !TITLES_HELD.includes(x))).toEqual([])
+  expect(findings.map(f => `${f.page.lang}/${f.page.id}: ${f.detail}`)).toEqual([])
 }, 300_000)
