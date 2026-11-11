@@ -1,4 +1,4 @@
-import { spawn } from 'node:child_process'
+import { execFileSync, spawn } from 'node:child_process'
 import { appendFileSync, mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -17,6 +17,29 @@ export class LlmError extends Error {}
 
 /** model: per-call override of ENGINE_MODEL (default sonnet). */
 export const modelOf = (model?: string) => model ?? process.env.ENGINE_MODEL ?? 'sonnet'
+
+/**
+ * What a call really ran on (the chief of staff, 2026-11-11): the engine asks for an alias ("sonnet"), which moves with the
+ * command's version, so the full model each alias last answered with, from the command's own report (`modelUsage`), and the
+ * command's version go beside every logged call and review. Scores that move with either show which.
+ */
+const ranOn = new Map<string, string>()
+export const modelRan = (model?: string) => ranOn.get(modelOf(model)) ?? modelOf(model)
+let version: string | undefined
+/** The command's version, asked once a process; ENGINE_CLI_VERSION says it instead (the tests set it empty: none logged). */
+export function cliVersion(): string {
+  if (process.env.ENGINE_CLI_VERSION !== undefined) return process.env.ENGINE_CLI_VERSION
+  if (version) return version
+  try {
+    version = execFileSync('claude', ['--version'], { encoding: 'utf8', timeout: 20_000 }).trim().split(/\s+/)[0] || 'unknown'
+  } catch {
+    version = 'unknown'
+  }
+  return version
+}
+/** The model that wrote most of a call's answer, by the command's report of each model it used. */
+export const answeredBy = (usage: unknown): string | undefined =>
+  Object.entries((usage ?? {}) as Record<string, { outputTokens?: number }>).sort(([, a], [, b]) => (b.outputTokens ?? 0) - (a.outputTokens ?? 0))[0]?.[0]
 export type Llm = <T>(args: { system: string; prompt: string; schema: object; model?: string }) => Promise<T>
 
 type RunOpts = { tools: string; deny?: string[]; cwd: string; model?: string; timeoutMs?: number }
@@ -52,13 +75,15 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
       clearTimeout(timer)
       try {
         const r = JSON.parse(out)
+        const ran = answeredBy(r.modelUsage)
+        if (ran) ranOn.set(modelOf(opts.model), ran)
         // ENGINE_COST_LOG: one line a call (what the CLI reports it would cost on the API, its tokens, the wall time, the CLI
         // command it ran in and the account it went to, by its token's hash), to split a week's use by job and account.
         const log = costLog()
         if (log) {
           const u = r.usage ?? {}
           try {
-            appendFileSync(log, `${JSON.stringify({ at: new Date().toISOString(), step: stepName(), account: token ? tokenHash(token) : 'login', model: modelOf(opts.model), ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
+            appendFileSync(log, `${JSON.stringify({ at: new Date().toISOString(), step: stepName(), account: token ? tokenHash(token) : 'login', model: modelOf(opts.model), ...(ran ? { ran } : {}), ...(cliVersion() ? { cli: cliVersion() } : {}), ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
           } catch (e) {
             console.warn(`ENGINE_COST_LOG: ${(e as Error).message}`) // a log it can't write never fails the call
           }

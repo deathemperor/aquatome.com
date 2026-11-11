@@ -7,4 +7,4 @@ import { defineConfig } from 'vitest/config'
 // Either way a test's stand-in model call would be written to a real cost log and counted against a step's ceiling for
 // the day (ceiling.ts), and at a ceiling of $0 it would fail. `off` is no log and no ceiling; a test that needs a log
 // names its own.
-export default defineConfig({ test: { include: ['test/**/*.test.ts'], env: { YOUTUBE_API_KEY: '', UNSPLASH_ACCESS_KEY: '', ENGINE_COST_LOG: 'off' }, testTimeout: 30_000 } })
+export default defineConfig({ test: { include: ['test/**/*.test.ts'], env: { YOUTUBE_API_KEY: '', UNSPLASH_ACCESS_KEY: '', ENGINE_COST_LOG: 'off', ENGINE_CLI_VERSION: '' }, testTimeout: 30_000 } })
