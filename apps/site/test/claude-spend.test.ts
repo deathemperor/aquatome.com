@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process'
-import { existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdtempSync, readFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -95,61 +95,89 @@ test('the last two days of artifacts are read a page at a time until one is olde
   expect(() => recentArtifacts(() => Array.from({ length: 100 }, (_, i) => made(1, i)), now, 3)).toThrow(/can't be counted/)
 })
 
-// fix.yml's inline script for the auto-fix's cost line, run as the workflow runs it. The agent has had Bash in that job.
+// fix.yml's `cost` job: the inline script that makes the auto-fix's cost line, run as the workflow runs it. It runs in a
+// job the agent was never in, and takes one thing from the agent's job: the dollars the CLI said the session cost.
+const FIX = readFileSync(new URL('../../../.github/workflows/fix.yml', import.meta.url), 'utf8')
 const SCRIPT = (() => {
-  const yml = readFileSync(new URL('../../../.github/workflows/fix.yml', import.meta.url), 'utf8')
-  const body = /node - <<'JS'\n([\s\S]*?)\n\s*JS\n/.exec(yml)![1]!
+  const cost = FIX.slice(FIX.indexOf('\n  cost:\n'))
+  const body = /node - <<'JS'\n([\s\S]*?)\n\s*JS\n/.exec(cost)![1]!
   return body.split('\n').map(l => l.replace(/^ {10}/, '')).join('\n')
 })()
-function costLine(agent: unknown, env: { STARTED?: string; LEFT?: string }, before?: string) {
-  const dir = mkdtempSync(join(tmpdir(), 'aq-fix-'))
-  const out = join(dir, 'aquatome-cost-autofix.jsonl')
-  if (agent !== undefined) writeFileSync(join(dir, 'agent.json'), typeof agent === 'string' ? agent : JSON.stringify(agent))
-  if (before !== undefined) writeFileSync(out, before)
-  let failed = false
-  try {
-    execFileSync('node', ['-'], { input: SCRIPT, env: { PATH: process.env.PATH, AGENT_JSON: join(dir, 'agent.json'), COST_LINE: out, ...env }, stdio: ['pipe', 'pipe', 'pipe'] })
-  } catch { failed = true }
-  return { failed, text: existsSync(out) ? readFileSync(out, 'utf8') : undefined }
+function costLine(env: { USD?: string; LEFT?: string; STARTED?: string; REPORTED?: string }) {
+  const out = join(mkdtempSync(join(tmpdir(), 'aq-fix-')), 'aquatome-cost-autofix.jsonl')
+  execFileSync('node', ['-'], { input: SCRIPT, env: { PATH: process.env.PATH, COST_LINE: out, ...env }, stdio: ['pipe', 'pipe', 'pipe'] })
+  return existsSync(out) ? readFileSync(out, 'utf8') : undefined
 }
 
-test("the auto-fix's cost line takes numbers only from what the CLI printed: no word the agent could have put there reaches the artifact", () => {
+test("the auto-fix's cost line is the time, the step and the dollars to the cent: one plain number crosses from the agent's job, and nothing else can", () => {
+  const text = costLine({ USD: '1.234567', LEFT: '4', STARTED: '1', REPORTED: '1' })!
+  const line = JSON.parse(text)
+  expect(Object.keys(line).sort()).toEqual(['at', 'step', 'usd'])
+  expect(line).toMatchObject({ step: 'autofix', usd: 1.23 })
+  expect(Number.isNaN(Date.parse(line.at))).toBe(false)
+  // What the agent's job hands on is not trusted: anything but a plain number of dollars is not copied, and the session
+  // is counted at the whole of what it was allowed.
   const SECRET = 'sk-ant-oat01-not-a-real-token'
-  const { text } = costLine({
-    total_cost_usd: 1.23456789, duration_ms: 61234, is_error: false, result: `the issue's text and ${SECRET}`, subtype: SECRET, session_id: SECRET,
-    usage: { input_tokens: 10, output_tokens: 20, cache_creation_input_tokens: SECRET, cache_read_input_tokens: 4.5, extra: SECRET },
-    structured_output: { status: 'fixed', summary: SECRET },
-  }, { STARTED: '1', LEFT: '4' })
-  const line = JSON.parse(text!)
-  expect(Object.keys(line).sort()).toEqual(['at', 'in', 'ms', 'out', 'step', 'usd'])
-  expect(line).toMatchObject({ step: 'autofix', usd: 1.2346, ms: 61234, in: 10, out: 20 })
-  expect(text).not.toContain(SECRET)
-  // A cost that is no number, or out of bounds, is not copied: the session is counted at what it was allowed.
-  for (const usd of [SECRET, -1, 1e9, null]) {
-    const odd = costLine({ total_cost_usd: usd, duration_ms: SECRET }, { STARTED: '1', LEFT: '2.5' })
-    expect(JSON.parse(odd.text!)).toMatchObject({ step: 'autofix', usd: 2.5, assumed: true })
-    expect(odd.text).not.toContain(SECRET)
+  for (const usd of [SECRET, `1.5 ${SECRET}`, `1.5\n${SECRET}`, '-1', '1e3', '0x10', '1.2.3', ' 2', '12345', '1.1234567', 'NaN', 'Infinity']) {
+    const odd = costLine({ USD: usd, LEFT: '2.5', STARTED: '1', REPORTED: '1' })!
+    expect(JSON.parse(odd), usd).toMatchObject({ step: 'autofix', usd: 2.5, assumed: true })
+    expect(Object.keys(JSON.parse(odd)).sort()).toEqual(['assumed', 'at', 'step', 'usd'])
+    expect(odd).not.toContain(SECRET)
   }
 })
 
-test('a session that started and left no cost to read is counted at the whole of what it was allowed; one that never started leaves no line', () => {
-  for (const agent of [undefined, '', '{"total_cost_usd": 0.4', 'null']) {
-    const cut = costLine(agent, { STARTED: '1', LEFT: '3.2' })
-    expect(JSON.parse(cut.text!)).toMatchObject({ step: 'autofix', usd: 3.2, assumed: true })
+test("a session that left no cost to read is counted at the whole of what it was allowed, a lost runner's too; only a job that said it was there and started no session writes no line", () => {
+  // The session ran out of time, or was stopped: its step failed and nothing says what it cost.
+  expect(JSON.parse(costLine({ USD: '', LEFT: '3.2', STARTED: '1', REPORTED: '1' })!)).toMatchObject({ usd: 3.2, assumed: true })
+  // The runner was lost, or the job was cut off before it could hand anything on: nothing arrives, not even that the
+  // job was there, so a session is assumed.
+  expect(JSON.parse(costLine({ LEFT: '3.2' })!)).toMatchObject({ usd: 3.2, assumed: true })
+  expect(JSON.parse(costLine({ USD: '', LEFT: '3.2', STARTED: '', REPORTED: '' })!)).toMatchObject({ usd: 3.2, assumed: true })
+  // An install failed before any session, and the job said so by saying it was there and no more: nothing was spent.
+  expect(costLine({ USD: '', LEFT: '3.2', STARTED: '', REPORTED: '1' })).toBeUndefined()
+  // Only the runner's own word counts for that: anything else there is not "it was there".
+  expect(JSON.parse(costLine({ LEFT: '3.2', REPORTED: 'true' })!)).toMatchObject({ usd: 3.2, assumed: true })
+  // No ceiling (`none`): nothing to count a missing cost at, and a cost that is there is still logged.
+  expect(costLine({ USD: '', LEFT: 'none', STARTED: '1', REPORTED: '1' })).toBeUndefined()
+  expect(JSON.parse(costLine({ USD: '0.500000', LEFT: 'none', STARTED: '1', REPORTED: '1' })!)).toMatchObject({ usd: 0.5 })
+  // A session stopped at its cap still printed its cost, a response past it: that is what is logged.
+  expect(JSON.parse(costLine({ USD: '4.070000', LEFT: '4', STARTED: '1', REPORTED: '1' })!)).toEqual({ at: expect.any(String), step: 'autofix', usd: 4.07 })
+  // What the budget job hands on as left is a form the cost job reads, awkward sums too (4 - 1.1 - 2.2).
+  for (const [cap, spentToday] of [[4, 1.1 + 2.2], [8, 0.1 + 0.2], [12, 11.99995], [4, 0]] as const) {
+    const left = leftOf(cap, spentToday)!
+    expect(String(left), String(left)).toMatch(/^\d{1,4}(\.\d{1,6})?$/)
+    if (left > 0) expect(JSON.parse(costLine({ LEFT: String(left) })!)).toMatchObject({ usd: Math.round(left * 100) / 100, assumed: true })
   }
-  // The day's ceiling was already spent, so no session started: the stand-in result has no cost, and nothing is counted.
-  expect(costLine({ structured_output: { status: 'needs-person', summary: 'No fix was tried' } }, { STARTED: '', LEFT: '0' }).text).toBeUndefined()
-  // No ceiling (`none`) or an allowance that is no plain number: nothing to assume.
-  expect(costLine(undefined, { STARTED: '1', LEFT: 'none' }).text).toBeUndefined()
-  expect(costLine(undefined, { STARTED: '1', LEFT: '4; echo x' }).text).toBeUndefined()
-  // A session stopped at its cap still printed its cost: that is what is logged, marked as an error.
-  expect(JSON.parse(costLine({ subtype: 'error_max_budget_usd', is_error: true, total_cost_usd: 4.07 }, { STARTED: '1', LEFT: '4' }).text!)).toMatchObject({ usd: 4.07, error: true })
 })
 
-test("the line goes to a new file: one already there (the agent's) is not added to, and the step fails", () => {
-  const planted = costLine({ total_cost_usd: 1 }, { STARTED: '1', LEFT: '4' }, 'planted text\n')
-  expect(planted.failed).toBe(true)
-  expect(planted.text).toBe('planted text\n') // and in the workflow the file is in a folder made that moment, which the agent never saw
+test("the auto-fix's public line is made where the agent never ran, and the session runs under the cap with its sign-in kept out of the agent's commands", () => {
+  const job = (id: string) => { const from = FIX.indexOf(`\n  ${id}:\n`); const next = FIX.slice(from + 1).search(/\n  [a-z]+:\n/); return FIX.slice(from, next < 0 ? undefined : from + 1 + next) }
+  const [budget, agent, cost] = [job('budget'), job('agent'), job('cost')]
+  // The cost job: no checkout, no token, no permission, and it runs whatever became of the agent's job.
+  expect(cost).not.toMatch(/actions\/checkout|secrets\.|GH_TOKEN/)
+  expect(cost).toContain('permissions: {}')
+  expect(cost).toContain("if: always() && needs.budget.outputs.go == 'true' && needs.agent.result != 'skipped'")
+  expect(cost).toContain('name: cost-log-autofix-${{ github.run_attempt }}')
+  // The agent's job uploads no cost file of its own, and hands on three things only.
+  expect(agent).not.toContain('cost-log-')
+  expect(/\n    outputs:\n((?: {6}.*\n)+)/.exec(agent)![1]!.trim().split('\n').map(l => l.trim().split(':')[0])).toEqual(['reported', 'started', 'usd'])
+  // "This job's runner is here" is its first step, before the checkout; "a session is about to start" is said before
+  // the agent runs. Neither is something the agent can have touched.
+  expect(agent.indexOf('echo reported=1')).toBeGreaterThan(0)
+  expect(agent.indexOf('echo reported=1')).toBeLessThan(agent.indexOf('actions/checkout'))
+  expect(agent.indexOf('echo started=1')).toBeGreaterThan(0)
+  expect(agent.indexOf('echo started=1')).toBeLessThan(agent.indexOf('claude -p '))
+  // The session: the CLI's own cap, what the budget job counted; the token kept out of the commands it runs.
+  expect(agent).toContain('budget=(--max-budget-usd "$LEFT")')
+  expect(agent).toContain('"${budget[@]}"')
+  expect(agent).toContain("CLAUDE_CODE_SUBPROCESS_ENV_SCRUB: '1'")
+  // A 200K context and 32K of answer: what bounds one response's cost, and so how far a run can pass its cap.
+  expect(agent).toContain("CLAUDE_CODE_DISABLE_1M_CONTEXT: '1'")
+  expect(agent).toContain("CLAUDE_CODE_MAX_OUTPUT_TOKENS: '32000'")
+  expect(agent).toContain('needs: budget')
+  // The budget job counts with no token of Claude's, and only reads.
+  expect(budget).not.toContain('CLAUDE_CODE_OAUTH_TOKEN')
+  expect(budget).toMatch(/permissions:\n {6}contents: read\n {6}actions: read\n/)
 })
 
 test('the real ceilings file has a line for each of the three on GitHub from 12 Nov 13:00, and none on the Mac', () => {
@@ -160,4 +188,19 @@ test('the real ceilings file has a line for each of the three on GitHub from 12 
   expect(lines('2026-11-13T08:00:00+07:00')).toEqual([8, 3, 8])
   expect(lines('2026-11-14T08:00:00+07:00')).toEqual([12, 4, 12])
   for (const t of real.tables) for (const s of ['page-review', 'nightly-review', 'autofix']) expect(Object.hasOwn(t.mac.steps, s), `${t.from} mac ${s}`).toBe(false)
+})
+
+test("one auto-fix run can't spend past twice its day's line: no line is under what one response can cost", () => {
+  // A run is stopped a response late at most (fix.yml). Held to a 200K context and 32K of answer, that response is
+  // 200K tokens new to the cache and a 32K answer at the most: Opus 5.5's list price, $8 (an hour's keep) and $20 a
+  // million.
+  const RESPONSE = (200_000 * 8 + 32_000 * 20) / 1e6
+  expect(RESPONSE).toBe(2.24)
+  const real = JSON.parse(readFileSync(new URL('../../../packages/engine/src/ceilings.json', import.meta.url), 'utf8'))
+  const lines: [string, number][] = real.tables.flatMap((t: { from: string; github: { steps: Record<string, number | null | undefined> } }) => {
+    const line = t.github.steps.autofix
+    return line == null ? [] : [[t.from, line]]
+  })
+  expect(lines.length).toBe(3)
+  for (const [from, line] of lines) expect(line + RESPONSE, `the auto-fix's line from ${from}`).toBeLessThanOrEqual(2 * line)
 })

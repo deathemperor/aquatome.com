@@ -3,7 +3,7 @@
 // nightly review (watch.yml) and the auto-fix (fix.yml). Each has a line in the engine's daily ceilings, on GitHub's
 // side (packages/engine/src/ceilings.json), and writes a cost line a call: time, step, dollars, tokens. A runner starts
 // empty, so a run keeps its lines as an artifact named cost-log-<step>-<the run's attempt>, and the day's spend is read
-// back from those. Two runs that start together each count the same day, so together they can pass a line by a run.
+// back from those. Runs that start together each count the same day, so together they can pass a line by a run each.
 //
 //   claude-spend.mjs left <step>              what <step> has left of its day: `left=<dollars>` (or `left=none`, no
 //                                             ceiling) and `go=<true|false>` on stdout and in $GITHUB_OUTPUT
