@@ -4,7 +4,7 @@ import { fitFindings, fitKey, fitRules, fitSource, fitText, type FitFinding, typ
 import { gateChecks, GATE_KINDS, HELD_BY_HAND, type HandHold, type Held } from './gate'
 import { loadPages, type Page } from './pages'
 import { norm, readable, render } from './reader'
-import { doseWaterAt, metricFigures, numberIn, usTankOf } from './round'
+import { givesDose, metricFigures, numberIn, usTankOf } from './round'
 
 /**
  * The units mender: a page the gate holds for units alone, whose saved read of its text as it stands quotes a tank's
@@ -30,17 +30,14 @@ const RANGE_BEFORE = /\d(?:\s*(?:lít|liter|litre|ลิตร|l(?![\p{L}\p{N}])
 const RANGE_AFTER = /^\s*(?:[–-]|đến|tới|hingga|sampai|ถึง|to)\s*\d/iu
 /** A dose's water: "cho mỗi 38 lít", "per 38 liter" (round.ts keeps these too). */
 const PER = /(?:mỗi|cho|trên|per|setiap|untuk|ต่อ|\/)\s*(?:khoảng\s*)?$/iu
-/** A flow, not a tank: "115 lít mỗi giờ", "một tiếng", "lít/giờ", "per hour". Not "một giờ sau" (an hour later), "một tiếng đồng hồ" (for an hour) or "lít/hồ". */
-const RATE_AFTER = /^\s*(?:\/\s*(?:h|giờ|tiếng|jam|ชม)(?![\p{L}])|(?:(?:mỗi|một|1)|trong (?:một|1)) (?:giờ|tiếng)(?![\p{L}])(?!\s+(?:sau|nữa|trước|đồng hồ))|per hour|an hour|per jam|sejam|ต่อชั่วโมง)/iu
-/** A pump's or a filter's, read with an hour after the volume as a flow whatever follows the hour. */
-const FLOW_WORDS = /(?<!\p{L})(?:máy bơm|bơm|lọc|lưu lượng|công suất|pump|filter|flow|pompa|aliran|ปั๊ม|กรอง)(?!\p{L})/iu
-const HOUR_AFTER = /^\s*(?:\/\s*|(?:mỗi|một|1|per|an|trong (?:một|1))\s+)?(?:giờ|tiếng|h|jam|hour|ชั่วโมง|ชม)(?![\p{L}])/iu
-/** Whether the volume at `at` in `text` is a tank's: not a range's end, a dose's water (doseWaterAt), or a flow. */
-const tankAt = (text: string, at: number, end: number) => {
-  const sentence = text.slice(0, at).split(/[.;!?\n>]/).at(-1) ?? ''
-  const flow = RATE_AFTER.test(text.slice(end)) || (FLOW_WORDS.test(sentence) && HOUR_AFTER.test(text.slice(end)))
-  return !PER.test(text.slice(Math.max(0, at - 24), at)) && !doseWaterAt(text, at) && !RANGE_BEFORE.test(text.slice(0, at)) && !RANGE_AFTER.test(text.slice(end)) && !flow
-}
+/** A time after a volume, which may make it a flow ("115 lít mỗi giờ", "lít/phút", "setiap jam", "ต่อชั่วโมง"): held, whatever the time is. */
+const TIME_AFTER = /^[^.;!?<>\d]{0,25}?(?:(?<!\p{L})(?:giờ|tiếng|phút|jam|sejam|menit|hours?|minutes?|min)(?!\p{L})|\/\s*(?:h|ชม|นาที)(?!\p{L})|ชั่วโมง|ชม\.|นาที)/iu
+/**
+ * Whether the volume at `at` in `text` (a page part, all of it) is a tank's: not a range's end, not "per" something, no
+ * time after it, and no dose anywhere in the part (givesDose). What it can't be sure of stays held for a writer.
+ */
+const tankAt = (text: string, at: number, end: number) =>
+  !givesDose(text) && !PER.test(text.slice(Math.max(0, at - 24), at)) && !RANGE_BEFORE.test(text.slice(0, at)) && !RANGE_AFTER.test(text.slice(end)) && !TIME_AFTER.test(text.slice(end))
 /** A metric figure that isn't a volume: a length or a temperature, which only a writer can put right. */
 const NOT_VOLUME = /\d\s*(?:cm|mm|ซม|มม|°|độ C)|\d\s*m(?![\p{L}\p{N}])/iu
 

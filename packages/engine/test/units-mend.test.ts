@@ -6,7 +6,7 @@ import { expect, test } from 'vitest'
 import { fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
 import { loadPages } from '../src/pages'
 import { amountsOutside } from '../src/for-reader'
-import { doseWaterAt, numberIn, TANK_RULE, US_TANKS, usTankOf, withTanks } from '../src/round'
+import { givesDose, numberIn, TANK_RULE, US_TANKS, usTankOf, withTanks } from '../src/round'
 import { reviewRewrite } from '../src/quality'
 import { namesTwice, onlyFigures, unitsMend, UNITS_MEND_FROM } from '../src/units-mend'
 
@@ -203,9 +203,13 @@ test('a range\'s far end with its own unit, a dose\'s water and a flow keep thei
     expect((await unitsMend(root, { now: after })).mended).toEqual([])
     expect((await file(root)).body).toBe(body)
   }
-  const flow = await held('<p>Bể 115 lít.</p><p>Máy bơm 115 lít mỗi giờ.</p><p>Pha 5 ml vào 115 lít nước.</p>', ['Bể 115 lít'])
+  const flow = await held('<p>Bể 115 lít.</p><p>Máy bơm 115 lít mỗi giờ.</p>', ['Bể 115 lít'])
   await unitsMend(flow, { now: after })
-  expect((await file(flow)).body).toBe('<p>Bể 120 lít.</p><p>Máy bơm 115 lít mỗi giờ.</p><p>Pha 5 ml vào 115 lít nước.</p>')
+  expect((await file(flow)).body).toBe('<p>Bể 120 lít.</p><p>Máy bơm 115 lít mỗi giờ.</p>')
+  // A part that gives a dose keeps its tank as it is too: held for a writer.
+  const beside = await held('<p>Bể 115 lít.</p><p>Pha 5 ml vào 115 lít nước.</p>', ['Bể 115 lít'])
+  await unitsMend(beside, { now: after })
+  expect((await file(beside)).body).toBe('<p>Bể 115 lít.</p><p>Pha 5 ml vào 115 lít nước.</p>')
   const dose = await held('<p>Pha 5 ml vào 115 lít nước.</p>', ['Pha 5 ml vào 115 lít nước'])
   expect((await unitsMend(dose, { now: after })).left).toEqual([expect.stringContaining('a dose\'s water or a flow')])
   // "75.7" is 75.7 litres, 20 gallons, in any language, never 757; "1.325" is still a thousand and more.
@@ -232,15 +236,15 @@ test('a part mends only from what it was written from: a research fact read as i
   expect(bare.t.sections['notes:aquatome']).toBe('<p>Bể 75 lít cho một đàn.</p>')
 })
 
-test('a guide\'s title a person fixed stays; a later hour, a tank per something and food in a tank are a tank\'s litres', async () => {
+test('a guide\'s title a person fixed stays; a tank per something is a tank\'s litres, and a time or a pellet beside a tank holds it', async () => {
   const fixed = await held('<p>Bể 115 lít là vừa.</p>', ['Bể 115 lít là vừa'], { name: 'Cá bể 115 lít' })
   await fixTitle(fixed)
   await unitsMend(fixed, { now: after })
   expect((await file(fixed)).name).toBe('Cá bể 115 lít')
-  for (const [body, quote] of [['<p>Thả vào bể 115 lít một giờ sau.</p>', 'Thả vào bể 115 lít một giờ sau'], ['<p>Bể 115 lít/hồ là đủ.</p>', 'Bể 115 lít/hồ là đủ'], ['<p>Cho ăn 1 viên trong bể 115 lít.</p>', 'Cho ăn 1 viên trong bể 115 lít']] as [string, string][]) {
+  for (const [body, quote, mended] of [['<p>Bể 115 lít/hồ là đủ.</p>', 'Bể 115 lít/hồ là đủ', true], ['<p>Thả vào bể 115 lít một giờ sau.</p>', 'Thả vào bể 115 lít một giờ sau', false], ['<p>Cho ăn 1 viên trong bể 115 lít.</p>', 'Cho ăn 1 viên trong bể 115 lít', false]] as [string, string, boolean][]) {
     const root = await held(body, [quote])
     await unitsMend(root, { now: after })
-    expect((await file(root)).body, body).toBe(body.replace('115', '120'))
+    expect((await file(root)).body, body).toBe(mended ? body.replace('115', '120') : body)
   }
 })
 
@@ -251,38 +255,33 @@ test('the guide writer\'s figure check lets the water a dose goes into keep its 
   expect(amountsOutside('Bể 115 lít, pha 5 ml vào 120 lít nước.', 'A 30 gallon tank; add 5 ml to 30 gallons.')).toEqual(['115 l'])
 })
 
-// The independent reader's fourth round, 2026-11-11: a dose's water written seven more ways, and a flow by the hour.
-test("a dose's water keeps its figure however many words come between the dose and its water, a dose unit's period, grams and the Indonesian and Thai joiners; a flow \"một tiếng\" too", async () => {
-  const kept = ['Cho 5 ml dung dịch Easy Life Profito vào 115 lít nước.', 'Pha 5 ml. vào 115 lít nước.', '1 gam muối vào 115 lít nước.', 'Máy bơm 115 lít một tiếng.']
-  const root = await held(`<p>Bể 115 lít.</p>${kept.map(k => `<p>${k}</p>`).join('')}`, ['Bể 115 lít'])
-  await unitsMend(root, { now: after })
-  expect((await file(root)).body).toBe(`<p>Bể 120 lít.</p>${kept.map(k => `<p>${k}</p>`).join('')}`)
-  const water = (s: string) => doseWaterAt(s, s.search(/\d+ (?:lít|liter|ลิตร)/))
-  expect(['5 มล. ใน 115 ลิตร', '5 ml dengan 38 liter air.', '5 ml bagi 38 liter air.', 'Pha 5 ml. vào 38 lít nước.', '1 gram muối vào 38 lít.'].map(water)).toEqual([true, true, true, true, true])
-  expect(['Cho ăn 1 viên trong bể 115 lít.', 'Pha 5 ml. Bể 38 lít là đủ.', 'Thả cá. Bể 115 lít.'].map(water)).toEqual([false, false, false])
-  // The writer check reads the clause the same way.
-  expect(amountsOutside('Pha 5 ml. vào 38 lít nước.', 'Add 5 ml per 10 gallons of water.')).toEqual([])
-  expect(amountsOutside('1 gam muối vào 38 lít nước.', 'Add 1 gram of salt to 10 gallons.')).toEqual([])
-})
-
 test("the style rewrite's reviewer has the tank table its writer has", async () => {
   let asked = ''
   await reviewRewrite((async (r: { system?: string; prompt: string }) => { asked = `${r.system ?? ''}\n${r.prompt}`; return { score: 1, notes: [] } }) as never, [{ before: 'Bể 115 lít.', after: 'Bể 120 lít.' }])
   expect(asked).toContain(TANK_RULE.en)
 })
 
-// The independent reader's fifth and sixth rounds, 2026-11-12: each finer line drawn between a dose's water and a tank
-// opened another hole, so a volume with a dose beside it is read as the dose's water and stays held for a writer.
-test("a volume with a dose in its sentence or the one before stays as it is unless a tank word stands before it; a fish's weight is no dose, and a pump's hour is a flow", async () => {
-  const beside = ['Pha 5 ml. Với 115 lít là đủ.', 'Pha 5 ml. Cho vào 115 lít nước.', 'Hòa 1 gam muối. Cho vào 115 lít nước.', 'Pha 5 ml thuốc, rồi cho vào 115 lít nước.', 'Pha 5 ml dung dịch 3% vào 115 lít nước.', 'Máy bơm 115 lít một tiếng đồng hồ.', 'Bơm 115 lít mỗi giờ sau khi thay nước.']
-  const tanks = ['Cá nặng tới 5 gam trong 115 lít.', 'Thả vào bể 115 lít trong một tiếng sau.', 'Ngâm trong bể 115 lít một tiếng đồng hồ.', 'Pha 5 ml rồi đổ vào bể 115 lít.']
-  const root = await held([...beside, ...tanks].map(t => `<p>${t}</p>`).join(''), ['Thả vào bể 115 lít trong một tiếng sau'])
+// The independent reader's rounds 4 to 7, 2026-11-11 and 12: every narrower reading of a dose's water (a clause, a
+// sentence, a sentence back) had an edge a dose crossed. So a part that gives a dose anywhere keeps every volume in it,
+// and a volume with a time after it stays: a tank held is a writer's to mend, a dose's water rounded misdoses fish.
+test("a part that gives a dose anywhere keeps every volume in it as it is, and a time after a volume keeps it; a fish's weight is no dose", async () => {
+  const doses = ['Cho 5 ml dung dịch Easy Life Profito vào 115 lít nước.', 'Pha 5 ml. vào 115 lít nước.', '1 gam muối vào 115 lít nước.', 'Đổ 115 lít nước đã pha 5 ml vào bể.', 'Pha 5 ml thuốc. Khuấy đều. Cho vào 115 lít nước.', 'Pha 5 cc vào 115 lít nước.', 'Lấy 10 mililít vào 115 lít nước.', 'Teteskan 5 tetes ke dalam 115 liter air.', 'Tambahkan 1 sdt ke 115 liter air.', 'ใช้ 5 มก. ในน้ำ 115 ลิตร', '5 มล. ต่อน้ำ 115 ลิตร', 'ใส่ 1 ช้อนชาต่อน้ำ 115 ลิตร', 'Khoảng 1 cốc muối cho 75 lít.', 'Masukkan 2 sudu garam ke dalam 115 liter air.', 'cho vào bể 115 lít nước đã pha 5 ml']
+  for (const d of doses) expect(givesDose(d), d).toBe(true)
+  for (const w of ['Cá nặng tới 5 gam trong 115 lít.', 'Ikan beratnya 5 gram dalam 115 liter.', 'Bể 115 lít.']) expect(givesDose(w), w).toBe(false)
+  // Across paragraphs and tags.
+  const part = '<p>Pha <b>5 ml</b> thuốc.</p><p>Cho vào 115 lít nước.</p><p>Bể 115 lít là đủ.</p>'
+  const root = await held(part, ['Bể 115 lít là đủ'])
   await unitsMend(root, { now: after })
-  expect((await file(root)).body).toBe([...beside, ...tanks.map(t => t.replace('115', '120'))].map(t => `<p>${t}</p>`).join(''))
-  const water = (s: string) => doseWaterAt(s, s.search(/\d+ (?:lít|liter|ลิตร)/))
-  expect(['5 มิลลิลิตร. ใน 115 ลิตร', '5 กรัม. ใน 115 ลิตร', '5 มล. ต่อน้ำ 115 ลิตร', 'Cho 5 giọt, vào 115 lít nước.', 'Pha 5 ml. Seachem Prime vào 115 lít nước.'].map(water)).toEqual([true, true, true, true, true])
-  expect(['Ikan beratnya 5 gram dalam 115 liter.', 'Cá nặng hơn 5 gam trong 115 lít.', 'Thả cá. Bể 115 lít.', 'Pha 5 ml. Bể 38 lít là đủ.'].map(water)).toEqual([false, false, false, false])
-  // The writer check reads them the same way: a dose's exact water passes, a tank's exact conversion doesn't.
-  expect(amountsOutside('Pha 5 ml. Cho vào 38 lít nước.', 'Add 5 ml to 10 gallons of water.')).toEqual([])
+  expect((await file(root)).body).toBe(part)
+  const times = ['Máy bơm 115 lít một tiếng.', 'Máy bơm 115 lít một tiếng đồng hồ.', 'Bơm 115 lít mỗi giờ sau khi thay nước.', 'Pompa 115 liter setiap jam.', 'Máy bơm 115 lít/phút.', 'Thả vào bể 115 lít trong một tiếng sau.']
+  const timed = await held(`<p>Bể 115 lít.</p>${times.map(t => `<p>${t}</p>`).join('')}`, ['Bể 115 lít'])
+  await unitsMend(timed, { now: after })
+  expect((await file(timed)).body).toBe(`<p>Bể 120 lít.</p>${times.map(t => `<p>${t}</p>`).join('')}`)
+  const weight = await held('<p>Cá nặng tới 5 gam trong 115 lít.</p>', ['Cá nặng tới 5 gam trong 115 lít'])
+  await unitsMend(weight, { now: after })
+  expect((await file(weight)).body).toBe('<p>Cá nặng tới 5 gam trong 120 lít.</p>')
+  // The writer check: a dose's exact water passes wherever the guide gives a dose; with none, a tank's exact one doesn't.
+  for (const s of ['Pha 5 ml. Cho vào 38 lít nước.', 'Đổ 38 lít nước đã pha 5 ml vào bể.', '<p>Pha 5 ml thuốc.</p><p>Cho vào 38 lít nước.</p>'])
+    expect(amountsOutside(s, 'Add 5 ml to 10 gallons of water.'), s).toEqual([])
   expect(amountsOutside('Cá nặng tới 5 gam trong 38 lít.', 'A 5 gram fish in a 10 gallon tank.')).toEqual(['38 l'])
 })

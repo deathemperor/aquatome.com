@@ -60,27 +60,20 @@ export const TANK_RULE = {
   en: `a tank given in US gallons is named by the size keepers here say, never its exact conversion or one to the nearest 5 litres: ${sizes('gallons', 'litres').map(s => s.replaceAll(' hoặc ', ' or ').replace(/(\d),(\d)/g, '$1.$2')).join(', ')}. A tank size not listed is converted and rounded to whole litres`,
   vi: `bể ghi theo gallon Mỹ thì gọi bằng cỡ người chơi ở đây vẫn gọi, không đổi chính xác, không làm tròn tới 5 lít: ${sizes('gallon', 'lít').join(', ')}. Cỡ bể không có ở đây thì đổi ra lít, làm tròn tới số nguyên`,
 }
-/** The units a dose is measured in, each language's. */
-const DOSE_UNITS = String.raw`(?:ml|mg|gam|gram|gr|g|gói|viên|thìa|muỗng|giọt|nắp|sachet|tablet|butir|sendok|มล|มิลลิลิตร|กรัม|ซอง|เม็ด|หยด|ช้อน)`
-/** An amount in a dose's unit ("5 ml", "1 gam", "5 มล."). Not a weight: "Cá nặng (tới) 5 gam", "beratnya 5 gram". */
-const DOSE_AMOUNT = new RegExp(String.raw`(?<![\d.,])(?<!(?:nặng|weighs?|weighing|berat(?:nya)?|seberat|หนัก)\s*(?:(?:tới|đến|hơn|gần|khoảng|chừng|about|up to|over|sekitar|hingga|ประมาณ)\s*)?)\d[\d.,–-]*\s*${DOSE_UNITS}\.?(?![\p{L}])`, 'iu')
-/** A tank word right before a volume: "bể 115 lít", "trong bể khoảng 115 lít", "tangki 115 liter", "ตู้ขนาด 115 ลิตร". */
-const TANK_BEFORE = /(?<!\p{L})(?:bể|hồ|tank|aquarium|akuarium|tangki|ตู้)(?:\s+(?:cá|kính|nuôi|chứa))?\s*(?:(?:khoảng|cỡ|chừng|dung tích|about|sekitar|berukuran|ขนาด|ประมาณ)\s*)*$/iu
 /**
- * Whether a volume at `at` may be the water a dose goes into, whose figure is the exact conversion and is never rounded:
- * an amount in a dose's unit in its sentence or the one before ("Pha 5 ml. Cho vào 115 lít nước", "Pha 5 ml thuốc, rồi
- * cho vào 115 lít", "5 มล. ต่อน้ำ 115 ลิตร"), a dose unit's own period ("5 ml.") not ending a sentence. A tank word right
- * before the volume makes it the tank's ("Cho ăn 1 viên trong bể 115 lít", "Pha 5 ml rồi đổ vào bể 115 lít"). Read
- * wide on purpose (the independent reader's rounds 4 to 6, 2026-11-11): a tank taken for a dose's water stays held for a
- * writer, while a dose's water taken for a tank would be rounded and misdose a reader's fish.
+ * The units a dose is measured in, each language's (fit.ts and topics.ts read doses in the same ones, and the pages'
+ * own: "1 cốc (240 ml) muối", "1 ช้อนชา (5 มล.)"). Thai writes the next word on, so its units need no word end.
  */
-export function doseWaterAt(text: string, at: number): boolean {
-  if (TANK_BEFORE.test(text.slice(Math.max(0, at - 40), at))) return false
-  const before = text.slice(0, at)
-  const ends = [...before.matchAll(/[.;!?\n>]/g)].map(m => m.index!)
-    .filter(i => !(before[i] === '.' && new RegExp(String.raw`\d\s*${DOSE_UNITS}$`, 'iu').test(before.slice(Math.max(0, i - 16), i))))
-  return DOSE_AMOUNT.test(before.slice(ends.length >= 2 ? ends.at(-2)! + 1 : 0))
-}
+const DOSE_UNITS = String.raw`(?:(?:ml|mililít|mililit|cc|mg|kg|gam|gram|gr|g|gói|viên|thìa|muỗng|giọt|nắp|cốc|chén|chai|sachet|tablet|butir|sendok|tetes|titis|sudu|sdt|sdm|tutup|gelas|cangkir|tsp|tbsp|drops?|capfuls?|cups?)\.?(?![\p{L}])|(?:มิลลิลิตร|มล|มิลลิกรัม|มก|กรัม|ซอง|เม็ด|หยด|ช้อน|ฝา|แก้ว|ถ้วย))`
+/** An amount in a dose's unit ("5 ml", "1 gam", "5 มล."). Not a weight: "Cá nặng (tới) 5 gam", "beratnya 5 gram". */
+const DOSE_AMOUNT = new RegExp(String.raw`(?<![\d.,])(?<!(?:nặng|weighs?|weighing|berat(?:nya)?|seberat|หนัก)\s*(?:(?:tới|đến|hơn|gần|khoảng|chừng|about|up to|over|sekitar|hingga|ประมาณ)\s*)?)\d[\d.,–-]*\s*${DOSE_UNITS}`, 'iu')
+/**
+ * Whether a text gives a dose anywhere, its tags aside: then any volume in it may be the water a dose goes into, whose
+ * figure is the exact conversion and is never rounded. Read as wide as that on purpose (the independent reader's rounds
+ * 4 to 7, 2026-11-11 and 12: every narrower window, a clause, a sentence, a sentence back, had an edge a dose crossed).
+ * A tank taken for a dose's water stays held for a writer; a dose's water taken for a tank would misdose a reader's fish.
+ */
+export const givesDose = (text: string) => DOSE_AMOUNT.test(text.replace(/<[^>]+>/g, ' '))
 /** A writer's or reviewer's prompt with the table in place of {{TANKS_EN}} and {{TANKS_VI}}. */
 export const withTanks = (prompt: string) => prompt.replaceAll('{{TANKS_EN}}', TANK_RULE.en).replaceAll('{{TANKS_VI}}', TANK_RULE.vi)
 const side = (n: number) => (n < 100 ? Math.round(n / 5) * 5 : Math.round(n / 10) * 10)
