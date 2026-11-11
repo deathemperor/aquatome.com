@@ -1,4 +1,4 @@
-import { nameKey } from '@aq/schema'
+import { nameKey, PlantSchema, SpeciesSchema } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { ensurePlaces, mergePlant, mergeSpecies, writeGuide } from '../src/merge'
 import type { ProcessedPage } from '../src/process'
@@ -247,4 +247,28 @@ test('an L record is kept as keepers write it: from a source, and the one on fil
   expect(a.entity.lNumber).toBe('L27, LDA77')
   expect(mergeSpecies({ ...a, entity: { ...a.entity, lNumber: 'L113' } }, page({ lNumber: 'L234' }), ctx('glaser')).entity.lNumber).toBe('L113')
   expect(mergeSpecies({}, page({ lNumber: 'C020' }), ctx('seriouslyfish')).entity.lNumber).toBe('C020')
+})
+
+// The independent read of the lucky bamboo note (2026-11-12): a page with text or figures of ours that cite its `refs` lost
+// them when another source was read again, and the schema then refused the page, so the source's update never landed.
+// And a part of ours went above the source's under the same heading.
+test('a source read again keeps the page\'s refs, so its own parts still cite them; under one heading the source comes before ours', () => {
+  const plantCtx = { source: 'aquariumbreeder' as const, url: 'https://aquariumbreeder.com/lucky-bamboo', now: '2026-11-12', takenSlugs: new Set<string>() }
+  const plant = page({ kind: 'plant', scientificName: 'Dracaena sanderiana', viName: 'Trúc phát tài', plant: { difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['background'] }, sections: [{ key: 'waterConditions', en: '<p>Use RO.</p>', vi: '<p>Dùng RO.</p>' }] })
+  const first = mergePlant({}, plant, plantCtx)!
+  const ours = { key: 'waterConditions' as const, source: 'aquatome' as const, sourceUrl: 'https://aquatome.com/vi/gioi-thieu/', html: '<p>Our note.</p>', refs: [0], fixed: true as const }
+  const refs = [{ url: 'https://aquariumbreeder.com/shrimp-minerals', title: 'Aquarium Breeder: shrimp and minerals' }]
+  const had = { entity: { ...first.entity, sections: [ours, ...first.entity.sections], refs }, vi: { ...first.vi, sections: { ...first.vi.sections, 'waterConditions:aquatome': '<p>Ghi chú.</p>' } } }
+  const again = mergePlant(had, { ...plant, sections: [{ key: 'waterConditions', en: '<p>Use RO, or tap water dechlorinated.</p>', vi: '<p>Dùng RO.</p>' }] }, plantCtx)!
+  expect(() => PlantSchema.parse(again.entity)).not.toThrow()
+  expect(again.entity.refs).toEqual(refs)
+  expect(again.entity.sections.map(x => `${x.key}:${x.source}`)).toEqual(['waterConditions:aquariumbreeder', 'waterConditions:aquatome'])
+  expect(again.vi.sections['waterConditions:aquatome']).toBe('<p>Ghi chú.</p>')
+  // A fish page: a figure of ours on the card cites refs too.
+  const fish = mergeSpecies({}, page(), ctx('seriouslyfish'))
+  const fishRefs = [{ url: 'https://example.org/paper', title: 'A paper' }]
+  const withOurs = { ...fish, entity: { ...fish.entity, dataCard: { ...fish.entity.dataCard, ph: [{ source: 'aquatome' as const, value: { min: 4, max: 6 }, ref: 0 }] }, refs: fishRefs } }
+  const fishAgain = mergeSpecies(withOurs, page(), ctx('glaser'))
+  expect(() => SpeciesSchema.parse(fishAgain.entity)).not.toThrow()
+  expect(fishAgain.entity.refs).toEqual(fishRefs)
 })

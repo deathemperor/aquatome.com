@@ -99,11 +99,14 @@ export async function addFromVideo(root: string, d: Pick<SpeciesDeps, 'llm' | 'n
     return { done: 'low', score: review.score, reason: review.notes.slice(0, 2).join('; ') }
   }
 
+  // A fixed part of ours (a ruling written in by hand) isn't the video's to add to.
+  const open = w.sections.filter(s => !e.sections.some(x => x.key === s.key && x.source === 'aquatome' && x.fixed))
+  if (!open.length) return { done: 'nothing new' }
   const refs = [...(e.refs ?? []), { url, title: v.meta.title }]
   const at = refs.length - 1
   const sections = [...e.sections]
   const vi = { ...t.sections }
-  for (const s of w.sections) {
+  for (const s of open) {
     const key = `${s.key}:aquatome`
     const i = sections.findIndex(x => x.key === s.key && x.source === 'aquatome')
     if (i >= 0) sections[i] = { ...sections[i]!, html: `${sections[i]!.html}\n${s.html}`, refs: [...new Set([...(sections[i]!.refs ?? []), at])] }

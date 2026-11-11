@@ -143,3 +143,22 @@ test('a video tried again (the owner\'s pick) after its part fell under the bar:
   expect((await speciesVideos(r, { ...d, llm }, { only: ['A'] })).done).toEqual(['A Sawbwa resplendens – The Tiny Fish with a Big Story: added (species/sawbwa-resplendens, 0.9)'])
   expect(prompts[0]).toContain('"16 loài đặc hữu" conflicts with the page')
 })
+
+// The independent read of the lucky bamboo note (2026-11-12): a fixed part of ours (a ruling written in by hand) is not
+// the video's to add to, so the video's text under that heading is left out, and the video isn't cited for nothing.
+test('a video leaves a fixed part of ours as it is, and adds no ref when nothing of it is kept', async () => {
+  const r = await root()
+  const dir = join(r, 'content/plants/taxiphyllum-sp-christmas')
+  const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8'))
+  const note = { key: 'maintenance', source: 'aquatome', sourceUrl: 'https://aquatome.com/vi/gioi-thieu/', html: '<p>Our note.</p>', refs: [0], fixed: true }
+  const refs = [{ url: 'https://example.org/moss', title: 'Moss care' }]
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ ...e, sections: [...e.sections, note], refs }))
+  const t = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8'))
+  await writeFile(join(dir, 'vi.json'), JSON.stringify({ ...t, sections: { ...t.sections, 'maintenance:aquatome': '<p>Ghi chú của AquaTome.</p>' } }))
+  const out = await speciesVideos(r, deps([]), { only: ['C'] })
+  expect(out.done.join(' ')).toContain('nothing new')
+  const after = PlantSchema.parse(JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')))
+  expect(after.sections.find(s => s.source === 'aquatome')).toEqual(note)
+  expect(after.refs).toEqual(refs)
+  expect(JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')).sections['maintenance:aquatome']).toBe('<p>Ghi chú của AquaTome.</p>')
+})

@@ -50,10 +50,12 @@
       "key": "waterConditions",
       "source": "aquatome",
       "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
-      "html": "<p><strong>AquaTome's note:</strong> RO or distilled water on its own is for lucky bamboo kept by itself. Where fish, shrimp or snails share the water, use dechlorinated tap water, or RO water with minerals added back: animals need minerals that pure water lacks.</p>",
+      "html": "<p><strong>AquaTome's note:</strong> RO or distilled water on its own is for lucky bamboo kept by itself. Where fish, shrimp or snails share the water, use dechlorinated tap water, or RO water with minerals added back: they need minerals that pure water lacks.</p>",
       "refs": [
         0,
-        1
+        1,
+        2,
+        3
       ],
       "fixed": true
     },
@@ -96,12 +98,20 @@
   "updatedAt": "2026-11-09",
   "refs": [
     {
+      "url": "https://aquariumbreeder.com/lucky-bamboo-in-the-aquarium-care-guide/",
+      "title": "Aquarium Breeder: Lucky Bamboo in the Aquarium. Care Guide – Planting, Growing, and Propagation"
+    },
+    {
       "url": "https://aquariumbreeder.com/shrimp-keeping-can-i-remineralize-tap-water/",
       "title": "Aquarium Breeder: Shrimp Keeping: Can I Remineralize Tap Water?"
     },
     {
       "url": "https://answers.seneye.com/en/water_chemistry/RO_water_(reverse_osmosis)",
       "title": "Seneye: RO water (reverse osmosis)"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/betta-fish-care-guide",
+      "title": "Aquarium Co-op: Care Guide for Betta Fish – The Best Beginner Pet Fish"
     }
   ]
 }
