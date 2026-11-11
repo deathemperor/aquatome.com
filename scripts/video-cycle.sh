@@ -27,6 +27,8 @@ trap 'rm -f "$PIDFILE"' EXIT
 . "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"
 COOKIES="$HOME/.config/aquatome/yt-cookies-from"
 [ -s "$COOKIES" ] && export YT_COOKIES_FROM="$(cat "$COOKIES")"
+# A line a model call: its cost, tokens and the account it went to (claude.ts), so a week's use can be split by job.
+export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$HOME/Library/Logs/aquatome-cost-videos.jsonl}"
 
 # Start from GitHub's main: anything this clone held unpushed was a run whose push failed, and is redone.
 from_main "$@"

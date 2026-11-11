@@ -477,6 +477,8 @@ The layers above still check the result.
   runs first in its source's next run, with no backoff. A usage limit uses none of its 3 attempts, and 3 pages in a
   row failing on the network stop the source, so an outage doesn't use up every page's attempts. Found with the
   above: after one browser crash (2026-10-29), 115 Seriously Fish pages waited behind hundreds of new ones.
+- **Daily ceiling.** Each step may spend only so many dollars on the model in one Asia/Saigon day. The amounts are in
+  `packages/engine/src/ceilings.json`. The gate has none. A step at its ceiling stops as it does for Claude's usage limit.
 - **On topic.** A guide covers what its title promises. The guide writer and its reviewer are told to leave out a
   video's detours (`prompts/video-guide.md`, `video-review.md`). `pnpm engine topic-check` reads every new or changed
   guide and drops sections about another subject, with their FAQ and summary lines. It never drops more than half a

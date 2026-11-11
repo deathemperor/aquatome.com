@@ -1,4 +1,5 @@
 import { EventEmitter } from 'node:events'
+import { writeFileSync } from 'node:fs'
 import { mkdtemp, readdir, readFile, realpath } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -23,14 +24,17 @@ vi.mock('node:child_process', () => ({
     return child
   },
 }))
-const { claudeCli, claudeResearch } = await import('../src/claude')
-const { resetAccounts, tokenHash } = await import('../src/claude-accounts')
+const { LlmError, claudeCli, claudeResearch } = await import('../src/claude')
+const { CEILINGS, tableInForce } = await import('../src/ceiling')
+const { accountReport, resetAccounts, tokenHash } = await import('../src/claude-accounts')
+const { errorKind } = await import('../src/state')
 const call = () => claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {}, model: 'opus' })
 
 // No account but a test's own: the engine's runs have theirs in the environment (on 8 November GitHub's
 // CLAUDE_CODE_OAUTH_TOKEN made a line name it, and the rewrite part's cycle didn't publish).
 const noAccounts = () => { delete process.env.CLAUDE_CODE_OAUTH_TOKEN; delete process.env.CLAUDE_CODE_OAUTH_TOKENS; resetAccounts() }
-beforeEach(noAccounts)
+// The cycles export ENGINE_COST_LOG and then run these tests. A mocked call must not append to that file.
+beforeEach(() => { delete process.env.ENGINE_COST_LOG; noAccounts() })
 afterEach(() => { delete process.env.ENGINE_COST_LOG; noAccounts() })
 
 test('a call that reads no files runs from an empty folder, not /tmp, whose every checkout the CLI would list', async () => {
@@ -137,5 +141,42 @@ test('a call with no account still gets a cleaned env, and so does claudeResearc
     expect(research!.AQ_TEST_KEEP).toBe('keep')
   } finally {
     clearSession()
+  }
+})
+
+// The ceiling is the engine's own limit. At it, the call fails the way a usage limit does, and the account stays in use.
+test('under its ceiling the call is made; at the ceiling no claude is spawned and no account is set aside', async () => {
+  const log = join(await mkdtemp(join(tmpdir(), 'cost-')), 'cost.jsonl')
+  process.env.ENGINE_COST_LOG = log
+  const now = new Date(Math.max(Date.now(), ...CEILINGS.map(t => new Date(t.from).getTime())))
+  const table = tableInForce(CEILINGS, now)
+  expect(table).toBeDefined()
+  const found = Object.entries(table!.steps).find(([, n]) => typeof n === 'number' && n > 0)
+  const step = found?.[0] ?? 'ceiling-unlisted'
+  const cap = typeof found?.[1] === 'number' ? found[1] : table!.default
+  expect(cap).toBeGreaterThan(0)
+  const argv2 = process.argv[2]
+  process.argv[2] = step
+  vi.useFakeTimers({ toFake: ['Date'] })
+  vi.setSystemTime(now)
+  process.env.CLAUDE_CODE_OAUTH_TOKENS = 'tok-ceiling'
+  resetAccounts()
+  spawned.length = 0
+  try {
+    expect(await call()).toEqual({ ok: true })
+    expect(spawned).toHaveLength(1)
+    writeFileSync(log, `${JSON.stringify({ at: new Date().toISOString(), step, usd: cap })}\n`)
+    spawned.length = 0
+    const e = await call().catch((err: unknown) => err)
+    expect(spawned).toHaveLength(0)
+    expect(e).toBeInstanceOf(LlmError)
+    expect(errorKind((e as Error).message)).toBe('usage')
+    expect(accountReport()).toEqual([`token 1 (${tokenHash('tok-ceiling')}): 1 answered`])
+  } finally {
+    vi.useRealTimers()
+    if (argv2 === undefined) process.argv.splice(2, 1)
+    else process.argv[2] = argv2
+    delete process.env.CLAUDE_CODE_OAUTH_TOKENS
+    resetAccounts()
   }
 })

@@ -1,0 +1,23 @@
+[
+  {
+    "from": "2026-11-12T00:00:00+07:00",
+    "default": 1,
+    "steps": {
+      "gate": null,
+      "run": 30,
+      "localize": 25,
+      "videos": 10,
+      "summaries": 8,
+      "rewrite-vi": 8,
+      "review-backfill": 8,
+      "check-photos": 6,
+      "reader": 5,
+      "watermarks": 4,
+      "guide-photos": 3,
+      "traits": 2,
+      "range": 2,
+      "gallery": 2,
+      "localize-guides": 2
+    }
+  }
+]

@@ -64,6 +64,32 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           AB_DASH_TOKEN: ${{ secrets.AB_DASH_TOKEN }}
           CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+      # The cost log is the day's spend (ceiling.ts). A runner's /tmp is empty each run, so restore the newest copy and
+      # save this run's under a new key. Lines older than 8 days go, so the file stays small.
+      - name: Restore the cost log
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: /tmp/aquatome-cost-rewrite.jsonl
+          key: engine-cost-log-${{ github.run_id }}
+          restore-keys: engine-cost-log-
+      - name: Drop cost lines older than 8 days
+        run: |
+          node -e '
+          const fs = require("node:fs");
+          const p = "/tmp/aquatome-cost-rewrite.jsonl";
+          let text;
+          try { text = fs.readFileSync(p, "utf8"); } catch { process.exit(0); }
+          const cut = Date.now() - 8 * 24 * 3600 * 1000;
+          const keep = [];
+          for (const line of text.split("\n")) {
+            if (!line) continue;
+            try {
+              const at = new Date(JSON.parse(line).at).getTime();
+              if (Number.isNaN(at) || at >= cut) keep.push(line);
+            } catch { keep.push(line); }
+          }
+          fs.writeFileSync(p, keep.length ? keep.join("\n") + "\n" : "");
+          '
       - name: Run this part, test, commit, push, deploy
         run: scripts/engine-cycle.sh rewrite
         env:
@@ -75,6 +101,12 @@ jobs:
           # variables, so it changes without a commit. AHEAD_BEFORE_MINUTES 0 pauses them; unset, engine-cycle.sh's defaults.
           AHEAD_BEFORE_MINUTES: ${{ vars.AHEAD_BEFORE_MINUTES }}
           LOCALIZE_AHEAD_LIMIT: ${{ vars.LOCALIZE_AHEAD_LIMIT }}
+      - name: Save the cost log
+        if: always()
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: /tmp/aquatome-cost-rewrite.jsonl
+          key: engine-cost-log-${{ github.run_id }}
       - name: Keep the cost log (a line a model call, with its account)
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

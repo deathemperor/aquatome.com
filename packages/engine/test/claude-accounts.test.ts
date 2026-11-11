@@ -42,6 +42,8 @@ const setTokens = (list?: string, one?: string) => {
 }
 let logs: string[] = []
 beforeEach(() => {
+  // The cycles export ENGINE_COST_LOG and then run these tests. A mocked call must not append to that file.
+  delete process.env.ENGINE_COST_LOG
   spawned.length = 0
   logs = []
   resetAccounts()

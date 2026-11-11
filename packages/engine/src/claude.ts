@@ -2,6 +2,7 @@ import { spawn } from 'node:child_process'
 import { appendFileSync, mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
+import { ceilingMessage, CEILINGS } from './ceiling'
 import { envFor, onAccounts, tokenHash } from './claude-accounts'
 import { MARKETPLACE_DOMAINS } from './marketplaces'
 
@@ -20,8 +21,15 @@ export type Llm = <T>(args: { system: string; prompt: string; schema: object; mo
 
 type RunOpts = { tools: string; deny?: string[]; cwd: string; model?: string; timeoutMs?: number }
 
-/** One call on the owner's Claude accounts, the next one when an account is out of its limit or rejected (claude-accounts.ts). */
-const run = <T>(system: string, prompt: string, schema: object, opts: RunOpts) => onAccounts(token => once<T>(system, prompt, schema, opts, token), m => new LlmError(m))
+/**
+ * One call on the owner's Claude accounts, the next one when an account is out of its limit or rejected (claude-accounts.ts).
+ * The day's ceiling is the engine's own limit, so it fails before onAccounts and the account stays in use.
+ */
+const run = <T>(system: string, prompt: string, schema: object, opts: RunOpts): Promise<T> => {
+  const capped = ceilingMessage(process.argv[2], process.env.ENGINE_COST_LOG, CEILINGS)
+  if (capped) return Promise.reject(new LlmError(capped))
+  return onAccounts(token => once<T>(system, prompt, schema, opts, token), m => new LlmError(m))
+}
 
 function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, token?: string): Promise<T> {
   return new Promise<T>((resolve, reject) => {

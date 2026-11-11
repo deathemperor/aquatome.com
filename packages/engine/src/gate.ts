@@ -4,6 +4,7 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { LANGS, type Lang } from '@aq/schema'
+import { vnDay } from './ceiling'
 import { LlmError, type Llm } from './claude'
 import { doseGroups, FIT_KINDS, FIT_LABEL_VI, fitFindings, productOf, fitKey, fitOrder, fitSource, fitText, readFit, type FitCheck, type FitEntry, type FitFinding, type FitState } from './fit'
 import { PRODUCTS } from './market'
@@ -58,8 +59,8 @@ export const putBackFile = (p: Pick<Page, 'kind' | 'id' | 'lang'>) => `engine-st
 /** Pages wrong for the reader on 8 Nov 2026, when the checklist first read the site: the owner's number starts here. */
 export const FIT_BASELINE = { day: '2026-11-08', pct: { vi: 50, id: 37, th: 31, ms: 51 } as Record<Lang, number> }
 
-/** The owner's day, in Vietnam: a cycle runs on UTC. */
-export const vnDay = (d: Date) => new Date(d.getTime() + 7 * 3600_000).toISOString().slice(0, 10)
+/** The Asia/Saigon day. Counted in ceiling.ts, with what a step has spent that day. */
+export { vnDay }
 
 export type Held = { checks: string[]; at: string }
 export type GateCall = { action: 'pass' | 'hold' | 'release' | 'revert'; checks: FitCheck[] }
