@@ -702,8 +702,9 @@ final class V2FlowTests: XCTestCase {
   }
 
   /// The owner's trial of the tab bar as the App Store's (TabBarGlass, the owner, 11 Nov: "Try bottom bar glass effect like
-  /// Appstore's"): Khám phá's shelves run on under the bar, so the strip beside the home indicator shows the page, not one
-  /// flat ground; the bar's own tap is still the bar's; and the switch in Tài khoản brings the fade back at once.
+  /// Appstore's"): Khám phá's shelves run on under the bar, so what's under it and around it moves as the page scrolls,
+  /// where the fade leaves one still ground; the bar's own tap is still the bar's; and the switch in Tài khoản brings the
+  /// fade back at once.
   func testForTheOwnerThePageShowsUnderTheTabBarAndItsSwitchBringsTheFadeBack() {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES",
@@ -716,17 +717,22 @@ final class V2FlowTests: XCTestCase {
     app.closeAccount()
     app.tabBars.buttons["Khám phá"].tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-browse"].waitForExistence(timeout: 5), "no Khám phá")
-    // Shelves of photos at the foot: the familiar fish's.
-    let fish = app.staticTexts["Loài quen thuộc"]
-    repeatUntil(fish.exists && fish.frame.minY < app.frame.height * 0.55, times: 8) { app.swipeUp(velocity: .slow) }
-    Thread.sleep(forTimeInterval: 1)
-    // Under the bar, beside the home indicator: the page's own colours, or one ground.
-    func spread() -> Double {
-      let shot = Pixels(XCUIScreen.main.screenshot()), y = app.frame.maxY - 6
-      let line = stride(from: 24.0, to: 110.0, by: 2.0).map { shot.at($0, y) }
-      return line.map { $0.distance(to: line[0]) }.max() ?? 0
+    // The page dragged up a little, from its top, so it has more to show under the bar: the share of the bar's place,
+    // glass and all, that changed. The bar's own words stay where they are; only the page under it moves.
+    func moved() -> Double {
+      let bar = app.tabBars.firstMatch.frame
+      let before = Pixels(XCUIScreen.main.screenshot())
+      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
+      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -60)), withVelocity: .slow, thenHoldForDuration: 0.5)
+      Thread.sleep(forTimeInterval: 0.5)
+      let after = Pixels(XCUIScreen.main.screenshot())
+      let spots = stride(from: 6.0, to: app.frame.width - 6, by: 6).flatMap { x in
+        // From just inside the bar's top: the fade, with the trial off, ends there.
+        stride(from: bar.minY + 4, to: app.frame.maxY - 2, by: 4).map { (x, $0) }
+      }
+      return Double(spots.filter { before.at($0.0, $0.1).distance(to: after.at($0.0, $0.1)) > 30 }.count) / Double(spots.count)
     }
-    XCTAssertGreaterThan(spread(), 30, "nothing of the page under the tab bar")
+    XCTAssertGreaterThan(moved(), 0.05, "nothing of the page under the tab bar")
     app.tabBars.buttons["Hôm nay"].tap()
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 5), "the bar's tap didn't open Hôm nay")
     // Off in Tài khoản: the fade again, one ground under the bar.
@@ -737,7 +743,7 @@ final class V2FlowTests: XCTestCase {
     app.closeAccount()
     app.tabBars.buttons["Khám phá"].tap()
     Thread.sleep(forTimeInterval: 1)
-    XCTAssertLessThan(spread(), 12, "the page still under the tab bar with the trial off")
+    XCTAssertLessThan(moved(), 0.005, "the page still under the tab bar with the trial off")
   }
 
   /// A page's photos all open as their grid (PhotoGrid) three ways: the banner, "N ảnh" in its corner, tapped anywhere;
