@@ -1,23 +1,18 @@
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
-import { homedir } from 'node:os'
+import { mkdir, mkdtemp, readFile, readdir, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { spawnSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { backfillPhotos } from '../src/photo-backfill'
-
-// Kept out of /tmp (a restart empties it); the folder is made first, since a clean machine (CI) has none.
-const tempRoot = async (prefix: string) => {
-  const base = join(homedir(), '.cache/aquatome/photo-intake-real-size')
-  await mkdir(base, { recursive: true })
-  return mkdtemp(join(base, prefix))
-}
 
 const URL_ = 'https://www.seriouslyfish.com/species/acanthopsoides-robertsi/'
 const page = `<html><head><title>Acanthopsoides robertsi</title></head><body><main><h1>Acanthopsoides robertsi</h1><p>${'A small sand-diving loach. '.repeat(20)}</p>
 <img src="/images/robertsi.jpg" alt="Acanthopsoides robertsi" width="600" height="233"><img src="/images/robertsi-2.jpg" alt="Acanthopsoides robertsi" width="550" height="236"></main></body></html>`
 
 test('re-reads the source page of a photo-less species once, adds the photos, then waits a month', async () => {
-  const root = await tempRoot('pb-')
+  const root = await mkdtemp(join(tmpdir(), 'pb-'))
   const dir = join(root, 'content', 'species', 'acanthopsoides-robertsi')
   await mkdir(dir, { recursive: true })
   await mkdir(join(root, 'engine-state'), { recursive: true })
@@ -45,7 +40,7 @@ test('re-reads the source page of a photo-less species once, adds the photos, th
 })
 
 test('archive-read sources are left out; ScotCat photos come from their own pages', async () => {
-  const root = await tempRoot('pb-')
+  const root = await mkdtemp(join(tmpdir(), 'pb-'))
   await mkdir(join(root, 'engine-state'), { recursive: true })
   const sp = (id: string, sections: object[]) => mkdir(join(root, 'content', 'species', id), { recursive: true }).then(() => writeFile(join(root, 'content', 'species', id, 'entity.json'), JSON.stringify({ scientificName: id, photos: [], sections })))
   await sp('pc', [{ source: 'planetcatfish', sourceUrl: 'https://www.planetcatfish.com/common/species.php?species_id=1' }])
@@ -70,7 +65,7 @@ test('archive-read sources are left out; ScotCat photos come from their own page
 })
 
 test('catfish from other sources get ScotCat photos at its guessed factsheet address; a 404 waits a month; 10 s between ScotCat requests', async () => {
-  const root = await tempRoot('pb-')
+  const root = await mkdtemp(join(tmpdir(), 'pb-'))
   await mkdir(join(root, 'engine-state'), { recursive: true })
   const SF = 'https://www.seriouslyfish.com/species/x/'
   const sp = (id: string, scientificName: string, family: string) => mkdir(join(root, 'content', 'species', id), { recursive: true }).then(() => writeFile(join(root, 'content', 'species', id, 'entity.json'), JSON.stringify({ scientificName, family, photos: [], sections: [{ source: 'seriouslyfish', sourceUrl: SF }] })))
@@ -109,7 +104,7 @@ test('catfish from other sources get ScotCat photos at its guessed factsheet add
 
 
 test('recently tried empty source pages get one intake retry, paced by the existing page limit', async () => {
-  const root = await tempRoot('retry-')
+  const root = await mkdtemp(join(tmpdir(), 'pb-retry-'))
   await mkdir(join(root, 'engine-state'), { recursive: true })
   const urls = ['https://www.aquariumglaser.de/en/fish/a/', 'https://www.aquariumglaser.de/en/fish/b/', 'https://www.seriouslyfish.com/species/c/']
   for (const [i, url] of urls.entries()) {
@@ -134,8 +129,8 @@ test('recently tried empty source pages get one intake retry, paced by the exist
 })
 
 
-test('the one-time retry caps a guide at four photos and consumes a failed page attempt too', async () => {
-  const root = await tempRoot('retry-')
+test('a recent failed bypass keeps its cooldown; a guide keeps normal photos plus four extra requests', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'pb-retry-'))
   await mkdir(join(root, 'engine-state'), { recursive: true })
   const url = 'https://www.aquariumglaser.de/en/fish/guide/'
   const dir = join(root, 'content/guides/fish')
@@ -159,6 +154,78 @@ test('the one-time retry caps a guide at four photos and consumes a failed page 
   await writeFile(join(dir, 'entity.json'), JSON.stringify({ photos: [], source: 'glaser', sourceUrl: next }))
   await writeFile(join(root, 'engine-state/_photo-backfill.json'), JSON.stringify({ [next]: '2026-11-11T00:00:00.000Z' }))
   status = 200
-  expect(await backfillPhotos(root, deps)).toMatchObject({ pages: 1, added: 4, errors: [] })
-  expect(imageFetches).toEqual(Array.from({ length: 4 }, (_, n) => `https://www.aquariumglaser.de/fish-${n}.jpg`))
+  expect(await backfillPhotos(root, deps)).toMatchObject({ pages: 1, added: 14, errors: [] })
+  expect(imageFetches).toEqual([...Array.from({ length: 10 }, (_, n) => `https://www.aquariumglaser.de/fish-${n}.jpg`), ...Array.from({ length: 4 }, (_, n) => `https://www.aquariumglaser.de/new-${n}.jpg`)])
+})
+
+
+test('backfill fixtures work in a clean home without a pre-existing private cache', async () => {
+  const home = await mkdtemp(join(tmpdir(), 'pb-home-'))
+  const result = spawnSync(process.execPath, [fileURLToPath(new URL('../node_modules/vitest/vitest.mjs', import.meta.url)), 'run', 'test/photo-backfill.test.ts', '--maxWorkers=1', '-t', '^re-reads the source page'], {
+    cwd: fileURLToPath(new URL('../', import.meta.url)), env: { ...process.env, HOME: home }, encoding: 'utf8',
+  })
+  expect(result.status, result.stdout + result.stderr).toBe(0)
+  await expect(readdir(join(home, '.cache/aquatome/photo-intake-real-size'))).rejects.toMatchObject({ code: 'ENOENT' })
+})
+
+test.each([200, 404])('the one-time attempt survives a later malformed entity after HTTP %i', async status => {
+  const root = await mkdtemp(join(tmpdir(), 'pb-durable-'))
+  const url = 'https://www.aquariumglaser.de/en/fish/example/'
+  const now = '2026-11-11T12:00:00.000Z'
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(join(root, 'content/species/a'), { recursive: true })
+  await mkdir(join(root, 'content/species/z'), { recursive: true })
+  await writeFile(join(root, 'content/species/a/entity.json'), JSON.stringify({ photos: [], sections: [{ source: 'glaser', sourceUrl: url }] }))
+  await writeFile(join(root, 'content/species/z/entity.json'), '{')
+  await writeFile(join(root, 'engine-state/_photo-backfill.json'), JSON.stringify({ [url]: '2026-11-11T00:00:00.000Z' }))
+  let reads = 0
+  const deps = {
+    get: async () => { reads++; return { status, html: '<main>No photos.</main>' } },
+    bytes: async () => { throw new Error('no images') },
+    media: { urlFor: (k: string) => k, put: async () => { throw new Error('no uploads') } },
+    now: () => new Date(now), sleep: async () => {},
+  }
+  await expect(backfillPhotos(root, deps)).rejects.toThrow()
+  expect(JSON.parse(await readFile(join(root, 'engine-state/_photo-intake-retry.json'), 'utf8'))).toEqual({ [url]: now })
+  await writeFile(join(root, 'content/species/z/entity.json'), JSON.stringify({ photos: [], sections: [] }))
+  expect(await backfillPhotos(root, deps)).toMatchObject({ pages: 0 })
+  expect(reads).toBe(1)
+})
+
+test('an overdue guide keeps all seven ordinary photos during recovery', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'pb-guide-'))
+  const url = 'https://www.aquariumglaser.de/en/fish/guide/'
+  const dir = join(root, 'content/guides/a')
+  await mkdir(dir, { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ photos: [], source: 'glaser', sourceUrl: url }))
+  await writeFile(join(root, 'engine-state/_photo-backfill.json'), JSON.stringify({ [url]: '2026-10-01T00:00:00.000Z' }))
+  const fetched: string[] = []
+  const result = await backfillPhotos(root, {
+    get: async () => ({ status: 200, html: `<main>${Array.from({ length: 7 }, (_, n) => `<img src="/ordinary-${n}.jpg" width="800" height="600">`).join('')}</main>` }),
+    bytes: async u => { fetched.push(u); return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
+    media: { urlFor: k => k, put: async k => ({ url: k, width: 800, height: 600 }) },
+    now: () => new Date('2026-11-11T12:00:00.000Z'), sleep: async () => {},
+  })
+  expect(result).toMatchObject({ pages: 1, added: 7, errors: [] })
+  expect(fetched).toHaveLength(7)
+})
+
+test('failed overdue monthly reads remain due each cycle after the one-time record is kept', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'pb-monthly-'))
+  const url = 'https://www.aquariumglaser.de/en/fish/example/'
+  await mkdir(join(root, 'content/species/a'), { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'content/species/a/entity.json'), JSON.stringify({ photos: [], sections: [{ source: 'glaser', sourceUrl: url }] }))
+  await writeFile(join(root, 'engine-state/_photo-backfill.json'), JSON.stringify({ [url]: '2026-10-01T00:00:00.000Z' }))
+  let reads = 0
+  const deps = {
+    get: async () => { reads++; return { status: 404, html: '' } },
+    bytes: async () => { throw new Error('no images') },
+    media: { urlFor: (k: string) => k, put: async () => { throw new Error('no uploads') } },
+    now: () => new Date('2026-11-11T12:00:00.000Z'), sleep: async () => {},
+  }
+  expect(await backfillPhotos(root, deps)).toMatchObject({ pages: 1, errors: [expect.stringContaining('HTTP 404')] })
+  expect(await backfillPhotos(root, deps)).toMatchObject({ pages: 1, errors: [expect.stringContaining('HTTP 404')] })
+  expect(reads).toBe(2)
 })

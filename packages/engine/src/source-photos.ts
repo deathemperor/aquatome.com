@@ -56,10 +56,12 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
     if (!/^https?:/.test(src) || /\.(svg|gif)(\?|$)/i.test(src) || JUNK.test(`${file(src)} ${img.alt}`) || QR.test(src)) continue
     if (img.link && linksElsewhere(img.link, pageUrl)) continue
     const thumbnailWidth = Number(file(src).match(/-(\d+)x\d+\.[a-z0-9]+$/i)?.[1])
-    if (THUMBNAIL.test(src) || (thumbnailWidth && thumbnailWidth < minWidth)) continue
+    if ((newlyEligible(img) && THUMBNAIL.test(src)) || (thumbnailWidth && thumbnailWidth < minWidth)) continue
     if (img.width && img.width < minWidth) continue
-    const [layoutWidth, layoutHeight] = img.displayWidth && img.displayHeight ? [img.displayWidth, img.displayHeight] : [img.width, img.height]
-    if (layoutWidth && layoutHeight && !okShape(layoutWidth, layoutHeight)) continue
+    // The original picker rounded the layout height scaled to the chosen srcset width. Keep that exact pre-filter.
+    const hintWidth = img.width ?? img.displayWidth
+    const hintHeight = img.width ? img.height ?? (img.displayWidth && img.displayHeight ? Math.round(img.displayHeight * img.width / img.displayWidth) : undefined) : img.displayHeight
+    if (hintWidth && hintHeight && !okShape(hintWidth, hintHeight)) continue
     if (kind === 'subject' && PRODUCT.test(`${file(src)} ${img.alt}`)) continue
     // A drawing, plate or stamp the source shows ("Liobagrus kingi: line drawing", "Pieter Bleeker's drawing of…"): not a photo of it.
     if (kind === 'subject' && ARTWORK.test(words(`${file(src)} ${img.alt}`))) continue
@@ -124,7 +126,11 @@ export async function storeSourcePhotos(
 ): Promise<SourcePhoto[]> {
   const out: SourcePhoto[] = []
   let extra = 0
-  const groups = picked.map(first => ({ images: [first, ...(first.alternatives ?? [])], done: false }))
+  const keyFor = (src: string) => `${source}/${createHash('sha256').update(src).digest('hex').slice(0, 16)}.webp`
+  const groups = picked.map(first => {
+    const images = [first, ...(first.alternatives ?? [])]
+    return { images, done: images.some(img => !!deps.blocked?.[deps.media.urlFor(keyFor(img.src))]) }
+  })
   // All normal requests finish first. Fallbacks and newly eligible photos share the extra turn and its budget.
   for (const extraTurn of [false, true]) for (const group of groups) {
     if (group.done) continue
@@ -132,7 +138,7 @@ export async function storeSourcePhotos(
       if (out.length >= max) return out
       const extraRequest = !!img.extra || i > 0
       if (extraRequest !== extraTurn) continue
-      const key = `${source}/${createHash('sha256').update(img.src).digest('hex').slice(0, 16)}.webp`
+      const key = keyFor(img.src)
       if (deps.blocked?.[deps.media.urlFor(key)]) { group.done = true; break }
       const known = existing.find(p => p.url === deps.media.urlFor(key))
       if (known) { out.push(img.heading ? { ...known, heading: img.heading } : known); group.done = true; break }

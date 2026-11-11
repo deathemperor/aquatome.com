@@ -359,3 +359,50 @@ test('a partial layout size is never combined with a srcset file width to guess 
   const images = htmlToOutline('<main><img srcset="/height-only.jpg 1200w" width="100%" height="100"><img srcset="/width-only.jpg 1200w" width="800"></main>').images
   expect(pickSourcePhotos(images, 'https://source.test/fish', []).map(p => p.src)).toEqual(['https://source.test/height-only.jpg', 'https://source.test/width-only.jpg'])
 })
+
+
+test.each([
+  ['dead', 'working', 'blocked'],
+  ['working', 'dead', 'blocked'],
+  ['dead', 'blocked', 'working'],
+])('a blocked member vetoes its whole filename group before fetching: %s, %s, %s', async (...order) => {
+  const page = 'https://source.test/fish'
+  const images = htmlToOutline(`<main>${order.map(dir => `<img src="/${dir}/fish.jpg" width="800" height="600">`).join('')}</main>`).images
+  const fetched: string[] = []
+  const deps = {
+    bytes: async (u: string) => { fetched.push(u); if (u.includes('/dead/')) throw new Error('HTTP 404'); return jpeg() },
+    media: { urlFor: (k: string) => k, put: async (k: string) => ({ url: k, width: 800, height: 600 }) },
+  }
+  const previous = await storeSourcePhotos('glaser', 'Source', page, pickSourcePhotos(images.filter(i => i.src.includes('/blocked/')), page, []), deps, [])
+  fetched.length = 0
+  expect(await storeSourcePhotos('glaser', 'Source', page, pickSourcePhotos(images, page, []), { ...deps, blocked: { [previous[0]!.url]: 'refused by a prior check' } }, [])).toEqual([])
+  expect(fetched).toEqual([])
+})
+
+test.each([250, 1600])('srcset shape filtering preserves the old rounded height at the %i px boundary', async height => {
+  const page = 'https://source.test/guide'
+  const images = htmlToOutline(`<main>${Array.from({ length: 5 }, (_, n) => `<img src="/ratio-${n}.jpg" srcset="/ratio-${n}.jpg 1001w" width="1000" height="${height}">`).join('')}</main>`).images
+  const fetched: string[] = []
+  expect(await storeSourcePhotos('glaser', 'Source', page, pickSourcePhotos(images, page, [], Infinity, 'guide'), {
+    bytes: async u => { fetched.push(u); return jpeg() },
+    media: { urlFor: k => k, put: async k => ({ url: k, width: 800, height: 600 }) },
+  }, [], Infinity)).toEqual([])
+  expect(fetched).toEqual([])
+})
+
+test('thumbnail and icon folders exclude newly eligible images while normal images keep their places', async () => {
+  const page = 'https://source.test/guide'
+  const normal = ['https://source.test/thumbnails/normal.jpg', 'https://source.test/icons/normal-two.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Photo.jpg/1200px-Photo.jpg']
+  const images = htmlToOutline(`<main>${normal.map(src => `<img src="${src}" width="1200" height="800">`).join('')}
+    <img src="/thumbnails/small.jpg" width="350" height="233"><img src="/icons/small-two.jpg" width="350" height="233">
+    <img src="/normal-150x100.jpg" width="800" height="600">
+  </main>`).images
+  const picked = pickSourcePhotos(images, page, [], Infinity, 'guide')
+  expect(picked.map(p => p.src)).toEqual(normal)
+  const fetched: string[] = []
+  expect(await storeSourcePhotos('glaser', 'Source', page, picked, {
+    bytes: async u => { fetched.push(u); return jpeg() },
+    media: { urlFor: k => k, put: async k => ({ url: k, width: 800, height: 600 }) },
+  }, [], Infinity)).toHaveLength(3)
+  expect(fetched).toEqual(normal)
+})

@@ -35,15 +35,16 @@ export function scotcatUrl(scientificName?: string, family?: string): string | u
 /**
  * Re-reads the source pages of species, plants and guides with fewer than 3 photos and adds the photos the picker
  * missed before (slim fish, images without a pixel size); catfish from other sources also get ScotCat's photos. Each
- * source page is tried at most once a month. A guide keeps every photo of its source, each in the section it sat under
+ * successful source read waits a month (apart from the one Glaser bypass); failed monthly reads remain due.
+ * A guide keeps every photo of its source, each in the section it sat under
  * (a list of fish has one per fish): guides read before that are read once more. `kinds`: only those.
  */
 export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limit?: number; kinds?: string[] } = {}): Promise<{ pages: number; added: number; errors: string[] }> {
   const moved = await sourcesOnArchive(root)
   const triedFile = join(root, 'engine-state/_photo-backfill.json')
   const tried: Record<string, string> = JSON.parse(await readFile(triedFile, 'utf8').catch(() => '{}'))
-  // Old outlines retain neither layout widths nor alternate image URLs. Retry every empty Glaser page once, within
-  // this step's existing limit; each attempted read (even one with no photos or an HTTP error) consumes its retry.
+  // Old outlines retain neither layout widths nor alternate image URLs. Empty Glaser pages get one cooldown bypass,
+  // within this step's existing limit. Ordinary failed monthly reads remain due by the existing rules.
   const intakeFile = join(root, 'engine-state/_photo-intake-retry.json')
   const intake: Record<string, string> = JSON.parse(await readFile(intakeFile, 'utf8').catch(() => '{}'))
   const names: Record<string, { name?: string }> = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8').catch(() => '{}'))
@@ -80,7 +81,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
       for (const [url, source] of urls) {
         const src = sourceById(source)
         const get = polite(source, d.get)
-        const max = retryIntake(url, source) ? 4 : kind === 'guides' ? Infinity : 4
+        const max = kind === 'guides' ? Infinity : 4
         try {
           if (source === 'glaser') intake[url] = d.now().toISOString()
           const r = await get(url)
@@ -98,12 +99,13 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           tried[url] = d.now().toISOString()
         } catch (err) {
           errors.push(`${kind}/${id} ${url}: ${(err as Error).message.slice(0, 120)}`)
+        } finally {
+          if (source === 'glaser') await writeFile(intakeFile, `${JSON.stringify(Object.fromEntries(Object.entries(intake).sort()), null, 2)}\n`)
         }
       }
       if (JSON.stringify(e.photos) !== was) { added += e.photos.length - before; await writeFile(file, `${JSON.stringify(e, null, 2)}\n`) }
     }
   }
-  await writeFile(intakeFile, `${JSON.stringify(Object.fromEntries(Object.entries(intake).sort()), null, 2)}\n`)
   await writeFile(triedFile, `${JSON.stringify(Object.fromEntries(Object.entries(tried).sort()), null, 2)}\n`)
   return { pages, added, errors }
 }
