@@ -35,6 +35,7 @@ struct SpeciesPage: View {
   @Environment(\.scenePhase) private var phase
   @Environment(\.colorScheme) private var scheme
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
+  @Environment(\.accessibilityReduceTransparency) private var opaque
   @Environment(\.v2FootGround) private var footGround
   @Environment(AccountModel.self) private var account
   @Environment(ChatStore.self) private var chat
@@ -78,8 +79,10 @@ struct SpeciesPage: View {
   @State private var origin = CGPoint.zero
   @State private var barMid: CGFloat = 0
   @State private var backEnd: CGFloat = 0
-  @State private var saveStart: CGFloat = 0
-  @State private var shareStart: CGFloat = 0
+  /// Where the bar's buttons on the right begin.
+  @State private var trailStart: CGFloat = 0
+  /// Saved or unsaved from the ⋯, which shows no bookmark: a tap felt (`sensoryFeedback`).
+  @State private var savedFromMore = 0
   @State private var nameWidth: CGFloat = 0
   /// Whether the name in the bar sits in the room's middle, not the screen's, held from when it comes: the glass coming
   /// behind the buttons moves them a few points, which flipped a name near the limit from one to the other. Where and how
@@ -139,7 +142,7 @@ struct SpeciesPage: View {
       // The owner's navigator on a long page: its title beside the back button, plain, in the bar so it takes a tap.
       if trying?.long == true, let trying {
         ToolbarItem(placement: .topBarLeading) {
-          PageNavigatorTitle(name: item.name, nameInView: !nameGone, onColour: colourAt.top, onPhoto: !scrolled, navigator: trying)
+          PageNavigatorTitle(nameInView: !nameGone, onColour: colourAt.top, onPhoto: hero != nil && !scrolled, navigator: trying)
             // A width of its own: offered "up to", the bar gave it next to none, "…" alone. Drawn a little wider than the bar
             // is told, into the room it keeps before the bookmark, for a section's name whole.
             .frame(width: titleWidth + 20, alignment: .leading)
@@ -149,28 +152,49 @@ struct SpeciesPage: View {
         }
         .v2Glass(false)
       }
-      ToolbarItem(placement: .topBarTrailing) {
-        // Saved to read later, as v1's page saves it (the Tìm tab lists them).
-        let saved = handbook.isSaved(item)
-        Button { handbook.toggleSaved(item) } label: {
-          round(saved ? "bookmark.fill" : "bookmark")
-            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minX } action: { saveStart = $0 }
+      if moreShown {
+        // Save and share in one ⋯ (the owner, 11 Nov: "2B").
+        ToolbarItem(placement: .topBarTrailing) {
+          let saved = handbook.isSaved(item)
+          Menu {
+            Button(saved ? "Bỏ lưu" : "Lưu để đọc sau", systemImage: saved ? "bookmark.fill" : "bookmark") {
+              handbook.toggleSaved(item)
+              savedFromMore += 1
+            }
+            .accessibilityIdentifier("save-for-later")
+            ShareLink(item: handbook.url(item)) { Label("Chia sẻ", systemImage: "square.and.arrow.up") }
+          } label: {
+            round("ellipsis")
+              .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minX } action: { trailStart = $0 }
+          }
+            .buttonStyle(.plain)
+            .accessibilityLabel(Text("Thêm"))
+            .accessibilityIdentifier("page-more")
         }
-          .buttonStyle(.plain)
-          .accessibilityLabel(Text(saved ? "Bỏ lưu" : "Lưu để đọc sau"))
-          .accessibilityIdentifier("save-for-later")
-      }
-      .v2Glass(!colourAt.top)
-      ToolbarItem(placement: .topBarTrailing) {
-        ShareLink(item: handbook.url(item)) {
-          round("square.and.arrow.up")
-            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minX } action: { shareStart = $0 }
+        .v2Glass(!colourAt.top)
+      } else {
+        ToolbarItem(placement: .topBarTrailing) {
+          // Saved to read later, as v1's page saves it (the Tìm tab lists them).
+          let saved = handbook.isSaved(item)
+          Button { handbook.toggleSaved(item) } label: {
+            round(saved ? "bookmark.fill" : "bookmark")
+              .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minX } action: { trailStart = $0 }
+          }
+            .buttonStyle(.plain)
+            .accessibilityLabel(Text(saved ? "Bỏ lưu" : "Lưu để đọc sau"))
+            .accessibilityIdentifier("save-for-later")
         }
-          .buttonStyle(.plain)
-          .accessibilityLabel(Text("Chia sẻ"))
+        .v2Glass(!colourAt.top)
+        ToolbarItem(placement: .topBarTrailing) {
+          ShareLink(item: handbook.url(item)) { round("square.and.arrow.up") }
+            .buttonStyle(.plain)
+            .accessibilityLabel(Text("Chia sẻ"))
+        }
+        .v2Glass(!colourAt.top)
       }
-      .v2Glass(!colourAt.top)
     }
+    // The bookmark isn't in the bar to fill: a save from the ⋯ is felt.
+    .sensoryFeedback(.success, trigger: savedFromMore)
     .v2PutOnTank(item, isPresented: $putting)
     .fullScreenCover(isPresented: Binding(get: { viewing != nil }, set: { if !$0 { viewing = nil } })) {
       GalleryViewer(title: galleryTitle, note: galleryNote, photos: viewerPhotos, readers: nil, index: viewing ?? 0)
@@ -203,19 +227,21 @@ struct SpeciesPage: View {
     // goes light on them, under white symbols (2.4:1); glass after the colour.
     .navigationBarBackButtonHidden(true)
     .accessibilityAction(.escape) { goBack() }
-    // A shade behind the status bar until the band comes: it reads on a light photo at any scroll.
+    // A shade behind the status bar only, until the band comes, so the clock reads on a light photo; the bar's buttons and
+    // Mục lục have dark grounds of their own (`PageTop`). Under Reduce Motion it goes at once.
     .overlay(alignment: .top) {
       if hero != nil {
-        // The navigator's title stands on the photo with no circle of its own: the shade holds through the bar for it.
-        let held = trying?.long == true
-        LinearGradient(stops: held ? [.init(color: .black.opacity(0.5), location: 0), .init(color: .black.opacity(0.46), location: 0.62), .init(color: .clear, location: 1)]
-                                   : [.init(color: .black.opacity(0.45), location: 0), .init(color: .clear, location: 1)],
-                       startPoint: .top, endPoint: .bottom)
-          .frame(height: held ? 180 : 130)
-          .ignoresSafeArea(edges: .top)
-          .opacity(scrolled ? 0 : 1)
-          .animation(.easeInOut(duration: 0.2), value: scrolled)
-          .allowsHitTesting(false)
+        VStack(spacing: 0) {
+          LinearGradient(stops: [.init(color: .black.opacity(PageTop.shadeOpacity), location: 0),
+                                 .init(color: .black.opacity(PageTop.shadeOpacity), location: PageTop.shadeHeld),
+                                 .init(color: .clear, location: 1)], startPoint: .top, endPoint: .bottom)
+            .frame(height: PageTop.shadeHeight)
+          Spacer(minLength: 0)
+        }
+        .ignoresSafeArea()
+        .opacity(scrolled ? 0 : 1)
+        .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: scrolled)
+        .allowsHitTesting(false)
       }
     }
     // iOS 26 on: iOS's zoom takes the page back on a swipe from anywhere, and a fast flick from the very edge comes here.
@@ -405,14 +431,15 @@ struct SpeciesPage: View {
   /// The room between the bar's buttons, 16 points clear of them, their glass too: its edges, and how wide a name centred
   /// on the screen may be in it.
   private var barRoom: (lead: CGFloat, trail: CGFloat, even: CGFloat)? {
-    let lead = backEnd - origin.x, trail = min(saveStart, shareStart) - origin.x
-    guard backEnd > 0, saveStart > 0, shareStart > 0, trail - lead > 92 else { return nil }
+    let lead = backEnd - origin.x, trail = trailStart - origin.x
+    guard backEnd > 0, trailStart > 0, trail - lead > 92 else { return nil }
     return (lead, trail, 2 * (min(width / 2 - lead, trail - width / 2) - 16))
   }
 
-  /// How wide the navigator's title may be, beside the back button: the bar less its three round buttons, their margins
-  /// and the room iOS keeps between them; any wider and iOS folds the bookmark and share into a "⋯" of its own. From the
-  /// page's width alone: from the buttons' places, which move as the title comes, the bar never settled.
+  /// How wide the navigator's title may be, beside the back button: the bar less its round buttons, their margins and the
+  /// room iOS keeps between them. Any wider and iOS folds the bar's items into a "⋯" of its own: with the one ⋯ on the
+  /// right, back and Mục lục (27.2, 11 Nov). From the page's width alone: from the buttons' places, which move as the
+  /// title comes, the bar never settled.
   private var titleWidth: CGFloat { max(80, (width > 0 ? width : 402) - 240) }
 
   private func standOnColour() {
@@ -428,6 +455,8 @@ struct SpeciesPage: View {
     dismiss()
   }
 
+  /// White on a dark circle over the photo, in a 44-point tap area; white alone on the page's colour; past it, iOS's glass
+  /// around it (`v2Glass`).
   private func round(_ symbol: String) -> some View {
     Image(systemName: symbol)
       .font(.body.weight(.semibold))
@@ -435,9 +464,15 @@ struct SpeciesPage: View {
       .dynamicTypeSize(...DynamicTypeSize.xLarge)
       .foregroundStyle(colourAt.top ? Color.white : Color.primary)
       .frame(width: 44, height: 44)
-      .background(.black.opacity(colourAt.top ? 0.45 : 0), in: Circle())
+      .background {
+        Circle().fill(.black.opacity(hero != nil && !scrolled ? PageTop.ground(reduceTransparency: opaque) : 0))
+          .frame(width: PageTop.disc, height: PageTop.disc)
+      }
       .contentShape(Circle())
   }
+
+  /// Save and share in one ⋯: once the band has come (B, approved). Before it, open with the owner.
+  private var moreShown: Bool { scrolled }
 
   private var header: some View {
     VStack(alignment: .leading, spacing: 6) {
