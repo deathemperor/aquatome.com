@@ -221,6 +221,10 @@ if part rewrite; then
   pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" --first species/biotodoma-cupido,species/dicrossus-filamentosus,species/distichodus-affinis,species/exostoma-labiatum,species/farlowella-oxyrryncha,species/fossorochromis-rostratus,species/garra-rufa || log "rewrite-vi: failed"
   # Species pages in Indonesian and Thai, most-read first, from their English sources (and again when that English changes).
   for lang in id th; do pnpm engine localize --lang "$lang" --limit "${LOCALIZE_LIMIT:-20}" || log "localize $lang: failed"; done
+  # Malay's ten species right after them, outside the time gate below (the chief of staff, 2026-11-11: Malay's ten are
+  # not skipped). Indonesian and Thai species take about an hour, so a gated block after them started at 94-123 minutes
+  # on 10-11 Nov and skipped most of its steps.
+  pnpm engine localize --lang ms --limit "${LOCALIZE_AHEAD_LIMIT:-10}" || log "localize ms: failed"
   # Their other names gain the ones Wikidata gives (CC0), where no other page uses the name: pages made or remade this cycle too.
   for lang in id th; do pnpm engine wikidata-names --lang "$lang" || log "wikidata-names $lang: failed"; done
   for lang in vi id th; do pnpm engine shop-names --lang "$lang" || log "shop-names $lang: failed"; done
@@ -247,10 +251,10 @@ if part rewrite; then
   # and Malay, served since its UI text was complete, still at a new language's pace (10 species a cycle) here, its new UI
   # strings now asked for by the build above.
   # Each step starts only while the cycle has run under AHEAD_BEFORE_MINUTES. From 2026-11-06 the block came last and gave
-  # first when a cycle ran long (cycles took 91-135 min in November 2026, and 135 left the longest step here, 10 species
-  # at about 20 min, and the build, tests and push, about 6, inside the 170 min the next cycle waited for). Since
-  # 2026-11-12 it comes right after the other translations, inside the first half hour, so the gate matters only when a
-  # step before it hangs; the steps after it give instead. They add about 40 min a cycle.
+  # first when a cycle ran long (cycles took 91-135 min in November 2026, and 135 left the longest step, 10 species at
+  # about 20 min, and the build, tests and push, about 6, inside the 170 min the next cycle waited for). Since 2026-11-12
+  # it comes right after the other translations, and its ten species run before it, ungated (above); its other steps
+  # still give when the cycle has run long. They add about 20 min a cycle.
   ahead() {
     if [ "$SECONDS" -lt $(( ${AHEAD_BEFORE_MINUTES:-135} * 60 )) ]; then "$@" || log "$*: failed"
     else log "$*: skipped, the cycle has run $(( SECONDS / 60 )) min"; fi
@@ -260,9 +264,8 @@ if part rewrite; then
   # this block, cycles past AHEAD_BEFORE_MINUTES skipped it from 2026-11-06 23:19 on, with Malay at 360 of 1,298.
   ahead pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts --unserved --limit "${UI_AHEAD_LIMIT:-500}"
   for lang in ms; do
-    # Most-read first. The rest at the others' pace; the first run's glossary (59 terms) and places (757, in 8 batches) are
-    # once only and short enough to go whole, but the buying guides take minutes each.
-    ahead pnpm engine localize --lang "$lang" --limit "${LOCALIZE_AHEAD_LIMIT:-10}"
+    # Its species run above. The rest at the others' pace; the first run's glossary (59 terms) and places (757, in 8
+    # batches) are once only and short enough to go whole, but the buying guides take minutes each.
     ahead pnpm engine wikidata-names --lang "$lang"
     ahead pnpm engine shop-names --lang "$lang"
     ahead pnpm engine localize --lang "$lang" --kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}"

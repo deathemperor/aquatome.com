@@ -12,10 +12,17 @@ test('the cycle writes every language in the table: the served ones in their loo
   for (const l of ahead) expect(loops(l), l).toEqual([[...ahead]])
 })
 
-test("Malay's steps: at 10 species a cycle, at the others' pace for the rest, each behind the time gate", () => {
+test("Malay's steps: 10 species a cycle right after Indonesian and Thai, never gated; the rest at the others' pace, each behind the time gate", () => {
+  // The chief of staff, 2026-11-11: Malay's ten are not skipped. Behind the gate after an hour of Indonesian and Thai,
+  // they would be on most days.
+  const species = 'pnpm engine localize --lang ms --limit "${LOCALIZE_AHEAD_LIMIT:-10}" || log "localize ms: failed"'
+  const idth = script.indexOf('for lang in id th; do pnpm engine localize --lang "$lang" --limit "${LOCALIZE_LIMIT:-20}"')
+  expect(script.indexOf(species)).toBeGreaterThan(idth)
+  // Nothing but comments between them.
+  expect(script.slice(idth, script.indexOf(species)).split('\n').filter(l => l.trim() && !l.trim().startsWith('#'))).toHaveLength(1)
   const from = script.indexOf('for lang in ms; do')
   const block = script.slice(from, script.indexOf('\n  done\n', from))
-  expect(block).toContain('localize --lang "$lang" --limit "${LOCALIZE_AHEAD_LIMIT:-10}"')
+  expect(block).not.toContain('localize --lang "$lang" --limit')
   for (const step of ['--kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}"', 'localize-guides --lang "$lang" --limit "${LOCALIZE_GUIDES_LIMIT:-2}"', 'localize-breeds --lang "$lang" --limit "${LOCALIZE_BREEDS_LIMIT:-2}"', 'localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}"']) expect(block, step).toContain(step)
   for (const step of ['localize-glossary', 'localize-places', 'localize-equipment', 'wikidata-names', 'shop-names']) expect(block, step).toContain(step)
   for (const line of block.split('\n').filter(l => l.includes('pnpm'))) expect(line.trim(), line).toMatch(/^ahead pnpm /)
@@ -26,7 +33,7 @@ test('the rewrite part spends on the Vietnamese rewrite and every translation fi
   // The chief of staff, 2026-11-11: the rewrites and translations go before any other step spends, so a sign-in that runs
   // out part way, or a step's ceiling, takes the steps after them; and Malay's ten reach the 135-minute gate early.
   const part = script.slice(at('if part rewrite; then'), at('pnpm engine ungarble'))
-  const steps = [...part.matchAll(/^\s*(?:ahead )?pnpm engine ([a-z-]+)/gm)].map(m => m[1]!)
+  const steps = [...part.matchAll(/^\s*(?:for [^;]+; do )?(?:ahead )?pnpm engine ([a-z-]+)/gm)].map(m => m[1]!)
   expect(steps[0]).toBe('rewrite-vi')
   const lastTranslation = steps.lastIndexOf('localize-cards')
   expect(steps.slice(1, lastTranslation + 1).every(s => /^(localize|wikidata-names|shop-names|name-places-vi)/.test(s)), steps.join(' ')).toBe(true)

@@ -732,8 +732,9 @@ The layers above still check the result.
   holds the root, the cookie and the chooser.
   - Each of its steps starts only while the cycle has run under `AHEAD_BEFORE_MINUTES` (135). Since 12 Nov 2026 the
     rewrite cycle runs the Vietnamese rewrite and every translation before any other step spends (the chief of staff,
-    11 Nov), so the block starts inside the first half hour and the steps after it give instead when a cycle runs long;
-    what they change is translated at the next cycle (about six hours on, at the owner's 350 minutes). The buying guides go two a cycle and the UI
+    11 Nov). Malay's ten species run right after Indonesian and Thai's, outside the gate, and its other steps right
+    after them, still gated; the steps after the translations give instead when a cycle runs long, and what they change
+    is translated at the next cycle (about six hours on, at the owner's 350 minutes). The buying guides go two a cycle and the UI
     text 120 strings a cycle, its first runs being the long ones. No build asks for its UI text, so the strings come from
     a served language's dictionary (`translate-ui.ts --unserved`).
   - Written like any page, and held like one: reviewed writing, `pnpm engine metric` and the real-content test on imperial
