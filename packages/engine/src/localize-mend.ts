@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import { metricPage, QUALITY_THRESHOLD, TranslationSchema, type Section } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { review, TARGETS, translatableIn, type TargetLang } from './localize'
+import { sourceTextHash } from './recheck-score'
 import { logReviews, readReviews, type Store } from './review-log'
 import { sanitizeHtml } from './sanitize'
 
@@ -13,11 +14,13 @@ import { sanitizeHtml } from './sanitize'
  * 2026-11-11, 720 of the 786 such fish and plant pages had failed when first made and never been touched since, and a
  * second read of a page as it is passed 40 of 263: the reviewer finds the same faults again.
  *
- * So the faults are fixed where they are. The reviewer's notes name parts by number ("Item 4: …"). Only those parts go
- * to the editor, each with its English and its notes, and it corrects what a note rightly names and leaves every other
- * sentence as it is (prompts/localize-fix.md). The same reviewer then reads the whole page, and the fixed page is kept
- * only if it scores higher than the page did. One go a text: a page whose fix didn't score higher isn't tried again
- * until it has a newer kept review.
+ * So the faults are fixed where they are, from a read of the text the page has now. A review is that read when it
+ * stored this text's hash. Where none is on file the reviewer reads the page first (logged as a recheck, with the
+ * hash), and a page that passes needs no fix: the recheck rule opens it. Otherwise the notes name parts by number
+ * ("Item 4: …"). Only those parts go to the editor, each with its English and its notes, and it corrects what a note
+ * rightly names and leaves every other sentence as it is (prompts/localize-fix.md). The same reviewer then reads the
+ * whole page, and the fixed page is kept only if it scores higher than both the page's score and the read of the
+ * unfixed text. One go a text: a fix that didn't score higher is logged with the hash of the text it was a fix of.
  *
  * Left alone: a page with a note about a dose, a medicine or harm (a dose is never reworded without its source: that
  * page waits for the dose and harm check), a page whose notes name no part, and a part whose "fix" rewrote it.
@@ -25,8 +28,13 @@ import { sanitizeHtml } from './sanitize'
 const FIX = readFileSync(new URL('./prompts/localize-fix.md', import.meta.url), 'utf8')
 const SCHEMA = { type: 'object', required: ['parts'], properties: { parts: { type: 'array', items: { type: 'object', required: ['id', 'text'], properties: { id: { type: 'string' }, text: { type: 'string' } } } } } }
 
-/** A note the fix must not act on alone: it is about how much of something goes in the water, a medicine, or what kills. */
-const DOSE = /\b(dos(e|es|ed|age|ages|ing)|overdos\w*|medic(ation|ations|ine|ines|ated)|treatments?|mg\s?\/\s?l|ppm|tablespoons?|teaspoons?|copper|formalin|malachite|antibiotics?|chlorine|chloramine|toxic\w*|poison\w*|lethal|fatal|kill(s|ed|ing)?|harmful|dangerous)\b/i
+/**
+ * A note the fix must not act on alone: it is about how much of something goes in the water, a medicine, or what
+ * harms or kills. The words are the Writing Lead's rule (2026-11-11). "drops" counts only after a number: the
+ * reviewer's own "the Thai drops the point" is on one closed page in seven.
+ */
+const DOSE = /\b(dos(e|es|ed|age|ages|ing)|overdos\w*|medic\w*|treat(s|ed|ing|ment|ments)?|quarantin\w*|mg\s?\/\s?l|g\s?\/\s?l|ml|ppm|\d+\s*drops?|tablespoons?|teaspoons?|salts?|copper|formalin|malachite|methylene|bleach\w*|peroxide|permanganate|praziquantel|metronidazole|levamisole|fenbendazole|flubendazole|antibiotics?|chlorine|chloramine|ammonia|nitrites?|nitrates?|toxi\w*|poison\w*|venom\w*|lethal|fatal|deadly|deaths?|mortalit\w*|die[sd]?|dying|kill(s|ed|ing)?|harm\w*|danger\w*|unsafe)\b/i
+export const doseOrHarm = (note: string): boolean => DOSE.test(note)
 
 /** The parts a note names: "Item 4", "Items 6 and 13", "item 3, 5". Part numbers are the reviewer's, from 1. */
 export function partsNamed(note: string): number[] {
@@ -44,45 +52,61 @@ export function sameTextMended(old: string, next: string): boolean {
   return !want.length || want.filter(g => has.has(g)).length / want.length >= 0.7
 }
 
-export type MendReport = { kept: string[]; notBetter: string[]; skipped: string[]; failed: string[]; stopped: string }
+/** One fix tried, kept or not: what each part sent was and came back as. */
+export type MendTry = { id: string; was: number; read: number; score: number; kept: boolean; parts: { id: string; notes: string[]; before: string; after: string }[] }
+export type MendReport = { read: string[]; kept: string[]; notBetter: string[]; skipped: string[]; failed: string[]; stopped: string }
 
 type Page = { sections: Record<string, string>; quality?: { score: number; indexable: boolean; bySource?: Record<string, number>; reason?: string }; held?: boolean }
+type Part = { id: string; en: string }
+
+/** Hash of what the reviewer reads: each part's English and the page's text for it. A read with this hash is of this text. */
+export const pageTextHash = (parts: Part[], sections: Record<string, string>): string => sourceTextHash(parts.map(p => ({ id: p.id, en: p.en, vi: sections[p.id] ?? '' })))
 
 /**
- * Each of `ids` in order: a page under the bar with notes that name parts is fixed there and read again. `limit`: pages
- * sent to the editor a run. `dry`: no model call; the report says what would be sent.
+ * Each of `ids` in order: a page under the bar is read if no read of its text is on file, then fixed where that read's
+ * notes name parts, and read again. `limit`: pages a model is called for in a run. `readsOnly`: stop after the read.
+ * `dry`: no model call; the report says what would be read or sent. `onTry`: every fix tried, the ones not kept too.
  */
-export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, ids: string[], o: { kind?: 'species' | 'plants'; limit?: number; model?: string; now?: () => Date; dry?: boolean } = {}): Promise<MendReport> {
+export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, ids: string[], o: { kind?: 'species' | 'plants'; limit?: number; model?: string; now?: () => Date; dry?: boolean; readsOnly?: boolean; onTry?: (t: MendTry) => void | Promise<void> } = {}): Promise<MendReport> {
   const kind = o.kind ?? 'species'
   const dir = join(root, 'content', kind)
   const stateFile = join(root, `engine-state/localize-${lang}${kind === 'plants' ? '-plants' : ''}.json`)
   const translatable = await translatableIn(root)
   const store: Store = await readReviews(root, 'localize').catch(() => ({}))
   const fill = (s: string) => s.replaceAll('{{LANG}}', TARGETS[lang].lang).replaceAll('{{COUNTRY}}', TARGETS[lang].country).replace('{{STYLE}}', TARGETS[lang].style)
-  const report: MendReport = { kept: [], notBetter: [], skipped: [], failed: [], stopped: '' }
+  const now = () => o.now?.() ?? new Date()
+  const report: MendReport = { read: [], kept: [], notBetter: [], skipped: [], failed: [], stopped: '' }
   let sent = 0
   for (const id of ids) {
     if (sent >= (o.limit ?? Infinity)) break
     const file = join(dir, id, `${lang}.json`)
+    const ref = { id: `${kind}/${id}`, lang }
     try {
       const raw = await readFile(file, 'utf8').catch(() => null)
       if (!raw) continue
       const page = JSON.parse(raw) as Page
       const was = page.quality?.score
       if (page.held || was === undefined || was >= QUALITY_THRESHOLD) continue
-      const traces = [...(store[`${lang}/${kind}/${id}`] ?? [])].sort((a, b) => (a.at < b.at ? 1 : a.at > b.at ? -1 : 0))
-      const kept = traces.find(t => t.kept)
-      // A page made before reviews were logged has its notes in the translator's record, when that is the page's score.
-      const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as Record<string, { score: number; notes?: string[] }>
-      const notes = kept ? kept.notes : state[id]?.score === was ? state[id]!.notes ?? [] : []
-      if (!notes.length) { report.skipped.push(`${id}: no notes on file`); continue }
-      // This step logs one try by itself. The translator's own second try has its first beside it, and may be newer than
-      // the kept review when the reader-fit gate put that translation back.
-      if (traces.some(t => !t.kept && t.attempt === 'rewrite' && t.at > (kept?.at ?? '') && !traces.some(x => x.attempt === 'first' && x.at === t.at))) { report.skipped.push(`${id}: a fix of this text was tried`); continue }
-      if (notes.some(n => DOSE.test(n))) { report.skipped.push(`${id}: a note on a dose, a medicine or harm`); continue }
       const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { sections: Section[] }
       // The reviewer's numbering: every translatable part with text, in the page's order (localize.ts `review`).
-      const parts = e.sections.filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
+      const parts: Part[] = e.sections.filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
+      const hash = pageTextHash(parts, page.sections)
+      const traces = store[`${lang}/${kind}/${id}`] ?? []
+      if (traces.some(t => !t.kept && t.attempt === 'rewrite' && t.textHash === hash)) { report.skipped.push(`${id}: a fix of this text was tried`); continue }
+      let read: { score: number; notes: string[] } | undefined = traces.find(t => t.kept && t.textHash === hash)
+      if (read && read.score >= QUALITY_THRESHOLD) { report.skipped.push(`${id}: its read passes, and the recheck rule opens it`); continue }
+      if (!read) {
+        if (o.dry) { report.skipped.push(`${id}: needs a new read first (dry run)`); sent++; continue }
+        sent++
+        read = await review(llm, lang, parts, new Map(Object.entries(page.sections)))
+        await logReviews(root, 'localize', ref, [read], read, { now: now(), recheck: true, textHash: hash })
+        report.read.push(`${id}: ${was} then ${read.score}, ${read.notes.length} notes${read.score >= QUALITY_THRESHOLD ? ', passes as it is' : ''}`)
+        if (read.score >= QUALITY_THRESHOLD) continue
+      } else if (!o.readsOnly && !o.dry) sent++
+      if (o.readsOnly) continue
+      const notes = read.notes
+      if (!notes.length) { report.skipped.push(`${id}: its read left no notes`); continue }
+      if (notes.some(doseOrHarm)) { report.skipped.push(`${id}: a note on a dose, a medicine or harm`); continue }
       const notesOf = new Map<number, string[]>()
       for (const n of notes) for (const i of partsNamed(n)) if (i >= 1 && i <= parts.length) notesOf.set(i, [...(notesOf.get(i) ?? []), n])
       // A part the translator left out has nothing to fix in place: that is a new translation's job.
@@ -90,14 +114,13 @@ export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, id
       if (!named.length) { report.skipped.push(`${id}: its notes name no part`); continue }
       const line = `${id}: ${named.length} of ${parts.length} parts, ${notes.length} notes`
       if (o.dry) { report.skipped.push(`${line} (dry run)`); sent++; continue }
-      sent++
       const prompt = [
         fill(FIX),
         `--- PARTS ---\n${named.map(i => { const p = parts[i - 1]!; return `### ${p.id}\nEN:\n${p.en}\n${lang.toUpperCase()}:\n${page.sections[p.id]}\nNOTES:\n${notesOf.get(i)!.map(n => `- ${n}`).join('\n')}` }).join('\n\n')}`,
       ].join('\n\n')
       const fixed = await llm<{ parts: { id: string; text: string }[] }>({ system: `You correct ${TARGETS[lang].lang} translations of aquarium-handbook pages. Reply only with JSON.`, prompt, schema: SCHEMA, model: o.model })
       const sections = { ...page.sections }
-      let changed = 0
+      const changed: string[] = []
       for (const i of named) {
         const p = parts[i - 1]!
         const old = page.sections[p.id]!
@@ -105,28 +128,32 @@ export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, id
         const text = /<[a-z]/i.test(p.en) ? sanitizeHtml(got) : got.replace(/<[^>]+>/g, '').trim()
         if (text === old || !sameTextMended(old, text)) continue
         sections[p.id] = text
-        changed++
+        changed.push(p.id)
       }
-      if (!changed) { report.skipped.push(`${line}: the fix changed nothing`); continue }
+      if (!changed.length) { report.skipped.push(`${line}: the fix changed nothing`); continue }
       const next = TranslationSchema.parse(metricPage({ ...page, sections }, lang)) as unknown as Page
-      const r = await review(llm, lang, parts, new Map(parts.map(p => [p.id, next.sections[p.id] ?? ''])))
-      const now = o.now?.() ?? new Date()
-      if (r.score <= was) {
-        await logReviews(root, 'localize', { id: `${kind}/${id}`, lang }, [r], undefined, { now, rewrite: true })
-        report.notBetter.push(`${line}: ${was} then ${r.score}, left as it was`)
+      const r = await review(llm, lang, parts, new Map(Object.entries(next.sections)))
+      const bar = Math.max(was, read.score)
+      const kept = r.score > bar
+      await o.onTry?.({ id, was, read: read.score, score: r.score, kept, parts: changed.map(k => ({ id: k, notes: notesOf.get(parts.findIndex(p => p.id === k) + 1)!, before: page.sections[k]!, after: next.sections[k]! })) })
+      if (!kept) {
+        // Logged with the hash of the text it was a fix of, so that text isn't sent again.
+        await logReviews(root, 'localize', ref, [r], undefined, { now: now(), rewrite: true, textHash: hash })
+        report.notBetter.push(`${line}: ${bar} then ${r.score}, left as it was`)
         continue
       }
       const sources = [...new Set(e.sections.filter(s => translatable(s.source)).map(s => s.source))]
       const { reason: _, ...quality } = page.quality!
       next.quality = { ...quality, score: r.score, indexable: r.score >= QUALITY_THRESHOLD, bySource: Object.fromEntries(sources.map(s => [s, r.score])) }
       await writeFile(file, `${JSON.stringify(next, null, 2)}\n`)
-      await logReviews(root, 'localize', { id: `${kind}/${id}`, lang }, [r], r, { now, rewrite: true })
+      await logReviews(root, 'localize', ref, [r], r, { now: now(), rewrite: true, textHash: pageTextHash(parts, next.sections) })
       // The translator's record of the page says what the page says. `from` stays: the English hasn't changed.
+      const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as Record<string, { score: number; notes?: string[] }>
       if (state[id]) {
         state[id] = { ...state[id], score: r.score, notes: r.notes }
         await writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort()), null, 2)}\n`)
       }
-      report.kept.push(`${line}: ${was} to ${r.score}${r.score >= QUALITY_THRESHOLD ? ', open' : ''}, ${changed} parts changed`)
+      report.kept.push(`${line}: ${bar} to ${r.score}${r.score >= QUALITY_THRESHOLD ? ', open' : ''}, ${changed.length} parts changed`)
     } catch (err) {
       if (err instanceof LlmError) { report.stopped = `${id}: ${err.message.slice(0, 200)}`; break }
       report.failed.push(`${id}: ${(err as Error).message.slice(0, 200)}`)

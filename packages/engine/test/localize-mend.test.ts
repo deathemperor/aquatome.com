@@ -3,40 +3,55 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { mendLocalized, partsNamed, sameTextMended } from '../src/localize-mend'
+import { doseOrHarm, mendLocalized, pageTextHash, partsNamed, sameTextMended, type MendTry } from '../src/localize-mend'
 import { logReviews, readReviews } from '../src/review-log'
 
 const LONG = 'ปลาชนิดนี้อยู่รวมกันเป็นฝูงและควรเลี้ยงอย่างน้อยหกตัวในตู้ที่ปลูกไม้น้ำหนาแน่นและมีที่ว่างให้ว่ายน้ำตรงกลางตู้'
 const read = async (root: string, f: string) => JSON.parse(await readFile(join(root, f), 'utf8'))
 
-/** One Thai fish page under the bar: three parts from two sources, and the review on file with its notes. */
-async function site(notes: string[], o: { score?: number; unlogged?: boolean } = {}) {
+const PARTS = [
+  { id: 'habitat:seriouslyfish', en: '<p>It lives in slow streams.</p>' },
+  { id: 'diet:seriouslyfish', en: '<p>It eats small insects. Feed it twice a day.</p>' },
+  { id: 'behaviour:glaser', en: '<p>A shoaling fish: keep six or more.</p>' },
+]
+const SECTIONS = { 'habitat:seriouslyfish': `<p>อยู่ในลำธารน้ำไหลเอื่อย ${LONG}</p>`, 'diet:seriouslyfish': `<p>กินแมลงขนาดใหญ่ ให้อาหารวันละสองครั้ง ${LONG}</p>`, 'behaviour:glaser': `<p>ปลาฝูง ${LONG}</p>` }
+const FIXED = { ...SECTIONS, 'diet:seriouslyfish': SECTIONS['diet:seriouslyfish'].replace('ขนาดใหญ่', 'ขนาดเล็ก') }
+const HASH = pageTextHash(PARTS, SECTIONS)
+
+/**
+ * One Thai fish page under the bar: three parts from two sources, and the translator's review of it in the log, which
+ * stored no hash. `read`: a later read is on file too, with these notes, of the text the page has ('stale': of another).
+ */
+async function site(notes: string[], o: { score?: number; read?: number | 'stale' } = {}) {
   const root = await mkdtemp(join(tmpdir(), 'mend-'))
   const dir = join(root, 'content/species/a')
+  const score = o.score ?? 0.6
   await mkdir(dir, { recursive: true })
   await mkdir(join(root, 'engine-state'), { recursive: true })
   await writeFile(join(root, 'content/sources.json'), JSON.stringify({ seriouslyfish: { permission: { scope: ['text', 'translation'] } }, glaser: { permission: { scope: ['text', 'translation'] } }, planetcatfish: { permission: { scope: ['text'] } } }))
   await writeFile(join(dir, 'entity.json'), JSON.stringify({ id: 'a', scientificName: 'Aus bus', updatedAt: '2026-11-01', sections: [
     { key: 'notes', source: 'planetcatfish', html: '<p>Not ours to translate.</p>' },
-    { key: 'habitat', source: 'seriouslyfish', html: '<p>It lives in slow streams.</p>' },
-    { key: 'diet', source: 'seriouslyfish', html: '<p>It eats small insects. Feed it twice a day.</p>' },
-    { key: 'behaviour', source: 'glaser', html: '<p>A shoaling fish: keep six or more.</p>' },
+    ...PARTS.map(p => ({ key: p.id.split(':')[0], source: p.id.split(':')[1], html: p.en })),
   ] }))
-  const page = { slug: 'aus-bus', name: 'ปลาทดสอบ', altNames: [], sections: { 'habitat:seriouslyfish': `<p>อยู่ในลำธารน้ำไหลเอื่อย ${LONG}</p>`, 'diet:seriouslyfish': `<p>กินแมลงขนาดใหญ่ ให้อาหารวันละสองครั้ง ${LONG}</p>`, 'behaviour:glaser': `<p>ปลาฝูง ${LONG}</p>` }, quality: { score: o.score ?? 0.6, indexable: (o.score ?? 0.6) >= 0.75, bySource: { seriouslyfish: o.score ?? 0.6, glaser: o.score ?? 0.6 } } }
+  const page = { slug: 'aus-bus', name: 'ปลาทดสอบ', altNames: [], sections: SECTIONS, quality: { score, indexable: score >= 0.75, bySource: { seriouslyfish: score, glaser: score } } }
   await writeFile(join(dir, 'th.json'), `${JSON.stringify(page, null, 2)}\n`)
-  await writeFile(join(root, 'engine-state/localize-th.json'), `${JSON.stringify({ a: { at: '2026-11-02', from: '2026-11-01', name: 'ปลาทดสอบ', confidence: 'high', score: o.score ?? 0.6, notes } }, null, 2)}\n`)
-  const first = { score: o.score ?? 0.6, notes }
-  if (notes.length && !o.unlogged) await logReviews(root, 'localize', { id: 'species/a', lang: 'th' }, [first], first, { now: new Date('2026-11-02T00:00:00Z') })
-  return { root, page }
+  await writeFile(join(root, 'engine-state/localize-th.json'), `${JSON.stringify({ a: { at: '2026-11-02', from: '2026-11-01', name: 'ปลาทดสอบ', confidence: 'high', score, notes: ['The translator\'s old note on item 1.'] } }, null, 2)}\n`)
+  const first = { score, notes: ['The translator\'s old note on item 1.'] }
+  await logReviews(root, 'localize', { id: 'species/a', lang: 'th' }, [first], first, { now: new Date('2026-11-02T00:00:00Z') })
+  if (o.read !== undefined) {
+    const r = { score: o.read === 'stale' ? 0.9 : o.read, notes }
+    await logReviews(root, 'localize', { id: 'species/a', lang: 'th' }, [r], r, { now: new Date('2026-11-05T00:00:00Z'), recheck: true, textHash: o.read === 'stale' ? 'of-a-text-since-changed' : HASH })
+  }
+  return { root, page, file: () => readFile(join(dir, 'th.json'), 'utf8') }
 }
 
-/** An editor that answers with `fix` for each part it is sent, and a reviewer that gives `score`. */
-function fake(fix: (id: string, old: string) => string, score: number) {
+/** An editor that answers with `fix` for each part it is sent, and a reviewer that gives `reads` in turn. */
+function fake(fix: (id: string, old: string) => string, ...reads: { score: number; notes: string[] }[]) {
   const calls: { prompt: string; review: boolean }[] = []
   const llm = (async (a: { prompt: string; schema: { required?: string[] } }) => {
     const isReview = !!a.schema.required?.includes('score')
     calls.push({ prompt: a.prompt, review: isReview })
-    if (isReview) return { score, notes: ['Item 1: "x" is stiff.'] }
+    if (isReview) return reads.shift() ?? (() => { throw new Error('a read nobody expected') })()
     const parts = [...a.prompt.split('--- PARTS ---')[1]!.matchAll(/^### (\S+)\nEN:\n[\s\S]*?\nTH:\n([\s\S]*?)\nNOTES:/gm)]
     return { parts: parts.map(m => ({ id: m[1]!, text: fix(m[1]!, m[2]!) })) }
   }) as unknown as Llm
@@ -44,60 +59,79 @@ function fake(fix: (id: string, old: string) => string, score: number) {
 }
 const now = () => new Date('2026-11-11T00:00:00Z')
 const NOTE = 'Item 2: "แมลงขนาดใหญ่" says large insects; the English says small insects.'
+const small = (_: string, old: string) => old.replace('ขนาดใหญ่', 'ขนาดเล็ก')
+const AFTER = { score: 0.85, notes: ['Item 1: "x" is stiff.'] }
 
-test('only the part a note names goes to the editor; the fixed page is kept when it reads higher, and its record follows', async () => {
-  const { root, page } = await site([NOTE, 'The name is fine.'])
-  const { llm, calls } = fake((_, old) => old.replace('ขนาดใหญ่', 'ขนาดเล็ก'), 0.85)
-  const r = await mendLocalized(root, llm, 'th', ['a'], { now })
-  expect(r).toEqual({ kept: ['a: 1 of 3 parts, 2 notes: 0.6 to 0.85, open, 1 parts changed'], notBetter: [], skipped: [], failed: [], stopped: '' })
-  const sent = calls.find(c => !c.review)!.prompt
-  expect(sent).toContain('### diet:seriouslyfish')
-  expect(sent).toContain(NOTE)
-  expect(sent).not.toContain('### habitat:seriouslyfish')
-  expect(sent).not.toContain('### behaviour:glaser')
-  expect(sent).not.toContain('Not ours to translate')
-  // The reviewer reads the whole page as it will be written, the part outside the translation's scope aside.
-  const reread = calls.find(c => c.review)!.prompt
-  expect(reread).toContain('แมลงขนาดเล็ก')
-  expect(reread).toContain(page.sections['habitat:seriouslyfish'])
-  const t = await read(root, 'content/species/a/th.json')
-  expect(t.sections).toEqual({ ...page.sections, 'diet:seriouslyfish': page.sections['diet:seriouslyfish'].replace('ขนาดใหญ่', 'ขนาดเล็ก') })
-  expect(t.quality).toEqual({ score: 0.85, indexable: true, bySource: { seriouslyfish: 0.85, glaser: 0.85 } })
-  expect({ slug: t.slug, name: t.name, altNames: t.altNames }).toEqual({ slug: page.slug, name: page.name, altNames: [] })
-  const [newest, old] = (await readReviews(root, 'localize'))['th/species/a']!
-  expect(newest).toMatchObject({ attempt: 'rewrite', kept: true, score: 0.85 })
-  expect(old).toMatchObject({ attempt: 'first', score: 0.6 })
-  expect((await read(root, 'engine-state/localize-th.json')).a).toMatchObject({ score: 0.85, notes: ['Item 1: "x" is stiff.'], from: '2026-11-01', at: '2026-11-02' })
-})
-
-test('a fix that reads no higher leaves the page and its record as they were, and that text is not tried again', async () => {
-  const { root } = await site([NOTE])
-  const before = await readFile(join(root, 'content/species/a/th.json'), 'utf8')
-  const state = await readFile(join(root, 'engine-state/localize-th.json'), 'utf8')
-  for (const score of [0.6, 0.5]) {
-    const { llm, calls } = fake((_, old) => old.replace('ขนาดใหญ่', 'ขนาดเล็ก'), score)
+test('a page with no read of its text on file is read first; only the part that read names goes to the editor, and the fixed page is kept when it reads higher', async () => {
+  for (const onFile of [undefined, 'stale'] as const) {
+    const { root, page } = await site(['A note on a text the page no longer has: item 3.'], { read: onFile })
+    const { llm, calls } = fake(small, { score: 0.62, notes: [NOTE, 'The name is fine.'] }, AFTER)
     const r = await mendLocalized(root, llm, 'th', ['a'], { now })
-    expect(await readFile(join(root, 'content/species/a/th.json'), 'utf8')).toBe(before)
-    expect(await readFile(join(root, 'engine-state/localize-th.json'), 'utf8')).toBe(state)
-    if (score === 0.6) {
-      expect(r.notBetter).toEqual(['a: 1 of 3 parts, 1 notes: 0.6 then 0.6, left as it was'])
-      expect((await readReviews(root, 'localize'))['th/species/a']![0]).toMatchObject({ attempt: 'rewrite', kept: false, score: 0.6 })
-    } else {
-      expect(r.skipped).toEqual(['a: a fix of this text was tried'])
-      expect(calls).toEqual([])
-    }
+    expect(r).toEqual({ read: ['a: 0.6 then 0.62, 2 notes'], kept: ['a: 1 of 3 parts, 2 notes: 0.62 to 0.85, open, 1 parts changed'], notBetter: [], skipped: [], failed: [], stopped: '' })
+    expect(calls.map(c => c.review)).toEqual([true, false, true])
+    // The first read is of the page as it is, every translatable part.
+    expect(calls[0]!.prompt).toContain(page.sections['diet:seriouslyfish'])
+    const sent = calls[1]!.prompt
+    expect(sent).toContain('### diet:seriouslyfish')
+    expect(sent).toContain(NOTE)
+    for (const not of ['### habitat:seriouslyfish', '### behaviour:glaser', 'Not ours to translate', 'old note', 'no longer has']) expect(sent).not.toContain(not)
+    // The reviewer then reads the whole page as it will be written.
+    expect(calls[2]!.prompt).toContain('แมลงขนาดเล็ก')
+    expect(calls[2]!.prompt).toContain(page.sections['habitat:seriouslyfish'])
+    const t = await read(root, 'content/species/a/th.json')
+    expect(t.sections).toEqual(FIXED)
+    expect(t.quality).toEqual({ score: 0.85, indexable: true, bySource: { seriouslyfish: 0.85, glaser: 0.85 } })
+    expect({ slug: t.slug, name: t.name, altNames: t.altNames }).toEqual({ slug: page.slug, name: page.name, altNames: [] })
+    const [fix, fresh] = (await readReviews(root, 'localize'))['th/species/a']!
+    expect(fix).toMatchObject({ attempt: 'rewrite', kept: true, score: 0.85, textHash: pageTextHash(PARTS, FIXED) })
+    expect(fresh).toMatchObject({ attempt: 'recheck', kept: true, score: 0.62, textHash: HASH })
+    expect((await read(root, 'engine-state/localize-th.json')).a).toMatchObject({ score: 0.85, notes: AFTER.notes, from: '2026-11-01', at: '2026-11-02' })
   }
 })
 
-test('a page made before reviews were logged is fixed from the notes in the translator\'s record; the translator\'s own second try, put back, is not a fix tried', async () => {
-  const { root } = await site([NOTE], { unlogged: true })
-  const { llm } = fake((_, old) => old.replace('ขนาดใหญ่', 'ขนาดเล็ก'), 0.8)
-  expect((await mendLocalized(root, llm, 'th', ['a'], { now })).kept).toEqual(['a: 1 of 3 parts, 1 notes: 0.6 to 0.8, open, 1 parts changed'])
+test('a read of the page\'s text on file is the one used: no second read before the fix', async () => {
+  const { root } = await site([NOTE], { read: 0.6 })
+  const { llm, calls } = fake(small, AFTER)
+  expect(await mendLocalized(root, llm, 'th', ['a'], { now })).toMatchObject({ read: [], kept: ['a: 1 of 3 parts, 1 notes: 0.6 to 0.85, open, 1 parts changed'] })
+  expect(calls.map(c => c.review)).toEqual([false, true])
+})
 
-  // A later translation whose two tries the gate put back: both logged, neither kept, the older review still the page's.
-  const again = await site([NOTE])
-  await logReviews(again.root, 'localize', { id: 'species/a', lang: 'th' }, [{ score: 0.5, notes: ['x'] }, { score: 0.55, notes: ['y'] }], undefined, { now: new Date('2026-11-05T00:00:00Z') })
-  expect((await mendLocalized(again.root, fake((_, old) => old.replace('ขนาดใหญ่', 'ขนาดเล็ก'), 0.8).llm, 'th', ['a'], { now })).kept).toHaveLength(1)
+test('a fix that reads no higher than the page or than its unfixed text leaves both as they were, and that text is not tried again', async () => {
+  // [the page's score, the read of it as it is, the read of the fix]
+  for (const [was, unfixed, fixed] of [[0.6, 0.6, 0.6], [0.6, 0.7, 0.65], [0.7, 0.6, 0.7]] as const) {
+    const { root, file } = await site([NOTE], { score: was, read: unfixed })
+    const before = await file()
+    const state = await readFile(join(root, 'engine-state/localize-th.json'), 'utf8')
+    const tries: MendTry[] = []
+    const r = await mendLocalized(root, fake(small, { score: fixed, notes: [] }).llm, 'th', ['a'], { now, onTry: t => void tries.push(t) })
+    expect(r.notBetter).toEqual([`a: 1 of 3 parts, 1 notes: ${Math.max(was, unfixed)} then ${fixed}, left as it was`])
+    expect(await file()).toBe(before)
+    expect(await readFile(join(root, 'engine-state/localize-th.json'), 'utf8')).toBe(state)
+    expect((await readReviews(root, 'localize'))['th/species/a']![0]).toMatchObject({ attempt: 'rewrite', kept: false, score: fixed, textHash: HASH })
+    // What was tried is handed over, though the page keeps none of it.
+    expect(tries).toEqual([{ id: 'a', was, read: unfixed, score: fixed, kept: false, parts: [{ id: 'diet:seriouslyfish', notes: [NOTE], before: SECTIONS['diet:seriouslyfish'], after: FIXED['diet:seriouslyfish'] }] }])
+    const again = fake(small, AFTER)
+    expect((await mendLocalized(root, again.llm, 'th', ['a'], { now })).skipped).toEqual(['a: a fix of this text was tried'])
+    expect(again.calls).toEqual([])
+  }
+})
+
+test('a page that passes its new read is left for the recheck rule, and --reads stops after the read', async () => {
+  const { root, file } = await site([])
+  const before = await file()
+  const { llm, calls } = fake(small, { score: 0.8, notes: [] })
+  expect(await mendLocalized(root, llm, 'th', ['a'], { now })).toMatchObject({ read: ['a: 0.6 then 0.8, 0 notes, passes as it is'], kept: [], skipped: [] })
+  expect(calls.map(c => c.review)).toEqual([true])
+  expect(await file()).toBe(before)
+  expect((await readReviews(root, 'localize'))['th/species/a']![0]).toMatchObject({ attempt: 'recheck', kept: true, score: 0.8, textHash: HASH })
+  const again = fake(small, AFTER)
+  expect((await mendLocalized(root, again.llm, 'th', ['a'], { now })).skipped).toEqual(['a: its read passes, and the recheck rule opens it'])
+  expect(again.calls).toEqual([])
+
+  const other = await site([])
+  const reads = fake(small, { score: 0.6, notes: [NOTE] })
+  expect(await mendLocalized(other.root, reads.llm, 'th', ['a'], { now, readsOnly: true })).toMatchObject({ read: ['a: 0.6 then 0.6, 1 notes'], kept: [], notBetter: [], skipped: [] })
+  expect(reads.calls.map(c => c.review)).toEqual([true])
 })
 
 test('a page with a note on a dose or harm is left for that check, and so is one whose notes name no part', async () => {
@@ -106,34 +140,40 @@ test('a page with a note on a dose or harm is left for that check, and so is one
     [[NOTE, 'Item 1: "kills snails" is left out.'], 'a: a note on a dose, a medicine or harm'],
     [['The page reads stiffly throughout.'], 'a: its notes name no part'],
     [['Item 9: no such part.'], 'a: its notes name no part'],
+    [[], 'a: its read left no notes'],
   ] as const) {
-    const { root } = await site([...notes])
-    const before = await readFile(join(root, 'content/species/a/th.json'), 'utf8')
-    const { llm, calls } = fake(() => 'x', 0.9)
+    const { root, file } = await site([...notes], { read: 0.6 })
+    const before = await file()
+    const { llm, calls } = fake(() => 'x')
     expect((await mendLocalized(root, llm, 'th', ['a'], { now })).skipped, why).toEqual([why])
     expect(calls, why).toEqual([])
-    expect(await readFile(join(root, 'content/species/a/th.json'), 'utf8')).toBe(before)
+    expect(await file()).toBe(before)
   }
 })
 
 test('a part the editor rewrote, emptied or returned as it was is not taken; nothing changed means no second read', async () => {
   for (const fix of [() => `<p>${'ข้อความใหม่ทั้งหมดที่ไม่เหมือนของเดิมเลยแม้แต่น้อย'.repeat(4)}</p>`, () => '', (_: string, old: string) => old]) {
-    const { root } = await site([NOTE])
-    const before = await readFile(join(root, 'content/species/a/th.json'), 'utf8')
-    const { llm, calls } = fake(fix, 0.9)
+    const { root, file } = await site([NOTE], { read: 0.6 })
+    const before = await file()
+    const { llm, calls } = fake(fix)
     expect((await mendLocalized(root, llm, 'th', ['a'], { now })).skipped).toEqual(['a: 1 of 3 parts, 1 notes: the fix changed nothing'])
     expect(calls.filter(c => c.review)).toEqual([])
-    expect(await readFile(join(root, 'content/species/a/th.json'), 'utf8')).toBe(before)
+    expect(await file()).toBe(before)
   }
 })
 
-test('a page at the bar, one with no notes, and a dry run call no model', async () => {
-  for (const [notes, score, dry, skipped] of [[[NOTE], 0.75, false, []], [[], 0.6, false, ['a: no notes on file']], [[NOTE], 0.6, true, ['a: 1 of 3 parts, 1 notes (dry run)']]] as const) {
-    const { root } = await site([...notes], { score })
-    const { llm, calls } = fake(() => 'x', 0.9)
+test('a page at the bar and a dry run call no model', async () => {
+  for (const [score, read, dry, skipped] of [[0.75, undefined, false, []], [0.6, undefined, true, ['a: needs a new read first (dry run)']], [0.6, 0.6, true, ['a: 1 of 3 parts, 1 notes (dry run)']]] as const) {
+    const { root } = await site([NOTE], { score, read })
+    const { llm, calls } = fake(() => 'x')
     expect((await mendLocalized(root, llm, 'th', ['a'], { now, dry })).skipped).toEqual(skipped)
     expect(calls).toEqual([])
   }
+})
+
+test('the words that keep a page out, and the reviewer\'s own "drops" that doesn\'t', () => {
+  for (const n of ['a dose', 'overdosing', 'medicated food', 'treat with salt', 'in quarantine', '2 mg/l', '8.4 g/l', '5 ml', '3 drops', 'aquarium salts', 'bleach dip', 'nitrite', 'nitrates', 'ammonia', 'praziquantel', 'toxic', 'venomous', 'deadly', 'death', 'mortality', 'the fish died', 'dying plants', 'kills', 'harms', 'harmless', 'dangerous', 'unsafe']) expect(doseOrHarm(`Item 1: ${n}.`), n).toBe(true)
+  for (const n of ['the Thai drops the point that it shoals', 'the temperature drops at night', 'saltwater', 'a diet of insects', 'treatise', 'ammonite']) expect(doseOrHarm(`Item 1: ${n}.`), n).toBe(false)
 })
 
 test('the parts a note names, and what counts as the same text mended', () => {
