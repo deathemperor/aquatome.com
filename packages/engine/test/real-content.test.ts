@@ -299,15 +299,18 @@ test('the tap-water fixes hold: Seachem Prime named at its dose, pure water only
     expect(g.bodyFixed, lang).toBe(true)
     expect(JSON.stringify([g.body, g.summary, g.faq]), lang).not.toMatch(said)
   }
+})
 
-// GBIF's fuzzy matches made a catfish page a tube worm's (Brochis arcuata → Ditrupa arietina, Sabellida) and gave a molly
-// page a moth's family (Mollienisia, Noctuidae). The engine takes a fuzzy match only of a class the page's group can be
-// (gbif.ts pageTaxon); this holds every page's order to its group. The two above wait for their own fix.
+// GBIF's fuzzy matches made a catfish page a tube worm's (Brochis arcuata → Ditrupa arietina, Sabellida), and its exact
+// Mollienisia, a moth's genus, gave a molly page a moth's family (Noctuidae). The engine now takes a match only of an animal
+// the page's group can be (gbif.ts pageTaxon). This holds each fish or shrimp page's order to its group; "other" and
+// "snails", too many orders to name, are held by that class check alone. The two above, and a spiny eel filed with the
+// loaches, wait for their own fix.
 const GROUP_ORDERS: Record<string, string[]> = {
   catfish: ['Siluriformes'],
   tetras: ['Characiformes'], characins: ['Characiformes'], characoids: ['Characiformes'],
   barbs: ['Cypriniformes'], danios: ['Cypriniformes'], rasboras: ['Cypriniformes'], cyprinid: ['Cypriniformes'],
-  loaches: ['Cypriniformes', 'Synbranchiformes'],
+  loaches: ['Cypriniformes'],
   cichlids: ['Perciformes', 'Cichliformes'], labyrinth: ['Perciformes', 'Anabantiformes'], gobies: ['Perciformes', 'Gobiiformes'],
   killifish: ['Cyprinodontiformes', 'Beloniformes'], livebearers: ['Cyprinodontiformes', 'Beloniformes'],
   rainbowfish: ['Atheriniformes'], shrimp: ['Decapoda'],
@@ -318,5 +321,5 @@ test('every species page\'s order fits its group', () => {
     const e = JSON.parse(readFileSync(join(root, id, 'entity.json'), 'utf8')) as { group: string; order: string }
     return GROUP_ORDERS[e.group] !== undefined && !GROUP_ORDERS[e.group]!.includes(e.order)
   })
-  expect(off.sort()).toEqual(['ditrupa-arietina', 'mollienisia'])
+  expect(off.sort()).toEqual(['ditrupa-arietina', 'macrognathus-siamensis', 'mollienisia'])
 })

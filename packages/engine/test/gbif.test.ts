@@ -9,7 +9,7 @@ test('exact match gives taxonomy and is cached', async () => {
   const http = async (url: string) => { calls++; expect(url).toContain('name=Paracheirodon%20axelrodi'); return fx('paracheirodon-axelrodi') }
   const cache: Record<string, Taxon | null> = {}
   const t = await gbifMatch('Paracheirodon axelrodi', http, cache)
-  expect(t).toEqual({ canonicalName: 'Paracheirodon axelrodi', order: 'Characiformes', family: 'Characidae', genus: 'Paracheirodon', matchType: 'EXACT' })
+  expect(t).toEqual({ canonicalName: 'Paracheirodon axelrodi', phylum: 'Chordata', order: 'Characiformes', family: 'Characidae', genus: 'Paracheirodon', matchType: 'EXACT' })
   await gbifMatch('Paracheirodon axelrodi', http, cache)
   expect(calls).toBe(1)
 })
@@ -94,22 +94,42 @@ test('a species page\'s taxon: the backbone\'s exact name first; a fuzzy match i
   expect(urls.some(u => u.includes('/species/search'))).toBe(true)
 })
 
-test('a page\'s species: an exact match on its name or a synonym first; a fuzzy one only of a class its group can be', async () => {
+// Each answer as GBIF's backbone gave it on 2026-11-12: a ray-finned fish comes with no class, only its phylum and order.
+test('a page\'s species: an exact match on its name or a synonym first, a fuzzy one only of an animal its group can be; none of a class its group can\'t be', async () => {
   const { pageTaxon } = await import('../src/gbif')
-  // GBIF matched "Brochis arcuata" fuzzily to "Ditrupa arcuata", a tube worm's synonym, and the engine made a catfish page Ditrupa arietina.
+  const fish = (name: string, matchType: string, order: string) => ({ canonicalName: name, rank: 'SPECIES', status: 'ACCEPTED', matchType, phylum: 'Chordata', class: null, order })
   const answers: Record<string, unknown> = {
-    'Brochis arcuata': { canonicalName: 'Ditrupa arcuata', species: 'Ditrupa arietina', rank: 'SPECIES', status: 'SYNONYM', matchType: 'FUZZY', class: 'Polychaeta', order: 'Sabellida', family: 'Serpulidae', genus: 'Ditrupa' },
-    'Corydoras arcuatus': { canonicalName: 'Corydoras arcuatus', rank: 'SPECIES', status: 'ACCEPTED', matchType: 'EXACT', class: 'Actinopterygii', order: 'Siluriformes', family: 'Callichthyidae', genus: 'Corydoras' },
-    'Hyphessobrycon herbertaxelrodii': { canonicalName: 'Hyphessobrycon herbertaxelrodi', rank: 'SPECIES', status: 'ACCEPTED', matchType: 'FUZZY', class: 'Actinopterygii', order: 'Characiformes', family: 'Characidae', genus: 'Hyphessobrycon' },
-    'Neocaridina davidii': { canonicalName: 'Neocaridina davidi', rank: 'SPECIES', status: 'ACCEPTED', matchType: 'FUZZY', class: 'Malacostraca', order: 'Decapoda', family: 'Atyidae', genus: 'Neocaridina' },
+    // "Brochis arcuata" matched a tube worm's synonym, and the engine made a catfish page Ditrupa arietina.
+    'Brochis arcuata': { canonicalName: 'Ditrupa arcuata', species: 'Ditrupa arietina', rank: 'SPECIES', status: 'SYNONYM', matchType: 'FUZZY', phylum: 'Annelida', class: 'Polychaeta', order: 'Sabellida', family: 'Serpulidae', genus: 'Ditrupa' },
+    'Tetra ornate': { canonicalName: 'Teira ornata', rank: 'SPECIES', status: 'ACCEPTED', matchType: 'FUZZY', phylum: 'Chordata', class: 'Squamata' },
+    // A molly page named for the genus Mollienisia: GBIF's exact Mollienisia is a moth's.
+    'Mollienisia': { canonicalName: 'Mollienisia', rank: 'GENUS', status: 'ACCEPTED', matchType: 'EXACT', phylum: 'Arthropoda', class: 'Insecta', order: 'Lepidoptera', family: 'Noctuidae' },
+    'Corydoras arcuatus': fish('Corydoras arcuatus', 'EXACT', 'Siluriformes'),
+    'Corydoras sterbai': fish('Corydoras sterbai', 'EXACT', 'Siluriformes'),
+    'Hyphessobrycon herbertaxelrodii': fish('Hyphessobrycon herbertaxelrodi', 'FUZZY', 'Characiformes'),
+    'Polypterus senegalis': fish('Polypterus senegalus', 'FUZZY', 'Polypteriformes'),
+    'Neocaridina davidii': { canonicalName: 'Neocaridina davidi', rank: 'SPECIES', status: 'ACCEPTED', matchType: 'FUZZY', phylum: 'Arthropoda', class: 'Malacostraca', order: 'Decapoda' },
+    'Mespilia globulus': { canonicalName: 'Mespilia globulus', rank: 'SPECIES', status: 'ACCEPTED', matchType: 'EXACT', phylum: 'Echinodermata', class: 'Echinoidea', order: 'Camarodonta' },
+    'Barbronia weberi': { canonicalName: 'Barbronia weberi', rank: 'SPECIES', status: 'ACCEPTED', matchType: 'EXACT', phylum: 'Annelida', class: 'Clitellata', order: 'Euhirudinea' },
   }
   const cache: Record<string, Taxon | null> = {}
   const match = (n: string) => gbifMatch(n, async (u: string) => answers[decodeURIComponent(u.split('name=')[1]!)] ?? fx('none'), cache)
-  expect(await pageTaxon(['Brochis arcuata'], 'catfish', match)).toBeNull()
-  expect((await pageTaxon(['Brochis arcuata', 'Corydoras arcuatus'], 'catfish', match))?.canonicalName).toBe('Corydoras arcuatus')
-  expect((await pageTaxon(['Hyphessobrycon herbertaxelrodii'], 'tetras', match))?.canonicalName).toBe('Hyphessobrycon herbertaxelrodi')
-  expect((await pageTaxon(['Neocaridina davidii'], 'shrimp', match))?.canonicalName).toBe('Neocaridina davidi')
-  expect(await pageTaxon(['Neocaridina davidii'], 'tetras', match)).toBeNull()
-  expect(await pageTaxon(['Brochis arcuata'], 'other', match)).toBeNull()
-  expect(await pageTaxon(['Brochis arcuata'], undefined, match)).toBeNull()
+  const name = async (names: string[], group: string | undefined) => (await pageTaxon(names, group, match))?.canonicalName ?? null
+  // The worm, the lizard and the moth are refused; a page's other name that matches exactly is taken.
+  expect(await name(['Brochis arcuata'], 'catfish')).toBeNull()
+  expect(await name(['Brochis arcuata'], 'other')).toBeNull()
+  expect(await name(['Brochis arcuata'], undefined)).toBeNull()
+  expect(await name(['Brochis arcuata', 'Corydoras arcuatus'], 'catfish')).toBe('Corydoras arcuatus')
+  expect(await name(['Tetra ornate'], 'tetras')).toBeNull()
+  expect(await name(['Mollienisia'], 'livebearers')).toBeNull()
+  // A misspelt fish, with no class from GBIF, is still its fish; an exact one too.
+  expect(await name(['Hyphessobrycon herbertaxelrodii'], 'tetras')).toBe('Hyphessobrycon herbertaxelrodi')
+  expect(await name(['Polypterus senegalis'], 'other')).toBe('Polypterus senegalus')
+  expect(await name(['Corydoras sterbai'], 'catfish')).toBe('Corydoras sterbai')
+  expect(await name(['Hyphessobrycon herbertaxelrodii'], 'shrimp')).toBeNull()
+  // A shrimp for a shrimp, not for a tetra; the urchin and the leech on their own pages.
+  expect(await name(['Neocaridina davidii'], 'shrimp')).toBe('Neocaridina davidi')
+  expect(await name(['Neocaridina davidii'], 'tetras')).toBeNull()
+  expect(await name(['Mespilia globulus'], 'other')).toBe('Mespilia globulus')
+  expect(await name(['Barbronia weberi'], 'other')).toBe('Barbronia weberi')
 })
