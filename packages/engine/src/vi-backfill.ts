@@ -5,6 +5,7 @@ import { LlmError, type Llm } from './claude'
 import { reviewRewrite, reviewTranslation, steadyRead } from './quality'
 import { lastKept, logReviews, TEXT_KINDS, type PageRef, type Review } from './review-log'
 import { METRIC_KINDS } from './metric'
+import { errorKind } from './state'
 import { rewriteVi, type Part, type RewriteOpts } from './vi-rewrite'
 
 /** Kinds in the order they are rewritten: guides are read most, glossary least. */
@@ -145,7 +146,8 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
         }
       }
     } catch (e) {
-      await log(false)
+      // A usage limit, or the step's ceiling (ceiling.ts), stops a page part way: nothing written, so no review logged.
+      if (!(e instanceof LlmError && errorKind(e.message) === 'usage')) await log(false)
       if (e instanceof LlmError) { report.stopped = `${job.id}: ${e.message}`; break }
       state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten: 0, of: job.groups.length, scores, error: (e as Error).message.slice(0, 200), v: REWRITE_V }
       report.failed.push(`${job.id}: ${(e as Error).message}`)

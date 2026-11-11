@@ -73,6 +73,22 @@ test('a model failure stops the run and leaves the page for next time; --limit b
   expect(Object.keys(await read(root, 's.json'))).toEqual(['guides/g'])
 })
 
+test('a usage limit or a ceiling part way through a page logs none of its reviews; another model failure logs them, not kept', async () => {
+  // As Claude's limit and a ceiling (ceiling.ts) word it, which errorKind classes as a usage limit; then a failure that isn't one.
+  const limits = ["claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)", "claude failed: the engine's daily limit reached for rewrite-vi ($3.02 of $3 today)"]
+  for (const [message, logged] of [...limits.map(m => [m, 0] as const), ['claude failed (1): bad output', 1] as const]) {
+    const root = await setup()
+    let n = 0
+    const base = fake({ en: 0.9, vi: 0.9 })
+    // The page's first source is rewritten and reviewed (0.9 is near the bar: three reads); the second source's rewrite fails.
+    const llm: Llm = async <T,>(a: { system: string; prompt: string; schema: object }) => { if (n++ === 4) throw new LlmError(message); return base<T>(a) }
+    const r = await rewriteExisting(root, join(root, 's.json'), { llm, opts: { mode: 'fix' }, now }, { limit: 5, kinds: ['species'] })
+    expect(r.stopped).toContain(message)
+    expect(Object.keys(await readReviews(join(root, '..'), 'vi-rewrite')), message).toHaveLength(logged)
+    expect(await read(root, 'species/x/vi.json')).toMatchObject({ sections: { 'habitat:seriouslyfish': '<p>cũ</p>' } })
+  }
+})
+
 test('pages named first go first, in their order, ahead of guides and of pages out of search; one not due is passed over', async () => {
   const root = await setup(0.6)
   for (const id of ['y', 'z']) {
