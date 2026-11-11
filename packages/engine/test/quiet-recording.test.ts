@@ -1,4 +1,4 @@
-import { spawn, spawnSync } from 'node:child_process'
+import { spawn, spawnSync } from './sim-run-turn'
 import { chmodSync, existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, readlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -32,9 +32,7 @@ function mac({ load = '50', cores = 16 as number | null, up = [] as [string, str
   stub(join(home, 'bin/xcrun'), 'cat "$HOME/devices.json"')
   const devices = [...up.map(([udid, name]) => ({ udid, name, state: 'Booted' })), ...known.map(([udid, name]) => ({ udid, name, state: 'Shutdown' }))]
   writeFileSync(join(home, 'devices.json'), JSON.stringify({ devices: { 'iOS-27-2': devices } }))
-  // SIM_RUN_QUIET_ROOT: this file's runs start sim-run.py, whose priority scan would otherwise lower another
-  // worker's analysis stand-in (sim-run.test.ts, 2026-11-11).
-  const env = { ...process.env, HOME: home, PATH: `${home}/bin:${process.env.PATH}`, MAC_STATUS_PAUSE: '0.01', SIM_RUN_NEXT_PAUSE: '0.01', SIM_RUN_QUIET_ROOT: home }
+  const env = { ...process.env, HOME: home, PATH: `${home}/bin:${process.env.PATH}`, MAC_STATUS_PAUSE: '0.01', SIM_RUN_NEXT_PAUSE: '0.01' }
   return { home, env }
 }
 const status = (m: ReturnType<typeof mac>, ...args: string[]) => spawnSync('python3', [STATUS, ...args], { encoding: 'utf8', env: m.env })

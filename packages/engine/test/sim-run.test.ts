@@ -1,4 +1,4 @@
-import { spawn, spawnSync } from 'node:child_process'
+import { spawn, spawnSync, withSimRunTurn } from './sim-run-turn'
 import { chmodSync, existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, symlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -15,13 +15,10 @@ const hasLockf = spawnSync('sh', ['-c', 'command -v lockf']).status === 0
 const until = async (ok: () => boolean) => { while (!ok()) await new Promise(r => setTimeout(r, 25)) }
 const wait = (ms: number) => new Promise(r => setTimeout(r, ms))
 const home = () => mkdtempSync(join(tmpdir(), 'aq-load-'))
-// quiet() lowers every simulator analysis daemon it can see. A root keeps this run on its own home, so two workers'
-// stand-ins don't take each other's priority (2026-11-11).
-const simEnv = (dir: string, extra: Record<string, string> = {}) => ({ ...process.env, HOME: dir, SIM_RUN_QUIET_ROOT: dir, ...extra })
 
 test('a simulator run waits for the one before it, across checkouts', async () => {
   const dir = home()
-  const env = simEnv(dir)
+  const env = { ...process.env, HOME: dir }
   const first = spawn(SIM_RUN, ['sh', '-c', `touch ${dir}/first; for i in $(seq 1200); do [ -f ${dir}/release ] && break; sleep 0.05; done`], { env, stdio: 'ignore' })
   // Each run's end, heard from its start: the second can finish before node has seen the first close (CI, 2026-11-08).
   const firstEnd = new Promise(r => first.on('close', r))
@@ -37,7 +34,7 @@ test('a simulator run waits for the one before it, across checkouts', async () =
 
 test("a job's stop reaches the command, and the turn passes on", async () => {
   const dir = home()
-  const env = simEnv(dir)
+  const env = { ...process.env, HOME: dir }
   const run = spawn(SIM_RUN, ['sh', '-c', `trap 'touch ${dir}/stopped; exit 7' TERM; touch ${dir}/up; while :; do sleep 0.05; done`], { env, stdio: 'ignore' })
   await until(() => existsSync(`${dir}/up`))
   run.kill('SIGTERM')
@@ -69,7 +66,7 @@ sim_run.subprocess.Popen = starting
 sys.argv = ["sim-run.py", "sh", "-c", ${JSON.stringify(`trap 'touch ${dir}/stopped; exit 7' TERM; touch ${dir}/up; while :; do sleep 0.05; done`)}]
 sim_run.main()
 `
-  const r = spawnSync('python3', ['-I', '-c', harness], { env: simEnv(dir), encoding: 'utf8', timeout: 20_000 })
+  const r = spawnSync('python3', ['-I', '-c', harness], { env: { ...process.env, HOME: dir }, encoding: 'utf8', timeout: 20_000 })
   const left = Number(readFileSync(`${dir}/pid`, 'utf8'))
   const running = spawnSync('kill', ['-0', String(left)]).status === 0
   if (running) spawnSync('kill', ['-9', String(left)])
@@ -90,7 +87,7 @@ echo $mask
 `)
   chmodSync(join(dir, 'sysctl'), 0o755)
   const calls = () => (existsSync(join(dir, 'calls')) ? Number(readFileSync(join(dir, 'calls'), 'utf8')) : 0)
-  const run = (env: Record<string, string>) => spawnSync(SIM_RUN, ['true'], { env: simEnv(dir, { PATH: `${dir}:${process.env.PATH}`, SIM_RUN_COOL_PAUSE: '0', ...env }), encoding: 'utf8' })
+  const run = (env: Record<string, string>) => spawnSync(SIM_RUN, ['true'], { env: { ...process.env, HOME: dir, PATH: `${dir}:${process.env.PATH}`, SIM_RUN_COOL_PAUSE: '0', ...env }, encoding: 'utf8' })
   return { run, calls }
 }
 
@@ -121,54 +118,67 @@ test("this Mac's runner's simulator run waits while cores are taken away, and a 
 // on the Mac took up to 23 s. Stand-ins, named as the daemons are, inside a simulator's runtime and outside it. macOS's
 // alone, as simulators and taskpolicy are (and nice goes to 20 there, 19 on Linux): CI's Linux skips it, the Mac's cycles run it.
 test.skipIf(process.platform !== 'darwin')("while a run has its turn, its simulator's photo and media analysis runs in the background, and the Mac's own doesn't", async () => {
-  const dir = home()
-  const daemon = (path: string) => {
-    mkdirSync(dirname(join(dir, path)), { recursive: true })
-    symlinkSync('/bin/sleep', join(dir, path))
-    return spawn(join(dir, path), ['30'], { stdio: 'ignore' })
-  }
-  const sim = daemon('CoreSimulator/Volumes/iOS/RuntimeRoot/System/Library/PrivateFrameworks/MediaAnalysis.framework/mediaanalysisd')
-  const mac = daemon('System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versions/A/Support/photoanalysisd')
-  const nice = (pid?: number) => Number(spawnSync('ps', ['-o', 'nice=', '-p', String(pid)], { encoding: 'utf8' }).stdout.trim())
-  try {
-    await wait(200)
-    const before = nice(mac.pid)
-    expect(nice(sim.pid)).toBe(before)
-    // The run lasts until the stand-in is in the background, or 20 s: a fixed second ran out on a busy Mac, at nice 10,
-    // before sim-run had looked once (2026-11-08).
-    const until = `i=0; until [ "$(ps -o nice= -p ${sim.pid} | tr -d ' ')" = 20 ] || [ $i -ge 400 ]; do sleep 0.05; i=$((i + 1)); done`
-    expect(spawnSync(SIM_RUN, ['sh', '-c', until], { env: simEnv(dir, { SIM_RUN_QUIET_PAUSE: '0.1' }) }).status).toBe(0)
-    expect(nice(sim.pid)).toBe(20)
-    expect(nice(mac.pid)).toBe(before)
-  } finally {
-    sim.kill()
-    mac.kill()
-  }
+  // The turn covers the stand-ins, not only the scan: quiet-recording's sim-run was lowering this stand-in
+  // before the two priorities had been read (2026-11-11).
+  await withSimRunTurn(async () => {
+    const dir = home()
+    const daemon = (path: string) => {
+      mkdirSync(dirname(join(dir, path)), { recursive: true })
+      symlinkSync('/bin/sleep', join(dir, path))
+      return spawn(join(dir, path), ['30'], { stdio: 'ignore' })
+    }
+    const sim = daemon('CoreSimulator/Volumes/iOS/RuntimeRoot/System/Library/PrivateFrameworks/MediaAnalysis.framework/mediaanalysisd')
+    const mac = daemon('System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versions/A/Support/photoanalysisd')
+    const nice = (pid?: number) => Number(spawnSync('ps', ['-o', 'nice=', '-p', String(pid)], { encoding: 'utf8' }).stdout.trim())
+    try {
+      await wait(200)
+      const before = nice(mac.pid)
+      expect(nice(sim.pid)).toBe(before)
+      // The run lasts until the stand-in is in the background, or 20 s: a fixed second ran out on a busy Mac, at nice 10,
+      // before sim-run had looked once (2026-11-08).
+      const until = `i=0; until [ "$(ps -o nice= -p ${sim.pid} | tr -d ' ')" = 20 ] || [ $i -ge 400 ]; do sleep 0.05; i=$((i + 1)); done`
+      expect(spawnSync(SIM_RUN, ['sh', '-c', until], { env: { ...process.env, HOME: dir, SIM_RUN_QUIET_PAUSE: '0.1' } }).status).toBe(0)
+      expect(nice(sim.pid)).toBe(20)
+      expect(nice(mac.pid)).toBe(before)
+    } finally {
+      sim.kill()
+      mac.kill()
+    }
+  })
 }, 30_000)
 
-// A second worker's sim-run, held long enough for quiet() to scan, set this stand-in's nice from 0 to 20 while the
-// test above still expected the two to match (2026-11-11). The root keeps each run on its own home.
-test.skipIf(process.platform !== 'darwin')("a run with a root leaves another worker's analysis stand-in at its own priority", async () => {
-  const dir = home()
-  const other = home()
-  const path = 'CoreSimulator/Volumes/iOS/RuntimeRoot/System/Library/PrivateFrameworks/MediaAnalysis.framework/mediaanalysisd'
-  mkdirSync(dirname(join(other, path)), { recursive: true })
-  symlinkSync('/bin/sleep', join(other, path))
-  const theirs = spawn(join(other, path), ['30'], { stdio: 'ignore' })
-  const nice = (pid?: number) => Number(spawnSync('ps', ['-o', 'nice=', '-p', String(pid)], { encoding: 'utf8' }).stdout.trim())
-  try {
-    await wait(200)
-    const before = nice(theirs.pid)
-    expect(spawnSync(SIM_RUN, ['sleep', '1'], { env: simEnv(dir, { SIM_RUN_QUIET_PAUSE: '0.05' }) }).status).toBe(0)
-    expect(nice(theirs.pid)).toBe(before)
-  } finally {
-    theirs.kill()
+// The two files start sim-run.py, whose scan sees every analysis daemon. Dropping either file's import, or the
+// turn itself, lets those scans overlap again. The check uses its own file: the suite's turn is the one
+// quiet-recording holds, and waiting that out ran past 30 s (2026-11-11).
+test('sim-run and quiet-recording take one turn, so their scans cannot overlap', async () => {
+  const here = readFileSync(fileURLToPath(new URL('./sim-run.test.ts', import.meta.url)), 'utf8')
+  const turn = readFileSync(fileURLToPath(new URL('./sim-run-turn.ts', import.meta.url)), 'utf8')
+  expect(here).toContain('await withSimRunTurn(')
+  expect(turn).toContain("endsWith('/sim-run.py')")
+  expect(turn).toContain("endsWith('/quiet-recording.py')")
+  for (const name of ['sim-run.test.ts', 'quiet-recording.test.ts']) {
+    const imports = readFileSync(fileURLToPath(new URL(`./${name}`, import.meta.url)), 'utf8').split('\n').filter(l => l.startsWith('import '))
+    expect(imports.some(l => /\{[^}]*\bspawn\b[^}]*\} from '\.\/sim-run-turn'/.test(l)), name).toBe(true)
+    expect(imports.some(l => l.includes('node:child_process')), name).toBe(false)
   }
-}, 30_000)
+  // Its own file, not the suite's turn: quiet-recording holds that one for longer than this test's limit.
+  const lock = join(home(), 'turn.lock')
+  await withSimRunTurn(() => {
+    const taken = spawnSync('python3', ['-c', `import os, sys
+try:
+    os.open(sys.argv[1], os.O_CREAT | os.O_EXCL | os.O_RDWR)
+except FileExistsError:
+    raise SystemExit(0)
+raise SystemExit(1)
+`, lock])
+    expect(taken.status).toBe(0)
+  }, lock)
+  expect(existsSync(lock)).toBe(false)
+})
 
 test("the runner's second ask ends the command, so nothing is left running when the turn passes on", async () => {
   const dir = home()
-  const run = spawn(SIM_RUN, ['sh', '-c', `trap '' INT TERM; touch ${dir}/up; while :; do sleep 0.05; done`], { env: simEnv(dir), stdio: 'ignore' })
+  const run = spawn(SIM_RUN, ['sh', '-c', `trap '' INT TERM; touch ${dir}/up; while :; do sleep 0.05; done`], { env: { ...process.env, HOME: dir }, stdio: 'ignore' })
   await until(() => existsSync(`${dir}/up`))
   run.kill('SIGINT')
   await wait(100)
@@ -179,7 +189,7 @@ test("the runner's second ask ends the command, so nothing is left running when 
 test('at most two copies of a simulator', () => {
   const dir = home()
   writeFileSync(join(dir, 'fake'), '#!/bin/sh\necho "$@"\n', { mode: 0o755 })
-  const args = (...a: string[]) => spawnSync(SIM_RUN, [join(dir, 'fake'), ...a], { env: simEnv(dir), encoding: 'utf8' }).stdout.trim()
+  const args = (...a: string[]) => spawnSync(SIM_RUN, [join(dir, 'fake'), ...a], { env: { ...process.env, HOME: dir }, encoding: 'utf8' }).stdout.trim()
   expect(args('test', '-parallel-testing-worker-count', '3')).toBe('test -parallel-testing-worker-count 2')
   expect(args('test', '-parallel-testing-worker-count', '1')).toBe('test -parallel-testing-worker-count 1')
   expect(args('test', '-maximum-parallel-testing-workers', '8')).toBe('test -maximum-parallel-testing-workers 2')
@@ -310,7 +320,7 @@ function keptQueue(via: string[] = [SIM_RUN]) {
   const dir = home()
   mkdirSync(join(dir, '.config/aquatome'), { recursive: true })
   writeFileSync(join(dir, '.config/aquatome/owner-report-thread'), 'cos\n')
-  const env = simEnv(dir, { SIM_RUN_NEXT_PAUSE: '0.1', CHECKS_NEXT_PAUSE: '0.1', T3CODE_THREAD_ID: 'cos' })
+  const env = { ...process.env, HOME: dir, SIM_RUN_NEXT_PAUSE: '0.1', CHECKS_NEXT_PAUSE: '0.1', T3CODE_THREAD_ID: 'cos' }
   const [queue, ...queueArgs] = via as [string, ...string[]]
   const first = spawn(queue, [...queueArgs, 'sh', '-c', `touch ${dir}/up; for i in $(seq 1200); do [ -f ${dir}/release ] && break; sleep 0.05; done`], { env, stdio: 'ignore' })
   const firstEnd = new Promise(r => first.on('close', r))
@@ -355,7 +365,7 @@ test('a turn kept for a run that has not queued yet waits for it, and a pid name
   await r.up()
   const a = r.run('a')
   await wait(300)
-  const b = spawn(SIM_RUN, ['sh', '-c', `echo b >> ${r.dir}/order`], { env: simEnv(r.dir, { SIM_RUN_NEXT_PAUSE: '0.1' }), stdio: 'ignore' })
+  const b = spawn(SIM_RUN, ['sh', '-c', `echo b >> ${r.dir}/order`], { env: { ...process.env, HOME: r.dir, SIM_RUN_NEXT_PAUSE: '0.1' }, stdio: 'ignore' })
   await wait(300)
   r.next('cos', String(b.pid))
   r.release()

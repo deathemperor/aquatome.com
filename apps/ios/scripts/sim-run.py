@@ -28,9 +28,6 @@ COOL_PAUSE = float(os.environ.get("SIM_RUN_COOL_PAUSE", 30))
 # A simulator's own analysis daemons, never the Mac's: their path is inside a simulator runtime's RuntimeRoot.
 ANALYSIS = re.compile(r"/CoreSimulator/.*/RuntimeRoot/System/Library/PrivateFrameworks/(MediaAnalysis|PhotoAnalysis)\.framework/")
 QUIET_PAUSE = float(os.environ.get("SIM_RUN_QUIET_PAUSE", 20))
-# Unset, every simulator analysis daemon on the machine. Tests set this to their own temporary home: the stand-in
-# matches the path above, and another worker's run was lowering it before that test had read its priority (2026-11-11).
-QUIET_ROOT = os.environ.get("SIM_RUN_QUIET_ROOT", "")
 # The run the next turn is kept for: "<until, epoch seconds> <pid, or a word from its folder or command>", which only the
 # chief of staff writes (scripts/next-turn.py).
 NEXT = os.path.expanduser("~/.cache/aquatome/sim.next")
@@ -85,7 +82,7 @@ def quiet():
             out = ""
         for line in out.splitlines():
             pid, _, args = line.strip().partition(" ")
-            if pid in done or not ANALYSIS.search(args) or (QUIET_ROOT and QUIET_ROOT not in args):
+            if pid in done or not ANALYSIS.search(args):
                 continue
             done.add(pid)
             try:
