@@ -188,7 +188,7 @@ id: `apistogramma-pantalone`
 Cá Apisto pantalone (Apistogramma pantalone) hợp với người đã có bể chạy ổn định, chịu cho ăn đồ sống hoặc đông lạnh. Cá dài 5 cm, cần bể tối thiểu 60 cm, nước mềm 0–3 dGH, pH 4–6,5, nhiệt độ 21–26 °C. Khó nhất là giữ nước sát tự nhiên và cho cá ăn, vì cá nhạy, hiếm khi nhận thức ăn khô; độ khó 5/8.
 
 - Thả cá vào bể chưa chạy ổn định: chỉ thả khi bể đã hoàn tất chu trình nitrat hóa và chất thải hữu cơ không biến động.
-- Cho ăn thức ăn khô: cho ăn thường xuyên Artemia, Daphnia, Moina hoặc trùn chỉ đỏ, cá mới về bắt buộc phải có đồ sống.
+- Cho ăn thức ăn khô: cho ăn thường xuyên Artemia, Daphnia, Moina hoặc trùng huyết, cá mới về bắt buộc phải có đồ sống.
 - Để thông số nước lệch xa tự nhiên như với các loài Apistogramma khác: giữ nước mềm, có tính axit, thêm lá khô hoặc nón alder để tạo tannin.
 
 ## Cá apisto Steindachner (Apistogramma steindachneri)
@@ -923,7 +923,7 @@ Cá bác sĩ (Garra rufa) hợp với người có bể dài từ 120 cm, thích
 - Để nắp bể hở: đậy thật khít vì cá hay nhảy và bò lên được cả mặt kính.
 - Nghĩ cá chỉ ăn rêu: ngoài rêu, cho thêm trùng huyết, Artemia hoặc tôm cắt nhỏ, kèm thức ăn chìm có Spirulina.
 
-## Cá rô phi đất brachybranchus (Geophagus brachybranchus)
+## Cá hải hồ brachybranchus (Geophagus brachybranchus)
 id: `geophagus-brachybranchus`
 
 Loài này hợp với người đã có bể lớn, chịu đầu tư lọc và nuôi theo nhóm. Cá lớn tới 20 cm nên cần bể dài tối thiểu 180 cm, đáy cát mềm, nước ấm 26–30 °C, pH 5–7, độ cứng 1–10 dGH. Độ khó 5/8, khó nhất là giữ nước sạch và ổn định, vì cá rất nhạy với nước xuống cấp và thông số dao động.
@@ -932,7 +932,7 @@ Loài này hợp với người đã có bể lớn, chịu đầu tư lọc và
 - Thả cá vào bể chưa chín: chạy bể cho hệ vi sinh ổn định trước, dùng lọc dư công suất và thay 50–70% nước mỗi tuần để tránh bệnh lỗ đầu hay còi cọc.
 - Nuôi lẻ vài con: cá sống bầy và có thứ bậc, ít con thì con yếu bị bắt nạt, nên mua ít nhất một nhóm 5-8 con.
 
-## Cá geophagus dicrozoster (Geophagus dicrozoster)
+## Cá hải hồ dicrozoster (Geophagus dicrozoster)
 id: `geophagus-dicrozoster`
 
 Loài này hợp với người đã có bể dài, nước mềm axit ổn định và muốn nuôi một đàn cá hiền ngoài mùa sinh sản. Cần bể dài tối thiểu 180 cm, nền cát mềm để cá bới kiếm ăn, nước 26–30 °C, pH 4–7, độ cứng 1–10 dGH. Cá lớn tới khoảng 20 cm, độ khó 5/8. Khó nhất là giữ nước sạch và ổn định, vì cá rất nhạy với nước xuống cấp và thông số dao động.
@@ -2145,7 +2145,7 @@ id: `thoracocharax-stellatus`
 Cá rìu đốm vây (Thoracocharax stellatus) dài tới 7 cm, độ khó 6/8, hợp với người đã có kinh nghiệm và muốn nuôi một đàn cá hiền ở tầng mặt. Cần bể dài tối thiểu 120 cm (mặt nước 120 × 45 cm, khoảng 243 lít), nước 20–28 °C, pH 5–7,5, độ cứng 1–12 dGH, phủ cây nổi và chừa vài khu nước lặng. Khó nhất là cá rất hay giật mình, hay nhảy khỏi bể, ăn gần như toàn côn trùng và lúc mới về đôi khi ngại ăn thức ăn khô.
 
 - Để hở nắp bể qua đêm: cá sẽ nhảy ra ngoài, nên đậy nắp thật khít.
-- Nuôi lẻ vài con: cá không thấy an toàn và không ổn định, nên mua ít nhất nửa tá con.
+- Nuôi lẻ vài con: cá không thấy an toàn và không ổn định, nên mua ít nhất 6 con.
 - Nuôi chung với loài hiếu động: cá hiền, có thể nhát và tranh ăn không lại, nên chọn bạn cùng bể ở tầng khác như tetra, Corydoras hay Geophagus.
 
 ## Cá tench (Tinca tinca)
@@ -2173,10 +2173,10 @@ Cá hap ăn ốc Trematocranus placodon hợp người đã quen cichlid Malawi 
 Kiểm tra:
 - "hợp người đã quen cichlid Malawi": the page never says the species needs an experienced keeper. It only says the fish suits a large Malawi cichlid community tank, and the card rates difficulty 4/8 (medium). The experience requirement is invented.
 
-## Cá thài lài mật (Trichogaster chuna)
+## Cá sặc mật ong (Trichogaster chuna)
 id: `trichogaster-chuna`
 
-Cá thài lài mật (Trichogaster chuna) hợp người mới chơi: cá hiền, dài khoảng 5,5 cm, chịu được nhiều thông số nước. Bể tối thiểu 60 cm, nhiệt độ 22–27 °C, pH 6–7,5, độ cứng 2–15 dGH, độ khó 3/8. Khó nhất là chọn bạn cùng bể, vì cá bơi chậm, dễ bị cá khác giành hết mồi, và bể phải có nắp kín vì cá hay nhảy.
+Cá sặc mật ong (Trichogaster chuna) hợp người mới chơi: cá hiền, dài khoảng 5,5 cm, chịu được nhiều thông số nước. Bể tối thiểu 60 cm, nhiệt độ 22–27 °C, pH 6–7,5, độ cứng 2–15 dGH, độ khó 3/8. Khó nhất là chọn bạn cùng bể, vì cá bơi chậm, dễ bị cá khác giành hết mồi, và bể phải có nắp kín vì cá hay nhảy.
 
 - Để bể hở hoặc đổ nước sát miệng thì cá dễ nhảy ra ngoài; nên đậy nắp kín và chừa khoảng trống phía trên mặt nước.
 - Nuôi chung với cá to, lanh lợi hoặc giữ lãnh thổ thì cá bị bắt nạt và đói; nên chọn cá họ chép hiền ở tầng giữa hoặc chạch ít hiếu động như Pangio spp.
