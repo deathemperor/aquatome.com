@@ -6,10 +6,12 @@ interface Props { photos: Photo[]; alt: string }
 const { photos, alt } = Astro.props
 const [main] = photos // the rest are placed between sections (Sections.astro)
 const { lang } = i18n(Astro.url)
+// A head no crop can frame without cutting the fish (`headFit: "contain"`) keeps its own shape, whole, at any width.
+const whole = main?.headFit === 'contain'
 ---
 {main && (
   <figure class="gallery">
-    <div class="plate"><img src={main.url} width={main.width} height={main.height} alt={alt} fetchpriority="high" /></div>
+    <div class="plate"><img src={main.url} width={main.width} height={main.height} alt={alt} fetchpriority="high" data-fit={whole ? 'contain' : undefined} style={whole ? `aspect-ratio: ${main.width} / ${main.height}` : undefined} /></div>
     <figcaption><Fragment set:html={photoMark(lang, main)} /></figcaption>
   </figure>
 )}
@@ -17,5 +19,7 @@ const { lang } = i18n(Astro.url)
   .gallery { margin: 0; }
   .plate { background: var(--c-plate); padding: 8px; border-radius: var(--radius-plate); box-shadow: 0 1px 0 var(--c-rule); }
   .plate img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  /* Its own shape, and never taller than most of the screen: past that it sits whole on the plate. */
+  .plate img[data-fit='contain'] { max-height: 75vh; object-fit: contain; }
   figcaption { font-size: 0.75rem; color: var(--c-ink-faint); margin-top: var(--space-1); text-align: right; }
 </style>

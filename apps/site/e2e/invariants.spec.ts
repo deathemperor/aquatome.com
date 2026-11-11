@@ -2,7 +2,7 @@ import { existsSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import type { APIRequestContext } from '@playwright/test'
 import { DIST, LIVE, recheckPages, samplePages, sourcePages } from './pages'
-import { VIETNAMESE, VIETNAMESE_ALLOWED, expect, test } from './fixtures'
+import { VIETNAMESE, VIETNAMESE_ALLOWED, expect, shownWhole, test } from './fixtures'
 import { checkPage, loadFacts } from '../scripts/page-check'
 import { isViPage } from '../worker/paths'
 import { prefixedLang } from '@aq/schema/langs'
@@ -54,6 +54,9 @@ for (const path of pages) {
     // <img> a script fills later (the gallery's viewer) is not a picture yet.
     const badImgs = await page.$$eval('img[src]', imgs => imgs.filter(i => !i.getAttribute('width') || !i.getAttribute('height') || !i.hasAttribute('alt')).map(i => i.outerHTML.slice(0, 120)))
     expect(badImgs, 'img without width/height/alt').toEqual([])
+
+    // A head marked to show whole (`headFit: "contain"`) is never cut to the page's frame (head-fit.spec.ts).
+    for (const head of await page.locator('img[data-fit="contain"]').all()) expect(await shownWhole(head), 'a whole-photo head is cut').toBe(true)
 
     // Links to this site's pages lead to pages that exist: Vietnamese ones at the root, and any old /vi/ one (none is built).
     const hrefs = await page.$$eval('a[href^="/"]', as => [...new Set(as.map(a => a.getAttribute('href')!))])

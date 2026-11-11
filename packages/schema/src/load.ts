@@ -235,12 +235,15 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const shownCare = (care: BreedEntity['care']) => Object.fromEntries(Object.entries(care).map(([f, vs]) => [f, (vs ?? []).filter(v => !v.hidden)] as const).filter(([, vs]) => vs.length)) as BreedEntity['care']
   const breeds = (await loadKind(root, 'breeds', BreedSchema, lang, leaveOutHeld)).map(rememberGenerated).map(b => ({ ...b, care: shownCare(b.care), photos: cleanPhotos(b.photos) }))
   // A newly passed real album photo immediately leads a formerly generated-only page, even before lead-photos runs.
-  for (const page of [...species, ...plants, ...breeds]) if (page.photos.some(p=>!photoFitsHead(p)) || page.photos[0]?.generated || (!page.photos.length && generatedPages.has(page.id))) {
+  // A photo marked to show whole (`headFit: "contain"`) may head a page though no crop of it fits the frame: the page
+  // draws it uncut (PhotoGallery.astro).
+  const fitsHead = (p: Photo) => p.headFit === 'contain' || photoFitsHead(p)
+  for (const page of [...species, ...plants, ...breeds]) if (page.photos.some(p=>!fitsHead(p)) || page.photos[0]?.generated || (!page.photos.length && generatedPages.has(page.id))) {
     const all=realPhotosFirst([...new Map([...page.photos,...(galleries[page.id]??[])].map(p=>[p.url,p])).values()])
-    const albumOnly=page.photos.filter(p=>!photoFitsHead(p))
+    const albumOnly=page.photos.filter(p=>!fitsHead(p))
     if(albumOnly.length)galleries[page.id]=realPhotosFirst([...new Map([...(galleries[page.id]??[]),...albumOnly].map(p=>[p.url,p])).values()])
-    page.photos=page.photos.filter(photoFitsHead)
-    const real = all.find(p => !p.generated && photoFitsHead(p))
+    page.photos=page.photos.filter(fitsHead)
+    const real = all.find(p => !p.generated && fitsHead(p))
     if (real) page.photos = [real, ...page.photos.filter(p => p.url !== real.url)]
     else if(all.some(p=>!p.generated))page.photos=page.photos.filter(p=>!p.generated)
   }
