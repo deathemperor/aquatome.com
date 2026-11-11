@@ -47,10 +47,24 @@ export function subjectPixels(f: SubjectFractions, width: number, height: number
   return validPixelBox(b, width, height) ? b : undefined
 }
 /**
+ * A photo's box as the app reads it (`box`, `imgBox`): fractions of the photo, right for every resized copy of it, to four
+ * places, rounded outward. None where the photo has no box.
+ */
+export function boxFractions(p: { width: number; height: number; subject?: PixelBox }): SubjectFractions | undefined {
+  const s = p.subject
+  if (!validPixelBox(s, p.width, p.height)) return undefined
+  const down = (v: number) => Math.floor(v*1e4+1e-6)/1e4, up = (v: number) => Math.min(1, Math.ceil(v*1e4-1e-6)/1e4)
+  const x = down(s.x0/p.width), y = down(s.y0/p.height)
+  return { x, y, w: +(up(s.x1/p.width)-x).toFixed(4), h: +(up(s.y1/p.height)-y).toFixed(4) }
+}
+/**
  * How much of the fish's length a frame may cut and still show it whole: fin tips (the chief of staff, 2026-11-12, set by
- * eye on tiles at the app's size; the Design Lead confirms it on its own boards before it is fixed). One constant.
+ * eye on tiles at the app's size; the Design Lead confirmed it on 27.2 the same day). One constant: the app's tests read
+ * it from protocols/photo-crop-vectors.json, which packages/schema/test/photo-crop-vectors.test.ts writes from here.
  */
 export const SUBJECT_CUT = 0.05
+/** The rule's slack on SUBJECT_CUT, so the last bit of a window's edge can't turn exactly SUBJECT_CUT into more. */
+export const SUBJECT_SLACK = 1e-9
 /**
  * Whether the loader gives each photo its box (`subject`), which every frame reads through subjectFrame. Off: no photo
  * has one, and every frame draws as today. On once the owner has seen the Design Lead's "whole" for the tile, the banner
@@ -72,8 +86,7 @@ export function subjectFrame(p: { width: number; height: number; subject?: Pixel
   const across = w.x1-w.x0 < p.width
   const [len, span, a, b] = across ? [p.width, w.x1-w.x0, s.x0, s.x1] : [p.height, w.y1-w.y0, s.y0, s.y1]
   const lost = (at: number) => (Math.max(0, at-a)+Math.max(0, b-at-span))/(b-a)
-  // A hair of slack, so the last bit of a window's edge can't turn exactly SUBJECT_CUT into more.
-  const at = [(len-span)/2, Math.min(Math.max((a+b-span)/2, 0), len-span)].find(at => lost(at) <= SUBJECT_CUT+1e-9)
+  const at = [(len-span)/2, Math.min(Math.max((a+b-span)/2, 0), len-span)].find(at => lost(at) <= SUBJECT_CUT+SUBJECT_SLACK)
   if (at === undefined) return { fit: 'whole' }
   const pos = span < len ? at/(len-span) : 0.5
   return across ? { fit: 'cover', x: pos, y: 0.5 } : { fit: 'cover', x: 0.5, y: pos }
