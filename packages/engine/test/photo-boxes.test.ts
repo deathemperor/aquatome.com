@@ -20,10 +20,16 @@ test('boxes heads first, then pages\' other photos, then albums; records none as
   const asked: string[] = []
   const deps = {
     get: async (u: string) => { if (u === 'a-2') throw new Error('HTTP 404'); return new TextEncoder().encode(u) },
-    find: async (files: string[]): Promise<Found[]> => Promise.all(files.map(async f => {
-      const u = await readFile(f, 'utf8'); asked.push(u)
-      return u === 'b-head' ? null : u === 'a-album' ? 'unreadable' : box
-    })),
+    // What the step asks for, in the order it asks: the reads finish last first, as reads side by side may, and `asked`
+    // doesn't follow them (2026-11-12, it recorded them as they finished and failed a cycle's tests once).
+    find: async (files: string[]): Promise<Found[]> => {
+      const urls = await Promise.all(files.map(async (f, i) => {
+        await new Promise(r => setTimeout(r, (files.length - i) * 20))
+        return readFile(f, 'utf8')
+      }))
+      asked.push(...urls)
+      return urls.map(u => u === 'b-head' ? null : u === 'a-album' ? 'unreadable' : box)
+    },
   }
   // Two a run: the heads, in page order.
   expect(await boxPhotos(root, record, deps, { limit: 2 })).toEqual({ boxed: 1, none: 1, left: 2, failed: [] })
