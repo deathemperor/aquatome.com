@@ -3,10 +3,11 @@ import { join } from 'node:path'
 import { HTMLElement, parse } from 'node-html-parser'
 import { headingRoles, imperialLeft, LANGS, ownNumber, WRITTEN_LANGS, type DataCardField, type Lang, type WrittenLang } from '@aq/schema'
 import { tidyName } from './alt-names'
+import { showsLNumber, withLNumber } from './l-numbers'
 import { onlyAName, titleKey } from './guide-titles'
 import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
-import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice, viWording, wordingSlips } from './sanitize'
+import { dropEmptyBlocks, fishThaiLai, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice, viWording, wordingSlips } from './sanitize'
 import { LANG_NAME, pageUrl, type Page, type PageKind } from './pages'
 import { SWAPPED } from './names'
 import { PHRASES, phraseSlips } from './phrases'
@@ -605,7 +606,7 @@ export const RATCHETED: Readonly<Record<string, readonly PageKind[]>> = {
   name: NAMED_KINDS,
   wording: SWEPT_KINDS,
   caption: ['species', 'plants'], unwell: ['species', 'breeds'], card: ['species', 'breeds'], imperial: METRIC_KINDS as readonly PageKind[],
-  'sf-count': ['species'],
+  'sf-count': ['species'], 'l-number': ['species'],
 }
 /** The findings the real-content test holds at zero. */
 export const ratcheted = (findings: Finding[]) => findings.filter(f => RATCHETED[f.rule]?.includes(f.page.kind))
@@ -721,6 +722,16 @@ export const RULES: Rule[] = [
     id: 'swapped-name', title: 'A fish called by the name it no longer has',
     about: 'A sentence that gives a fish\'s old name beside its genus or its English name ("cá bút chì (Nannostomus)"). Since 2026-11-07 "cá bút chì" is the Siamese algae eater and the pencilfish "cá chì", the flat hillstream loaches "cá tỳ bà bướm", and Jordanella floridae has no "cá cờ" in its name. A sentence that also has the new name, or names the fish the old name is now ("cá bút chì (Crossocheilus)"), may be right and isn\'t listed. The sweep writes the name when the sentence says which fish it is (renameSwapped); what it leaves is listed, and the real-content test holds it at zero: the page is written again with the name in process.md\'s list.',
     check: p => (p.lang !== 'vi' ? [] : [...new Set([p.title, ...prose(p).map(f => f.html.replace(/<[^>]+>/g, ' ')), ...p.lines.map(l => l.text)].flatMap(swappedNames))]),
+  },
+  {
+    id: 'fish-words', title: 'A fish called "thài lài"',
+    about: 'No Vietnamese keeper calls a fish "thài lài" (the owner, 2026-11-11: "Cá thài lài doesn\'t exist in Vietnamese"; the plant, the dayflower, keeps it). The sweep writes the fish the word named by their names, and a gourami otherwise "cá sặc" (sanitize.ts WORDING); what it leaves ("họ thài lài", "nuôi thài lài") is listed, and the real-content test holds every page and caption at zero: the page is written again. Plant pages aren\'t read.',
+    check: p => (p.lang !== 'vi' || p.kind === 'plants' ? [] : [...new Set([p.title, ...prose(p).map(f => lines(f.html)), ...p.lines.map(l => l.text), ...p.captions.map(c => c.caption)].flatMap(fishThaiLai))]),
+  },
+  {
+    id: 'l-number', title: 'A pleco without its L number in its name',
+    about: 'A Loricariidae fish with an L or LDA number on record whose name in a language gives none of them (the owner, 2026-11-11: "Pleco must always include L number on name"). The sweep puts the first on record after the name, written "L46" (l-numbers.ts withLNumber), on every language\'s page, so the cards, lists, search and the app read it too. A fish with no number on record is left as it is.',
+    check: p => (p.kind !== 'species' || showsLNumber(p.title, p.family, p.lNumber) ? [] : [`"${p.title}" → "${withLNumber(p.title, p.family, p.lNumber)}"`]),
   },
   {
     id: 'phrasing', title: 'Words hobbyists rarely write',

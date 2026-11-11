@@ -98,4 +98,5 @@ test('an Indonesian or Malay foot figure in kaki is read as the schema reads it:
     expect(US_UNITS.test(s), s).toBe(true)
   for (const s of ['4 kaki', 'ikan berkaki empat', 'kaki ikan 2 cm']) expect(US_UNITS.test(s), s).toBe(false)
   expect(sourceGives('akuarium 3 x 2 kaki (90 cm)', 'a 3 x 2 ft (90 cm) tank', 'id')).toBe(false)
+  for (const to of ['đến', 'tới', 'hoặc', 'ถึง', 'หรือ', 'sampai']) expect(sourceGives(`panjang 3 ${to} 4 kaki (90 cm)`, '3 to 4 ft (90 cm)', 'id'), to).toBe(false)
 })

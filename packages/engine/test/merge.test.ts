@@ -240,3 +240,11 @@ test('a figure overruled by two other sources stays overruled on a re-read of th
   const changed = mergeSpecies({ entity, vi: a.vi }, page({ dataCard: { sizeCm: 40 } }), ctx('seriouslyfish'))
   expect(changed.entity.dataCard.sizeCm).toEqual([{ source: 'glaser', value: 45 }, { source: 'seriouslyfish', value: 40 }])
 })
+
+test('an L record is kept as keepers write it: from a source, and the one on file (the owner, 2026-11-11)', () => {
+  expect(mergeSpecies({}, page({ lNumber: 'L 046' }), ctx('seriouslyfish')).entity.lNumber).toBe('L46')
+  const a = mergeSpecies({}, page({ lNumber: 'L027, LDA077' }), ctx('seriouslyfish'))
+  expect(a.entity.lNumber).toBe('L27, LDA77')
+  expect(mergeSpecies({ ...a, entity: { ...a.entity, lNumber: 'L113' } }, page({ lNumber: 'L234' }), ctx('glaser')).entity.lNumber).toBe('L113')
+  expect(mergeSpecies({}, page({ lNumber: 'C020' }), ctx('seriouslyfish')).entity.lNumber).toBe('C020')
+})

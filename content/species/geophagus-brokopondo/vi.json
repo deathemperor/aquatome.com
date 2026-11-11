@@ -1,8 +1,9 @@
 {
   "slug": "ca-geophagus-brokopondo",
-  "name": "Cá Geophagus brokopondo",
+  "name": "Cá hải hồ brokopondo",
   "altNames": [
-    "Cá ăn đất brokopondo"
+    "Cá ăn đất brokopondo",
+    "Cá Geophagus brokopondo"
   ],
   "sections": {
     "beforeYouBuy:seriouslyfish": "<p>Geophagus brokopondo là một loài cichlid đặc hữu của lưu vực sông Suriname, ở Suriname. Lúc đầu người ta chỉ biết đến nó ở hồ chứa Brokopondo. Loài này rất hiếm khi có trên thị trường, vì ở Suriname người ta ít bắt cá để buôn bán. Nó trông rất giống G. abalios. Muốn phân biệt thì nhìn sáu vạch dọc đậm trên mỗi bên thân, trong đó vạch cuối cùng phủ kín cả cuống đuôi.</p><ul><li>Cần bể rất lớn.</li><li>Cần nền cát mềm. Đây là thứ quan trọng nhất khi bày bể, vì cá cần cát để đào bới kiếm ăn như ngoài tự nhiên (xem mục 'Thức ăn').</li></ul>",
@@ -24,5 +25,6 @@
     "bySource": {
       "seriouslyfish": 0.95
     }
-  }
+  },
+  "nameFixed": true
 }

@@ -1,9 +1,10 @@
 {
   "slug": "ca-rong-dat-geophagus-harreri",
-  "name": "Cá rồng đất Geophagus harreri",
+  "name": "Cá hải hồ harreri",
   "altNames": [
     "Cá ăn đất Marowijne",
-    "Marowijne eartheater"
+    "Marowijne eartheater",
+    "Cá rồng đất Geophagus harreri"
   ],
   "sections": {
     "distribution:glaser": "<p>Cá bố mẹ có gốc từ sông Tapanahoni ở Suriname. Loài này còn sống ở các sông khác của Suriname, chẳng hạn sông Maroni.</p>",
@@ -28,5 +29,6 @@
       "source"
     ],
     "at": "2026-11-11"
-  }
+  },
+  "nameFixed": true
 }

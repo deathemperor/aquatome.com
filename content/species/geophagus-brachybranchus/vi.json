@@ -1,9 +1,10 @@
 {
   "slug": "ca-ro-phi-dat-brachybranchus",
-  "name": "Cá rô phi đất brachybranchus",
+  "name": "Cá hải hồ brachybranchus",
   "altNames": [
     "Cá ăn đất họng đen",
-    "Black-throated eartheater"
+    "Black-throated eartheater",
+    "Cá rô phi đất brachybranchus"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Kích thước tối đa: 200 mm SL</li><li>Kích thước bể: 180 × 60 cm</li><li>Nhiệt độ: 26–30°C</li><li>pH: 5,0–7,0</li><li>Độ cứng: 1–10 dGH</li></ul>",
@@ -26,5 +27,6 @@
     "bySource": {
       "seriouslyfish": 0.7
     }
-  }
+  },
+  "nameFixed": true
 }

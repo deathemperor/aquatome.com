@@ -517,6 +517,23 @@ test('"Phi châu" is written "châu Phi" on a page, in its name, other names and
   expect((await sweep(root)).files).toEqual([])
 })
 
+// The owner, 2026-11-11, on the zebra pleco's page: "Pleco must always include L number on name".
+test("a pleco with an L number on record shows it in its name in every language, a name a person fixed too; the second run changes nothing", async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  await mkdir(join(c, 'species/hypancistrus-zebra'), { recursive: true })
+  await writeFile(join(c, 'species/hypancistrus-zebra/entity.json'), JSON.stringify({ ...species('hypancistrus-zebra', 'Hypancistrus zebra'), family: 'Loricariidae', lNumber: 'L46' }, null, 1))
+  await writeFile(join(c, 'species/hypancistrus-zebra/vi.json'), JSON.stringify({ ...vi('Cá zebra pleco', { 'distribution:seriouslyfish': '<p>Sông Xingu.</p>' }), nameFixed: true }, null, 1))
+  await writeFile(join(c, 'species/hypancistrus-zebra/id.json'), JSON.stringify(vi('Zebra Pleco', { 'distribution:seriouslyfish': '<p>Sungai Xingu.</p>' }), null, 1))
+  const held = async () => ratcheted(checkPages(await loadPages(c), RULES.filter(r => r.id === 'l-number')).findings).map(f => f.detail)
+  expect(await held()).toEqual(['"Cá zebra pleco" → "Cá zebra pleco L46"', '"Zebra Pleco" → "Zebra Pleco L46"'])
+  const r = await sweep(root)
+  expect([(await json(root, 'content/species/hypancistrus-zebra/vi.json')).name, (await json(root, 'content/species/hypancistrus-zebra/id.json')).name]).toEqual(['Cá zebra pleco L46', 'Zebra Pleco L46'])
+  expect(r.text.lnumber).toEqual(['species/hypancistrus-zebra/vi', 'species/hypancistrus-zebra/id'])
+  expect(await held()).toEqual([])
+  expect((await sweep(root)).files).toEqual([])
+})
+
 test('a fish\'s old name can\'t stop a publish: the sweep writes its name wherever the rule reads, in Vietnamese only, and what it can\'t say stays listed', async () => {
   const root = await store()
   const c = join(root, 'content')

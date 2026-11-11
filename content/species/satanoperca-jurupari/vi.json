@@ -1,6 +1,6 @@
 {
   "slug": "ca-an-dat-satanoperca-jurupari",
-  "name": "Cá Satanoperca jurupari",
+  "name": "Cá hải hồ jurupari",
   "altNames": [
     "Cá ăn đất jurupari",
     "Eartheater",
@@ -9,7 +9,8 @@
     "Cá jurupari",
     "Green horse face",
     "Demon fish",
-    "Jurupari earth eater"
+    "Jurupari earth eater",
+    "Cá Satanoperca jurupari"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Đây là một con Satanoperca jurupari từ Rio Tocantins ở Brazil, dài khoảng 15 cm. Dòng cá ăn đất này rất hiếm khi có hàng.</p>",
@@ -35,5 +36,6 @@
       "glaser": 0.85,
       "seriouslyfish": 0.93
     }
-  }
+  },
+  "nameFixed": true
 }

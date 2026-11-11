@@ -1,8 +1,9 @@
 {
   "slug": "ca-geophagus-abalios",
-  "name": "Cá Geophagus abalios",
+  "name": "Cá hải hồ abalios",
   "altNames": [
-    "Cá ăn đất abalios"
+    "Cá ăn đất abalios",
+    "Cá Geophagus abalios"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Kích thước tối đa: 20 cm chiều dài chuẩn (SL)</li><li>Kích thước bể: 180 × 60 cm</li><li>Nhiệt độ: 26–32°C</li><li>pH: 4,0–7,0</li><li>Độ cứng: 1–10 dGH</li><li>Độ khó: trung bình. Cá cần bể rất lớn và bể đã chạy ổn định lâu.</li></ul>",
@@ -25,5 +26,6 @@
     "bySource": {
       "seriouslyfish": 0.93
     }
-  }
+  },
+  "nameFixed": true
 }

@@ -411,7 +411,8 @@ final class HandbookModel {
         : launch.contains("-vi-at-root") ? HandbookIndex.fixturePagesAtRoot
         : launch.contains("-newer-part") ? HandbookIndex.fixturePagesWithANewerPart
         : launch.contains("-long-page") ? HandbookIndex.fixturePagesLong
-        : launch.contains("-long-part") ? HandbookIndex.fixturePagesWithLongParts : HandbookIndex.fixturePages
+        : launch.contains("-long-part") ? HandbookIndex.fixturePagesWithLongParts
+        : launch.contains("-lead-in-gallery") ? HandbookIndex.fixturePagesLeadInGallery : HandbookIndex.fixturePages
       // `-slow-pages`: a page that takes its time to be read.
       let slow = launch.contains("-slow-pages")
       return PageCache(dir: dir, site: site, fetch: { _ in
@@ -592,6 +593,10 @@ extension HandbookIndex {
   static let fixturePagesWithANewerPart = Data(String(decoding: fixturePages, as: UTF8.self)
     .replacingOccurrences(of: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]}"#,
                           with: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]},{"t":"quiz","q":"Cá neon ăn gì?"}"#).utf8)
+  /// UI tests (`-lead-in-gallery`): the fixture's pages, the neon's top photo the first of its gallery's, as a live page's
+  /// is: the photos under the top are one fewer than the gallery.
+  static let fixturePagesLeadInGallery = Data(String(decoding: fixturePages, as: UTF8.self)
+    .replacingOccurrences(of: #""lead":{"src":"https://media.aquatome.com/a/neon.webp""#, with: #""lead":{"src":"https://media.aquatome.com/g/n1.webp""#).utf8)
   /// UI tests (`-long-part`): the fixture's pages, the neon's feeding six paragraphs long and its breeding one long
   /// paragraph with a link: parts that fold.
   static let fixturePagesWithLongParts = Data(String(decoding: fixturePages, as: UTF8.self)
