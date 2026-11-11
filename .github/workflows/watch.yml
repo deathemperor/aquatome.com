@@ -57,7 +57,7 @@ jobs:
       - name: Install Node, pnpm and the dependencies
         uses: ./.github/actions/setup
       - name: Install Chromium for Playwright
-        run: pnpm --filter site exec playwright install --with-deps chromium
+        run: scripts/install-browser.sh chromium
       # The AI review (layer 3) runs at night and on demand, not after every deploy: it costs model time.
       # CLAUDE_ON_CI=off pauses it. Unset, or any other value, and it runs. The checks themselves still run.
       - name: Install Claude for the AI page review (nightly and by hand)
@@ -116,7 +116,7 @@ jobs:
       - name: Install Node, pnpm and the dependencies
         uses: ./.github/actions/setup
       - name: Install Chromium for Playwright
-        run: pnpm --filter site exec playwright install --with-deps chromium
+        run: scripts/install-browser.sh chromium
       - name: List the sitemap's pages
         run: node scripts/site-watch.mjs prepare https://aquatome.com apps/site
       - name: Lighthouse, one page at a time

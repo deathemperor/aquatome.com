@@ -77,12 +77,12 @@ jobs:
         run: pnpm typecheck
       # Browser checks on the fixture build `pnpm test` left in apps/site/dist (apps/site/e2e/README.md).
       - name: Install Chromium for Playwright
-        run: pnpm --filter site exec playwright install --with-deps chromium
+        run: scripts/install-browser.sh chromium
       - name: Browser checks on the fixture build, as a phone and a computer
         run: pnpm --filter site e2e
       # What the owner's report draws, in the browser the owner's iPhone has. Chromium has none of its faults.
       - name: Install WebKit for Playwright
-        run: pnpm --filter site exec playwright install --with-deps webkit
+        run: scripts/install-browser.sh webkit
       - name: The owner's picture, as an iPhone
         run: pnpm --filter site e2e --project=iphone
         env:
@@ -132,7 +132,7 @@ jobs:
         working-directory: apps/site
         run: CONTENT_ROOT=$PWD/test/fixture-content pnpm build
       - name: Install Chromium for Playwright
-        run: pnpm --filter site exec playwright install --with-deps chromium
+        run: scripts/install-browser.sh chromium
       - name: Lighthouse, one page at a time
         run: pnpm --filter site e2e --grep @lighthouse --workers=1
         env:
@@ -169,7 +169,7 @@ jobs:
           cd ../base && pnpm install --frozen-lockfile
           cd apps/site && CONTENT_ROOT=$PWD/test/fixture-content pnpm build
       - name: Install Chromium for Playwright
-        run: pnpm --filter site exec playwright install --with-deps chromium
+        run: scripts/install-browser.sh chromium
       - name: Screenshot the same pages of both
         working-directory: apps/site
         run: |
