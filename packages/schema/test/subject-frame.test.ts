@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { IMAGE_SWITCHES, loadAll, PHOTO_BOXES_FILE, SUBJECT_CUT, subjectFrame, subjectPixels, type PixelBox, type SubjectFrame } from '../src/index'
+import { loadAll, PHOTO_BOXES_FILE, SUBJECT_CUT, SUBJECT_FRAMES, subjectFrame, subjectPixels, type PixelBox, type SubjectFrame } from '../src/index'
 
 const fixture = fileURLToPath(new URL('./fixtures/store', import.meta.url))
 const centred = { fit: 'cover', x: 0.5, y: 0.5 }
@@ -74,11 +74,13 @@ test('the loader gives a photo its box only with the switch on, from the record 
     'https://media.test/seriouslyfish/a.webp': null,
     [album.url]: { x: 0, y: 0.1, w: 1, h: 0.8 },
   }))
-  const boxes = async (on: boolean) => {
-    const c = await loadAll({ root: store, lang: 'vi', publicBuild: false, imageSwitches: { ...IMAGE_SWITCHES, subjectFrames: on } })
+  const boxes = async (on?: boolean) => {
+    const c = await loadAll({ root: store, lang: 'vi', publicBuild: false, ...(on === undefined ? {} : { subjectFrames: on }) })
     return [...c.species.find(s => s.id === 'alpha')!.photos, ...c.galleries.alpha!].map(p => [p.url, p.subject])
   }
-  expect((await boxes(false)).every(([, s]) => s === undefined)).toBe(true)
+  // Off by default, until the owner has seen the Design Lead's "whole".
+  expect(SUBJECT_FRAMES).toBe(false)
+  for (const off of [await boxes(), await boxes(false)]) expect(off.every(([, s]) => s === undefined)).toBe(true)
   // On: the page's and the album's photos in their own pixels; none where it found no animal or hasn't boxed the photo.
   expect(await boxes(true)).toEqual([
     ['https://x/ok.jpg', { x0: 240, y0: 160, x1: 720, y1: 480 }],

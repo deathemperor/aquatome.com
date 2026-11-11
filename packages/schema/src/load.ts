@@ -8,7 +8,7 @@ import { setsCookies, THUMB_WIDTH } from './thumb'
 import { awaitsScreen, type PhotoScreenEntry } from './photo-screen'
 import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
-import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, subjectPixels, validCropGeometry, type SubjectFractions } from './image-geometry'
+import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, SUBJECT_FRAMES, subjectPixels, validCropGeometry, type SubjectFractions } from './image-geometry'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
@@ -32,6 +32,8 @@ export type LoadOptions = {
    * stops without it. A record given here stands in for it; `false`: none, every photo shows.
    */
   photoScreen?: Record<string, PhotoScreenEntry> | 'required' | false
+  /** Whether photos get their box from the engine's record (`subject`): by default SUBJECT_FRAMES (image-geometry.ts). */
+  subjectFrames?: boolean
 }
 export type Localized<E> = E & { t: Translation }
 export type Content = {
@@ -191,9 +193,9 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // one not translated yet is left off, so the photo's alt text falls back to the page's name.
   const captionsFile = join(root, 'captions', `${lang}.json`)
   const captions = lang !== 'vi' && (await exists(captionsFile)) ? await readJson(captionsFile, CaptionsSchema) : {}
-  // Where the fish is in each photo, from the engine's record alone and behind its switch (image-policy.ts
-  // `subjectFrames`): with it off no photo has a box. A photo the record doesn't know, or where it found no animal, has none.
-  const boxes = images.subjectFrames ? await stateRecord<Record<string, SubjectFractions | null>>(root, PHOTO_BOXES_FILE) : undefined
+  // Where the fish is in each photo, from the engine's record alone and behind its switch (SUBJECT_FRAMES): with it off
+  // no photo has a box. A photo the record doesn't know, or where it found no animal, has none.
+  const boxes = (opts.subjectFrames ?? SUBJECT_FRAMES) ? await stateRecord<Record<string, SubjectFractions | null>>(root, PHOTO_BOXES_FILE) : undefined
   const boxed = <P extends Photo>(p: P): P => {
     const { subject: _own, ...rest } = p
     const f = boxes?.[p.url], subject = f && subjectPixels(f, p.width, p.height)

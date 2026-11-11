@@ -36,7 +36,8 @@ const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceU
  * `large`: a copy for the app's large cards, 1,200 px on its short side (the engine's large-photos.ts); the site's pages
  * show `url`, at most 1,200 wide.
  * `subject`: where the fish is, in the photo's pixels, from the engine's box record (engine-state/_photo-boxes.json). The
- * loader adds it, behind its switch (image-policy.ts `subjectFrames`), and drops one content carries.
+ * engine never writes one into content: the loader adds it from the record alone, behind its switch (image-geometry.ts
+ * SUBJECT_FRAMES), to the photos it clears (pages', albums', guides', breeds' and cards'), dropping any other.
  */
 const Hash = z.string().regex(/^[a-f0-9]{64}$/)
 const PixelBox = z.object({ x0:z.number().int().nonnegative(),y0:z.number().int().nonnegative(),x1:z.number().int().positive(),y1:z.number().int().positive() })

@@ -7,12 +7,6 @@ export type ImageSwitches = {
   upscaleReal: boolean
   publishGenerated: boolean
   publishAltered: boolean
-  /**
-   * The loader gives each photo the engine's box of where the fish is (`subject`), which every frame reads to keep the
-   * fish whole (image-geometry.ts subjectFrame). Off: no photo has one, and every frame draws as today. On once the owner
-   * has seen the Design Lead's "whole" for the tile, the banner and the card (the chief of staff, 2026-11-12).
-   */
-  subjectFrames: boolean
 }
 export const IMAGE_SWITCHES: Readonly<ImageSwitches> = Object.freeze({
   generateMissing: false,
@@ -22,7 +16,6 @@ export const IMAGE_SWITCHES: Readonly<ImageSwitches> = Object.freeze({
   upscaleReal: false,
   publishGenerated: false,
   publishAltered: false,
-  subjectFrames: false,
 })
 
 /** Reader gate: update alongside the judge instruction/model; a regression test holds them together. */
