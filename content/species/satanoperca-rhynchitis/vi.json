@@ -1,10 +1,11 @@
 {
   "slug": "ca-satanoperca-moi-do",
-  "name": "Cá Satanoperca môi đỏ",
+  "name": "Cá hải hồ rhynchitis",
   "altNames": [
     "Red lips eartheater",
     "Cá ăn đất Satanoperca rhynchitis",
-    "Cá ăn đất môi đỏ"
+    "Cá ăn đất môi đỏ",
+    "Cá Satanoperca môi đỏ"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>pH: từ 5,5</li></ul>",
@@ -28,5 +29,6 @@
       "seriouslyfish": 0.93,
       "glaser": 0.85
     }
-  }
+  },
+  "nameFixed": true
 }

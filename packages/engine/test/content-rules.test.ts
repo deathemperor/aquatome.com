@@ -189,6 +189,28 @@ test('the fixes made on write, on a stored translation: HTML tidied, plain text 
   expect(fixTranslation(out)).toEqual(out)
 })
 
+// The owner, 2026-11-11: "Cá thài lài doesn't exist in Vietnamese".
+test('"thài lài" said of a fish is found on any Vietnamese page but a plant\'s, in its name, text, lines and captions; the sweep writes the fish it named by their names; the plant keeps it', () => {
+  const p = page({ kind: 'species', title: 'Cá thài lài mật', fields: [{ field: 'sections.diet:sf', html: '<p>Loài nhỏ nhất trong họ thài lài.</p>' }], lines: [{ field: 'faq.0.a', text: 'Khi nuôi thài lài, chọn bạn hiền.' }], captions: [{ url: 'u', caption: 'Cá thài lài kêu trong bể' }] })
+  expect(found(p, 'fish-words')).toEqual(['"Cá thài lài"', '"nhỏ nhất trong họ thài lài"', '"Khi nuôi thài lài"'])
+  expect(found(p, 'wording')).toEqual(['"Cá thài lài mật" → "cá sặc mật ong"'])
+  expect(fixTranslation({ name: 'Cá thài lài kêu', altNames: ['Cá thài lài kêu Mekong'], sections: { 'diet:sf': '<p>Cá thài lài quý tộc ăn mồi sống, như cá thài lài khác.</p>' } } as never))
+    .toMatchObject({ name: 'Cá bã trầu', altNames: ['Cá gourami kêu Mekong'], sections: { 'diet:sf': '<p>Cá Ctenops nobilis ăn mồi sống, như cá sặc khác.</p>' } })
+  const plant = 'Cây thuộc họ Thài lài, gần cỏ thài lài và thài lài tía.'
+  expect(found(page({ kind: 'plants', title: 'Cỏ thài lài', fields: [{ field: 'body', html: '<p>Thài lài mọc ven suối.</p>' }] }), 'fish-words')).toEqual([])
+  expect(found(page({ title: plant }), 'fish-words')).toEqual([])
+  expect(found(page({ lang: 'id', title: 'Ikan thài lài' }), 'fish-words')).toEqual([])
+})
+
+test("a pleco with an L number on record whose name gives none is listed, in any language; a fish with none, or another family's number, isn't (the owner, 2026-11-11)", () => {
+  const fish = (title: string, o: Partial<Page> = {}) => page({ kind: 'species', title, family: 'Loricariidae', lNumber: 'L46', ...o })
+  expect(found(fish('Cá zebra pleco'), 'l-number')).toEqual(['"Cá zebra pleco" → "Cá zebra pleco L46"'])
+  expect(found(fish('Zebra Pleco', { lang: 'id' }), 'l-number')).toEqual(['"Zebra Pleco" → "Zebra Pleco L46"'])
+  expect(found(fish('Cá zebra pleco L46'), 'l-number')).toEqual([])
+  expect(found(fish('Cá lau kiếng vàng', { lNumber: undefined }), 'l-number')).toEqual([])
+  expect(found(fish('Cá chuột panda', { family: 'Callichthyidae', lNumber: 'C20' }), 'l-number')).toEqual([])
+})
+
 test('"Phi châu" in a name, text, summary or FAQ is found, and fixTranslation writes it "châu Phi"; a product\'s review lines aren\'t the rule\'s', () => {
   const p = page({ kind: 'species', title: 'Cá Oscar (cá tai tượng Phi châu)', fields: [{ field: 'sections.distribution:sf', html: '<p>Phi châu. Cá rô phi châu Phi.</p>' }], lines: [{ field: 'faq.0.a', text: 'Ở phi châu.' }] })
   expect(found(p, 'wording')).toEqual(['"Phi châu" → "châu Phi"', '"phi châu" → "châu Phi"'])

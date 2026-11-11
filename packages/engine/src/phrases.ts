@@ -28,6 +28,8 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
   // site, except where its line says; per million words: site | forum | videos.
   vi: [
     { say: 'nhiều khả năng', instead: '"chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn)' }, // 473 | 5 | 0
+    // The owner, 2026-11-11: "Cá thài lài doesn't exist in Vietnamese". 0 in the forum and the videos; the plant's name.
+    { say: 'thài lài', instead: 'tên cá: "cá sặc" cho cá gourami, "cá sặc mật ong", "cá bã trầu"' },
     { say: 'dù vậy', find: '(?:dù|tuy) vậy', instead: '"nhưng", "tuy nhiên"' }, // dù vậy 568 | 5 | 0, tuy vậy 560 | 3 | 26
     { say: 'phần lớn', instead: '"thường", "chủ yếu", hoặc bỏ' }, // 1100 | 25 | 15
     { say: 'nhìn chung', instead: '"thường", hoặc bỏ' }, // 167 | 14 | 15

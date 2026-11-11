@@ -4,6 +4,7 @@ import { loadAll, mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tan
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
+import { withLNumber } from './l-numbers'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, notAlive, isMap, NAMED_KINDS, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { sweepPlaceNames } from './place-names'
@@ -219,6 +220,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // Text, in every language the engine writes.
   for (const kind of SWEPT_KINDS) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
+      // A pleco's L number, in its name in every language (l-numbers.ts).
+      const fish = kind === 'species' ? JSON.parse(await readFile(join(content, kind, id, 'entity.json'), 'utf8').catch(() => '{}')) as Partial<SpeciesEntity> : {}
       for (const lang of WRITTEN_LANGS) {
         const file = join(content, kind, id, `${lang}.json`)
         const raw = await readFile(file, 'utf8').catch(() => null)
@@ -227,8 +230,10 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         const swept = sweepTranslation(before)
         // A name as hobbyists write it (alt-names.ts tidyName): Vietnamese, on the pages named for what they are.
         const named = lang === 'vi' && NAMED_KINDS.includes(kind) && swept.t.name !== undefined && swept.t.altNames ? tidyNames(swept.t as Stored & { name: string; altNames: string[] }, kind) : swept.t
-        const t = lang === 'vi' ? renameStored(named) : named
-        const fixed = [...swept.fixed, ...(named === swept.t ? [] : ['name']), ...(t === named ? [] : ['renamed'])]
+        const renamed = lang === 'vi' ? renameStored(named) : named
+        const numbered = renamed.name === undefined ? renamed.name : withLNumber(renamed.name, fish.family, fish.lNumber)
+        const t = numbered === renamed.name ? renamed : { ...renamed, name: numbered }
+        const fixed = [...swept.fixed, ...(named === swept.t ? [] : ['name']), ...(renamed === named ? [] : ['renamed']), ...(t === renamed ? [] : ['lnumber'])]
         if (fixed.length) {
           await write(file, raw, t)
           changed(`${kind}/${id}/${lang}.json`)

@@ -1,8 +1,9 @@
 {
   "slug": "ca-geophagus-argyrostictus",
-  "name": "Cá Geophagus argyrostictus",
+  "name": "Cá hải hồ argyrostictus",
   "altNames": [
-    "Cá ăn đất argyrostictus"
+    "Cá ăn đất argyrostictus",
+    "Cá Geophagus argyrostictus"
   ],
   "sections": {
     "beforeYouBuy:seriouslyfish": "<p>Loài này cần bể rất lớn và nền cát mềm để cá bới ăn theo đúng tập tính tự nhiên (xem mục 'Thức ăn').</p><p>Geophagus argyrostictus là một loài cichlid mới chỉ được ghi nhận ở hệ thống sông Xingu của Brazil, kể cả nhánh lớn là sông Iriri. Nó là một trong năm loài nằm ngoài nhóm G. surinamensis. Cả năm loài này đều có sọc dưới mắt hoàn chỉnh. Cá dài trên 70 đến 80 mm SL sẽ lên vảy bạc phản quang ở phần trước hai bên thân. Loài này hung dữ hơn hẳn phần lớn các loài cùng chi. Chúng đẻ trứng trên nền và sống tốt nhất khi nuôi theo nhóm 5-8 con.</p>",
@@ -24,5 +25,6 @@
     "bySource": {
       "seriouslyfish": 0.9
     }
-  }
+  },
+  "nameFixed": true
 }

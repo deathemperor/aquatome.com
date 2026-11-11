@@ -1,9 +1,10 @@
 {
   "slug": "ca-geophagus-pellegrini",
-  "name": "Cá Geophagus pellegrini",
+  "name": "Cá hải hồ pellegrini",
   "altNames": [
     "Cá ăn đất bướu vàng",
-    "Yellowhump Eartheater"
+    "Yellowhump Eartheater",
+    "Cá Geophagus pellegrini"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Cá cần nước mềm, có tính axit và giữ ổn định. Nuôi theo cặp là tốt nhất. Bạn cùng bể phải chọn kỹ. Bể phải chạy ổn định lâu rồi mới thả cá.</li></ul>",
@@ -26,5 +27,6 @@
     "bySource": {
       "seriouslyfish": 0.9
     }
-  }
+  },
+  "nameFixed": true
 }

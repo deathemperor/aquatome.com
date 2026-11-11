@@ -7,6 +7,7 @@ import { loadAll, mayPublish, resolveDataCard, type Translation } from '@aq/sche
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
 import { ENGLISH_PLACE_WORD } from '../src/place-names'
+import { fishThaiLai } from '../src/sanitize'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
 import { cardSchool, readTraits } from '../src/traits'
 
@@ -32,6 +33,17 @@ test('no page calls a fish by the name it no longer has', async () => {
   const { findings, errors } = checkPages(pages, RULES.filter(r => r.id === 'swapped-name'))
   expect(errors).toEqual([])
   expect(findings.map(f => `${f.page.path}: ${f.detail}`)).toEqual([])
+}, 300_000)
+
+// The owner, 2026-11-11: "Cá thài lài doesn't exist in Vietnamese". The sweep writes the fish it named by their names
+// (sanitize.ts WORDING); what fails here is a "thài lài" it left ("họ thài lài"): the page is written again.
+test('no page, fish summary or caption calls a fish "thài lài"', async () => {
+  const content = fileURLToPath(new URL('../../../content', import.meta.url))
+  const { findings, errors } = checkPages(await loadPages(content), RULES.filter(r => r.id === 'fish-words'))
+  expect(errors).toEqual([])
+  const files = [...(await readdir(join(content, 'summaries'))).map(f => `summaries/${f}`), ...readdirSync(join(content, 'captions')).map(f => `captions/${f}`)]
+  const left = (await Promise.all(files.map(async f => fishThaiLai(await readFile(join(content, f), 'utf8')).map(q => `${f}: ${q}`)))).flat()
+  expect([...findings.map(f => `${f.page.path}: ${f.detail}`), ...left]).toEqual([])
 }, 300_000)
 
 // The owner, 2026-11-07: "fritz slim out is not for Vietnamese. I can effectively treat this with very cheap oxy già."

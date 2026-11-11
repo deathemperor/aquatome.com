@@ -1,8 +1,9 @@
 {
   "slug": "ca-ro-dat-altifrons",
-  "name": "Cá rô đất altifrons",
+  "name": "Cá hải hồ altifrons",
   "altNames": [
-    "Cá eartheater altifrons"
+    "Cá eartheater altifrons",
+    "Cá rô đất altifrons"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Geophagus altifrons là loài cichlid cỡ lớn, sống ở trung và hạ lưu sông Amazon thuộc Brazil, trong đó có các sông Xingu, Tapajós, Madeira, Negro và Purus. Đây là loài chuẩn của giống, vậy mà lại nằm trong số những loài hay bị nhận nhầm nhất. Một phần là vì các quần thể ở Orinoco, vùng Guiana và Tocantins nay đã được tách thành loài riêng. Ở cá trưởng thành, vệt sẫm giữa thân chỉ còn rộng 1-2 vảy hoặc mất hẳn. Chỉ loài này có đặc điểm đó. Còn cá con thì rất khó nhận dạng.</p><ul><li>Kích thước tối đa: 225 mm SL</li><li>Kích thước bể: 180 × 60 cm</li><li>Nhiệt độ: 26–32°C</li><li>pH: 4,8–6,6</li><li>Độ cứng: 0–5 dGH</li></ul>",
@@ -24,5 +25,6 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true
 }

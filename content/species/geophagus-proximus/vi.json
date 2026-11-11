@@ -1,8 +1,9 @@
 {
   "slug": "ca-geophagus-proximus",
-  "name": "Cá Geophagus proximus",
+  "name": "Cá hải hồ proximus",
   "altNames": [
-    "Cá ăn đất proximus"
+    "Cá ăn đất proximus",
+    "Cá Geophagus proximus"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Kích thước tối đa: 225 mm SL (22,5 cm)</li><li>Kích thước bể: 180 × 60 cm</li><li>Nhiệt độ: 24–32°C</li><li>pH: 4,0–7,0</li><li>Độ cứng: 1–10 dGH</li><li>Cá cần bể rất lớn, nền cát mềm và bể đã chạy ổn định. Loài này phải nuôi theo nhóm.</li></ul>",
@@ -25,5 +26,6 @@
     "bySource": {
       "seriouslyfish": 0.8
     }
-  }
+  },
+  "nameFixed": true
 }

@@ -1,10 +1,11 @@
 {
   "slug": "ca-an-dat-geophagus-taeniopareius",
-  "name": "Cá ăn đất Geophagus taeniopareius",
+  "name": "Cá hải hồ taeniopareius",
   "altNames": [
     "Cá ăn đất sọc má",
     "Cheek-stripe eartheater",
-    "Wangenstrich-Erdfresser"
+    "Wangenstrich-Erdfresser",
+    "Cá ăn đất Geophagus taeniopareius"
   ],
   "sections": {
     "beforeYouBuy:seriouslyfish": "<p>Geophagus taeniopareius là một loài cichlid sống ở thượng nguồn sông Orinoco, phần thuộc Venezuela. Loài này đã được ghi nhận ở nhiều nhánh sông, trong đó có Caura, Cataniapo và Ocamo. Ở Đức, cá được gọi là 'Wangenstrich-Erdfresser' (cá ăn đất sọc má) và đã có mặt trong giới chơi cá từ cuối những năm 1970. Trên đầu cá có một sọc tối chạy từ mắt xuống góc nắp mang. Loài này dữ hơn hẳn phần lớn các loài cùng giống và đẻ trứng trên nền.</p><ul><li>Cần bể rất lớn.</li><li>Cần nền cát mềm để cá bới tìm ăn theo tập tính tự nhiên (xem mục 'Thức ăn').</li></ul>",
@@ -26,5 +27,6 @@
     "bySource": {
       "seriouslyfish": 0.85
     }
-  }
+  },
+  "nameFixed": true
 }
