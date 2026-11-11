@@ -104,7 +104,7 @@ import { APPEARANCE_SCHEMA, GENERATED_CHECK_MODEL, GENERATED_CHECK_SCHEMA, REFER
 import { MARK_INSPECTION_SCHEMA, markInspectionPrompt, REAL_IMAGE_MODEL, type MarkInspection } from './image-real-checks'
 import { ArchiveFetcher } from './archive'
 import { localizeCards } from './cards-intl'
-import { localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
+import { heroesWithout, localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
 import { addShopNames, makeShopList, popularFirst, type ShopLang } from './shops'
 import { abNamespace, listReaderWants } from './readers-wanted'
 
@@ -980,7 +980,10 @@ if (cmd === 'run' || cmd === 'card-fill') {
   if (!(lang in TARGETS)) throw new Error(`usage: pnpm engine localize-breeds --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only id,id] [--limit N] [--redo]`)
   const researched = (await readdir(join(ROOT, 'engine-state/breeds')).catch(() => [] as string[])).map(f => f.replace(/\.json$/, ''))
   const pages = await readdir(join(ROOT, 'content/breeds')).catch(() => [] as string[])
-  const ids = values.only?.split(',').map(s => s.trim()).filter(Boolean) ?? researched.filter(id => pages.includes(id)).sort()
+  // Khám phá's top cards without a page in the language first, earliest week first (the chief of staff, 2026-11-11).
+  const ready = researched.filter(id => pages.includes(id)).sort()
+  const heroes = (await heroesWithout(ROOT, lang, 'breeds', new Date().toISOString().slice(0, 10))).filter(id => ready.includes(id))
+  const ids = values.only?.split(',').map(s => s.trim()).filter(Boolean) ?? [...new Set([...heroes, ...ready])]
   let made = 0
   for (const id of ids) {
     if (made >= Number(values.limit ?? 40)) break

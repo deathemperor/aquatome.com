@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { STAPLE_SPECIES } from '@aq/schema'
-import { localizeGlossary, localizePlaces, localizeSpecies, nativeTo, speciesOrder, TARGETS } from '../src/localize'
+import { heroesWithout, localizeGlossary, localizePlaces, localizeSpecies, nativeTo, partHash, speciesOrder, TARGETS } from '../src/localize'
 
 /** The fixture site, its sources allowed to be translated except `deny`. */
 async function site(deny: string[] = []) {
@@ -200,6 +200,31 @@ test('translation order: staples and most-kept fish, then pages the other langua
   // The fixture's apistogramma-cacatuoides has a Malay page: it comes with the pages another served language has.
   expect(id.slice(-3)).toEqual(['apistogramma-cacatuoides', 'zzz-elsewhere', 'aaa-native'])
   expect((await speciesOrder(root, 'th')).slice(-3)).toEqual(['apistogramma-cacatuoides', 'aaa-native', 'zzz-elsewhere'])
+})
+
+// The chief of staff, 2026-11-11: on the first sign-in, pages whose English gained sections first, then the fish on
+// Khám phá's top cards a language has no page for (it shows fewer than five cards), earliest week first.
+test('translation order: new sections first, then the top cards without a page here, earliest week first', async () => {
+  const root = await site()
+  const e = JSON.parse(await readFile(join(root, 'content/species/boraras-brigittae/entity.json'), 'utf8')) as { sections: { key: string; source: string; html: string }[] }
+  const [first, second] = e.sections
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  // Translated from its first section only: the second is new.
+  await writeFile(join(root, 'engine-state/localize-id.json'), JSON.stringify({ 'boraras-brigittae': { at: '2026-11-01', from: '2026-11-01', name: 'x', confidence: 'high', score: 0.9, parts: { [`${first!.key}:${first!.source}`]: partHash(first!.html) } } }))
+  const week = (from: string, to: string, pages: string[]) => ({ from, to, hero: pages.map(page => ({ page, img: '' })) })
+  await writeFile(join(root, 'content/curation.json'), JSON.stringify({ weeks: [
+    week('2026-11-16', '2026-11-22', ['species/danio-margaritatus', 'breeds/oranda-goldfish']),
+    week('2026-11-02', '2026-11-08', ['species/neocaridina-davidi']), // over
+    week('2026-11-09', '2026-11-15', ['species/pterophyllum-scalare', 'species/apistogramma-cacatuoides', 'breeds/flowerhorn-cichlid']),
+  ] }))
+  expect((await speciesOrder(root, 'id', '2026-11-11')).slice(0, 3)).toEqual(['boraras-brigittae', 'pterophyllum-scalare', 'apistogramma-cacatuoides'])
+  expect((await speciesOrder(root, 'id', '2026-11-11'))[3]).toBe('danio-margaritatus')
+  // The fixture's cacatuoides and flowerhorn have Malay pages: not wanted there.
+  expect((await speciesOrder(root, 'ms', '2026-11-11')).slice(0, 2)).toEqual(['pterophyllum-scalare', 'danio-margaritatus'])
+  expect(await heroesWithout(root, 'ms', 'breeds', '2026-11-11')).toEqual(['oranda-goldfish'])
+  // Translated from both: nothing new.
+  await writeFile(join(root, 'engine-state/localize-id.json'), JSON.stringify({ 'boraras-brigittae': { parts: Object.fromEntries([first!, second!].map(x => [`${x.key}:${x.source}`, partHash(x.html)])) } }))
+  expect((await speciesOrder(root, 'id', '2026-11-11'))[0]).toBe('pterophyllum-scalare')
 })
 
 test("Malay's style is Malaysia's: its words, its number marks and money, and nothing asked in Indonesian's words", () => {
