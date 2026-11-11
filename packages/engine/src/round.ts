@@ -83,7 +83,7 @@ export function roundConverted(text: string, lang: UnitLang): string {
 // A "kaki" figure as @aq/schema's units.ts reads it (its N, TO and BY): a fraction or decimal, a word range, or sides
 // joined by x, × or *, after a length word or a tank ("akuarium 3 x 2 kaki", "panjang 1/2 kaki", "kedalaman 3—4 kaki").
 const KAKI_N = String.raw`(?:\d+\s+\d\/\d{1,2}|\d\/\d{1,2}|\d+(?:[.,]\d+)*(?:\s?[½¼¾])?|[½¼¾])`
-const KAKI_TO = String.raw`(?:\s*[–—−-]\s*|\s+(?:to|sampai|hingga|sehingga|ke|atau)\s+)`
+const KAKI_TO = String.raw`(?:\s*[–—−-]\s*|\s+(?:to|đến|tới|hoặc|sampai|hingga|sehingga|ke|atau|ถึง|หรือ)\s+)`
 const KAKI_BY = String.raw`(?:\s*[×x*]\s*|\s+\/\s+)`
 const KAKI = String.raw`(?<!\p{L})(?:kedalaman|panjang|tinggi|lebar|jarak|sedalam|setinggi|sepanjang|selebar|akuarium|tangki)(?:nya)?[^\d<>]{0,30}?(?<![\d.,A-Za-z])${KAKI_N}(?:${KAKI_TO}${KAKI_N}|(?:${KAKI_BY}${KAKI_N})+)?\s*kaki(?!\p{L})`
 /**
