@@ -2,16 +2,19 @@ import { beforeDeadline } from './image-deadline'
 import { mkdir, readdir, readFile, writeFile, rename } from 'node:fs/promises'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { IMAGE_SWITCHES, loadAll, POPULAR, realPhotosFirst, slugify, SourcesSchema, STAPLE_SPECIES, type GeneratedRecord, type ImageSwitches, type Photo, type SourceId } from '@aq/schema'
+import { IMAGE_SWITCHES, loadAll, mayPublish, POPULAR, realPhotosFirst, slugify, SourcesSchema, STAPLE_SPECIES, type GeneratedRecord, type ImageSwitches, type Photo, type SourceId } from '@aq/schema'
 import type { NativeAttemptObserver } from './codex-images'
 import { imageCache, meteredImage, type NativeImage, type QuotaReading } from './codex-images'
 import { activeSourceConflicts, appearanceReference, calibrationReady, GENERATED_CHECK_MODEL, GENERATED_CHECK_SCHEMA, generatedCheckPrompt, generatedGateVersion, hasGenerationReference, positiveGeneratedVerdict, REFERENCE_CHECK_SCHEMA, referenceCheckPrompt, type ReferenceVerdict, referenceHash, referenceText, sourceConflicts, sha256, verifyCheckingImages, type AppearanceFact, type Calibration, type GeneratedVerdict, type ImageReference, type ImageConflict, type ReferenceEntity } from './image-reference'
 import { generatedViews, pixelHash, noTraceCalibrationReady, noTraceVersion, type NoTraceCalibration, NO_TRACE_SCHEMA, type NoTraceVerdict } from './image-transforms'
 import { primaryImageBytes, storeImageVariants, type ImageStore } from './image-publication'
-import { canRemoveMark, removeSourceMark, upscalePhoto, type MarkEvidence } from './image-alterations'
-import { PHOTO_CHECK_SCHEMA, subjectPrompt, type PhotoVerdict } from './photo-check'
+import { alteredCredit, canRemoveMark, cropSourceMarks, removeSourceMark, upscalePhoto, type MarkEvidence } from './image-alterations'
+import { PHOTO_CHECK_SCHEMA, type PhotoVerdict } from './photo-check'
 import { recoverMarkedHistory } from './marked-photo-history'
 import type { MarkCandidate } from './marked-photos'
+import { originalSpecies, originalSpeciesPrompt, inspectMarks, preservedSubject, markInspectionPrompt, MARK_INSPECTION_SCHEMA, PRESERVATION_SCHEMA, PRESERVATION_INSTRUCTION, REAL_IMAGE_MODEL } from './image-real-checks'
+import { permittedCheckingImages } from './image-reference'
+import { IMAGE_PAIR_POLICY, pairedJudgments, judgmentReceipt, judgmentHashes, validJudgmentPair, type JudgmentPairReceipt } from './image-judgments'
 
 export type ImagePage = { kind: 'species' | 'plants'; id: string; empty: boolean; popular: boolean; waitingReal: boolean }
 /** An unjudged real image is work for the real-photo check, never justification for manufacturing its replacement. */
@@ -40,7 +43,7 @@ export type ImageStepDeps = {
   judge: <T>(file: string, prompt: string, schema: object, realImages?: string[]) => Promise<T>
   store: ImageStore
   get: (url: string, signal?: AbortSignal) => Promise<Uint8Array>
-  locateMark: (file: string, photo: Photo, sourceName: string) => Promise<MarkEvidence | undefined>
+  locateMark: (file: string, photo: Photo, sourceName: string) => Promise<MarkEvidence | MarkEvidence[] | undefined>
   now: () => Date
 }
 type Candidate = { manifestHash: string; page: ImagePage; purpose: 'missing' | 'popular'; reference: ImageReference; original: string; generated: GeneratedRecord; receiptHash: string }
@@ -122,59 +125,87 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
   const noTraceCalibration = await json<NoTraceCalibration | undefined>(join(d.cache, 'no-trace-calibration.json'), undefined).catch(() => undefined)
 
   // Real recovery comes FIRST. A successful repair can take a page out of the missing-photo set in this very run.
-  const pendingReal = new Set<string>()
+  const pendingReal = new Set<string>(),pendingCandidates=new Map<string,string>()
+  const finishRealCandidate=(name:string,page:string)=>{pendingCandidates.delete(name);if(![...pendingCandidates.values()].includes(page))pendingReal.delete(page)}
   let markAttempts = 0
-  if (switches.removeMarks) await recoverMarkedHistory(root, d.cache)
-  if (switches.removeMarks) for (const name of (await readdir(join(d.cache, 'marked')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
+  if (switches.removeMarks || switches.generateMissing || switches.generatePopular) await recoverMarkedHistory(root, d.cache)
+  const markedNames=(await readdir(join(d.cache,'marked')).catch(()=>[] as string[])).filter(f=>f.endsWith('.json')).sort()
+  // Turning recovery off cannot let generation jump ahead of a known permitted real candidate.
+  for(const name of markedNames){try{const c=await json<MarkCandidate|null>(join(d.cache,'marked',name),null);if(!c?.page?.id||!c.photo)throw new Error('invalid candidate');if(c.photo.source&&mayPublish(sources[c.photo.source],'photos')){const page=`${c.page.kind}/${c.page.id}`;pendingReal.add(page);pendingCandidates.set(name,page)}}catch{report.failed.push('real-photo candidate cache unavailable; generation deferred');return report}}
+  if (switches.removeMarks) for (const name of markedNames) {
     if (Date.now() > deadline - 270_000) { report.waiting.push('image cycle time budget reached'); break }
     try {
       const c = await json<MarkCandidate>(join(d.cache, 'marked', name), {} as MarkCandidate)
       const source = c.photo?.source && sources[c.photo.source]
-      if (!source?.permission?.markRemoval?.allowed) continue
+      if (!source?.permission?.markRemoval?.allowed || !mayPublish(source,'photos')) continue
       const pageKey = `${c.page.kind}/${c.page.id}`
       const workFile = join(d.cache, 'marked', `${name}.work`)
       pendingReal.add(pageKey)
-      const key = sha256(JSON.stringify([c.photo, source.permission.markRemoval, 'bounded-repair-v2', noTraceVersion(), sha256(JSON.stringify(noTraceCalibration ?? null))]))
+      const entity = await json<ReferenceEntity>(join(root, 'content', c.page.kind, c.page.id, 'entity.json'), {} as ReferenceEntity)
+      const key = sha256(JSON.stringify([c.photo, entity.scientificName, source, 'paired-crop-first-v1', originalSpeciesPrompt(c.page,entity.scientificName), PHOTO_CHECK_SCHEMA, markInspectionPrompt(c.photo,source.name), MARK_INSPECTION_SCHEMA, PRESERVATION_SCHEMA, PRESERVATION_INSTRUCTION, REAL_IMAGE_MODEL, IMAGE_PAIR_POLICY, noTraceVersion(), sha256(JSON.stringify(noTraceCalibration ?? null))]))
       const work = await json<{ key: string; status: string } | null>(workFile, null)
-      if (work?.key === key && ['refused', 'published'].includes(work.status)) { pendingReal.delete(pageKey); continue }
-      if (!noTraceCalibrationReady(noTraceCalibration)) { report.waiting.push(`${pageKey}: no-trace gate not calibrated`); continue }
+      if (work?.key === key && ['refused', 'published'].includes(work.status)) { finishRealCandidate(name,pageKey); continue }
       if (markAttempts >= Math.max(0, limit)) continue
       markAttempts++
       const original = await d.get(c.photo.url), dir = join(d.cache, 'mark-ownership', sha256(original))
       await mkdir(dir, { recursive: true }); const file = join(dir, 'original'); await writeFile(file, original)
-      const mark = await d.locateMark(file, c.photo, source.name)
-      if (!mark || !canRemoveMark(c.photo, source, mark, switches)) { await save(workFile, { key, status: 'refused', reason: 'ownership or licence not established' }); pendingReal.delete(pageKey); report.waiting.push(`${pageKey}: mark ownership not established`); continue }
+      const retainedDir = join(d.cache,'alterations',sha256(original));await mkdir(retainedDir,{recursive:true})
+      const retained = join(retainedDir,'original');await writeFile(retained,original,{flag:'wx',mode:0o600}).catch(async e=>{if(e.code!=='EEXIST'||sha256(await readFile(retained))!==sha256(original))throw e})
+      // One canonical original-species pair is inherited by both edits; never reidentify their variants independently.
+      const species = await originalSpecies(file,original,c.page,entity.scientificName,d.cache,d.judge)
+      if(species.pair.incomplete){report.waiting.push(`${pageKey}: original species judgment incomplete; real recovery pending`);continue}
+      if(!species.pair.pass){await save(workFile,{key,status:'refused',reason:'original species refused, uncertain or disagreed'});finishRealCandidate(name,pageKey);report.waiting.push(`${pageKey}: original species pair did not pass`);continue}
+      const ownershipKey=sha256(JSON.stringify([c.photo,source.permission,markInspectionPrompt(c.photo,source.name),REAL_IMAGE_MODEL]))
+      const ownershipFile=join(dir,ownershipKey+'.ownership.json'), priorOwnership=await json<Awaited<ReturnType<typeof inspectMarks>>|null>(ownershipFile,null)
+      const ownership=priorOwnership&&validJudgmentPair(priorOwnership.pair)?priorOwnership:await inspectMarks(file,c.photo,source,()=>d.locateMark(file,c.photo,source.name),switches)
+      await save(ownershipFile,ownership)
+      if(ownership.pair.incomplete){report.waiting.push(`${pageKey}: mark ownership judgment incomplete; real recovery pending`);continue}
+      const marks=ownership.marks
+      if(!ownership.pair.pass||!marks?.length||marks.some(mark=>!canRemoveMark(c.photo,source,mark,switches))){await save(workFile,{key,status:'refused',reason:'mark ownership, inventory or credit did not agree'});finishRealCandidate(name,pageKey);report.waiting.push(`${pageKey}: mark ownership pair did not agree`);continue}
+      const checks={species:judgmentHashes(species.pair),ownership:judgmentHashes(ownership.pair)}
       const resultFile = join(dir, 'repair-result.json')
       const cached = await json<{ key: string; file: string; altered: NonNullable<Photo['altered']> } | null>(resultFile, null)
-      const result = cached?.key === key ? { bytes: await readFile(cached.file), altered: cached.altered } : await removeSourceMark(c.photo, original, source, mark, { cache: d.cache, edit: async (prompt, file) => (await meter('mark-removal', prompt, file)).bytes,
-        noTrace: (file, prompt, images) => d.judge<NoTraceVerdict>(file, prompt, NO_TRACE_SCHEMA, images), now: d.now }, switches)
+      let result=cached?.key===key?{bytes:await readFile(cached.file),altered:cached.altered}:await cropSourceMarks(c.photo,original,source,marks,checks,d.now,switches)
+      if(!result){
+        // Crop approval is independent of the repaint judge and residue measurement. Only a repaint needs calibration.
+        if(!noTraceCalibrationReady(noTraceCalibration)){report.waiting.push(`${pageKey}: crop cannot preserve subject; repaint gate not calibrated`);continue}
+        if(marks.length!==1){report.waiting.push(`${pageKey}: multiple marks need a bounded repaint plan`);continue}
+        result=await removeSourceMark(c.photo,original,source,marks[0]!,{cache:d.cache,edit:async(prompt,file)=>(await meter('mark-removal',prompt,file)).bytes,noTrace:(file,prompt,images)=>d.judge<NoTraceVerdict>(file,prompt,NO_TRACE_SCHEMA,images),now:d.now,checks},switches)
+      }
       if (!result) {
-        if (c.photo.source === 'glaser' && mark.owner === 'source') {
+        if (c.photo.source === 'glaser' && marks.every(m=>m.owner === 'source')) {
           const file = join(root, 'engine-state/_photo-watermarks.json'), cache = await json<Record<string, object>>(file, {})
           cache[c.photo.url] = { ...cache[c.photo.url], retainedOwnMark: { source: 'glaser', sourceUrl: c.photo.sourceUrl, owner: 'source' } }; await save(file, cache)
         }
-        await save(workFile, { key, status: 'refused', reason: 'no-trace check' }); pendingReal.delete(pageKey)
+        await save(workFile, { key, status: 'refused', reason: 'no-trace check' }); finishRealCandidate(name,pageKey)
         report.waiting.push(`${pageKey}: no clean removal; original retained`); continue
       }
-      report.repaired++
       const checkedFile = join(dir, 'clean.webp'); await writeFile(checkedFile, result.bytes)
+      await save(resultFile, { key, file: checkedFile, altered: result.altered })
+      if(result.altered.some(a=>a.method==='mark-removal')&&!result.altered[0]?.checks?.preservation){
+        const preservation=await preservedSubject(file,checkedFile,d.judge)
+        await save(join(dir,'preservation.json'),preservation)
+        if(preservation.incomplete){report.waiting.push(`${pageKey}: subject preservation judgment incomplete; real recovery pending`);continue}
+        if(!preservation.pass){await save(workFile,{key,status:'refused',reason:'subject detail changed or cannot be confirmed'});finishRealCandidate(name,pageKey);continue}
+        result.altered=result.altered.map(a=>({...a,checks:{...checks,...a.checks,preservation:judgmentHashes(preservation)}}))
+      }
+      report.repaired++
       await save(resultFile, { key, file: checkedFile, altered: result.altered })
       await save(workFile, { key, status: 'ready' })
       if (!switches.publishAltered) continue
-      const entity = await json<ReferenceEntity>(join(root, 'content', c.page.kind, c.page.id, 'entity.json'), {} as ReferenceEntity)
-      const checked = await d.judge<{ photos: ({ n: number } & PhotoVerdict)[] }>(checkedFile, subjectPrompt({ id: c.page.id, kind: c.page.kind, sci: entity.scientificName, names: [] }), PHOTO_CHECK_SCHEMA)
-      const verdict = checked.photos?.find(v => v.n === 1)
-      if (verdict?.ok !== 'yes' || verdict.person !== false || verdict.logo !== false) { await save(workFile, { key, status: 'refused', reason: 'real photo check' }); pendingReal.delete(pageKey); report.waiting.push(`${c.page.id}: repaired real photo did not positively pass`); continue }
+      const verdict:PhotoVerdict={...species.verdicts[0]!,ok:'yes',person:false,logo:false,note:'Positive paired species verdict inherited from the original; source mark removed.'}
       const permissionNow = async () => JSON.stringify((await json<typeof sources>(join(root, 'content/sources.json'), sources))[c.photo.source!]?.permission) === JSON.stringify(source.permission)
       if (!await permissionNow()) continue
       const stored = await storeImageVariants(result.bytes, { altered: result.altered }, d.store, true, signal)
       if (!await permissionNow()) continue
       const { url, width, height, thumb, large, ...credit } = c.photo
       signal.throwIfAborted()
-      await addPhoto(root, c.page, { ...credit, ...stored, altered: result.altered, original: { url, width, height, thumb, large } }, c.photo.url)
+      const adopted=alteredCredit(c.photo,source,marks),{author:_author,authorUrl:_authorUrl,...otherCredit}=credit
+      await addPhoto(root, c.page, { ...otherCredit,author:adopted.author,...('authorUrl'in adopted?{authorUrl:adopted.authorUrl}:{}), ...stored, altered: result.altered, original: { url, width, height, thumb, large } }, c.photo.url)
+      if('mismatch'in adopted){const mismatchFile=join(root,'content/photo-credit-mismatches.json'),mismatches=await json<object[]>(mismatchFile,[]);if(!mismatches.some(m=>JSON.stringify(m)===JSON.stringify(adopted.mismatch)))await save(mismatchFile,[...mismatches,adopted.mismatch])}
       const verdictFile = join(root, 'engine-state/_photo-subjects.json'), verdicts = await json<Record<string, Record<string, PhotoVerdict>>>(verdictFile, {})
       verdicts[stored.url] = { ...verdicts[stored.url], [c.page.id]: verdict }; await save(verdictFile, verdicts)
-      await save(workFile, { key, status: 'published' }); pendingReal.delete(pageKey)
+      await save(workFile, { key, status: 'published' }); finishRealCandidate(name,pageKey)
       report.published++
     } catch (e) { report.failed.push(`mark candidate: ${(e as Error).message}`) }
   }
@@ -211,6 +242,7 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
       if (!candidate && entity.photos?.some(p => p.generated)) await withdrawGenerated(root, page)
       const referenceManifest = await json<ImageReference['images']>(join(d.cache, 'references', `${page.kind}-${page.id}.json`), [])
       const referenceManifestHash = sha256(JSON.stringify(referenceManifest))
+      if(candidate?.purpose==='missing' && page.empty && permittedCheckingImages(candidate.reference,sources).length){await withdrawGenerated(root,page);report.waiting.push(`${page.id}: permitted source photograph awaits real-photo sourcing`);continue}
       if (candidate) {
         const invalid = !calibrationReady(calibration) || candidate.reference.scientificName !== entity.scientificName || (candidate as Candidate & { manifestHash?: string }).manifestHash !== referenceManifestHash || candidate.reference.facts.some(f => !entity.sections.some(s => s.source === f.source && s.sourceUrl === f.sourceUrl && referenceText(s.html).includes(f.quote))) || (candidate.generated.check && candidate.generated.check.calibrationHash !== sha256(JSON.stringify(calibration)));
         if (invalid) { await withdrawGenerated(root, page); delete candidate.generated.check; await save(file, candidate); report.waiting.push(`${page.id}: approval/reference invalidated`); continue }
@@ -235,15 +267,22 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
         const reference = savedReference?.recordHash === recordHash ? savedReference.reference : await appearanceReference(`${page.kind}/${page.id}`, entity, async p => { referenceAttempts++; return d.extract(p) }, checking.filter(i => entity.sections.some(s => s.sourceUrl === i.sourceUrl) || entity.photos?.some(p => !p.generated && p.sourceUrl === i.sourceUrl)))
         await save(referenceFile, { recordHash, reference })
         if (!hasGenerationReference(reference)) { report.waiting.push(`${page.id}: no independent appearance reference`); continue }
+        const permitted=purpose==='missing'?permittedCheckingImages(reference,sources):[]
+        if(permitted.length){
+          const intakeFile=join(d.cache,'source-photo-sourcing.json'),intake=await json<Record<string,unknown>>(intakeFile,{})
+          intake[reference.page]={images:permitted,at:d.now().toISOString(),status:'pending-real-photo-sourcing'};await save(intakeFile,intake)
+          report.waiting.push(`${page.id}: permitted source photograph awaits real-photo sourcing`);continue
+        }
         await verifyCheckingImages(reference)
         if (reference.images.length) {
           const refs = reference.images.map(i => i.file), key = sha256(JSON.stringify([referenceHash(reference), generatedGateVersion()])), consistencyFile = `${referenceFile}.consistency.json`
-          const cached = await json<{ key: string; verdict: ReferenceVerdict } | null>(consistencyFile, null)
-          const consistency = cached?.key === key ? cached.verdict : await d.judge<ReferenceVerdict>(refs[0]!, referenceCheckPrompt(reference), REFERENCE_CHECK_SCHEMA, refs.slice(1))
-          await save(consistencyFile, { key, verdict: consistency })
-          if (consistency.verdict !== 'consistent' || consistency.conflicts.length) {
+          const cached = await json<{ key: string; pair: JudgmentPairReceipt; verdicts: ReferenceVerdict[] } | null>(consistencyFile, null)
+          const pair = cached?.key === key && validJudgmentPair(cached.pair) ? undefined : await pairedJudgments(() => d.judge<ReferenceVerdict>(refs[0]!, referenceCheckPrompt(reference), REFERENCE_CHECK_SCHEMA, refs.slice(1)), v => v.verdict === 'consistent' && v.conflicts.length === 0, v => v.verdict)
+          const consistency = pair ? { key, pair: judgmentReceipt(pair), verdicts: [pair.first.value, pair.second.value].filter((v): v is ReferenceVerdict => !!v) } : cached!
+          await save(consistencyFile, consistency)
+          if (!consistency.pair.pass) {
             const conflictFile = join(d.cache, 'source-conflicts.json'), previous = await json<ImageConflict[]>(conflictFile, [])
-            await save(conflictFile, [...previous, ...sourceConflicts(reference, consistency, d.now().toISOString())]); report.waiting.push(`${page.id}: source/reference conflict or uncertainty`); continue
+            await save(conflictFile, [...previous, ...consistency.verdicts.flatMap(v => sourceConflicts(reference, v, d.now().toISOString()))]); report.waiting.push(`${page.id}: source/reference conflict, uncertainty or disagreement`); continue
           }
         }
         const prompt = `Realistic aquarium photograph of ${entity.scientificName}, ${page.kind === 'plants' ? 'one complete submerged plant or clump' : 'one whole living adult'}, entire subject visible. Appearance facts: ${reference.facts.map(f => f.quote).join(' ')}. Natural light, realistic anatomy. No people, body parts, hands, text, logos or watermarks.`
@@ -267,7 +306,7 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
       if (!calibrationReady(calibration)) { await withdrawGenerated(root, page); report.waiting.push(`${page.id}: generated gate not calibrated`); continue }
       const hash = await pixelHash(primary)
       const previousCheck = candidate.generated.check
-      const alreadyChecked = previousCheck?.model === GENERATED_CHECK_MODEL && previousCheck.version === generatedGateVersion() && previousCheck.pixelHash === hash && previousCheck.referenceHash === referenceHash(candidate.reference) && previousCheck.calibrationHash === sha256(JSON.stringify(calibration))
+      const alreadyChecked = previousCheck?.passes === 2 && previousCheck.judgments?.length === 2 && previousCheck.judgments[0] !== previousCheck.judgments[1] && previousCheck.model === GENERATED_CHECK_MODEL && previousCheck.version === generatedGateVersion() && previousCheck.pixelHash === hash && previousCheck.referenceHash === referenceHash(candidate.reference) && previousCheck.calibrationHash === sha256(JSON.stringify(calibration))
       const decisionKey = sha256(JSON.stringify([hash, referenceHash(candidate.reference), generatedGateVersion(), calibration, referenceManifestHash, entity.scientificName]))
       const decisionFile = join(d.cache, 'candidates', `${page.kind}-${page.id}-decision.json`)
       const decision = await json<{ key: string; refused: boolean } | null>(decisionFile, null)
@@ -276,10 +315,11 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
       // Validate claimed source conflicts without exposing the candidate to this separate comparison.
       if (!alreadyChecked && candidate.reference.images.length) {
         const refs = candidate.reference.images.map(i => i.file)
-        const consistency = await d.judge<ReferenceVerdict>(refs[0]!, referenceCheckPrompt(candidate.reference), REFERENCE_CHECK_SCHEMA, refs.slice(1))
-        if (consistency.verdict !== 'consistent' || consistency.conflicts.length) {
+        const consistency = await pairedJudgments(() => d.judge<ReferenceVerdict>(refs[0]!, referenceCheckPrompt(candidate!.reference), REFERENCE_CHECK_SCHEMA, refs.slice(1)), v => v.verdict === 'consistent' && v.conflicts.length === 0, v => v.verdict)
+        await save(`${decisionFile}.reference`, { key: decisionKey, pair: judgmentReceipt(consistency) })
+        if (!consistency.pass) {
           const conflictFile = join(d.cache, 'source-conflicts.json'), previous = await json<ImageConflict[]>(conflictFile, [])
-          const conflicts = sourceConflicts(candidate.reference, consistency, d.now().toISOString())
+          const conflicts = [consistency.first.value, consistency.second.value].flatMap(v => v ? sourceConflicts(candidate!.reference, v, d.now().toISOString()) : [])
           await save(conflictFile, [...previous, ...conflicts])
           await withdrawGenerated(root, page)
           await save(decisionFile, { key: decisionKey, refused: true })
@@ -288,11 +328,12 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
       }
       if (!alreadyChecked) {
         const views = await generatedViews(checkFile, candidate.reference, join(d.cache, 'views', hash))
-        const verdict = await d.judge<GeneratedVerdict>(views.files[0]!, generatedCheckPrompt(candidate.reference, views.roles), GENERATED_CHECK_SCHEMA, views.files.slice(1))
-        await save(join(d.cache, 'views', hash, 'verdict.json'), { version: generatedGateVersion(), referenceHash: referenceHash(candidate.reference), pixelHash: hash, verdict })
-        if (!positiveGeneratedVerdict(verdict, candidate.reference)) {
+        const pair = await pairedJudgments(() => d.judge<GeneratedVerdict>(views.files[0]!, generatedCheckPrompt(candidate!.reference, views.roles), GENERATED_CHECK_SCHEMA, views.files.slice(1)), v => positiveGeneratedVerdict(v, candidate!.reference), v => positiveGeneratedVerdict(v, candidate!.reference) ? 'pass' : v.verdict === 'pass' ? 'incomplete-features' : v.verdict)
+        const receipt = judgmentReceipt(pair)
+        await save(join(d.cache, 'views', hash, 'verdict.json'), { version: generatedGateVersion(), referenceHash: referenceHash(candidate.reference), pixelHash: hash, pair: receipt, verdicts: [pair.first.value, pair.second.value] })
+        if (!pair.pass) {
           await save(decisionFile, { key: decisionKey, refused: true }); await withdrawGenerated(root, page); delete candidate.generated.check; await save(file, candidate); report.waiting.push(`${page.id}: generated picture refused or uncertain`); continue }
-        candidate.generated.check = { verdict: 'pass', version: generatedGateVersion(), model: GENERATED_CHECK_MODEL, at: d.now().toISOString(), referenceHash: referenceHash(candidate.reference), pixelHash: hash, calibrationHash: sha256(JSON.stringify(calibration)) }
+        candidate.generated.check = { passes: 2, judgments: receipt.judgments.map(j => sha256(JSON.stringify(j))) as [string,string], verdict: 'pass', version: generatedGateVersion(), model: GENERATED_CHECK_MODEL, at: d.now().toISOString(), referenceHash: referenceHash(candidate.reference), pixelHash: hash, calibrationHash: sha256(JSON.stringify(calibration)) }
         await save(file, candidate)
       }
       if (!switches.publishGenerated) continue

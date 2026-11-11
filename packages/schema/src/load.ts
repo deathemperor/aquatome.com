@@ -5,7 +5,8 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies } from './thumb'
-import { generatedApproved, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, type ImageSwitches } from './image-policy'
+import { generatedApproved, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
+import { markOutsideCrop, photoFitsCard, photoFitsHead, validCropGeometry } from './image-geometry'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
@@ -130,7 +131,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // A public build shows no photo from a host that sets third-party cookies: it waits for `pnpm engine mirror-photos`
   // (2026-10-31: 487 Commons photos put on pages straight from Wikimedia failed best practices on every live page).
   const cleanPhotos = <P extends Photo>(xs: P[]): P[] => realPhotosFirst(xs.flatMap(p => {
-    const removedMark = p.altered?.find(a => a.method === 'mark-removal')
+    const removedMark = p.altered?.find(a => a.method === 'mark-removal' || a.method === 'mark-crop')
     const permission = p.source && sources[p.source]?.permission?.markRemoval
     const markOn = images.removeMarks && !!permission && permission.allowed && permission.date === removedMark?.permissionDate
     const revoked = p.altered?.length && (!images.publishAltered || (removedMark ? !markOn : !images.upscaleReal))
@@ -144,14 +145,16 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     return [p]
   }).filter(p => {
     if (publicBuild && setsCookies(p.url)) return false
-    if (p.generated) return images.publishGenerated && generatedUrls.has(p.url) && generatedApproved(p) && !p.altered?.some(a => a.method === 'mark-removal')
+    if (p.generated) return images.publishGenerated && generatedUrls.has(p.url) && generatedApproved(p) && !p.altered?.some(a => a.method === 'mark-removal' || a.method === 'mark-crop')
     if (p.altered?.length) {
       if (!images.publishAltered) return false
       for (const a of p.altered) {
         if (a.method === 'lanczos3-upscale' && !images.upscaleReal) return false
-        if (a.method === 'mark-removal') {
+        if (a.method === 'mark-removal' || a.method === 'mark-crop') {
           const permission = p.source && sources[p.source]?.permission?.markRemoval
-          if (!images.removeMarks || !permission || !permission.allowed || permission.date !== a.permissionDate || a.outsideChanged !== 0 || a.noTrace !== 'pass' || !a.box || a.residue?.version !== MARK_RESIDUE_VERSION || a.residue.limit !== MARK_RESIDUE_LIMIT || !Number.isFinite(a.residue.score) || a.residue.score >= MARK_RESIDUE_LIMIT) return false
+          if (!images.removeMarks || !permission || !permission.allowed || permission.date !== a.permissionDate || !validImageJudgmentHashes(a.checks?.species) || !validImageJudgmentHashes(a.checks?.ownership)) return false
+          if(a.method==='mark-removal' && (a.outsideChanged !== 0 || a.noTrace !== 'pass' || !a.box || !validImageJudgmentHashes(a.checks?.noTrace) || !validImageJudgmentHashes(a.checks?.preservation) || a.residue?.version !== MARK_RESIDUE_VERSION || a.residue.limit !== MARK_RESIDUE_LIMIT || !Number.isFinite(a.residue.score) || a.residue.score >= MARK_RESIDUE_LIMIT))return false
+          if(a.method==='mark-crop' && (a.retainedChanged!==0 || !validCropGeometry(a.crop) || p.width!==a.crop.window.x1-a.crop.window.x0 || p.height!==a.crop.window.y1-a.crop.window.y0 || !a.excludedMarks?.length || a.excludedMarks.some(m=>!markOutsideCrop(a.crop!,m))))return false
         }
       }
     }
@@ -225,9 +228,14 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const shownCare = (care: BreedEntity['care']) => Object.fromEntries(Object.entries(care).map(([f, vs]) => [f, (vs ?? []).filter(v => !v.hidden)] as const).filter(([, vs]) => vs.length)) as BreedEntity['care']
   const breeds = (await loadKind(root, 'breeds', BreedSchema, lang, leaveOutHeld)).map(rememberGenerated).map(b => ({ ...b, care: shownCare(b.care), photos: cleanPhotos(b.photos) }))
   // A newly passed real album photo immediately leads a formerly generated-only page, even before lead-photos runs.
-  for (const page of [...species, ...plants, ...breeds]) if (page.photos[0]?.generated || (!page.photos.length && generatedPages.has(page.id))) {
-    const real = galleries[page.id]?.find(p => !p.generated)
+  for (const page of [...species, ...plants, ...breeds]) if (page.photos.some(p=>!photoFitsHead(p)) || page.photos[0]?.generated || (!page.photos.length && generatedPages.has(page.id))) {
+    const all=realPhotosFirst([...new Map([...page.photos,...(galleries[page.id]??[])].map(p=>[p.url,p])).values()])
+    const albumOnly=page.photos.filter(p=>!photoFitsHead(p))
+    if(albumOnly.length)galleries[page.id]=realPhotosFirst([...new Map([...(galleries[page.id]??[]),...albumOnly].map(p=>[p.url,p])).values()])
+    page.photos=page.photos.filter(photoFitsHead)
+    const real = all.find(p => !p.generated && photoFitsHead(p))
     if (real) page.photos = [real, ...page.photos.filter(p => p.url !== real.url)]
+    else if(all.some(p=>!p.generated))page.photos=page.photos.filter(p=>!p.generated)
   }
   const speciesSlugs = new Set(species.map(s => s.t.slug))
   const breedSlugs = new Set<string>()
@@ -253,7 +261,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (t.held) continue
     const { photo, ...card } = await readJson(join(cardsDir, id, 'entity.json'), CardSchema)
     if (!cardShownIn(card, lang)) continue
-    const shown = photo && !photo.generated ? cleanPhotos([photo])[0] : undefined
+    const shown = photo && !photo.generated && photoFitsCard(photo) ? cleanPhotos([photo])[0] : undefined
     cards.push({ ...card, ...(shown ? { photo: shown } : {}), t })
   }
 

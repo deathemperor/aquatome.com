@@ -7,7 +7,7 @@ export const publicNoTraceNote = (v: Pick<NoTraceVerdict, 'verdict' | 'residual'
 export function publicImageEvidence(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(publicImageEvidence)
   if (!value || typeof value !== 'object') return value
-  const row = value as Record<string, unknown>, out = Object.fromEntries(Object.entries(row).filter(([k]) => !['text','lettering','signature','author','authorUrl'].includes(k)).map(([k,v]) => [k, ['note','reason'].includes(k) ? 'Detailed reviewer observations stay in the private evidence.' : publicImageEvidence(v)]))
+  const row = value as Record<string, unknown>, out = Object.fromEntries(Object.entries(row).filter(([k,v]) => !(k === 'text' && typeof v === 'string') && !['lettering','signature','credit','author','authorUrl','recordAuthor'].includes(k) && !(typeof v === 'string' && /^\/(?:Users|home)\//.test(v))).map(([k,v]) => [k, ['note','reason'].includes(k) ? 'Detailed reviewer observations stay in the private evidence.' : publicImageEvidence(v)]))
   if (typeof row.residual === 'boolean' && typeof row.newMark === 'boolean' && 'verdict' in row) out.note = publicNoTraceNote(row as NoTraceVerdict)
   return out
 }

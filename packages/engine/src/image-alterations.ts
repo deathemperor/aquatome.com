@@ -5,24 +5,47 @@ import { IMAGE_SWITCHES, isAllowedLicence, mayPublish, type Alteration, type Ima
 import { composeMarkPatch, imageXmp, noTracePass, NO_TRACE_INSTRUCTION, outsideBoxProof, upscaleImage, type MarkBox, type NoTraceVerdict } from './image-transforms'
 import { measureMarkResidue, residuePass } from './mark-residue'
 import { sha256 } from './image-reference'
+import { cropOriginal, markCropOptions, retainedPixelProof } from './image-crop'
+import { pairedJudgments, judgmentReceipt, judgmentHashes } from './image-judgments'
 
-export type MarkEvidence = { owner: 'source' | 'photographer' | 'third-party' | 'unknown'; text: string; box: MarkBox; sourceUrl: string }
+export type MarkEvidence = { owner: 'source' | 'photographer' | 'third-party' | 'unknown'; text: string; box: MarkBox; sourceUrl: string; credit?: string; subjectBox?: MarkBox; wholeSubject?: boolean }
 const STOCK = /getty|shutterstock|\bistock\b|alamy|adobe\s*stock|dreamstime|123rf|depositphotos|pond5/i
 const key = (s: string) => s.normalize('NFKD').toLowerCase().replace(/[^a-z0-9]/g, '')
 const host = (s: string) => { try { return new URL(s).hostname.replace(/^www\./, '') } catch { return '' } }
 /** Ownership is established separately from permission to alter. A third party's mark is never cleaned for a source. */
 export function ownsMark(photo: Photo, source: SourceInfo, mark: MarkEvidence): boolean {
-  if (mark.owner === 'third-party' || mark.owner === 'unknown' || STOCK.test(mark.text) || !mark.text.trim() || mark.sourceUrl !== photo.sourceUrl) return false
+  const wording = `${mark.text} ${mark.credit ?? ''}`
+  if (mark.owner === 'third-party' || mark.owner === 'unknown' || STOCK.test(wording) || !mark.text.trim() || mark.sourceUrl !== photo.sourceUrl) return false
   const sourceHost = host(source.homepage), photoHost = host(photo.sourceUrl)
   if (!sourceHost || (photoHost !== sourceHost && !photoHost.endsWith(`.${sourceHost}`))) return false
-  const allowedHosts = [host(photo.sourceUrl), ...(photo.authorUrl ? [host(photo.authorUrl)] : [])].filter(Boolean)
-  const namedHosts = mark.text.match(/(?:[a-z0-9-]+\.)+(?:com|org|net|de|vn|co|uk|th|id|my)\b/gi) ?? []
-  if (namedHosts.some(h => !allowedHosts.some(a => h.toLowerCase() === a || a.endsWith(`.${h.toLowerCase()}`)))) return false
+  // A credit link is not permission to erase that site's or shop's mark.
+  const allowedHosts = [host(photo.sourceUrl)].filter(Boolean)
+  const namedHosts = wording.match(/(?:[a-z0-9-]+\.)+(?:com|org|net|de|vn|co|uk|th|id|my)\b/gi) ?? []
+  if (namedHosts.some(h => !allowedHosts.some(a => host(`https://${h}`) === a || a.endsWith(`.${host(`https://${h}`)}`)))) return false
   const text = key(mark.text)
   if (mark.owner === 'source') return [key(source.name), ...allowedHosts.slice(0, 1).map(key)].some(n => n.length >= 4 && text.includes(n))
+  // The owner explicitly covered these contributors. PlanetCatfish's contributor scope remains open.
+  if (photo.source === 'planetcatfish') return false
+  if (photo.source === 'seriouslyfish' || photo.source === 'scotcat') return !!signatureCredit(mark)
   // A source-only credit cannot establish the identity of an unnamed photographer's signature.
   const author = key(photo.author.replace(source.name, '').replace(/[\/|]/g, ' ').trim())
-  return author.length >= 4 && (text.includes(author) || (photo.authorUrl !== undefined && text.includes(key(host(photo.authorUrl)))))
+  const signed = key(mark.credit ?? mark.text)
+  return author.length >= 4 && (signed.includes(author) || (photo.authorUrl !== undefined && text.includes(key(host(photo.authorUrl)))))
+}
+
+/** Signature wording belongs only in the content's credit, never evidence notes or logs. */
+export function signatureCredit(mark: MarkEvidence): string | undefined {
+  if (mark.owner !== 'photographer') return undefined
+  const credit = (mark.credit ?? mark.text).normalize('NFKC').replace(/\s+/g, ' ').trim()
+  const contactOrDevice = /[\w.+-]+@[\w.-]+\.[a-z]{2,}|\b(?:[0-9a-f]{2}:){5}[0-9a-f]{2}\b|\b(?:\d{1,3}\.){3}\d{1,3}\b/i
+  return credit && credit.length <= 160 && !/[<>\u0000-\u001f]/.test(credit) && !contactOrDevice.test(credit) ? credit : undefined
+}
+
+export function alteredCredit(photo: Photo, source: SourceInfo, marks: MarkEvidence[]) {
+  const names = [...new Set(marks.filter(m => ownsMark(photo, source, m)).map(signatureCredit).filter((s): s is string => !!s))]
+  if (!names.length) return { author: photo.author, ...(photo.authorUrl ? { authorUrl: photo.authorUrl } : {}) }
+  const author = names.join(' / '), previous = key(photo.author.replace(source.name, '').replace(/[\/|]/g, ' ').trim()), differs = previous !== key(author)
+  return { author, ...(!differs && photo.authorUrl ? { authorUrl: photo.authorUrl } : {}), ...(differs ? { mismatch: { source: photo.source!, photo: photo.url, recordAuthor: photo.author, differs: true as const } } : {}) }
 }
 
 export function alterationAllowed(photo: Photo): boolean {
@@ -40,6 +63,20 @@ export type AlterationDeps = {
   edit: (prompt: string, originalFile: string) => Promise<Uint8Array>
   noTrace: (file: string, prompt: string, images: string[]) => Promise<NoTraceVerdict>
   now: () => Date
+  checks?: NonNullable<Alteration['checks']>
+}
+
+/** A crop is a discard operation. Its approval never calls the repaint's eye or residue measurement. */
+export async function cropSourceMarks(photo:Photo,original:Uint8Array,source:SourceInfo,marks:MarkEvidence[],checks:NonNullable<Alteration['checks']>,now:()=>Date,switches:Readonly<ImageSwitches>=IMAGE_SWITCHES):Promise<{bytes:Uint8Array;altered:Alteration[]}|undefined> {
+  if(!marks.length||marks.some(m=>!canRemoveMark(photo,source,m,switches)||m.wholeSubject!==true||!m.subjectBox))return
+  const meta=await sharp(original).rotate().metadata(),width=meta.autoOrient.width,height=meta.autoOrient.height
+  const subject=marks.map(m=>m.subjectBox!).reduce((a,b)=>({x0:Math.min(a.x0,b.x0),y0:Math.min(a.y0,b.y0),x1:Math.max(a.x1,b.x1),y1:Math.max(a.y1,b.y1)}))
+  const crop=markCropOptions(width,height,subject,marks.map(m=>m.box))[0]
+  if(!crop)return
+  const cut=await cropOriginal(original,crop),altered:Alteration[]=[{method:'mark-crop',date:now().toISOString(),originalHash:sha256(original),crop,excludedMarks:marks.map(m=>m.box),retainedChanged:0,permissionDate:source.permission!.markRemoval!.allowed?source.permission!.markRemoval!.date:undefined,checks}]
+  const bytes=await sharp(cut).webp({lossless:true}).withXmp(imageXmp({altered})).toBuffer()
+  if(await retainedPixelProof(original,bytes,crop.window)!==0)throw new Error('encoded crop changed retained pixels')
+  return{bytes,altered}
 }
 
 /** The caller retains the original on every refusal; notably Glaser's permitted logo photo is not replaced by a smear. */
@@ -50,7 +87,9 @@ export async function removeSourceMark(photo: Photo, original: Uint8Array, sourc
   const originalFile = join(dir, 'original')
   // Retain exactly the bytes received, independently of any decoded/composited or published file.
   await writeFile(originalFile, original, { flag: 'wx', mode: 0o600 }).catch(async e => { if (e.code !== 'EEXIST' || sha256(await readFile(originalFile)) !== hash) throw e })
-  const edited = await d.edit(`Remove only the source's own mark or credited signature ${JSON.stringify(mark.text)} from box ${JSON.stringify(mark.box)} in the attached photograph. Repaint its natural background. Keep the fish or plant anatomically correct. Add no text, logo, person, hand, object or AquaTome mark.`, originalFile)
+  const prompt=`Remove only the source's own mark or credited signature in box ${JSON.stringify(mark.box)} in the attached photograph. Repaint its natural background. Keep the fish or plant anatomically correct. Add no text, logo, person, hand, object or AquaTome mark.`
+  const editFile=join(dir,`native-${sha256(prompt)}.image`)
+  const edited=await readFile(editFile).catch(async e=>{if(e.code!=='ENOENT')throw e;const bytes=await d.edit(prompt,originalFile);await writeFile(editFile,bytes,{mode:0o600});return Buffer.from(bytes)})
   const composed = await composeMarkPatch(original, edited, mark.box)
   const file = join(dir, 'candidate.png'), cropFile = join(dir, 'candidate-box.png')
   await writeFile(file, composed.bytes, { mode: 0o600 })
@@ -59,10 +98,11 @@ export async function removeSourceMark(photo: Photo, original: Uint8Array, sourc
   const measurement = await measureMarkResidue(original, composed.bytes, b)
   await writeFile(join(dir, 'residue.json'), JSON.stringify(measurement), { mode: 0o600 })
   if (!residuePass(measurement)) return undefined
-  const verdict = await d.noTrace(file, `${NO_TRACE_INSTRUCTION} Former mark: ${JSON.stringify(mark.text)}; box: ${JSON.stringify(b)}.`, [cropFile])
-  await writeFile(join(dir, 'no-trace.json'), JSON.stringify(verdict), { mode: 0o600 })
-  if (!noTracePass(verdict)) return undefined
-  const altered: Alteration[] = [{ method: 'mark-removal', date: d.now().toISOString(), originalHash: hash, box: b, outsideChanged: 0, noTrace: 'pass', residue: { version: measurement.version, score: measurement.score, limit: measurement.limit }, permissionDate: source.permission!.markRemoval!.allowed ? source.permission!.markRemoval!.date : undefined }]
+  const pair = await pairedJudgments(async()=>{const v=await d.noTrace(file,NO_TRACE_INSTRUCTION,[cropFile]);if(!v||!['pass','fail','unsure'].includes(v.verdict)||typeof v.residual!=='boolean'||typeof v.newMark!=='boolean'||typeof v.note!=='string')throw new Error('no-trace judgment incomplete');return v},noTracePass,v=>noTracePass(v)?'pass':v.verdict)
+  await writeFile(join(dir, 'no-trace.json'), JSON.stringify({pair:judgmentReceipt(pair),verdicts:[pair.first.value,pair.second.value]}), { mode: 0o600 })
+  if(pair.incomplete)throw new Error('no-trace judgment incomplete; retained edit awaits recheck')
+  if (!pair.pass) return undefined
+  const altered: Alteration[] = [{ method: 'mark-removal', date: d.now().toISOString(), originalHash: hash, box: b, outsideChanged: 0, noTrace: 'pass', ...(d.checks?{checks:{...d.checks,noTrace:judgmentHashes(judgmentReceipt(pair))}}:{}), residue: { version: measurement.version, score: measurement.score, limit: measurement.limit }, permissionDate: source.permission!.markRemoval!.allowed ? source.permission!.markRemoval!.date : undefined }]
   // Lossless canonical output is essential: the usual lossy media.put would invalidate the trial's pixel proof.
   const bytes = await sharp(composed.bytes).webp({ lossless: true }).withXmp(imageXmp({ altered })).toBuffer()
   const proof = await outsideBoxProof(original, bytes, b)

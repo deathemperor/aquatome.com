@@ -1,5 +1,5 @@
 ---
-import { resolveDataCard, type Localized, type Photo, type SpeciesEntity } from '@aq/schema'
+import { photoFitsCard, resolveDataCard, type Localized, type Photo, type SpeciesEntity } from '@aq/schema'
 import Difficulty from './Difficulty.astro'
 import RangeBar from './RangeBar.astro'
 import { fmt, isRange, WATER_WORDS } from '../lib/format'
@@ -22,7 +22,7 @@ const { s, breed, eager = false, template = false, photo } = Astro.props
 const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
 const chosen = photo !== undefined ? photo : breed ? cleanPhoto(breed.photos) : cleanPhoto(s.photos)
-const p = chosen?.generated ? undefined : chosen
+const p = chosen?.generated || chosen && !photoFitsCard(chosen) ? undefined : chosen
 const card = breed ? careCard(breed).card : s.dataCard
 const temp = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.tempC ?? [], 'tempC')
 const ph = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.ph ?? [], 'ph')
