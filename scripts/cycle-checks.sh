@@ -33,6 +33,22 @@ cool() {
   done
   log "still hot after the wait: going ahead"
 }
+# Before a check's second try: the first try's own load gone. calm alone didn't wait for it: at 02:28 on 2026-11-12 the
+# photos part's second try began the moment its first ended, at a 5-minute load far under calm's 4 a core, and ran two
+# to four times slower than the first, its site tests out of time. The first try's workers (two packages' side by side)
+# leave the 1-minute load as they end: the second try waits a minute, then until that load is under one a core, up to
+# 10 more minutes, then goes ahead. GitHub's runners run one part each, so there it doesn't wait.
+settled() {
+  [ -z "${GITHUB_ACTIONS:-}" ] || return 0
+  local cores
+  cores=$(sysctl -n hw.ncpu)
+  sleep "${SETTLE_FIRST:-60}"
+  for _ in $(seq "${SETTLE_TRIES:-20}"); do
+    [ "$(sysctl -n vm.loadavg | awk '{print int($2)}')" -lt "$cores" ] && return 0
+    sleep "${SETTLE_PAUSE:-30}"
+  done
+  log "the load stayed high after the first try: trying again anyway"
+}
 # One step, under the lock on the Mac (GitHub: a runner of its own). Through checks.sh, which steps back while the chief of
 # staff keeps the next turn for another run: a content update can wait, the owner's builds can't (2026-11-09).
 CHECKS_SH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/checks.sh"
@@ -45,8 +61,10 @@ checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else turn bash -c
 # one flaky test cost the sf cycle of 2026-11-10 its 207 files. It's the whole step, not the failed tests' files, because
 # the root `pnpm test` gives up at a package's first failure, so the others may not have finished, and a package can fail
 # with no test named. A step that passes the second time goes on, and its failed tests are logged as "flaky:" to be
-# fixed. If it fails again: TIMED_OUT when
-# tests ran out of time on that run, and the run's work is kept (keep_unpublished).
+# fixed. The second try starts once the first's own load has gone (settled), and runs the packages one at a time
+# (pnpm's workspace-concurrency, set for the whole step): the same tests and the same limits, on half the load of
+# its own. If it fails again: TIMED_OUT when tests ran out of time on that run, and the run's work is kept
+# (keep_unpublished).
 verify() {
   local step from first name names
   : >"$TEST_LOG"
@@ -57,9 +75,10 @@ verify() {
     checks "$step" >>"$TEST_LOG" 2>&1 && continue
     first=$from
     if ran_out "$first"; then log "tests ran out of time on a busy Mac: checking again once it is calmer"; else log "a check failed: running it once more once the Mac is calmer"; fi
+    settled
     calm
     from=$(wc -c <"$TEST_LOG")
-    if checks "$step" >>"$TEST_LOG" 2>&1; then
+    if checks "export pnpm_config_workspace_concurrency=1; $step" >>"$TEST_LOG" 2>&1; then
       names=$(failed_tests "$first")
       [ -n "$names" ] || log "flaky: $step failed once and passed the second time, no test named"
       while IFS= read -r name; do [ -z "$name" ] || log "flaky: $name"; done <<<"$names"
