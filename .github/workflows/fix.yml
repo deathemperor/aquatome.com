@@ -22,10 +22,35 @@ permissions: {}
 env:
   ISSUE: ${{ github.event.issue.number || inputs.issue }}
 jobs:
+  # The auto-fix has a line in the engine's daily ceilings (packages/engine/src/ceilings.json, GitHub's side). What is
+  # left of its day is counted from the cost lines its earlier runs kept (scripts/claude-spend.mjs), in a job of its own:
+  # reading other runs' artifacts takes `actions: read`, which the agent's job doesn't get. No model, no token of Claude's.
+  # If the day can't be counted this job fails, and no session starts.
+  budget:
+    name: What the auto-fix has left of its day
+    if: (github.event_name == 'workflow_dispatch' || github.event.label.name == 'autofix') && vars.CLAUDE_ON_CI != 'off'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      left: ${{ steps.left.outputs.left }}
+      go: ${{ steps.left.outputs.go }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: left
+        name: Count the day's cost lines against the auto-fix's ceiling
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/claude-spend.mjs left autofix
   agent:
     name: Claude reproduces and fixes the issue (read-only token)
     # CLAUDE_ON_CI=off pauses Claude in the workflows. This run stays green and says it is paused.
     # Unset, or any other value, and the fix runs.
+    needs: budget
     if: (github.event_name == 'workflow_dispatch' || github.event.label.name == 'autofix') && vars.CLAUDE_ON_CI != 'off'
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -49,17 +74,49 @@ jobs:
             --jq '"# #\(.number) \(.title)\n\nLabels: \([.labels[].name] | join(", "))\n\n\(.body)"' > ISSUE.md
       - name: Build the fixture site for the agent to start from
         run: pnpm test > /tmp/fixture-build.log 2>&1 || true # the agent starts from a built fixture site
+      # One session, up to this job's hour, so a count before it starts would stop nothing. The session runs under the
+      # CLI's own cap, --max-budget-usd, set to what the auto-fix has left of its day: the CLI adds up its estimate of
+      # the spend after each response and ends the session once that reaches the cap, so a run passes it by one
+      # response at most. With nothing left, no session starts, and the issue is told why.
       - name: Claude reproduces the problem and fixes it
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          LEFT: ${{ needs.budget.outputs.left }}
+          GO: ${{ needs.budget.outputs.go }}
         run: |
+          if [ "$GO" != true ]; then
+            echo '{"structured_output":{"status":"needs-person","summary":"No fix was tried: the auto-fix has spent its ceiling for today (packages/engine/src/ceilings.json). Start it again tomorrow, or fix it by hand."}}' > /tmp/agent.json
+            exit 0
+          fi
+          budget=()
+          if [ "$LEFT" != none ]; then
+            [[ "$LEFT" =~ ^[0-9]+(\.[0-9]+)?$ ]] || { echo "not a number of dollars: $LEFT"; exit 1; }
+            budget=(--max-budget-usd "$LEFT")
+          fi
           schema='{"type":"object","required":["status","summary"],"additionalProperties":false,"properties":{"status":{"enum":["fixed","not-reproduced","needs-person"]},"summary":{"type":"string"},"check":{"type":"string"}}}'
           claude -p --model "${FIX_MODEL:-opus}" --output-format json --tools 'Read,Edit,Write,Bash,Glob,Grep' --allowedTools 'Read,Edit,Write,Bash,Glob,Grep' \
-            --setting-sources '' --strict-mcp-config --json-schema "$schema" < scripts/site-fix-prompt.md > /tmp/agent.json || true
+            --setting-sources '' --strict-mcp-config "${budget[@]}" --json-schema "$schema" < scripts/site-fix-prompt.md > /tmp/agent.json || true
+      # The session's cost line, from what the CLI printed when it ended: the time, the step, dollars and tokens, and
+      # nothing of the issue or of what the agent wrote. Written here and not by a script in the checkout, which the
+      # agent has had its hands on. Kept with the run: later runs count the day from these.
+      - name: Write the session's cost line
+        if: always()
+        env:
+          LOG: ${{ runner.temp }}/aquatome-cost-autofix.jsonl
+        run: |
+          node -e 'const fs=require("fs");let r;try{r=JSON.parse(fs.readFileSync("/tmp/agent.json","utf8"))}catch{process.exit(0)}if(typeof r.total_cost_usd!=="number")process.exit(0);const u=r.usage??{};fs.appendFileSync(process.env.LOG,JSON.stringify({at:new Date().toISOString(),step:"autofix",ms:r.duration_ms,usd:r.total_cost_usd,in:u.input_tokens,cacheWrite:u.cache_creation_input_tokens,cacheRead:u.cache_read_input_tokens,out:u.output_tokens,...(r.is_error?{error:true}:{})})+"\n")'
+      - name: Keep the auto-fix's cost line
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cost-log-autofix
+          path: ${{ runner.temp }}/aquatome-cost-autofix.jsonl
+          if-no-files-found: ignore
+          overwrite: true
       - name: Turn the agent's work into a patch
         run: |
           mkdir -p /tmp/fix
-          node -e 'let r={};try{r=JSON.parse(require("fs").readFileSync("/tmp/agent.json","utf8"))}catch{};const o=r.structured_output??{status:"needs-person",summary:"The agent did not finish: "+String(r.result??"no output").slice(0,500)};require("fs").writeFileSync("/tmp/fix/result.json",JSON.stringify(o));console.log(o.status+": "+o.summary)'
+          node -e 'let r={};try{r=JSON.parse(require("fs").readFileSync("/tmp/agent.json","utf8"))}catch{};const o=r.structured_output??{status:"needs-person",summary:r.subtype==="error_max_budget_usd"?"The agent stopped before it finished: it had spent what was left of the auto-fix ceiling for today (packages/engine/src/ceilings.json).":"The agent did not finish: "+String(r.result??"no output").slice(0,500)};require("fs").writeFileSync("/tmp/fix/result.json",JSON.stringify(o));console.log(o.status+": "+o.summary)'
           rm -f ISSUE.md
           git add -A && git diff --cached --binary > /tmp/fix/fix.patch
           git diff --cached --stat

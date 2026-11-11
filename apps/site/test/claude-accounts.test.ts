@@ -2,7 +2,7 @@ import { chmodSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
-import { claude, parseTokens, resetAccounts } from '../e2e/claude-accounts'
+import { ceilingStop, claude, parseTokens, resetAccounts } from '../e2e/claude-accounts'
 import { usageLimit } from '../e2e/claude-limit'
 
 // A stand-in `claude` first on PATH: it answers by the token it runs on (`login`: none, the CLI's own login), from
@@ -19,12 +19,19 @@ const WEEKLY = "You've hit your weekly limit · resets Nov 5 at 6am (UTC)"
 const ANSWERS: Record<string, [number, object]> = {
   login: [0, { structured_output: { findings: ['login'] } }],
   'tok-ok': [0, { structured_output: { findings: ['ok'] } }],
+  'tok-paid': [0, { structured_output: { findings: ['paid'] }, result: 'the answer, never logged', total_cost_usd: 0.3, usage: { input_tokens: 12, output_tokens: 34, cache_creation_input_tokens: 5, cache_read_input_tokens: 6 } }],
+  'tok-broke': [1, { is_error: true, result: 'the schema was not met, never logged', total_cost_usd: 0.2, usage: { input_tokens: 1, output_tokens: 2 } }],
   'tok-weekly': [1, { is_error: true, result: WEEKLY }],
   'tok-session': [1, { is_error: true, result: 'Claude AI usage limit reached|1762300800' }],
   'tok-bad': [1, { is_error: true, result: 'Failed to authenticate. API Error: 401 Invalid bearer token' }],
 }
 let dir = ''
 const saved = { path: process.env.PATH, list: process.env.CLAUDE_CODE_OAUTH_TOKENS, one: process.env.CLAUDE_CODE_OAUTH_TOKEN }
+const COST = ['CLAUDE_COST_STEP', 'CLAUDE_COST_LOG', 'CLAUDE_SPEND_LEFT'] as const
+const savedCost = COST.map(k => process.env[k])
+/** A workflow's step, with `left` dollars of its day when the run starts; the cost log beside the stand-in. */
+const onCi = (left: string | undefined, step = 'page-review') => { process.env.CLAUDE_COST_STEP = step; process.env.CLAUDE_COST_LOG = join(dir, 'cost.jsonl'); restore('CLAUDE_SPEND_LEFT', left) }
+const costLines = () => { try { return readFileSync(join(dir, 'cost.jsonl'), 'utf8').trim().split('\n').filter(Boolean).map(l => JSON.parse(l) as Record<string, unknown>) } catch { return [] } }
 const restore = (k: string, v?: string) => { if (v === undefined) delete process.env[k]; else process.env[k] = v }
 const tokens = (list?: string, one?: string) => { restore('CLAUDE_CODE_OAUTH_TOKENS', list); restore('CLAUDE_CODE_OAUTH_TOKEN', one) }
 const calls = () => { try { return readFileSync(join(dir, 'calls'), 'utf8').trim().split('\n') } catch { return [] } }
@@ -40,6 +47,7 @@ beforeEach(() => {
     writeFileSync(join(dir, `${t}.code`), String(code))
   }
   process.env.PATH = `${dir}:${saved.path}`
+  for (const k of COST) delete process.env[k]
   resetAccounts()
   logs = []
   vi.spyOn(console, 'log').mockImplementation((...a: unknown[]) => { logs.push(a.join(' ')) })
@@ -47,6 +55,7 @@ beforeEach(() => {
 afterEach(() => {
   restore('PATH', saved.path)
   tokens(saved.list, saved.one)
+  COST.forEach((k, i) => restore(k, savedCost[i]))
   vi.restoreAllMocks()
 })
 
@@ -91,4 +100,75 @@ test('no token at all: the CLI on its own login, as before', async () => {
   tokens(undefined, undefined)
   expect(await ask()).toEqual({ findings: ['login'] })
   expect(calls()).toEqual(['login'])
+})
+
+test('on CI each call leaves a cost line: when, the step, the account by its hash, the model, dollars and tokens, and nothing of the prompt or the answer', async () => {
+  tokens(undefined, 'tok-paid')
+  onCi('1')
+  expect(await claude<{ findings: string[] }>(['-p', '--model', 'opus'], dir, 'the prompt, never logged')).toEqual({ findings: ['paid'] })
+  const lines = costLines()
+  expect(lines).toHaveLength(1)
+  expect(Object.keys(lines[0]!).sort()).toEqual(['account', 'at', 'cacheRead', 'cacheWrite', 'in', 'model', 'ms', 'out', 'step', 'usd'])
+  expect(lines[0]).toMatchObject({ step: 'page-review', model: 'opus', usd: 0.3, in: 12, out: 34, cacheWrite: 5, cacheRead: 6 })
+  expect(lines[0]!.account).toMatch(/^[0-9a-f]{8}$/)
+  expect(Number.isNaN(Date.parse(lines[0]!.at as string))).toBe(false)
+  const text = readFileSync(join(dir, 'cost.jsonl'), 'utf8')
+  expect(text).not.toMatch(/tok-|never logged|findings|paid/)
+})
+
+test('a call that failed after it was paid for is logged too, with no word of its error', async () => {
+  tokens(undefined, 'tok-broke')
+  onCi('1')
+  await expect(ask()).rejects.toThrow(/^claude failed \(1\): the schema was not met/)
+  expect(costLines()).toEqual([expect.objectContaining({ step: 'page-review', usd: 0.2, error: true })])
+  expect(readFileSync(join(dir, 'cost.jsonl'), 'utf8')).not.toMatch(/schema|never logged/)
+})
+
+test('once a run has spent what its step had left of the day, the next call is not made: no CLI started, no account set aside, and the review skips in plain words', async () => {
+  tokens('tok-paid\ntok-ok')
+  onCi('0.5')
+  await ask()
+  await ask() // $0.60 by now: the call that crosses the line still ran
+  const e: Error = await ask().catch(e => e)
+  expect(calls()).toEqual(['tok-paid', 'tok-paid'])
+  expect(e.message).toBe("claude failed: today's ceiling for the page review is reached ($0.60 spent by this run, of the $0.50 left for today), so the call was not made")
+  expect(usageLimit(e.message)).toBe("Today's ceiling for the page review is reached ($0.60 spent by this run, of the $0.50 left for today), so the call was not made")
+  expect(logs).toEqual([]) // no account was set aside
+  // Another step's lines in the same file don't count against this one.
+  onCi('0.5', 'nightly-review')
+  expect(ceilingStop()).toBeUndefined()
+})
+
+test('nothing left when the run starts, or nothing to say what is left: no call at all', async () => {
+  tokens(undefined, 'tok-paid')
+  onCi('0')
+  await expect(ask()).rejects.toThrow("today's ceiling for the page review is reached ($0.00 spent by this run, of the $0.00 left for today)")
+  for (const left of [undefined, '', 'soon']) {
+    onCi(left)
+    const e: Error = await ask().catch(e => e)
+    expect(usageLimit(e.message)).toMatch(/^Today's spend for the page review could not be counted \(nothing says what is left of the day\)/)
+  }
+  expect(calls()).toEqual([])
+  expect(costLines()).toEqual([])
+})
+
+test('a cost log that cannot be written stops the call: what it spent would never be counted', async () => {
+  tokens(undefined, 'tok-paid')
+  onCi('1')
+  process.env.CLAUDE_COST_LOG = join(dir, 'no-such-folder', 'cost.jsonl')
+  const e: Error = await ask().catch(e => e)
+  expect(usageLimit(e.message)).toMatch(/^Today's spend for the page review could not be counted/)
+  expect(calls()).toEqual([])
+})
+
+test('a step with no ceiling still logs, and a run by hand (no step named) neither logs nor stops', async () => {
+  tokens(undefined, 'tok-paid')
+  onCi('none')
+  await ask()
+  await ask()
+  expect(costLines()).toHaveLength(2)
+  for (const k of COST) delete process.env[k]
+  await ask()
+  expect(calls()).toHaveLength(3)
+  expect(costLines()).toHaveLength(2)
 })

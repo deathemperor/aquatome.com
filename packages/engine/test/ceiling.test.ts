@@ -201,9 +201,9 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
   // The ceilings follow the sign-ins that are back (the owner and the chief of staff, 11 Nov 2026): the third on
   // 12 Nov 13:00, the first on 13 Nov 08:00, the second on 14 Nov 08:00. `steps` is every named ceiling added up.
   const periods = [
-    { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 129, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1 },
-    { from: '2026-11-13T08:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 250, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 6, crops: 4 },
-    { from: '2026-11-14T08:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 352, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 9, crops: 1 },
+    { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 139, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1 },
+    { from: '2026-11-13T08:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 269, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 6, crops: 4 },
+    { from: '2026-11-14T08:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 380, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 9, crops: 1 },
   ]
   for (const p of periods) for (const when of [p.from, p.to]) {
     const t = tableInForce(CEILINGS.tables, new Date(when))!
