@@ -21,10 +21,10 @@
     "references:planetcatfish": "<p>Caroli a Linné ... Systema Naturae per regna tria naturae v. 1 (pt 3), pp 1354.</p>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.95,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.6
+      "planetcatfish": 0.95
     }
   }
 }

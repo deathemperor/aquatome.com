@@ -41,12 +41,11 @@
     }
   ],
   "quality": {
-    "score": 0.72,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "sprucepets": 0.72,
+      "sprucepets": 0.85,
       "seriouslyfish": 0.93
-    },
-    "reason": "score"
+    }
   }
 }
