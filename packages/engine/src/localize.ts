@@ -7,6 +7,7 @@ import { OTHER_LANGS, type WrittenOtherLang } from '@aq/schema/langs'
 import { LlmError, type Llm } from './claude'
 import { itemReviews, lastKept, logReviews, type Review } from './review-log'
 import { pickSlug } from './merge'
+import { steadyRead, WRITER_BAND } from './quality'
 import { shopIds } from './shops'
 import { sanitizeHtml } from './sanitize'
 
@@ -248,11 +249,11 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       if (changes) {
         const { prev, kept, due, still } = changes
         let w = await write(llm, lang, species, due, [], o.model, kept.flatMap(p => (prev.sections[p.id] ? [{ id: p.id, text: prev.sections[p.id]! }] : [])))
-        let r = await review(llm, lang, due, w.parts)
+        let r = await steadyRead(() => review(llm, lang, due, w.parts), WRITER_BAND)
         const tries = [r]
         if (r.score < QUALITY_THRESHOLD) {
           const again = await write(llm, lang, species, due, r.notes, o.model, kept.flatMap(p => (prev.sections[p.id] ? [{ id: p.id, text: prev.sections[p.id]! }] : [])))
-          const r2 = await review(llm, lang, due, again.parts)
+          const r2 = await steadyRead(() => review(llm, lang, due, again.parts), WRITER_BAND)
           tries.push(r2)
           if (r2.score > r.score) { w = again; r = r2 }
         }
@@ -284,11 +285,11 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       // A redo starts from what the last review of the page on the site found, when it was under the bar.
       const before = o.redo ? await lastKept(root, { id: `${kind}/${id}`, lang }, ['localize']) : undefined
       let w = await write(llm, lang, species, parts, before && before.score < QUALITY_THRESHOLD ? before.notes : [], o.model)
-      let r = await review(llm, lang, parts, w.parts)
+      let r = await steadyRead(() => review(llm, lang, parts, w.parts), WRITER_BAND)
       const tries = [r]
       if (r.score < QUALITY_THRESHOLD) {
         const again = await write(llm, lang, species, parts, r.notes, o.model)
-        const r2 = await review(llm, lang, parts, again.parts)
+        const r2 = await steadyRead(() => review(llm, lang, parts, again.parts), WRITER_BAND)
         tries.push(r2)
         if (r2.score > r.score) { w = again; r = r2 }
       }

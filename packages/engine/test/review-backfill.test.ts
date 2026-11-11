@@ -3,7 +3,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
-import { reviewBackfill } from '../src/review-backfill'
+import { lowVideoGuides, reviewBackfill } from '../src/review-backfill'
+import { NEAR_BAR, steadyRead, WRITER_BAND } from '../src/quality'
 import { logReviews, readReviews } from '../src/review-log'
 import type { YouTube } from '../src/youtube'
 
@@ -195,4 +196,42 @@ test('a guide read near the bar is read twice more and gets the median read; one
   await reviewBackfill(d, { kinds: ['topic'], limit: 5, only: [`vi/guides/${g}`] })
   expect(scores).toEqual([0.5])
   expect((await readReviews(root, 'topic'))[`vi/guides/${g}`]![0]).toEqual({ at: '2026-11-09T10:00:00Z', model: 'sonnet', score: 0.97, notes: ['read 0.97'], attempt: 'recheck', kept: true })
+})
+
+// The chief of staff, 2026-11-11: a read near the bar is read twice more and the middle one counts. Second reads (which
+// move a page in or out of search) within 0.2 of it; the page writer's and the translator's reviewers within 0.1.
+test('three reads near the bar: within the band two more and the middle counts; a read already made can be the first', async () => {
+  const scores = (xs: number[]) => { let i = 0; const calls: number[] = []; return { calls, read: async () => { calls.push(i); return { score: xs[i++]!, notes: [`read ${i}`] } } } }
+  let s = scores([0.82, 0.6, 0.9])
+  expect(await steadyRead(s.read, WRITER_BAND)).toEqual({ score: 0.82, notes: ['read 1'], reads: [0.82, 0.6, 0.9] }) // 0.07 from the bar
+  s = scores([0.86, 0.6, 0.9])
+  expect(await steadyRead(s.read, WRITER_BAND)).toEqual({ score: 0.86, notes: ['read 1'] }) // 0.11 away: one read
+  s = scores([0.86, 0.6, 0.9])
+  expect(await steadyRead(s.read, NEAR_BAR)).toEqual({ score: 0.86, notes: ['read 1'], reads: [0.86, 0.6, 0.9] })
+  // A read made before is the first: two more, whatever its score with an endless band.
+  s = scores([0.7, 0.8])
+  expect(await steadyRead(s.read, Infinity, { score: 0.4, notes: ['before'] })).toEqual({ score: 0.7, notes: ['read 1'], reads: [0.4, 0.7, 0.8] })
+  expect(s.calls).toHaveLength(2)
+})
+
+test('second reads read three times within the band given; the low video guides in search get two more reads, once', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'rb-'))
+  await guide(root, 'near', 0.6) // under the bar: second reads take it
+  await guide(root, 'low', 0.8) // in search, its newest second read 0.4
+  await guide(root, 'out', 0.5) // out of search already
+  const r0 = { score: 0.4, notes: ['old'] }
+  for (const vid of ['low', 'out']) await logReviews(root, 'video-guide', { id: `guides/youtube-${vid}`, lang: 'vi' }, [r0], r0, { recheck: true, now: new Date('2026-11-08T00:00:00Z') })
+  let n = 0
+  const llm: Llm = async <T,>() => ({ score: [0.7, 0.8, 0.6][n++ % 3]!, notes: [] }) as T
+  const d = { root, llm, yt, now: () => new Date('2026-11-13T01:00:00Z'), sleep: async () => {} }
+  await reviewBackfill(d, { kinds: ['video-guide'], limit: 5, only: ['youtube-near'], band: NEAR_BAR })
+  expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-near']![0]).toMatchObject({ score: 0.7, reads: [0.7, 0.8, 0.6] })
+  expect(n).toBe(3)
+
+  expect(await lowVideoGuides(root)).toEqual(['youtube-low'])
+  n = 0
+  await reviewBackfill(d, { kinds: ['video-guide'], limit: 5, only: await lowVideoGuides(root), fromLastRead: true, band: Infinity })
+  expect(n).toBe(2) // the newest second read is the first of the three
+  expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-low']![0]).toMatchObject({ attempt: 'recheck', score: 0.7, reads: [0.4, 0.7, 0.8] })
+  expect(await lowVideoGuides(root)).toEqual([]) // read three times: done
 })

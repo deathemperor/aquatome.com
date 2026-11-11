@@ -4,7 +4,7 @@ import { QUALITY_THRESHOLD, type GuideEntity, type Section, type Translation } f
 import { OTHER_LANGS } from '@aq/schema/langs'
 import { LlmError, type Llm } from './claude'
 import { placeLine, review as reviewLocalized, reviewPlaces, translatableIn, type TargetLang } from './localize'
-import { reviewTranslation } from './quality'
+import { reviewTranslation, steadyRead } from './quality'
 import { applySourceRechecks, sourceTextHash } from './recheck-score'
 import { itemReviews, logReviews, readReviews, reviewKey, type PageRef, type ReviewKind } from './review-log'
 import { setHold } from './video-hold'
@@ -73,9 +73,31 @@ async function jobs(root: string, kind: BackfillKind, all = false): Promise<Job[
   return out.sort((a, b) => Number(!!b.first) - Number(!!a.first) || a.score - b.score || reviewKey(a.page).localeCompare(reviewKey(b.page)))
 }
 
+/**
+ * The video guides in search whose newest second read failed at 0.55 or under, not yet read three times: each gets two
+ * more reads before any closes (the chief of staff, 2026-11-11; `review-backfill-97`, its own daily ceiling). Ids as
+ * `youtube-<id>`.
+ */
+export async function lowVideoGuides(root: string): Promise<string[]> {
+  const traced = await readReviews(root, 'video-guide')
+  const out: string[] = []
+  for (const id of (await list(join(root, 'content/guides'))).filter(d => d.startsWith('youtube-'))) {
+    const last = traced[reviewKey({ id: `guides/${id}`, lang: 'vi' })]?.[0]
+    if (!last || last.attempt !== 'recheck' || last.reads || last.score > 0.55) continue
+    const q = (await json<Translation>(join(root, 'content/guides', id, 'vi.json')))?.quality
+    if (q && q.score >= QUALITY_THRESHOLD) out.push(id)
+  }
+  return out.sort()
+}
+
 const matches = (only: string[], p: PageRef) => only.some(x => p.id === x || p.id.endsWith(`/${x}`) || reviewKey(p) === x)
 
-export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly BackfillKind[]; limit: number; only?: string[]; reviewedBefore?: string; rank?: (p: PageRef) => number[]; parallel?: number }): Promise<BackfillReport> {
+/**
+ * `band`: a read within this of the bar is read twice more and the middle read counts (steadyRead); none, one read. The
+ * command passes NEAR_BAR (the chief of staff, 2026-11-11: second reads move a page in or out of search). `fromLastRead`: the page's newest second read is the first of
+ * the three, so a page gets two more reads whatever its score (the low video guides: lowVideoGuides). `limit` counts pages.
+ */
+export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly BackfillKind[]; limit: number; only?: string[]; reviewedBefore?: string; rank?: (p: PageRef) => number[]; parallel?: number; band?: number; fromLastRead?: boolean }): Promise<BackfillReport> {
   // Rechecks already in the log, applied before any new model call. A passing one of a source still on the page raises that source.
   await applySourceRechecks(d.root)
   const report: BackfillReport = { checked: [], failed: [], stopped: '', left: {} }
@@ -125,6 +147,10 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
     const one = async (j: Job): Promise<void> => {
       const [dir, id] = j.page.id.split('/') as [string, string]
       const at = join(content, dir, id)
+      // The newest second read, as the first of three (fromLastRead).
+      const last = traced[reviewKey(j.page)]?.[0]
+      const given = o.fromLastRead && last?.attempt === 'recheck' && !last.reads ? { score: last.score, notes: last.notes } : undefined
+      const steady = <T extends { score: number; notes: string[] }>(read: () => Promise<T>) => steadyRead(read, o.band ?? 0, given as T | undefined)
       try {
         let r
         let textHash: string | undefined
@@ -137,7 +163,8 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
           const lang = e.video.lang ?? 'en'
           const transcript = (e.video.transcribed ? null : await d.yt.transcript(e.video.youtubeId, lang)) ?? (await d.yt.transcribe?.(e.video.youtubeId, lang)) ?? null
           if (!transcript) { report.failed.push(`${j.page.id}: no transcript`); return }
-          r = await reviewDraft(d.llm, transcript, { viTitle: vi.name, summary: vi.summary ?? [], body: vi.body ?? '', faq: vi.faq ?? [] }, { title: e.video.title, channel: e.video.channel, lang })
+          const { title, channel } = e.video
+          r = await steady(() => reviewDraft(d.llm, transcript, { viTitle: vi.name, summary: vi.summary ?? [], body: vi.body ?? '', faq: vi.faq ?? [] }, { title, channel, lang }))
         } else {
           const e = await json<{ sections: Section[] }>(join(at, 'entity.json'))
           const t = await json<Translation>(join(at, `${j.page.lang}.json`))
@@ -147,8 +174,8 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
           if (!parts.length || !t) { report.failed.push(`${reviewKey(j.page)}: no text to check`); return }
           if (kind === 'translation') textHash = sourceTextHash(parts.map(p => ({ id: p.id, en: p.en, vi: t.sections[p.id]! })))
           r = kind === 'translation'
-            ? await reviewTranslation(d.llm, parts.map(p => ({ en: p.en, vi: t.sections[p.id]! })))
-            : await reviewLocalized(d.llm, j.page.lang as TargetLang, parts, new Map(Object.entries(t.sections)))
+            ? await steady(() => reviewTranslation(d.llm, parts.map(p => ({ en: p.en, vi: t.sections[p.id]! }))))
+            : await steady(() => reviewLocalized(d.llm, j.page.lang as TargetLang, parts, new Map(Object.entries(t.sections))))
         }
         calls++
         done++

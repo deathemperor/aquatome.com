@@ -187,6 +187,23 @@ test('fish native to a country: listed under it or under a place inside it', asy
   expect([...await nativeTo(root, 'brazil')].sort()).toEqual(['paracheirodon-axelrodi', 'paracheirodon-innesi', 'pterophyllum-scalare', 'symphysodon-aequifasciatus'])
 })
 
+// The chief of staff, 2026-11-11: the translator's reviewer reads a page within 0.1 of the bar three times, and the middle
+// read is the page's score; one well clear of it is read once.
+test('a translation scored within 0.1 of the bar is read three times and gets the middle read', async () => {
+  const root = await site()
+  const id = (await import('node:fs')).readdirSync(join(root, 'content/species')).sort()[0]!
+  const scores = [0.8, 0.7, 0.85]
+  let reviews = 0
+  const llm = async <T,>(a: { prompt: string; schema: object }) => {
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) return { score: scores[reviews++] ?? 0.95, notes: [] } as T
+    const ids = [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => m[1])
+    return { name: 'Ikan uji', altNames: [], nameConfidence: 'medium', parts: ids.map(i => ({ id: i, text: `<p>terjemahan ${i}</p>` })) } as T
+  }
+  await localizeSpecies(root, llm, 'id', [id], { now })
+  expect(reviews).toBe(3)
+  expect(JSON.parse(await readFile(join(root, 'content/species', id, 'id.json'), 'utf8')).quality).toMatchObject({ score: 0.8, indexable: true })
+})
+
 test('translation order: staples and most-kept fish, then pages the other language has, then the country\'s own fish, then the rest', async () => {
   const root = await site()
   const add = async (id: string, files: Record<string, object>) => {

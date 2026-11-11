@@ -50,6 +50,10 @@ publish_kept video-recheck
 log "video recheck start"
 # When the stricter reviewer went live. Every guide on the site then (496) was scored before it.
 VIDEO_RECHECK_SINCE=2026-11-07T12:00:00Z
+# The guides in search whose newest second read failed at 0.55 or under: two more reads each, the middle one counts,
+# before any closes (the chief of staff, 2026-11-11). Its own command, so its own line in the daily ceilings ($10 a day);
+# once each is read three times it finds none and calls nothing.
+pnpm engine review-backfill-97 --limit "${VIDEO_LOW_LIMIT:-20}" --parallel "${VIDEO_PARALLEL:-4}" || log "review-backfill-97: failed"
 # Every guide with no review from then on, whatever its score, reviewed again against its transcript, nothing rewritten:
 # one model call each, VIDEO_PARALLEL at once, VIDEO_REREVIEW_LIMIT a run (engine-state/reviews/video-guide.json). 30 a
 # run, paced on 2026-11-08 from 60 (the engine's first account would have run out days before its weekly reset): the
