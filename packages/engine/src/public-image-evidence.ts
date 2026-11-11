@@ -17,3 +17,6 @@ export function containsPrivateLettering(text: string): boolean {
   for (let n=1;n<=4;n++) for(let i=0;i+n<=words.length;i++) if(denied.has(createHash('sha256').update(words.slice(i,i+n).join(' ')).digest('hex'))) return true
   return false
 }
+/** Check reviewer observations, not species data: a photographed sign must never be quoted. */
+export const transcribesPhotoLettering = (text: string): boolean =>
+  /\b(?:sign|label|lettering|inscription|signature|watermark)\b[^.!?\n]{0,160}(?:[\s:(]["“‘'][^"”’'\n]+["”’']|\b(?:reads?|says?|spells?|identifies)\s*:\s*\S)/i.test(text)
