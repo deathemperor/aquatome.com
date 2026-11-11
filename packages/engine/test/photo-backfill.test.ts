@@ -22,7 +22,7 @@ test('re-reads the source page of a photo-less species once, adds the photos, th
   const gets: string[] = []
   const deps = {
     get: async (u: string) => { gets.push(u); return { status: 200, html: page } },
-    bytes: async () => sharp({ create: { width: 600, height: 233, channels: 3, background: 'gray' } }).jpeg().toBuffer(),
+    bytes: async (u: string) => sharp({ create: { width: u.includes('robertsi-2') ? 550 : 600, height: 233, channels: 3, background: 'gray' } }).jpeg().toBuffer(),
     media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 600, height: 233 }) },
     now: () => new Date('2026-10-29T12:00:00Z'),
     sleep: async () => {},
@@ -137,9 +137,10 @@ test('the one-time retry caps a guide at four photos and consumes a failed page 
   await writeFile(join(root, 'engine-state/_photo-backfill.json'), JSON.stringify({ [url]: '2026-11-11T00:00:00.000Z' }))
   let status = 404
   let fetches = 0
+  const imageFetches: string[] = []
   const deps = {
-    get: async () => { fetches++; return { status, html: `<main>${Array.from({ length: 10 }, (_, n) => `<img src="/fish-${n}.jpg" srcset="/fish-${n}.jpg 800w">`).join('')}</main>` } },
-    bytes: async () => sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer(),
+    get: async () => { fetches++; return { status, html: `<main>${Array.from({ length: 4 }, (_, n) => `<img src="/new-${n}.jpg" width="350" height="233">`).join('')}${Array.from({ length: 10 }, (_, n) => `<img src="/fish-${n}.jpg" width="800" height="600">`).join('')}</main>` } },
+    bytes: async (u: string) => { imageFetches.push(u); return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
     media: { urlFor: (k: string) => k, put: async (k: string) => ({ url: k, width: 800, height: 600 }) },
     now: () => new Date('2026-11-11T12:00:00.000Z'), sleep: async () => {},
   }
@@ -152,4 +153,5 @@ test('the one-time retry caps a guide at four photos and consumes a failed page 
   await writeFile(join(root, 'engine-state/_photo-backfill.json'), JSON.stringify({ [next]: '2026-11-11T00:00:00.000Z' }))
   status = 200
   expect(await backfillPhotos(root, deps)).toMatchObject({ pages: 1, added: 4, errors: [] })
+  expect(imageFetches).toEqual(Array.from({ length: 4 }, (_, n) => `https://www.aquariumglaser.de/fish-${n}.jpg`))
 })

@@ -16,7 +16,7 @@ test('outline images carry sizes; srcset picks the largest candidate', () => {
 })
 
 test('picks the best source photos from a real page', () => {
-  const picked = pickSourcePhotos(htmlToOutline(html, 'main').images, SF, ['Paracheirodon axelrodi', 'Cardinal Tetra'])
+  const picked = pickSourcePhotos(htmlToOutline(html, 'main').images, SF, ['Paracheirodon axelrodi', 'Cardinal Tetra']).filter(p => !p.extra)
   expect(picked.length).toBe(4)
   expect(new Set(picked.map(p => p.src)).size).toBe(4)
   for (const p of picked) {
@@ -212,9 +212,9 @@ test('a dead filename duplicate cannot hide a working address; a retrieved dupli
 })
 
 
-test('srcset file widths decide even when the page draws the image larger', () => {
+test('the plain src is retained when the layout width exceeds every srcset width', () => {
   const images = htmlToOutline('<main><img src="/a.jpg" srcset="/small.jpg 300w, /full.jpg 850w" width="1200" height="800"></main>').images
-  expect(images).toEqual([{ src: '/full.jpg', alt: '', width: 850 }])
+  expect(images).toEqual([{ src: '/a.jpg', alt: '', displayWidth: 1200, displayHeight: 800 }])
 })
 
 test('newly eligible layout sizes and fallback addresses share at most four extra downloads, including on guides', async () => {
@@ -238,4 +238,124 @@ test('the downloaded file must pass the real minimum even when srcset claims a l
     bytes: async () => jpeg(599, 400),
     media: { urlFor: k => k, put: async () => { throw new Error('too small to upload') } },
   }, [])).toEqual([])
+})
+
+
+test('normal picks retain the old width bonus, unknown-size penalty, stable ties and cutoff', () => {
+  const images = htmlToOutline(`<main>
+    <img src="/plain.jpg" width="800" height="600">
+    <img src="/wide.jpg" width="1200" height="800">
+    <img src="/unknown.jpg">
+    <img src="/subject.jpg" width="800" height="600" alt="Example fish">
+    <img src="/set.jpg" srcset="/set.jpg 1400w" width="800" height="600">
+    <img src="/habitat.jpg" width="800" height="600" alt="Example fish habitat">
+    <img src="/second-plain.jpg" width="800" height="600">
+  </main>`).images
+  // The pre-fix picker: subject match, then the two large hints and habitat, stable in page order, then plain/unknown.
+  const expected = ['subject', 'wide', 'set', 'habitat', 'plain', 'second-plain', 'unknown'].map(n => `https://source.test/${n}.jpg`)
+  expect(pickSourcePhotos(images, 'https://source.test/fish', ['Example fish'], Infinity).map(p => p.src)).toEqual(expected)
+  expect(pickSourcePhotos(images, 'https://source.test/fish', ['Example fish']).map(p => p.src)).toEqual(expected.slice(0, 4))
+})
+
+test('early small-display images cannot take normal places or their download turn', async () => {
+  const page = 'https://source.test/fish'
+  const normal = Array.from({ length: 4 }, (_, n) => `https://source.test/normal-${n}.jpg`)
+  const small = Array.from({ length: 8 }, (_, n) => `https://source.test/small-${n}.jpg`)
+  const images = htmlToOutline(`<main>${small.map(src => `<img src="${src}" width="350" height="233">`).join('')}${normal.map(src => `<img src="${src}" width="800" height="600">`).join('')}</main>`).images
+  const picked = pickSourcePhotos(images, page, [])
+  expect(picked.map(p => p.src)).toEqual([...normal, ...small])
+  const fetched: string[] = []
+  const out = await storeSourcePhotos('glaser', 'Source', page, picked, {
+    bytes: async u => { fetched.push(u); return jpeg(u.includes('/small-') ? 200 : 800, u.includes('/small-') ? 150 : 600) },
+    media: { urlFor: k => k, put: async k => ({ url: k, width: 800, height: 600 }) },
+  }, [])
+  expect(fetched.slice(0, 4)).toEqual(normal)
+  expect(out).toHaveLength(4)
+})
+
+test('a dead normal address waits until every normal pick has had its turn before its fallback', async () => {
+  const page = 'https://source.test/fish'
+  const images = htmlToOutline(`<main>
+    <img src="/old/fish.jpg" width="800" height="600">
+    <img src="/current/fish.jpg" width="800" height="600">
+    <img src="/other.jpg" width="800" height="600">
+  </main>`).images
+  const fetched: string[] = []
+  expect(await storeSourcePhotos('glaser', 'Source', page, pickSourcePhotos(images, page, []), {
+    bytes: async u => { fetched.push(u); if (u.includes('/old/')) throw new Error('HTTP 404'); return jpeg() },
+    media: { urlFor: k => k, put: async k => ({ url: k, width: 800, height: 600 }) },
+  }, [])).toHaveLength(2)
+  expect(fetched).toEqual(['https://source.test/old/fish.jpg', 'https://source.test/other.jpg', 'https://source.test/current/fish.jpg'])
+})
+
+test('newly eligible photos still get a turn when every normal group is blocked, even with a shared caption', async () => {
+  const page = 'https://source.test/fish'
+  const normal = htmlToOutline(`<main>${Array.from({ length: 4 }, (_, n) => `<img src="/normal-${n}.jpg" width="800" height="600" alt="View ${n}">`).join('')}</main>`).images
+  const fetched: string[] = []
+  const deps = {
+    bytes: async (u: string) => { fetched.push(u); return jpeg() },
+    media: { urlFor: (k: string) => k, put: async (k: string) => ({ url: k, width: 800, height: 600 }) },
+  }
+  const previous = await storeSourcePhotos('glaser', 'Source', page, pickSourcePhotos(normal, page, []), deps, [])
+  const blocked = Object.fromEntries(previous.map(p => [p.url, 'refused by a prior check']))
+  const images = [...normal, ...htmlToOutline('<main><img src="/new-photo.jpg" width="350" height="233" alt="View 0"></main>').images]
+  fetched.length = 0
+  const out = await storeSourcePhotos('glaser', 'Source', page, pickSourcePhotos(images, page, []), { ...deps, blocked }, [])
+  expect(fetched).toEqual(['https://source.test/new-photo.jpg'])
+  expect(out).toHaveLength(1)
+})
+
+test('layout strips and tall images are refused before download, and real shape is checked too', async () => {
+  const page = 'https://source.test/fish'
+  const images = htmlToOutline(`<main>
+    <img src="/strip-a.jpg" width="1600" height="100">
+    <img src="/strip-b.jpg" srcset="/strip-b.jpg 1600w" width="800" height="100">
+    <img src="/tall.jpg" width="600" height="1800">
+    <img src="/distorted.jpg" width="800" height="600">
+    <img src="/photo.jpg" width="800" height="600">
+  </main>`).images
+  const picked = pickSourcePhotos(images, page, [])
+  expect(picked.map(p => p.src)).toEqual(['https://source.test/distorted.jpg', 'https://source.test/photo.jpg'])
+  const fetched: string[] = []
+  const out = await storeSourcePhotos('glaser', 'Source', page, picked, {
+    bytes: async u => { fetched.push(u); return jpeg(800, u.includes('/distorted') ? 100 : 600) },
+    media: { urlFor: k => k, put: async k => ({ url: k, width: 800, height: 600 }) },
+  }, [])
+  expect(fetched).toEqual(picked.map(p => p.src))
+  expect(out).toHaveLength(1)
+})
+
+test('a blocked first candidate ends the filename group without fetching another address', async () => {
+  const page = 'https://source.test/fish'
+  const picked = pickSourcePhotos(htmlToOutline('<main><img src="/first/fish.jpg" width="800" height="600"><img src="/second/fish.jpg" width="800" height="600"></main>').images, page, [])
+  const fetched: string[] = []
+  const deps = {
+    bytes: async (u: string) => { fetched.push(u); return jpeg() },
+    media: { urlFor: (k: string) => k, put: async (k: string) => ({ url: k, width: 800, height: 600 }) },
+  }
+  const previous = await storeSourcePhotos('glaser', 'Source', page, picked, deps, [])
+  fetched.length = 0
+  expect(await storeSourcePhotos('glaser', 'Source', page, picked, { ...deps, blocked: { [previous[0]!.url]: 'refused by a prior check' } }, [])).toEqual([])
+  expect(fetched).toEqual([])
+})
+
+
+test('fallbacks and newly eligible probes share four extra requests after the normal requests', async () => {
+  const page = 'https://source.test/fish'
+  const normal = Array.from({ length: 4 }, (_, n) => `https://source.test/normal-${n}.jpg`)
+  const small = Array.from({ length: 5 }, (_, n) => `https://source.test/small-${n}.jpg`)
+  const alternate = 'https://source.test/alternate/normal-0.jpg'
+  const images = htmlToOutline(`<main>${normal.map(src => `<img src="${src}" width="800" height="600">`).join('')}<img src="${alternate}" width="800" height="600">${small.map(src => `<img src="${src}" width="350" height="233">`).join('')}</main>`).images
+  const fetched: string[] = []
+  const out = await storeSourcePhotos('glaser', 'Source', page, pickSourcePhotos(images, page, []), {
+    bytes: async u => { fetched.push(u); if (u === normal[0]) throw new Error('HTTP 404'); return jpeg(u.includes('/small-') ? 599 : 800, 400) },
+    media: { urlFor: k => k, put: async k => ({ url: k, width: 800, height: 400 }) },
+  }, [])
+  expect(fetched).toEqual([...normal, alternate, ...small.slice(0, 3)])
+  expect(out).toHaveLength(4)
+})
+
+test('a partial layout size is never combined with a srcset file width to guess a shape', () => {
+  const images = htmlToOutline('<main><img srcset="/height-only.jpg 1200w" width="100%" height="100"><img srcset="/width-only.jpg 1200w" width="800"></main>').images
+  expect(pickSourcePhotos(images, 'https://source.test/fish', []).map(p => p.src)).toEqual(['https://source.test/height-only.jpg', 'https://source.test/width-only.jpg'])
 })

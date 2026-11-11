@@ -48,7 +48,9 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
   const seen = new Map<string, Picked>()
   const seenAlt = new Set<string>()
   const ranked: { img: Picked; score: number }[] = []
-  for (const img of images) {
+  const newlyEligible = (img: PageImage) => !img.width && !!img.displayWidth && img.displayWidth < minWidth
+  // Preserve the old picker before considering images its layout-width filter used to discard.
+  for (const img of [...images.filter(i => !newlyEligible(i)), ...images.filter(newlyEligible)]) {
     let src: string
     try { src = new URL(img.src, pageUrl).href } catch { continue }
     if (!/^https?:/.test(src) || /\.(svg|gif)(\?|$)/i.test(src) || JUNK.test(`${file(src)} ${img.alt}`) || QR.test(src)) continue
@@ -56,14 +58,16 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
     const thumbnailWidth = Number(file(src).match(/-(\d+)x\d+\.[a-z0-9]+$/i)?.[1])
     if (THUMBNAIL.test(src) || (thumbnailWidth && thumbnailWidth < minWidth)) continue
     if (img.width && img.width < minWidth) continue
-    if (img.width && img.height && !okShape(img.width, img.height)) continue
+    const [layoutWidth, layoutHeight] = img.displayWidth && img.displayHeight ? [img.displayWidth, img.displayHeight] : [img.width, img.height]
+    if (layoutWidth && layoutHeight && !okShape(layoutWidth, layoutHeight)) continue
     if (kind === 'subject' && PRODUCT.test(`${file(src)} ${img.alt}`)) continue
     // A drawing, plate or stamp the source shows ("Liobagrus kingi: line drawing", "Pieter Bleeker's drawing of…"): not a photo of it.
     if (kind === 'subject' && ARTWORK.test(words(`${file(src)} ${img.alt}`))) continue
     if (kind === 'guide' && img.product) continue // a shop's product tile is an ad, not a picture of what the article says
-    const picked: Picked = { ...img, src, minWidth, ...(!img.width ? { probe: true } : {}), ...(img.displayWidth && img.displayWidth < minWidth ? { extra: true } : {}) }
+    const picked: Picked = { ...img, src, minWidth, ...(!img.width ? { probe: true } : {}), ...(newlyEligible(img) ? { extra: true } : {}) }
     const key = dedupeKey(src)
-    const altKey = img.alt.toLowerCase().trim()
+    const caption = img.alt.toLowerCase().trim()
+    const altKey = caption ? `${picked.extra ? 'extra' : 'normal'}:${caption}` : ''
     // Photos from pages of their own share captions ("Hoplisoma sterbai") without being copies.
     const duplicate = seen.get(key)
     if (duplicate) {
@@ -73,11 +77,13 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
     if (altKey && !img.page && seenAlt.has(altKey)) continue
     if (altKey) seenAlt.add(altKey)
     const text = words(`${file(src)} ${img.alt}`)
-    const score = (terms.some(t => text.includes(t)) ? 2 : 0) + ((img.width ?? 0) >= 1000 ? 0.5 : 0) - (SCENERY.test(img.alt) ? 1.5 : 0)
+    const hint = img.width ?? img.displayWidth
+    const score = (terms.some(t => text.includes(t)) ? 2 : 0) + ((hint ?? 0) >= 1000 ? 0.5 : 0) - (SCENERY.test(img.alt) ? 1.5 : 0)
     seen.set(key, picked)
-    ranked.push({ img: picked, score: score - (img.width ? 0 : 0.25) })
+    ranked.push({ img: picked, score: score - (hint ? 0 : 0.25) })
   }
-  return ranked.map((r, i) => ({ ...r, i })).sort((a, b) => b.score - a.score || a.i - b.i).slice(0, max).map(r => r.img)
+  const ordered = ranked.map((r, i) => ({ ...r, i })).sort((a, b) => b.score - a.score || a.i - b.i).map(r => r.img)
+  return [...ordered.filter(i => !i.extra).slice(0, max), ...ordered.filter(i => i.extra)]
 }
 
 /**
@@ -110,20 +116,27 @@ export type SourcePhoto = Photo & { heading?: string }
 /**
  * Copy picked photos to our media bucket (once per image) and credit the source page. `blocked`: photos taken off the
  * site before (engine-state/_photo-rejected.json: watermarks, other species), skipped so a re-read doesn't bring them back.
+ * `max` keeps the caller's photo limit while extras fill places the normal picks couldn't fill.
  */
 export async function storeSourcePhotos(
   source: SourceId, sourceName: string, pageUrl: string, picked: Picked[],
-  deps: { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media; size?: (bytes: Uint8Array) => Promise<{ width?: number; height?: number }>; blocked?: Record<string, string> }, existing: Photo[],
+  deps: { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media; size?: (bytes: Uint8Array) => Promise<{ width?: number; height?: number }>; blocked?: Record<string, string> }, existing: Photo[], max = Infinity,
 ): Promise<SourcePhoto[]> {
   const out: SourcePhoto[] = []
   let extra = 0
-  for (const first of picked) {
-    for (const [i, img] of [first, ...(first.alternatives ?? [])].entries()) {
+  const groups = picked.map(first => ({ images: [first, ...(first.alternatives ?? [])], done: false }))
+  // All normal requests finish first. Fallbacks and newly eligible photos share the extra turn and its budget.
+  for (const extraTurn of [false, true]) for (const group of groups) {
+    if (group.done) continue
+    for (const [i, img] of group.images.entries()) {
+      if (out.length >= max) return out
+      const extraRequest = !!img.extra || i > 0
+      if (extraRequest !== extraTurn) continue
       const key = `${source}/${createHash('sha256').update(img.src).digest('hex').slice(0, 16)}.webp`
-      if (deps.blocked?.[deps.media.urlFor(key)]) continue
+      if (deps.blocked?.[deps.media.urlFor(key)]) { group.done = true; break }
       const known = existing.find(p => p.url === deps.media.urlFor(key))
-      if (known) { out.push(img.heading ? { ...known, heading: img.heading } : known); break }
-      if (img.extra || i > 0) {
+      if (known) { out.push(img.heading ? { ...known, heading: img.heading } : known); group.done = true; break }
+      if (extraRequest) {
         if (extra >= EXTRA_DOWNLOADS) continue
         extra++
       }
@@ -139,6 +152,7 @@ export async function storeSourcePhotos(
       if (width < (img.minWidth ?? MIN_WIDTH) || !okShape(width, height)) continue
       const stored = await deps.media.put(key, bytes) // storage failures (token, bucket) fail the page so it is retried
       out.push({ ...stored, licence: SOURCE_PHOTO_LICENCE, author: img.author ? `${img.author} / ${sourceName}` : sourceName, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), source, ...(img.heading ? { heading: img.heading } : {}) })
+      group.done = true
       break
     }
   }

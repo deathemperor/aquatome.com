@@ -90,7 +90,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           // Same photos as the engine takes: from their own pages where the source keeps them there (ScotCat).
           const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images
           const picked = pickSourcePhotos(images, url, e.scientificName ? [e.scientificName] : [], max, kind === 'guides' ? 'guide' : 'subject', src.minPhotoWidth)
-          const stored = await storeSourcePhotos(source, names[source]?.name ?? source, url, picked, { bytes: polite(source, d.bytes), media: d.media, blocked }, e.photos)
+          const stored = await storeSourcePhotos(source, names[source]?.name ?? source, url, picked, { bytes: polite(source, d.bytes), media: d.media, blocked }, e.photos, max)
           if (stored.length && kind === 'guides') {
             const body = async (l: string) => (JSON.parse(await readFile(join(root, 'content', kind, id, `${l}.json`), 'utf8').catch(() => '{}')) as { body?: string }).body
             e.photos = [...withSections(stored, { vi: (await body('vi')) ?? '', ...Object.fromEntries(await Promise.all(WRITTEN_OTHER_LANGS.map(async l => [l, await body(l)]))) }), ...e.photos.filter(p => p.sourceUrl !== url)]

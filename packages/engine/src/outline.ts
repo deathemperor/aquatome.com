@@ -60,7 +60,7 @@ function pageImage(i: HTMLElement): PageImage | null {
   const h = Number(i.getAttribute('height')) || undefined
   const set = (i.getAttribute('srcset') ?? i.getAttribute('data-srcset') ?? '').split(',').map(c => c.trim().split(/\s+/)).flatMap(([u, d]) => (u && d?.endsWith('w') ? [{ u, w: Number.parseInt(d) }] : [])).sort((a, b) => b.w - a.w)[0]
   const alt = clean(i.getAttribute('alt') ?? '')
-  if (set) return { src: set.u, alt, width: set.w }
+  if (set && (!w || set.w > w)) return { src: set.u, alt, width: set.w, ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) }
   return src ? { src, alt, ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) } : null
 }
 
