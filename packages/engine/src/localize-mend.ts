@@ -72,18 +72,23 @@ export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, id
       if (page.held || was === undefined || was >= QUALITY_THRESHOLD) continue
       const traces = [...(store[`${lang}/${kind}/${id}`] ?? [])].sort((a, b) => (a.at < b.at ? 1 : a.at > b.at ? -1 : 0))
       const kept = traces.find(t => t.kept)
-      if (!kept?.notes.length) { report.skipped.push(`${id}: no notes on file`); continue }
-      if (traces.some(t => !t.kept && t.attempt === 'rewrite' && t.at > kept.at)) { report.skipped.push(`${id}: a fix of this text was tried`); continue }
-      if (kept.notes.some(n => DOSE.test(n))) { report.skipped.push(`${id}: a note on a dose, a medicine or harm`); continue }
+      // A page made before reviews were logged has its notes in the translator's record, when that is the page's score.
+      const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as Record<string, { score: number; notes?: string[] }>
+      const notes = kept ? kept.notes : state[id]?.score === was ? state[id]!.notes ?? [] : []
+      if (!notes.length) { report.skipped.push(`${id}: no notes on file`); continue }
+      // This step logs one try by itself. The translator's own second try has its first beside it, and may be newer than
+      // the kept review when the reader-fit gate put that translation back.
+      if (traces.some(t => !t.kept && t.attempt === 'rewrite' && t.at > (kept?.at ?? '') && !traces.some(x => x.attempt === 'first' && x.at === t.at))) { report.skipped.push(`${id}: a fix of this text was tried`); continue }
+      if (notes.some(n => DOSE.test(n))) { report.skipped.push(`${id}: a note on a dose, a medicine or harm`); continue }
       const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { sections: Section[] }
       // The reviewer's numbering: every translatable part with text, in the page's order (localize.ts `review`).
       const parts = e.sections.filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
       const notesOf = new Map<number, string[]>()
-      for (const n of kept.notes) for (const i of partsNamed(n)) if (i >= 1 && i <= parts.length) notesOf.set(i, [...(notesOf.get(i) ?? []), n])
+      for (const n of notes) for (const i of partsNamed(n)) if (i >= 1 && i <= parts.length) notesOf.set(i, [...(notesOf.get(i) ?? []), n])
       // A part the translator left out has nothing to fix in place: that is a new translation's job.
       const named = [...notesOf.keys()].sort((a, b) => a - b).filter(i => page.sections[parts[i - 1]!.id]?.trim())
       if (!named.length) { report.skipped.push(`${id}: its notes name no part`); continue }
-      const line = `${id}: ${named.length} of ${parts.length} parts, ${kept.notes.length} notes`
+      const line = `${id}: ${named.length} of ${parts.length} parts, ${notes.length} notes`
       if (o.dry) { report.skipped.push(`${line} (dry run)`); sent++; continue }
       sent++
       const prompt = [
@@ -117,7 +122,6 @@ export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, id
       await writeFile(file, `${JSON.stringify(next, null, 2)}\n`)
       await logReviews(root, 'localize', { id: `${kind}/${id}`, lang }, [r], r, { now, rewrite: true })
       // The translator's record of the page says what the page says. `from` stays: the English hasn't changed.
-      const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as Record<string, { score: number; notes?: string[] }>
       if (state[id]) {
         state[id] = { ...state[id], score: r.score, notes: r.notes }
         await writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort()), null, 2)}\n`)

@@ -10,7 +10,7 @@ const LONG = 'ปลาชนิดนี้อยู่รวมกันเป
 const read = async (root: string, f: string) => JSON.parse(await readFile(join(root, f), 'utf8'))
 
 /** One Thai fish page under the bar: three parts from two sources, and the review on file with its notes. */
-async function site(notes: string[], o: { score?: number } = {}) {
+async function site(notes: string[], o: { score?: number; unlogged?: boolean } = {}) {
   const root = await mkdtemp(join(tmpdir(), 'mend-'))
   const dir = join(root, 'content/species/a')
   await mkdir(dir, { recursive: true })
@@ -26,7 +26,7 @@ async function site(notes: string[], o: { score?: number } = {}) {
   await writeFile(join(dir, 'th.json'), `${JSON.stringify(page, null, 2)}\n`)
   await writeFile(join(root, 'engine-state/localize-th.json'), `${JSON.stringify({ a: { at: '2026-11-02', from: '2026-11-01', name: 'ปลาทดสอบ', confidence: 'high', score: o.score ?? 0.6, notes } }, null, 2)}\n`)
   const first = { score: o.score ?? 0.6, notes }
-  if (notes.length) await logReviews(root, 'localize', { id: 'species/a', lang: 'th' }, [first], first, { now: new Date('2026-11-02T00:00:00Z') })
+  if (notes.length && !o.unlogged) await logReviews(root, 'localize', { id: 'species/a', lang: 'th' }, [first], first, { now: new Date('2026-11-02T00:00:00Z') })
   return { root, page }
 }
 
@@ -87,6 +87,17 @@ test('a fix that reads no higher leaves the page and its record as they were, an
       expect(calls).toEqual([])
     }
   }
+})
+
+test('a page made before reviews were logged is fixed from the notes in the translator\'s record; the translator\'s own second try, put back, is not a fix tried', async () => {
+  const { root } = await site([NOTE], { unlogged: true })
+  const { llm } = fake((_, old) => old.replace('ขนาดใหญ่', 'ขนาดเล็ก'), 0.8)
+  expect((await mendLocalized(root, llm, 'th', ['a'], { now })).kept).toEqual(['a: 1 of 3 parts, 1 notes: 0.6 to 0.8, open, 1 parts changed'])
+
+  // A later translation whose two tries the gate put back: both logged, neither kept, the older review still the page's.
+  const again = await site([NOTE])
+  await logReviews(again.root, 'localize', { id: 'species/a', lang: 'th' }, [{ score: 0.5, notes: ['x'] }, { score: 0.55, notes: ['y'] }], undefined, { now: new Date('2026-11-05T00:00:00Z') })
+  expect((await mendLocalized(again.root, fake((_, old) => old.replace('ขนาดใหญ่', 'ขนาดเล็ก'), 0.8).llm, 'th', ['a'], { now })).kept).toHaveLength(1)
 })
 
 test('a page with a note on a dose or harm is left for that check, and so is one whose notes name no part', async () => {
