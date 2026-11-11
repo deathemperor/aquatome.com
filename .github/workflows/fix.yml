@@ -64,7 +64,6 @@ jobs:
     outputs:
       reported: ${{ steps.here.outputs.reported }}
       started: ${{ steps.go.outputs.started }}
-      usd: ${{ steps.spent.outputs.usd }}
     steps:
       # Said first, before anything of the repository runs. A job's outputs are handed on when its runner finishes the
       # job, whatever became of its steps, so this reaches the `cost` job unless the runner was lost on the way.
@@ -124,19 +123,14 @@ jobs:
           schema='{"type":"object","required":["status","summary"],"additionalProperties":false,"properties":{"status":{"enum":["fixed","not-reproduced","needs-person"]},"summary":{"type":"string"},"check":{"type":"string"}}}'
           claude -p --model "${FIX_MODEL:-opus}" --output-format json --tools 'Read,Edit,Write,Bash,Glob,Grep' --allowedTools 'Read,Edit,Write,Bash,Glob,Grep' \
             --setting-sources '' --strict-mcp-config "${budget[@]}" --json-schema "$schema" < scripts/site-fix-prompt.md > /tmp/agent.json || true
-      # What the session says it spent, as one number for the job that keeps the cost line (`cost`, below). Nothing
-      # else of this job reaches that line: the agent has had Bash here.
-      - id: spent
-        name: Read what the session says it spent
-        if: always()
-        timeout-minutes: 1
-        run: |
-          usd="$(timeout 20 node -e 'try{const r=JSON.parse(require("fs").readFileSync("/tmp/agent.json","utf8"));if(typeof r.total_cost_usd==="number")console.log(r.total_cost_usd.toFixed(6))}catch{}' || true)"
-          echo "usd=$usd" >> "$GITHUB_OUTPUT"
       - name: Turn the agent's work into a patch
         run: |
           mkdir -p /tmp/fix
           node -e 'let r={};try{r=JSON.parse(require("fs").readFileSync("/tmp/agent.json","utf8"))}catch{};const o=r.structured_output??{status:"needs-person",summary:r.subtype==="error_max_budget_usd"?"The agent stopped before it finished: it had spent what was left of the auto-fix ceiling for today (packages/engine/src/ceilings.json).":"The agent did not finish: "+String(r.result??"no output").slice(0,500)};require("fs").writeFileSync("/tmp/fix/result.json",JSON.stringify(o));console.log(o.status+": "+o.summary)'
+          # What the session says it cost, for the job that keeps the cost line (`cost`, below). A file beside the
+          # patch, in the artifact this job hands on anyway: as one of this job's outputs it would be an input of that
+          # job's step, and a step's inputs are printed in its public log before the step runs.
+          node -e 'try{const r=JSON.parse(require("fs").readFileSync("/tmp/agent.json","utf8"));if(typeof r.total_cost_usd==="number")require("fs").writeFileSync("/tmp/fix/spent.txt",r.total_cost_usd.toFixed(6))}catch{}'
           rm -f ISSUE.md
           git add -A && git diff --cached --binary > /tmp/fix/fix.patch
           git diff --cached --stat
@@ -146,13 +140,18 @@ jobs:
           name: fix
           path: /tmp/fix
   # The auto-fix's cost line, made and kept by a job the agent never ran in. The agent has Bash, and its issue may be a
-  # stranger's text, so nothing in its job is trusted to be what it seems, and a run's artifact is public. One thing
-  # crosses from that job: the dollars the CLI said the session cost, taken only if it is a plain number of dollars, and
-  # kept to the cent. The line's other words are fixed ones. With no such number (the session ran out of time or was
-  # stopped, the runner was lost, or something else was put there), the session is counted at the whole of what it was
-  # allowed. One case writes no line: the agent's job said its runner was there and never said a session was about to
-  # start (an install failed), so nothing was spent. This job runs whatever became of the agent's. The number is that
-  # job's own word: an agent set on it could put a smaller one there, and its run is still held to the cap.
+  # stranger's text, so nothing in its job is trusted to be what it seems, and a run's artifact and logs are public. One
+  # thing crosses from that job: the dollars the CLI said the session cost, taken only if it is a plain number of
+  # dollars, and kept to the cent. The line's other words are fixed ones.
+  # - It crosses as a file (`spent.txt`, in the artifact that job hands on anyway), never as one of this job's inputs:
+  #   a step's inputs are printed in its log before it runs, so text put there would be public whatever the step then
+  #   made of it. The file is read and never printed. The two inputs that do come from that job are its own "here" and
+  #   "about to start", both said before the agent ran.
+  # - With no such number (the session ran out of time or was stopped, the runner was lost, or something else was put
+  #   there), the session is counted at the whole of what it was allowed. One case writes no line: the agent's job said
+  #   its runner was there and never said a session was about to start (an install failed), so nothing was spent.
+  # - This job runs whatever became of the agent's. The number is that job's own word: an agent set on it could put a
+  #   smaller one there, and its run is still held to the cap.
   cost:
     name: Keep the auto-fix's cost line
     needs: [budget, agent]
@@ -161,19 +160,34 @@ jobs:
     timeout-minutes: 5
     permissions: {}
     steps:
+      # No artifact (the session ran out of time, the job failed, the runner was lost), or one too big to fetch in
+      # two minutes, is no number: the step after this one runs all the same.
+      - name: Fetch what the agent's job handed on
+        continue-on-error: true
+        timeout-minutes: 2
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: fix
+          path: ${{ runner.temp }}/fix
       - name: Write the session's cost line
         env:
           LEFT: ${{ needs.budget.outputs.left }}
-          USD: ${{ needs.agent.outputs.usd }}
           REPORTED: ${{ needs.agent.outputs.reported }}
           STARTED: ${{ needs.agent.outputs.started }}
+          SPENT: ${{ runner.temp }}/fix/spent.txt
           COST_LINE: ${{ runner.temp }}/aquatome-cost-autofix.jsonl
         run: |
           node - <<'JS'
           const fs = require('fs')
           const dollars = s => (/^\d{1,4}(\.\d{1,6})?$/.test(s ?? '') ? Number(s) : undefined)
+          // The agent's job's file: read only if it is a plain file of a few bytes, and never printed.
+          let said
+          try {
+            const file = fs.lstatSync(process.env.SPENT)
+            if (file.isFile() && file.size <= 16) said = fs.readFileSync(process.env.SPENT, 'utf8')
+          } catch {}
           const left = dollars(process.env.LEFT)
-          let usd = dollars(process.env.USD)
+          let usd = dollars(said)
           let assumed = false
           if (usd === undefined) {
             const none = process.env.REPORTED === '1' && process.env.STARTED !== '1'
