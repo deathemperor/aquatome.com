@@ -91,3 +91,11 @@ test('the page languages\' US words count only as words of their own, and "kaki"
   for (const s of ['1 gelen', '2 ฟุต', '5 ปอนด์', 'akuarium 3 kaki', 'kedalaman minimal 3–4 kaki', '10 gallon', 'bể 20 ga-lông']) expect(US_UNITS.test(s), s).toBe(true)
   for (const s of ['menggeleng', 'gelengan', 'Angeleno', '2 ฟุตบอล', '11 ฟุตบอล', '4 kaki', 'kaki rambut', 'ikan berkaki 4']) expect(US_UNITS.test(s), s).toBe(false)
 })
+
+// The independent reader's third read, 2026-11-11: a "kaki" figure written as @aq/schema reads it.
+test('an Indonesian or Malay foot figure in kaki is read as the schema reads it: sides, a fraction, a word range, any dash', () => {
+  for (const s of ['akuarium 3 x 2 kaki (90 cm)', 'panjang 3 sampai 4 kaki', 'panjang 1/2 kaki', 'kedalaman 3—4 kaki', 'kedalaman minimal 3–4 kaki', 'akuarium 3 kaki', 'tinggi 1,5 kaki'])
+    expect(US_UNITS.test(s), s).toBe(true)
+  for (const s of ['4 kaki', 'ikan berkaki empat', 'kaki ikan 2 cm']) expect(US_UNITS.test(s), s).toBe(false)
+  expect(sourceGives('akuarium 3 x 2 kaki (90 cm)', 'a 3 x 2 ft (90 cm) tank', 'id')).toBe(false)
+})
