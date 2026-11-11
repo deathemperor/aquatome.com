@@ -8,11 +8,12 @@
 // - Worktrees, at 03:35 or with --worktrees: merged ones. One left alone for 7 days with no live thread is saved first
 //   (archiveWorktree: never pushed, kept 30 days), then removed. No --force without that copy.
 // - ~/.cache/aquatome is what the leads keep (AGENTS.md, This Mac): never touched, but for the archive's copies past 30 days.
-// --dry-run says what it would do, and does none of it. --archive <path>...: save and remove those worktrees now.
+// --dry-run says what it would do, and does none of it. --archive <path>...: save and remove those worktrees now, but
+// for one a process is working in, and one whose thread is live unless it's named again after --though-live.
 import { execFileSync, spawnSync } from 'node:child_process'
-import { closeSync, existsSync, mkdirSync, openSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import { closeSync, existsSync, mkdirSync, openSync, readdirSync, readFileSync, realpathSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { homedir } from 'node:os'
-import { basename, join } from 'node:path'
+import { basename, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const HOME = homedir()
@@ -117,12 +118,34 @@ export function expireArchive(archive = ARCHIVE, now = Date.now()) {
 }
 
 /** Saves a worktree, then removes it. Only --force here, and only with the copy made. */
-function archiveAndRemove(path) {
-  const dir = archiveWorktree(path)
-  const plain = spawnSync('git', ['-C', REPO, 'worktree', 'remove', path], { encoding: 'utf8' })
-  const removed = plain.status === 0 ? plain : spawnSync('git', ['-C', REPO, 'worktree', 'remove', '--force', path], { encoding: 'utf8' })
+function archiveAndRemove(path, repo = REPO, archive = ARCHIVE, say = log) {
+  const dir = archiveWorktree(path, archive)
+  const plain = spawnSync('git', ['-C', repo, 'worktree', 'remove', path], { encoding: 'utf8' })
+  const removed = plain.status === 0 ? plain : spawnSync('git', ['-C', repo, 'worktree', 'remove', '--force', path], { encoding: 'utf8' })
   if (removed.status !== 0) throw new Error(removed.stderr.trim().slice(0, 200))
-  log(`saved ${path} in ${dir}, and removed it`)
+  say(`saved ${path} in ${dir}, and removed it`)
+}
+
+/**
+ * --archive <path>...: saves and removes each worktree named, now. One a process is working in stays. So does one whose
+ * thread is live (`live`, null when the threads can't be read: then every one stays), unless the caller names that path
+ * again after --though-live. With --dry-run it says what it would save and remove, and does neither.
+ */
+export function archiveNamed(argv, { cwds, live, repo = REPO, archive = ARCHIVE, say = log }) {
+  // The paths after a flag, up to the next flag, as git and lsof write them: no trailing slash, no link on the way.
+  const after = flag => {
+    const rest = argv.includes(flag) ? argv.slice(argv.indexOf(flag) + 1) : []
+    const end = rest.findIndex(a => a.startsWith('--'))
+    return (end < 0 ? rest : rest.slice(0, end)).map(p => (existsSync(p) ? realpathSync(p) : resolve(p)))
+  }
+  const though = new Set(after('--though-live'))
+  for (const path of after('--archive')) {
+    if (cwds.some(c => c === path || c.startsWith(`${path}/`))) { say(`kept ${path}: a process is working in it`); continue }
+    if (!though.has(path) && (!live || live.has(path))) { say(`kept ${path}: ${live ? 'its thread is live' : "its thread couldn't be read"}. To save and remove it all the same, name it again after --though-live`); continue }
+    if (argv.includes('--dry-run')) { say(`would save and remove ${path}`); continue }
+    try { archiveAndRemove(path, repo, archive, say) } catch (e) { say(`kept ${path}: could not save it: ${e.message}`) }
+    spawnSync('sleep', ['2'])
+  }
 }
 
 /** ps's elapsed time, [[dd-]hh:]mm:ss, in hours. */
@@ -203,17 +226,21 @@ function agents() {
   }
 }
 
+/** The worktrees a thread still has a use for: it runs, or it isn't a delegated task and last ran within 3 days. Null when the threads can't be read. */
+function liveWorktrees() {
+  const threads = read('sqlite3', ['-readonly', '-separator', '\t', THREADS, `select json_extract(t.payload_json, '$.worktreePath'), t.thread_id, json_extract(t.payload_json, '$.updatedAt'), (select count(*) from orchestration_v2_projection_runs r where r.thread_id = t.thread_id and r.status in (${LIVE_RUNS.map(s => `'${s}'`).join(', ')})) from orchestration_v2_projection_threads t where t.deleted_at is null and json_extract(t.payload_json, '$.worktreePath') is not null`])
+  return threads == null ? null : new Set(threads.split('\n').filter(Boolean).map(l => l.split('\t')).filter(([, id, at, active]) => Number(active) > 0 || (!id.startsWith('thread:delegated-task:') && hoursSince(Date.parse(at)) < 72)).map(([path]) => path))
+}
+
 function worktrees() {
   const list = read('git', ['-C', REPO, 'worktree', 'list', '--porcelain'])
   const remote = read('git', ['-C', REPO, 'ls-remote', '--heads', 'origin'])
   const pullRequests = read('gh', ['pr', 'list', '-R', 'deathemperor/aquatome.com', '--state', 'all', '--limit', '1000', '--json', 'headRefName,state,headRefOid'])
   const cwds = read('lsof', ['-d', 'cwd', '-Fn'])
-  // A thread's worktree stays while it runs, or for 3 days after a thread that isn't a delegated task last ran.
-  const threads = read('sqlite3', ['-readonly', '-separator', '\t', THREADS, `select json_extract(t.payload_json, '$.worktreePath'), t.thread_id, json_extract(t.payload_json, '$.updatedAt'), (select count(*) from orchestration_v2_projection_runs r where r.thread_id = t.thread_id and r.status in (${LIVE_RUNS.map(s => `'${s}'`).join(', ')})) from orchestration_v2_projection_threads t where t.deleted_at is null and json_extract(t.payload_json, '$.worktreePath') is not null`])
-  if (!list || !remote || !pullRequests || cwds == null || threads == null) return log('worktrees: could not read what they need, leaving them')
+  const live = liveWorktrees()
+  if (!list || !remote || !pullRequests || cwds == null || live == null) return log('worktrees: could not read what they need, leaving them')
   const remoteBranches = new Set(remote.split('\n').map(l => l.split('\t')[1]?.replace('refs/heads/', '')))
   const prs = JSON.parse(pullRequests)
-  const live = new Set(threads.split('\n').filter(Boolean).map(l => l.split('\t')).filter(([, id, at, active]) => Number(active) > 0 || (!id.startsWith('thread:delegated-task:') && hoursSince(Date.parse(at)) < 72)).map(([path]) => path))
   const inUse = cwds.split('\n').filter(l => l.startsWith('n')).map(l => l.slice(1))
   let removed = 0
   for (const block of list.split('\n\n').filter(Boolean).slice(1)) {
@@ -257,11 +284,7 @@ function worktrees() {
 
 if (process.argv[1] === fileURLToPath(import.meta.url) && process.argv.includes('--archive')) {
   const cwds = (read('lsof', ['-d', 'cwd', '-Fn']) ?? '').split('\n').filter(l => l.startsWith('n')).map(l => l.slice(1))
-  for (const path of process.argv.slice(process.argv.indexOf('--archive') + 1)) {
-    if (cwds.some(c => c === path || c.startsWith(`${path}/`))) { log(`kept ${path}: a process is working in it`); continue }
-    try { archiveAndRemove(path) } catch (e) { log(`kept ${path}: could not save it: ${e.message}`) }
-    spawnSync('sleep', ['2'])
-  }
+  archiveNamed(process.argv, { cwds, live: liveWorktrees() })
 } else if (process.argv[1] === fileURLToPath(import.meta.url)) {
   // One pass failing leaves the others to run.
   const passes = [simulators, agents, ...(process.argv.includes('--worktrees') || new Date().getHours() === 3 ? [worktrees] : [])]
