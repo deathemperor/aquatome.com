@@ -20,6 +20,7 @@ const ANSWERS: Record<string, [number, object]> = {
   login: [0, { structured_output: { findings: ['login'] } }],
   'tok-ok': [0, { structured_output: { findings: ['ok'] } }],
   'tok-paid': [0, { structured_output: { findings: ['paid'] }, result: 'the answer, never logged', total_cost_usd: 0.3, usage: { input_tokens: 12, output_tokens: 34, cache_creation_input_tokens: 5, cache_read_input_tokens: 6 } }],
+  'tok-paid-limit': [1, { is_error: true, result: WEEKLY, total_cost_usd: 0.6 }],
   'tok-broke': [1, { is_error: true, result: 'the schema was not met, never logged', total_cost_usd: 0.2, usage: { input_tokens: 1, output_tokens: 2 } }],
   'tok-weekly': [1, { is_error: true, result: WEEKLY }],
   'tok-session': [1, { is_error: true, result: 'Claude AI usage limit reached|1762300800' }],
@@ -171,4 +172,22 @@ test('a step with no ceiling still logs, and a run by hand (no step named) neith
   await ask()
   expect(calls()).toHaveLength(3)
   expect(costLines()).toHaveLength(2)
+})
+
+test('a try that ended on a usage limit but was paid for counts before the next account is tried', async () => {
+  tokens('tok-paid-limit\ntok-ok')
+  onCi('0.5')
+  const e: Error = await ask().catch(e => e)
+  expect(usageLimit(e.message)).toMatch(/^Today's ceiling for the page review is reached \(\$0\.60 spent by this run/)
+  expect(calls()).toEqual(['tok-paid-limit']) // the second account was not called
+})
+
+test("numbers only reach the line: an odd value in the CLI's usage is left out, not copied", async () => {
+  writeFileSync(join(dir, 'tok-odd.json'), JSON.stringify({ structured_output: { findings: ['odd'] }, total_cost_usd: 0.1, usage: { input_tokens: 'page text', output_tokens: -3, cache_read_input_tokens: 7 } }))
+  writeFileSync(join(dir, 'tok-odd.code'), '0')
+  tokens(undefined, 'tok-odd')
+  onCi('1')
+  await ask()
+  expect(Object.keys(costLines()[0]!).sort()).toEqual(['account', 'at', 'cacheRead', 'ms', 'step', 'usd'])
+  expect(readFileSync(join(dir, 'cost.jsonl'), 'utf8')).not.toContain('page text')
 })

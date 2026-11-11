@@ -128,15 +128,15 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: node scripts/site-watch.mjs pr-comment apps/site/review-results.json "$PR" "$RUN_URL"
       # Kept with the run: later runs count the day from these (scripts/claude-spend.mjs). A line has the time, the
-      # step, the account's hash, the model, dollars and tokens, and nothing of a page, a prompt or an answer.
+      # step, the account's hash, the model, dollars and tokens, and nothing of a page, a prompt or an answer. Named
+      # by the run's attempt: a job run again keeps the first attempt's lines too.
       - name: Keep the page review's cost lines
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: cost-log-page-review
+          name: cost-log-page-review-${{ github.run_attempt }}
           path: ${{ runner.temp }}/aquatome-cost-page-review.jsonl
           if-no-files-found: ignore
-          overwrite: true
       - name: Keep the browser checks' report
         if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

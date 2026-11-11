@@ -112,7 +112,10 @@ jobs:
           done
           echo "moderation's cost lines: $(wc -l < /tmp/aquatome-cost-moderate.jsonl)"
           # The workflows that call Claude outside the engine keep theirs the same way (scripts/claude-spend.mjs).
-          node scripts/claude-spend.mjs lines page-review nightly-review autofix > /tmp/aquatome-cost-workflows.jsonl
+          # Whole or not at all: a fetch that fails part way leaves no half-counted file.
+          lines="$(mktemp)"
+          node scripts/claude-spend.mjs lines page-review nightly-review autofix > "$lines"
+          mv "$lines" /tmp/aquatome-cost-workflows.jsonl
           echo "the reviews' and the auto-fix's cost lines: $(wc -l < /tmp/aquatome-cost-workflows.jsonl)"
       - name: Run this part, test, commit, push, deploy
         run: scripts/engine-cycle.sh rewrite

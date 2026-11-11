@@ -101,15 +101,15 @@ jobs:
           CLAUDE_COST_LOG: ${{ runner.temp }}/aquatome-cost-nightly-review.jsonl
           CLAUDE_SPEND_LEFT: ${{ steps.left.outputs.left }}
       # Kept with the run: later runs count the day from these. A line has the time, the step, the account's hash, the
-      # model, dollars and tokens, and nothing of a page, a prompt or an answer.
+      # model, dollars and tokens, and nothing of a page, a prompt or an answer. Named by the run's attempt: a job run
+      # again keeps the first attempt's lines too.
       - name: Keep the nightly review's cost lines
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: cost-log-nightly-review
+          name: cost-log-nightly-review-${{ github.run_attempt }}
           path: ${{ runner.temp }}/aquatome-cost-nightly-review.jsonl
           if-no-files-found: ignore
-          overwrite: true
       - name: Hand the results to the report
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

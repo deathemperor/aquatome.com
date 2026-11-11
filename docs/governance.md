@@ -492,13 +492,18 @@ The layers above still check the result.
   - The AI page review on pull requests, the nightly AI review and the auto-fix call Claude on the same accounts by
     another road, and each has a line on GitHub's side (`page-review`, `nightly-review`, `autofix`). A call writes a
     cost line: the time, the step, the account's hash, the model, dollars and tokens, and nothing of a page, a prompt
-    or an answer, since a run's artifact is public. A run keeps its lines as an artifact, and the next run counts the
-    day from those before it starts (`scripts/claude-spend.mjs`; only this repository's own runs' artifacts count).
-    A review stops calling once its run has spent what was left, and the pull request's comment says the pages were
-    not reviewed and that this is not a pass (`claude-accounts.ts`, `site-watch.mjs`). The auto-fix is one session of
-    up to an hour, so it runs under the CLI's own cap (`--max-budget-usd`, what is left of its day): the CLI ends the
-    session once its estimate of the spend reaches it, a response late at most. A day that can't be counted stops
-    all three. The rewrite's cycle brings their lines beside its own log, so GitHub's day total has them.
+    or an answer, since a run's artifact is public. A run keeps its lines as an artifact named by its attempt, and
+    the next run counts the day from those before it starts (`scripts/claude-spend.mjs`; only this repository's own
+    runs' artifacts count). A review stops calling once its run has spent what was left, a call late for each of its
+    workers at most, and the pull request's comment says the pages were not reviewed and that this is not a pass
+    (`claude-accounts.ts`, `site-watch.mjs`). The auto-fix is one session of up to 50 minutes, so it runs under the
+    CLI's own cap (`--max-budget-usd`, what is left of its day): the CLI ends the session once its estimate of the
+    spend reaches it, a response late at most. Its agent has Bash in that job, so its line is made from numbers
+    only, each within a bound, in a new file; a session that left no cost to read is counted at the whole of what it
+    was allowed (`claude-spend.test.ts` runs the workflow's own script). A day that can't be counted stops all
+    three. The rewrite's cycle brings their lines beside its own log, so GitHub's day total has them. What it
+    doesn't hold: runs that start together each count the same day, so together they can pass a line by a run each;
+    and a job run again by itself runs on the allowance its first attempt was given.
 - **On topic.** A guide covers what its title promises. The guide writer and its reviewer are told to leave out a
   video's detours (`prompts/video-guide.md`, `video-review.md`). `pnpm engine topic-check` reads every new or changed
   guide and drops sections about another subject, with their FAQ and summary lines. It never drops more than half a

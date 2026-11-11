@@ -33,7 +33,8 @@ export function resetAccounts() { accounts = undefined }
  * On CI a workflow names its step (CLAUDE_COST_STEP), the file its cost lines go to (CLAUDE_COST_LOG) and the dollars
  * the step had left of its day when the run started (CLAUDE_SPEND_LEFT, from scripts/claude-spend.mjs; `none`: no
  * ceiling). Before each call, what this run has logged is set against that: a runner starts empty, so the log is this
- * run's alone, and Playwright's workers share it. Nothing when the call may go; else why not, in words
+ * run's alone, and Playwright's workers share it. A call is logged when it ends, so a run passes what was left by
+ * the calls its workers had in the air, one each at most. Nothing when the call may go; else why not, in words
  * claude-limit.ts turns into a skip. With no step named (a run by hand) nothing is counted.
  */
 export function ceilingStop(env: NodeJS.ProcessEnv = process.env): string | undefined {
@@ -64,12 +65,15 @@ export function ceilingStop(env: NodeJS.ProcessEnv = process.env): string | unde
 function logCost(r: { total_cost_usd?: number; is_error?: boolean; usage?: Record<string, number | undefined> }, args: string[], started: number, token?: string) {
   const step = process.env.CLAUDE_COST_STEP
   const log = process.env.CLAUDE_COST_LOG
-  if (!step || !log || typeof r.total_cost_usd !== 'number') return
-  const u = r.usage ?? {}
+  // Numbers only from what the CLI printed: anything else there is left out, never copied.
+  const num = (x: unknown) => (typeof x === 'number' && Number.isFinite(x) && x >= 0 ? x : undefined)
+  const usd = num(r.total_cost_usd)
+  if (!step || !log || usd === undefined) return
+  const u = typeof r.usage === 'object' && r.usage ? r.usage : {}
   const model = args.includes('--model') ? args[args.indexOf('--model') + 1] : undefined
   appendFileSync(log, `${JSON.stringify({
     at: new Date().toISOString(), step, account: token ? createHash('sha256').update(token).digest('hex').slice(0, 8) : 'login', model, ms: Date.now() - started,
-    usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, ...(r.is_error ? { error: true } : {}),
+    usd, in: num(u.input_tokens), cacheWrite: num(u.cache_creation_input_tokens), cacheRead: num(u.cache_read_input_tokens), out: num(u.output_tokens), ...(r.is_error ? { error: true } : {}),
   })}\n`)
 }
 
@@ -79,12 +83,13 @@ function logCost(r: { total_cost_usd?: number; is_error?: boolean; usage?: Recor
  * else the last rejection.
  */
 export async function claude<T>(args: string[], cwd: string, input: string): Promise<T> {
-  // Our own ceiling is no account's fault: it goes straight up, and no account is set aside for it.
-  const stop = ceilingStop()
-  if (stop) throw new Error(stop)
+  // Our own ceiling is no account's fault: it goes straight up, and no account is set aside for it. Asked again before
+  // each account's try, since a try that ends on a limit may have been paid for.
+  const capped = () => { const stop = ceilingStop(); if (stop) throw new Error(stop) }
   const all = list()
-  if (!all.length) return once<T>(args, cwd, input)
+  if (!all.length) { capped(); return once<T>(args, cwd, input) }
   for (;;) {
+    capped()
     const a = all.find(x => !x.out)
     if (!a) throw new Error((all.findLast(x => x.out?.why === 'usage') ?? all.at(-1)!).out!.message)
     try {

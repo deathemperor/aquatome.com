@@ -77,8 +77,11 @@ jobs:
       # One session, up to this job's hour, so a count before it starts would stop nothing. The session runs under the
       # CLI's own cap, --max-budget-usd, set to what the auto-fix has left of its day: the CLI adds up its estimate of
       # the spend after each response and ends the session once that reaches the cap, so a run passes it by one
-      # response at most. With nothing left, no session starts, and the issue is told why.
-      - name: Claude reproduces the problem and fixes it
+      # response at most. With nothing left, no session starts, and the issue is told why. The step has 50 of the job's
+      # 60 minutes, so a session that runs out of time still leaves the steps after it their turn.
+      - id: session
+        name: Claude reproduces the problem and fixes it
+        timeout-minutes: 50
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           LEFT: ${{ needs.budget.outputs.left }}
@@ -94,25 +97,54 @@ jobs:
             budget=(--max-budget-usd "$LEFT")
           fi
           schema='{"type":"object","required":["status","summary"],"additionalProperties":false,"properties":{"status":{"enum":["fixed","not-reproduced","needs-person"]},"summary":{"type":"string"},"check":{"type":"string"}}}'
+          echo started=1 >> "$GITHUB_OUTPUT"
           claude -p --model "${FIX_MODEL:-opus}" --output-format json --tools 'Read,Edit,Write,Bash,Glob,Grep' --allowedTools 'Read,Edit,Write,Bash,Glob,Grep' \
             --setting-sources '' --strict-mcp-config "${budget[@]}" --json-schema "$schema" < scripts/site-fix-prompt.md > /tmp/agent.json || true
-      # The session's cost line, from what the CLI printed when it ended: the time, the step, dollars and tokens, and
-      # nothing of the issue or of what the agent wrote. Written here and not by a script in the checkout, which the
-      # agent has had its hands on. Kept with the run: later runs count the day from these.
-      - name: Write the session's cost line
+      # The session's cost line: the time, the step, dollars and tokens. The agent has had Bash in this job, and its
+      # issue is a stranger's text, so nothing it could have written is trusted to be what it seems:
+      # - the line is made here, not by a script in the checkout, and goes to a new file in a folder made this moment;
+      # - only numbers are taken from what the CLI printed, each within a bound, and the words in the line are fixed
+      #   ones. No text can reach the artifact, which is public.
+      # A session that started and left no cost to read (it ran out of time, or was stopped) is counted at the whole
+      # of what it was allowed: the most it can have spent.
+      - id: cost
+        name: Write the session's cost line
         if: always()
         env:
-          LOG: ${{ runner.temp }}/aquatome-cost-autofix.jsonl
+          AGENT_JSON: /tmp/agent.json
+          STARTED: ${{ steps.session.outputs.started }}
+          LEFT: ${{ needs.budget.outputs.left }}
         run: |
-          node -e 'const fs=require("fs");let r;try{r=JSON.parse(fs.readFileSync("/tmp/agent.json","utf8"))}catch{process.exit(0)}if(typeof r.total_cost_usd!=="number")process.exit(0);const u=r.usage??{};fs.appendFileSync(process.env.LOG,JSON.stringify({at:new Date().toISOString(),step:"autofix",ms:r.duration_ms,usd:r.total_cost_usd,in:u.input_tokens,cacheWrite:u.cache_creation_input_tokens,cacheRead:u.cache_read_input_tokens,out:u.output_tokens,...(r.is_error?{error:true}:{})})+"\n")'
+          dir="$(mktemp -d)"
+          echo "dir=$dir" >> "$GITHUB_OUTPUT"
+          COST_LINE="$dir/aquatome-cost-autofix.jsonl" node - <<'JS'
+          const fs = require('fs')
+          const num = (x, most) => (typeof x === 'number' && Number.isFinite(x) && x >= 0 && x <= most ? x : undefined)
+          const count = x => (Number.isInteger(x) ? num(x, 1e10) : undefined)
+          let r = {}
+          try { r = JSON.parse(fs.readFileSync(process.env.AGENT_JSON, 'utf8')) } catch {}
+          if (typeof r !== 'object' || !r) r = {}
+          const u = typeof r.usage === 'object' && r.usage ? r.usage : {}
+          let usd = num(r.total_cost_usd, 1000)
+          let assumed = false
+          if (usd === undefined) {
+            const left = /^\d+(\.\d+)?$/.test(process.env.LEFT ?? '') ? Number(process.env.LEFT) : 0
+            if (process.env.STARTED !== '1' || !(left > 0)) process.exit(0)
+            usd = left
+            assumed = true
+          }
+          const line = { at: new Date().toISOString(), step: 'autofix', ms: count(r.duration_ms), usd: Math.round(usd * 1e4) / 1e4, in: count(u.input_tokens), cacheWrite: count(u.cache_creation_input_tokens), cacheRead: count(u.cache_read_input_tokens), out: count(u.output_tokens), ...(r.is_error === true ? { error: true } : {}), ...(assumed ? { assumed: true } : {}) }
+          fs.writeFileSync(process.env.COST_LINE, JSON.stringify(line) + '\n', { flag: 'wx' })
+          console.log(assumed ? `no cost to read: counted at the $${usd} it was allowed` : `$${line.usd}`)
+          JS
+      # Named by the run's attempt: a job run again keeps the first attempt's line too.
       - name: Keep the auto-fix's cost line
-        if: always()
+        if: always() && steps.cost.outputs.dir != ''
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: cost-log-autofix
-          path: ${{ runner.temp }}/aquatome-cost-autofix.jsonl
+          name: cost-log-autofix-${{ github.run_attempt }}
+          path: ${{ steps.cost.outputs.dir }}/aquatome-cost-autofix.jsonl
           if-no-files-found: ignore
-          overwrite: true
       - name: Turn the agent's work into a patch
         run: |
           mkdir -p /tmp/fix
