@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { plainParts, sanitizeHtml, tidyHeadings, unescapePlain, viWording, wordingSlips } from '../src/sanitize'
+import { plainParts, sanitizeHtml, tidyHeadings, unescapePlain, viSearchWords, viWording, wordingSlips } from '../src/sanitize'
 
 test('keeps allowed tags and strips every attribute', () => {
   expect(sanitizeHtml('<p class="x" onclick="y">ok <strong style="c">b</strong></p>')).toBe('<p>ok <strong>b</strong></p>')
@@ -77,6 +77,13 @@ test('"trùn chỉ đỏ" is written "trùng huyết", "nửa tá" "6 con", "th�
     .toBe('nuôi thành đàn từ 6 con trở lên; mỗi giới 6 con đực và 6 con cái')
   expect(viWording('Lúc nào cũng nên mua ít nhất nửa tá. Nửa tá con là đủ.')).toBe('Lúc nào cũng nên mua ít nhất 6 con. 6 con là đủ.')
   expect(viWording('<li>dễ mắc bệnh thủng lỗ đầu,</li>')).toBe('<li>dễ mắc bệnh lủng đầu,</li>')
+  expect(viWording('dễ mắc bệnh lủng lỗ đầu. Lủng lỗ đầu là')).toBe('dễ mắc bệnh lủng đầu. Lủng đầu là')
+  // A heading's number leaves the words after it at the heading's start; a count doesn't.
+  expect(viWording('<h3>#1 trùn chỉ đỏ đông lạnh</h3>')).toBe('<h3>#1 Trùng huyết đông lạnh</h3>')
+  expect(viWording('<li>2) trùn chỉ đỏ</li>')).toBe('<li>2) Trùng huyết</li>')
+  expect(viWording('<p>5 trùn chỉ đỏ là đủ</p>')).toBe('<p>5 trùng huyết là đủ</p>')
+  // A shop search stays in lowercase, as it is typed.
+  expect(viSearchWords('trùn chỉ đỏ đông lạnh')).toBe('trùng huyết đông lạnh')
   const once = viWording('trùn chỉ đỏ/trùn huyết, nửa tá con, thủng lỗ đầu')
   expect(viWording(once)).toBe(once)
   expect(wordingSlips('trùn chỉ đỏ (bloodworm) và nửa tá con')).toEqual(['"trùn chỉ đỏ" → "trùng huyết"', '"nửa tá con" → "6 con"'])

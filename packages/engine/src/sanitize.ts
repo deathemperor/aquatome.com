@@ -107,13 +107,17 @@ const WORDING: { find: RegExp; use: string }[] = [
   { find: /(?<!\p{L})[Tt]rùn chỉ đỏ \(tr(?:ùng|ùn) huyết, (?=tức )/gu, use: 'trùng huyết (' },
   { find: /(?<!\p{L})[Tt]rùn chỉ đỏ(?!\p{L})/gu, use: 'trùng huyết' },
   { find: /(?<!\p{L})[Nn]ửa tá(?: con(?!\p{L})|(?=\s*(?:[.,;:!?)]|$)))/gu, use: '6 con' },
-  { find: /(?<!\p{L})[Tt]hủng lỗ đầu(?!\p{L})/gu, use: 'lủng đầu' },
+  { find: /(?<!\p{L})(?:[Tt]hủng|[Ll]ủng) lỗ đầu(?!\p{L})/gu, use: 'lủng đầu' },
 ]
-const SENTENCE_START = /(?:^\s*|[.!?…]\s+|<(?:p|li|h3|td|th)>\s*)$/
+// A heading's or a list item's number ("#1 ", "1) ") still leaves the words after it at the start.
+const SENTENCE_START = /(?:^\s*|[.!?…]\s+|<(?:p|li|h3|td|th)>\s*)(?:(?:#\d+[.):]?|\d+[.)])\s+)?$/
 
 /** Text (plain or HTML) with the words in WORDING written the way Vietnamese readers write them. */
 export const viWording = (s: string) => WORDING.reduce((out, w) =>
   out.replace(w.find, (_m, at: number, all: string) => (SENTENCE_START.test(all.slice(0, at)) ? w.use[0]!.toUpperCase() + w.use.slice(1) : w.use)), s)
+
+/** A shop search's words with WORDING's, in lowercase as a search is typed. */
+export const viSearchWords = (s: string) => WORDING.reduce((out, w) => out.replace(w.find, w.use), s)
 
 /**
  * "thài lài" said of a fish, which no Vietnamese keeper writes (WORDING): each, with a few words before it. The plant

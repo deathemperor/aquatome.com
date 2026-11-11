@@ -7,7 +7,7 @@ import { loadAll, mayPublish, resolveDataCard, type Translation } from '@aq/sche
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
 import { ENGLISH_PLACE_WORD } from '../src/place-names'
-import { fishThaiLai } from '../src/sanitize'
+import { fishThaiLai, wordingSlips } from '../src/sanitize'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
 import { cardSchool, readTraits } from '../src/traits'
 
@@ -175,6 +175,19 @@ test('a hardness against its source\'s own measured reading gives way to the sou
     expect(shownText(fish), lang).not.toMatch(/15\s*[–-]\s*30/)
   }
 }, 240_000)
+
+// A shop search carries the words a page's text uses: the sweep writes them the readers' way (sanitize.ts viSearchWords),
+// so one the writers' rules would change can't sit where the wording rule doesn't look (the reader of #1135, 2026-11-12).
+test('no shop search has words the text writes another way', () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const slips: string[] = []
+  for (const kind of ['species', 'plants']) for (const id of readdirSync(join(root, kind))) {
+    let e: { productSlots?: { keywords: string[] }[] }
+    try { e = JSON.parse(readFileSync(join(root, kind, id, 'entity.json'), 'utf8')) } catch { continue }
+    for (const row of e.productSlots ?? []) for (const k of row.keywords) if (wordingSlips(k).length) slips.push(`${kind}/${id}: ${k}`)
+  }
+  expect(slips).toEqual([])
+})
 
 // The owner's report of 10 Nov: the Altum page said a hard, neutral tank is enough and that soft water is a must, under one
 // heading. Where the sources can't both be true, the page shows the one that speaks for that heading (Seriously Fish for
