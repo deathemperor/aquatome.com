@@ -57,6 +57,14 @@ export const cardCrop = (bytes: Uint8Array) => sharp(bytes).rotate().resize(640,
 
 /** What a fish's head should do: lead with this photo, or ask about this pair first; nothing if it stays. */
 export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Photo) => boolean, compared: Compared, marked: (p: Photo) => boolean = () => false): { lead: Photo } | { ask: { head: Photo; photo: Photo } } | undefined {
+  // A passing real photograph takes the lead back even when the generated head already fills the card.
+  if (own[0]?.generated) {
+    const real = [...own, ...gallery].find(p => !p.generated && passes(p))
+    if (real) return { lead: real }
+    return undefined
+  }
+  own = own.filter(p => !p.generated)
+  gallery = gallery.filter(p => !p.generated)
   const head = own[0]
   // Best first, then the largest.
   const pool = [...new Map([...own.slice(1), ...[...gallery].sort((a, b) => Number(b.best ?? false) - Number(a.best ?? false) || across(b.large ?? b, 'square') - across(a.large ?? a, 'square'))].map(p => [p.url, p])).values()]

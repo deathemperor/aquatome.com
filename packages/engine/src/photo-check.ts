@@ -5,9 +5,9 @@ import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan } from './gallery-plan'
 import { contactSheet } from './video-images'
-import { LOGO_FOLDERS, stripPhotos } from './watermarks'
+import { LOGO_FOLDERS, retainedOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 
-type Photo = { url: string; caption?: string; author?: string; sourceUrl?: string }
+type Photo = { url: string; caption?: string; author?: string; sourceUrl?: string; generated?: unknown }
 /**
  * Does the photo show its page's subject: yes (in the wild too, where it is clearly seen); another species, breed or
  * variety (`note` says which); not a photo of the subject at all (a map, chart, hands, a tank, a packshot, a landscape or
@@ -37,11 +37,11 @@ export const OFF = new Set<PhotoVerdict['ok']>(['other', 'none', 'dead', 'no'])
  * Why a photo leaves every page, whatever another page's verdict: it shows a dead fish or fish as food, a person or part
  * of one ("Photos never show people (hands count)", PRODUCT.md), or a logo.
  */
-const blockedFor = (by: Record<string, PhotoVerdict> = {}) => {
+const blockedFor = (by: Record<string, PhotoVerdict> = {}, keepOwnLogo = false) => {
   const vs = Object.values(by)
   const dead = vs.find(v => v.ok === 'dead')
   const person = vs.find(v => v.person)
-  const logo = vs.find(v => v.logo)
+  const logo = keepOwnLogo ? undefined : vs.find(v => v.logo)
   return dead ? `dead: ${dead.note}` : person ? `people: ${person.note}` : logo ? `watermark: ${logo.note}` : undefined
 }
 
@@ -294,6 +294,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const cache = (await readJson<Record<string, Record<string, PhotoVerdict>>>(cacheFile)) ?? {}
   const legacy = (await readJson<Record<string, PhotoVerdict>>(join(root, 'engine-state/_photo-check.json'))) ?? {}
   const rejected = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
+  const marks = (await readJson<Record<string, WatermarkEntry>>(join(root, 'engine-state/_photo-watermarks.json'))) ?? {}
+  const keepLogo = (url: string) => retainedOwnMark(url, marks[url]) && (!rejected[url] || rejected[url]!.startsWith('watermark:'))
   const report = { photos: 0, sheets: 0, judged: 0, removed: [] as string[], rejected: 0, blocked: [] as string[], unsure: 0, failed: [] as string[], stopped: '' }
 
   const all = await rank(root, await subjects(content))
@@ -302,7 +304,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   for (const s of all) {
     let bare = false
     for (const file of [join(content, s.kind, s.id, 'entity.json'), join(content, 'gallery', `${s.id}.json`)]) {
-      const photos = (await readJson<{ photos?: (Photo & { unchecked?: boolean; source?: string })[] }>(file))?.photos ?? []
+      const photos = ((await readJson<{ photos?: (Photo & { unchecked?: boolean; source?: string })[] }>(file))?.photos ?? []).filter(p => !p.generated)
       if (file.endsWith('entity.json')) bare = !photos.length
       let place = 0
       for (const [i, p] of photos.entries()) {
@@ -316,7 +318,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
     const file = join(content, 'guides', id, 'entity.json')
     const g = await readJson<{ photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } }>(file)
-    for (const p of [...(g?.photos ?? []), ...(g?.video?.figures ?? []).flatMap(f => (f.photo ? [f.photo] : []))]) {
+    for (const p of [...(g?.photos ?? []), ...(g?.video?.figures ?? []).flatMap(f => (f.photo ? [f.photo] : []))].filter(p => !p.generated)) {
       const page = p.caption ? captionSubject(p.caption, index.names, index.genera) : undefined
       shown.push({ file, url: p.url, guide: true, ...(page ? { page, caption: p.caption } : {}) })
     }
@@ -440,14 +442,14 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const label = (id: string) => { const s = byId.get(id)!; return s.kind === 'breeds' ? (s.names[0] ?? id) : s.sci }
   const added: Record<string, string> = {}
   for (const url of everywhere.keys()) {
-    const why = url in rejected ? undefined : blockedFor(cache[url])
+    const why = url in rejected ? undefined : blockedFor(cache[url], keepLogo(url))
     if (why) { added[url] = why; report.blocked.push(`${url}: ${why}`) }
   }
   // Not one its file name took off: a photo of the species it names, which that species' page may still take.
   const named = (url: string) => Object.values(cache[url] ?? {}).some(v => v.file)
   for (const [url, xs] of onPages) if (!(url in rejected) && !(url in added) && !named(url) && everywhere.get(url)!.every(off)) added[url] = `not ${label(xs[0]!.page!)}: ${verdict(url, xs[0]!.page!, !xs[0]!.guide)!.note}`
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
-  const blocked = (file: string) => (url: string) => url in rejected || url in added || offAt.has(`${file}\n${url}`)
+  const blocked = (file: string) => (url: string) => (url in rejected && !keepLogo(url)) || url in added || offAt.has(`${file}\n${url}`)
   for (const file of [...new Set(shown.map(x => x.file))]) {
     const raw = await readFile(file, 'utf8')
     const data = JSON.parse(raw) as { photos?: Photo[] }
@@ -462,7 +464,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const s = byId.get(file.split('/').at(-2)!)
     if (s && s.kind !== 'breeds' && file.endsWith('entity.json') && data.photos) {
       // A typical photo first, other photos of it next, an old "habitat" verdict last (until it is asked again).
-      const r = (x: Photo) => { const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical ? 0 : v?.ok === 'habitat' ? 2 : 1 }
+      const r = (x: Photo) => { if (x.generated) return 3; const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical ? 0 : v?.ok === 'habitat' ? 2 : 1 }
       data.photos = data.photos.map((x, i) => ({ x, i })).sort((a, b) => r(a.x) - r(b.x) || a.i - b.i).map(({ x }) => x)
     }
     const out = `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`

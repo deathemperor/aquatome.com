@@ -24,7 +24,7 @@ const SITES: [RegExp, string][] = [[/(^|\.)inaturalist\.org$/, 'iNaturalist'], [
 
 /** Where a gallery's photos come from, each once in first-seen order: the photo site, or the source that let us use them. */
 export function photoFrom(photos: Photo[], sources: Partial<Record<SourceId, SourceInfo>>): string[] {
-  return [...new Set(photos.map(p => {
+  return [...new Set(photos.filter(p => !p.generated).map(p => {
     if (p.source) return sources[p.source]?.name ?? p.source
     const host = new URL(p.sourceUrl).host
     return SITES.find(([re]) => re.test(host))?.[1] ?? host.replace(/^www\./, '')
@@ -39,12 +39,16 @@ const fromWords = (t: T, photos: Photo[], sources: Partial<Record<SourceId, Sour
  * are (a gallery with photos a source let us use names the source, and no more).
  */
 export function galleryNote(t: T, photos: Photo[], sources: Partial<Record<SourceId, SourceInfo>>): string {
+  if (photos.every(p => p.generated) && photos.length) return t('{n} ảnh do AI tạo.', { n: photos.length })
+  if (photos.some(p => p.generated)) return t('{n} ảnh, gồm ảnh thật từ {from} và ảnh do AI tạo.', { n: photos.length, from: fromWords(t, photos, sources) })
   const open = photos.every(p => !p.source)
   return t(open ? '{n} ảnh từ {from}, giấy phép mở.' : '{n} ảnh từ {from}.', { n: photos.length, from: fromWords(t, photos, sources) })
 }
 
 /** The same line on the gallery page itself, with no number: its title is the count. */
 export function galleryLine(t: T, photos: Photo[], sources: Partial<Record<SourceId, SourceInfo>>): string {
+  if (photos.every(p => p.generated) && photos.length) return t('Ảnh do AI tạo.')
+  if (photos.some(p => p.generated)) return t('Ảnh thật từ {from} và ảnh do AI tạo.', { from: fromWords(t, photos, sources) })
   const open = photos.every(p => !p.source)
   return t(open ? 'Ảnh từ {from}, giấy phép mở.' : 'Ảnh từ {from}.', { from: fromWords(t, photos, sources) })
 }

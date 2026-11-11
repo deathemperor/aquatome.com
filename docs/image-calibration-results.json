@@ -1,0 +1,1197 @@
+{
+  "reviewer": "gpt-5.6-sol",
+  "version": "6b426028ef80f6208d511e0a5367dd7a431f017a784e169383d3b1609777b7ed",
+  "ready": true,
+  "qualificationRuling": "Chief of Staff, 2026-11-10 23:15: all known-wrong refused, all conflicts refused/listed; known-right refusals are reported yield loss.",
+  "newLookalikeControls": 62,
+  "distinctRealPhotosInNewControls": 60,
+  "secondsForFinalResume": 355.727,
+  "beforePercent": 6,
+  "afterPercent": 6,
+  "engineClaudeDollars": 0,
+  "cases": [
+    {
+      "id": "neon-conflict",
+      "expected": "conflict",
+      "actual": "unsure",
+      "conflicts": 1,
+      "pixelHash": "81e89564ea1ccd61ea82fb21733ed76b9cbc4dc9f1dc537240c9bbbe9e49b4c2",
+      "referenceHash": "89ba82bcb139ce0dab7a79fd75b7892ce05885007e0e927a43ea21c572b3072c",
+      "realReferenceHashes": [
+        "3687ba0066d07829fe2051b17ec4f32536f5292a96feb9387d11311a84b93454"
+      ],
+      "reason": "The candidate is recognizably Paracheirodon innesi and shows a coherent tetra fin arrangement without evident invented, missing, or fused fins. The unresolved disagreement between fact 1 and the real reference makes the overall verdict unsure.",
+      "note": "The candidate is recognizably Paracheirodon innesi and shows a coherent tetra fin arrangement without evident invented, missing, or fused fins. The unresolved disagreement between fact 1 and the real reference makes the overall verdict unsure."
+    },
+    {
+      "id": "lookalike",
+      "expected": "refuse",
+      "actual": "fail",
+      "conflicts": 0,
+      "pixelHash": "321b17153c42e5bc1f9e1ec4ffcd5849d2c777ee035d8354f8491bae81f31990",
+      "referenceHash": "5707b1bde74840565bf895db442bf7dc9fb45d7dfbe82880f30728da7c8cf36b",
+      "realReferenceHashes": [
+        "ae66022a5d9fb1ea6cd9cd91cb4c7e23ee11191d48f738c236697f90e8b66a06"
+      ],
+      "reason": "The candidate has plausible tetra anatomy, but its shortened posterior red stripe is characteristic of a look-alike and does not match the supplied cardinal tetra reference.",
+      "note": "The candidate has plausible tetra anatomy, but its shortened posterior red stripe is characteristic of a look-alike and does not match the supplied cardinal tetra reference."
+    },
+    {
+      "id": "fin-pattern",
+      "expected": "refuse",
+      "actual": "fail",
+      "conflicts": 0,
+      "pixelHash": "59ff5cf24ceebce22d43201106c27b97e574b9796fefa915d26a07ff366f4a93",
+      "referenceHash": "699c049693cf1c426e49bba8699b69a9d2d1802ac3bbb30a98d033549568e771",
+      "realReferenceHashes": [
+        "3687ba0066d07829fe2051b17ec4f32536f5292a96feb9387d11311a84b93454"
+      ],
+      "reason": "The candidate has a plausible tetra body and fin arrangement, but its full-length red stripe is characteristic of a different look-alike pattern and does not accurately depict Paracheirodon innesi.",
+      "note": "The candidate has a plausible tetra body and fin arrangement, but its full-length red stripe is characteristic of a different look-alike pattern and does not accurately depict Paracheirodon innesi."
+    },
+    {
+      "id": "growth-habit",
+      "expected": "refuse",
+      "actual": "fail",
+      "conflicts": 0,
+      "pixelHash": "0c0b7f2ce56ee7f3a2cdef97a8d71a048b42698280bed49e6f44cdef3ac950ce",
+      "referenceHash": "af20f5e2449730c421a98e10a01d13a547bfa553f1f6a7e8aece0e48e9f838c6",
+      "realReferenceHashes": [
+        "180ea100bf2adbf6d87f828b7b993dc6ee9594ed66b97a92039470c3c693bb7b"
+      ],
+      "reason": "The candidate is a plausible aquarium plant, but its dominant upright growth habit and foliage distribution conflict with the supplied independent reference for Micranthemum tweediei 'Monte Carlo'.",
+      "note": "The candidate is a plausible aquarium plant, but its dominant upright growth habit and foliage distribution conflict with the supplied independent reference for Micranthemum tweediei 'Monte Carlo'."
+    },
+    {
+      "id": "right-fish",
+      "expected": "pass",
+      "actual": "pass",
+      "conflicts": 0,
+      "pixelHash": "a3d9f46918237820b917594191c2ce944b60e06f25fa8fdc167fd6c9fd6ffd03",
+      "referenceHash": "5707b1bde74840565bf895db442bf7dc9fb45d7dfbe82880f30728da7c8cf36b",
+      "realReferenceHashes": [
+        "ae66022a5d9fb1ea6cd9cd91cb4c7e23ee11191d48f738c236697f90e8b66a06"
+      ],
+      "reason": "The candidate agrees with the supplied reference in species-defining coloration, body form, and visible fin anatomy.",
+      "note": "The candidate agrees with the supplied reference in species-defining coloration, body form, and visible fin anatomy."
+    },
+    {
+      "id": "right-neon",
+      "expected": "pass",
+      "actual": "pass",
+      "conflicts": 0,
+      "pixelHash": "321b17153c42e5bc1f9e1ec4ffcd5849d2c777ee035d8354f8491bae81f31990",
+      "referenceHash": "4a277e47fe56e081a064f3354a62d1e56391c7ea6e0d091a45a098eac7580e60",
+      "realReferenceHashes": [
+        "a5d54b125dbdd3e90d107fad4f3e0ff5f74f9b7c379fc429bcbe0e295fb4aa02"
+      ],
+      "reason": "The candidate visibly matches the supplied neon tetra reference in body form, coloration, stripe placement, and fin arrangement.",
+      "note": "The candidate visibly matches the supplied neon tetra reference in body form, coloration, stripe placement, and fin arrangement."
+    },
+    {
+      "id": "right-plant",
+      "expected": "pass",
+      "actual": "pass",
+      "conflicts": 0,
+      "pixelHash": "7df261dbf4c1a7beef43cbb1353bc68bcc77c886b34d58d46579c28487a284c7",
+      "referenceHash": "af20f5e2449730c421a98e10a01d13a547bfa553f1f6a7e8aece0e48e9f838c6",
+      "realReferenceHashes": [
+        "180ea100bf2adbf6d87f828b7b993dc6ee9594ed66b97a92039470c3c693bb7b"
+      ],
+      "reason": "The plant’s visible leaf form, coloration, creeping habit, and carpeting presentation are consistent with the supplied independent reference. No anatomical anomalies, people, text, or logos are visible.",
+      "note": "The plant’s visible leaf form, coloration, creeping habit, and carpeting presentation are consistent with the supplied independent reference. No anatomical anomalies, people, text, or logos are visible."
+    },
+    {
+      "id": "right-altum",
+      "expected": "pass",
+      "actual": "pass",
+      "conflicts": 0,
+      "pixelHash": "53d14c0f631a48f063448267dc600f702807d82f3809c0975f72e10806134399",
+      "referenceHash": "2cfebe627f4b14cd5087780c5450cd4bb385d28001694446045e446d61dc7c78",
+      "realReferenceHashes": [
+        "78a9ccb5ba5955a7d2ff27236ff450c3b55c0415eb1e0397ee51b924ba02c0f6"
+      ],
+      "reason": "The candidate visibly matches the real checking reference in its tall, laterally compressed body, concave forehead profile, dark vertical bars, elongated dorsal and anal fins, threadlike pelvic rays, and forked translucent tail. No invented, fused, or visibly missing anatomy is evident. No numbered source facts were supplied.",
+      "note": "The candidate visibly matches the real checking reference in its tall, laterally compressed body, concave forehead profile, dark vertical bars, elongated dorsal and anal fins, threadlike pelvic rays, and forked translucent tail. No invented, fused, or visibly missing anatomy is evident. No numbered source facts were supplied."
+    },
+    {
+      "id": "right-scalare",
+      "expected": "pass",
+      "actual": "pass",
+      "conflicts": 0,
+      "pixelHash": "285bc7c383ea470d8bf4854744b8fa141c558c8a689b661c6c8a397d5519f92f",
+      "referenceHash": "a008f64e2d356bd38b5af0a05df60a72cd1f8691f9797aa245c70cda8ef89c6a",
+      "realReferenceHashes": [
+        "086777d6b900d4220ff19a6148e1878b7cdfd97d50f7781cbe5efd769b8a4718"
+      ],
+      "reason": "The candidate visibly matches the real reference in the characteristic laterally compressed, tall angelfish body and elongated dorsal, anal, and pelvic fins. The different coloration is consistent with distinct color forms and does not contradict the supplied evidence. No numbered facts or nonvisual claims were provided.",
+      "note": "The candidate visibly matches the real reference in the characteristic laterally compressed, tall angelfish body and elongated dorsal, anal, and pelvic fins. The different coloration is consistent with distinct color forms and does not contradict the supplied evidence. No numbered facts or nonvisual claims were provided."
+    },
+    {
+      "id": "right-betta",
+      "expected": "pass",
+      "actual": "pass",
+      "conflicts": 0,
+      "pixelHash": "03e8431aadc495a065c5ca929e71992c2f5119750458128a526b13a8c6a7a9b0",
+      "referenceHash": "524d377bcdfc5a63660008b58d52d8c7d35918ee8b4e3bb86f500fb083536b03",
+      "realReferenceHashes": [
+        "a03ce70f697e5a693771f22043487724c5ced3ca61d6c5da55d39d7537dc0182"
+      ],
+      "reason": "The candidate visibly depicts a long-finned Betta splendens with coherent fish anatomy. Its red, blue, and lavender coloration and broader displayed fins differ from the darker real specimen but remain consistent with variation within the species. No numbered source facts were supplied.",
+      "note": "The candidate visibly depicts a long-finned Betta splendens with coherent fish anatomy. Its red, blue, and lavender coloration and broader displayed fins differ from the darker real specimen but remain consistent with variation within the species. No numbered source facts were supplied."
+    },
+    {
+      "id": "right-discus",
+      "expected": "pass",
+      "actual": "pass",
+      "conflicts": 0,
+      "pixelHash": "e94d5d1e80507304e0cada9ac299724e45cea004e19f827f872b5d5bfd8bef0c",
+      "referenceHash": "d2a73207c7bd219e8079b00211dd8720f32614b58ef987217888832957bfa5b4",
+      "realReferenceHashes": [
+        "0775c7b4e3a84db21f7f464ca538030050e75cc1073495f2b3df29683eed2d24"
+      ],
+      "reason": "The candidate visibly depicts a discus fish consistent with Symphysodon aequifasciatus. Its deep, laterally compressed body, small mouth, eye placement, and continuous dorsal and anal fins agree with the real reference despite the different viewing angle and coloration. No anatomical defects are apparent.",
+      "note": "The candidate visibly depicts a discus fish consistent with Symphysodon aequifasciatus. Its deep, laterally compressed body, small mouth, eye placement, and continuous dorsal and anal fins agree with the real reference despite the different viewing angle and coloration. No anatomical defects are apparent."
+    },
+    {
+      "id": "right-danio",
+      "expected": "pass",
+      "actual": "pass",
+      "conflicts": 0,
+      "pixelHash": "198eda76519b3900d7d8831f383049bc41aacaad8e595d74fd7539f65a394093",
+      "referenceHash": "087afcf5adbd0eb75458dbd097a444398ab9af09ea3f9cdcbe6c867b2fa797c6",
+      "realReferenceHashes": [
+        "96306844089059698946d284cdd64bb2b589db9a6e73218765fc2e0d019d3c57"
+      ],
+      "reason": "The candidate visibly depicts multiple zebra danios consistent with the real checking reference, including the slender fish form, continuous horizontal body striping, forked striped tails, and expected fin arrangement. No numbered facts were supplied. No visible anatomical defect, person, text, or logo is present.",
+      "note": "The candidate visibly depicts multiple zebra danios consistent with the real checking reference, including the slender fish form, continuous horizontal body striping, forked striped tails, and expected fin arrangement. No numbered facts were supplied. No visible anatomical defect, person, text, or logo is present."
+    },
+    {
+      "id": "right-galaxy",
+      "expected": "pass",
+      "actual": "unsure",
+      "conflicts": 0,
+      "pixelHash": "9c1ed54940749c609da83d1d3b70dc13e213aad3d3d351e1818e85bdf1328a85",
+      "referenceHash": "4b40f2322203274bf94bd554abac462db54e786ea643db0fb3c4ce76cf14c467",
+      "realReferenceHashes": [
+        "cac0802d67c1fc8f19b9c9c79228b9d2c25a4ca383aa3a867c45ad57429673fd"
+      ],
+      "reason": "The foreground fish visibly agrees with the real reference in body shape, blue-gray coloration, pale spotting, and red-orange/black fin patterning. Its visible anatomy appears coherent. However, substantial portions of the second fish, including its head and some fins, are obscured by the foreground fish, so its complete anatomy cannot be verified.",
+      "note": "The foreground fish visibly agrees with the real reference in body shape, blue-gray coloration, pale spotting, and red-orange/black fin patterning. Its visible anatomy appears coherent. However, substantial portions of the second fish, including its head and some fins, are obscured by the foreground fish, so its complete anatomy cannot be verified."
+    },
+    {
+      "id": "right-harlequin",
+      "expected": "pass",
+      "actual": "pass",
+      "conflicts": 0,
+      "pixelHash": "f5ef2d66458dfa2baab9839e02e746d0d435b75994f1051625bb9d31953e5030",
+      "referenceHash": "4049242def12ba355feaf2e9d19d34cbc0a5ad64dd8d8839388b1a5de3afef98",
+      "realReferenceHashes": [
+        "dd9012d07cd20f2c912a06d27a9daf55172d97ff7a6e1c3d96edcaee0dfe8bd8"
+      ],
+      "reason": "The candidate visibly matches the real checking reference in body shape, deep black posterior wedge, copper-orange coloration, red-orange eye ring, and reddish fins. The visible anatomy is coherent and no conflicting detail is apparent.",
+      "note": "The candidate visibly matches the real checking reference in body shape, deep black posterior wedge, copper-orange coloration, red-orange eye ring, and reddish fins. The visible anatomy is coherent and no conflicting detail is apparent."
+    },
+    {
+      "id": "right-cory",
+      "expected": "pass",
+      "actual": "pass",
+      "conflicts": 0,
+      "pixelHash": "7efdd0f966f5ef941672350b6942b2989deeb6481669ea8f6f0a8c113cf5971c",
+      "referenceHash": "ae101e900781d3a79908a43f44fbcc25731f781fdcefa28745550588ce2ce026",
+      "realReferenceHashes": [
+        "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d"
+      ],
+      "reason": "The candidate visibly matches the real checking reference in Corydoras body shape, armored lateral profile, metallic bronze-green coloration, fin arrangement, and mouth barbels. The additional, partly overlapping conspecific does not introduce a visible anatomical contradiction.",
+      "note": "The candidate visibly matches the real checking reference in Corydoras body shape, armored lateral profile, metallic bronze-green coloration, fin arrangement, and mouth barbels. The additional, partly overlapping conspecific does not introduce a visible anatomical contradiction."
+    },
+    {
+      "id": "right-anubias",
+      "expected": "pass",
+      "actual": "pass",
+      "conflicts": 0,
+      "pixelHash": "16350c5be870bcce981b94998457b714dd739d109b8a790982963dec503622b5",
+      "referenceHash": "9ed3fd067a8fa2f920a49e01823f539fb67c706436bd74608c80f8a869e8317e",
+      "realReferenceHashes": [
+        "e59002ffbb5f5f25219e06144b03838de15be55b1eb39490d5898642f35edf1a"
+      ],
+      "reason": "The candidate visibly matches the checking reference’s broad, thick, oval-to-heart-shaped Anubias leaves and compact aquarium growth habit. No anatomical contradiction is apparent. There are no numbered facts to assess.",
+      "note": "The candidate visibly matches the checking reference’s broad, thick, oval-to-heart-shaped Anubias leaves and compact aquarium growth habit. No anatomical contradiction is apparent. There are no numbered facts to assess."
+    },
+    {
+      "id": "right-bacopa",
+      "expected": "pass",
+      "actual": "pass",
+      "conflicts": 0,
+      "pixelHash": "84bb56dca91bf701879fff3d750c0ff16cf2c1a063b6adecb18e6719183036a3",
+      "referenceHash": "4f87982681204bfc81200638791f91bfdf95b68b25063e9b649390b44d4a0ca5",
+      "realReferenceHashes": [
+        "b5aebe12404e48037d03c8f35e5867d427d66ad894ffd9e0a7d0c02ff158759d"
+      ],
+      "reason": "The candidate agrees with the real checking reference in its dense upright growth, fleshy opposite oval leaves, stem structure, and small pale-blue flowers. No anatomical inventions or omissions are apparent. No numbered facts were supplied.",
+      "note": "The candidate agrees with the real checking reference in its dense upright growth, fleshy opposite oval leaves, stem structure, and small pale-blue flowers. No anatomical inventions or omissions are apparent. No numbered facts were supplied."
+    },
+    {
+      "id": "right-rotala",
+      "expected": "pass",
+      "actual": "unsure",
+      "conflicts": 0,
+      "pixelHash": "aac18c02113c4ef162fa99a228667db1a130f63ed00c43c8f0d9e893ff70bf5c",
+      "referenceHash": "10f38828447dd4fd0d37eb86cf30313a2ef854031b671e866e554c047ae08bd3",
+      "realReferenceHashes": [
+        "63077ed02d287be9ccb62070dc5469f4d2c26f372ddff325807156c493d1aa6b"
+      ],
+      "reason": "The candidate is a plausible aquatic stem plant with coherent leaves and stems, but the only real checking image is specifically the green named form. It shows a dense, tangled mound of bright-green stems with many short, narrow leaves, whereas the candidate shows sparse upright red-stemmed shoots with longer bronze-to-red leaves. Because a named form's appearance should not be applied indiscriminately to another form, the supplied evidence cannot confirm or definitively contradict the candidate's Rotala rotundifolia identity.",
+      "note": "The candidate is a plausible aquatic stem plant with coherent leaves and stems, but the only real checking image is specifically the green named form. It shows a dense, tangled mound of bright-green stems with many short, narrow leaves, whereas the candidate shows sparse upright red-stemmed shoots with longer bronze-to-red leaves. Because a named form's appearance should not be applied indiscriminately to another form, the supplied evidence cannot confirm or definitively contradict the candidate's Rotala rotundifolia identity."
+    },
+    {
+      "id": "wrong-altum-scalare",
+      "expected": "refuse",
+      "actual": "fail",
+      "conflicts": 0,
+      "pixelHash": "285bc7c383ea470d8bf4854744b8fa141c558c8a689b661c6c8a397d5519f92f",
+      "referenceHash": "2cfebe627f4b14cd5087780c5450cd4bb385d28001694446045e446d61dc7c78",
+      "realReferenceHashes": [
+        "78a9ccb5ba5955a7d2ff27236ff450c3b55c0415eb1e0397ee51b924ba02c0f6"
+      ],
+      "reason": "The candidate does not match the real Pterophyllum altum reference: it has a paler blue-green body, red eye, fewer prominent vertical bars, a rounder head profile, and substantially different body/fin proportions. Its visible fish anatomy is coherent, but the species identity is contradicted by the checking image.",
+      "note": "The candidate does not match the real Pterophyllum altum reference: it has a paler blue-green body, red eye, fewer prominent vertical bars, a rounder head profile, and substantially different body/fin proportions. Its visible fish anatomy is coherent, but the species identity is contradicted by the checking image."
+    },
+    {
+      "id": "wrong-scalare-discus",
+      "expected": "refuse",
+      "actual": "fail",
+      "conflicts": 0,
+      "pixelHash": "e94d5d1e80507304e0cada9ac299724e45cea004e19f827f872b5d5bfd8bef0c",
+      "referenceHash": "a008f64e2d356bd38b5af0a05df60a72cd1f8691f9797aa245c70cda8ef89c6a",
+      "realReferenceHashes": [
+        "086777d6b900d4220ff19a6148e1878b7cdfd97d50f7781cbe5efd769b8a4718"
+      ],
+      "reason": "The candidate visibly depicts a discus-type fish, not Pterophyllum scalare. Its nearly circular body and rounded continuous dorsal and anal fins contradict the checking reference’s angelfish silhouette, which has a more angular body with strongly extended triangular dorsal and anal fins. The real checking image is dark but provides sufficient silhouette evidence for this distinction.",
+      "note": "The candidate visibly depicts a discus-type fish, not Pterophyllum scalare. Its nearly circular body and rounded continuous dorsal and anal fins contradict the checking reference’s angelfish silhouette, which has a more angular body with strongly extended triangular dorsal and anal fins. The real checking image is dark but provides sufficient silhouette evidence for this distinction."
+    },
+    {
+      "id": "wrong-betta-harlequin",
+      "expected": "refuse",
+      "actual": "fail",
+      "conflicts": 0,
+      "pixelHash": "f5ef2d66458dfa2baab9839e02e746d0d435b75994f1051625bb9d31953e5030",
+      "referenceHash": "524d377bcdfc5a63660008b58d52d8c7d35918ee8b4e3bb86f500fb083536b03",
+      "realReferenceHashes": [
+        "a03ce70f697e5a693771f22043487724c5ced3ca61d6c5da55d39d7537dc0182"
+      ],
+      "reason": "The candidate depicts a harlequin rasbora-like fish with a compact silver-orange body, large black wedge marking, short fins, and forked tail. The real checking image depicts Betta splendens with a dark blue elongated body and long flowing fins. This is a clear species and anatomical mismatch.",
+      "note": "The candidate depicts a harlequin rasbora-like fish with a compact silver-orange body, large black wedge marking, short fins, and forked tail. The real checking image depicts Betta splendens with a dark blue elongated body and long flowing fins. This is a clear species and anatomical mismatch."
+    },
+    {
+      "id": "wrong-discus-altum",
+      "expected": "refuse",
+      "actual": "fail",
+      "conflicts": 0,
+      "pixelHash": "53d14c0f631a48f063448267dc600f702807d82f3809c0975f72e10806134399",
+      "referenceHash": "d2a73207c7bd219e8079b00211dd8720f32614b58ef987217888832957bfa5b4",
+      "realReferenceHashes": [
+        "0775c7b4e3a84db21f7f464ca538030050e75cc1073495f2b3df29683eed2d24"
+      ],
+      "reason": "The candidate depicts a laterally viewed, strongly triangular angelfish-like fish with very long filamentous fins and bold vertical bars. The real checking image shows Symphysodon aequifasciatus head-on, with the rounded, disc-like body and substantially different fin proportions. The candidate therefore does not accurately depict the referenced species. No numbered facts were supplied.",
+      "note": "The candidate depicts a laterally viewed, strongly triangular angelfish-like fish with very long filamentous fins and bold vertical bars. The real checking image shows Symphysodon aequifasciatus head-on, with the rounded, disc-like body and substantially different fin proportions. The candidate therefore does not accurately depict the referenced species. No numbered facts were supplied."
+    },
+    {
+      "id": "wrong-danio-galaxy",
+      "expected": "refuse",
+      "actual": "fail",
+      "conflicts": 0,
+      "pixelHash": "9c1ed54940749c609da83d1d3b70dc13e213aad3d3d351e1818e85bdf1328a85",
+      "referenceHash": "087afcf5adbd0eb75458dbd097a444398ab9af09ea3f9cdcbe6c867b2fa797c6",
+      "realReferenceHashes": [
+        "96306844089059698946d284cdd64bb2b589db9a6e73218765fc2e0d019d3c57"
+      ],
+      "reason": "The candidate depicts spotted, red-finned fish resembling celestial pearl danios, while the independent reference for Danio rerio shows a slender zebra danio with continuous horizontal blue-and-pale stripes and largely transparent fins. The candidate therefore does not accurately depict the specified species. Visible fish anatomy is coherent, with no clearly invented, missing, or fused fins.",
+      "note": "The candidate depicts spotted, red-finned fish resembling celestial pearl danios, while the independent reference for Danio rerio shows a slender zebra danio with continuous horizontal blue-and-pale stripes and largely transparent fins. The candidate therefore does not accurately depict the specified species. Visible fish anatomy is coherent, with no clearly invented, missing, or fused fins."
+    },
+    {
+      "id": "wrong-galaxy-danio",
+      "expected": "refuse",
+      "actual": "fail",
+      "conflicts": 0,
+      "pixelHash": "198eda76519b3900d7d8831f383049bc41aacaad8e595d74fd7539f65a394093",
+      "referenceHash": "4b40f2322203274bf94bd554abac462db54e786ea643db0fb3c4ce76cf14c467",
+      "realReferenceHashes": [
+        "cac0802d67c1fc8f19b9c9c79228b9d2c25a4ca383aa3a867c45ad57429673fd"
+      ],
+      "reason": "The candidate depicts slender, horizontally striped zebrafish-like fish, whereas the real checking reference for Danio margaritatus shows deeper-bodied fish with pale body spots and prominent orange-red-and-black fins. The fish anatomy appears coherent, but the species identity is incorrect.",
+      "note": "The candidate depicts slender, horizontally striped zebrafish-like fish, whereas the real checking reference for Danio margaritatus shows deeper-bodied fish with pale body spots and prominent orange-red-and-black fins. The fish anatomy appears coherent, but the species identity is incorrect."
+    },
+    {
+      "id": "wrong-harlequin-neon",
+      "expected": "refuse",
+      "actual": "fail",
+      "conflicts": 0,
+      "pixelHash": "321b17153c42e5bc1f9e1ec4ffcd5849d2c777ee035d8354f8491bae81f31990",
+      "referenceHash": "4049242def12ba355feaf2e9d19d34cbc0a5ad64dd8d8839388b1a5de3afef98",
+      "realReferenceHashes": [
+        "dd9012d07cd20f2c912a06d27a9daf55172d97ff7a6e1c3d96edcaee0dfe8bd8"
+      ],
+      "reason": "The candidate depicts a neon-tetra-like fish with a bright blue longitudinal stripe and red rear stripe. The real checking image for Trigonostigma heteromorpha shows deeper-bodied harlequin rasboras with a large black triangular flank patch and reddish fins. The candidate’s general fish anatomy appears intact, but it is the wrong species.",
+      "note": "The candidate depicts a neon-tetra-like fish with a bright blue longitudinal stripe and red rear stripe. The real checking image for Trigonostigma heteromorpha shows deeper-bodied harlequin rasboras with a large black triangular flank patch and reddish fins. The candidate’s general fish anatomy appears intact, but it is the wrong species."
+    },
+    {
+      "id": "wrong-cory-altum",
+      "expected": "refuse",
+      "actual": "fail",
+      "conflicts": 0,
+      "pixelHash": "53d14c0f631a48f063448267dc600f702807d82f3809c0975f72e10806134399",
+      "referenceHash": "ae101e900781d3a79908a43f44fbcc25731f781fdcefa28745550588ce2ce026",
+      "realReferenceHashes": [
+        "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d"
+      ],
+      "reason": "The candidate depicts a deep, laterally compressed angelfish with tall triangular fins and long filamentous rays. The real checking reference depicts Corydoras aeneus, a horizontally elongated bottom-dwelling catfish with barbels and a very different fin and body structure. No numbered facts were supplied.",
+      "note": "The candidate depicts a deep, laterally compressed angelfish with tall triangular fins and long filamentous rays. The real checking reference depicts Corydoras aeneus, a horizontally elongated bottom-dwelling catfish with barbels and a very different fin and body structure. No numbered facts were supplied."
+    },
+    {
+      "id": "wrong-anubias-bacopa",
+      "expected": "refuse",
+      "actual": "fail",
+      "conflicts": 0,
+      "pixelHash": "84bb56dca91bf701879fff3d750c0ff16cf2c1a063b6adecb18e6719183036a3",
+      "referenceHash": "9ed3fd067a8fa2f920a49e01823f539fb67c706436bd74608c80f8a869e8317e",
+      "realReferenceHashes": [
+        "e59002ffbb5f5f25219e06144b03838de15be55b1eb39490d5898642f35edf1a"
+      ],
+      "reason": "The candidate shows a dense upright mat of small opposite leaves with blue flowers, unlike the real Anubias barteri reference, which has large broad leaves on distinct petioles arising from a rhizome in an aquarium. A background plant label/sign is also visible.",
+      "note": "The candidate shows a dense upright mat of small opposite leaves with blue flowers, unlike the real Anubias barteri reference, which has large broad leaves on distinct petioles arising from a rhizome in an aquarium. A background plant label/sign is also visible."
+    },
+    {
+      "id": "wrong-bacopa-rotala",
+      "expected": "refuse",
+      "actual": "fail",
+      "conflicts": 0,
+      "pixelHash": "aac18c02113c4ef162fa99a228667db1a130f63ed00c43c8f0d9e893ff70bf5c",
+      "referenceHash": "4f87982681204bfc81200638791f91bfdf95b68b25063e9b649390b44d4a0ca5",
+      "realReferenceHashes": [
+        "b5aebe12404e48037d03c8f35e5867d427d66ad894ffd9e0a7d0c02ff158759d"
+      ],
+      "reason": "The candidate shows narrow, elongated, pointed leaves on reddish stems, unlike the real Bacopa caroliniana reference, which shows broad, thick, rounded-to-ovate opposite leaves and a compact upright growth habit. The leaf anatomy and overall plant identity therefore disagree with the independent reference.",
+      "note": "The candidate shows narrow, elongated, pointed leaves on reddish stems, unlike the real Bacopa caroliniana reference, which shows broad, thick, rounded-to-ovate opposite leaves and a compact upright growth habit. The leaf anatomy and overall plant identity therefore disagree with the independent reference."
+    },
+    {
+      "id": "wrong-rotala-monte",
+      "expected": "refuse",
+      "actual": "fail",
+      "conflicts": 0,
+      "pixelHash": "7df261dbf4c1a7beef43cbb1353bc68bcc77c886b34d58d46579c28487a284c7",
+      "referenceHash": "10f38828447dd4fd0d37eb86cf30313a2ef854031b671e866e554c047ae08bd3",
+      "realReferenceHashes": [
+        "63077ed02d287be9ccb62070dc5469f4d2c26f372ddff325807156c493d1aa6b"
+      ],
+      "reason": "The candidate shows a low, creeping carpet with small rounded-to-ovate leaves. The real checking reference shows an upright, bunching stem plant with distinctly narrow, elongated leaves. These visible differences in leaf shape and growth habit contradict the supplied Rotala rotundifolia reference.",
+      "note": "The candidate shows a low, creeping carpet with small rounded-to-ovate leaves. The real checking reference shows an upright, bunching stem plant with distinctly narrow, elongated leaves. These visible differences in leaf shape and growth habit contradict the supplied Rotala rotundifolia reference."
+    },
+    {
+      "id": "lookalike-paracheirodon-innesi--paracheirodon-simulans",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Paracheirodon innesi reference. Its blue-green stripe continues strongly to the tail base and the reddish coloration is comparatively diffuse beneath it, whereas the reference has a blue stripe ending before the caudal region and a broad, vivid red posterior stripe. The fish anatomy appears complete and plausible. No numbered facts were supplied.",
+      "conflicts": 0,
+      "pixelHash": "817e774e2e656ddbb23432c38eeeb673abe8f91c4f03134ec4e240927e3ee9fc",
+      "referenceHash": "ef4c54293037adf4ce35ef271ec258579fa48b23aa8e1f86d67c9b08f2742d31",
+      "realReferenceHashes": [
+        "a5d54b125dbdd3e90d107fad4f3e0ff5f74f9b7c379fc429bcbe0e295fb4aa02"
+      ],
+      "note": "The candidate does not match the real Paracheirodon innesi reference. Its blue-green stripe continues strongly to the tail base and the reddish coloration is comparatively diffuse beneath it, whereas the reference has a blue stripe ending before the caudal region and a broad, vivid red posterior stripe. The fish anatomy appears complete and plausible. No numbered facts were supplied."
+    },
+    {
+      "id": "lookalike-paracheirodon-simulans--paracheirodon-innesi",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Paracheirodon simulans reference. Its broad, intense red band begins around mid-body, while its blue stripe weakens before the caudal base—features consistent with the depicted P. innesi look-alike. The checking reference shows a blue stripe continuing strongly to the caudal base and a narrower, less dominant red area beneath it. The candidate otherwise has coherent fish anatomy with the expected fins visible.",
+      "conflicts": 0,
+      "pixelHash": "2215a5ffe8e95c6121a56473099db038609315ab713788d15d4df935e148a393",
+      "referenceHash": "ba3e98371167ef473879ae937d6d0bc40ba73def928ede9f5dde1c507dac95f5",
+      "realReferenceHashes": [
+        "3f8dad9fe525a12b8307965b461da9e1393cab0f844ab93fb5a1fa82b70708ae"
+      ],
+      "note": "The candidate does not match the real Paracheirodon simulans reference. Its broad, intense red band begins around mid-body, while its blue stripe weakens before the caudal base—features consistent with the depicted P. innesi look-alike. The checking reference shows a blue stripe continuing strongly to the caudal base and a narrower, less dominant red area beneath it. The candidate otherwise has coherent fish anatomy with the expected fins visible."
+    },
+    {
+      "id": "lookalike-trigonostigma-espei--trigonostigma-hengeli",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate is a normally formed fish, but it does not match the real Trigonostigma espei reference. Its body is predominantly pale silver-green, with a narrow orange line above a long, broad black lateral marking. The checking reference shows a strongly orange-red body and a distinct dark lambchop-shaped marking. With no numbered facts supplied, there are no fact-number conflicts to list.",
+      "conflicts": 0,
+      "pixelHash": "45f8388141466c09c940f7c2ccfe8c1d4d0ce9768de3d7840b34b9f949bedc35",
+      "referenceHash": "a94931e7c27396be9783fcf22e1599df8bd1fc828389119979b8648f538ee069",
+      "realReferenceHashes": [
+        "689cc61717d9393ffc93bf1e17fd48de886333cccd273ed8821d9dfc30aeaf20"
+      ],
+      "note": "The candidate is a normally formed fish, but it does not match the real Trigonostigma espei reference. Its body is predominantly pale silver-green, with a narrow orange line above a long, broad black lateral marking. The checking reference shows a strongly orange-red body and a distinct dark lambchop-shaped marking. With no numbered facts supplied, there are no fact-number conflicts to list."
+    },
+    {
+      "id": "lookalike-trigonostigma-hengeli--trigonostigma-espei",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real checking reference for Trigonostigma hengeli. It has a broadly orange-red body and a large deep triangular black marking, whereas the reference shows a mostly translucent silver-green body with a narrow bright orange stripe above a slimmer black marking. The visible fish anatomy and fin arrangement appear plausible, but the diagnostic coloration and flank pattern indicate a different look-alike species.",
+      "conflicts": 0,
+      "pixelHash": "6c81611142e69f9201cabeada45dbddc3e55e37c61f01a75e5d73d7002b653a1",
+      "referenceHash": "fa33f9eae1c0fa113d2b6aafe0d2466401e58fe7527bda8b52f6e27b248ebfee",
+      "realReferenceHashes": [
+        "bfdef6332e9d0f676c14a954520b7880b230c88a18cb7a5adace36c75ff71033"
+      ],
+      "note": "The candidate does not match the real checking reference for Trigonostigma hengeli. It has a broadly orange-red body and a large deep triangular black marking, whereas the reference shows a mostly translucent silver-green body with a narrow bright orange stripe above a slimmer black marking. The visible fish anatomy and fin arrangement appear plausible, but the diagnostic coloration and flank pattern indicate a different look-alike species."
+    },
+    {
+      "id": "lookalike-corydoras-adolfoi--corydoras-burgessi",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Corydoras adolfoi reference. The reference fish show a distinct orange patch behind the head and a narrow black dorsal stripe extending rearward toward the tail; the candidate lacks the orange patch and instead has a broad black shoulder/dorsal saddle. Its visible fish anatomy appears coherent, with no missing, fused, or invented fins.",
+      "conflicts": 0,
+      "pixelHash": "a42c81ad573b3413a787d3f92bd6cc4718e06fb3ecc1ea11585fd45ed1931016",
+      "referenceHash": "01bbfd5f60b2925070ba2ddcef0a57b336a4c110f3e5a1d630300ccdef60d4f7",
+      "realReferenceHashes": [
+        "8afd69de4a29bf5c3e36548f4ed09aabefb1b086448d1786267ce3af2a9f4acf"
+      ],
+      "note": "The candidate does not match the real Corydoras adolfoi reference. The reference fish show a distinct orange patch behind the head and a narrow black dorsal stripe extending rearward toward the tail; the candidate lacks the orange patch and instead has a broad black shoulder/dorsal saddle. Its visible fish anatomy appears coherent, with no missing, fused, or invented fins."
+    },
+    {
+      "id": "lookalike-corydoras-burgessi--corydoras-adolfoi",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Corydoras burgessi reference. It shows a vivid orange head/shoulder patch and a long dark dorsal stripe extending toward the tail, while the reference fish has a broad black saddle concentrated around the dorsal-fin base and a largely unmarked pale rear body. The fish anatomy appears plausible. No numbered facts were supplied.",
+      "conflicts": 0,
+      "pixelHash": "76e424e64387b21c47a11c7afadaa915274dcf41da5d2c2e7e014aff333f3bce",
+      "referenceHash": "77bd859fcb4fbb0aeccaab8eb2afb3507021613e1a43130d13d773145e86e741",
+      "realReferenceHashes": [
+        "94625b07a1c59158866206747d42396c6977d38a476c3c09f3011c18484fa2fd"
+      ],
+      "note": "The candidate does not match the real Corydoras burgessi reference. It shows a vivid orange head/shoulder patch and a long dark dorsal stripe extending toward the tail, while the reference fish has a broad black saddle concentrated around the dorsal-fin base and a largely unmarked pale rear body. The fish anatomy appears plausible. No numbered facts were supplied."
+    },
+    {
+      "id": "lookalike-corydoras-sterbai--corydoras-haraldschultzi",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Corydoras sterbai reference. Its head has dark maze-like markings over a pale brown ground and its trunk is predominantly pale with dark markings; the reference shows the characteristic opposite pattern, with pale spots and markings on a predominantly dark head and anterior body. The fish anatomy appears complete and plausible, but the visible coloration and pattern support a look-alike rather than C. sterbai.",
+      "conflicts": 0,
+      "pixelHash": "7d55e667366ed881261c155b095915e15dbe4064c457ccd9d46bca2df90b0e5c",
+      "referenceHash": "29455c96557a2c25267ffa22cf9052584e94ec2cd295500b7ed9b2e7c7bd35f5",
+      "realReferenceHashes": [
+        "9eec27ed211b71a4fe072a612dcc5508f4f3aa9d4d901f49b06a54d5f59c0b4c"
+      ],
+      "note": "The candidate does not match the real Corydoras sterbai reference. Its head has dark maze-like markings over a pale brown ground and its trunk is predominantly pale with dark markings; the reference shows the characteristic opposite pattern, with pale spots and markings on a predominantly dark head and anterior body. The fish anatomy appears complete and plausible, but the visible coloration and pattern support a look-alike rather than C. sterbai."
+    },
+    {
+      "id": "lookalike-corydoras-haraldschultzi--corydoras-sterbai",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate contradicts the real checking reference in species-defining coloration and pattern. It has a dark head and anterior body covered with pale round spots, a nearly black mid-body with pale horizontal markings, and strongly orange pectoral fins. The reference has a pale-to-rust head with dark reticulated markings and a paler body patterned by dark broken lines and spots. The candidate is anatomically plausible as a Corydoras-type catfish, but it does not accurately depict the referenced Corydoras haraldschultzi.",
+      "conflicts": 0,
+      "pixelHash": "8f5f98a5af7a43e08cd7df6b06f71ddb474497e7ab66ebee44169a8d87cc4194",
+      "referenceHash": "e19aefa1a6c4b2979c8d80f85313274b2c2a206209605ab5763b886851cb47d2",
+      "realReferenceHashes": [
+        "6db7ebd98339af6e97683bc26e95259d2ca32f97f916ea64fb326850a34f389f"
+      ],
+      "note": "The candidate contradicts the real checking reference in species-defining coloration and pattern. It has a dark head and anterior body covered with pale round spots, a nearly black mid-body with pale horizontal markings, and strongly orange pectoral fins. The reference has a pale-to-rust head with dark reticulated markings and a paler body patterned by dark broken lines and spots. The candidate is anatomically plausible as a Corydoras-type catfish, but it does not accurately depict the referenced Corydoras haraldschultzi."
+    },
+    {
+      "id": "lookalike-corydoras-melini--corydoras-panda",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Corydoras melini reference. It has a separate dark caudal-peduncle blotch and lacks the reference fish’s continuous dark dorsal stripe running from behind the head toward the tail. Its visible fish anatomy appears coherent, but the markings support a different look-alike species.",
+      "conflicts": 0,
+      "pixelHash": "00f874a61a7ab8e58b364f78b0d3212a6140a1fbfb1372c49b368c9f68bf3566",
+      "referenceHash": "09f15002e747f8dab604599d6d9969abae410a39736dd510d7639ed96471b2cc",
+      "realReferenceHashes": [
+        "2dfb110f120bb28bf6e8f6b3be15668b27cac8c3518641afd507af040fd0986a"
+      ],
+      "note": "The candidate does not match the real Corydoras melini reference. It has a separate dark caudal-peduncle blotch and lacks the reference fish’s continuous dark dorsal stripe running from behind the head toward the tail. Its visible fish anatomy appears coherent, but the markings support a different look-alike species."
+    },
+    {
+      "id": "lookalike-corydoras-panda--corydoras-melini",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate is a plausible Corydoras, but its long continuous dark stripe along the dorsal back to the tail contradicts the real Corydoras panda reference, which shows a separate dark eye mask, dark dorsal fin, and distinct rounded caudal-peduncle patch. The candidate therefore depicts the wrong look-alike species.",
+      "conflicts": 0,
+      "pixelHash": "1db7d7f622f81b25eb5f7fe572fb164e1bb4bb6e3bf933c836dbe873e2e099fd",
+      "referenceHash": "5b2c7fc00e7dfa42b274643add2c9cebb3feef4ec4113d09907210e9d8ba1d7d",
+      "realReferenceHashes": [
+        "4e6029fcd559123b65559c1e811f26edb49bd83980e0807a92629a1def55c3fc"
+      ],
+      "note": "The candidate is a plausible Corydoras, but its long continuous dark stripe along the dorsal back to the tail contradicts the real Corydoras panda reference, which shows a separate dark eye mask, dark dorsal fin, and distinct rounded caudal-peduncle patch. The candidate therefore depicts the wrong look-alike species."
+    },
+    {
+      "id": "lookalike-danio-rerio--danio-kyathit",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate has several continuous horizontal body stripes and orange-edged fins, while the real Danio rerio checking image shows a dense spotted/reticulated flank pattern and different fin markings. The fish anatomy appears coherent, but the candidate does not match the independently supplied species reference. No numbered source facts were provided.",
+      "conflicts": 0,
+      "pixelHash": "c088381a309e6e715940b55f83050bd7956094710b1d29fe09bdaea180198c2a",
+      "referenceHash": "1ffacedce78061bc81fbda92482f51b14fe4f1d05a8fa029833a24b890c9cd20",
+      "realReferenceHashes": [
+        "51e76584180a6307df3c0cbe3ff87f8b9a957c18eda8756d18501839298b7389"
+      ],
+      "note": "The candidate has several continuous horizontal body stripes and orange-edged fins, while the real Danio rerio checking image shows a dense spotted/reticulated flank pattern and different fin markings. The fish anatomy appears coherent, but the candidate does not match the independently supplied species reference. No numbered source facts were provided."
+    },
+    {
+      "id": "lookalike-danio-kyathit--danio-rerio",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate has a dense spotted/reticulated flank pattern, while the real checking reference shows several continuous horizontal blue-and-pale stripes with orange-red fins. This is a decisive visible identity mismatch for Danio kyathit as represented by the supplied independent reference. The candidate otherwise shows plausible fish anatomy with no clearly invented or missing fins.",
+      "conflicts": 0,
+      "pixelHash": "fce463a5603dcc39bc5434e4e621656e5ad6aaf894d137d9b52d439023b3586e",
+      "referenceHash": "7dc3423364e9ee9a389ac7d507091a7f206bb9cb2fc52ae2408ae500872db839",
+      "realReferenceHashes": [
+        "287c11128957e2e7365ed8cc35dffb55822cff7c1595d96ebd1f90ee60a46f49"
+      ],
+      "note": "The candidate has a dense spotted/reticulated flank pattern, while the real checking reference shows several continuous horizontal blue-and-pale stripes with orange-red fins. This is a decisive visible identity mismatch for Danio kyathit as represented by the supplied independent reference. The candidate otherwise shows plausible fish anatomy with no clearly invented or missing fins."
+    },
+    {
+      "id": "lookalike-boraras-brigittae--boraras-merah",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Boraras brigittae reference. It has a short, isolated dark flank blotch, whereas the checking image shows a long dark lateral stripe extending across most of the trunk. The candidate appears to depict a different Boraras species. Its visible fish anatomy is otherwise coherent. No numbered facts were supplied.",
+      "conflicts": 0,
+      "pixelHash": "219787548a5471756503a9e9b1b160b0b33947f2521988a7b0988d8dc9e547b1",
+      "referenceHash": "886a0c9c42e7f41c55bef4512f144036ec549699f930b7602449ceab4bf79386",
+      "realReferenceHashes": [
+        "b63e93ae0a51045aaade1f09e606f789a58a3d45ed4ddf83706e215faf851be4"
+      ],
+      "note": "The candidate does not match the real Boraras brigittae reference. It has a short, isolated dark flank blotch, whereas the checking image shows a long dark lateral stripe extending across most of the trunk. The candidate appears to depict a different Boraras species. Its visible fish anatomy is otherwise coherent. No numbered facts were supplied."
+    },
+    {
+      "id": "lookalike-boraras-merah--boraras-brigittae",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate has a broad, continuous dark lateral stripe extending along most of the trunk, unlike the real Boraras merah reference, which shows a distinct oval dark flank blotch followed by a much narrower posterior line. This conspicuous pattern mismatch indicates a look-alike rather than an accurate B. merah depiction. The visible fish anatomy appears coherent, with no clearly missing, fused, or invented fins.",
+      "conflicts": 0,
+      "pixelHash": "95aa031a4cba7e807a4498d298567cee39e08f6958a9100d80ebbbfb668a40f9",
+      "referenceHash": "5106d274dff947add38bacabd4b1386edda8dc071ce27036e71471d02092ba74",
+      "realReferenceHashes": [
+        "ff7e5775f4f12c7395ebffe4e4f32f3d79025eb89acbe978056a6230ae96c2de"
+      ],
+      "note": "The candidate has a broad, continuous dark lateral stripe extending along most of the trunk, unlike the real Boraras merah reference, which shows a distinct oval dark flank blotch followed by a much narrower posterior line. This conspicuous pattern mismatch indicates a look-alike rather than an accurate B. merah depiction. The visible fish anatomy appears coherent, with no clearly missing, fused, or invented fins."
+    },
+    {
+      "id": "lookalike-betta-albimarginata--betta-channoides",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate is a coherent, anatomically plausible betta, but it does not match the real Betta albimarginata reference. The candidate has a largely unspotted brown-red head, a much broader solid-red body, and a broad black caudal margin with a thin pale rim. The reference shows conspicuous dark head spotting, a slimmer profile, and different black-and-white fin patterning. No numbered facts were supplied.",
+      "conflicts": 0,
+      "pixelHash": "61d51320c61cca8b1122bff4fbe9dc4d3e87952d6af09b0a8db82e54e5a6c948",
+      "referenceHash": "822cbfcaf571007443a128a0f090b49439f1ed20ce43ca9ca15a93cbfb8e5ca1",
+      "realReferenceHashes": [
+        "d260bce2e647716457105f4b5bf3a129e9248ec0f950a52e7d93fd0bdaf21f31"
+      ],
+      "note": "The candidate is a coherent, anatomically plausible betta, but it does not match the real Betta albimarginata reference. The candidate has a largely unspotted brown-red head, a much broader solid-red body, and a broad black caudal margin with a thin pale rim. The reference shows conspicuous dark head spotting, a slimmer profile, and different black-and-white fin patterning. No numbered facts were supplied."
+    },
+    {
+      "id": "lookalike-betta-channoides--betta-albimarginata",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Betta channoides reference. It has a slender profile, a pale spotted head, and differently proportioned fins, whereas the reference shows a deeper-bodied red fish with a blunt unspotted head and broad black-and-white fin margins. The fish anatomy itself appears complete and coherent.",
+      "conflicts": 0,
+      "pixelHash": "08645701f92f6dab079aec62213903d834b51957b82c4a40017cacd967178897",
+      "referenceHash": "72dd490d2e6418888a14391bd99eddba094564d62d177dac3c236b422c959782",
+      "realReferenceHashes": [
+        "3a9ba1ecb3e6aac123f998073b0697537c2ab351687ca91df3271e435077d210"
+      ],
+      "note": "The candidate does not match the real Betta channoides reference. It has a slender profile, a pale spotted head, and differently proportioned fins, whereas the reference shows a deeper-bodied red fish with a blunt unspotted head and broad black-and-white fin margins. The fish anatomy itself appears complete and coherent."
+    },
+    {
+      "id": "lookalike-betta-imbellis--betta-smaragdina",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Betta imbellis reference. It has dense, bright turquoise spotting across the body and extensive red coloration through the anal and caudal fins, whereas the reference shows a comparatively plain brown body with sparse iridescence and turquoise fin-ray bands on dark fins. The candidate is a coherent, anatomically plausible betta with no evident missing or fused fins. No numbered facts were supplied.",
+      "conflicts": 0,
+      "pixelHash": "150dcc2eb3bd995bd5eecddec2b1f8f0d38e7bc59df7bcdb590e53dd41bfd33f",
+      "referenceHash": "3e3924b719b02645e3c7d05ef0e138102c17b0100daf8daccb910c52e3d1da02",
+      "realReferenceHashes": [
+        "186bc2a86c8c91f01781285335ee194198f908f12aa79d123404bf20909c276e"
+      ],
+      "note": "The candidate does not match the real Betta imbellis reference. It has dense, bright turquoise spotting across the body and extensive red coloration through the anal and caudal fins, whereas the reference shows a comparatively plain brown body with sparse iridescence and turquoise fin-ray bands on dark fins. The candidate is a coherent, anatomically plausible betta with no evident missing or fused fins. No numbered facts were supplied."
+    },
+    {
+      "id": "lookalike-betta-smaragdina--betta-imbellis",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Betta smaragdina reference. It has a mostly plain brown trunk with sparse turquoise flecks and dark maroon fins, whereas the reference shows dense, bright turquoise scale rows across the trunk and extensive vivid red coloration along the lower body and fins. The fish anatomy appears coherent, but the species depiction is inconsistent with the supplied independent evidence.",
+      "conflicts": 0,
+      "pixelHash": "31ce2abb77d844399123d4debf7db7fb0a9f3ed65e09d64ae2ce7edd095c3667",
+      "referenceHash": "90653eaa93f5485a05fe7bcd9d5ea425fbea211733766d26000ed9023f3181b3",
+      "realReferenceHashes": [
+        "67bbeb5fdfb43fb8ab118ef4e7615c9a251f2d30bad063b0d43478df3551fd0b"
+      ],
+      "note": "The candidate does not match the real Betta smaragdina reference. It has a mostly plain brown trunk with sparse turquoise flecks and dark maroon fins, whereas the reference shows dense, bright turquoise scale rows across the trunk and extensive vivid red coloration along the lower body and fins. The fish anatomy appears coherent, but the species depiction is inconsistent with the supplied independent evidence."
+    },
+    {
+      "id": "lookalike-hyphessobrycon-bentosi--hyphessobrycon-sweglesi",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Hyphessobrycon bentosi reference. It has a conspicuous black humeral spot, a more golden-orange body, and a plain orange dorsal fin, whereas the reference shows no comparable black body spot and has a red dorsal fin with prominent black-and-white tips. The candidate’s visible fish anatomy appears coherent, but the species identity is contradicted by the independent reference.",
+      "conflicts": 0,
+      "pixelHash": "f38727b8dfda979501094035679bd912ac93400e25ebe0c98b17317047b74316",
+      "referenceHash": "09352285fec7841be08084adec53f1dbdcc5b9ea0c1ff8f8bf970ab1dbbdeff2",
+      "realReferenceHashes": [
+        "18ad7b583c2b77be0b13abd85f6cfa27085802cf78de3d7a5b7c74a48263bbee"
+      ],
+      "note": "The candidate does not match the real Hyphessobrycon bentosi reference. It has a conspicuous black humeral spot, a more golden-orange body, and a plain orange dorsal fin, whereas the reference shows no comparable black body spot and has a red dorsal fin with prominent black-and-white tips. The candidate’s visible fish anatomy appears coherent, but the species identity is contradicted by the independent reference."
+    },
+    {
+      "id": "lookalike-hyphessobrycon-sweglesi--hyphessobrycon-bentosi",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Hyphessobrycon sweglesi reference. The reference fish has a conspicuous black humeral blotch behind the gill, a deeper orange-gold body, and differently colored fins; the candidate lacks the black blotch and instead shows a pale silvery-pink body with a strongly patterned red, black, and white dorsal fin. The candidate's visible fish anatomy is coherent, but it depicts the wrong species/look-alike.",
+      "conflicts": 0,
+      "pixelHash": "f985a01d9c56381d50dd63e9a2beba510ea48545fb397d303689b733885c535e",
+      "referenceHash": "25850baacf721fcd22bcc7907e64f839722fd98e5dc87074ca2757d2c14f9c5c",
+      "realReferenceHashes": [
+        "addc6eb1d018f06241ac7689243837e7757bfa4bef8069dad9dad28d594c7b84"
+      ],
+      "note": "The candidate does not match the real Hyphessobrycon sweglesi reference. The reference fish has a conspicuous black humeral blotch behind the gill, a deeper orange-gold body, and differently colored fins; the candidate lacks the black blotch and instead shows a pale silvery-pink body with a strongly patterned red, black, and white dorsal fin. The candidate's visible fish anatomy is coherent, but it depicts the wrong species/look-alike."
+    },
+    {
+      "id": "lookalike-hemigrammus-bleheri--hemigrammus-rhodostomus",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate is a normal, anatomically coherent rummy-nose-type tetra, but it does not match the real Hemigrammus bleheri reference closely enough: its red coloration is confined mainly to the snout and eye area, whereas the checking fish show a broader red mask extending behind the eye toward the gill region. The candidate also has a darker, more strongly defined lateral stripe. These visible differences indicate a look-alike rather than the referenced species.",
+      "conflicts": 0,
+      "pixelHash": "48b0182c24e4e2228b39a6c62fa96d72d4cc47bdb80ff616d248c07210ce3154",
+      "referenceHash": "039cba49f9c9a13e0d56be4842947e803e6e6e52db3453f7a7635d143bdd8309",
+      "realReferenceHashes": [
+        "92c34c54f04052331cfbdbac66f608fec5196317845811eca564289bae59b114"
+      ],
+      "note": "The candidate is a normal, anatomically coherent rummy-nose-type tetra, but it does not match the real Hemigrammus bleheri reference closely enough: its red coloration is confined mainly to the snout and eye area, whereas the checking fish show a broader red mask extending behind the eye toward the gill region. The candidate also has a darker, more strongly defined lateral stripe. These visible differences indicate a look-alike rather than the referenced species."
+    },
+    {
+      "id": "lookalike-hemigrammus-rhodostomus--hemigrammus-bleheri",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the independent reference closely enough for Hemigrammus rhodostomus. Its fish show a much broader red head patch extending well behind the eye, a comparatively opaque pale body, and a different overall caudal-pattern presentation from the reference fish, which has red concentrated at the front of the head and a strongly iridescent silver body. The candidate fish otherwise have plausible tetra anatomy. No numbered facts were supplied.",
+      "conflicts": 0,
+      "pixelHash": "140007d00694c61f1d65052236bd7fba86fb6791b7c3359c8a598472eae55b17",
+      "referenceHash": "08c74fdb5c93c804857bab9dc2cd2bc135832cae65c3c18525802fc89de23f32",
+      "realReferenceHashes": [
+        "811e949a2405cf7f0185e074d0ca1341cb32158ee471e01ef9a056b321f1c344"
+      ],
+      "note": "The candidate does not match the independent reference closely enough for Hemigrammus rhodostomus. Its fish show a much broader red head patch extending well behind the eye, a comparatively opaque pale body, and a different overall caudal-pattern presentation from the reference fish, which has red concentrated at the front of the head and a strongly iridescent silver body. The candidate fish otherwise have plausible tetra anatomy. No numbered facts were supplied."
+    },
+    {
+      "id": "lookalike-desmopuntius-hexazona--desmopuntius-pentazona",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The real checking reference shows a slender, subdued brownish fish with six dark vertical bands and orange fins. The candidate’s main fish is substantially deeper-bodied and pink-gold, with a different band pattern and mostly gray fins; it does not accurately depict Desmopuntius hexazona. The visible fish anatomy is coherent, with no invented or fused fins.",
+      "conflicts": 0,
+      "pixelHash": "9f5243109804717bdb0f58af62c13e37133b31577565c61026162eea1df9bead",
+      "referenceHash": "9aeaf0b98e2d73d56ae6a435f7d55c488d38206ca1e20d80bf7b270c2ecca0d6",
+      "realReferenceHashes": [
+        "eab8f75d63a5a9400fe0eaa7afcdb5c2de039e5c1709d05f1cdd0ef287ec237c"
+      ],
+      "note": "The real checking reference shows a slender, subdued brownish fish with six dark vertical bands and orange fins. The candidate’s main fish is substantially deeper-bodied and pink-gold, with a different band pattern and mostly gray fins; it does not accurately depict Desmopuntius hexazona. The visible fish anatomy is coherent, with no invented or fused fins."
+    },
+    {
+      "id": "lookalike-desmopuntius-pentazona--desmopuntius-hexazona",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate is a more slender, translucent brown fish with a different vertical-bar arrangement and orange fins. The real checking image shows a deeper-bodied, warmer orange Desmopuntius pentazona with five prominent dark bands. The candidate’s visible anatomy is otherwise coherent, with no clearly missing, fused, or invented fins.",
+      "conflicts": 0,
+      "pixelHash": "f4a8b019b96fb8d5d4f23a3b12c7b687d4b988117ed569e576fe1d6dd7c039e4",
+      "referenceHash": "3817332ddcaa6a511795401f4d0e7e6cbd4f7d91f4275b7df9afff719ba9af62",
+      "realReferenceHashes": [
+        "56a960895193e3129f2528ea4e170637e992dbddf1065be54c091bb234cda7bd"
+      ],
+      "note": "The candidate is a more slender, translucent brown fish with a different vertical-bar arrangement and orange fins. The real checking image shows a deeper-bodied, warmer orange Desmopuntius pentazona with five prominent dark bands. The candidate’s visible anatomy is otherwise coherent, with no clearly missing, fused, or invented fins."
+    },
+    {
+      "id": "lookalike-julidochromis-marlieri--julidochromis-transcriptus",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Julidochromis marlieri reference. Its body has broad, mostly continuous dark areas with sparse pale spots and bars, whereas the checking image shows a denser, strongly reticulated/checkered light-and-dark pattern across the body and head. The fish anatomy and visible fins appear coherent, but the species-level pattern disagreement makes the depiction fail.",
+      "conflicts": 0,
+      "pixelHash": "892e53e90771eceb58b37672b4162874456208ead55e2837447cef455790dd5f",
+      "referenceHash": "a5acc45174f1930efa45f5dcbee1d955ca6ebccf2fb384718a3e95678aa64b72",
+      "realReferenceHashes": [
+        "48929b461c69a3328c6061bd598ab7489e98d39a8e7f951c5367ba17e1af8370"
+      ],
+      "note": "The candidate does not match the real Julidochromis marlieri reference. Its body has broad, mostly continuous dark areas with sparse pale spots and bars, whereas the checking image shows a denser, strongly reticulated/checkered light-and-dark pattern across the body and head. The fish anatomy and visible fins appear coherent, but the species-level pattern disagreement makes the depiction fail."
+    },
+    {
+      "id": "lookalike-julidochromis-transcriptus--julidochromis-marlieri",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Julidochromis transcriptus reference. It has a substantially more elongated body and a different black-and-pale pattern dominated by long, continuous horizontal bands and larger lower-body blotches. The reference fish is shorter and deeper-bodied, with more broken pale spots/bars across the dark body. The candidate is anatomically coherent as a fish, with no clearly invented or missing fins. No numbered facts were supplied.",
+      "conflicts": 0,
+      "pixelHash": "be18acec538b4cc4973241119fe36d60c52bcaa07b10847cad31d0126da50c9b",
+      "referenceHash": "ecbc8ed8913d063649c9cebaea7164d7909f8bba6166c828b9891ebab7b486f5",
+      "realReferenceHashes": [
+        "bd542c37a497974f0fe18ed7ad90b1f7b24dc3908e09a49692e3b6eff8b4c98c"
+      ],
+      "note": "The candidate does not match the real Julidochromis transcriptus reference. It has a substantially more elongated body and a different black-and-pale pattern dominated by long, continuous horizontal bands and larger lower-body blotches. The reference fish is shorter and deeper-bodied, with more broken pale spots/bars across the dark body. The candidate is anatomically coherent as a fish, with no clearly invented or missing fins. No numbered facts were supplied."
+    },
+    {
+      "id": "lookalike-tanichthys-albonubes--tanichthys-micagemmae",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate visibly disagrees with the real Tanichthys albonubes reference. It shows a strong dark blue-black lateral band beneath a thin orange stripe, red snouts, and prominent white-and-black fin edging. The reference instead shows a broad pale iridescent lateral stripe, reddish-brown lower flanks, and predominantly red/green fins without that bold white edging. The fish anatomy appears coherent, but the species identity is not supported.",
+      "conflicts": 0,
+      "pixelHash": "8f828fbdf5a8267fbcdca13b7c4a946461ce4e38b89cefda40de0172709731dd",
+      "referenceHash": "d0c33d663e82356ecc2b9ac1f709cb58169555c1cfcddc06a87c802775fe1d7c",
+      "realReferenceHashes": [
+        "84947e13cd7d85a7408ac585a57d861ee2f4c6a9644065354a40d6b0cd2ac1f0"
+      ],
+      "note": "The candidate visibly disagrees with the real Tanichthys albonubes reference. It shows a strong dark blue-black lateral band beneath a thin orange stripe, red snouts, and prominent white-and-black fin edging. The reference instead shows a broad pale iridescent lateral stripe, reddish-brown lower flanks, and predominantly red/green fins without that bold white edging. The fish anatomy appears coherent, but the species identity is not supported."
+    },
+    {
+      "id": "lookalike-tanichthys-micagemmae--tanichthys-albonubes",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real checking reference for Tanichthys micagemmae. It shows a broad pale blue-silver upper band, a thin pink-red stripe, a reddish lower body, and broad red/green dorsal and anal fins. The reference instead shows a strong dark blue-black lateral stripe with a narrow orange stripe above it, an olive-gold body, and distinct white-and-black fin margins. The candidate is anatomically coherent, but its visible coloration and markings indicate a different Tanichthys species.",
+      "conflicts": 0,
+      "pixelHash": "ccc8f61651be0cce391d635bd06712d3a25a9955cc6852e6147d467edaa8560d",
+      "referenceHash": "38176e7bf462e0fe48dfab5f0f60f7fe3761862ae23c1a4d15a686b0dc06a331",
+      "realReferenceHashes": [
+        "c119c7ac77739efc4599d1559fadc2213f611d4e47b14f95a93776669235d8f9"
+      ],
+      "note": "The candidate does not match the real checking reference for Tanichthys micagemmae. It shows a broad pale blue-silver upper band, a thin pink-red stripe, a reddish lower body, and broad red/green dorsal and anal fins. The reference instead shows a strong dark blue-black lateral stripe with a narrow orange stripe above it, an olive-gold body, and distinct white-and-black fin margins. The candidate is anatomically coherent, but its visible coloration and markings indicate a different Tanichthys species."
+    },
+    {
+      "id": "lookalike-poecilia-reticulata--poecilia-wingei",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the supplied real Poecilia reticulata reference. Its colorful male has a small body with bold black-and-orange blocks and narrow sword-like tail extensions, whereas the reference shows a reticulata male with a very large fan-shaped patterned caudal fin, elongated orange dorsal fin, and pale reticulated body pattern. The second candidate fish also does not establish the reference identity. Both candidate fish remain anatomically plausible.",
+      "conflicts": 0,
+      "pixelHash": "2c62bbd955e06afc4a149e0bf296f3c14a8b17307156422318bef8cd1d824d68",
+      "referenceHash": "d8004da850e607a4f7c1488015bb71452c0df170d30d1e20cd4cb83fac52fdb5",
+      "realReferenceHashes": [
+        "8209dac30680ec2ac186dfe956885130d14c424ede6a7c95a3f87455018b11db"
+      ],
+      "note": "The candidate does not match the supplied real Poecilia reticulata reference. Its colorful male has a small body with bold black-and-orange blocks and narrow sword-like tail extensions, whereas the reference shows a reticulata male with a very large fan-shaped patterned caudal fin, elongated orange dorsal fin, and pale reticulated body pattern. The second candidate fish also does not establish the reference identity. Both candidate fish remain anatomically plausible."
+    },
+    {
+      "id": "lookalike-poecilia-wingei--poecilia-reticulata",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate depicts a long, broad, fan-tailed ornamental fish with dense reticulated body and fin markings. The real checking image for Poecilia wingei instead shows a much smaller-tailed male with distinct orange-and-black body patches and a comparatively plain gray female. The candidate therefore does not match the supplied independent species reference, although its visible fish anatomy is coherent.",
+      "conflicts": 0,
+      "pixelHash": "233cfb942359e14d931a1608ee8f1c24ca11679cb3f8107b756f5ebfe024d72c",
+      "referenceHash": "eb6fa1e160fd31317588474fa10e7bf2ce74f0fc82be06a895478375cfb5b80d",
+      "realReferenceHashes": [
+        "b252522f045231a4f6dccedce21b75fa496e07deea8d807163b84c3abddd508a"
+      ],
+      "note": "The candidate depicts a long, broad, fan-tailed ornamental fish with dense reticulated body and fin markings. The real checking image for Poecilia wingei instead shows a much smaller-tailed male with distinct orange-and-black body patches and a comparatively plain gray female. The candidate therefore does not match the supplied independent species reference, although its visible fish anatomy is coherent."
+    },
+    {
+      "id": "lookalike-bacopa-caroliniana--bacopa-monnieri",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Bacopa caroliniana reference. It shows a low, creeping mat with small rounded succulent leaves and conspicuous white flowers, while the reference shows upright stems with larger opposite oval leaves and small pale-blue flowers. The candidate's visible plant anatomy is coherent, but it depicts the wrong species.",
+      "conflicts": 0,
+      "pixelHash": "2378513cf4c46e9356c32200ef58dbb04d060fbcb2669d879032461df944d0ef",
+      "referenceHash": "45e5783c735e6f35b2d9e495dd484c817df1f99908171029c14fc73fdfc5f0c5",
+      "realReferenceHashes": [
+        "8f5d64992364491df453dc483bf3056fd956d3d6f01b97573e2f22ba298eff5a"
+      ],
+      "note": "The candidate does not match the real Bacopa caroliniana reference. It shows a low, creeping mat with small rounded succulent leaves and conspicuous white flowers, while the reference shows upright stems with larger opposite oval leaves and small pale-blue flowers. The candidate's visible plant anatomy is coherent, but it depicts the wrong species."
+    },
+    {
+      "id": "lookalike-bacopa-monnieri--bacopa-caroliniana",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Bacopa monnieri reference. It shows a more upright habit with broader ovate leaves and small blue flowers, while the reference shows a low, creeping mat with smaller obovate/spatulate leaves and substantially larger white flowers. Human parts and a background plant label/sign are visible. No numbered source facts were supplied.",
+      "conflicts": 0,
+      "pixelHash": "84bb56dca91bf701879fff3d750c0ff16cf2c1a063b6adecb18e6719183036a3",
+      "referenceHash": "da12495a1c316566864cf78ad817377eed5f56becc7d11e34831c564c087ddf5",
+      "realReferenceHashes": [
+        "c11b9449dc75fbc5f444e4d08b857cb5692135d518daf6aeab90aaf42880d95d"
+      ],
+      "note": "The candidate does not match the real Bacopa monnieri reference. It shows a more upright habit with broader ovate leaves and small blue flowers, while the reference shows a low, creeping mat with smaller obovate/spatulate leaves and substantially larger white flowers. Human parts and a background plant label/sign are visible. No numbered source facts were supplied."
+    },
+    {
+      "id": "lookalike-bacopa-caroliniana--bacopa-salzmannii",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Bacopa caroliniana reference. It shows a solitary, conspicuously hairy brownish stem with relatively sparse, larger leaves and a pale flower, while the reference shows dense stands of many smoother pale-green stems, regularly paired compact leaves, and blue flowers. The candidate is anatomically coherent as a plant, but its visible species identity fails.",
+      "conflicts": 0,
+      "pixelHash": "025c5b261d9b05e918fb20eb9a0898e4f579af87728763a8a6557a4e2188a9a9",
+      "referenceHash": "45e5783c735e6f35b2d9e495dd484c817df1f99908171029c14fc73fdfc5f0c5",
+      "realReferenceHashes": [
+        "8f5d64992364491df453dc483bf3056fd956d3d6f01b97573e2f22ba298eff5a"
+      ],
+      "note": "The candidate does not match the real Bacopa caroliniana reference. It shows a solitary, conspicuously hairy brownish stem with relatively sparse, larger leaves and a pale flower, while the reference shows dense stands of many smoother pale-green stems, regularly paired compact leaves, and blue flowers. The candidate is anatomically coherent as a plant, but its visible species identity fails."
+    },
+    {
+      "id": "lookalike-bacopa-salzmannii--bacopa-caroliniana",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate visibly disagrees with the real Bacopa salzmannii reference: it forms a dense stand of comparatively smooth, pale stems with numerous blue flowers, whereas the reference shows a prominently hairy tan stem and a pale lilac-white flower. Its basic paired-leaf plant anatomy is coherent, but the species identity is not supported. A blurred plant label containing text is visible in the background.",
+      "conflicts": 0,
+      "pixelHash": "84bb56dca91bf701879fff3d750c0ff16cf2c1a063b6adecb18e6719183036a3",
+      "referenceHash": "82ca0495cd2beac1759740944859276b754f776c716b388242e6ae747d11d791",
+      "realReferenceHashes": [
+        "b341ebccd3f3829f63fd69eeaed8a05400ca0ec25bc6b7b46ec4c82784e26f95"
+      ],
+      "note": "The candidate visibly disagrees with the real Bacopa salzmannii reference: it forms a dense stand of comparatively smooth, pale stems with numerous blue flowers, whereas the reference shows a prominently hairy tan stem and a pale lilac-white flower. Its basic paired-leaf plant anatomy is coherent, but the species identity is not supported. A blurred plant label containing text is visible in the background."
+    },
+    {
+      "id": "lookalike-eleocharis-acicularis--eleocharis-parvula",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate shows a bright, relatively coarse aquarium carpet unlike the real Eleocharis acicularis reference, which has much finer, wiry stems and numerous visible pale terminal spikelets. Although submerged plants may lack visible reproductive structures, the supplied candidate is not supported as an accurate depiction of the named species. No numbered facts were provided.",
+      "conflicts": 0,
+      "pixelHash": "c508ff0671c58a6e37600a223a7ba6817045af5d27c6ad0ea91541103ebca01f",
+      "referenceHash": "a18bd9274183887d1545514faf7da9f8e43e64f3f145caa09b68c940d5009311",
+      "realReferenceHashes": [
+        "e16145a3d652ce52d9520cd665891d81234816f8faa6483079248f29621af06e"
+      ],
+      "note": "The candidate shows a bright, relatively coarse aquarium carpet unlike the real Eleocharis acicularis reference, which has much finer, wiry stems and numerous visible pale terminal spikelets. Although submerged plants may lack visible reproductive structures, the supplied candidate is not supported as an accurate depiction of the named species. No numbered facts were provided."
+    },
+    {
+      "id": "lookalike-eleocharis-parvula--eleocharis-acicularis",
+      "expected": "refuse",
+      "actual": "unsure",
+      "reason": "The candidate visibly depicts a fine, hair-like Eleocharis-type plant with plausible stems and terminal spikelets, but the real reference shows only an aquarium carpet and does not expose diagnostic reproductive details. Species-level separation of E. parvula from close look-alikes cannot be verified from these images alone.",
+      "conflicts": 0,
+      "pixelHash": "3fcba9bad2b9eca99862ae2a3599953d355616a36891875b8f67a3e48b3544a2",
+      "referenceHash": "da9b2c233c76296fffa4aa271ddc7e42c8d5a4510e1cd99b42d22bd01351c405",
+      "realReferenceHashes": [
+        "0d49896e902759be485343a4038a05f3596e873c91211708686a133863db9314"
+      ],
+      "note": "The candidate visibly depicts a fine, hair-like Eleocharis-type plant with plausible stems and terminal spikelets, but the real reference shows only an aquarium carpet and does not expose diagnostic reproductive details. Species-level separation of E. parvula from close look-alikes cannot be verified from these images alone."
+    },
+    {
+      "id": "lookalike-cryptocoryne-beckettii--cryptocoryne-wendtii",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Cryptocoryne beckettii reference. It shows sparse, bright-green, narrow lanceolate leaves on long thin petioles, whereas the reference shows a dense rosette of substantially broader, dark-green leaves with prominent reddish-purple undersides and stems. No numbered facts were supplied.",
+      "conflicts": 0,
+      "pixelHash": "ffb05ce4f12e45b78dd06374621e03c29678d2fc71b18540815337e3ea55fb3f",
+      "referenceHash": "e078c5c532d1f184972e4d332cf6d22d5ec022a87c2e3567a4d3fcac9bacc861",
+      "realReferenceHashes": [
+        "1da8872f7727a5d919c23b0b715081ffb720f6553ced7d8cca7c4a02741a8038"
+      ],
+      "note": "The candidate does not match the real Cryptocoryne beckettii reference. It shows sparse, bright-green, narrow lanceolate leaves on long thin petioles, whereas the reference shows a dense rosette of substantially broader, dark-green leaves with prominent reddish-purple undersides and stems. No numbered facts were supplied."
+    },
+    {
+      "id": "lookalike-cryptocoryne-wendtii--cryptocoryne-beckettii",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Cryptocoryne wendtii reference. It has a dense rosette of broad, dark, glossy leaves with reddish-purple undersides and a conspicuous spathe, whereas the checking image shows narrower, elongated bright-green leaves with gently undulating margins and a more open submerged growth habit. No numbered facts were supplied.",
+      "conflicts": 0,
+      "pixelHash": "e08096b301e0c96875c84e537a7ab8989e852728987f2a23a6260ce82b45cee5",
+      "referenceHash": "36c2db46e121563498d473079084b9c1f873c685670f8c0722d430af4c62d2a3",
+      "realReferenceHashes": [
+        "c66f40d41f11498cf83dfb69d9da4dac0354539620ee3ca02b82b6b4975f2bd7"
+      ],
+      "note": "The candidate does not match the real Cryptocoryne wendtii reference. It has a dense rosette of broad, dark, glossy leaves with reddish-purple undersides and a conspicuous spathe, whereas the checking image shows narrower, elongated bright-green leaves with gently undulating margins and a more open submerged growth habit. No numbered facts were supplied."
+    },
+    {
+      "id": "lookalike-rotala-macrandra--rotala-rotundifolia",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate shows narrow, linear leaves on upright, sparsely spaced stems, with mostly green-to-bronze coloration. The real Rotala macrandra reference shows dense growth with substantially broader, undulating red leaves. This is a clear species-level visual mismatch, although the candidate plant itself has coherent anatomy.",
+      "conflicts": 0,
+      "pixelHash": "aac18c02113c4ef162fa99a228667db1a130f63ed00c43c8f0d9e893ff70bf5c",
+      "referenceHash": "086880a38f9a3eb9e571796604b2c6a64953a16eb9a567be4baf5d477f4dfbb3",
+      "realReferenceHashes": [
+        "73435f6ba3e9286e3886fd92f8bcf08bb77ae738f77f85c111adab595a8db285"
+      ],
+      "note": "The candidate shows narrow, linear leaves on upright, sparsely spaced stems, with mostly green-to-bronze coloration. The real Rotala macrandra reference shows dense growth with substantially broader, undulating red leaves. This is a clear species-level visual mismatch, although the candidate plant itself has coherent anatomy."
+    },
+    {
+      "id": "lookalike-rotala-rotundifolia--rotala-macrandra",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Rotala rotundifolia reference. It shows dense, intensely red growth with relatively broad, wavy leaves, whereas the reference shows upright stems bearing narrower, elongated lanceolate leaves in spaced opposite pairs, predominantly green with reddish upper growth. No numbered facts were provided.",
+      "conflicts": 0,
+      "pixelHash": "a5d831bd3ce7f6ccb15bee3266fd88b08339baaf227a16ec8e6871a5cd34b60e",
+      "referenceHash": "968cca7dbc353879231151d16dc18dda46e024877202dcba7a6712d664600fd4",
+      "realReferenceHashes": [
+        "1e5817b378ebb19a0b4e1b620523c344591135dcdbd2fa2ad40d0b56641fbe99"
+      ],
+      "note": "The candidate does not match the real Rotala rotundifolia reference. It shows dense, intensely red growth with relatively broad, wavy leaves, whereas the reference shows upright stems bearing narrower, elongated lanceolate leaves in spaced opposite pairs, predominantly green with reddish upper growth. No numbered facts were provided."
+    },
+    {
+      "id": "lookalike-hygrophila-corymbosa--hygrophila-polysperma",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate shows a dense, finely branched stem plant with many narrow, small opposite leaves, unlike the real Hygrophila corymbosa reference, which has substantially broader, longer lanceolate leaves on more robust, sparsely presented upright stems. The candidate appears to depict the look-alike H. polysperma rather than the stated species.",
+      "conflicts": 0,
+      "pixelHash": "43fe6f8fe74474fadbb28eb788be50d4ce353553b754a1337725a59e61902586",
+      "referenceHash": "0c2b2e8cb8733563f05a27074997c4ecbbcfca677be3ca2317e8ddefb40516da",
+      "realReferenceHashes": [
+        "b306756ae1397fb4139a955915161f6184c6781f9f807e9dae3b88f33608299b"
+      ],
+      "note": "The candidate shows a dense, finely branched stem plant with many narrow, small opposite leaves, unlike the real Hygrophila corymbosa reference, which has substantially broader, longer lanceolate leaves on more robust, sparsely presented upright stems. The candidate appears to depict the look-alike H. polysperma rather than the stated species."
+    },
+    {
+      "id": "lookalike-hygrophila-polysperma--hygrophila-corymbosa",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real checking image for Hygrophila polysperma. It shows much larger, broader, elongated lanceolate leaves on relatively sparse upright stems, whereas the reference shows a densely branching, bushy plant with numerous smaller, narrower opposite leaves. No numbered facts were supplied.",
+      "conflicts": 0,
+      "pixelHash": "b72e97bea2b2c315c5f80a64f2c509bfdcfce11908e2a8cdc5e0f4a664e0c891",
+      "referenceHash": "ab11561c83984d12f1688464de5d8c6a5f49f0e18bf5de75e67ec69953a2905b",
+      "realReferenceHashes": [
+        "1681a56afec6fe1b05caec3a77e5937daaf3c52aa88c328d3698b10d4b208523"
+      ],
+      "note": "The candidate does not match the real checking image for Hygrophila polysperma. It shows much larger, broader, elongated lanceolate leaves on relatively sparse upright stems, whereas the reference shows a densely branching, bushy plant with numerous smaller, narrower opposite leaves. No numbered facts were supplied."
+    },
+    {
+      "id": "lookalike-pogostemon-deccanensis--pogostemon-stellatus",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate shows broad, flat, visibly serrated leaves in dense radial whorls and no visible flower spikes. The real checking image shows slender needle-like leaves along upright stems and prominent cylindrical purple flower spikes. These are major structural mismatches, so the candidate is not supported as Pogostemon deccanensis.",
+      "conflicts": 0,
+      "pixelHash": "9bd98f513f54635a2a24dff7383b0ee913908b06a5e02086e9704d2ce6e1815e",
+      "referenceHash": "f17ab007033d704d7614a169b7d16c0d0303e3a5f66ec8f8385429a948acfd84",
+      "realReferenceHashes": [
+        "3e1271587b63b3f7897098be83aac3bde95875c5851df7a3c5c24f6e18154308"
+      ],
+      "note": "The candidate shows broad, flat, visibly serrated leaves in dense radial whorls and no visible flower spikes. The real checking image shows slender needle-like leaves along upright stems and prominent cylindrical purple flower spikes. These are major structural mismatches, so the candidate is not supported as Pogostemon deccanensis."
+    },
+    {
+      "id": "lookalike-pogostemon-stellatus--pogostemon-deccanensis",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Pogostemon stellatus reference. It shows upright flower spikes with purple floral rings and very fine, needle-like leaves, whereas the checking image shows broad, elongated, visibly serrated leaves arranged in dense radial whorls. These species-defining leaf form and growth-structure differences make the depiction unsuitable for the stated species.",
+      "conflicts": 0,
+      "pixelHash": "582b6ad1bce615de5d9e86cb9e3938f4e900d1a02507a209e7ad4292ba3b0384",
+      "referenceHash": "1294169d4ddf7ebe38d2c13804614e941ab5ca356dcc70198a00159ba8d51637",
+      "realReferenceHashes": [
+        "a269fc123b84a8793681f57f555f8f7d72a83b5eff5c95977afc4385cdaac8bf"
+      ],
+      "note": "The candidate does not match the real Pogostemon stellatus reference. It shows upright flower spikes with purple floral rings and very fine, needle-like leaves, whereas the checking image shows broad, elongated, visibly serrated leaves arranged in dense radial whorls. These species-defining leaf form and growth-structure differences make the depiction unsuitable for the stated species."
+    },
+    {
+      "id": "lookalike-micranthemum-callitrichoides--glossostigma-elatinoides",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Micranthemum callitrichoides reference. It has substantially larger, elongated/spoon-shaped leaves and a coarser, taller growth habit, while the reference shows a dense low carpet of much smaller, round leaves.",
+      "conflicts": 0,
+      "pixelHash": "8f5ddba393271b8892116ad9ec27f1a39db53788b42223481ff67bb58eb78835",
+      "referenceHash": "8e3c81b0ca71b9cb7d53f9cb70da37f6183872e173dc113e8cfebece20a73609",
+      "realReferenceHashes": [
+        "c53ca6e7b4f33e4e9995ff774180055e9fe18784af1568a81da924b2b3d4c7af"
+      ],
+      "note": "The candidate does not match the real Micranthemum callitrichoides reference. It has substantially larger, elongated/spoon-shaped leaves and a coarser, taller growth habit, while the reference shows a dense low carpet of much smaller, round leaves."
+    },
+    {
+      "id": "lookalike-glossostigma-elatinoides--micranthemum-callitrichoides",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate’s dominant carpet has much smaller, densely packed round leaves than the real Glossostigma elatinoides reference, which shows conspicuously larger oval-to-spatulate paired leaves on visible stalks. The candidate therefore does not accurately depict the referenced species. No numbered facts were supplied.",
+      "conflicts": 0,
+      "pixelHash": "cb9b03e05463113bf43b5f825118df386a6487550a58d8674b0b35dea98a528b",
+      "referenceHash": "6eca34d464c5aecc972863adeebe3928d915f07a62457378d358d638e2313b15",
+      "realReferenceHashes": [
+        "9f0a934d6a9e683bb69a32240e7dda1e5c1502635a22df239aa6d424937865a4"
+      ],
+      "note": "The candidate’s dominant carpet has much smaller, densely packed round leaves than the real Glossostigma elatinoides reference, which shows conspicuously larger oval-to-spatulate paired leaves on visible stalks. The candidate therefore does not accurately depict the referenced species. No numbered facts were supplied."
+    },
+    {
+      "id": "lookalike-hydrocotyle-tripartita--hydrocotyle-verticillata",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Hydrocotyle tripartita reference. Its leaves are predominantly round, shield-like, and undivided on long upright petioles, whereas the checking image shows a dense creeping mat of distinctly three-part, deeply lobed leaves. These visible differences contradict both the species identity and characteristic leaf anatomy/growth habit.",
+      "conflicts": 0,
+      "pixelHash": "fe49b6941b52a9741f010c61b1c2e897d92131d3e2d71e64635591766ec9ea82",
+      "referenceHash": "338fc5859faa1d596ce5e0e9b6aa4ccc5fa09f77161c0fc778d9d2d9931b2982",
+      "realReferenceHashes": [
+        "bd9e6e73d0dd19df40ae1cb9416d8fcf7294338af762ee724304a5fdddc3a0d2"
+      ],
+      "note": "The candidate does not match the real Hydrocotyle tripartita reference. Its leaves are predominantly round, shield-like, and undivided on long upright petioles, whereas the checking image shows a dense creeping mat of distinctly three-part, deeply lobed leaves. These visible differences contradict both the species identity and characteristic leaf anatomy/growth habit."
+    },
+    {
+      "id": "lookalike-hydrocotyle-verticillata--hydrocotyle-tripartita",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate shows a dense creeping mat of deeply divided, typically three-part lobed leaves, unlike the real Hydrocotyle verticillata reference, which shows round, peltate leaves held on long upright petioles. This is a decisive mismatch in species identity, leaf anatomy, and growth habit.",
+      "conflicts": 0,
+      "pixelHash": "35143041e55fa14100818f55f3c4efaca26b6ee68e7b7393002ddd74fd714cf3",
+      "referenceHash": "18f94d015865b40d352b70505c99d851163c6c79bef3fb4208d1bdcc6ed20b3c",
+      "realReferenceHashes": [
+        "dbd8cc233d0e7c9ae03f68d1eb4409fdef5749d5c987e1b2625210a76dd683ca"
+      ],
+      "note": "The candidate shows a dense creeping mat of deeply divided, typically three-part lobed leaves, unlike the real Hydrocotyle verticillata reference, which shows round, peltate leaves held on long upright petioles. This is a decisive mismatch in species identity, leaf anatomy, and growth habit."
+    },
+    {
+      "id": "lookalike-vesicularia-montagnei--taxiphyllum-barbieri",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate shows long, loose, stringy, irregular moss growth, whereas the real reference shows compact, densely branched fronds with broader, more regularly arranged leaves. These visible differences contradict an accurate depiction of Vesicularia montagnei.",
+      "conflicts": 0,
+      "pixelHash": "3a288187ac713ef6f5ba67c838ff7c591c0c5dda7b2425605f5a03a03dac1b70",
+      "referenceHash": "c94af90ad85c7a0e30212c86d747a345dee39794ac0175f68eefc7140495a74d",
+      "realReferenceHashes": [
+        "cd2a17323854fa98a15bf8ebd9d624f0d8bdc6c76b92d56a7f811070e885093e"
+      ],
+      "note": "The candidate shows long, loose, stringy, irregular moss growth, whereas the real reference shows compact, densely branched fronds with broader, more regularly arranged leaves. These visible differences contradict an accurate depiction of Vesicularia montagnei."
+    },
+    {
+      "id": "lookalike-taxiphyllum-barbieri--vesicularia-montagnei",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Taxiphyllum barbieri reference. It shows a dense, compact mound of broad, blunt, repeatedly forked green structures, while the checking image shows long, loose, trailing stems with fine, narrow, feathery leaves. This is a substantive growth-habit and leaf/stem morphology mismatch, not ordinary viewing variation.",
+      "conflicts": 0,
+      "pixelHash": "d866faf8d0c89cfe9744ea19374a4084fc64d22479139ac39a582bde4a96b46b",
+      "referenceHash": "812610f575e5caeb91f60786c78c46d48994766155b145a2356e4b49d8f72b5f",
+      "realReferenceHashes": [
+        "2bc2f9b27df6216ac5f74001f24600aa7a653a4c9e031ac023486b71966b10aa"
+      ],
+      "note": "The candidate does not match the real Taxiphyllum barbieri reference. It shows a dense, compact mound of broad, blunt, repeatedly forked green structures, while the checking image shows long, loose, trailing stems with fine, narrow, feathery leaves. This is a substantive growth-habit and leaf/stem morphology mismatch, not ordinary viewing variation."
+    },
+    {
+      "id": "lookalike-bolbitis-heudelotii--bolbitis-heteroclita",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate shows a compact, low-growing fern with short, densely clustered, broad and strongly ruffled/lobed leaves. The real Bolbitis heudelotii reference instead shows elongated pinnate fronds with long, narrow, pointed segments along a central axis. This clear leaf-shape and growth-habit mismatch contradicts the supplied species identity.",
+      "conflicts": 0,
+      "pixelHash": "54412bd55b1e79cf883a2514c3d15aa85d75286e6eb89353b80cab3bdf65aa33",
+      "referenceHash": "ee35aa3399b05544763a1894454e98330eb0da112e7c40302fbcd42b80b6a149",
+      "realReferenceHashes": [
+        "36e4c59757de396ff61155fe3ce36638ff32dae1c4c390928e002ac8d99b2d63"
+      ],
+      "note": "The candidate shows a compact, low-growing fern with short, densely clustered, broad and strongly ruffled/lobed leaves. The real Bolbitis heudelotii reference instead shows elongated pinnate fronds with long, narrow, pointed segments along a central axis. This clear leaf-shape and growth-habit mismatch contradicts the supplied species identity."
+    },
+    {
+      "id": "lookalike-bolbitis-heteroclita--bolbitis-heudelotii",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Bolbitis heteroclita reference. It shows long, narrow, deeply divided fronds with widely spaced lobes, whereas the reference shows a compact rhizomatous plant bearing much smaller, densely clustered, curled or ruffled lobed leaves. No numbered source facts were provided.",
+      "conflicts": 0,
+      "pixelHash": "5fb6e666910cbdde204c199ab0bd94e3cf79d7fc5acfff3a97dc374e27223301",
+      "referenceHash": "a13e2ea285f31b21a46c157e994dfd7f0bf4cc79181039c908a999a82557c73d",
+      "realReferenceHashes": [
+        "3d614384d34b3c548ab6d573b1303c4ed12a232155df7e513ca7a033e23dcd24"
+      ],
+      "note": "The candidate does not match the real Bolbitis heteroclita reference. It shows long, narrow, deeply divided fronds with widely spaced lobes, whereas the reference shows a compact rhizomatous plant bearing much smaller, densely clustered, curled or ruffled lobed leaves. No numbered source facts were provided."
+    },
+    {
+      "id": "lookalike-sagittaria-subulata--helanthium-tenellum",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real checking reference for Sagittaria subulata. It prominently shows white three-petaled flowers on thin stalks amid mixed terrestrial vegetation, while the reference shows a dense aquatic rosette-like growth of smooth, narrow strap-shaped leaves. The candidate’s visible growth habit and dominant structures therefore do not provide an accurate species depiction.",
+      "conflicts": 0,
+      "pixelHash": "1112c5730637e6a24fd86c449b7c5004922bd9e4cd877f474ccbe0b015e45ad2",
+      "referenceHash": "63b0be3d09cffc4f2e7e7319dc7097134d9c94756cf7d23d47a1390dd9262539",
+      "realReferenceHashes": [
+        "94760fca0a3e134053d58b016a43501b88ee8755c6b650e9e8817edefb8fdabe"
+      ],
+      "note": "The candidate does not match the real checking reference for Sagittaria subulata. It prominently shows white three-petaled flowers on thin stalks amid mixed terrestrial vegetation, while the reference shows a dense aquatic rosette-like growth of smooth, narrow strap-shaped leaves. The candidate’s visible growth habit and dominant structures therefore do not provide an accurate species depiction."
+    },
+    {
+      "id": "lookalike-helanthium-tenellum--sagittaria-subulata",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Helanthium tenellum reference. It shows a dense aquatic rosette of relatively broad, blunt-ended strap leaves, while the reference shows much narrower grasslike leaves and three-petaled white flowers on slender stalks. The visible growth habit and leaf anatomy therefore support a different plant identity.",
+      "conflicts": 0,
+      "pixelHash": "e42aa174642b3616cf0f21f1d51ad7f07ef1f60f510fcf450cca02e22ce57cd1",
+      "referenceHash": "0ddc0bc58c333a0501180ee807e2ca9f32cea4f1887544c624ce8d0a7457c7d0",
+      "realReferenceHashes": [
+        "3599af7a8d8d222ffadb4b88073ce4c712bbc202b34001a3781ef057a3c3a865"
+      ],
+      "note": "The candidate does not match the real Helanthium tenellum reference. It shows a dense aquatic rosette of relatively broad, blunt-ended strap leaves, while the reference shows much narrower grasslike leaves and three-petaled white flowers on slender stalks. The visible growth habit and leaf anatomy therefore support a different plant identity."
+    },
+    {
+      "id": "lookalike-riccia-fluitans--monosolenium-tenerum",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate has broad, thick, leaflike thallus lobes forming an upright clump, unlike the real Riccia fluitans reference, which shows much narrower, repeatedly forked ribbonlike branches in a fine tangled mass. This is a clear identity and plant-anatomy mismatch.",
+      "conflicts": 0,
+      "pixelHash": "30f1952934ecf59e72356b104780dce9b32555b1ea9e550e2a5abf6919f612cd",
+      "referenceHash": "d8a17daaca939e94b5f7531c0b183ff5ef4a811f2407584dea6f08861da74706",
+      "realReferenceHashes": [
+        "724c3aeb997ca1b8de9b66329d4d8084beb0bfc47e118332782533b85454e823"
+      ],
+      "note": "The candidate has broad, thick, leaflike thallus lobes forming an upright clump, unlike the real Riccia fluitans reference, which shows much narrower, repeatedly forked ribbonlike branches in a fine tangled mass. This is a clear identity and plant-anatomy mismatch."
+    },
+    {
+      "id": "lookalike-monosolenium-tenerum--riccia-fluitans",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate has a dense mass of very fine, narrow, repeatedly forked branches, unlike the real Monosolenium tenerum reference, which shows substantially broader, flattened, ribbon-like thalli with wide lobes. The visible growth form and leafless thallus anatomy therefore do not support the stated species.",
+      "conflicts": 0,
+      "pixelHash": "2ead7e80859f9400fe8c9d7f7f9188e310fc48fea36794ebe6b4833c3199e0f8",
+      "referenceHash": "a70ada7fac9d4f4d81b036a7c54d4a9c820c1a1ee2207fd51826451300374200",
+      "realReferenceHashes": [
+        "65d2296bc44078688174708443dd5406919a366b414653ee822630ef5b95c6c2"
+      ],
+      "note": "The candidate has a dense mass of very fine, narrow, repeatedly forked branches, unlike the real Monosolenium tenerum reference, which shows substantially broader, flattened, ribbon-like thalli with wide lobes. The visible growth form and leafless thallus anatomy therefore do not support the stated species."
+    },
+    {
+      "id": "lookalike-marsilea-hirsuta--hydrocotyle-tripartita",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate shows dense, deeply lobed three-part leaves characteristic of the pictured Hydrocotyle reference, while the real Marsilea hirsuta reference shows distinct clover-like leaves with four smooth, separate leaflets on long stalks in water. The candidate therefore does not accurately depict Marsilea hirsuta.",
+      "conflicts": 0,
+      "pixelHash": "35143041e55fa14100818f55f3c4efaca26b6ee68e7b7393002ddd74fd714cf3",
+      "referenceHash": "cf811469a2427d5a56ed500497c741dad9fa4d4a3ae0669e719049bad978e4e5",
+      "realReferenceHashes": [
+        "14d8193475ca4e4bc3906493e32bb774000dc84b11c31dc5aeddc416d4de6dcd"
+      ],
+      "note": "The candidate shows dense, deeply lobed three-part leaves characteristic of the pictured Hydrocotyle reference, while the real Marsilea hirsuta reference shows distinct clover-like leaves with four smooth, separate leaflets on long stalks in water. The candidate therefore does not accurately depict Marsilea hirsuta."
+    },
+    {
+      "id": "lookalike-hydrocotyle-tripartita--marsilea-hirsuta",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not depict Hydrocotyle tripartita as shown by the real checking reference. It shows aquatic plants with smooth, clover-like leaflets and floating rosettes, while the reference shows a dense creeping mat of distinctly three-part, lobed leaves. The visible sign also identifies “Marsilea hirsuta,” reinforcing the identity mismatch.",
+      "conflicts": 0,
+      "pixelHash": "487192140061457ac34d4e57c4419f60cd3a726a9bb8c2a062895fc76043089a",
+      "referenceHash": "338fc5859faa1d596ce5e0e9b6aa4ccc5fa09f77161c0fc778d9d2d9931b2982",
+      "realReferenceHashes": [
+        "bd9e6e73d0dd19df40ae1cb9416d8fcf7294338af762ee724304a5fdddc3a0d2"
+      ],
+      "note": "The candidate does not depict Hydrocotyle tripartita as shown by the real checking reference. It shows aquatic plants with smooth, clover-like leaflets and floating rosettes, while the reference shows a dense creeping mat of distinctly three-part, lobed leaves. The visible sign also identifies “Marsilea hirsuta,” reinforcing the identity mismatch."
+    },
+    {
+      "id": "lookalike-mayaca-fluviatilis--limnophila-sessiliflora",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not depict Mayaca fluviatilis as shown by the real checking reference. Its dense, rounded whorls consist of broad, deeply divided or lobed leaves, whereas the reference shows a slender stem bearing separate, simple, narrow, pointed leaves. This is a decisive mismatch in both species identity and leaf anatomy.",
+      "conflicts": 0,
+      "pixelHash": "3796d3d4c27f81de8c093f3baf0b1fb253999003f349797526a961c178a8976a",
+      "referenceHash": "c97850612fe598cb885911a1c7898adf4d301f7f7a82441cb555726c4d4964d7",
+      "realReferenceHashes": [
+        "16afb21b6534e9bef60c930c13ecd5b1623fcb295a6a52f5b13527ddbef512c6"
+      ],
+      "note": "The candidate does not depict Mayaca fluviatilis as shown by the real checking reference. Its dense, rounded whorls consist of broad, deeply divided or lobed leaves, whereas the reference shows a slender stem bearing separate, simple, narrow, pointed leaves. This is a decisive mismatch in both species identity and leaf anatomy."
+    },
+    {
+      "id": "lookalike-limnophila-sessiliflora--mayaca-fluviatilis",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Limnophila sessiliflora reference. It shows simple, narrow, pointed leaves around an exposed upright stem, whereas the reference shows dense, feathery whorls of finely divided leaves. No numbered facts were supplied.",
+      "conflicts": 0,
+      "pixelHash": "3501b37cd1f6afde44949ad53d939d0d577d9de50fc1f76066ddf0d13a6cb8db",
+      "referenceHash": "887321762402be5ac96c3bc6f5e724118b44a1b6ca6ee632d2e4e383142f8405",
+      "realReferenceHashes": [
+        "8ef4c7f6fe18d7209fe8e9d2fbf941e96629843447cbc4109c407e8265659db1"
+      ],
+      "note": "The candidate does not match the real Limnophila sessiliflora reference. It shows simple, narrow, pointed leaves around an exposed upright stem, whereas the reference shows dense, feathery whorls of finely divided leaves. No numbered facts were supplied."
+    },
+    {
+      "id": "lookalike-staurogyne-repens--gratiola-viscidula",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Staurogyne repens reference. It has numerous small white tubular flowers and narrow, sharply serrated leaves, whereas the reference shows a compact aquatic growth habit with broader, smooth-edged lanceolate leaves and no visible flowers. The candidate's plant anatomy appears internally coherent, but it depicts the wrong species.",
+      "conflicts": 0,
+      "pixelHash": "d3bf2d1a50f91db91185d98ea1f782a4ea5c21f9912e045f17bc11600a8c30e6",
+      "referenceHash": "b94f3a30581fcf0f04e0ce56d440eb0f47805803c5f56cf89d32e0cab4a1689a",
+      "realReferenceHashes": [
+        "631f316ab13b8751629bf256103db91864758a6676898ff341b1a3e935461802"
+      ],
+      "note": "The candidate does not match the real Staurogyne repens reference. It has numerous small white tubular flowers and narrow, sharply serrated leaves, whereas the reference shows a compact aquatic growth habit with broader, smooth-edged lanceolate leaves and no visible flowers. The candidate's plant anatomy appears internally coherent, but it depicts the wrong species."
+    },
+    {
+      "id": "lookalike-gratiola-viscidula--staurogyne-repens",
+      "expected": "refuse",
+      "actual": "fail",
+      "reason": "The candidate does not match the real Gratiola viscidula reference. It shows a dense aquatic plant with broad, smooth-edged lanceolate leaves, whereas the reference has much smaller, sharply serrated opposite leaves and numerous small white tubular flowers. The leaf morphology and growth habit contradict the target species.",
+      "conflicts": 0,
+      "pixelHash": "4a59d78ea7f343e893bb0cf30d456894b339408a22c4394031984c1e690ad817",
+      "referenceHash": "631dbb983363ecf94bc77afebcf32b08bba5384cc1ac8c2ec66d31bd06125cd7",
+      "realReferenceHashes": [
+        "05066fabb39dc92ff685c7ba0a63a87193e2b6034fa0f4c84e81981b5b52f422"
+      ],
+      "note": "The candidate does not match the real Gratiola viscidula reference. It shows a dense aquatic plant with broad, smooth-edged lanceolate leaves, whereas the reference has much smaller, sharply serrated opposite leaves and numerous small white tubular flowers. The leaf morphology and growth habit contradict the target species."
+    }
+  ]
+}

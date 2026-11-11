@@ -6,12 +6,16 @@ import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
+import { IMAGE_SWITCHES } from '@aq/schema'
+import { rememberMarkedPhotos } from './marked-photos'
 
 /** A line of text macOS Vision read on a photo: confidence 0–1, box 0–1 from the top left. */
 export type TextLine = { t: string; c: number; x: number; y: number; w: number; h: number }
 export type WatermarkKind = 'credit' | 'logo' | 'url' | 'name' | 'caption' | 'stamp' | 'none'
 /** One photo's screen: the text read on it (`at`: where on the photo), then the model's verdict once it has looked. */
-export type WatermarkEntry = { ocr: { t: string; c: number; at: string }[]; watermark?: boolean; kind?: WatermarkKind; what?: string }
+export type WatermarkEntry = { ocr: { t: string; c: number; at: string }[]; watermark?: boolean; kind?: WatermarkKind; what?: string; retainedOwnMark?: { source: 'glaser'; sourceUrl: string; owner: 'source' } }
+export const retainedOwnMark = (url: string, entry: WatermarkEntry | undefined) =>
+  url.startsWith('https://media.aquatome.com/glaser/') && entry?.retainedOwnMark?.source === 'glaser' && entry.retainedOwnMark.owner === 'source' && /^https?:\/\/(www\.)?aquariumglaser\.de\//.test(entry.retainedOwnMark.sourceUrl)
 export type WatermarkDeps = {
   get: (url: string) => Promise<Uint8Array>
   read: (files: string[]) => Promise<(TextLine[] | null)[]>
@@ -82,10 +86,10 @@ For each photo n: watermark (true/false), kind (one of the above, "none" if not 
 export const ocrOf = (lines: TextLine[]): WatermarkEntry['ocr'] => lines.slice(0, 8).map(t => ({ t: t.t.slice(0, 60), c: t.c, at: at(t) }))
 
 /** The model's verdicts on up to 6 photos with the text read on each, from one numbered sheet written to `file`; undefined where it gave none. */
-export async function judgeSheet(photos: { b: Buffer; ocr: WatermarkEntry['ocr'] }[], file: string, look: WatermarkDeps['look']): Promise<(Required<Omit<WatermarkEntry, 'ocr'>> | undefined)[]> {
+export async function judgeSheet(photos: { b: Buffer; ocr: WatermarkEntry['ocr'] }[], file: string, look: WatermarkDeps['look']): Promise<(Required<Omit<WatermarkEntry, 'ocr' | 'retainedOwnMark'>> | undefined)[]> {
   await writeFile(file, await contactSheet(photos.map(x => x.b), 640, 480, 2, 'contain'))
   const v = await look(file, prompt(photos.map((x, j) => ({ n: j + 1, ocr: x.ocr }))))
-  const out: (Required<Omit<WatermarkEntry, 'ocr'>> | undefined)[] = photos.map(() => undefined)
+  const out: (Required<Omit<WatermarkEntry, 'ocr' | 'retainedOwnMark'>> | undefined)[] = photos.map(() => undefined)
   for (const p of v.photos ?? []) {
     if (!photos[p.n - 1] || typeof p.watermark !== 'boolean') continue
     out[p.n - 1] = { watermark: p.watermark, kind: p.watermark ? p.kind : 'none', what: String(p.what ?? '').slice(0, 120) }
@@ -186,7 +190,7 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   }
 
   // 3. Watermarked photos join the blocklist and leave every page.
-  const marked = (u: string) => cache[u]?.watermark === true
+  const marked = (u: string) => cache[u]?.watermark === true && !retainedOwnMark(u, cache[u])
   for (const u of urls) if (marked(u)) {
     report.confirmed.push(u)
     if (!(u in rejected)) rejected[u] = `watermark: ${cache[u]!.what || cache[u]!.kind}`
@@ -194,6 +198,7 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   for (const f of files) {
     const raw = await readFile(f, 'utf8')
     const data = JSON.parse(raw) as unknown
+    if (IMAGE_SWITCHES.removeMarks) await rememberMarkedPhotos(f, data, u => cache[u]?.watermark === true)
     const removed: string[] = []
     stripPhotos(data, marked, removed, report.kept)
     if (!removed.length) continue
