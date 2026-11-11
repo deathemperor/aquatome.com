@@ -157,7 +157,7 @@ test("a caption in which the source calls the fish unwell, or names a split fin 
     'Male specimen with fin damage caused by another male.', 'Male with fins torn in a fight.',
     'Specimen with a fungal infection on the tail.', 'Adult with fungus on its fins.', 'Adult with fin rot.',
     // A place after the damage is where the fish is. And the worse of two sentences counts.
-    'Male with badly torn fins in a river.', 'Split fin; badly damaged tail.',
+    'Male with badly torn fins in a river.', 'Split fin; badly damaged tail.', 'Fin damage due to conspecific aggression.', 'A serious injury to the tail.',
     // Kept on purpose: a dead fish is in the picture, which no page shows.
     'Healthy adult feeding on dead fish.',
   ]) expect(kind(c), c).toBe('unwell')
@@ -171,6 +171,8 @@ test("a caption in which the source calls the fish unwell, or names a split fin 
     'Fins torn in transit.', 'Slightly damaged fin; this species bites at plants.',
     // Only another fish makes damage a fight's. And the fight in a sentence of its own is missed, on the keeping side.
     'Slight fin damage caused by transport.', 'Fins torn; caused by fighting.',
+    // A fight or a degree counts where it is said of the damage, not in the fish's name or of the tank.
+    'Siamese fighting fish with a slightly damaged caudal fin.', 'Fighter with a torn fin.', 'A torn fin in a Siamese fighting fish.', 'Male in a heavily planted tank with a torn fin.', 'An aggressive male with a split fin.',
   ]) expect(kind(c), c).toBe('blemish')
   for (const c of [
     'Vài con cá piranha bụng đỏ bơi trong bể có xác tàu', 'Cá hổ báo biến dạng màu cam đen nhìn từ dưới trong bể',
