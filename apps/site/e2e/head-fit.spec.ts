@@ -15,7 +15,10 @@ test('a head marked to show whole is uncut, in its own shape, with its credit', 
   // Its own shape, not the frame's: 960 × 636.
   const box = (await head.boundingBox())!
   expect(Math.abs(box.width / box.height - 960 / 636)).toBeLessThan(0.02)
-  await expect(page.locator('main .gallery figcaption')).toContainText('CC BY 3.0')
+  // Its credit as any head's: the © with the licence, linked to the photo's source.
+  const credit = page.locator('main .gallery figcaption a.cite.pic')
+  await expect(credit).toHaveAttribute('data-tip', 'CC BY 3.0')
+  await expect(credit).toHaveAttribute('href', 'https://commons.wikimedia.org/wiki/File:Neonsalmler_Paracheirodon_innesi.jpg')
   expect(errors).toEqual([])
 })
 
