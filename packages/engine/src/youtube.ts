@@ -10,7 +10,7 @@ import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
 import { gate } from './quality'
-import { lastKept, logReviews, readReviews } from './review-log'
+import { lastKept, logReviews, readReviews, reviewKey } from './review-log'
 import { roundPage } from './round'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { loadState, saveState, type UrlState } from './state'
@@ -430,14 +430,32 @@ export type VideoReport = { written: string[]; skipped: string[]; errors: string
  * its own review; a skip or a failure, the video's state). The owner's videos first, or in `rank`'s order (by guide id,
  * video-order.ts), then the lowest scores.
  */
+/**
+ * The video guides in search whose newest second read failed at 0.55 or under, not yet read three times: each gets two
+ * more reads before any closes (the chief of staff, 2026-11-11; `review-backfill-97`, its own daily ceiling), so the
+ * redo (recheckedGuides) passes them over until then. Ids as `youtube-<id>`.
+ */
+export async function lowVideoGuides(root: string): Promise<string[]> {
+  const traced = await readReviews(root, 'video-guide')
+  const out: string[] = []
+  for (const id of (await readdir(join(root, 'content/guides')).catch(() => [] as string[])).filter(d => d.startsWith('youtube-'))) {
+    const last = traced[reviewKey({ id: `guides/${id}`, lang: 'vi' })]?.[0]
+    if (!last || last.attempt !== 'recheck' || last.reads || last.score > 0.55) continue
+    const q = (await readJson<Translation>(join(root, 'content/guides', id, 'vi.json')))?.quality
+    if (q && q.score >= QUALITY_THRESHOLD) out.push(id)
+  }
+  return out.sort()
+}
+
 export async function recheckedGuides(root: string, since: string, rank?: (id: string) => number[]): Promise<{ id: string; series?: string }[]> {
   const state = await loadState(root, 'youtube')
+  const waiting = new Set(await lowVideoGuides(root))
   const owners = new Set(((await readJson<{ id: string; by?: string }[]>(join(root, 'engine-state/youtube-videos.json'))) ?? []).filter(v => v.by === 'owner').map(v => v.id))
   const out: { id: string; series?: string; score: number; first: boolean }[] = []
   for (const [key, ts] of Object.entries(await readReviews(root, 'video-guide'))) {
     const id = /^vi\/guides\/youtube-(.+)$/.exec(key)?.[1]
     const t = ts.find(x => x.kept)
-    if (!id || !t || t.attempt !== 'recheck' || Date.parse(t.at) < Date.parse(since) || t.score >= QUALITY_THRESHOLD || !t.notes.length) continue
+    if (!id || !t || t.attempt !== 'recheck' || Date.parse(t.at) < Date.parse(since) || t.score >= QUALITY_THRESHOLD || !t.notes.length || waiting.has(`youtube-${id}`)) continue
     const tried = state[id]?.updatedAt
     if (tried && Date.parse(tried) > Date.parse(t.at)) continue
     const v = (await readJson<GuideEntity>(join(root, 'content/guides', `youtube-${id}`, 'entity.json')))?.video

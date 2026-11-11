@@ -19,7 +19,7 @@ const species = {
   sections: [{ key: 'habitat', en: '<p>Blackwater.</p>', vi: '<p>Nước đen.</p>' }], productSlots: [],
 }
 
-function deps(root: string, opts: { urls?: string[]; score?: number; page?: object; llmFails?: boolean; rewritten?: string } = {}) {
+function deps(root: string, opts: { urls?: string[]; score?: number; /** The reviewer's reads in turn, then `score`. */ scores?: number[]; page?: object; llmFails?: boolean; rewritten?: string } = {}) {
   const calls = { images: 0, commons: 0, llm: 0, review: 0, process: 0, rewrite: 0, sleeps: 0, prompts: [] as string[] }
   const fetcher = {
     text: async (_u: string) => sitemap(opts.urls ?? ['paracheirodon-axelrodi', 'broken-fish', 'blocked-fish']),
@@ -34,7 +34,7 @@ function deps(root: string, opts: { urls?: string[]; score?: number; page?: obje
   const llm = async <T,>(a: { prompt: string; schema: object }): Promise<T> => {
     calls.llm++
     calls.prompts.push(a.prompt)
-    if ('score' in ((a.schema as { properties?: object }).properties ?? {})) { calls.review++; return { score: opts.score ?? 0.9, notes: ['fix "Nước đen"'] } as T }
+    if ('score' in ((a.schema as { properties?: object }).properties ?? {})) { const score = opts.scores?.[calls.review] ?? opts.score ?? 0.9; calls.review++; return { score, notes: ['fix "Nước đen"'] } as T }
     if (opts.llmFails) throw new LlmError('claude failed (1): usage limit')
     if ('parts' in ((a.schema as { properties?: object }).properties ?? {})) { calls.rewrite++; return { parts: [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => ({ id: m[1], vi: opts.rewritten ?? `<p>Viết lại ${m[1]}</p>` })) } as T }
     calls.process++
@@ -251,6 +251,20 @@ test('low quality: one re-translation with reviewer notes, then noindex', async 
   expect(calls.prompts[3]).toContain('fix "Nước đen"') // process, style pass, review, then process again with the notes
   const vi = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/vi.json'), 'utf8'))
   expect(vi.quality).toMatchObject({ score: 0.5, indexable: false, bySource: { seriouslyfish: 0.5 } })
+})
+
+test('the page writer\'s reviewer reads a page within 0.1 of the bar three times and the middle read counts; one clear of it, once', async () => {
+  // The chief of staff, 2026-11-11. 0.7 alone would send the page back to be written again; the middle of 0.7, 0.9 and
+  // 0.8 passes it.
+  const root = await fresh()
+  const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi'], scores: [0.7, 0.9, 0.8] })
+  await runEngine(d, { sources: ['seriouslyfish'] })
+  expect(calls).toMatchObject({ process: 1, review: 3 })
+  const vi = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/vi.json'), 'utf8'))
+  expect(vi.quality).toMatchObject({ score: 0.8, indexable: true })
+  const clear = deps(await fresh(), { urls: ['paracheirodon-axelrodi'], scores: [0.86] })
+  await runEngine(clear.d, { sources: ['seriouslyfish'] })
+  expect(clear.calls).toMatchObject({ process: 1, review: 1 })
 })
 
 test('a challenge stops the source, keeps processedHash, and the source is skipped for a day unless retried explicitly', async () => {

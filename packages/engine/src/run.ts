@@ -18,7 +18,7 @@ import { withSections } from './guide-sections'
 import { processPage, type ProcessedPage } from './process'
 import { readVarietyPages, recordVarietyPage } from './species-sources'
 import { rewriteVi, VI_WRITE } from './vi-rewrite'
-import { QUALITY_THRESHOLD, gate, reviewTranslation } from './quality'
+import { QUALITY_THRESHOLD, gate, reviewTranslation, steadyRead, WRITER_BAND } from './quality'
 import { logReviews, type Review } from './review-log'
 import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
@@ -239,12 +239,13 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     if (page.kind === 'skip') return { page, score: 1, tries: [] }
     page = await polish(page, input.outline)
     const pairs = (p: ProcessedPage) => (p.kind === 'guide' ? [{ en: input.outline, vi: p.guide?.viBody ?? '' }] : p.sections)
-    const tries = [await reviewTranslation(llm, pairs(page))]
+    // Near the bar (WRITER_BAND), read three times: the middle read counts.
+    const tries = [await steadyRead(() => reviewTranslation(llm, pairs(page)), WRITER_BAND)]
     if (gate(tries[0]!.score, false) === 'retry') {
       page = await processPage(llm, { ...input, notes: tries[0]!.notes })
       if (page.kind === 'skip') return { page, score: 1, tries: [] }
       page = await polish(page, input.outline)
-      tries.push(await reviewTranslation(llm, pairs(page)))
+      tries.push(await steadyRead(() => reviewTranslation(llm, pairs(page)), WRITER_BAND))
     }
     return { page, score: tries.at(-1)!.score, tries }
   }
