@@ -8,6 +8,7 @@ import {
   renameStored, renameSwapped, swappedNames, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
+import { phraseSlips } from '../src/phrases'
 
 const page = (o: Partial<Page>): Page => ({ lang: 'vi', kind: 'guides', id: 'g', title: 'T', path: '/vi/huong-dan/g/', fields: [], lines: [], captions: [], latinNames: [], card: [], ...o })
 const found = (p: Page, rule: string) => checkPages([p], RULES.filter(r => r.id === rule)).findings.map(f => f.detail)
@@ -276,6 +277,12 @@ test('"thài lài" said of a fish is found on any Vietnamese page but a plant\'s
   expect(found(page({ kind: 'plants', title: 'Cỏ thài lài', fields: [{ field: 'body', html: '<p>Thài lài mọc ven suối.</p>' }] }), 'fish-words')).toEqual([])
   expect(found(page({ title: plant }), 'fish-words')).toEqual([])
   expect(found(page({ lang: 'id', title: 'Ikan thài lài' }), 'fish-words')).toEqual([])
+})
+
+test('the writers\' list counts "thài lài" said of a fish, and leaves the plant', () => {
+  const thai = (s: string) => phraseSlips(s, 'vi').filter(x => x.startsWith('"thài lài"'))
+  expect(thai('Cây thuộc họ Thài lài, gần cỏ thài lài và thài lài tía.')).toEqual([])
+  expect(thai('Cá thài lài mật hợp bể nhỏ. Khi nuôi thài lài, chọn bạn hiền.')).toEqual([expect.stringMatching(/^"thài lài" ×2 → /)])
 })
 
 test("a pleco with an L number on record whose name gives none is listed, in any language; a fish with none, or another family's number, isn't (the owner, 2026-11-11)", () => {

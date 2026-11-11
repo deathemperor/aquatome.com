@@ -29,7 +29,7 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
   vi: [
     { say: 'nhiều khả năng', instead: '"chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn)' }, // 473 | 5 | 0
     // The owner, 2026-11-11: "Cá thài lài doesn't exist in Vietnamese". 0 in the forum and the videos; the plant's name.
-    { say: 'thài lài', instead: 'tên cá: "cá sặc" cho cá gourami, "cá sặc mật ong", "cá bã trầu"' },
+    { say: 'thài lài', find: '(?<!(?:cỏ|rau|cây|hoa|họ)\\s)thài lài(?! tía)', instead: 'tên cá: "cá sặc" cho cá gourami, "cá sặc mật ong", "cá bã trầu" (cây "cỏ thài lài" giữ nguyên)' },
     { say: 'dù vậy', find: '(?:dù|tuy) vậy', instead: '"nhưng", "tuy nhiên"' }, // dù vậy 568 | 5 | 0, tuy vậy 560 | 3 | 26
     { say: 'phần lớn', instead: '"thường", "chủ yếu", hoặc bỏ' }, // 1100 | 25 | 15
     { say: 'nhìn chung', instead: '"thường", hoặc bỏ' }, // 167 | 14 | 15

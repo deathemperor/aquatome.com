@@ -46,6 +46,20 @@ test('no page, fish summary or caption calls a fish "thài lài"', async () => {
   expect([...findings.map(f => `${f.page.path}: ${f.detail}`), ...left]).toEqual([])
 }, 300_000)
 
+// The owner's names of 2026-11-11, each guarded (nameFixed) so a later source read keeps it: the eartheaters the trade
+// calls Hải Hồ (Geophagus, Satanoperca, Acarichthys heckelii; not Biotodoma or Gymnogeophagus, which no source calls so),
+// and the four fish once headed "thài lài".
+test("the owner's Hải Hồ and the names that replaced \"thài lài\" stay, each guarded", async () => {
+  const dir = fileURLToPath(new URL('../../../content/species', import.meta.url))
+  const vi = (id: string) => JSON.parse(readFileSync(join(dir, id, 'vi.json'), 'utf8')) as Translation
+  const eartheaters = readdirSync(dir).filter(id => /^(?:geophagus|satanoperca)-/.test(id) || id === 'acarichthys-heckelii')
+  expect(eartheaters.length).toBeGreaterThanOrEqual(29)
+  for (const id of eartheaters) expect([id, vi(id).name.startsWith('Cá hải hồ '), vi(id).nameFixed]).toEqual([id, true, true])
+  for (const id of readdirSync(dir).filter(id => /^(?:biotodoma|gymnogeophagus)-/.test(id))) expect(vi(id).name, id).not.toMatch(/hải hồ/i)
+  const four = { 'trichogaster-chuna': 'Cá sặc mật ong', 'trichopsis-vittata': 'Cá bã trầu', 'parosphromenus-phoenicurus': 'Cá liquorice gourami phoenicurus', 'ctenops-nobilis': 'Cá Ctenops nobilis' }
+  for (const [id, name] of Object.entries(four)) expect([vi(id).name, vi(id).nameFixed]).toEqual([name, true])
+})
+
 // The owner, 2026-11-07: "fritz slim out is not for Vietnamese. I can effectively treat this with very cheap oxy già."
 // And 2026-11-08, on a box stuck over the translated article: "The mention of US med is so irrelevant here." These two
 // guides' treatment is written for a keeper in Vietnam: nothing not sold here, in any field of any language's file, and
