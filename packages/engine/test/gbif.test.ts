@@ -93,3 +93,23 @@ test('a species page\'s taxon: the backbone\'s exact name first; a fuzzy match i
   expect(await speciesTaxon('Nanosphronemus gemma', fuzzy)).toMatchObject({ canonicalName: 'Nanosphronemus gemma', family: 'Osphronemidae', matchType: 'SEARCH' })
   expect(urls.some(u => u.includes('/species/search'))).toBe(true)
 })
+
+test('a page\'s species: an exact match on its name or a synonym first; a fuzzy one only of a class its group can be', async () => {
+  const { pageTaxon } = await import('../src/gbif')
+  // GBIF matched "Brochis arcuata" fuzzily to "Ditrupa arcuata", a tube worm's synonym, and the engine made a catfish page Ditrupa arietina.
+  const answers: Record<string, unknown> = {
+    'Brochis arcuata': { canonicalName: 'Ditrupa arcuata', species: 'Ditrupa arietina', rank: 'SPECIES', status: 'SYNONYM', matchType: 'FUZZY', class: 'Polychaeta', order: 'Sabellida', family: 'Serpulidae', genus: 'Ditrupa' },
+    'Corydoras arcuatus': { canonicalName: 'Corydoras arcuatus', rank: 'SPECIES', status: 'ACCEPTED', matchType: 'EXACT', class: 'Actinopterygii', order: 'Siluriformes', family: 'Callichthyidae', genus: 'Corydoras' },
+    'Hyphessobrycon herbertaxelrodii': { canonicalName: 'Hyphessobrycon herbertaxelrodi', rank: 'SPECIES', status: 'ACCEPTED', matchType: 'FUZZY', class: 'Actinopterygii', order: 'Characiformes', family: 'Characidae', genus: 'Hyphessobrycon' },
+    'Neocaridina davidii': { canonicalName: 'Neocaridina davidi', rank: 'SPECIES', status: 'ACCEPTED', matchType: 'FUZZY', class: 'Malacostraca', order: 'Decapoda', family: 'Atyidae', genus: 'Neocaridina' },
+  }
+  const cache: Record<string, Taxon | null> = {}
+  const match = (n: string) => gbifMatch(n, async (u: string) => answers[decodeURIComponent(u.split('name=')[1]!)] ?? fx('none'), cache)
+  expect(await pageTaxon(['Brochis arcuata'], 'catfish', match)).toBeNull()
+  expect((await pageTaxon(['Brochis arcuata', 'Corydoras arcuatus'], 'catfish', match))?.canonicalName).toBe('Corydoras arcuatus')
+  expect((await pageTaxon(['Hyphessobrycon herbertaxelrodii'], 'tetras', match))?.canonicalName).toBe('Hyphessobrycon herbertaxelrodi')
+  expect((await pageTaxon(['Neocaridina davidii'], 'shrimp', match))?.canonicalName).toBe('Neocaridina davidi')
+  expect(await pageTaxon(['Neocaridina davidii'], 'tetras', match)).toBeNull()
+  expect(await pageTaxon(['Brochis arcuata'], 'other', match)).toBeNull()
+  expect(await pageTaxon(['Brochis arcuata'], undefined, match)).toBeNull()
+})

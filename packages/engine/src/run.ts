@@ -9,7 +9,7 @@ import { LlmError, type Llm } from './claude'
 import { deeperPages, depthReport, popularityOrder, readSearchCache, runOrder, saveSearchCache, searchThin, thinSpecies, type DepthReport } from './depth'
 import { discover } from './discover'
 import { ChallengeError, type ChromeFetcher } from './fetch'
-import { gbifMatch, type Taxon } from './gbif'
+import { gbifMatch, pageTaxon, type Taxon } from './gbif'
 import { ensurePlaces, guideId, mergePlant, mergeSpecies, writeGuide } from './merge'
 import { METRIC_KINDS } from './metric'
 import { htmlToOutline, isChallenge, type PageImage } from './outline'
@@ -263,8 +263,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     }
     if (page.kind === 'species') {
       // A name newer than GBIF (the 2024 Corydoras split: Hoplisoma sterbai) is found under a synonym the page gives.
-      let taxon = await gbifMatch(page.scientificName!, http, gbifCache)
-      for (const syn of page.synonyms) if (!taxon) taxon = await gbifMatch(syn, http, gbifCache)
+      const taxon = await pageTaxon([page.scientificName!, ...page.synonyms], page.group, n => gbifMatch(n, http, gbifCache))
       if (!taxon) return null
       // A page about one variety or strain says what that line is, not the species: kept off its page (species-sources.ts).
       if (page.variety || varietyPages[url]) {
