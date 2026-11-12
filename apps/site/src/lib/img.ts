@@ -36,5 +36,19 @@ export function fishFrame(p: Photo, ratio: number): { pos?: string; whole?: true
   return f.x === 0.5 && f.y === 0.5 ? {} : { pos: `${pct(f.x)} ${pct(f.y)}` }
 }
 
-/** A fish's 4:3 tile (SpeciesCard, and the cards the fish list's script builds): framed only on a copy that is the same picture. */
-export const tileFrame = (p: Photo) => (resizeOf(p, smallSrc(p)) ? fishFrame(p, 4 / 3) : {})
+/**
+ * A whole tile's strips, each under this share of the tile's side they cross, take the tile's mat colour, not the photo
+ * blurred: that thin, the blur reads as a smear at the edge, not a frame. Never a crop instead, which can cut the fish
+ * (the Design Lead, 12 Nov).
+ */
+export const BLUR_STRIP = 0.08
+
+/**
+ * A fish's 4:3 tile (SpeciesCard, and the cards the fish list's script builds): framed only on a copy that is the same
+ * picture. `mat`: the photo whole on the tile's mat, its strips too thin for the blur (BLUR_STRIP).
+ */
+export function tileFrame(p: Photo): { pos?: string; whole?: true; mat?: true } {
+  const f = resizeOf(p, smallSrc(p)) ? fishFrame(p, 4 / 3) : {}
+  const r = p.width / p.height, strip = (1 - Math.min(r, 4 / 3) / Math.max(r, 4 / 3)) / 2
+  return f.whole && strip < BLUR_STRIP ? { ...f, mat: true } : f
+}

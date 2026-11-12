@@ -16,8 +16,9 @@ export function buildCard(template: HTMLTemplateElement, i: SpeciesListItem): HT
   const { range } = fmt(langOf(location.pathname))
   card.dataset.slug = i.slug
   $('a').setAttribute('href', cpath(`/vi/ca/${i.slug}/`))
-  // The template's whole tile: the photo over itself blurred. A tile that isn't whole folds to its one picture, placed
-  // where SpeciesCard places it (`pos`), so the two come out the same. A fish with no photo keeps the "no photo yet" plate.
+  // The template's whole tile: the photo over itself blurred, or on the mat (`mat`: no blurred ground). A tile that isn't
+  // whole folds to its one picture, placed where SpeciesCard places it (`pos`), so the two come out the same. A fish with
+  // no photo keeps the "no photo yet" plate.
   const whole = $('.whole'), [ground, img] = [...whole.querySelectorAll('img')] as [HTMLImageElement, HTMLImageElement]
   if (i.photo) {
     $('.ph').remove()
@@ -25,6 +26,7 @@ export function buildCard(template: HTMLTemplateElement, i: SpeciesListItem): HT
     if (i.photo.pos) img.setAttribute('style', `object-position: ${i.photo.pos}`)
     else img.removeAttribute('style')
     if (!i.photo.whole) whole.replaceWith(img)
+    else if (i.photo.mat) ground.remove()
     creditPhoto(i.photo)
   } else whole.remove()
   $('h3').textContent = i.name
