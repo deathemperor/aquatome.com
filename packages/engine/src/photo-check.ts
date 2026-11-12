@@ -524,17 +524,18 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const pageFiles = [...new Set(shown.filter(x => !x.guide && x.file.endsWith('entity.json')).map(x => x.file))]
   const emptying: string[] = []
   for (const file of pageFiles) { const ps = await ownPhotos(file); if (ps.length && ps.every(p => blocked(file)(p.url))) emptying.push(file) }
-  const held = new Set(emptying.length > (o.emptyCap ?? EMPTY_CAP) ? emptying : [])
+  // A cap that isn't a whole number (a typo) is the usual one: it never lets a run through unheld.
+  const cap = Number.isInteger(o.emptyCap) && o.emptyCap! >= 0 ? o.emptyCap! : EMPTY_CAP
+  const heldPages = emptying.length > cap ? emptying : []
+  // A held page keeps its album too.
+  const held = new Set([...heldPages, ...heldPages.map(f => join(content, 'gallery', `${f.split('/').at(-2)}.json`))])
   const pageOf = (file: string) => file.slice(content.length + 1).split('/').slice(0, 2).join('/')
-  for (const file of held) {
-    const ps = await ownPhotos(file)
-    report.heads.held.push(`${pageOf(file)}: ${ps[0]!.url}`)
-    // Not onto the never-again list either, or a later run would take it off through that, unseen.
-    for (const p of ps) {
-      if (!(p.url in added)) continue
-      delete added[p.url]
-      report.blocked = report.blocked.filter(x => !x.startsWith(`${p.url}: `))
-    }
+  for (const file of heldPages) report.heads.held.push(`${pageOf(file)}: ${(await ownPhotos(file))[0]!.url}`)
+  // Not onto the never-again list either, or a later run would take them off through that, unseen.
+  for (const file of held) for (const p of await ownPhotos(file)) {
+    if (!(p.url in added)) continue
+    delete added[p.url]
+    report.blocked = report.blocked.filter(x => !x.startsWith(`${p.url}: `))
   }
   for (const file of [...new Set(shown.map(x => x.file))]) {
     if (held.has(file)) continue

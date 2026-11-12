@@ -780,12 +780,18 @@ export async function noAnimalHeads(root: string, today: string): Promise<string
   const v = await readVerdicts(root)
   const before = JSON.parse(await readFile(join(root, NO_ANIMAL_FILE), 'utf8').catch(() => '{}')) as Record<string, { url: string; since: string }>
   const now: Record<string, { url: string; since: string }> = {}
+  type Photos = { photos?: (Photo & { generated?: unknown })[] }
+  const read = async (file: string) => JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Photos
+  // The first check's verdict counts only for a photo on one page, as the photo check reads it.
+  const pagesOf = new Map<string, Set<string>>()
+  const on = (ps: Photos['photos'], id: string) => { for (const p of ps ?? []) if (!p.generated) pagesOf.set(p.url, (pagesOf.get(p.url) ?? new Set()).add(id)) }
+  for (const kind of ['species', 'plants', 'breeds']) for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) on((await read(join(content, kind, id, 'entity.json'))).photos, id)
+  for (const f of await readdir(join(content, 'gallery')).catch(() => [] as string[])) if (f.endsWith('.json')) on((await read(join(content, 'gallery', f))).photos, f.replace(/\.json$/, ''))
   for (const kind of ['species', 'breeds']) for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
-    const e = JSON.parse(await readFile(join(content, kind, id, 'entity.json'), 'utf8').catch(() => '{}')) as { photos?: (Photo & { generated?: unknown })[] }
-    const url = e.photos?.find(p => !p.generated)?.url
+    const url = (await read(join(content, kind, id, 'entity.json'))).photos?.find(p => !p.generated)?.url
     if (!url || boxes[url] !== null) continue
     const own = v.subjects[url]?.[id]
-    if ((own && !own.guide ? own : v.legacy[url])?.ok === 'yes') continue
+    if ((own && !own.guide ? own : pagesOf.get(url)?.size === 1 ? v.legacy[url] : undefined)?.ok === 'yes') continue
     const ref = `${kind}/${id}`
     now[ref] = { url, since: before[ref]?.url === url ? before[ref]!.since : today }
   }

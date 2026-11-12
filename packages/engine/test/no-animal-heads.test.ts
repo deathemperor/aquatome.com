@@ -137,3 +137,25 @@ test('a head a person picked that the check calls "none" stays first on its page
   expect(out.picked).toEqual([`species/picked: ${url('fish-far')} (the check says not a photo of it: a river, no fish in it; a head a person picked, so it stays)`])
   expect(out.heads.moved).toEqual([`species/other: ${url('river')} -> ${url('fish')}`])
 })
+
+test('a held page keeps its album too, nothing of it goes on the never-again list, and a cap that isn\'t a whole number holds as the usual one', async () => {
+  const n = EMPTY_CAP + 1
+  const pages = Array.from({ length: n }, (_, i) => ({ id: `p${String(i).padStart(2, '0')}`, photos: [`r${i}`], gallery: [{ n: `g${i}` }] }))
+  const verdicts = Object.fromEntries(pages.flatMap((_, i) => [[`r${i}`, none], [`g${i}`, none]]))
+  const r = await root(pages)
+  const out = await checkPagePhotos(r, model(verdicts), { limit: 40, emptyCap: Number('1O') })
+  expect(out.heads.held).toHaveLength(n)
+  for (const [i, p] of pages.entries()) {
+    expect(await photosOf(r, p.id)).toEqual([`r${i}`])
+    expect(((await json(r, `content/gallery/${p.id}.json`)).photos as { url: string }[]).map(x => name(x.url))).toEqual([`g${i}`])
+  }
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({})
+})
+
+test('the first check\'s "yes" passes a head only where the photo is on one page, as the photo check reads it', async () => {
+  const { noAnimalHeads } = await import('../src/sweep')
+  const r = await root([{ id: 'one', photos: ['shared'] }, { id: 'two', photos: ['shared'] }, { id: 'alone', photos: ['solo'] }], { shared: null, solo: null })
+  const yes = { ok: 'yes', typical: true, note: '', person: false }
+  await writeFile(join(r, 'engine-state/_photo-check.json'), JSON.stringify({ [url('shared')]: yes, [url('solo')]: yes }))
+  expect(await noAnimalHeads(r, '2026-11-13')).toEqual([`species/one: ${url('shared')} (since 2026-11-13)`, `species/two: ${url('shared')} (since 2026-11-13)`])
+})

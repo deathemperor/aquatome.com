@@ -376,6 +376,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
     console.log(`recheck-photos: ${recheck.size} photos to judge again`)
     for (const [u, note] of recheck) console.log(`candidate: ${u}: ${note}`)
   }
+  if (values['empty-cap'] !== undefined && !/^\d+$/.test(values['empty-cap'])) { console.error(`--empty-cap takes a whole number of pages, not "${values['empty-cap']}"`); process.exit(2) }
   const r = recheck && !recheck.size ? undefined : await checkPagePhotos(ROOT, {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     look: (file, prompt) => claudeVision({ system: 'You identify aquarium fish and plants in photos. Reply only with JSON.', prompt, schema: PHOTO_CHECK_SCHEMA, file, model: process.env.PHOTO_CHECK_MODEL ?? 'opus' }),
