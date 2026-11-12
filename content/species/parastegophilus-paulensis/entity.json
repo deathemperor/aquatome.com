@@ -10,6 +10,95 @@
     "brazil",
     "parana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraná River",
+        "Rio Tieté"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Avanhandava, Rio Tieté, Estado de São Paulo, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tieté"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: upper Paraná River basin.",
+          "countries": [],
+          "regions": [
+            "Paraná River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343225,
+      "total": 32,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BR",
+          32
+        ]
+      ],
+      "cells": [
+        [
+          -53.4375,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -22.5,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          -22.5,
+          9,
+          9
+        ],
+        [
+          -49.21875,
+          -18.28125,
+          6,
+          6
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -22.5,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -10,6 +10,48 @@
     "indonesia",
     "kalimantan-barat"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Pawan",
+        "Liong",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Parosphromenus quindecim is a liquorice gourami known only from the Pawan and Liong river basins in West Kalimantan, Indonesian Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Pawan and Liong river basins in southeastern West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo) with the full extent of its range somewhat unclear.",
+          "countries": [],
+          "regions": [
+            "Pawan",
+            "Liong",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394173,
+      "total": 0,
+      "fetched": "2026-11-12",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

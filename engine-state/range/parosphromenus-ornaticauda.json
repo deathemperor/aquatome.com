@@ -1,0 +1,70 @@
+{
+  "id": "parosphromenus-ornaticauda",
+  "native": {
+    "input": "7e2dd4002ffd27e8",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from a handful of localities within the Kapuas drainage around the town of Anjungan, West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo), and has also been recorded in the Pawan river system near Ketapang, considerably further south.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Known from a handful of localities within the Kapuas drainage around the town of Anjungan, West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo), and has also been recorded in the Pawan river system near Ketapang, considerably further south.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Pawan",
+        "source": "seriouslyfish",
+        "quote": "Known from a handful of localities within the Kapuas drainage around the town of Anjungan, West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo), and has also been recorded in the Pawan river system near Ketapang, considerably further south.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known from a handful of localities within the Kapuas drainage around the town of Anjungan, West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo), and has also been recorded in the Pawan river system near Ketapang, considerably further south.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parosphromenus ornaticauda",
+    "status": "ACCEPTED",
+    "taxonKey": 2394187,
+    "datasets": [
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

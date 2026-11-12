@@ -1,0 +1,68 @@
+{
+  "id": "laimosemion-tecminae",
+  "native": {
+    "input": "a18429719bdedcaf",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This fish occurs in the Orinoco basin in Venezuela and in the upper Rio Negro in Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This fish occurs in the Orinoco basin in Venezuela and in the upper Rio Negro in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "This fish occurs in the Orinoco basin in Venezuela and in the upper Rio Negro in Brazil.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "This fish occurs in the Orinoco basin in Venezuela and in the upper Rio Negro in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Laimosemion tecminae",
+    "status": "ACCEPTED",
+    "taxonKey": 7193336,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        20
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

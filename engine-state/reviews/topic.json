@@ -1802,6 +1802,44 @@
       "kept": false
     }
   ],
+  "ms/guides/aquatome-cach-lam-be-thuy-sinh-mini-be-don-gian": [
+    {
+      "at": "2026-11-12T13:22:58Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "Kit kekerasan air \"(GH)\" – the facts only say a hardness kit is useful and never name GH; a small unsupported addition."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.93,
+        0.93
+      ]
+    },
+    {
+      "at": "2026-11-12T13:22:58Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"untuk memulakan sifon\": the facts only say never siphon aquarium water by mouth. The purpose \"to start the siphon\" is added.",
+        "\"Penapis: wajib untuk tangki nano\": the facts call filtration \"critical\", not mandatory. This is a slight strengthening.",
+        "\"Jangan.\" (tap water directly): the facts say to treat tap water with a conditioner but never ban untreated use outright. This is a mild generalisation."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.93,
+        0.88,
+        0.92
+      ]
+    }
+  ],
   "ms/guides/aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh": [
     {
       "at": "2026-11-10T10:11:17Z",
@@ -1870,6 +1908,55 @@
         0.9,
         0.9,
         0.92
+      ]
+    }
+  ],
+  "ms/guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua": [
+    {
+      "at": "2026-11-12T13:25:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.82,
+      "notes": [
+        "\"Menurut seorang pengeluar, penurunan sekitar 3 °C...\" is fine, but \"Menurut sebuah universiti, kebanyakan ikan tropika boleh tahan suhu sekitar 16–17 °C ... Panaskan air apabila suhu jatuh ke sekitar 12–13 °C\": the conversions are fine, so this is not an error.",
+        "\"Jika ais digunakan ... ais itu tidak dimasukkan ke dalam beg plastik bertutup\" is garbled. The fact says to seal the ice in a bag.",
+        "\"Menurut sebuah panduan memelihara ikan, air hujan boleh mengubah pH\": the fact says rain changes pH, with no mention of rainwater itself. This is minor.",
+        "\"Kepadatannya kira-kira 5 inci (sekitar 13 cm) ... setiap gelen (sekitar 3.8 liter)\": the metric conversions are fine, so this is not an error.",
+        "\"ikan sepatutnya boleh bertahan sekurang-kurangnya 36 jam jika suhu udara cukup panas\": the fact says 'warm enough', which is acceptable.",
+        "\"Isi penapis dengan air bersih supaya penapis boleh mula mengepam\" adds the explanation 'supaya penapis boleh mula mengepam', which the facts don't give. The fact only says to prime with fresh water.",
+        "\"Perhatikan juga ikan sama ada naik ke permukaan untuk menyedut udara\" and \"terus pantau suhu, ammonia, nitrit dan pH\" as a post-event routine are generalised rather than stated in the facts.",
+        "The summary line \"Air sejuk pula membebankan pemanas\" is a loose generalisation of the heater-running-constantly fact."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.82,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-12T13:25:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"Menurut pengeluar, haba hanya menjadi bahaya apabila berterusan selama berminggu-minggu\" is fine, but \"Ikan besar biasanya terjejas dahulu\" in the FAQ is a slight rewording: the fact says large fish are hit harder, not that they are affected first.",
+        "\"uji air jika anda mengesyaki air hujan telah masuk ke dalam tangki\" is an unsupported recommendation; the facts only say rain can change pH and raise ammonia, nitrite and nitrate.",
+        "\"(contohnya daripada air paip yang tidak dirawat)\" is an unsupported example of the source of chlorine.",
+        "\"Jika tiada, menurut sebuah universiti, kacau air dengan pemukul telur\" is framed as a fallback if there is no air pump. The facts give the whisk as a separate tip for an overheating tank, not as a substitute for a pump.",
+        "\"Selepas cuaca melampau atau elektrik terputus, ... penyakit bintik putih yang boleh timbul sehingga dua minggu selepas suhu jatuh\" slightly generalises the ich fact. It says ich follows a stressful event, especially a temperature drop.",
+        "\"ikan hiasan\" and \"ikan tropika dan ikan iklim sederhana ... high 80s hingga low 90s °F\" keep the Fahrenheit figures and are not converted. This is acceptable but inconsistent.",
+        "\"Tangki yang kurang padat dengan ikan\" is a fair paraphrase of fewer fish, so it is not a problem."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.8,
+        0.8,
+        0.78
       ]
     }
   ],

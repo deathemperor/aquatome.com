@@ -1,0 +1,48 @@
+{
+  "id": "paretroplus-damii",
+  "native": {
+    "input": "0cfd501c404ac392",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "MG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northwestern Madagascar, around Lake Pambilao.",
+        "words": "Madagascar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Pambilao",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northwestern Madagascar, around Lake Pambilao.",
+        "country": "MG",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Paretroplus damii",
+    "status": "ACCEPTED",
+    "taxonKey": 2369893,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ]
+    ],
+    "native": [
+      "MG"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

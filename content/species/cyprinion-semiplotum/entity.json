@@ -11,6 +11,143 @@
     "nepal",
     "bhutan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "NP",
+        "BT"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra",
+        "Himalaya",
+        "Sankosh",
+        "Torsa"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species originates from the north of India, Nepal and Bhutan.",
+          "countries": [
+            "IN",
+            "NP",
+            "BT"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "This unique carp lives exclusively in clear mountain streams in the Himalaya, which flow to the Ganges and the Brahmaputra.",
+          "countries": [],
+          "regions": [
+            "Ganges",
+            "Brahmaputra",
+            "Himalaya"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The specimens currently traded are said to originate from the Sankosh and Torsa rivers in North Bengal.",
+          "countries": [],
+          "regions": [
+            "Sankosh",
+            "Torsa"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363439,
+      "total": 28,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "IN",
+          21
+        ],
+        [
+          "NP",
+          5
+        ],
+        [
+          "BT",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          82.96875,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          84.375,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          87.1875,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          88.59375,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          90,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          28.125,
+          10,
+          10
+        ],
+        [
+          95.625,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          95.625,
+          28.125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

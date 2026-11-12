@@ -24,27 +24,34 @@
       ],
       "regions": [
         "Kapuas",
-        "Batang Hari",
         "Musi",
+        "Batang Hari",
         "Perak",
         "Selangor",
         "Malay Peninsula"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Apparently restricted to the Malay Peninsula and western Indonesia, where it is known from the Perak and Selangor river systems in Peninsular Malaysia, Batang Hari and Musi watersheds in Sumatra, and Kapuas basin in Kalimantan (Indonesian Borneo).",
+          "quote": "The Indonesian tiger perch, Datnioides microlepis, is a large tiger perch from Peninsular Malaysia, Sumatra and Indonesian Borneo.",
           "countries": [
             "MY",
             "ID"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Apparently restricted to the Malay Peninsula and western Indonesia, where it is known from the Perak and Selangor river systems in Peninsular Malaysia, Batang Hari and Musi watersheds in Sumatra, and Kapuas basin in Kalimantan (Indonesian Borneo).",
+          "countries": [],
           "regions": [
             "Kapuas",
-            "Batang Hari",
             "Musi",
+            "Batang Hari",
             "Perak",
             "Selangor",
             "Malay Peninsula"
