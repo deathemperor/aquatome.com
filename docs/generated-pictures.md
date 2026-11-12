@@ -6,6 +6,12 @@ Owner's direction, 10–11 November 2026. All seven switches and every source al
 
 Select diagnostic quotes verbatim from recorded external sources, separately from the writer. Record source URLs, species name and real-reference byte hashes. Insufficient appearance evidence means no generation. Checking photographs remain private, never displayed, put in albums or passed to the generator; delete study files afterward, retaining provenance. Before generation, compare real references with recorded facts separately from the candidate. Conflicts/uncertainty hold it. The candidate judge receives evidence and attachment roles, never the generation prompt. Every required identity, anatomy and visible feature must pass; people, hands, text and logos refuse. Unknown stays hidden. No live prose is changed.
 
+Before any generation switch turns on, the dashboard or the image step's log must
+name each fish deferred by a real photo without a completed watermark-screen
+record and say how long it has waited. The screen currently retries unreachable
+or unreadable files indefinitely; a silent permanent deferral is not ready for
+activation.
+
 **Two judgments.** Each new judged gate requires two separate calls on identical immutable input, both positive. Disagreement, error or incomplete answers hold and are recorded. Original-species pairs are cached by bytes, species, prompt/schema/model and policy; both edits inherit them. A repaint also needs a paired subject-preservation comparison and whole-edited-photo checks for people, new lettering and marks, rather than fresh species guesses. Incomplete transport or schema answers keep real recovery pending and are retried; they cannot release a generated replacement. Species-cache JSON and retained native edits are written to a temporary file and atomically renamed. Malformed species JSON is absent and gets fresh judgments. Retained native edit bytes are reused after an incomplete check; undecodable bytes or an interrupted admitted edit hold recovery for inspection and never trigger another image attempt. Distinct judgment identities are hashed into content. The Chief's explicit 10 November 23:15 correction applies: all known-wrong cases and conflicts must be refused/listed; explained known-right refusals lose yield. The historical 76/76 wrong, 12/14 right and one conflict do not qualify the new pair rule. A partial paired run with control-identifying working paths is ineligible. Every attachment, including full real references and enlarged views, uses neutral hash paths before either pair; cached calibration rows without proof of this protocol are refused. Full neutral-path calibration is required; no control is dropped to obtain approval.
 
 **Ownership and credit.** Require the global mark switch, dated source permission and a licence allowing changes. Two inventories identify every mark. Remove source logos or covered photographer signatures only; other sites, shops, agencies, stock libraries and indistinguishable marks remain refused. Seriously Fish and ScotCat cover contributors even where a signature differs from the record; PlanetCatfish contributors remain unapproved. Preserve attribution: adopt an agreed readable signature credit when necessary, clear a wrong author link and record the page, source, photo and disagreement in content, without either name. Ownership records contain lettering presence, boxes, owner and a structured decision basis, never the words. The one allowed name extraction goes straight from two in-memory Seriously Fish/ScotCat judgments to the page credit. The native CLI uses ephemeral judging and sends its final answer through a memory-only event stream; no raw answer file, transcript or event log is kept by this workflow. Evidence stores controlled observations. Preserve the true licence and visible change notice. No-derivatives and unknown licences are untouched. Keep original bytes/variants. Source revocation applies next build, with Glaser's permitted original-logo fallback. Clean replacements rank normally.
@@ -132,3 +138,22 @@ or refused decision holds the crop; an empty read never overrides it. The screen
 record is checked again through completion. Thus no page loses its old head in a
 gap, and no crop waits for Claude until 13 November. These are stage-produced
 records copied by the engine, never a hand-written verdict.
+
+### Four empty-page recoveries, 12 November 2026
+
+The Chief of Staff approved the passing crops for Boraras micros (source photo
+4), Carnegiella marthae (1), Lobocheilos melanotaenia (1) and Oryzias
+songkhramensis (1). These four exact photographs extend the finite registry to
+43; they grant nothing to another photo, source or future crop. The other
+Seriously Fish candidates and the habitat-only group are not admitted here.
+No size rule changes, and the under-600-pixel Trochilocharax originals stay out.
+
+Each bundle binds its retained native original, lossless crop, unchanged pixels,
+paired original-species and ownership receipts, exact credit and the watermark
+stage's own empty native read of the exact served file. The existing publisher
+installs that byte-bound screen record before content admission; rejection,
+source objection, ordinary refusal and retry vetoes remain unchanged. All seven
+switches and source grants stay off. Credits contain photographer, source and
+licence only. Day cards and Fish ID remain excluded; unsafe app banner inputs
+remain absent. The separate recorded-author classification issue is not changed
+or bypassed by this admission.
