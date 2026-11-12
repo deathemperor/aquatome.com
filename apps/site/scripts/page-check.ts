@@ -82,9 +82,10 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
   const lang = langOf(path)
   const owner = (src: string) => facts.owner.get(pictureOf(src, {}).key)
 
-  // The same picture twice, whatever its file.
+  // The same picture twice, whatever its file. A picture hidden from screen readers is a backdrop (a whole tile's blurred
+  // ground: SpeciesCard.astro), not a picture shown.
   const seen = new PictureSet(facts.hashes)
-  for (const img of root.querySelectorAll('img').filter(shown)) {
+  for (const img of root.querySelectorAll('img').filter(i => shown(i) && i.getAttribute('aria-hidden') !== 'true')) {
     const src = img.getAttribute('src')!
     if (seen.has(src)) out.push({ check: 'repeat', detail: src })
     seen.add(src)

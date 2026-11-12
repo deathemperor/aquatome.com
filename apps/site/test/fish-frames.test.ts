@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import { SUBJECT_FRAMES, type Photo } from '@aq/schema'
 import { fishFrame, tileFrame } from '../src/lib/img'
-import { speciesItems } from '../src/lib/list-data'
+import { fishList, speciesItems } from '../src/lib/list-data'
 import { getContent } from '../src/lib/content'
 
 // A fish's frame decides from the fish's box (image-geometry.ts subjectFrame): the centred crop if it keeps the fish,
@@ -35,4 +35,16 @@ test('the fish list\'s data file says how each card frames its photo, as Species
   const p = (s: typeof a, subject: Photo['subject']) => ({ ...s!.photos[0]!, width: 1500, height: 1000, subject })
   const items = speciesItems([a!, b!, c!], [p(a, { x0: 30, y0: 300, x1: 1470, y1: 700 }), p(b, { x0: 0, y0: 300, x1: 600, y1: 700 }), p(c, { x0: 600, y0: 300, x1: 900, y1: 700 })])
   expect(items.map(i => [i.photo?.whole, i.photo?.pos])).toEqual([[true, undefined], [undefined, '0% 50%'], [undefined, undefined]])
+})
+
+test('the fixture\'s boxed heads frame as the rule says, in the fish list\'s data file (test/engine-state/_photo-boxes.json)', async () => {
+  const vi = await getContent('vi')
+  const { species, photos } = fishList('vi', vi)
+  const items = new Map(speciesItems(species, photos).map(i => [i.slug, i.photo]))
+  // A cherry shrimp longer than the 4:3 tile: whole. A ram on the photo's left edge: the crop moves there. A discus at the
+  // top of a squarer photo: the crop moves up. An angelfish the tile keeps, and a rasbora where no animal was found: as today.
+  expect(items.get('tep-red-cherry')).toMatchObject({ whole: true })
+  expect(items.get('ca-phuong-hoang')).toMatchObject({ pos: '0% 50%' })
+  expect(items.get('ca-dia')).toMatchObject({ pos: '50% 0%' })
+  for (const slug of ['ca-ong-tien', 'ca-boraras-do']) expect([items.get(slug)?.pos, items.get(slug)?.whole], slug).toEqual([undefined, undefined])
 })
