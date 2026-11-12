@@ -896,7 +896,8 @@ The layers above still check the result.
   counting against the run; and it stops by itself, and says so in its log, when in any batch more than one page in ten
   is held or given its old text back for something other than its figures (the chief of staff, 2026-11-12). The gate
   reads each as any changed page, and what it made of each is recorded once, right after it (`engine-state/_source-figures-batches.json`),
-  so a later hold for something else doesn't count; the stop stays there until the chief's word takes it out. A page
+  or before the next run mends if that didn't run, so a later hold for something else doesn't count; the stop stays
+  there until the chief's word takes it out, and a limit by hand doesn't pass it. A page
   the gate gives its old text back isn't mended again: it is listed with the checks it failed and waits for the chief's
   word; one the gate couldn't read is tried again, in its own batch.
 - **One size for a US tank.** A tank a source gives in US gallons is named by the size keepers here say, one table for

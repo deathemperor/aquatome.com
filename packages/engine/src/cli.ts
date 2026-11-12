@@ -672,10 +672,10 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // back to the English's (source-figures.ts): code, no model, so no ceiling line; the gate reads it after. At the pace
   // the chief of staff sets (SOURCE_FIGURES_PACE).
   // pnpm engine source-figures [--limit N: language pages, in place of the pace] [--first vi/species/<id>,…] [--dry-run: old beside new]
-  // pnpm engine source-figures --record: right after the gate, what it made of each page mended (the batches, the stop).
+  // pnpm engine source-figures --record [--dry-run]: right after the gate, what it made of each page mended (the batches, the stop).
   if (values.record) {
-    const r = await recordSourceFigures(ROOT)
-    for (const x of r.recorded) console.log(`recorded: ${x}`)
+    const r = await recordSourceFigures(ROOT, { dryRun: !!values['dry-run'] })
+    for (const x of r.recorded) console.log(`${values['dry-run'] ? 'would record' : 'recorded'}: ${x}`)
     if (r.stopped) console.log(`source-figures: stopped, waiting for the chief of staff's word: ${r.stopped}`)
   } else {
     const r = await sourceFigures(ROOT, { ...(values.limit ? { limit: Number(values.limit) } : {}), ...(values.first ? { first: values.first.split(',') } : {}), dryRun: !!values['dry-run'] })

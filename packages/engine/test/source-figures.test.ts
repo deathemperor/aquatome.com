@@ -95,8 +95,9 @@ test('a run mends the first 30, the named first; once those are on main, 60 a ru
   const f9 = JSON.parse(await readFile(join(root, 'content/species/f9/vi.json'), 'utf8'))
   expect(f9.sections).toEqual({ 'aquariumSize:seriouslyfish': '<p>Bể 90 × 38 × 30 cm.</p>', 'aquariumSize:aquatome': '<p>Bể 90 × 40 × 30 cm.</p>' })
   expect((await marks(root))['vi/species/f9']).toEqual({ at: T12, figures: ['90 × 40 × 30 cm → 90 × 38 × 30 cm'] })
-  // Not on main yet: a second run mends nothing more.
+  // Not on main yet: a second run mends nothing more, and records nothing for pages the gate hasn't read.
   expect([(await sourceFigures(root, { onMain: {}, ...at(13) })).mended.length]).toEqual([0])
+  expect((await book(root)).batches[0]!.outcomes).toEqual({})
   // The first 30 on main: 60 a run, without asking, and again nothing more until those are on main.
   const published = await marks(root)
   expect((await sourceFigures(root, { onMain: published, ...at(15) })).mended).toHaveLength(P.perRun)
@@ -154,20 +155,56 @@ test('it stops by itself when more than one page in ten of a batch went wrong fo
 
 test('a page the gate gave its old text back is listed with what it failed, not mended again; one it couldn\'t read is', async () => {
   const root = await site(2)
-  await sourceFigures(root, { limit: 2, ...at(12) })
-  // The gate gave f0 its old text back for a check, and couldn't read f1.
-  await putBack(root, 'vi/species/f0', { at: '2026-11-12T12:30:00Z', checks: ['source'] })
+  await sourceFigures(root, { limit: 2, onMain: {}, ...at(12) })
+  // The gate gave f0 its old text back for its figures (one for another check would stop a batch of two), and couldn't read f1.
+  await putBack(root, 'vi/species/f0', { at: '2026-11-12T12:30:00Z', checks: ['units'] })
   await unread(root, 'vi/species/f1', '2026-11-12T12:30:00Z')
-  const r = await sourceFigures(root, { limit: 10, ...at(15) })
-  expect(r.putBack).toEqual(["vi/species/f0: the gate gave it its old text back for source; waits for the chief of staff's word"])
+  const r = await sourceFigures(root, { limit: 10, onMain: await marks(root), ...at(15) })
+  expect(r.putBack).toEqual(["vi/species/f0: the gate gave it its old text back for units; waits for the chief of staff's word"])
   expect(r.mended.map(m => m.key)).toEqual(['vi/species/f1'])
   expect(JSON.parse(await readFile(join(root, 'content/species/f0/vi.json'), 'utf8')).sections['aquariumSize:seriouslyfish']).toBe('<p>Bể 90 × 40 × 30 cm.</p>')
 })
 
-test('marks from before the batches were kept make a batch of their run, recorded after the gate', async () => {
-  const root = await site(P.first + 2)
-  await sourceFigures(root, { onMain: {}, ...at(12) })
+test('marks from before the batches were kept make a batch of 30, recorded before the run mends any more', async () => {
+  const root = await site(P.first + P.perRun)
+  const keys = (await sourceFigures(root, { onMain: {}, ...at(12) })).mended.map(m => m.key)
   await rm(join(root, SOURCE_FIGURES_BATCHES))
-  expect((await recordSourceFigures(root, at(13))).recorded).toHaveLength(P.first)
-  expect((await book(root)).batches.map(b => [b.at, b.keys.length])).toEqual([[T12, P.first]])
+  // That run's gate gave three their old text back for `source` and couldn't read one: 3 of 30, though 29 kept marks.
+  for (const k of keys.slice(0, 3)) await putBack(root, k, { at: '2026-11-12T12:30:00Z', checks: ['source'] })
+  await unread(root, keys[3]!, '2026-11-12T12:30:00Z')
+  const going = await sourceFigures(root, { onMain: await marks(root), ...at(15) })
+  expect(going.stopped).toBeUndefined()
+  expect((await book(root)).batches[0]).toMatchObject({ at: T12, size: P.first, wrong: keys.slice(0, 3) })
+  expect(going.mended.map(m => m.key)).toEqual([keys[3]]) // 29 on main: the one it couldn't read, within the 30
+  // A fourth given its old text back: recorded at the start of the next run, which then mends nothing.
+  const root2 = await site(P.first + P.perRun)
+  const keys2 = (await sourceFigures(root2, { onMain: {}, ...at(12) })).mended.map(m => m.key)
+  await rm(join(root2, SOURCE_FIGURES_BATCHES))
+  for (const k of keys2.slice(0, 4)) await putBack(root2, k, { at: '2026-11-12T12:30:00Z', checks: ['source'] })
+  const stopped = await sourceFigures(root2, { onMain: await marks(root2), ...at(15) })
+  expect([stopped.mended.length, stopped.waiting]).toEqual([0, P.perRun])
+  expect(stopped.stopped).toMatch(/^the batch of 2026-11-12T12:00:00.000Z: 4 of 30 pages/)
+})
+
+test('a page the gate couldn\'t read and then held, for harm found in another language, counts against its batch', async () => {
+  const root = await site(P.first + 5)
+  const keys = (await sourceFigures(root, { onMain: {}, ...at(12) })).mended.map(m => m.key)
+  for (const k of keys.slice(0, 3)) await putBack(root, k, { at: '2026-11-12T12:30:00Z', checks: ['source'] })
+  await unread(root, keys[3]!, '2026-11-12T12:30:00Z')
+  await edit(root, keys[3]!, t => ({ ...t, held: { checks: ['harm'], at: '2026-11-12' } }))
+  const r = await recordSourceFigures(root, at(13))
+  expect(r.recorded).toContain(`${keys[3]}: held for harm`)
+  expect(r.stopped).toMatch(/4 of 30 pages/)
+})
+
+test('stopped, or with no main to read, a limit by hand mends nothing; a dry run of the record writes nothing', async () => {
+  const root = await site(P.first + 5)
+  const keys = (await sourceFigures(root, { onMain: {}, ...at(12) })).mended.map(m => m.key)
+  for (const k of keys.slice(0, 4)) await putBack(root, k, { at: '2026-11-12T12:30:00Z', checks: ['source'] })
+  const before = await readFile(join(root, SOURCE_FIGURES_BATCHES), 'utf8')
+  expect((await recordSourceFigures(root, { dryRun: true, ...at(13) })).stopped).toMatch(/4 of 30 pages/)
+  expect(await readFile(join(root, SOURCE_FIGURES_BATCHES), 'utf8')).toBe(before)
+  expect((await recordSourceFigures(root, at(13))).stopped).toMatch(/4 of 30 pages/)
+  expect((await sourceFigures(root, { limit: 1, onMain: await marks(root), ...at(15) })).mended).toEqual([])
+  expect((await sourceFigures(await site(3), { limit: 1, ...at(12) })).mended).toEqual([]) // not a git checkout
 })
