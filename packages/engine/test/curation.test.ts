@@ -208,8 +208,10 @@ test('a week with tags takes only fish that match one, or that are on its own li
   const cands = [nano('a'), fish('big', { facts: { places: [], coldwater: false, sizeMax: 30 } }), fish('listed', { facts: { places: [], coldwater: false, sizeMax: 40 } }), guide('g1'), guide('g2'), guide('g3')]
   const cur = CurationSchema.parse({ version: 1, weeks: [{ from: '2026-11-16', to: '2026-11-22', theme: { vi: 'Bể nhỏ' }, tags: ['nano'], fish: ['species/listed'] }], days: [] })
   const { calendar, report } = plan(cur, cands, '2026-11-16', 3)
-  expect(calendar.days.map(d => d.fish)).toEqual(['species/listed', 'species/a', undefined])
-  expect(report.empty).toContain('2026-11-18 fish')
+  // When no fish of the tags is left, a day takes any fish rather than none, and says so.
+  expect(calendar.days.map(d => d.fish)).toEqual(['species/listed', 'species/a', 'species/big'])
+  expect(calendar.days[2]!.why).toContain("no fish of this week's tags (nano) is left")
+  expect(report.empty).not.toContain('2026-11-18 fish')
   // A pick already in the calendar that the week's tags no longer take is replaced, unless a person chose it.
   const big30 = cands[1]!
   const was = CurationSchema.parse({ ...cur, days: [{ date: '2026-11-16', fish: big30.ref, img: big30.photo.square!.url }] })
@@ -403,6 +405,31 @@ test("a fish whose head Hôm nay's card cuts is no day's fish, and stays a week'
   // Khám phá's wide card still shows it, on its head.
   expect(calendar.weeks[0]!.hero[0]).toEqual({ page: 'species/cut', img: cut.head!.url })
   expect(checkCalendar(calendar, [cut, whole], '2026-11-09', 1).filter(x => x.includes('species/cut'))).toEqual([])
+})
+
+test("a fish whose head Hôm nay's card, centred, would cut by more than 5% (its box) is no day's fish, unless a person set the day", async () => {
+  const { headOf } = await import('../src/curation')
+  const photo = (subject?: { x0: number; y0: number; x1: number; y1: number }) => ({ url: big(1), width: 1600, height: 1200, licence: 'CC BY 4.0', author: 'a', sourceUrl: 'https://x/', ...(subject ? { subject } : {}) })
+  // The card is wider than tall, narrower than the photo: it cuts the photo's sides. A fish along the photo's length is cut
+  // at either card shape; one in the middle isn't; no box (none found yet) isn't taken for a cut.
+  expect(headOf([photo({ x0: 40, y0: 400, x1: 1560, y1: 800 })], () => true)?.cut).toBe(true)
+  expect(headOf([photo({ x0: 500, y0: 400, x1: 1100, y1: 800 })], () => true)?.cut).toBeUndefined()
+  expect(headOf([photo()], () => true)?.cut).toBeUndefined()
+  const cut = fish('cut'), whole = fish('whole')
+  cut.head = { ...cut.head!, cut: true }
+  const problem = "Hôm nay's card cuts the fish in its head photo by more than 5% (its box)"
+  const cur = CurationSchema.parse({
+    version: 1, weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: { vi: 'x' }, fish: ['species/cut', 'species/whole'] }],
+    days: [{ date: '2026-11-09', fish: 'species/cut', img: cut.head!.url }],
+  })
+  expect(checkCalendar(cur, [cut, whole], '2026-11-09', 1)).toContain(`2026-11-09 fish species/cut: ${problem}`)
+  const { calendar, report } = plan(cur, [cut, whole], '2026-11-09', 2)
+  expect(report.replaced).toEqual([{ date: '2026-11-09', slot: 'fish', was: 'species/cut', why: problem }])
+  expect(calendar.days.map(d => d.fish)).toEqual(['species/whole', undefined])
+  // A day a person set keeps its fish (the Siamese tiger fish, shown whole, 23 Nov: the chief of staff decides by 21 Nov).
+  const chosen = CurationSchema.parse({ ...cur, days: [{ ...cur.days[0]!, fixed: true }] })
+  expect(plan(chosen, [cut, whole], '2026-11-09', 1).calendar.days[0]!.fish).toBe('species/cut')
+  expect(checkCalendar(chosen, [cut, whole], '2026-11-09', 1).filter(x => x.includes('species/cut'))).toEqual([])
 })
 
 test('a day filled between planned days differs in kind of fish from the day after too', () => {
