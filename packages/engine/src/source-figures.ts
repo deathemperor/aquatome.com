@@ -229,6 +229,8 @@ function adopt(book: SourceFiguresBook, state: SourceFiguresState): boolean {
  * is set when a batch's pages counted against it first go past one in ten, and stays until the chief of staff's word takes
  * it out.
  */
+/** A put-back written at or after `from`: the gate writes its time to the second (gate.ts), a mark and a batch to the millisecond. */
+const since = (back: string, from: string) => Date.parse(back) >= Math.floor(Date.parse(from) / 1000) * 1000
 async function recordInto(root: string, book: SourceFiguresBook, state: SourceFiguresState, at: string, gated: (key: string) => boolean): Promise<string[]> {
   const recorded: string[] = []
   for (const b of book.batches) {
@@ -240,8 +242,8 @@ async function recordInto(root: string, book: SourceFiguresBook, state: SourceFi
       const t = await readJson<{ held?: { checks?: string[] } }>(join(root, 'content', k.kind, k.id, `${k.lang}.json`), {})
       if (!t.held && !mark) continue
       const back = await readJson<{ at?: string; checks?: string[]; unread?: boolean }>(join(root, putBackFile(k)), {})
-      const answer = !!mark && !!back.at && Date.parse(back.at) >= Date.parse(mark.at)
-      if (back.unread && back.at && Date.parse(back.at) >= Date.parse(mark?.at ?? b.at)) continue
+      const answer = !!mark && !!back.at && since(back.at, mark.at)
+      if (back.unread && back.at && since(back.at, mark?.at ?? b.at)) continue
       let outcome = 'passed'
       let wrong = false
       if (t.held) {

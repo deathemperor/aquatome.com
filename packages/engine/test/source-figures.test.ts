@@ -206,6 +206,20 @@ test('an unread page is not a held page: one the gate couldn\'t read and then he
   expect(later.stopped).toMatch(/4 of 30 pages/)
 })
 
+test('a put-back in the same second as its batch is its answer: the gate writes its time to the second', async () => {
+  const root = await site(P.first + 5)
+  const keys = (await sourceFigures(root, { onMain: {}, now: () => new Date(Date.UTC(2026, 10, 12, 12, 0, 0, 500)) })).mended.map(m => m.key)
+  // Unread and then held, in the batch's second: not counted. Given its old text back in its mark's second: counted.
+  for (const k of keys.slice(0, 4)) {
+    await unread(root, k, '2026-11-12T12:00:00Z')
+    await edit(root, k, t => ({ ...t, held: { checks: ['kit'], at: '2026-11-12' } }))
+  }
+  for (const k of keys.slice(4, 7)) await putBack(root, k, { at: '2026-11-12T12:00:00Z', checks: ['source'] })
+  const r = await recordSourceFigures(root, at(13))
+  expect(r.recorded.filter(x => !x.endsWith(': passed'))).toEqual(keys.slice(4, 7).map(k => `${k}: given its old text back for source`))
+  expect(r.stopped).toBeUndefined()
+})
+
 test('a cycle whose gate can\'t read mends nothing: it asks the gate\'s model first, only when there is something to mend', async () => {
   const root = await site(5)
   let asked = 0
