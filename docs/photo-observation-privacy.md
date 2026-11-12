@@ -20,10 +20,10 @@ No image or model call is made by the migration.
 
 `photo-observations.ts` projects photo verdicts into controlled outcomes, retaining
 every decision field, the question version, and a hash of the discarded note.
-The old dead/person recheck cues become booleans before prose is discarded.
+The old dead/person recheck cues and the manual artwork predicate become booleans before prose is discarded.
 Rejection records retain their URL membership, truth value and exact
 `watermark:` prefix condition, which the permitted Glaser-logo exception reads.
-The video-still and guide writers use the same persistence boundary. A source
+The video-still, guide and manual unfit-photo writers use the same persistence boundary. Still failure/kept diagnostics are guarded as fingerprints or the controlled rejected token. Failed species checks and image steps retain controlled stop kinds or hashed failures, never upstream answer text. A source
 re-read or a URL mirror cannot restore an older transcription.
 
 `photo-privacy.ts --root <checkout> --write --report <private-proof>` is the

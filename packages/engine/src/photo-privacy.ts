@@ -1,3 +1,4 @@
+import { artworkObservation } from './photo-artwork'
 import { readFile, readdir } from 'node:fs/promises'
 import { join, basename, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -16,6 +17,7 @@ function decisions(name:string,data:Record<string,any>):unknown {
  if(name==='_photo-watermarks.json')return Object.fromEntries(Object.entries(data).map(([u,v])=>[u,{waits:awaitsScreen(u,v),hit:ocrHit(v.ocr),watermark:v.watermark,kind:v.kind,retainedOwnMark:v.retainedOwnMark}]))
  if(name==='_photo-rejected.json'||name==='_video-rejected.json')return mapValues(data,s=>({rejected:!!s,watermarkPrefix:typeof s==='string'&&s.startsWith('watermark:')}))
  if(name==='_photo-subjects.json')return mapValues(data,by=>mapValues(by,verdict))
+ if(name==='_dead-screen.json')return mapValues(data,v=>({...verdict(v),artwork:artworkObservation(v)}))
  if(name==='_video-stills.json')return mapValues(data,v=>({...v,...(v.failed!==undefined?{failed:!!v.failed}:{}),...(v.kept?{kept:mapValues(v.kept,why=>!!why)}:{})}))
  return mapValues(data,verdict)
 }
@@ -40,11 +42,21 @@ export function photoPrivacyViolations(file:string,data:unknown):{code:string;lo
    if(v.noteHash!==undefined&&(typeof v.noteHash!=='string'||!/^[a-f0-9]{64}$/.test(v.noteHash)))add('invalid observation fingerprint',path)
    if(Object.keys(v).some(k=>!['ok','typical','person','logo','guide','file','mark','brand','poor','unwell','q','other','dead','frames','note','noteHash','hints'].includes(k)))add('uncontrolled verdict field',path)
   }
-  if(v.hints!==undefined&&(!v.hints||typeof v.hints.dead!=='boolean'||typeof v.hints.people!=='boolean'||Object.keys(v.hints).some(k=>!['dead','people'].includes(k))))add('uncontrolled recheck hints',path)
+  if(v.hints!==undefined&&(!v.hints||typeof v.hints.dead!=='boolean'||typeof v.hints.people!=='boolean'||(v.hints.artwork!==undefined&&typeof v.hints.artwork!=='boolean')||Object.keys(v.hints).some(k=>!['dead','people','artwork'].includes(k))))add('uncontrolled recheck hints',path)
   for(const[k,x]of Object.entries(v))walk(x,path+'/'+k)
  }
  walk(data,'')
  if(name==='_photo-rejected.json'&&data&&typeof data==='object')for(const[u,v]of Object.entries(data))if(v!==''&&(typeof v!=='string'||!rejectedPattern.test(v)))add('free rejection explanation',u)
+ if(name==='_video-stills.json'&&data&&typeof data==='object')for(const[id,v]of Object.entries(data) as [string,any][]){
+  if(!v||typeof v!=='object'||Array.isArray(v)){add('invalid still state record',id);continue}
+  if(Object.keys(v).some(k=>!['at','timed','failed','kept'].includes(k)))add('uncontrolled still field',id)
+  if(v.at!==undefined&&(typeof v.at!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(v.at)))add('invalid still date',id)
+  if(v.timed!==undefined&&typeof v.timed!=='boolean')add('invalid still timing flag',id)
+  const safe=(s:unknown)=>s===''||typeof s==='string'&&/^photo operation unavailable \[sha256:[a-f0-9]{64}\]$/.test(s)
+  if(v.failed!==undefined&&!safe(v.failed))add('free still failure explanation',id+'/failed')
+  if(v.kept!==undefined&&(!v.kept||typeof v.kept!=='object'||Array.isArray(v.kept)))add('invalid kept still decisions',id+'/kept')
+  else for(const[t,why]of Object.entries(v.kept??{}))if(!/^\d+(?:\.\d+)?$/.test(t)||why!=='rejected'&&!safe(why))add('free kept still explanation',id+'/kept/'+t)
+ }
  if(name==='_video-rejected.json'&&data&&typeof data==='object')for(const[u,v]of Object.entries(data))if(typeof v==='string'&&/^(?:watermark|people|dead|logo):/.test(v)&&!rejectedPattern.test(v))add('free image/video rejection explanation',u)
  return out
 }

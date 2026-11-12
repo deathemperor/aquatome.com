@@ -446,7 +446,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
           report.judged++
         }
       } catch (err) {
-        if (err instanceof LlmError) report.stopped ||= `${s.id}: ${err.message}`
+        if (err instanceof LlmError) report.stopped ||= `${s.id}: ${photoModelStop(err)}`
         else report.failed.push(`${s.id}: ${photoFailure(err)}`)
       }
     })

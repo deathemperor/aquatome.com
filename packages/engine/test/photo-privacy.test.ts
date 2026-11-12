@@ -105,3 +105,15 @@ test('every persistence shape and the generated review keep controlled reasons r
 test('all committed engine-state JSON and the generated photo review contain no raw photo lettering',async()=>{
  await assertPhotoPrivacy(fileURLToPath(new URL('../../../',import.meta.url)))
 })
+
+test('the whole-state guard rejects free still diagnostics even when a writer bypasses the sanitizer',async()=>{
+ const r=await root(),file='engine-state/_video-stills.json'
+ for(const entry of [{failed:trip},{kept:{1:trip}}]){
+  await put(r,file,{guide:{at:'2026-11-12',...entry}})
+  await expect(assertPhotoPrivacy(r)).rejects.toThrow('unsafe observation fields')
+ }
+ await writePhotoState(join(r,file),{guide:{at:'2026-11-12',failed:trip,kept:{1:trip,2:'rejected'},timed:true,otherProse:trip}})
+ await expect(assertPhotoPrivacy(r)).resolves.toBeUndefined()
+ const output=await load(r,file);expect(output.guide.timed).toBe(true);expect(output.guide.kept[2]).toBe('rejected');expect(output.guide).not.toHaveProperty('otherProse')
+ expect(photoPrivacyViolations('_video-stills.json',{guide:{at:'2026-11-12',otherProse:trip}}).length).toBeGreaterThan(0)
+})

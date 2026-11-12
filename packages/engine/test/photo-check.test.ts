@@ -764,3 +764,11 @@ test('--only takes several pages, comma-separated, and judges those alone', asyn
   await checkPagePhotos(r, d, { limit: 10, only: 'a-fish, b-fish', today: '2026-11-08' })
   expect(d.seen.flatMap(x => x.photos).sort()).toEqual(['a1', 'b1'])
 })
+
+test.each(['usage limit', 'invalid model answer'])('a species-check failure retains only the controlled stop kind: %s',async kind=>{
+ const r=await root([{id:'danio-rerio',sci:'Danio rerio',photos:['a','b']}]),trip=['TEST','ONLY','FAILED','MODEL','WORDS'].join('_')
+ const report=await checkPagePhotos(r,{get:async()=>new Uint8Array(await jpeg),look:async()=>{throw new LlmError(kind+' '+trip)}},{limit:10})
+ expect(report.stopped).toBe('danio-rerio: '+(kind==='usage limit'?'usage limit':'photo model unavailable'))
+ expect(JSON.stringify(report)).not.toContain(trip)
+ expect(await urls(r,'content/species/danio-rerio/entity.json')).toEqual(['a','b'])
+})

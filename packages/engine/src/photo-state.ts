@@ -14,7 +14,18 @@ export function compactPhotoState(file:string,value:unknown):unknown {
   if(name==='_photo-subjects.json')return entries(by=>Object.fromEntries(Object.entries(by).map(([id,v])=>[id,compactVerdict(v as Record<string,any>)])))
   if(name==='_photo-check.json'||name==='_photo-guides.json'||name==='_dead-screen.json')return entries(compactVerdict)
   if(name==='_video-rejected.json')return entries(s=>/^(?:dead|watermark|people|logo):/.test(s)?compactRejection(s):s)
-  return entries(v=>({...v,...(typeof v.failed==='string'?{failed:v.failed?photoFailure(v.failed):''}:{}),...(v.kept?{kept:Object.fromEntries(Object.entries(v.kept).map(([t,why])=>[t,why==='rejected'?'rejected':why?photoFailure(why):why]))}:{})}))
+  return entries(v=>{
+    if(!v||typeof v!=='object'||Array.isArray(v))throw new Error('invalid still state record')
+    if(v.at!==undefined&&(typeof v.at!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(v.at)))throw new Error('invalid still date')
+    if(v.timed!==undefined&&typeof v.timed!=='boolean')throw new Error('invalid still timing flag')
+    if(v.failed!==undefined&&typeof v.failed!=='string')throw new Error('invalid still failure')
+    if(v.kept!==undefined&&(!v.kept||typeof v.kept!=='object'||Array.isArray(v.kept)))throw new Error('invalid kept still record')
+    const kept=v.kept&&Object.fromEntries(Object.entries(v.kept).map(([t,why])=>{
+      if(!/^\d+(?:\.\d+)?$/.test(t)||typeof why!=='string')throw new Error('invalid kept still decision')
+      return[t,why==='rejected'?'rejected':why?photoFailure(why):why]
+    }))
+    return {...(v.at!==undefined?{at:v.at}:{}),...(v.timed!==undefined?{timed:v.timed}:{}),...(v.failed!==undefined?{failed:v.failed?photoFailure(v.failed):''}:{}),...(kept?{kept}:{})}
+  })
 }
 export async function writePhotoState(file:string,value:unknown,indent:number|string=2):Promise<void> {
   await writeImageCache(file,JSON.stringify(compactPhotoState(file,value),null,indent)+'\n')

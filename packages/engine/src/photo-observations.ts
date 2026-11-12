@@ -1,3 +1,4 @@
+import { artworkObservation } from './photo-artwork'
 import { createHash } from 'node:crypto'
 import { ocrHit, validOcrSummary, type OcrSummary } from '@aq/schema'
 
@@ -7,7 +8,7 @@ export const PHOTO_POSITIONS = ['top left','top centre','top right','middle left
 const position = (s:unknown) => typeof s==='string' && (PHOTO_POSITIONS as readonly string[]).includes(s) ? s : 'unknown'
 export const PHOTO_MARK_KINDS = ['credit','logo','url','name','caption','stamp','none'] as const
 export type PhotoMarkKind = typeof PHOTO_MARK_KINDS[number]
-export type PhotoHints = { dead:boolean; people:boolean }
+export type PhotoHints = { dead:boolean; people:boolean; artwork?:boolean }
 export type CompactScreen = { ocr:OcrSummary[];watermark?:boolean;kind?:PhotoMarkKind;locations?:string[];observationHash?:string;hints?:PhotoHints;retainedOwnMark?:{source:'glaser';sourceUrl:string;owner:'source'} }
 const DEAD_NOTE = /\b(?:dead(?! (?:leaf|leaves|wood|plants?|twigs?|branch(?:es)?|stems?|vegetation|grass|reeds?|algae|coral|trees?|logs?))|died|carcass(?:es)?|markets?|fishmonger|preserved|museum|mounted|taxiderm\w*|fillets?|cooked|fried|grilled|on ice|on a plate|catch(?:es)?|caught|landed|trays?|nets?|formalin|pickled|herbarium|pressed)\b|(?<!(?:lá|cành|gỗ|cây) )chết|chợ|bày bán|mẫu ngâm|mẫu vật|bảo tàng|tiêu bản|phi lê/i
 const ARTWORK = /drawing|illustrat|engrav|painting|lithograph|watercolou?r/i
@@ -18,9 +19,9 @@ export const peopleNote = (note: string) => PEOPLE_NOTE.test(note)
 
 /** Preserve the old recheck predicate before discarding its prose. */
 export function photoHints(v:{hints?:PhotoHints;note?:unknown;what?:unknown}):PhotoHints {
-  if(v.hints && typeof v.hints.dead==='boolean' && typeof v.hints.people==='boolean')return {dead:v.hints.dead,people:v.hints.people}
+  if(v.hints && typeof v.hints.dead==='boolean' && typeof v.hints.people==='boolean')return {dead:v.hints.dead,people:v.hints.people,...(artworkObservation(v)?{artwork:true}:{})}
   const s=typeof v.note==='string'?v.note:typeof v.what==='string'?v.what:''
-  return {dead:deadNote(s),people:peopleNote(s)}
+  return {dead:deadNote(s),people:peopleNote(s),...(artworkObservation(v)?{artwork:true}:{})}
 }
 /** The first sixty characters were the old public record and predicate input. Only the fingerprint sees the full line. */
 export function summarizeOcr(l:{t:string;c:number;at?:string}):OcrSummary {

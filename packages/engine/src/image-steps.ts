@@ -1,3 +1,4 @@
+import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { pendingOwnerCrops, publishOwnerCrops } from './owner-crops'
 import { beforeDeadline } from './image-deadline'
@@ -227,7 +228,7 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
       verdicts[stored.url] = { ...verdicts[stored.url], [c.page.id]: verdict }; await writePhotoState(verdictFile, verdicts)
       await save(workFile, { key, status: 'published' }); finishRealCandidate(name,pageKey)
       report.published++
-    } catch (e) { report.failed.push(`mark candidate: ${(e as Error).message}`) }
+    } catch (e) { report.failed.push(`mark candidate: ${signal.aborted?'deadline or cancellation; ':''}${photoFailure(e)}`) }
   }
 
   if (switches.upscaleReal) for (const page of await imagePlan(root, switches)) {
@@ -370,7 +371,7 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
       const approvalsFile = join(root, 'content/image-approvals.json'), approvals = await json<Approvals>(approvalsFile, { photos: {} })
       approvals.calibrationHash = sha256(JSON.stringify(calibration)); approvals.photos[stored.url] = { page: `${page.kind}/${page.id}`, recordHash: recordHash(entity), check: candidate.generated.check }; await save(approvalsFile, approvals)
       report.published++
-    } catch (e) { await withdrawGenerated(root, page); report.failed.push(`${page.id}: ${(e as Error).message}`) }
+    } catch (e) { await withdrawGenerated(root, page); report.failed.push(`${page.id}: ${signal.aborted?'deadline or cancellation; ':''}${photoFailure(e)}`) }
   }
   return report
 }
