@@ -167,6 +167,32 @@ test('gallery: never pads — only photos the screening kept are added; a page a
   expect(calls).toBe(0)
 })
 
+test('gallery: a full album is read again for the candidates a person seeded alone, and grows at most three past its target', async () => {
+  const r = await root()
+  await mkdir(join(r, 'content/gallery'), { recursive: true })
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  const full = Array.from({ length: 100 }, (_, i) => ({ url: `https://media.aquatome.com/x/${i}.webp`, width: 1200, height: 800, licence: 'CC BY', author: 'a', sourceUrl: `https://x/${i}` }))
+  await writeFile(join(r, 'content/gallery/betta-splendens.json'), JSON.stringify({ id: 'betta-splendens', photos: full, seen: 100, updatedAt: '2026-10-01' }))
+  const cand = (n: number) => ({ key: `inat:${900 + n}`, url: `https://inaturalist-open-data.s3.amazonaws.com/photos/${900 + n}/large.jpg`, width: 1024, height: 768, licence: 'CC BY', author: 'a', sourceUrl: `https://www.inaturalist.org/photos/${900 + n}` })
+  // Five seeded, one the step queued itself: only the five are screened, and three of the kept go in.
+  const queue = [1, 2, 3, 4, 5].map(cand)
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [...queue, cand(6)], judged: [], hashes: {}, seeded: queue.map(c => c.key) }))
+  let calls = 0
+  const report = await galleries(r, deps({ http: async u => { calls++; return deps().http(u) } }), { sheets: 5 })
+  expect(calls).toBe(0) // its sources aren't read
+  const g = await read(r, 'content/gallery/betta-splendens.json')
+  expect(g.photos).toHaveLength(103)
+  expect(g.photos.filter((p: { unchecked?: boolean }) => p.unchecked)).toHaveLength(3) // waiting for the photo check
+  expect(report.done).toEqual(['betta-splendens: 103/100 (+3)'])
+  const st = await read(r, 'engine-state/gallery/betta-splendens.json')
+  expect(st.queue.map((c: { key: string }) => c.key)).toEqual(['inat:906'])
+  expect(st.seeded).toBeUndefined()
+  // Nothing seeded is left: the next run leaves the full album alone.
+  calls = 0
+  expect((await galleries(r, deps({ http: async u => { calls++; return deps().http(u) } }), { sheets: 5 })).done).toEqual([])
+  expect(calls).toBe(0)
+})
+
 test('gallery: rejected photos never come back and leave galleries; a usage limit stops the run', async () => {
   const r = await root()
   await mkdir(join(r, 'content/gallery'), { recursive: true })
