@@ -751,7 +751,18 @@ test('every photo on the never-again list leaves the pages and albums it is stil
   await writeFile(join(root, 'engine-state/_photo-rejected.json'), `${JSON.stringify(list, null, 2)}\n`)
   const own_ = { retainedOwnMark: { source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/x', owner: 'source' } }
   await writeFile(join(root, 'engine-state/_photo-watermarks.json'), `${JSON.stringify({ [marked.url]: { ocr: [], ...own_ }, [held.url]: { ocr: [], ...own_ } }, null, 2)}\n`)
+  // The calendar names some of them, the app's large copies too: a day's, a language's own day's, a guide's, a story's
+  // and a week's hero's. Those go and the app shows the page's own; a picture not on the list, or kept, stays.
+  const large = (u: string) => u.replace(/\.webp$/, '-large.webp')
+  await put('curation.json', { version: 1, days: [
+    { date: '2026-11-20', fish: 'species/danio-erythromicron', img: large(poor.url), guide: 'guides/g', guideImg: guideOff.url, by: { id: { fish: 'species/danio-erythromicron', img: held.url } } },
+    { date: '2026-11-21', fish: 'species/danio-erythromicron', img: large(own.url), story: { page: 'guides/g', img: other.url } },
+  ], weeks: [{ from: '2026-11-16', to: '2026-11-22', hero: [{ page: 'breeds/b', img: large(bred.url) }, { page: 'species/danio-erythromicron', img: large(marked.url) }] }] })
   const r = await sweep(root)
+  expect(await json(root, 'content/curation.json')).toEqual({ version: 1, days: [
+    { date: '2026-11-20', fish: 'species/danio-erythromicron', guide: 'guides/g', by: { id: { fish: 'species/danio-erythromicron' } } },
+    { date: '2026-11-21', fish: 'species/danio-erythromicron', img: large(own.url), story: { page: 'guides/g' } },
+  ], weeks: [{ from: '2026-11-16', to: '2026-11-22', hero: [{ page: 'breeds/b' }, { page: 'species/danio-erythromicron', img: large(marked.url) }] }] })
   expect((await json(root, 'content/species/danio-erythromicron/entity.json')).photos).toEqual([own, marked])
   expect((await json(root, 'content/gallery/danio-erythromicron.json')).photos).toEqual([albumKept])
   expect((await json(root, 'content/guides/g/entity.json')).photos).toEqual([guideKept])
@@ -759,6 +770,11 @@ test('every photo on the never-again list leaves the pages and albums it is stil
   expect((await json(root, 'content/plants/l/entity.json')).photos).toEqual([])
   expect(r.again.sort()).toEqual([
     `breeds/b/entity.json: ${bred.url} (dead: a fish on a plate)`,
+    `curation.json 2026-11-20 guideImg: ${guideOff.url} (people: a hand holds the fish)`,
+    `curation.json 2026-11-20 id img: ${held.url} (people: a hand)`,
+    `curation.json 2026-11-20 img: ${large(poor.url)} (too poor to show (the chief of staff, 2026-11-11))`,
+    `curation.json 2026-11-21 story img: ${other.url} (not Danio erythromicron: another fish)`,
+    `curation.json week 2026-11-16 hero breeds/b img: ${large(bred.url)} (dead: a fish on a plate)`,
     `gallery/danio-erythromicron.json: ${other.url} (not Danio erythromicron: another fish)`,
     `guides/g/entity.json: ${guideOff.url} (people: a hand holds the fish)`,
     `plants/l/entity.json: ${leaf.url} (drawing: a printed drawing)`,

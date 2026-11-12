@@ -954,9 +954,10 @@ The layers above still check the result.
       guide's page and every album, by the photo check's own rule (an Aquarium Glaser photo with the shop's own mark
       kept stays). The check takes them off only in the tree its run started from, and the cycle's push keeps its own
       lines where they clash with main's: on 2026-11-11 three photos a person took off came back in their albums that
-      way. The cycle sweeps after it catches up with main and after a clash at its push, so one that comes back then
-      leaves before the tests. A clean pull at the push is not swept: a removal that reaches main while the cycle's
-      tests run can come back on a page whose photo the run also changed, until the next cycle's sweep
+      way. The cycle sweeps after it catches up with main, after a clash at its push, and after a clean pull at its push
+      that brought main's commits in, so one that comes back then leaves before the push. The calendar's pictures go
+      too: a day's, a language's own day's, a guide's, a story's or a week's hero's that is a listed photo or its large
+      copy is dropped, and the app shows the page's own
     - a card figure out of bounds, upside down, or a minimum tank shorter than twice the fish: hidden from the card
       (`hidden` with why, kept in the file; worked out again each run), and the species' approved summary sent back to be
       written again against the new card

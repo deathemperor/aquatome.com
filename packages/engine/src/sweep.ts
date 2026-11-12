@@ -593,9 +593,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // Aquarium Glaser photo with the shop's own mark kept stays: watermarks.ts keptOwnMark). The check strips them only
   // in the tree its run started from. The cycle's push keeps its own lines where they clash with main's, so a photo a
   // person took off while a run was under way came back in its album (three on 2026-11-11). The cycle sweeps after it
-  // catches up with main and after a clash at its push. A clean pull at the push is not swept: a removal that reaches
-  // main while the cycle's tests run can come back on a page whose photo the run also changed (merge-entity.mjs keeps
-  // an item one side changed), until the next cycle's sweep.
+  // catches up with main, after a clash at its push and after a clean pull there that brought main's commits in
+  // (cycle-checks.sh swept_pull).
   const rejected = JSON.parse(await readFile(join(root, 'engine-state', '_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   const kept = keptOwnMark(rejected, JSON.parse(await readFile(join(root, 'engine-state', '_photo-watermarks.json'), 'utf8').catch(() => '{}')) as Record<string, WatermarkEntry>)
   const listed = (url: string) => url in rejected && !kept(url)
@@ -611,6 +610,36 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${rejected[url]})`)
     await write(file, raw, data)
     changed(file.slice(content.length + 1))
+  }
+  // The calendar names its pictures by address, the app's large copy as often as the page's: a day's, a language's own
+  // day's, a guide's, a story's and a week's heroes'. One that is a listed photo, or its large copy, is dropped, and the app shows the
+  // page's own (apps/site/src/lib/curation.ts). The planner points the day at the page's head again when it next plans.
+  const unsplash = (url: string) => (url.startsWith('https://images.unsplash.com/') ? url.split('?')[0]! : url)
+  const listedBase = new Map(Object.keys(rejected).filter(listed).map(u => [unsplash(u), u]))
+  const listedImg = (url: string) => listedBase.get(unsplash(url.replace(/-large\.webp$/, '.webp')))
+  const calFile = join(content, 'curation.json')
+  const calRaw = await readFile(calFile, 'utf8').catch(() => null)
+  if (calRaw) {
+    const cal = JSON.parse(calRaw) as { days?: Record<string, unknown>[] }
+    let off = 0
+    const drop = (o: Record<string, unknown> | undefined, date: string, where: string) => {
+      for (const k of ['img', 'guideImg']) {
+        const url = typeof o?.[k] === 'string' ? o[k] as string : undefined
+        const page = url && listedImg(url)
+        if (!page) continue
+        delete o![k]
+        off++
+        report.again.push(`curation.json ${date}${where} ${k}: ${url} (${rejected[page]})`)
+      }
+    }
+    for (const d of cal.days ?? []) {
+      const date = String(d.date)
+      drop(d, date, '')
+      drop(d.story as Record<string, unknown> | undefined, date, ' story')
+      for (const [lang, own] of Object.entries((d.by ?? {}) as Record<string, Record<string, unknown>>)) drop(own, date, ` ${lang}`)
+    }
+    for (const w of (cal as { weeks?: { from?: string; hero?: Record<string, unknown>[] }[] }).weeks ?? []) for (const h of w.hero ?? []) drop(h, `week ${w.from}`, ` hero ${h.page}`)
+    if (off) { await write(calFile, calRaw, cal); changed('curation.json') }
   }
   // A rejected video (engine-state/_video-rejected.json: a thumbnail with a dead fish, …) leaves every page.
   const videoRejected = await readVideoRejected(root)
