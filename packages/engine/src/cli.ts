@@ -679,6 +679,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
   }
   for (const x of r.left) console.log(`left: ${x}`)
   for (const x of r.putBack) console.log(`put back: ${x}`)
+  if (r.stopped) console.log(`source-figures: stopped, waiting for the chief of staff's word: ${r.stopped}`)
   console.log(`source-figures: ${r.mended.length} mended, ${r.waiting ?? 0} waiting for the pace, ${r.left.length} left, ${r.putBack.length} put back by the gate`)
 } else if (cmd === 'gate') {
   // Last in each cycle (gate.ts): the pages whose text the cycle changed are read against the checklist; a new page that

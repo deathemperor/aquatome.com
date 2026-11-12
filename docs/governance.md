@@ -889,9 +889,11 @@ The layers above still check the result.
   with no English beside it (`roundPage` given `englishOf`, metric.ts). Until 12 Nov 2026 it rounded both, which left
   299 parts on 159 fish pages with a tank the source didn't give: 79 whose litres no longer fit their sides, minimum tanks
   made smaller, a line with two lengths (the chief of staff, 2026-11-12). `pnpm engine source-figures` puts them back
-  from the English by code, no model, and litres, lengths and °C the same way: 371 language pages on 222 fish and plant
+  from the English by code, no model, and litres, lengths and °C the same way: 371 language pages on 223 fish and plant
   pages, a page whole in one pass, those with a tank's sides first, a held page left as it is, and so are litres in a part that gives a dose and a length that isn't plainly a tank's. It goes at the pace the
-  chief sets (`SOURCE_FIGURES_PACE`, source-figures.ts: 30 language pages, then the reads' result), and the
+  chief sets (`SOURCE_FIGURES_PACE`, source-figures.ts): the first 30 language pages; once a cycle has published them,
+  60 a cycle, without asking; and it stops by itself, and says so in its log, when in any batch more than one page in
+  ten is held or given its old text back for something other than its figures (the chief of staff, 2026-11-12). The
   gate reads each as any changed page. A page the gate gives its old text back isn't mended again: it is listed with the
   checks it failed and waits for the chief's word; one the gate couldn't read is tried again.
 - **One size for a US tank.** A tank a source gives in US gallons is named by the size keepers here say, one table for

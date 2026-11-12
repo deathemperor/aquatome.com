@@ -21,7 +21,7 @@ import { FOOT_LENGTHS, fromF, givesDose, INCH_SIDES, JOIN, litres, metricFigures
  *   isn't plainly a tank's ("bể dài 120 cm" is; "trong bể, cá dài 120 cm" isn't); only the text between tags is read,
  *   never a tag's attributes;
  * - a page held, AquaTome's own parts, guides and breeds (no English beside them) are left as they are.
- * A run mends at most the pace's language pages, up to the pace's total: the named ones first, then those with a tank's
+ * A run mends at most the pace's language pages (SOURCE_FIGURES_PACE): the named ones first, then those with a tank's
  * sides (what the chief of staff counted), then the rest; each once
  * (engine-state/_source-figures.json): a page is mended whole, every kind in one pass, and one the gate gives its old
  * text back isn't mended again but listed with the checks it failed, for the chief of staff's word (2026-11-12). The
@@ -30,12 +30,13 @@ import { FOOT_LENGTHS, fromF, givesDose, INCH_SIDES, JOIN, litres, metricFigures
  */
 export const SOURCE_FIGURES_STATE = 'engine-state/_source-figures.json'
 /**
- * How many language pages a run mends, and how many in all until the next word: the chief of staff sets it after each
- * batch's reads (2026-11-12: 30, then a line on how many passed and how many were held and for what; 60 a cycle
- * expected next). Every page with a mark counts, put back by the gate or not. A page the gate couldn't read loses its
- * mark (writer-records.ts), so the next run tries it again within the same total.
+ * The pace (the chief of staff, 2026-11-12): the first 30 language pages; once a cycle has published them (their marks
+ * are on main), 60 a cycle, without asking. It stops by itself, and says so, when in any batch (the pages marked in one
+ * run) more than one page in ten is held or given its old text back for something other than its figures (`units`);
+ * then it waits for the chief's word. A page the gate couldn't read loses its mark (writer-records.ts) and is tried
+ * again, the first 30 within their 30.
  */
-export const SOURCE_FIGURES_PACE = { perRun: 30, upTo: 30 }
+export const SOURCE_FIGURES_PACE = { first: 30, perRun: 60, stopAbove: 0.1 }
 export type SourceFiguresState = Record<string, { at: string; figures: string[] }>
 export type SourceFiguresReport = {
   mended: { key: string; file: string; figures: string[]; changes: { field: string; old: string; now: string }[] }[]
@@ -45,6 +46,8 @@ export type SourceFiguresReport = {
   putBack: string[]
   /** Pages still to mend, past this run's pace. */
   waiting?: number
+  /** Set when a batch went wrong for more than the pace allows: the mender mends nothing until the chief's word. */
+  stopped?: string
 }
 
 type Lang = UnitLang
@@ -159,6 +162,37 @@ function partsOf(t: Translation, en: English) {
   return out
 }
 
+const ofKey = (key: string) => {
+  const [lang, kind, id] = key.split('/')
+  return { lang: lang as Parameters<typeof putBackFile>[0]['lang'], kind: kind as Parameters<typeof putBackFile>[0]['kind'], id: id! }
+}
+/** Checks a page failed that aren't about its figures. */
+const notFigures = (checks: readonly string[] | undefined) => (checks ?? []).filter(c => c !== 'units')
+
+/**
+ * The first batch (the pages marked in one run) in which more than one page in ten was held, or given its old text back,
+ * for something other than its figures: what it was, or nothing. A put-back file counts when it is the gate's answer to
+ * this mend (written after the mark), not when it is older or for a page it couldn't read.
+ */
+async function wentWrong(root: string, state: SourceFiguresState): Promise<string | undefined> {
+  const batches = new Map<string, string[]>()
+  for (const [key, v] of Object.entries(state)) batches.set(v.at, [...(batches.get(v.at) ?? []), key])
+  for (const [at, keys] of [...batches].sort(([a], [b]) => a.localeCompare(b))) {
+    const wrong: string[] = []
+    for (const key of keys) {
+      const k = ofKey(key)
+      const t = JSON.parse(await readFile(join(root, 'content', k.kind, k.id, `${k.lang}.json`), 'utf8').catch(() => '{}')) as { held?: { checks?: string[] } }
+      const back = JSON.parse(await readFile(join(root, putBackFile(k)), 'utf8').catch(() => '{}')) as { at?: string; checks?: string[]; unread?: boolean }
+      const held = notFigures(t.held?.checks)
+      const put = back.at && back.at >= at && !back.unread ? notFigures(back.checks) : []
+      if (held.length) wrong.push(`${key} held for ${held.join(', ')}`)
+      else if (put.length) wrong.push(`${key} given its old text back for ${put.join(', ')}`)
+    }
+    if (wrong.length > keys.length * SOURCE_FIGURES_PACE.stopAbove) return `the batch of ${at}: ${wrong.length} of ${keys.length} pages: ${wrong.join('; ')}`
+  }
+  return undefined
+}
+
 /** `limit`: language pages this run, in place of the pace (a dry run, or by hand). */
 export async function sourceFigures(root: string, o: { limit?: number; first?: readonly string[]; dryRun?: boolean; now?: () => Date } = {}): Promise<SourceFiguresReport> {
   const at = (o.now ?? (() => new Date()))().toISOString()
@@ -179,7 +213,9 @@ export async function sourceFigures(root: string, o: { limit?: number; first?: r
   }
   const rank = (k: string) => { const i = o.first?.indexOf(k) ?? -1; return i >= 0 ? i : (o.first?.length ?? 0) }
   const report: SourceFiguresReport = { mended: [], left: [], putBack: [] }
-  const limit = o.limit ?? Math.max(0, Math.min(SOURCE_FIGURES_PACE.perRun, SOURCE_FIGURES_PACE.upTo - Object.keys(state).length))
+  report.stopped = await wentWrong(root, state)
+  const marks = Object.keys(state).length
+  const limit = o.limit ?? (report.stopped ? 0 : marks < SOURCE_FIGURES_PACE.first ? SOURCE_FIGURES_PACE.first - marks : SOURCE_FIGURES_PACE.perRun)
   const plans: { key: string; file: string; t: Translation; raw: string; parts: ReturnType<typeof partsOf>; changes: { field: string; old: string; now: string }[]; figures: string[]; sides: boolean }[] = []
   for (const { key, file, t, raw, en } of pages) {
     const lang = key.split('/')[0] as Lang
@@ -199,8 +235,7 @@ export async function sourceFigures(root: string, o: { limit?: number; first?: r
     // back, and it waits for the chief of staff's word, listed with the checks it failed (engine-state/put-back/). A
     // page the gate couldn't read has lost its mark (writer-records.ts), and is tried again.
     if (state[key]) {
-      const [lng, kind, id] = key.split('/')
-      const back = JSON.parse(await readFile(join(root, putBackFile({ kind: kind as Parameters<typeof putBackFile>[0]['kind'], id: id!, lang: lng as Parameters<typeof putBackFile>[0]['lang'] })), 'utf8').catch(() => '{}')) as { checks?: string[] }
+      const back = JSON.parse(await readFile(join(root, putBackFile(ofKey(key))), 'utf8').catch(() => '{}')) as { checks?: string[] }
       report.putBack.push(`${key}: the gate gave it its old text back${back.checks?.length ? ` for ${back.checks.join(', ')}` : ''}; waits for the chief of staff's word`)
       continue
     }

@@ -57,25 +57,53 @@ async function site(n: number) {
   return root
 }
 
-test('a run mends the pace\'s pages, the named first, each once, and no more than the pace\'s total', async () => {
-  const root = await site(SOURCE_FIGURES_PACE.perRun + 2)
+const P = SOURCE_FIGURES_PACE
+test('a run mends the first 30, the named first, then 60 a run once those are on main, each page once', async () => {
+  const root = await site(P.first + P.perRun + 5)
   const dry = await sourceFigures(root, { dryRun: true, limit: 1000 })
-  expect(dry.mended).toHaveLength(SOURCE_FIGURES_PACE.perRun + 2)
+  expect(dry.mended).toHaveLength(P.first + P.perRun + 5)
   expect(dry.left).toEqual(['id/species/f0: held, left as it is'])
   await expect(readFile(join(root, SOURCE_FIGURES_STATE), 'utf8')).rejects.toThrow() // a dry run writes nothing
   const first = await sourceFigures(root, { first: ['vi/species/f9'], now: () => new Date('2026-11-12T12:00:00Z') })
-  expect(first.mended).toHaveLength(SOURCE_FIGURES_PACE.perRun)
+  expect(first.mended).toHaveLength(P.first)
   expect(first.mended[0]!.key).toBe('vi/species/f9')
-  expect(first.waiting).toBe(2)
+  expect(first.waiting).toBe(P.perRun + 5)
   const f9 = JSON.parse(await readFile(join(root, 'content/species/f9/vi.json'), 'utf8'))
   expect(f9.sections).toEqual({ 'aquariumSize:seriouslyfish': '<p>Bể 90 × 38 × 30 cm.</p>', 'aquariumSize:aquatome': '<p>Bể 90 × 40 × 30 cm.</p>' })
   expect(JSON.parse(await readFile(join(root, SOURCE_FIGURES_STATE), 'utf8'))['vi/species/f9']).toEqual({ at: '2026-11-12T12:00:00.000Z', figures: ['90 × 40 × 30 cm → 90 × 38 × 30 cm'] })
-  // The pace's total is reached: the next run waits for the chief of staff's next pace.
-  const second = await sourceFigures(root, { now: () => new Date('2026-11-12T15:00:00Z') })
-  expect(second.mended).toEqual([])
-  expect(second.waiting).toBe(2)
+  // The first 30 are on main (their marks): 60 a run, without asking, then the rest.
+  expect((await sourceFigures(root, { now: () => new Date('2026-11-12T15:00:00Z') })).mended).toHaveLength(P.perRun)
+  const last = await sourceFigures(root, { now: () => new Date('2026-11-12T18:00:00Z') })
+  expect([last.mended.length, last.waiting, last.stopped]).toEqual([5, 0, undefined])
   // A guide has no English beside it: never touched.
   expect(JSON.parse(await readFile(join(root, 'content/guides/g/vi.json'), 'utf8')).body).toBe('<p>Bể 90 × 40 × 30 cm.</p>')
+})
+
+test('it stops by itself when more than one page in ten of a batch is held or given its old text back for more than its figures', async () => {
+  const root = await site(P.first + 20)
+  const first = await sourceFigures(root, { now: () => new Date('2026-11-12T12:00:00Z') })
+  const keys = first.mended.map(m => m.key)
+  const old = page({ 'aquariumSize:seriouslyfish': '<p>Bể 90 × 40 × 30 cm.</p>', 'aquariumSize:aquatome': '<p>Bể 90 × 40 × 30 cm.</p>' })
+  const putBack = async (key: string, v: object) => {
+    const id = key.split('/')[2]!
+    await writeFile(join(root, `content/species/${id}/vi.json`), `${JSON.stringify(old, null, 2)}\n`)
+    await mkdir(join(root, 'engine-state/put-back/species'), { recursive: true })
+    await writeFile(join(root, `engine-state/put-back/species/${id}.vi.json`), JSON.stringify({ findings: [], text: {}, ...v }))
+  }
+  // Three for something other than figures is one in ten; for figures alone, or a put-back from before this mend, don't count.
+  for (const k of keys.slice(0, 3)) await putBack(k, { at: '2026-11-12T12:30:00Z', checks: ['source'] })
+  for (const k of keys.slice(3, 6)) await putBack(k, { at: '2026-11-12T12:30:00Z', checks: ['units'] })
+  await putBack(keys[6]!, { at: '2026-11-10T00:00:00Z', checks: ['price'] })
+  const going = await sourceFigures(root, { now: () => new Date('2026-11-12T15:00:00Z') })
+  expect(going.stopped).toBeUndefined()
+  expect(going.mended.length).toBeGreaterThan(0)
+  // A fourth, held for harm: more than one in ten of the first batch. Nothing more is mended until the chief's word.
+  const id = keys[7]!.split('/')[2]!
+  const held = JSON.parse(await readFile(join(root, `content/species/${id}/vi.json`), 'utf8'))
+  await writeFile(join(root, `content/species/${id}/vi.json`), JSON.stringify({ ...held, held: { checks: ['harm'], at: '2026-11-12' } }))
+  const stopped = await sourceFigures(root, { now: () => new Date('2026-11-12T18:00:00Z') })
+  expect(stopped.mended).toEqual([])
+  expect(stopped.stopped).toMatch(/^the batch of 2026-11-12T12:00:00.000Z: 4 of 30 pages: .*given its old text back for source.*held for harm/)
 })
 
 test('a page the gate gave its old text back is listed with what it failed, not mended again; one it couldn\'t read is', async () => {
@@ -95,8 +123,8 @@ test('a page the gate gave its old text back is listed with what it failed, not 
   expect(JSON.parse(await readFile(join(root, 'content/species/f0/vi.json'), 'utf8')).sections['aquariumSize:seriouslyfish']).toBe('<p>Bể 90 × 40 × 30 cm.</p>')
 })
 
-test('a page the gate couldn\'t read, in a batch whose others it read, is tried again within the same total', async () => {
-  const root = await site(SOURCE_FIGURES_PACE.upTo + 2)
+test('a page the gate couldn\'t read, in a first batch whose others it read, is tried again within the 30', async () => {
+  const root = await site(P.first + 2)
   const first = await sourceFigures(root, { now: () => new Date('2026-11-12T12:00:00Z') })
   const unread = first.mended[3]!.key
   const state = JSON.parse(await readFile(join(root, SOURCE_FIGURES_STATE), 'utf8'))
