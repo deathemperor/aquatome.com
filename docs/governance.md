@@ -1100,8 +1100,13 @@ The layers above still check the result.
   - The rewrite (`pnpm engine fit-rewrite`, in small batches, the most-read pages first) writes a failing Vietnamese
     page again: a guide whole, from its source's facts and the market table; a fish, plant or breed page part by part,
     each part a finding quotes, kept only when its reviewer passes it and it says nothing more surely than what it was
-    written from (`hedges.ts`, which holds the guide writer too). Units, words and a kit are left to the rounding,
-    the phrase list and the gate, and harm on a fish, plant or breed page to the gate and a person. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash; a page
+    written from (`hedges.ts`, which holds the guide writer too). It mends units where the part's English gives a US
+    figure, and on a breed page, which has no English to keep a figure from, from the source's own US figure in its
+    facts (`breed-units.ts`; the chief of staff, 2026-11-12): a US tank in the table its size, another the round figure
+    keepers here say, a minimum never more than a twentieth under it (35 gallons 130 lít, 1,000 gallons 4.000, 3
+    gallons a fish 12, 10 gallons an inch 15 lít mỗi cm), in its FAQ answers too, and after any other mend of the same
+    part in the same try. Its reviewer is told the same, and a rewrite without those figures isn't kept. Other units,
+    words and a kit are left to the rounding, the phrase list and the gate, and harm on a fish, plant or breed page to the gate and a person. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash; a page
     tried and not kept waits until its text changes (`engine-state/_fit-rewrite.json`), and a title the owner fixed stays
     (`fit-rewrite.test.ts`). It runs in GitHub's rewrite cycle before the gate, from 13 Nov 2026 08:00: the front list
     first (`packages/engine/src/fit-front.json`: pages kept off Khám phá's cards and the Hôm nay card, then the
