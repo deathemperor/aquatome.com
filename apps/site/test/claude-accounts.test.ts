@@ -39,6 +39,7 @@ const calls = () => { try { return readFileSync(join(dir, 'calls'), 'utf8').trim
 const ask = () => claude<{ findings: string[] }>(['-p'], dir, 'the prompt')
 let logs: string[] = []
 
+const savedFirst = process.env.CLAUDE_FIRST_ACCOUNT
 beforeEach(() => {
   dir = mkdtempSync(join(tmpdir(), 'aq-claude-'))
   writeFileSync(join(dir, 'claude'), STUB)
@@ -49,6 +50,8 @@ beforeEach(() => {
   }
   process.env.PATH = `${dir}:${saved.path}`
   for (const k of COST) delete process.env[k]
+  // A starting position set in the shell that runs the tests would move every default-order case: none but a test's own.
+  delete process.env.CLAUDE_FIRST_ACCOUNT
   resetAccounts()
   logs = []
   vi.spyOn(console, 'log').mockImplementation((...a: unknown[]) => { logs.push(a.join(' ')) })
@@ -57,6 +60,7 @@ afterEach(() => {
   restore('PATH', saved.path)
   tokens(saved.list, saved.one)
   COST.forEach((k, i) => restore(k, savedCost[i]))
+  restore('CLAUDE_FIRST_ACCOUNT', savedFirst)
   vi.restoreAllMocks()
 })
 

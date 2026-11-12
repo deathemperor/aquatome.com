@@ -2,7 +2,7 @@ import { execFileSync, spawn } from 'node:child_process'
 import { appendFileSync, mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { ceilingMessage, costLog, stepName } from './ceiling'
+import { ceilingMessage, costLog, inPiece, stepName } from './ceiling'
 import { envFor, NotTheAccount, onAccounts, tokenHash } from './claude-accounts'
 import { MARKETPLACE_DOMAINS } from './marketplaces'
 
@@ -83,7 +83,7 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
         if (log) {
           const u = r.usage ?? {}
           try {
-            appendFileSync(log, `${JSON.stringify({ at: new Date().toISOString(), step: stepName(), account: token ? tokenHash(token) : 'login', model: modelOf(opts.model), ...(ran ? { ran } : {}), ...(cliVersion() ? { cli: cliVersion() } : {}), ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
+            appendFileSync(log, `${JSON.stringify({ at: new Date().toISOString(), step: stepName(), ...(inPiece.getStore() ? { piece: inPiece.getStore() } : {}), account: token ? tokenHash(token) : 'login', model: modelOf(opts.model), ...(ran ? { ran } : {}), ...(cliVersion() ? { cli: cliVersion() } : {}), ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
           } catch (e) {
             console.warn(`ENGINE_COST_LOG: ${(e as Error).message}`) // a log it can't write never fails the call
           }
