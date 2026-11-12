@@ -23,7 +23,7 @@ test('the registry loads through native Node, as the browser-check configuration
 })
 
 import { createHash } from 'node:crypto'
-test('the owner approved exactly these 43 photo identities, including the returned 33 and four empty-page recoveries',()=>{
+test("the owner's 39 and the chief of staff's four approvals bind exactly these 43 photo identities",()=>{
  expect(createHash('sha256').update(JSON.stringify(OWNER_CROPS)).digest('hex')).toBe('d48e1e8d8a6e17a6ebb55c46e76024249b3b0d959c93f35ab901e7a3ba2916eb')
 })
 
