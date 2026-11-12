@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { checks, prComment, sitemapPages, lateDeploy, goesLive, DEPLOY_PATHS } from '../../../scripts/site-watch.mjs'
+import { checks, prComment, sitemapPages, lateDeploy, goesLive, DEPLOY_PATHS, waitingCommits } from '../../../scripts/site-watch.mjs'
 
 // One page's review in Playwright's JSON report, shaped as a real run writes it (ci.yml runs the phone project only).
 const LIMIT = "Claude usage limit: You've hit your weekly limit · resets Nov 5, 6am (UTC)"
@@ -68,7 +68,47 @@ test('changes waiting for a deploy are late at 3 hours, counted from the oldest'
 // commits that touched it are not waiting for one: they raised "No deploy has finished for 5 hours" (2026-11-12, #1150).
 test('changes wait for a deploy only when, taken together, they change what deploy.yml deploys', () => {
   expect(goesLive(['engine-state/fit-summary.json', 'sources/x.json', 'packages/engine/src/a.ts'])).toBe(false)
+  expect(goesLive(['pnpm-lock.yaml.bak'])).toBe(false)
   for (const f of ['content/page-dates.json', 'apps/site/src/x.astro', 'packages/schema/src/langs.ts', 'pnpm-lock.yaml']) expect(goesLive([f]), f).toBe(true)
   const yml = readFileSync(new URL('../../../.github/workflows/deploy.yml', import.meta.url), 'utf8')
   expect(DEPLOY_PATHS).toEqual(/paths: \[(.*)\]/.exec(yml)![1]!.split(',').map(s => s.trim().replace(/'/g, '').replace(/\*\*$/, '')))
+})
+
+// waitingCommits reads the last deploy and main against it. The stub answers those gh calls; the commit list is what
+// the shortcut skips when it decides nothing is waiting.
+const DATE = '2026-11-12T04:00:00Z'
+type Changed = { filename: string; previous_filename?: string }
+const waiting = (compare: { status: string; files: Changed[] } | 'bad') => waitingCommits((...a: string[]) => {
+  if (a[0] === 'run') return 'deployed\n'
+  const spec = a.join(' ')
+  if (spec.includes('/compare/')) {
+    if (compare === 'bad') throw new Error('compare failed')
+    const jq = a[a.indexOf('--jq') + 1] ?? ''
+    // Filenames alone drop a rename's old path and whether the last deploy is an ancestor.
+    if (!jq.includes('status')) return JSON.stringify(compare.files.map(f => f.filename))
+    return JSON.stringify({ status: compare.status, files: compare.files.map(f => ({ filename: f.filename, previous_filename: f.previous_filename ?? null })) })
+  }
+  if (spec.includes('per_page=100')) return JSON.stringify([{ sha: 'later', commit: { committer: { date: DATE } } }])
+  if (spec.includes('/commits/')) return '2026-11-12T00:00:00Z\n'
+  throw new Error(`unexpected gh ${spec}`)
+})
+
+test('a change that was changed back leaves nothing waiting when no deploy path differs', () => {
+  // content/page-dates.json was edited and reverted, so the compare does not list it. A backup of the lockfile is not the lockfile.
+  expect(waiting({ status: 'ahead', files: [{ filename: 'engine-state/fit-summary.json' }, { filename: 'sources/x.json' }] })).toEqual([])
+  expect(waiting({ status: 'ahead', files: [{ filename: 'pnpm-lock.yaml.bak' }] })).toEqual([])
+})
+
+test('a rename out of a deploy path is still waiting', () => {
+  expect(waiting({ status: 'ahead', files: [{ filename: 'docs/moved.ts', previous_filename: 'apps/site/moved.ts' }] })).toEqual([DATE])
+})
+
+test('a baseline that is not an ancestor of main falls through to the commit count', () => {
+  expect(waiting({ status: 'diverged', files: [{ filename: 'engine-state/fit-summary.json' }] })).toEqual([DATE])
+  expect(waiting('bad')).toEqual([DATE])
+})
+
+test('300 changed files or more fall through to the commit count', () => {
+  const files = Array.from({ length: 300 }, (_, i) => ({ filename: `notes/${i}.txt` }))
+  expect(waiting({ status: 'ahead', files })).toEqual([DATE])
 })
