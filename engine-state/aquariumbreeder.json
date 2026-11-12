@@ -873,14 +873,11 @@
   },
   "https://aquariumbreeder.com/fast-growing-plants-in-the-tank/": {
     "lastmod": "2026-06-06T17:38:51+00:00",
-    "entityIds": [
-      "guides/aquariumbreeder-fast-growing-plants-in-the-tank"
-    ],
-    "updatedAt": "2026-11-13T17:35:54.216Z",
-    "hash": "545501ba25817bb9cffecdd2e4fe3f2ce63634537cc5deed8555d5c61a848202",
-    "processedHash": "545501ba25817bb9cffecdd2e4fe3f2ce63634537cc5deed8555d5c61a848202",
-    "status": "processed",
-    "attempts": 0
+    "entityIds": [],
+    "updatedAt": "2026-11-12T19:30:35.906Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
   },
   "https://aquariumbreeder.com/fiddler-crab-tank-setup/": {
     "lastmod": "2026-06-06T17:38:15+00:00",

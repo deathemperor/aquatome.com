@@ -55,13 +55,13 @@
     "attempts": 0
   },
   "https://bwaquatics.com/products/betta-albimarginata": {
-    "lastmod": "2026-11-13T08:53:27-08:00",
+    "lastmod": "2026-11-12T09:35:08-08:00",
     "entityIds": [
       "species/betta-albimarginata"
     ],
-    "updatedAt": "2026-11-13T17:08:41.012Z",
-    "hash": "89dfaae524df1317869c671d705eca631f3171a80ff8c1c573196d1d2897f984",
-    "processedHash": "89dfaae524df1317869c671d705eca631f3171a80ff8c1c573196d1d2897f984",
+    "updatedAt": "2026-11-12T17:51:11.078Z",
+    "hash": "a49bddbf22fd4d1ff2375c415a9b1290b5caff2cd2fbe16eeb3dd4198d56d740",
+    "processedHash": "a49bddbf22fd4d1ff2375c415a9b1290b5caff2cd2fbe16eeb3dd4198d56d740",
     "status": "processed",
     "attempts": 0
   },
@@ -445,15 +445,12 @@
     "attempts": 0
   },
   "https://bwaquatics.com/products/betta-pallifina-montoni-wild-type-bettas": {
-    "lastmod": "2026-11-13T08:53:27-08:00",
-    "entityIds": [
-      "species/betta-pallifina"
-    ],
-    "updatedAt": "2026-11-13T16:53:56.700Z",
-    "hash": "91dd5d2e569c2c5fbbe69083c8f8737b2def1974731a0541aa009899e3a3f7d8",
-    "processedHash": "91dd5d2e569c2c5fbbe69083c8f8737b2def1974731a0541aa009899e3a3f7d8",
-    "status": "processed",
-    "attempts": 0
+    "lastmod": "2026-11-12T09:35:08-08:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-12T17:46:56.792Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
   },
   "https://bwaquatics.com/products/betta-patoti-tanah-grogot-red-wild-type-bettas": {
     "lastmod": "2026-11-11T15:10:55-08:00",
@@ -714,12 +711,14 @@
     "attempts": 0
   },
   "https://bwaquatics.com/products/blue-alien": {
-    "lastmod": "2026-11-13T08:53:27-08:00",
-    "entityIds": [],
-    "updatedAt": "2026-11-13T17:02:03.512Z",
-    "hash": "3d241669dbf0b3883adb0f702298509488c96158dc75a820f19a1620ede1466d",
-    "processedHash": "3d241669dbf0b3883adb0f702298509488c96158dc75a820f19a1620ede1466d",
-    "status": "skipped",
+    "lastmod": "2026-11-12T09:35:08-08:00",
+    "entityIds": [
+      "species/betta-splendens"
+    ],
+    "updatedAt": "2026-11-12T17:47:37.958Z",
+    "hash": "6ecb0e8bdfe5c3af17ce898e9e88203f0ff4f35292a8ef2a5545e314bc9c2dc4",
+    "processedHash": "6ecb0e8bdfe5c3af17ce898e9e88203f0ff4f35292a8ef2a5545e314bc9c2dc4",
+    "status": "processed",
     "attempts": 0
   },
   "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora": {
@@ -985,21 +984,25 @@
     "attempts": 0
   },
   "https://bwaquatics.com/products/gray-alien": {
-    "lastmod": "2026-11-13T08:53:27-08:00",
-    "entityIds": [],
-    "updatedAt": "2026-11-13T17:03:13.557Z",
-    "hash": "82bf0de208d87928791076d32dd283c33c8911d7acef82931a00502c1fe08806",
-    "processedHash": "82bf0de208d87928791076d32dd283c33c8911d7acef82931a00502c1fe08806",
-    "status": "skipped",
+    "lastmod": "2026-11-12T09:35:08-08:00",
+    "entityIds": [
+      "species/betta-splendens"
+    ],
+    "updatedAt": "2026-11-12T17:50:31.701Z",
+    "hash": "ebed3c17431e80902c7ea784b8e776b08f81216f86aeafdc58161ca2ff4d65d5",
+    "processedHash": "ebed3c17431e80902c7ea784b8e776b08f81216f86aeafdc58161ca2ff4d65d5",
+    "status": "processed",
     "attempts": 0
   },
   "https://bwaquatics.com/products/green-alien": {
-    "lastmod": "2026-11-13T08:53:27-08:00",
-    "entityIds": [],
-    "updatedAt": "2026-11-13T17:00:40.909Z",
-    "hash": "d28fa62d89e52906f539aeb98b7c2bcb9288869ba7806f80043aa87331b58265",
-    "processedHash": "d28fa62d89e52906f539aeb98b7c2bcb9288869ba7806f80043aa87331b58265",
-    "status": "skipped",
+    "lastmod": "2026-11-12T09:35:08-08:00",
+    "entityIds": [
+      "species/betta-splendens"
+    ],
+    "updatedAt": "2026-11-12T17:47:30.140Z",
+    "hash": "184711bb6b6401a7182471024418be46a54f6c328dc7961f22090e71f362720b",
+    "processedHash": "184711bb6b6401a7182471024418be46a54f6c328dc7961f22090e71f362720b",
+    "status": "processed",
     "attempts": 0
   },
   "https://bwaquatics.com/products/gymnochanda-ploegi-dwarf-glass-fish": {
@@ -1067,32 +1070,36 @@
     "attempts": 0
   },
   "https://bwaquatics.com/products/imbellis-4xyd2-mz7hr": {
-    "lastmod": "2026-11-13T08:53:27-08:00",
+    "lastmod": "2026-11-12T09:35:08-08:00",
     "entityIds": [
       "species/betta-imbellis"
     ],
-    "updatedAt": "2026-11-13T17:06:24.008Z",
-    "hash": "ecffede94d695b7eb735c434702d80fe03bb5bd24752369fac012f0526fd7842",
-    "processedHash": "ecffede94d695b7eb735c434702d80fe03bb5bd24752369fac012f0526fd7842",
+    "updatedAt": "2026-11-12T17:50:55.356Z",
+    "hash": "ab4d1b8f7b467f254fa311aea83cabb820fc7079d93bfe43939dcf1af32e582f",
+    "processedHash": "ab4d1b8f7b467f254fa311aea83cabb820fc7079d93bfe43939dcf1af32e582f",
     "status": "processed",
     "attempts": 0
   },
   "https://bwaquatics.com/products/imbellis-4xyd2-xyb59": {
-    "lastmod": "2026-11-13T08:53:27-08:00",
-    "entityIds": [],
-    "updatedAt": "2026-11-13T17:07:55.979Z",
-    "hash": "cd3c8d1dd49c14e0ebb7f71c4a9abbc7f8d4d30922505d1f58ca4bcc3e80ef5f",
-    "processedHash": "cd3c8d1dd49c14e0ebb7f71c4a9abbc7f8d4d30922505d1f58ca4bcc3e80ef5f",
-    "status": "skipped",
+    "lastmod": "2026-11-12T09:35:08-08:00",
+    "entityIds": [
+      "species/betta-splendens"
+    ],
+    "updatedAt": "2026-11-12T17:51:03.284Z",
+    "hash": "ee0119a6753d2129f92ef8d3ed9b378f66d3736fc77fe21ef4444f0b8ee8a2a6",
+    "processedHash": "ee0119a6753d2129f92ef8d3ed9b378f66d3736fc77fe21ef4444f0b8ee8a2a6",
+    "status": "processed",
     "attempts": 0
   },
   "https://bwaquatics.com/products/imbellis-txayj": {
-    "lastmod": "2026-11-13T08:53:27-08:00",
-    "entityIds": [],
-    "updatedAt": "2026-11-13T17:05:25.839Z",
-    "hash": "d903f8b75a5b4ff2938a74f3ec1f9813386987594f0370efcb102c9213d7503c",
-    "processedHash": "d903f8b75a5b4ff2938a74f3ec1f9813386987594f0370efcb102c9213d7503c",
-    "status": "skipped",
+    "lastmod": "2026-11-12T09:35:08-08:00",
+    "entityIds": [
+      "species/betta-imbellis"
+    ],
+    "updatedAt": "2026-11-12T17:50:47.386Z",
+    "hash": "599cfbbce3777691852b1121f3ad86734d7749f9b7478daa0faa1d150a1c71dc",
+    "processedHash": "599cfbbce3777691852b1121f3ad86734d7749f9b7478daa0faa1d150a1c71dc",
+    "status": "processed",
     "attempts": 0
   },
   "https://bwaquatics.com/products/iriantherina-werneri-threadfin-rainbowfish": {
@@ -1182,13 +1189,13 @@
     "attempts": 0
   },
   "https://bwaquatics.com/products/mahachaiensis": {
-    "lastmod": "2026-11-13T08:53:27-08:00",
+    "lastmod": "2026-11-12T09:35:08-08:00",
     "entityIds": [
       "species/betta-mahachaiensis"
     ],
-    "updatedAt": "2026-11-13T16:58:45.271Z",
-    "hash": "c716622b736c54ce75e337605068709ebba23fa3163bd48d87a2be8fb8dd776e",
-    "processedHash": "c716622b736c54ce75e337605068709ebba23fa3163bd48d87a2be8fb8dd776e",
+    "updatedAt": "2026-11-12T17:47:22.373Z",
+    "hash": "5112cc504327928fa4abae4d9ad7c3187c7ac0788f3a4fc7504eddea43941d33",
+    "processedHash": "5112cc504327928fa4abae4d9ad7c3187c7ac0788f3a4fc7504eddea43941d33",
     "status": "processed",
     "attempts": 0
   },
@@ -1204,13 +1211,14 @@
     "attempts": 0
   },
   "https://bwaquatics.com/products/moina": {
-    "lastmod": "2026-11-13T08:53:27-08:00",
+    "lastmod": "2026-11-12T09:35:08-08:00",
     "entityIds": [],
-    "updatedAt": "2026-11-13T16:53:48.299Z",
+    "updatedAt": "2026-11-12T17:35:29.521Z",
     "hash": "45c27a4901bb865cd8b47936d2853a1100b61c2424fa7a2a8e4b022e13f7685c",
     "processedHash": "45c27a4901bb865cd8b47936d2853a1100b61c2424fa7a2a8e4b022e13f7685c",
-    "status": "skipped",
-    "attempts": 0
+    "status": "error",
+    "attempts": 1,
+    "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://bwaquatics.com/products/moina\", waiting until \"domcontentloaded\"\n"
   },
   "https://bwaquatics.com/products/mystery-pair-of-bettas-wild-bettas": {
     "lastmod": "2026-11-11T15:10:55-08:00",
@@ -1498,21 +1506,25 @@
     "attempts": 0
   },
   "https://bwaquatics.com/products/smaragdina-copper": {
-    "lastmod": "2026-11-13T08:53:27-08:00",
-    "entityIds": [],
-    "updatedAt": "2026-11-13T17:04:16.607Z",
-    "hash": "eddc88aebcf2e831e568bd4f07700d46f70972d6305f44fb8184e09dc777239a",
-    "processedHash": "eddc88aebcf2e831e568bd4f07700d46f70972d6305f44fb8184e09dc777239a",
-    "status": "skipped",
+    "lastmod": "2026-11-12T09:35:08-08:00",
+    "entityIds": [
+      "species/betta-smaragdina"
+    ],
+    "updatedAt": "2026-11-12T17:50:39.612Z",
+    "hash": "564280653f4e8fc808f1bb5b664c71a0666d92d9912f73d2e48dfd3a509bdccf",
+    "processedHash": "564280653f4e8fc808f1bb5b664c71a0666d92d9912f73d2e48dfd3a509bdccf",
+    "status": "processed",
     "attempts": 0
   },
   "https://bwaquatics.com/products/smaragdina-guitar": {
-    "lastmod": "2026-11-13T08:53:27-08:00",
-    "entityIds": [],
-    "updatedAt": "2026-11-13T16:56:41.560Z",
-    "hash": "2a94f33e1b4611ef111840d0cab0a2d962819dfd53471fd87824eddddfff20ef",
-    "processedHash": "2a94f33e1b4611ef111840d0cab0a2d962819dfd53471fd87824eddddfff20ef",
-    "status": "skipped",
+    "lastmod": "2026-11-12T09:35:08-08:00",
+    "entityIds": [
+      "species/betta-smaragdina"
+    ],
+    "updatedAt": "2026-11-12T17:47:14.225Z",
+    "hash": "d5bac2e8ea4a81d59bbea0f04ae2b665f0067c93e82d03e809feb629130001a6",
+    "processedHash": "d5bac2e8ea4a81d59bbea0f04ae2b665f0067c93e82d03e809feb629130001a6",
+    "status": "processed",
     "attempts": 0
   },
   "https://bwaquatics.com/products/smaragdina-reg": {
@@ -1582,15 +1594,12 @@
     "attempts": 0
   },
   "https://bwaquatics.com/products/stiphodon-ornatus-copy": {
-    "lastmod": "2026-11-13T08:53:27-08:00",
-    "entityIds": [
-      "species/schismatogobius-ampluvinculus"
-    ],
-    "updatedAt": "2026-11-13T16:55:13.986Z",
-    "hash": "1fe09a467338423da719df0b76e5a54b9e125c059f6229efd82c8079ebc5a5f8",
-    "processedHash": "1fe09a467338423da719df0b76e5a54b9e125c059f6229efd82c8079ebc5a5f8",
-    "status": "processed",
-    "attempts": 0
+    "lastmod": "2026-11-12T09:35:08-08:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-12T17:47:11.412Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
   },
   "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora": {
     "lastmod": "2026-11-11T15:10:55-08:00",
