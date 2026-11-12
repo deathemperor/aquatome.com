@@ -77,14 +77,19 @@ const BLUE_GREEN_ALGAE = {
 } as const
 test.each(Object.entries(BLUE_GREEN_ALGAE))('blue-green algae: %s names no product not sold in Vietnam, keeps our lines in a labelled note with their sources, and the engine keeps it', async (id, { cited, dose: doseIn }) => {
   const dir = fileURLToPath(new URL(`../../../content/guides/${id}/`, import.meta.url))
+  const t = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation
+  const label = `<p><strong>${AQUATOME_NOTE}</strong> `
+  expect(t.localNote?.html.startsWith(label)).toBe(true)
   for (const file of await readdir(dir)) {
-    const text = (await readFile(join(dir, file), 'utf8')).replaceAll(AQUATOME_NOTE, '')
+    const raw = await readFile(join(dir, file), 'utf8')
+    // The one label at the head of vi.json's note is taken out, and nothing else: the label anywhere else still fails.
+    const text = file === 'vi.json' ? JSON.stringify({ ...t, localNote: { ...t.localNote!, html: t.localNote!.html.slice(label.length) } }) : raw
     expect(text, file).not.toMatch(/fritz|slime\s*out|slime\s*stain|algu\s*min|algo\s*stop|ultra\s*life/iu)
     expect(text, file).not.toMatch(/bài gốc|ở mỹ|ở việt nam|aquatome thêm/iu)
   }
-  const t = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation
   expect(t.bodyFixed).toBe(true)
-  expect(t.localNote?.html.startsWith(`<p><strong>${AQUATOME_NOTE}</strong> `)).toBe(true)
+  // The dose is for 3% peroxide, the pharmacy's, wherever a strength is named.
+  for (const m of `${t.body}${t.localNote!.html}`.matchAll(/(?:oxy già|loại)\s*(\d+(?:[.,]\d+)?)\s*%/giu)) expect(m[0]).toMatch(/\b3\s*%$/u)
   // No writer drops the note or its sources when the source is read again (merge.ts writeGuide).
   expect(t.localNote?.refs.map(r => r.url)).toEqual(expect.arrayContaining([...cited]))
   // Our lines never sit under the source's name again: no pharmacy, no price, no shop, no worked example in its body.
@@ -94,11 +99,13 @@ test.each(Object.entries(BLUE_GREEN_ALGAE))('blue-green algae: %s names no produ
   // another guide's 0.4 ml for a whole tank.
   const where = doseIn === 'note' ? t.localNote!.html : t.body!
   const dose = where.match(/<li>[^<]*3 ml cho mỗi 4 lít[^<]*<\/li>/)?.[0]
+  expect(dose).toContain('oxy già 3%')
   expect(dose).toContain('liều bơm tại chỗ, không phải liều châm đều cả bể')
   expect(dose).toMatch(/bỏng mang.*tép/)
   expect(dose).toMatch(/tò mò bơi tới chỗ đang bơm/)
   for (const step of t.localNote!.html.match(/<(p|li)>.*?<\/\1>/g) ?? []) {
     if (!/3 ml cho mỗi 4 lít|40 lít/.test(step)) continue
+    expect(step).toMatch(/oxy già 3%|loại 3%/)
     expect(step).toContain('liều bơm tại chỗ, không phải liều châm đều cả bể')
     expect(step).toMatch(/bỏng mang/)
     expect(step).toMatch(/tò mò bơi tới chỗ đang bơm/)
