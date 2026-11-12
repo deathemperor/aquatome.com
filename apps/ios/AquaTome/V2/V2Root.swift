@@ -233,6 +233,10 @@ extension EnvironmentValues {
   @Entry var v2FootGround: Binding<FootGround?>?
   /// Hôm nay's posts (`Post`), on Hôm nay's stack; nil on the others.
   @Entry var v2Posts: Posts?
+  /// A post's ✕, for a page that puts it at its bar's end itself (a fish's, a guide's).
+  @Entry var v2PostClose: (() -> Void)?
+  /// The page is a post itself, with no back button.
+  @Entry var v2IsPost = false
   /// How many times the screen has been asked again ("Thử lại", a pull to refresh): a photo that didn't come tries again.
   @Entry var v2PhotoTries = 0
 }
@@ -267,19 +271,18 @@ private struct Destinations: ViewModifier {
 
   func body(content: Content) -> some View {
     content
-      // iOS 26's swipe from a page's middle off on this stack, from its first screen on (`PageLeaves`).
-      .background { PageLeaves { _ in }.frame(width: 0, height: 0) }
       // Pushed with iOS's own push and back button: its swipe from the left edge follows the finger, as in Settings.
-      .navigationDestination(for: HandbookIndex.Item.self) { page($0).modifier(ClosesPost(posts: posts, always: false)) }
+      .navigationDestination(for: HandbookIndex.Item.self) { page($0).modifier(ClosesPost(posts: posts, always: false, own: true)) }
       .navigationDestination(for: Post.self) { post in
         page(post.item)
           .navigationBarBackButtonHidden(true)
-          .modifier(ClosesPost(posts: posts, always: true))
+          .environment(\.v2IsPost, true)
+          .modifier(ClosesPost(posts: posts, always: true, own: true))
           .onAppear { posts?.open.wrappedValue = true }
           .navigationTransition(.zoom(sourceID: post.item.path, in: zoom))
       }
       .navigationDestination(for: FullPage.self) {
-        PageView(item: $0.item, url: handbook.url($0.item), at: $0.at).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false))
+        PageView(item: $0.item, url: handbook.url($0.item), at: $0.at).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false, own: true))
       }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
       .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
@@ -300,20 +303,38 @@ private struct Destinations: ViewModifier {
   }
 }
 
-/// A post's ✕, at the bar's end: on the post itself, and on each screen opened inside it while it's open.
+/// A post's ✕, at the bar's end: on the post itself, and on each screen opened inside it while it's open. A fish's or a
+/// guide's page puts it after its own buttons (`own`); on another screen it's the bar's.
+extension View {
+  /// A Hôm nay post's ✕, its own glass circle at the bar's right end, after the page's buttons (Design's parity, 12 Nov: it
+  /// sat first in their capsule). As the profile button: the space is what parts them.
+  @ViewBuilder func v2PostCloseButton(_ close: (() -> Void)?) -> some View {
+    if let close {
+      let button = Button(action: close) { Label("Đóng", systemImage: "xmark") }.accessibilityIdentifier("v2-close-post")
+      if #available(iOS 26, *) {
+        toolbar {
+          ToolbarSpacer(.fixed, placement: .primaryAction)
+          ToolbarItem(placement: .primaryAction) { button }
+        }
+      } else {
+        toolbar { ToolbarItem(placement: .primaryAction) { button } }
+      }
+    } else {
+      self
+    }
+  }
+}
+
 private struct ClosesPost: ViewModifier {
   let posts: Posts?
   let always: Bool
+  var own = false
 
   func body(content: Content) -> some View {
-    if let posts, always || posts.open.wrappedValue {
-      content.toolbar {
-        ToolbarItem(placement: .topBarTrailing) {
-          Button(action: posts.close) { Image(systemName: "xmark") }
-            .accessibilityLabel(Text("Đóng"))
-            .accessibilityIdentifier("v2-close-post")
-        }
-      }
+    if let posts, always || posts.open.wrappedValue, own {
+      content.environment(\.v2PostClose, posts.close)
+    } else if let posts, always || posts.open.wrappedValue {
+      content.v2PostCloseButton(posts.close)
     } else {
       content
     }

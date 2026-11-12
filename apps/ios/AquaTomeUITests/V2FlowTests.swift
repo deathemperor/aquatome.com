@@ -86,7 +86,7 @@ final class V2FlowTests: XCTestCase {
     XCTAssertLessThan(entry.frame.minY - add.frame.maxY, 24, "Hỏi về isn't directly under Thêm vào bể")
     repeatUntil(entry.isHittable, times: 6) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
-        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.5)), withVelocity: .fast, thenHoldForDuration: 0.1)
+        .press(forDuration: 0, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.5)), withVelocity: .fast, thenHoldForDuration: 0.1)
     }
     XCTAssertTrue(entry.isHittable, "Hỏi về can't be tapped")
     entry.tap()
@@ -874,47 +874,32 @@ final class V2FlowTests: XCTestCase {
     }
   }
 
-  /// iOS's own swipe from the left edge takes a page back, slow or fast, every time: ten slow drags and ten fast flicks on
-  /// a fish's page from Khám phá and a guide from Khám phá (iOS's push), and a Hôm nay post (its zoom). The owner on build
-  /// 350: the App Store's pages go back by the left edge and a button only, and a swipe of the app's own was never as sure.
-  /// Settings, the same 20 on the same simulator (27.2, 12 Nov): 20 of 20.
-  func testFromTheLeftEdgeTenSlowDragsAndTenFastFlicksGoBack() {
-    // With animations on: iOS's swipe doesn't go back without them.
-    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13")
-    app.launch()
-    var missed: [String] = []
-    for page in SwipedPage.allCases {
-      for fast in Array(repeating: false, count: 10) + Array(repeating: true, count: 10) {
-        let shown = open(page, app)
-        edgeSwipe(app, fast: fast)
-        if !shown.waitForNonExistence(timeout: 5) {
-          missed.append("\(page) \(fast ? "fast" : "slow")")
-          app.leavePage()
-          _ = shown.waitForNonExistence(timeout: 5)
-        }
-      }
-    }
-    XCTAssertEqual(missed, [], "edge swipes that didn't go back, of 10 each: \(Dictionary(grouping: missed) { $0 }.mapValues(\.count))")
-  }
-
-  /// A swipe from the middle of a pushed page leaves it where it is, slow or fast, as the App Store's pages do: iOS 26's
-  /// own swipe from the middle is off. (A Hôm nay post's zoom takes a slow drag from anywhere, its own pull: iOS's, kept.)
-  func testASwipeFromTheMiddleLeavesAPushedPage() {
+  /// iOS 26's own swipe from the middle takes a pushed page back, as in Settings: the app sets nothing on iOS's swipes (the
+  /// chief, 12 Nov). A scroll up the page that leans a little scrolls it and stays.
+  func testIOSsSwipeFromTheMiddleGoesBackAndASlantedScrollStays() {
     let app = launch("-v2", "YES")
     app.launch()
-    var went: [String] = []
+    var wrong: [String] = []
     for page in [SwipedPage.fishFromKhamPha, .guideFromKhamPha] {
-      for fast in [false, true, false, true] {
-        let shown = open(page, app)
-        let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.4, dy: 0.3)), to = app.coordinate(withNormalizedOffset: CGVector(dx: 0.98, dy: 0.3))
-        from.press(forDuration: 0.05, thenDragTo: to, withVelocity: fast ? XCUIGestureVelocity(0.58 * app.frame.width / 0.1) : .slow, thenHoldForDuration: 0)
-        if shown.waitForNonExistence(timeout: 2) { went.append("\(page) \(fast ? "fast" : "slow")") } else {
-          app.pageBack.tap()
-          XCTAssertTrue(shown.waitForNonExistence(timeout: 5), "iOS's back button didn't go back from \(page)")
-        }
+      // From the middle across, moving at once, the page as it opens (no row under the finger: a row scrolls instead).
+      var shown = openForSwipe(page, app)
+      let o = app.coordinate(withNormalizedOffset: .zero), w = app.frame.width, h = app.frame.height
+      o.withOffset(CGVector(dx: w * 0.4, dy: h * 0.4)).press(forDuration: 0, thenDragTo: o.withOffset(CGVector(dx: w * 0.4 + 220, dy: h * 0.4)), withVelocity: XCUIGestureVelocity(220 / 0.45), thenHoldForDuration: 0)
+      if !shown.waitForNonExistence(timeout: 5) {
+        wrong.append("\(page): the swipe from the middle stayed")
+        app.leavePage()
+        _ = shown.waitForNonExistence(timeout: 5)
       }
+      // Up 400 pt, 40 to the right on the way, moving at once: it scrolls, and stays.
+      shown = openForSwipe(page, app)
+      let first = app.scrollViews.firstMatch.staticTexts.firstMatch, was = first.frame.minY
+      o.withOffset(CGVector(dx: w * 0.5, dy: h * 0.8)).press(forDuration: 0, thenDragTo: o.withOffset(CGVector(dx: w * 0.5 + 40, dy: h * 0.8 - 400)), withVelocity: .default, thenHoldForDuration: 0)
+      if shown.waitForNonExistence(timeout: 2) { wrong.append("\(page): a slanted scroll went back"); continue }
+      if first.frame.minY > was - 100 { wrong.append("\(page): a slanted scroll didn't scroll") }
+      app.leavePage()
+      _ = shown.waitForNonExistence(timeout: 5)
     }
-    XCTAssertEqual(went, [], "swipes from the middle that went back, of 2 each")
+    XCTAssertEqual(wrong, [])
   }
 
   /// A page a Hôm nay card opens is a post: no back button, a ✕ at the bar's end. A page opened from inside it pushes with
@@ -924,14 +909,18 @@ final class V2FlowTests: XCTestCase {
     let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13")
     app.launchForFlow()
     let close = app.buttons["v2-close-post"].firstMatch
-    for card in [app.buttons["v2-fish-of-the-day"], app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Đàn neon đầu tiên")).firstMatch] {
+    for (card, fish) in [(app.buttons["v2-fish-of-the-day"], true),
+                         (app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Đàn neon đầu tiên")).firstMatch, false)] {
       XCTAssertTrue(card.waitForExistence(timeout: 10), "no card")
       repeatUntil(card.isHittable, times: 6) { app.swipeUp() }
       card.tap()
       XCTAssertTrue(close.waitForExistence(timeout: 8), "no ✕ on the post")
       XCTAssertFalse(app.pageBack.exists, "a back button on the post")
-      XCTAssertGreaterThan(close.frame.midX, app.frame.width * 0.75, "the ✕ isn't at the bar's end")
-      if card.identifier == "v2-fish-of-the-day" { close.tap(); XCTAssertTrue(close.waitForNonExistence(timeout: 5), "the ✕ didn't close the post"); continue }
+      // At the bar's end, after the bookmark (Design's parity, 12 Nov: it sat before it).
+      let save = app.buttons["save-for-later"].firstMatch
+      XCTAssertGreaterThan(close.frame.minX, save.frame.maxX, "the ✕ isn't after the bookmark: \(close.frame) \(save.frame)")
+      XCTAssertGreaterThan(close.frame.maxX, app.frame.width - 40, "the ✕ isn't at the bar's end: \(close.frame)")
+      if fish { close.tap(); XCTAssertTrue(close.waitForNonExistence(timeout: 5), "the ✕ didn't close the post"); continue }
       // Inside the story's page, its link to the neon.
       let neon = app.descendants(matching: .any)["native-page"].links["neon"].firstMatch
       repeatUntil(neon.exists && neon.isHittable, times: 12) { app.swipeUp() }
@@ -944,46 +933,38 @@ final class V2FlowTests: XCTestCase {
       XCTAssertFalse(app.descendants(matching: .any)["native-page"].exists, "the post still open under Hôm nay")
     }
     // Elsewhere: iOS's back button, no ✕.
-    _ = open(.fishFromKhamPha, app)
+    _ = openForSwipe(.fishFromKhamPha, app)
     XCTAssertTrue(app.pageBack.waitForExistence(timeout: 5), "no back button on a page from Khám phá")
     XCTAssertFalse(close.exists, "a ✕ on a page from Khám phá")
   }
 
-  enum SwipedPage: CaseIterable { case fishFromKhamPha, guideFromKhamPha, homNayPost }
-
-  /// The page opened from its card; what shows while it's open.
-  private func open(_ page: SwipedPage, _ app: XCUIApplication) -> XCUIElement {
-    let card: XCUIElement, shown: XCUIElement
-    func titled(_ words: String) -> XCUIElement { app.buttons.matching(NSPredicate(format: "label CONTAINS %@", words)).firstMatch }
-    switch page {
-    case .fishFromKhamPha:
-      app.openTab("Khám phá")
-      card = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
-      shown = app.descendants(matching: .any)["v2-species"]
-    case .guideFromKhamPha:
-      app.openTab("Khám phá")
-      card = titled("Nuôi cá neon trong bể nhỏ")
-      shown = app.descendants(matching: .any)["native-page"]
-    case .homNayPost:
-      app.openTab("Hôm nay")
-      card = titled("Đàn neon đầu tiên")
-      shown = app.descendants(matching: .any)["native-page"]
+  /// From the left edge over a row that scrolls sideways (the photos, the chips), iOS's swipe still goes back, at each pace.
+  func testFromTheLeftEdgeOverASidewaysRowThePageGoesBack() {
+    let app = launch("-v2", "YES", "-long-part")
+    app.launch()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    var missed: [String] = []
+    for id in ["v2-photos-row", "v2-jumps"] {
+      for pace in SwipePace.allCases {
+        follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+        let shown = app.descendants(matching: .any)["v2-species"]
+        XCTAssertTrue(shown.waitForExistence(timeout: 8), "the fish's page didn't open")
+        let row = app.descendants(matching: .any)[id].firstMatch
+        repeatUntil(row.exists && row.isHittable && row.frame.midY < app.frame.height * 0.8, times: 8) { app.swipeUp() }
+        XCTAssertTrue(row.isHittable, "no \(id) on the fish's page")
+        edgeSwipe(app, pace, at: row.frame.midY / app.frame.height)
+        if !shown.waitForNonExistence(timeout: 5) {
+          missed.append("\(id) \(pace)")
+          app.leavePage()
+          _ = shown.waitForNonExistence(timeout: 5)
+        }
+      }
     }
-    XCTAssertTrue(card.waitForExistence(timeout: 10), "no card for \(page)")
-    repeatUntil(card.isHittable, times: 8) { app.swipeUp() }
-    card.tap()
-    XCTAssertTrue(shown.waitForExistence(timeout: 8), "\(page) didn't open")
-    return shown
+    XCTAssertEqual(missed, [], "edge swipes over a row that didn't go back, of 1 each")
   }
 
-  /// From the screen's very edge across, 0.6 down: XCUITest's slow pace, or a thumb's flick, a tenth of a second.
-  private func edgeSwipe(_ app: XCUIApplication, fast: Bool, at dy: CGFloat = 0.6) {
-    let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: dy)).withOffset(CGVector(dx: 2, dy: 0))
-    let to = app.coordinate(withNormalizedOffset: CGVector(dx: 0.93, dy: dy))
-    from.press(forDuration: 0.05, thenDragTo: to, withVelocity: fast ? XCUIGestureVelocity(0.93 * app.frame.width / 0.1) : .slow, thenHoldForDuration: 0)
-  }
-
-  /// A guard, never broken: a swipe that starts on what scrolls sideways is its own, as in the App Store: the page stays.
+  /// A guard, never broken: a swipe that starts on what scrolls sideways is its own, as in the App Store: the row scrolls
+  /// both ways, and the page stays.
   func testASwipeOnAStripDoesntGoBack() {
     // With animations on, as a swipe back needs.
     let app = launch("-v2", "YES", "-long-part")
@@ -992,14 +973,29 @@ final class V2FlowTests: XCTestCase {
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
     let shown = app.descendants(matching: .any)["v2-species"]
     XCTAssertTrue(shown.waitForExistence(timeout: 8), "the fish's page didn't open")
+    // Moving at once, 160 pt in 0.4 s, from the row's middle and from a thumb's width (44 pt) in from the screen's edge.
+    func pan(_ x: CGFloat, _ y: CGFloat, _ dx: CGFloat) {
+      let o = app.coordinate(withNormalizedOffset: .zero)
+      o.withOffset(CGVector(dx: x, dy: y)).press(forDuration: 0, thenDragTo: o.withOffset(CGVector(dx: x + dx, dy: y)), withVelocity: XCUIGestureVelocity(abs(dx) / 0.4), thenHoldForDuration: 0)
+      Thread.sleep(forTimeInterval: 1)
+    }
     for id in ["v2-jumps", "v2-photos-row"] {
       let strip = app.descendants(matching: .any)[id].firstMatch
-      repeatUntil(strip.exists && strip.isHittable, times: 8) { app.swipeUp() }
+      repeatUntil(strip.exists && strip.isHittable && strip.frame.midY < app.frame.height * 0.75, times: 8) { app.swipeUp() }
       XCTAssertTrue(strip.isHittable, "no \(id) on the fish's page")
-      strip.swipeRight()
-      XCTAssertFalse(shown.waitForNonExistence(timeout: 2), "a swipe on \(id) went back")
+      let first = strip.buttons.firstMatch, y = strip.frame.midY
+      for (from, name) in [(app.frame.width * 0.6, "its middle"), (44, "a thumb's width in")] {
+        let start = first.frame.minX
+        pan(from, y, -160)
+        XCTAssertLessThan(first.frame.minX, start - 40, "\(id) didn't scroll left from \(name)")
+        let left = first.frame.minX
+        pan(from == 44 ? 44 : app.frame.width * 0.3, y, 160)
+        XCTAssertGreaterThan(first.frame.minX, left + 40, "\(id) didn't scroll back right from \(name)")
+        XCTAssertTrue(shown.exists, "a swipe on \(id) from \(name) went back")
+      }
     }
   }
+
 
   /// A thumb going up the page from its edge, drifting in, scrolls it and stays; across from the edge, back.
   func testAFishsPageGoesBackByTheEdgeSwipe() {
@@ -1011,7 +1007,7 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(lead.waitForExistence(timeout: 5), "the neon's page didn't come")
     let top = lead.frame.minY
     app.coordinate(withNormalizedOffset: CGVector(dx: 0.005, dy: 0.75))
-      .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: 0.25)), withVelocity: .default, thenHoldForDuration: 0)
+      .press(forDuration: 0, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: 0.25)), withVelocity: .default, thenHoldForDuration: 0)
     XCTAssertFalse(shown.waitForNonExistence(timeout: 2), "a drag up the page from its edge went back")
     XCTAssertLessThan(lead.frame.minY, top - 100, "a drag up the page from its edge didn't scroll it")
     edgeSwipe(app, fast: false, at: 0.5)

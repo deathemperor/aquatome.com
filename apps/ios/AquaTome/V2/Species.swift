@@ -30,6 +30,10 @@ struct SpeciesPage: View {
   @Environment(\.openScreen) private var openScreen
   @Environment(\.openURL) private var openURL
   @Environment(\.v2OpenFull) private var openFull
+  /// A Hôm nay post's ✕ (`Post`), on the post and on a page opened inside it.
+  @Environment(\.v2PostClose) private var closePost
+  /// A post itself has no back button: the bar's room starts at the screen's edge.
+  @Environment(\.v2IsPost) private var isPost
   @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.scenePhase) private var phase
   @Environment(\.colorScheme) private var scheme
@@ -114,6 +118,17 @@ struct SpeciesPage: View {
 
   var body: some View {
     framed
+    // A Hôm nay post's ✕, at the bar's end after the bookmark and share: a toolbar of its own, inside theirs. iOS put the
+    // items of a toolbar applied after theirs first, and one among them first too (27.2, 12 Nov).
+    .toolbar(when: closePost != nil) {
+      ToolbarItem(placement: .topBarTrailing) {
+        Button { closePost?() } label: { round("xmark") }
+          .buttonStyle(.plain)
+          .accessibilityLabel(Text("Đóng"))
+          .accessibilityIdentifier("v2-close-post")
+      }
+      .v2Glass(!colourAt.top)
+    }
     // Over the photo and its colour, the bar and status bar in white. The page's own after them, never nil: iOS can keep the
     // dark one after nil, white words on the white band.
     .toolbarColorScheme(colourAt.top ? .dark : scheme, for: .navigationBar)
@@ -188,12 +203,11 @@ struct SpeciesPage: View {
     // A shade behind the status bar until the band comes: it reads on a light photo at any scroll.
     .overlay(alignment: .top) {
       if hero != nil {
-        // The navigator's title stands on the photo with no circle of its own: the shade holds through the bar for it.
-        let held = trying?.long == true
-        LinearGradient(stops: held ? [.init(color: .black.opacity(0.5), location: 0), .init(color: .black.opacity(0.46), location: 0.62), .init(color: .clear, location: 1)]
-                                   : [.init(color: .black.opacity(0.45), location: 0), .init(color: .clear, location: 1)],
+        // iOS's back button and the owner's navigator title stand on the photo with no circle of ours: the shade holds through
+        // the bar for them (Design, 12 Nov: iOS's back on a white photo from 2.4:1 to 3.5:1).
+        LinearGradient(stops: [.init(color: .black.opacity(0.5), location: 0), .init(color: .black.opacity(0.46), location: 0.62), .init(color: .clear, location: 1)],
                        startPoint: .top, endPoint: .bottom)
-          .frame(height: held ? 180 : 130)
+          .frame(height: 180)
           .ignoresSafeArea(edges: .top)
           .opacity(scrolled ? 0 : 1)
           .animation(.easeInOut(duration: 0.2), value: scrolled)
@@ -369,7 +383,7 @@ struct SpeciesPage: View {
   /// The room between the bar's buttons, 16 points clear of them, their glass too: its edges, and how wide a name centred
   /// on the screen may be in it.
   private var barRoom: (lead: CGFloat, trail: CGFloat, even: CGFloat)? {
-    let lead = Self.backEnd, trail = min(saveStart, shareStart) - origin.x
+    let lead = isPost ? 16 : Self.backEnd, trail = min(saveStart, shareStart) - origin.x
     guard saveStart > 0, shareStart > 0, trail - lead > 92 else { return nil }
     return (lead, trail, 2 * (min(width / 2 - lead, trail - width / 2) - 16))
   }
@@ -532,6 +546,7 @@ struct SpeciesPage: View {
           .containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 1, spacing: 10) }
         }
       }
+      .v2YieldsToEdgeSwipe()
       .scrollTargetLayout()
     }
     .accessibilityIdentifier("v2-photos-row")
@@ -905,6 +920,7 @@ struct SpeciesPage: View {
           .buttonStyle(.plain)
         }
       }
+      .v2YieldsToEdgeSwipe()
     }
     .contentMargins(.horizontal, 20, for: .scrollContent)
     .v2ShelfEdge()
@@ -965,6 +981,7 @@ struct SpeciesPage: View {
             }
           }
         }
+        .v2YieldsToEdgeSwipe()
         .scrollTargetLayout()
       }
       .contentMargins(.horizontal, 20, for: .scrollContent)
@@ -1063,5 +1080,12 @@ private struct MatesCredits: View {
       }
       .foregroundStyle(.v2Faint).tint(Color.v2Faint)
     }
+  }
+}
+
+private extension View {
+  /// A toolbar's items only when `on`: after the view's other toolbars' items.
+  @ViewBuilder func toolbar<C: ToolbarContent>(when on: Bool, @ToolbarContentBuilder _ content: () -> C) -> some View {
+    if on { toolbar(content: content) } else { self }
   }
 }

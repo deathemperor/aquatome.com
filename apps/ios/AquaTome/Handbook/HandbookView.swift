@@ -38,8 +38,6 @@ struct HandbookView: View {
         }
       }
       .listStyle(.insetGrouped)
-      // On v2's search tab, iOS 26's swipe from a page's middle off, as on v2's other stacks (`PageLeaves`).
-      .background { if v2Pages { PageLeaves { _ in }.frame(width: 0, height: 0) } }
       // The chips right under the search field, not a section's space below it; the home keeps its own.
       .contentMargins(.top, handbook.query.isEmpty ? nil : 4, for: .scrollContent)
       // Placed, not left to iOS: iOS 27 keeps a search tab's field out of sight until the page is pulled down.
