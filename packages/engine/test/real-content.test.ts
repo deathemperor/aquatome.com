@@ -5,9 +5,12 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { loadAll, mayPublish, resolveDataCard, type Translation } from '@aq/schema'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
+import { englishOf } from '../src/english'
 import { productOf } from '../src/fit'
 import { loadPages } from '../src/pages'
 import { ENGLISH_PLACE_WORD } from '../src/place-names'
+import { roundPage } from '../src/round'
+import { mendPart } from '../src/source-figures'
 import { fishThaiLai, wordingSlips } from '../src/sanitize'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
 import { cardSchool, readTraits } from '../src/traits'
@@ -88,6 +91,27 @@ test.each(Object.entries(BLUE_GREEN_ALGAE))('blue-green algae: %s names no produ
   expect(dose).toMatch(/bỏng mang.*tép/)
   // No writer carries a guide's refs over a source read again (merge.ts writeGuide): this says so when one is lost.
   expect(t.refs?.map(r => r.url)).toEqual(expect.arrayContaining(cited))
+})
+
+// The source's own figures (the chief of staff, 2026-11-12): until then the rounding rounded a figure a fish page's English
+// gives in metric itself, Seriously Fish's "90 × 38 × 30 cm" to "90 × 40 × 30 cm", and on the Ophthalmotilapia page one
+// line gave two lengths. Each cycle's mender puts them back from the English (source-figures.ts), at the chief's pace, and
+// the rounding keeps them. These three, the cases the chief named, go first: the steps a cycle runs give today's files
+// the source's figures back, and keep them.
+const SOURCE_FIGURES = [
+  ['vi', 'dianema-longibarbis', 'aquariumSize:seriouslyfish', ['Đáy bể: 90 × 38 cm', 'Một bể 90 × 38 × 30 cm']],
+  ['vi', 'ophthalmotilapia-ventralis', 'aquariumSize:seriouslyfish', ['Đáy bể: 135 × 45 cm', '(135 × 45 × 38 cm)']],
+  ['vi', 'cichla-monoculus', 'aquariumSize:seriouslyfish', ['305 x 91 x 122 cm']],
+  ['id', 'cichla-monoculus', 'quickFacts:seriouslyfish', ['305 x 91 x 122 cm']],
+] as const
+test.each(SOURCE_FIGURES)("the source's own figures: %s %s keeps the English's tank", async (lang, id, part, want) => {
+  const dir = fileURLToPath(new URL(`../../../content/species/${id}/`, import.meta.url))
+  const en = englishOf(JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')).sections)
+  const text = (JSON.parse(await readFile(join(dir, `${lang}.json`), 'utf8')) as Translation).sections![part]!
+  const m = mendPart(text, en.sections[part]!, lang)
+  expect(m).not.toHaveProperty('why')
+  const kept = roundPage({ sections: { [part]: m ? (m as { text: string }).text : text } }, lang, en).sections![part]!
+  for (const w of want) expect(kept).toContain(w)
 })
 
 // Praziquantel mixed into food, in all four languages, by the fish's weight (University of Florida; a trial on grass carp doses

@@ -15,9 +15,9 @@ const TANK_LITRES = [20, 30, 40, 50, 60, 80, 100, 120, 150, 200, 250, 300, 350, 
 const WITHIN = 0.1
 const UNDER = 0.05
 /** A tank's side in cm that only an inch or foot conversion gives (13, 15, 16, 18, 20, 24, 30, 36, 48, 60, 72, 84, 96 in). */
-const INCH_SIDES = new Set([33, 38, 41, 46, 51, 61, 76, 91, 122, 152, 183, 213, 244])
+export const INCH_SIDES: ReadonlySet<number> = new Set([33, 38, 41, 46, 51, 61, 76, 91, 122, 152, 183, 213, 244])
 /** A tank's length in cm that only a foot conversion gives (2 to 8 ft): "bể dài 122 cm". */
-const FOOT_LENGTHS = new Set([61, 91, 122, 152, 183, 213, 244])
+export const FOOT_LENGTHS: ReadonlySet<number> = new Set([61, 91, 122, 152, 183, 213, 244])
 
 const near = (n: number) => TANK_LITRES.reduce((b, x) => (Math.abs(x - n) < Math.abs(b - n) || (Math.abs(x - n) === Math.abs(b - n) && x > b) ? x : b))
 /**
@@ -28,7 +28,7 @@ const keeperLitres = (n: number): number | undefined => {
   const r = n - near(n) > n * UNDER ? TANK_LITRES.find(x => x >= n)! : near(n)
   return Math.abs(r - n) / n <= WITHIN ? r : undefined
 }
-const litres = (n: number) => (CONVERTED_LITRES.includes(n) ? keeperLitres(n) ?? n : n)
+export const litres = (n: number) => (CONVERTED_LITRES.includes(n) ? keeperLitres(n) ?? n : n)
 
 /** A US gallon, in litres. */
 export const GALLON = 3.785411784
@@ -76,17 +76,17 @@ const DOSE_AMOUNT = new RegExp(String.raw`(?<![\d.,])(?<!(?:nặng|weighs?|weigh
 export const givesDose = (text: string) => DOSE_AMOUNT.test(text.replace(/<[^>]+>/g, ' '))
 /** A writer's or reviewer's prompt with the table in place of {{TANKS_EN}} and {{TANKS_VI}}. */
 export const withTanks = (prompt: string) => prompt.replaceAll('{{TANKS_EN}}', TANK_RULE.en).replaceAll('{{TANKS_VI}}', TANK_RULE.vi)
-const side = (n: number) => (n < 100 ? Math.round(n / 5) * 5 : Math.round(n / 10) * 10)
+export const side = (n: number) => (n < 100 ? Math.round(n / 5) * 5 : Math.round(n / 10) * 10)
 
 const L = String.raw`(?:lít|liter|litre|ลิตร|L|l)(?![\p{L}\p{N}])`
-const JOIN = String.raw`\s*(?:[–-]|hoặc|đến|tới|và|atau|hingga|sampai|dan|หรือ|ถึง|และ)\s*`
+export const JOIN = String.raw`\s*(?:[–-]|hoặc|đến|tới|và|atau|hingga|sampai|dan|หรือ|ถึง|และ)\s*`
 /** A dose's volume ("1 gói cho mỗi 38 lít", "per 38 liter"): the label's own figure, which stays. */
-const PER = /(?:mỗi|cho|trên|per|setiap|untuk|ต่อ|\/)\s*(?:khoảng\s*)?(?:\d+\s*[–-]\s*)?$/iu
-const TANK = /(?:bể|hồ|akuarium|tangki|ตู้)[^.;!?<>]{0,40}$/iu
+export const PER = /(?:mỗi|cho|trên|per|setiap|untuk|ต่อ|\/)\s*(?:khoảng\s*)?(?:\d+\s*[–-]\s*)?$/iu
+export const TANK = /(?:bể|hồ|akuarium|tangki|ตู้)[^.;!?<>]{0,40}$/iu
 const LITRE_FIG = new RegExp(String.raw`(?<![\d.,])(\d{2,3})(?:(${JOIN})(\d{2,3}))?(\s*${L})`, 'gu')
 const SIDES = /(?<![\d.,])(\d{2,3})(\s*[×x]\s*)(\d{2,3})(?:(\s*[×x]\s*)(\d{2,3}))?(\s*(?:cm|ซม\.))/gu
 const LENGTH = /(?<![\d.,×x]\s?)(\d{2,3})(\s*(?:cm|ซม\.))(?!\s*[×x])/gu
-const fromF = (c: number) => { const f = c * 9 / 5 + 32; return Math.abs(f - Math.round(f)) < 0.1 }
+export const fromF = (c: number) => { const f = c * 9 / 5 + 32; return Math.abs(f - Math.round(f)) < 0.1 }
 
 /**
  * A text's metric figures that only a conversion gives, rounded to what a keeper here says. `toMetric` (@aq/schema)
@@ -100,15 +100,20 @@ const fromF = (c: number) => { const f = c * 9 / 5 + 32; return Math.abs(f - Mat
  *   a tank's length in feet the same ("bể dài ít nhất 122 cm" → "120 cm")
  * - °C that a whole °F gives, to whole degrees ("22,8 đến 27,8 °C", 73 to 82 °F, → "23 đến 28 °C"); a measured
  *   "29,3 °C" stays, and so does a range whose ends would meet
- * Left as written: a dose's volume ("1 gói cho mỗi 38 lít"), a length that isn't a tank's ("cá dài 61 cm"), HTML tags.
+ * Left as written: a dose's volume ("1 gói cho mỗi 38 lít"), a length that isn't a tank's ("cá dài 61 cm"), HTML tags,
+ * and, given `en`, the English the text was written from, a figure it gives in metric itself (`sourceGives`, the reader-fit
+ * check's own reading): Seriously Fish's "60 × 38 × 30 cm (24 × 15 × 12 in)" stays 38. Numbers stay as the source gives
+ * them (the chief of staff, 2026-11-11 and 12); what the rounding is for is a figure our own conversion made, and text
+ * with no English beside it (guides, video guides, the parts AquaTome wrote from many sources).
  */
-export function roundConverted(text: string, lang: UnitLang): string {
+export function roundConverted(text: string, lang: UnitLang, en?: string): string {
   const dec = lang === 'th' || lang === 'ms' ? '\\.' : ','
   const D = String.raw`(\d{1,2})${dec}(\d)`
   const TEMP = new RegExp(String.raw`(?<![\d.,])${D}(?:(${JOIN})(?:${D}|(\d{1,2})(?![\d.,])))?(\s*(?:°\s?C|độ C|độ))`, 'gu')
+  const given = (all: string) => en !== undefined && sourceGives(all, en, lang)
   const round = (t: string) => t
     .replace(LITRE_FIG, (all, a: string, j: string | undefined, b: string | undefined, u: string, at: number, s: string) => {
-      if (PER.test(s.slice(Math.max(0, at - 24), at))) return all
+      if (PER.test(s.slice(Math.max(0, at - 24), at)) || given(all)) return all
       const x = Number(a)
       if (!b) return `${litres(x)}${u}`
       const y = Number(b)
@@ -122,15 +127,15 @@ export function roundConverted(text: string, lang: UnitLang): string {
     })
     .replace(SIDES, (all, a: string, x1: string, b: string, x2: string | undefined, c: string | undefined, u: string) => {
       const ns = [a, b, c].filter((v): v is string => !!v).map(Number)
-      if (!ns.some(n => INCH_SIDES.has(n))) return all
+      if (!ns.some(n => INCH_SIDES.has(n)) || given(all)) return all
       const [ra, rb, rc] = ns.map(side)
       return `${ra}${x1}${rb}${c ? `${x2}${rc}` : ''}${u}`
     })
     .replace(LENGTH, (all, a: string, u: string, at: number, s: string) =>
-      (FOOT_LENGTHS.has(Number(a)) && TANK.test(s.slice(Math.max(0, at - 48), at)) ? `${side(Number(a))}${u}` : all))
+      (FOOT_LENGTHS.has(Number(a)) && TANK.test(s.slice(Math.max(0, at - 48), at)) && !given(all) ? `${side(Number(a))}${u}` : all))
     .replace(TEMP, (all, a1: string, a2: string, j: string | undefined, b1: string | undefined, b2: string | undefined, b3: string | undefined, u: string) => {
       const num = (i: string, d: string) => Number(`${i}.${d}`)
-      if (a2 === '0' || a2 === '5' || !fromF(num(a1, a2)) || (b1 && (b2 === '5' || !fromF(num(b1, b2!))))) return all
+      if (a2 === '0' || a2 === '5' || !fromF(num(a1, a2)) || (b1 && (b2 === '5' || !fromF(num(b1, b2!)))) || given(all)) return all
       const first = Math.round(num(a1, a2))
       if (!j) return `${first}${u}`
       const second = b1 ? Math.round(num(b1, b2!)) : Number(b3)
@@ -206,14 +211,22 @@ export function sourceGives(quote: string, en: string, lang: UnitLang): boolean 
 }
 
 type Page = { sections?: Record<string, string>; body?: string; summary?: string[]; faq?: { q: string; a: string }[] }
+/**
+ * The English a fish or plant page's parts were written from, as the reader-fit check reads it (fit.ts givenBySource),
+ * rendered as text: each source's part by its key ("aquariumSize:seriouslyfish"), and all of them for a line with none
+ * of its own (a summary point, a question). A part AquaTome wrote from many sources' facts has none.
+ */
+export type English = { sections: Record<string, string>; all: string }
 /** A page's text rounded (`roundConverted`): what `metricPage` (@aq/schema) reads, and reference lists stay as published. */
-export function roundPage<T extends Page>(page: T, lang: UnitLang): T {
-  const r = (s: string) => roundConverted(s, lang)
+export function roundPage<T extends Page>(page: T, lang: UnitLang, en?: English): T {
+  const r = (s: string, from: string | undefined) => roundConverted(s, lang, from)
+  // A source's part reads its own English (none kept: nothing it gives); ours, none; a line of the page's own, all of it.
+  const of = (k: string) => (!en || k.endsWith(':aquatome') ? undefined : en.sections[k] ?? '')
   return {
     ...page,
-    ...(page.sections ? { sections: Object.fromEntries(Object.entries(page.sections).map(([k, v]) => [k, k.startsWith('references:') ? v : r(v)])) } : {}),
-    ...(page.body !== undefined ? { body: r(page.body) } : {}),
-    ...(page.summary ? { summary: page.summary.map(r) } : {}),
-    ...(page.faq ? { faq: page.faq.map(f => ({ q: r(f.q), a: r(f.a) })) } : {}),
+    ...(page.sections ? { sections: Object.fromEntries(Object.entries(page.sections).map(([k, v]) => [k, k.startsWith('references:') ? v : r(v, of(k))])) } : {}),
+    ...(page.body !== undefined ? { body: r(page.body, en?.all) } : {}),
+    ...(page.summary ? { summary: page.summary.map(s => r(s, en?.all)) } : {}),
+    ...(page.faq ? { faq: page.faq.map(f => ({ q: r(f.q, en?.all), a: r(f.a, en?.all) })) } : {}),
   }
 }

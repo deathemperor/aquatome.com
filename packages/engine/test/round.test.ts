@@ -100,3 +100,32 @@ test('an Indonesian or Malay foot figure in kaki is read as the schema reads it:
   expect(sourceGives('akuarium 3 x 2 kaki (90 cm)', 'a 3 x 2 ft (90 cm) tank', 'id')).toBe(false)
   for (const to of ['đến', 'tới', 'hoặc', 'ถึง', 'หรือ', 'sampai']) expect(sourceGives(`panjang 3 ${to} 4 kaki (90 cm)`, '3 to 4 ft (90 cm)', 'id'), to).toBe(false)
 })
+
+// Numbers stay as the source gives them (the chief of staff, 2026-11-11 and 12): a figure a part's English gives in metric
+// itself, the source's own conversion too, isn't rounded; one our conversion made, or text with no English, still is.
+const SF = 'An aquarium measuring 60 × 38 × 30 cm (24 × 15 × 12 in) - approximately 68 litres. A 10 gallon (38 litre) tank for fry. A tank 122 cm long. 73–82 °F (22.8–27.8 °C).'
+test("a figure the part's English gives in metric itself stays as the source gives it; one our conversion made is rounded", () => {
+  expect(roundConverted('Bể 60 × 38 × 30 cm, khoảng 68 lít.', 'vi', SF)).toBe('Bể 60 × 38 × 30 cm, khoảng 68 lít.')
+  expect(roundConverted('Bể 38 lít cho cá con.', 'vi', SF)).toBe('Bể 38 lít cho cá con.')
+  expect(roundConverted('bể dài ít nhất 122 cm', 'vi', SF)).toBe('bể dài ít nhất 122 cm')
+  expect(roundConverted('Nhiệt độ: 22,8 đến 27,8 °C', 'vi', SF)).toBe('Nhiệt độ: 22,8 đến 27,8 °C')
+  expect(roundConverted('อุณหภูมิ 22.8–27.8 °C', 'th', SF)).toBe('อุณหภูมิ 22.8–27.8 °C')
+  // The English gives only inches: our conversion, rounded.
+  expect(roundConverted('Bể 91 × 38 × 30 cm', 'vi', 'A tank of 36 × 15 × 12 in.')).toBe('Bể 90 × 40 × 30 cm')
+  // One side the English doesn't give: the sides aren't the source's, and are rounded.
+  expect(roundConverted('Bể 61 × 38 × 30 cm', 'vi', SF)).toBe('Bể 60 × 40 × 30 cm')
+  // No English beside it (a guide, a part AquaTome wrote): as before.
+  expect(roundConverted('Bể 60 × 38 × 30 cm, 38 lít', 'vi')).toBe('Bể 60 × 40 × 30 cm, 40 lít')
+})
+
+test("a page's parts each read their own English, AquaTome's none, and a line of the page's own all of it", () => {
+  const line = '<p>Bể 60 × 38 × 30 cm.</p>'
+  const en = { sections: { 'aquariumSize:seriouslyfish': 'An aquarium measuring 60 × 38 × 30 cm.', 'diet:seriouslyfish': 'Worms and insect larvae.' }, all: 'An aquarium measuring 60 × 38 × 30 cm.\nWorms and insect larvae.' }
+  const page = { sections: { 'aquariumSize:seriouslyfish': line, 'diet:seriouslyfish': line, 'aquariumSize:aquatome': line, 'care:fishkeeper': line }, summary: ['Bể 60 × 38 × 30 cm.'], faq: [{ q: 'Bể bao lớn?', a: '60 × 38 × 30 cm.' }] }
+  const rounded = '<p>Bể 60 × 40 × 30 cm.</p>'
+  expect(roundPage(page, 'vi', en)).toEqual({
+    sections: { 'aquariumSize:seriouslyfish': line, 'diet:seriouslyfish': rounded, 'aquariumSize:aquatome': rounded, 'care:fishkeeper': rounded },
+    summary: ['Bể 60 × 38 × 30 cm.'], faq: [{ q: 'Bể bao lớn?', a: '60 × 38 × 30 cm.' }],
+  })
+  expect(roundPage(page, 'vi').sections['aquariumSize:seriouslyfish']).toBe(rounded)
+})
