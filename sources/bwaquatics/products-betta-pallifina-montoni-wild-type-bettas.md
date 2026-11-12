@@ -1,7 +1,7 @@
 ---
 url: https://bwaquatics.com/products/betta-pallifina-montoni-wild-type-bettas
 title: Betta Pallifina | Wild Type Bettas – BWAquatics
-fetchedAt: 2026-11-11T23:31:38.275Z
+fetchedAt: 2026-11-12T02:11:30.942Z
 hash: 91dd5d2e569c2c5fbbe69083c8f8737b2def1974731a0541aa009899e3a3f7d8
 ---
 
