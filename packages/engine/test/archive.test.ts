@@ -1,7 +1,7 @@
-import { mkdtempSync } from 'node:fs'
+import { mkdtempSync, readFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { ARCHIVE_POLITE, ARCHIVE_REST_MAX_MS, ARCHIVE_REST_MS, ArchiveFetcher, ArchiveRefused } from '../src/archive'
 import { discover } from '../src/discover'
 import { sourceById } from '../src/sources'
@@ -177,6 +177,34 @@ test('after the wait, any failure of the one request counts as refused', async (
   const again = new ArchiveFetcher({ restFile: file, fetch: async () => { n++; throw new TypeError('fetch failed') }, now: () => new Date(t.clock), sleep: async () => {}, ua: 'test' })
   await expect(again.get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MAX_MS).toISOString()))
   expect(n).toBe(1)
+})
+
+test('the rest file and one log line say what the request got: a 429, a dropped connection\'s code, a timeout; and the answer that ends a wait', async () => {
+  const log = vi.spyOn(console, 'log').mockImplementation(() => {})
+  try {
+    const file = restFile()
+    const rest = () => JSON.parse(readFileSync(file, 'utf8')) as { until: string; waitMs: number; got: string; at: string }
+    const { t, f } = refusals(file)
+    await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+    expect(rest()).toEqual({ until: '2026-11-10T12:00:00.000Z', waitMs: ARCHIVE_REST_MS, got: 'HTTP 429', at: '2026-11-10T00:00:00.000Z' })
+    expect(log.mock.calls.at(-1)![0]).toBe('archive: counted as refused at 2026-11-10T00:00:00.000Z, it got HTTP 429: no request before 2026-11-10T12:00:00.000Z')
+    // After the wait, a dropped connection still counts as refused (unchanged), and says what it was.
+    t.clock = start + ARCHIVE_REST_MS
+    const dropped = new ArchiveFetcher({ restFile: file, fetch: async () => { throw Object.assign(new TypeError('fetch failed'), { cause: { code: 'ECONNRESET' } }) }, now: () => new Date(t.clock), sleep: async () => {}, ua: 'test' })
+    await expect(dropped.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+    expect([rest().got, rest().waitMs]).toEqual(['ECONNRESET (fetch failed)', ARCHIVE_REST_MAX_MS])
+    expect(log.mock.calls.at(-1)![0]).toMatch(/it got ECONNRESET \(fetch failed\): no request before 2026-11-11T12:00:00.000Z$/)
+    t.clock += ARCHIVE_REST_MAX_MS
+    const slow = new ArchiveFetcher({ restFile: file, fetch: async () => { throw new DOMException('The operation was aborted due to timeout', 'TimeoutError') }, now: () => new Date(t.clock), sleep: async () => {}, ua: 'test' })
+    await expect(slow.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+    expect(rest().got).toBe('TimeoutError (The operation was aborted due to timeout)')
+    // The one request after the next wait is answered: the file goes, and the log keeps what it got.
+    t.clock += ARCHIVE_REST_MAX_MS
+    t.answer = () => capture(200, '<title>ok</title>')
+    await f.get(article)
+    expect(() => readFileSync(file, 'utf8')).toThrow()
+    expect(log.mock.calls.at(-1)![0]).toBe('archive: answered after the wait, at 2026-11-12T12:00:00.000Z, with HTTP 200: reading carries on')
+  } finally { log.mockRestore() }
 })
 
 test('a refusal of the index behind a browser-check copy is a refusal, not "no copy"', async () => {
