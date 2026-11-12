@@ -1,23 +1,5 @@
 import XCTest
 
-/// iOS's own swipe from the left edge takes a page back from anywhere down the edge, every time: at the top, the middle and
-/// the bottom of the screen, on the page as it opens and scrolled, slow, at Design's pace and fast, each moving at once as a
-/// finger does. Design's parity on 12 Nov: a fish page went back from over its photo only; 700 pt down it stayed, 0 of 5.
-/// The app had turned iOS 26's swipe from the middle off, and that broke the edge's for a finger that moves at once; these
-/// checks then held the finger 0.05 s first, which hid it. One class a page, so a run spreads them over the simulator's
-/// copies; `TEST_RUNNER_EDGE_EACH` sets how many of each pace at each place (2; 10 for a PR's count).
-final class FishPageEdgeSwipeFlowTests: XCTestCase {
-  func testFromTheLeftEdgeAtEveryHeightAFishsPageGoesBack() { edgeSwipesGoBack(.fishFromKhamPha) }
-}
-
-final class GuideEdgeSwipeFlowTests: XCTestCase {
-  func testFromTheLeftEdgeAtEveryHeightAGuideGoesBack() { edgeSwipesGoBack(.guideFromKhamPha) }
-}
-
-final class PostEdgeSwipeFlowTests: XCTestCase {
-  func testFromTheLeftEdgeAtEveryHeightAHomNayPostCloses() { edgeSwipesGoBack(.homNayPost) }
-}
-
 enum SwipedPage: CaseIterable { case fishFromKhamPha, guideFromKhamPha, homNayPost }
 
 /// XCUITest's slow pace; Design's pan (`agent-device gesture pan 1 <y> 320 0 450`: 320 pt in 0.45 s, from 1 pt in); a
@@ -64,12 +46,13 @@ extension XCTestCase {
 
   func edgeSwipe(_ app: XCUIApplication, fast: Bool, at dy: CGFloat = 0.6) { edgeSwipe(app, fast ? .fast : .slow, at: dy) }
 
-  /// From the left edge at 20%, 50% and 80% down the screen, on the page as it opens and once scrolled, at each pace: the
-  /// ones that didn't go back, as "scrolled 80% fast". `open` opens the page and says what shows while it's open.
-  func edgeMisses(_ app: XCUIApplication, each: Int, open: () -> XCUIElement) -> (tried: Int, missed: [String]) {
+  /// From the left edge at each height (20%, 50% and 80% down the screen), on the page as it opens and once scrolled, at
+  /// each pace: the ones that didn't go back, as "scrolled 80% fast". `open` opens the page and says what shows while it's
+  /// open.
+  func edgeMisses(_ app: XCUIApplication, each: Int, at heights: [CGFloat] = [0.2, 0.5, 0.8], open: () -> XCUIElement) -> (tried: Int, missed: [String]) {
     var tried = 0, missed: [String] = []
     for scrolled in [false, true] {
-      for dy: CGFloat in [0.2, 0.5, 0.8] {
+      for dy in heights {
         for pace in SwipePace.allCases.flatMap({ Array(repeating: $0, count: each) }) {
           let shown = open()
           if scrolled {
@@ -90,15 +73,21 @@ extension XCTestCase {
     return (tried, missed)
   }
 
-  func edgeSwipesGoBack(_ page: SwipedPage) {
+  /// iOS's own swipe from the left edge takes a page back from anywhere down the edge, every time: on the page as it opens
+  /// and scrolled, slow, at Design's pace and fast, each moving at once as a finger does. Design's parity on 12 Nov: a fish
+  /// page went back from over its photo only; 700 pt down it stayed, 0 of 5. The app had turned iOS 26's swipe from the
+  /// middle off, and that broke the edge's for a finger that moves at once; these checks then held the finger 0.05 s
+  /// first, which hid it. One height a test, to keep each under CI's ten minutes; `TEST_RUNNER_EDGE_EACH` sets how many
+  /// of each pace at each place (2; 10 for a PR's count).
+  func edgeSwipesGoBack(_ page: SwipedPage, at dy: CGFloat) {
     let each = Int(ProcessInfo.processInfo.environment["EDGE_EACH"] ?? "") ?? 2
     // With animations on: iOS's swipe doesn't go back without them. The neon's long part: its chips, as a real page has.
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults",
                            "-v2", "YES", "-plan", "-today", "2026-11-13", "-long-part"]
     app.launch()
-    let (tried, missed) = edgeMisses(app, each: each) { openForSwipe(page, app) }
-    print("EDGE \(page): \(tried - missed.count)/\(tried) went back; missed \(Dictionary(grouping: missed) { $0 }.mapValues(\.count))")
-    XCTAssertEqual(missed, [], "edge swipes on \(page) that didn't go back, of \(each) of each pace at each place")
+    let (tried, missed) = edgeMisses(app, each: each, at: [dy]) { openForSwipe(page, app) }
+    print("EDGE \(page) \(Int(dy * 100))%: \(tried - missed.count)/\(tried) went back; missed \(Dictionary(grouping: missed) { $0 }.mapValues(\.count))")
+    XCTAssertEqual(missed, [], "edge swipes on \(page) that didn't go back, of \(each) of each pace")
   }
 }

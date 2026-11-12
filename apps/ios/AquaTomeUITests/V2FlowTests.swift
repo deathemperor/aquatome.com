@@ -1124,7 +1124,16 @@ final class V2FlowTests: XCTestCase {
     XCTAssertLessThan(name.frame.maxY, back.frame.maxY, "the name didn't go under the bar")
     // Beside its chevron, inside its circle.
     let circle = Pixels(XCUIScreen.main.screenshot()).at(back.frame.minX + 7, back.frame.midY)
-    XCTAssertGreaterThan(circle.contrastWithWhite, 3, "the back button's chevron doesn't read: \(circle)")
+    func chevronReads() { XCTAssertGreaterThan(circle.contrastWithWhite, 3, "the back button's chevron doesn't read: \(circle)") }
+    // The one exception, named and dated: an expected failure, so the test complains the day the arrow reads. On iOS 26 in
+    // the light look iOS draws its own back arrow pale on a pale circle, and nothing the app may set changes it (Design
+    // tried three cures). On iOS 27 and in the dark look the check holds; after 30 Nov 2026 it holds everywhere again.
+    if ProcessInfo.processInfo.operatingSystemVersion.majorVersion == 26, XCUIDevice.shared.appearance != .dark,
+       Date() < ISO8601DateFormatter().date(from: "2026-12-01T00:00:00+07:00")! {
+      XCTExpectFailure("iOS 26 light: iOS's own back arrow reads 1.4:1 and can't be restyled; approved by the chief of staff, 13 Nov 2026; ends 30 Nov 2026.") { chevronReads() }
+    } else {
+      chevronReads()
+    }
     // The name in the bar from then on, the colour still under it, in the bar's middle.
     XCTAssertTrue(title.waitForExistence(timeout: 2), "no name in the bar once it has left the page")
     let onColour = title.frame
