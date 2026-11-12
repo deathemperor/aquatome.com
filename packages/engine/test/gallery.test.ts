@@ -6,6 +6,7 @@ import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { mirrorPlan } from '../src/mirror-photos'
+import { WikimediaRefused } from '../src/wikimedia-rest'
 import { breedNames, commonsCandidates, dhash, galleries, rankGallery, screenTagged, type GalleryDeps, type GalleryPhoto, type Vet } from '../src/gallery'
 
 const meta = (licence: string, artist = '<a href="x">Ann</a>, [[User:Bo K|Bo]]') => ({ LicenseShortName: { value: licence }, Artist: { value: artist } })
@@ -165,6 +166,21 @@ test('gallery: never pads — only photos the screening kept are added; a page a
   let calls = 0
   expect((await galleries(r, deps({ http: async u => { calls++; return deps().http(u) } }), { sheets: 5 })).done).toEqual([])
   expect(calls).toBe(0)
+})
+
+test('gallery: while Wikimedia rests, a Commons candidate is not judged: the page keeps its queue, unjudged and not dry, and the next run screens it', async () => {
+  const r = await root()
+  const resting = deps({ get: async u => { if (new URL(u).hostname.endsWith('wikimedia.org')) throw new WikimediaRefused('2026-10-30T12:00:00.000Z'); return new Uint8Array(await picture(u)) } })
+  const report = await galleries(r, resting, { sheets: 5 })
+  expect(report.failed).toEqual(['betta-splendens: Wikimedia refused this Mac: no request before 2026-10-30T12:00:00.000Z'])
+  expect(report.sheets).toBe(0)
+  const st = await read(r, 'engine-state/gallery/betta-splendens.json')
+  expect(st.queue.map((c: { key: string }) => c.key).sort()).toEqual(['File:A.jpg', 'inat:1'])
+  expect(st.judged).toEqual([])
+  expect(st.exhausted).toBeUndefined()
+  // The rest over: both are screened.
+  await galleries(r, deps(), { sheets: 5 })
+  expect((await read(r, 'engine-state/gallery/betta-splendens.json')).judged.sort()).toEqual(['File:A.jpg', 'inat:1'])
 })
 
 test('gallery: a full album is read again for the candidates a person seeded alone, and grows at most three past its target', async () => {

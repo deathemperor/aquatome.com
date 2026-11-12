@@ -7,6 +7,7 @@ import type { Llm } from '../src/claude'
 import type { SpeciesFacts } from '../src/species-research'
 import { PROFILE_CHANNELS, speciesVideos, type SpeciesVideo } from '../src/species-videos'
 import { CHANNELS } from '../src/video-discovery'
+import { WikimediaRefused } from '../src/wikimedia-rest'
 
 const UPLOADS = [
   { id: 'A', title: 'Sawbwa resplendens – The Tiny Fish with a Big Story' },
@@ -122,6 +123,18 @@ test('species-videos: uploads vetted by title once; a few profiles a run, each t
   // The owner's pick runs again, but a page that cites the video is left as it is.
   const again = await speciesVideos(r, d, { only: ['A'] })
   expect(again.skipped).toEqual(['A Sawbwa resplendens – The Tiny Fish with a Big Story: skipped (species/sawbwa-resplendens): the page cites this video already'])
+})
+
+test('species-videos: while Wikimedia rests, a new page waits: the run stops and the video is tried again after', async () => {
+  const r = await root()
+  const d = deps([])
+  await speciesVideos(r, d, { channels: ['chrislukhaup'], limit: 0 })
+  const resting = { ...d, http: async (u: string) => { if (u.includes('commons.wikimedia.org')) throw new WikimediaRefused('2026-11-06T12:00:00.000Z'); return d.http(u) } }
+  const out = await speciesVideos(r, resting, { channels: ['chrislukhaup'], only: ['G'] })
+  expect(out.stopped).toBe('G: Wikimedia refused this Mac: no request before 2026-11-06T12:00:00.000Z')
+  const s = JSON.parse(await readFile(join(r, 'engine-state/_species-videos.json'), 'utf8'))
+  expect(s.G.done).toBeUndefined()
+  await expect(readFile(join(r, 'content/species/nanosphronemus-gemma/entity.json'), 'utf8')).rejects.toThrow()
 })
 
 test('a video tried again (the owner\'s pick) after its part fell under the bar: the writer starts from that review\'s notes', async () => {

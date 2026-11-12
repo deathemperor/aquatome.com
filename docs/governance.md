@@ -571,6 +571,12 @@ The layers above still check the result.
   doesn't), open licences or permission only.
   Pages show photos from our own media host: a Commons or iNaturalist photo waits for `pnpm engine mirror-photos` (every
   cycle), and a public build leaves it out until then (`setsCookies`), since those hosts set third-party cookies.
+  Every request the engine sends to Wikimedia (Commons' API, its pictures, their thumbnails) asks under the engine's own
+  name, and a refusal puts every one to rest, as the Internet Archive's does: for the time the refusal names, else 12
+  hours, doubling to a day if the first request after it is refused too (`packages/engine/src/wikimedia-rest.ts`, the
+  rest kept in `~/.cache/aquatome/wikimedia-rest.json`). On 12 Nov 2026 Commons refused this Mac and the steps asked
+  again page after page and photo after photo. A rest is no verdict on a photo: a screening that meets it stops, and its
+  candidates stay queued and unjudged, as does a breed's month, until the rest ends.
   - **Galleries and their targets.** Every species, plant and breed has a gallery, topped up each cycle to a target set
     by how much readers want it (`packages/engine/src/gallery-plan.ts`, the reason beside each number): the 12 staples
     100, what shops in Vietnam, Indonesia and Thailand sell 60 (fish lists and plant lists, `engine-state/shop-lists/`)
