@@ -12,6 +12,7 @@ import { cantTellLast, cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { isRejected, unfitCommons } from './photos'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
+import { WikimediaRefused } from './wikimedia-rest'
 
 /** A photo found for a species or plant, before screening: `key` identifies it across runs (Commons title, iNaturalist photo id…). */
 export type Candidate = Photo & { key: string }
@@ -139,7 +140,12 @@ export async function screenTagged(cands: Candidate[], name: string, viName: str
           const file = join(dir, `${i + j}.jpg`)
           await writeFile(file, b)
           got.push({ c, file, b, hash })
-        } catch { /* unreachable or corrupt thumb: skip */ }
+        } catch (e) {
+          // Wikimedia resting is no verdict on the photo: the whole screening stops, and its candidates stay queued
+          // unjudged (a page's album, a breed's month) until the rest ends.
+          if (e instanceof WikimediaRefused) throw e
+          /* unreachable or corrupt thumb: skip */
+        }
       }))
     }
     got.sort((a, b) => cands.indexOf(a.c) - cands.indexOf(b.c))

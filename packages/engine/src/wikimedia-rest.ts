@@ -1,4 +1,4 @@
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises'
 import { dirname } from 'node:path'
 
 /**
@@ -27,6 +27,14 @@ export function namedWait(value: string | null, now: Date): number | undefined {
   return Number.isNaN(at) ? undefined : Math.max(0, at - now.getTime())
 }
 
+/** The rest as kept, or none: a file cut short or written by hand is no rest (a refusal writes it again). */
+async function readRest(file: string): Promise<Rest | null> {
+  try {
+    const r = JSON.parse(await readFile(file, 'utf8')) as Partial<Rest> | null
+    return r && typeof r.until === 'string' && !Number.isNaN(Date.parse(r.until)) && typeof r.waitMs === 'number' ? r as Rest : null
+  } catch { return null }
+}
+
 /**
  * `fetch` for the engine's process: any other host passes through untouched. `restFile` is kept outside any checkout,
  * since it's this Mac that Wikimedia refuses.
@@ -35,7 +43,7 @@ export function restingFetch(fetch: typeof globalThis.fetch, o: { restFile: stri
   return async (input, init) => {
     const href = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url
     if (!wikimedia(new URL(href).hostname)) return fetch(input, init)
-    const rest = JSON.parse(await readFile(o.restFile, 'utf8').catch(() => 'null')) as Rest | null
+    const rest = await readRest(o.restFile)
     if (rest && o.now().getTime() < Date.parse(rest.until)) throw new WikimediaRefused(rest.until)
     const headers = new Headers(init?.headers ?? (input instanceof Request ? input.headers : undefined))
     headers.set('user-agent', o.ua)
@@ -43,11 +51,15 @@ export function restingFetch(fetch: typeof globalThis.fetch, o: { restFile: stri
     if (r.status === 429) {
       const waitMs = namedWait(r.headers.get('retry-after'), o.now()) ?? (rest ? Math.min(rest.waitMs * 2, WIKIMEDIA_REST_MAX_MS) : WIKIMEDIA_REST_MS)
       const until = new Date(o.now().getTime() + waitMs).toISOString()
+      // Whole or not at all: the album step downloads six pictures at once, and a reader never sees half a file.
       await mkdir(dirname(o.restFile), { recursive: true })
-      await writeFile(o.restFile, `${JSON.stringify({ until, waitMs })}\n`)
+      const tmp = `${o.restFile}.${process.pid}.${Math.random().toString(36).slice(2)}.tmp`
+      await writeFile(tmp, `${JSON.stringify({ until, waitMs })}\n`)
+      await rename(tmp, o.restFile)
       throw new WikimediaRefused(until)
     }
-    if (rest) await rm(o.restFile, { force: true })
+    // An answer ends the rest it was sent after, never a newer one another request wrote meanwhile.
+    if (rest && (await readRest(o.restFile))?.until === rest.until) await rm(o.restFile, { force: true })
     return r
   }
 }
