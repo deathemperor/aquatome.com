@@ -669,8 +669,9 @@ if (cmd === 'run' || cmd === 'card-fill') {
   if (!r.waiting) console.log(`units-mend: ${r.mended.length} mended, ${r.left.length} left held`)
 } else if (cmd === 'source-figures') {
   // A figure a fish or plant page's English gives in metric itself, which the rounding rounded until 12 Nov 2026, goes
-  // back to the English's (source-figures.ts): code, no model, so no ceiling line; the gate reads it after. At the pace
-  // the chief of staff sets (SOURCE_FIGURES_PACE).
+  // back to the English's (source-figures.ts): code, no model; the gate reads it after. At the pace the chief of staff
+  // sets (SOURCE_FIGURES_PACE). Before it mends, one short question on the gate's model: no answer (the accounts out),
+  // and it mends nothing, as the gate couldn't read what it mended.
   // pnpm engine source-figures [--limit N: language pages, in place of the pace] [--first vi/species/<id>,…] [--dry-run: old beside new]
   // pnpm engine source-figures --record [--dry-run]: right after the gate, what it made of each page mended (the batches, the stop).
   if (values.record) {
@@ -678,8 +679,15 @@ if (cmd === 'run' || cmd === 'card-fill') {
     for (const x of r.recorded) console.log(`${values['dry-run'] ? 'would record' : 'recorded'}: ${x}`)
     if (r.stopped) console.log(`source-figures: stopped, waiting for the chief of staff's word: ${r.stopped}`)
   } else {
-    const r = await sourceFigures(ROOT, { ...(values.limit ? { limit: Number(values.limit) } : {}), ...(values.first ? { first: values.first.split(',') } : {}), dryRun: !!values['dry-run'] })
+    const reader = async () => {
+      try {
+        await claudeCli({ system: 'Reply only with JSON.', prompt: 'Reply {"ok": true}.', schema: { type: 'object', additionalProperties: false, required: ['ok'], properties: { ok: { type: 'boolean' } } }, model: process.env.FIT_MODEL ?? 'opus' })
+        return undefined
+      } catch (e) { return `the gate's model gave no answer: ${(e as Error).message.slice(0, 200)}` }
+    }
+    const r = await sourceFigures(ROOT, { ...(values.limit ? { limit: Number(values.limit) } : {}), ...(values.first ? { first: values.first.split(',') } : {}), dryRun: !!values['dry-run'], reader })
     if (r.noMain) console.log(`source-figures: mending nothing: ${r.noMain}`)
+    if (r.noReader) console.log(`source-figures: mending nothing: ${r.noReader}`)
     for (const m of r.mended) {
       console.log(`${values['dry-run'] ? 'would mend' : 'mended'}: ${m.key} ${m.figures.join(', ')}`)
       if (values['dry-run']) for (const c of m.changes) console.log(`  ${c.field}: ${c.old}\n  → ${c.now}`)

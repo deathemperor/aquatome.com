@@ -186,15 +186,40 @@ test('marks from before the batches were kept make a batch of 30, recorded befor
   expect(stopped.stopped).toMatch(/^the batch of 2026-11-12T12:00:00.000Z: 4 of 30 pages/)
 })
 
-test('a page the gate couldn\'t read and then held, for harm found in another language, counts against its batch', async () => {
+test('an unread page is not a held page: one the gate couldn\'t read and then held isn\'t counted, one held on a later read is', async () => {
+  // The chief of staff, 2026-11-12. With no read, the gate holds a page only for its old text's own fault or harm it found
+  // in another language, never for the mend: a quiet night with the accounts out stops nothing.
   const root = await site(P.first + 5)
   const keys = (await sourceFigures(root, { onMain: {}, ...at(12) })).mended.map(m => m.key)
   for (const k of keys.slice(0, 3)) await putBack(root, k, { at: '2026-11-12T12:30:00Z', checks: ['source'] })
-  await unread(root, keys[3]!, '2026-11-12T12:30:00Z')
-  await edit(root, keys[3]!, t => ({ ...t, held: { checks: ['harm'], at: '2026-11-12' } }))
+  for (const k of keys.slice(3)) await unread(root, k, '2026-11-12T12:30:00Z')
+  for (const k of keys.slice(3, 10)) await edit(root, k, t => ({ ...t, held: { checks: ['kit'], at: '2026-11-12' } }))
   const r = await recordSourceFigures(root, at(13))
-  expect(r.recorded).toContain(`${keys[3]}: held for harm`)
-  expect(r.stopped).toMatch(/4 of 30 pages/)
+  expect([r.recorded.length, r.stopped]).toEqual([3, undefined])
+  expect((await book(root)).batches[0]!.wrong).toHaveLength(3)
+  // Mended again and read: held then, and counted (its unread put-back is older than its new mark).
+  const m = await marks(root)
+  m[keys[3]!] = { at: '2026-11-12T15:00:00.000Z', figures: [] }
+  await writeFile(join(root, SOURCE_FIGURES_STATE), JSON.stringify(m))
+  const later = await recordSourceFigures(root, at(16))
+  expect(later.recorded).toEqual([`${keys[3]}: held for kit`])
+  expect(later.stopped).toMatch(/4 of 30 pages/)
+})
+
+test('a cycle whose gate can\'t read mends nothing: it asks the gate\'s model first, only when there is something to mend', async () => {
+  const root = await site(5)
+  let asked = 0
+  const out = async () => { asked++; return 'usage limit until 08:00' }
+  const none = await sourceFigures(root, { onMain: {}, reader: out, ...at(12) })
+  expect([none.mended.length, none.noReader, asked]).toEqual([0, 'usage limit until 08:00', 1])
+  await expect(readFile(join(root, SOURCE_FIGURES_STATE), 'utf8')).rejects.toThrow()
+  expect((await sourceFigures(root, { onMain: {}, reader: out, dryRun: true, limit: 10, ...at(12) })).mended).toHaveLength(5)
+  expect(asked).toBe(1) // a dry run asks nothing
+  const read = await sourceFigures(root, { onMain: {}, reader: async () => { asked++; return undefined }, ...at(13) })
+  expect([read.mended.length, read.noReader, asked]).toEqual([5, undefined, 2])
+  // Nothing left to mend before the published ones: nothing asked.
+  await sourceFigures(root, { onMain: {}, reader: out, ...at(14) })
+  expect(asked).toBe(2)
 })
 
 test('stopped, or with no main to read, a limit by hand mends nothing; a dry run of the record writes nothing', async () => {

@@ -38,7 +38,9 @@ export const SOURCE_FIGURES_STATE = 'engine-state/_source-figures.json'
  * It stops by itself, and says so, when in any batch (the pages first marked in one run) more than one page in ten is
  * held or given its old text back for something other than its figures (`units`); then it mends nothing until the chief
  * of staff's word, given by taking `stopped` out of SOURCE_FIGURES_BATCHES. A page the gate couldn't read loses its mark
- * (writer-records.ts) and is tried again, staying in its own batch, and in the first 30 within their 30.
+ * (writer-records.ts) and is tried again, staying in its own batch, and in the first 30 within their 30; it isn't counted,
+ * held or not (the chief of staff, 2026-11-12: an unread page is not a held page). And a cycle whose gate can't read
+ * mends nothing: the run first asks the gate's model one short question (`reader`), and mends nothing if it gets no answer.
  */
 export const SOURCE_FIGURES_PACE = { first: 30, perRun: 60, stopAbove: 0.1 }
 /**
@@ -63,6 +65,8 @@ export type SourceFiguresReport = {
   stopped?: string
   /** Set when the marks on GitHub's main couldn't be read: the mender mends nothing. */
   noMain?: string
+  /** Set when the gate's model gave no answer (the accounts out): the mender mends nothing, as the gate couldn't read. */
+  noReader?: string
 }
 
 type Lang = UnitLang
@@ -217,9 +221,11 @@ function adopt(book: SourceFiguresBook, state: SourceFiguresState): boolean {
 
 /**
  * What the gate made of each page of a batch not recorded yet, once, for the pages `gated` says the gate has answered.
- * A held page is held, whether or not it kept its mark (the gate puts back the marks of pages it couldn't read before it
- * holds a page for harm found in another language). A page that lost its mark otherwise wasn't read, and waits to be tried
- * again. One still marked has a put-back written after its mark, not for a page the gate couldn't read, or passed. The stop
+ * A page the gate couldn't read since it was mended (its put-back `unread`, after its mark or, the mark put back, after
+ * its batch) isn't counted, held or not: the gate holds such a page for its old text's own fault, or for harm it found in
+ * another language, never for this mend (the chief of staff, 2026-11-12: an unread page is not a held page). It waits to
+ * be tried again. A held page is held, whether or not it kept its mark. One still marked has a put-back written after its
+ * mark, or passed. The stop
  * is set when a batch's pages counted against it first go past one in ten, and stays until the chief of staff's word takes
  * it out.
  */
@@ -235,7 +241,7 @@ async function recordInto(root: string, book: SourceFiguresBook, state: SourceFi
       if (!t.held && !mark) continue
       const back = await readJson<{ at?: string; checks?: string[]; unread?: boolean }>(join(root, putBackFile(k)), {})
       const answer = !!mark && !!back.at && Date.parse(back.at) >= Date.parse(mark.at)
-      if (!t.held && answer && back.unread) continue
+      if (back.unread && back.at && Date.parse(back.at) >= Date.parse(mark?.at ?? b.at)) continue
       let outcome = 'passed'
       let wrong = false
       if (t.held) {
@@ -277,7 +283,7 @@ export async function recordSourceFigures(root: string, o: { now?: () => Date; d
  * `limit`: language pages this run, in place of the pace (a dry run, or by hand); it never passes the stop or an unread
  * main but in a dry run. `onMain`: the marks on GitHub's main, read from git when not given.
  */
-export async function sourceFigures(root: string, o: { limit?: number; first?: readonly string[]; dryRun?: boolean; now?: () => Date; onMain?: SourceFiguresState } = {}): Promise<SourceFiguresReport> {
+export async function sourceFigures(root: string, o: { limit?: number; first?: readonly string[]; dryRun?: boolean; now?: () => Date; onMain?: SourceFiguresState; reader?: () => Promise<string | undefined> } = {}): Promise<SourceFiguresReport> {
   const at = (o.now ?? (() => new Date()))().toISOString()
   const stateFile = join(root, SOURCE_FIGURES_STATE)
   const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as SourceFiguresState
@@ -313,7 +319,7 @@ export async function sourceFigures(root: string, o: { limit?: number; first?: r
     return Math.max(0, (published < SOURCE_FIGURES_PACE.first ? SOURCE_FIGURES_PACE.first - published : SOURCE_FIGURES_PACE.perRun) - unpublished)
   }
   // The stop and an unread main hold whatever the limit; only a dry run looks past them.
-  const limit = !o.dryRun && (report.stopped || report.noMain) ? 0 : (o.limit ?? (report.stopped ? 0 : pace()))
+  let limit = !o.dryRun && (report.stopped || report.noMain) ? 0 : (o.limit ?? (report.stopped ? 0 : pace()))
   const batched = new Set(book.batches.flatMap(b => b.keys))
   const plans: { key: string; file: string; t: Translation; raw: string; parts: ReturnType<typeof partsOf>; changes: { field: string; old: string; now: string }[]; figures: string[]; sides: boolean }[] = []
   for (const { key, file, t, raw, en } of pages) {
@@ -343,6 +349,12 @@ export async function sourceFigures(root: string, o: { limit?: number; first?: r
     plans.push({ key, file, t, raw, parts, changes, figures: [...new Set(figures)], sides: figures.some(f => /\d\s*[×x]\s*\d/.test(f)) })
   }
   plans.sort((a, b) => rank(a.key) - rank(b.key) || Number(b.sides) - Number(a.sides) || a.key.localeCompare(b.key))
+  // A cycle whose gate can't read mends nothing: what it mended would get its old text back unread (the chief of staff,
+  // 2026-11-12). Asked only when there is something to mend; a dry run asks nothing.
+  if (limit > 0 && plans.length && !o.dryRun && o.reader) {
+    const no = await o.reader()
+    if (no) { report.noReader = no; limit = 0 }
+  }
   for (const { key, file, t, raw, parts, changes, figures } of plans.slice(0, limit)) {
     report.mended.push({ key, file, figures, changes })
     if (o.dryRun) continue
