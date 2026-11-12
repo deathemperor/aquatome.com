@@ -137,13 +137,22 @@ export function lateDeploy(commitDates, now) {
   const hours = Math.floor((now - Math.min(...commitDates.map(d => Date.parse(d)))) / 3_600_000)
   return hours >= LATE_HOURS ? { hours, changes: commitDates.length } : null
 }
+/** deploy.yml's paths (its test holds them to it). */
+export const DEPLOY_PATHS = ['apps/', 'packages/schema/', 'content/', 'pnpm-lock.yaml']
+/** Whether changes taken together (main against the last deploy) touch what deploy.yml deploys. GitHub starts a deploy
+ *  from a push's changes taken together: an engine push that changes a file and changes it back starts none, and
+ *  leaves nothing waiting. */
+export const goesLive = files => files.some(f => DEPLOY_PATHS.some(p => f.startsWith(p)))
 /** The commits on main a deploy would carry (deploy.yml's paths) that came after the last deploy to finish. */
 function waitingCommits() {
   const repo = process.env.GITHUB_REPOSITORY ?? 'deathemperor/aquatome.com'
   const sha = gh('run', 'list', '-R', repo, '--workflow', 'deploy.yml', '--status', 'success', '--limit', '1', '--json', 'headSha', '--jq', '.[0].headSha').trim()
+  // The compare lists at most 300 files: at 300, it can't say none goes live.
+  const changed = JSON.parse(gh('api', `repos/${repo}/compare/${sha}...main`, '--jq', '[.files[]?.filename]'))
+  if (changed.length < 300 && !goesLive(changed)) return []
   const since = gh('api', `repos/${repo}/commits/${sha}`, '--jq', '.commit.committer.date').trim()
   const seen = new Map()
-  for (const path of ['apps', 'packages/schema', 'content', 'pnpm-lock.yaml']) {
+  for (const path of DEPLOY_PATHS.map(p => p.replace(/\/$/, ''))) {
     const list = JSON.parse(gh('api', '-X', 'GET', `repos/${repo}/commits`, '-f', 'sha=main', '-f', `since=${since}`, '-f', `path=${path}`, '-f', 'per_page=100'))
     for (const c of list) if (c.sha !== sha) seen.set(c.sha, c.commit.committer.date)
   }
