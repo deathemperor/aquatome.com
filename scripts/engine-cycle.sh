@@ -339,6 +339,10 @@ fi
 pnpm engine ungarble || log "ungarble: failed"
 # Fish, plant, breed and guide pages in metric only (°C, cm, litres): a °F, inch or gallon figure a writer left (the tests fail on one).
 pnpm engine metric || log "metric: failed"
+# A figure a fish or plant page's English gives in metric itself, which the rounding rounded until 12 Nov 2026 ("60 × 40 ×
+# 30 cm" for Seriously Fish's "60 × 38 × 30 cm"), goes back to the English's: code, no model, at the pace the chief of
+# staff sets (source-figures.ts), the porthole catfish, Ophthalmotilapia and Cichla monoculus first; the gate reads each.
+pnpm engine source-figures --first vi/species/dianema-longibarbis,vi/species/ophthalmotilapia-ventralis,vi/species/cichla-monoculus,id/species/cichla-monoculus || log "source-figures: failed"
 # The content rules' safe fixes on every page (sweep.ts; the tests fail on a page left with one): the source site's
 # comments and related posts cut, empty headings, repeated paragraphs and labels out of order fixed, photos of another
 # fish or a map taken off their page, card figures out of bounds hidden, titles promising a count their text lacks
