@@ -5391,6 +5391,28 @@
         }
       }
     },
+    "Có thể bạn thích": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mungkin Anda suka"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mungkin anda suka"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คุณอาจชอบ"
+          }
+        }
+      }
+    },
     "Có thể là": {
       "localizations": {
         "id": {
@@ -6729,6 +6751,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "แนะนำวันนี้"
+          }
+        }
+      }
+    },
+    "Gợi ý tìm kiếm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saran pencarian"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cadangan carian"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คำค้นหาแนะนำ"
           }
         }
       }

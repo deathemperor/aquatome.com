@@ -7,6 +7,9 @@ import SwiftUI
 /// (BrowseView), never to everything at once.
 struct HomeList: View {
   @Environment(HandbookModel.self) private var handbook
+  /// v2's search tab: the App Store's way under the tools (the owner approved the Design Lead's board, 11 Nov), searches to
+  /// tap and pages the reader might like. Đọc tiếp and the shelves are Khám phá's there.
+  @Environment(\.v2Pages) private var v2
 
   var body: some View {
     // The kept copy in use, or none at all: said first. (Each shelf says how many pages it holds.)
@@ -14,9 +17,119 @@ struct HomeList: View {
       Section { StatusText().font(.footnote) }
     }
     Tools()
-    ReadOn()
-    // Nothing yet (loading, or no copy and no network): the status alone, not shelves of nothing.
-    if handbook.count > 0 { Shelves(shelves: handbook.shelves) }
+    if v2 {
+      if handbook.count > 0 {
+        SuggestedSearches(searches: handbook.shelves.searches)
+        MightLike(items: handbook.shelves.mightLike(leavingOut: Set(handbook.recent(nil, limit: 20).map(\.path))))
+      }
+    } else {
+      ReadOn()
+      // Nothing yet (loading, or no copy and no network): the status alone, not shelves of nothing.
+      if handbook.count > 0 { Shelves(shelves: handbook.shelves) }
+    }
+  }
+}
+
+/// "Gợi ý tìm kiếm": the searches Curation chose for the index's language, each a chip that searches it. Not "what people
+/// search": no one counts searches yet. None in a language without them.
+private struct SuggestedSearches: View {
+  let searches: [String]
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    if !searches.isEmpty {
+      Section {
+        Wrapping(spacing: 8) {
+          ForEach(searches, id: \.self) { term in
+            Button { handbook.query = term } label: {
+              HStack(spacing: 6) {
+                Image(systemName: "magnifyingglass").font(.subheadline).accessibilityHidden(true)
+                Text(verbatim: term)
+              }
+              .font(.body)
+              .padding(.horizontal, 14)
+              .padding(.vertical, 9)
+              .background(.fill.tertiary, in: .capsule)
+              .contentShape(.capsule)
+            }
+            .buttonStyle(.plain)
+            .foregroundStyle(Color("AccentColor"))
+            .accessibilityIdentifier("suggested-search")
+          }
+        }
+        .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
+        .listRowBackground(Color.clear)
+        .listRowSeparator(.hidden)
+      } header: {
+        Text("Gợi ý tìm kiếm")
+      }
+      .headerProminence(.increased)
+    }
+  }
+}
+
+/// "Có thể bạn thích": pages as the App Store lists the apps it suggests, photo, name, figures and "Thêm".
+private struct MightLike: View {
+  let items: [HandbookIndex.Item]
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    if !items.isEmpty {
+      Section {
+        ForEach(items) { item in
+          Lockup(item: item, line: factsLine(item, handbook.lang))
+            .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+            .listRowBackground(Color.clear)
+            .alignmentGuide(.listRowSeparatorLeading) { _ in 72 }
+            .modifier(NoChevron())
+        }
+      } header: {
+        Text("Có thể bạn thích")
+      }
+      .headerProminence(.increased)
+    }
+  }
+}
+
+/// The row's own "Thêm" at its end, not a chevron beside it.
+private struct NoChevron: ViewModifier {
+  func body(content: Content) -> some View {
+    if #available(iOS 26, *) { content.navigationLinkIndicatorVisibility(.hidden) } else { content }
+  }
+}
+
+/// Chips in rows, as many to a row as fit; one wider than a row (the largest text) wraps its words.
+private struct Wrapping: Layout {
+  var spacing: CGFloat = 8
+
+  func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+    let width = proposal.width ?? .infinity, rows = rows(subviews, width: width)
+    let height = rows.map { $0.map(\.size.height).max() ?? 0 }.reduce(0, +) + spacing * CGFloat(max(0, rows.count - 1))
+    return CGSize(width: proposal.width ?? rows.map { r in r.map(\.size.width).reduce(0, +) + spacing * CGFloat(r.count - 1) }.max() ?? 0, height: height)
+  }
+
+  func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+    var y = bounds.minY
+    for row in rows(subviews, width: bounds.width) {
+      var x = bounds.minX
+      for chip in row {
+        subviews[chip.index].place(at: CGPoint(x: x, y: y), proposal: ProposedViewSize(chip.size))
+        x += chip.size.width + spacing
+      }
+      y += (row.map(\.size.height).max() ?? 0) + spacing
+    }
+  }
+
+  private func rows(_ subviews: Subviews, width: CGFloat) -> [[(index: Int, size: CGSize)]] {
+    var rows: [[(index: Int, size: CGSize)]] = [[]], x: CGFloat = 0
+    for i in subviews.indices {
+      var size = subviews[i].sizeThatFits(.unspecified)
+      if size.width > width { size = subviews[i].sizeThatFits(ProposedViewSize(width: width, height: nil)) }
+      if x > 0, x + size.width > width { rows.append([]); x = 0 }
+      rows[rows.count - 1].append((i, size))
+      x += size.width + spacing
+    }
+    return rows
   }
 }
 
@@ -402,6 +515,7 @@ private struct Closing: View {
 /// no index; the tiles come with it, so a tool the site adds shows here without an app release.
 private struct Tools: View {
   @Environment(HandbookModel.self) private var handbook
+  @Environment(\.v2Pages) private var v2
   @Environment(\.openScreen) private var openScreen
   @Environment(\.dynamicTypeSize) private var size
 
@@ -421,6 +535,8 @@ private struct Tools: View {
     } header: {
       Text("Công cụ")
     }
+    // On v2's, as large as the sections under it, as the App Store's are.
+    .headerProminence(v2 ? .increased : .standard)
   }
 
   private var tiles: [HandbookIndex.Item] {

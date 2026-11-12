@@ -12,6 +12,48 @@ final class V2FlowTests: XCTestCase {
     return app
   }
 
+  /// Tìm before anything is typed, on v2 (the owner approved the Design Lead's board, 11 Nov): the tools, then Curation's
+  /// searches as chips, then pages the reader might like, each with its "Thêm"; no shelves, which are Khám phá's. A chip
+  /// searches its words.
+  func testTimBeforeTypingShowsTheToolsSearchesAndPagesYouMightLike() {
+    let app = launch("-v2", "YES", "-searches")
+    app.launchForFlow()
+    let tabs = app.tabBars.buttons
+    XCTAssertTrue(tabs.firstMatch.waitForExistence(timeout: 10), "no tabs")
+    tabs.element(boundBy: tabs.count - 1).tap()
+    let tools = app.staticTexts["Công cụ"], searches = app.staticTexts["Gợi ý tìm kiếm"], like = app.staticTexts["Có thể bạn thích"]
+    XCTAssertTrue(tools.waitForExistence(timeout: 5), "no tools")
+    let chips = app.buttons.matching(identifier: "suggested-search")
+    repeatUntil(chips.count > 0 && chips.element(boundBy: chips.count - 1).isHittable, times: 4) { app.swipeUp() }
+    XCTAssertTrue(searches.exists, "no Gợi ý tìm kiếm")
+    XCTAssertEqual((0..<chips.count).map { chips.element(boundBy: $0).label }, ["neon", "cá đĩa", "rêu hại", "đệm pH"], "not Curation's searches in order")
+    XCTAssertGreaterThan(searches.frame.minY, tools.frame.minY, "the searches aren't under the tools")
+    repeatUntil(like.exists && like.isHittable, times: 4) { app.swipeUp() }
+    XCTAssertTrue(like.exists, "no Có thể bạn thích")
+    for name in ["Cá neon", "Cá đĩa"] {
+      XCTAssertTrue(app.buttons.matching(NSPredicate(format: "label == %@", "Thêm \(name) vào bể")).firstMatch.exists, "no Thêm for \(name)")
+    }
+    // The catalogue is Khám phá's: no shelf of it here, nor Đọc tiếp.
+    XCTAssertFalse(app.descendants(matching: .any)["shelf"].firstMatch.exists, "a shelf on Tìm")
+    // A chip searches its words.
+    repeatUntil(chips.element(boundBy: 1).isHittable, times: 4) { app.swipeDown() }
+    chips.element(boundBy: 1).tap()
+    XCTAssertEqual(app.searchFields.firstMatch.value as? String, "cá đĩa", "the chip didn't put its words in the field")
+    XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "item").firstMatch.waitForExistence(timeout: 5), "the chip didn't search")
+  }
+
+  /// A language with no searches has no section.
+  func testTimWithoutSearchesHasNoSection() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    let tabs = app.tabBars.buttons
+    XCTAssertTrue(tabs.firstMatch.waitForExistence(timeout: 10), "no tabs")
+    tabs.element(boundBy: tabs.count - 1).tap()
+    XCTAssertTrue(app.staticTexts["Công cụ"].waitForExistence(timeout: 5), "no tools")
+    repeatUntil(app.staticTexts["Có thể bạn thích"].exists, times: 4) { app.swipeUp() }
+    XCTAssertFalse(app.staticTexts["Gợi ý tìm kiếm"].exists, "Gợi ý tìm kiếm with none to suggest")
+  }
+
   /// The app's look on a new phone, and on a phone from before that never touched the switch: v2's tabs.
   func testV2IsTheLookByDefault() {
     let app = launch()

@@ -275,12 +275,17 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     /// Nil from a site before it: Khám phá shows `fish`, `plants` and `guides`.
     public var browse: Browse?
     public var days: [Day]
+    /// Tìm's "Gợi ý tìm kiếm": searches Curation chose for this index's language, in their order (`content/curation.json`).
+    /// None from a language without them, or a site before them, or a list this app can't read: no section.
+    public var searches: [String]
 
-    public init(groups: [Group] = [], fish: [String] = [], plants: [String] = [], guides: [String] = [], browse: Browse? = nil, days: [Day] = []) {
+    public init(groups: [Group] = [], fish: [String] = [], plants: [String] = [], guides: [String] = [], browse: Browse? = nil, days: [Day] = [],
+                searches: [String] = []) {
       self.groups = groups; self.fish = fish; self.plants = plants; self.guides = guides; self.browse = browse; self.days = days
+      self.searches = searches
     }
 
-    enum CodingKeys: String, CodingKey { case groups, fish, plants, guides, browse, days }
+    enum CodingKeys: String, CodingKey { case groups, fish, plants, guides, browse, days, searches }
 
     public init(from decoder: any Decoder) throws {
       let c = try decoder.container(keyedBy: CodingKeys.self)
@@ -289,6 +294,7 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       browse = read(.browse)
       // Day by day: one this app can't read costs only that day, which goes to the app's own picks.
       days = (read(.days) as [Lenient<Day>]?)?.compactMap(\.value) ?? []
+      searches = (read(.searches) as [String]?)?.filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty } ?? []
     }
   }
 

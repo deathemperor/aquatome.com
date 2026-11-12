@@ -426,6 +426,8 @@ final class HandbookModel {
         home?.browse = browse
       }
       if args.contains("-plan") { home?.days = HandbookIndex.fixtureDays }
+      // `-searches`: Curation's suggested searches for Tìm, as the site's index has them since 12 Nov.
+      if args.contains("-searches") { home?.searches = ["neon", "cá đĩa", "rêu hại", "đệm pH"] }
       // `-site-telemetry`: the site takes the app's anonymous telemetry (the fixed index says nothing of it otherwise).
       return .fixed(HandbookIndex(lang: f.lang, items: items, home: home, labels: f.labels, pages: pages, places: f.places,
                                   telemetry: args.contains("-site-telemetry"),

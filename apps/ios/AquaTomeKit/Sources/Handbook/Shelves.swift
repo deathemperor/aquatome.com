@@ -30,6 +30,15 @@ public struct HandbookShelves: Sendable {
   public let browseFish: [HandbookIndex.Item]
   public let browsePlants: [HandbookIndex.Item]
   public let browseGuides: [HandbookIndex.Item]
+  /// Tìm's "Gợi ý tìm kiếm" (`HandbookIndex.Home.searches`).
+  public let searches: [String]
+
+  /// Tìm's "Có thể bạn thích", as the App Store suggests apps: two of the home's well-known fish, then one of its easy
+  /// plants, twice; none the reader opened lately (`seen`, by path).
+  public func mightLike(leavingOut seen: Set<String>) -> [HandbookIndex.Item] {
+    let fish = featuredFish.filter { !seen.contains($0.path) }, plants = easyPlants.filter { !seen.contains($0.path) }
+    return Array(fish.prefix(2)) + Array(plants.prefix(1)) + Array(fish.dropFirst(2).prefix(2)) + Array(plants.dropFirst(1).prefix(1))
+  }
 
   /// How many of its list each of Khám phá's shelves shows, after the pages shown above it: seven columns at most, as the
   /// App Store's shelves (the owner, 11 Nov: "Appstore gives up to 7 columns in total"); fish and plants three to a
@@ -122,6 +131,7 @@ public struct HandbookShelves: Sendable {
     browseFish = home.browse?.fish.map { $0.compactMap { byPath[$0] } } ?? featuredFish
     browsePlants = home.browse?.plants.map { $0.compactMap { byPath[$0] } } ?? easyPlants
     browseGuides = home.browse?.guides.map { $0.compactMap { byPath[$0] } } ?? firstGuides
+    searches = home.searches
     plan = Dictionary(home.days.map { d in
       let fish = d.fish.flatMap { byPath[$0] }, guide = d.guide.flatMap { byPath[$0] }, story = d.story.flatMap { byPath[$0.path] }
       return (d.date, Planned(fish: fish, img: fish == nil ? nil : d.img, guide: guide, guideImg: guide == nil ? nil : d.guideImg,

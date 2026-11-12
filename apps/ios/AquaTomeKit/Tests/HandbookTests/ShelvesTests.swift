@@ -138,3 +138,23 @@ private let words = HandbookIndex.Labels([
   let under = Dictionary(uniqueKeysWithValues: s.glossary().map { ($0.letter, Set($0.items.map(\.name))) })
   #expect(under["ค"] == ["ค่า pH", "คลอรีน"] && under["น"] == ["ไนเตรต", "น้ำกระด้าง"] && under["อ"] == ["แอมโมเนีย"])
 }
+
+@Test func timsSuggestedSearchesAreTheIndexsInItsOrderOrNone() throws {
+  func searches(_ field: String) throws -> [String] {
+    let json = #"{"version":1,"lang":"id","items":[],"home":{"fish":[],"plants":[],"guides":[]"# + field + "}}"
+    return try JSONDecoder().decode(HandbookIndex.self, from: Data(json.utf8)).home.searches
+  }
+  #expect(try searches(#","searches":["cupang","mas koki","guppy"]"#) == ["cupang", "mas koki", "guppy"])
+  // None, a list in a newer shape, not a list, or blanks: no section, and the rest of the home still read.
+  for field in ["", #","searches":[{"q":"cupang"}]"#, #","searches":"cupang""#, #","searches":[" "]"#] {
+    #expect(try searches(field).isEmpty, "\(field)")
+  }
+}
+
+@Test func timsPagesYouMightLikeAreTwoFishThenAPlantTwiceNoneOpenedLately() {
+  let fish = (1...6).map { HandbookIndex.Item(kind: .fish, name: "Cá \($0)", path: "/vi/ca/\($0)/") }
+  let plants = (1...3).map { HandbookIndex.Item(kind: .plant, name: "Cây \($0)", path: "/vi/cay/\($0)/") }
+  let s = HandbookShelves(HandbookIndex(lang: "vi", items: fish + plants, home: .init(fish: fish.map(\.path), plants: plants.map(\.path))))
+  #expect(s.mightLike(leavingOut: []).map(\.name) == ["Cá 1", "Cá 2", "Cây 1", "Cá 3", "Cá 4", "Cây 2"])
+  #expect(s.mightLike(leavingOut: ["/vi/ca/1/", "/vi/cay/1/"]).map(\.name) == ["Cá 2", "Cá 3", "Cây 2", "Cá 4", "Cá 5", "Cây 3"])
+}
