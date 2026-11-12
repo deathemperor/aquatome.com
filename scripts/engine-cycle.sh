@@ -342,7 +342,9 @@ pnpm engine metric || log "metric: failed"
 # A figure a fish or plant page's English gives in metric itself, which the rounding rounded until 12 Nov 2026 ("60 × 40 ×
 # 30 cm" for Seriously Fish's "60 × 38 × 30 cm"), goes back to the English's: code, no model, at the pace the chief of
 # staff sets (source-figures.ts), the porthole catfish, Ophthalmotilapia and Cichla monoculus first; the gate reads each.
-pnpm engine source-figures --first vi/species/dianema-longibarbis,vi/species/ophthalmotilapia-ventralis,vi/species/cichla-monoculus,id/species/cichla-monoculus || log "source-figures: failed"
+# This and the units mender below run on the Mac alone (the chief of staff, 2026-11-12): a cloud cycle and a Mac cycle at
+# once would mend the same pages, and both gates read them, at twice the cost and with verdicts that can differ.
+[ -n "${GITHUB_ACTIONS:-}" ] || pnpm engine source-figures --first vi/species/dianema-longibarbis,vi/species/ophthalmotilapia-ventralis,vi/species/cichla-monoculus,id/species/cichla-monoculus || log "source-figures: failed"
 # The content rules' safe fixes on every page (sweep.ts; the tests fail on a page left with one): the source site's
 # comments and related posts cut, empty headings, repeated paragraphs and labels out of order fixed, photos of another
 # fish or a map taken off their page, card figures out of bounds hidden, titles promising a count their text lacks
@@ -351,7 +353,7 @@ pnpm engine sweep || log "sweep: failed"
 # A page held for units alone: a tank converted from US gallons some other way ("115 lít") becomes the size a keeper here
 # names ("120 lít"), by code with no model, six pages a run; the gate reads each next and lets it out if it passes. It
 # starts on 13 Nov 2026 08:00, the easy-fish guide first (the chief of staff, 2026-11-11; units-mend.ts).
-pnpm engine units-mend --first vi/guides/youtube-mGmIvhtIM9k || log "units-mend: failed"
+[ -n "${GITHUB_ACTIONS:-}" ] || pnpm engine units-mend --first vi/guides/youtube-mGmIvhtIM9k || log "units-mend: failed"
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
 # and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
