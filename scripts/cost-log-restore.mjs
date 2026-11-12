@@ -10,7 +10,7 @@
 //
 //   cost-log-restore.mjs <log>
 //
-// Needs gh, unzip, GH_TOKEN with actions: read, GITHUB_REPOSITORY and GITHUB_RUN_ID. Says what it did on stdout, and
+// Needs gh, unzip, GH_TOKEN with actions: read, GITHUB_REPOSITORY, GITHUB_RUN_ID and GITHUB_RUN_ATTEMPT. Says what it did on stdout, and
 // in $GITHUB_STEP_SUMMARY with a warning when a day's spend can't be counted.
 
 import { execFileSync } from 'node:child_process'
@@ -31,18 +31,23 @@ export const CYCLE_STEP = 'Run this part, test, commit, push, deploy'
 
 /**
  * The engine's runs that may have logged, newest first: this repository's own, on main, started by the schedule or by
- * hand, not this run, from the last 8 days (engine.yml drops older lines). A run of another repository's branch, or of
- * a pull request, counts for nothing.
+ * hand, from the last 8 days (engine.yml drops older lines). This run only when it's a run again (`attempt` over 1):
+ * its earlier attempt kept its own log, and spent. A run of another repository's branch, or of a pull request, counts
+ * for nothing.
  */
-export function ownRuns(runs, repoId, current, now) {
+export function ownRuns(runs, repoId, current, now, attempt = 1) {
   return runs
-    .filter(r => String(r.id) !== String(current) && r.head_branch === 'main' && ['schedule', 'workflow_dispatch'].includes(r.event)
+    .filter(r => (String(r.id) !== String(current) || attempt > 1) && r.head_branch === 'main' && ['schedule', 'workflow_dispatch'].includes(r.event)
       && r.repository?.id === repoId && r.head_repository?.id === repoId && now.getTime() - Date.parse(r.created_at) < 8 * DAY)
     .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
 }
 
-/** Whether a run's cycle step started (its jobs as GitHub lists them): the hourly checks that found no cycle due didn't. */
-export const ranCycle = jobs => jobs.some(j => j.name === CYCLE_JOB && j.steps?.some(s => s.name === CYCLE_STEP && ['success', 'failure', 'cancelled'].includes(s.conclusion)))
+/**
+ * Whether a run's cycle step may have started (its jobs as GitHub lists them, every attempt's): any conclusion but
+ * skipped or none counts, so a conclusion this doesn't know reads as spent. The hourly checks that found no cycle due
+ * skip the job, and a job with no steps never ran.
+ */
+export const ranCycle = jobs => jobs.some(j => j.name === CYCLE_JOB && j.steps?.some(s => s.name === CYCLE_STEP && s.conclusion != null && s.conclusion !== 'skipped'))
 
 /**
  * Newest first, to the first run that kept a log: its text, and the runs before it that ran the cycle on `now`'s day
@@ -100,8 +105,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       writeFileSync(zip, gh(['api', `repos/${repo}/actions/artifacts/${a.id}/zip`]))
       return execFileSync('unzip', ['-p', zip], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
     }
-    const jobsOf = run => json([`repos/${repo}/actions/runs/${run.id}/jobs?per_page=100`]).jobs
-    const r = restore(ownRuns(runs, repoId, process.env.GITHUB_RUN_ID, now), logOf, jobsOf, now)
+    const jobsOf = run => json([`repos/${repo}/actions/runs/${run.id}/jobs?filter=all&per_page=100`]).jobs
+    const r = restore(ownRuns(runs, repoId, process.env.GITHUB_RUN_ID, now, Number(process.env.GITHUB_RUN_ATTEMPT) || 1), logOf, jobsOf, now)
     if (r.text !== undefined) {
       writeFileSync(log, r.text)
       console.log(`the cache had no cost log: restored run ${r.from}'s (${r.text.split('\n').filter(Boolean).length} lines)`)

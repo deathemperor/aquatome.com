@@ -6,8 +6,9 @@ import { LlmError } from './claude'
  * A step that works in pieces (a guide, a page) starts the next piece only when what's left of its day's line covers a
  * typical piece: the middle cost of its last ten pieces in the cost log. Otherwise it stops before starting, with nothing
  * written (the chief of staff, 2026-11-12, after the ideas step spent its $1 line on 7 of a guide's 9 calls and wrote
- * nothing). A piece cut short counts as what it spent, which is at least what such a piece costs. With no piece on
- * record it starts: its calls are still under the line (ceiling.ts).
+ * nothing). A piece cut short counts as what it spent, which is at least what such a piece costs. With nothing left it
+ * doesn't start; with no piece on record and something left it does, its calls still under the line (ceiling.ts). A
+ * piece that spent nothing (its first call refused, or none made) isn't one on record: it would pull the middle to $0.
  * Each call made for a piece carries its name in its cost line (claude.ts), and its end adds a line of its own,
  * `{ at, step, piece, pieceUsd, finished }`, with no `usd`, so nothing is counted twice.
  */
@@ -71,7 +72,7 @@ export async function piece<T>(name: string, fn: () => Promise<T>, o: { now?: ()
   const left = leftToday(step, log, o.ceilings ?? CEILINGS, now, o.where ?? machine())
   if (left == null) return fn()
   const typical = typicalPiece(step, log)
-  if (typical != null && left < typical) throw new LlmError(`claude failed: the engine's daily limit reached for ${step}: ${name} not started: ${money(left)} left, a piece costs about ${money(typical)}`)
+  if (left <= 0 || (typical != null && left < typical)) throw new LlmError(`claude failed: the engine's daily limit reached for ${step}: ${name} not started: ${money(left)} left${typical != null ? `, a piece costs about ${money(typical)}` : ''}`)
   const id = `${name} ${now.toISOString()}`
   let finished = false
   try {
@@ -80,7 +81,8 @@ export async function piece<T>(name: string, fn: () => Promise<T>, o: { now?: ()
     return r
   } finally {
     try {
-      appendFileSync(log, `${JSON.stringify({ at: (o.now?.() ?? new Date()).toISOString(), step, piece: id, pieceUsd: Number(spentOn(log, step, id).toFixed(6)), finished })}\n`)
+      const pieceUsd = Number(spentOn(log, step, id).toFixed(6))
+      if (pieceUsd > 0) appendFileSync(log, `${JSON.stringify({ at: (o.now?.() ?? new Date()).toISOString(), step, piece: id, pieceUsd, finished })}\n`)
     } catch {
       // The piece's own calls are logged (claude.ts); only its sum is lost.
     }

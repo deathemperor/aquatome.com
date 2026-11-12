@@ -67,6 +67,9 @@ test('only the cycle step having started counts as a cycle run', () => {
   expect(ranCycle([due, cycle('success')])).toBe(true)
   expect(ranCycle([due, cycle('failure')])).toBe(true)
   expect(ranCycle([due, cycle('cancelled')])).toBe(true)
+  // A conclusion this doesn't know reads as spent, the careful way; none yet, or skipped, isn't a start.
+  expect(ranCycle([due, cycle('timed_out')])).toBe(true)
+  expect(ranCycle([due, { name: 'Content cycle: rewrite', steps: [{ name: 'Run this part, test, commit, push, deploy', conclusion: null }] }])).toBe(false)
   expect(ranCycle([due, skipped])).toBe(false)
   expect(ranCycle([due, cycle('skipped')])).toBe(false)
   expect(ranCycle([due, { name: 'Content cycle: rewrite', conclusion: 'cancelled' }])).toBe(false)
@@ -85,6 +88,8 @@ test('only this repository\'s own runs on main, by the schedule or by hand, of t
     run(17, '2026-11-12T06:50:00Z', '2026-11-12T06:55:00Z'),
   ]
   expect(ownRuns(runs, REPO, 17, NOW).map(r => r.id)).toEqual([16, 10])
+  // Run again, this run's earlier attempt kept its own log, and spent: it counts.
+  expect(ownRuns(runs, REPO, 17, NOW, 2).map(r => r.id)).toEqual([17, 16, 10])
 })
 
 test('the day is Vietnam\'s, and the line carries a reason, never a dollar figure', () => {

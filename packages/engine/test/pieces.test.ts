@@ -59,6 +59,16 @@ test('a piece cut short counts as what it spent, and its error goes on to the st
   expect(last).toMatchObject({ pieceUsd: 1.02, finished: false })
 })
 
+test('with nothing left it doesn\'t start, record or not; a piece that spent nothing isn\'t one on record', async () => {
+  const log = await logWith([spend(3)])
+  await expect(piece('none-left', async () => 'no', o)).rejects.toThrow(/write-ideas: none-left not started: \$0\.00 left$/)
+  // Its first call refused, it spent nothing: no piece on record to pull the middle to $0.
+  await logWith([spend(1)])
+  const refused = async () => { throw new LlmError('claude failed: usage limit') }
+  await expect(piece('refused', refused, o)).rejects.toBeInstanceOf(LlmError)
+  expect(typicalPiece('write-ideas', process.env.ENGINE_COST_LOG!)).toBeUndefined()
+})
+
 test('with no piece on record it starts; with no cost log, or no ceiling, it just runs', async () => {
   const log = await logWith([spend(2.9)])
   expect(await piece('first', calls(log, 0.05), o)).toBe('written')
