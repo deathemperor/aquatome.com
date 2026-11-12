@@ -176,10 +176,13 @@ test('the enabled whole crop step publishes a credited real original with zero r
  await mkdir(join(f.cache,'marked'));await save(join(f.cache,'marked/real.json'),{page:{kind:'species',id:'alpha'},photo})
  f.d.locateMark=vi.fn(async()=>({owner:'photographer' as const,text:'Fixture contributor',credit:'Fixture contributor',sourceUrl:photo.sourceUrl,box:{x0:0,y0:65,x1:100,y1:78},subjectBox:{x0:20,y0:20,x1:60,y1:45},wholeSubject:true}))
  f.d.judge=vi.fn(async(_file,_prompt,schema)=>{if(!('photos'in(schema as {properties:object}).properties))throw Error('A crop must not call a repaint judge');return{photos:[{n:1,ok:'yes',typical:true,person:false,logo:true,note:'Original fixture.'}]}}) as ImageStepDeps['judge']
+ const trip=['TEST','ONLY','INHERITED','PHOTO','WORDS'].join('_')
+ await save(join(f.root,'engine-state/_photo-subjects.json'),{'https://example.org/legacy.webp':{alpha:{ok:'none',person:false,logo:false,typical:false,note:trip}}})
  const flags={...on,removeMarks:true,publishAltered:true},result=await imageSteps(f.root,async()=>f.d,flags)
  expect(result).toMatchObject({repaired:1,published:1,generated:0,failed:[]});expect(f.d.native).not.toHaveBeenCalled();expect(f.d.judge).toHaveBeenCalledTimes(2);expect(f.d.locateMark).toHaveBeenCalledTimes(2)
  const p=(await read(f.file)).photos[0];expect(p).toMatchObject({author:'Fixture contributor',licence:photo.licence,altered:[{method:'mark-crop',retainedChanged:0}]});expect(p.authorUrl).toBeUndefined();expect(p.large).toBeUndefined();expect(p.original.large.url).toBe(photo.large.url);expect(p.altered[0].noTrace).toBeUndefined();expect(p.altered[0].residue).toBeUndefined()
  expect(await read(join(f.root,'content/photo-credit-mismatches.json'))).toEqual([{source:'seriouslyfish',photo:photo.url,differs:true,page:'species/alpha'}])
+ const savedSubjects=await read(join(f.root,'engine-state/_photo-subjects.json'));expect(JSON.stringify(savedSubjects)).not.toContain(trip);expect(savedSubjects['https://example.org/legacy.webp'].alpha).toMatchObject({ok:'none',person:false,logo:false,typical:false,note:'subject none'})
  const shown=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,imageSwitches:flags});expect(shown.species[0]!.photos[0]!.url).toBe(p.url)
  sources.seriouslyfish.permission.markRemoval.allowed=false;await save(sourcesFile,sources);const revoked=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,imageSwitches:flags});expect(revoked.species[0]!.photos).toHaveLength(0);expect(revoked.galleries.alpha).toBeUndefined()
 })

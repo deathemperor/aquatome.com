@@ -1,3 +1,5 @@
+import { compactRejection } from './photo-observations'
+import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { parse } from 'node-html-parser'
@@ -587,7 +589,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
     const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
     for (const [url, why] of maps) if (!rejected[url]) { rejected[url] = why; report.rejected++ }
-    if (report.rejected) await writeFile(rejectedFile, `${JSON.stringify(rejected, null, 2)}\n`)
+    if (report.rejected) await writePhotoState(rejectedFile, rejected)
   }
   // Every photo on the never-again list leaves the pages and albums the photo check strips, by the check's own rule (an
   // Aquarium Glaser photo with the shop's own mark kept stays: watermarks.ts keptOwnMark). The check strips them only
@@ -607,7 +609,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const removed: string[] = []
     stripPhotos(data, listed, removed, [])
     if (!removed.length) continue
-    for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${rejected[url]})`)
+    for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(rejected[url]!)})`)
     await write(file, raw, data)
     changed(file.slice(content.length + 1))
   }
@@ -631,7 +633,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         if (!page) continue
         delete o![k]
         off++
-        report.again.push(`curation.json ${date}${where} ${k}: ${url} (${rejected[page]})`)
+        report.again.push(`curation.json ${date}${where} ${k}: ${url} (${compactRejection(rejected[page]!)})`)
       }
     }
     for (const d of cal.days ?? []) {
@@ -646,7 +648,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       if (!page) continue
       delete cal.loops![id]
       off++
-      report.again.push(`curation.json loop ${id} poster: ${loop.poster} (${rejected[page]})`)
+      report.again.push(`curation.json loop ${id} poster: ${loop.poster} (${compactRejection(rejected[page]!)})`)
     }
     if (off) { await write(calFile, calRaw, cal); changed('curation.json') }
   }

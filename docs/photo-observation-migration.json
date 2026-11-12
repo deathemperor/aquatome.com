@@ -1,0 +1,95 @@
+{
+  "baseCommit": "4c5f665a83d45f16706df311577fa5f336c86d32",
+  "historyRewritten": false,
+  "contentOrMediaChanges": 0,
+  "version": "photo-observations-v1",
+  "written": true,
+  "files": [
+    {
+      "file": "engine-state/_photo-watermarks.json",
+      "beforeHash": "6dde76d95001aecd4138c165612cdfc8afa5b3431d8bbbee6cdbd9232092bbb8",
+      "afterHash": "ad0d335b39a870e5f6a143782851d6c2934874aa8f954a282eadf49a91ecfbbd",
+      "recordsChanged": 10522,
+      "records": 39536,
+      "decisionDifferences": 0,
+      "waitingDifferences": 0
+    },
+    {
+      "file": "engine-state/_photo-rejected.json",
+      "beforeHash": "215f2e94c9e3049f23f69e9bd10f2f85baf533547788d24f8636fe200f90289f",
+      "afterHash": "f9dbde94e1cc32213b05e57f9ff422a87140efbbc5998e7930847c72ef0ba325",
+      "recordsChanged": 9259,
+      "records": 9259,
+      "decisionDifferences": 0,
+      "waitingDifferences": 0
+    },
+    {
+      "file": "engine-state/_photo-check.json",
+      "beforeHash": "e7cd49a6cde5319e3e9a334525300310755a3a5e9dfa6a69872659c76c5d6428",
+      "afterHash": "0acf5e590e2fe3ab62cfea87b4d792a1a8f20eea15c9e8a1cb243940cf9eab5b",
+      "recordsChanged": 2343,
+      "records": 2343,
+      "decisionDifferences": 0,
+      "waitingDifferences": 0
+    },
+    {
+      "file": "engine-state/_photo-subjects.json",
+      "beforeHash": "660fc9cd476cda2fa8bf197f8f6073ff9fb74cca686560a5f315540bdf740bf7",
+      "afterHash": "9af1ccf4704f543c94949a6b88dcd1c1d504f5a45f03d04d3973b03a1a94beb1",
+      "recordsChanged": 6106,
+      "records": 6106,
+      "decisionDifferences": 0,
+      "waitingDifferences": 0
+    },
+    {
+      "file": "engine-state/_photo-guides.json",
+      "beforeHash": "94bff5b68df01fa0c9262a2aa5e980417bbdffe2cfd75cd7bc3c07d7ecbdd4fa",
+      "afterHash": "7819c0dbde293180ff9e43345964e12a86e0f419fa38af481cc8a1cf211c4e15",
+      "recordsChanged": 6952,
+      "records": 6952,
+      "decisionDifferences": 0,
+      "waitingDifferences": 0
+    },
+    {
+      "file": "engine-state/_dead-screen.json",
+      "beforeHash": "9f3b31a6be8e53de364542ae1aa2ec8aa142652e4f6a139c92d079de7be06892",
+      "afterHash": "de627a10c851b5a5c5880066b446d9ad240d0191a947e1857558f7bc5adbee31",
+      "recordsChanged": 3475,
+      "records": 3475,
+      "decisionDifferences": 0,
+      "waitingDifferences": 0
+    },
+    {
+      "file": "engine-state/_video-stills.json",
+      "beforeHash": "2be633eae52f3deebac64fe13f00b049b82937b8797336b83342d2e1ea5f1f9e",
+      "afterHash": "5b8cb2f7e27580ff3af7ac966a6574b9a99698fb76eeef58a3222ee5acd5bf11",
+      "recordsChanged": 18,
+      "records": 112,
+      "decisionDifferences": 0,
+      "waitingDifferences": 0
+    },
+    {
+      "file": "engine-state/_video-rejected.json",
+      "beforeHash": "f7eda1362726580e866c99e7dab8c7e8485a026aa9024f538d24399e932dd9fd",
+      "afterHash": "e7ed84f6b9e2c81e99a6a055dc768141fcf4c7f6714a2faa267c2bdd49d6e8d3",
+      "recordsChanged": 28,
+      "records": 30,
+      "decisionDifferences": 0,
+      "waitingDifferences": 0
+    },
+    {
+      "file": "docs/review/photo-subjects.md",
+      "beforeHash": "4521df5536d29cb72b580cbedf2d59fc347e2c2eab24322c95c01b44a0bd7a20",
+      "afterHash": "eb1bbb15c64ec5aca56c026a09d589a6dc625064bff2781e19b4e3bade5217c7",
+      "records": 1910,
+      "recordsChanged": 1910,
+      "decisionDifferences": 0,
+      "waitingDifferences": 0
+    }
+  ],
+  "recheckCount": 5,
+  "decisionDifferences": 0,
+  "waitingDifferences": 0,
+  "modelCalls": 0,
+  "nativeImageAttempts": 0
+}

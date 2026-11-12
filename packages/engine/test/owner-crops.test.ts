@@ -204,11 +204,11 @@ async function stageScreen(f:Awaited<ReturnType<typeof setup>>) {
  return {state,old,oldRecord}
 }
 
-test('the stage-owned empty screen record lands before content admission and preserves every older screen record',async()=>{
+test('the stage-owned empty screen record lands before content admission and preserves every older screen decision',async()=>{
  const f=await setup(),s=await stageScreen(f);let added=0
  const result=await publishOwnerCrops(f.root,f.cache,f.store,async(_page,p)=>{
   const records=JSON.parse(await readFile(s.state,'utf8'))
-  expect(records[p.url]).toEqual({ocr:[]});expect(records[s.old.url]).toEqual(s.oldRecord)
+  expect(records[p.url]).toEqual({ocr:[]});expect(records[s.old.url]).toMatchObject({ocr:[],watermark:false,kind:'none',observationHash:expect.stringMatching(/^[a-f0-9]{64}$/)});expect(records[s.old.url]).not.toHaveProperty('what')
   expect(JSON.parse(await readFile(f.file,'utf8')).photos[0].url).toBe(s.old.url)
   await writeFile(f.file,JSON.stringify({...f.e,photos:[p,s.old]}));added++
  },new AbortController().signal,approvals)
@@ -295,4 +295,14 @@ test('private publisher diagnostics retain external error identity without arbit
  const raw=await readFile(join(f.cache,'owner-crop-failures',f.a.id+'.json'),'utf8'),diagnostic=JSON.parse(raw)
  expect(diagnostic).toMatchObject({stage:'media variants',cause:{message:'External error detail withheld',messageHash:hash('PRIVATE_EXTERNAL_DETAIL'),code:'ECONNRESET'}})
  expect(raw).not.toContain('PRIVATE_EXTERNAL_DETAIL');expect(f.forbidden).not.toHaveBeenCalled()
+})
+
+
+test('the finite publisher compacts inherited screen and subject observations at its real write boundary',async()=>{
+ const f=await setup(),s=await stageScreen(f),trip=['PRIVACY','OWNER','TEST','ONLY'].join('_')
+ await writeFile(s.state,JSON.stringify({[s.old.url]:{ocr:[{t:trip,c:1,at:'bottom left'}],watermark:false,kind:'none',what:trip}}))
+ await state(f,'_photo-subjects.json',{'https://example.org/older':{alpha:{ok:'yes',typical:true,person:false,logo:false,note:trip}}})
+ expect((await imageSteps(f.root,async()=>f.d)).published).toBe(1)
+ for(const file of ['_photo-watermarks.json','_photo-subjects.json'])expect(await readFile(join(f.root,'engine-state',file),'utf8')).not.toContain(trip)
+ expect(f.forbidden).not.toHaveBeenCalled()
 })

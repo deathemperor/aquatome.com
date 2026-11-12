@@ -1,3 +1,4 @@
+import { writePhotoState } from './photo-state'
 import { pendingOwnerCrops, publishOwnerCrops } from './owner-crops'
 import { beforeDeadline } from './image-deadline'
 import { mkdir, readdir, readFile, writeFile, rename } from 'node:fs/promises'
@@ -187,7 +188,7 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
       if (!result) {
         if (c.photo.source === 'glaser' && marks.every(m=>m.owner === 'source')) {
           const file = join(root, 'engine-state/_photo-watermarks.json'), cache = await json<Record<string, object>>(file, {})
-          cache[c.photo.url] = { ...cache[c.photo.url], retainedOwnMark: { source: 'glaser', sourceUrl: c.photo.sourceUrl, owner: 'source' } }; await save(file, cache)
+          cache[c.photo.url] = { ...cache[c.photo.url], retainedOwnMark: { source: 'glaser', sourceUrl: c.photo.sourceUrl, owner: 'source' } }; await writePhotoState(file, cache)
         }
         await save(workFile, { key, status: 'refused', reason: 'no-trace check' }); finishRealCandidate(name,pageKey)
         report.waiting.push(`${pageKey}: no clean removal; original retained`); continue
@@ -223,7 +224,7 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
         await save(mismatchFile,mismatches)
       }
       const verdictFile = join(root, 'engine-state/_photo-subjects.json'), verdicts = await json<Record<string, Record<string, PhotoVerdict>>>(verdictFile, {})
-      verdicts[stored.url] = { ...verdicts[stored.url], [c.page.id]: verdict }; await save(verdictFile, verdicts)
+      verdicts[stored.url] = { ...verdicts[stored.url], [c.page.id]: verdict }; await writePhotoState(verdictFile, verdicts)
       await save(workFile, { key, status: 'published' }); finishRealCandidate(name,pageKey)
       report.published++
     } catch (e) { report.failed.push(`mark candidate: ${(e as Error).message}`) }
