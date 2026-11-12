@@ -2,6 +2,7 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { WRITTEN_LANGS, type UnitLang } from '@aq/schema'
 import { englishOf } from './english'
+import { putBackFile } from './gate'
 import { FOOT_LENGTHS, fromF, INCH_SIDES, JOIN, litres, metricFigures, PER, roundConverted, side, sourceGives, TANK, type English } from './round'
 
 /**
@@ -19,7 +20,8 @@ import { FOOT_LENGTHS, fromF, INCH_SIDES, JOIN, litres, metricFigures, PER, roun
  * - a page held, AquaTome's own parts, guides and breeds (no English beside them) are left as they are.
  * A run mends at most the pace's language pages, and only while its batches are fewer than the pace allows: the named
  * ones first, then those with a tank's sides (what the chief of staff counted), then the rest; each once
- * (engine-state/_source-figures.json), so a page the gate puts back for a check isn't mended again. The gate, last in the run, reads each as any changed page: a live page
+ * (engine-state/_source-figures.json): a page is mended whole, every kind in one pass, and one the gate gives its old
+ * text back isn't mended again but listed with the checks it failed, for the chief of staff's word (2026-11-12). The gate, last in the run, reads each as any changed page: a live page
  * worse on a check gets its old text back, one with a fault no rewording fixes is held.
  */
 export const SOURCE_FIGURES_STATE = 'engine-state/_source-figures.json'
@@ -30,7 +32,15 @@ export const SOURCE_FIGURES_STATE = 'engine-state/_source-figures.json'
  */
 export const SOURCE_FIGURES_PACE = { perRun: 30, batches: 1 }
 export type SourceFiguresState = Record<string, { at: string; figures: string[] }>
-export type SourceFiguresReport = { mended: { key: string; file: string; figures: string[]; changes: { field: string; old: string; now: string }[] }[]; left: string[]; waiting?: number }
+export type SourceFiguresReport = {
+  mended: { key: string; file: string; figures: string[]; changes: { field: string; old: string; now: string }[] }[]
+  /** Not mended: held, or a part that fails a check above. */
+  left: string[]
+  /** Mended once and given its old text back by the gate: not mended again. */
+  putBack: string[]
+  /** Pages still to mend, past this run's pace. */
+  waiting?: number
+}
 
 type Lang = UnitLang
 const dec = (lang: Lang) => (lang === 'th' || lang === 'ms' ? '.' : ',')
@@ -155,12 +165,11 @@ export async function sourceFigures(root: string, o: { limit?: number; first?: r
     }
   }
   const rank = (k: string) => { const i = o.first?.indexOf(k) ?? -1; return i >= 0 ? i : (o.first?.length ?? 0) }
-  const report: SourceFiguresReport = { mended: [], left: [] }
+  const report: SourceFiguresReport = { mended: [], left: [], putBack: [] }
   const batches = new Set(Object.values(state).map(x => x.at)).size
   const limit = o.limit ?? (batches < SOURCE_FIGURES_PACE.batches ? SOURCE_FIGURES_PACE.perRun : 0)
   const plans: { key: string; file: string; t: Translation; raw: string; parts: ReturnType<typeof partsOf>; changes: { field: string; old: string; now: string }[]; figures: string[]; sides: boolean }[] = []
   for (const { key, file, t, raw, en } of pages) {
-    if (state[key]) continue // once a page: one the gate put back for a check has had its go
     const lang = key.split('/')[0] as Lang
     const changes: { field: string; old: string; now: string }[] = []
     const figures: string[] = []
@@ -174,6 +183,15 @@ export async function sourceFigures(root: string, o: { limit?: number; first?: r
       figures.push(...m.figures)
     }
     if (!changes.length && !why.length) continue
+    // Once a page, no loop: one mended before whose text has the old figures again is one the gate gave its old text
+    // back, and it waits for the chief of staff's word, listed with the checks it failed (engine-state/put-back/). A
+    // page the gate couldn't read has lost its mark (writer-records.ts), and is tried again.
+    if (state[key]) {
+      const [lng, kind, id] = key.split('/')
+      const back = JSON.parse(await readFile(join(root, putBackFile({ kind: kind!, id: id!, lang: lng! })), 'utf8').catch(() => '{}')) as { checks?: string[] }
+      report.putBack.push(`${key}: the gate gave it its old text back${back.checks?.length ? ` for ${back.checks.join(', ')}` : ''}; waits for the chief of staff's word`)
+      continue
+    }
     if (t.held) { report.left.push(`${key}: held, left as it is`); continue }
     if (why.length) { report.left.push(`${key}: ${why.join('; ')}`); continue }
     plans.push({ key, file, t, raw, parts, changes, figures: [...new Set(figures)], sides: figures.some(f => /\d\s*[×x]\s*\d/.test(f)) })

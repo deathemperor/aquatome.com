@@ -67,3 +67,20 @@ test('a run mends the pace\'s pages, the named first, each once, and no more bat
   // A guide has no English beside it: never touched.
   expect(JSON.parse(await readFile(join(root, 'content/guides/g/vi.json'), 'utf8')).body).toBe('<p>Bể 90 × 40 × 30 cm.</p>')
 })
+
+test('a page the gate gave its old text back is listed with what it failed, not mended again; one it couldn\'t read is', async () => {
+  const root = await site(2)
+  await sourceFigures(root, { limit: 2, now: () => new Date('2026-11-12T12:00:00Z') })
+  // The gate gave f0 its old text back for a check, and couldn't read f1 (its mark is gone: writer-records.ts).
+  const old = page({ 'aquariumSize:seriouslyfish': '<p>Bể 90 × 40 × 30 cm.</p>', 'aquariumSize:aquatome': '<p>Bể 90 × 40 × 30 cm.</p>' })
+  for (const id of ['f0', 'f1']) await writeFile(join(root, `content/species/${id}/vi.json`), `${JSON.stringify(old, null, 2)}\n`)
+  await mkdir(join(root, 'engine-state/put-back/species'), { recursive: true })
+  await writeFile(join(root, 'engine-state/put-back/species/f0.vi.json'), JSON.stringify({ at: '2026-11-12T12:30:00Z', checks: ['source'], findings: [], text: {} }))
+  const state = JSON.parse(await readFile(join(root, SOURCE_FIGURES_STATE), 'utf8'))
+  delete state['vi/species/f1']
+  await writeFile(join(root, SOURCE_FIGURES_STATE), JSON.stringify(state))
+  const r = await sourceFigures(root, { limit: 10, now: () => new Date('2026-11-12T15:00:00Z') })
+  expect(r.putBack).toEqual(["vi/species/f0: the gate gave it its old text back for source; waits for the chief of staff's word"])
+  expect(r.mended.map(m => m.key)).toEqual(['vi/species/f1'])
+  expect(JSON.parse(await readFile(join(root, 'content/species/f0/vi.json'), 'utf8')).sections['aquariumSize:seriouslyfish']).toBe('<p>Bể 90 × 40 × 30 cm.</p>')
+})

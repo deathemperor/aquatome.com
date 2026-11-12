@@ -677,7 +677,8 @@ if (cmd === 'run' || cmd === 'card-fill') {
     if (values['dry-run']) for (const c of m.changes) console.log(`  ${c.field}: ${c.old}\n  → ${c.now}`)
   }
   for (const x of r.left) console.log(`left: ${x}`)
-  console.log(`source-figures: ${r.mended.length} mended, ${r.waiting ?? 0} waiting for the pace, ${r.left.length} left`)
+  for (const x of r.putBack) console.log(`put back: ${x}`)
+  console.log(`source-figures: ${r.mended.length} mended, ${r.waiting ?? 0} waiting for the pace, ${r.left.length} left, ${r.putBack.length} put back by the gate`)
 } else if (cmd === 'gate') {
   // Last in each cycle (gate.ts): the pages whose text the cycle changed are read against the checklist; a new page that
   // fails is held back, a live page that got worse gets its committed text back, a page no rewording fixes is held.
