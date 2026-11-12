@@ -1,8 +1,8 @@
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { mendPart, sourceFigures, SOURCE_FIGURES_PACE, SOURCE_FIGURES_STATE } from '../src/source-figures'
+import { mendPart, recordSourceFigures, sourceFigures, SOURCE_FIGURES_BATCHES, SOURCE_FIGURES_PACE, SOURCE_FIGURES_STATE, type SourceFiguresBook, type SourceFiguresState } from '../src/source-figures'
 
 const SF = 'Base dimensions 90 ∗ 38 cm. An aquarium measuring 90 × 38 × 30 cm (36 × 15 × 12 in) - approximately 103 litres. A 10 gallon (38 litre) tank for fry. 73–82 °F (22.8–27.8 °C). Monthly averages vary from 17.2°C in December and January to 33.9°C in April.'
 
@@ -57,53 +57,154 @@ async function site(n: number) {
   return root
 }
 
-test('a run mends the pace\'s pages, the named first, each once, and no more than the pace\'s total', async () => {
-  const root = await site(SOURCE_FIGURES_PACE.perRun + 2)
+const P = SOURCE_FIGURES_PACE
+const at = (h: number) => ({ now: () => new Date(Date.UTC(2026, 10, 12, h)) })
+const T12 = '2026-11-12T12:00:00.000Z'
+const marks = async (root: string) => JSON.parse(await readFile(join(root, SOURCE_FIGURES_STATE), 'utf8')) as SourceFiguresState
+const book = async (root: string) => JSON.parse(await readFile(join(root, SOURCE_FIGURES_BATCHES), 'utf8')) as SourceFiguresBook
+const OLD = page({ 'aquariumSize:seriouslyfish': '<p>Bể 90 × 40 × 30 cm.</p>', 'aquariumSize:aquatome': '<p>Bể 90 × 40 × 30 cm.</p>' })
+const file = (key: string) => { const [lang, kind, id] = key.split('/'); return { page: `content/${kind}/${id}/${lang}.json`, back: `engine-state/put-back/${kind}/${id}.${lang}.json` } }
+const edit = async (root: string, key: string, f: (t: Record<string, unknown>) => object) => {
+  const p = join(root, file(key).page)
+  await writeFile(p, `${JSON.stringify(f(JSON.parse(await readFile(p, 'utf8')) as Record<string, unknown>), null, 2)}\n`)
+}
+/** The gate's answer: a put-back file, and with `text`, the page's old text back. */
+const putBack = async (root: string, key: string, v: { at: string; checks: string[]; unread?: true }, text = true) => {
+  await mkdir(join(root, file(key).back, '..'), { recursive: true })
+  await writeFile(join(root, file(key).back), JSON.stringify({ findings: [], text: {}, ...v }))
+  if (text) await edit(root, key, () => OLD)
+}
+/** The gate couldn't read it: its old text back, and its mark gone (writer-records.ts). */
+const unread = async (root: string, key: string, when: string) => {
+  await putBack(root, key, { at: when, checks: [], unread: true })
+  const state = await marks(root)
+  delete state[key]
+  await writeFile(join(root, SOURCE_FIGURES_STATE), JSON.stringify(state))
+}
+
+test('a run mends the first 30, the named first; once those are on main, 60 a run; marks not on main count against a run', async () => {
+  const root = await site(P.first + P.perRun + 5)
   const dry = await sourceFigures(root, { dryRun: true, limit: 1000 })
-  expect(dry.mended).toHaveLength(SOURCE_FIGURES_PACE.perRun + 2)
+  expect(dry.mended).toHaveLength(P.first + P.perRun + 5)
   expect(dry.left).toEqual(['id/species/f0: held, left as it is'])
   await expect(readFile(join(root, SOURCE_FIGURES_STATE), 'utf8')).rejects.toThrow() // a dry run writes nothing
-  const first = await sourceFigures(root, { first: ['vi/species/f9'], now: () => new Date('2026-11-12T12:00:00Z') })
-  expect(first.mended).toHaveLength(SOURCE_FIGURES_PACE.perRun)
+  const first = await sourceFigures(root, { first: ['vi/species/f9'], onMain: {}, ...at(12) })
+  expect(first.mended).toHaveLength(P.first)
   expect(first.mended[0]!.key).toBe('vi/species/f9')
-  expect(first.waiting).toBe(2)
+  expect(first.waiting).toBe(P.perRun + 5)
   const f9 = JSON.parse(await readFile(join(root, 'content/species/f9/vi.json'), 'utf8'))
   expect(f9.sections).toEqual({ 'aquariumSize:seriouslyfish': '<p>Bể 90 × 38 × 30 cm.</p>', 'aquariumSize:aquatome': '<p>Bể 90 × 40 × 30 cm.</p>' })
-  expect(JSON.parse(await readFile(join(root, SOURCE_FIGURES_STATE), 'utf8'))['vi/species/f9']).toEqual({ at: '2026-11-12T12:00:00.000Z', figures: ['90 × 40 × 30 cm → 90 × 38 × 30 cm'] })
-  // The pace's total is reached: the next run waits for the chief of staff's next pace.
-  const second = await sourceFigures(root, { now: () => new Date('2026-11-12T15:00:00Z') })
-  expect(second.mended).toEqual([])
-  expect(second.waiting).toBe(2)
+  expect((await marks(root))['vi/species/f9']).toEqual({ at: T12, figures: ['90 × 40 × 30 cm → 90 × 38 × 30 cm'] })
+  // Not on main yet: a second run mends nothing more, and records nothing for pages the gate hasn't read.
+  expect([(await sourceFigures(root, { onMain: {}, ...at(13) })).mended.length]).toEqual([0])
+  expect((await book(root)).batches[0]!.outcomes).toEqual({})
+  // The first 30 on main: 60 a run, without asking, and again nothing more until those are on main.
+  const published = await marks(root)
+  expect((await sourceFigures(root, { onMain: published, ...at(15) })).mended).toHaveLength(P.perRun)
+  expect((await sourceFigures(root, { onMain: published, ...at(16) })).mended).toHaveLength(0)
+  const last = await sourceFigures(root, { onMain: await marks(root), ...at(18) })
+  expect([last.mended.length, last.waiting, last.stopped]).toEqual([5, 0, undefined])
+  expect((await book(root)).batches.map(b => [b.at, b.keys.length])).toEqual([[T12, P.first], ['2026-11-12T15:00:00.000Z', P.perRun], ['2026-11-12T18:00:00.000Z', 5]])
   // A guide has no English beside it: never touched.
   expect(JSON.parse(await readFile(join(root, 'content/guides/g/vi.json'), 'utf8')).body).toBe('<p>Bể 90 × 40 × 30 cm.</p>')
 })
 
+test('with no way to read the marks on main, it mends nothing', async () => {
+  const r = await sourceFigures(await site(3), at(12)) // not a git checkout
+  expect([r.mended.length, r.waiting]).toEqual([0, 3])
+  expect(r.noMain).toMatch(/origin\/main/)
+})
+
+test('it stops by itself when more than one page in ten of a batch went wrong for more than its figures, as the gate answered the mend', async () => {
+  const root = await site(P.first + P.perRun + 10)
+  const keys = (await sourceFigures(root, { onMain: {}, ...at(12) })).mended.map(m => m.key)
+  // The gate: three given their old text back for `source`, one in ten; three for `units` alone and one put back before
+  // this mend, which don't count; and one it couldn't read.
+  for (const k of keys.slice(0, 3)) await putBack(root, k, { at: '2026-11-12T12:30:00Z', checks: ['source'] })
+  for (const k of keys.slice(3, 6)) await putBack(root, k, { at: '2026-11-12T12:30:00Z', checks: ['units'] })
+  await putBack(root, keys[6]!, { at: '2026-11-10T00:00:00Z', checks: ['price'] }, false)
+  await unread(root, keys[7]!, '2026-11-12T12:30:00Z')
+  const once = await recordSourceFigures(root, at(13))
+  expect([once.recorded.length, once.stopped]).toEqual([P.first - 1, undefined])
+  const b = (await book(root)).batches[0]!
+  expect([b.keys.length, b.wrong, b.outcomes[keys[3]!], b.outcomes[keys[6]!], b.outcomes[keys[7]!]]).toEqual([P.first, keys.slice(0, 3), 'given its old text back for units', 'passed', undefined])
+  // A hold that comes later, for something else or by hand, isn't the gate's answer to this mend.
+  await edit(root, keys[8]!, t => ({ ...t, held: { checks: ['harm'], at: '2026-11-12' } }))
+  // 29 on main: the page it couldn't read is tried again first, within the 30, and stays in its batch.
+  const retry = await sourceFigures(root, { onMain: await marks(root), ...at(15) })
+  expect(retry.mended.map(m => m.key)).toEqual([keys[7]])
+  expect((await book(root)).batches.map(x => x.keys.length)).toEqual([P.first])
+  // The gate holds it for harm: the fourth of its 30. Recorded, it stops.
+  await edit(root, keys[7]!, t => ({ ...t, held: { checks: ['harm'], at: '2026-11-12' } }))
+  const why = /^the batch of 2026-11-12T12:00:00.000Z: 4 of 30 pages: .*given its old text back for source.*held for harm$/
+  const rec = await recordSourceFigures(root, at(16))
+  expect(rec.recorded).toEqual([`${keys[7]}: held for harm`])
+  expect(rec.stopped).toMatch(why)
+  // Nothing is mended while pages wait, and the stop stays once the holds and put-backs are gone.
+  for (const k of [keys[7]!, keys[8]!]) await edit(root, k, ({ held: _, ...t }) => t)
+  for (const k of keys.slice(0, 3)) await rm(join(root, file(k).back))
+  const stopped = await sourceFigures(root, { onMain: await marks(root), ...at(18) })
+  expect([stopped.mended.length, stopped.waiting]).toEqual([0, P.perRun + 10])
+  expect(stopped.stopped).toMatch(why)
+  // The chief's word takes it out: the mender goes on, and the same batch doesn't stop it again.
+  const { stopped: _, ...cleared } = await book(root)
+  await writeFile(join(root, SOURCE_FIGURES_BATCHES), JSON.stringify(cleared))
+  expect((await recordSourceFigures(root, at(19))).stopped).toBeUndefined()
+  expect((await sourceFigures(root, { onMain: await marks(root), ...at(21) })).mended).toHaveLength(P.perRun)
+})
+
 test('a page the gate gave its old text back is listed with what it failed, not mended again; one it couldn\'t read is', async () => {
   const root = await site(2)
-  await sourceFigures(root, { limit: 2, now: () => new Date('2026-11-12T12:00:00Z') })
-  // The gate gave f0 its old text back for a check, and couldn't read f1 (its mark is gone: writer-records.ts).
-  const old = page({ 'aquariumSize:seriouslyfish': '<p>Bể 90 × 40 × 30 cm.</p>', 'aquariumSize:aquatome': '<p>Bể 90 × 40 × 30 cm.</p>' })
-  for (const id of ['f0', 'f1']) await writeFile(join(root, `content/species/${id}/vi.json`), `${JSON.stringify(old, null, 2)}\n`)
-  await mkdir(join(root, 'engine-state/put-back/species'), { recursive: true })
-  await writeFile(join(root, 'engine-state/put-back/species/f0.vi.json'), JSON.stringify({ at: '2026-11-12T12:30:00Z', checks: ['source'], findings: [], text: {} }))
-  const state = JSON.parse(await readFile(join(root, SOURCE_FIGURES_STATE), 'utf8'))
-  delete state['vi/species/f1']
-  await writeFile(join(root, SOURCE_FIGURES_STATE), JSON.stringify(state))
-  const r = await sourceFigures(root, { limit: 10, now: () => new Date('2026-11-12T15:00:00Z') })
-  expect(r.putBack).toEqual(["vi/species/f0: the gate gave it its old text back for source; waits for the chief of staff's word"])
+  await sourceFigures(root, { limit: 2, onMain: {}, ...at(12) })
+  // The gate gave f0 its old text back for its figures (one for another check would stop a batch of two), and couldn't read f1.
+  await putBack(root, 'vi/species/f0', { at: '2026-11-12T12:30:00Z', checks: ['units'] })
+  await unread(root, 'vi/species/f1', '2026-11-12T12:30:00Z')
+  const r = await sourceFigures(root, { limit: 10, onMain: await marks(root), ...at(15) })
+  expect(r.putBack).toEqual(["vi/species/f0: the gate gave it its old text back for units; waits for the chief of staff's word"])
   expect(r.mended.map(m => m.key)).toEqual(['vi/species/f1'])
   expect(JSON.parse(await readFile(join(root, 'content/species/f0/vi.json'), 'utf8')).sections['aquariumSize:seriouslyfish']).toBe('<p>Bể 90 × 40 × 30 cm.</p>')
 })
 
-test('a page the gate couldn\'t read, in a batch whose others it read, is tried again within the same total', async () => {
-  const root = await site(SOURCE_FIGURES_PACE.upTo + 2)
-  const first = await sourceFigures(root, { now: () => new Date('2026-11-12T12:00:00Z') })
-  const unread = first.mended[3]!.key
-  const state = JSON.parse(await readFile(join(root, SOURCE_FIGURES_STATE), 'utf8'))
-  delete state[unread]
-  await writeFile(join(root, SOURCE_FIGURES_STATE), JSON.stringify(state))
-  const [, kind, id] = unread.split('/')
-  await writeFile(join(root, `content/${kind}/${id}/vi.json`), `${JSON.stringify(page({ 'aquariumSize:seriouslyfish': '<p>Bể 90 × 40 × 30 cm.</p>', 'aquariumSize:aquatome': '<p>Bể 90 × 40 × 30 cm.</p>' }), null, 2)}\n`)
-  const again = await sourceFigures(root, { now: () => new Date('2026-11-12T15:00:00Z') })
-  expect(again.mended.map(m => m.key)).toEqual([unread])
+test('marks from before the batches were kept make a batch of 30, recorded before the run mends any more', async () => {
+  const root = await site(P.first + P.perRun)
+  const keys = (await sourceFigures(root, { onMain: {}, ...at(12) })).mended.map(m => m.key)
+  await rm(join(root, SOURCE_FIGURES_BATCHES))
+  // That run's gate gave three their old text back for `source` and couldn't read one: 3 of 30, though 29 kept marks.
+  for (const k of keys.slice(0, 3)) await putBack(root, k, { at: '2026-11-12T12:30:00Z', checks: ['source'] })
+  await unread(root, keys[3]!, '2026-11-12T12:30:00Z')
+  const going = await sourceFigures(root, { onMain: await marks(root), ...at(15) })
+  expect(going.stopped).toBeUndefined()
+  expect((await book(root)).batches[0]).toMatchObject({ at: T12, size: P.first, wrong: keys.slice(0, 3) })
+  expect(going.mended.map(m => m.key)).toEqual([keys[3]]) // 29 on main: the one it couldn't read, within the 30
+  // A fourth given its old text back: recorded at the start of the next run, which then mends nothing.
+  const root2 = await site(P.first + P.perRun)
+  const keys2 = (await sourceFigures(root2, { onMain: {}, ...at(12) })).mended.map(m => m.key)
+  await rm(join(root2, SOURCE_FIGURES_BATCHES))
+  for (const k of keys2.slice(0, 4)) await putBack(root2, k, { at: '2026-11-12T12:30:00Z', checks: ['source'] })
+  const stopped = await sourceFigures(root2, { onMain: await marks(root2), ...at(15) })
+  expect([stopped.mended.length, stopped.waiting]).toEqual([0, P.perRun])
+  expect(stopped.stopped).toMatch(/^the batch of 2026-11-12T12:00:00.000Z: 4 of 30 pages/)
+})
+
+test('a page the gate couldn\'t read and then held, for harm found in another language, counts against its batch', async () => {
+  const root = await site(P.first + 5)
+  const keys = (await sourceFigures(root, { onMain: {}, ...at(12) })).mended.map(m => m.key)
+  for (const k of keys.slice(0, 3)) await putBack(root, k, { at: '2026-11-12T12:30:00Z', checks: ['source'] })
+  await unread(root, keys[3]!, '2026-11-12T12:30:00Z')
+  await edit(root, keys[3]!, t => ({ ...t, held: { checks: ['harm'], at: '2026-11-12' } }))
+  const r = await recordSourceFigures(root, at(13))
+  expect(r.recorded).toContain(`${keys[3]}: held for harm`)
+  expect(r.stopped).toMatch(/4 of 30 pages/)
+})
+
+test('stopped, or with no main to read, a limit by hand mends nothing; a dry run of the record writes nothing', async () => {
+  const root = await site(P.first + 5)
+  const keys = (await sourceFigures(root, { onMain: {}, ...at(12) })).mended.map(m => m.key)
+  for (const k of keys.slice(0, 4)) await putBack(root, k, { at: '2026-11-12T12:30:00Z', checks: ['source'] })
+  const before = await readFile(join(root, SOURCE_FIGURES_BATCHES), 'utf8')
+  expect((await recordSourceFigures(root, { dryRun: true, ...at(13) })).stopped).toMatch(/4 of 30 pages/)
+  expect(await readFile(join(root, SOURCE_FIGURES_BATCHES), 'utf8')).toBe(before)
+  expect((await recordSourceFigures(root, at(13))).stopped).toMatch(/4 of 30 pages/)
+  expect((await sourceFigures(root, { limit: 1, onMain: await marks(root), ...at(15) })).mended).toEqual([])
+  expect((await sourceFigures(await site(3), { limit: 1, ...at(12) })).mended).toEqual([]) // not a git checkout
 })
