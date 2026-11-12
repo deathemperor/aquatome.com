@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4101 | 3517 | 1580 | 77 | 48 | 210 | 41 | 1087 | 390 | 2620 | 479 | 9 | 14 | 0 | 3 | 4 | 3 | 0 |
-| Indonesian | 1296 | 1091 | 312 | 21 | 7 | 3 | 5 | 158 | 28 | 50 | 146 | 0 | 1 | 0 | 3 | 2 | 0 | 0 |
-| Thai | 1290 | 1086 | 292 | 17 | 4 | 4 | 4 | 143 | 34 | 71 | 135 | 0 | 1 | 0 | 1 | 2 | 0 | 0 |
-| Malay | 189 | 143 | 48 | 5 | 1 | 0 | 0 | 24 | 8 | 6 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Vietnamese | 4101 | 3523 | 1583 | 77 | 48 | 210 | 41 | 1089 | 390 | 2624 | 479 | 9 | 15 | 0 | 3 | 4 | 3 | 0 |
+| Indonesian | 1299 | 1128 | 322 | 21 | 7 | 3 | 5 | 163 | 28 | 51 | 154 | 0 | 1 | 0 | 3 | 2 | 0 | 0 |
+| Thai | 1290 | 1087 | 292 | 17 | 4 | 4 | 4 | 143 | 34 | 71 | 135 | 0 | 1 | 0 | 1 | 2 | 0 | 0 |
+| Malay | 191 | 145 | 49 | 5 | 1 | 0 | 0 | 24 | 9 | 6 | 19 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 9 of 138, Indonesian 2 of 54, Thai 2 of 53, Malay 1 of 16.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 9 of 139, Indonesian 2 of 55, Thai 2 of 53, Malay 1 of 16.
 
 ## Doses on more than one page
 
@@ -40,6 +40,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - methylene blue 2,303%: fungus, wholeTank: 0.132 ml/l, 0.043 ml/l (1 pages); parasites, wholeTank: 0.132 ml/l (1 pages); other, wholeTank: 0.132 ml/l (1 pages)
 - erythromycin: cyanobacteria, wholeTank: 5 mg/l, 5.263 mg/l (1 pages); algae, wholeTank: 5 mg/l (1 pages)
 - levamisole: parasites, wholeTank: 0.026 packet/l (1 pages); parasites, bath: 50 mg/l (2 pages)
+- methylene blue: other, wholeTank: 0.421 drop/l (2 pages); parasites, dip: 2.241 ml/l (1 pages)
 - seachem excel: algae, wholeTank: 0.125 ml/l (1 pages); algae, other: 1 cap/l (1 pages); algae, spot: 0.025 cap/l (1 pages)
 - ampicillin: bacteria, wholeTank: 0.026 tablet/l, 0.025 tablet/l (2 pages)
 - bionoc 2: ich, wholeTank: 0.1 drop/l, 0.05 drop/l (1 pages)
@@ -47,7 +48,6 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - easy iron: plants, wholeTank: 0.025 ml/l, 0.526 drop/l (1 pages)
 - fritzzyme 7: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
 - fritzzyme 7 freshwater: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
-- methylene blue: other, wholeTank: 0.421 drop/l (1 pages); parasites, dip: 2.241 ml/l (1 pages)
 - metronidazole and praziquantel: quarantine, wholeTank: 0.027 packet/l (1 pages); parasites, wholeTank: 0.03 packet/l (1 pages)
 - seachem flourish: plants, wholeTank: 0.022 ml/l, 0.017 ml/l (1 pages)
 - seachem prime: water, other: 0.026 ml/l (1 pages); water, unsaid: 0.025 ml/l (1 pages)
