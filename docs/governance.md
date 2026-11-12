@@ -1106,8 +1106,9 @@ The layers above still check the result.
     keepers here say, a minimum never more than a twentieth under it (35 gallons 130 lít, 1,000 gallons 4.000, 3
     gallons a fish 12, 10 gallons an inch 15 lít mỗi cm), in its FAQ answers too, and after any other mend of the same
     part in the same try. Its reviewer is told the same, and a rewrite without those figures, each as its whole quantity
-    (15 lít mỗi cm, not mỗi 2,5 cm), isn't kept. A dose's water, or a litre figure with no US figure in the facts to work
-    from, is left to a person. Other units,
+    (15 lít mỗi cm, not mỗi 2,5 cm), isn't kept. A figure beside a dose (in its paragraph, or the one before or after),
+    whose water stays exact, or a litre figure with no US figure in the facts to work from, is left to a person, and so
+    is a quote another mend reworded past telling which figure it was. Other units,
     words and a kit are left to the rounding, the phrase list and the gate, and harm on a fish, plant or breed page to the gate and a person. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash; a page
     tried and not kept waits until its text changes (`engine-state/_fit-rewrite.json`), and a title the owner fixed stays
     (`fit-rewrite.test.ts`). It runs in GitHub's rewrite cycle before the gate, from 13 Nov 2026 08:00: the front list

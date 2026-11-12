@@ -1,4 +1,4 @@
-import { GALLON, keeperFigure, US_TANKS, usTankOf } from './round'
+import { GALLON, givesDose, keeperFigure, US_TANKS, usTankOf } from './round'
 
 /**
  * A breed page's units, mended by the reader-fit rewrite (fit-rewrite.ts; the chief of staff, 2026-11-12). A breed page
@@ -11,8 +11,8 @@ import { GALLON, keeperFigure, US_TANKS, usTankOf } from './round'
  * - "for each 2,5 cm" of a fish is a source's "per inch": given per cm, 10 gallons an inch 15 lít mỗi cm.
  * The US figure is the facts' own beside the page's figure ("35 US gal (about 132 L)"), else the facts' nearest within a
  * twentieth of it, else the table's for a volume only a gallon conversion gives (usTankOf: 110 lít is 29 gallons). A
- * finding is left to a person (`unitsLeft`) when a litre figure in it has neither, or its sentence is a dose, whose water
- * stays exact. A figure counts only as the whole quantity: 15 lít mỗi cm, not 15 lít mỗi 2,5 cm (`keepsFigures`).
+ * finding is left to a person (`unitsLeft`) when a litre figure in it has neither, or a dose is given beside it (round.ts
+ * givesDose), whose water stays exact. A figure counts only as the whole quantity: 15 lít mỗi cm, not 15 lít mỗi 2,5 cm (`keepsFigures`).
  */
 export type BreedFigure = { from: string; to: string; litres: number; why: string; perCm?: true }
 
@@ -87,34 +87,27 @@ export function keepsFigures(text: string, quotes: string[], figures: BreedFigur
   return left.length ? `the figure it mends is still there: ${left.join('; ')}` : undefined
 }
 
-/** The sentence a quote sits in, in its block's text (the quote itself where it isn't there). */
-export function sentenceOf(quote: string, block: string): string {
-  const t = flat(block)
-  const q = flat(quote)
-  const i = q ? t.indexOf(q) : -1
-  if (i < 0) return quote
-  const ends = [...t.slice(0, i).matchAll(/[.!?…]\s/g)]
-  const after = /[.!?…]$/.test(q) ? { index: -1 } : /[.!?…](?:\s|$)/.exec(t.slice(i + q.length))
-  return t.slice(ends.length ? ends.at(-1)!.index + 2 : 0, after ? i + q.length + after.index + 1 : t.length)
-}
-/** A dose: an amount of a medicine, salt or the like in the sentence. The water it goes into stays exact. */
-const DOSE = /\d\s*(?:ml|mg|g|gam|gram|giọt|viên|muỗng|thìa)(?![\p{L}])|thuốc|liều/iu
-/** Why a breed page's units finding is left to a person: a dose's water, or a litre figure with no US figure to work from. */
-export function unitsLeft(quote: string, facts: string, block = quote): string | undefined {
+/**
+ * Why a breed page's units finding is left to a person: a dose is given beside it (`around`: its paragraph and the ones
+ * before and after it, fit-rewrite.ts), so a figure in it may be the water the dose goes into, which stays exact; or a
+ * litre figure with no US figure to work from. The paragraphs beside it and not the whole part: a breed page's body is
+ * one part of 30 to 40 paragraphs, and a treatment far down it would leave koi's tank (round.ts givesDose: a sentence or
+ * a clause is too narrow, a dose's amount and its water can sit in two).
+ */
+export function unitsLeft(quote: string, facts: string, around = quote): string | undefined {
   const litres = litresIn(quote)
   if (!litres.length) return undefined
-  if (DOSE.test(sentenceOf(quote, block))) return 'a dose, whose water stays exact'
+  if (givesDose(around) || givesDose(quote)) return 'a dose is given beside it, whose water stays exact'
   const pairs = factsPairs(facts)
   const none = litres.filter(l => usGallons(l, pairs) === undefined)
   return none.length ? `no US figure to work ${none.map(l => l.toLocaleString('vi-VN')).join(', ')} lít from` : undefined
 }
-/** Where a quote's litres are once another mend of the part reworded it: the first sentence of the blocks giving each. */
-export function moved(quote: string, blocks: string[]): string | undefined {
+/**
+ * Where a quote's litres are once another mend of the part reworded it, in the block it was in: the one sentence there
+ * giving each of them. None, or two (a spare tank of the same size beside the minimum), and it's for a person.
+ */
+export function moved(quote: string, block: string): string | undefined {
   const want = litresIn(quote)
-  if (!want.length) return undefined
-  for (const b of blocks) for (const s of flat(b).split(/(?<=[.!?…])\s+/)) {
-    const have = litresIn(s)
-    if (want.every(l => have.includes(l))) return s
-  }
-  return undefined
+  const found = want.length ? flat(block).split(/(?<=[.!?…])\s+/).filter(s => want.every(l => litresIn(s).includes(l))) : []
+  return found.length === 1 ? found[0] : undefined
 }

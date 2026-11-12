@@ -219,11 +219,11 @@ test('a part said more surely than its English is not kept, however well its rev
 })
 
 /** A breed page (no English beside it) with ranchu's case: a source finding and a converted tank in one paragraph, and a converted tank in an FAQ answer. */
-const breed = async (o: { faq?: string; faqQuote?: string } = {}) => {
+const breed = async (o: { faq?: string; faqQuote?: string; body?: string } = {}) => {
   const root = await content()
   const file = join(root, 'content/breeds/pigeon-blood-discus/vi.json')
   const t = JSON.parse(await readFile(file, 'utf8'))
-  t.body += '<p>Một người chơi ở Anh kể rằng cá cần nhiều chỗ. Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.</p>'
+  t.body += o.body ?? '<p>Một người chơi ở Anh kể rằng cá cần nhiều chỗ. Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.</p>'
   t.faq[0].a = o.faq ?? 'Cá con có thể bắt đầu trong bể 110 lít.'
   await writeFile(file, JSON.stringify(t, null, 2))
   await mkdir(join(root, 'engine-state/breeds'), { recursive: true })
@@ -274,10 +274,11 @@ test('a breed page\'s figure is kept only as its whole quantity, and a dose\'s w
   expect(keepsFigures('Cho khoảng 15 lít cho mỗi cm chiều dài.', quote, [perCm!])).toBeUndefined()
   expect(keepsFigures('Cho khoảng 15 lít cho mỗi 2,5 cm chiều dài.', quote, [perCm!])).toContain('15 lít cho mỗi cm')
   expect(keepsFigures('Cá con ở bể 15 lít; cá lớn cần 40 lít nước với từng 2,5 cm.', quote, [perCm!])).toContain('15 lít cho mỗi cm')
-  // A dose's water stays exact, the quote's own sentence read for it; a tank in the next sentence isn't a dose.
-  const dosed = 'Dùng 1 ml thuốc trong 38 lít nước. Một nguồn coi 132 lít là mức tối thiểu.'
-  expect(unitsLeft('38 lít', 'Dose 1 ml per 10 US gal (38 L). 35 US gal (about 132 L) at least.', dosed)).toBe('a dose, whose water stays exact')
-  expect(unitsLeft('132 lít là mức tối thiểu', 'Dose 1 ml per 10 US gal (38 L). 35 US gal (about 132 L) at least.', dosed)).toBeUndefined()
+  // A dose's water stays exact: any figure beside a dose, its sentences before and after too (round.ts givesDose).
+  const facts = 'Dose 1 ml per 10 US gal (38 L). 35 US gal (about 132 L) at least.'
+  for (const block of ['Dùng 1 ml thuốc trong 38 lít nước.', 'Hòa 1 gói muối vào 38 lít nước.', 'Lấy 1 ml xanh methylen. Hòa vào 38 lít nước.']) expect(unitsLeft('38 lít', facts, block)).toBe('a dose is given beside it, whose water stays exact')
+  expect(unitsLeft('132 lít là mức tối thiểu', facts, 'Dùng 1 ml thuốc trong 38 lít nước. Một nguồn coi 132 lít là mức tối thiểu.')).toBe('a dose is given beside it, whose water stays exact')
+  expect(unitsLeft('132 lít là mức tối thiểu', facts, 'Một nguồn coi 132 lít là mức tối thiểu.')).toBeUndefined()
   // No US figure to work from: 36 gallons isn't beside 136 lít, nor a US tank; a Vietnamese decimal after thousands is read.
   expect(unitsLeft('Cần 136 lít cho một con.', 'Minimum 36 US gallons.')).toBe('no US figure to work 136 lít from')
   expect(unitsLeft('Cần 1.132,5 lít cho một con.', 'Minimum 36 US gallons.')).toBe('no US figure to work 1.132,5 lít from')
@@ -313,12 +314,37 @@ test('a breed page\'s units quote the other mend reworded is found again by its 
   // The reviewer holds the guard too, not the figures alone.
   expect(prompts.filter(x => x.kind === 'review')[1]!.prompt).toContain('a minimum never more than a twentieth under it')
 
+  // A spare tank of the same size: in another paragraph it stays, the minimum found in its own; in the same one, which is which is for a person.
+  const reword = { other: (vi: string) => vi.replace('Một người chơi ở Anh kể rằng', 'Theo một nguồn,').replace('Một nguồn coi 132 lít', 'Có nguồn xem 132 lít') }
+  const apart = await breed({ body: '<p>Bể dự phòng có 132 lít nước.</p><p>Một người chơi ở Anh kể rằng cá cần nhiều chỗ. Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.</p>' })
+  await fitRewrite(apart.root, [apart.p], reading(apart.p, [apart.source, apart.tank]), { llm: notesLlm(reword).llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
+  expect(JSON.parse(await readFile(apart.file, 'utf8')).body).toContain('<p>Bể dự phòng có 132 lít nước.</p><p>Theo một nguồn, cá cần nhiều chỗ. Có nguồn xem 130 lít là mức tối thiểu cho một con lớn.</p>')
+  const together = await breed({ body: '<p>Bể dự phòng có 132 lít nước. Một người chơi ở Anh kể rằng cá cần nhiều chỗ. Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.</p>' })
+  const t2 = await fitRewrite(together.root, [together.p], reading(together.p, [together.source, together.tank]), { llm: notesLlm(reword).llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
+  expect(t2.rewritten).toEqual(['vi/breeds/pigeon-blood-discus body (0.90)'])
+  expect(t2.skipped).toContain('vi/breeds/pigeon-blood-discus body units: the other mend reworded it, and its figure can\'t be told apart ("Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.")')
+  expect(JSON.parse(await readFile(together.file, 'utf8')).body).toContain('Bể dự phòng có 132 lít nước. Theo một nguồn, cá cần nhiều chỗ. Có nguồn xem 132 lít')
+
   const dose = await breed({ faq: 'Khi cá bệnh, dùng 1 ml thuốc trong 38 lít nước.', faqQuote: '38 lít nước' })
   const none = notesLlm()
   const d = await fitRewrite(dose.root, [dose.p], reading(dose.p, [dose.faq]), { llm: none.llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
   expect(none.prompts).toEqual([])
   // The check's own units finding on the figure too (fit.ts fitRules): both left.
-  expect(d.skipped).toEqual(['vi/breeds/pigeon-blood-discus faq.0.a units: a dose, whose water stays exact ("38 lít")', 'vi/breeds/pigeon-blood-discus faq.0.a units: a dose, whose water stays exact ("38 lít nước")'])
+  expect(d.skipped).toEqual(['vi/breeds/pigeon-blood-discus faq.0.a units: a dose is given beside it, whose water stays exact ("38 lít")', 'vi/breeds/pigeon-blood-discus faq.0.a units: a dose is given beside it, whose water stays exact ("38 lít nước")'])
+})
+
+test('a breed page\'s figure beside a dose, in its paragraph or the one before or after, is left; one two paragraphs from it is mended', async () => {
+  for (const [body, left] of [
+    ['<p>Khi cá bệnh, chuẩn bị 1 gói muối.</p><p>Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.</p>', true],
+    ['<p>Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.</p><p>Thêm 1 gói muối rồi khuấy đều.</p>', true],
+    ['<p>Khi cá bệnh, chuẩn bị 1 gói muối.</p><p>Cá thích nước sạch.</p><p>Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.</p>', false],
+  ] as const) {
+    const b = await breed({ body })
+    const { llm, prompts } = notesLlm()
+    const r = await fitRewrite(b.root, [b.p], reading(b.p, [b.tank]), { llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
+    expect(prompts.length > 0).toBe(!left)
+    expect(r.skipped.some(x => x.includes('a dose is given beside it'))).toBe(left)
+  }
 })
 
 test('a breed page\'s units rewrite that names another figure isn\'t kept, and the part\'s other mend stays', async () => {

@@ -22,8 +22,10 @@ import { metricFigures, TANK_RULE, US_UNITS } from './round'
  *   another finding here is mended for that alone, so a rounding its reviewer fails can't lose that mend.
  * - A breed page's units, which no English beside it keeps a figure from, as the writing rules say (breed-units.ts: the
  *   source's US figure named as keepers here say, in its body and its FAQ answers), after any other mend of the same
- *   part, in the same try, its quote found again by its litres where that mend reworded it (the chief of staff,
- *   2026-11-12). A dose's water, or a litre figure with no US figure to work from, is left to a person (unitsLeft).
+ *   part, in the same try, its quote found again by its litres in the block it was in where that mend reworded it
+ *   (the chief of staff, 2026-11-12). One beside a dose (its paragraph, or the one before or after), or with a litre
+ *   figure with no US figure to work from, is left to a person (unitsLeft), and so is a reworded quote that can't be
+ *   told apart.
  * Left to others: units on a guide, which its writer rounds; a figure the English gives in metric ("tanks as small as 11
  * litres"), which the check doesn't count (round.ts sourceGives); words, which the phrase list carries; a kit, which no rewording
  * fixes (the gate holds it), advice on a fish, plant or breed page that would hurt (held too, for a person), and the doses
@@ -150,17 +152,24 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
         const units = p.kind === 'breeds' ? fs.filter(f => f.check === 'units') : []
         const others = fs.filter(f => !units.includes(f))
         const passes = units.length && others.some(f => f.check !== 'words') ? [others, units] : [fs]
+        // Each part's blocks' text; a units quote's block before any mend, to find it again in (breed-units.ts moved).
+        const blocksOf = (text: string) => (faq ? [text] : parse(text).childNodes.filter((n): n is HTMLElement => n instanceof HTMLElement).map(e => e.text))
+        const start = blocksOf(read()!)
+        const home = new Map(units.map(f => [f, start.findIndex(b => norm(b).includes(norm(f.quote)))]))
         for (const pass of passes) {
           const before = read()!
           const html = faq ? `<p>${before.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>` : before
-          // A breed page's units: a quote the other mend reworded is found again by its litres; one with a dose's water, or
-          // a litre figure with no US figure to work from, is left to a person (breed-units.ts).
-          const blocks = faq ? [before] : parse(html).childNodes.filter((n): n is HTMLElement => n instanceof HTMLElement).map(e => e.text)
+          // A breed page's units: a quote the other mend reworded is found again by its litres, in its block; one beside
+          // a dose (its paragraph and the ones next to it), or with a litre figure with no US figure to work from, is
+          // left to a person.
+          const blocks = blocksOf(before)
           const blockOf = (q: string) => blocks.find(b => norm(b).includes(norm(q)))
+          const around = (q: string) => { const i = blocks.findIndex(b => norm(b).includes(norm(q))); return i < 0 ? q : blocks.slice(Math.max(0, i - 1), i + 2).join('\n') }
           const mine: FitFinding[] = []
           for (const f of pass.filter(f => units.includes(f))) {
-            const quote = !f.quote || blockOf(f.quote) ? f.quote : moved(f.quote, blocks)
-            const left = f.quote && !quote ? 'the other mend took its figures' : quote ? unitsLeft(quote, facts, blockOf(quote)) : undefined
+            const was = home.get(f) ?? -1
+            const quote = !f.quote || blockOf(f.quote) ? f.quote : blocks.length === start.length && was >= 0 ? moved(f.quote, blocks[was]!) : undefined
+            const left = f.quote && !quote ? 'the other mend reworded it, and its figure can\'t be told apart' : quote ? unitsLeft(quote, facts, around(quote)) : undefined
             if (left) report.skipped.push(`${key} ${field} units: ${left} ("${f.quote}")`)
             else mine.push({ ...f, quote: quote ?? f.quote })
           }
