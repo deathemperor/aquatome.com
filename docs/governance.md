@@ -578,7 +578,12 @@ The layers above still check the result.
     the most-kept fish 40, pages two or more sources write about 30 (a breed: two or more sites), every other page 20.
     The most popular pages go first, `GALLERY_SHEETS` model calls a cycle (`scripts/engine-cycle.sh`). A gallery is
     never padded: a page whose sources run dry stays short and is listed in `docs/review/galleries.md`, then read again
-    a month later.
+    a month later. Candidates a person found (`pnpm engine gallery-seed --from <file>`, by pull request) go to the front
+    of the page's queue and are screened like the step's own. A page whose sources ran dry is tried again, and a full
+    album is read for those candidates alone, never its sources' finds, growing at most 3 past its target (the chief of
+    staff, 2026-11-12: the weather loach's album was full and its head can't reach the card's size, so a card-size
+    photo found by hand had no way in). It screens no more of them than it has spaces: the rest wait in the queue for a
+    photo the check takes off.
   - **Sources.** iNaturalist first: every observation of the taxon (found by its name or a synonym) with a CC0, CC BY or
     CC BY-SA photo, research grade first, then those whose community ID agrees; aquarium and garden observations count.
     Then Wikimedia Commons, GBIF occurrence photos (observations and living collections, not preserved specimens, not
@@ -590,6 +595,11 @@ The layers above still check the result.
     their own steps. Each source is read at the pace it asks for (iNaturalist about one request a second; Openverse 200
     a day without a key), and each page keeps its place in `engine-state/gallery/<id>.json`, so the next cycle continues
     there.
+    Each fish's older scientific names from GBIF are kept as well (`pnpm engine fish-synonyms`, 300 fish a cycle, each
+    asked once, in `engine-state/_gbif-synonyms.json` beside the plants'). `fishOlderNames` (`fish-synonyms.ts`) leaves
+    out a name any page has as its own (a fish's or a plant's, or a plant's synonym) and one GBIF gives two of our fish:
+    such a name can't point at one fish. Commons files some fish under an older name (Acheilognathus macropterus), and
+    search and the name checks could use them too (the chief of staff, 2026-11-12). Nothing searches or shows them yet.
   - **Checks every photo passes,** through one shared step (`screenTagged` in `gallery.ts`): at least 800 px; not a photo
     the owner rejected (`engine-state/_photo-rejected.json`); not a near-copy of a photo already shown (an image hash,
     as when Commons holds a copy of an iNaturalist or Flickr photo); no human face (Apple Vision); then Claude, on contact
@@ -887,11 +897,20 @@ The layers above still check the result.
   with no English beside it (`roundPage` given `englishOf`, metric.ts). Until 12 Nov 2026 it rounded both, which left
   299 parts on 159 fish pages with a tank the source didn't give: 79 whose litres no longer fit their sides, minimum tanks
   made smaller, a line with two lengths (the chief of staff, 2026-11-12). `pnpm engine source-figures` puts them back
-  from the English by code, no model, and litres, lengths and °C the same way: 371 language pages on 222 fish and plant
+  from the English by code, no model, and litres, lengths and °C the same way: 371 language pages on 223 fish and plant
   pages, a page whole in one pass, those with a tank's sides first, a held page left as it is, and so are litres in a part that gives a dose and a length that isn't plainly a tank's. It goes at the pace the
-  chief sets (`SOURCE_FIGURES_PACE`, source-figures.ts: 30 language pages, then the reads' result), and the
-  gate reads each as any changed page. A page the gate gives its old text back isn't mended again: it is listed with the
-  checks it failed and waits for the chief's word; one the gate couldn't read is tried again.
+  chief sets (`SOURCE_FIGURES_PACE`, source-figures.ts), in the Mac's photos part alone: the first 30 language pages;
+  once a cycle has published them (30 marks on GitHub's main), 60 a cycle, without asking, marks not yet published
+  counting against the run; and it stops by itself, and says so in its log, when in any batch more than one page in ten
+  is held or given its old text back for something other than its figures (the chief of staff, 2026-11-12). The gate
+  reads each as any changed page, and what it made of each is recorded once, right after it (`engine-state/_source-figures-batches.json`),
+  or before the next run mends if that didn't run, so a later hold for something else doesn't count; the stop stays
+  there until the chief's word takes it out, and a limit by hand doesn't pass it. A page
+  the gate gives its old text back isn't mended again: it is listed with the checks it failed and waits for the chief's
+  word; one the gate couldn't read is tried again, in its own batch, and isn't counted, even when the gate holds it then
+  (for its old text's own fault, or harm found in another language). A cycle whose gate can't read mends nothing: the
+  run asks the gate's model one short question first, and mends nothing without an answer (the chief of staff,
+  2026-11-12: an unread page is not a held page).
 - **One size for a US tank.** A tank a source gives in US gallons is named by the size keepers here say, one table for
   every writer, reviewer and the rounding (`US_TANKS`, round.ts: 10 gallons 40 litres, 20 gallons 80, 30 gallons 120):
   the video writer had no rule and the others rounded to the nearest 5 litres, which gave 75, 115 and 210 litres, and
@@ -953,6 +972,14 @@ The layers above still check the result.
       `pnpm engine sweep --photo-cap <N>` (the chief of staff, 2026-11-11). A photo of another fish leaves only that page, so it may still join its own fish's
       (taken off again if a later run brings it back). A Latin name no page has is listed for a person ("may name
       another fish"), not removed.
+    - a photo on the never-again list (`engine-state/_photo-rejected.json`): off every fish's, plant's, breed's and
+      guide's page and every album, by the photo check's own rule (an Aquarium Glaser photo with the shop's own mark
+      kept stays). The check takes them off only in the tree its run started from, and the cycle's push keeps its own
+      lines where they clash with main's: on 2026-11-11 three photos a person took off came back in their albums that
+      way. The cycle sweeps after it catches up with main, after a clash at its push, and after a clean pull at its push
+      that brought main's commits in, so one that comes back then leaves before the push. The calendar's pictures go
+      too: a day's, a language's own day's, a guide's, a story's or a week's hero's that is a listed photo or its large
+      copy is dropped, and the app shows the page's own; a loop whose poster is listed goes whole
     - a card figure out of bounds, upside down, or a minimum tank shorter than twice the fish: hidden from the card
       (`hidden` with why, kept in the file; worked out again each run), and the species' approved summary sent back to be
       written again against the new card
@@ -1108,7 +1135,8 @@ The layers above still check the result.
     tried and not kept waits until its text changes (`engine-state/_fit-rewrite.json`), and a title the owner fixed stays
     (`fit-rewrite.test.ts`). It runs in GitHub's rewrite cycle before the gate, from 13 Nov 2026 08:00: the front list
     first (`packages/engine/src/fit-front.json`: pages kept off Khám phá's cards and the Hôm nay card, then the
-    staples), then the most read, after a fresh read of the front list's pages whose read is of older text. After its
+    staples, then the four breed pages Hôm nay's Tết cards lead with), then the most read, after a fresh read of the
+    front list's pages whose read is of older text. After its
     first run (`engine-state/_fit-front.json` has what it did) it waits until the chief of staff has looked at that
     run's pages and `cleared` is set in the list's file (`fit-front.test.ts`).
   - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a

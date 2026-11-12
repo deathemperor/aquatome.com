@@ -1,0 +1,82 @@
+{
+  "id": "peckoltia-braueri",
+  "native": {
+    "input": "d89eca4c55d5e012",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Guyana, Takutu River downstream of Lethem.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Guyana, Takutu River downstream of Lethem.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "L135 comes from the central Rio Negro basin.",
+        "ok": true
+      },
+      {
+        "name": "Takutu River",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Guyana, Takutu River downstream of Lethem.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Peckoltia braueri",
+    "status": "ACCEPTED",
+    "taxonKey": 5202092,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        13
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

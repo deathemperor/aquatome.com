@@ -76,6 +76,13 @@ jobs:
           path: /tmp/aquatome-cost-rewrite.jsonl
           key: engine-cost-log-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: engine-cost-log-
+      # GitHub evicts a cache it hasn't read for a week, or when the repository's caches pass their size: on 12 Nov 2026
+      # this run's day found none and counted from $0. Then the last run's own copy (its artifact, below), and a day an
+      # earlier run spent without keeping a log stops every step with a ceiling until it ends (scripts/cost-log-restore.mjs).
+      - name: With no cost log from the cache, the last run's own
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/cost-log-restore.mjs /tmp/aquatome-cost-rewrite.jsonl
       - name: Drop cost lines older than 8 days
         run: |
           node -e '
@@ -124,6 +131,8 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # The owner's other Claude accounts, one token a line: the next when one is out (claude-accounts.ts).
           CLAUDE_CODE_OAUTH_TOKENS: ${{ secrets.CLAUDE_CODE_OAUTH_TOKENS }}
+          # Where the cloud starts in that list (claude-accounts.ts startAt): unset, the first.
+          CLAUDE_FIRST_ACCOUNT: ${{ vars.CLAUDE_FIRST_ACCOUNT }}
           # The pace of the languages not served yet, and of Malay, which share the accounts' weekly limit with the others:
           # repository variables, so it changes without a commit; unset, engine-cycle.sh's defaults. AHEAD_BEFORE_MINUTES 0
           # pauses Malay's steps but its species, which run ungated (2026-11-12); LOCALIZE_AHEAD_LIMIT 0 pauses those.
@@ -135,11 +144,12 @@ jobs:
         with:
           path: /tmp/aquatome-cost-rewrite.jsonl
           key: engine-cost-log-${{ github.run_id }}-${{ github.run_attempt }}
+      # One an attempt: a run again can't keep a second under its first attempt's name (scripts/cost-log-restore.mjs).
       - name: Keep the cost log (a line a model call, with its account)
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: engine-cost-log-rewrite
+          name: engine-cost-log-rewrite-${{ github.run_attempt }}
           path: /tmp/aquatome-cost-rewrite.jsonl
           if-no-files-found: ignore
       - name: Keep the test log

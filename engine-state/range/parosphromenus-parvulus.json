@@ -1,0 +1,43 @@
+{
+  "id": "parosphromenus-parvulus",
+  "native": {
+    "input": "510302cb5d65bcea",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Parosphromenus parvulus originates from the extreme blackwater peat-swamp systems of Borneo (Indonesia).",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Parosphromenus parvulus originates from the extreme blackwater peat-swamp systems of Borneo (Indonesia).",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parosphromenus parvulus",
+    "status": "ACCEPTED",
+    "taxonKey": 2394170,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

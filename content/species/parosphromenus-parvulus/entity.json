@@ -10,6 +10,38 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo"
+      ],
+      "sources": [
+        "bwaquatics"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Parosphromenus parvulus originates from the extreme blackwater peat-swamp systems of Borneo (Indonesia).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394170,
+      "total": 0,
+      "fetched": "2026-11-12",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

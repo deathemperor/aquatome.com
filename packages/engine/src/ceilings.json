@@ -39,7 +39,8 @@
           "watermarks": 4,
           "guide-photos": 3,
           "traits": 2,
-          "gallery": 2
+          "gallery": 2,
+          "write-ideas": 0
         }
       },
       "github": {
@@ -57,7 +58,8 @@
           "localize-guides": 2,
           "page-review": 4,
           "autofix": 4,
-          "nightly-review": 2
+          "nightly-review": 2,
+          "write-ideas": 3
         }
       }
     },
@@ -80,7 +82,8 @@
           "guide-photos": 5,
           "traits": 4,
           "gallery": 4,
-          "card-crops": 4
+          "card-crops": 4,
+          "write-ideas": 0
         }
       },
       "github": {
@@ -98,7 +101,8 @@
           "localize-guides": 3,
           "page-review": 8,
           "autofix": 8,
-          "nightly-review": 3
+          "nightly-review": 3,
+          "write-ideas": 3
         }
       }
     },
@@ -121,7 +125,8 @@
           "guide-photos": 7,
           "traits": 6,
           "gallery": 5,
-          "card-crops": 1
+          "card-crops": 1,
+          "write-ideas": 0
         }
       },
       "github": {
@@ -139,7 +144,8 @@
           "localize-guides": 4,
           "page-review": 12,
           "autofix": 12,
-          "nightly-review": 4
+          "nightly-review": 4,
+          "write-ideas": 3
         }
       }
     }

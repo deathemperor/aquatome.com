@@ -8,7 +8,7 @@ import { captionFlaw } from './content-rules'
 import { galleryPlan } from './gallery-plan'
 import { pickStands, readPersonYes } from './person-yes'
 import { contactSheet } from './video-images'
-import { LOGO_FOLDERS, retainedOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
+import { keptOwnMark, LOGO_FOLDERS, stripPhotos, type WatermarkEntry } from './watermarks'
 
 type Photo = { url: string; caption?: string; author?: string; sourceUrl?: string; generated?: unknown }
 /**
@@ -319,7 +319,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const legacy = (await readJson<Record<string, PhotoVerdict>>(join(root, 'engine-state/_photo-check.json'))) ?? {}
   const rejected = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   const marks = (await readJson<Record<string, WatermarkEntry>>(join(root, 'engine-state/_photo-watermarks.json'))) ?? {}
-  const keepLogo = (url: string) => retainedOwnMark(url, marks[url]) && (!rejected[url] || rejected[url]!.startsWith('watermark:'))
+  const keepLogo = keptOwnMark(rejected, marks)
   // A head a person picked (engine-state/_photo-head-picks.json, page → photo): it stays first on its page, while it
   // counts (person-yes.ts pickStands).
   const headPicks = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-head-picks.json'))) ?? {}

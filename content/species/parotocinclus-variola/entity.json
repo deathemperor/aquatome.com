@@ -10,6 +10,55 @@
     "brazil",
     "cachoeira-do-el-dorado"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This dwarf suckermouth catfish originates from a only recently discovered region, namely the waterfalls of Cachoeira do el Dorado in the far northern parts of Brazil, almost at the border to Venezuela.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Of all the different species of Parotocinclus described so far, these new importations are most similar to P. variola, a species described only this year on the basis of specimens collected near Leticia in Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8728697,
+      "total": 7,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "CO",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          -4.21875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

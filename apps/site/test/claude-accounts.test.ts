@@ -39,6 +39,7 @@ const calls = () => { try { return readFileSync(join(dir, 'calls'), 'utf8').trim
 const ask = () => claude<{ findings: string[] }>(['-p'], dir, 'the prompt')
 let logs: string[] = []
 
+const savedFirst = process.env.CLAUDE_FIRST_ACCOUNT
 beforeEach(() => {
   dir = mkdtempSync(join(tmpdir(), 'aq-claude-'))
   writeFileSync(join(dir, 'claude'), STUB)
@@ -49,6 +50,8 @@ beforeEach(() => {
   }
   process.env.PATH = `${dir}:${saved.path}`
   for (const k of COST) delete process.env[k]
+  // A starting position set in the shell that runs the tests would move every default-order case: none but a test's own.
+  delete process.env.CLAUDE_FIRST_ACCOUNT
   resetAccounts()
   logs = []
   vi.spyOn(console, 'log').mockImplementation((...a: unknown[]) => { logs.push(a.join(' ')) })
@@ -57,6 +60,7 @@ afterEach(() => {
   restore('PATH', saved.path)
   tokens(saved.list, saved.one)
   COST.forEach((k, i) => restore(k, savedCost[i]))
+  restore('CLAUDE_FIRST_ACCOUNT', savedFirst)
   vi.restoreAllMocks()
 })
 
@@ -75,6 +79,28 @@ test('token 1 out of its weekly limit: the same review runs on token 2, and late
   expect(calls()).toEqual(['tok-weekly', 'tok-ok', 'tok-ok']) // and no call saw the list
   expect(logs).toHaveLength(1)
   expect(logs[0]).toMatch(/^claude: token 1 \([0-9a-f]{8}\) set aside: usage limit$/)
+})
+
+// The cloud's list begins with the Mac's two sign-ins; the chief of staff (2026-11-12): the cloud starts on its third.
+test('CLAUDE_FIRST_ACCOUNT: a review starts at that position and goes round to the start when it is out; no position, the first', async () => {
+  const saved = process.env.CLAUDE_FIRST_ACCOUNT
+  try {
+    tokens('tok-ok\ntok-paid\ntok-weekly\n')
+    process.env.CLAUDE_FIRST_ACCOUNT = '2'
+    expect(await ask()).toEqual({ findings: ['paid'] })
+    resetAccounts()
+    process.env.CLAUDE_FIRST_ACCOUNT = '3'
+    expect(await ask()).toEqual({ findings: ['ok'] })
+    expect(logs).toEqual([expect.stringMatching(/^claude: token 3 \([0-9a-f]{8}\) set aside: usage limit$/)])
+    for (const v of ['', '0', '4', 'third']) {
+      resetAccounts()
+      process.env.CLAUDE_FIRST_ACCOUNT = v
+      await ask()
+    }
+    expect(calls()).toEqual(['tok-paid', 'tok-weekly', 'tok-ok', 'tok-ok', 'tok-ok', 'tok-ok', 'tok-ok'])
+  } finally {
+    restore('CLAUDE_FIRST_ACCOUNT', saved)
+  }
 })
 
 test('every token out of its limit: skipped as the usage limit, and later reviews fail without calling', async () => {

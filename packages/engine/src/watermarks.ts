@@ -16,6 +16,12 @@ export type WatermarkKind = 'credit' | 'logo' | 'url' | 'name' | 'caption' | 'st
 export type WatermarkEntry = { ocr: { t: string; c: number; at: string }[]; watermark?: boolean; kind?: WatermarkKind; what?: string; retainedOwnMark?: { source: 'glaser'; sourceUrl: string; owner: 'source' } }
 export const retainedOwnMark = (url: string, entry: WatermarkEntry | undefined) =>
   url.startsWith('https://media.aquatome.com/glaser/') && entry?.retainedOwnMark?.source === 'glaser' && entry.retainedOwnMark.owner === 'source' && /^https?:\/\/(www\.)?aquariumglaser\.de\//.test(entry.retainedOwnMark.sourceUrl)
+/**
+ * A photo the never-again list (engine-state/_photo-rejected.json) holds that stays all the same: an Aquarium Glaser
+ * photo with the shop's own mark, kept (retainedOwnMark), where the list holds it for that mark alone.
+ */
+export const keptOwnMark = (rejected: Record<string, string>, marks: Record<string, WatermarkEntry>) => (url: string) =>
+  retainedOwnMark(url, marks[url]) && (!rejected[url] || rejected[url]!.startsWith('watermark:'))
 export type WatermarkDeps = {
   get: (url: string) => Promise<Uint8Array>
   read: (files: string[]) => Promise<(TextLine[] | null)[]>

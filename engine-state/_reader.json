@@ -1157,6 +1157,28 @@
     "findings": [],
     "ruled": "03361a6f4f0e2c14"
   },
+  "vi/guides/aquariumbreeder-crab-external-anatomy": {
+    "at": "2026-11-12",
+    "hash": "d965b17c08c548d1",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "| Hàm dưới, hay chân hàm",
+        "problem": "The table gives maxillae the name 'chân hàm', but the same table and the text later use 'chân hàm' only for the maxillipeds, which mixes up two different mouthparts.",
+        "fix": "| Hàm dưới",
+        "field": "body"
+      }
+    ],
+    "ruled": "d965b17c08c548d1"
+  },
+  "vi/guides/aquariumbreeder-crab-internal-anatomy": {
+    "at": "2026-11-12",
+    "hash": "6d2abfa9112570f4",
+    "findings": [],
+    "ruled": "6d2abfa9112570f4"
+  },
   "vi/guides/aquariumbreeder-crabs-as-pets-pros-and-cons": {
     "at": "2026-11-10",
     "hash": "687fc4405763327b",
@@ -1581,6 +1603,23 @@
       }
     ],
     "ruled": "03ef82d6e459dd3d"
+  },
+  "vi/guides/aquariumbreeder-how-to-culture-phytoplankton": {
+    "at": "2026-11-12",
+    "hash": "10c8d9ab8f1181ec",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## 1. Ánh sáng:",
+        "problem": "The four numbered factor headings sit at the same level as their parent \"Những điều cần lưu ý\" instead of under it. That section is left with only its intro sentence, and the numbered items read as separate top-level sections.",
+        "fix": "### 1. Ánh sáng:",
+        "rule": "Numbered headings (\"1.\", \"2.\"…) that come right after an unnumbered heading at the same level, when that heading's section is only one paragraph long.",
+        "field": "body"
+      }
+    ],
+    "ruled": "10c8d9ab8f1181ec"
   },
   "vi/guides/aquariumbreeder-how-to-cycle-a-tank-the-dark-start-method": {
     "at": "2026-11-05",
@@ -2247,6 +2286,23 @@
       }
     ],
     "ruled": "ce2e099a8387ffe3"
+  },
+  "vi/guides/aquariumbreeder-paludarium-plants": {
+    "at": "2026-11-12",
+    "hash": "3b49ac04c10321a7",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Dây leo",
+        "problem": "The subgroups of '3) Cây trên cạn' (Dây leo, Creeping Fig, Radiator Plant, Bromeliad & Lan, Rêu) are top-level headings, the same level as the numbered groups, so they read as new main sections. Section 2's subgroups are plain lines, so the page is also inconsistent.",
+        "fix": "Make 'Dây leo', 'Creeping Fig', 'Radiator Plant', 'Bromeliad & Lan' and 'Rêu' sub-items of '3) Cây trên cạn', formatted the same way as the subgroups in section 2, and drop the trailing colons.",
+        "rule": "Flag an unnumbered heading at the same level that comes after a numbered heading and before the next numbered or closing heading.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3b49ac04c10321a7"
   },
   "vi/guides/aquariumbreeder-problems-of-the-planted-tanks-and-liebigs-law-of-the-minimum": {
     "at": "2026-11-01",
@@ -12279,6 +12335,33 @@
     ],
     "ruled": "40a5086540662bfa"
   },
+  "vi/guides/youtube-0PZCQT-99qg": {
+    "at": "2026-11-12",
+    "hash": "f63eaa53595dfb9e",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "lượng này đủ cho khoảng 150 lít (cỡ 150 lít)",
+        "problem": "The bracket just repeats the same figure, which looks like a gallon conversion that was converted twice.",
+        "fix": "lượng này đủ cho khoảng 150 lít",
+        "rule": "A number and unit followed by a bracket holding the same number and unit.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "L12",
+        "quote": "cho 150 lít (cỡ 150 lít) nước",
+        "problem": "The bracket just repeats the same figure, which looks like a gallon conversion that was converted twice.",
+        "fix": "cho khoảng 150 lít nước",
+        "rule": "A number and unit followed by a bracket holding the same number and unit.",
+        "field": "faq.2.a"
+      }
+    ],
+    "ruled": "f63eaa53595dfb9e"
+  },
   "vi/guides/youtube-0QMRhOJlmy0": {
     "at": "2026-11-09",
     "hash": "e99956f0c25d9821",
@@ -13878,6 +13961,23 @@
     "hash": "9dd719dbb1cdadc6",
     "findings": [],
     "ruled": "9dd719dbb1cdadc6"
+  },
+  "vi/guides/youtube-aUeQBE8f--E": {
+    "at": "2026-11-12",
+    "hash": "39a5b12942019158",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "thì việc đầu tiên là chọn đồ",
+        "problem": "\"Việc đầu tiên là\" is on the site's list of stiff phrasing that Vietnamese hobbyists rarely use.",
+        "fix": "Set lại một bể thủy sinh dài 120 cm theo kiểu high-tech, có CO2 và đèn mạnh, thì trước tiên phải chọn đồ: đèn nào, phân nền nào, mấy lọc, châm phân ra sao.",
+        "rule": "Flag the listed phrase \"việc đầu tiên là\" anywhere in the page text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "39a5b12942019158"
   },
   "vi/guides/youtube-awbC9AkUd6A": {
     "at": "2026-11-08",
@@ -16888,6 +16988,12 @@
     "findings": [],
     "ruled": "eedf10d887ee06cd"
   },
+  "vi/guides/youtube-jxgTtBJDsVY": {
+    "at": "2026-11-12",
+    "hash": "235c82002cc0b323",
+    "findings": [],
+    "ruled": "235c82002cc0b323"
+  },
   "vi/guides/youtube-JXMp5tbsgkk": {
     "at": "2026-11-04",
     "hash": "90002c24dfc8b2e3",
@@ -16959,6 +17065,12 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/youtube-kAel-iw_N0c": {
+    "at": "2026-11-12",
+    "hash": "fca6a59b4972e6ec",
+    "findings": [],
+    "ruled": "fca6a59b4972e6ec"
   },
   "vi/guides/youtube-kbXHTTdSWQg": {
     "at": "2026-11-11",
@@ -17592,6 +17704,38 @@
     "hash": "57a998d70fc8400a",
     "findings": [],
     "ruled": "57a998d70fc8400a"
+  },
+  "vi/guides/youtube-mB3je2t-Bo8": {
+    "at": "2026-11-12",
+    "hash": "ab11c2754eb2f54f",
+    "findings": [],
+    "ruled": "ab11c2754eb2f54f"
+  },
+  "vi/guides/youtube-MBq5PgFcmPU": {
+    "at": "2026-11-12",
+    "hash": "4b87e78999aa9acb",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Người mới cũng hợp với nhóm này vì họ tự chăm bể của mình.",
+        "problem": "The reason given doesn't explain why these plants suit beginners, so the sentence reads as a garbled translation.",
+        "fix": "Nhóm này cũng hợp với người mới, vì cây dễ sống, chăm sơ sơ vẫn lên.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "rêu râu đen (black beard algae, BBA)",
+        "problem": "Vietnamese hobbyists call BBA \"rêu chùm đen\", not \"rêu râu đen\".",
+        "fix": "rêu chùm đen (BBA)",
+        "rule": "The phrase \"rêu râu đen\" appears anywhere on a Vietnamese page.",
+        "field": "body"
+      }
+    ],
+    "ruled": "4b87e78999aa9acb"
   },
   "vi/guides/youtube-mGmIvhtIM9k": {
     "at": "2026-11-09",
@@ -18405,6 +18549,22 @@
     "findings": [],
     "ruled": "cf78a1173d159173"
   },
+  "vi/guides/youtube-PFj0h5KXcN4": {
+    "at": "2026-11-12",
+    "hash": "311177110bb86968",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L1",
+        "quote": "nhìn như một bức tường chắn đứng riêng",
+        "problem": "The summary calls the rock row a standalone barrier wall, but the body says it blocks nothing and only divides the view.",
+        "fix": "Hàng đá lớn chạy ngang bể chia tiền cảnh với hậu cảnh. Nó không chắn gì, chỉ chia vùng cho mắt nhìn, nhưng làm cả bể trông liền mạch hơn.",
+        "field": "summary.0"
+      }
+    ],
+    "ruled": "311177110bb86968"
+  },
   "vi/guides/youtube-Pfm2p0p8KFM": {
     "at": "2026-11-04",
     "hash": "bf330ad1aed42327",
@@ -18485,6 +18645,47 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/youtube-pKQJjZ31RTQ": {
+    "at": "2026-11-12",
+    "hash": "bff76c41887ff600",
+    "findings": [],
+    "ruled": "bff76c41887ff600"
+  },
+  "vi/guides/youtube-pLRJzD035Co": {
+    "at": "2026-11-12",
+    "hash": "9fe7464e2efabec3",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Bể không viền\n| Bể có nắp\n| Thẩm mỹ",
+        "problem": "The comparison table has fallen apart into one cell per line, and the header row has no empty first cell, so readers can't tell which value belongs to which kind of tank.",
+        "fix": "| | Bể không viền | Bể có nắp |\n| Thẩm mỹ | Thoáng, giấu được thiết bị, lũa đá và cây vươn ra ngoài được | Bị gò trong nắp |",
+        "rule": "A run of lines that each start with '|' and hold a single cell is a broken table.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "phủ cây nổi trên mặt nước còn giảm hẳn chuyện cá nhảy ra ngoài",
+        "problem": "Here floating plants 'greatly cut' fish jumping, but later the page and the FAQ say they only lower the risk and some risk remains.",
+        "fix": "phủ cây nổi trên mặt nước còn giảm bớt nguy cơ cá nhảy ra ngoài",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một cách là hỏi chuyện với tiệm xem ngày nào cây từ vườn ươm về",
+        "problem": "'hỏi chuyện với tiệm' sounds unnatural in Vietnamese. A native speaker would just write 'hỏi tiệm'.",
+        "fix": "Một cách là hỏi tiệm xem ngày nào cây từ vườn ươm về",
+        "field": "body"
+      }
+    ],
+    "ruled": "9fe7464e2efabec3"
   },
   "vi/guides/youtube-pmAONHBduCw": {
     "at": "2026-11-04",
@@ -18993,6 +19194,12 @@
     "hash": "f812efc8071c424a",
     "findings": [],
     "ruled": "f812efc8071c424a"
+  },
+  "vi/guides/youtube-RfvEeqEo4wo": {
+    "at": "2026-11-12",
+    "hash": "8ed1ea36ccb35c5e",
+    "findings": [],
+    "ruled": "8ed1ea36ccb35c5e"
   },
   "vi/guides/youtube-rh8iBySuUpE": {
     "at": "2026-11-09",
@@ -19540,6 +19747,12 @@
     ],
     "ruled": "4b8e4439af76532a"
   },
+  "vi/guides/youtube-sWWz9DVKGXE": {
+    "at": "2026-11-12",
+    "hash": "727d287bf656e422",
+    "findings": [],
+    "ruled": "727d287bf656e422"
+  },
   "vi/guides/youtube-SX2LQitiNBU": {
     "at": "2026-11-10",
     "hash": "7321cd3c33a552fb",
@@ -19821,6 +20034,12 @@
       }
     ],
     "ruled": "e33855ad7397438d"
+  },
+  "vi/guides/youtube-TwJC13KPcYM": {
+    "at": "2026-11-12",
+    "hash": "2d869334912a186f",
+    "findings": [],
+    "ruled": "2d869334912a186f"
   },
   "vi/guides/youtube-U_2TYWQ_i3U": {
     "at": "2026-11-03",
@@ -20592,6 +20811,12 @@
       }
     ],
     "ruled": "3adfaee568be7d52"
+  },
+  "vi/guides/youtube-xDAYg-cKbG8": {
+    "at": "2026-11-12",
+    "hash": "fda52ac2d8b0bbee",
+    "findings": [],
+    "ruled": "fda52ac2d8b0bbee"
   },
   "vi/guides/youtube-xdP5ITWcw3s": {
     "at": "2026-11-03",

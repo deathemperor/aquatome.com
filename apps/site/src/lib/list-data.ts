@@ -27,8 +27,8 @@ import { taxonKeys } from './taxa-places'
 export type CardPhoto = { src: string; w: number; h: number; author: string; authorUrl?: string; licence: string; url: string; altered?: true }
 /** Only what the filter reads (no gh, sizeCm), and the card's photo. */
 /** `water`: kept in brackish or sea water (the card says so under its name). */
-/** A fish card's photo also says how its tile frames it (tileFrame): `pos`, the crop moved onto the fish; `whole`, the photo whole. */
-export type SpeciesListItem = Omit<SpeciesIndexItem, 'gh' | 'sizeCm'> & { photo?: CardPhoto & { pos?: string; whole?: true }; water?: 'brackish' | 'marine' }
+/** A fish card's photo also says how its tile frames it (tileFrame): `pos`, the crop moved onto the fish; `whole`, the photo whole; `mat`, on the mat, not blurred. */
+export type SpeciesListItem = Omit<SpeciesIndexItem, 'gh' | 'sizeCm'> & { photo?: CardPhoto & { pos?: string; whole?: true; mat?: true }; water?: 'brackish' | 'marine' }
 /** The filter's figures, and the card's name, line about light and CO₂ (in the page's language) and photo. */
 export type PlantListItem = PlantIndexItem & { name: string; scientificName: string; meta: string; photo?: CardPhoto }
 
