@@ -82,7 +82,7 @@ const L = String.raw`(?:lít|liter|litre|ลิตร|L|l)(?![\p{L}\p{N}])`
 export const JOIN = String.raw`\s*(?:[–-]|hoặc|đến|tới|và|atau|hingga|sampai|dan|หรือ|ถึง|และ)\s*`
 /** A dose's volume ("1 gói cho mỗi 38 lít", "per 38 liter"): the label's own figure, which stays. */
 export const PER = /(?:mỗi|cho|trên|per|setiap|untuk|ต่อ|\/)\s*(?:khoảng\s*)?(?:\d+\s*[–-]\s*)?$/iu
-export const TANK = /(?:bể|hồ|akuarium|tangki|ตู้)[^.;!?<>]{0,40}$/iu
+const TANK = /(?:bể|hồ|akuarium|tangki|ตู้)[^.;!?<>]{0,40}$/iu
 const LITRE_FIG = new RegExp(String.raw`(?<![\d.,])(\d{2,3})(?:(${JOIN})(\d{2,3}))?(\s*${L})`, 'gu')
 const SIDES = /(?<![\d.,])(\d{2,3})(\s*[×x]\s*)(\d{2,3})(?:(\s*[×x]\s*)(\d{2,3}))?(\s*(?:cm|ซม\.))/gu
 const LENGTH = /(?<![\d.,×x]\s?)(\d{2,3})(\s*(?:cm|ซม\.))(?!\s*[×x])/gu

@@ -26,6 +26,16 @@ test('a figure that may be its own stays: the English gives it too, two English 
   expect(mendPart('1 gói cho mỗi 40 lít nước.', SF, 'vi')).toBeUndefined()
   expect(mendPart('Bể 60 × 40 × 30 cm.', 'A tank of 24 × 15 × 12 in.', 'vi')).toBeUndefined()
   expect(mendPart('Cá dài 120 cm.', 'It grows to 122 cm.', 'vi')).toBeUndefined() // a fish's length, not a tank's
+  // An independent read's cases: a dose's water across a tag or with no "per", a fish's length in a tank, an attribute.
+  const DOSE_EN = 'One packet per 10 gallons. A 38 litre tank.'
+  expect(mendPart('<p>1 gói cho mỗi <strong>40 lít</strong>.</p>', DOSE_EN, 'vi')).toBeUndefined()
+  expect(mendPart('Hòa 1 gói trong 40 lít.', DOSE_EN, 'vi')).toBeUndefined()
+  expect(mendPart('Trong bể, cá dài 120 cm.', 'In aquaria the fish grows to 4 feet. A 122 cm tank.', 'vi')).toBeUndefined()
+  expect(mendPart('<a title="x > 40 lít">X</a>', 'A 38 litre tank.', 'vi')).toBeUndefined()
+  // A tank's length named as one is put back: "bể dài", "chiều dài bể tối thiểu:", "akuarium", "ตู้ขนาด".
+  for (const [t, lang] of [['Bể dài 120 cm là đủ.', 'vi'], ['Chiều dài bể tối thiểu: 120 cm', 'vi'], ['Akuarium 120 cm sudah cukup.', 'id'], ['ตู้ขนาด 120 ซม. ก็พอ', 'th']] as const) {
+    expect(mendPart(t, 'A 122 cm (4 ft) tank.', lang), t).toHaveProperty('text', t.replace('120', '122'))
+  }
 })
 
 test('a part is mended only when the old rounding gives its text back from the mended one', () => {
@@ -47,7 +57,7 @@ async function site(n: number) {
   return root
 }
 
-test('a run mends the pace\'s pages, the named first, each once, and no more batches than the pace allows', async () => {
+test('a run mends the pace\'s pages, the named first, each once, and no more than the pace\'s total', async () => {
   const root = await site(SOURCE_FIGURES_PACE.perRun + 2)
   const dry = await sourceFigures(root, { dryRun: true, limit: 1000 })
   expect(dry.mended).toHaveLength(SOURCE_FIGURES_PACE.perRun + 2)
@@ -60,7 +70,7 @@ test('a run mends the pace\'s pages, the named first, each once, and no more bat
   const f9 = JSON.parse(await readFile(join(root, 'content/species/f9/vi.json'), 'utf8'))
   expect(f9.sections).toEqual({ 'aquariumSize:seriouslyfish': '<p>Bể 90 × 38 × 30 cm.</p>', 'aquariumSize:aquatome': '<p>Bể 90 × 40 × 30 cm.</p>' })
   expect(JSON.parse(await readFile(join(root, SOURCE_FIGURES_STATE), 'utf8'))['vi/species/f9']).toEqual({ at: '2026-11-12T12:00:00.000Z', figures: ['90 × 40 × 30 cm → 90 × 38 × 30 cm'] })
-  // The pace's one batch is done: the next run waits for the chief of staff's next pace.
+  // The pace's total is reached: the next run waits for the chief of staff's next pace.
   const second = await sourceFigures(root, { now: () => new Date('2026-11-12T15:00:00Z') })
   expect(second.mended).toEqual([])
   expect(second.waiting).toBe(2)
@@ -83,4 +93,17 @@ test('a page the gate gave its old text back is listed with what it failed, not 
   expect(r.putBack).toEqual(["vi/species/f0: the gate gave it its old text back for source; waits for the chief of staff's word"])
   expect(r.mended.map(m => m.key)).toEqual(['vi/species/f1'])
   expect(JSON.parse(await readFile(join(root, 'content/species/f0/vi.json'), 'utf8')).sections['aquariumSize:seriouslyfish']).toBe('<p>Bể 90 × 40 × 30 cm.</p>')
+})
+
+test('a page the gate couldn\'t read, in a batch whose others it read, is tried again within the same total', async () => {
+  const root = await site(SOURCE_FIGURES_PACE.upTo + 2)
+  const first = await sourceFigures(root, { now: () => new Date('2026-11-12T12:00:00Z') })
+  const unread = first.mended[3]!.key
+  const state = JSON.parse(await readFile(join(root, SOURCE_FIGURES_STATE), 'utf8'))
+  delete state[unread]
+  await writeFile(join(root, SOURCE_FIGURES_STATE), JSON.stringify(state))
+  const [, kind, id] = unread.split('/')
+  await writeFile(join(root, `content/${kind}/${id}/vi.json`), `${JSON.stringify(page({ 'aquariumSize:seriouslyfish': '<p>Bể 90 × 40 × 30 cm.</p>', 'aquariumSize:aquatome': '<p>Bể 90 × 40 × 30 cm.</p>' }), null, 2)}\n`)
+  const again = await sourceFigures(root, { now: () => new Date('2026-11-12T15:00:00Z') })
+  expect(again.mended.map(m => m.key)).toEqual([unread])
 })

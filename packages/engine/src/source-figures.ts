@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { WRITTEN_LANGS, type UnitLang } from '@aq/schema'
 import { englishOf } from './english'
 import { putBackFile } from './gate'
-import { FOOT_LENGTHS, fromF, INCH_SIDES, JOIN, litres, metricFigures, PER, roundConverted, side, sourceGives, TANK, type English } from './round'
+import { FOOT_LENGTHS, fromF, givesDose, INCH_SIDES, JOIN, litres, metricFigures, PER, roundConverted, side, sourceGives, type English } from './round'
 
 /**
  * The source's own figures put back (the chief of staff, 2026-11-12). Until then the rounding (round.ts) rounded a
@@ -17,20 +17,25 @@ import { FOOT_LENGTHS, fromF, INCH_SIDES, JOIN, litres, metricFigures, PER, roun
  * - the old rounding gives the part's text as it is from the mended one, word for word, so nothing else changes; the
  *   rounding as it is now leaves the mended text as it is; and each figure put back is one the English gives
  *   (sourceGives, the reader-fit check's reading);
+ * - litres in a part that gives a dose anywhere stay (any of them may be a dose's water), and so does a length that
+ *   isn't plainly a tank's ("bể dài 120 cm" is; "trong bể, cá dài 120 cm" isn't); only the text between tags is read,
+ *   never a tag's attributes;
  * - a page held, AquaTome's own parts, guides and breeds (no English beside them) are left as they are.
- * A run mends at most the pace's language pages, and only while its batches are fewer than the pace allows: the named
- * ones first, then those with a tank's sides (what the chief of staff counted), then the rest; each once
+ * A run mends at most the pace's language pages, up to the pace's total: the named ones first, then those with a tank's
+ * sides (what the chief of staff counted), then the rest; each once
  * (engine-state/_source-figures.json): a page is mended whole, every kind in one pass, and one the gate gives its old
- * text back isn't mended again but listed with the checks it failed, for the chief of staff's word (2026-11-12). The gate, last in the run, reads each as any changed page: a live page
- * worse on a check gets its old text back, one with a fault no rewording fixes is held.
+ * text back isn't mended again but listed with the checks it failed, for the chief of staff's word (2026-11-12). The
+ * gate, last in the run, reads each as any changed page: a live page worse on a check gets its old text back, one with a
+ * fault no rewording fixes is held.
  */
 export const SOURCE_FIGURES_STATE = 'engine-state/_source-figures.json'
 /**
- * How many language pages a run mends, and how many runs mend at all: the chief of staff sets it after each batch's
- * reads (2026-11-12: 30, one batch, then a line on how many passed and how many were held and for what). A page the gate
- * couldn't read loses its mark (writer-records.ts), so its batch is tried again.
+ * How many language pages a run mends, and how many in all until the next word: the chief of staff sets it after each
+ * batch's reads (2026-11-12: 30, then a line on how many passed and how many were held and for what; 60 a cycle
+ * expected next). Every page with a mark counts, put back by the gate or not. A page the gate couldn't read loses its
+ * mark (writer-records.ts), so the next run tries it again within the same total.
  */
-export const SOURCE_FIGURES_PACE = { perRun: 30, batches: 1 }
+export const SOURCE_FIGURES_PACE = { perRun: 30, upTo: 30 }
 export type SourceFiguresState = Record<string, { at: string; figures: string[] }>
 export type SourceFiguresReport = {
   mended: { key: string; file: string; figures: string[]; changes: { field: string; old: string; now: string }[] }[]
@@ -54,6 +59,13 @@ const englishSides = (en: string) => [...en.matchAll(ENGLISH_SIDES)].map(m => [m
 const SIDES = /(?<![\d.,])(\d{2,3})(\s*[×x]\s*)(\d{2,3})(?:(\s*[×x]\s*)(\d{2,3}))?(?![\d.,])(\s*(?:cm|ซม\.))/gu
 const LITRES = new RegExp(String.raw`(?<![\d.,])(\d{2,3})(?:(${JOIN})(\d{2,3}))?(?![\d.,])(\s*(?:lít|liter|litre|ลิตร|L|l)(?![\p{L}\p{N}]))`, 'gu')
 const LENGTH = /(?<![\d.,×x]\s?)(\d{2,3})(?![\d.,])(\s*(?:cm|ซม\.))(?!\s*[×x])/gu
+/**
+ * Just before a length, what makes it a tank's: "bể dài (ít nhất)", "chiều dài bể tối thiểu:", "akuarium (sepanjang)",
+ * "ตู้ขนาด", "ตู้ยาว". A tank named earlier in the sentence isn't enough ("trong bể, cá dài 120 cm" is the fish).
+ */
+const TANK_LENGTH = /(?:(?:bể|hồ|akuarium|tangki|ตู้)(?:\s*(?:cá|ปลา))?(?:\s*(?:cần|phải|harus|ต้อง))?(?:\s*(?:dài|có chiều dài|sepanjang|panjang(?:nya)?|berukuran|ขนาด|ยาว))?|chiều dài (?:của )?bể|panjang akuarium|ความยาวตู้)(?:\s*(?:tối thiểu|ít nhất|minimal|minimum|setidaknya|sekurang-kurangnya|อย่างน้อย))?\s*[:：]?\s*$/iu
+/** HTML's tags, a quoted ">" in an attribute inside its tag: what is between them is the text. */
+const TAGS = /(<(?:[^>"']|"[^"]*"|'[^']*')*>)/
 const TEMP = new RegExp(String.raw`(?<![\d.,])(\d{1,2})(?:(${JOIN})(\d{1,2}))?(?![\d.,])(\s*(?:°\s?C|độ C))`, 'gu')
 
 /** The one figure the old rounding made `n` from, among the English's of its kind: none, or more than one, is no mend. */
@@ -69,6 +81,7 @@ const one = (n: number, from: Iterable<number>, made: (x: number) => boolean) =>
 export function mendFigures(text: string, en: string, lang: Lang): { text: string; figures: string[] } {
   const cm = given(en, 'cm'), l = given(en, 'l'), c = given(en, 'c')
   const sides = englishSides(en)
+  const dose = givesDose(text)
   const figures: string[] = []
   // A figure or a range's ends put back; what is recorded is what changed, a range whole when both ends did ("60–80 lít"
   // → "57–76 lít"), one end alone when one did ("tháng 1 đến 34°C": only "34°C" was a temperature).
@@ -93,12 +106,12 @@ export function mendFigures(text: string, en: string, lang: Lang): { text: strin
       return now
     })
     .replace(LITRES, (all, a: string, j: string | undefined, b: string | undefined, u: string, at: number, s: string) => {
-      if (PER.test(s.slice(Math.max(0, at - 24), at))) return all
+      if (dose || PER.test(s.slice(Math.max(0, at - 24), at))) return all
       return ends(all, a, j, b, u, x => String(l.has(x) ? x : one(x, l, y => litres(y) === x) ?? x))
     })
     .replace(LENGTH, (all, a: string, u: string, at: number, s: string) => {
       const x = Number(a)
-      if (cm.has(x) || !TANK.test(s.slice(Math.max(0, at - 48), at))) return all
+      if (cm.has(x) || !TANK_LENGTH.test(s.slice(Math.max(0, at - 40), at))) return all
       const y = one(x, cm, n => FOOT_LENGTHS.has(n) && side(n) === x)
       if (y === undefined) return all
       const now = `${y}${u}`
@@ -111,7 +124,7 @@ export function mendFigures(text: string, en: string, lang: Lang): { text: strin
       const y = one(x, c, d => !Number.isInteger(d * 2) && Math.abs(d * 10 - Math.round(d * 10)) < 1e-9 && fromF(d) && Math.round(d) === x)
       return y === undefined ? String(x) : String(y).replace('.', dec(lang))
     }))
-  const out = text.split(/(<[^>]+>)/).map((seg, i) => (i % 2 ? seg : mend(seg))).join('')
+  const out = text.split(TAGS).map((seg, i) => (i % 2 ? seg : mend(seg))).join('')
   return { text: out, figures }
 }
 
@@ -166,8 +179,7 @@ export async function sourceFigures(root: string, o: { limit?: number; first?: r
   }
   const rank = (k: string) => { const i = o.first?.indexOf(k) ?? -1; return i >= 0 ? i : (o.first?.length ?? 0) }
   const report: SourceFiguresReport = { mended: [], left: [], putBack: [] }
-  const batches = new Set(Object.values(state).map(x => x.at)).size
-  const limit = o.limit ?? (batches < SOURCE_FIGURES_PACE.batches ? SOURCE_FIGURES_PACE.perRun : 0)
+  const limit = o.limit ?? Math.max(0, Math.min(SOURCE_FIGURES_PACE.perRun, SOURCE_FIGURES_PACE.upTo - Object.keys(state).length))
   const plans: { key: string; file: string; t: Translation; raw: string; parts: ReturnType<typeof partsOf>; changes: { field: string; old: string; now: string }[]; figures: string[]; sides: boolean }[] = []
   for (const { key, file, t, raw, en } of pages) {
     const lang = key.split('/')[0] as Lang
@@ -188,7 +200,7 @@ export async function sourceFigures(root: string, o: { limit?: number; first?: r
     // page the gate couldn't read has lost its mark (writer-records.ts), and is tried again.
     if (state[key]) {
       const [lng, kind, id] = key.split('/')
-      const back = JSON.parse(await readFile(join(root, putBackFile({ kind: kind!, id: id!, lang: lng! })), 'utf8').catch(() => '{}')) as { checks?: string[] }
+      const back = JSON.parse(await readFile(join(root, putBackFile({ kind: kind as Parameters<typeof putBackFile>[0]['kind'], id: id!, lang: lng as Parameters<typeof putBackFile>[0]['lang'] })), 'utf8').catch(() => '{}')) as { checks?: string[] }
       report.putBack.push(`${key}: the gate gave it its old text back${back.checks?.length ? ` for ${back.checks.join(', ')}` : ''}; waits for the chief of staff's word`)
       continue
     }
