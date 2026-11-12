@@ -6,6 +6,7 @@ import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
 import { galleryPlan } from './gallery-plan'
+import { pickStands, readPersonYes } from './person-yes'
 import { contactSheet } from './video-images'
 import { LOGO_FOLDERS, retainedOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 
@@ -319,6 +320,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const rejected = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   const marks = (await readJson<Record<string, WatermarkEntry>>(join(root, 'engine-state/_photo-watermarks.json'))) ?? {}
   const keepLogo = (url: string) => retainedOwnMark(url, marks[url]) && (!rejected[url] || rejected[url]!.startsWith('watermark:'))
+  // A head a person picked (engine-state/_photo-head-picks.json, page → photo): it stays first on its page, while it
+  // counts (person-yes.ts pickStands).
+  const headPicks = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-head-picks.json'))) ?? {}
+  const yes = await readPersonYes(root)
   const report = { photos: 0, sheets: 0, judged: 0, removed: [] as string[], rejected: 0, blocked: [] as string[], unsure: 0, failed: [] as string[], stopped: '' }
 
   const all = await rank(root, await subjects(content))
@@ -522,6 +527,14 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
         const i = passed(true) >= 0 ? passed(true) : passed(false)
         if (i > lead) data.photos.splice(lead, 0, ...data.photos.splice(i, 1))
       }
+      // A head a person picked stays first whatever the order above did, as the sweep puts it back each cycle: the steps
+      // between the two (the large copies of heads, the side-by-side look) then see the head a person chose. The
+      // person's yes for a card rests on it (person-yes.ts): its photo is the check's "can't tell" that the order above
+      // would move behind a passed one (the stated exception to the owner's rule of 2026-11-11). A pick that rests on a
+      // yes lapses with it, by this pass's verdicts: once the check says anything but "can't tell", the order above holds.
+      const ref = `${s.kind}/${s.id}`, pick = headPicks[ref]
+      const at = data.photos.findIndex(x => x.url === pick)
+      if (at > 0 && pickStands(ref, pick!, cache, yes)) data.photos.unshift(...data.photos.splice(at, 1))
     }
     // In an album it comes after the photos the check passed or has not reached. The album step ranks the same way, but
     // only an album it adds to, so every album gets its order here, each run.
