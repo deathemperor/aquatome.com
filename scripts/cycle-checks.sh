@@ -23,11 +23,12 @@ net() {
   local limit="${GIT_NET_SECONDS:-600}" start=$SECONDS job dog status=0
   "$@" &
   job=$!
-  ( for ((i = 0; i < limit + 10; i++)); do
-      sleep 1; kill -0 "$job" 2>/dev/null || exit 0
-      [ "$i" != $((limit - 1)) ] || kill -TERM "$job" 2>/dev/null
-    done
-    kill -KILL "$job" 2>/dev/null ) &
+  # The watchdog goes by the clock, not by how many sleeps it took (a busy Mac stretches them), and has none of the
+  # caller's output, so a sleep it leaves behind holds no pipe open.
+  ( while [ $((SECONDS - start)) -lt "$limit" ]; do sleep 1; kill -0 "$job" 2>/dev/null || exit 0; done
+    kill -TERM "$job" 2>/dev/null
+    while [ $((SECONDS - start)) -lt $((limit + 10)) ]; do sleep 1; kill -0 "$job" 2>/dev/null || exit 0; done
+    kill -KILL "$job" 2>/dev/null ) </dev/null >/dev/null 2>&1 &
   dog=$!
   wait "$job" || status=$?
   kill "$dog" 2>/dev/null; wait "$dog" 2>/dev/null || true
