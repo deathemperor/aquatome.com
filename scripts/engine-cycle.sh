@@ -28,7 +28,9 @@ if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pa
 deploy() { gh workflow run deploy.yml -R "${GITHUB_REPOSITORY:-deathemperor/aquatome.com}" --ref main; }
 # Push this part's commit on top of whatever landed during the run (code, the other parts' content).
 push() {
+  local main
   for _ in 1 2 3; do
+    main=$(git rev-parse '@{u}' 2>/dev/null || true)
     if ! git pull -q --rebase; then
       local clash; clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       log "another part changed the same files: $clash"
@@ -42,6 +44,8 @@ push() {
       else
         git rebase --abort 2>/dev/null || true
       fi
+    elif ! swept_pull "$main"; then
+      verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after the sweep on main's changes, not publishing"; return 1; }
     fi
     git push -q && return 0
     sleep 30

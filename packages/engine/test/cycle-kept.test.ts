@@ -198,10 +198,11 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
   const jobs: [string, string][] = [['engine-cycle.sh', '"$PART"'], ['video-cycle.sh', 'videos'], ['video-recheck.sh', 'video-recheck']]
   for (const [name, job] of jobs) {
     const s = script(name)
-    // Each "not publishing" after the checks keeps the work first: after the run's commit, and after a merge on push.
+    // Each "not publishing" after the checks keeps the work first: after the run's commit, after a merge on push, and
+    // after the sweep on a clean pull that brought main's commits in.
     const gaveUp = s.split('\n').filter(l => /not publishing/.test(l) && !/gate:/.test(l))
-    expect(gaveUp.length, name).toBe(2)
-    expect(s.match(new RegExp(`keep_unpublished ${job.replace(/[$"]/g, m => `\\${m}`)}`, 'g'))?.length, name).toBe(2)
+    expect(gaveUp.length, name).toBe(3)
+    expect(s.match(new RegExp(`keep_unpublished ${job.replace(/[$"]/g, m => `\\${m}`)}`, 'g'))?.length, name).toBe(3)
     // Kept work is published once a run has installed and set its merge drivers, before it does its own work.
     expect(s, name).toMatch(new RegExp(`pnpm install --frozen-lockfile --silent\\npublish_kept ${job.replace(/[$"]/g, m => `\\${m}`)}\\n`))
     expect(s.indexOf('\npublish_kept '), name).toBeGreaterThan(s.indexOf('merge.entity.driver'))

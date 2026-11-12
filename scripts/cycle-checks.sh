@@ -153,9 +153,10 @@ publish_kept() {
 # kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
 # when its tests failed for real; KEPT_WHY says why it isn't published.
 push_kept() {
-  local check=1 clash
+  local check=1 clash main
   KEPT_FAILED= KEPT_WHY=
   for _ in 1 2 3; do
+    main=$(git rev-parse origin/main 2>/dev/null || true)
     if ! git pull -q --rebase origin main; then
       clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       git rebase --abort 2>/dev/null || true
@@ -163,6 +164,8 @@ push_kept() {
       replan_merged "$clash"
       check=1
     fi
+    # A clean pull that brought main's commits in is swept and checked too, as swept_pull says why.
+    [ "$(git rev-parse origin/main 2>/dev/null)" = "$main" ] || check=1
     if [ -n "$check" ]; then
       sweep_merged
       if ! verify 'pnpm test'; then
@@ -195,6 +198,17 @@ sweep_merged() {
   pnpm engine sweep || log "sweep: failed"
   git add content sources engine-state docs/review
   git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
+}
+# A clean pull at a push brings main's changes in as well: a photo put on the never-again list, a head picked. A page file
+# merges item by item (merge-entity.mjs keeps an item one side changed), so a photo removed on main could come back on a
+# page this run also changed, and stay for a cycle, until the next sweep (the chief of staff, 2026-11-12). So after a pull
+# that brought main's commits in, the sweep runs on the merge, as after a clash. `swept_pull <main before the pull>` is
+# true when the sweep had nothing to do, so the push goes ahead, and false when it committed, so the tests run again.
+swept_pull() {
+  [ "$(git rev-parse '@{u}' 2>/dev/null)" = "$1" ] && return 0
+  local head; head=$(git rev-parse HEAD)
+  sweep_merged
+  [ "$(git rev-parse HEAD)" = "$head" ]
 }
 # The calendar (content/curation.json) is one plan, not lines to blend. After a clash with a change on main, push()'s
 # line-by-line merge kept some of each plan's days, and named one guide on two days running (the photos part of
