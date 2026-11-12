@@ -217,7 +217,11 @@ test('a week with tags takes only fish that match one, or that are on its own li
   const was = CurationSchema.parse({ ...cur, days: [{ date: '2026-11-16', fish: big30.ref, img: big30.photo.square!.url }] })
   expect(plan(was, cands, '2026-11-16', 1).report.replaced).toEqual([{ date: '2026-11-16', slot: 'fish', was: 'species/big', why: "doesn't match this week's tags (nano)" }])
   const chosen = CurationSchema.parse({ ...cur, days: [{ date: '2026-11-16', fish: big30.ref, img: big30.photo.square!.url, fixed: true }] })
-  expect(plan(chosen, cands, '2026-11-16', 1).calendar.days[0]!.fish).toBe('species/big')
+  // Filling the day's guide leaves it a person's day, so the next plan keeps its fish too.
+  const once = plan(chosen, cands, '2026-11-16', 1).calendar
+  expect(once.days[0]).toMatchObject({ fish: 'species/big', fixed: true })
+  expect(once.days[0]!.guide).toBeDefined()
+  expect(plan(once, cands, '2026-11-16', 1).calendar.days[0]).toMatchObject({ fish: 'species/big', fixed: true })
 })
 
 test('a tag goes by the page\'s own figures: a koi whose page says 20 °C is no cold fish, nor a 90 cm tank\'s tetra or a lone ram a small schooling one', () => {
@@ -407,6 +411,20 @@ test("a fish whose head Hôm nay's card cuts is no day's fish, and stays a week'
   expect(checkCalendar(calendar, [cut, whole], '2026-11-09', 1).filter(x => x.includes('species/cut'))).toEqual([])
 })
 
+test("the planner reads the fish's boxes, whatever the site's switch", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'curation-'))
+  await cp(new URL('../../../apps/site/test/fixture-content', import.meta.url), join(root, 'content'), { recursive: true })
+  const url = 'https://images.unsplash.com/photo-1000000000001-pigeonblood1?ixid=fixture&w=1280&q=80&fm=jpg&fit=max'
+  await mkdir(join(root, 'engine-state'))
+  await writeFile(join(root, 'engine-state', '_photo-subjects.json'), JSON.stringify({ [url]: { 'pigeon-blood-discus': { ok: 'yes', typical: true, note: '' } } }))
+  const head = async () => (await candidates(root)).find(c => c.ref === 'breeds/pigeon-blood-discus')?.head
+  expect(await head()).toMatchObject({ url })
+  expect((await head())?.cut).toBeUndefined()
+  // A discus along the whole 4:3 photo: either card cuts it.
+  await writeFile(join(root, 'engine-state', '_photo-boxes.json'), JSON.stringify({ [url]: { x: 0.02, y: 0.3, w: 0.96, h: 0.4 } }))
+  expect((await head())?.cut).toBe(true)
+})
+
 test("a fish whose head Hôm nay's card, centred, would cut by more than 5% (its box) is no day's fish, unless a person set the day", async () => {
   const { headOf } = await import('../src/curation')
   const photo = (subject?: { x0: number; y0: number; x1: number; y1: number }) => ({ url: big(1), width: 1600, height: 1200, licence: 'CC BY 4.0', author: 'a', sourceUrl: 'https://x/', ...(subject ? { subject } : {}) })
@@ -415,6 +433,11 @@ test("a fish whose head Hôm nay's card, centred, would cut by more than 5% (its
   expect(headOf([photo({ x0: 40, y0: 400, x1: 1560, y1: 800 })], () => true)?.cut).toBe(true)
   expect(headOf([photo({ x0: 500, y0: 400, x1: 1100, y1: 800 })], () => true)?.cut).toBeUndefined()
   expect(headOf([photo()], () => true)?.cut).toBeUndefined()
+  // A square photo: both cards cut its top and bottom, the two-line card (362/278) more. A fish from 70 to 930 down it fits the
+  // one-line card and loses 10.7% on the two-line one.
+  const square = { ...photo({ x0: 100, y0: 70, x1: 900, y1: 930 }), width: 1000, height: 1000 }
+  expect(headOf([square], () => true)?.cut).toBe(true)
+  expect(headOf([{ ...square, subject: { x0: 100, y0: 100, x1: 900, y1: 900 } }], () => true)?.cut).toBeUndefined()
   const cut = fish('cut'), whole = fish('whole')
   cut.head = { ...cut.head!, cut: true }
   const problem = "Hôm nay's card cuts the fish in its head photo by more than 5% (its box)"

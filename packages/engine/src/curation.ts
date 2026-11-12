@@ -201,7 +201,8 @@ export function demandByPath(rows: { keys: string[]; impressions: number }[]): M
 /** Every fish, breed and guide page in Vietnamese, with what the planner needs to know of it. */
 export async function candidates(root: string, o: { demand?: Map<string, number>; avoid?: Record<string, string> } = {}): Promise<Candidate[]> {
   const content = join(root, 'content')
-  const c: Content = await loadAll({ root: content, lang: 'vi', publicBuild: true })
+  // With the fish's boxes whatever the site's switch (SUBJECT_FRAMES): the card's cut rule (headOf) reads them.
+  const c: Content = await loadAll({ root: content, lang: 'vi', publicBuild: true, subjectFrames: true })
   const state = join(root, 'engine-state')
   const v = await readVerdicts(root)
   const fitState = await json<FitState>(join(state, '_fit.json'), {})
@@ -385,7 +386,8 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       // The card shows the page's head photo, a guide's only when it is big enough for the card.
       if (slot === 'fish') d.img = best.head!.url
       else { delete d.guideImg; guidePhoto(d, best) }
-      delete d.fixed
+      // A person's day stays theirs until its fish is replaced: filling its guide leaves it set.
+      if (slot === 'fish') delete d.fixed
       report.filled.push(`${date} ${slot}: ${best.ref}`)
       const reasons = [
         ...(pool.includes(best.ref) ? ["on this week's list"] : []),
