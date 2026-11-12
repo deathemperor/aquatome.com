@@ -590,6 +590,11 @@ The layers above still check the result.
     their own steps. Each source is read at the pace it asks for (iNaturalist about one request a second; Openverse 200
     a day without a key), and each page keeps its place in `engine-state/gallery/<id>.json`, so the next cycle continues
     there.
+    Each fish's older scientific names from GBIF are kept as well (`pnpm engine fish-synonyms`, 300 fish a cycle, each
+    asked once, in `engine-state/_gbif-synonyms.json` beside the plants'). `fishOlderNames` (`fish-synonyms.ts`) leaves
+    out a name any page has as its own (a fish's or a plant's, or a plant's synonym) and one GBIF gives two of our fish:
+    such a name can't point at one fish. Commons files some fish under an older name (Acheilognathus macropterus), and
+    search and the name checks could use them too (the chief of staff, 2026-11-12). Nothing searches or shows them yet.
   - **Checks every photo passes,** through one shared step (`screenTagged` in `gallery.ts`): at least 800 px; not a photo
     the owner rejected (`engine-state/_photo-rejected.json`); not a near-copy of a photo already shown (an image hash,
     as when Commons holds a copy of an iNaturalist or Flickr photo); no human face (Apple Vision); then Claude, on contact
@@ -963,6 +968,14 @@ The layers above still check the result.
       `pnpm engine sweep --photo-cap <N>` (the chief of staff, 2026-11-11). A photo of another fish leaves only that page, so it may still join its own fish's
       (taken off again if a later run brings it back). A Latin name no page has is listed for a person ("may name
       another fish"), not removed.
+    - a photo on the never-again list (`engine-state/_photo-rejected.json`): off every fish's, plant's, breed's and
+      guide's page and every album, by the photo check's own rule (an Aquarium Glaser photo with the shop's own mark
+      kept stays). The check takes them off only in the tree its run started from, and the cycle's push keeps its own
+      lines where they clash with main's: on 2026-11-11 three photos a person took off came back in their albums that
+      way. The cycle sweeps after it catches up with main, after a clash at its push, and after a clean pull at its push
+      that brought main's commits in, so one that comes back then leaves before the push. The calendar's pictures go
+      too: a day's, a language's own day's, a guide's, a story's or a week's hero's that is a listed photo or its large
+      copy is dropped, and the app shows the page's own; a loop whose poster is listed goes whole
     - a card figure out of bounds, upside down, or a minimum tank shorter than twice the fish: hidden from the card
       (`hidden` with why, kept in the file; worked out again each run), and the species' approved summary sent back to be
       written again against the new card

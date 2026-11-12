@@ -718,3 +718,79 @@ test("a picked photo on neither list changes nothing and is reported", async () 
   expect(r.heads).toEqual(["species/corydoras-sterbai: picked photo isn't on the page"])
   expect(r.files).toEqual([])
 })
+
+test('every photo on the never-again list leaves the pages and albums it is still on, as the photo check takes it off: a merge with main brings one back (2026-11-11)', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const p = (name: string) => photo(`https://media.aquatome.com/inat/${name}.webp`, 'Danio erythromicron')
+  const own = p('own'), poor = p('poor'), other = p('other'), albumKept = p('album-kept'), guideOff = p('guide-off'), guideKept = p('guide-kept'), bred = p('bred'), leaf = p('leaf')
+  // An Aquarium Glaser photo with the shop's own mark, kept (watermarks.ts retainedOwnMark): listed for that mark it
+  // stays, as the photo check leaves it; listed for anything else it goes.
+  const glaser = (name: string) => ({ ...photo(`https://media.aquatome.com/glaser/${name}.webp`, 'Danio erythromicron'), sourceUrl: 'https://www.aquariumglaser.de/x' })
+  const marked = glaser('marked'), held = glaser('held')
+  await put('species/danio-erythromicron/entity.json', species('danio-erythromicron', 'Danio erythromicron', { photos: [own, poor, marked, held] }))
+  await put('species/danio-erythromicron/vi.json', vi('Cá sóc đầu lửa', { 'distribution:seriouslyfish': '<p>Myanmar.</p>' }))
+  // What the photos push of 2026-11-11 brought back: lines its run wrote before the removal reached main.
+  await put('gallery/danio-erythromicron.json', { id: 'danio-erythromicron', photos: [albumKept, other], seen: 2, updatedAt: '2026-10-01' })
+  await put('guides/g/entity.json', { id: 'g', kind: 'care', source: 'aquariumbreeder', sourceUrl: 'https://x/g', html: '', photos: [guideOff, guideKept], mentions: [], updatedAt: '2026-10-01' })
+  await put('breeds/b/entity.json', { id: 'b', kind: 'variety', parents: [], care: {}, photos: [bred], sources: [{ url: 'https://x/a', title: 'A', kind: 'article', at: '2026-10-01' }], updatedAt: '2026-10-01' })
+  await put('plants/l/entity.json', { ...species('l', 'Anubias nana', { photos: [leaf] }) })
+  const list = {
+    [poor.url]: 'too poor to show (the chief of staff, 2026-11-11)',
+    [other.url]: 'not Danio erythromicron: another fish',
+    [guideOff.url]: 'people: a hand holds the fish',
+    [bred.url]: 'dead: a fish on a plate',
+    [leaf.url]: 'drawing: a printed drawing',
+    [marked.url]: 'watermark: the shop\'s logo, bottom left',
+    [held.url]: 'people: a hand',
+    // Listed by its own address: a large copy, and a loop's poster.
+    'https://media.aquatome.com/inat/lg-large.webp': 'people: a hand',
+    'https://media.aquatome.com/loops/bad-fish.webp': 'dead: a fish on a plate',
+  }
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), `${JSON.stringify(list, null, 2)}\n`)
+  const own_ = { retainedOwnMark: { source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/x', owner: 'source' } }
+  await writeFile(join(root, 'engine-state/_photo-watermarks.json'), `${JSON.stringify({ [marked.url]: { ocr: [], ...own_ }, [held.url]: { ocr: [], ...own_ } }, null, 2)}\n`)
+  // The calendar names some of them, the app's large copies too: a day's, a language's own day's, a guide's, a story's
+  // and a week's hero's. Those go and the app shows the page's own; a picture not on the list, or kept, stays. A loop
+  // whose poster is listed goes whole.
+  const large = (u: string) => u.replace(/\.webp$/, '-large.webp')
+  const loop = (id: string) => ({ src: `https://media.aquatome.com/loops/${id}.mp4`, poster: `https://media.aquatome.com/loops/${id}.webp` })
+  await put('curation.json', { version: 1, loops: { 'bad-fish': loop('bad-fish'), 'good-fish': loop('good-fish') }, days: [
+    { date: '2026-11-20', fish: 'species/danio-erythromicron', img: large(poor.url), guide: 'guides/g', guideImg: guideOff.url, by: { id: { fish: 'species/danio-erythromicron', img: held.url } } },
+    { date: '2026-11-21', fish: 'species/danio-erythromicron', img: large(own.url), story: { page: 'guides/g', img: other.url } },
+    { date: '2026-11-22', fish: 'species/danio-erythromicron', img: 'https://media.aquatome.com/inat/lg-large.webp' },
+  ], weeks: [{ from: '2026-11-16', to: '2026-11-22', hero: [{ page: 'breeds/b', img: large(bred.url) }, { page: 'species/danio-erythromicron', img: large(marked.url) }] }] })
+  const r = await sweep(root)
+  expect(await json(root, 'content/curation.json')).toEqual({ version: 1, loops: { 'good-fish': loop('good-fish') }, days: [
+    { date: '2026-11-20', fish: 'species/danio-erythromicron', guide: 'guides/g', by: { id: { fish: 'species/danio-erythromicron' } } },
+    { date: '2026-11-21', fish: 'species/danio-erythromicron', img: large(own.url), story: { page: 'guides/g' } },
+    { date: '2026-11-22', fish: 'species/danio-erythromicron' },
+  ], weeks: [{ from: '2026-11-16', to: '2026-11-22', hero: [{ page: 'breeds/b' }, { page: 'species/danio-erythromicron', img: large(marked.url) }] }] })
+  expect((await json(root, 'content/species/danio-erythromicron/entity.json')).photos).toEqual([own, marked])
+  expect((await json(root, 'content/gallery/danio-erythromicron.json')).photos).toEqual([albumKept])
+  expect((await json(root, 'content/guides/g/entity.json')).photos).toEqual([guideKept])
+  expect((await json(root, 'content/breeds/b/entity.json')).photos).toEqual([])
+  expect((await json(root, 'content/plants/l/entity.json')).photos).toEqual([])
+  expect(r.again.sort()).toEqual([
+    `breeds/b/entity.json: ${bred.url} (dead: a fish on a plate)`,
+    `curation.json 2026-11-20 guideImg: ${guideOff.url} (people: a hand holds the fish)`,
+    `curation.json 2026-11-20 id img: ${held.url} (people: a hand)`,
+    `curation.json 2026-11-20 img: ${large(poor.url)} (too poor to show (the chief of staff, 2026-11-11))`,
+    `curation.json 2026-11-21 story img: ${other.url} (not Danio erythromicron: another fish)`,
+    'curation.json 2026-11-22 img: https://media.aquatome.com/inat/lg-large.webp (people: a hand)',
+    'curation.json loop bad-fish poster: https://media.aquatome.com/loops/bad-fish.webp (dead: a fish on a plate)',
+    `curation.json week 2026-11-16 hero breeds/b img: ${large(bred.url)} (dead: a fish on a plate)`,
+    `gallery/danio-erythromicron.json: ${other.url} (not Danio erythromicron: another fish)`,
+    `guides/g/entity.json: ${guideOff.url} (people: a hand holds the fish)`,
+    `plants/l/entity.json: ${leaf.url} (drawing: a printed drawing)`,
+    `species/danio-erythromicron/entity.json: ${held.url} (people: a hand)`,
+    `species/danio-erythromicron/entity.json: ${poor.url} (too poor to show (the chief of staff, 2026-11-11))`,
+  ])
+  // The list itself stays as it was, and a second sweep has nothing to take off.
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual(list)
+  expect((await sweep(root)).again).toEqual([])
+})
