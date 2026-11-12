@@ -1,5 +1,6 @@
+import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { checks, prComment, sitemapPages, lateDeploy } from '../../../scripts/site-watch.mjs'
+import { checks, prComment, sitemapPages, lateDeploy, goesLive, DEPLOY_PATHS } from '../../../scripts/site-watch.mjs'
 
 // One page's review in Playwright's JSON report, shaped as a real run writes it (ci.yml runs the phone project only).
 const LIMIT = "Claude usage limit: You've hit your weekly limit · resets Nov 5, 6am (UTC)"
@@ -61,4 +62,13 @@ test('changes waiting for a deploy are late at 3 hours, counted from the oldest'
   expect(lateDeploy([], now)).toBeNull()
   expect(lateDeploy(['2026-11-10T07:01:00Z', '2026-11-10T09:00:00Z'], now)).toBeNull()
   expect(lateDeploy(['2026-11-10T06:30:00Z', '2026-11-10T09:00:00Z'], now)).toEqual({ hours: 3, changes: 2 })
+})
+
+// The engine's pushes change content/page-dates.json and change it back, so GitHub starts no deploy for them, and the
+// commits that touched it are not waiting for one: they raised "No deploy has finished for 5 hours" (2026-11-12, #1150).
+test('changes wait for a deploy only when, taken together, they change what deploy.yml deploys', () => {
+  expect(goesLive(['engine-state/fit-summary.json', 'sources/x.json', 'packages/engine/src/a.ts'])).toBe(false)
+  for (const f of ['content/page-dates.json', 'apps/site/src/x.astro', 'packages/schema/src/langs.ts', 'pnpm-lock.yaml']) expect(goesLive([f]), f).toBe(true)
+  const yml = readFileSync(new URL('../../../.github/workflows/deploy.yml', import.meta.url), 'utf8')
+  expect(DEPLOY_PATHS).toEqual(/paths: \[(.*)\]/.exec(yml)![1]!.split(',').map(s => s.trim().replace(/'/g, '').replace(/\*\*$/, '')))
 })
