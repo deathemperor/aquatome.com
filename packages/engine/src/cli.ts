@@ -33,7 +33,7 @@ import { unitsMend } from './units-mend'
 import { recordSourceFigures, sourceFigures } from './source-figures'
 import fitFront from './fit-front.json'
 import { firstRun, frontEarly, frontHeld, orderFront, type FirstRun } from './fit-front'
-import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, writeCalendar } from './curation'
+import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, readVerdicts, writeCalendar } from './curation'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
 import { updatePageDates } from './page-dates'
@@ -736,6 +736,13 @@ if (cmd === 'run' || cmd === 'card-fill') {
     for (const x of r.heroes) console.log(`  hero ${x}`)
     const left = checkCalendar(calendar, cands, today, days, cards)
     for (const x of left) console.log(`  still wrong: ${x}`)
+    // Every card from today that rests on a person's yes (curation.ts PersonYes), each run, for the daily report.
+    const yes = (await readVerdicts(ROOT)).personYes ?? {}
+    for (const d of calendar.days.filter(d => d.date >= today && d.fish)) {
+      const c = cands.find(x => x.ref === d.fish)
+      const y = c?.head && yes[c.head.url]?.[c.id]
+      if (y) console.log(`  on a person's yes: ${d.date} ${d.fish} ${c!.head!.url} (yes by ${y.approvers.join(' and ')}, proposed by ${y.proposer}, ${y.on}; ${y.lookAlike} ruled out by ${y.mark})`)
+    }
     console.log(`curate: ${r.kept.length} kept, ${r.filled.length} filled, ${r.replaced.length} replaced, ${r.empty.length} left empty, ${r.heroes.length} heroes on their head; ${left.length} problems`)
   }
 } else if (cmd === 'traits') {

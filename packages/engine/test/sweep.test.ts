@@ -719,6 +719,25 @@ test("a picked photo on neither list changes nothing and is reported", async () 
   expect(r.files).toEqual([])
 })
 
+test("a pick that rests on a person's yes lapses with it: once the check says anything but \"can't tell\" there, the page keeps its order and the sweep says so", async () => {
+  const root = await store()
+  await sweep(root)
+  const at = 'content/species/corydoras-sterbai/entity.json'
+  const e = await json(root, at)
+  const picked = photo('https://media.aquatome.com/commons/picked.webp', 'Corydoras sterbai')
+  await writeFile(join(root, at), JSON.stringify({ ...e, photos: [e.photos[0], picked] }))
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/corydoras-sterbai': picked.url }))
+  const yes = { proposer: 'Photo Sourcing', approvers: ['the chief of staff', 'Curation'], on: '2026-11-19', lookAlike: 'Corydoras haraldschultzi', mark: 'the orange spines of the pectoral fins' }
+  await writeFile(join(root, 'engine-state/_photo-person-yes.json'), JSON.stringify({ [picked.url]: { 'corydoras-sterbai': yes } }))
+  const verdict = (ok: string) => writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify({ [picked.url]: { 'corydoras-sterbai': { ok, typical: true, note: '' } } }))
+  await verdict('yes')
+  const r = await sweep(root)
+  expect((await json(root, at)).photos.map((p: { url: string }) => p.url)).toEqual([e.photos[0].url, picked.url])
+  expect(r.heads).toEqual(["species/corydoras-sterbai: pick lapsed with its person's yes"])
+  await verdict('unsure')
+  expect((await sweep(root)).heads).toEqual([`species/corydoras-sterbai: ${e.photos[0].url} -> ${picked.url}`])
+})
+
 test('every photo on the never-again list leaves the pages and albums it is still on, as the photo check takes it off: a merge with main brings one back (2026-11-11)', async () => {
   const root = await mkdtemp(join(tmpdir(), 'sweep-'))
   const c = join(root, 'content')
