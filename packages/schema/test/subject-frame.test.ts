@@ -100,9 +100,10 @@ test('the loader gives a photo its box only with the switch on, from the record 
     const e = c.equipment.find(x => x.category === 'loc')!
     return [...c.species.find(s => s.id === 'alpha')!.photos, ...c.galleries.alpha!, c.guides.find(x => x.id === 'g')!.video!.figures![0]!.photo!, e.hero, e.types[0]!.photo!].map(p => [p.url, p.subject])
   }
-  // Off by default, until the owner has seen the Design Lead's "whole".
-  expect(SUBJECT_FRAMES).toBe(false)
-  for (const off of [await boxes(), await boxes(false)]) expect(off.every(([, s]) => s === undefined)).toBe(true)
+  // On by default since the chief of staff took the Design Lead's frames board as approved (2026-11-12); off, none.
+  expect(SUBJECT_FRAMES).toBe(true)
+  expect(await boxes()).toEqual(await boxes(true))
+  expect((await boxes(false)).every(([, s]) => s === undefined)).toBe(true)
   // On: the page's and the album's photos in their own pixels; none where it found no animal or hasn't boxed the photo.
   expect(await boxes(true)).toEqual([
     ['https://x/ok.jpg', { x0: 240, y0: 160, x1: 720, y1: 480 }],

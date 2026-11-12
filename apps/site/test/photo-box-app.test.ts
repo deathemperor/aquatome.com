@@ -7,8 +7,8 @@ import { groupTiles } from '../src/lib/home'
 import { smallSrc } from '../src/lib/img'
 
 // Where the fish is in a photo (`box`, `imgBox`: protocols/photo-crop-vectors.json) reaches the app only from photos the
-// loader gave a box, which only its switch does (image-geometry.ts SUBJECT_FRAMES, off): until then the app's index and
-// pages are as they were. With a box: a fish's page top, its list tile, its group's tile, Hôm nay's day and Khám phá's
+// loader gave a box, which only its switch does (image-geometry.ts SUBJECT_FRAMES): a photo without one, as every photo
+// with the switch off (and the fixture's, which has no record), leaves the app's index and pages as they were. With a box: a fish's page top, its list tile, its group's tile, Hôm nay's day and Khám phá's
 // top card carry it, and only on copies that are the same picture.
 const BOX_KEYS = new Set(['box', 'imgBox'])
 const boxKeys = (o: unknown) => JSON.stringify(o).match(/"(?:imgBox|box)":/g) ?? []
