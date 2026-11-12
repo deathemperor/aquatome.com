@@ -3,14 +3,14 @@ import { chmodSync, existsSync, mkdtempSync, readFileSync, writeFileSync } from 
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { allRuns, cycleSteps, dayStart, keptLogs, ownRuns, restore, unloggedLine, vnDay } from '../../../scripts/cost-log-restore.mjs'
+import { allRuns, attemptOf, cycleSteps, dayStart, keptLogs, ownRuns, pagesOf, restore, unloggedLine, vnDay } from '../../../scripts/cost-log-restore.mjs'
 
 // The cloud cycle's cost log when GitHub's cache has none (scripts/cost-log-restore.mjs): the runs' own copies, and a
 // day that can't be counted stops every step with a ceiling (packages/engine/src/ceiling.ts reads the line).
 
 const REPO = 1436734971
 type Run = { id: number; event: string; head_branch: string; created_at: string; updated_at: string; repository: { id: number }; head_repository: { id: number } }
-type Kept = { text: string; at: string }
+type Kept = { text: string; at: string; attempt?: number }
 const run = (id: number, created: string, updated: string, o: Partial<Run> = {}): Run =>
   ({ id, event: 'workflow_dispatch', head_branch: 'main', created_at: created, updated_at: updated, repository: { id: REPO }, head_repository: { id: REPO }, ...o })
 const due = { name: 'Is a cycle due?', steps: [{ name: 'Started by hand, or ENGINE_EVERY_MINUTES since the last cycle started', conclusion: 'success' }] }
@@ -97,6 +97,32 @@ test('an earlier attempt\'s log doesn\'t hold a later attempt that spent and kep
   const first = { text: 'a\n', at: '2026-11-12T01:31:00Z' }
   expect(restore(runs, () => [first], () => jobs, NOW)).toEqual({ from: 30, text: 'a\n', unknown: [30] })
   expect(restore(runs, () => [first, { text: 'a\nb\n', at: '2026-11-12T03:51:00Z' }], () => jobs, NOW)).toEqual({ from: 30, text: 'a\nb\n', unknown: [] })
+})
+
+// Astra's second read: a copy kept by a later attempt can't hold what an earlier one spent.
+test('an attempt that spent counts as logged only by its own copy, never a later attempt\'s', () => {
+  const runs = [run(31, '2026-11-12T01:00:00Z', '2026-11-12T04:00:00Z')]
+  const jobs = [due, cycle('failure', '2026-11-12T02:00:00Z', 1), due, cycle('success', '2026-11-12T03:50:00Z', 2)]
+  // Attempt 1 kept nothing; attempt 2, from an older cache, kept a copy without attempt 1's lines.
+  const second = { text: 'b\n', at: '2026-11-12T03:51:00Z', attempt: 2 }
+  expect(restore(runs, () => [second], () => jobs, NOW)).toEqual({ from: 31, text: 'b\n', unknown: [31] })
+  // Each attempt's own copy: counted.
+  const first = { text: 'a\n', at: '2026-11-12T02:01:00Z', attempt: 1 }
+  expect(restore(runs, () => [first, second], () => jobs, NOW)).toEqual({ from: 31, text: 'b\na\n', unknown: [] })
+  // A copy kept before its own attempt's step ended doesn't count either.
+  expect(restore(runs, () => [{ ...first, at: '2026-11-12T01:59:00Z' }, second], () => jobs, NOW)).toEqual({ from: 31, text: 'b\na\n', unknown: [31] })
+  // The step carries its job's attempt.
+  expect(cycleSteps(jobs).map((x: { attempt: number }) => x.attempt)).toEqual([1, 2])
+  expect([attemptOf('engine-cost-log-rewrite-2'), attemptOf('engine-cost-log-rewrite')]).toEqual([2, undefined])
+})
+
+test('a list of GitHub\'s is read to its last page, and one longer than the most pages can\'t be counted', () => {
+  const full = (n: number) => Array.from({ length: 100 }, (_, i) => n * 100 + i)
+  const asked: number[] = []
+  expect(pagesOf((n: number) => { asked.push(n); return n < 3 ? full(n) : [1] })).toHaveLength(201)
+  expect(asked).toEqual([1, 2, 3])
+  expect(pagesOf(() => [])).toEqual([])
+  expect(() => pagesOf(full, 2)).toThrow('more than 200 items in one list')
 })
 
 test('the log is every line of today\'s copies and the last earlier day\'s, once each, and no older run is asked', () => {
@@ -196,7 +222,7 @@ const own = { repository_id: ${REPO}, head_repository_id: ${REPO} }
 let m
 if (/^repos\\/[^/]+\\/[^/]+$/.test(path)) console.log(JSON.stringify({ id: ${REPO} }))
 else if (/workflows\\/engine.yml\\/runs/.test(path)) console.log(JSON.stringify({ workflow_runs: f.runs }))
-else if ((m = path.match(/runs\\/(\\d+)\\/artifacts/))) console.log(JSON.stringify({ artifacts: (f.artifacts[m[1]] ?? []).map((k, i) => ({ id: Number(m[1]) * 10 + i, name: 'engine-cost-log-rewrite-' + (i + 1), created_at: k.at, expired: false, workflow_run: own })) }))
+else if ((m = path.match(/runs\\/(\\d+)\\/artifacts/))) console.log(JSON.stringify({ artifacts: (f.artifacts[m[1]] ?? []).map((k, i) => ({ id: Number(m[1]) * 10 + i, name: 'engine-cost-log-rewrite-' + (k.attempt ?? i + 1), created_at: k.at, expired: false, workflow_run: own })) }))
 else if ((m = path.match(/artifacts\\/(\\d+)\\/zip/))) process.stdout.write(f.artifacts[String(Math.floor(Number(m[1]) / 10))][Number(m[1]) % 10].text)
 else if ((m = path.match(/runs\\/(\\d+)\\/jobs/))) console.log(JSON.stringify({ jobs: f.jobs[m[1]] ?? [] }))
 else { console.error('unexpected ' + path); process.exit(1) }
@@ -216,10 +242,24 @@ else { console.error('unexpected ' + path); process.exit(1) }
 
 const recent = (hours: number) => new Date(Date.now() - hours * 3600_000).toISOString()
 
-test('the script: a log the cache gave stays as it is, and GitHub isn\'t asked', () => {
-  const r = runScript({ cacheHad: 'cached\n', runs: [], fail: true })
-  expect(r.out).toContain('from the cache')
-  expect(r.log).toBe('cached\n')
+// Astra's second read: a cache older than a run that spent (its runner lost before it saved) hid that run.
+test('the script: a log the cache gave is checked against the runs too, and gets what their copies add', () => {
+  const r = runScript({ cacheHad: 'a\n', runs: [run(95, recent(30), recent(28))], artifacts: { 95: [{ text: 'a\nb\n', at: recent(28) }] } })
+  expect(r.out).toContain('the cost log came from the cache (1 lines); the runs\' own copies added 1')
+  expect(r.log).toBe('a\nb\n')
+  expect(r.summary).toBe('')
+  // A cycle today that kept nothing, behind a cache that hasn't its lines: the day can't be counted.
+  const today = vnDay(new Date())
+  const at = (h: number) => new Date(Math.max(Date.parse(`${today}T00:00:00+07:00`) + 60_000, Date.now() - h * 3600_000)).toISOString()
+  const lost = runScript({ cacheHad: 'a\n', runs: [run(94, at(0.5), at(0.2))], jobs: { 94: [due, cycle('failure', at(0.3))] } })
+  const lines = lost.log!.trim().split('\n')
+  expect(lines[0]).toBe('a')
+  expect(JSON.parse(lines[1]!).unlogged).toBe('run 94 ran the cycle today and kept no cost log after it')
+  expect(lost.summary).toContain('every step with a ceiling stops')
+  // GitHub not answering: the cache's lines stay, and the day can't be counted.
+  const down = runScript({ cacheHad: 'a\n', runs: [], fail: true })
+  expect(down.log!.split('\n')[0]).toBe('a')
+  expect(JSON.parse(down.log!.trim().split('\n').pop()!).unlogged).toContain('couldn\'t be fetched')
 })
 
 test('the script: no cache, so the runs\' own copies are restored', () => {

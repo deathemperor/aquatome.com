@@ -1,12 +1,13 @@
 #!/usr/bin/env node
-// The cloud cycle's cost log when GitHub's cache has none. The log is the day's spend, which each step's ceiling is
-// counted from (packages/engine/src/ceiling.ts), and engine.yml carries it from run to run in GitHub's cache. GitHub
-// evicts a cache it hasn't read for a week, or when the repository's caches pass their size, and on 12 Nov 2026 a cycle
-// found none: it counted the day from $0. So, when the cache gives none, the log comes from the runs' own copies (each
-// attempt of a run keeps it as its artifact, engine-cost-log-rewrite-<attempt>, for weeks).
-// If a cycle that ran today has no copy of its run's kept after it, what it spent can't be counted, so the log gets a
-// line saying so, and ceiling.ts stops every step with a ceiling for the rest of the day (the gate and moderation, which
-// have none, go on). If no cycle ran today, there is nothing to count: the day starts from $0, as it should.
+// The cloud cycle's cost log, checked against the runs' own copies each run. The log is the day's spend, which each
+// step's ceiling is counted from (packages/engine/src/ceiling.ts), and engine.yml carries it from run to run in GitHub's
+// cache. GitHub evicts a cache it hasn't read for a week, or when the repository's caches pass their size, and on 12 Nov
+// 2026 a cycle found none: it counted the day from $0. A cache can also be older than a run that spent (one whose runner
+// was lost before it saved). So the log is the cache's lines and every line of the runs' own copies (each attempt of a
+// run keeps it as its artifact, engine-cost-log-rewrite-<attempt>, for weeks).
+// If an attempt that ran the cycle today kept no copy after it, what it spent can't be counted, so the log gets a line
+// saying so, and ceiling.ts stops every step with a ceiling for the rest of the day (the gate and moderation, which have
+// none, go on). So does a list GitHub can't give in full. If no cycle ran today, the day starts from $0, as it should.
 //
 //   cost-log-restore.mjs <log>
 //
@@ -14,7 +15,7 @@
 // $GITHUB_STEP_SUMMARY with a warning when a day's spend can't be counted.
 
 import { execFileSync } from 'node:child_process'
-import { appendFileSync, existsSync, mkdtempSync, writeFileSync } from 'node:fs'
+import { appendFileSync, existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -47,6 +48,20 @@ export function allRuns(page, now, most = 20) {
 }
 
 /**
+ * Every item of one of GitHub's lists, a page at a time: `page(n)` gives a page of a hundred. It stops at the first page
+ * that isn't full; past `most` pages it throws, as what the list holds can't all be read, so neither can the day.
+ */
+export function pagesOf(page, most = 10) {
+  const all = []
+  for (let n = 1; n <= most; n++) {
+    const got = page(n)
+    all.push(...got)
+    if (got.length < 100) return all
+  }
+  throw new Error(`more than ${most * 100} items in one list`)
+}
+
+/**
  * The engine's runs that may have logged, the last active first: this repository's own, on main, started by the
  * schedule or by hand, active in the last 8 days (engine.yml drops older lines), this one too (an earlier attempt of it
  * kept its own log, and spent). A run of another repository's branch, or of a pull request, counts for nothing. By when
@@ -64,24 +79,38 @@ export function ownRuns(runs, repoId, now) {
  * second under its first attempt's name), or engine-cost-log-rewrite as runs before 13 Nov 2026 named it; not expired;
  * from this repository's own run (a fork's pull request can upload one under any name).
  */
+/** The attempt a copy's name says it was kept by; none for the one name runs had before 13 Nov 2026. */
+export const attemptOf = name => (name === ARTIFACT ? undefined : Number(name.slice(ARTIFACT.length + 1)))
 export const keptLogs = (artifacts, repoId) => artifacts.filter(a => (a.name === ARTIFACT || new RegExp(`^${ARTIFACT}-\\d+$`).test(a.name ?? ''))
   && !a.expired && a.workflow_run?.repository_id === repoId && a.workflow_run?.head_repository_id === repoId)
 
 /**
- * The cycle steps a run's jobs (every attempt's, as GitHub lists them) ran: any conclusion but skipped or none counts,
- * so a conclusion this doesn't know reads as spent. The hourly checks that found no cycle due skip the job, a job with
- * no steps never ran, and this run's own step, still to come, has none.
+ * The cycle steps a run's jobs (every attempt's, as GitHub lists them) ran, each with its job's attempt: any conclusion
+ * but skipped or none counts, so a conclusion this doesn't know reads as spent. The hourly checks that found no cycle
+ * due skip the job, a job with no steps never ran, and this run's own step, still to come, has none.
  */
-export const cycleSteps = jobs => jobs.filter(j => j.name === CYCLE_JOB).flatMap(j => j.steps ?? [])
+export const cycleSteps = jobs => jobs.filter(j => j.name === CYCLE_JOB).flatMap(j => (j.steps ?? []).map(s => ({ ...s, attempt: j.run_attempt })))
   .filter(s => s.name === CYCLE_STEP && s.conclusion != null && s.conclusion !== 'skipped')
 
 /**
+ * Whether copy `k` ({ at, attempt }) holds what cycle step `s` spent: kept by the step's own attempt, after the step
+ * ended. Another attempt's copy can't hold it: a later attempt that found an older cache kept a log without it. A copy
+ * under the one name runs had before 13 Nov 2026 has no attempt to go by, so for it, the time alone.
+ */
+const covers = (k, s) => (k.attempt === undefined || k.attempt === s.attempt) && Date.parse(k.at) >= Date.parse(s.completed_at)
+
+/** Every line of `texts`, once each, in the order first met. */
+export function union(texts) {
+  const lines = new Set(texts.filter(t => t !== undefined).flatMap(t => t.split('\n').filter(Boolean)))
+  return lines.size ? [...lines].map(l => `${l}\n`).join('') : undefined
+}
+
+/**
  * The log as the runs kept it, and the runs whose spend today it can't hold (`unknown`). `logsOf(run)` is the copies a
- * run kept, `{ text, at }` (`at` when it was kept); `jobsOf(run)` its jobs. Each run active today is read: a cycle step
- * of it that ended today counts as logged only when a copy of its own run was kept after it ended (an earlier attempt's
- * copy, or another run's, can't hold what it spent). Then the copies of the first run active before today, for the lines
- * of earlier days. The text is every line of those copies, once each: a run's copy holds the earlier runs' lines it found
- * in the cache, so they overlap.
+ * run kept, `{ text, at, attempt }` (`at` when it was kept); `jobsOf(run)` its jobs. Each run active today is read: a
+ * cycle step of it that ended today counts as logged only when its own attempt kept a copy after it ended (covers).
+ * Then the copies of the first run active before today, for the lines of earlier days. The text is every line of those
+ * copies, once each: a run's copy holds the earlier runs' lines it found in the cache, so they overlap.
  */
 export function restore(runs, logsOf, jobsOf, now) {
   const start = dayStart(now)
@@ -92,8 +121,7 @@ export function restore(runs, logsOf, jobsOf, now) {
     const today = Date.parse(run.updated_at) >= start
     const kept = logsOf(run)
     if (today) {
-      const last = Math.max(...kept.map(k => Date.parse(k.at)))
-      const lost = s => (s.completed_at == null || Date.parse(s.completed_at) >= start) && !(last >= Date.parse(s.completed_at))
+      const lost = s => (s.completed_at == null || Date.parse(s.completed_at) >= start) && !kept.some(k => covers(k, s))
       if (cycleSteps(jobsOf(run)).some(lost)) unknown.push(run.id)
     }
     if (kept.length) {
@@ -103,8 +131,7 @@ export function restore(runs, logsOf, jobsOf, now) {
     }
   }
   if (from === undefined) return { unknown }
-  const lines = new Set(texts.reverse().flatMap(t => t.split('\n').filter(Boolean)))
-  return { from, text: [...lines].map(l => `${l}\n`).join(''), unknown }
+  return { from, text: union(texts.reverse()) ?? '', unknown }
 }
 
 /** The line that stops every step with a ceiling until the day ends (ceiling.ts): no dollar figure, as none is known. */
@@ -125,26 +152,28 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     process.exit(2)
   }
   const now = new Date()
-  if (existsSync(log)) {
-    console.log('the cost log came from the cache')
-    process.exit(0)
-  }
+  const cached = existsSync(log) ? readFileSync(log, 'utf8') : undefined
+  const count = t => (t ? t.split('\n').filter(Boolean).length : 0)
   try {
     const repo = process.env.GITHUB_REPOSITORY
     if (!repo) throw new Error('GITHUB_REPOSITORY is not set')
     const repoId = Number(process.env.GITHUB_REPOSITORY_ID) || json([`repos/${repo}`]).id
     const runs = allRuns(n => json([`repos/${repo}/actions/workflows/engine.yml/runs?branch=main&per_page=100&page=${n}`]).workflow_runs, now)
+    const list = (path, key) => pagesOf(n => json([`${path}${path.includes('?') ? '&' : '?'}per_page=100&page=${n}`])[key])
     const dir = mkdtempSync(join(tmpdir(), 'aq-cost-log-'))
-    const logsOf = run => keptLogs(json([`repos/${repo}/actions/runs/${run.id}/artifacts?per_page=100`]).artifacts, repoId).map(a => {
+    const logsOf = run => keptLogs(list(`repos/${repo}/actions/runs/${run.id}/artifacts`, 'artifacts'), repoId).map(a => {
       const zip = join(dir, `${a.id}.zip`)
       writeFileSync(zip, gh(['api', `repos/${repo}/actions/artifacts/${a.id}/zip`]))
-      return { text: execFileSync('unzip', ['-p', zip], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }), at: a.created_at }
+      return { text: execFileSync('unzip', ['-p', zip], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }), at: a.created_at, attempt: attemptOf(a.name) }
     })
-    const jobsOf = run => json([`repos/${repo}/actions/runs/${run.id}/jobs?filter=all&per_page=100`]).jobs
+    const jobsOf = run => list(`repos/${repo}/actions/runs/${run.id}/jobs?filter=all`, 'jobs')
     const r = restore(ownRuns(runs, repoId, now), logsOf, jobsOf, now)
-    if (r.text !== undefined) {
-      writeFileSync(log, r.text)
-      console.log(`the cache had no cost log: restored the runs' own, the last from run ${r.from} (${r.text.split('\n').filter(Boolean).length} lines)`)
+    const text = union([cached, r.text])
+    if (text !== undefined) writeFileSync(log, text)
+    if (cached !== undefined) {
+      console.log(`the cost log came from the cache (${count(cached)} lines); the runs' own copies added ${count(text) - count(cached)}`)
+    } else if (r.text !== undefined) {
+      console.log(`the cache had no cost log: restored the runs' own, the last from run ${r.from} (${count(text)} lines)`)
     } else {
       loud('Neither the cache nor any run of the last 8 days kept a cost log.')
     }
@@ -156,6 +185,6 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   } catch (e) {
     // The earlier runs can't be asked about, so neither can the day: the careful reading.
     appendFileSync(log, unloggedLine(now, `the earlier runs' cost logs couldn't be fetched: ${String(e.message).slice(0, 200)}`))
-    loud(`The cache had no cost log and the earlier runs' couldn't be fetched (${String(e.message).slice(0, 200)}): every step with a ceiling stops until the day ends in Vietnam. The gate and moderation go on.`)
+    loud(`The earlier runs' cost logs couldn't be fetched (${String(e.message).slice(0, 200)}): every step with a ceiling stops until the day ends in Vietnam. The gate and moderation go on.`)
   }
 }
