@@ -45,9 +45,17 @@ test('the first run is kept as its command printed it, and holds the next until 
 test('the front list file parses and names each page once', () => {
   expect(typeof list.cleared).toBe('boolean')
   expect(Number.isNaN(Date.parse(list.first))).toBe(false)
-  expect(list.front.every(k => /^vi\/(species|plants|guides)\/[^/]+$/.test(k))).toBe(true)
+  expect(list.front.every(k => /^vi\/(species|plants|guides|breeds)\/[^/]+$/.test(k))).toBe(true)
   expect(new Set(list.front).size).toBe(list.front.length)
   expect(list.about).toMatch(/cleared/)
   expect(list.about).toMatch(/first/)
   expect(list.about).toMatch(/front/)
+})
+
+test('the four Tết breed pages come last, after the 24 the first run was ruled on', () => {
+  // The chief of staff, 2026-11-12: Hôm nay's red and gold fish before Tết (cards by 18 Jan) need these passing by
+  // 11 Jan, so they go at the end of the list, leaving the first run's pages as they were.
+  expect(list.front).toHaveLength(28)
+  expect(list.front.slice(0, 24).every(k => !k.startsWith('vi/breeds/'))).toBe(true)
+  expect(list.front.slice(24)).toEqual(['vi/breeds/koi', 'vi/breeds/ranchu-goldfish', 'vi/breeds/ryukin-goldfish', 'vi/breeds/butterfly-koi'])
 })
