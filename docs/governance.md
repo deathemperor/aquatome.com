@@ -955,6 +955,14 @@ The layers above still check the result.
       `pnpm engine sweep --photo-cap <N>` (the chief of staff, 2026-11-11). A photo of another fish leaves only that page, so it may still join its own fish's
       (taken off again if a later run brings it back). A Latin name no page has is listed for a person ("may name
       another fish"), not removed.
+    - a photo on the never-again list (`engine-state/_photo-rejected.json`): off every fish's, plant's, breed's and
+      guide's page and every album, by the photo check's own rule (an Aquarium Glaser photo with the shop's own mark
+      kept stays). The check takes them off only in the tree its run started from, and the cycle's push keeps its own
+      lines where they clash with main's: on 2026-11-11 three photos a person took off came back in their albums that
+      way. The cycle sweeps after it catches up with main, after a clash at its push, and after a clean pull at its push
+      that brought main's commits in, so one that comes back then leaves before the push. The calendar's pictures go
+      too: a day's, a language's own day's, a guide's, a story's or a week's hero's that is a listed photo or its large
+      copy is dropped, and the app shows the page's own; a loop whose poster is listed goes whole
     - a card figure out of bounds, upside down, or a minimum tank shorter than twice the fish: hidden from the card
       (`hidden` with why, kept in the file; worked out again each run), and the species' approved summary sent back to be
       written again against the new card
