@@ -20,11 +20,23 @@ export function parseTokens(list?: string, single?: string): string[] {
   return [...new Set([...(list ?? '').split(/\r?\n/), single ?? ''].map(t => t.trim()).filter(Boolean))]
 }
 
+/**
+ * Where a process starts in the list: CLAUDE_FIRST_ACCOUNT, a position in it (unset, or no position in the list: 1, the
+ * first, as before), then on in order and round to the start. The cloud's list begins with the Mac's own sign-ins, so the
+ * cloud starts on the one after them and leaves those to the Mac until its own is out (the chief of staff, 2026-11-12).
+ * Reports still name each account by its number in the list as given.
+ */
+export function startAt<T>(all: T[], first?: string): T[] {
+  const k = Number(first)
+  const i = Number.isInteger(k) && k >= 1 && k <= all.length ? k - 1 : 0
+  return [...all.slice(i), ...all.slice(0, i)]
+}
+
 const AUTH = /Failed to authenticate|Invalid bearer token/i
 type Account = { n: number; token: string; hash: string; out?: { why: 'usage' | 'auth'; message: string } }
 let accounts: Account[] | undefined
-const list = (): Account[] => (accounts ??= parseTokens(process.env.CLAUDE_CODE_OAUTH_TOKENS, process.env.CLAUDE_CODE_OAUTH_TOKEN)
-  .map((token, i) => ({ n: i + 1, token, hash: createHash('sha256').update(token).digest('hex').slice(0, 8) })))
+const list = (): Account[] => (accounts ??= startAt(parseTokens(process.env.CLAUDE_CODE_OAUTH_TOKENS, process.env.CLAUDE_CODE_OAUTH_TOKEN)
+  .map((token, i) => ({ n: i + 1, token, hash: createHash('sha256').update(token).digest('hex').slice(0, 8) })), process.env.CLAUDE_FIRST_ACCOUNT))
 
 /** Forget the accounts and what they did (tests). */
 export function resetAccounts() { accounts = undefined }

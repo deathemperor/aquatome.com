@@ -124,6 +124,8 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # The owner's other Claude accounts, one token a line: the next when one is out (claude-accounts.ts).
           CLAUDE_CODE_OAUTH_TOKENS: ${{ secrets.CLAUDE_CODE_OAUTH_TOKENS }}
+          # Where the cloud starts in that list (claude-accounts.ts startAt): unset, the first.
+          CLAUDE_FIRST_ACCOUNT: ${{ vars.CLAUDE_FIRST_ACCOUNT }}
           # The pace of the languages not served yet, and of Malay, which share the accounts' weekly limit with the others:
           # repository variables, so it changes without a commit; unset, engine-cycle.sh's defaults. AHEAD_BEFORE_MINUTES 0
           # pauses Malay's steps but its species, which run ungated (2026-11-12); LOCALIZE_AHEAD_LIMIT 0 pauses those.
