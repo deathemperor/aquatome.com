@@ -141,6 +141,15 @@ test('a copy under the old name counts only for the attempt that kept it', () =>
   expect(restore(runs, () => [{ ...old, at: '2026-11-12T02:01:00Z' }], () => refused, NOW)).toEqual({ from: 40, text: 'b\n', unknown: [40] })
 })
 
+// Astra's fourth read: a call is logged when its answer comes back, so one a cancel cut off is in no copy.
+test('a cancelled cycle counts as unlogged, its own copy or not', () => {
+  const runs = [run(50, '2026-11-12T01:00:00Z', '2026-11-12T03:00:00Z')]
+  const copy = { text: 'a\n', at: '2026-11-12T02:31:00Z', attempt: 1 }
+  expect(restore(runs, () => [copy], () => [due, cycle('cancelled', '2026-11-12T02:30:00Z')], NOW)).toEqual({ from: 50, text: 'a\n', unknown: [50] })
+  // A failed one's copy still counts: the step ran to its own end, past every call it started.
+  expect(restore(runs, () => [copy], () => [due, cycle('failure', '2026-11-12T02:30:00Z')], NOW)).toEqual({ from: 50, text: 'a\n', unknown: [] })
+})
+
 test('a list of GitHub\'s is read to its last page, and one longer than the most pages can\'t be counted', () => {
   const full = (n: number) => Array.from({ length: 100 }, (_, i) => n * 100 + i)
   const asked: number[] = []

@@ -108,9 +108,11 @@ export function legacyAttempt(jobs) {
  * copy is kept by the upload step after the cycle step, so it holds the cycle's lines; the times aren't compared, as the
  * step's is the runner's clock and the copy's GitHub's (Astra's third read: a runner five seconds ahead made a whole log
  * read as late). Another attempt's copy can't hold it: a later attempt that found an older cache kept a log without
- * it. A copy under the old name is its uploading attempt's (legacyAttempt), or no attempt's.
+ * it. A copy under the old name is its uploading attempt's (legacyAttempt), or no attempt's. A cancelled cycle's copy
+ * holds nothing for sure (Astra's fourth read): a call is logged when its answer comes back (claude.ts), so a call the
+ * cancel cut off is in no copy, and the day can't be counted.
  */
-const covers = (k, s, legacy) => s.attempt !== undefined && (k.attempt ?? legacy) === s.attempt
+const covers = (k, s, legacy) => s.attempt !== undefined && s.conclusion !== 'cancelled' && (k.attempt ?? legacy) === s.attempt
 
 /** Every line of `texts`, once each, in the order first met. */
 export function union(texts) {
