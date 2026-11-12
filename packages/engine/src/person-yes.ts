@@ -27,6 +27,8 @@ type Raw = Record<string, Record<string, Partial<PersonYes>>>
 
 const object = (x: unknown): x is Record<string, unknown> => typeof x === 'object' && x !== null && !Array.isArray(x)
 const who = (x: string) => x.trim().toLowerCase()
+/** A map with no prototype: a key the record names "__proto__" is a key like any other, never the object's prototype. */
+const dict = <T>() => Object.create(null) as Record<string, T>
 const OWNER = who('the owner')
 
 /** A day as written in the calendar: 2026-02-30 is no day. */
@@ -55,12 +57,12 @@ export function countedYes(raw: unknown): Record<string, Record<string, PersonYe
       && said(y.proposer, y.approvers))
     .sort((a, b) => a.y.on!.localeCompare(b.y.on!) || a.url.localeCompare(b.url) || a.page.localeCompare(b.page))
   const week = new Map<string, number>()
-  const out: Record<string, Record<string, PersonYes>> = {}
+  const out = dict<Record<string, PersonYes>>()
   for (const { url, page, y } of valid) {
     const k = monday(y.on!)
     if ((week.get(k) ?? 0) >= YES_PER_WEEK) continue
     week.set(k, (week.get(k) ?? 0) + 1)
-    ;(out[url] ??= {})[page] = y as PersonYes
+    ;(out[url] ??= dict<PersonYes>())[page] = y as PersonYes
   }
   return out
 }

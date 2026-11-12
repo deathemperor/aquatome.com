@@ -580,6 +580,14 @@ test("a person's yes names people as they are, on a real day; the owner's alone 
   expect(Object.keys((await readVerdicts(root)).personYes!)).toEqual([big(1)])
   await writeFile(join(root, 'engine-state/_photo-person-yes.json'), '[]')
   expect(await readPersonYes(root)).toEqual({ raw: {}, counted: {} })
+  // A key named "__proto__", at either level, is a key like any other: no reader throws, and no object gains a field.
+  await writeFile(join(root, 'engine-state/_photo-person-yes.json'), `{"__proto__":{"__proto__":${JSON.stringify({ ...yes, approvers: ['the owner'] })}}}`)
+  const odd = await readPersonYes(root)
+  expect(Object.keys(odd.counted)).toEqual(['__proto__'])
+  expect(Object.keys(odd.counted['__proto__']!)).toEqual(['__proto__'])
+  expect(pickStands('species/__proto__', '__proto__', {}, odd)).toBe(false)
+  expect(({} as Record<string, unknown>).proposer).toBeUndefined()
+  expect(Object.keys((await readVerdicts(root)).personYes!)).toEqual(['__proto__'])
 })
 
 test("no engine step writes the person's-yes record: a pull request changes it", () => {
