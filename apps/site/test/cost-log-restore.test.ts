@@ -36,7 +36,7 @@ const kept: Record<number, string> = { 42990842284: '{"at":"2026-11-11T10:02:00.
 test('12 Nov replayed: the log comes from 11 Nov\'s last cycle, and nothing is held, as no cycle ran that day before', () => {
   const asked: number[] = []
   const runs = ownRuns(DAY_12, REPO, 43171489553, NOW)
-  expect(runs.map(r => r.id)).not.toContain(43171489553)
+  expect(runs.map((r: Run) => r.id)).not.toContain(43171489553)
   const r = restore(runs, (x: Run) => { asked.push(x.id); return kept[x.id] }, () => [due, skipped], NOW)
   expect(r).toEqual({ from: 42990842284, text: kept[42990842284], unknown: [] })
   // Newest first, and it stops at the first log it finds.
@@ -87,9 +87,9 @@ test('only this repository\'s own runs on main, by the schedule or by hand, of t
     run(16, '2026-11-12T06:00:00Z', '2026-11-12T06:30:00Z', { event: 'schedule' }),
     run(17, '2026-11-12T06:50:00Z', '2026-11-12T06:55:00Z'),
   ]
-  expect(ownRuns(runs, REPO, 17, NOW).map(r => r.id)).toEqual([16, 10])
+  expect(ownRuns(runs, REPO, 17, NOW).map((r: Run) => r.id)).toEqual([16, 10])
   // Run again, this run's earlier attempt kept its own log, and spent: it counts.
-  expect(ownRuns(runs, REPO, 17, NOW, 2).map(r => r.id)).toEqual([17, 16, 10])
+  expect(ownRuns(runs, REPO, 17, NOW, 2).map((r: Run) => r.id)).toEqual([17, 16, 10])
 })
 
 test('the day is Vietnam\'s, and the line carries a reason, never a dollar figure', () => {
