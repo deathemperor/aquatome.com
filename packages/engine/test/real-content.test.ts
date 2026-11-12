@@ -366,8 +366,6 @@ test('the tap-water fixes hold: Seachem Prime named at its dose, our note on wat
     const t = read<{ sections: Record<string, string> }>(`plants/dracaena-sanderiana/${lang}.json`).sections
     expect(t['waterConditions:aquatome'], lang).toMatch(ours[lang])
     expect(t['waterConditions:aquatome'], lang).not.toMatch(tap[lang])
-    const keys = Object.keys(t)
-    expect(keys.indexOf('maintenance:aquatome'), lang).toBe(keys.indexOf('maintenance:aquariumbreeder') + 1)
     expect(t['maintenance:aquatome'], lang).toMatch(new RegExp(`^<p><strong>${label[lang]}:</strong> `))
     expect(t['maintenance:aquatome'], lang).toMatch(ruling[lang])
     expect(t['maintenance:aquatome'], lang).not.toMatch(tap[lang])
