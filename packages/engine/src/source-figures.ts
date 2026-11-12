@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { WRITTEN_LANGS, type UnitLang } from '@aq/schema'
@@ -30,14 +31,25 @@ import { FOOT_LENGTHS, fromF, givesDose, INCH_SIDES, JOIN, litres, metricFigures
  */
 export const SOURCE_FIGURES_STATE = 'engine-state/_source-figures.json'
 /**
- * The pace (the chief of staff, 2026-11-12): the first 30 language pages; once a cycle has published them (their marks
- * are on main), 60 a cycle, without asking. It stops by itself, and says so, when in any batch (the pages marked in one
- * run) more than one page in ten is held or given its old text back for something other than its figures (`units`);
- * then it waits for the chief's word. A page the gate couldn't read loses its mark (writer-records.ts) and is tried
- * again, the first 30 within their 30.
+ * The pace (the chief of staff, 2026-11-12): the first 30 language pages; once a cycle has published them (30 marks on
+ * GitHub's main), 60 a cycle, without asking. Marks this checkout made and hasn't published count against the run, so a
+ * second run before a publish mends nothing more. Only the Mac's photos part runs it (engine-cycle.sh), so a cycle is
+ * one run.
+ * It stops by itself, and says so, when in any batch (the pages first marked in one run) more than one page in ten is
+ * held or given its old text back for something other than its figures (`units`); then it mends nothing until the chief
+ * of staff's word, given by taking `stopped` out of SOURCE_FIGURES_BATCHES. A page the gate couldn't read loses its mark
+ * (writer-records.ts) and is tried again, staying in its own batch, and in the first 30 within their 30.
  */
 export const SOURCE_FIGURES_PACE = { first: 30, perRun: 60, stopAbove: 0.1 }
+/**
+ * Each batch's pages and what the gate made of each, recorded once, right after the gate of the cycle that mended it
+ * (`recordSourceFigures`), so a hold that comes later for something else, or by hand, isn't counted. The gate puts back
+ * the marks of pages it couldn't read, never this file, so a batch keeps all its pages.
+ */
+export const SOURCE_FIGURES_BATCHES = 'engine-state/_source-figures-batches.json'
 export type SourceFiguresState = Record<string, { at: string; figures: string[] }>
+export type SourceFiguresBatch = { at: string; keys: string[]; outcomes: Record<string, string>; wrong: string[] }
+export type SourceFiguresBook = { batches: SourceFiguresBatch[]; stopped?: { at: string; why: string } }
 export type SourceFiguresReport = {
   mended: { key: string; file: string; figures: string[]; changes: { field: string; old: string; now: string }[] }[]
   /** Not mended: held, or a part that fails a check above. */
@@ -48,6 +60,8 @@ export type SourceFiguresReport = {
   waiting?: number
   /** Set when a batch went wrong for more than the pace allows: the mender mends nothing until the chief's word. */
   stopped?: string
+  /** Set when the marks on GitHub's main couldn't be read: the mender mends nothing. */
+  noMain?: string
 }
 
 type Lang = UnitLang
@@ -169,32 +183,85 @@ const ofKey = (key: string) => {
 /** Checks a page failed that aren't about its figures. */
 const notFigures = (checks: readonly string[] | undefined) => (checks ?? []).filter(c => c !== 'units')
 
-/**
- * The first batch (the pages marked in one run) in which more than one page in ten was held, or given its old text back,
- * for something other than its figures: what it was, or nothing. A put-back file counts when it is the gate's answer to
- * this mend (written after the mark), not when it is older or for a page it couldn't read.
- */
-async function wentWrong(root: string, state: SourceFiguresState): Promise<string | undefined> {
-  const batches = new Map<string, string[]>()
-  for (const [key, v] of Object.entries(state)) batches.set(v.at, [...(batches.get(v.at) ?? []), key])
-  for (const [at, keys] of [...batches].sort(([a], [b]) => a.localeCompare(b))) {
-    const wrong: string[] = []
-    for (const key of keys) {
-      const k = ofKey(key)
-      const t = JSON.parse(await readFile(join(root, 'content', k.kind, k.id, `${k.lang}.json`), 'utf8').catch(() => '{}')) as { held?: { checks?: string[] } }
-      const back = JSON.parse(await readFile(join(root, putBackFile(k)), 'utf8').catch(() => '{}')) as { at?: string; checks?: string[]; unread?: boolean }
-      const held = notFigures(t.held?.checks)
-      const put = back.at && back.at >= at && !back.unread ? notFigures(back.checks) : []
-      if (held.length) wrong.push(`${key} held for ${held.join(', ')}`)
-      else if (put.length) wrong.push(`${key} given its old text back for ${put.join(', ')}`)
-    }
-    if (wrong.length > keys.length * SOURCE_FIGURES_PACE.stopAbove) return `the batch of ${at}: ${wrong.length} of ${keys.length} pages: ${wrong.join('; ')}`
+const readJson = async <T>(file: string, empty: T): Promise<T> => JSON.parse(await readFile(file, 'utf8').catch(() => JSON.stringify(empty))) as T
+const writeJson = async (file: string, v: unknown) => {
+  await mkdir(join(file, '..'), { recursive: true })
+  await writeFile(file, `${JSON.stringify(v, null, 1)}\n`)
+}
+/** The marks on GitHub's main, or undefined when git can't say. */
+function marksOnMain(root: string): SourceFiguresState | undefined {
+  try {
+    return JSON.parse(execFileSync('git', ['show', `origin/main:${SOURCE_FIGURES_STATE}`], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 16 << 20 })) as SourceFiguresState
+  } catch {
+    try { execFileSync('git', ['rev-parse', '--verify', '-q', 'origin/main'], { cwd: root, stdio: 'ignore' }) } catch { return undefined }
+    return {} // main is there, without the file: nothing marked yet
   }
-  return undefined
+}
+/** Marks from before the batches were kept, in a batch of their run's. */
+function adopt(book: SourceFiguresBook, state: SourceFiguresState): boolean {
+  const known = new Set(book.batches.flatMap(b => b.keys))
+  const orphans = Object.entries(state).filter(([k]) => !known.has(k))
+  for (const [key, { at }] of orphans) {
+    const b = book.batches.find(x => x.at === at) ?? book.batches[book.batches.push({ at, keys: [], outcomes: {}, wrong: [] }) - 1]!
+    b.keys.push(key)
+  }
+  book.batches.sort((a, b) => Date.parse(a.at) - Date.parse(b.at))
+  return orphans.length > 0
 }
 
-/** `limit`: language pages this run, in place of the pace (a dry run, or by hand). */
-export async function sourceFigures(root: string, o: { limit?: number; first?: readonly string[]; dryRun?: boolean; now?: () => Date } = {}): Promise<SourceFiguresReport> {
+/**
+ * What the gate made of each page of a batch it hasn't been recorded for, once: run right after the gate. A page still
+ * marked was read (one it couldn't read has lost its mark); its outcome is its hold, or a put-back written after its mark
+ * that isn't for a page it couldn't read, or passed. The stop is set when a batch's pages counted against it first go
+ * past one in ten, and stays until the chief of staff's word takes it out.
+ */
+export async function recordSourceFigures(root: string, o: { now?: () => Date } = {}): Promise<{ recorded: string[]; stopped?: string }> {
+  const at = (o.now ?? (() => new Date()))().toISOString()
+  const state = await readJson<SourceFiguresState>(join(root, SOURCE_FIGURES_STATE), {})
+  const bookFile = join(root, SOURCE_FIGURES_BATCHES)
+  const book = await readJson<SourceFiguresBook>(bookFile, { batches: [] })
+  let changed = adopt(book, state)
+  const recorded: string[] = []
+  for (const b of book.batches) {
+    const before = b.wrong.length
+    for (const key of b.keys) {
+      const mark = state[key]
+      if (!mark || b.outcomes[key] !== undefined) continue
+      const k = ofKey(key)
+      const t = await readJson<{ held?: { checks?: string[] } }>(join(root, 'content', k.kind, k.id, `${k.lang}.json`), {})
+      const back = await readJson<{ at?: string; checks?: string[]; unread?: boolean }>(join(root, putBackFile(k)), {})
+      const answer = !!back.at && Date.parse(back.at) >= Date.parse(mark.at)
+      if (answer && back.unread) continue
+      let outcome = 'passed'
+      let wrong = false
+      if (t.held) {
+        const checks = t.held.checks ?? []
+        outcome = `held${checks.length ? ` for ${checks.join(', ')}` : ''}`
+        wrong = !checks.length || notFigures(checks).length > 0
+      } else if (answer) {
+        outcome = `given its old text back${back.checks?.length ? ` for ${back.checks.join(', ')}` : ''}`
+        wrong = notFigures(back.checks).length > 0
+      }
+      b.outcomes[key] = outcome
+      if (wrong) b.wrong.push(key)
+      recorded.push(`${key}: ${outcome}`)
+      changed = true
+    }
+    const allowed = b.keys.length * SOURCE_FIGURES_PACE.stopAbove
+    if (before <= allowed && b.wrong.length > allowed) {
+      const why = `the batch of ${b.at}: ${b.wrong.length} of ${b.keys.length} pages: ${b.wrong.map(k => `${k} ${b.outcomes[k]}`).join('; ')}`
+      book.stopped = book.stopped ? { ...book.stopped, why: `${book.stopped.why}. And ${why}` } : { at, why }
+    }
+  }
+  if (changed) await writeJson(bookFile, book)
+  return { recorded, ...(book.stopped ? { stopped: book.stopped.why } : {}) }
+}
+
+/**
+ * `limit`: language pages this run, in place of the pace (a dry run, or by hand). `onMain`: the marks on GitHub's main,
+ * read from git when not given.
+ */
+export async function sourceFigures(root: string, o: { limit?: number; first?: readonly string[]; dryRun?: boolean; now?: () => Date; onMain?: SourceFiguresState } = {}): Promise<SourceFiguresReport> {
   const at = (o.now ?? (() => new Date()))().toISOString()
   const stateFile = join(root, SOURCE_FIGURES_STATE)
   const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as SourceFiguresState
@@ -213,9 +280,20 @@ export async function sourceFigures(root: string, o: { limit?: number; first?: r
   }
   const rank = (k: string) => { const i = o.first?.indexOf(k) ?? -1; return i >= 0 ? i : (o.first?.length ?? 0) }
   const report: SourceFiguresReport = { mended: [], left: [], putBack: [] }
-  report.stopped = await wentWrong(root, state)
-  const marks = Object.keys(state).length
-  const limit = o.limit ?? (report.stopped ? 0 : marks < SOURCE_FIGURES_PACE.first ? SOURCE_FIGURES_PACE.first - marks : SOURCE_FIGURES_PACE.perRun)
+  const bookFile = join(root, SOURCE_FIGURES_BATCHES)
+  const book = await readJson<SourceFiguresBook>(bookFile, { batches: [] })
+  let bookChanged = adopt(book, state)
+  if (book.stopped) report.stopped = book.stopped.why
+  const onMain = o.onMain ?? marksOnMain(root)
+  if (!onMain) report.noMain = `couldn't read ${SOURCE_FIGURES_STATE} on origin/main`
+  const pace = () => {
+    if (report.stopped || !onMain) return 0
+    const published = Object.keys(onMain).length
+    const unpublished = Object.keys(state).filter(k => !onMain[k]).length
+    return Math.max(0, (published < SOURCE_FIGURES_PACE.first ? SOURCE_FIGURES_PACE.first - published : SOURCE_FIGURES_PACE.perRun) - unpublished)
+  }
+  const limit = o.limit ?? pace()
+  const batched = new Set(book.batches.flatMap(b => b.keys))
   const plans: { key: string; file: string; t: Translation; raw: string; parts: ReturnType<typeof partsOf>; changes: { field: string; old: string; now: string }[]; figures: string[]; sides: boolean }[] = []
   for (const { key, file, t, raw, en } of pages) {
     const lang = key.split('/')[0] as Lang
@@ -252,7 +330,11 @@ export async function sourceFigures(root: string, o: { limit?: number; first?: r
     state[key] = { at, figures }
   }
   report.waiting = plans.length - report.mended.length
-  if (!o.dryRun && report.mended.length) await mkdir(join(stateFile, '..'), { recursive: true })
-  if (!o.dryRun && report.mended.length) await writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort(([a], [b]) => a.localeCompare(b))), null, 1)}\n`)
+  if (o.dryRun) return report
+  // A page tried again (the gate couldn't read it) stays in its own batch; the order that chose it first brings it first.
+  const fresh = report.mended.map(m => m.key).filter(k => !batched.has(k))
+  if (fresh.length) { book.batches.push({ at, keys: fresh, outcomes: {}, wrong: [] }); bookChanged = true }
+  if (report.mended.length) await writeJson(stateFile, Object.fromEntries(Object.entries(state).sort(([a], [b]) => a.localeCompare(b))))
+  if (bookChanged) await writeJson(bookFile, book)
   return report
 }

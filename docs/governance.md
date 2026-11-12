@@ -891,11 +891,14 @@ The layers above still check the result.
   made smaller, a line with two lengths (the chief of staff, 2026-11-12). `pnpm engine source-figures` puts them back
   from the English by code, no model, and litres, lengths and °C the same way: 371 language pages on 223 fish and plant
   pages, a page whole in one pass, those with a tank's sides first, a held page left as it is, and so are litres in a part that gives a dose and a length that isn't plainly a tank's. It goes at the pace the
-  chief sets (`SOURCE_FIGURES_PACE`, source-figures.ts): the first 30 language pages; once a cycle has published them,
-  60 a cycle, without asking; and it stops by itself, and says so in its log, when in any batch more than one page in
-  ten is held or given its old text back for something other than its figures (the chief of staff, 2026-11-12). The
-  gate reads each as any changed page. A page the gate gives its old text back isn't mended again: it is listed with the
-  checks it failed and waits for the chief's word; one the gate couldn't read is tried again.
+  chief sets (`SOURCE_FIGURES_PACE`, source-figures.ts), in the Mac's photos part alone: the first 30 language pages;
+  once a cycle has published them (30 marks on GitHub's main), 60 a cycle, without asking, marks not yet published
+  counting against the run; and it stops by itself, and says so in its log, when in any batch more than one page in ten
+  is held or given its old text back for something other than its figures (the chief of staff, 2026-11-12). The gate
+  reads each as any changed page, and what it made of each is recorded once, right after it (`engine-state/_source-figures-batches.json`),
+  so a later hold for something else doesn't count; the stop stays there until the chief's word takes it out. A page
+  the gate gives its old text back isn't mended again: it is listed with the checks it failed and waits for the chief's
+  word; one the gate couldn't read is tried again, in its own batch.
 - **One size for a US tank.** A tank a source gives in US gallons is named by the size keepers here say, one table for
   every writer, reviewer and the rounding (`US_TANKS`, round.ts: 10 gallons 40 litres, 20 gallons 80, 30 gallons 120):
   the video writer had no rule and the others rounded to the nearest 5 litres, which gave 75, 115 and 210 litres, and
