@@ -130,10 +130,15 @@ test.each(SOURCE_FIGURES)("the source's own figures: %s %s keeps the English's t
   const dir = fileURLToPath(new URL(`../../../content/species/${id}/`, import.meta.url))
   const en = englishOf(JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')).sections)
   const text = (JSON.parse(await readFile(join(dir, `${lang}.json`), 'utf8')) as Translation).sections![part]!
-  const m = mendPart(text, en.sections[part]!, lang)
-  expect(m).not.toHaveProperty('why')
-  const kept = roundPage({ sections: { [part]: m ? (m as { text: string }).text : text } }, lang, en).sections![part]!
-  for (const w of want) expect(kept).toContain(w)
+  // Today's file, and the same file once a cycle's mender has put the figures back. The mender has nothing left to do
+  // on the second (undefined), and a rewrite cycle failed its tests there (2026-11-12): the check read undefined's 'why'.
+  const first = mendPart(text, en.sections[part]!, lang)
+  for (const t of [text, first && 'text' in first ? first.text : text]) {
+    const m = mendPart(t, en.sections[part]!, lang)
+    expect(m ?? {}).not.toHaveProperty('why')
+    const kept = roundPage({ sections: { [part]: m ? (m as { text: string }).text : t } }, lang, en).sections![part]!
+    for (const w of want) expect(kept).toContain(w)
+  }
 })
 
 // Praziquantel mixed into food, in all four languages, by the fish's weight (University of Florida; a trial on grass carp doses
