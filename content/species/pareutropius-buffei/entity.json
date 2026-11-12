@@ -13,6 +13,118 @@
     "mali",
     "guinea"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG",
+        "NE",
+        "BJ",
+        "ML",
+        "GN"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The three striped African glass catfish, Pareutropius buffei, is a midwater, diurnal catfish from Nigeria, Niger, Benin, Mali and Guinea.",
+          "countries": [
+            "NG",
+            "NE",
+            "BJ",
+            "ML",
+            "GN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341820,
+      "total": 42,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "NG",
+          24
+        ],
+        [
+          "BJ",
+          14
+        ],
+        [
+          "GN",
+          2
+        ],
+        [
+          "CD",
+          1
+        ],
+        [
+          "GH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -11.25,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          -2.8125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          0,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          1.40625,
+          5.625,
+          9,
+          9
+        ],
+        [
+          2.8125,
+          5.625,
+          9,
+          9
+        ],
+        [
+          2.8125,
+          11.25,
+          4,
+          4
+        ],
+        [
+          5.625,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          7.03125,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          19.6875,
+          -1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

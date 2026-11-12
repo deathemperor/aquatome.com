@@ -1,0 +1,62 @@
+{
+  "id": "parosphromenus-bintan",
+  "native": {
+    "input": "83cd1f6141bbaec2",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus bintan is a liquorice gourami from Indonesia, confirmed only from Bintan Island in the Riau Archipelago and from Bangka.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bintan Island",
+        "source": "seriouslyfish",
+        "quote": "Type locality is Bintan Island, Riau Archipelago province, Indonesia, specifically 'just before km 45 on road from Tanjung Uban to Tanjung Pinang; 1°06'40.1\"N, 104°30'09.8\"E' and the only other confirmed localities are on the island of Bangka in Bangka-Belitung province.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Bangka",
+        "source": "seriouslyfish",
+        "quote": "Type locality is Bintan Island, Riau Archipelago province, Indonesia, specifically 'just before km 45 on road from Tanjung Uban to Tanjung Pinang; 1°06'40.1\"N, 104°30'09.8\"E' and the only other confirmed localities are on the island of Bangka in Bangka-Belitung province.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Riau Archipelago",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus bintan is a liquorice gourami from Indonesia, confirmed only from Bintan Island in the Riau Archipelago and from Bangka.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parosphromenus bintan",
+    "status": "ACCEPTED",
+    "taxonKey": 2394183,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

@@ -10,6 +10,63 @@
     "myanmar",
     "irrawaddy"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Irrawaddy delta"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Burma (Myanmar).",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Parasphaerichthys lineatus is a tiny gourami from the Irrawaddy delta, Myanmar, and at 15 to 19 mm SL the smallest member of the family Osphronemidae.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy delta"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393954,
+      "total": 2,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "MM",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          16.875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

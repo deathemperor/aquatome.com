@@ -584,7 +584,12 @@ The layers above still check the result.
     the most-kept fish 40, pages two or more sources write about 30 (a breed: two or more sites), every other page 20.
     The most popular pages go first, `GALLERY_SHEETS` model calls a cycle (`scripts/engine-cycle.sh`). A gallery is
     never padded: a page whose sources run dry stays short and is listed in `docs/review/galleries.md`, then read again
-    a month later.
+    a month later. Candidates a person found (`pnpm engine gallery-seed --from <file>`, by pull request) go to the front
+    of the page's queue and are screened like the step's own. A page whose sources ran dry is tried again, and a full
+    album is read for those candidates alone, never its sources' finds, growing at most 3 past its target (the chief of
+    staff, 2026-11-12: the weather loach's album was full and its head can't reach the card's size, so a card-size
+    photo found by hand had no way in). It screens no more of them than it has spaces: the rest wait in the queue for a
+    photo the check takes off.
   - **Sources.** iNaturalist first: every observation of the taxon (found by its name or a synonym) with a CC0, CC BY or
     CC BY-SA photo, research grade first, then those whose community ID agrees; aquarium and garden observations count.
     Then Wikimedia Commons, GBIF occurrence photos (observations and living collections, not preserved specimens, not
@@ -905,7 +910,10 @@ The layers above still check the result.
   or before the next run mends if that didn't run, so a later hold for something else doesn't count; the stop stays
   there until the chief's word takes it out, and a limit by hand doesn't pass it. A page
   the gate gives its old text back isn't mended again: it is listed with the checks it failed and waits for the chief's
-  word; one the gate couldn't read is tried again, in its own batch.
+  word; one the gate couldn't read is tried again, in its own batch, and isn't counted, even when the gate holds it then
+  (for its old text's own fault, or harm found in another language). A cycle whose gate can't read mends nothing: the
+  run asks the gate's model one short question first, and mends nothing without an answer (the chief of staff,
+  2026-11-12: an unread page is not a held page).
 - **One size for a US tank.** A tank a source gives in US gallons is named by the size keepers here say, one table for
   every writer, reviewer and the rounding (`US_TANKS`, round.ts: 10 gallons 40 litres, 20 gallons 80, 30 gallons 120):
   the video writer had no rule and the others rounded to the nearest 5 litres, which gave 75, 115 and 210 litres, and
