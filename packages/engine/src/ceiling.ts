@@ -1,3 +1,4 @@
+import { AsyncLocalStorage } from 'node:async_hooks'
 import { appendFileSync, readdirSync, readFileSync } from 'node:fs'
 import { homedir, tmpdir } from 'node:os'
 import { basename, dirname, join, resolve } from 'node:path'
@@ -79,7 +80,7 @@ export function tableInForce(tables: readonly CeilingTable[], now: Date): Ceilin
 }
 
 /** The logs a day's spend is read from: `log`, and every `aquatome-cost-*.jsonl` beside it (a job a file, on the Mac). */
-function logsBeside(log: string): string[] {
+export function logsBeside(log: string): string[] {
   const dir = dirname(resolve(log))
   let names: string[] = []
   try {
@@ -130,6 +131,25 @@ export function spentToday(log: string, now: Date): { total: number; by: Map<str
 
 const dollars = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(2))
 
+/** A step's line in a table: its own, else what every step not named gets; null is no ceiling. */
+const capOf = (place: Place, step: string) => (Object.hasOwn(place.steps, step) ? place.steps[step]! : place.default)
+
+/**
+ * Dollars `step` has left today: of its own line or of the backstop, whichever is less; null with no ceiling, and 0 on
+ * a day whose spend can't be counted. What a step that works in pieces checks before it starts one (pieces.ts).
+ */
+export function leftToday(step: string, log: string, ceilings: Ceilings = CEILINGS, now = new Date(), where: Machine = machine()): number | null {
+  const place = tableInForce(ceilings.tables, now)?.[where] ?? NOTHING
+  const cap = capOf(place, step)
+  if (cap == null) return null
+  const spent = spentToday(log, now)
+  if (spent.unlogged) return 0
+  return Math.max(0, Math.min(cap - (spent.by.get(step) ?? 0), place.backstop - spent.total))
+}
+
+/** The piece a call is made for (pieces.ts): its cost line carries it, so a piece's cost is its own calls' alone. */
+export const inPiece = new AsyncLocalStorage<string>()
+
 /**
  * Nothing when the call may go; else the failure's message. It starts "claude failed" and says "limit reached" or
  * "usage limit", which errorKind (state.ts) classes as a usage limit, and the gate as a page it can't read.
@@ -139,7 +159,7 @@ const dollars = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(2))
 export function ceilingMessage(step: string, log: string | undefined, ceilings: Ceilings = CEILINGS, now = new Date(), where: Machine = machine()): string | undefined {
   if (!log) return
   const place = tableInForce(ceilings.tables, now)?.[where] ?? NOTHING
-  const cap = Object.hasOwn(place.steps, step) ? place.steps[step] : place.default
+  const cap = capOf(place, step)
   if (cap == null) return
   try {
     appendFileSync(log, '')

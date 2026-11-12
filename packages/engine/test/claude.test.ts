@@ -86,6 +86,17 @@ test('ENGINE_COST_LOG gets a line a call; a log it cannot write never fails the 
   expect(await call()).toEqual({ ok: true })
 })
 
+test('a call made for a piece names it in its cost line, so a piece\'s cost is its own calls\' (pieces.ts)', async () => {
+  const { inPiece } = await import('../src/ceiling')
+  const log = join(await mkdtemp(join(tmpdir(), 'cost-')), 'cost.jsonl')
+  process.env.ENGINE_COST_LOG = log
+  await inPiece.run('guide-a 2026-11-13T05:00:00.000Z', call)
+  await call()
+  const [inside, outside] = (await readFile(log, 'utf8')).trim().split('\n').map(l => JSON.parse(l))
+  expect(inside).toMatchObject({ step: 'gate', piece: 'guide-a 2026-11-13T05:00:00.000Z', usd: 0.12 })
+  expect(outside).not.toHaveProperty('piece')
+})
+
 // The chief of staff, 2026-11-11: scores on file and today's differed by up to 0.35 on 8 of 14 pages, and nothing said
 // which model or which version of the command each came from. The engine asks for an alias, which moves with the version.
 test('the cost log and each review name the full model the alias answered with, and the command\'s version', async () => {
