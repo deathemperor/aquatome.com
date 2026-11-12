@@ -225,7 +225,7 @@ final class PageShotsFlowTests: XCTestCase {
     fish.tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
     shot()
-    app.buttons["v2-back"].tap()
+    app.leavePage()
     XCTAssertTrue(fish.waitForExistence(timeout: 5), "not back on Hôm nay")
     app.swipeUp()
     shot()

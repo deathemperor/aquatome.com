@@ -240,7 +240,7 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "v2-species").waitForExistence(timeout: 10), "no page")
     reveal(app, app.buttons["v2-add"])
     XCTAssertFalse(element(app, "chat-entry").exists, "the chat's entry signed out")
-    app.buttons["v2-back"].tap()
+    app.leavePage()
     // Out of the search, its words gone, then Hôm nay's profile button.
     for word in ["Đóng", "Hủy"] where app.buttons[word].firstMatch.waitForExistence(timeout: 2) { app.buttons[word].firstMatch.tap() }
     app.openTab("Hôm nay")

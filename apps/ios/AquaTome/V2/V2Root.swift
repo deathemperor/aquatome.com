@@ -231,6 +231,8 @@ extension EnvironmentValues {
   @Entry var v2Pages = false
   /// What the tab stands on under its bar and fade, for a page whose colour reaches them (ClearUnderTabBar).
   @Entry var v2FootGround: Binding<FootGround?>?
+  /// Hôm nay's posts (`Post`), on Hôm nay's stack; nil on the others.
+  @Entry var v2Posts: Posts?
   /// How many times the screen has been asked again ("Thử lại", a pull to refresh): a photo that didn't come tries again.
   @Entry var v2PhotoTries = 0
 }
@@ -242,44 +244,79 @@ struct FootGround: Equatable {
   let colour: Color
 }
 
-/// A guide's or a series' page, opened with iOS's zoom: iOS takes it back on a swipe from anywhere, but starts nothing for a
-/// fast flick from the very edge or the fastest from the middle. Those come here (PageSwipes), as on a fish's page.
-private struct FlicksBack: ViewModifier {
-  @Environment(\.dismiss) private var dismiss
+/// A page a Hôm nay card opens: a post, as the App Store's Today stories (the owner, 12 Nov: "for today posts they only
+/// support left edge swipe and close button"). It zooms out of its card, with no back button and a ✕ that closes it, and
+/// iOS's swipe from the left edge takes it back. A page opened from inside it pushes with iOS's own back button, and has
+/// the ✕ too, which closes the whole post.
+struct Post: Hashable {
+  let item: HandbookIndex.Item
+}
 
-  func body(content: Content) -> some View {
-    content.background {
-      if #available(iOS 26, *) { PageSwipes(moved: { _ in }, flickedBack: { dismiss() }).frame(width: 0, height: 0) }
-    }
-  }
+/// Hôm nay's posts: whether one is open, and closing it (back to Hôm nay's top).
+struct Posts {
+  var open: Binding<Bool>
+  var close: () -> Void
 }
 
 @available(iOS 18, *)
 private struct Destinations: ViewModifier {
   let zoom: Namespace.ID
   @Environment(HandbookModel.self) private var handbook
+  /// Hôm nay's stack only.
+  @Environment(\.v2Posts) private var posts
 
   func body(content: Content) -> some View {
     content
-      .navigationDestination(for: HandbookIndex.Item.self) { item in
-        Group {
-          // A fish's or a plant's: v2's own, the whole page.
-          if item.kind == .fish || item.kind == .plant {
-            SpeciesPage(item: item)
-          } else {
-            PageView(item: item, url: handbook.url(item)).v2ClearOfTheFade().modifier(FlicksBack())
-          }
-        }
-        .navigationTransition(.zoom(sourceID: item.path, in: zoom))
+      // iOS 26's swipe from a page's middle off on this stack, from its first screen on (`PageLeaves`).
+      .background { PageLeaves { _ in }.frame(width: 0, height: 0) }
+      // Pushed with iOS's own push and back button: its swipe from the left edge follows the finger, as in Settings.
+      .navigationDestination(for: HandbookIndex.Item.self) { page($0).modifier(ClosesPost(posts: posts, always: false)) }
+      .navigationDestination(for: Post.self) { post in
+        page(post.item)
+          .navigationBarBackButtonHidden(true)
+          .modifier(ClosesPost(posts: posts, always: true))
+          .onAppear { posts?.open.wrappedValue = true }
+          .navigationTransition(.zoom(sourceID: post.item.path, in: zoom))
       }
-      .navigationDestination(for: FullPage.self) { PageView(item: $0.item, url: handbook.url($0.item), at: $0.at).v2ClearOfTheFade() }
-      .navigationDestination(for: Browse.self) { BrowseView(browse: $0).v2ClearOfTheFade() }
-      .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query).v2ClearOfTheFade() }
-      .navigationDestination(for: FishIdRoute.self) { _ in FishIdView().v2ClearOfTheFade() }
+      .navigationDestination(for: FullPage.self) {
+        PageView(item: $0.item, url: handbook.url($0.item), at: $0.at).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false))
+      }
+      .navigationDestination(for: Browse.self) { BrowseView(browse: $0).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
+      .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
+      .navigationDestination(for: FishIdRoute.self) { _ in FishIdView().v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
       // Not clear of the fade: the chat hides the tab bar, and its box sits at the foot of the screen.
-      .navigationDestination(for: ChatRoute.self) { ChatView(route: $0) }
-      .navigationDestination(for: SitePage.self) { WebScreen(url: $0.url).v2ClearOfTheFade() }
-      .navigationDestination(for: TankMatesTool.self) { TankMatesView(query: $0.query).v2ClearOfTheFade() }
+      .navigationDestination(for: ChatRoute.self) { ChatView(route: $0).modifier(ClosesPost(posts: posts, always: false)) }
+      .navigationDestination(for: SitePage.self) { WebScreen(url: $0.url).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
+      .navigationDestination(for: TankMatesTool.self) { TankMatesView(query: $0.query).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
+  }
+
+  /// A fish's or a plant's page is v2's own, the whole page; the others v1's.
+  @ViewBuilder private func page(_ item: HandbookIndex.Item) -> some View {
+    if item.kind == .fish || item.kind == .plant {
+      SpeciesPage(item: item)
+    } else {
+      PageView(item: item, url: handbook.url(item)).v2ClearOfTheFade()
+    }
+  }
+}
+
+/// A post's ✕, at the bar's end: on the post itself, and on each screen opened inside it while it's open.
+private struct ClosesPost: ViewModifier {
+  let posts: Posts?
+  let always: Bool
+
+  func body(content: Content) -> some View {
+    if let posts, always || posts.open.wrappedValue {
+      content.toolbar {
+        ToolbarItem(placement: .topBarTrailing) {
+          Button(action: posts.close) { Image(systemName: "xmark") }
+            .accessibilityLabel(Text("Đóng"))
+            .accessibilityIdentifier("v2-close-post")
+        }
+      }
+    } else {
+      content
+    }
   }
 }
 
