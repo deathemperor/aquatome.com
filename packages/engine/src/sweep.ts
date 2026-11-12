@@ -44,7 +44,7 @@ import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
  *   onto engine-state/_photo-rejected.json so a re-read can't bring it back
  * - a photo on the never-again list (engine-state/_photo-rejected.json): off every fish's, plant's, breed's and guide's
  *   page and every album, as the photo check takes it off (an Aquarium Glaser photo with the shop's own mark kept stays).
- *   So one a merge with main brings back leaves again before the cycle's tests and push
+ *   So one that the cycle's catch-up with main or a clash at its push brings back leaves again before its tests
  * - a head photo a person picked (engine-state/_photo-head-picks.json, page → photo, from its own photos or its gallery):
  *   first on its page, the old head second. The steps before the sweep may reorder a page's photos; this has the last word
  * - a rejected video (engine-state/_video-rejected.json): off every species and plant page
@@ -592,8 +592,10 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // Every photo on the never-again list leaves the pages and albums the photo check strips, by the check's own rule (an
   // Aquarium Glaser photo with the shop's own mark kept stays: watermarks.ts keptOwnMark). The check strips them only
   // in the tree its run started from. The cycle's push keeps its own lines where they clash with main's, so a photo a
-  // person took off while a run was under way came back in its album (three on 2026-11-11), and the cycle sweeps after
-  // every merge with main.
+  // person took off while a run was under way came back in its album (three on 2026-11-11). The cycle sweeps after it
+  // catches up with main and after a clash at its push. A clean pull at the push is not swept: a removal that reaches
+  // main while the cycle's tests run can come back on a page whose photo the run also changed (merge-entity.mjs keeps
+  // an item one side changed), until the next cycle's sweep.
   const rejected = JSON.parse(await readFile(join(root, 'engine-state', '_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   const kept = keptOwnMark(rejected, JSON.parse(await readFile(join(root, 'engine-state', '_photo-watermarks.json'), 'utf8').catch(() => '{}')) as Record<string, WatermarkEntry>)
   const listed = (url: string) => url in rejected && !kept(url)
