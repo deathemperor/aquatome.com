@@ -1,4 +1,4 @@
-import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, rename, writeFile } from 'node:fs/promises'
 import { dirname } from 'node:path'
 
 /**
@@ -7,7 +7,8 @@ import { dirname } from 'node:path'
  * step once a page, the large copies and the mirror once for each address of a photo. A refusal now puts every Wikimedia
  * read to rest, as the Internet Archive's does (archive.ts): for the time the refusal names (Retry-After), else 12 hours,
  * doubling to a day if the first request after the rest is refused too. Every request asks as the engine, under its own
- * name, whatever name the caller set.
+ * name, whatever name the caller set. Only a refusal writes the rest, whole; nothing deletes it, so no answer can undo a
+ * newer refusal another download wrote meanwhile. A rest that has ended is simply past.
  */
 export const WIKIMEDIA_REST_MS = 12 * 3_600_000
 export const WIKIMEDIA_REST_MAX_MS = 24 * 3_600_000
@@ -49,7 +50,9 @@ export function restingFetch(fetch: typeof globalThis.fetch, o: { restFile: stri
     headers.set('user-agent', o.ua)
     const r = await fetch(input, { ...init, headers })
     if (r.status === 429) {
-      const waitMs = namedWait(r.headers.get('retry-after'), o.now()) ?? (rest ? Math.min(rest.waitMs * 2, WIKIMEDIA_REST_MAX_MS) : WIKIMEDIA_REST_MS)
+      // Refused again within a rest's length of the last one ending: the wait doubles, to a day at most.
+      const again = rest && o.now().getTime() < Date.parse(rest.until) + rest.waitMs
+      const waitMs = namedWait(r.headers.get('retry-after'), o.now()) ?? (again ? Math.min(rest.waitMs * 2, WIKIMEDIA_REST_MAX_MS) : WIKIMEDIA_REST_MS)
       const until = new Date(o.now().getTime() + waitMs).toISOString()
       // Whole or not at all: the album step downloads six pictures at once, and a reader never sees half a file.
       await mkdir(dirname(o.restFile), { recursive: true })
@@ -58,8 +61,6 @@ export function restingFetch(fetch: typeof globalThis.fetch, o: { restFile: stri
       await rename(tmp, o.restFile)
       throw new WikimediaRefused(until)
     }
-    // An answer ends the rest it was sent after, never a newer one another request wrote meanwhile.
-    if (rest && (await readRest(o.restFile))?.until === rest.until) await rm(o.restFile, { force: true })
     return r
   }
 }

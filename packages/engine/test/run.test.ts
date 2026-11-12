@@ -6,8 +6,9 @@ import { expect, test } from 'vitest'
 import { ArchiveRefused } from '../src/archive'
 import { LlmError } from '../src/claude'
 import { ChallengeError } from '../src/fetch'
-import { runEngine } from '../src/run'
+import { runEngine, soft } from '../src/run'
 import { moveToArchive } from '../src/state'
+import { WikimediaRefused } from '../src/wikimedia-rest'
 
 const fx = (p: string) => readFileSync(new URL(`./fixtures/${p}`, import.meta.url), 'utf8')
 const SF = 'https://www.seriouslyfish.com/species/'
@@ -179,6 +180,21 @@ test('the archive refusing this Mac: the source stops, no page is marked, and th
   expect(r.errors.join('\n')).toMatch(/planetcatfish: not read: the archive refused this Mac: no request before 2026-11-10T12:00:00.000Z/)
   expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
   expect(JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
+})
+
+test('Wikimedia resting: a page that needs it waits, unmarked and with its attempts, and the source goes on; a refusal is no "nothing found"', async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  const get = d.fetcher.get
+  const fetcher = { ...d.fetcher, get: async (url: string) => { if (url.endsWith('broken-fish')) throw new WikimediaRefused('2026-10-28T22:00:00.000Z'); return get(url) } }
+  const r = await runEngine({ ...d, fetcher }, { sources: ['seriouslyfish'] })
+  expect(r.errors).toContain(`${SF}broken-fish: waits for Wikimedia: Wikimedia refused this Mac: no request before 2026-10-28T22:00:00.000Z`)
+  const state = JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8'))
+  expect(state[`${SF}broken-fish`]).toBeUndefined()
+  expect(state[`${SF}paracheirodon-axelrodi`]).toMatchObject({ status: 'processed' })
+  // The Commons photo lookup (soft) passes a rest on, so a page isn't saved as having found none.
+  await expect(soft('commons photos', async () => { throw new WikimediaRefused('t') }, [])).rejects.toBeInstanceOf(WikimediaRefused)
+  expect(await soft('commons photos', async () => { throw new Error('HTTP 500') }, ['fallback'])).toEqual(['fallback'])
 })
 
 test('the archive refusing this Mac at its index: no fallback on the last list, so no page is asked for', async () => {

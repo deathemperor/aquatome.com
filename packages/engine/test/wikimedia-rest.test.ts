@@ -48,21 +48,26 @@ test('a refusal from Wikimedia puts every Wikimedia read to rest, for the time i
   expect(again.sent).toHaveLength(1)
   expect(JSON.parse(await readFile(restFile, 'utf8')).waitMs).toBe(WIKIMEDIA_REST_MAX_MS)
 
-  // A wait the refusal names wins; an answer after the rest ends it.
+  // A wait the refusal names wins; after it, requests go again. Nothing deletes the rest: an ended one is past.
   now = new Date('2026-11-14T02:00:00Z')
   const named = server([{ status: 429, retryAfter: '600' }, { status: 200 }])
   const g = restingFetch(named.fetch, { restFile, now: () => now, ua: UA })
   await expect(g(PICTURE)).rejects.toBeInstanceOf(WikimediaRefused)
-  expect(JSON.parse(await readFile(restFile, 'utf8')).until).toBe('2026-11-14T02:10:00.000Z')
+  const ended = { until: '2026-11-14T02:10:00.000Z', waitMs: 600_000 }
+  expect(JSON.parse(await readFile(restFile, 'utf8'))).toEqual(ended)
   now = new Date('2026-11-14T02:10:01Z')
   expect((await g(PICTURE)).status).toBe(200)
-  await expect(readFile(restFile, 'utf8')).rejects.toThrow()
   expect(named.sent).toHaveLength(2)
 
   // Any other failure is the caller's, as before: no rest.
   const down = server([{ status: 503 }])
   expect((await restingFetch(down.fetch, { restFile, now: () => now, ua: UA })(API)).status).toBe(503)
-  await expect(readFile(restFile, 'utf8')).rejects.toThrow()
+  expect(JSON.parse(await readFile(restFile, 'utf8'))).toEqual(ended)
+
+  // Refused long after the last rest ended: 12 hours again, not doubled.
+  now = new Date('2026-11-20T00:00:00Z')
+  await expect(restingFetch(server([{ status: 429 }]).fetch, { restFile, now: () => now, ua: UA })(API)).rejects.toBeInstanceOf(WikimediaRefused)
+  expect(JSON.parse(await readFile(restFile, 'utf8'))).toEqual({ until: '2026-11-20T12:00:00.000Z', waitMs: WIKIMEDIA_REST_MS })
 })
 
 test("the rest file: a URL is guarded like a string, a file cut short is no rest, and an answer never ends a newer rest", async () => {
