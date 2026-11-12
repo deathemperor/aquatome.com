@@ -128,17 +128,19 @@ keep_branch() {
   engine_cloud || return 0
   git push -q origin "refs/heads/$1:refs/heads/$1" || { log "$1 couldn't be pushed to GitHub: this run's work is lost with the runner"; return 1; }
 }
-# Branch $1 deleted, and in the cloud GitHub's of that exact name. `move_branch <from> <to>` renames one: on GitHub the new
-# name first, so a failed push leaves the old one there.
+# Branch $1 deleted, and in the cloud GitHub's of that exact name.
 drop_branch() {
   git branch -q -D "$1" || return 1
   engine_cloud || return 0
   git push -q origin --delete "refs/heads/$1"
 }
+# `move_branch <from> <to>`, once its work failed its tests (push_kept): on the Mac the branch renamed. In the cloud, <to>
+# is the work as it was last checked, on the main it failed on, so its one more try waits for a main newer than that
+# (retry_held); and GitHub's <to> made and <from> deleted in one push, both or neither, so no branch is ever in two places.
 move_branch() {
-  git branch -q -M "$1" "$2" || return 1
-  engine_cloud || return 0
-  git push -q origin "refs/heads/$2:refs/heads/$2" && git push -q origin --delete "refs/heads/$1"
+  if ! engine_cloud; then git branch -q -M "$1" "$2"; return; fi
+  git push -q --atomic origin "HEAD:refs/heads/$2" ":refs/heads/$1" || return 1
+  git branch -q -f "$2" HEAD && git branch -q -D "$1"
 }
 HELD_DAYS=14
 drop_old_held() {
@@ -165,12 +167,15 @@ publish_kept() {
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/kept/$1/"); do
     log "publishing $branch, kept when its tests ran out of time"
     git reset -q --hard "$branch"
-    if push_kept; then
-      drop_branch "$branch" || log "$branch is published, and couldn't be deleted"
+    if push_kept "$branch"; then
+      git branch -q -D "$branch"
       log "published $branch"
     elif [ -n "$KEPT_FAILED" ]; then
-      move_branch "$branch" "held/${branch#kept/}" || log "$branch couldn't be moved to held/${branch#kept/}"
-      log "$branch failed its tests twice: on held/${branch#kept/}, not published"
+      if move_branch "$branch" "held/${branch#kept/}"; then
+        log "$branch failed its tests twice: on held/${branch#kept/}, not published"
+      else
+        log "$branch failed its tests twice and couldn't be moved to held/${branch#kept/}: it stays kept for the next run"
+      fi
     else
       log "$branch isn't published yet ($KEPT_WHY): it stays kept for the next run"
     fi
@@ -190,12 +195,15 @@ retry_held() {
     git diff --quiet "$base" origin/main -- . ':!content' ':!sources' ':!engine-state' ':!docs' ':!*.md' && continue
     log "trying $branch once more: main's code has changed since it was held"
     git reset -q --hard "$branch"
-    if push_kept; then
-      drop_branch "$branch" || log "$branch is published, and couldn't be deleted"
+    if push_kept "$branch"; then
+      git branch -q -D "$branch"
       log "published $branch"
     elif [ -n "$KEPT_FAILED" ]; then
-      move_branch "$branch" "$branch-tried" || log "$branch couldn't be moved to $branch-tried"
-      log "$branch failed its tests again: on $branch-tried, not tried again"
+      if move_branch "$branch" "$branch-tried"; then
+        log "$branch failed its tests again: on $branch-tried, not tried again"
+      else
+        log "$branch failed its tests again and couldn't be moved to $branch-tried: it stays held"
+      fi
     else
       log "$branch isn't published yet ($KEPT_WHY): it stays held for the next run's try"
     fi
@@ -205,7 +213,9 @@ retry_held() {
 }
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
 # kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
-# when its tests failed for real; KEPT_WHY says why it isn't published.
+# when its tests failed for real; KEPT_WHY says why it isn't published. `push_kept [<branch>]`: in the cloud, GitHub's
+# branch of that exact name is deleted in the same push as main's, both or neither, so work published is never published
+# again from a branch left behind.
 push_kept() {
   local check=1 clash main
   KEPT_FAILED= KEPT_WHY=
@@ -228,7 +238,11 @@ push_kept() {
       fi
       check=
     fi
-    git push -q origin HEAD:main && return 0
+    if engine_cloud && [ -n "${1:-}" ]; then
+      git push -q --atomic origin HEAD:main ":refs/heads/$1" && return 0
+    else
+      git push -q origin HEAD:main && return 0
+    fi
     sleep "${PUSH_PAUSE:-30}"
   done
   KEPT_WHY="the push didn't land"

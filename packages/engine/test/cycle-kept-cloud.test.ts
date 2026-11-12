@@ -53,7 +53,9 @@ function github() {
   const onMain = (file: string) => sh(`git --git-dir=origin.git show main:${file} 2>/dev/null || true`)
   const branchOnGitHub = (name: string) => sh(`cd seed && git push -q origin HEAD:refs/heads/${name} 2>/dev/null`)
   const refusing = (on: boolean) => sh(on ? 'printf "#!/bin/sh\\nexit 1\\n" > origin.git/hooks/pre-receive && chmod 755 origin.git/hooks/pre-receive' : 'rm -f origin.git/hooks/pre-receive')
-  return { runner, cycle, failedRun, nextRun, land, onGitHub, onMain, branchOnGitHub, refusing }
+  // GitHub refusing to delete a branch, and only that: one ref of a push refused, the others not, unless it's atomic.
+  const refusingDeletes = (on: boolean) => sh(on ? 'printf \'#!/bin/sh\\ncase "$3" in *[!0]*) exit 0 ;; esac\\nexit 1\\n\' > origin.git/hooks/update && chmod 755 origin.git/hooks/update' : 'rm -f origin.git/hooks/update')
+  return { runner, cycle, failedRun, nextRun, land, onGitHub, onMain, branchOnGitHub, refusing, refusingDeletes }
 }
 
 test('a cloud cycle whose tests ran out of time keeps its work on GitHub, and the next run publishes it and deletes that branch', () => {
@@ -122,6 +124,64 @@ test('held branches on GitHub are dropped after 14 days, each by its own name; y
   expect(g.onGitHub().sort()).toEqual([young, other, photos].sort())
 })
 
+// Astra's read of #1172: work published from a branch that then couldn't be deleted would be published again.
+test('a publish whose branch GitHub won\'t delete doesn\'t land on main either, so nothing is published twice', () => {
+  const g = github()
+  g.failedRun(TIMEOUT)
+  const [kept = ''] = g.onGitHub()
+  g.refusingDeletes(true)
+  expect(g.nextRun()).toContain(`LOG ${kept} isn't published yet (the push didn't land): it stays kept for the next run`)
+  expect(g.onMain('content/b.json')).toBe('')
+  expect(g.onGitHub()).toEqual([kept])
+  g.refusingDeletes(false)
+  expect(g.nextRun()).toContain(`LOG published ${kept}`)
+  expect(g.onMain('content/b.json')).toBe('rewrite')
+  expect(g.onGitHub()).toEqual([])
+  // And once published, a later run finds nothing to publish.
+  g.land('content/b.json', 'newer')
+  expect(g.nextRun()).toBe('')
+  expect(g.onMain('content/b.json')).toBe('newer')
+})
+
+test('a move GitHub won\'t finish leaves the branch where it was, never in two places', () => {
+  const g = github()
+  g.failedRun(TIMEOUT)
+  const [kept = ''] = g.onGitHub()
+  const held = kept.replace(/^kept\//, 'held/')
+  g.refusingDeletes(true)
+  expect(g.nextRun({ CHECK: FAIL })).toContain(`LOG ${kept} failed its tests twice and couldn't be moved to ${held}: it stays kept for the next run`)
+  expect(g.onGitHub()).toEqual([kept])
+  g.refusingDeletes(false)
+  expect(g.nextRun({ CHECK: FAIL })).toContain(`LOG ${kept} failed its tests twice: on ${held}, not published`)
+  expect(g.onGitHub()).toEqual([held])
+  // The same for a held one's one more try.
+  g.land('packages/code.ts', '2')
+  g.refusingDeletes(true)
+  expect(g.nextRun({ CHECK: FAIL })).toContain(`LOG ${held} failed its tests again and couldn't be moved to ${held}-tried: it stays held`)
+  expect(g.onGitHub()).toEqual([held])
+})
+
+// Astra's read of #1172: a held branch kept as it began, on an older main, took its one more try on the main it had just
+// failed on.
+test('kept work that fails on a newer main is held as checked there, and its one more try waits for a main newer still', () => {
+  const g = github()
+  g.failedRun(TIMEOUT)
+  const [kept = ''] = g.onGitHub()
+  const held = kept.replace(/^kept\//, 'held/')
+  g.land('packages/code.ts', '2')
+  const log = g.nextRun({ CHECK: FAIL })
+  expect(log).toContain(`LOG ${kept} failed its tests twice: on ${held}, not published`)
+  expect(log).not.toContain('trying')
+  expect(g.onGitHub()).toEqual([held])
+  expect(g.nextRun()).toBe('')
+  g.land('packages/code.ts', '3')
+  const tried = g.nextRun()
+  expect(tried).toContain(`LOG trying ${held} once more: main's code has changed since it was held`)
+  expect(tried).toContain(`LOG published ${held}`)
+  expect(g.onMain('content/b.json')).toBe('rewrite')
+  expect(g.onMain('packages/code.ts')).toBe('3')
+})
+
 test('a branch that can\'t be pushed is said, and the run still goes on to say it isn\'t publishing', () => {
   const g = github()
   g.refusing(true)
@@ -145,5 +205,7 @@ test('only engine.yml\'s runs keep work on GitHub or touch its kept branches: an
 
 test('GitHub\'s branches are deleted only by their exact names', () => {
   const s = readFileSync(CHECKS, 'utf8')
-  expect(s.match(/--delete [^\n]*/g)).toEqual(['--delete "refs/heads/$1"', '--delete "refs/heads/$1"'])
+  expect(s.match(/--delete [^\n]*/g)).toEqual(['--delete "refs/heads/$1"'])
+  // A deleting refspec in a push names one variable's branch, never a pattern.
+  expect([...s.matchAll(/(?:^|[\s"])(:refs\/heads\/[^"\s]*)/gm)].map(m => m[1])).toEqual([':refs/heads/$1', ':refs/heads/$1'])
 })
