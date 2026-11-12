@@ -213,7 +213,8 @@ export function rankGallery(photos: GalleryPhoto[], cantTell: (url: string) => b
  * Where each source stands for one species, plant or breed (engine-state/gallery/<id>.json), so each run continues
  * where the last stopped: iNaturalist's cursor, when Commons was read, GBIF's and Openverse's next page; candidates found
  * but not screened yet (`queue`); every candidate screened, kept or not (`judged`), never screened again; the image hash
- * of every photo shown, against near-copies; `exhausted`: the day every source ran dry below target (tried again later).
+ * of every photo shown, against near-copies; `exhausted`: the day every source ran dry below target (tried again later);
+ * `seeded`: the keys of queued candidates a person found by hand (gallery-seed.ts), until they are screened.
  */
 export type GalleryState = {
   inat?: InatCursor
@@ -224,7 +225,14 @@ export type GalleryState = {
   judged: string[]
   hashes: Record<string, string>
   exhausted?: string
+  seeded?: string[]
 }
+/**
+ * How far past its target a full album may grow, from candidates a person seeded only: a full album is never read for its
+ * sources' own finds. The chief of staff, 2026-11-12, for the weather loach, whose album was full and whose head can't
+ * reach the card's size: a card-size photo found by hand had no way in.
+ */
+export const SEED_OVER = 3
 /** Requests a run may make to each source (iNaturalist asks for about one a second and under 10,000 a day; Openverse lets anonymous clients make 200 a day). */
 export type SourceBudget = { inat: number; gbif: number; openverse: number }
 const RETRY_DAYS = 30
@@ -337,9 +345,15 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
     const gfile = join(content, 'gallery', `${t.id}.json`)
     const g = JSON.parse(await readFile(gfile, 'utf8').catch(() => 'null')) as { photos: GalleryPhoto[]; seen: number; updatedAt: string; builtAt?: string } | null
     let gallery = g?.photos ?? []
-    if (gallery.length >= t.target) continue
     const sfile = join(root, 'engine-state/gallery', `${t.id}.json`)
     const saved = JSON.parse(await readFile(sfile, 'utf8').catch(() => 'null')) as GalleryState | null
+    // A full album is read only for what a person seeded, and those alone (SEED_OVER).
+    const seeded = new Set((saved?.seeded ?? []).filter(k => saved!.queue.some(q => q.key === k)))
+    const full = gallery.length >= t.target
+    if (full && !seeded.size) continue
+    const limit = full ? t.target + SEED_OVER : t.target
+    // Full to its last seeded space: the seeds left wait in the queue for a photo the check takes off.
+    if (gallery.length >= limit) continue
     const st: GalleryState = saved ?? { queue: [], judged: [], hashes: {} }
     if (st.exhausted && !o.only && days(st.exhausted) < RETRY_DAYS) continue
     if (st.exhausted) {
@@ -360,6 +374,8 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
       // Hashes of photos still shown only (a photo moved to our bucket has a new address).
       const shown = new Set([...page?.photos ?? [], ...gallery].map(p => p.url))
       st.hashes = Object.fromEntries(Object.entries(st.hashes).filter(([u]) => shown.has(u)))
+      st.seeded = st.seeded?.filter(k => st.queue.some(q => q.key === k))
+      if (!st.seeded?.length) delete st.seeded
       await mkdir(join(root, 'engine-state/gallery'), { recursive: true })
       await writeFile(sfile, `${JSON.stringify(st, null, 1)}\n`)
     }
@@ -442,30 +458,33 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
       }
       const dry = () => (breed || (st.inat?.pass === 'done' && !!st.gbif && (!st.gbif.key || st.gbif.next === null))) && !!st.commons && (!d.openverse || st.openverse?.next === null)
 
-      while (gallery.length < t.target && left.sheets > 0) {
+      while (gallery.length < limit && left.sheets > 0) {
         const want = Math.max(SHEET, (t.target - gallery.length) * 2)
-        while (st.queue.length < want) {
+        while (!full && st.queue.length < want) {
           const got = await more()
           if (got === null) break
           st.queue.push(...got.filter(isNew))
         }
-        if (!st.queue.length) break
-        const chunk = st.queue.slice(0, SHEET)
+        const pool = full ? st.queue.filter(c => seeded.has(c.key)) : st.queue
+        if (!pool.length) break
+        // A full album screens no more seeds than it has spaces, so none is judged and then turned away for want of room.
+        const chunk = pool.slice(0, full ? Math.min(SHEET, limit - gallery.length) : SHEET)
         // A breed's Vietnamese name without the English one in brackets ("Cá bình tích balloon (Balloon molly)").
         const viName = (breed ? vi.name?.replace(/\s*\(.*\)\s*$/, '') : vi.name) || sci
         const r = await screenTagged(chunk, sci, viName, d, { plant: t.kind === 'plants', strict: line, hashes: [...Object.values(st.hashes).filter(Boolean), ...other.hashes] })
-        st.queue = st.queue.slice(chunk.length)
+        st.queue = st.queue.filter(c => !chunk.includes(c))
         st.judged.push(...chunk.map(c => c.key))
         chunk.forEach(c => judged.add(c.key))
         left.sheets -= r.sheets
         report.sheets += r.sheets
         seenCount += chunk.length
-        for (const k of r.kept) {
+        const kept = r.kept
+        for (const k of kept) {
           st.hashes[k.photo.url] = k.hash
           report.added[sourceOfKey(k.key)] = (report.added[sourceOfKey(k.key)] ?? 0) + 1
         }
-        gallery = rankGallery([...gallery, ...r.kept.map(k => waiting({ ...k.photo, best: k.best, kind: k.kind ?? 'other' }))], cantTellOn(subjects, t.id))
-        if (r.kept.length) {
+        gallery = rankGallery([...gallery, ...kept.map(k => waiting({ ...k.photo, best: k.best, kind: k.kind ?? 'other' }))], cantTellOn(subjects, t.id))
+        if (kept.length) {
           await mkdir(join(content, 'gallery'), { recursive: true })
           await writeFile(gfile, `${JSON.stringify(GallerySchema.parse({ id: t.id, photos: gallery, seen: seenCount, updatedAt: today, builtAt: today }), null, 2)}\n`)
         }
