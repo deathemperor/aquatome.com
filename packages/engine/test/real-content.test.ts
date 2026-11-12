@@ -257,6 +257,20 @@ test('no two guides in a language share a title, and none is only a name', async
 
 // The chief of staff's rulings of 2026-11-12 on the tap-water report. Each is a hand fix the engine keeps: a guide's body
 // marked bodyFixed, a page's part marked fixed (in English and in each language beside it), a note of ours in localNote.
+// The own-voice audit (the chief of staff, 2026-11-12: a source is never credited with words it did not say). A hand fix
+// may cut a source's part; it adds nothing the source didn't say. The porthole catfish's breeding part had gained "and it
+// is rarely bred in home aquaria", which is Scotcat's and Fishkeeper's, under Seriously Fish's name.
+test('a source\'s part fixed by hand says only what the source says: the porthole catfish\'s breeding part is Seriously Fish\'s', () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
+  const e = read<{ sections: { key: string; source: string; html: string; fixed?: boolean }[] }>('species/dianema-longibarbis/entity.json')
+  const sf = e.sections.find(s => s.key === 'reproduction' && s.source === 'seriouslyfish')!
+  expect(sf.fixed).toBe(true)
+  expect(sf.html).toBe('<p>Very scant information exists regarding the spawning of this fish in captivity.</p>')
+  const vi = read<{ sections: Record<string, string> }>('species/dianema-longibarbis/vi.json').sections
+  expect(vi['reproduction:seriouslyfish']).toBe('<p>Hiện có rất ít thông tin về chuyện loài này sinh sản trong bể nuôi.</p>')
+})
+
 test('the tap-water fixes hold: Seachem Prime named at its dose, our note on water for lucky bamboo beside its source\'s, our chloramine note, artemia salt in grams', () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
   const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
