@@ -66,28 +66,43 @@ test("the owner's Hải Hồ and the names that replaced \"thài lài\" stay, ea
 // guides' treatment is written for a keeper in Vietnam: nothing not sold here, in any field of any language's file, and
 // nothing explaining its absence. Fritz Slime Out, Tetra AlguMin Plus and AlgoStop depot: no listing on 22 Vietnamese
 // shops' own search. Ultralife's only listing is a general pet wholesaler's, not counted as sold.
+// The chief of staff, 2026-11-12: a source is never credited with words it did not say. Our lines (the peroxide method
+// on Co-op's guide, which never names peroxide; the pharmacy and shop prices and the 40-litre example on Aquarium Breeder's)
+// are a labelled note beside each source's body, citing where its dose and prices come from. The two checks below stay as
+// strict over every file; only the note's own label, which says whom the note is for, is taken out before them.
+const AQUATOME_NOTE = 'Ghi chú của AquaTome cho bạn đọc ở Việt Nam:'
 const BLUE_GREEN_ALGAE = {
-  'aquariumcoop-blogs-aquarium-blue-green-algae': ['https://aquariumbreeder.com/blue-green-algae-cyanobacteria-profile-and-how-to-remove/', 'https://www.pharmacity.vn/oxy-gia-vp-3-60ml-loc-10-chai.html'],
-  'aquariumbreeder-blue-green-algae-cyanobacteria-profile-and-how-to-remove': ['https://www.pharmacity.vn/oxy-gia-vp-3-60ml-loc-10-chai.html'],
-}
-test.each(Object.entries(BLUE_GREEN_ALGAE))('blue-green algae: %s names no product not sold in Vietnam, cites its dose, and the engine keeps it', async (id, cited) => {
+  'aquariumcoop-blogs-aquarium-blue-green-algae': { cited: ['https://aquariumbreeder.com/blue-green-algae-cyanobacteria-profile-and-how-to-remove/', 'https://www.pharmacity.vn/oxy-gia-vp-3-60ml-loc-10-chai.html'], dose: 'note' },
+  'aquariumbreeder-blue-green-algae-cyanobacteria-profile-and-how-to-remove': { cited: ['https://aquariumbreeder.com/blue-green-algae-cyanobacteria-profile-and-how-to-remove/', 'https://www.pharmacity.vn/oxy-gia-vp-3-60ml-loc-10-chai.html'], dose: 'body' },
+} as const
+test.each(Object.entries(BLUE_GREEN_ALGAE))('blue-green algae: %s names no product not sold in Vietnam, keeps our lines in a labelled note with their sources, and the engine keeps it', async (id, { cited, dose: doseIn }) => {
   const dir = fileURLToPath(new URL(`../../../content/guides/${id}/`, import.meta.url))
   for (const file of await readdir(dir)) {
-    const text = await readFile(join(dir, file), 'utf8')
+    const text = (await readFile(join(dir, file), 'utf8')).replaceAll(AQUATOME_NOTE, '')
     expect(text, file).not.toMatch(/fritz|slime\s*out|slime\s*stain|algu\s*min|algo\s*stop|ultra\s*life/iu)
     expect(text, file).not.toMatch(/bài gốc|ở mỹ|ở việt nam|aquatome thêm/iu)
   }
   const t = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation
   expect(t.bodyFixed).toBe(true)
-  expect(t.localNote).toBeUndefined()
-  expect(t.body).toContain('oxy già 3%')
-  expect(t.body).toContain('3 ml cho mỗi 4 lít')
-  // The dose says what it's for and carries its caution, so it can't be read against another guide's 0.4 ml for a whole tank.
-  const dose = t.body!.match(/<li>[^<]*3 ml cho mỗi 4 lít[^<]*<\/li>/)?.[0]
+  expect(t.localNote?.html.startsWith(`<p><strong>${AQUATOME_NOTE}</strong> `)).toBe(true)
+  // No writer drops the note or its sources when the source is read again (merge.ts writeGuide).
+  expect(t.localNote?.refs.map(r => r.url)).toEqual(expect.arrayContaining([...cited]))
+  // Our lines never sit under the source's name again: no pharmacy, no price, no shop, no worked example in its body.
+  expect(t.body).not.toMatch(/nhà thuốc|\d[\d.,–]* đồng|shop thủy sinh|bể 40 lít|hướng dẫn trên nhãn|chỉ dùng loại 3%/iu)
+  if (doseIn === 'note') expect(t.body).not.toMatch(/oxy già/iu)
+  // The dose says what it's for and carries its cautions in the same step, wherever it is, so it can't be read against
+  // another guide's 0.4 ml for a whole tank.
+  const where = doseIn === 'note' ? t.localNote!.html : t.body!
+  const dose = where.match(/<li>[^<]*3 ml cho mỗi 4 lít[^<]*<\/li>/)?.[0]
   expect(dose).toContain('liều bơm tại chỗ, không phải liều châm đều cả bể')
   expect(dose).toMatch(/bỏng mang.*tép/)
-  // No writer carries a guide's refs over a source read again (merge.ts writeGuide): this says so when one is lost.
-  expect(t.refs?.map(r => r.url)).toEqual(expect.arrayContaining(cited))
+  expect(dose).toMatch(/tò mò bơi tới chỗ đang bơm/)
+  for (const step of t.localNote!.html.match(/<(p|li)>.*?<\/\1>/g) ?? []) {
+    if (!/3 ml cho mỗi 4 lít|40 lít/.test(step)) continue
+    expect(step).toContain('liều bơm tại chỗ, không phải liều châm đều cả bể')
+    expect(step).toMatch(/bỏng mang/)
+    expect(step).toMatch(/tò mò bơi tới chỗ đang bơm/)
+  }
 })
 
 // Praziquantel mixed into food, in all four languages, by the fish's weight (University of Florida; a trial on grass carp doses
