@@ -69,10 +69,34 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].isSelected, "the tank opened on another tab")
   }
 
-  /// The chat opens from v2's fish page: "Hỏi về cá …", directly under "Thêm vào bể", goes to a screen v2's own stack knows.
-  /// (Without the destination there, the tap does nothing.)
+  /// The chat opens from v2's fish page: "Hỏi về cá này", beside "Thêm vào bể" in one row, 10 pt after it, goes to a screen
+  /// v2's own stack knows. (Without the destination there, the tap does nothing.) VoiceOver hears the fish's name; the
+  /// page has no note under it (the chat says who answers as it opens).
   func testTheChatOpensFromAFishsPageInV2() {
+    let (app, add, entry) = openNeonsButtons()
+    XCTAssertEqual(entry.frame.minY, add.frame.minY, accuracy: 1, "Hỏi về isn't in Thêm vào bể's row: \(entry.frame) \(add.frame)")
+    XCTAssertEqual(entry.frame.minX - add.frame.maxX, 10, accuracy: 1, "Hỏi về isn't 10 pt after Thêm vào bể: \(entry.frame) \(add.frame)")
+    XCTAssertFalse(app.staticTexts["Trả lời dựa trên cẩm nang AquaTome"].exists, "the note under the ask")
+    repeatUntil(entry.isHittable, times: 6) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.5)), withVelocity: .fast, thenHoldForDuration: 0.1)
+    }
+    XCTAssertTrue(entry.isHittable, "Hỏi về can't be tapped")
+    entry.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["chat"].firstMatch.waitForExistence(timeout: 5), "the entry opened nothing")
+  }
+
+  /// At the largest text the row doesn't fit: "Thêm vào bể" first, the ask under it, 10 pt apart.
+  func testAtTheLargestTextTheAskGoesUnderThemVaoBe() {
+    let (_, add, entry) = openNeonsButtons("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    XCTAssertGreaterThan(entry.frame.minY, add.frame.maxY, "Hỏi về isn't under Thêm vào bể: \(entry.frame) \(add.frame)")
+    XCTAssertEqual(entry.frame.minY - add.frame.maxY, 10, accuracy: 1, "not 10 pt between them: \(entry.frame) \(add.frame)")
+  }
+
+  /// Cá neon's page from Khám phá, its "Thêm vào bể" and its ask (`chat-entry`), worded and named.
+  private func openNeonsButtons(_ more: String...) -> (XCUIApplication, XCUIElement, XCUIElement) {
     let app = launch("-fake-accounts", "on", "-reset-fake-server")
+    app.launchArguments += more
     app.launchForFlow()
     app.openTab("Khám phá")
     let fish = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
@@ -81,16 +105,8 @@ final class V2FlowTests: XCTestCase {
     let add = app.buttons["v2-add"], entry = app.descendants(matching: .any)["chat-entry"].firstMatch
     XCTAssertTrue(add.waitForExistence(timeout: 5), "no Thêm vào bể on the page")
     XCTAssertTrue(entry.waitForExistence(timeout: 5), "no Hỏi về on the fish's page")
-    XCTAssertTrue(entry.label.contains("Hỏi về cá neon"), entry.label)
-    XCTAssertGreaterThan(entry.frame.minY, add.frame.maxY, "Hỏi về isn't under Thêm vào bể")
-    XCTAssertLessThan(entry.frame.minY - add.frame.maxY, 24, "Hỏi về isn't directly under Thêm vào bể")
-    repeatUntil(entry.isHittable, times: 6) {
-      app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
-        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.5)), withVelocity: .fast, thenHoldForDuration: 0.1)
-    }
-    XCTAssertTrue(entry.isHittable, "Hỏi về can't be tapped")
-    entry.tap()
-    XCTAssertTrue(app.descendants(matching: .any)["chat"].firstMatch.waitForExistence(timeout: 5), "the entry opened nothing")
+    XCTAssertEqual(entry.label, "Hỏi về cá neon", "VoiceOver doesn't hear the fish's name")
+    return (app, add, entry)
   }
 
   func testSwitchingBackWithAWholePageOpenLeavesTimTheFishsPage() {

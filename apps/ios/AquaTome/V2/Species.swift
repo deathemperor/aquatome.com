@@ -328,6 +328,50 @@ struct SpeciesPage: View {
     .ownerShows(item.path, as: "species")
   }
 
+  @ViewBuilder private func headButtons(_ ask: ChatRoute?) -> some View {
+    if Life(item) != nil { addButton }
+    if let ask { quietAsk(ask) }
+  }
+
+  private var addButton: some View {
+    Button { putting = true } label: {
+      Label("Thêm vào bể", systemImage: "plus")
+        .font(.body.weight(.semibold))
+        // More lines at the largest text in a longer language, not shrunk.
+        .lineLimit(3)
+        .foregroundStyle(colour)
+        .padding(.horizontal, 18)
+        .padding(.vertical, size.isAccessibilitySize ? 12 : 6)
+        .frame(minHeight: 44)
+        // On two lines a capsule's ends curve in on the words.
+        .background((size.isAccessibilitySize ? AnyShape(RoundedRectangle(cornerRadius: 22, style: .continuous)) : AnyShape(Capsule())).fill(.white))
+    }
+    .buttonStyle(.plain)
+    // Not into a store this app must leave alone (newer, unreadable), as v1's page.
+    .disabled(!tanks.canEdit)
+    .opacity(tanks.canEdit ? 1 : 0.5)
+    .accessibilityIdentifier("v2-add")
+  }
+
+  /// The ask, quieter beside "Thêm vào bể": white words on a capsule of white at 18% over the page's colour (4.95:1 on
+  /// Akysis's grey-brown, the darkest pale of the Design Lead's measures). Its words don't repeat the name in the title
+  /// just above; VoiceOver's do.
+  private func quietAsk(_ route: ChatRoute) -> some View {
+    NavigationLink(value: route) {
+      Label(item.kind == .plant ? "Hỏi về cây này" : "Hỏi về cá này", systemImage: "bubble.left.and.text.bubble.right.fill")
+        .font(.body.weight(.semibold))
+        .lineLimit(3)
+        .foregroundStyle(.white)
+        .padding(.horizontal, 18)
+        .padding(.vertical, size.isAccessibilitySize ? 12 : 6)
+        .frame(minHeight: 44)
+        .background((size.isAccessibilitySize ? AnyShape(RoundedRectangle(cornerRadius: 22, style: .continuous)) : AnyShape(Capsule())).fill(.white.opacity(0.18)))
+    }
+    .buttonStyle(.plain)
+    .accessibilityLabel(Text("Hỏi về \(ChatNames.inSentence(route.subject.name))"))
+    .accessibilityIdentifier("chat-entry")
+  }
+
   /// The photo, the name, "Thêm vào bể", the figures and the rest of its photos, on the photo's colour.
   private var top: some View {
     VStack(spacing: 0) {
@@ -465,29 +509,16 @@ struct SpeciesPage: View {
       // Its family and where it comes from, then its other names, as the site's page has them under its name.
       if let doc, !doc.where.isEmpty { Text(styled(doc.where)).foregroundStyle(.white.opacity(0.75)).tint(.white) }
       if let aka = doc?.aka { Text(verbatim: aka).foregroundStyle(.white.opacity(0.75)) }
-      if Life(item) != nil {
-        Button { putting = true } label: {
-          Label("Thêm vào bể", systemImage: "plus")
-            .font(.body.weight(.semibold))
-            // More lines at the largest text in a longer language, not shrunk.
-            .lineLimit(3)
-            .foregroundStyle(colour)
-            .padding(.horizontal, 18)
-            .padding(.vertical, size.isAccessibilitySize ? 12 : 6)
-            .frame(minHeight: 44)
-            // On two lines a capsule's ends curve in on the words.
-            .background((size.isAccessibilitySize ? AnyShape(RoundedRectangle(cornerRadius: 22, style: .continuous)) : AnyShape(Capsule())).fill(.white))
+      // "Thêm vào bể", the page's one filled button, and the ask beside it, quieter (the owner, 12 Nov: "2 big buttons too
+      // near"): a row, else one above the other at the largest text or in a longer language. Either alone where the other
+      // doesn't apply. No note under the ask: the chat says who answers as it opens.
+      let ask = chat.on ? ChatRoute(about: item) : nil
+      if Life(item) != nil || ask != nil {
+        ViewThatFits(in: .horizontal) {
+          HStack(alignment: .top, spacing: 10) { headButtons(ask) }
+          VStack(alignment: .leading, spacing: 10) { headButtons(ask) }
         }
-        .buttonStyle(.plain)
-        // Not into a store this app must leave alone (newer, unreadable), as v1's page.
-        .disabled(!tanks.canEdit)
-        .opacity(tanks.canEdit ? 1 : 0.5)
-        .accessibilityIdentifier("v2-add")
-        .padding(.top, 10)
-      }
-      if chat.on, let ask = ChatRoute(about: item) {
-        // The tint in the scheme that reads on the photo's colour, whichever the phone's.
-        AskEntry(route: ask, onColour: true).environment(\.colorScheme, .dark).padding(.top, 10)
+        .padding(.top, 14)
       }
     }
     .frame(maxWidth: .infinity, alignment: .leading)
