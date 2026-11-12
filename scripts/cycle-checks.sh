@@ -13,6 +13,27 @@
 # A simulator run takes its turn in its own queue instead (apps/ios/scripts/sim-run.py). A build that only compiles
 # (xcodebuild build, a site build) has no timeouts and doesn't need either: in the queue, it only holds up the tests
 # behind it. The engine takes it only for its tests too (verify_cycle).
+
+# `net git <fetch|pull|push> …`: a call to GitHub given GIT_NET_SECONDS (600) at most. On 13 Nov 2026 the Mac's 23:10
+# photos cycle hung for hours in its opening fetch, an ssh connection that never answered, and launchd starts no run of a
+# part while the last one lives, so no photos run started behind it. Past the limit the call is stopped (TERM, then KILL
+# 10 s on), the log says so, and it fails as a refused fetch or push does: the opening fetch ends the cycle, which frees
+# the next run (finish reports it to GitHub, engine-mac.yml).
+net() {
+  local limit="${GIT_NET_SECONDS:-600}" start=$SECONDS job dog status=0
+  "$@" &
+  job=$!
+  ( for ((i = 0; i < limit + 10; i++)); do
+      sleep 1; kill -0 "$job" 2>/dev/null || exit 0
+      [ "$i" != $((limit - 1)) ] || kill -TERM "$job" 2>/dev/null
+    done
+    kill -KILL "$job" 2>/dev/null ) &
+  dog=$!
+  wait "$job" || status=$?
+  kill "$dog" 2>/dev/null; wait "$dog" 2>/dev/null || true
+  if [ $((SECONDS - start)) -ge "$limit" ] && [ "$status" != 0 ]; then log "$*: no answer from GitHub in $limit s, stopped"; return 124; fi
+  return "$status"
+}
 calm() { [ -z "${GITHUB_ACTIONS:-}" ] || return 0; local cores; cores=$(sysctl -n hw.ncpu); for _ in $(seq 90); do [ "$(sysctl -n vm.loadavg | awk '{print int($3)}')" -lt $((cores * 4)) ] && return; sleep 30; done; log "load still high after 45 min: checking anyway"; }
 # Engine work waits for cooler hours: under heat macOS takes cores away from work, and on 2026-11-08 it ran work on 6-8 of
 # its 16 while every lead's work slowed, a 0.4 s job taking up to 54 s. A run waits while any core is taken away, up to 2 h,
@@ -126,20 +147,20 @@ keep_unpublished() {
 keep_branch() {
   git branch -q -f "$1" HEAD || return 1
   engine_cloud || return 0
-  git push -q origin "refs/heads/$1:refs/heads/$1" || { log "$1 couldn't be pushed to GitHub: this run's work is lost with the runner"; return 1; }
+  net git push -q origin "refs/heads/$1:refs/heads/$1" || { log "$1 couldn't be pushed to GitHub: this run's work is lost with the runner"; return 1; }
 }
 # Branch $1 deleted, and in the cloud GitHub's of that exact name.
 drop_branch() {
   git branch -q -D "$1" || return 1
   engine_cloud || return 0
-  git push -q origin --delete "refs/heads/$1"
+  net git push -q origin --delete "refs/heads/$1"
 }
 # `move_branch <from> <to>`, once its work failed its tests (push_kept): on the Mac the branch renamed. In the cloud, <to>
 # is the work as it was last checked, on the main it failed on, so its one more try waits for a main newer than that
 # (retry_held); and GitHub's <to> made and <from> deleted in one push, both or neither, so no branch is ever in two places.
 move_branch() {
   if ! engine_cloud; then git branch -q -M "$1" "$2"; return; fi
-  git push -q --atomic origin "HEAD:refs/heads/$2" ":refs/heads/$1" || return 1
+  net git push -q --atomic origin "HEAD:refs/heads/$2" ":refs/heads/$1" || return 1
   git branch -q -f "$2" HEAD && git branch -q -D "$1"
 }
 HELD_DAYS=14
@@ -161,7 +182,7 @@ publish_kept() {
   local branch
   engine_clone || engine_cloud || return 0
   if engine_cloud; then
-    git fetch -q origin "+refs/heads/kept/$1/*:refs/heads/kept/$1/*" "+refs/heads/held/$1/*:refs/heads/held/$1/*" || log "the kept work on GitHub couldn't be fetched: left for the next run"
+    net git fetch -q origin "+refs/heads/kept/$1/*:refs/heads/kept/$1/*" "+refs/heads/held/$1/*:refs/heads/held/$1/*" || log "the kept work on GitHub couldn't be fetched: left for the next run"
   fi
   drop_old_held "$1"
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/kept/$1/"); do
@@ -179,7 +200,7 @@ publish_kept() {
     else
       log "$branch isn't published yet ($KEPT_WHY): it stays kept for the next run"
     fi
-    git fetch -q origin || true
+    net git fetch -q origin || true
     git reset -q --hard origin/main
   done
   if engine_cloud; then retry_held "$1"; fi
@@ -207,7 +228,7 @@ retry_held() {
     else
       log "$branch isn't published yet ($KEPT_WHY): it stays held for the next run's try"
     fi
-    git fetch -q origin || true
+    net git fetch -q origin || true
     git reset -q --hard origin/main
   done
 }
@@ -221,10 +242,10 @@ push_kept() {
   KEPT_FAILED= KEPT_WHY=
   for _ in 1 2 3; do
     main=$(git rev-parse origin/main 2>/dev/null || true)
-    if ! git pull -q --rebase origin main; then
+    if ! net git pull -q --rebase origin main; then
       clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       git rebase --abort 2>/dev/null || true
-      git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; KEPT_WHY="a clash with main"; return 1; }
+      net git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; KEPT_WHY="a clash with main"; return 1; }
       replan_merged "$clash"
       check=1
     fi
@@ -239,9 +260,9 @@ push_kept() {
       check=
     fi
     if engine_cloud && [ -n "${1:-}" ]; then
-      git push -q --atomic origin HEAD:main ":refs/heads/$1" && return 0
+      net git push -q --atomic origin HEAD:main ":refs/heads/$1" && return 0
     else
-      git push -q origin HEAD:main && return 0
+      net git push -q origin HEAD:main && return 0
     fi
     sleep "${PUSH_PAUSE:-30}"
   done
@@ -290,7 +311,7 @@ replan_merged() {
   git diff --cached --quiet || git commit -q -m "content: the calendar planned again on main's"
 }
 catch_up() {
-  git pull -q --rebase && return 0
+  net git pull -q --rebase && return 0
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
 }
@@ -321,9 +342,10 @@ gate_or_keep() {
   return 1
 }
 
-# `from_main "$@"`.
+# `from_main "$@"`. A fetch that fails ends the run, its last line saying why: until 13 Nov 2026 the run went on from the
+# clone's old checkout, its old code included (an && list that fails doesn't stop a script under set -e).
 from_main() {
-  git fetch -q origin && git checkout -q main && git reset -q --hard origin/main
+  net git fetch -q origin && git checkout -q main && git reset -q --hard origin/main || exit
   [ "${AQ_SCRIPT_HEAD:-}" != "$(git rev-parse HEAD)" ] || return 0
   AQ_SCRIPT_HEAD="$(git rev-parse HEAD)"; export AQ_SCRIPT_HEAD
   exec bash "$0" "$@"

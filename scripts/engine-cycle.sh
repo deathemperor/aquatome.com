@@ -31,13 +31,13 @@ push() {
   local main
   for _ in 1 2 3; do
     main=$(git rev-parse '@{u}' 2>/dev/null || true)
-    if ! git pull -q --rebase; then
+    if ! net git pull -q --rebase; then
       local clash; clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       log "another part changed the same files: $clash"
       git rebase --abort 2>/dev/null || true
       # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then checked again
       # (verify_cycle: the tests).
-      if git pull -q --rebase -X theirs; then
+      if net git pull -q --rebase -X theirs; then
         replan_merged "$clash"
         sweep_merged
         verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after that merge, not publishing"; return 1; }
@@ -47,7 +47,7 @@ push() {
     elif ! swept_pull "$main"; then
       verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after the sweep on main's changes, not publishing"; return 1; }
     fi
-    git push -q && return 0
+    net git push -q && return 0
     sleep 30
   done
   log "push failed three times"; return 1
@@ -94,7 +94,7 @@ if [ -n "${GITHUB_ACTIONS:-}" ] || [[ "$REPO" == "$HOME/.local/share/aquatome/"*
 else
   # Any other checkout: nothing in it is dropped.
   if [ -n "$(git status --porcelain -- content sources)" ]; then log "uncommitted content in this checkout: commit or drop it first"; exit 1; fi
-  git checkout -q main && git pull -q --ff-only
+  git checkout -q main && net git pull -q --ff-only
 fi
 cool
 # content/changelog.json gets entries from here and from the Mac's video job (video-cycle.sh): merge, don't conflict.
