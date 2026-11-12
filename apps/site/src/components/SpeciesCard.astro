@@ -24,8 +24,9 @@ const { range } = fmt(lang)
 const chosen = photo !== undefined ? photo : breed ? cleanPhoto(breed.photos) : cleanPhoto(s.photos)
 const p = chosen?.generated || chosen && !photoFitsCard(chosen) ? undefined : chosen
 const card = breed ? careCard(breed).card : s.dataCard
-// Where the 4:3 tile would cut the fish: the crop moved onto it, or the photo whole on itself blurred (tileFrame). The
-// template holds the whole tile's two pictures, which the fish list's script keeps or folds to one (scripts/species-card.ts).
+// Where the 4:3 tile would cut the fish: the crop moved onto it, or the photo whole on itself blurred, or on the tile's mat
+// where the strips are too thin for the blur (tileFrame). The template holds the whole tile's two pictures, which the fish
+// list's script keeps or folds to one (scripts/species-card.ts).
 const frame = p ? tileFrame(p) : {}
 const load = eager ? 'eager' : 'lazy'
 const temp = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.tempC ?? [], 'tempC')
@@ -39,7 +40,7 @@ const fig = breed ? { tempC: asRange(temp?.value), ph: asRange(ph?.value), tankC
 <article class="sc" data-fig={fig && JSON.stringify(fig)}>
   <a href={`/vi/ca/${(breed ?? s).t.slug}/`}>
     <div class="plate">{template ? <span class="whole"><img class="ground" src="" width="0" height="0" alt="" aria-hidden="true" loading="lazy" /><img src="" width="0" height="0" alt="" loading="lazy" style="" /></span>
-      : p ? (frame.whole ? <span class="whole"><img class="ground" src={smallSrc(p)} width={p.width} height={p.height} alt="" aria-hidden="true" loading={load} /><img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={load} /></span>
+      : p ? (frame.whole ? <span class="whole">{!frame.mat && <img class="ground" src={smallSrc(p)} width={p.width} height={p.height} alt="" aria-hidden="true" loading={load} />}<img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={load} /></span>
         : <img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={load} style={frame.pos && `object-position: ${frame.pos}`} />)
       : breed && <span class="ph"><svg viewBox="0 0 64 32" aria-hidden="true"><path d="M6 16c8-11 26-13 40-3l12-8v22l-12-8C32 29 14 27 6 16Z" /><circle cx="17" cy="14" r="1.6" /></svg>{tr('Chưa có ảnh')}</span>}</div>
     {breed ? <><h3 class="n">{breed.t.name}</h3><p class="kind">{tr(BREED_KIND[breed.kind])}</p></> : <><h3>{s.t.name}</h3><p class="sci">{s.scientificName}</p>{(template || water) && <p class="water">{water}</p>}</>}
