@@ -98,21 +98,47 @@ ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | grep -c 'Test timed out in' >/d
 # work: its commit goes on a branch of its own, kept/<job>/<when>, which the next run's start from main (from_main)
 # leaves alone, and that run publishes it before its own work (publish_kept). Until 2026-11-08 the next run dropped it:
 # that day a videos run and a photos run lost their work to load, redone from nothing. Only in the Mac's engine clones,
-# which a run resets as it starts: GitHub's runners keep nothing past a run, and any other checkout is someone's own.
+# which a run resets as it starts, and in the cloud's cycle (engine_cloud); any other checkout is someone's own.
 # A run whose checks failed twice for another reason goes on held/<job>/<when>, which nothing publishes: the Machine Load
 # Lead looks at those, never the owner, and a run drops its job's after 14 days (drop_old_held).
 # `keep_unpublished <job>`, where a run gives up publishing.
 engine_clone() { [ -z "${GITHUB_ACTIONS:-}" ] && case "$PWD/" in "$HOME/.local/share/aquatome/"*) true ;; *) false ;; esac; }
+# The cloud's cycle (engine.yml) keeps its work the same way, but a runner keeps nothing past its run, so each of those
+# branches is on GitHub too, pushed over the key the cycle pushes main with: on 2026-11-12 a cloud cycle lost 682 model
+# calls ($39) to one failed test (the chief of staff, that day). One engine.yml run at a time (its concurrency group), and
+# only it makes, publishes and deletes its job's branches there, each by its exact name. A held one there gets one more
+# try once main's code has changed since it was held (retry_held). Not another workflow's checkout, as ci.yml's tests.
+engine_cloud() { [ -n "${GITHUB_ACTIONS:-}" ] && case "${GITHUB_WORKFLOW_REF:-}" in */.github/workflows/engine.yml@*) true ;; *) false ;; esac; }
 keep_unpublished() {
-  engine_clone || return 0
+  engine_clone || engine_cloud || return 0
   local when
   when=$(date -u +%Y%m%dT%H%M%S)
   if [ -n "${TIMED_OUT:-}" ]; then
-    git branch -q -f "kept/$1/$when" HEAD && log "tests ran out of time: this run's work is kept on kept/$1/$when for the next run"
+    keep_branch "kept/$1/$when" && log "tests ran out of time: this run's work is kept on kept/$1/$when for the next run"
   else
     # Off main at once: a next run that couldn't fetch would carry on from this commit, and could publish it.
-    git branch -q -f "held/$1/$when" HEAD && git reset -q --hard origin/main && log "checks failed twice: this run's work is on held/$1/$when, not published"
+    keep_branch "held/$1/$when" && git reset -q --hard origin/main && log "checks failed twice: this run's work is on held/$1/$when, not published"
   fi
+  # Its callers go on to say they aren't publishing, under set -e.
+  return 0
+}
+# HEAD on branch $1, and in the cloud on GitHub's branch of that name.
+keep_branch() {
+  git branch -q -f "$1" HEAD || return 1
+  engine_cloud || return 0
+  git push -q origin "refs/heads/$1:refs/heads/$1" || { log "$1 couldn't be pushed to GitHub: this run's work is lost with the runner"; return 1; }
+}
+# Branch $1 deleted, and in the cloud GitHub's of that exact name. `move_branch <from> <to>` renames one: on GitHub the new
+# name first, so a failed push leaves the old one there.
+drop_branch() {
+  git branch -q -D "$1" || return 1
+  engine_cloud || return 0
+  git push -q origin --delete "refs/heads/$1"
+}
+move_branch() {
+  git branch -q -M "$1" "$2" || return 1
+  engine_cloud || return 0
+  git push -q origin "refs/heads/$2:refs/heads/$2" && git push -q origin --delete "refs/heads/$1"
 }
 HELD_DAYS=14
 drop_old_held() {
@@ -121,29 +147,57 @@ drop_old_held() {
   for branch in $(git for-each-ref --format='%(refname:short)' "refs/heads/held/$1/"); do
     [[ "${branch##*/}" < "$cutoff" ]] || continue
     # One that can't go (a worktree someone is reading it in) mustn't stop the run.
-    if git branch -q -D "$branch"; then log "$branch was held $HELD_DAYS days: dropped"; else log "$branch is past $HELD_DAYS days and couldn't be dropped"; fi
+    if drop_branch "$branch"; then log "$branch was held $HELD_DAYS days: dropped"; else log "$branch is past $HELD_DAYS days and couldn't be dropped"; fi
   done
 }
 # The work earlier runs of <job> kept, oldest first: each on main as it is now, swept and checked as any run's commit is,
 # then pushed. Only tests that fail twice for real move it to held/<job>/<when>, never pushed, as the gate's crash keeps
 # its work (gate_or_keep); anything else (tests out of time again, a push that didn't land, a clash it couldn't settle)
 # keeps it for the run after. Then this run's own work starts from main. `publish_kept <job>`, after the run's install
-# and merge drivers.
+# and merge drivers. In the cloud, the job's branches come from GitHub first.
 publish_kept() {
   local branch
-  engine_clone || return 0
+  engine_clone || engine_cloud || return 0
+  if engine_cloud; then
+    git fetch -q origin "+refs/heads/kept/$1/*:refs/heads/kept/$1/*" "+refs/heads/held/$1/*:refs/heads/held/$1/*" || log "the kept work on GitHub couldn't be fetched: left for the next run"
+  fi
   drop_old_held "$1"
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/kept/$1/"); do
     log "publishing $branch, kept when its tests ran out of time"
     git reset -q --hard "$branch"
     if push_kept; then
-      git branch -q -D "$branch"
+      drop_branch "$branch" || log "$branch is published, and couldn't be deleted"
       log "published $branch"
     elif [ -n "$KEPT_FAILED" ]; then
-      git branch -q -M "$branch" "held/${branch#kept/}"
+      move_branch "$branch" "held/${branch#kept/}" || log "$branch couldn't be moved to held/${branch#kept/}"
       log "$branch failed its tests twice: on held/${branch#kept/}, not published"
     else
       log "$branch isn't published yet ($KEPT_WHY): it stays kept for the next run"
+    fi
+    git fetch -q origin || true
+    git reset -q --hard origin/main
+  done
+  if engine_cloud; then retry_held "$1"; fi
+}
+# In the cloud, each held branch of <job> not yet tried again, once main's code (anything but the engine's output and the
+# docs) has changed since the main it was checked on: published as kept work is, or, failing its tests for real again,
+# moved to <branch>-tried, which nothing tries again. Out of time or not pushed, it stays held for the next run's try.
+retry_held() {
+  local branch base
+  for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/held/$1/"); do
+    case "$branch" in *-tried) continue ;; esac
+    base=$(git merge-base "$branch" origin/main) || continue
+    git diff --quiet "$base" origin/main -- . ':!content' ':!sources' ':!engine-state' ':!docs' ':!*.md' && continue
+    log "trying $branch once more: main's code has changed since it was held"
+    git reset -q --hard "$branch"
+    if push_kept; then
+      drop_branch "$branch" || log "$branch is published, and couldn't be deleted"
+      log "published $branch"
+    elif [ -n "$KEPT_FAILED" ]; then
+      move_branch "$branch" "$branch-tried" || log "$branch couldn't be moved to $branch-tried"
+      log "$branch failed its tests again: on $branch-tried, not tried again"
+    else
+      log "$branch isn't published yet ($KEPT_WHY): it stays held for the next run's try"
     fi
     git fetch -q origin || true
     git reset -q --hard origin/main
