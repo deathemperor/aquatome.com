@@ -1,4 +1,4 @@
-import { thumbOf, type Photo } from '@aq/schema'
+import { subjectFrame, thumbOf, type Photo } from '@aq/schema'
 
 /** Commons hands back the original file as the "thumb" when it is no wider than the size asked for: its 500px size instead. */
 function commonsThumb(p: Photo) {
@@ -23,3 +23,18 @@ export function resizeOf(p: Photo, address: string): boolean {
 /** Whether a larger copy is the same picture: its shape within 1% of the photo's (any more is another framing). */
 export const sameShape = (p: { width: number; height: number }, big: { width: number; height: number }) =>
   Math.abs(big.width / big.height / (p.width / p.height) - 1) <= 0.01 + 1e-9
+
+/**
+ * How a fish's frame of `ratio` (width over height) shows `p` by the fish's box (subjectFrame; the loader gives a box only
+ * with its switch on, SUBJECT_FRAMES): `whole`, the photo whole; `pos`, the crop moved onto the fish, as CSS
+ * object-position. Neither: today's centred crop (no box, or the centred crop keeps the fish).
+ */
+export function fishFrame(p: Photo, ratio: number): { pos?: string; whole?: true } {
+  const f = subjectFrame(p, ratio)
+  if (f.fit === 'whole') return { whole: true }
+  const pct = (v: number) => `${+(v * 100).toFixed(2)}%`
+  return f.x === 0.5 && f.y === 0.5 ? {} : { pos: `${pct(f.x)} ${pct(f.y)}` }
+}
+
+/** A fish's 4:3 tile (SpeciesCard, and the cards the fish list's script builds): framed only on a copy that is the same picture. */
+export const tileFrame = (p: Photo) => (resizeOf(p, smallSrc(p)) ? fishFrame(p, 4 / 3) : {})

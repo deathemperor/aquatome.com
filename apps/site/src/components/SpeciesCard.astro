@@ -3,7 +3,7 @@ import { photoFitsCard, resolveDataCard, type Localized, type Photo, type Specie
 import Difficulty from './Difficulty.astro'
 import RangeBar from './RangeBar.astro'
 import { fmt, isRange, WATER_WORDS } from '../lib/format'
-import { smallSrc } from '../lib/img'
+import { smallSrc, tileFrame } from '../lib/img'
 import { cleanPhoto } from '../lib/home'
 import { i18n } from '../lib/i18n'
 import { BREED_KIND, careCard, type Breed } from '../lib/breeds'
@@ -24,6 +24,10 @@ const { range } = fmt(lang)
 const chosen = photo !== undefined ? photo : breed ? cleanPhoto(breed.photos) : cleanPhoto(s.photos)
 const p = chosen?.generated || chosen && !photoFitsCard(chosen) ? undefined : chosen
 const card = breed ? careCard(breed).card : s.dataCard
+// Where the 4:3 tile would cut the fish: the crop moved onto it, or the photo whole on itself blurred (tileFrame). The
+// template holds the whole tile's two pictures, which the fish list's script keeps or folds to one (scripts/species-card.ts).
+const frame = p ? tileFrame(p) : {}
+const load = eager ? 'eager' : 'lazy'
 const temp = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.tempC ?? [], 'tempC')
 const ph = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.ph ?? [], 'ph')
 const diff = template ? { value: 1 } : resolveDataCard(card.difficulty ?? [], 'difficulty')
@@ -34,7 +38,10 @@ const fig = breed ? { tempC: asRange(temp?.value), ph: asRange(ph?.value), tankC
 ---
 <article class="sc" data-fig={fig && JSON.stringify(fig)}>
   <a href={`/vi/ca/${(breed ?? s).t.slug}/`}>
-    <div class="plate">{template ? <img src="" width="0" height="0" alt="" loading="lazy" /> : p ? <img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={eager ? 'eager' : 'lazy'} /> : breed && <span class="ph"><svg viewBox="0 0 64 32" aria-hidden="true"><path d="M6 16c8-11 26-13 40-3l12-8v22l-12-8C32 29 14 27 6 16Z" /><circle cx="17" cy="14" r="1.6" /></svg>{tr('Chưa có ảnh')}</span>}</div>
+    <div class="plate">{template ? <span class="whole"><img class="ground" src="" width="0" height="0" alt="" aria-hidden="true" loading="lazy" /><img src="" width="0" height="0" alt="" loading="lazy" style="" /></span>
+      : p ? (frame.whole ? <span class="whole"><img class="ground" src={smallSrc(p)} width={p.width} height={p.height} alt="" aria-hidden="true" loading={load} /><img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={load} /></span>
+        : <img src={smallSrc(p)} width={p.width} height={p.height} alt="" loading={load} style={frame.pos && `object-position: ${frame.pos}`} />)
+      : breed && <span class="ph"><svg viewBox="0 0 64 32" aria-hidden="true"><path d="M6 16c8-11 26-13 40-3l12-8v22l-12-8C32 29 14 27 6 16Z" /><circle cx="17" cy="14" r="1.6" /></svg>{tr('Chưa có ảnh')}</span>}</div>
     {breed ? <><h3 class="n">{breed.t.name}</h3><p class="kind">{tr(BREED_KIND[breed.kind])}</p></> : <><h3>{s.t.name}</h3><p class="sci">{s.scientificName}</p>{(template || water) && <p class="water">{water}</p>}</>}
   </a>
   {t || h || diff ? (
@@ -51,6 +58,10 @@ const fig = breed ? { tempC: asRange(temp?.value), ph: asRange(ph?.value), tankC
   .sc a { text-decoration: none; color: inherit; display: block; margin-bottom: var(--space-3); }
   .plate { background: var(--c-plate); padding: 5px; border-radius: var(--radius-plate); box-shadow: 0 1px 0 var(--c-rule); }
   .plate img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+  /* The photo whole, on the same photo blurred filling the tile: the grid stays even (the Design Lead's frames board, 12 Nov). */
+  .whole { display: block; position: relative; overflow: hidden; aspect-ratio: 4 / 3; }
+  .whole img { position: relative; height: 100%; object-fit: contain; }
+  .whole .ground { position: absolute; inset: 0; object-fit: cover; filter: blur(18px); transform: scale(1.15); }
   .sc a:hover h3 { color: var(--c-moss); }
   h3 { font-size: 1.3rem; margin-top: var(--space-3); }
   .sci { margin: 0; font-size: 0.9rem; color: var(--c-ink-soft); font-style: italic; font-family: var(--f-display); }

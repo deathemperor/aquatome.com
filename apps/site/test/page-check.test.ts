@@ -58,6 +58,9 @@ describe('each check, on a page made to fail it', () => {
   test('one picture in two files, a card\'s thumb of it, a video\'s two thumbnails', () => {
     expect(checks(`<img src="https://m/1.webp"><img src="https://m/2-480.webp"><img src="https://i.ytimg.com/vi/v/hq.jpg"><img src="https://i.ytimg.com/vi_webp/v/mq.webp"><template><img src="https://m/1.webp"></template>`)).toEqual(['repeat', 'repeat'])
   })
+  test('a whole tile\'s blurred ground is a backdrop, not the picture twice', () => {
+    expect(checks(`<span class="whole"><img class="ground" src="https://m/1-480.webp" alt="" aria-hidden="true"><img src="https://m/1-480.webp" alt=""></span>`)).toEqual([])
+  })
   test('a figure of another fish under a fish\'s heading; a fish\'s section with no photo', () => {
     expect(checks(`<div class="prose"><h3>1. Cá a (Aus bus)</h3><p>…</p>${fig('https://m/b.webp')}<h3>2. Cá b (Aus cus)</h3><p>…</p></div>`)).toEqual(['wrong-fish', 'missing-photo'])
     expect(checks(`<div class="prose"><h3>1. Cá a (Aus bus)</h3><p>…</p>${fig('https://m/x.webp', '/ca/b/')}<h3>2. Cá b (Aus cus)</h3><p>…</p>${fig('https://m/b.webp')}</div>`)).toEqual(['wrong-fish'])
