@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { CHECKLIST, fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
-import { breedFigures } from '../src/breed-units'
+import { breedFigures, keepsFigures, unitsLeft } from '../src/breed-units'
 import { convertible, fitRewrite, mendable, rewriteDue } from '../src/fit-rewrite'
 import { loadPages, type Page } from '../src/pages'
 
@@ -219,29 +219,29 @@ test('a part said more surely than its English is not kept, however well its rev
 })
 
 /** A breed page (no English beside it) with ranchu's case: a source finding and a converted tank in one paragraph, and a converted tank in an FAQ answer. */
-const breed = async () => {
+const breed = async (o: { faq?: string; faqQuote?: string } = {}) => {
   const root = await content()
   const file = join(root, 'content/breeds/pigeon-blood-discus/vi.json')
   const t = JSON.parse(await readFile(file, 'utf8'))
   t.body += '<p>Một người chơi ở Anh kể rằng cá cần nhiều chỗ. Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.</p>'
-  t.faq[0].a = 'Cá con có thể bắt đầu trong bể 110 lít.'
+  t.faq[0].a = o.faq ?? 'Cá con có thể bắt đầu trong bể 110 lít.'
   await writeFile(file, JSON.stringify(t, null, 2))
   await mkdir(join(root, 'engine-state/breeds'), { recursive: true })
   await writeFile(join(root, 'engine-state/breeds/pigeon-blood-discus.json'), JSON.stringify({ keeping: ['For one large fish, 35 US gal (about 132 L) is the bare minimum; 40–50 gal (151–189 L) is better.'] }))
   const p = (await loadPages(join(root, 'content'), ['vi'])).find(x => x.id === 'pigeon-blood-discus')!
   const source = { check: 'source' as const, part: part(p, 'body'), quote: 'Một người chơi ở Anh kể rằng cá cần nhiều chỗ.', why: 's' }
   const tank = { check: 'units' as const, part: part(p, 'body'), quote: 'Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.', why: 'a converted 35-gallon figure' }
-  const faq = { check: 'units' as const, part: part(p, 'faq.0.a'), quote: 'Cá con có thể bắt đầu trong bể 110 lít.', why: 'a converted 29-gallon tank' }
+  const faq = { check: 'units' as const, part: part(p, 'faq.0.a'), quote: o.faqQuote ?? o.faq ?? 'Cá con có thể bắt đầu trong bể 110 lít.', why: 'a converted 29-gallon tank' }
   return { root, file, p, source, tank, faq }
 }
 /** A rewriter that does what its notes ask (the figures it is told, or the source's wording), and a reviewer's score. */
-const notesLlm = (o: { figures?: (vi: string) => string } = {}) => {
+const notesLlm = (o: { figures?: (vi: string) => string; other?: (vi: string) => string } = {}) => {
   const prompts: { kind: 'rewrite' | 'review'; prompt: string }[] = []
   const llm = (async ({ prompt, schema }: { prompt: string; schema: object }) => {
     if ((schema as { required: string[] }).required.includes('parts')) {
       prompts.push({ kind: 'rewrite', prompt })
       const told = prompt.includes('Write exactly these figures')
-      const fix = told ? (o.figures ?? ((vi: string) => vi.replace('132 lít', '130 lít').replace('110 lít', '120 lít'))) : (vi: string) => vi.replace('Một người chơi ở Anh kể rằng', 'Theo một nguồn,')
+      const fix = told ? (o.figures ?? ((vi: string) => vi.replace('132 lít', '130 lít').replace('110 lít', '120 lít'))) : (o.other ?? ((vi: string) => vi.replace('Một người chơi ở Anh kể rằng', 'Theo một nguồn,')))
       return { parts: [...prompt.matchAll(/### (\S+)\n(?:EN:\n[\s\S]*?\n)?VI:\n([\s\S]*?)(?=\n\n### |$)/g)].map(m => ({ id: m[1]!, vi: fix(m[2]!.trim()) })) }
     }
     prompts.push({ kind: 'review', prompt })
@@ -263,6 +263,24 @@ test('a breed page\'s figures, from its source\'s own US figure: a table tank it
   expect(breedFigures('bể 110 lít', '').map(f => f.to)).toEqual(['120 lít'])
   expect(breedFigures('bể 75–115 lít sẽ thoải mái hơn', '').map(f => f.to)).toEqual(['80 lít', '120 lít'])
   expect(breedFigures('bể 40 lít, hoặc 65 lít', 'about 38 L (10 gal)')).toEqual([])
+  // The facts' own US figure beside the page's litres, not the nearest: 1.050 lít is 280 gallons, 1.100 (275 would give 1.000, 5,65% under).
+  expect(breedFigures('hồ tối thiểu 1.050 lít', 'Minimum pond 280 gallons (about 1,050 L). Separate holding pool 275 gallons (1,041 L).').map(f => f.to)).toEqual(['1.100 lít'])
+})
+
+test('a breed page\'s figure is kept only as its whole quantity, and a dose\'s water or a figure with no US figure is left to a person', () => {
+  // 10 gallons an inch: 15 lít mỗi cm, not 15 lít mỗi 2,5 cm, nor a 15-litre tank beside an allowance reworded.
+  const [perCm] = breedFigures('khoảng 40 lít cho mỗi 2,5 cm chiều dài', '')
+  const quote = ['khoảng 40 lít cho mỗi 2,5 cm chiều dài']
+  expect(keepsFigures('Cho khoảng 15 lít cho mỗi cm chiều dài.', quote, [perCm!])).toBeUndefined()
+  expect(keepsFigures('Cho khoảng 15 lít cho mỗi 2,5 cm chiều dài.', quote, [perCm!])).toContain('15 lít cho mỗi cm')
+  expect(keepsFigures('Cá con ở bể 15 lít; cá lớn cần 40 lít nước với từng 2,5 cm.', quote, [perCm!])).toContain('15 lít cho mỗi cm')
+  // A dose's water stays exact, the quote's own sentence read for it; a tank in the next sentence isn't a dose.
+  const dosed = 'Dùng 1 ml thuốc trong 38 lít nước. Một nguồn coi 132 lít là mức tối thiểu.'
+  expect(unitsLeft('38 lít', 'Dose 1 ml per 10 US gal (38 L). 35 US gal (about 132 L) at least.', dosed)).toBe('a dose, whose water stays exact')
+  expect(unitsLeft('132 lít là mức tối thiểu', 'Dose 1 ml per 10 US gal (38 L). 35 US gal (about 132 L) at least.', dosed)).toBeUndefined()
+  // No US figure to work from: 36 gallons isn't beside 136 lít, nor a US tank; a Vietnamese decimal after thousands is read.
+  expect(unitsLeft('Cần 136 lít cho một con.', 'Minimum 36 US gallons.')).toBe('no US figure to work 136 lít from')
+  expect(unitsLeft('Cần 1.132,5 lít cho một con.', 'Minimum 36 US gallons.')).toBe('no US figure to work 1.132,5 lít from')
 })
 
 test('a breed page\'s units are mended, in an FAQ answer too, after the part\'s other mend in the same try, with each figure as the rule names it', async () => {
@@ -283,6 +301,24 @@ test('a breed page\'s units are mended, in an FAQ answer too, after the part\'s 
   expect(units!.prompt).toContain('A tank or water per fish, or per cm of a fish, is an allowance, not a dose')
   expect(faqRewrite!.prompt).toContain('"110 lít" → "120 lít" (29 US gallons)')
   expect(prompts.filter(x => x.kind === 'review').map(x => x.prompt.includes('"132 lít" → "130 lít"') || x.prompt.includes('"110 lít" → "120 lít"'))).toEqual([false, true, true])
+})
+
+test('a breed page\'s units quote the other mend reworded is found again by its litres; a dose\'s water is left to a person', async () => {
+  const { root, file, p, source, tank } = await breed()
+  const { llm, prompts } = notesLlm({ other: vi => vi.replace('Một người chơi ở Anh kể rằng', 'Theo một nguồn,').replace('Một nguồn coi 132 lít', 'Có nguồn xem 132 lít') })
+  const r = await fitRewrite(root, [p], reading(p, [source, tank]), { llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
+  expect(r.rewritten).toEqual(['vi/breeds/pigeon-blood-discus body (0.90)', 'vi/breeds/pigeon-blood-discus body units (0.90)'])
+  expect(JSON.parse(await readFile(file, 'utf8')).body).toContain('Theo một nguồn, cá cần nhiều chỗ. Có nguồn xem 130 lít là mức tối thiểu cho một con lớn.')
+  expect(prompts.filter(x => x.kind === 'rewrite')[1]!.prompt).toContain('"Có nguồn xem 132 lít là mức tối thiểu cho một con lớn."')
+  // The reviewer holds the guard too, not the figures alone.
+  expect(prompts.filter(x => x.kind === 'review')[1]!.prompt).toContain('a minimum never more than a twentieth under it')
+
+  const dose = await breed({ faq: 'Khi cá bệnh, dùng 1 ml thuốc trong 38 lít nước.', faqQuote: '38 lít nước' })
+  const none = notesLlm()
+  const d = await fitRewrite(dose.root, [dose.p], reading(dose.p, [dose.faq]), { llm: none.llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
+  expect(none.prompts).toEqual([])
+  // The check's own units finding on the figure too (fit.ts fitRules): both left.
+  expect(d.skipped).toEqual(['vi/breeds/pigeon-blood-discus faq.0.a units: a dose, whose water stays exact ("38 lít")', 'vi/breeds/pigeon-blood-discus faq.0.a units: a dose, whose water stays exact ("38 lít nước")'])
 })
 
 test('a breed page\'s units rewrite that names another figure isn\'t kept, and the part\'s other mend stays', async () => {

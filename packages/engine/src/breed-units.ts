@@ -9,11 +9,12 @@ import { GALLON, keeperFigure, US_TANKS, usTankOf } from './round'
  * - a US tank in the table (US_TANKS) is the size it names: 29 or 30 gallons 120 lít;
  * - any other (35 gallons, 1,000 gallons, 3 gallons a fish) is keeperFigure's: 130, 4.000, 12 lít;
  * - "for each 2,5 cm" of a fish is a source's "per inch": given per cm, 10 gallons an inch 15 lít mỗi cm.
- * The US figure is the facts' own where one converts to within a twentieth of the page's figure ("35 US gal (about
- * 132 L)"), else the table's for a volume only a gallon conversion gives (usTankOf: 110 lít is 29 gallons). A figure
- * neither gives is left to the rewriter's rule and its reviewer.
+ * The US figure is the facts' own beside the page's figure ("35 US gal (about 132 L)"), else the facts' nearest within a
+ * twentieth of it, else the table's for a volume only a gallon conversion gives (usTankOf: 110 lít is 29 gallons). A
+ * finding is left to a person (`unitsLeft`) when a litre figure in it has neither, or its sentence is a dose, whose water
+ * stays exact. A figure counts only as the whole quantity: 15 lít mỗi cm, not 15 lít mỗi 2,5 cm (`keepsFigures`).
  */
-export type BreedFigure = { from: string; to: string; litres: number; why: string }
+export type BreedFigure = { from: string; to: string; litres: number; why: string; perCm?: true }
 
 const EN_N = String.raw`\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?`
 const en = (s: string) => Number(s.replaceAll(',', ''))
@@ -24,12 +25,12 @@ const ABOUT = String.raw`(?:about|roughly|approx\.?|~)?\s*`
 const GAL_FIRST = new RegExp(String.raw`(?<![\d.,–-])(${EN_N})\+?\s*${GAL}\s*\(\s*${ABOUT}(${EN_N})\s*${LITRE}(?![\p{L}\d–-])`, 'giu')
 const LITRE_FIRST = new RegExp(String.raw`(?<![\d.,–-])(${EN_N})\s*${LITRE}\s*\(\s*${ABOUT}(${EN_N})\+?\s*${GAL}(?![\p{L}])`, 'giu')
 
-/** The US gallon figures a breed's facts give with a litre figure beside them. */
-export function factsGallons(facts: string): number[] {
-  return [...new Set([...[...facts.matchAll(GAL_FIRST)].map(m => en(m[1]!)), ...[...facts.matchAll(LITRE_FIRST)].map(m => en(m[2]!))])]
+/** The US gallon figures a breed's facts give, each with the litre figure beside it. */
+export function factsPairs(facts: string): [gallons: number, litres: number][] {
+  return [...[...facts.matchAll(GAL_FIRST)].map(m => [en(m[1]!), en(m[2]!)] as [number, number]), ...[...facts.matchAll(LITRE_FIRST)].map(m => [en(m[2]!), en(m[1]!)] as [number, number])]
 }
 
-const VI_N = String.raw`\d{1,3}(?:\.\d{3})+|\d+(?:,\d+)?`
+const VI_N = String.raw`\d{1,3}(?:\.\d{3})+(?:,\d+)?|\d+(?:,\d+)?`
 const vi = (s: string) => Number(s.replaceAll('.', '').replace(',', '.'))
 const viFigure = (n: number) => (n >= 1000 ? `${Math.floor(n / 1000)}.${String(n % 1000).padStart(3, '0')}` : String(n))
 /** Litres in Vietnamese text: "132 lít", "3.800 lít", "75–115 lít", "40 lít cho mỗi 2,5 cm". */
@@ -38,21 +39,27 @@ const VOLUME = new RegExp(String.raw`(?<![\d.,])(${VI_N})(?:\s*(?:[–-]|đến)
 /** The litres a Vietnamese text gives, each end of a range on its own. */
 export const litresIn = (text: string) => [...text.matchAll(VOLUME)].flatMap(m => [vi(m[1]!), ...(m[2] ? [vi(m[2])] : [])])
 
+/** The source's US gallons for a page's litre figure: the facts' own beside that figure, else their nearest within a twentieth, else a US tank's. */
+function usGallons(l: number, pairs: [number, number][]): number | undefined {
+  return pairs.find(([, L]) => L === l)?.[0] ??
+    pairs.map(([g]) => [g, Math.abs(g * GALLON - l) / l] as const).filter(([, d]) => d <= 0.05).sort((a, b) => a[1] - b[1])[0]?.[0] ??
+    usTankOf(l)?.[0]
+}
+
 /** What keepers here say for each litre figure a units finding quotes, from the source's US figure. */
 export function breedFigures(quote: string, facts: string): BreedFigure[] {
-  const given = factsGallons(facts)
+  const pairs = factsPairs(facts)
   const out: BreedFigure[] = []
   for (const m of quote.matchAll(VOLUME)) {
     const perInch = !!m[3]
     for (const s of [m[1]!, ...(m[2] ? [m[2]] : [])]) {
       const l = vi(s)
-      const fromFacts = given.map(g => [g, Math.abs(g * GALLON - l) / l] as const).filter(([, d]) => d <= 0.05).sort((a, b) => a[1] - b[1])[0]?.[0]
-      const g = fromFacts ?? usTankOf(l)?.[0]
+      const g = usGallons(l, pairs)
       if (g === undefined) continue
       const table = US_TANKS.find(([x]) => x === g)?.[1]
       const to = perInch ? keeperFigure((g * GALLON) / 2.54) : table ?? keeperFigure(g * GALLON)
       const gal = `${g.toLocaleString('en-US')} US gallon${g === 1 ? '' : 's'}`
-      if (perInch) out.push({ from: `${s} lít cho mỗi 2,5 cm`, to: `${viFigure(to)} lít cho mỗi cm`, litres: to, why: `${gal} per inch` })
+      if (perInch) out.push({ from: `${s} lít cho mỗi 2,5 cm`, to: `${viFigure(to)} lít cho mỗi cm`, litres: to, why: `${gal} per inch`, perCm: true })
       else if (to !== l) out.push({ from: `${s} lít`, to: `${viFigure(to)} lít`, litres: to, why: gal })
     }
   }
@@ -62,12 +69,52 @@ export function breedFigures(quote: string, facts: string): BreedFigure[] {
 /** The figures as the rewriter and its reviewer are told them. */
 export const figuresSaid = (figures: BreedFigure[]) => figures.map(f => `"${f.from}" → "${f.to}" (${f.why})`).join('; ')
 
-/** A rewrite keeps each figure: every one named, and the quote it mends gone. */
+const flat = (s: string) => s.replace(/\s+/g, ' ').trim()
+/** After a volume, "… cho mỗi cm": a figure per cm of fish. */
+const PER_CM = /^[^\d.;,\n]{0,20}?(?:mỗi|trên|\/)\s*(?:1\s*)?cm(?![\p{L}])/iu
+/** A text's litres as whole quantities: "130", "15/cm" per cm of fish, "40/2.5cm" per 2,5 cm. */
+const quantities = (text: string) => new Set([...text.matchAll(VOLUME)].flatMap(m => {
+  const per = m[3] ? '/2.5cm' : PER_CM.test(text.slice(m.index + m[0].length)) ? '/cm' : ''
+  return [m[1]!, ...(m[2] ? [m[2]] : [])].map(s => `${vi(s)}${per}`)
+}))
+
+/** A rewrite keeps each figure: every one named as its whole quantity, and the quote it mends gone. */
 export function keepsFigures(text: string, quotes: string[], figures: BreedFigure[]): string | undefined {
-  const have = new Set(litresIn(text))
-  const missing = figures.filter(f => !have.has(f.litres)).map(f => f.to)
+  const have = quantities(text)
+  const missing = figures.filter(f => !have.has(`${f.litres}${f.perCm ? '/cm' : ''}`)).map(f => f.to)
   if (missing.length) return `the figures as keepers say them aren't there: ${missing.join(', ')}`
-  const flat = (s: string) => s.replace(/\s+/g, ' ').trim()
   const left = quotes.filter(q => q && flat(text).includes(flat(q)))
   return left.length ? `the figure it mends is still there: ${left.join('; ')}` : undefined
+}
+
+/** The sentence a quote sits in, in its block's text (the quote itself where it isn't there). */
+export function sentenceOf(quote: string, block: string): string {
+  const t = flat(block)
+  const q = flat(quote)
+  const i = q ? t.indexOf(q) : -1
+  if (i < 0) return quote
+  const ends = [...t.slice(0, i).matchAll(/[.!?…]\s/g)]
+  const after = /[.!?…]$/.test(q) ? { index: -1 } : /[.!?…](?:\s|$)/.exec(t.slice(i + q.length))
+  return t.slice(ends.length ? ends.at(-1)!.index + 2 : 0, after ? i + q.length + after.index + 1 : t.length)
+}
+/** A dose: an amount of a medicine, salt or the like in the sentence. The water it goes into stays exact. */
+const DOSE = /\d\s*(?:ml|mg|g|gam|gram|giọt|viên|muỗng|thìa)(?![\p{L}])|thuốc|liều/iu
+/** Why a breed page's units finding is left to a person: a dose's water, or a litre figure with no US figure to work from. */
+export function unitsLeft(quote: string, facts: string, block = quote): string | undefined {
+  const litres = litresIn(quote)
+  if (!litres.length) return undefined
+  if (DOSE.test(sentenceOf(quote, block))) return 'a dose, whose water stays exact'
+  const pairs = factsPairs(facts)
+  const none = litres.filter(l => usGallons(l, pairs) === undefined)
+  return none.length ? `no US figure to work ${none.map(l => l.toLocaleString('vi-VN')).join(', ')} lít from` : undefined
+}
+/** Where a quote's litres are once another mend of the part reworded it: the first sentence of the blocks giving each. */
+export function moved(quote: string, blocks: string[]): string | undefined {
+  const want = litresIn(quote)
+  if (!want.length) return undefined
+  for (const b of blocks) for (const s of flat(b).split(/(?<=[.!?…])\s+/)) {
+    const have = litresIn(s)
+    if (want.every(l => have.includes(l))) return s
+  }
+  return undefined
 }
