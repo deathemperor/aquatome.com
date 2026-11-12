@@ -221,6 +221,10 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     expect(cap(when, 'mac', 'review-backfill-97')).toBe(10)
     // The card crops: $4 for their first day, 13 Nov, then $1.
     expect(cap(when, 'mac', 'card-crops')).toBe(p.crops)
+    // The ideas step is off: on 12 Nov its $1 line stopped it part way through its first guide, which costs about $1.30
+    // (9 calls), and it wrote nothing. $0 makes no call until a step stops before a piece it can't finish (the chief of
+    // staff, 12 Nov 2026).
+    for (const where of ['mac', 'github'] as const) expect(cap(when, where, 'write-ideas')).toBe(0)
     // A step that runs on the other machine, or a new one, has the small ceiling, never none.
     expect(cap(when, 'github', 'run')).toBe(p.small)
     expect(cap(when, 'mac', 'anything-new')).toBe(p.small)
