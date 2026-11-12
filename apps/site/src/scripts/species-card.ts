@@ -16,14 +16,15 @@ export function buildCard(template: HTMLTemplateElement, i: SpeciesListItem): HT
   const { range } = fmt(langOf(location.pathname))
   card.dataset.slug = i.slug
   $('a').setAttribute('href', cpath(`/vi/ca/${i.slug}/`))
-  // The template's whole tile: the photo over itself blurred. A tile that isn't whole folds to its one picture, placed
-  // where SpeciesCard places it (`pos`), so the two come out the same.
+  // The template's whole tile: the photo over itself blurred, or on the mat (`mat`: no blurred ground). A tile that isn't
+  // whole folds to its one picture, placed where SpeciesCard places it (`pos`), so the two come out the same.
   const whole = $('.whole'), [ground, img] = [...whole.querySelectorAll('img')] as [HTMLImageElement, HTMLImageElement]
   if (i.photo) {
     for (const el of i.photo.whole ? [ground, img] : [img]) for (const [k, v] of [['src', i.photo.src], ['width', String(i.photo.w)], ['height', String(i.photo.h)]] as const) el.setAttribute(k, v)
     if (i.photo.pos) img.setAttribute('style', `object-position: ${i.photo.pos}`)
     else img.removeAttribute('style')
     if (!i.photo.whole) whole.replaceWith(img)
+    else if (i.photo.mat) ground.remove()
     creditPhoto(i.photo)
   } else whole.remove()
   $('h3').textContent = i.name
