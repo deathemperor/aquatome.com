@@ -22,11 +22,12 @@ function stepsRun(part: string, github: boolean) {
   return readFileSync(join(dir, 'ran'), 'utf8').trim().split('\n')
 }
 
-test('the units mender runs in the Mac\'s photos part alone: another part or a cloud cycle beside it would mend the same pages and read them twice', () => {
+test('the units mender and the source figures run in the Mac\'s photos part alone: another part or a cloud cycle beside it would mend the same pages and read them twice', () => {
   // The chief of staff, 2026-11-12: the menders on the Mac only. The Mac's parts overlap, so one part of them.
-  expect(stepsRun('photos', false)).toContain('units-mend')
+  expect(stepsRun('photos', false)).toEqual(expect.arrayContaining(['source-figures', 'units-mend']))
   for (const [part, github] of [['pages', false], ['sf', false], ['rewrite', true]] as const) {
     expect(stepsRun(part, github), part).not.toContain('units-mend')
+    expect(stepsRun(part, github), part).not.toContain('source-figures')
   }
   // The steps around it run in every part.
   for (const part of ['photos', 'pages', 'rewrite']) expect(stepsRun(part, part === 'rewrite')).toEqual(expect.arrayContaining(['metric', 'sweep']))
