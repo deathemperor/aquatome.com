@@ -13,7 +13,10 @@ import type { PhotoVerdict } from './photo-check'
  * (`pickStands`).
  */
 export type PersonYes = { proposer: string; approvers: string[]; on: string; lookAlike: string; mark: string }
-/** Who may say yes, two of them on every yes, and never the one who proposed the photo. */
+/**
+ * Who may say yes: two of them on every yes, never the one who proposed the photo. The owner's yes counts alone ("the
+ * owner may always", the approved rule). Names compare trimmed and in any case, so "Curation " is Curation.
+ */
 export const YES_APPROVERS = ['the chief of staff', 'Curation', 'the owner'] as const
 /** Yeses a week (Monday to Sunday, by `on`): any past these, earliest first, don't count. */
 export const YES_PER_WEEK = 5
@@ -22,18 +25,34 @@ const LETTERING = /\b(letter(s|ing)?|words?|text|written|writing|signs?|signatur
 
 type Raw = Record<string, Record<string, Partial<PersonYes>>>
 
+const object = (x: unknown): x is Record<string, unknown> => typeof x === 'object' && x !== null && !Array.isArray(x)
+const who = (x: string) => x.trim().toLowerCase()
+const OWNER = who('the owner')
+
+/** A day as written in the calendar: 2026-02-30 is no day. */
+const day = (x: unknown): x is string => typeof x === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(x)
+  && !Number.isNaN(Date.parse(`${x}T00:00:00Z`)) && new Date(`${x}T00:00:00Z`).toISOString().slice(0, 10) === x
+
+/** Whether the people named may say this yes: the owner alone, or two others who may, neither the proposer. */
+function said(proposer: string, approvers: unknown): boolean {
+  if (!Array.isArray(approvers) || !approvers.length || !approvers.every(a => typeof a === 'string')) return false
+  const names = approvers.map(who)
+  if (new Set(names).size !== names.length || !names.every(a => YES_APPROVERS.some(b => who(b) === a))) return false
+  return names.includes(OWNER) || names.filter(a => a !== who(proposer)).length >= 2
+}
+
 /**
- * The entries that count: every field given, a mark that names no lettering, two different people who may say yes and
- * neither of them the proposer, at most YES_PER_WEEK a week.
+ * The entries that count: every field given, a mark that names no lettering, a real day, the people `said` names, at
+ * most YES_PER_WEEK a week. An entry of any other shape doesn't count and stops nothing.
  */
-export function countedYes(raw: Raw): Record<string, Record<string, PersonYes>> {
-  const word = (x: unknown) => typeof x === 'string' && x.trim().length > 0
+export function countedYes(raw: unknown): Record<string, Record<string, PersonYes>> {
+  const word = (x: unknown): x is string => typeof x === 'string' && x.trim().length > 0
   const monday = (d: string) => { const t = Date.parse(`${d}T00:00:00Z`); return new Date(t - ((new Date(t).getUTCDay() + 6) % 7) * 86_400_000).toISOString().slice(0, 10) }
-  const two = (y: Partial<PersonYes>) => Array.isArray(y.approvers) && y.approvers.length === 2 && y.approvers[0] !== y.approvers[1]
-    && y.approvers.every(a => (YES_APPROVERS as readonly string[]).includes(a) && a !== y.proposer)
-  const valid = Object.entries(raw).flatMap(([url, pages]) => Object.entries(pages ?? {}).map(([page, y]) => ({ url, page, y })))
-    .filter(({ y }) => word(y.proposer) && word(y.lookAlike) && word(y.mark) && !LETTERING.test(y.mark!) && two(y)
-      && typeof y.on === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(y.on) && !Number.isNaN(Date.parse(y.on)))
+  const valid = (object(raw) ? Object.entries(raw) : [])
+    .flatMap(([url, pages]) => (object(pages) ? Object.entries(pages) : []).map(([page, y]) => ({ url, page, y })))
+    .filter((e): e is { url: string; page: string; y: Partial<PersonYes> } => object(e.y))
+    .filter(({ y }) => word(y.proposer) && word(y.lookAlike) && word(y.mark) && !LETTERING.test(y.mark) && day(y.on)
+      && said(y.proposer, y.approvers))
     .sort((a, b) => a.y.on!.localeCompare(b.y.on!) || a.url.localeCompare(b.url) || a.page.localeCompare(b.page))
   const week = new Map<string, number>()
   const out: Record<string, Record<string, PersonYes>> = {}
@@ -50,7 +69,9 @@ export type PersonYesRecord = { raw: Raw; counted: Record<string, Record<string,
 
 /** The record as written, and the entries of it that count. The engine only reads it. */
 export async function readPersonYes(root: string): Promise<PersonYesRecord> {
-  const raw = JSON.parse(await readFile(join(root, 'engine-state', '_photo-person-yes.json'), 'utf8').catch(() => 'null')) as Raw | null ?? {}
+  const read = JSON.parse(await readFile(join(root, 'engine-state', '_photo-person-yes.json'), 'utf8').catch(() => 'null')) as unknown
+  // Only well-formed pages: `pickStands` asks the record whether a yes was written for a photo and page.
+  const raw: Raw = Object.fromEntries((object(read) ? Object.entries(read) : []).filter(([, pages]) => object(pages))) as Raw
   return { raw, counted: countedYes(raw) }
 }
 
@@ -61,7 +82,8 @@ export async function readPersonYes(root: string): Promise<PersonYesRecord> {
  */
 export function pickStands(ref: string, url: string, subjects: Record<string, Record<string, PhotoVerdict>>, yes: PersonYesRecord): boolean {
   const page = ref.split('/')[1] ?? ''
-  if (!yes.raw[url]?.[page]) return true
+  // Any entry written for the photo and page, well formed or not: one that doesn't count takes the pick with it.
+  if (!Object.hasOwn(yes.raw[url] ?? {}, page)) return true
   const v = subjects[url]?.[page]
   return !!yes.counted[url]?.[page] && !!v && !v.guide && v.ok === 'unsure'
 }
