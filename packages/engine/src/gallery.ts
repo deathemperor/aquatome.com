@@ -352,6 +352,8 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
     const full = gallery.length >= t.target
     if (full && !seeded.size) continue
     const limit = full ? t.target + SEED_OVER : t.target
+    // Full to its last seeded space: the seeds left wait in the queue for a photo the check takes off.
+    if (gallery.length >= limit) continue
     const st: GalleryState = saved ?? { queue: [], judged: [], hashes: {} }
     if (st.exhausted && !o.only && days(st.exhausted) < RETRY_DAYS) continue
     if (st.exhausted) {
@@ -465,7 +467,8 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
         }
         const pool = full ? st.queue.filter(c => seeded.has(c.key)) : st.queue
         if (!pool.length) break
-        const chunk = pool.slice(0, SHEET)
+        // A full album screens no more seeds than it has spaces, so none is judged and then turned away for want of room.
+        const chunk = pool.slice(0, full ? Math.min(SHEET, limit - gallery.length) : SHEET)
         // A breed's Vietnamese name without the English one in brackets ("Cá bình tích balloon (Balloon molly)").
         const viName = (breed ? vi.name?.replace(/\s*\(.*\)\s*$/, '') : vi.name) || sci
         const r = await screenTagged(chunk, sci, viName, d, { plant: t.kind === 'plants', strict: line, hashes: [...Object.values(st.hashes).filter(Boolean), ...other.hashes] })
@@ -475,7 +478,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
         left.sheets -= r.sheets
         report.sheets += r.sheets
         seenCount += chunk.length
-        const kept = full ? r.kept.slice(0, Math.max(0, limit - gallery.length)) : r.kept
+        const kept = r.kept
         for (const k of kept) {
           st.hashes[k.photo.url] = k.hash
           report.added[sourceOfKey(k.key)] = (report.added[sourceOfKey(k.key)] ?? 0) + 1

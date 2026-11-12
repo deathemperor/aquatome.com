@@ -174,7 +174,8 @@ test('gallery: a full album is read again for the candidates a person seeded alo
   const full = Array.from({ length: 100 }, (_, i) => ({ url: `https://media.aquatome.com/x/${i}.webp`, width: 1200, height: 800, licence: 'CC BY', author: 'a', sourceUrl: `https://x/${i}` }))
   await writeFile(join(r, 'content/gallery/betta-splendens.json'), JSON.stringify({ id: 'betta-splendens', photos: full, seen: 100, updatedAt: '2026-10-01' }))
   const cand = (n: number) => ({ key: `inat:${900 + n}`, url: `https://inaturalist-open-data.s3.amazonaws.com/photos/${900 + n}/large.jpg`, width: 1024, height: 768, licence: 'CC BY', author: 'a', sourceUrl: `https://www.inaturalist.org/photos/${900 + n}` })
-  // Five seeded, one the step queued itself: only the five are screened, and three of the kept go in.
+  // Five seeded, one the step queued itself: only seeds are screened, as many as the album has spaces (three), and the
+  // other two wait in the queue, still seeded.
   const queue = [1, 2, 3, 4, 5].map(cand)
   await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [...queue, cand(6)], judged: [], hashes: {}, seeded: queue.map(c => c.key) }))
   let calls = 0
@@ -185,9 +186,22 @@ test('gallery: a full album is read again for the candidates a person seeded alo
   expect(g.photos.filter((p: { unchecked?: boolean }) => p.unchecked)).toHaveLength(3) // waiting for the photo check
   expect(report.done).toEqual(['betta-splendens: 103/100 (+3)'])
   const st = await read(r, 'engine-state/gallery/betta-splendens.json')
-  expect(st.queue.map((c: { key: string }) => c.key)).toEqual(['inat:906'])
-  expect(st.seeded).toBeUndefined()
-  // Nothing seeded is left: the next run leaves the full album alone.
+  expect(st.judged).toEqual(['inat:901', 'inat:902', 'inat:903'])
+  expect(st.queue.map((c: { key: string }) => c.key)).toEqual(['inat:904', 'inat:905', 'inat:906'])
+  expect(st.seeded).toEqual(['inat:904', 'inat:905'])
+  // Three past its target: the next run leaves it alone, seeds and all.
+  calls = 0
+  expect((await galleries(r, deps({ http: async u => { calls++; return deps().http(u) } }), { sheets: 5 })).done).toEqual([])
+  expect(calls).toBe(0)
+  // The photo check takes one off: the next run screens the next seed, for that one space.
+  await writeFile(join(r, 'content/gallery/betta-splendens.json'), JSON.stringify({ ...g, photos: g.photos.slice(1) }))
+  expect((await galleries(r, deps(), { sheets: 5 })).done).toEqual(['betta-splendens: 103/100 (+1)'])
+  const after = await read(r, 'engine-state/gallery/betta-splendens.json')
+  expect(after.queue.map((c: { key: string }) => c.key)).toEqual(['inat:905', 'inat:906'])
+  expect(after.seeded).toEqual(['inat:905'])
+  // Once every seed is screened, the full album is left alone.
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ ...after, queue: after.queue.slice(1), seeded: undefined }))
+  await writeFile(join(r, 'content/gallery/betta-splendens.json'), JSON.stringify({ ...g, photos: g.photos.slice(2) }))
   calls = 0
   expect((await galleries(r, deps({ http: async u => { calls++; return deps().http(u) } }), { sheets: 5 })).done).toEqual([])
   expect(calls).toBe(0)

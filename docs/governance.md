@@ -582,7 +582,8 @@ The layers above still check the result.
     of the page's queue and are screened like the step's own. A page whose sources ran dry is tried again, and a full
     album is read for those candidates alone, never its sources' finds, growing at most 3 past its target (the chief of
     staff, 2026-11-12: the weather loach's album was full and its head can't reach the card's size, so a card-size
-    photo found by hand had no way in).
+    photo found by hand had no way in). It screens no more of them than it has spaces: the rest wait in the queue for a
+    photo the check takes off.
   - **Sources.** iNaturalist first: every observation of the taxon (found by its name or a synonym) with a CC0, CC BY or
     CC BY-SA photo, research grade first, then those whose community ID agrees; aquarium and garden observations count.
     Then Wikimedia Commons, GBIF occurrence photos (observations and living collections, not preserved specimens, not
