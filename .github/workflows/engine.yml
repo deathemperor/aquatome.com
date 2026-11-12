@@ -76,6 +76,13 @@ jobs:
           path: /tmp/aquatome-cost-rewrite.jsonl
           key: engine-cost-log-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: engine-cost-log-
+      # GitHub evicts a cache it hasn't read for a week, or when the repository's caches pass their size: on 12 Nov 2026
+      # this run's day found none and counted from $0. Then the last run's own copy (its artifact, below), and a day an
+      # earlier run spent without keeping a log stops every step with a ceiling until it ends (scripts/cost-log-restore.mjs).
+      - name: With no cost log from the cache, the last run's own
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/cost-log-restore.mjs /tmp/aquatome-cost-rewrite.jsonl
       - name: Drop cost lines older than 8 days
         run: |
           node -e '

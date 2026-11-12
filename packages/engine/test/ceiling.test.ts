@@ -100,6 +100,29 @@ test('the backstop: once everything logged that day reaches it, every step with 
   expect(msg('moderate')).toBeUndefined()
 })
 
+test('a day whose spend can\'t be counted stops every step with a ceiling until it ends, whatever table is in force; the gate and moderation go on', async () => {
+  // scripts/cost-log-restore.mjs writes this line when an earlier cloud run that day kept no cost log: no dollar figure
+  // is known, so none is invented, and a later table with a higher backstop can't let the day spend again.
+  const why = 'run 43171489553 ran the cycle today and kept no cost log'
+  const dir = await logs({ 'aquatome-cost-rewrite.jsonl': [{ at: TODAY_FIRST, unlogged: why }, { at: TODAY, step: 'run', usd: 1 }] })
+  const log = join(dir, 'aquatome-cost-rewrite.jsonl')
+  const later: Ceilings = { clock: 'test', tables: [{ from: '2026-11-12T00:00:00+07:00', mac: place({}), github: place({ run: 30 }, { backstop: 40 }) }, { from: '2026-11-12T08:00:00+07:00', mac: place({}), github: place({ run: 60 }, { backstop: 400 }) }] }
+  for (const step of ['run', 'localize', 'write-ideas']) {
+    const m = ceilingMessage(step, log, later, NOW, 'github')
+    expect(m).toBe(`claude failed: the engine's daily limit reached for every step (today's spend can't be counted: ${why})`)
+    expect(errorKind(m)).toBe('usage')
+    expect(accountsOut(new LlmError(m!))).toBe(true)
+  }
+  expect(ceilingMessage('gate', log, later, NOW, 'github')).toBeUndefined()
+  expect(ceilingMessage('moderate', log, later, NOW, 'github')).toBeUndefined()
+  expect(spentToday(log, NOW)).toMatchObject({ total: 1, unlogged: why })
+  // The next day counts again: the line is the day's alone.
+  expect(ceilingMessage('run', log, later, new Date(TOMORROW), 'github')).toBeUndefined()
+  // A line from yesterday, or one that isn't a reason, stops nothing.
+  const other = await logs({ 'aquatome-cost-rewrite.jsonl': [{ at: YESTERDAY, unlogged: why }, { at: TODAY, unlogged: 5 }, { at: TODAY, step: 'run', usd: 1 }] })
+  expect(ceilingMessage('run', join(other, 'aquatome-cost-rewrite.jsonl'), later, NOW, 'github')).toBeUndefined()
+})
+
 test('each machine has its own share, and before the first table nothing calls but the gate and moderation', async () => {
   const table = one(place({ run: 30 }), place({ localize: 25 }, { default: 0 }))
   const dir = await logs({ 'aquatome-cost-a.jsonl': [] })
