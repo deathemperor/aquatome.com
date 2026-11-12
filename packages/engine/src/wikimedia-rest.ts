@@ -7,8 +7,9 @@ import { dirname } from 'node:path'
  * step once a page, the large copies and the mirror once for each address of a photo. A refusal now puts every Wikimedia
  * read to rest, as the Internet Archive's does (archive.ts): for the time the refusal names (Retry-After), else 12 hours,
  * doubling to a day if the first request after the rest is refused too. Every request asks as the engine, under its own
- * name, whatever name the caller set. Only a refusal writes the rest, whole; nothing deletes it, so no answer can undo a
- * newer refusal another download wrote meanwhile. A rest that has ended is simply past.
+ * name, whatever name the caller set. Only a refusal writes the rest, whole, and never shortens one: of the rest already
+ * kept and its own, the one that ends later stays. Nothing deletes it, so no answer can undo a newer refusal another
+ * download wrote meanwhile. A rest that has ended is simply past.
  */
 export const WIKIMEDIA_REST_MS = 12 * 3_600_000
 export const WIKIMEDIA_REST_MAX_MS = 24 * 3_600_000
@@ -41,6 +42,19 @@ async function readRest(file: string): Promise<Rest | null> {
  * since it's this Mac that Wikimedia refuses.
  */
 export function restingFetch(fetch: typeof globalThis.fetch, o: { restFile: string; now: () => Date; ua: string }): typeof globalThis.fetch {
+  // The album step downloads six pictures at once: their refusals take turns to write, so none reads a rest another is
+  // about to replace.
+  let writing: Promise<unknown> = Promise.resolve()
+  const keep = async (mine: Rest): Promise<Rest> => {
+    const kept = await readRest(o.restFile)
+    if (kept && Date.parse(kept.until) >= Date.parse(mine.until)) return kept
+    // Whole or not at all: a reader never sees half a file.
+    await mkdir(dirname(o.restFile), { recursive: true })
+    const tmp = `${o.restFile}.${process.pid}.${Math.random().toString(36).slice(2)}.tmp`
+    await writeFile(tmp, `${JSON.stringify(mine)}\n`)
+    await rename(tmp, o.restFile)
+    return mine
+  }
   return async (input, init) => {
     const href = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url
     if (!wikimedia(new URL(href).hostname)) return fetch(input, init)
@@ -53,13 +67,9 @@ export function restingFetch(fetch: typeof globalThis.fetch, o: { restFile: stri
       // Refused again within a rest's length of the last one ending: the wait doubles, to a day at most.
       const again = rest && o.now().getTime() < Date.parse(rest.until) + rest.waitMs
       const waitMs = namedWait(r.headers.get('retry-after'), o.now()) ?? (again ? Math.min(rest.waitMs * 2, WIKIMEDIA_REST_MAX_MS) : WIKIMEDIA_REST_MS)
-      const until = new Date(o.now().getTime() + waitMs).toISOString()
-      // Whole or not at all: the album step downloads six pictures at once, and a reader never sees half a file.
-      await mkdir(dirname(o.restFile), { recursive: true })
-      const tmp = `${o.restFile}.${process.pid}.${Math.random().toString(36).slice(2)}.tmp`
-      await writeFile(tmp, `${JSON.stringify({ until, waitMs })}\n`)
-      await rename(tmp, o.restFile)
-      throw new WikimediaRefused(until)
+      const turn = writing.then(() => keep({ until: new Date(o.now().getTime() + waitMs).toISOString(), waitMs }))
+      writing = turn.catch(() => undefined)
+      throw new WikimediaRefused((await turn).until)
     }
     return r
   }

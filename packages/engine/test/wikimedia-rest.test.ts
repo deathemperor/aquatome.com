@@ -104,6 +104,34 @@ test("the rest file: a URL is guarded like a string, a file cut short is no rest
   expect(JSON.parse(await readFile(restFile, 'utf8')).until).toBe('2026-11-14T02:00:00.000Z') // refused again after a rest: a day
 })
 
+test('a short named wait never cuts a longer rest: refusals at once keep the one that ends later', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'wm-rest-'))
+  const restFile = join(dir, 'rest.json')
+  const now = new Date('2026-11-13T02:00:00Z')
+  const twelve = { until: '2026-11-13T14:00:00.000Z', waitMs: WIKIMEDIA_REST_MS }
+  // Two downloads in flight: one refused with no wait named (12 hours), then the other with a minute.
+  let open!: () => void
+  const gate = new Promise<void>(r => { open = r })
+  const late = (async (input: string | URL | Request) => {
+    if (String(input) === PICTURE) { await gate; return new Response('', { status: 429, headers: { 'retry-after': '60' } }) }
+    return new Response('', { status: 429 })
+  }) as typeof globalThis.fetch
+  const f = restingFetch(late, { restFile, now: () => now, ua: UA })
+  const slow = f(PICTURE)
+  await expect(f(API)).rejects.toBeInstanceOf(WikimediaRefused)
+  open()
+  await expect(slow).rejects.toThrow(`no request before ${twelve.until}`)
+  expect(JSON.parse(await readFile(restFile, 'utf8'))).toEqual(twelve)
+  // Both refused in the same moment, before either has written: they take turns, and the longer rest still stays.
+  const dir2 = await mkdtemp(join(tmpdir(), 'wm-rest-'))
+  const both = (async (input: string | URL | Request) =>
+    new Response('', { status: 429, headers: String(input) === PICTURE ? { 'retry-after': '60' } : {} })) as typeof globalThis.fetch
+  const g = restingFetch(both, { restFile: join(dir2, 'rest.json'), now: () => now, ua: UA })
+  const out = await Promise.allSettled([g(API), g(PICTURE)])
+  expect(out.map(x => x.status)).toEqual(['rejected', 'rejected'])
+  expect(JSON.parse(await readFile(join(dir2, 'rest.json'), 'utf8'))).toEqual(twelve)
+})
+
 test('a wait is read as seconds or as a date; anything else names none', () => {
   const now = new Date('2026-11-12T13:00:00Z')
   expect(namedWait('120', now)).toBe(120_000)
