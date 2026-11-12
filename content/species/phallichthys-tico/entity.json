@@ -11,6 +11,68 @@
     "san-juan",
     "nicaragua"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CR",
+        "NI"
+      ],
+      "regions": [
+        "San Juan"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is restricted to the upper reaches of the river San Juan in Costa Rica and Nicaragua.",
+          "countries": [
+            "CR",
+            "NI"
+          ],
+          "regions": [
+            "San Juan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2349750,
+      "total": 13,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "CR",
+          11
+        ],
+        [
+          "NI",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          -85.78125,
+          11.25,
+          2,
+          2
+        ],
+        [
+          -84.375,
+          9.84375,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

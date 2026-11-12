@@ -2304,6 +2304,56 @@
     ],
     "ruled": "3b49ac04c10321a7"
   },
+  "vi/guides/aquariumbreeder-phosphates-in-reef-tanks": {
+    "at": "2026-11-12",
+    "hash": "0d3172b3350f7ef3",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Skimmer lấy ra rất tốt các chất hòa tan nồng độ cao như phosphat, nitrat",
+        "problem": "This says the skimmer removes phosphate well, but two sentences later the page says it cannot remove inorganic phosphate, which is the kind that matters here.",
+        "fix": "Skimmer lấy ra rất tốt các chất hữu cơ hòa tan như phosphat hữu cơ, nitrat, và cả chất hữu cơ dạng hạt trong nước bể.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nên giữ phosphat ≤ 0,05 ppm (ít nhất là ≤ 0,1 ppm).",
+        "problem": "'ít nhất là ≤ 0,1 ppm' reads as 'at least', but the meaning is 'at most 0.1 ppm'.",
+        "fix": "Nên giữ phosphat ≤ 0,05 ppm, cao lắm cũng không quá 0,1 ppm.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## GFO (Granular Ferric Oxide)",
+        "problem": "GFO, aluminium oxide and lanthanum chloride are products under item 5, but they appear as headings at the same level as the numbered methods, so they look like separate methods.",
+        "rule": "an unnumbered heading at the same level right after a run of numbered headings",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "ngoài thay nước định kỳ phải dùng thêm cách khác, vì chỉ thay nước thì không đủ để hạ phosphat",
+        "problem": "The sources never discuss water changes, so this advice in the conclusion has no support.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ngoài ra còn có bộ test phosphat của các hãng uy tín như Hach và LaMotte.",
+        "problem": "The sources mention only the Hanna checker. Hach and LaMotte, and the checker's four steps and 0–0,90 ppm range, are not in the sources.",
+        "field": "body"
+      }
+    ],
+    "ruled": "0d3172b3350f7ef3"
+  },
   "vi/guides/aquariumbreeder-problems-of-the-planted-tanks-and-liebigs-law-of-the-minimum": {
     "at": "2026-11-01",
     "hash": "085d7c3bd96d2bf7",
@@ -2501,6 +2551,32 @@
       }
     ],
     "ruled": "e2e4d630250a5cef"
+  },
+  "vi/guides/aquariumbreeder-should-i-remove-dead-shrimp-from-my-tank": {
+    "at": "2026-11-12",
+    "hash": "8ddce63e0b754854",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## 1. Lây bệnh",
+        "problem": "The numbered subsections are set at the same heading level as the sections they belong to, so the numbering appears to restart (1, 2, then 1, 2, 3, 4) among top-level headings.",
+        "fix": "### 1. Lây bệnh",
+        "rule": "A numbered heading at the same level as the unnumbered heading directly before it, with the numbering starting again at 1 later on the page.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "pH và độ độc của amoniac với tép. Quan trọng:",
+        "problem": "The title of a box from the source web page has been pasted into the paragraph as if it were a sentence.",
+        "fix": "Quan trọng:",
+        "field": "body"
+      }
+    ],
+    "ruled": "8ddce63e0b754854"
   },
   "vi/guides/aquariumbreeder-shrimp-behavior-why-do-they-keep-swimming-around": {
     "at": "2026-11-10",
@@ -2841,6 +2917,47 @@
     "hash": "fd1966a6dfa10dd4",
     "findings": [],
     "ruled": "fd1966a6dfa10dd4"
+  },
+  "vi/guides/aquariumbreeder-what-are-lps-and-sps-corals": {
+    "at": "2026-11-12",
+    "hash": "128ae27d64b511f4",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "LPS (large polyp stony) và SPS (soft polyp stony)",
+        "problem": "SPS is expanded here as 'soft polyp stony', contradicting the page's earlier 'small polyp stony, san hô đá polyp nhỏ'; SPS means small polyp stony.",
+        "fix": "LPS (large polyp stony) và SPS (small polyp stony)",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "SPS, viết tắt của “Soft Polyp Stony” hay “Soft Polyp Scleractinian”",
+        "problem": "The SPS section expands SPS as 'Soft Polyp Stony', contradicting the earlier correct 'small polyp stony'.",
+        "fix": "SPS, viết tắt của “Small Polyp Stony” hay “Small Polyp Scleractinian”",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Ánh sáng:",
+        "problem": "The Lighting, Flow and Water parameters headings are at the same level as 'Cách chăm san hô LPS và SPS' rather than under it, and they end with a colon.",
+        "fix": "### Ánh sáng",
+        "rule": "A heading that ends with a colon.",
+        "field": "body"
+      }
+    ],
+    "ruled": "128ae27d64b511f4"
+  },
+  "vi/guides/aquariumbreeder-what-do-crabs-eat": {
+    "at": "2026-11-12",
+    "hash": "f623a87130d4cf4a",
+    "findings": [],
+    "ruled": "f623a87130d4cf4a"
   },
   "vi/guides/aquariumbreeder-what-is-this-thing-in-my-tank": {
     "at": "2026-11-07",
@@ -8007,6 +8124,12 @@
     ],
     "ruled": "68a0622768320100"
   },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-distichodus-noboli-and-d-affinis-en": {
+    "at": "2026-11-12",
+    "hash": "e4bdf5d7bb3812f5",
+    "findings": [],
+    "ruled": "e4bdf5d7bb3812f5"
+  },
   "vi/guides/glaser-en-09-characoids-tetra-relationship-distichodus-rostratus-d-engycephalus-and-d-brevipinnis-from-nigeria-en": {
     "at": "2026-11-11",
     "hash": "4bf6c56143fe54dd",
@@ -8215,6 +8338,22 @@
       }
     ],
     "ruled": "3941daa088a2f674"
+  },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-a-new-cactus-cat-related-to-l24-l25-en": {
+    "at": "2026-11-12",
+    "hash": "697aba387f64a1db",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "một vùng savanna ngập nước",
+        "problem": "The English word 'savanna' is left untranslated where Vietnamese has 'đồng cỏ' or 'xavan'.",
+        "fix": "một vùng đồng cỏ ngập nước",
+        "field": "body"
+      }
+    ],
+    "ruled": "697aba387f64a1db"
   },
   "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-hemiloricaria-bycatches": {
     "at": "2026-11-04",
@@ -12074,6 +12213,12 @@
     "findings": [],
     "ruled": "4c8ea9eef96827fe"
   },
+  "vi/guides/youtube--dljx2cn2-A": {
+    "at": "2026-11-12",
+    "hash": "a650b8ae66aadc6b",
+    "findings": [],
+    "ruled": "a650b8ae66aadc6b"
+  },
   "vi/guides/youtube--e-b2H4-mu8": {
     "at": "2026-11-10",
     "hash": "0de266b2de3c2814",
@@ -12303,6 +12448,12 @@
       }
     ],
     "ruled": "5498c7d66589ce45"
+  },
+  "vi/guides/youtube-0mh3XMpsMvk": {
+    "at": "2026-11-12",
+    "hash": "3b20f790934c3fa4",
+    "findings": [],
+    "ruled": "3b20f790934c3fa4"
   },
   "vi/guides/youtube-0MzfLrSqfXY": {
     "at": "2026-11-09",
@@ -12725,11 +12876,51 @@
     ],
     "ruled": "7861b685c567d2ef"
   },
+  "vi/guides/youtube-2zibYpNcE0o": {
+    "at": "2026-11-12",
+    "hash": "600ae8b1c271cacf",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Xếp chúng theo hình xoắn ốc lỏng thì ngồi ở góc nào nhìn vào cũng thấy có dòng chảy tự nhiên.",
+        "problem": "\"Dòng chảy\" is a literal translation of the design term \"flow\" and reads as a water current, which is confusing in a bowl with no filter.",
+        "fix": "Xếp chúng theo hình xoắn ốc lỏng thì nhìn từ góc nào bố cục cũng liền mạch, tự nhiên.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đội dọn bể có thể là ốc ramshorn.",
+        "problem": "\"Đội dọn bể\" is a word-for-word calque of \"clean-up crew\" that Vietnamese hobbyists don't use.",
+        "fix": "Để dọn bể thì có thể thả ốc ramshorn.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "tránh các đợt tăng vọt chất độc giai đoạn đầu",
+        "problem": "\"Tăng vọt chất độc\" is awkward and vague. Hobbyists name the substances: amoni and nitrit.",
+        "fix": "tránh amoni, nitrit tăng vọt trong giai đoạn đầu",
+        "field": "body"
+      }
+    ],
+    "ruled": "600ae8b1c271cacf"
+  },
   "vi/guides/youtube-3jqe5KGD9lI": {
     "at": "2026-11-10",
     "hash": "46e87b627da5f225",
     "findings": [],
     "ruled": "46e87b627da5f225"
+  },
+  "vi/guides/youtube-3O3L-qZTRps": {
+    "at": "2026-11-12",
+    "hash": "0de251f3faeb8a7c",
+    "findings": [],
+    "ruled": "0de251f3faeb8a7c"
   },
   "vi/guides/youtube-3OYP0CMIcf0": {
     "at": "2026-11-10",
@@ -13136,6 +13327,31 @@
       }
     ],
     "ruled": "7ae07d5b26537ae1"
+  },
+  "vi/guides/youtube-6d_crutxHts": {
+    "at": "2026-11-12",
+    "hash": "aae2b795f2194e22",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ba bể thủy sinh high-tech cỡ 60 cm, 90 cm và 60 cm làm hết chắc khoảng 2 tiếng.",
+        "problem": "The sentence has no proper subject or verb, so it reads as if the tanks do the work.",
+        "fix": "Làm hết ba bể thủy sinh high-tech cỡ 60 cm, 90 cm và 60 cm chắc mất khoảng 2 tiếng.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "L10",
+        "quote": "Ba bể cỡ 60–90 cm làm hết chắc khoảng 2 tiếng.",
+        "problem": "The FAQ asks how long one tank takes, but the answer gives the time for three tanks, so the question is never answered.",
+        "fix": "Làm hết ba bể cỡ 60–90 cm chắc mất khoảng 2 tiếng, nên một bể thì nhanh hơn nhiều. Rửa đồ kính cũng mất chút thời gian và cần làm cẩn thận.",
+        "field": "faq.1.a"
+      }
+    ],
+    "ruled": "aae2b795f2194e22"
   },
   "vi/guides/youtube-6DwNB5l2CNU": {
     "at": "2026-11-11",
@@ -14933,6 +15149,12 @@
     "findings": [],
     "ruled": "a4d578b940c3b5ea"
   },
+  "vi/guides/youtube-dXwybqRdgUk": {
+    "at": "2026-11-12",
+    "hash": "c60c0d2415d10c8c",
+    "findings": [],
+    "ruled": "c60c0d2415d10c8c"
+  },
   "vi/guides/youtube-DZ0JTLYiawU": {
     "at": "2026-11-05",
     "hash": "1b53e76708f04931",
@@ -16340,6 +16562,46 @@
     "findings": [],
     "ruled": "e0055f72507bfffd"
   },
+  "vi/guides/youtube-iKAv9xxkYoY": {
+    "at": "2026-11-12",
+    "hash": "942e4e7e00a57aa4",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cá neon xanh (rasbora) là cá châu Á.",
+        "problem": "The page says this rasbora can be left out, but it isn't in the list of fish to stock just above, so readers can't tell where it came from.",
+        "field": "body"
+      }
+    ],
+    "ruled": "942e4e7e00a57aa4"
+  },
+  "vi/guides/youtube-IkBNS8VBXyQ": {
+    "at": "2026-11-12",
+    "hash": "91df92239740d722",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "L6",
+        "quote": "Nước ngả nâu do lũa mới nhả tannin sẽ trong dần qua các lần thay nước và thay bông lọc mới.",
+        "problem": "Tannin is dissolved, so new filter floss can't remove it. The body says fresh floss clears the cloudiness, but this summary says it clears the brown tannin colour.",
+        "fix": "Nước ngả nâu do lũa mới nhả tannin sẽ nhạt dần qua các lần thay nước. Thay bông lọc mới thì nước hết đục.",
+        "field": "summary.5"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "L14",
+        "quote": "Nó sẽ nhạt dần qua các lần thay nước, và thay bông lọc mới cho lọc trong thì nước sẽ trong hẳn.",
+        "problem": "This answer is about brown water, so it suggests new floss removes the tannin colour. Floss only clears cloudiness, so a reader would expect a result that won't happen.",
+        "fix": "Nó sẽ nhạt dần qua các lần thay nước. Còn nếu nước đục thì thay bông lọc mới cho lọc trong là nước trong hẳn.",
+        "field": "faq.3.a"
+      }
+    ],
+    "ruled": "91df92239740d722"
+  },
   "vi/guides/youtube-iMdL-mkSSJY": {
     "at": "2026-11-09",
     "hash": "e6664bc875fc3e43",
@@ -17113,6 +17375,30 @@
     ],
     "ruled": "b9a7e29ed8f9b8f6"
   },
+  "vi/guides/youtube-kCXjjykDdQ4": {
+    "at": "2026-11-12",
+    "hash": "1c1c2505650d4154",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "| Cây khác giữ lại",
+        "problem": "The table's middle row is labelled 'other plants kept' instead of a position, although the page promises a foreground/midground/background layout.",
+        "fix": "| Trung cảnh",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dương xỉ Java sinh sản bằng cách mọc cây con ở mép lá.",
+        "problem": "A stray fact about how Java fern reproduces sits in the plant-removal section and gives no advice there.",
+        "field": "body"
+      }
+    ],
+    "ruled": "1c1c2505650d4154"
+  },
   "vi/guides/youtube-kDptmxazvGg": {
     "at": "2026-11-04",
     "hash": "7dba15f316f8121b",
@@ -17350,6 +17636,31 @@
       }
     ],
     "ruled": "5d576aea4de9b629"
+  },
+  "vi/guides/youtube-L8tiOsI7dyk": {
+    "at": "2026-11-12",
+    "hash": "a9da3016ad53c604",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L12",
+        "quote": "Dùng cây và nước từ bể cũ thì bể có sẵn vi sinh, nhưng vẫn nên thả vài con trước rồi tuần sau mới thả thêm.",
+        "problem": "The FAQ suggests that with old plants and water the shrimp can go in straight away, but the body says to let the plants grow in for at least a few weeks even in that case.",
+        "fix": "Dùng cây và nước từ bể cũ thì bể có sẵn vi sinh, nhưng vẫn nên để cây lên ít nhất vài tuần, rồi thả vài con trước, tuần sau mới thả thêm.",
+        "field": "faq.2.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "miễn đừng là cát xây dựng hạt quá mịn (play sand)",
+        "problem": "Play sand is fine sand sold for children's sandpits, not building sand, so 'cát xây dựng' is the wrong term.",
+        "fix": "miễn đừng là cát mịn loại cho trẻ em chơi (play sand)",
+        "field": "body"
+      }
+    ],
+    "ruled": "a9da3016ad53c604"
   },
   "vi/guides/youtube-laTDG4Bc19U": {
     "at": "2026-11-06",
@@ -17888,6 +18199,49 @@
       }
     ],
     "ruled": "3f9688cef07ed488"
+  },
+  "vi/guides/youtube-MrmmzZYYBTU": {
+    "at": "2026-11-12",
+    "hash": "88692a0f9bf2e08a",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Sáng hôm sau mà thấy bọt li ti khắp lá như đang châm CO2 thì đó không phải CO2.",
+        "problem": "The paragraph about bubbles after refilling sits in the trimming section, after the spare-tank note, and the page never mentions lowering the water; it belongs with the planting and refilling steps.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nước và dinh dưỡng vẫn đi qua được mà vẫn bị giữ lại trong nền",
+        "problem": "The sentence says water and nutrients both pass through and are held, which reads as a contradiction.",
+        "fix": "nước vẫn chảy qua được, còn dinh dưỡng thì được giữ lại trong nền.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có thể dùng keo siêu dính dạng gel kèm bình xịt kích hoạt",
+        "problem": "\"keo siêu dính\" is on the site's list; Vietnamese hobbyists say \"keo 502\".",
+        "fix": "có thể dùng keo 502 dạng gel kèm bình xịt kích hoạt",
+        "rule": "The phrase \"keo siêu dính\" appears anywhere on the page.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhờ có bóng đổ nên vẫn tách màu được khỏi nền cát",
+        "problem": "The phrase is awkward and hard to follow; it means the stone's shadows make it stand out from the sand.",
+        "fix": "bóng đổ trên đá làm nó nổi hẳn lên trên nền cát.",
+        "field": "body"
+      }
+    ],
+    "ruled": "88692a0f9bf2e08a"
   },
   "vi/guides/youtube-MxPCBXJtPTM": {
     "at": "2026-11-08",
@@ -19793,6 +20147,22 @@
     ],
     "ruled": "fae6c6a7d62c6b06"
   },
+  "vi/guides/youtube-SXZ7LUPIFAk": {
+    "at": "2026-11-12",
+    "hash": "6ed8265c85bd1574",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "ánh sáng mình thấy càng sáng, cây càng có nhiều sáng để dùng",
+        "problem": "\"Nhiều sáng\" is not natural Vietnamese here. The noun needed is \"ánh sáng\".",
+        "fix": "Nói đơn giản thì mắt mình thấy đèn càng sáng, cây càng có nhiều ánh sáng để dùng.",
+        "field": "body"
+      }
+    ],
+    "ruled": "6ed8265c85bd1574"
+  },
   "vi/guides/youtube-t-QbuMlXLIg": {
     "at": "2026-11-02",
     "hash": "4719f9848cf5d776",
@@ -20756,6 +21126,28 @@
       }
     ],
     "ruled": "a7e59b6bc5b79b52"
+  },
+  "vi/guides/youtube-X4FOLxBTsMQ": {
+    "at": "2026-11-12",
+    "hash": "ebe2e4ff8ee74f6c",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L3",
+        "quote": "một đội tép Amano và ốc nerite giữ đá sạch đến mức không phải lấy bàn chải chà nữa",
+        "problem": "The body (P3) credits only the nerite snails with keeping the stones clean, but the summary credits both the Amano shrimp and the snails.",
+        "fix": "Ở bể này, ốc nerite giữ đá sạch đến mức không phải lấy bàn chải chà nữa.",
+        "field": "summary.2"
+      }
+    ],
+    "ruled": "ebe2e4ff8ee74f6c"
+  },
+  "vi/guides/youtube-x4rshRqkags": {
+    "at": "2026-11-12",
+    "hash": "292ed6e468bacd98",
+    "findings": [],
+    "ruled": "292ed6e468bacd98"
   },
   "vi/guides/youtube-x7AVyEs1J48": {
     "at": "2026-11-10",

@@ -1,0 +1,203 @@
+{
+  "id": "periclimenes-yucatanicus",
+  "native": {
+    "input": "72151c9d7ef40eb5",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "US",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Periclimenes yucatanicus inhabits various locations within the Caribbean Basin, including Key Largo, Florida, U.S.A.; the Bahamas; Turks and Caicos Islands; Netherlands Antilles; Honduras; the Florida Keys; Puerto Rico; and Panama.",
+        "words": "U.S.A.",
+        "ok": true
+      },
+      {
+        "code": "BS",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Periclimenes yucatanicus inhabits various locations within the Caribbean Basin, including Key Largo, Florida, U.S.A.; the Bahamas; Turks and Caicos Islands; Netherlands Antilles; Honduras; the Florida Keys; Puerto Rico; and Panama.",
+        "words": "Bahamas",
+        "ok": true
+      },
+      {
+        "code": "HN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Periclimenes yucatanicus inhabits various locations within the Caribbean Basin, including Key Largo, Florida, U.S.A.; the Bahamas; Turks and Caicos Islands; Netherlands Antilles; Honduras; the Florida Keys; Puerto Rico; and Panama.",
+        "words": "Honduras",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Periclimenes yucatanicus inhabits various locations within the Caribbean Basin, including Key Largo, Florida, U.S.A.; the Bahamas; Turks and Caicos Islands; Netherlands Antilles; Honduras; the Florida Keys; Puerto Rico; and Panama.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "TC",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Periclimenes yucatanicus inhabits various locations within the Caribbean Basin, including Key Largo, Florida, U.S.A.; the Bahamas; Turks and Caicos Islands; Netherlands Antilles; Honduras; the Florida Keys; Puerto Rico; and Panama.",
+        "words": "Turks and Caicos Islands",
+        "ok": true
+      },
+      {
+        "code": "PR",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Periclimenes yucatanicus inhabits various locations within the Caribbean Basin, including Key Largo, Florida, U.S.A.; the Bahamas; Turks and Caicos Islands; Netherlands Antilles; Honduras; the Florida Keys; Puerto Rico; and Panama.",
+        "words": "Puerto Rico",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "There are also reports of this species in southwestern Japan and the West Indies.",
+        "words": "Japan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Caribbean Basin",
+        "source": "aquariumbreeder",
+        "quote": "Periclimenes yucatanicus inhabits various locations within the Caribbean Basin, including Key Largo, Florida, U.S.A.; the Bahamas; Turks and Caicos Islands; Netherlands Antilles; Honduras; the Florida Keys; Puerto Rico; and Panama.",
+        "ok": true
+      },
+      {
+        "name": "West Indies",
+        "source": "aquariumbreeder",
+        "quote": "There are also reports of this species in southwestern Japan and the West Indies.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Periclimenes yucatanicus",
+    "status": "ACCEPTED",
+    "taxonKey": 2225117,
+    "datasets": [
+      [
+        "8e9974a4-12e2-475f-9aec-5abdf24a1f50",
+        117
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        113
+      ],
+      [
+        "25e3e8f1-86ee-440c-adfc-8e63759a6505",
+        70
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        11
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        9
+      ],
+      [
+        "a4305468-d94d-4244-b146-738e52d8a6e9",
+        8
+      ],
+      [
+        "da6a07ed-9eee-460d-9448-910f542c1a7b",
+        8
+      ],
+      [
+        "7fba982c-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "393b8c26-e4e0-4dd0-a218-93fc074ebf4e",
+        4
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        4
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        4
+      ],
+      [
+        "c80621e4-eb0e-4a42-8125-52840b5db839",
+        4
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        4
+      ],
+      [
+        "a0a4d131-f53f-43b2-a1ba-254473b8a006",
+        3
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        2
+      ],
+      [
+        "96cdea48-b78a-4345-ae6d-b2c7c6e0278a",
+        2
+      ],
+      [
+        "b7ca8e9d-5609-4356-b5c3-b2ca7071cf58",
+        2
+      ],
+      [
+        "03b8dac0-be98-4f71-9440-76c406cbf2c1",
+        1
+      ],
+      [
+        "0f6d26c0-c645-4f15-b1c9-fbcb77515545",
+        1
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        1
+      ],
+      [
+        "56e1198e-188f-4e30-8196-2abc1a6b01af",
+        1
+      ],
+      [
+        "6d28a527-bf84-4e58-b133-0e60987b5e7c",
+        1
+      ],
+      [
+        "7247dc2e-b862-4555-b533-7701d183271b",
+        1
+      ],
+      [
+        "a7dff6b5-7ca3-4639-ac3e-f0b413d1b160",
+        1
+      ]
+    ],
+    "native": [
+      "US",
+      "BS",
+      "HN",
+      "PA",
+      "TC",
+      "PR",
+      "JP"
+    ],
+    "requests": 12,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

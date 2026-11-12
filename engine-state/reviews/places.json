@@ -493,6 +493,18 @@
       "kept": true
     }
   ],
+  "id/places/ararangua": [
+    {
+      "at": "2026-11-12T20:40:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/arauca": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -1045,6 +1057,18 @@
       "kept": true
     }
   ],
+  "id/places/benipah": [
+    {
+      "at": "2026-11-12T20:40:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/benito-river": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -1316,6 +1340,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/bodoquena-plateau": [
+    {
+      "at": "2026-11-12T20:40:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "cao nguyên Bodoquena (Vietnamese, not Indonesian; should be Dataran Tinggi Bodoquena)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -2413,6 +2451,18 @@
       "notes": [
         "Cross → Cross (Cross River; Indonesian would be Sungai Cross)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/cubatao": [
+    {
+      "at": "2026-11-12T20:40:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -3807,6 +3857,20 @@
       "kept": true
     }
   ],
+  "id/places/irrawaddy-delta": [
+    {
+      "at": "2026-11-12T20:40:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "đồng bằng sông Irrawaddy (Vietnamese, not Indonesian; should be Delta Irrawaddy)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/irrawaddy-river": [
     {
       "at": "2026-11-08T05:20:19Z",
@@ -3862,6 +3926,18 @@
       "at": "2026-11-10T15:00:15Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/itapocu": [
+    {
+      "at": "2026-11-12T20:40:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -5770,6 +5846,18 @@
       "kept": true
     }
   ],
+  "id/places/liong": [
+    {
+      "at": "2026-11-12T20:40:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/llanos": [
     {
       "at": "2026-11-08T12:08:48Z",
@@ -6459,6 +6547,18 @@
       "at": "2026-11-08T15:22:22Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/mantiqueira": [
+    {
+      "at": "2026-11-12T20:40:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -8206,6 +8306,18 @@
       "kept": true
     }
   ],
+  "id/places/pawan": [
+    {
+      "at": "2026-11-12T20:40:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/payaswini": [
     {
       "at": "2026-11-09T15:40:54Z",
@@ -9042,6 +9154,20 @@
       "model": "sonnet",
       "score": 0.7,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-caveiras": [
+    {
+      "at": "2026-11-12T20:40:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Caveiras (Vietnamese 'sông'; Indonesian would be Sungai Caveiras)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -9973,6 +10099,20 @@
       "model": "sonnet",
       "score": 0.96,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-salobra": [
+    {
+      "at": "2026-11-12T20:40:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Salobra (Vietnamese 'sông'; Indonesian would be Sungai Salobra)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -11721,6 +11861,20 @@
       "kept": true
     }
   ],
+  "id/places/takutu-river": [
+    {
+      "at": "2026-11-12T20:40:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Takutu (Vietnamese 'sông'; Indonesian would be Sungai Takutu)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/tamiraparani": [
     {
       "at": "2026-11-08T05:22:00Z",
@@ -12282,6 +12436,18 @@
       "kept": true
     }
   ],
+  "id/places/torsa": [
+    {
+      "at": "2026-11-12T20:40:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/towamba": [
     {
       "at": "2026-11-09T07:33:47Z",
@@ -12346,6 +12512,18 @@
       "notes": [
         "Sungai names given without \"Sungai\" (Singen, Sita, Sittang, Sittaung, St. Johns, Tanintharyi, Thamirabarani, Tocantins, Tonle Sap, Tshuapa, Vaal, Yamuna, Yom, Yangtze, Huang He): inconsistent with Indonesian atlas style, which uses \"Sungai X\""
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tubarao": [
+    {
+      "at": "2026-11-12T20:40:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -13868,6 +14046,18 @@
       "kept": true
     }
   ],
+  "ms/places/ararangua": [
+    {
+      "at": "2026-11-12T20:52:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/arauca": [
     {
       "at": "2026-11-08T12:43:55Z",
@@ -14736,6 +14926,18 @@
       "kept": true
     }
   ],
+  "ms/places/benipah": [
+    {
+      "at": "2026-11-12T20:52:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/benito": [
     {
       "at": "2026-11-08T03:36:45Z",
@@ -15054,6 +15256,20 @@
       "model": "sonnet",
       "score": 0.4,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/bodoquena-plateau": [
+    {
+      "at": "2026-11-12T20:52:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "cao nguyên Bodoquena (Vietnamese, not Malay; the Malay form after the arrow is fine)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -16229,6 +16445,18 @@
       "at": "2026-11-06T23:05:38Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/cubatao": [
+    {
+      "at": "2026-11-12T20:52:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -17871,6 +18099,20 @@
       "kept": true
     }
   ],
+  "ms/places/irrawaddy-delta": [
+    {
+      "at": "2026-11-12T20:52:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "đồng bằng sông Irrawaddy (Vietnamese, not Malay; the Malay form after the arrow is fine)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/irrawaddy-river": [
     {
       "at": "2026-11-08T12:44:36Z",
@@ -17968,6 +18210,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/itapocu": [
+    {
+      "at": "2026-11-12T20:52:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -20009,6 +20263,18 @@
       "kept": true
     }
   ],
+  "ms/places/liong": [
+    {
+      "at": "2026-11-12T20:52:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/llanos": [
     {
       "at": "2026-11-08T12:45:10Z",
@@ -20635,6 +20901,18 @@
     {
       "at": "2026-11-08T15:47:59Z",
       "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/mantiqueira": [
+    {
+      "at": "2026-11-12T20:52:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
       "score": 0.3,
       "notes": [],
       "attempt": "first",
@@ -22272,6 +22550,18 @@
       "kept": true
     }
   ],
+  "ms/places/pawan": [
+    {
+      "at": "2026-11-12T20:52:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/payaswini": [
     {
       "at": "2026-11-10T10:08:06Z",
@@ -23414,6 +23704,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-caveiras": [
+    {
+      "at": "2026-11-12T20:52:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Caveiras (Vietnamese, not Malay; Malay would be Sungai Caveiras)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-cinaruco": [
     {
       "at": "2026-11-08T12:45:47Z",
@@ -24496,6 +24800,20 @@
       "model": "sonnet",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-salobra": [
+    {
+      "at": "2026-11-12T20:52:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Salobra (Vietnamese, not Malay; Malay would be Sungai Salobra)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -26345,6 +26663,20 @@
       "kept": true
     }
   ],
+  "ms/places/takutu-river": [
+    {
+      "at": "2026-11-12T20:52:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Takutu (Vietnamese, not Malay; Malay would be Sungai Takutu)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/tamiraparani": [
     {
       "at": "2026-11-08T12:46:23Z",
@@ -26881,6 +27213,18 @@
       "kept": true
     }
   ],
+  "ms/places/torsa": [
+    {
+      "at": "2026-11-12T20:52:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/tortuguero": [
     {
       "at": "2026-11-08T03:37:13Z",
@@ -26993,6 +27337,18 @@
       "notes": [
         "tshuapa-river: \"Tshuapa\" – should be \"Sungai Tshuapa\""
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/tubarao": [
+    {
+      "at": "2026-11-12T20:52:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -28604,6 +28960,20 @@
       "kept": true
     }
   ],
+  "th/places/ararangua": [
+    {
+      "at": "2026-11-12T20:43:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "อารารังกวา: acceptable"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/arauca": [
     {
       "at": "2026-11-08T05:27:07Z",
@@ -29219,6 +29589,20 @@
       "kept": true
     }
   ],
+  "th/places/benipah": [
+    {
+      "at": "2026-11-12T20:43:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "เบนีปะฮ์: doubtful transliteration of Benipah (ID), likely เบนิปา"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/benito-river": [
     {
       "at": "2026-11-08T05:27:07Z",
@@ -29483,6 +29867,20 @@
       "model": "sonnet",
       "score": 0.8,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/bodoquena-plateau": [
+    {
+      "at": "2026-11-12T20:43:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "ที่ราบสูงโบโดเกนา: acceptable, though ที่ราบสูง fine; source name Vietnamese but Thai output OK"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -30642,6 +31040,20 @@
       "model": "sonnet",
       "score": 0.8,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/cubatao": [
+    {
+      "at": "2026-11-12T20:43:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "กูบาเตา: Cubatão normally กูบาเตา/คูบาตาว; acceptable"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -32094,6 +32506,18 @@
       "kept": true
     }
   ],
+  "th/places/irrawaddy-delta": [
+    {
+      "at": "2026-11-12T20:43:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/irrawaddy-river": [
     {
       "at": "2026-11-08T05:27:55Z",
@@ -32161,6 +32585,18 @@
       "at": "2026-11-10T15:01:53Z",
       "model": "sonnet",
       "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/itapocu": [
+    {
+      "at": "2026-11-12T20:43:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -34158,6 +34594,18 @@
       "kept": true
     }
   ],
+  "th/places/liong": [
+    {
+      "at": "2026-11-12T20:43:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/llanos": [
     {
       "at": "2026-11-08T12:10:05Z",
@@ -34862,6 +35310,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/mantiqueira": [
+    {
+      "at": "2026-11-12T20:43:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "มันชิเกรา: acceptable"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -36717,6 +37179,18 @@
       "kept": true
     }
   ],
+  "th/places/pawan": [
+    {
+      "at": "2026-11-12T20:43:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/payaswini": [
     {
       "at": "2026-11-09T15:46:42Z",
@@ -37594,6 +38068,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-caveiras": [
+    {
+      "at": "2026-11-12T20:43:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "กาเวย์ราส: Caveiras given as 'Rio Caveiras' but river word 'แม่น้ำ' omitted; name only — Portuguese 'Caveiras' ไกเวราส/กาเวราส; 'กาเวย์ราส' questionable"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -38558,6 +39046,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-salobra": [
+    {
+      "at": "2026-11-12T20:43:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "ซาโลบรา: river word omitted, acceptable as name"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -40422,6 +40924,20 @@
       "kept": true
     }
   ],
+  "th/places/takutu-river": [
+    {
+      "at": "2026-11-12T20:43:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "ตากูตู: Takutu river usually แม่น้ำตากูตู; name okay"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/tambraparni": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -41011,6 +41527,20 @@
       "kept": true
     }
   ],
+  "th/places/torsa": [
+    {
+      "at": "2026-11-12T20:43:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "ทอร์ซา: acceptable"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/towamba": [
     {
       "at": "2026-11-09T07:46:38Z",
@@ -41071,6 +41601,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/tubarao": [
+    {
+      "at": "2026-11-12T20:43:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "ตูบาเรา: acceptable"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -42624,6 +43168,17 @@
       "kept": true
     }
   ],
+  "vi/places/ararangua": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/arauca": [
     {
       "at": "2026-11-07T20:32:23Z",
@@ -43496,6 +44051,17 @@
       "kept": true
     }
   ],
+  "vi/places/benipah": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/benito": [
     {
       "at": "2026-11-07T20:32:23Z",
@@ -43829,6 +44395,17 @@
       "notes": [
         "All 50 names point to the right place. None is a literal word-by-word translation, and none leaves a generic word in another language."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/bodoquena-plateau": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -45259,6 +45836,17 @@
       "at": "2026-11-07T20:33:14Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/cubatao": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.93,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -47090,6 +47678,17 @@
       "kept": true
     }
   ],
+  "vi/places/irrawaddy-delta": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/irrawaddy-river": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -47170,6 +47769,17 @@
       "notes": [
         "The other names keep the source's spelling, which is acceptable."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/itapocu": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -49907,6 +50517,17 @@
       "kept": true
     }
   ],
+  "vi/places/liong": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/llanos": [
     {
       "at": "2026-11-08T12:08:21Z",
@@ -50824,6 +51445,17 @@
       "notes": [
         "I found no wrong places. Every name is either the standard Vietnamese form or the source's name, sometimes with its generic word put into Vietnamese."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/mantiqueira": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -52502,6 +53134,17 @@
       "kept": true
     }
   ],
+  "vi/places/north-fork-obion-river": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/nosy-be": [
     {
       "at": "2026-11-09T22:53:55Z",
@@ -53311,6 +53954,17 @@
       "at": "2026-11-07T20:37:55Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/pawan": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.93,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -54463,6 +55117,17 @@
       "kept": true
     }
   ],
+  "vi/places/rio-caveiras": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-cinaruco": [
     {
       "at": "2026-11-07T20:38:46Z",
@@ -55596,6 +56261,17 @@
     {
       "at": "2026-11-09T22:53:55Z",
       "model": "sonnet",
+      "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-salobra": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
       "score": 0.93,
       "notes": [],
       "attempt": "first",
@@ -58025,6 +58701,17 @@
       "kept": true
     }
   ],
+  "vi/places/takutu-river": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/tambraparni": [
     {
       "at": "2026-11-07T20:40:25Z",
@@ -58821,6 +59508,17 @@
       "kept": true
     }
   ],
+  "vi/places/torsa": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/tortuguero": [
     {
       "at": "2026-11-07T20:41:17Z",
@@ -58926,6 +59624,17 @@
       "at": "2026-11-08T05:15:07Z",
       "model": "sonnet",
       "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tubarao": [
+    {
+      "at": "2026-11-12T20:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.93,
       "notes": [],
       "attempt": "first",
       "kept": true
