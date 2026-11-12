@@ -590,6 +590,11 @@ The layers above still check the result.
     their own steps. Each source is read at the pace it asks for (iNaturalist about one request a second; Openverse 200
     a day without a key), and each page keeps its place in `engine-state/gallery/<id>.json`, so the next cycle continues
     there.
+    Each fish's older scientific names from GBIF are kept as well (`pnpm engine fish-synonyms`, 300 fish a cycle, each
+    asked once, in `engine-state/_gbif-synonyms.json` beside the plants'). `fishOlderNames` (`fish-synonyms.ts`) leaves
+    out a name any page has as its own (a fish's or a plant's, or a plant's synonym) and one GBIF gives two of our fish:
+    such a name can't point at one fish. Commons files some fish under an older name (Acheilognathus macropterus), and
+    search and the name checks could use them too (the chief of staff, 2026-11-12). Nothing searches or shows them yet.
   - **Checks every photo passes,** through one shared step (`screenTagged` in `gallery.ts`): at least 800 px; not a photo
     the owner rejected (`engine-state/_photo-rejected.json`); not a near-copy of a photo already shown (an image hash,
     as when Commons holds a copy of an iNaturalist or Flickr photo); no human face (Apple Vision); then Claude, on contact

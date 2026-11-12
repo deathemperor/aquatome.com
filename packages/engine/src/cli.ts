@@ -93,6 +93,7 @@ import { localizeCaptions } from './captions'
 import { localizeEquipment } from './equipment-intl'
 import { addWikidataNames } from './wikidata'
 import { addPlantSynonyms } from './plant-synonyms'
+import { fetchFishSynonyms, fishOlderNames } from './fish-synonyms'
 import { writePlanting } from './planting'
 import { localizeTopic, makeTopic } from './topics'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
@@ -1139,6 +1140,10 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // Each plant's other scientific names (old genus, GBIF's, a hobby name), which the site links, checks and searches as its own.
   const r = await addPlantSynonyms(ROOT, http)
   console.log(`plant-synonyms: ${r.changed.length} pages${r.failed.length ? `, GBIF failed on ${r.failed.length} (tried again next run)` : ''}\n${r.changed.join('\n')}`)
+} else if (cmd === 'fish-synonyms') {
+  // Each fish's older scientific names from GBIF, kept so each is asked once (fish-synonyms.ts). pnpm engine fish-synonyms [--limit 300]
+  const r = await fetchFishSynonyms(ROOT, http, { limit: values.limit ? Number(values.limit) : 300 })
+  console.log(`fish-synonyms: ${r.asked} fish asked, ${r.left} left, GBIF failed on ${r.failed.length} (asked again next run); ${(await fishOlderNames(ROOT)).size} fish with older names${r.failed.length ? `\n${r.failed.slice(0, 10).join('\n')}` : ''}`)
 } else if (cmd === 'shop-list') {
   // What fish (or plant) shops in the language's country sell, from their own lists (web research, never marketplaces):
   // pnpm engine shop-list --lang vi|id|th|ms [--kind plants] [--seed file.json (an array of trade names from one shop's list)]

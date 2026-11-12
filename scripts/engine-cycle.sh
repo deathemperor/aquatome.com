@@ -110,6 +110,8 @@ if part pages; then
   pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:---except seriouslyfish}
   # Plants' other scientific names (sources' "previously named …", GBIF, a few hobby names): linked, checked, searched.
   pnpm engine plant-synonyms || log "plant-synonyms: failed"
+  # Fish's older scientific names from GBIF (fish-synonyms.ts), 300 a cycle, each asked once: Commons files some fish under them.
+  pnpm engine fish-synonyms --limit "${FISH_SYNONYMS_LIMIT:-300}" || log "fish-synonyms: failed"
   # What YouTube reviews found, on PRODUCT_REVIEW_LIMIT product pages a cycle (candidates: product-reviews.ts): a vet, an
   # extraction a review and a writing call, on top of a research call and a page for a product with none. So only with time
   # left for that. Not behind SKIP_VIDEOS, which the Mac's parts set for video-cycle.sh's bursts: this is a few requests and
