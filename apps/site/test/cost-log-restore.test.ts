@@ -3,7 +3,7 @@ import { chmodSync, existsSync, mkdtempSync, readFileSync, writeFileSync } from 
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { allRuns, attemptOf, cycleSteps, dayStart, keptLogs, ownRuns, pagesOf, restore, unloggedLine, vnDay } from '../../../scripts/cost-log-restore.mjs'
+import { allRuns, attemptOf, cycleSteps, dayStart, keptLogs, legacyAttempt, ownRuns, pagesOf, restore, UPLOAD_STEP, unloggedLine, vnDay } from '../../../scripts/cost-log-restore.mjs'
 
 // The cloud cycle's cost log when GitHub's cache has none (scripts/cost-log-restore.mjs): the runs' own copies, and a
 // day that can't be counted stops every step with a ceiling (packages/engine/src/ceiling.ts reads the line).
@@ -14,11 +14,15 @@ type Kept = { text: string; at: string; attempt?: number }
 const run = (id: number, created: string, updated: string, o: Partial<Run> = {}): Run =>
   ({ id, event: 'workflow_dispatch', head_branch: 'main', created_at: created, updated_at: updated, repository: { id: REPO }, head_repository: { id: REPO }, ...o })
 const due = { name: 'Is a cycle due?', steps: [{ name: 'Started by hand, or ENGINE_EVERY_MINUTES since the last cycle started', conclusion: 'success' }] }
-// The cycle job of one attempt, its cycle step ended at `ended`.
-const cycle = (conclusion: string, ended?: string, attempt = 1) => ({
+// The cycle job of one attempt, its cycle step ended at `ended`, then its copy kept (`kept`, the upload step's conclusion).
+const cycle = (conclusion: string, ended?: string, attempt = 1, kept: string | null = 'success') => ({
   name: 'Content cycle: rewrite',
   run_attempt: attempt,
-  steps: [{ name: 'Restore the cost log', conclusion }, { name: 'Run this part, test, commit, push, deploy', conclusion, completed_at: ended ?? null }],
+  steps: [
+    { name: 'Restore the cost log', conclusion },
+    { name: 'Run this part, test, commit, push, deploy', conclusion, completed_at: ended ?? null },
+    { name: 'Keep the cost log (a line a model call, with its account)', conclusion: kept },
+  ],
 })
 const skipped = { name: 'Content cycle: rewrite', conclusion: 'skipped', steps: [] }
 const ids = (runs: Run[]) => runs.map(r => r.id)
@@ -82,10 +86,10 @@ test('a run again today of a run that began earlier is read, though another run 
     20: [due, cycle('success', '2026-11-11T09:00:00Z', 1), due, cycle('failure', '2026-11-12T05:05:00Z', 2)],
     21: [due, cycle('success', '2026-11-12T02:55:00Z')],
   }
-  const logs: Record<number, Kept[]> = { 21: [{ text: 'b\n', at: '2026-11-12T02:58:00Z' }], 20: [{ text: 'a\n', at: '2026-11-11T09:02:00Z' }] }
+  const logs: Record<number, Kept[]> = { 21: [{ text: 'b\n', at: '2026-11-12T02:58:00Z' }], 20: [{ text: 'a\n', at: '2026-11-11T09:02:00Z', attempt: 1 }] }
   expect(restore(runs, (x: Run) => logs[x.id]!, (x: Run) => jobs[x.id]!, NOW)).toEqual({ from: 20, text: 'b\na\n', unknown: [20] })
   // Its second attempt keeping its own: counted.
-  logs[20]!.push({ text: 'a\nc\n', at: '2026-11-12T05:06:00Z' })
+  logs[20]!.push({ text: 'a\nc\n', at: '2026-11-12T05:06:00Z', attempt: 2 })
   expect(restore(runs, (x: Run) => logs[x.id]!, (x: Run) => jobs[x.id]!, NOW)).toEqual({ from: 20, text: 'b\na\nc\n', unknown: [] })
   // A run begun more than 8 days ago and run again today is still one of ours.
   expect(ids(ownRuns([run(22, '2026-10-20T00:00:00Z', '2026-11-12T04:00:00Z')], REPO, NOW))).toEqual([22])
@@ -94,9 +98,9 @@ test('a run again today of a run that began earlier is read, though another run 
 test('an earlier attempt\'s log doesn\'t hold a later attempt that spent and kept none', () => {
   const runs = [run(30, '2026-11-12T01:00:00Z', '2026-11-12T04:00:00Z')]
   const jobs = [due, cycle('failure', '2026-11-12T01:30:00Z', 1), due, cycle('failure', '2026-11-12T03:50:00Z', 2)]
-  const first = { text: 'a\n', at: '2026-11-12T01:31:00Z' }
+  const first = { text: 'a\n', at: '2026-11-12T01:31:00Z', attempt: 1 }
   expect(restore(runs, () => [first], () => jobs, NOW)).toEqual({ from: 30, text: 'a\n', unknown: [30] })
-  expect(restore(runs, () => [first, { text: 'a\nb\n', at: '2026-11-12T03:51:00Z' }], () => jobs, NOW)).toEqual({ from: 30, text: 'a\nb\n', unknown: [] })
+  expect(restore(runs, () => [first, { text: 'a\nb\n', at: '2026-11-12T03:51:00Z', attempt: 2 }], () => jobs, NOW)).toEqual({ from: 30, text: 'a\nb\n', unknown: [] })
 })
 
 // Astra's second read: a copy kept by a later attempt can't hold what an earlier one spent.
@@ -109,11 +113,32 @@ test('an attempt that spent counts as logged only by its own copy, never a later
   // Each attempt's own copy: counted.
   const first = { text: 'a\n', at: '2026-11-12T02:01:00Z', attempt: 1 }
   expect(restore(runs, () => [first, second], () => jobs, NOW)).toEqual({ from: 31, text: 'b\na\n', unknown: [] })
-  // A copy kept before its own attempt's step ended doesn't count either.
-  expect(restore(runs, () => [{ ...first, at: '2026-11-12T01:59:00Z' }, second], () => jobs, NOW)).toEqual({ from: 31, text: 'b\na\n', unknown: [31] })
+  // Astra's third read: the step's time is the runner's clock and the copy's GitHub's. A runner a few seconds ahead
+  // still has its own attempt's copy count: the upload step runs after the cycle step, whatever the clocks say.
+  expect(restore(runs, () => [{ ...first, at: '2026-11-12T01:59:55Z' }, second], () => jobs, NOW)).toEqual({ from: 31, text: 'b\na\n', unknown: [] })
   // The step carries its job's attempt.
   expect(cycleSteps(jobs).map((x: { attempt: number }) => x.attempt)).toEqual([1, 2])
   expect([attemptOf('engine-cost-log-rewrite-2'), attemptOf('engine-cost-log-rewrite')]).toEqual([2, undefined])
+})
+
+// Astra's third read: a run of before this change, run again since, keeps its copy under the one old name.
+test('a copy under the old name counts only for the attempt that kept it', () => {
+  const runs = [run(40, '2026-11-12T01:00:00Z', '2026-11-12T04:00:00Z')]
+  const old = { text: 'b\n', at: '2026-11-12T03:51:00Z' }
+  // Attempt 1 spent and its runner was lost before it kept anything; attempt 2, from an older cache, kept the copy.
+  const lost = [due, cycle('failure', '2026-11-12T02:00:00Z', 1, null), due, cycle('success', '2026-11-12T03:50:00Z', 2)]
+  expect(legacyAttempt(lost)).toBe(2)
+  expect(restore(runs, () => [old], () => lost, NOW)).toEqual({ from: 40, text: 'b\n', unknown: [40] })
+  // The ordinary run of before: one attempt, its copy.
+  expect(restore(runs, () => [old], () => [due, cycle('success', '2026-11-12T03:50:00Z')], NOW)).toEqual({ from: 40, text: 'b\n', unknown: [] })
+  // Two attempts whose upload steps both succeeded (one with no log to keep): whose copy it is can't be told.
+  const both = [due, cycle('failure', '2026-11-12T02:00:00Z', 1), due, cycle('success', '2026-11-12T03:50:00Z', 2)]
+  expect(legacyAttempt(both)).toBeUndefined()
+  expect(restore(runs, () => [old], () => both, NOW)).toEqual({ from: 40, text: 'b\n', unknown: [40] })
+  // An upload refused (the old name already taken by attempt 1) leaves attempt 1's.
+  const refused = [due, cycle('failure', '2026-11-12T02:00:00Z', 1), due, cycle('success', '2026-11-12T03:50:00Z', 2, 'failure')]
+  expect(legacyAttempt(refused)).toBe(1)
+  expect(restore(runs, () => [{ ...old, at: '2026-11-12T02:01:00Z' }], () => refused, NOW)).toEqual({ from: 40, text: 'b\n', unknown: [40] })
 })
 
 test('a list of GitHub\'s is read to its last page, and one longer than the most pages can\'t be counted', () => {
@@ -297,4 +322,6 @@ test('engine.yml runs it after the cache is read and before anything reads the l
   expect(yml.slice(yml.lastIndexOf('- name:', restoreAt), restoreAt)).toContain('GH_TOKEN: ${{ github.token }}')
   // The copies it restores from are the ones each attempt keeps, under a name of its own.
   expect(yml).toContain('name: engine-cost-log-rewrite-${{ github.run_attempt }}')
+  // And the step that keeps it is the one a copy under the old name is credited by.
+  expect(yml).toContain(`- name: ${UPLOAD_STEP}\n`)
 })

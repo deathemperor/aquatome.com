@@ -29,6 +29,7 @@ export const dayStart = now => Date.parse(`${vnDay(now)}T00:00:00+07:00`)
 export const ARTIFACT = 'engine-cost-log-rewrite'
 export const CYCLE_JOB = 'Content cycle: rewrite'
 export const CYCLE_STEP = 'Run this part, test, commit, push, deploy'
+export const UPLOAD_STEP = 'Keep the cost log (a line a model call, with its account)'
 /** GitHub runs a run again up to 30 days after it began, so one that old can have spent today. */
 export const RERUN_DAYS = 30
 
@@ -93,11 +94,23 @@ export const cycleSteps = jobs => jobs.filter(j => j.name === CYCLE_JOB).flatMap
   .filter(s => s.name === CYCLE_STEP && s.conclusion != null && s.conclusion !== 'skipped')
 
 /**
- * Whether copy `k` ({ at, attempt }) holds what cycle step `s` spent: kept by the step's own attempt, after the step
- * ended. Another attempt's copy can't hold it: a later attempt that found an older cache kept a log without it. A copy
- * under the one name runs had before 13 Nov 2026 has no attempt to go by, so for it, the time alone.
+ * The attempt that kept a run's copy under the one name runs had before 13 Nov 2026 (a run of then, run again since, still
+ * uses it): the only attempt whose cycle job's upload step succeeded, since a later attempt can't keep a second copy
+ * under the same name. None when no attempt's did, or more than one's (one with no log to keep succeeds too).
  */
-const covers = (k, s) => (k.attempt === undefined || k.attempt === s.attempt) && Date.parse(k.at) >= Date.parse(s.completed_at)
+export function legacyAttempt(jobs) {
+  const ok = new Set(jobs.filter(j => j.name === CYCLE_JOB && (j.steps ?? []).some(s => s.name === UPLOAD_STEP && s.conclusion === 'success')).map(j => j.run_attempt))
+  return ok.size === 1 ? [...ok][0] : undefined
+}
+
+/**
+ * Whether copy `k` holds what cycle step `s` spent: kept by the step's own attempt. A job's steps run in turn, and the
+ * copy is kept by the upload step after the cycle step, so it holds the cycle's lines; the times aren't compared, as the
+ * step's is the runner's clock and the copy's GitHub's (Astra's third read: a runner five seconds ahead made a whole log
+ * read as late). Another attempt's copy can't hold it: a later attempt that found an older cache kept a log without
+ * it. A copy under the old name is its uploading attempt's (legacyAttempt), or no attempt's.
+ */
+const covers = (k, s, legacy) => s.attempt !== undefined && (k.attempt ?? legacy) === s.attempt
 
 /** Every line of `texts`, once each, in the order first met. */
 export function union(texts) {
@@ -107,8 +120,8 @@ export function union(texts) {
 
 /**
  * The log as the runs kept it, and the runs whose spend today it can't hold (`unknown`). `logsOf(run)` is the copies a
- * run kept, `{ text, at, attempt }` (`at` when it was kept); `jobsOf(run)` its jobs. Each run active today is read: a
- * cycle step of it that ended today counts as logged only when its own attempt kept a copy after it ended (covers).
+ * run kept, `{ text, at, attempt }`; `jobsOf(run)` its jobs. Each run active today is read: a cycle step of it that ended
+ * today counts as logged only when its own attempt kept a copy (covers).
  * Then the copies of the first run active before today, for the lines of earlier days. The text is every line of those
  * copies, once each: a run's copy holds the earlier runs' lines it found in the cache, so they overlap.
  */
@@ -121,8 +134,10 @@ export function restore(runs, logsOf, jobsOf, now) {
     const today = Date.parse(run.updated_at) >= start
     const kept = logsOf(run)
     if (today) {
-      const lost = s => (s.completed_at == null || Date.parse(s.completed_at) >= start) && !kept.some(k => covers(k, s))
-      if (cycleSteps(jobsOf(run)).some(lost)) unknown.push(run.id)
+      const jobs = jobsOf(run)
+      const legacy = legacyAttempt(jobs)
+      const lost = s => (s.completed_at == null || Date.parse(s.completed_at) >= start) && !kept.some(k => covers(k, s, legacy))
+      if (cycleSteps(jobs).some(lost)) unknown.push(run.id)
     }
     if (kept.length) {
       from ??= run.id
