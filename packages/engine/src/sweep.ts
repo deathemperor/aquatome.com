@@ -1,7 +1,7 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { parse } from 'node-html-parser'
-import { loadAll, mayPublish, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
+import { loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -19,6 +19,7 @@ import { SOURCES } from './sources'
 import { errorKind } from './state'
 import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { cardOf, cardProblems } from './summaries'
+import { readVerdicts } from './curation'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
 import { schoolFromSeriouslyFish } from './traits'
@@ -68,6 +69,9 @@ import { readVideoRejected } from './videos'
  * - a guide's title another guide in its language has, or that is only a name ("Dou Mok"): with `llm`, written again by
  *   the model (`retitles` at most a run, reviewer-gated: guide-titles.ts retitleGuide), a person's name kept as the credit.
  *   The address stays.
+ * - a fish's or a breed's head the box step found no animal in (engine-state/_photo-boxes.json: null) that the photo check
+ *   hasn't passed as the fish: listed, each with the day it was first seen (engine-state/_photo-no-animal-heads.json), for
+ *   the cycle's log and the owner's daily report, so a person sees one the day it appears (the chief of staff, 2026-11-12)
  * - a fish's summary (content/summaries): the words Vietnamese readers write another way written their way (sanitize.ts
  *   viWording), as the page's own text has them (fixTranslation)
  * - a fish's old name, on a Vietnamese page, its summary or a buying guide: its name now, when the sentence says which fish
@@ -99,6 +103,8 @@ export type SweepReport = {
   unwell: string[]
   /** Heads a person picked (engine-state/_photo-head-picks.json) put first, `kind/id: old -> new`, or picks not found on the page. */
   heads: string[]
+  /** Heads with no animal in them and no "yes" from the photo check, `kind/id: url (since day)`. */
+  noAnimal: string[]
   /** Rejected videos (engine-state/_video-rejected.json) taken off a page, `kind/id: youtubeId (why)`. */
   videos: string[]
   card: string[]
@@ -208,13 +214,13 @@ export const PHOTO_CAP = 10
 /** Guides whose title is shared or only a name, written again at most a run (each a write and a review). */
 export const GUIDE_RETITLES = 10
 
-export async function sweep(root: string, o: { llm?: Llm; titles?: number; retitles?: number; model?: string; photoCap?: number } = {}): Promise<SweepReport> {
+export async function sweep(root: string, o: { llm?: Llm; titles?: number; retitles?: number; model?: string; photoCap?: number; today?: string } = {}): Promise<SweepReport> {
   // Before anything is written. Not a whole number ("1O" for 10 reads as none), every comparison with it is false and
   // the cap would be off (the independent reader, 2026-11-11).
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, held: [], unwell: [], heads: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, held: [], unwell: [], heads: [], noAnimal: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -758,5 +764,32 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     await write(file, raw, e)
     changed(`species/${id}/entity.json`)
   }
+  report.noAnimal = await noAnimalHeads(root, o.today ?? vnDate(new Date()))
   return report
+}
+
+export const NO_ANIMAL_FILE = 'engine-state/_photo-no-animal-heads.json'
+/**
+ * Fish and breed pages whose head the box step found no animal in and the photo check hasn't passed as the fish ("yes",
+ * its own verdict for the page or the first check's): written to NO_ANIMAL_FILE, page → { url, since }, `since` kept
+ * while the same photo leads. Returned as `kind/id: url (since day)`.
+ */
+export async function noAnimalHeads(root: string, today: string): Promise<string[]> {
+  const content = join(root, 'content')
+  const boxes = JSON.parse(await readFile(join(root, 'engine-state/_photo-boxes.json'), 'utf8').catch(() => '{}')) as Record<string, unknown>
+  const v = await readVerdicts(root)
+  const before = JSON.parse(await readFile(join(root, NO_ANIMAL_FILE), 'utf8').catch(() => '{}')) as Record<string, { url: string; since: string }>
+  const now: Record<string, { url: string; since: string }> = {}
+  for (const kind of ['species', 'breeds']) for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
+    const e = JSON.parse(await readFile(join(content, kind, id, 'entity.json'), 'utf8').catch(() => '{}')) as { photos?: (Photo & { generated?: unknown })[] }
+    const url = e.photos?.find(p => !p.generated)?.url
+    if (!url || boxes[url] !== null) continue
+    const own = v.subjects[url]?.[id]
+    if ((own && !own.guide ? own : v.legacy[url])?.ok === 'yes') continue
+    const ref = `${kind}/${id}`
+    now[ref] = { url, since: before[ref]?.url === url ? before[ref]!.since : today }
+  }
+  const out = `${JSON.stringify(now, null, 2)}\n`
+  if (out !== (await readFile(join(root, NO_ANIMAL_FILE), 'utf8').catch(() => (Object.keys(now).length ? '' : out)))) await writeFile(join(root, NO_ANIMAL_FILE), out)
+  return Object.entries(now).map(([ref, x]) => `${ref}: ${x.url} (since ${x.since})`)
 }

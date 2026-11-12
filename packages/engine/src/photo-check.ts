@@ -64,6 +64,12 @@ const blockedFor = (by: Record<string, PhotoVerdict> = {}, keepOwnLogo = false) 
 export type Subject = { id: string; kind: 'species' | 'plants' | 'breeds'; sci: string; names: string[]; breed?: string; latin?: string[] }
 
 const PER_SHEET = 6
+/**
+ * A run that would leave more pages than this with no photo of their own takes none of their photos off, and none of
+ * them onto the never-again list: it lists them and holds (`report.heads.held`), so a check gone wrong can't blank
+ * pages. `--empty-cap` lets a person who has looked at them release a larger run (the chief of staff, 2026-11-12).
+ */
+export const EMPTY_CAP = 10
 /** Gallery photos a species page shows itself (the site's GALLERY_STRIP, apps/site/src/lib/gallery.ts); the rest are on the gallery page. */
 const STRIP = 8
 
@@ -310,7 +316,7 @@ export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source'>): 0 | 1 | 2 | 3
  * `recheck`: with it, only these photos are judged, where their verdict is from before the check asked about people
  * (`recheckCandidates`).
  */
-export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; fill?: number; parallel?: number; only?: string; today?: string; recheck?: Set<string> }) {
+export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; fill?: number; parallel?: number; only?: string; today?: string; recheck?: Set<string>; emptyCap?: number }) {
   const content = join(root, 'content')
   const cacheFile = join(root, 'engine-state/_photo-subjects.json')
   const rejectedFile = join(root, 'engine-state/_photo-rejected.json')
@@ -319,7 +325,13 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const rejected = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   const marks = (await readJson<Record<string, WatermarkEntry>>(join(root, 'engine-state/_photo-watermarks.json'))) ?? {}
   const keepLogo = (url: string) => retainedOwnMark(url, marks[url]) && (!rejected[url] || rejected[url]!.startsWith('watermark:'))
-  const report = { photos: 0, sheets: 0, judged: 0, removed: [] as string[], rejected: 0, blocked: [] as string[], unsure: 0, failed: [] as string[], stopped: '' }
+  const report = {
+    photos: 0, sheets: 0, judged: 0, removed: [] as string[], rejected: 0, blocked: [] as string[], unsure: 0, failed: [] as string[], stopped: '',
+    /** A page's head that changed, `kind/id: old -> new`; a page left with no photo of its own, `kind/id: old`; one held by EMPTY_CAP. */
+    heads: { moved: [] as string[], emptied: [] as string[], held: [] as string[] },
+  }
+  // Heads the box step found no animal in (engine-state/_photo-boxes.json: null), on a fish's or a breed's page.
+  const boxes = (await readJson<Record<string, unknown>>(join(root, 'engine-state/_photo-boxes.json'))) ?? {}
 
   const all = await rank(root, await subjects(content))
   const byId = new Map(all.map(s => [s.id, s]))
@@ -374,6 +386,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const due = (x: Shown) => (!o.recheck || o.recheck.has(x.url)) && stale(x)
   /** Neither check has a verdict on it for its page (a verdict from before the check asked about people is one). */
   const unseen = (x: Shown) => !verdict(x.url, x.page!, !x.guide)
+  /** A fish's or a breed's head the box step found no animal in. */
+  const noAnimal = (x: Shown) => !!x.lead && boxes[x.url] === null && byId.get(x.page!)?.kind !== 'plants'
   const sheets: { s: Subject; urls: string[] }[] = []
   const queued = new Set<string>()
   // `only`: one page id, or several, comma-separated.
@@ -385,13 +399,18 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     // `first`: the share for a source's photos that fill a page with none. Then the leads nothing has looked at
     // (`lead0`: Flickr's and Commons', `lead1`: the rest), the pages with no photo of their own (`bare`), and each
     // turn in order.
-    const phase = (x: Shown, now: 'first' | 'lead0' | 'lead1' | 'bare' | 0 | 1 | 2 | 3) =>
-      now === 'first' ? !!x.sourced
+    const phase = (x: Shown, now: 'noAnimal' | 'first' | 'lead0' | 'lead1' | 'bare' | 0 | 1 | 2 | 3) =>
+      now === 'noAnimal' ? noAnimal(x)
+      : now === 'first' ? !!x.sourced
       : now === 'lead0' || now === 'lead1' ? !!x.lead && unseen(x) && (turn(x) === 0) === (now === 'lead0')
       : now === 'bare' ? !!x.bare
       : turn(x) === now
-    for (const now of ['first', 'lead0', 'lead1', 'bare', 0, 1, 2, 3] as const) for (const later of [false, true]) for (const s of all) {
-      if (sheets.length >= o.limit || (now === 'first' && sheets.length - from >= fill)) break
+    // A head with no animal in it goes before everything: a page whose head is a river should not wait (the chief of
+    // staff, 2026-11-12). The source's share (`fill`) counts from where its own turn starts.
+    let firstAt = from
+    for (const now of ['noAnimal', 'first', 'lead0', 'lead1', 'bare', 0, 1, 2, 3] as const) for (const later of [false, true]) for (const s of all) {
+      if (now === 'first' && !later && s === all[0]) firstAt = sheets.length
+      if (sheets.length >= o.limit || (now === 'first' && sheets.length - firstAt >= fill)) break
       if (only && !only.has(s.id)) continue
       const open = (onPage.get(s.id) ?? []).filter(x => !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`))
       const mine = [...new Set(open.filter(x => phase(x, now) && !!x.galleryOnly === later).map(x => x.url))]
@@ -486,9 +505,29 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   for (const [url, xs] of onPages) if (!(url in rejected) && !(url in added) && !named(url) && everywhere.get(url)!.every(off)) added[url] = `not ${label(xs[0]!.page!)}: ${verdict(url, xs[0]!.page!, !xs[0]!.guide)!.note}`
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
   const blocked = (file: string) => (url: string) => (url in rejected && !keepLogo(url)) || url in added || offAt.has(`${file}\n${url}`)
+  // Pages this run would leave with no photo of their own: more than the cap, and none of them loses any.
+  const real = (ps: Photo[] | undefined) => (ps ?? []).filter(p => !p.generated)
+  const ownPhotos = async (file: string) => real((await readJson<{ photos?: Photo[] }>(file))?.photos)
+  const pageFiles = [...new Set(shown.filter(x => !x.guide && x.file.endsWith('entity.json')).map(x => x.file))]
+  const emptying: string[] = []
+  for (const file of pageFiles) { const ps = await ownPhotos(file); if (ps.length && ps.every(p => blocked(file)(p.url))) emptying.push(file) }
+  const held = new Set(emptying.length > (o.emptyCap ?? EMPTY_CAP) ? emptying : [])
+  const pageOf = (file: string) => file.slice(content.length + 1).split('/').slice(0, 2).join('/')
+  for (const file of held) {
+    const ps = await ownPhotos(file)
+    report.heads.held.push(`${pageOf(file)}: ${ps[0]!.url}`)
+    // Not onto the never-again list either, or a later run would take it off through that, unseen.
+    for (const p of ps) {
+      if (!(p.url in added)) continue
+      delete added[p.url]
+      report.blocked = report.blocked.filter(x => !x.startsWith(`${p.url}: `))
+    }
+  }
   for (const file of [...new Set(shown.map(x => x.file))]) {
+    if (held.has(file)) continue
     const raw = await readFile(file, 'utf8')
     const data = JSON.parse(raw) as { photos?: Photo[] }
+    const before = real(data.photos)[0]?.url
     const removed: string[] = []
     stripPhotos(data, blocked(file), removed, [])
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
@@ -526,6 +565,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     // In an album it comes after the photos the check passed or has not reached. The album step ranks the same way, but
     // only an album it adds to, so every album gets its order here, each run.
     if (gallery && data.photos) data.photos = realPhotosFirst(cantTellLast(data.photos, cantTellOn(cache, gallery)))
+    if (s && file.endsWith('entity.json') && before) {
+      const after = real(data.photos)[0]?.url
+      if (!after) report.heads.emptied.push(`${pageOf(file)}: ${before}`)
+      else if (after !== before) report.heads.moved.push(`${pageOf(file)}: ${before} -> ${after}`)
+    }
     const out = `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`
     if (out === raw) continue
     report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))

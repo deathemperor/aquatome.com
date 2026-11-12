@@ -667,6 +667,16 @@ The layers above still check the result.
     Until 2026-11-07 a fourth verdict, "its wild habitat, with or without it", stayed on the page and only went last:
     the firemouth's and the flame tetra's only photos, a lake and a stream with no fish, led their pages, their index
     cards and the tank-mates blocks (a design review's find). Such a verdict is asked again (below).
+    Before everything else, since 2026-11-12: a fish's or a breed's head the box step found no animal in
+    (`_photo-boxes.json`: null), on a sheet filled from its page. On 12 Nov 34 heads were a river, a lake or open water,
+    and none had been judged (the chief of staff). Such a head is "not a photo of it", as above: it leaves the page, and
+    a page with nothing else shows no photo, its tile "Chưa có ảnh" (no photo yet), until a photo of the fish arrives. A
+    run that would leave more than `EMPTY_CAP` (10) pages with no photo of their own takes none of their photos off, and
+    none onto `_photo-rejected.json`: it lists them (`held:`) and holds, so a check gone wrong can't blank pages;
+    `--empty-cap <n>` releases them once a person has looked. Each run's line counts the heads moved (another photo
+    took the lead) and removed (the page left with no photo). The sweep lists every such head the check hasn't passed
+    as the fish, from the day it first leads (`_photo-no-animal-heads.json`), in the cycle's log and the owner's daily
+    report, so a person sees one the day it appears.
     - **Dead fish, people and logos.** The check also answers "dead" (a dead fish or fish as food: a market, ice, a
       plate, a catch landed or held, a fish on a tray or the floor, a preserved, mounted, museum or lab specimen, a
       museum shell; when it can't tell, dead), whether a person or any part of one is in the photo (a hand holding the

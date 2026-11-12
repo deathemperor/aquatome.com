@@ -1,0 +1,68 @@
+{
+  "id": "trigonostigma-heteromorpha",
+  "scientificName": "Trigonostigma heteromorpha",
+  "order": "Cypriniformes",
+  "family": "Danionidae",
+  "genus": "Trigonostigma",
+  "group": "rasboras",
+  "places": [
+    "asia",
+    "indonesia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "html": "<p>A small fish, pinkish orange with a black triangular patch.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trigonostigma-heteromorpha",
+      "html": "<p>Streams and peat swamps in Thailand, Malaysia and Indonesia.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-10-28"
+}
