@@ -86,6 +86,7 @@ import { addOwnerPicks, discoverPlaylists, discoverSingles, QUERIES_BY_LANG } fr
 import { galleries, VET_SCHEMA as GALLERY_VET, type GalleryDeps, type Vet } from './gallery'
 import { englishName, unsplashCredits, unsplashPhotos, type UnsplashApi } from './unsplash'
 import { breedCare, breedPhotos, localizeBreed, makeBreed } from './breeds'
+import { breedRun } from './breed-first'
 import { makeSpecies, type VideoSource } from './species-research'
 import { speciesVideos } from './species-videos'
 import { findVideos, readVideoRejected } from './videos'
@@ -1086,14 +1087,15 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // Khám phá's top cards without a page in the language first, earliest week first (the chief of staff, 2026-11-11).
   const ready = researched.filter(id => pages.includes(id)).sort()
   const heroes = (await heroesWithout(ROOT, lang, 'breeds', new Date().toISOString().slice(0, 10))).filter(id => ready.includes(id))
-  const ids = values.only?.split(',').map(s => s.trim()).filter(Boolean) ?? [...new Set([...heroes, ...ready])]
-  let made = 0
-  for (const id of ids) {
-    if (made >= Number(values.limit ?? 40)) break
-    const r = await localizeBreed(ROOT, claudeCli, id, lang, { redo: values.redo }).catch(e => ({ id, failed: (e as Error).message.slice(0, 200) }))
-    if (!('skipped' in r)) made++
+  // The listed breeds first (breed-first.ts: the Tết cards), each once, written again from their facts with what the
+  // reader-fit check found in them; one the gate gave its old text back, or held, waits for the chief of staff's word.
+  const only = values.only?.split(',').map(s => s.trim()).filter(Boolean)
+  const { waiting } = await breedRun(ROOT, lang, [...new Set([...heroes, ...ready])], async (id, redo) => {
+    const r = await localizeBreed(ROOT, claudeCli, id, lang, { redo }).catch(e => ({ id, failed: (e as Error).message.slice(0, 200) }))
     console.log(JSON.stringify(r))
-  }
+    return r
+  }, { limit: Number(values.limit ?? 40), redo: values.redo, ...(only ? { only } : {}) })
+  for (const w of waiting) console.log(`localize-breeds: ${w}`)
 } else if (cmd === 'localize-guides') {
   // AquaTome's own guides in another language, written from their saved research (--only ids; --redo).
   const lang = values.lang as TargetLang

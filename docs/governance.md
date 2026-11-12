@@ -1115,6 +1115,14 @@ The layers above still check the result.
     staples), then the most read, after a fresh read of the front list's pages whose read is of older text. After its
     first run (`engine-state/_fit-front.json` has what it did) it waits until the chief of staff has looked at that
     run's pages and `cleared` is set in the list's file (`fit-front.test.ts`).
+  - Indonesian, Thai and Malay breed pages the Tết cards show (koi, butterfly koi, ranchu, ryukin: `BREED_FIRST`,
+    `breed-first.ts`) come first in the cycle's breed step, two a language a cycle: the breed writer writes one again
+    from its facts, told what the reader-fit check found in it, or writes it where there is none yet (Malay ranchu and
+    ryukin). Each once (`engine-state/_breed-first.json`): the gate reads it in the same cycle, one it holds or gives
+    its old text back waits for the chief of staff's word, and one it couldn't read loses its mark and is written again
+    (`breed-first.test.ts`). Both breed writers, and their fact checks, are given the tank and water figures, worked out
+    by code from the facts' US figures under the rewrite's rule and guards (`writerFigures`, `breed-units.ts`; the chief
+    of staff, 2026-11-12).
   - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a
     dated source is expected on a card; a new species is "described", with its paper's date, never "discovered" unless
     the source says so; a trend names its figures and where they come from. A held card stays out of the app, and the

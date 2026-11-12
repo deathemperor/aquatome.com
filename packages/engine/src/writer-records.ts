@@ -115,6 +115,8 @@ export async function restoreUnreadRecords(root: string, pages: PageRef[]): Prom
   await map('engine-state/_reader.json', pages.map(p => `${p.lang}/${p.kind}/${p.id}`))
   // The source's own figures are put back once a page (source-figures.ts): one the gate couldn't read is tried again.
   await map('engine-state/_source-figures.json', pages.map(p => `${p.lang}/${p.kind}/${p.id}`))
+  // So is a listed breed page written again (breed-first.ts).
+  await map('engine-state/_breed-first.json', pages.filter(p => p.kind === 'breeds').map(p => `${p.lang}/${p.kind}/${p.id}`))
   // The collection rewrite skips a page whose tried hash is the text it has now (fit-rewrite.ts). The rewritten list is
   // the same key, the text it kept: that hash would name a text the page no longer has.
   const viKeys = vi.map(p => `vi/${p.kind}/${p.id}`)

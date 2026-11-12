@@ -14,6 +14,7 @@ import { isMarketplace } from './marketplaces'
 import { BOUNDS } from './process'
 import { VI_STYLE as STYLE } from './phrases'
 import { steadyRead } from './quality'
+import { checkFiguresNote, writerFigures, writerFiguresNote, type NumLang } from './breed-units'
 import { TANK_RULE, withTanks } from './round'
 
 const WRITE = withTanks(readFileSync(new URL('./prompts/breed.md', import.meta.url), 'utf8'))
@@ -207,13 +208,15 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   const dir = join(content, 'breeds', id)
   const prev = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8').catch(() => 'null')) as Translation | null
   const fixed = prev?.nameFixed ? `\n\nTên trang đã chốt: "${prev.name}". Gọi cá bằng tên này trong cả bài; các tên khác chỉ nhắc như tên gọi khác.` : ''
+  // Tank and water figures from the source's US figures, as keepers here say them (breed-units.ts): the writer and its check.
+  const figures = writerFigures(JSON.stringify(forWriter))
   const write = (notes?: string[]) => d.llm<Written>({
     system: 'You write Vietnamese aquarium fish profiles from facts. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: WRITE_SCHEMA,
-    prompt: `${WRITE}\n\n${STYLE}${fixed}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện. Sửa theo các ghi chú sau, chỉ viết điều dữ kiện có:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter, null, 1)}`,
+    prompt: `${WRITE}\n\n${STYLE}${fixed}${writerFiguresNote(figures, 'vi')}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện. Sửa theo các ghi chú sau, chỉ viết điều dữ kiện có:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter, null, 1)}`,
   })
   // Near the bar, read three times and the median read counts (steadyRead).
   const check = (x: Written) => steadyRead(async () => {
-    const r = await d.llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nPAGE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
+    const r = await d.llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED}${checkFiguresNote(figures)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nPAGE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
   })
   // A redo starts from what the last review of the page on the site found, as the rewrite below does.
@@ -299,10 +302,16 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
   const vi = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation
   const T = TARGETS[lang]
   const forWriter = { name: facts.enNames[0] ?? id, kind: facts.kind, enNames: facts.enNames, basedOn: facts.basedOn, parents: facts.parents, origin: facts.origin, looks: facts.looks, lines: facts.lines, care: facts.care, keeping: facts.keeping, breeding: facts.breeding, health: facts.health, buying: facts.buying, controversy: facts.controversy }
-  const prompt = (notes?: string[]) => `${INTL.replaceAll('{{LANG}}', T.lang).replaceAll('{{COUNTRY}}', T.country).replace('{{STYLE}}', T.style)}${notes?.length ? `\n\nThe previous version went beyond the facts. Fix these, writing only what the facts say:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- FACTS ---\n${JSON.stringify(forWriter, null, 1)}`
+  // A redo takes what the reader-fit check found in the page on the site (engine-state/_fit.json), so it doesn't write the
+  // same winter advice or converted tank again (the chief of staff, 2026-11-12).
+  const found = o.redo ? ((JSON.parse(await readFile(join(root, 'engine-state/_fit.json'), 'utf8').catch(() => '{}')) as Record<string, { findings?: { check: string; quote?: string; why?: string; fix?: string }[] }>)[`${lang}/breeds/${id}`]?.findings ?? []) : []
+  const readers = found.length ? `\n\nReaders in ${T.country} found these in the page on the site. Write the page so none of them is there:\n${found.map(f => `- ${f.check}: "${f.quote ?? ''}"${f.fix ? ` (write "${f.fix}")` : f.why ? ` (${f.why})` : ''}`).join('\n')}` : ''
+  // Tank and water figures from the source's US figures, as keepers here say them (breed-units.ts): the writer and its check.
+  const figures = writerFigures(JSON.stringify(forWriter), found.filter(f => f.check === 'units' && f.quote).map(f => ({ text: f.quote!, lang: lang as NumLang })))
+  const prompt = (notes?: string[]) => `${INTL.replaceAll('{{LANG}}', T.lang).replaceAll('{{COUNTRY}}', T.country).replace('{{STYLE}}', T.style)}${writerFiguresNote(figures, 'en')}${readers}${notes?.length ? `\n\nThe previous version went beyond the facts. Fix these, writing only what the facts say:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- FACTS ---\n${JSON.stringify(forWriter, null, 1)}`
   const write = (notes?: string[]) => llm<Written & { slug: string }>({ system: `You write ${T.lang} aquarium fish profiles from facts. Reply only with JSON.`, model: o.model ?? 'opus', schema: INTL_SCHEMA, prompt: prompt(notes) })
   const check = (x: Written) => steadyRead(async () => {
-    const r = await llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese PAGE', `${T.lang} PAGE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nPAGE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
+    const r = await llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese PAGE', `${T.lang} PAGE`)}${checkFiguresNote(figures)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nPAGE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
   })
   // A redo starts from what the last review of the page on the site found.

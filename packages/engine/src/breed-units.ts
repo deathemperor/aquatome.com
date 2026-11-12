@@ -1,4 +1,4 @@
-import { GALLON, keeperFigure, US_TANKS, usTankOf } from './round'
+import { CONVERTED_LITRES, GALLON, keeperFigure, US_TANKS, usTankOf } from './round'
 
 /**
  * A breed page's units, mended by the reader-fit rewrite (fit-rewrite.ts; the chief of staff, 2026-11-12). A breed page
@@ -10,9 +10,11 @@ import { GALLON, keeperFigure, US_TANKS, usTankOf } from './round'
  * - any other (35 gallons, 1,000 gallons, 3 gallons a fish) is keeperFigure's: 130, 4.000, 12 lít;
  * - "for each 2,5 cm" of a fish is a source's "per inch": given per cm, 10 gallons an inch 15 lít mỗi cm.
  * The US figure is the facts' own beside the page's figure ("35 US gal (about 132 L)"), else the facts' nearest within a
- * twentieth of it, else the table's for a volume only a gallon conversion gives (usTankOf: 110 lít is 29 gallons). A
- * finding is left to a person (`unitsLeft`) when a litre figure in it has neither, or its sentence is a dose, whose water
- * stays exact. A figure counts only as the whole quantity: 15 lít mỗi cm, not 15 lít mỗi 2,5 cm (`keepsFigures`).
+ * twentieth of it, else the table's for a volume only a gallon conversion gives (usTankOf: 110 lít is 29 gallons; or to
+ * tens, 950 for 250 gallons). A finding is left to a person (`unitsLeft`) when a litre figure in it has neither, or its
+ * sentence is a dose, whose water stays exact. A figure counts only as the whole quantity: 15 lít mỗi cm, not 15 lít
+ * mỗi 2,5 cm (`keepsFigures`).
+ * The breed writers (breeds.ts) get the same figures, and their fact check too (`writerFigures`).
  */
 export type BreedFigure = { from: string; to: string; litres: number; why: string; perCm?: true }
 
@@ -43,8 +45,10 @@ export const litresIn = (text: string) => [...text.matchAll(VOLUME)].flatMap(m =
 function usGallons(l: number, pairs: [number, number][]): number | undefined {
   return pairs.find(([, L]) => L === l)?.[0] ??
     pairs.map(([g]) => [g, Math.abs(g * GALLON - l) / l] as const).filter(([, d]) => d <= 0.05).sort((a, b) => a[1] - b[1])[0]?.[0] ??
-    usTankOf(l)?.[0]
+    usTankOf(l)?.[0] ?? US_TANKS.find(([g]) => Math.round((g * GALLON) / 10) * 10 === l)?.[0]
 }
+/** The litres keepers here say for a source's US gallons: a table tank its size, any other keeperFigure's; per inch, per cm. */
+const keeperOf = (g: number, perInch: boolean) => (perInch ? keeperFigure((g * GALLON) / 2.54) : US_TANKS.find(([x]) => x === g)?.[1] ?? keeperFigure(g * GALLON))
 
 /** What keepers here say for each litre figure a units finding quotes, from the source's US figure. */
 export function breedFigures(quote: string, facts: string): BreedFigure[] {
@@ -56,8 +60,7 @@ export function breedFigures(quote: string, facts: string): BreedFigure[] {
       const l = vi(s)
       const g = usGallons(l, pairs)
       if (g === undefined) continue
-      const table = US_TANKS.find(([x]) => x === g)?.[1]
-      const to = perInch ? keeperFigure((g * GALLON) / 2.54) : table ?? keeperFigure(g * GALLON)
+      const to = keeperOf(g, perInch)
       const gal = `${g.toLocaleString('en-US')} US gallon${g === 1 ? '' : 's'}`
       if (perInch) out.push({ from: `${s} lít cho mỗi 2,5 cm`, to: `${viFigure(to)} lít cho mỗi cm`, litres: to, why: `${gal} per inch`, perCm: true })
       else if (to !== l) out.push({ from: `${s} lít`, to: `${viFigure(to)} lít`, litres: to, why: gal })
@@ -118,3 +121,54 @@ export function moved(quote: string, blocks: string[]): string | undefined {
   }
   return undefined
 }
+
+/** A language's numbers: Vietnamese and Indonesian write "3.800" and "2,5", Thai, Malay and English "3,800" and "2.5". */
+export type NumLang = 'vi' | 'id' | 'th' | 'ms' | 'en'
+const commaDecimal = (l: NumLang) => l === 'vi' || l === 'id'
+/** Litres in any page language or the facts; Thai runs words together, so ลิตร needs no word end. */
+const volumes = (l: NumLang) => new RegExp(String.raw`(?<![\d.,])(${commaDecimal(l) ? VI_N : EN_N})(?:\s*(?:[–-]|đến|hingga|sampai|ถึง|to)\s*(${commaDecimal(l) ? VI_N : EN_N}))?\s*(?:(?:lít|liter|litres?|liters?|L|l)(?![\p{L}\p{N}])|ลิตร)`, 'giu')
+/** "… cho mỗi 2,5 cm", "setiap 2,5 cm", "bagi setiap 2.5 cm", "ต่อ…2.5 ซม.", "per 2.5 cm": a source's "per inch". */
+const PER_LENGTH = /^[^.;\n]{0,40}?(?:mỗi|setiap|bagi|per|ต่อ)[^.;\n]{0,25}?2[.,]5\s*(?:cm|ซม)/iu
+/** Every US gallon figure the facts give, a range's ends each, and whether it is per inch of fish. */
+const GALLONS = new RegExp(String.raw`(?<![\d.,–-])(${EN_N})(?:\s*[–-]\s*(${EN_N}))?\+?\s*(?:US\s+)?gal(?:lons?)?(?![\p{L}])(\s*(?:per|an|a|for each|each)\s+inch)?`, 'giu')
+
+/** A figure for a breed writer: the source's US figure, and the litres keepers here say. */
+export type WriterFigure = { us: string; litres: number; perCm?: true }
+/**
+ * The figures a breed writer and its fact check are given (breeds.ts): every US gallon figure the breed's facts give, a
+ * litre figure in them that only a gallon conversion gives (CONVERTED_LITRES), and those a page's units findings quote,
+ * each worked out from the source's US figure as keepers here say (the chief of staff, 2026-11-12).
+ */
+export function writerFigures(facts: string, quotes: { text: string; lang: NumLang }[] = []): WriterFigure[] {
+  const pairs = factsPairs(facts)
+  const out = new Map<string, WriterFigure>()
+  const add = (g: number, perInch: boolean) => {
+    const us = `${g.toLocaleString('en-US')} US gallon${g === 1 ? '' : 's'}${perInch ? ' per inch of fish' : ''}`
+    out.set(us, { us, litres: keeperOf(g, perInch), ...(perInch ? { perCm: true as const } : {}) })
+  }
+  for (const m of facts.matchAll(GALLONS)) for (const x of [m[1], m[2]]) if (x) add(en(x), !!m[3])
+  for (const { text, lang, facts: inFacts } of [{ text: facts, lang: 'en' as NumLang, facts: true }, ...quotes.map(q => ({ ...q, facts: false }))]) {
+    for (const m of text.matchAll(volumes(lang))) {
+      const perInch = PER_LENGTH.test(text.slice(m.index + m[0].length))
+      for (const x of [m[1], m[2]]) {
+        if (!x) continue
+        const l = commaDecimal(lang) ? vi(x) : en(x)
+        if (inFacts && !CONVERTED_LITRES.includes(l)) continue
+        const g = usGallons(l, pairs)
+        if (g !== undefined) add(g, perInch)
+      }
+    }
+  }
+  return [...out.values()]
+}
+
+const said = (fs: WriterFigure[]) => fs.map(f => `${f.us} → ${f.litres.toLocaleString('en-US')} litres${f.perCm ? ' per cm of fish' : ''}`).join('; ')
+/** The figures as a breed writer is told them, in its prompt's language. */
+export function writerFiguresNote(fs: WriterFigure[], lang: 'vi' | 'en'): string {
+  if (!fs.length) return ''
+  return lang === 'vi'
+    ? `\n\nSố đo bể và nước: số lít dữ kiện ghi kèm số gallon, hay số chỉ phép đổi gallon mới ra, là số ta đổi sẵn, không phải số của nguồn. Viết các số sau, đổi từ số gallon gốc theo cỡ người chơi ở đây gọi (mức tối thiểu không thấp hơn số đổi chính xác quá 5%): ${said(fs)}. Bể hay nước cho mỗi con, cho mỗi cm thân cá là mức cần, không phải liều thuốc. Số của liều thuốc giữ đúng.`
+    : `\n\nTank and water figures: a litre figure the facts give beside a US one, or one only a gallon conversion gives, is an earlier conversion of ours, not the source's. Write these instead, worked out from the source's US figure as keepers here name them (a minimum never more than a twentieth under the exact conversion): ${said(fs)}. A tank or water per fish, or per cm of a fish, is an allowance, not a dose. A dose's figures stay exact.`
+}
+/** The figures as a breed writer's fact check is told them: the facts' own. */
+export const checkFiguresNote = (fs: WriterFigure[]) => (fs.length ? `\nThese figures were worked out by rule from the facts' US figures, a minimum never more than a twentieth under the exact conversion, and are the facts' figures: ${said(fs)}.` : '')

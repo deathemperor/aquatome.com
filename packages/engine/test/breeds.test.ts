@@ -362,3 +362,32 @@ test("breed-care: a breed no source gives figures for is tried once, with why; o
   })
   expect(JSON.parse(await readFile(join(r, 'content/breeds/a-fish/entity.json'), 'utf8')).care).toEqual({})
 })
+
+test('a breed writer and its fact check are given the figures from the source\'s US figures; a redo, what the reader-fit check found', async () => {
+  const r = await root()
+  const koi: BreedFacts = { ...facts, keeping: [{ fact: 'Allow about 38 L per 2.5 cm of adult length. Juveniles under 15 cm can start in a 110 L tank. One large fish needs 35 US gal (about 132 L).', source: 0 }] }
+  const prompts: string[] = []
+  const llm: Llm = async <T,>(a: { prompt: string; schema: object }) => (prompts.push(a.prompt), 'score' in ((a.schema as { properties: object }).properties) ? { score: 0.9, notes: [] } : { name: 'Cá vàng Ranchu', slug: 'ranchu', altNames: [], parentNames: [], summary: ['s'], body: '<p>b</p>', faq: [] }) as T
+  await makeBreed(r, { research: (async () => koi) as Llm, llm, gallery: gallery([]) }, { name: 'Ranchu goldfish' })
+  // The Vietnamese writer, in Vietnamese, and its check.
+  expect(prompts[0]).toContain('Viết các số sau, đổi từ số gallon gốc theo cỡ người chơi ở đây gọi')
+  expect(prompts[0]).toContain('35 US gallons → 130 litres; 10 US gallons per inch of fish → 15 litres per cm of fish')
+  expect(prompts[1]).toContain('are the facts\' figures: 35 US gallons → 130 litres; 10 US gallons per inch of fish → 15 litres per cm of fish')
+  // A redo in Indonesian: the page's findings as notes, and the litres its units findings quote among the figures.
+  await mkdir(join(r, 'engine-state'), { recursive: true })
+  await writeFile(join(r, 'engine-state/_fit.json'), JSON.stringify({ 'id/breeds/ranchu-goldfish': { findings: [
+    { check: 'units', quote: 'Koi muda di bawah 15 cm bisa dimulai di akuarium 110 liter', why: 'a converted 29-gallon tank' },
+    { check: 'elsewhere', quote: 'memijah pada musim semi dan musim panas', why: 'seasons Indonesia does not have' },
+  ] } }))
+  prompts.length = 0
+  await localizeBreed(r, llm, 'ranchu-goldfish', 'id')
+  expect(prompts[0]).not.toContain('Readers in') // a first page has no findings
+  prompts.length = 0
+  await localizeBreed(r, llm, 'ranchu-goldfish', 'id', { redo: true })
+  expect(prompts[0]).toContain('Readers in Indonesia found these in the page on the site. Write the page so none of them is there:\n- units: "Koi muda di bawah 15 cm bisa dimulai di akuarium 110 liter" (a converted 29-gallon tank)\n- elsewhere: "memijah pada musim semi dan musim panas" (seasons Indonesia does not have)')
+  expect(prompts[0]).toContain('Write these instead, worked out from the source\'s US figure as keepers here name them')
+  expect(prompts[0]).toContain('29 US gallons → 120 litres')
+  expect(prompts[0]).toContain('A tank or water per fish, or per cm of a fish, is an allowance, not a dose')
+  expect(prompts[1]).toContain('are the facts\' figures:')
+  expect(prompts[1]).toContain('29 US gallons → 120 litres')
+})
