@@ -1,9 +1,9 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-12), most-read pages first. Rules: docs/governance.md, "Photos".
-6194 verdicts. Shows it: 4242; its habitat (asked again): 3; something else: 310; not a photo of it: 208; dead or as food: 304; a person in it: 100; a logo on it: 41; can't tell: 961.
+6198 verdicts. Shows it: 4246; its habitat (asked again): 3; something else: 310; not a photo of it: 208; dead or as food: 304; a person in it: 100; a logo on it: 41; can't tell: 961.
 
-## Left with no photo (59)
+## Left with no photo (58)
 
 - species/channa-stewartii
 - species/symphysodon-discus
@@ -57,7 +57,6 @@ Written by `pnpm engine check-photos` (2026-11-12), most-read pages first. Rules
 - species/labeo-pierrei
 - species/laides-hexanema
 - species/laides-longibarbis
-- species/lobocheilos-melanotaenia
 - species/melanochromis-chipokae
 - species/parambassis-wolffii
 - species/serrasalmus-manueli
