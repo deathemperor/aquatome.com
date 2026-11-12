@@ -126,3 +126,14 @@ test('the sweep lists each head with no animal in it that the check hasn\'t pass
   expect(await noAnimalHeads(r, '2026-11-14')).toEqual([`species/river: ${url('river')} (since 2026-11-13)`, `species/unsure: ${url('fish')} (since 2026-11-14)`])
   expect(await json(r, NO_ANIMAL_FILE)).toEqual({ 'species/river': { url: url('river'), since: '2026-11-13' }, 'species/unsure': { url: url('fish'), since: '2026-11-14' } })
 })
+
+test('a head a person picked that the check calls "none" stays first on its page and off the never-again list, and is listed; another page\'s "none" head comes off', async () => {
+  const r = await root([{ id: 'picked', photos: ['fish-far', 'fish-near'] }, { id: 'other', photos: ['river', 'fish'] }], { 'fish-far': null, river: null })
+  await writeFile(join(r, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/picked': url('fish-far') }))
+  const out = await checkPagePhotos(r, model({ 'fish-far': none, river: none, 'fish-near': { ok: 'yes', typical: true } }), { limit: 10 })
+  expect(await photosOf(r, 'picked')).toEqual(['fish-far', 'fish-near'])
+  expect(await photosOf(r, 'other')).toEqual(['fish'])
+  expect(Object.keys(await json(r, 'engine-state/_photo-rejected.json'))).toEqual([url('river')])
+  expect(out.picked).toEqual([`species/picked: ${url('fish-far')} (the check says not a photo of it: a river, no fish in it; a head a person picked, so it stays)`])
+  expect(out.heads.moved).toEqual([`species/other: ${url('river')} -> ${url('fish')}`])
+})

@@ -386,6 +386,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
     for (const x of r.heads.held) console.log(`held: ${x}`)
     for (const x of r.heads.emptied) console.log(`head removed: ${x}`)
     for (const x of r.heads.moved) console.log(`head moved: ${x}`)
+    for (const x of r.picked) console.log(`picked head: ${x}`)
     for (const x of r.blocked) console.log(`rejected: ${x}`)
     for (const x of r.removed) console.log(`removed: ${x}`)
     for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)

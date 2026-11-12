@@ -329,7 +329,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     photos: 0, sheets: 0, judged: 0, removed: [] as string[], rejected: 0, blocked: [] as string[], unsure: 0, failed: [] as string[], stopped: '',
     /** A page's head that changed, `kind/id: old -> new`; a page left with no photo of its own, `kind/id: old`; one held by EMPTY_CAP. */
     heads: { moved: [] as string[], emptied: [] as string[], held: [] as string[] },
+    /** A head a person picked that the check calls "none": it stays, listed for a person each run. */
+    picked: [] as string[],
   }
+  // A head a person picked (engine-state/_photo-head-picks.json, page → photo).
+  const headPicks = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-head-picks.json'))) ?? {}
   // Heads the box step found no animal in (engine-state/_photo-boxes.json: null), on a fish's or a breed's page.
   const boxes = (await readJson<Record<string, unknown>>(join(root, 'engine-state/_photo-boxes.json'))) ?? {}
 
@@ -386,6 +390,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const due = (x: Shown) => (!o.recheck || o.recheck.has(x.url)) && stale(x)
   /** Neither check has a verdict on it for its page (a verdict from before the check asked about people is one). */
   const unseen = (x: Shown) => !verdict(x.url, x.page!, !x.guide)
+  const picked = (page: string, url: string) => { const s = byId.get(page); return !!s && headPicks[`${s.kind}/${page}`] === url }
   /** A fish's or a breed's head the box step found no animal in. */
   const noAnimal = (x: Shown) => !!x.lead && boxes[x.url] === null && byId.get(x.page!)?.kind !== 'plants'
   const sheets: { s: Subject; urls: string[] }[] = []
@@ -492,7 +497,15 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       return xs.length > 0 && xs.every(off) && xs.some(p => verdict(p.url, p.page!, !p.guide)!.ok !== 'none')
     }
     const v = verdict(x.url, x.page, !x.guide)
+    // A head a person picked that the check calls "none" stays on its page and off the never-again list: two people read
+    // it as the fish plainly seen, and the check's question is what gets fixed (the chief of staff, 2026-11-12).
+    if (v?.ok === 'none' && !x.guide && picked(x.page, x.url)) return false
     return !!v && (x.guide ? v.ok === 'other' : OFF.has(v.ok))
+  }
+  for (const [ref, u] of Object.entries(headPicks)) {
+    const page = ref.split('/')[1]!
+    const v = shown.some(x => x.page === page && x.url === u && !x.guide) ? verdict(u, page) : undefined
+    if (v?.ok === 'none') report.picked.push(`${ref}: ${u} (the check says not a photo of it: ${v.note}; a head a person picked, so it stays)`)
   }
   const label = (id: string) => { const s = byId.get(id)!; return s.kind === 'breeds' ? (s.names[0] ?? id) : s.sci }
   const added: Record<string, string> = {}
@@ -548,7 +561,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       // person picked is put back first by the sweep, which has the last word each cycle (_photo-head-picks.json).
       // Any other head can move, a card's fish too: the cycle's planner then points the day's card at the new head
       // (curation.ts), and no cycle runs `curate --check`, which would name a card and a head that differ.
-      const r = (x: Photo) => { if (x.generated) return 3; const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical && !flawed(x) ? 0 : v?.ok === 'habitat' ? 2 : 1 }
+      // A head a person picked stays first, as the sweep puts it each cycle.
+      const r = (x: Photo) => { if (x.generated) return 3; if (picked(s.id, x.url)) return -1; const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical && !flawed(x) ? 0 : v?.ok === 'habitat' ? 2 : 1 }
       data.photos = data.photos.map((x, i) => ({ x, i })).sort((a, b) => r(a.x) - r(b.x) || a.i - b.i).map(({ x }) => x)
     }
     // A photo the check can't tell doesn't lead a page that has one it passed (the owner, 2026-11-11): the first passed

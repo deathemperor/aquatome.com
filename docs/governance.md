@@ -676,7 +676,10 @@ The layers above still check the result.
     `--empty-cap <n>` releases them once a person has looked. Each run's line counts the heads moved (another photo
     took the lead) and removed (the page left with no photo). The sweep lists every such head the check hasn't passed
     as the fish, from the day it first leads (`_photo-no-animal-heads.json`), in the cycle's log and the owner's daily
-    report, so a person sees one the day it appears.
+    report, so a person sees one the day it appears. A head a person picked (`_photo-head-picks.json`, by pull request
+    with both names and where in the photo the fish is) that the check calls "not a photo of it" stays first on its page
+    and off `_photo-rejected.json`, and each run lists it (`picked head:`): two people read it as the fish plainly seen,
+    and the lasting fix is the check's question, not the verdict (the chief of staff, 2026-11-12).
     - **Dead fish, people and logos.** The check also answers "dead" (a dead fish or fish as food: a market, ice, a
       plate, a catch landed or held, a fish on a tray or the floor, a preserved, mounted, museum or lab specimen, a
       museum shell; when it can't tell, dead), whether a person or any part of one is in the photo (a hand holding the
