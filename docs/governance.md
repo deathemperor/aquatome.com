@@ -957,7 +957,7 @@ The layers above still check the result.
       way. The cycle sweeps after it catches up with main, after a clash at its push, and after a clean pull at its push
       that brought main's commits in, so one that comes back then leaves before the push. The calendar's pictures go
       too: a day's, a language's own day's, a guide's, a story's or a week's hero's that is a listed photo or its large
-      copy is dropped, and the app shows the page's own
+      copy is dropped, and the app shows the page's own; a loop whose poster is listed goes whole
     - a card figure out of bounds, upside down, or a minimum tank shorter than twice the fish: hidden from the card
       (`hidden` with why, kept in the file; worked out again each run), and the species' approved summary sent back to be
       written again against the new card

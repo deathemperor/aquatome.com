@@ -612,15 +612,17 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     changed(file.slice(content.length + 1))
   }
   // The calendar names its pictures by address, the app's large copy as often as the page's: a day's, a language's own
-  // day's, a guide's, a story's and a week's heroes'. One that is a listed photo, or its large copy, is dropped, and the app shows the
-  // page's own (apps/site/src/lib/curation.ts). The planner points the day at the page's head again when it next plans.
+  // day's, a guide's, a story's and a week's heroes'. One that is a listed photo, or its large copy, is dropped, and the
+  // app shows the page's own (apps/site/src/lib/curation.ts). The planner points the day at the page's head again when it
+  // next plans. A loop whose poster is listed goes whole: the poster is required, and the footage shows what it shows.
   const unsplash = (url: string) => (url.startsWith('https://images.unsplash.com/') ? url.split('?')[0]! : url)
   const listedBase = new Map(Object.keys(rejected).filter(listed).map(u => [unsplash(u), u]))
-  const listedImg = (url: string) => listedBase.get(unsplash(url.replace(/-large\.webp$/, '.webp')))
+  // The address itself first: a large copy can be listed by its own address too.
+  const listedImg = (url: string) => listedBase.get(unsplash(url)) ?? listedBase.get(unsplash(url.replace(/-large\.webp$/, '.webp')))
   const calFile = join(content, 'curation.json')
   const calRaw = await readFile(calFile, 'utf8').catch(() => null)
   if (calRaw) {
-    const cal = JSON.parse(calRaw) as { days?: Record<string, unknown>[] }
+    const cal = JSON.parse(calRaw) as { days?: Record<string, unknown>[]; loops?: Record<string, { poster?: string }> }
     let off = 0
     const drop = (o: Record<string, unknown> | undefined, date: string, where: string) => {
       for (const k of ['img', 'guideImg']) {
@@ -639,6 +641,13 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       for (const [lang, own] of Object.entries((d.by ?? {}) as Record<string, Record<string, unknown>>)) drop(own, date, ` ${lang}`)
     }
     for (const w of (cal as { weeks?: { from?: string; hero?: Record<string, unknown>[] }[] }).weeks ?? []) for (const h of w.hero ?? []) drop(h, `week ${w.from}`, ` hero ${h.page}`)
+    for (const [id, loop] of Object.entries(cal.loops ?? {})) {
+      const page = typeof loop?.poster === 'string' ? listedImg(loop.poster) : undefined
+      if (!page) continue
+      delete cal.loops![id]
+      off++
+      report.again.push(`curation.json loop ${id} poster: ${loop.poster} (${rejected[page]})`)
+    }
     if (off) { await write(calFile, calRaw, cal); changed('curation.json') }
   }
   // A rejected video (engine-state/_video-rejected.json: a thumbnail with a dead fish, …) leaves every page.

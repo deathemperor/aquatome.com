@@ -747,21 +747,28 @@ test('every photo on the never-again list leaves the pages and albums it is stil
     [leaf.url]: 'drawing: a printed drawing',
     [marked.url]: 'watermark: the shop\'s logo, bottom left',
     [held.url]: 'people: a hand',
+    // Listed by its own address: a large copy, and a loop's poster.
+    'https://media.aquatome.com/inat/lg-large.webp': 'people: a hand',
+    'https://media.aquatome.com/loops/bad-fish.webp': 'dead: a fish on a plate',
   }
   await writeFile(join(root, 'engine-state/_photo-rejected.json'), `${JSON.stringify(list, null, 2)}\n`)
   const own_ = { retainedOwnMark: { source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/x', owner: 'source' } }
   await writeFile(join(root, 'engine-state/_photo-watermarks.json'), `${JSON.stringify({ [marked.url]: { ocr: [], ...own_ }, [held.url]: { ocr: [], ...own_ } }, null, 2)}\n`)
   // The calendar names some of them, the app's large copies too: a day's, a language's own day's, a guide's, a story's
-  // and a week's hero's. Those go and the app shows the page's own; a picture not on the list, or kept, stays.
+  // and a week's hero's. Those go and the app shows the page's own; a picture not on the list, or kept, stays. A loop
+  // whose poster is listed goes whole.
   const large = (u: string) => u.replace(/\.webp$/, '-large.webp')
-  await put('curation.json', { version: 1, days: [
+  const loop = (id: string) => ({ src: `https://media.aquatome.com/loops/${id}.mp4`, poster: `https://media.aquatome.com/loops/${id}.webp` })
+  await put('curation.json', { version: 1, loops: { 'bad-fish': loop('bad-fish'), 'good-fish': loop('good-fish') }, days: [
     { date: '2026-11-20', fish: 'species/danio-erythromicron', img: large(poor.url), guide: 'guides/g', guideImg: guideOff.url, by: { id: { fish: 'species/danio-erythromicron', img: held.url } } },
     { date: '2026-11-21', fish: 'species/danio-erythromicron', img: large(own.url), story: { page: 'guides/g', img: other.url } },
+    { date: '2026-11-22', fish: 'species/danio-erythromicron', img: 'https://media.aquatome.com/inat/lg-large.webp' },
   ], weeks: [{ from: '2026-11-16', to: '2026-11-22', hero: [{ page: 'breeds/b', img: large(bred.url) }, { page: 'species/danio-erythromicron', img: large(marked.url) }] }] })
   const r = await sweep(root)
-  expect(await json(root, 'content/curation.json')).toEqual({ version: 1, days: [
+  expect(await json(root, 'content/curation.json')).toEqual({ version: 1, loops: { 'good-fish': loop('good-fish') }, days: [
     { date: '2026-11-20', fish: 'species/danio-erythromicron', guide: 'guides/g', by: { id: { fish: 'species/danio-erythromicron' } } },
     { date: '2026-11-21', fish: 'species/danio-erythromicron', img: large(own.url), story: { page: 'guides/g' } },
+    { date: '2026-11-22', fish: 'species/danio-erythromicron' },
   ], weeks: [{ from: '2026-11-16', to: '2026-11-22', hero: [{ page: 'breeds/b' }, { page: 'species/danio-erythromicron', img: large(marked.url) }] }] })
   expect((await json(root, 'content/species/danio-erythromicron/entity.json')).photos).toEqual([own, marked])
   expect((await json(root, 'content/gallery/danio-erythromicron.json')).photos).toEqual([albumKept])
@@ -774,6 +781,8 @@ test('every photo on the never-again list leaves the pages and albums it is stil
     `curation.json 2026-11-20 id img: ${held.url} (people: a hand)`,
     `curation.json 2026-11-20 img: ${large(poor.url)} (too poor to show (the chief of staff, 2026-11-11))`,
     `curation.json 2026-11-21 story img: ${other.url} (not Danio erythromicron: another fish)`,
+    'curation.json 2026-11-22 img: https://media.aquatome.com/inat/lg-large.webp (people: a hand)',
+    'curation.json loop bad-fish poster: https://media.aquatome.com/loops/bad-fish.webp (dead: a fish on a plate)',
     `curation.json week 2026-11-16 hero breeds/b img: ${large(bred.url)} (dead: a fish on a plate)`,
     `gallery/danio-erythromicron.json: ${other.url} (not Danio erythromicron: another fish)`,
     `guides/g/entity.json: ${guideOff.url} (people: a hand holds the fish)`,
