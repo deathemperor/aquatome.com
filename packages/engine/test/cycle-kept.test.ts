@@ -310,3 +310,46 @@ test('a run that kept work back for its photo records ends failed, and says why 
   expect(run('FAULT=x', { GITHUB_ACTIONS: 'true' }).status).toBe(1)
   expect(readFileSync(join(dir, 'gh.log'), 'utf8').split('\n').filter(Boolean)).toHaveLength(1)
 })
+
+// Astra's read of 1df3f00d7: the failure test above takes the run's ending, and a clean pull at the push whose sweep
+// commits nothing went unchecked: swept_pull's guard taken out, a failed migration there would publish.
+test('at the push, a clean pull whose migration fails publishes nothing, even when its sweep commits nothing', () => {
+  const c = clone()
+  migrating(c, true)
+  c.sh(work)
+  c.elsewhere('content/c.json', 'sf')
+  const log = c.cycle(pushing)
+  expect(log).toContain('LOG photo records: the migration failed, so nothing is published')
+  expect(log).toContain('NOT PUBLISHED')
+  expect(c.onMain('content/b.json')).toBe('')
+  expect(c.branches()[0]).toMatch(/^kept\/photos\//)
+}, 60_000)
+
+test('kept work is judged by its own migration, not an earlier branch\'s', () => {
+  const c = clone()
+  // A branch whose pull fails before its sweep, after another branch's migration failed.
+  const r = c.cycle('MIGRATE_FAILED=1; net() { return 1; }; push_kept kept/photos/b || true; echo "why=$KEPT_WHY migrate=$MIGRATE_FAILED"')
+  expect(r).toContain('why=a clash with main migrate=')
+  expect(r).not.toContain('migrate=1')
+  // Two branches held back by their records are both named in the run's fault.
+  expect(readFileSync(CHECKS, 'utf8')).toContain('FAULT="${FAULT:+$FAULT; }$branch isn\'t published')
+})
+
+// A video job that kept work back for its photo records ends failed and says why on GitHub, as a part's cycle does.
+test('a video job that kept work back for its photo records ends failed, and says why on GitHub', () => {
+  for (const [name, job] of [['video-cycle.sh', 'videos'], ['video-recheck.sh', 'video-recheck']]) {
+    expect(script(name), name).toContain(`trap 'status=$?; rm -f "$PIDFILE"; fault_exit "$status" ${job}' EXIT`)
+  }
+  const dir = mkdtempSync(join(tmpdir(), 'aq-fault-'))
+  writeFileSync(join(dir, 'gh'), `#!/bin/sh\necho "$*" >> '${dir}/gh.log'\n`)
+  chmodSync(join(dir, 'gh'), 0o755)
+  const run = (body: string, extra: Record<string, string> = {}) => spawnSync('bash', ['-c', `
+    set -euo pipefail; log() { :; }; source "${CHECKS}"
+    trap 'status=$?; fault_exit "$status" videos' EXIT
+    ${body}`], { encoding: 'utf8', env: { ...process.env, PATH: `${dir}:${process.env.PATH}`, GITHUB_ACTIONS: '', ...extra } })
+  expect(run('true').status).toBe(0)
+  expect(run('FAULT="kept/videos/x isn\'t published: its photo records couldn\'t be migrated, and it stays kept"').status).toBe(1)
+  expect(readFileSync(join(dir, 'gh.log'), 'utf8')).toBe("workflow run engine-mac.yml -R deathemperor/aquatome.com -f part=videos -f why=exit 1: kept/videos/x isn't published: its photo records couldn't be migrated, and it stays kept\n")
+  // A job that failed already keeps its own status.
+  expect(run('FAULT=x; exit 3').status).toBe(3)
+})

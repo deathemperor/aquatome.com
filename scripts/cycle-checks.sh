@@ -233,7 +233,7 @@ publish_kept() {
       log "$branch isn't published yet ($KEPT_WHY): it stays kept for the next run"
       # Kept work held back by its records goes on to the next run, never silently: the run reports it when it ends, as
       # a failed run is reported (FAULT, engine-cycle.sh finish; the chief of staff, 13 Nov).
-      [ -z "${MIGRATE_FAILED:-}" ] || FAULT="$branch isn't published: its photo records couldn't be migrated, and it stays kept"
+      [ -z "${MIGRATE_FAILED:-}" ] || FAULT="${FAULT:+$FAULT; }$branch isn't published: its photo records couldn't be migrated, and it stays kept"
     fi
     net git fetch -q origin || true
     git reset -q --hard origin/main
@@ -241,6 +241,19 @@ publish_kept() {
   if engine_cloud; then retry_held "$1"; fi
   # Kept work's failed migration is that work's: the run's own goes on to its own (video-cycle.sh tests with no merge).
   MIGRATE_FAILED=
+}
+# A video job's EXIT trap, last: a fault the job went on past (FAULT: kept work its photo records held back) fails the
+# job and is reported on GitHub as a part's failed cycle is (engine-mac.yml), as engine-cycle.sh's finish does for the
+# parts. Without it a video job that kept work back exited 0 and said nothing (Astra's read, 13 Nov). A job that failed
+# already keeps its own status. `fault_exit <status> <job>`.
+fault_exit() {
+  local status=$1
+  if [ -n "${FAULT:-}" ]; then
+    log "$FAULT"
+    [ "$status" != 0 ] || status=1
+    [ -n "${GITHUB_ACTIONS:-}" ] || gh workflow run engine-mac.yml -R deathemperor/aquatome.com -f part="$2" -f why="exit $status: $FAULT" || true
+  fi
+  exit "$status"
 }
 # In the cloud, each held branch of <job> not yet tried again, once main's code (anything but the engine's output and the
 # docs) has changed since the main it was checked on: published as kept work is, or, failing its tests for real again,
@@ -276,7 +289,8 @@ retry_held() {
 # again from a branch left behind.
 push_kept() {
   local check=1 clash main
-  KEPT_FAILED= KEPT_WHY=
+  # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
+  KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED=
   for _ in 1 2 3; do
     main=$(git rev-parse origin/main 2>/dev/null || true)
     if ! net git pull -q --rebase origin main; then
