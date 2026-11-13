@@ -5,7 +5,7 @@ import type { Handbook, Lang } from './handbook'
 import type { Found, Handover } from './handover'
 import type { MatesCheck } from './mates'
 import { openingOf } from './opening'
-import { chatTools, type Step, type Tank } from './tools'
+import { chatTools, handedTanks, type Step, type Tank } from './tools'
 
 /**
  * The chat's agent (the owner's brief: docs/superpowers/specs/2026-11-07-chat-design.md): Claude reads the handbook
@@ -44,7 +44,9 @@ The tools return the handbook's public pages and the reader's own tanks, their n
 /** A turn earlier in the conversation, as the Worker keeps it: the question, the text and what the blocks showed. */
 export type Earlier = { question: string; text: string; blocks: ChatBlock[] }
 export type Start = {
-  from?: 'fish-id' | 'species' | 'search'
+  from?: 'fish-id' | 'species' | 'search' | 'tank'
+  /** The saved tank the chat starts from, by its id among the reader's synced tanks ("Hỏi về bể này"). */
+  tank?: string
   /** The page the chat starts from (a fish's or plant's id). */
   about?: string
   /** Fish ID's answer, from the first question from fish ID. */
@@ -249,10 +251,22 @@ function streaming(send: ChatOptions['send'], onText: (piece: string) => void, o
 
 /** How long a handover may take, the tanks, the search and the sections together: past it, the run goes on without one. */
 export const HANDOVER_MS = 3000
-function inTime(handover: NonNullable<ChatOptions['handover']>) {
+function inTime<T>(work: () => Promise<T>, what: string): Promise<T | undefined> {
   let timer: ReturnType<typeof setTimeout> | undefined
   const late = new Promise<undefined>(done => { timer = setTimeout(() => done(undefined), HANDOVER_MS) })
-  return Promise.race([handover().catch(e => { console.error('chat handover:', e); return undefined }), late]).finally(() => clearTimeout(timer))
+  return Promise.race([work().catch(e => { console.error(`chat ${what}:`, e); return undefined }), late]).finally(() => clearTimeout(timer))
+}
+
+/**
+ * The saved tank the chat was opened from ("Hỏi về bể này"), from the reader's synced tanks: none when they don't hold it
+ * (not synced yet, or deleted), and the chat answers as if no tank was named. Its facts as every handed tank's, without
+ * its name; none here when the handover already gave every tank.
+ */
+export async function openedTank(start: Start, tanks: ChatOptions['tanks'], hb: Handbook, handed: boolean): Promise<string | undefined> {
+  if (!start.tank) return undefined
+  const t = (await tanks())?.find(x => x.id === start.tank)
+  if (!t) return undefined
+  return `They opened the chat from one of their saved tanks, id ${t.id}: what they ask is about that tank unless they say otherwise.${handed ? '' : ` As read_tanks gives it, without its name:\n${handedTanks([t], hb)}`}`
 }
 
 /** One turn: Claude reads and answers, then the blocks it picked are filled from the handbook. */
@@ -290,15 +304,16 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   // Asked for once the first line's call has left, so a search never holds the line back.
   const clock = o.clock ?? Date.now
   const asked = clock()
-  const handed = o.handover ? await inTime(o.handover) : undefined
-  const content = first.content as Anthropic.ContentBlockParam[]
+  const [handed, tankHanded] = await Promise.all([o.handover ? inTime(o.handover, 'handover') : undefined, o.start.tank ? inTime(() => o.tanks(), 'tanks') : undefined])
+  const opened = tankHanded ? await openedTank(o.start, async () => tankHanded, o.handbook, !!handed) : undefined
+  const content = [...(first.content as Anthropic.ContentBlockParam[]), ...(opened ? [{ type: 'text' as const, text: opened }] : [])]
   // No `recheck` here: an answer that may be sent back must not stream, as the reader would have read the one it replaces.
   const run = await runAgent<Step>({
     send,
     model: o.model,
     system: SYSTEM,
     tools: chatTools({ handbook: o.handbook, tanks: o.tanks, checks }),
-    first: handed ? { role: 'user', content: [...content, { type: 'text', text: handed.text }] } : first,
+    first: { role: 'user', content: [...content, ...(handed ? [{ type: 'text' as const, text: handed.text }] : [])] },
     schema: ANSWER_SCHEMA as unknown as Record<string, unknown>,
     effort: o.effort ?? 'medium',
     lastEffort: o.lastEffort ?? 'low',
