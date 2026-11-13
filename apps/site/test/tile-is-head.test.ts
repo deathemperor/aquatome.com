@@ -19,6 +19,14 @@ test("the swordtail's case: a head that is a strip is the tile's photo, shown wh
   expect(tilePhotos([strip, squarer]).map(p => p.url)).toEqual([strip.url, squarer.url])
 })
 
+// The Design Lead, 13 Nov: a photo carrying a source's banner stays on its page, after the head, but is never a tile.
+test("a photo with a source's banner is never a tile's next photo, where another tile already shows the head", () => {
+  const head = photo('head', 960, 640), banner = { ...photo('banner', 960, 640), source: 'glaser' } as Photo
+  const cropped = { ...banner, url: 'https://media.aquatome.com/glaser/cropped.webp', altered: [{ method: 'mark-crop' }] } as unknown as Photo
+  expect(tilePhotos([head, banner]).map(p => p.url)).toEqual([head.url])
+  expect(tilePhotos([head, banner, cropped]).map(p => p.url)).toEqual([head.url, cropped.url])
+})
+
 test('a generated picture is never a tile\'s photo, and a fish with none has no tile photo', () => {
   const generated = { ...photo('made', 1200, 900), generated: { model: 'x' } } as unknown as Photo
   expect(tilePhotos([generated]).length).toBe(0)

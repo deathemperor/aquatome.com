@@ -1,4 +1,4 @@
-import { PictureSet, type Content, type Photo } from '@aq/schema'
+import { PictureSet, unmarked, type Content, type Photo } from '@aq/schema'
 import { cleanPhoto } from './home'
 
 /**
@@ -20,12 +20,13 @@ export function photosOf(photos: Photo[]): Photo[] {
  * head, which the tile shows whole where no frame may fill with it (img.ts tileFrame), then photosOf's for a tile whose
  * page already shows the head. A tile and the page it opens show one photo, and a tile never says "no photo yet" while its
  * page shows one (the chief of staff and the Design Lead, 13 Nov). A head carrying a source's banner doesn't lead its page:
- * a person picks the head instead (engine-state/_photo-head-picks.json). Not for what crops a photo as it is: a fish's
+ * a person picks the head instead (engine-state/_photo-head-picks.json), and a banner photo is never a tile's next photo
+ * either (the Design Lead, 13 Nov). Not for what crops a photo as it is: a fish's
  * round chip on an equipment page.
  */
 export const tilePhotos = (photos: Photo[]): Photo[] => {
   const head = photos.find(p => !p.generated)
-  return head ? [head, ...photosOf(photos).filter(p => p !== head)] : []
+  return head ? [head, ...photosOf(photos).filter(p => p !== head && unmarked(p))] : []
 }
 
 /** Each item's picture, in order: the first of its photos the page doesn't show yet, else none (null). */
