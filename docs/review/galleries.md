@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-13). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 584 | 30 | 9 | 20 | 603 |
-| rest | 20 | 1686 | 74 | 0 | 56 | 1704 |
+| covered | 30 | 599 | 30 | 9 | 20 | 618 |
+| rest | 20 | 1711 | 74 | 0 | 58 | 1727 |
 
-## Short of target: every source read (314)
+## Short of target: every source read (329)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -257,6 +257,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | breeds/albino-oscar | covered | 7 | 30 |
 | species/epiplatys-annulatus | covered | 2 | 30 |
 | species/akysis-vespa | covered | 0 | 30 |
+| species/corydoras-fowleri | covered | 1 | 30 |
 | species/aguarunichthys-torosus | covered | 0 | 30 |
 | species/ambastaia-sidthimunki | covered | 1 | 30 |
 | species/amblydoras-nauticus | covered | 0 | 30 |
@@ -270,7 +271,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/brochis-multiradiatus | covered | 3 | 30 |
 | species/colomesus-asellus | covered | 2 | 30 |
 | species/corydoras-arcuatus | covered | 1 | 30 |
-| species/corydoras-fowleri | covered | 1 | 30 |
+| species/corydoras-eques | covered | 0 | 30 |
 | species/corydoras-habrosus | covered | 8 | 30 |
 | species/corydoras-semiaquilus | covered | 2 | 30 |
 | species/corydoras-septentrionalis | covered | 0 | 30 |
@@ -326,7 +327,21 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/apistogramma-borellii | covered | 19 | 30 |
 | species/apistogramma-cacatuoides | covered | 22 | 30 |
 | species/apistogramma-commbrae | covered | 1 | 30 |
+| species/apistogramma-macmasteri | covered | 3 | 30 |
 | species/apistogramma-mendezi | covered | 1 | 30 |
 | species/apistogramma-panduro | covered | 3 | 30 |
 | species/apistogramma-paulmuelleri | covered | 0 | 30 |
+| species/apistogramma-trifasciata | covered | 3 | 30 |
+| species/aspidoras-pauciradiatus | covered | 4 | 30 |
+| species/aspidoras-taurus | covered | 3 | 30 |
+| species/asterophysus-batrachus | covered | 1 | 30 |
+| species/atractosteus-tristoechus | covered | 2 | 30 |
+| species/auchenipterus-nigripinnis | covered | 0 | 30 |
+| species/auchenoglanis-occidentalis | covered | 5 | 30 |
+| species/axelrodia-stigmatias | covered | 0 | 30 |
+| species/bagrichthys-hypselopterus | covered | 0 | 30 |
+| species/bagrichthys-macracanthus | covered | 0 | 30 |
+| species/bagrichthys-obscurus | covered | 0 | 30 |
+| species/bangana-behri | covered | 0 | 30 |
+| species/barbodes-semifasciolatus | covered | 29 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |

@@ -667,7 +667,12 @@
       "author": "Jonathan (Jon) Armbruster",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moenkhausia_ceros_Armbruster.jpg",
       "caption": "Moenkhausia ceros GUY14-28 47mm",
-      "thumb": "https://media.aquatome.com/commons/9d443aec1e633b96-480.webp"
+      "thumb": "https://media.aquatome.com/commons/9d443aec1e633b96-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/9d443aec1e633b96-large.webp",
+        "width": 1024,
+        "height": 432
+      }
     }
   ],
   "videos": [],

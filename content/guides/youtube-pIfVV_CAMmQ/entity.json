@@ -83,19 +83,6 @@
     ],
     "figures": [
       {
-        "heading": "Fluval Flex có sẵn gì, phải mua thêm gì",
-        "moments": [
-          {
-            "t": 220,
-            "url": "https://media.aquatome.com/video/pIfVV_CAMmQ/at220-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ổ cắm hẹn giờ dùng để bật tắt đèn bể tự động.",
-            "sharpness": 1544
-          }
-        ]
-      },
-      {
         "heading": "Có cần giữ than hoạt tính và sứ lọc không",
         "moments": [],
         "photo": {
@@ -110,46 +97,8 @@
         }
       },
       {
-        "heading": "Chọn và rải phân nền",
-        "moments": [
-          {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/pIfVV_CAMmQ/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng cọ san phẳng lớp phân nền màu tối trong bể.",
-            "sharpness": 611.2
-          },
-          {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/pIfVV_CAMmQ/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng xẻng nhỏ rải và dàn đều phân nền dưới đáy bể.",
-            "sharpness": 647.1
-          }
-        ]
-      },
-      {
         "heading": "Bố cục lũa cho bể nhỏ",
-        "moments": [
-          {
-            "t": 690,
-            "url": "https://media.aquatome.com/video/pIfVV_CAMmQ/at690-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bố cục lũa dựng trong bể nhỏ, tay chỉ vào cành lũa.",
-            "sharpness": 1792.4
-          },
-          {
-            "t": 710,
-            "url": "https://media.aquatome.com/video/pIfVV_CAMmQ/at710-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung lũa trong bể trống, nhìn rõ dáng các cành lũa.",
-            "sharpness": 2197.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/pIfVV_CAMmQ/p3-YXJkc2NhcGUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/pIfVV_CAMmQ/p3-YXJkc2NhcGUuanBn-480.webp",
@@ -171,14 +120,6 @@
             "height": 675,
             "caption": "Rửa sạch cụm cây mô dưới vòi nước để loại bỏ gel nuôi cấy.",
             "sharpness": 57.6
-          },
-          {
-            "t": 1100,
-            "url": "https://media.aquatome.com/video/pIfVV_CAMmQ/at1100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tách cụm cây mô thành nhiều phần nhỏ để trồng phủ kín bể.",
-            "sharpness": 596.7
           }
         ],
         "photo": {
@@ -193,27 +134,6 @@
         }
       },
       {
-        "heading": "Chuẩn bị và gắn ráy Anubias 'Petite'",
-        "moments": [
-          {
-            "t": 1400,
-            "url": "https://media.aquatome.com/video/pIfVV_CAMmQ/at1400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tách khối bông gòn khỏi bụi ráy Anubias Petite bằng tay.",
-            "sharpness": 426
-          },
-          {
-            "t": 1510,
-            "url": "https://media.aquatome.com/video/pIfVV_CAMmQ/at1510-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhét từng bụi ráy vào khe nứt trên lũa.",
-            "sharpness": 1649.4
-          }
-        ]
-      },
-      {
         "heading": "Đổ nước và sai lầm cần tránh",
         "moments": [
           {
@@ -222,7 +142,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nước được bơm vào bể qua ống dài và chảy qua cái rổ đỏ.",
-            "sharpness": 4963.2
+            "sharpness": 4963.2,
+            "person": false
           },
           {
             "t": 1620,
@@ -230,7 +151,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đang đầy dần nước, lớp cây và phân nền vẫn còn nguyên.",
-            "sharpness": 4052
+            "sharpness": 4052,
+            "person": false
           }
         ],
         "photo": {
