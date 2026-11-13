@@ -69,11 +69,18 @@ const words = (html: string) => unescapePlain(html.replace(/<[^>]+>/g, ' ')).spl
  * Where an entry runs past its length, as notes that block the save like a broken rule (the chief of staff, 14 Nov 2026:
  * Lũa's fifth ran to 2,917 words, twice the first's 1,527, and the length bred contradictions). A term that comes in
  * kinds (three items or more that open with a name) holds to about 1,500 words and about 60 a kind, its depth left to
- * the kinds' own pages; any other to about 300. Each limit has a fifth's slack, or half for an item.
+ * the kinds' own pages; any other to about 300. Saved up to 1,800 and 450 words, and 90 an item.
  */
 export function lengthNotes(body: string): string[] {
-  const items = body.match(/<li\b[^>]*>[\s\S]*?<\/li>/g) ?? []
-  const kinds = items.filter(li => /^<li\b[^>]*>\s*<strong>/.test(li)).length >= 3
+  // Each item's own words: a list inside an item is its own items, not the outer one's.
+  const items: string[] = []
+  const open: string[] = []
+  for (const [t] of body.matchAll(/<li\b[^>]*>|<\/li\s*>|<[^>]*>|[^<]+/gi)) {
+    if (/^<li\b/i.test(t)) open.push(t)
+    else if (/^<\/li/i.test(t)) { const li = open.pop(); if (li !== undefined) items.push(li) }
+    else if (open.length) open[open.length - 1] += t
+  }
+  const kinds = items.filter(li => /^<li\b[^>]*>\s*<strong\b/i.test(li)).length >= 3
   const [cap, most] = kinds ? [1500, 1800] : [300, 450]
   const n = words(body)
   const out = n > most ? [`The entry is ${n} words: hold it to about ${cap}${kinds ? ', about 60 a kind' : ''}, and leave what is left out to the pages that use the term.`] : []

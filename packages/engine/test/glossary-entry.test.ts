@@ -234,6 +234,9 @@ test('an entry past its length is not saved: about 1,500 words with kinds, about
   // One kind at a hundred words, and the whole past 1,800.
   expect(lengthNotes(kinds(3, 100))).toEqual([0, 1, 2].map(i => expect.stringMatching(new RegExp(`^An item is 102 words, at most about 60: "Lũa ${i} gỗ gỗ`))))
   expect(lengthNotes(`<p>${'nước '.repeat(1000)}</p>${kinds(16, 58)}`)).toEqual(['The entry is 1963 words: hold it to about 1500, about 60 a kind, and leave what is left out to the pages that use the term.'])
+  // A name in a styled <strong> is a kind too, and a list inside an item counts as its own items (Codex, 14 Nov 2026).
+  expect(lengthNotes(`<p>${'nước '.repeat(1000)}</p><ul>${['A', 'B', 'C'].map(k => `<li class="k"><strong class="kind">${k}</strong> gỗ</li>`).join('')}</ul>`)).toEqual([])
+  expect(lengthNotes(`<ul><li>Hai loại ${'gỗ '.repeat(50)}<ul><li>${'đá '.repeat(50)}</li><li>${'cát '.repeat(95)}</li></ul></li></ul>`)).toEqual([expect.stringMatching(/^An item is 95 words, at most about 60: "cát cát/)])
   // A term without kinds: about 300.
   expect(lengthNotes(`<p>${'nước '.repeat(400)}</p>`)).toEqual([])
   expect(lengthNotes(`<p>${'nước '.repeat(460)}</p>`)).toEqual(['The entry is 460 words: hold it to about 300, and leave what is left out to the pages that use the term.'])
