@@ -1,3 +1,4 @@
+import { denied } from './piece-admission'
 import { expectControlledRejections } from './photo-privacy-assertions'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -797,4 +798,15 @@ test("a pick that rests on a person's yes lapses with it in the same pass: once 
   expect(await page({ ok: 'unsure', typical: true })).toEqual(['pond', 'night']) // the yes stands, and its pick with it
   expect(await page({ typical: false })).toEqual(['night', 'pond']) // the right fish, not typical: the typical one leads
   expect(await page({ ok: 'unsure', typical: true }, { ...yes, approvers: ['Curation'] })).toEqual(['night', 'pond']) // a yes that doesn't count
+})
+
+test('item admission stops without model calls or content changes', async () => {
+  const r = await root([{ id: 'betta', sci: 'Betta splendens', photos: ['fish'] }])
+  const d = model({})
+  await denied('check-photos', r, async () => {
+    const out = await checkPagePhotos(r, d, { limit: 10, today: '2026-11-13' })
+    expect(out.stopped).toBeTruthy()
+    expect(out.failed).toEqual([])
+    expect(d.seen).toEqual([])
+  })
 })

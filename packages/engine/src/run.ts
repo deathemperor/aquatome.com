@@ -1,3 +1,4 @@
+import { piece, PieceAdmissionError } from './pieces'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { GuideSchema, mayPublish, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
@@ -49,7 +50,7 @@ export type Deps = {
   readersWanted?: () => Promise<ReaderWant[]>
 }
 type Counts = { discovered: number; fetched: number; processed: number; skipped: number; blocked: number; errors: number }
-export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; movedToArchive: SourceId[]; changed: ChangelogEntry[]; errors: string[]; depth?: DepthReport }
+export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; movedToArchive: SourceId[]; changed: ChangelogEntry[]; errors: string[]; depth?: DepthReport; stopped?: string }
 
 type Kind = 'species' | 'plants' | 'guides' | 'places' | 'glossary' | 'breeds'
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
@@ -446,24 +447,27 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
           await save({ ...rest, ...base, hash, status: prev.entityIds.length ? 'processed' : 'skipped', attempts: 0 })
           continue
         }
-        const { page, score, tries } = await translate({ source: id, url, title: o.title, outline: o.outline, glossary })
-        const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images
-        const entityIds = await apply(id, url, page, score, images, bytes)
-        // The last translation reviewed is the page's, unless another source outranks this one there; a page is reviewed per source.
-        for (const e of entityIds ?? []) {
-          const on = (await readJson<Translation>(join(contentRoot, e, 'vi.json')))?.quality?.bySource?.[id] === score
-          await logReviews(root, 'translation', { id: e, lang: 'vi', part: id }, tries, on ? tries.at(-1) : undefined, { now: deps.now() })
-        }
-        if (entityIds) counts.processed++
-        else counts.skipped++
-        await save({ ...base, hash, processedHash: hash, status: entityIds ? 'processed' : 'skipped', entityIds: entityIds ?? [], attempts: 0 })
-        llmFailures = 0
+        await piece(url, async () => {
+          const { page, score, tries } = await translate({ source: id, url, title: o.title, outline: o.outline, glossary })
+          const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images
+          const entityIds = await apply(id, url, page, score, images, bytes)
+          // The last translation reviewed is the page's, unless another source outranks this one there; a page is reviewed per source.
+          for (const e of entityIds ?? []) {
+            const on = (await readJson<Translation>(join(contentRoot, e, 'vi.json')))?.quality?.bySource?.[id] === score
+            await logReviews(root, 'translation', { id: e, lang: 'vi', part: id }, tries, on ? tries.at(-1) : undefined, { now: deps.now() })
+          }
+          if (entityIds) counts.processed++
+          else counts.skipped++
+          await save({ ...base, hash, processedHash: hash, status: entityIds ? 'processed' : 'skipped', entityIds: entityIds ?? [], attempts: 0 })
+          llmFailures = 0
+        })
       } catch (e) {
         // Nothing is wrong with the page, so nothing is marked on it, and the source waits with the archive.
         if (e instanceof ArchiveRefused) { report.errors.push(`${id}: not read: ${e.message}`); break }
         // Wikimedia resting: the page waits, unmarked and with its attempts, and the source goes on.
         if (e instanceof WikimediaRefused) { report.errors.push(`${url}: waits for Wikimedia: ${e.message}`); continue }
         const message = (e as Error).message
+        if (e instanceof PieceAdmissionError) { report.stopped = message; break sources }
         counts.errors++
         report.errors.push(`${url}: ${message}`)
         // A usage limit uses no attempt; a transient failure (browser, network, usage limit) runs first next time (state.ts, depth.ts).

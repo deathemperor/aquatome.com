@@ -1,3 +1,4 @@
+import { denied } from './piece-admission'
 import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -546,4 +547,15 @@ test('a breed\'s gallery as the step writes it is the one the site loads for tha
   const after = await loadAll({ root: join(r, 'content'), lang: 'vi', publicBuild: false })
   expect(after.galleries['balloon-molly']!.map(p => p.sourceUrl)).toEqual(urls(written))
   expect(after.galleries['balloon-molly']).toHaveLength(4)
+})
+
+test('last item cost refuses admission without calls or content writes', async () => {
+  const r = await root()
+  let calls = 0
+  await denied('gallery', r, async () => {
+    const report = await galleries(r, deps({ look: async () => { calls++; throw new Error('must not call') } }), { sheets: 5 })
+    expect(report.stopped).toContain('not started')
+    expect(report.failed).toEqual([])
+    expect(calls).toBe(0)
+  })
 })

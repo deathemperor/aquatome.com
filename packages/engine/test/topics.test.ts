@@ -5,6 +5,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import { localizeTopic, makeTopic, SOURCE_KINDS, usableFact, type TopicFacts } from '../src/topics'
+import { denied } from './piece-admission'
 
 const facts: TopicFacts = {
   found: true,
@@ -368,4 +369,14 @@ test("a test's lethal level never reaches a guide's writer, from any source; the
   ]) expect(usable(fact), fact).toBe(false)
   expect(usable('Copper sulfate: the 96-hour LC50 for pond snails at 20 °C is 0.39 mg/L.', 1)).toBe(false)
   for (const fact of ['Nitrite above 0.1 mg/L is listed as toxic, especially in freshwater with little chloride.', 'About 2 mg/L of un-ionized ammonia is lethal to many fish.', 'Because nitrite gets more toxic as temperature rises, the hot season raises the risk.']) expect(usable(fact), fact).toBe(true)
+})
+
+test('last item cost refuses admission without calls or content writes', async () => {
+  const root = await site()
+  let calls = 0
+  await denied('localize-guides', root, async () => {
+    // Refused as a usage limit, so the redo list (seasons.ts redoCopies) stops without counting a try.
+    await expect(localizeTopic(root, async () => { calls++; throw new Error('must not call') }, 'other', 'th')).rejects.toThrow(/not started/)
+    expect(calls).toBe(0)
+  })
 })
