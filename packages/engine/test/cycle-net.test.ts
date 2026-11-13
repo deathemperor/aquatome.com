@@ -3,6 +3,7 @@ import { chmodSync, copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSy
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { slow } from '@aq/schema/test-time'
 import { expect, test } from 'vitest'
 
 // A cycle can't hang on GitHub, and one that hangs anyway is said loudly (the chief of staff, 13 Nov 2026). The Mac's
@@ -131,7 +132,8 @@ test('a Mac cycle whose opening fetch outlives a sleep ends, says the Mac slept,
   const t = Date.now()
   // The default limit, 600 s, and the Mac asleep for an hour once the fetch has begun.
   const r = m.cycle({ AQ_CLOCK: m.exe('clock', SLEEPS) })
-  expect((Date.now() - t) / 1000).toBeLessThan(20)
+  // 20 s, scaled for this run: a live run's second try gives its tests 6 times their limits.
+  expect((Date.now() - t) / 1000).toBeLessThan(slow(20_000) / 1000)
   expect(r.status).toBe(124)
   const stopped = 'git fetch -q origin: no answer from GitHub in 3600 s, stopped; the Mac slept 58 min of that, and a connection doesn\'t outlive a sleep'
   expect(r.stdout).toMatch(new RegExp(`Z ${stopped.replace(/[().]/g, '\\$&')}\\n.*Z the Mac slept 58 min during this cycle\\n?$`))
