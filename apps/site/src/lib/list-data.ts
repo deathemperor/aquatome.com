@@ -5,7 +5,7 @@ import { GUIDE_KIND_LABELS } from './format'
 import { alterationNotice } from './gallery'
 import { cleanPhoto, leadGuides, listOrder } from './home'
 import { licenceLabel, type Lang, type T } from './i18n'
-import { smallSrc, tileFrame } from './img'
+import { smallSrc, tileFrame, tilePhoto } from './img'
 import { guideImages } from './mentions'
 import { listPictures, pagePictures, photosOf, takeEach } from './pictures'
 import { PAGE } from '../scripts/filter-list'
@@ -37,7 +37,7 @@ export const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.widt
 /** Species as a list's data file has them, with the photo each card shows (`photos`, the list's: lib/pictures.ts listPictures). */
 export const speciesItems = (species: Localized<SpeciesEntity>[], photos: (Photo | null)[]): SpeciesListItem[] => species.map((s, n) => {
   const { gh, sizeCm, ...i } = toIndexItem(s)
-  const p = photos[n]
+  const p = tilePhoto(photos[n])
   return { ...i, ...(s.water ? { water: s.water.kind } : {}), ...(p ? { photo: { ...cardPhoto(p), ...tileFrame(p) } } : {}) }
 })
 

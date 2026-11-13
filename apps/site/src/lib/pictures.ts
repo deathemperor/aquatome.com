@@ -8,10 +8,13 @@ import { cleanPhoto } from './home'
  */
 export const pagePictures = (c: Content) => new PictureSet(c.pictureHashes)
 
-/** A fish's or plant's photos in the order its card tries them: the first without a dealer's mark, then the rest. */
+/**
+ * A fish's or plant's photos in the order its card tries them: the first without a dealer's mark, then the rest. A page
+ * whose photos the large cards all refuse (photoFitsCard) still gives its tile its head (lib/img.ts tilePhoto).
+ */
 export function photosOf(photos: Photo[]): Photo[] {
   photos = photos.filter(p => !p.generated)
-  const first = cleanPhoto(photos)
+  const first = cleanPhoto(photos) ?? photos[0]
   return first ? [first, ...photos.filter(p => p !== first)] : []
 }
 
