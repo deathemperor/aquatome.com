@@ -212,7 +212,9 @@ test('a part said more surely than before is not kept, however well its reviewer
   const before = await readFile(file, 'utf8')
   const pair = { from: 'Ao cạn nhiều cỏ ở cao nguyên Shan, Myanmar, có thể cả ruộng lúa.', to: 'Vũng nước cạn, nhiều cỏ ở cao nguyên Shan, Myanmar, cả ruộng lúa.' }
   const surer = (vi: string) => vi.replace('Ao cạn nhiều cỏ', 'Vũng nước cạn, nhiều cỏ').replace('có thể ', '')
-  const made = fakeLlm(surer, 0.95, { hedges: [{ ...pair, from: 'Ponds, always.' }] })
+  // A rewrite that keeps the hedge, with a pair made from nothing on the page: kept. (Dropping "có thể" is a word lost too,
+  // which mend.ts's count says on its own.)
+  const made = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Vũng nước cạn, nhiều cỏ'), 0.95, { hedges: [{ ...pair, from: 'Ponds, always.' }] })
   expect((await fitRewrite(root, [p], reading(p, found(p)), { llm: made.llm, now: () => new Date() }, { limit: 5 })).rewritten).toHaveLength(1)
   await writeFile(file, before)
   const lost = fakeLlm(surer, 0.95, { hedges: [pair] })

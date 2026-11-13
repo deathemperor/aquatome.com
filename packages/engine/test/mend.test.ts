@@ -103,8 +103,8 @@ test('a word a changed sentence loses that no finding quotes or asks to go fails
   // A unit converted, and the warning gone with it.
   const units = await mendPart(silent([{ n: 1, vi: 'Cá dài 5 cm.' }]), '<p>Cá dài 2 inch và độc với tép. Cá sống theo đàn.</p>', [{ check: 'units', quote: '2 inch', note: 'Đổi sang cm.' }])
   if (typeof units === 'string') throw new Error(units)
-  expect(units.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "độc tép"'])
-  // The same conversion that keeps the warning passes: the quote's words may go, and "và", "với" only join.
+  expect(units.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "độc với tép"'])
+  // The same conversion that keeps the warning passes: the quote's words may go, and "và" only joins.
   const kept = await mendPart(silent([{ n: 1, vi: 'Cá dài 5 cm, độc với tép.' }]), '<p>Cá dài 2 inch và độc với tép. Cá sống theo đàn.</p>', [{ check: 'units', quote: '2 inch', note: 'Đổi sang cm.' }])
   if (typeof kept === 'string') throw new Error(kept)
   expect(kept.unasked).toEqual([])
@@ -116,4 +116,20 @@ test('a size the writer kept as it was, then put in metric by the code, is not c
   if (typeof r === 'string') throw new Error(r)
   expect(r.html).not.toMatch(/inch/)
   expect(r.unasked).toEqual([])
+})
+
+// Astra's read of 42eaea950: a word that says something isn't a joining word, and a neighbour may name what its pronoun
+// stood for once the sentence it pointed to has gone.
+test('a changed sentence that loses "bị" fails; a neighbour that turns "Chúng" into the noun passes', async () => {
+  const reviewer = (dropped: Dropped[]) => ({ score: 1, notes: [], dropped, hedges: [] })
+  const llm = (sentences: { n: number; vi: string; why?: string }[], dropped: Dropped[] = []) => (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences') ? { sentences } : reviewer(dropped))) as Llm
+  const reversed = await mendPart(llm([{ n: 1, vi: 'Tép con ăn cá.' }]), '<p>Tép con bị cá ăn, giá 5 đô la. Tép sống theo đàn.</p>', [{ check: 'price', quote: 'giá 5 đô la', note: 'Bỏ giá nước ngoài.' }])
+  if (typeof reversed === 'string') throw new Error(reversed)
+  expect(reversed.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "bị"'])
+  const quote = 'Cây giá 5 đô la một bó.'
+  const named = await mendPart(llm([{ n: 1, vi: '' }, { n: 2, vi: 'Cây chứa thuốc trừ sâu.', why: '"Chúng" pointed to the sentence that went' }], [{ sentence: 1, finding: 1, text: quote }]), `<p>${quote} Chúng chứa thuốc trừ sâu. Cây mọc nhanh.</p>`, [{ check: 'price', quote, note: 'Bỏ giá nước ngoài.' }])
+  if (typeof named === 'string') throw new Error(named)
+  expect(named.unasked).toEqual([])
+  expect(named.html).toContain('Cây chứa thuốc trừ sâu.')
+  expect(named.html).not.toContain('Chúng')
 })
