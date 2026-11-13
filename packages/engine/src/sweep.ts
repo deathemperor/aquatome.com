@@ -9,7 +9,7 @@ import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
-import type { PhotoVerdict } from './photo-check'
+import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { sweepPlaceNames } from './place-names'
@@ -116,6 +116,12 @@ export type SweepReport = {
   heads: string[]
   /** Heads with no animal in them and no "yes" from the photo check, `kind/id: url (since day)`. */
   noAnimal: string[]
+  /** Photos the photo check refused, kept off a page or an album it is back on (photo-check.ts refusedOn), `file: url (why)`. */
+  refused: string[]
+  /** Pages that rule leaves as they are: held by the check's last run, or more than EMPTY_CAP of them it would leave with no photo, `kind/id (why)`. */
+  refusedHeld: string[]
+  /** Heads a person picked that a page's check calls "none": out of the rule, listed each cycle, `kind/id: url`. */
+  refusedPicked: string[]
   /** Rejected videos (engine-state/_video-rejected.json) taken off a page, `kind/id: youtubeId (why)`. */
   videos: string[]
   card: string[]
@@ -231,7 +237,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], unwell: [], heads: [], noAnimal: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], unwell: [], heads: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -625,6 +631,45 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(rejected[url]!)})`)
     await write(file, raw, data)
     changed(file.slice(content.length + 1))
+  }
+  // A photo the check refused stays off: a Seriously Fish read or the monthly backfill puts back what its source still
+  // shows, and the next check is hours away (photo-check.ts refusedOn; the chief of staff, 2026-11-13). A run that would
+  // leave more than EMPTY_CAP pages with no photo of their own takes none off them or their albums, and lists them, as
+  // the check holds such a run.
+  {
+    const kindOf = new Map<string, string>()
+    for (const kind of ['species', 'breeds', 'plants']) for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) kindOf.set(id, kind)
+    const standing = Object.entries(headPicks).filter(([ref, url]) => pickStands(ref, url, subjects, yes))
+    const pickedOn = new Set(standing.map(([ref, url]) => `${ref.split('/')[1]}\n${url}`))
+    const why = refusedOn(subjects, id => kindOf.get(id), (id, url) => pickedOn.has(`${id}\n${url}`), new Set(standing.map(([, url]) => url)))
+    for (const [ref, url] of standing) if (Object.values(subjects[url] ?? {}).some(v => !v.guide && v.ok === 'none')) report.refusedPicked.push(`${ref}: ${url}`)
+    type Doc = { photos?: { url: string; generated?: boolean }[] }
+    const plan: { file: string; id: string; raw: string; data: Doc; off: Map<string, string> }[] = []
+    for (const [id, kind] of [...kindOf].sort((a, b) => a[0].localeCompare(b[0]))) for (const file of [join(content, kind, id, 'entity.json'), join(content, 'gallery', `${id}.json`)]) {
+      const raw = await readFile(file, 'utf8').catch(() => null)
+      if (!raw) continue
+      const data = JSON.parse(raw) as Doc
+      const off = new Map((data.photos ?? []).filter(p => !p.generated).flatMap(p => { const w = why(id, p.url); return w ? [[p.url, w] as const] : [] }))
+      if (off.size) plan.push({ file, id, raw, data, off })
+    }
+    const own = (x: (typeof plan)[number]) => (x.data.photos ?? []).filter(p => !p.generated)
+    const emptying = plan.filter(x => x.file.endsWith('entity.json') && own(x).length && own(x).every(p => x.off.has(p.url)))
+    // The pages the check's last run held (photo-check.ts writes them, page → true), and this run's own past the cap. A
+    // held file the sweep can't read holds every page: nothing comes off until a run of the check writes it again.
+    const heldRaw = await readFile(join(root, 'engine-state', '_photo-held.json'), 'utf8').then(s => JSON.parse(s) as unknown, (e: NodeJS.ErrnoException) => (e.code === 'ENOENT' ? {} : undefined)).catch(() => undefined)
+    const readable = !!heldRaw && typeof heldRaw === 'object' && !Array.isArray(heldRaw) && Object.values(heldRaw).every(v => v === true)
+    const byCheck = new Set(readable ? Object.keys(heldRaw as object).map(ref => ref.split('/')[1]!) : plan.map(x => x.id))
+    const overCap = new Set(emptying.length > EMPTY_CAP ? emptying.map(x => x.id) : [])
+    const held = new Set([...byCheck, ...overCap])
+    const heldWhy = (id: string) => (!readable ? 'engine-state/_photo-held.json unreadable: nothing taken off' : byCheck.has(id) ? 'held by the photo check' : `more than ${EMPTY_CAP} pages left with no photo`)
+    for (const id of [...new Set(plan.map(x => x.id))].filter(id => held.has(id))) report.refusedHeld.push(`${kindOf.get(id)}/${id} (${heldWhy(id)})`)
+    for (const x of plan) {
+      if (held.has(x.id)) continue
+      x.data.photos = x.data.photos!.filter(p => p.generated || !x.off.has(p.url))
+      for (const [url, w] of x.off) report.refused.push(`${x.file.slice(content.length + 1)}: ${url} (${w})`)
+      await write(x.file, x.raw, x.data)
+      changed(x.file.slice(content.length + 1))
+    }
   }
   // The calendar names its pictures by address, the app's large copy as often as the page's: a day's, a language's own
   // day's, a guide's, a story's and a week's heroes'. One that is a listed photo, or its large copy, is dropped, and the
