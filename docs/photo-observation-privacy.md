@@ -35,7 +35,9 @@ source permission is rewritten. History is untouched.
 
 `pnpm engine photo-privacy --write` uses the repository root, regardless of the
 package working directory. It prints one controlled summary line and exits
-nonzero on validation failure after restoring the input. The publication hook must call it
+nonzero on validation failure after restoring the input. A migration-owned
+validation failure names its controlled reason; all other failures say only
+"other error", so a parser or dependency cannot echo observed wording. The publication hook must call it
 after merging current main and kept work, before verification, commit and push.
 
 The checked report records counts and fingerprints for each affected state file
