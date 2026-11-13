@@ -672,6 +672,10 @@ test.each([
   ['Cho con cá cầu vồng đỏ ăn trùng huyết.', 'Cho con cá táo đỏ ăn trùng huyết.'],
   ['Bèo tây Nam Mỹ (Limnobium laevigatum) nổi trên mặt nước.', 'Bèo Nhật (Limnobium laevigatum) nổi trên mặt nước.'],
   ['Thả vài cây bèo nhím Nam Mỹ cho cá trốn.', 'Thả vài cây bèo Nhật cho cá trốn.'],
+  // The same species under its other ending.
+  ['Cá cầu vồng đỏ (Glossolepis incisa) sống ở hồ Sentani.', 'Cá táo đỏ (Glossolepis incisa) sống ở hồ Sentani.'],
+  // A longer name the row lists stays as written beside it (the sweep's "cá táo đỏ cá hồi", 13 Nov).
+  ['Cá cầu vồng đỏ, còn gọi là cá cầu vồng đỏ cá hồi hay cá cầu vồng New Guinea.', 'Cá táo đỏ, còn gọi là cá cầu vồng đỏ cá hồi hay cá cầu vồng New Guinea.'],
 ])('a named fish or plant takes its name wherever written: %s', (before, after) => {
   expect(swappedNames(before)).not.toEqual([])
   expect(renameSwapped(before)).toBe(after)
@@ -684,6 +688,9 @@ test.each([
   'Cá cầu vồng đỏ (Glossolepis pseudoincisus) sống ở sông Tami.',
   'Bèo tây (Eichhornia crassipes) to hơn nhiều.',
   'Cá táo đỏ và cá cầu vồng táo đỏ là một.',
+  'Người ta còn gọi nó là cá cầu vồng  đỏ cá hồi hay cá cầu vồng New Guinea.',
+  // A name the row takes off its page because it is another animal's: in the text it is that one's (Curation, 13 Nov).
+  'Cho cá bột ăn bo bo (rận nước) mỗi ngày.',
 ])('a page\'s old name beside another species, or words that only begin it, stay: %s', text => {
   expect(swappedNames(text)).toEqual([])
   expect(renameSwapped(text)).toBe(text)

@@ -917,6 +917,23 @@ test('a fish and a plant named by the names in use: new address, old one forward
   expect((await json(root, 'content/species/glossolepis-incisus/vi.json')).altNames).toEqual(['Red rainbowfish', 'Cá cầu vồng đỏ', 'Cá cầu vồng táo đỏ'])
 })
 
+// Curation, 2026-11-13: "bo bo (rận nước)", the daphnia, linked to the water louse named "Rận nước".
+test('a name that is another animal\'s leaves the page, its other names and its forward, and stays in the text', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await put('species/asellus-aquaticus/entity.json', species('asellus-aquaticus', 'Asellus aquaticus'))
+  await put('species/asellus-aquaticus/vi.json', { ...vi('Rận nước', {}), slug: 'ran-nuoc', altNames: ['Rận nước ngọt', 'Water louse'] })
+  await put('species/poecilia-reticulata/entity.json', species('poecilia-reticulata', 'Poecilia reticulata'))
+  await put('species/poecilia-reticulata/vi.json', vi('Cá bảy màu', { 'feeding:seriouslyfish': '<p>Cho cá bột ăn bo bo (rận nước) mỗi ngày.</p>' }))
+  await sweep(root)
+  const louse = await json(root, 'content/species/asellus-aquaticus/vi.json')
+  expect([louse.name, louse.slug, louse.nameFixed, louse.altNames]).toEqual(['Asellus aquaticus', 'asellus-aquaticus', true, ['Water louse']])
+  expect(louse.redirectFrom).toEqual([{ slug: 'ran-nuoc', name: '' }])
+  expect((await json(root, 'content/species/poecilia-reticulata/vi.json')).sections['feeding:seriouslyfish']).toBe('<p>Cho cá bột ăn bo bo (rận nước) mỗi ngày.</p>')
+  expect((await sweep(root)).files).toEqual([])
+})
+
 // Astra, 2026-11-13: the school size was read before the fold, so the skunk cory's came only on a second run.
 test('a page folded into its fish\'s gives that fish its school size in the same run', async () => {
   const root = await store()

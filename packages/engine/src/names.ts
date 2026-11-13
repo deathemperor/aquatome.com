@@ -60,22 +60,34 @@ export type FishName = {
    * and never in the forward's note, so a search doesn't find the page by them.
    */
   drop?: readonly string[]
+  /** Longer names that begin with the old one, another name the page lists: written as they are, never renamed inside. */
+  longer?: readonly string[]
+  /**
+   * Names that mean another animal: off the page and out of its forward, as `drop`, but never renamed in the text, where
+   * they mean the other.
+   */
+  elsewhere?: readonly string[]
 }
 /** The chief of staff's names of 2026-11-13, kind by kind, smallest first. */
 export const FISH_NAMES: readonly FishName[] = [
   { id: 'pseudomugil-luminatus', sci: 'Pseudomugil luminatus', was: 'Cá cầu vồng neon đỏ mắt xanh', name: 'Cá mắt xanh neon đỏ' },
   // The owner, 2026-11-13: "is often táo đỏ". Keepers write "táo đỏ" bare (4 times in their own writing, "cầu vồng táo
-  // đỏ" never); shops write "Cá cầu vồng táo đỏ", kept so a search on it lands here.
-  { id: 'glossolepis-incisus', sci: 'Glossolepis incisus', was: 'Cá cầu vồng đỏ', name: 'Cá táo đỏ', alts: ['Cá cầu vồng táo đỏ'], slug: 'ca-tao-do' },
+  // đỏ" never); shops write "Cá cầu vồng táo đỏ", kept so a search on it lands here. The page's "Cá cầu vồng đỏ cá hồi"
+  // (Salmon red rainbowfish, translated) is another of its names: renamed inside, it would read "cá táo đỏ cá hồi".
+  { id: 'glossolepis-incisus', sci: 'Glossolepis incisus', was: 'Cá cầu vồng đỏ', name: 'Cá táo đỏ', alts: ['Cá cầu vồng táo đỏ'], slug: 'ca-tao-do', longer: ['Cá cầu vồng đỏ cá hồi'] },
   // The owner, 2026-11-13: "This is commonly called bèo nhật". The forum's "bèo nhật" (31 times) is this plant ("lá nhỏ cỡ
   // móng tay, có rễ rất dài"); the page's two names were the English ones translated ("bèo tây" is the water hyacinth).
   { id: 'limnobium-laevigatum', kind: 'plants', sci: 'Limnobium laevigatum', was: 'Bèo tây Nam Mỹ', name: 'Bèo Nhật', drop: ['Bèo tây Nam Mỹ', 'Bèo nhím Nam Mỹ'], slug: 'beo-nhat' },
+  // Curation, 2026-11-13: the guppy-breeding guide's "bo bo (rận nước)", the daphnia, linked to this water louse. Keepers
+  // write "rận nước" for the louse on a sick fish ("cá bị rận nước và mỏ neo", 3 forum threads), books for the daphnia;
+  // none for Asellus, which has no Vietnamese name in use: its scientific name, and the text's "rận nước" stays theirs.
+  { id: 'asellus-aquaticus', sci: 'Asellus aquaticus', was: 'Rận nước', name: 'Asellus aquaticus', slug: 'asellus-aquaticus', elsewhere: ['Rận nước'] },
 ]
 
-/** A row's names a page may not keep: those it drops, in any form (with the scientific name in brackets too). */
-export const droppedName = (r: FishName, n: string) => (r.drop ?? []).some(d => n.normalize('NFC').toLowerCase().startsWith(d.toLowerCase()))
-/** The names a row renames wherever a page writes them: its old one and those it drops. */
-export const oldNames = (r: FishName) => [...new Set([r.was, ...(r.drop ?? [])])].filter(n => n !== r.name)
+/** A row's names a page may not keep: those it drops or that are another's, in any form (the scientific name in brackets too). */
+export const droppedName = (r: FishName, n: string) => [...(r.drop ?? []), ...(r.elsewhere ?? [])].some(d => n.normalize('NFC').toLowerCase().startsWith(d.toLowerCase()))
+/** The names a row renames wherever a page writes them: its old one and those it drops, never another animal's. */
+export const oldNames = (r: FishName) => [...new Set([r.was, ...(r.drop ?? [])])].filter(n => n !== r.name && !(r.elsewhere ?? []).includes(n))
 
 /**
  * A passage a person found still calls a fish by another fish's kind, where no rule can tell the sentence is about it (a

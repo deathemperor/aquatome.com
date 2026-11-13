@@ -1,8 +1,7 @@
 {
-  "slug": "ran-nuoc",
-  "name": "Rận nước",
+  "slug": "asellus-aquaticus",
+  "name": "Asellus aquaticus",
   "altNames": [
-    "Rận nước ngọt",
     "Giáp xác chân đều nước ngọt",
     "Water louse",
     "Water shrimp",
@@ -29,5 +28,12 @@
     "bySource": {
       "aquariumbreeder": 0.8
     }
-  }
+  },
+  "redirectFrom": [
+    {
+      "slug": "ran-nuoc",
+      "name": ""
+    }
+  ],
+  "nameFixed": true
 }

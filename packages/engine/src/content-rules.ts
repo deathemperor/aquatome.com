@@ -898,18 +898,26 @@ const swapsIn = (sentence: string) => SWAPS.filter(r => placesIn(r, sentence).le
 // A fish page's old name (names.ts FISH_NAMES) is that fish's alone: written anywhere, it is the fish's name now, unless
 // another scientific name stands in brackets beside it ("Cá madtom đốm (Noturus nocturnus)"). A row that keeps its name
 // renames nothing.
-const RENAMES = FISH_NAMES.flatMap(r => oldNames(r).map(was => ({ ...r, was, old: new RegExp(word(was.replace(/ /g, '\\s+')), 'giu') })))
+// A longer name it begins ("cá cầu vồng đỏ cá hồi", Salmon red rainbowfish translated) is another name, left as written.
+const RENAMES = FISH_NAMES.flatMap(r => oldNames(r).map(was => {
+  const rests = (r.longer ?? []).filter(n => n.toLowerCase().startsWith(`${was.toLowerCase()} `)).map(n => n.slice(was.length).trim().replace(/ /g, '\\s+'))
+  return { ...r, was, old: new RegExp(word(was.replace(/ /g, '\\s+')), 'giu'), longer: rests.length ? new RegExp(`^\\s+(?:${rests.join('|')})(?!\\p{L})`, 'iu') : undefined }
+}))
 /** An English name's last word, which no scientific name ends in: "Red rainbowfish", "Congo tetra". */
 const ENGLISH = /(?:fish|tetra|barb|danio|rasbora|molly|platy|guppy|cory|pleco|loach|gourami|cichlid|eyes?|killi|goby|shrimp|snail|crab|rainbow)$/
 /** The scientific names in a stretch of text: a capitalised word and a lowercase one, not an English name. */
 const binomials = (s: string) => [...s.matchAll(/(?<![\p{L}])([A-Z][a-z]+)\s+([a-z]+)(?![\p{L}])/gu)].filter(m => !ENGLISH.test(m[2]!)).map(m => `${m[1]} ${m[2]}`)
+/** One species whichever ending its second word takes: "Glossolepis incisa" is G. incisus. */
+const stem = (sci: string) => sci.toLowerCase().replace(/(?:us|a|um)$/, '')
+const sameSpecies = (a: string, b: string) => stem(a) === stem(b)
 /** In brackets right after the old name, or right before it with a bracket or a dash between. */
 const BRACKET_AFTER = /^\s*\(([^()]{0,80})\)/
 const BINOMIAL_BEFORE = /([A-Z][a-z]+\s+[a-z]+)\s*[(),:–-]\s*\(?\s*$/
 const renamesIn = (r: (typeof RENAMES)[number], text: string) => [...text.matchAll(r.old)].filter(m => {
   const end = m.index! + m[0].length
+  if (r.longer?.test(text.slice(end))) return false
   const named = [...binomials(BRACKET_AFTER.exec(text.slice(end, end + 90))?.[1] ?? ''), ...binomials(BINOMIAL_BEFORE.exec(text.slice(Math.max(0, m.index! - 60), m.index!))?.[1] ?? '')]
-  return !named.length || named.includes(r.sci)
+  return !named.length || named.some(n => sameSpecies(n, r.sci))
 })
 /** Text with each fish page's old name (FISH_NAMES) written as its name, as renameSwapped does first: a photo's caption. */
 export const renameFishNames = (text: string) => {
