@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/nannacara_sp_sourourou_en/
 title: Nannacara sp. Sourourou - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:48:28.048Z
+fetchedAt: 2026-11-13T05:58:27.204Z
 hash: 65cdb94acd9b0ed13803103760d13307acc07c57b0a51169cfa6269bd405b6eb
 ---
 

@@ -35282,5 +35282,84 @@
       "attempt": "first",
       "kept": true
     }
+  ],
+  "vi/species/betta-smaragdina#bwaquatics": [
+    {
+      "at": "2026-11-13T04:31:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "#4: \"Người nuôi thường giữ loài này\" – \"thường\" is not in the English; and \"nó dễ tính về nước hơn\" is slightly informal; better \"chịu được nhiều điều kiện nước hơn\".",
+        "#2: \"Nguồn cá này xuất xứ từ cao nguyên Khorat\" is stiff; \"Cá có nguồn gốc từ cao nguyên Khorat\" reads more naturally.",
+        "#1: \"Betta splendens complex\" is left in English; consider \"nhóm loài Betta splendens\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/corydoras-napoensis#glaser": [
+    {
+      "at": "2026-11-13T06:20:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"nhiều phần nó thuộc loài C. napoensis\" is non-standard; use \"nhiều khả năng chúng thuộc loài C. napoensis\".",
+        "\"có màu rất thay đổi\" is awkward; use \"màu sắc rất đa dạng/biến đổi\".",
+        "\"Cá con mang màu khác cá lớn\" is slightly loose; use \"màu cá con khác màu cá trưởng thành\".",
+        "\"lớn hết cỡ\" is colloquial; use \"đã trưởng thành hoàn toàn\".",
+        "The original says \"complex\"; \"nhóm\" is acceptable, but \"phức hợp loài\" is more precise.",
+        "\"Vì vậy rất khó xác định chúng thuộc loài nào\" is fine. Optionally add \"một loài đã được mô tả\" for fidelity."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-13T06:20:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"Nhiều phần là chúng thuộc loài C. napoensis\" is unnatural and mistranslates \"Most probably\"; use \"Nhiều khả năng những con cá này thuộc loài C. napoensis\".",
+        "\"tính cả đuôi\" for \"total length\" is slightly off; use \"tổng chiều dài\" (or \"chiều dài toàn thân\") ~4 cm.",
+        "\"nhóm Corydoras elegans\" for \"complex\" is acceptable, but \"phức hệ loài Corydoras elegans\" is the more precise hobby/taxonomy term.",
+        "\"con cá chuột\" is fine, but for consistency with the hobby term use \"cá chuột\" (without \"con\") or keep \"cá chuột\" throughout.",
+        "\"Những con được mô tả ở đây đều đã lớn hết cỡ\" is slightly stiff; use \"Các cá thể được mô tả đều đã trưởng thành hoàn toàn\".",
+        "\"Cá con mang màu khác hẳn cá lớn\" overstates \"differs from\" (\"khác hẳn\" = completely different); use \"khác với cá trưởng thành\"."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  ],
+  "vi/species/pelvicachromis-kribensis#glaser": [
+    {
+      "at": "2026-11-13T05:35:34Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "Item 1: \"tỉnh Océan của vùng Nam\" – Océan is a department (département), South is a Province/Region; \"tỉnh\" for department is misleading. Use e.g. \"thuộc quận (département) Océan, tỉnh Nam\" to keep the hierarchy faithful.",
+        "Item 3: \"Cách đây vài năm, mọi ... đều bị gộp chung\" loses \"Until a few years ago\"; use \"Cho đến vài năm trước\" so it's clear the lumping ended recently.",
+        "Item 3: \"nhóm loài gần nhau\" is loose for \"narrower family complex\"; consider \"phức hợp loài gần gũi hơn\" or \"nhóm họ hàng hẹp hơn\".",
+        "Item 4: \"ngậm nhai cát\" is slightly awkward; consider \"thích ngậm và nhai/sục cát\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
   ]
 }

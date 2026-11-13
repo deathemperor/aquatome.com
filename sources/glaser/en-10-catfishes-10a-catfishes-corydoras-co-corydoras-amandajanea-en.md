@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_amandajanea_en/
 title: Corydoras amandajanea - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:51:06.341Z
+fetchedAt: 2026-11-13T06:08:57.803Z
 hash: 94fe614b8760b9894b29bf11a3e927597ab3bbfd7b6b93ee14f0e181d0347d3c
 ---
 

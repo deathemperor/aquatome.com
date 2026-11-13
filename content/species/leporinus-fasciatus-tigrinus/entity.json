@@ -10,19 +10,26 @@
     "venezuela",
     "ventuari"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_sp_aff_tigrinus_en/",
-      "html": "<p>A striped Leporinus, possibly a still undescribed species. Its name Leporinus means \"haresnout\"; tigrinus means \"striped like a tiger\".</p>"
+      "html": "<p>A striped Leporinus from the Ventuari river in Venezuela, possibly a still undescribed species. The name Leporinus means \"haresnout\"; tigrinus means \"striped like a tiger\". Suggested common name: Tiger-Leporinus.</p>"
     },
     {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_sp_aff_tigrinus_en/",
-      "html": "<p>This beautiful striped Leporinus originates from the Ventuari river in Venezuela. Leporinus with a similar coloration are known so far only from the Rio Tapajos and Rio Xingu in Brazil.</p>"
+      "html": "<p>This Leporinus originates from the Ventuari river in Venezuela. Leporinus with a similar coloration are known so far only from the Rio Tapajos and Rio Xingu in Brazil; these were described in 1929 as Leporinus fasciatus tigrinus. Nowadays this subspecies is usually regarded as a full species, e.g. Leporinus tigrinus.</p>"
     },
     {
       "key": "diet",
@@ -34,13 +41,13 @@
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_sp_aff_tigrinus_en/",
-      "html": "<p>Against their own kind Leporinus are known to be quarrelsome sometimes, but these fish have been quite peaceful so far.</p>"
+      "html": "<p>Leporinus are known to be sometimes quarrelsome against their own kind, but these fish are quite peaceful so far.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_sp_aff_tigrinus_en/",
-      "html": "<p>This species possibly represents a still undescribed species. Similar fish were described in 1929 as Leporinus fasciatus tigrinus, nowadays usually regarded as a full species, Leporinus tigrinus. The double band in front of the dorsal fin and the shining scales on the back are very obvious and seem to be species-specific. One may reckon that the species attains a total length of more than 20 cm, as its close relatives (L. fasciatus, L. affinis, L. y-ophorus) do.</p>"
+      "html": "<p>The double band in front of the dorsal fin and the shining scales on the back are very obvious and seem to be species-specific. One may reckon that the species attains a total length of more than 20 cm, as its close relatives (L. fasciatus, L. affinis, L. y-ophorus) do.</p>"
     }
   ],
   "photos": [],
@@ -69,14 +76,23 @@
       "category": "thuc-an",
       "keywords": [
         "thức ăn thực vật cho cá",
-        "thức ăn viên cá cảnh ăn thực vật"
+        "thức ăn viên cá cảnh ăn thực vật",
+        "thức ăn viên cá cỡ lớn"
       ]
     },
     {
       "category": "be-ca",
       "keywords": [
         "bể cá lớn 300 lít",
-        "bể cá 150cm"
+        "bể cá 150cm",
+        "bể cá 150 cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
       ]
     }
   ],

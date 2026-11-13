@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/datnioides_microlepis_en/
 title: Datnioides microlepis - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:43:38.027Z
+fetchedAt: 2026-11-13T05:41:01.737Z
 hash: e59ae219e8ff5879b3b8466fe2bae9c66b4121c446710d7036ccd6bc2e22a13f
 ---
 

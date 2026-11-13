@@ -96795,10 +96795,20 @@
     "products": []
   },
   "vi/species/betta-smaragdina": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "hash": "b65e2db2bedf6590",
     "model": "opus",
-    "findings": [],
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P11",
+        "quote": "giun đỏ đông lạnh",
+        "why": "Calque of 'frozen bloodworms'; Vietnamese keepers call these trùng huyết.",
+        "by": "model",
+        "fix": "trùng huyết đông lạnh"
+      }
+    ],
     "products": []
   },
   "vi/species/betta-spilotogena": {
@@ -100876,30 +100886,23 @@
     "products": []
   },
   "vi/species/corydoras-napoensis": {
-    "at": "2026-11-08",
-    "hash": "f2bfd78f78fdf15c",
+    "at": "2026-11-13",
+    "hash": "8a93bf95d36fac62",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P10",
+        "part": "P12",
         "quote": "Mùa mưa này rơi vào cùng thời điểm mùa đông ở Anh.",
-        "why": "Spawning timing is tied to English seasons, not Vietnam's climate.",
+        "why": "Timing breeding by the English winter assumes a reader living in the UK.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P5",
+        "part": "P7",
         "quote": "bạn có thể dùng cành sồi beech thường, miễn là đã phơi thật khô và bóc hết vỏ",
-        "why": "Ordinary beech branches are a European material a Vietnamese keeper can't simply collect.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P5",
-        "quote": "Lá beech dùng được, lá sồi oak cũng hợp.",
-        "why": "Beech and oak leaves are European trees, not local to Vietnam.",
+        "why": "Beech branches and beech/oak leaves are common European trees, not something a keeper in Vietnam has at hand.",
         "by": "model"
       }
     ],
@@ -123923,5 +123926,13 @@
       "Chihiros",
       "Dremel"
     ]
+  },
+  "vi/species/pelvicachromis-kribensis": {
+    "at": "2026-11-13",
+    "hash": "7d72347039181eec",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
   }
 }

@@ -3,21 +3,24 @@
   "name": "Cá lau kiếng mắt đỏ",
   "altNames": [
     "Cá lau kiếng Lasiancistrus",
-    "Red-eyed Deltatail-suckercat"
+    "Red-eyed Deltatail-suckercat",
+    "Cá lau kiếng đuôi tam giác mắt đỏ"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Cá dài tổng cộng 15–18 cm. Ngoài đôi mắt đỏ rực, điểm dễ nhận ra nhất là thùy dưới vây đuôi màu nâu đỏ rất đẹp.</p>",
+    "quickFacts:glaser": "<ul><li>Chiều dài tổng: 15-18 cm</li><li>Tránh để pH xuống dưới 6,5</li><li>Đẻ trong hang</li></ul>",
     "distribution:glaser": "<p>Peru.</p>",
-    "waterConditions:glaser": "<p>Loài này cần nước ấm hơn bình thường một chút, tốt nhất là 25–29 °C. Ngoài tự nhiên, nước nơi chúng sống chỉ hơi chua, có chỗ còn hơi kiềm. Vì thế không cần hạ pH, ngược lại còn nên tránh để pH xuống dưới 6,5.</p>",
-    "behaviour:glaser": "<p>Các loài Lasiancistrus thường ăn rêu giỏi và thả chung được với cá hiền trong bất kỳ bể nào đủ rộng.</p>",
-    "reproduction:glaser": "<p>Giống gần như mọi loài cá da trơn nhóm ancistrine, loài này đẻ trứng trong hang. Người ta từng gặp ngoài tự nhiên một ổ khoảng 200 trứng, đẻ trong hốc một thân cây chìm dưới nước. Cá đực là con canh trứng.</p>",
-    "notes:glaser": "<p>Lasiancistrus: tiếng Latin, nghĩa là \"ancistrus lông xù\", ý chỉ các gai trên da (odontode). heteracanthus: tiếng Hy Lạp cổ, nghĩa là \"có gai khác thường\".</p>"
+    "waterConditions:glaser": "<p>Nên giữ nước ấm hơn mức thường nuôi một chút, khoảng 25-29°C. Loài này không cần pH thấp. Ngược lại, nên tránh để pH xuống dưới 6,5.</p>",
+    "behaviour:glaser": "<p>Cá Lasiancistrus thường ăn rêu giỏi và thả chung với cá hiền được, miễn bể đủ rộng.</p>",
+    "reproduction:glaser": "<p>Như gần hết các loài cá lau kiếng nhóm ancistrine, loài này đẻ trong hang. Người ta từng tìm thấy ngoài tự nhiên một ổ khoảng 200 trứng, đẻ trong hốc của một thân cây chìm dưới nước. Cá đực là con canh trứng.</p>",
+    "notes:glaser": "<p>Lasiancistrus: tiếng Latin, nghĩa là \"ancistrus xù xì\", ý nói các gai nhỏ trên da (odontode). heteracanthus: tiếng Hy Lạp cổ, nghĩa là \"có gai khác thường\".</p>",
+    "beforeYouBuy:glaser": "<p>Lasiancistrus heteracanthus, cá lau kiếng mắt đỏ, là loài hiếm và chỉ được nhập về từ Peru với số lượng ít. Ngoài đôi mắt đỏ tươi, điểm bắt mắt nhất của loài này là thùy dưới vây đuôi màu nâu đỏ rất đẹp.</p>",
+    "habitat:glaser": "<p>Ngoài tự nhiên, nước nơi chúng sống chỉ hơi chua, có chỗ còn hơi kiềm.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.8,
     "indexable": false,
     "bySource": {
-      "glaser": 0.85
+      "glaser": 0.8
     },
     "reason": "thin"
   }

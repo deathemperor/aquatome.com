@@ -5,7 +5,8 @@
     "Cá hatchet neon",
     "Neon Hatchet Fish",
     "Cá barb bay xanh da trời",
-    "Sky-blue flying barb"
+    "Sky-blue flying barb",
+    "Cá chép bay Chela"
   ],
   "sections": {
     "beforeYouBuy:seriouslyfish": "<p>Cá chela neon (Chela cachius) là một loài thuộc họ cá chép, thân rất cao. Phần lớn ghi nhận về loài này đến từ hệ thống sông Hằng và Brahmaputra ở Ấn Độ và Bangladesh. Thân cá cao như vậy nên khó nhầm nó với loài họ hàng nào. Đây cũng là loài hợp lệ duy nhất trong giống Chela. Ngoài tự nhiên, cá sống được ở nhiều kiểu môi trường. Chúng bơi đàn và rất hiếu động, nên nuôi ít nhất 8–10 con. Bể phải có nắp đậy kín vì cá nhảy rất giỏi.</p>",
@@ -19,19 +20,21 @@
     "reproduction:seriouslyfish": "<p>Chưa có ghi nhận.</p>",
     "notes:seriouslyfish": "<p>Thân loài này rất cao, chiều dài chuẩn chỉ gấp khoảng 3,2–4,6 lần chiều cao thân. Vì vậy, khó nhầm nó với bất kỳ loài họ hàng nào.</p><p>Hiện đây là loài hợp lệ duy nhất trong giống, nhưng có thể vẫn còn tồn tại thêm các đơn vị phân loại khác, nhất là ở Myanmar. Một số loài trước đây thuộc giống này nay được xếp vào các giống họ hàng trong nhóm Laubuca. C. cachius có quan hệ gần với nhóm này. Các nghiên cứu phát sinh loài cho thấy có một nhánh đơn ngành gồm các giống Devario, Chela, Laubuca, Microdevario và Microrasbora, cùng với giống Betadevario.</p>",
     "references:seriouslyfish": "<ul><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches. An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Shrestha, T. K. (2008). Ichthyology of Nepal. A study of fishes of the Himalayan waters. Himalayan Ecosphere, Kathmandu, Nepal., 389 pp., 72 pls.</li></ul>",
-    "quickFacts:glaser": "<p>Loài barb bay xinh xắn này rất hiếm khi được nhập về. Cá dài khoảng 5 cm, hiền, sống theo đàn và hay bơi ở tầng trên.</p>",
-    "distribution:glaser": "<p>Loài này có nguồn gốc từ miền bắc Ấn Độ. Ngoài tự nhiên, chúng bơi chung với cá ngựa vằn (Danio rerio) và cá ruby barb (Pethia conchonius).</p>",
-    "waterConditions:glaser": "<p>Loài này không kén thông số nước lắm. Nhiệt độ có thể từ 18 đến 28 °C.</p>",
-    "maintenance:glaser": "<p>Cá này nuôi không khó chút nào. Cách nuôi gần giống cá ngựa vằn (Danio rerio) hay cá ruby barb (Pethia conchonius).</p><p>Màu của nó rất thú vị. Bể để đèn mờ thì cá trông khá xỉn. Khi ánh sáng chiếu từ phía trước, lớp vảy bạc ánh lên đủ màu cầu vồng. Đặc biệt nhất ở loài này là màu xanh dương đậm nằm ở lớp da bên trong. Trong bể có đèn chiếu hợp, Chela cachius thật sự hút mắt. Tùy góc ánh sáng mà cá ánh lên nhiều màu hoặc bừng lên một màu xanh dương rực rỡ.</p>",
-    "diet:glaser": "<p>Cá ăn ngay mọi loại thức ăn thông thường, nhưng chỉ đớp trên mặt nước hoặc lúc thức ăn đang chìm xuống. Chela cachius không xuống đáy bể kiếm ăn.</p>",
-    "notes:glaser": "<p>Nguồn gốc tên gọi: Chela lấy theo tên người bản địa ở Bengal gọi giống cá này. Còn cachius lấy theo tên người bản địa ở Bengal gọi loài này.</p>"
+    "quickFacts:glaser": "<p>Loài cá chép bay xinh xắn này rất hiếm khi được nhập về. Quê của nó ở miền bắc Ấn Độ. Cá dài khoảng 5 cm, hiền, sống theo đàn và hay bơi ở tầng trên.</p>",
+    "distribution:glaser": "<p>Miền bắc Ấn Độ. Ngoài tự nhiên, loài này sống chung với cá ngựa vằn (Danio rerio) và cá ruby barb (Pethia conchonius).</p>",
+    "waterConditions:glaser": "<p>Nhiệt độ nước có thể từ 18 đến 28 °C.</p>",
+    "maintenance:glaser": "<p>Loài này nuôi không khó chút nào. Cách nuôi gần giống nhất với cá ngựa vằn (Danio rerio) hoặc cá ruby barb (Pethia conchonius). Thông số nước không quan trọng lắm.</p>",
+    "diet:glaser": "<p>Thức ăn cá thông thường nào chúng cũng ăn ngay, nhưng chỉ đớp trên mặt nước hoặc lúc thức ăn đang chìm xuống. Chela cachius không xuống đáy bể kiếm ăn.</p>",
+    "notes:glaser": "<p>Màu của loài này rất thú vị. Điểm đặc biệt là lớp da bên trong có màu xanh lam đậm. Tùy góc ánh sáng, cá ánh lên nhiều màu hoặc rực lên màu xanh lam sáng.</p><p>Nguồn gốc tên: Chela đặt theo tên người bản địa ở Bengal gọi giống cá này. cachius đặt theo tên người bản địa ở Bengal gọi loài này.</p>",
+    "equipment:glaser": "<p>Chela cachius lên màu đẹp hay không là nhờ đèn. Bể tối thì cá trông khá xỉn. Khi ánh sáng chiếu từ phía trước, lớp vảy bạc ánh lên đủ màu cầu vồng. Bể có đèn hợp thì Chela cachius rất bắt mắt.</p>",
+    "behaviour:glaser": "<p>Đây là loài cá hiền, sống theo đàn và hay bơi ở tầng trên.</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
       "seriouslyfish": 0.95,
-      "glaser": 0.8
+      "glaser": 0.85
     }
   }
 }

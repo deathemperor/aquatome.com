@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/amphiliidae/amphilius_cryptobullatus.htm
 title: Amphilius cryptobullatus Skelton, 1986
-fetchedAt: 2026-11-13T17:27:55.641Z
+fetchedAt: 2026-11-13T04:53:26.815Z
 hash: eb165426589a4193b4efb593a76242f6f208116b5c5efb65dc4ae8432a67b38c
 ---
 

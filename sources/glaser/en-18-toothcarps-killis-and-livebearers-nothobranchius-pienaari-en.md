@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-pienaari-en/
 title: Nothobranchius pienaari - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:57:37.885Z
+fetchedAt: 2026-11-13T06:27:28.392Z
 hash: f12f28531073cef46ea57587a33a7b1f8cca093a315090bb00f2e2db95ba443a
 ---
 

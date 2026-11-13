@@ -7,7 +7,8 @@
   "group": "shrimp",
   "places": [
     "south-america",
-    "paraguay"
+    "paraguay",
+    "peru"
   ],
   "dataCard": {
     "sizeCm": [
@@ -22,13 +23,31 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
-      "html": "<p>Origin: Paraguay. Maximum length of the animals is around 5 cm.</p>"
+      "html": "<p>Imported for the first time from Paraguay. Most probably it represents a population of Macrobrachium brasiliense. The maximum length of the animals is around 5 cm.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
-      "html": "<p>For the first time this species of shrimp could be imported from Paraguay. Most probably it represents a population of Macrobrachium brasiliense. That species was imported occasionally already from Peru. Compared with the Peruvian specimens those from Paraguay have more slender arms, otherwise they look identical.</p><p>This species can be easily bred in freshwater. Possibly it becomes more spread in aquaria now than before, because animals from the Paraguay system are not so demanding regarding the water chemistry like those from the Amazonia/Orinoco system and can be kept very well at a pH higher than 7.</p><p>Lexicon: Macrobrachium: ancient Greek, means \"with big arm\". brasiliense: means \"coming from Brazil\".</p>"
+      "html": "<p>Compared with the Peruvian specimens, those from Paraguay have more slender arms, otherwise they look identical. Possibly the species will now become more widespread in aquaria than before.</p><p>Lexicon: Macrobrachium: ancient Greek, means \"with big arm\". brasiliense: means \"coming from Brazil\".</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
+      "html": "<p>Paraguay. The species was also imported occasionally from Peru.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
+      "html": "<p>Animals from the Paraguay system are not as demanding regarding water chemistry as those from the Amazon/Orinoco system and can be kept very well at a pH higher than 7.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
+      "html": "<p>This species can be easily bred in freshwater.</p>"
     }
   ],
   "photos": [],
@@ -51,14 +70,25 @@
       "category": "loc",
       "keywords": [
         "lọc bể tép",
-        "máy lọc nước hồ thủy sinh"
+        "máy lọc nước hồ thủy sinh",
+        "lọc thùng nhỏ cho bể tôm",
+        "máy sục khí mini"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
         "thức ăn tôm càng",
-        "thức ăn tép"
+        "thức ăn tép",
+        "thức ăn cho tôm",
+        "thức ăn viên chìm cho tôm"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nuôi tôm 60cm",
+        "bể thủy sinh nhỏ"
       ]
     }
   ],

@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/wild_guppy_rio_morichal_en/
 title: Wild Guppy Rio Morichal - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:41:18.897Z
+fetchedAt: 2026-11-13T05:36:19.023Z
 hash: e480ff808e04b7ed6039ed8a56d06416d80630ad254b24a586bb7b024aead139
 ---
 

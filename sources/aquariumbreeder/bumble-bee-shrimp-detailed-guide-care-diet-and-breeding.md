@@ -1,7 +1,7 @@
 ---
 url: https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/
 title: Bumble Bee Shrimp – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
-fetchedAt: 2026-11-13T17:54:23.795Z
+fetchedAt: 2026-11-13T05:19:44.507Z
 hash: b07e4b8124c53aa8e8d06bb85fed311cb66dcc59f27713cdad624f0efbd6b573
 ---
 

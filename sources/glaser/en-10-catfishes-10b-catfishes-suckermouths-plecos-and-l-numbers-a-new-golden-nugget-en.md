@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/a_new_golden_nugget_en/
 title: A new Golden Nugget - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:58:38.036Z
+fetchedAt: 2026-11-13T06:29:44.885Z
 hash: 2af47b964c6e01d7f4e14c2e593f4ec0e419f2420acc7d9dab5fa317efd169ed
 ---
 

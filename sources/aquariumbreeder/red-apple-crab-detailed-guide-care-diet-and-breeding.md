@@ -1,7 +1,7 @@
 ---
 url: https://aquariumbreeder.com/red-apple-crab-detailed-guide-care-diet-and-breeding/
 title: Red Apple Crab – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
-fetchedAt: 2026-11-13T17:39:19.898Z
+fetchedAt: 2026-11-13T05:06:43.002Z
 hash: 5fa61bfe971ce8a08903610618c3f6c62e801622fae8b4e6d088cc22e3d4c8e8
 ---
 

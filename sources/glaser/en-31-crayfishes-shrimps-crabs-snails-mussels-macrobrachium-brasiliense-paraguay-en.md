@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/
 title: Macrobrachium brasiliense Paraguay - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:44:24.075Z
+fetchedAt: 2026-11-13T05:42:54.370Z
 hash: 8cd3d0e4d3a5cf0170dbcc5de89db8e4d07e8a772c4c4ffab69b24e3f1906064
 ---
 

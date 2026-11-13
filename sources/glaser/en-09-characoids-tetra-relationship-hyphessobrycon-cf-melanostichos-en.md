@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_melanostichos_en/
 title: Hyphessobrycon cf. melanostichos - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:59:09.954Z
+fetchedAt: 2026-11-13T06:32:20.524Z
 hash: d730532d637a3bc026e59b015952a254ed44cae8207cd2127d7f1fae5ff942a6
 ---
 

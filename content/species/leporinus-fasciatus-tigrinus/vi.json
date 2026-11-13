@@ -1,21 +1,21 @@
 {
-  "slug": "ca-leporinus-soc-ho",
-  "name": "Cá Leporinus sọc hổ",
+  "slug": "ca-leporinus-ho",
+  "name": "Cá Leporinus hổ",
   "altNames": [
     "Tiger-Leporinus"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Đây là một loài Leporinus có sọc, có thể là loài chưa ai mô tả. Chữ Leporinus nghĩa là \"mõm thỏ rừng\", còn tigrinus nghĩa là \"có sọc như hổ\".</p>",
-    "distribution:glaser": "<p>Con Leporinus sọc đẹp này có nguồn gốc từ sông Ventuari ở Venezuela. Tới giờ, những con Leporinus có màu tương tự mới chỉ thấy ở Rio Tapajos và Rio Xingu bên Brazil.</p>",
-    "behaviour:glaser": "<p>Leporinus đôi khi hay gây gổ với đồng loại, nhưng mấy con này tới giờ vẫn khá hiền.</p>",
-    "diet:glaser": "<p>Loài cá này rất có thể ăn chủ yếu là thực vật.</p>",
-    "notes:glaser": "<p>Đây có thể là một loài chưa ai mô tả. Năm 1929, những con cá tương tự đã được mô tả với tên Leporinus fasciatus tigrinus. Ngày nay, các nhà phân loại thường tách nó thành một loài riêng là Leporinus tigrinus. Dải sọc đôi trước vây lưng và hàng vảy óng ánh trên lưng nhìn rất rõ, và có vẻ là nét riêng của loài này. Có thể đoán loài này dài hơn 20 cm tính cả đuôi, giống mấy loài họ hàng gần của nó (L. fasciatus, L. affinis, L. y-ophorus).</p>"
+    "quickFacts:glaser": "<p>Đây là một loài Leporinus có sọc, sống ở sông Ventuari thuộc Venezuela. Có thể nó là một loài chưa ai mô tả. Chữ Leporinus nghĩa là \"mõm thỏ\", còn tigrinus nghĩa là \"sọc như hổ\". Tên thường gọi được đề xuất cho nó là Tiger-Leporinus.</p>",
+    "distribution:glaser": "<p>Loài Leporinus này đến từ sông Ventuari ở Venezuela. Cho tới nay, những con Leporinus có màu tương tự chỉ mới thấy ở sông Tapajos và sông Xingu bên Brazil. Nhóm cá đó được mô tả năm 1929 với tên Leporinus fasciatus tigrinus. Bây giờ phân loài này thường được tách thành một loài riêng, tức Leporinus tigrinus.</p>",
+    "behaviour:glaser": "<p>Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng những con này tới giờ vẫn khá hiền.</p>",
+    "diet:glaser": "<p>Rất có thể loài cá này ăn chủ yếu là thực vật.</p>",
+    "notes:glaser": "<p>Dải sọc đôi ngay trước vây lưng và hàng vảy óng ánh trên lưng rất dễ thấy. Hai đặc điểm này có vẻ là nét riêng của loài. Các loài họ hàng gần như L. fasciatus, L. affinis và L. y-ophorus đều dài hơn 20 cm, nên có thể đoán loài này cũng lớn hơn 20 cm tính cả đuôi.</p>"
   },
   "quality": {
-    "score": 0.82,
+    "score": 0.9,
     "indexable": false,
     "bySource": {
-      "glaser": 0.82
+      "glaser": 0.9
     },
     "reason": "thin"
   },

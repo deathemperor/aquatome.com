@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/colisa_cf_labiosa_inle_en/
 title: Colisa cf. labiosa INLE - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:48:59.808Z
+fetchedAt: 2026-11-13T06:03:45.902Z
 hash: 61a93196a5ff48b9731ec9252df163ff0a7a2ba5f245fd50dad73bd51898d31d
 ---
 

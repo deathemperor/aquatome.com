@@ -9,7 +9,8 @@
     "south-america",
     "brazil",
     "paraguay",
-    "argentina"
+    "argentina",
+    "rio-paraguay"
   ],
   "range": {
     "native": {
@@ -239,7 +240,7 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_polystictus_en/",
-      "html": "<ul><li>Origin: Brazil</li><li>Maximum size reported: around 4.5 cm</li><li>Suggested common name: Many-spotted Cory</li></ul>"
+      "html": "<p>Corydoras polystictus is a deep-bodied species which likes to swim along with conspecifics. The spotted pattern varies in each individual. Maximum size reported for the species is around 4.5 cm.</p>"
     },
     {
       "key": "distribution",
@@ -251,7 +252,7 @@
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_polystictus_en/",
-      "html": "<p>Corydoras polystictus inhabits the Rio Paraguay basin in Brazil, Paraguay, and Argentina.</p>"
+      "html": "<p>C. polystictus inhabits the Rio Paraguay basin in Brazil, Paraguay, and Argentina.</p>"
     },
     {
       "key": "habitat",
@@ -317,7 +318,7 @@
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_polystictus_en/",
-      "html": "<p>Lexicon: Corydoras: from ancient Greek, means \"with helmet and spear\". This refers to the strong armor and fin spines. polystictus: means \"with many spots\".</p>"
+      "html": "<p>Lexicon: Corydoras: from ancient Greek, means \"with helmet and spear\". This refers to the strong armor and fin spines. polystictus: means \"with many spots\".</p><p>Suggestion of a common name: Many-spotted Cory.</p>"
     }
   ],
   "photos": [],

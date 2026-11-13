@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/wakin_goldfish_hoe_kim_en/
 title: Wakin Goldfish Hoe Kim - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:55:24.431Z
+fetchedAt: 2026-11-13T06:22:40.222Z
 hash: b574fe9b82afb38ced653a190f32688d911583eeae9d8d51fda8a5d9431fce75
 ---
 

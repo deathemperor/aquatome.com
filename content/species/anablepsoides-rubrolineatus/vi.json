@@ -6,18 +6,22 @@
     "Redlined Rivulus"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Nguồn gốc: Peru. Cá đang bán hiện nay là cá bắt ngoài tự nhiên.</p>",
-    "distribution:glaser": "<p>Loài cá killi đẹp này có nguồn gốc từ Peru.</p>",
-    "behaviour:glaser": "<p>Cá Rivulus lúc nào cũng quanh quẩn gần mặt nước. Riêng R. rubrolineatus là loài rất hợp để nuôi cho tầng trên của bể. Nhưng bể phải đậy thật kín, vì Rivulus hay bò lên cạn để tìm chỗ ở mới. Ngoài tự nhiên, gặp lúc trời ẩm ướt, chúng nhảy qua đám cây cỏ trên bờ để sang vũng nước khác. Thói quen bỏ đi này thỉnh thoảng cũng trỗi dậy khi nuôi trong bể.</p><p>Loài này rất dễ tính, không kén thức ăn hay thông số nước. Chúng sống khá ổn khi nuôi chung với các loài tetra hiền, cá da trơn và những loài hiền tương tự.</p>",
-    "dimorphism:glaser": "<p>Nhìn màu là phân biệt được đực cái dễ dàng. Lúc cá bị stress và đổi màu (chẳng hạn khi bị vớt), con cái vẫn nhận ra được nhờ đốm tối đặc trưng ở mép trên cuống đuôi.</p>",
-    "reproduction:glaser": "<p>Cá Rivulus dán trứng vào đám cây lá mảnh. Trứng không cần để khô, khoảng hai tuần là nở.</p>",
-    "notes:glaser": "<p>Giống Rivulus đã bị tách thành nhiều giống mới từ năm 1992, nhưng mãi sau người ta mới dần chấp nhận cách chia này. Theo cách chia mới, R. rubrolineatus thuộc giống Anablepsoides.</p><p>Nhiều loài killi khác sống ngắn, còn Rivulus rubrolineatus sống được khá lâu, như bao loài cá nhỏ khác. Nuôi trong bể thì nó sống khoảng 3 năm, ngoài tự nhiên ngắn hơn nhiều.</p><p>Nguồn gốc tên gọi: Rivulus là tiếng Latin, nghĩa là \"con suối nhỏ\". Có lẽ tên này được đặt vì người mô tả loài nghe kể rằng cá sống ở suối. rubrolineatus là tiếng Latin, nghĩa là \"có sọc đỏ\". Anablepsoides ám chỉ giống Anableps (cá bốn mắt), vì cả hai đều sống sát mặt nước.</p>"
+    "quickFacts:glaser": "<p>Rivulus rubrolineatus là một loài cá killi ở Peru. Nuôi trong bể, nó có thể sống khoảng 3 năm, còn ngoài tự nhiên thì ngắn hơn nhiều. Tên thường gọi được đề xuất cho loài này là Redlined Rivulus.</p>",
+    "distribution:glaser": "<p>Peru.</p>",
+    "behaviour:glaser": "<p>Rivulus lúc nào cũng ở sát mặt nước, nên R. rubrolineatus rất hợp để thả cho tầng trên của bể. Nó thả chung được với cá tetra hiền, cá da trơn và các loài cá hiền tương tự.</p>",
+    "dimorphism:glaser": "<p>Nhìn màu là phân biệt được đực cái dễ dàng. Khi cá bị stress và nhạt màu đi, chẳng hạn lúc bị vớt, vẫn nhận ra con cái nhờ đốm sẫm đặc trưng ở mép trên cuống đuôi.</p>",
+    "reproduction:glaser": "<p>Rivulus dán trứng vào đám cây lá mảnh. Trứng không cần ủ khô mà tự nở sau khoảng hai tuần.</p>",
+    "notes:glaser": "<p>Giải nghĩa tên: Rivulus: tiếng Latin, nghĩa là \"con suối nhỏ\". Có lẽ người mô tả đặt tên này vì nghe kể loài cá này sống ở suối. rubrolineatus: tiếng Latin, nghĩa là \"có sọc đỏ\". Anablepsoides: lấy theo chi Anableps (cá bốn mắt), vì cả hai cùng sống sát mặt nước.</p>",
+    "beforeYouBuy:glaser": "<p>Loài này hiếm, cá bán ra là cá bắt ngoài tự nhiên. Từ năm 1992, chi Rivulus đã bị tách thành nhiều chi mới, dù cách xếp này chậm được chấp nhận. Theo cách xếp mới, R. rubrolineatus thuộc chi Anablepsoides.</p>",
+    "maintenance:glaser": "<p>Bể phải đậy thật kín, không chừa khe nào. Rivulus hay bò lên cạn để đổi chỗ ở. Ngoài tự nhiên, gặp trời ẩm ướt là chúng nhảy qua đám cây cỏ trên bờ để tìm sang vùng nước mới. Trong bể, thỉnh thoảng cá cũng nổi lên cái máu muốn đi này.</p>",
+    "waterConditions:glaser": "<p>Loài này rất dễ tính về nước.</p>",
+    "diet:glaser": "<p>Chuyện ăn uống thì nó cũng rất dễ tính.</p>"
   },
   "quality": {
-    "score": 0.85,
-    "indexable": false,
+    "score": 0.78,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
+      "glaser": 0.78
     },
     "reason": "thin"
   }

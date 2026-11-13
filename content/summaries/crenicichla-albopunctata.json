@@ -1,12 +1,15 @@
 {
   "id": "crenicichla-albopunctata",
-  "summary": "Hợp với người đã có kinh nghiệm vừa phải, muốn nuôi một loài cichlid săn mồi (độ khó 4/8) trong bể riêng hoặc ghép với cichlid lớn khác. Cần bể dài tối thiểu 120 cm, đáy 120 × 40 cm, nền cát, nước 24–27 °C, pH 6–7, cá trưởng thành khoảng 20 cm. Điểm khó nhất là tính dữ: không ghép được với cá nhỏ hay hiền, và cá hay đào bới làm xáo trộn bể.",
+  "summary": "Hợp với người muốn nuôi cichlid săn mồi riêng một loài hoặc ghép với các loài cichlid lớn khác. Cần bể dài tối thiểu 120 cm (120 × 40 × 30 cm, khoảng 137 lít), nền cát, có hang đá, nước 24–27 °C, pH 6–7. Cá dài tới 20 cm, độ khó 4/8. Điểm khó nhất là tính dữ nên phải chọn bạn cùng bể kỹ.",
   "mistakes": [
-    "Ghép với cá nhỏ hoặc hiền thì dễ gặp chuyện; hãy nuôi riêng một loài hoặc chỉ ghép với các loài cichlid lớn khác.",
-    "Bày đồ trang trí và cây yếu rồi để vậy; cá hay đào bới, nên trải nền cát, chọn cây cứng trồng chậu hoặc buộc lên lũa.",
-    "Không cho cá chỗ trốn; hãy xếp đá thành hang để cá có chỗ lui vào."
+    "Thả chung với cá nhỏ hoặc cá hiền, trong khi đây là loài dữ; nên nuôi riêng một loài hoặc ghép với cichlid lớn khác.",
+    "Không làm chỗ trốn; nên xếp đá thành hang vì cá thích có chỗ lui vào.",
+    "Trồng cây yếu thả thẳng xuống nền, trong khi cá hay đào bới và sắp xếp lại bể; nên chọn cây cứng, trồng trong chậu hoặc buộc lên lũa."
   ],
   "speciesUpdatedAt": "2026-11-09",
-  "generatedAt": "2026-11-13T19:25:11.857Z",
-  "review": "approved"
+  "generatedAt": "2026-11-13T07:12:15.867Z",
+  "review": "pending",
+  "problems": [
+    "\"cá hay đào bới và sắp xếp lại bể\": the page hedges this as \"có khả năng sẽ đào bới\" (they may dig). The summary turns that into a habitual certainty."
+  ]
 }

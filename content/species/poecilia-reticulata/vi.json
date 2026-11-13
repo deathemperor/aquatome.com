@@ -6,7 +6,10 @@
     "Cá guppy",
     "Cá bảy màu orange line",
     "Wild guppy Rio Morichal",
-    "Orange line"
+    "Orange line",
+    "Cá guppy hoang dã",
+    "Cá guppy Rio Morichal",
+    "Wild Guppy"
   ],
   "sections": {
     "quickFacts:sprucepets": "<ul><li>Tuổi thọ: 2 đến 3 năm</li><li>Nguồn gốc: bản địa Nam Mỹ, cá bán làm cảnh đều là cá nhân giống trong bể</li><li>Tính cách: hiền</li><li>Tầng bơi: tầng mặt và tầng giữa</li><li>Thức ăn: ăn tạp</li><li>Sinh sản: đẻ con</li></ul>",
@@ -38,7 +41,9 @@
     "dimorphism:aquatome": "<p>Ở dòng kohaku koi, con đực có hoa văn đỏ trên phần lớn thân, kể cả vây lưng và vây đuôi. Ngực và phần bụng phía sau thường màu vàng nhạt. Con đực đẹp nhất thì gần như cả thân vàng nhạt, chỉ có vây, vệt đỏ trên lưng và mõm là đỏ. Dòng này gần với dòng full red, nhưng khác ở chỗ gonopodium không được có màu đỏ. Con cái ít đỏ hơn hẳn, thường chỉ có màu ở vây đuôi, vệt trên lưng và mõm, còn vây lưng và vây hậu môn thường không có màu.</p>",
     "distribution:glaser": "<p>Dòng cá bảy màu hoang dã này có nguồn gốc từ sông Rio Morichal ở Venezuela.</p>",
     "beforeYouBuy:glaser": "<p>Người chơi chuyên các dòng cá đẻ con hoang dã còn gọi con này là \"orange line\". Nó là một dạng cá bảy màu hoang dã rất nhỏ và thon, không phải dòng đột biến do người lai tạo. Các quần thể cá bảy màu hoang dã khác thường khỏe, còn dòng này thì có tiếng là hơi yếu. Đây là cá nano rất hợp cho người đã chơi lâu năm.</p>",
-    "maintenance:glaser": "<p>Giữ lượng vi khuẩn trong nước càng thấp càng tốt. Đây là nguyên tắc cơ bản, và nếu lơ là thì cá orange line bệnh rất nhanh.</p>"
+    "maintenance:glaser": "<p>Giữ lượng vi khuẩn trong nước càng thấp càng tốt. Đây là nguyên tắc cơ bản, và nếu lơ là thì cá orange line bệnh rất nhanh.</p>",
+    "quickFacts:glaser": "<p>Nguồn gốc: cá trại.</p>",
+    "notes:glaser": "<p>Dòng cá bảy màu hoang dã từ sông Rio Morichal ở Venezuela còn có tên \"orange line\". Người chuyên chơi các dòng cá đẻ con hoang dã hay gọi nó bằng tên này. Đây là một dòng bảy màu hoang dã rất nhỏ và thon, chứ không phải dạng đột biến do người lai tạo ra.</p><p>So với các dòng bảy màu hoang dã khác, dòng này hơi nhạy cảm. Lúc nào cũng phải giữ lượng vi khuẩn trong nước càng thấp càng tốt. Bỏ qua nguyên tắc cơ bản này thì cá orange line sẽ bệnh rất nhanh!</p><p>Những con cá nhỏ đẹp như ngọc này rất hợp cho bể nano của người chơi đã có kinh nghiệm.</p>"
   },
   "quality": {
     "score": 0.8,
@@ -47,7 +52,7 @@
       "sprucepets": 0.93,
       "seriouslyfish": 0.8,
       "aquatome": 0.82,
-      "glaser": 0.85
+      "glaser": 0.8
     }
   }
 }

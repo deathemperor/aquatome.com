@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/amphiliidae/amphilius_atesuensis.htm
 title: Amphilius atesuensis Boulenger, 1904
-fetchedAt: 2026-11-13T17:25:36.831Z
+fetchedAt: 2026-11-13T04:50:38.760Z
 hash: 812ce4418542d7a965de764ac985b122bedd022358925b086626d92df8c6f83e
 ---
 

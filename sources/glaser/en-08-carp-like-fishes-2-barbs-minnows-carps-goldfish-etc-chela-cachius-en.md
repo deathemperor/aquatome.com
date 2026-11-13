@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/chela_cachius_en/
 title: Chela cachius - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:47:11.907Z
+fetchedAt: 2026-11-13T05:54:33.186Z
 hash: dd4fef20e0a14f129196ca843d0d4fc66060f5f8180036e55995c5a0e3575298
 ---
 

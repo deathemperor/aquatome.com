@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_sp_rio_caete_en/
 title: Geophagus sp. Rio Caete - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:52:40.272Z
+fetchedAt: 2026-11-13T06:11:43.692Z
 hash: 70c7fe97732ce05b3310ea6e26b6ee0395dcd5adfa6b0cdbb107ccbfc5d26a39
 ---
 

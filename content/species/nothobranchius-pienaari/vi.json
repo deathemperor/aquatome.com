@@ -1,21 +1,24 @@
 {
-  "slug": "ca-nothobranchius-pienaari",
-  "name": "Cá Nothobranchius pienaari",
+  "slug": "ca-killi-nothobranchius-pienaari",
+  "name": "Cá killi Nothobranchius pienaari",
   "altNames": [
     "Cá Rachovii đen",
-    "Black Rachovii"
+    "Black Rachovii",
+    "Cá killi Black Rachovii"
   ],
   "sections": {
-    "beforeYouBuy:glaser": "<p>Cá killi Nothobranchius rachovii là một trong những loài được nuôi nhiều nhất của giống này. Màu của nó cực kỳ sặc sỡ, và lúc cá khoe màu hay bắt cặp thì trông rất đẹp mắt. Các dòng N. rachovii nuôi trong bể hiện nay chủ yếu là con cháu của đàn cá E. Roloff bắt năm 1958 gần Beira, Mozambique.</p><p>Thỉnh thoảng cũng có người chơi khác bắt loài cá đẹp này về và đưa các dòng của họ vào giới nuôi. Nhưng chưa dòng nào phổ biến bằng dòng \"Beira\" của Roloff. Một trong số đó có tên \"Black Rachovii\", lúc đầu người ta tưởng nó chỉ là một dạng địa phương của N. rachovii. Tháng 12 năm 2010, Black Rachovii được mô tả thành loài riêng với tên N. pienaari. Hiện đã có cá của loài này do trại ở Đức cho đẻ.</p>",
-    "distribution:glaser": "<p>Black Rachovii có nguồn gốc từ Vườn quốc gia Kruger ở Nam Phi. Pienaard là người đầu tiên bắt được loài này ở đây, vào năm 1968.</p>",
-    "reproduction:glaser": "<p>Cách nuôi và cho đẻ N. pienaari rất giống loài N. rachovii quen thuộc. So với các loài khác cùng giống, N. pienaari sống khá lâu.</p>",
-    "notes:glaser": "<p>Nothobranchius: ghép từ tiếng Hy Lạp cổ \"nothos\" = giả, không thật và \"branchion\" = mang, ý nói cấu tạo của mang cá. rachovii: đặt theo tên Arthur Rachow, một người chơi cá cảnh người Đức. pienaari: đặt theo tên người đầu tiên bắt được loài này.</p>"
+    "beforeYouBuy:glaser": "<p>Nothobranchius rachovii là một trong những loài killi được nuôi nhiều nhất của chi này. Các dòng N. rachovii đang nuôi trong bể chủ yếu là con cháu của những con cá E. Roloff bắt năm 1958 gần Beira, Mozambique. Thỉnh thoảng cũng có người chơi khác bắt loài này về và đưa thêm dòng mới vào thú chơi, nhưng không dòng nào được nuôi nhiều bằng dòng \"Beira\" của Roloff. Một trong những dòng đó từng bị tưởng là một biến thể địa phương của N. rachovii và được gọi là \"Black Rachovii\". Đến tháng 12 năm 2010, Black Rachovii được mô tả thành một loài riêng với tên N. pienaari.</p>",
+    "distribution:glaser": "<p>Black Rachovii có nguồn gốc từ Vườn quốc gia Kruger ở Nam Phi. Pienaard là người bắt được nó đầu tiên ở đây, vào năm 1968.</p>",
+    "reproduction:glaser": "<p>N. pienaari nuôi và cho đẻ gần giống hệt N. rachovii vốn đã quen thuộc với người chơi. Trong chi này, nó thuộc nhóm loài sống tương đối lâu.</p>",
+    "notes:glaser": "<p>Nothobranchius: ghép từ tiếng Hy Lạp cổ \"nothos\" = giả, không thật và \"branchion\" = mang, chỉ cấu tạo mang của chúng. rachovii: đặt theo tên người chơi cá người Đức Arthur Rachow. pienaari: đặt theo tên người đầu tiên bắt được loài này.</p>",
+    "quickFacts:glaser": "<p>Tên thường gọi: Black Rachovii. Nguồn gốc: cá cho đẻ trong bể.</p>",
+    "behaviour:glaser": "<p>Loài này cực kỳ sặc sỡ. Lúc khoe vây và bắt cặp, chúng trông rất đẹp mắt.</p>"
   },
   "quality": {
-    "score": 0.95,
+    "score": 0.8,
     "indexable": false,
     "bySource": {
-      "glaser": 0.95
+      "glaser": 0.8
     },
     "reason": "thin"
   }

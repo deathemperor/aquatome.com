@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_sp_aff_tigrinus_en/
 title: Leporinus sp. aff. tigrinus - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:46:18.217Z
+fetchedAt: 2026-11-13T05:48:49.777Z
 hash: 75ea6656c818036e8095b4903395a4de7cd62e5775e238892d7a51776e8295b4
 ---
 

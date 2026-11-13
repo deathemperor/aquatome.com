@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/golden_barb_koi_en/
 title: Golden barb Koi - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:37:45.216Z
+fetchedAt: 2026-11-13T05:32:30.648Z
 hash: a89849884baf7784fac95046c963113b6eeee6a0eb7fe6ec653976029d988a1e
 ---
 

@@ -1,7 +1,7 @@
 ---
 url: https://aquariumbreeder.com/fast-growing-plants-in-the-tank/
 title: 7 Fast-Growing Plants in the Tank - Shrimp and Snail Breeder
-fetchedAt: 2026-11-12T19:30:44.735Z
+fetchedAt: 2026-11-13T05:01:36.316Z
 hash: 545501ba25817bb9cffecdd2e4fe3f2ce63634537cc5deed8555d5c61a848202
 ---
 

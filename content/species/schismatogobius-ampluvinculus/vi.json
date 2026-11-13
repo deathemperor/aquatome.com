@@ -3,7 +3,8 @@
   "name": "Cá bống Schismatogobius ampluvinculus",
   "altNames": [
     "Cá bống rồng nhỏ",
-    "Micro Dragon Goby"
+    "Micro Dragon Goby",
+    "Cá bống rồng mini"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Cá bống Đài Loan có màu đen trắng tương phản. Mỗi con Schismatogobius mang một kiểu màu riêng, không có hai con nào giống hệt nhau, và chúng có thể đổi màu rất ngoạn mục. Cá bán ra thường dài 2–5 cm.</p>",
@@ -12,16 +13,16 @@
     "waterConditions:glaser": "<p>S. ampluvinculus là loài cận nhiệt đới, nên nuôi ở nước mát.</p>",
     "diet:glaser": "<p>Cho ăn không có gì khó. Chúng ăn ngay đồ đông lạnh lẫn đồ tươi sống.</p>",
     "reproduction:glaser": "<p>Giống Schismatogobius có khoảng 10 loài, chúng đẻ khá dễ, nhưng đến nay chưa có ai báo lại việc nuôi lên được cá con ở loài nào. Cá bột cực nhỏ, có lẽ chỉ lớn được trong nước biển.</p>",
-    "quickFacts:bwaquatics": "<p>Đây là một loài cá bống nhỏ và hiếm. Nó đổi màu rất tài để hòa vào nền xung quanh. Giống nhiều loài bống khác, nó thích nước sạch, mát và giàu oxy.</p>",
-    "equipment:bwaquatics": "<p>Bể nuôi:</p><ul><li>Bể lớn, dòng chảy mạnh</li><li>Nước sạch</li><li>Nền cát</li></ul><p>Nền cát khá quan trọng, vì khi bị stress chúng rất thích vùi mình xuống cát.</p>",
-    "behaviour:bwaquatics": "<p>Loài này rất thích sống theo bầy, nên nuôi thành nhóm. Cẩn thận khi thả chung với tép cảnh cỡ nhỏ.</p><p>Nuôi chung hợp với: cá nano nhỏ, cá lúa, tép, ốc cỡ lớn, và các loài bống, chạch khác không giành ăn với nó, chẳng hạn Stiphodon.</p>"
+    "quickFacts:bwaquatics": "<p>Đây là một loài cá bống nhỏ, hiếm gặp. Nó đổi màu theo môi trường xung quanh giỏi đến bất ngờ. Giống nhiều loài cá bống khác, chúng thích nước sạch, mát và nhiều oxy. Nền cát khá quan trọng, vì mỗi khi hoảng sợ chúng rất thích vùi mình xuống cát.</p><p>Nuôi chung được với: cá nano cỡ nhỏ, cá lúa (Rice Fish), tép ốc cỡ lớn, các loài cá bống và cá chạch khác không giành hết thức ăn của nó, chẳng hạn Stiphodon.</p>",
+    "equipment:bwaquatics": "<ul><li>Bể lớn, dòng chảy mạnh</li><li>Nước sạch</li><li>Nền cát</li></ul>",
+    "behaviour:bwaquatics": "<p>Loài này rất thích sống theo đàn, nên nuôi thành nhóm. Cẩn thận khi nuôi chung với tép cảnh nhỏ.</p>"
   },
   "quality": {
-    "score": 0.6,
+    "score": 0.72,
     "indexable": false,
     "bySource": {
       "glaser": 0.85,
-      "bwaquatics": 0.6
+      "bwaquatics": 0.72
     },
     "reason": "thin"
   }

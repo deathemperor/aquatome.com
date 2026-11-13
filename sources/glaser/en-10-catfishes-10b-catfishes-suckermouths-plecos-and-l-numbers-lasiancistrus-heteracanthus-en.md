@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lasiancistrus_heteracanthus_en/
 title: Lasiancistrus heteracanthus - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:51:57.903Z
+fetchedAt: 2026-11-13T06:10:13.200Z
 hash: 55761f915a0be64bf71ab6391e5eff75b619c5862e6ec1777a10d468e9910a82
 ---
 

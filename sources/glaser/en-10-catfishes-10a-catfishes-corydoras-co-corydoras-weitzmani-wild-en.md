@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_weitzmani_wild_en/
 title: Corydoras weitzmani WILD - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:54:43.423Z
+fetchedAt: 2026-11-13T06:20:47.921Z
 hash: 524dec29e158ae1d91a7b527a223b7f0fad90fa6c4d27b11b2c40034f56c903c
 ---
 

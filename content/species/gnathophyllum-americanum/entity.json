@@ -13,7 +13,8 @@
     "andaman",
     "japan",
     "oceania",
-    "australia"
+    "australia",
+    "africa"
   ],
   "dataCard": {
     "tempC": [
@@ -51,7 +52,7 @@
         "source": "aquariumbreeder",
         "value": {
           "min": 2,
-          "max": 2
+          "max": 3
         }
       }
     ]
@@ -61,25 +62,25 @@
       "key": "quickFacts",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
-      "html": "<ul><li>Name: Bumble bee shrimp (Striped Bumble Bee Shrimp, Striped harlequin, Zebra shrimp – Gnathophyllum americanum; Spotted Bumble Bee Shrimp – Gnathophyllum elegans)</li><li>Minimum tank size: 10 gallons (~40 litres)</li><li>Breeding: Difficult (almost impossible)</li><li>Water type: SG 1.023–1.025</li><li>KH: 8–12</li><li>Nitrate: less than 20 ppm</li><li>Diet: carnivorous</li><li>Temperament: territorial</li><li>Life span: up to 2 years</li><li>Colour: dark and white stripes, or yellow dots all over the body</li></ul>"
+      "html": "<ul><li>Names: Bumble bee shrimp; Striped Bumble Bee Shrimp (Gnathophyllum americanum), also called the striped harlequin or zebra shrimp; Spotted Bumble Bee Shrimp (Gnathophyllum elegans)</li><li>Minimum tank: 40 litres</li><li>Breeding: difficult (almost impossible)</li><li>Salinity: SG 1.023–1.025</li><li>KH: 8–12</li><li>Nitrate: less than 20 ppm</li><li>Diet: carnivorous</li><li>Temperament: territorial</li><li>Colour: dark and white stripes or yellow dots all over the body</li></ul>"
     },
     {
       "key": "distribution",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Bumble bee shrimp are distributed mainly in the eastern Atlantic. They are also known from Bermuda, India (Landfall Island, North Andaman), and from the Indo-West Pacific region from the Red Sea to Japan, Australia and Oceania.</p>"
+      "html": "<p>Bumble bee shrimp are mainly distributed in the eastern Atlantic. They are also known from Bermuda, India (Landfall Island, North Andaman), and from the Indo-West Pacific region from the Red Sea to Japan, Australia and Oceania.</p>"
     },
     {
       "key": "habitat",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Gnathophyllum is a group of marine crustaceans that live in the shallow waters of tropical and subtropical seas.</p><p>They are often found on rocky and coral reefs as free-living shrimp, or in association with echinoids, ophiuroids, sea stars and sea cucumbers in intertidal pools. They are also known to be associated with coelenterates, echinoderms and the echinoid Echinometra lucunter, where they presumably find shelter, although there is no certainty about possible commensalism in Gnathophyllum species. They are found free-living and on a wide array of substrates (hard natural, hard anthropogenic, and amidst algae), suggesting that their body colour pattern is not particularly related to any habitat type.</p>"
+      "html": "<p>Gnathophyllum is a group of marine crustaceans living in the shallow waters of tropical and subtropical seas. They are often found on rocky and coral reefs, as free-living shrimp or in association with echinoids, ophiuroids, sea stars and sea cucumbers, from intertidal pools. They are found free-living and on a wide array of substrates (hard natural, hard anthropogenic, and amidst algae), suggesting that their colour pattern is not particularly related to any habitat type.</p><p>According to studies, these shrimp are known to be associated with coelenterates, echinoderms and the echinoid Echinometra lucunter, where they presumably find shelter, although commensalism in Gnathophyllum is not certain.</p>"
     },
     {
       "key": "aquariumSize",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Because of their small size there are no minimum requirements. Even a 10 gallon (40 litres) tank is good enough for a few Bumble bee shrimp.</p><p>A larger tank is much better for the stability of water chemistry. The only problem is that these little shrimp may get lost in large tanks, so you may see them only about once a month.</p>"
+      "html": "<p>Because of their small size there are no strict minimum requirements; even a 40-litre tank is good enough for a few shrimp. A larger tank is better for the stability of water chemistry, but these small shrimp may get lost in large tanks and be seen only about once a month.</p>"
     },
     {
       "key": "maintenance",
@@ -91,43 +92,43 @@
       "key": "waterConditions",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
-      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 8.1–8.4</li><li>Hardness: 8–12 dKH</li><li>Calcium: 400–450 ppm is optimal, but it can be a bit lower or higher. Calcium, pH and alkalinity must be maintained at acceptable levels.</li><li>Salinity: SG 1.023–1.025</li><li>Nitrate: less than 20 ppm</li></ul>"
+      "html": "<p>They have no special water quality requirements and should be kept under conditions suitable for typical reef aquarium inhabitants.</p><ul><li>Temperature: 22–26°C</li><li>pH: 8.1–8.4</li><li>Hardness: 8–12 dKH</li><li>Calcium: 400–450 ppm is optimal, but it can be a bit lower or higher</li></ul><p>They need careful, slow acclimation like all invertebrates, generally 2–3 hours, and do not like swings in salinity.</p>"
     },
     {
       "key": "equipment",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Lighting: Bumble bee shrimp do not really need light, so lighting should be adapted to the needs of the corals and fish in the tank.</p><p>Substrate: These shrimp are not diggers and have no preference for the substrate.</p>"
+      "html": "<p>Lighting: they do not really need light, so lighting should suit the corals and fish in the tank.</p><p>Substrate: they are not diggers and have no substrate preference.</p><p>Decor: include plenty of structures where the shrimp can hide.</p>"
     },
     {
       "key": "diet",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>The most challenging aspect of caring for Bumble bee shrimp is the feeding regime. They are carnivorous marine invertebrates and do not eat algae at all.</p><p>In the wild they prefer to feed on sea stars; to be precise, they eat the tube feet of echinoderms. Therefore Bumble bee shrimp should not be kept with most starfish, sea urchins, sea cucumbers and sand dollars, or they should be well fed to reduce the risk of aggression. There are some reports of consumption of other echinoderms even without tube feet, but these observations were usually recorded on starved specimens with no access to sea stars.</p><p>They do not require sea stars for survival. If sea stars are not present in the tank they will not starve to death (unlike Harlequin shrimp). Bumble bee shrimp will eat any frozen meaty foods (such as brine or mysis shrimp, cockle, or small pieces of fish or shrimp) that you feed them.</p><p>These shrimp are very bad at finding food, and it is recommended to feed them every day.</p>"
+      "html": "<p>Feeding is the most challenging aspect of keeping these shrimp. They are carnivorous and do not eat algae at all. In the wild they prefer sea stars, specifically the tube feet of echinoderms, so they should not be kept with most starfish, sea urchins, sea cucumbers and sand dollars unless well fed, to reduce the risk of aggression. Some reports mention other echinoderms being eaten even without tube feet, but usually in starved specimens with no access to sea stars.</p><p>They do not require sea stars to survive. Without sea stars they will not starve (unlike Harlequin shrimp) and will eat any frozen meaty foods, such as brine or mysis shrimp, cockle, or small pieces of fish or shrimp. They are very bad at finding food, and daily feeding is recommended.</p><p><strong>Asterina starfish:</strong> there is a popular misconception that bumble bee shrimp control or eliminate Asterina starfish. Asterina have no tube feet, the shrimp would have to be really hungry, and they are generally not good hunters. For eliminating Asterina, Harlequin shrimp are needed. There are many Asterina species, some coral safe and others able to harm a reef tank, and they are hard to tell apart and multiply quickly.</p>"
     },
     {
       "key": "behaviour",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Until Bumble bee shrimp get used to the daily life of the aquarium they are very shy and easier to find at night when the lights go out. Through the day many like to sit under rocks or hide away from their tank mates. This lifestyle is probably due to their small size and the fact that many predators could take advantage of them.</p><p>In nature, Bumble bee shrimp are typically found in pairs, where males display a ritual dance by covering and shepherding the female with his claws. However, unlike their closest relative the Harlequin shrimp (Hymenocera picta), they do not show completely monogamous behaviour.</p><p>Although quite peaceful, they do not like the presence of their own kind in the tank. Despite their small size they are territorial, but their territories are not big and they usually do not fight to the death.</p><p><strong>Reef safety:</strong> In most cases there are no problems with Bumble bee shrimp in reef tanks and they will not harm corals. Only one case is known of them picking on Crocea clams; just do not let them starve.</p><p><strong>Tankmates:</strong> Bumble bee shrimp do not bother other tankmates and usually come out right before the lights go off to find food. The ideal situation is a species tank, but they can be kept with other fish if chosen with care. They are small and prone to being eaten by many carnivorous fish; large predators such as triggerfishes, wrasses, hawkfishes and angelfishes are not suitable. Avoid aggressive eaters and large or aggressive invertebrates such as Coral banded shrimp and Arrow crabs.</p><p>Potentially good tankmates: Boxer crabs, Emerald crabs, Porcelain anemone crabs, cleaner shrimp (Peppermint shrimp, Red Fire shrimp, Skunk Cleaner Shrimp, Red-white Cleaner Shrimp), Saron shrimp and Sexy shrimp usually do not bother Bumble bee shrimp.</p>"
+      "html": "<p>Until they get used to the aquarium, they are very shy and easier to see at night when the lights go out. During the day many sit under rocks or hide from tank mates, probably because of their small size and many potential predators.</p><p>In nature they are typically found in pairs, where the male performs a ritual dance, covering and shepherding the female with his claws. Unlike their close relative the Harlequin shrimp (Hymenocera picta), they are not completely monogamous.</p><p>Although quite peaceful, they do not like the presence of their own kind in the tank and are territorial despite their small size. Their territories are small and they usually do not fight to the death.</p>"
     },
     {
       "key": "dimorphism",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>The colouration depends on the species. Gnathophyllum americanum has a colour pattern of alternating transverse dark reddish-brown and white stripes; narrow transverse white bands are seen all over the carapace and abdomen (Striped Bumble Bee Shrimp). In Gnathophyllum elegans the adults have small yellow-orange spots (composed of smaller spots grouped together) scattered all over the body with no specific arrangement (Spotted Bumble Bee Shrimp).</p>"
+      "html": "<p>Colour pattern differs between species and life stages. Gnathophyllum americanum has alternating transverse dark reddish-brown and white stripes, with narrow white bands over the carapace and abdomen. Gnathophyllum elegans adults have small yellow-orange spots scattered over the body. Juveniles can have many stripes, blotches and dots, which fade in late juveniles.</p>"
     },
     {
       "key": "reproduction",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>There are no reports of Bumble bee shrimp breeding in captivity. Despite possible interest in exploiting these species in the marine aquarium trade, little is known about the larval, postlarval and juvenile stages of some species.</p><p>Females become mature when their carapace is around 2.3–4.4 mm. The larval development of this genus is poorly documented; so far only the first-stage zoea of Gnathophyllum americanum has been described.</p>"
+      "html": "<p>There are no reports of bumble bee shrimp breeding in captivity. Little is known about the larval, postlarval and juvenile stages. Females become mature when their carapace is around 2.3–4.4 mm. Larval development of the genus is poorly documented; only the first-stage zoea of Gnathophyllum americanum has been described.</p>"
     },
     {
       "key": "notes",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Bumble bee shrimp are a small saltwater species, reaching a maximum size of about 2.5 cm (generally a little less, about 2 cm) in the aquarium. Their rostrum is so short and directed slightly downwards that they look as if they have no head. In fully mature adults the body is very stout and the abdomen is straight.</p><p>The colour pattern differs between early juveniles and adults: juveniles can have many stripes, blotches and dots, which start fading in late juveniles.</p><p>There is no official data on how long Gnathophyllum species live in the wild. In captivity they are believed to reach 2–3 years with good care.</p><p><strong>Asterina starfish:</strong> There is a popular misconception that Bumble bee shrimp can control or eliminate Asterina starfish. Asterina starfish do not have tube feet, the shrimp would have to be really hungry, and in general they are not good hunters. To eliminate Asterina starfish, Harlequin shrimp are needed. There are many species of Asterina; some are coral safe while others can destroy a reef tank, and it is very difficult to tell which species you have. They also multiply very quickly, so if you see only one there are probably many others hiding.</p><p>Bumble bee shrimp should only be acquired if you are willing to give them special care and attention, since they cannot thrive on other food items nor survive in a tank full of aggressive tankmates.</p>"
+      "html": "<p><strong>Size and lifespan:</strong> up to about 2.5 cm in aquariums (generally a little less, about 2 cm). The rostrum is so short and downward-directed that they look headless. Lifespan in the wild is unknown; in captivity up to 2–3 years with good care.</p><p><strong>Reef safe:</strong> in most cases yes, they do not harm corals. Only one case is known of them picking on Crocea clams; do not let them starve.</p><p><strong>Tankmates:</strong> ideally a species tank, but they can be kept with other fish chosen with care. They are prone to being eaten by carnivorous fish; large predators such as triggerfish, wrasses, hawkfish and angelfish are unsuitable. Avoid large or aggressive invertebrates such as coral banded shrimp and arrow crabs. Boxer crabs, emerald crabs, porcelain anemone crabs, cleaner shrimp (peppermint, red fire, skunk, red-white), saron shrimp and sexy shrimp usually do not bother them.</p>"
     }
   ],
   "photos": [
@@ -166,6 +167,24 @@
       "title": "Marine Life Vlog - STRIPED BUMBLEBEE SHRIMP",
       "durationSec": 57,
       "lang": "en"
+    },
+    {
+      "youtubeId": "knEFoU3_c8g",
+      "title": "Striped Bumblebee Shrimp - Gnathophyllum americanum #stripedbumblebeeshrimp #gnathophyllumamericanum",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SNZRE5DDDWU",
+      "title": "Bumblebee Shrimp (Gnathophyllum americanum) ready for a fight!",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0fok9cMXGpQ",
+      "title": "Gnatophyllum americanum Bumblebee shrimp",
+      "durationSec": 116,
+      "lang": "en"
     }
   ],
   "productSlots": [
@@ -173,7 +192,9 @@
       "category": "be-ca",
       "keywords": [
         "bể nước mặn 40 lít",
-        "bể san hô nhỏ"
+        "bể san hô nhỏ",
+        "bể kính biển 40 lít",
+        "bể nano nước mặn"
       ]
     },
     {
@@ -181,7 +202,8 @@
       "keywords": [
         "tôm mysis đông lạnh",
         "artemia đông lạnh",
-        "thức ăn đông lạnh cho cá biển"
+        "thức ăn đông lạnh cho cá biển",
+        "mysis đông lạnh"
       ]
     },
     {
@@ -189,14 +211,17 @@
       "keywords": [
         "test KH nước biển",
         "test canxi nước biển",
-        "khúc xạ kế đo độ mặn"
+        "khúc xạ kế đo độ mặn",
+        "test KH nước mặn",
+        "test canxi bể biển"
       ]
     },
     {
       "category": "suoi",
       "keywords": [
         "sưởi bể nước mặn",
-        "quạt làm mát bể cá"
+        "quạt làm mát bể cá",
+        "máy sưởi thủy sinh 100W"
       ]
     }
   ],

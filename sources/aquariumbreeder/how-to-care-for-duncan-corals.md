@@ -1,7 +1,7 @@
 ---
 url: https://aquariumbreeder.com/how-to-care-for-duncan-corals/
 title: How to Care for Duncan Corals - Shrimp and Snail Breeder
-fetchedAt: 2026-11-13T17:46:50.691Z
+fetchedAt: 2026-11-13T05:13:47.929Z
 hash: 5da0a5f7e7f37d1c1ef8cdf81711ea557384ebe1f43ced4d781d9e67e213ab58
 ---
 

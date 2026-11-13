@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypancistrus_sp_l236_bred_en/
 title: Hypancistrus sp. L236 bred - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:56:36.904Z
+fetchedAt: 2026-11-13T06:25:44.205Z
 hash: 36dee4b1bdf00cb10803335c4da723ce5fa02e4e81e31b32ece2a2cd9fb15717
 ---
 

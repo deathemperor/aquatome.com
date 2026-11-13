@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/a_new_species_of_crenuchus__en/
 title: A new species of Crenuchus! - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:45:17.783Z
+fetchedAt: 2026-11-13T05:44:43.658Z
 hash: 9356c18c4f5cf207356f4a52957b6c5e3e83a6319291b514dca83c621222d677
 ---
 

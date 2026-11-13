@@ -1,7 +1,7 @@
 ---
 url: https://aquariumbreeder.com/how-to-fix-a-leaking-aquarium-with-and-without-draining/
 title: How To Fix A Leaking Aquarium With And Without Draining - Shrimp and Snail Breeder
-fetchedAt: 2026-11-13T17:44:34.681Z
+fetchedAt: 2026-11-13T05:09:27.703Z
 hash: 861397b3f6504082b74d083ffa57f5b00444f9110643d4eada2ee156f96eeab2
 ---
 

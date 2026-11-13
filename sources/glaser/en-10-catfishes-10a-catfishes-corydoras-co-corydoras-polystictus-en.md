@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_polystictus_en/
 title: Corydoras polystictus - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:50:05.402Z
+fetchedAt: 2026-11-13T06:08:07.521Z
 hash: 8ab9d653765fb31b586c483c18177108dd5b293177e0cbb30338a29d92fda143
 ---
 

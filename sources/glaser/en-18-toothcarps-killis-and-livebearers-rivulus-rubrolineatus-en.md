@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_rubrolineatus_en/
 title: Rivulus rubrolineatus - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:53:19.974Z
+fetchedAt: 2026-11-13T06:15:33.086Z
 hash: 6bde840c5ac27b70cbe393a3df77dff426b00cafe5e348e4118533f664cf665f
 ---
 

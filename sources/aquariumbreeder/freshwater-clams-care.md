@@ -1,7 +1,7 @@
 ---
 url: https://aquariumbreeder.com/freshwater-clams-care/
 title: Freshwater Clams Care - Shrimp and Snail Breeder
-fetchedAt: 2026-11-13T17:39:27.904Z
+fetchedAt: 2026-11-13T05:06:51.342Z
 hash: dbb1175dd6b454f5769e64eb955b99e1e9930094dd607aa8b7bf2675e200c4aa
 ---
 

@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_sp_san_juan_en-2/
 title: Corydoras sp. San Juan - Aquarium Glaser GmbH
-fetchedAt: 2026-11-13T18:54:17.382Z
+fetchedAt: 2026-11-13T06:17:46.095Z
 hash: af2877a1399aac2e44a9d54bea1c823a75652aa04d4aea41f0e403d78d6c8db6
 ---
 

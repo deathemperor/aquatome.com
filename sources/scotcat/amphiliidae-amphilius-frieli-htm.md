@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/amphiliidae/amphilius_frieli.htm
 title: Amphilius frieli Thomson & Page, 2015
-fetchedAt: 2026-11-13T17:29:10.838Z
+fetchedAt: 2026-11-13T04:55:59.864Z
 hash: cb3d118571f663f7c0a07c522b0af9568a48223b1d0dd7a079d9887664dc7837
 ---
 
