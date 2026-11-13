@@ -928,6 +928,15 @@ final class V2FlowTests: XCTestCase {
       XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the link didn't open the fish inside the post")
       XCTAssertTrue(app.pageBack.waitForExistence(timeout: 5), "no back button on a page inside the post")
       XCTAssertTrue(close.exists, "no ✕ on a page inside the post")
+      // Past its colour, as the bar turns to glass, the ✕ keeps a circle of its own after the bookmark and share's capsule
+      // (Design's parity, 13 Nov: iOS drew the three in one capsule there). Just before the ✕: the capsule's end, the page
+      // and the circle's edge, not one glass all through.
+      for _ in 0..<4 { app.swipeUp() }
+      Thread.sleep(forTimeInterval: 1.5)
+      let shot = Pixels(XCUIScreen.main.screenshot()), y = close.frame.midY
+      let before = stride(from: close.frame.minX - 24, through: close.frame.minX - 4, by: 1).map { shot.at($0, y) }
+      let tones = before.map { ($0.r + $0.g + $0.b) / 3 }
+      XCTAssertGreaterThan(tones.max()! - tones.min()!, 20, "the ✕ in one glass with the bookmark and share: \(before)")
       close.tap()
       XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 5), "the ✕ didn't close the whole post")
       XCTAssertFalse(app.descendants(matching: .any)["native-page"].exists, "the post still open under Hôm nay")

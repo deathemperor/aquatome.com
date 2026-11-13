@@ -1084,8 +1084,16 @@ private struct MatesCredits: View {
 }
 
 private extension View {
-  /// A toolbar's items only when `on`: after the view's other toolbars' items.
+  /// A toolbar's items only when `on`: after the view's other toolbars' items. On iOS 26, a fixed space first, so once the
+  /// bar turns to glass iOS doesn't draw them in one capsule with the others (Design's parity, 13 Nov: the post's ✕ joined
+  /// the bookmark and share past the colour; the guide post's stands apart).
   @ViewBuilder func toolbar<C: ToolbarContent>(when on: Bool, @ToolbarContentBuilder _ content: () -> C) -> some View {
-    if on { toolbar(content: content) } else { self }
+    if !on {
+      self
+    } else if #available(iOS 26, *) {
+      toolbar { ToolbarSpacer(.fixed, placement: .topBarTrailing); content() }
+    } else {
+      toolbar(content: content)
+    }
   }
 }
