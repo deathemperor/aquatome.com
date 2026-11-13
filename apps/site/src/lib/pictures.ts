@@ -18,11 +18,11 @@ export function photosOf(photos: Photo[]): Photo[] {
 /**
  * A fish tile's photos (SpeciesCard: the fish lists, their data files, a guide's fish cards, the home page's): its page's
  * head, which the tile shows whole where no frame may fill with it (img.ts tileFrame), then photosOf's for a tile whose
- * page already shows the head. A tile and the page it opens show one photo, and a tile never says "no photo yet" while its
- * page shows one (the chief of staff and the Design Lead, 13 Nov). A head carrying a source's banner doesn't lead its page:
- * a person picks the head instead (engine-state/_photo-head-picks.json), and a banner photo is never a tile's next photo
- * either (the Design Lead, 13 Nov). Not for what crops a photo as it is: a fish's
- * round chip on an equipment page.
+ * page already shows the head. A tile and the page it opens show one photo (the chief of staff and the Design Lead, 13 Nov).
+ * A photo carrying a source's banner is never a tile's next photo (the Design Lead, 13 Nov): where the head is shown
+ * already and the page's only other photo has a banner, the tile has none. A banner head gives way to a person's pick
+ * where the page has another photo (engine-state/_photo-head-picks.json); with none, it leads until one is found. Not for
+ * what crops a photo as it is: a fish's round chip on an equipment page.
  */
 export const tilePhotos = (photos: Photo[]): Photo[] => {
   const head = photos.find(p => !p.generated)
