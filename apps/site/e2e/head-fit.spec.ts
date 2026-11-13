@@ -18,12 +18,16 @@ for (const path of ['/ca/ca-apisto-cacatuoides/', '/ms/ikan/ikan-uji-melayu/']) 
   await expect(credit).toHaveAttribute('data-tip', 'CC BY-SA 3.0')
   await expect(credit).toHaveAttribute('href', 'https://commons.wikimedia.org/wiki/File:Cacatuoides.JPG')
   // The app's card and page head are this photo too, with its whole area as the box, so a frame of another shape shows it
-  // whole (the Design Lead's line, accepted by the chief of staff, 13 Nov).
+  // whole (the Design Lead's line, accepted by the chief of staff, 13 Nov); or, while the switch for it is off
+  // (app-index.ts APP_WHOLE_PHOTOS), neither has a photo. Never one without the other.
   const whole={x:0,y:0,w:1,h:1},lang=path.startsWith('/ms/')?'ms':'vi',index=await (await request.get(`/app/${lang}.json`)).json()
   const item=index.items.find((i:{id:string})=>i.id==='apistogramma-cacatuoides')
-  expect(item, 'marked page is still listed').toBeTruthy();expect(item.img).toBeTruthy();expect(item.imgBox).toEqual(whole)
+  expect(item, 'marked page is still listed').toBeTruthy()
   const shard=await (await request.get(`/app/pages/${lang}/fish-${pageShard(item.path,index.shards.fish.n)}.json`)).json()
-  expect(shard.pages[item.path].lead).toMatchObject({src:await head.getAttribute('src'),box:whole})
+  if (item.img) {
+    expect(item.imgBox).toEqual(whole)
+    expect(shard.pages[item.path].lead).toMatchObject({src:await head.getAttribute('src'),box:whole})
+  } else expect([item.imgBox,shard.pages[item.path].lead]).toEqual([undefined,undefined])
   expect(errors).toEqual([])
 })
 

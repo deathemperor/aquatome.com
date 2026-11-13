@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import { CurationSchema, LANGS, type Content, type Photo } from '@aq/schema'
 import { PageDoc } from '@aq/schema/app-page'
-import { appIndex, cardSrc, photoBox } from '../src/lib/app-index'
+import { APP_WHOLE_PHOTOS, appIndex, cardSrc, photoBox, refusedByCards } from '../src/lib/app-index'
 import { appPages, fishDoc, guideDoc } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { guideParts } from '../src/lib/guide-page'
@@ -12,8 +12,15 @@ import { guideImage } from '../src/lib/mentions'
 // never nothing (the Design Lead's line, accepted by the chief of staff, 13 Nov). On 13 Nov 41 fish pages led with a
 // dealer's shot cropped too near the fish, which the app's data left out of the page's `lead` and the index's `img`, so
 // the app showed no photo for them, or a later one on the card. Now `img` and `lead` are the page's first photo that
-// isn't generated, with where the fish is (`box`): its whole area where the cards' frames refuse the photo.
+// isn't generated, with where the fish is (`box`): its whole area where the cards' frames refuse the photo. Until the v2
+// Lab's build that draws the box is on TestFlight, a switch keeps such a photo off both, so today's build doesn't crop it
+// (APP_WHOLE_PHOTOS, the chief of staff, 13 Nov): each case holds both ways.
 const WHOLE = { x: 0, y: 0, w: 1, h: 1 }
+async function withSwitch<T>(on: boolean, run: () => Promise<T>): Promise<T> {
+  const was = APP_WHOLE_PHOTOS.on
+  APP_WHOLE_PHOTOS.on = on
+  try { return await run() } finally { APP_WHOLE_PHOTOS.on = was }
+}
 const crop = { originalWidth: 1200, originalHeight: 800, window: { x0: 100, y0: 50, x1: 1100, y1: 741 }, subject: { x0: 110, y0: 300, x1: 1090, y1: 500 }, margin: 6 }
 const cropped = (o: Partial<Photo> = {}): Photo => ({
   url: 'https://media.aquatome.com/processed/app-whole.webp', thumb: 'https://media.aquatome.com/processed/app-whole-480.webp',
@@ -33,20 +40,28 @@ async function withPhotos(photos: Photo[]) {
 
 // The site leads the first whole (headFit 'contain'); the second fits a 4:3 and a 16:9 cover but not the app's other cards.
 for (const [what, p] of [['led whole on the site', cropped({ headFit: 'contain' })], ['refused by the cards\' frames', cropped()]] as const) {
-  test(`a fish whose only photo is ${what}: its card and its head are that photo, with its whole area as the box`, async () => {
-    const { doc, item } = await withPhotos([p])
+  test(`a fish whose only photo is ${what}: with the switch on, its card and its head are that photo, with its whole area as the box`, async () => {
+    const { doc, item } = await withSwitch(true, () => withPhotos([p]))
     expect([item.img, item.imgBox]).toEqual([smallSrc(p), WHOLE])
     expect(doc.lead).toMatchObject({ src: p.url, w: 1000, h: 691, alt: expect.any(String), credit: { text: expect.any(String) }, box: WHOLE })
     expect(PageDoc.safeParse(doc).success).toBe(true)
   }, 120_000)
+
+  test(`a fish whose only photo is ${what}: with the switch off, neither its card nor its head has a photo`, async () => {
+    const { doc, item } = await withSwitch(false, () => withPhotos([p]))
+    expect([item.img, item.imgBox, doc.lead]).toEqual([undefined, undefined, undefined])
+    expect(PageDoc.safeParse(doc).success).toBe(true)
+  }, 120_000)
 }
 
-test("a fish whose head the cards refuse, with a later photo that fits: its card is the head, not the later photo", async () => {
+test("a fish whose head the cards refuse, with a later photo that fits: its card is the head, not the later photo, either way", async () => {
   const neon = (await getContent('vi')).species.find(s => s.id === 'paracheirodon-innesi')!
   const head = cropped(), next = neon.photos[0]!
-  const { doc, item } = await withPhotos([head, next])
-  expect([item.img, item.imgBox]).toEqual([smallSrc(head), WHOLE])
-  expect([doc.lead?.src, doc.lead?.box]).toEqual([head.url, WHOLE])
+  const on = await withSwitch(true, () => withPhotos([head, next]))
+  expect([on.item.img, on.item.imgBox]).toEqual([smallSrc(head), WHOLE])
+  expect([on.doc.lead?.src, on.doc.lead?.box]).toEqual([head.url, WHOLE])
+  const off = await withSwitch(false, () => withPhotos([head, next]))
+  expect([off.item.img, off.item.imgBox, off.doc.lead]).toEqual([undefined, undefined, undefined])
 }, 120_000)
 
 test("a generated picture is never a card's photo, and leads its page, labelled, only where the page has no real photo", async () => {
@@ -124,6 +139,9 @@ test('a fish with no photo has neither a card photo nor a head', async () => {
   expect([doc.lead, item.img, item.imgBox]).toEqual([undefined, undefined, undefined])
 }, 120_000)
 
+/** The index's kinds whose card is their page's photo (pagePhoto): fish and breeds are 'fish'. */
+const PAGE_PHOTO_KINDS = new Set(['fish', 'plant'])
+
 /** Every photo the content holds, by its address: the photo a card's small copy and a head's full one are both of. */
 function photosByUrl(c: Content): Map<string, Photo> {
   const out = new Map<string, Photo>(), seen = new Set<object>()
@@ -143,9 +161,13 @@ function photosByUrl(c: Content): Map<string, Photo> {
 // The loader frames a fish's or breed's photo with no box by its whole area (the Design Lead, 13 Nov): the app is sent a
 // box with every fish and breed card and head, so it decides fill or whole by the frames rule alone. 7 of the fixture's 11
 // fish and breed photos have no box in its record (test/engine-state/_photo-boxes.json).
-test("every card in the app index shows its page's head, the same photo with the same box, and every fish's carries one, in every language", async () => {
+// With the switch off, no fish's, breed's or plant's card or head is a photo the cards refuse: on the fixture, the cockatoo
+// cichlid's, in every language it has a page.
+for (const on of [false, true]) test(`every card in the app index shows its page's head, the same photo with the same box, and every fish's carries one, in every language, with the switch ${on ? 'on' : 'off'}`, () => withSwitch(on, async () => {
+  let refused = 0
   for (const lang of LANGS) {
-    const c = await getContent(lang)
+    // A copy: the pages are built once a content object, and the other run's switch built them.
+    const c = { ...(await getContent(lang)) }
     const byUrl = photosByUrl(c), docs = await appPages(lang, c)
     const byPath = new Map(Object.values(docs).flat().map(d => [d.path, d]))
     const pictured = new Map<string, number>()
@@ -161,9 +183,12 @@ test("every card in the app index shows its page's head, the same photo with the
       expect(cardSrc(p!), `${lang} ${i.kind} ${i.path}`).toBe(i.img)
       expect(head.box, `${lang} ${i.path}`).toEqual(i.imgBox)
       pictured.set(i.kind, (pictured.get(i.kind) ?? 0) + 1)
+      if (PAGE_PHOTO_KINDS.has(i.kind) && refusedByCards(p!)) refused++
     }
     for (const d of docs.fish) if (d.lead) expect(d.lead.box, `${lang} ${d.path}`).toBeDefined()
     // Not vacuous: in Vietnamese, each kind with pictures has some checked.
     if (lang === 'vi') for (const k of ['fish', 'plant', 'guide', 'video', 'equipment']) expect(pictured.get(k) ?? 0, k).toBeGreaterThan(0)
   }
-}, 1_200_000)
+  if (on) expect(refused).toBeGreaterThan(0)
+  else expect(refused).toBe(0)
+}), 1_200_000)

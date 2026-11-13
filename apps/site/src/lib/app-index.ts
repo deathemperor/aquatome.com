@@ -196,24 +196,42 @@ export type AppPlace = {
 export const appEquipment = (lang: Lang, c: Content) => (served(lang, '/vi/thiet-bi/x/') ? categoriesIn(lang, c) : [])
 
 /**
- * The one photo a page's card and its head both show, for a fish, a breed or a plant: the page's first photo that isn't
- * generated (the Design Lead's line, accepted by the chief of staff, 13 Nov: a card and the page it opens show one photo,
- * never nothing). Where the fish is in it (photoBox) decides fill or whole by the frames rule (protocols/photo-crop-vectors.json).
+ * A photo the cards' frames refuse: a dealer's shot cropped too near the fish (photoFitsCard), or one the site leads
+ * whole (headFit 'contain'). No frame may fill with it.
  */
-export const pagePhoto = (photos: Photo[]): Photo | undefined => photos.find(p => !p.generated)
+export const refusedByCards = (p: Photo): boolean => p.headFit === 'contain' || !photoFitsCard(p)
+/**
+ * The switch for a fish's, a breed's or a plant's page photo the cards refuse. On, its card and its head are that photo
+ * with its whole area as the box (photoBox), which the v2 Lab's build draws whole. Off, they have no photo, as before 14
+ * Nov: today's build ignores the box and would crop it, for 41 fish in Vietnamese on 13 Nov (Esomus caudiocellatus losing
+ * about half its length on a card). Turned on, in a one-line change, the day the Lab's build that reads the box is on
+ * TestFlight (the chief of staff, 13 Nov). An object, so a test holds both ways.
+ */
+export const APP_WHOLE_PHOTOS = { on: false }
+const realPhoto = (photos: Photo[]) => photos.find(p => !p.generated)
+/**
+ * The one photo a page's card and its head both show, for a fish, a breed or a plant: the page's first photo that isn't
+ * generated (the Design Lead's line, accepted by the chief of staff, 13 Nov: a card and the page it opens show one photo).
+ * Where the fish is in it (photoBox) decides fill or whole by the frames rule (protocols/photo-crop-vectors.json). One the
+ * cards refuse only while APP_WHOLE_PHOTOS is on.
+ */
+export const pagePhoto = (photos: Photo[]): Photo | undefined => {
+  const p = realPhoto(photos)
+  return p && (APP_WHOLE_PHOTOS.on || !refusedByCards(p)) ? p : undefined
+}
 /**
  * A page's head: its card's photo (pagePhoto), or, where the page has no real photo, its first generated picture, which
  * the page labels and no card shows (pictures.ts cleanPhoto: generation ships on the page and in its album only).
  */
-export const headPhoto = (photos: Photo[]): Photo | undefined => pagePhoto(photos) ?? photos[0]
+export const headPhoto = (photos: Photo[]): Photo | undefined => (realPhoto(photos) ? pagePhoto(photos) : photos[0])
 /** The photo's whole area: in any frame of another shape the frames rule then shows it whole. */
 const WHOLE: Box = { x: 0, y: 0, w: 1, h: 1 }
 /**
  * Where the fish is in a photo, as the app's frames read it: the loader's box, or the whole area where the cards' frames
- * refuse the photo (photoFitsCard: a dealer's shot cropped too near the fish; headFit 'contain': one the site leads whole),
- * so no frame cuts it. None where the loader gives none (a plant's square or wide photo): it fills.
+ * refuse the photo (refusedByCards), so no frame cuts it. None where the loader gives none (a plant's square or wide
+ * photo): it fills.
  */
-export const photoBox = (p: Photo): Box | undefined => (p.headFit === 'contain' || !photoFitsCard(p) ? WHOLE : boxFractions(p))
+export const photoBox = (p: Photo): Box | undefined => (refusedByCards(p) ? WHOLE : boxFractions(p))
 /**
  * A card's copy of a photo: its small copy where that is the photo only resized (resizeOf), else the photo itself, so the
  * card and the page's head show one framing and the photo's box holds for both.
