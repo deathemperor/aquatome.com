@@ -13,7 +13,7 @@ import { lethalFigures, NAMES_TREATMENT } from './fit'
 import { steadyRead } from './quality'
 import { VI_STYLE as STYLE } from './phrases'
 import { TANK_RULE, withTanks } from './round'
-import { foreignSeasons, readerCountries, readerSeasons } from './seasons'
+import { foreignSeasons } from './seasons'
 
 /**
  * What a source is: the research tags each one, and the writers and the checker get each fact's source with its kind, so a
@@ -196,6 +196,13 @@ Each fact's source is a number, and the facts' sources list gives each number's 
 By the label: the writer's rules make it dose every medicine, product or salt the facts give no dose for by its label or its maker's directions ("theo nhãn", "sesuai label", "ikut label", "ตามฉลาก"). That counts as supported, whether or not the facts mention a label: score it as a supported line, and it is never one of the notes.
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`
 
+/**
+ * For a guide's copy in another language only (the Writing Lead, 13 Nov 2026): the copy's writer is told to give a fact
+ * tied to another place's season by its condition, and may call time away from home by the reader's own name for it.
+ * GROUNDED is the Vietnamese guides' and the recheck's too, so the line goes in for a copy alone.
+ */
+const COPY_GROUNDED = `Time away from home called by the reader's own name for it ("mudik", "balik kampung"), and a fact given by its condition without the season or place it was tied to, count as supported and are never notes. Anything said about that occasion or season itself is not.`
+
 type Grounded = { score: number; notes: string[]; reads?: number[] }
 /**
  * A read this close to the bar is read twice more. One read of the same text varies by about ±0.06, and 4 guides in 20
@@ -207,7 +214,7 @@ type Grounded = { score: number; notes: string[]; reads?: number[] }
  */
 async function checkGuide(llm: Llm, lang: string, forWriter: object, x: Written): Promise<Grounded> {
   return steadyRead(async (): Promise<Grounded> => {
-    const r = await llm<Grounded>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese GUIDE', `${lang} GUIDE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
+    const r = await llm<Grounded>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${lang === 'Vietnamese' ? GROUNDED : GROUNDED.replace('Vietnamese GUIDE', `${lang} GUIDE`).replace('\nnotes: ', `\n${COPY_GROUNDED}\nnotes: `)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
   })
 }
@@ -379,7 +386,7 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
     if (!facts.length) return { id, skipped: 'no facts' }
     const forWriter = { topic: vi.name, kind: entity.kind, sources, facts }
     const T = TARGETS[lang]
-    const prompt = (notes?: string[]) => `${INTL.replaceAll('{{LANG}}', T.lang).replaceAll('{{COUNTRY}}', T.country).replace('{{READERS}}', readerCountries(lang)).replace('{{SEASONS}}', readerSeasons(lang)).replace('{{STYLE}}', T.style)}${notes?.length ? `\n\nThe previous version went beyond the facts. Fix these, writing only what the facts say:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- FACTS (topic given in Vietnamese) ---\n${JSON.stringify(forWriter, null, 1)}`
+    const prompt = (notes?: string[]) => `${INTL.replaceAll('{{LANG}}', T.lang).replaceAll('{{COUNTRY}}', T.country).replace('{{STYLE}}', T.style)}${notes?.length ? `\n\nThe previous version went beyond the facts. Fix these, writing only what the facts say:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- FACTS (topic given in Vietnamese) ---\n${JSON.stringify(forWriter, null, 1)}`
     const write = (notes?: string[]) => llm<Written & { slug: string }>({ system: `You write ${T.lang} aquarium guides from facts. Reply only with JSON.`, model: o.model ?? 'opus', schema: INTL_SCHEMA, prompt: prompt(notes) })
     const check = (x: Written) => checkGuide(llm, T.lang, forWriter, x)
     // A redo starts from what the last review of the guide on the site found.
@@ -398,12 +405,12 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
     // Thailand and Malaysia about a summer, a winter or koi fed by spring and autumn).
     const named = foreignSeasons(savedText(w), lang)
     if (named.length) {
-      const fixed = await write([`It names a season readers in ${readerCountries(lang)} don't have: ${named.map(s => `"${s}"`).join(', ')}. Give the condition the facts tie to it instead, and name no season.`, ...review.notes])
+      const fixed = await write([`It names another place's season: ${named.map(s => `"${s}"`).join(', ')}. Write the condition the facts tie to it instead, and leave the season out.`, ...review.notes])
       const r = await check(fixed)
       tries.push(r)
       const left = foreignSeasons(savedText(fixed), lang)
       // Not saved, and every try's review logged, none of them kept (Astra's read).
-      if (left.length) { await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, undefined); return { id, skipped: `names a season its readers don't have: ${left.join(', ')}` } }
+      if (left.length) { await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, undefined); return { id, skipped: `names another place's season: ${left.join(', ')}` } }
       w = fixed
       review = r
     }
