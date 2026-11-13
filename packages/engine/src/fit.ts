@@ -170,9 +170,10 @@ const DEALER_VI = re([
  * một lô cá hoang dã… công ty nhập lô cá này").
  */
 const HISTORY_VI = /(?<!\d)(?:1[89]|20)\d\d(?!\d)|mẫu chuẩn|mẫu định danh|holotype|type series/iu
-// A sentence ends at its stop, an ellipsis among them, and any closing quote or bracket after it (Astra's read: "Cá cần
-// nước mềm… Lô này chỉ có 7 con." was one sentence, so the fact went with the notice).
-const CUT = /(?<=[.!?…]["'”’»)]*)\s+|\n/
+// A sentence ends at its stop (an ellipsis among them, and any closing quote or bracket after it) when the next one starts
+// with a capital or a figure: "Cá cần nước mềm… Lô này chỉ có 7 con." is two, while a quoted question that runs on
+// ("nhãn “dolloi?” với 7 con") and a genus's initial ("P. dolloi") stay in one (Astra's reads).
+const CUT = /(?<=[.!?…]["'”’»)]*)\s+(?=["'“‘(«]*[\p{Lu}\p{N}])|\n/u
 const history = (text: string, at: number) => HISTORY_VI.test([...text.slice(0, at).split(CUT).slice(-2), text.slice(at).split(CUT)[0]].join(' '))
 /**
  * A bare "lô này" in a sentence about plants is a keeper's own plants, not a dealer's batch: a video's "Cây ở lô này nằm
@@ -194,7 +195,7 @@ export function dealerNotice(html: string): boolean {
   // Its sentences, as the history test cuts them: each must hold a notice.
   const spans: [number, number][] = []
   let from = 0
-  for (const m of text.matchAll(new RegExp(CUT.source, 'g'))) { spans.push([from, m.index]); from = m.index + m[0].length }
+  for (const m of text.matchAll(new RegExp(CUT.source, 'gu'))) { spans.push([from, m.index]); from = m.index + m[0].length }
   spans.push([from, text.length])
   const said = spans.filter(([a, b]) => /[\p{L}\p{N}]/u.test(text.slice(a, b)))
   return said.length > 0 && said.every(([a, b]) => at.some(i => i >= a && i < b))
