@@ -40,17 +40,24 @@ net() {
   # file it once wrote, in a temp folder that was missing, did (Astra's read, 13 Nov).
   # It looks every tenth of a second, so a call that answers waits no longer than that for it, and reads the clock every
   # second: looking each second added a second to every call, and a cycle makes dozens.
+  # Until the call's group is made, it watches (and stops) the call by its pid: perl slow to start makes the group late,
+  # and a watchdog that looked for the group alone ended at its first look and left the call with no limit (Astra's
+  # read). Once the group is seen, the group alone, so a pid used again by another program is never touched.
   ( set +e
+    seen=
+    alive() { if kill -0 -- -"$job" 2>/dev/null; then seen=1; return 0; fi; [ -z "$seen" ] && kill -0 "$job" 2>/dev/null; }
+    stop() { kill -"$1" -- -"$job" 2>/dev/null || { [ -n "$seen" ] || kill -"$1" "$job" 2>/dev/null; }; }
     n=0
     while sleep 0.1; do
-      kill -0 -- -"$job" 2>/dev/null || exit 0
+      alive || exit 0
       n=$((n + 1)); [ $((n % 10)) -eq 0 ] || continue
       read -r t1 _ < <(clock) || t1=$(date +%s)
       [ $((${t1:-0} - t0)) -lt "$limit" ] || break
     done
-    kill -TERM -- -"$job" 2>/dev/null || exit 0
-    for _ in 1 2 3 4 5 6 7 8 9 10; do sleep 1; kill -0 -- -"$job" 2>/dev/null || exit 124; done
-    kill -KILL -- -"$job" 2>/dev/null
+    alive || exit 0
+    stop TERM
+    for _ in 1 2 3 4 5 6 7 8 9 10; do sleep 1; alive || exit 124; done
+    stop KILL
     exit 124 ) </dev/null >/dev/null 2>&1 &
   dog=$!
   wait "$job" 2>/dev/null || status=$?

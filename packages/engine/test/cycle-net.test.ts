@@ -67,6 +67,19 @@ test('a call that answers goes on under set -e however slow the clock; one that 
   expect(() => process.kill(Number(readFileSync(join(h, 'c'), 'utf8')), 0)).toThrow()
 })
 
+// Astra's read of 68c49744f: the watchdog looked for the call's process group alone, and a call slow to make its group
+// (perl slow to start on a busy Mac) had none at the first look a tenth of a second in: the watchdog ended there, and the
+// call ran on with no limit.
+test('a call slow to make its process group is still watched, and stopped at its limit', () => {
+  const { h, env, exe } = home()
+  mkdirSync(join(h, 'perl5'))
+  writeFileSync(join(h, 'perl5', 'Slow.pm'), 'package Slow; sleep 1; 1;\n')
+  const slow = { ...env, GIT_NET_SECONDS: '2', PERL5LIB: join(h, 'perl5'), PERL5OPT: '-MSlow', AQ_CLOCK: exe('clock', 'echo "$(date +%s) 0"') }
+  const r = net(h, slow, 'sleep 30')
+  expect(r.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [2-4] s, stopped$/), 'status 124'])
+  expect(r.seconds).toBeLessThan(10)
+})
+
 test('every call the cycle makes to GitHub has the limit', () => {
   for (const file of ['engine-cycle.sh', 'cycle-checks.sh']) {
     const bare = readFileSync(join(SCRIPTS, file), 'utf8').split('\n').filter(l => !/^\s*#/.test(l) && /(^|[^\w/-])git (fetch|pull|push|ls-remote|clone) /.test(l.replace(/net git /g, '')))
