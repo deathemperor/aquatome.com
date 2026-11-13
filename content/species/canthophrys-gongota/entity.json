@@ -271,7 +271,71 @@
       "html": "<ul><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches. An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/c2381177753fc4fee758169b75eb0bbb.webp",
+      "thumb": "https://media.aquatome.com/processed/c2381177753fc4fee758169b75eb0bbb-480.webp",
+      "width": 800,
+      "height": 305,
+      "licence": "dùng với sự cho phép",
+      "author": "Hayath / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/canthophrys-gongota",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261113-canthophrys-gongota-recovery-1",
+        "pixelHash": "aa31c0999d42565e59d86faf698612a1c31eae2451f7f6c4e1e1f121fb65246c"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-13T07:52:59.179Z",
+          "originalHash": "86c9fe4d6ab274db07eb2d5cd08fa5d43bdd69c339e62989e084c64ce5b41fbe",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 800,
+            "originalHeight": 384,
+            "window": {
+              "x0": 0,
+              "y0": 79,
+              "x1": 800,
+              "y1": 384
+            },
+            "subject": {
+              "x0": 194,
+              "y0": 148,
+              "x1": 700,
+              "y1": 276
+            },
+            "margin": 10
+          },
+          "excludedMarks": [
+            {
+              "x0": 641,
+              "y0": 37,
+              "x1": 779,
+              "y1": 75
+            }
+          ],
+          "checks": {
+            "species": [
+              "0a6d8bab39edd1ddde6c95d7a7c4179269f7c66c261073fed3108992c8c0efab",
+              "f0f1f8901a722cc436efb21abbb8e2155e5ab3fcfaf3455be1bc12b1981b7b7f"
+            ],
+            "ownership": [
+              "81226ce3f0a6e29387cd5d3d2c4fd37a9a8634acc2ccb3e253e23b7e360c30e1",
+              "0633e6f6b3d53755a7c5f345b7e943985f3f36996926a1ffa80732937223a3c2"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/2b57ae7de61bd221.webp",
+        "width": 800,
+        "height": 384
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

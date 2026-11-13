@@ -100,20 +100,13 @@
         "heading": "Set bể tối giản cho cá đĩa",
         "moments": [
           {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/gv63IUL4MsQ/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nắm cát silic thô dùng làm nền cho bể cá đĩa.",
-            "sharpness": 237.8
-          },
-          {
             "t": 700,
             "url": "https://media.aquatome.com/video/gv63IUL4MsQ/at700-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lớp cát silic thô mỏng trải trên đáy bể trống.",
-            "sharpness": 371.1
+            "sharpness": 371.1,
+            "person": false
           }
         ]
       },
@@ -141,29 +134,8 @@
         }
       },
       {
-        "heading": "Cụm đá nhấc ra được để làm chỗ trốn",
-        "moments": [
-          {
-            "t": 1100,
-            "url": "https://media.aquatome.com/video/gv63IUL4MsQ/at1100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ba cục đá xốp đáy phẳng đặt trên bàn, chưa buộc cây bám đá.",
-            "sharpness": 681.8
-          }
-        ]
-      },
-      {
         "heading": "Châm nước mà vẫn giữ vi sinh trong lọc",
         "moments": [
-          {
-            "t": 950,
-            "url": "https://media.aquatome.com/video/gv63IUL4MsQ/at950-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã châm nước, cây lá dài trồng trên nền cát trắng.",
-            "sharpness": 564.3
-          },
           {
             "t": 960,
             "url": "https://media.aquatome.com/video/gv63IUL4MsQ/at960-hd.webp",
@@ -185,19 +157,6 @@
         }
       },
       {
-        "heading": "Bắt, chở và thả cá đĩa cho đỡ sốc",
-        "moments": [
-          {
-            "t": 1500,
-            "url": "https://media.aquatome.com/video/gv63IUL4MsQ/at1500-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thùng xốp đặt sẵn dưới sàn cạnh các bể để chuẩn bị bắt cá.",
-            "sharpness": 1381.5
-          }
-        ]
-      },
-      {
         "heading": "Chăm sóc tiếp sau khi chuyển bể",
         "moments": [
           {
@@ -206,7 +165,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cá dĩa trồng cây, cá bơi chung trong bể thủy sinh.",
-            "sharpness": 537.3
+            "sharpness": 537.3,
+            "person": false
           },
           {
             "t": 1680,
@@ -214,7 +174,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá dĩa cam bơi gần kính giữa đám cây thủy sinh.",
-            "sharpness": 175.7
+            "sharpness": 175.7,
+            "person": false
           }
         ],
         "photo": {

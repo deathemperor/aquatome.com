@@ -1,0 +1,70 @@
+{
+  "id": "anatolichthys-transgrediens",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/d93220f4a6c0e9786ef954eeb41d58d1.webp",
+      "thumb": "https://media.aquatome.com/processed/d93220f4a6c0e9786ef954eeb41d58d1-480.webp",
+      "width": 800,
+      "height": 453,
+      "licence": "dùng với sự cho phép",
+      "author": "Barbara Nicca / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphanius-transgrediens",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261113-anatolichthys-transgrediens-recovery-1",
+        "pixelHash": "1c17b27f02a8d6a4c69b726ba0f56a81ccdcf77b9503e7888f46e55c56b5a960"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-13T07:38:14.539Z",
+          "originalHash": "cd6bace5510fc3a2a6fdfcd22eb09165d5e759d421ac5e09d481f1f8aea1d42c",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 800,
+            "originalHeight": 534,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 800,
+              "y1": 453
+            },
+            "subject": {
+              "x0": 91,
+              "y0": 170,
+              "x1": 713,
+              "y1": 405
+            },
+            "margin": 14
+          },
+          "excludedMarks": [
+            {
+              "x0": 71,
+              "y0": 459,
+              "x1": 233,
+              "y1": 481
+            }
+          ],
+          "checks": {
+            "species": [
+              "fb4693194d2727bb4ca4736aacd713fab1892548e5097b0f0359a9b1fe98e11d",
+              "f16c93be35d608c8b133e2fbb45652a26640757673198e7928d38911c7213d5d"
+            ],
+            "ownership": [
+              "e123349350da3be64d3b6eff4954c55d8f517949d0a3d26b381e61b92a23c0e4",
+              "eb787edd93454082b8f362ea5b7716f24b8e244a154f1f09f09655e5173e3314"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/3f19fdbf7ca24d88.webp",
+        "width": 800,
+        "height": 534
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-13"
+}

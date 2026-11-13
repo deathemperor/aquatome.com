@@ -3,7 +3,9 @@
  "judged": [
   "File:Polypterus ornatipinnis.jpg",
   "File:Polypterus ornatipinnis VA 01.jpg",
-  "File:Polypterus ornatipinnis VA 02.jpg"
+  "File:Polypterus ornatipinnis VA 02.jpg",
+  "inat:51693909",
+  "inat:304491738"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/80e41349d6470edf.webp": "0408d2661eb6463e",
@@ -11,7 +13,16 @@
   "https://media.aquatome.com/commons/bc6ea87a72fbf789.webp": "9e182c6461d1f1e7",
   "https://media.aquatome.com/commons/f5f58f5369b08fdb.webp": "1e2c362e9bb9b3b2",
   "https://media.aquatome.com/commons/d6694bae703b52ac.webp": "58fc9ee1c874fcee",
-  "https://media.aquatome.com/commons/9c9eefe0e23171e9.webp": "b3e36f64261e66df"
+  "https://media.aquatome.com/commons/9c9eefe0e23171e9.webp": "b3e36f64261e66df",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/304491738/large.jpg": "e17cfe3e9e9eeb1f"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 110005,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 396033009
+  }
+ }
 }

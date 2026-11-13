@@ -8,9 +8,9 @@ Written by `pnpm engine gallery` (2026-11-13). Targets: packages/engine/src/gall
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
 | covered | 30 | 584 | 30 | 9 | 20 | 603 |
-| rest | 20 | 1686 | 74 | 0 | 53 | 1707 |
+| rest | 20 | 1686 | 74 | 0 | 56 | 1704 |
 
-## Short of target: every source read (308)
+## Short of target: every source read (314)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -269,6 +269,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/brevibora-dorsiocellata | covered | 1 | 30 |
 | species/brochis-multiradiatus | covered | 3 | 30 |
 | species/colomesus-asellus | covered | 2 | 30 |
+| species/corydoras-arcuatus | covered | 1 | 30 |
 | species/corydoras-fowleri | covered | 1 | 30 |
 | species/corydoras-habrosus | covered | 8 | 30 |
 | species/corydoras-semiaquilus | covered | 2 | 30 |
@@ -322,5 +323,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/aphyosemion-gabunense | covered | 1 | 30 |
 | species/apistogramma-agassizii | covered | 4 | 30 |
 | species/apistogramma-baenschi | covered | 0 | 30 |
-| species/apistogramma-borellii | covered | 18 | 30 |
+| species/apistogramma-borellii | covered | 19 | 30 |
+| species/apistogramma-cacatuoides | covered | 22 | 30 |
+| species/apistogramma-commbrae | covered | 1 | 30 |
+| species/apistogramma-mendezi | covered | 1 | 30 |
+| species/apistogramma-panduro | covered | 3 | 30 |
+| species/apistogramma-paulmuelleri | covered | 0 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |
