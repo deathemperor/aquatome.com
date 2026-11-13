@@ -59,28 +59,33 @@ const framed = (ws: string[], after: string[]) => {
   }
   return off
 }
-/**
- * The words a sentence lost that nothing covers: neither the new sentence, nor `covered` (quotes, listed drops), nor
- * JOINING or a whole frame. Each covering text takes its own words where it stands in the sentence, once: a finding's
- * quote and the reviewer's drop of the same words cover them once, not twice (Astra's read: "Chúng tôi không bán cây
- * này; không thả cây vào bể tép" written "Thả cây vào bể tép" lost the second "không" too, and passed). A text that isn't
- * in the sentence word for word covers nothing. A pronoun counts like any word: a neighbour that names what its "Chúng"
- * stood for loses it, and the part stays as it was. Every rule tried for telling its noun from a claim let one through
- * ("Không", "Chỉ những cây này", a word of the sentence before put anywhere: Astra's reads, 13 Nov), and a part kept as it
- * was is no harm.
- */
-export function lostWords(before: string, after: string, covered: readonly string[]): string[] {
-  const was = words(before), now = words(after)
+/** Where `q` first stands in `ws`, word for word: its positions, or none. */
+const firstAt = (ws: readonly string[], q: readonly string[]) => {
+  for (let i = 0; q.length && i + q.length <= ws.length; i++) if (q.every((w, j) => ws[i + j] === w)) return q.map((_, j) => i + j)
+  return []
+}
+/** The words of `was` lost from `now` once the positions `covered` and the frames that went whole are set aside. */
+const lostFrom = (was: string[], now: string[], covered: readonly number[][]) => {
   const off = framed(was, now)
-  for (const q of covered.map(words).filter(q => q.length)) {
-    for (let i = 0; i + q.length <= was.length; i++) {
-      if (q.every((w, j) => was[i + j] === w) && q.some((_, j) => !off[i + j])) { q.forEach((_, j) => { off[i + j] = true }); break }
-    }
-  }
+  for (const at of covered) for (const i of at) off[i] = true
   const left = new Map<string, number>()
   was.forEach((w, i) => { if (!off[i]) left.set(w, (left.get(w) ?? 0) + 1) })
   for (const w of now) if (left.has(w)) left.set(w, left.get(w)! - 1)
   return [...left].flatMap(([w, n]) => (n > 0 && !JOINING.has(w) ? Array<string>(n).fill(w) : []))
+}
+/**
+ * The words a sentence lost that nothing covers: neither the new sentence, nor `covered` (quotes, listed drops), nor
+ * JOINING or a whole frame. Each covering text covers its words where it first stands in the sentence, word for word,
+ * wherever the others stand: a quote and the reviewer's drop of the same words cover them once, and a drop doesn't move
+ * to the same words further on (Astra's reads: "Chúng tôi không bán cây này; không thả cây vào bể tép" written "Thả cây
+ * vào bể tép" passed). A text not in the sentence word for word covers nothing. A pronoun counts like any word: a
+ * neighbour that names what its "Chúng" stood for loses it, and the part stays as it was. Every rule tried for telling its
+ * noun from a claim let one through ("Không", "Chỉ những cây này", a word of the sentence before put anywhere: Astra's
+ * reads, 13 Nov), and a part kept as it was is no harm.
+ */
+export function lostWords(before: string, after: string, covered: readonly string[]): string[] {
+  const was = words(before)
+  return lostFrom(was, words(after), covered.map(c => firstAt(was, words(c))))
 }
 
 export type MendFinding = { check: FitCheck; quote: string; note: string }
@@ -166,14 +171,17 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
   const r = await llm<{ score: number; notes: string[]; dropped: Dropped[]; hedges: HedgePair[] }>({ system: 'You are a strict Vietnamese editor checking an edit. Reply only with JSON.', prompt: `${REVIEW}\n\n${hedgesAsk('BEFORE', 'AFTER')}\n\n${body}`, schema: REVIEW_SCHEMA })
   const dropped = (r.dropped ?? []).map(d => ({ ...d, sentence: Number(d.sentence), finding: Number(d.finding) }))
   const licensed = dropped.filter(d => asked(d, named))
+  const flat = texts.flatMap((t, i) => words(t!).map((w, k) => ({ w, i, k })))
   // A sentence left out whole needs a finding that asks for something to go, whatever the reviewer lists; and every word
   // a changed sentence lost is quoted by a finding there, or listed under one that asks for it to go, or a joining word.
   const unasked = [
     ...shown.filter(i => changes.get(i) === '' && !named.some(f => !NO_DROP.includes(f.check) && f.sentences.includes(i + 1))).map(i => `Left out, and no finding asks for it to go: "${plain(texts[i]!)}"`),
     ...shown.flatMap(i => {
-      const covered = [...named.filter(f => f.sentences.includes(i + 1)).map(f => f.quote), ...licensed.filter(d => d.sentence === i + 1).map(d => d.text)]
-      const lost = lostWords(texts[i]!, raw.get(i) ?? changes.get(i)!, covered)
-      return lost.length ? [`Left out of sentence ${i + 1}, and no finding asks for it to go: "${lost.join(' ')}"`] : []
+      // Each quote and listed drop where it first stands in the part, and the share of it in this sentence: a quote over
+      // two sentences covers its words in each (Astra's read).
+      const covered = [...named.filter(f => f.sentences.includes(i + 1)).map(f => f.quote), ...licensed.filter(d => named[d.finding - 1]!.sentences.includes(i + 1)).map(d => d.text)]
+      const gone = lostFrom(words(texts[i]!), words(raw.get(i) ?? changes.get(i)!), covered.map(c => firstAt(flat.map(x => x.w), words(c)).flatMap(n => (flat[n]!.i === i ? [flat[n]!.k] : []))))
+      return gone.length ? [`Left out of sentence ${i + 1}, and no finding asks for it to go: "${gone.join(' ')}"`] : []
     }),
     ...dropped.filter(d => !asked(d, named)).map(d => `Left out, and no finding asks for it to go: "${d.text}"`),
   ]

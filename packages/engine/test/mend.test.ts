@@ -158,4 +158,14 @@ test('a changed sentence that loses "bị", a pronoun, or part of a frame fails,
   const twice = await mendPart(llm([{ n: 1, vi: 'Thả cây vào bể tép.' }], [{ sentence: 1, finding: 1, text: notice }]), `<p>${notice}; không thả cây vào bể tép.</p>`, [{ check: 'source', quote: notice, note: 'Bỏ lời của người bán.' }])
   if (typeof twice === 'string') throw new Error(twice)
   expect(twice.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "không"'])
+  // Astra's read of 36943e68c: a drop inside the quote doesn't move to the same words further on; a quote over two
+  // sentences, and the reviewer's drop of it, cover each sentence's share.
+  const moved = await mendPart(llm([{ n: 1, vi: 'Bán cây này cho người mới.' }], [{ sentence: 1, finding: 1, text: 'không bán cây này' }]), `<p>${notice}; không bán cây này cho người mới.</p>`, [{ check: 'source', quote: notice, note: 'Bỏ lời của người bán.' }])
+  if (typeof moved === 'string') throw new Error(moved)
+  expect(moved.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "không"'])
+  const both = 'Chúng tôi bán cây. Giá 5 đô la.'
+  const spanning = await mendPart(llm([{ n: 1, vi: '' }, { n: 2, vi: '' }], [{ sentence: 1, finding: 1, text: both }]), `<p>${both} Cây mọc nhanh.</p>`, [{ check: 'price', quote: both, note: 'Bỏ lời và giá của người bán.' }])
+  if (typeof spanning === 'string') throw new Error(spanning)
+  expect(spanning.unasked).toEqual([])
+  expect(spanning.html).toBe('<p>Cây mọc nhanh.</p>')
 })
