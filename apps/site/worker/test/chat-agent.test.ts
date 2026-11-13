@@ -132,6 +132,10 @@ test('a problem\'s steps each carry a figure, with no cap of five, and the answe
   expect(LAST_WORD).toContain('each with its figure')
   expect(LAST_WORD).toContain('the readings that would decide the cause')
   expect(ANSWER_SCHEMA.properties.text.description).toContain('each with its figure')
+  expect(ANSWER_SCHEMA.properties.text.description).toContain('and last the readings that would decide the cause when the reader hasn\'t given them')
+  // A safe reading is none on the kit: "under 0.25 mg/l" mixes total ammonia with the free ammonia that harms fish (the review, 13 Nov).
+  expect(SYSTEM).toContain('amoniac và nitrit về 0 trên bộ test')
+  expect(SYSTEM).not.toContain('0,25 mg/l')
 })
 
 test('read_tanks reads the reader\'s tanks with their ids, says when there are none, and is an error when they can\'t be read', async () => {
