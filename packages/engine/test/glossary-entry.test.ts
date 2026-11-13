@@ -54,6 +54,11 @@ test('a term\'s fuller entry: cited facts only, checked and rewritten once on no
   expect(r).toMatchObject({ id: 'lua', score: 0.96, refs: 3, related: ['tanin', 'ph'] })
   // Seriously Fish's entry is read first and cited; the writer sees the facts and the other terms, never this one's.
   expect(researched).toContain('https://www.seriouslyfish.com/glossary/bogwood')
+  // Kind by kind, by the names shops here write and the English ones, never from a marketplace; the writer lists each
+  // kind under those names (the owner, 13 Nov: driftwood "with all kinds and names named per language").
+  expect(researched).toContain('the name Vietnamese shops write for it and its English name')
+  expect(researched).toContain('never on marketplaces (Shopee, Lazada, Tiki) or social networks')
+  expect(prompts[0]).toContain('<strong>tên các cửa hàng Việt Nam ghi</strong> và tên tiếng Anh')
   expect(prompts[0]).toContain('Soak new driftwood for one to two weeks')
   expect(prompts[0]).toContain('tanin: Tanin: Chất từ lá và gỗ')
   expect(prompts[0]).not.toContain('lua: Lũa:')

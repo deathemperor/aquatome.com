@@ -8,9 +8,9 @@ Viết:
 - body: HTML ngắn, chỉ những mục có dữ kiện, mỗi mục một tiêu đề h3:
   - "Trong bể của bạn": thứ này làm gì trong bể, con số quan trọng (đúng như dữ kiện ghi, kèm đơn vị), dấu hiệu nhận ra.
   - "Nên làm gì": việc cụ thể người đọc làm được, theo thứ tự nếu là các bước (ol).
-  - Các loại và tên gọi, nếu dữ kiện có nhiều loại (ví dụ các loại lũa): mỗi loại một dòng, tên người chơi Việt Nam gọi, nó khác gì.
+  - Các loại, nếu dữ kiện có nhiều loại (ví dụ các loại lũa bán ở Việt Nam), ngay sau "Trong bể của bạn": người tìm thuật ngữ này thường muốn biết nên chọn loại nào. Một h3, rồi một ul, mỗi loại một li mở đầu bằng <strong>tên các cửa hàng Việt Nam ghi</strong> và tên tiếng Anh trong ngoặc, đúng như dữ kiện ghi (dữ kiện thiếu tên nào thì bỏ tên đó, không tự dịch). Sau tên, mọi điều dữ kiện có về loại đó: trông thế nào và làm gì trong bể (chìm hay nổi, tiết tanin, màu nước, pH, nấm hay màng nhầy), chuẩn bị ra sao, hay gặp vấn đề gì.
   - "Sai lầm hay gặp", nếu dữ kiện có.
-  Tổng cộng không quá 250 chữ. Đây là mục thuật ngữ, không phải bài hướng dẫn: đủ để hiểu và làm đúng, rồi đọc tiếp ở các trang dùng thuật ngữ này.
+  Độ dài theo dữ kiện: khoảng 200–300 chữ cho thuật ngữ không chia loại, đến khoảng 800 chữ khi có nhiều loại. Đây là mục thuật ngữ, không phải bài hướng dẫn: đủ để hiểu, chọn và làm đúng, rồi đọc tiếp ở các trang dùng thuật ngữ này.
 - related: id của 2–6 thuật ngữ khác trong danh sách dưới đây mà người đọc mục này nên xem tiếp. Chỉ id có trong danh sách.
 
 Quy tắc:

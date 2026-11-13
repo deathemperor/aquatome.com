@@ -96,3 +96,16 @@ test('every term page lists, with its count, every built guide, fish and plant p
   // The fixture's pages use its terms: the check above compared something.
   expect(shown).toBeGreaterThan(0)
 })
+
+// The built page of a term with a fuller entry (the fixture's "cá đàn"): its photo with its credit, its text under
+// headings, the terms to see next (one the content doesn't have is left out) and its sources, each a tap target.
+test('a term with a fuller entry shows its photo, its text under headings, the terms to see next and its sources', () => {
+  const { dom } = page('/thuat-ngu/ca-dan/')
+  const fig = dom.querySelector('main figure')
+  expect(fig?.querySelector('img')?.getAttribute('src')).toContain('Danio_Margaritatus')
+  expect(fig?.querySelector('figcaption')?.textContent).toContain('Cá trân châu đực')
+  expect(dom.querySelectorAll('.body h2').map(h => h.textContent.trim())).toEqual(['Trong bể của bạn', 'Các loại'])
+  expect(dom.querySelector('.body a[href="/thuat-ngu/ph/"]')).toBeTruthy()
+  expect(dom.querySelectorAll('.related a').map(a => a.getAttribute('href'))).toEqual(['/thuat-ngu/chu-trinh-nito/', '/thuat-ngu/ph/'])
+  expect(dom.querySelectorAll('.refs a').map(a => a.getAttribute('href'))).toEqual(['https://www.seriouslyfish.com/glossary/shoal'])
+})
