@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { boxFractions, LANGS, PageDoc, type Photo } from '@aq/schema'
+import { boxFractions, LANGS, type Photo } from '@aq/schema'
+import { PageDoc } from '@aq/schema/app-page'
 import { appIndex } from '../src/lib/app-index'
 import { appPages, fishDoc, guideDoc } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'

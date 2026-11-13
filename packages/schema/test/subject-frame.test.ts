@@ -129,7 +129,7 @@ test("a plant's photo taller than it is wide takes its whole area as its box; a 
   await writeFile(join(store, 'plants', 'p', 'entity.json'), JSON.stringify({
     id: 'p', scientificName: 'Planta testa', difficulty: 1, light: 'low', co2: 'optional', growth: 'slow', placement: ['midground'],
     sections: [{ key: 'habitat', source: 'seriouslyfish', sourceUrl: 'https://x/p', html: '<p>x</p>' }],
-    photos: [photo('tall', 600, 900), photo('wide', 900, 600), photo('square', 700, 700)], updatedAt: '2026-11-13',
+    photos: [photo('tall', 600, 900), photo('wide', 900, 600), photo('square', 700, 700)], productSlots: [], updatedAt: '2026-11-13',
   }))
   await writeFile(join(store, 'plants', 'p', 'vi.json'), JSON.stringify({ slug: 'cay-p', name: 'Cây p', altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }))
   await mkdir(join(store, 'gallery'))

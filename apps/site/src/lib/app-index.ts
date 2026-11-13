@@ -39,8 +39,8 @@ export type AppItem = {
   /** A small photo (about 480 px wide). */
   img?: string
   /**
-   * Where the fish is in `img`, wherever the photo has a box (a fish's, a breed's, and a guide's or a series' card when its
-   * photo is one of a fish), once the site's switch for it is on: protocols/photo-crop-vectors.json.
+   * Where the fish is in `img`, wherever the photo has a box (a fish's, a breed's, a plant's taller than wide, and a guide's
+   * or a series' card when its photo is one of a fish), once the site's switch for it is on: protocols/photo-crop-vectors.json.
    */
   imgBox?: Box
   /**
@@ -274,7 +274,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   if (served(lang, '/vi/cay/x/')) {
     for (const p of appPlants(lang, c)) {
       const plant = { difficulty: p.difficulty, light: p.light, co2: p.co2, growth: p.growth, placement: p.placement }
-      items.push(clean({ kind: 'plant', id: p.id, name: p.t.name, sub: p.scientificName, aka: aka([...(p.synonyms ?? []), ...p.t.altNames]), path: at(`/vi/cay/${p.t.slug}/`), img: img(p.photos), plant }))
+      items.push(clean({ kind: 'plant', id: p.id, name: p.t.name, sub: p.scientificName, aka: aka([...(p.synonyms ?? []), ...p.t.altNames]), path: at(`/vi/cay/${p.t.slug}/`), img: img(p.photos), imgBox: imgBox(p.photos), plant }))
     }
     home.plants = easyPlants(c, c.plants.length).map(p => at(`/vi/cay/${p.t.slug}/`))
   }
