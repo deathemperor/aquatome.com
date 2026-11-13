@@ -1144,15 +1144,16 @@ The layers above still check the result.
     part in the same try. Its reviewer is told the same. A figure is read whole in its quote's paragraph ("38 lít" there
     followed by "mỗi 2,5 cm", "trên mỗi 2,5 cm", "mỗi 2,54 cm", "mỗi inch" or "cho 2,5 cm chiều dài cá" is per inch;
     a tank "đặt trên 2,5 cm xốp" is not; any other length after a volume in its clause, "mỗi 2,5 cm mực nước", "cho
-    2,5 cm" alone, "ứng với 2,5 cm" or a range of lengths, is for a person, but for the tank's own size, "dài 60 cm"), and a rewrite is kept only with
+    2,5 cm" alone, "ứng với 2,5 cm", a range of lengths or the fish's own length ("chiều dài 2,5 cm của cá"), is for a person, but for
+    the tank's own size, "dài 60 cm" or "dài khoảng 90 cm"), and a rewrite is kept only with
     each paragraph's litres as they were, in their order, each figure as keepers say it in place of its old one and no
     other moved (15 lít mỗi cm, not mỗi 2,5 cm; not the same litres left in another paragraph; not two figures trading
-    places; with two figures or more in a paragraph, each mended one stays with the same words around it as before, a label
-    before a colon or a tank's number too, so one of two like figures may be mended alone), and with its paragraphs as many as before. A figure with a dose near it (in its paragraph, the one before
+    places; with two figures or more in a paragraph, each mended one stays with the same words around it as before, its sentence back to a label before a colon, or a
+    tank's number, and a figure per cm with the words before it, so one of two like figures may be mended alone), and with its paragraphs as many as before. A figure with a dose near it (in its paragraph, the one before
     or after, or the rest of its section between the headings either side, where a reading of the water such as koi's
     dissolved oxygen in mg/l (the substance, then only the words a reading is said with) isn't a dose but a treatment's
     rate in mg/l, a substance beside its treatment ("khử nitrit bằng muối 1 g/l") or after a dose's word anywhere before it in
-    its sentence ("liều CO2", "Liều dùng: ammonia", "Cho ammonia", "phân nitrat", but not "cho koi:" or waste's "phân
+    its sentence ("liều CO2", "Liều dùng: ammonia", "Cho ammonia", "Cho vào bể…", "phân nitrat", but not "cho koi:" or waste's "phân
     hủy"), is; in an FAQ answer, its question too), whose
     water stays exact, a figure per another length ("mỗi 5 cm"), or a litre figure with no US figure in the
     facts to work from, is left to a person, and so is a finding code works out no figure for (gallons or a length in
