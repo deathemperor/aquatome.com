@@ -638,6 +638,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   for (const [u, why] of Object.entries(added)) if (!(u in now)) { now[u] = why; report.rejected++ }
   await writePhotoState(rejectedFile, now)
+  // The pages this run held, for the sweep: it keeps a refused photo off between two runs, and leaves these as the check
+  // left them (sweep.ts). The check's hold counts more than the sweep's rule can see (a person, a dead fish or a logo,
+  // the first check's verdicts), so the sweep reads it rather than counting again.
+  await writeFile(join(root, 'engine-state/_photo-held.json'), `${JSON.stringify(heldPages.map(pageOf).sort(), null, 2)}\n`)
   const left = new Map<string, number>()
   for (const s of all) left.set(s.id, 0)
   for (const f of [...new Set(shown.filter(x => !x.guide).map(x => x.file))]) {

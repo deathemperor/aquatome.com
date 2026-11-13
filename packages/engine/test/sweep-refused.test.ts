@@ -2,6 +2,7 @@ import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import { checkPagePhotos } from '../src/photo-check'
 import { sweep } from '../src/sweep'
 
 // A photo the check refused, put back between two checks by a source read or the monthly backfill, stays off: on the
@@ -11,20 +12,21 @@ const photo = (name: string) => ({ url: `https://media.aquatome.com/seriouslyfis
 const fish = (id: string, photos: object[]) => ({ id, scientificName: id.replace('-', ' '), order: 'O', family: 'F', genus: id.split('-')[0], group: 'g', places: [], dataCard: {}, sections: [], photos, videos: [], productSlots: [], updatedAt: '2026-10-01' })
 const verdict = (ok: string) => ({ ok, typical: false, person: false, logo: false, note: `subject ${ok}` })
 
-async function store(o: { pages: Record<string, object[]>; albums?: Record<string, object[]>; breeds?: Record<string, object[]>; plants?: Record<string, object[]>; guides?: Record<string, object[]>; subjects: Record<string, Record<string, object>>; picks?: Record<string, string> }) {
+async function store(o: { pages: Record<string, object[]>; albums?: Record<string, object[]>; breeds?: Record<string, object[]>; plants?: Record<string, object[]>; guides?: Record<string, object[]>; subjects: Record<string, Record<string, object>>; picks?: Record<string, string>; legacy?: Record<string, object> }) {
   const root = await mkdtemp(join(tmpdir(), 'sweep-refused-'))
   const c = join(root, 'content')
   const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
   await mkdir(join(root, 'engine-state'), { recursive: true })
   await mkdir(c, { recursive: true })
   await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
-  for (const [id, ps] of Object.entries(o.pages)) await put(`species/${id}/entity.json`, fish(id, ps))
+  for (const [id, ps] of Object.entries(o.pages)) { await put(`species/${id}/entity.json`, fish(id, ps)); await put(`species/${id}/vi.json`, { slug: id, name: id, altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }) }
   for (const [id, ps] of Object.entries(o.plants ?? {})) await put(`plants/${id}/entity.json`, fish(id, ps))
   for (const [id, ps] of Object.entries(o.breeds ?? {})) await put(`breeds/${id}/entity.json`, { id, kind: 'variety', parents: [], care: {}, photos: ps, sources: [{ url: 'https://x/a', title: 'A', kind: 'article', at: '2026-10-01' }], updatedAt: '2026-10-01' })
   for (const [id, ps] of Object.entries(o.albums ?? {})) await put(`gallery/${id}.json`, { id, photos: ps, seen: 1, updatedAt: '2026-10-01' })
   for (const [id, ps] of Object.entries(o.guides ?? {})) await put(`guides/${id}/entity.json`, { id, kind: 'care', source: 'seriouslyfish', sourceUrl: 'https://x/g', html: '', photos: ps, mentions: [], updatedAt: '2026-10-01' })
   const subjects = Object.fromEntries(Object.entries(o.subjects).map(([name, by]) => [photo(name).url, by]))
   await writeFile(join(root, 'engine-state/_photo-subjects.json'), `${JSON.stringify(subjects, null, 2)}\n`)
+  if (o.legacy) await writeFile(join(root, 'engine-state/_photo-check.json'), `${JSON.stringify(Object.fromEntries(Object.entries(o.legacy).map(([name, v]) => [photo(name).url, v])), null, 2)}\n`)
   if (o.picks) await writeFile(join(root, 'engine-state/_photo-head-picks.json'), `${JSON.stringify(Object.fromEntries(Object.entries(o.picks).map(([ref, name]) => [ref, photo(name).url])), null, 2)}\n`)
   return root
 }
@@ -105,7 +107,57 @@ test('a run that would leave more than 10 pages with no photo of their own takes
     expect(await photosOf(root, 'species/fish-0/entity.json')).toEqual(n > 10 ? ['only-0'] : [])
     expect(await photosOf(root, 'gallery/fish-0.json')).toEqual(n > 10 ? ['only-0'] : [])
     expect(r.refusedHeld).toHaveLength(n > 10 ? n : 0)
+    if (n > 10) expect(r.refusedHeld[0]).toBe('species/fish-0 (more than 10 pages left with no photo)')
     // A page the rule doesn't empty loses its refused photo either way.
     expect(await photosOf(root, 'species/fish-kept/entity.json')).toEqual(['kept'])
   }
+})
+
+test('a head a person picked stays on the pages and albums that never judged it, though every verdict on it is "none"', async () => {
+  const root = await store({
+    pages: { 'fish-p': [photo('pick'), photo('p')], 'fish-e': [photo('e'), photo('pick')] },
+    albums: { 'fish-e': [photo('pick'), photo('e-album')] },
+    subjects: { pick: { 'fish-p': verdict('none') } },
+    picks: { 'species/fish-p': 'pick' },
+  })
+  const r = await sweep(root)
+  expect(await photosOf(root, 'species/fish-p/entity.json')).toEqual(['pick', 'p'])
+  expect(await photosOf(root, 'species/fish-e/entity.json')).toEqual(['e', 'pick'])
+  expect(await photosOf(root, 'gallery/fish-e.json')).toEqual(['pick', 'e-album'])
+  expect(r.refusedPicked).toEqual([`species/fish-p: ${photo('pick').url}`])
+  expect(r.refused).toEqual([])
+})
+
+test('the pages a run of the check held stay as it left them, though the sweep alone would count too few to hold them (a person in the eleventh)', async () => {
+  const n = 10
+  const pages = Object.fromEntries(Array.from({ length: n + 1 }, (_, i) => [`fish-${i}`, [photo(`only-${i}`)]]))
+  const subjects = Object.fromEntries(Array.from({ length: n }, (_, i) => [`only-${i}`, { [`fish-${i}`]: verdict('other') }]))
+  const root = await store({ pages, albums: { 'fish-0': [photo('only-0')] }, subjects: { ...subjects, [`only-${n}`]: { [`fish-${n}`]: { ...verdict('yes'), typical: true, person: true } } } })
+  const check = await checkPagePhotos(root, { get: async () => { throw new Error('no photo is fetched') }, look: async () => { throw new Error('no photo is judged') } }, { limit: 10 })
+  expect(check.heads.held).toHaveLength(n + 1)
+  expect(JSON.parse(await readFile(join(root, 'engine-state/_photo-held.json'), 'utf8'))).toHaveLength(n + 1)
+  const r = await sweep(root)
+  for (let i = 0; i < n; i++) expect(await photosOf(root, `species/fish-${i}/entity.json`)).toEqual([`only-${i}`])
+  expect(await photosOf(root, 'gallery/fish-0.json')).toEqual(['only-0'])
+  expect(r.refusedHeld).toContain('species/fish-0 (held by the photo check)')
+  // Released (the check's run with nothing held), the sweep keeps the refused photos off.
+  await writeFile(join(root, 'engine-state/_photo-held.json'), '[]\n')
+  await sweep(root)
+  expect(await photosOf(root, 'species/fish-0/entity.json')).toEqual([])
+})
+
+test("a guide's verdict, the first check's verdict and a generated photo don't take a photo off; a breed page's \"none\" acts on fish pages, a plant album goes with its plant", async () => {
+  const generated = { ...photo('drawn'), generated: { model: 'gpt-image-2', driverModel: 'gpt-image-2', referenceHash: 'a'.repeat(64), date: '2026-11-10', prompt: 'fish' } }
+  const root = await store({
+    pages: { 'fish-g': [photo('g'), photo('by-guide'), photo('by-legacy'), generated], 'fish-h': [photo('h'), photo('bred-river')] },
+    breeds: { koi: [photo('koi')] },
+    plants: { 'pogostemon-d': [], 'ludwigia-brevipes': [photo('ludwigia')] },
+    albums: { 'ludwigia-brevipes': [photo('ludwigia-album'), photo('tank')] },
+    subjects: { 'by-guide': { 'fish-g': { ...verdict('other'), guide: true } }, drawn: { 'fish-g': verdict('other') }, 'bred-river': { koi: verdict('none') }, tank: { 'pogostemon-d': verdict('none') } },
+    legacy: { 'by-legacy': { ...verdict('no') } },
+  })
+  await sweep(root)
+  expect(await photosOf(root, 'species/fish-g/entity.json')).toEqual(['g', 'by-guide', 'by-legacy', 'drawn'])
+  expect(await photosOf(root, 'species/fish-h/entity.json')).toEqual(['h'])
+  expect(await photosOf(root, 'gallery/ludwigia-brevipes.json')).toEqual(['ludwigia-album'])
 })

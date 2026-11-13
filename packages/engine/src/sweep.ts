@@ -118,7 +118,7 @@ export type SweepReport = {
   noAnimal: string[]
   /** Photos the photo check refused, kept off a page or an album it is back on (photo-check.ts refusedOn), `file: url (why)`. */
   refused: string[]
-  /** Pages that rule would leave with no photo of their own, more than EMPTY_CAP of them: none loses any, `kind/id: head`. */
+  /** Pages that rule leaves as they are: held by the check's last run, or more than EMPTY_CAP of them it would leave with no photo, `kind/id (why)`. */
   refusedHeld: string[]
   /** Heads a person picked that a page's check calls "none": out of the rule, listed each cycle, `kind/id: url`. */
   refusedPicked: string[]
@@ -654,8 +654,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     }
     const own = (x: (typeof plan)[number]) => (x.data.photos ?? []).filter(p => !p.generated)
     const emptying = plan.filter(x => x.file.endsWith('entity.json') && own(x).length && own(x).every(p => x.off.has(p.url)))
-    const held = new Set(emptying.length > EMPTY_CAP ? emptying.map(x => x.id) : [])
-    for (const x of emptying) if (held.has(x.id)) report.refusedHeld.push(`${kindOf.get(x.id)}/${x.id}: ${own(x)[0]!.url}`)
+    // The pages the check's last run held (photo-check.ts writes them), and this run's own past the cap.
+    const byCheck = new Set((JSON.parse(await readFile(join(root, 'engine-state', '_photo-held.json'), 'utf8').catch(() => '[]')) as string[]).map(ref => ref.split('/')[1]!))
+    const overCap = new Set(emptying.length > EMPTY_CAP ? emptying.map(x => x.id) : [])
+    const held = new Set([...byCheck, ...overCap])
+    for (const id of [...new Set(plan.map(x => x.id))].filter(id => held.has(id))) report.refusedHeld.push(`${kindOf.get(id)}/${id} (${byCheck.has(id) ? 'held by the photo check' : `more than ${EMPTY_CAP} pages left with no photo`})`)
     for (const x of plan) {
       if (held.has(x.id)) continue
       x.data.photos = x.data.photos!.filter(p => p.generated || !x.off.has(p.url))
