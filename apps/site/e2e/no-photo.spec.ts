@@ -25,8 +25,20 @@ test('the fish list\'s script draws "no photo yet" on a fish with no photo, and 
   expect(errors).toEqual([])
 })
 
+// A fish with no photo at all: the list's data file gives it none, and its page's structured data names no image (the
+// fish's first photo, pages/ca/[slug].astro). The list alone isn't enough: a tile takes only a photo that fits a card,
+// and on 13 November the first 44 fish without one had a photo on their page (the first, ca-betta-unimaculata, a
+// dealer's photo cropped to 1000 × 691).
+async function photoless(request: import('@playwright/test').APIRequestContext) {
+  for (const item of (await list(request)).items.filter(i => !i.photo).slice(0, 150)) {
+    const html = await (await request.get(`${LIST}${item.slug}/`)).text()
+    const data = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m => m[1]!)
+    if (!data.some(d => /"image":"/.test(d))) return item
+  }
+}
+
 test('a fish page with no photo has no head and shares the site\'s logo', async ({ page, request, errors }) => {
-  const bare = (await list(request)).items.find(i => !i.photo)
+  const bare = await photoless(request)
   test.skip(!bare, 'every fish on this build has a photo (the fixture); the live site has hundreds without')
   await page.goto(`${LIST}${bare!.slug}/`)
   await expect(page.locator('main header.top')).toHaveClass(/\bbare\b/)
