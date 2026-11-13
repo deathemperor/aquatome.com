@@ -34,7 +34,7 @@ const net = (h: string, env: NodeJS.ProcessEnv, call: string) => {
 test('a call to GitHub with no answer is stopped at its limit and says so; one that answers keeps its status and output', () => {
   const { h, env } = home()
   const hung = net(h, { ...env, GIT_NET_SECONDS: '2' }, 'sleep 30')
-  expect(hung.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [23] s, stopped$/), 'status 124'])
+  expect(hung.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [2-4] s, stopped$/), 'status 124'])
   expect(hung.seconds).toBeLessThan(10)
   expect(net(h, env, `sh -c 'echo fetched; exit 3'`).out).toEqual(['fetched', 'status 3'])
   expect(net(h, env, 'true').out).toEqual(['status 0'])
@@ -46,6 +46,18 @@ test('the stop reaches what the call started too, one that ignores TERM included
   const r = net(h, { ...env, GIT_NET_SECONDS: '1' }, `sh -c 'sleep 30 & echo $! > a; (trap "" TERM; exec sleep 31) & echo $! > b; wait'`)
   expect(r.out.at(-1)).toBe('status 124')
   for (const f of ['a', 'b']) expect(() => process.kill(Number(readFileSync(join(h, f), 'utf8')), 0), f).toThrow()
+})
+
+// Astra's read of 47412f53e: stopping a watchdog that had already ended failed the call under set -e; a call that exits 0
+// on TERM was let off before its children were.
+test('a call that answers goes on under set -e however slow the clock; one that exits 0 when stopped is still stopped, children and all', () => {
+  const { h, env, exe } = home()
+  const slow = exe('slow-clock', 'n=$(cat "$HOME/slow.n" 2>/dev/null || echo 0); echo $((n + 1)) > "$HOME/slow.n"; [ "$n" -lt 1 ] || sleep 2; echo "$(date +%s) 0"')
+  const r = spawnSync('/bin/bash', ['-c', `set -euo pipefail; log() { echo "LOG $*"; }; source "${SCRIPTS}/cycle-checks.sh"; net true; echo after`], { cwd: h, encoding: 'utf8', env: { ...env, AQ_CLOCK: slow } })
+  expect(r.stdout.trim()).toBe('after')
+  const polite = net(h, { ...env, GIT_NET_SECONDS: '1' }, `sh -c 'trap "exit 0" TERM; (trap "" TERM; exec sleep 31) & echo $! > c; while :; do sleep 1; done'`)
+  expect(polite.out).toEqual([expect.stringMatching(/: no answer from GitHub in \d+ s, stopped$/), 'status 124'])
+  expect(() => process.kill(Number(readFileSync(join(h, 'c'), 'utf8')), 0)).toThrow()
 })
 
 test('every call the cycle makes to GitHub has the limit', () => {

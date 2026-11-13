@@ -27,26 +27,29 @@ clock() {
 # the limit the call is stopped, the log says so (and how long the Mac slept in it), and it fails as a refused fetch or
 # push does: the opening fetch ends the cycle, which frees the next run (finish reports it to GitHub, engine-mac.yml).
 net() {
-  local limit="${GIT_NET_SECONDS:-600}" job dog status=0 t0 z0 t1 z1 slept why
+  local limit="${GIT_NET_SECONDS:-600}" job dog status=0 t0 z0 t1 z1 slept why stopped="${TMPDIR:-/tmp}/aq-net.$$.$RANDOM"
   read -r t0 z0 < <(clock)
   # In a process group of its own, so the stop reaches what it started too (git pull's fetch, ssh, a merge driver).
   perl -e 'setpgrp(0, 0); exec { $ARGV[0] } @ARGV or die "$ARGV[0]: $!\n"' "$@" &
   job=$!
   # By the clock, not by how many sleeps it took (a Mac asleep or busy stretches them), and with none of the caller's
-  # output, so a sleep it leaves behind holds no pipe open: TERM to the group at the limit, KILL to what's left 10 s on.
+  # output, so a sleep it leaves behind holds no pipe open. It ends by itself once nothing of the call is left, so it's
+  # never stopped from here (a stop that fails would end the cycle under set -e); at the limit it marks the stop, sends
+  # TERM to the group and KILL to what's left 10 s on, so a call that exits 0 on TERM is still stopped, children and all.
   ( while sleep 1; do
-      kill -0 "$job" 2>/dev/null || exit 0
+      kill -0 -- -"$job" 2>/dev/null || exit 0
       read -r t1 _ < <(clock); [ $((t1 - t0)) -lt "$limit" ] || break
     done
+    : > "$stopped"
     kill -TERM -- -"$job" 2>/dev/null
     for _ in 1 2 3 4 5 6 7 8 9 10; do sleep 1; kill -0 -- -"$job" 2>/dev/null || exit 0; done
     kill -KILL -- -"$job" 2>/dev/null ) </dev/null >/dev/null 2>&1 &
   dog=$!
   wait "$job" 2>/dev/null || status=$?
-  read -r t1 z1 < <(clock)
-  if [ "$status" = 0 ] || [ $((t1 - t0)) -lt "$limit" ]; then kill "$dog" 2>/dev/null; wait "$dog" 2>/dev/null || true; return "$status"; fi
-  # Stopped: until none of what it started is left.
   wait "$dog" 2>/dev/null || true
+  [ -e "$stopped" ] || return "$status"
+  rm -f "$stopped"
+  read -r t1 z1 < <(clock)
   slept=$((z1 - z0)); why="$*: no answer from GitHub in $((t1 - t0)) s, stopped"
   [ "$slept" -lt 60 ] || why="$why; the Mac slept $((slept / 60)) min of that, and a connection doesn't outlive a sleep"
   log "$why"; return 124
