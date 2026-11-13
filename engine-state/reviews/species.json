@@ -736,6 +736,46 @@
       "kept": false
     }
   ],
+  "vi/species/sahyadria-denisonii#c1siLU71MxI": [
+    {
+      "at": "2026-11-13T09:57:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.35,
+      "notes": [
+        "'dài tới 25 cm' – video says 10 inches (~25 cm) but the NEW claims 'quá lời'; ok, but 'tối đa khoảng 13 cm' is the keeper's 5 inches given as a rule-ish; also the page already has sizeCm 11 and is not flagged as a difference",
+        "'Sahyadria lấy từ dãy Sahyadri' – video says the name is a play on the word and the fish's location; okay, but 'tức vùng núi' is added detail",
+        "'Quần thể hoang dã ... chưa thấy thông tin' – the video's host said he had no information; presented as general fact rather than one keeper's research",
+        "'Francis Day mô tả ... Sir William Denison' – fine, but IUCN endangered/poaching/price content partly repeats page (IUCN Nguy cấp, wild catching cause)",
+        "'Cá này thuộc loại hơi đắt... hỏi giá trọn bể' – keeper tip stated as general advice, not attributed to one keeper",
+        "'dưới mức đó' / 'trên 27 °C' – video says 80°F (~27°C) but contradicts page temp 15–25 without saying so plainly",
+        "'giữ dưới mức đó' and 'pH trên 8' contradict the page's pH 6.5–7.8 range and are not flagged as differing from the page",
+        "'6–8 con trở lên' – video says six, seven, eight or more as the host's guideline; page says 6-10, difference not stated; 'hiền hơn cá tứ vân nhiều' is okay"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-13T09:57:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.4,
+      "notes": [
+        "Page already has the 1865 description? No, but notes repeat IUCN endangered/poaching facts partly; 'Sau khi loài này vào Sách đỏ IUCN... bắt trộm' is okay, yet 'cá trại đã có nhiều' overlaps page's mass captive production.",
+        "'Bể 40 lít hay 60 lít' — video says 10 or 15 gallon; converted figures are invented, not stated.",
+        "'bể dài 90 cm', '120 cm', '180 cm' are conversions of 3/4/6 ft; and 120 cm minimum duplicates the page's tankCm 120 / aquariumSize.",
+        "'dưới 27 °C' — video says 80°F; the conversion is ~26.7, and it conflicts with the page's 15–25 range without saying so.",
+        "'lớn tới khoảng 13 cm' — video says about five inches (~12.7 cm), but the page lists sizeCm 11 and the difference isn't noted.",
+        "'cá cầu vồng vây sợi, cá tetra hay cá tam giác' — video says harlequin rasboras; 'cá tam giác' is a plausible rendering but the 'trong bể dài 120 cm' is stated as a four-foot tank, ok.",
+        "'Một người nuôi đã thấy nó sống tốt…' fine, but 'Khi bể thiếu oxy, loài này thường lộ dấu hiệu sớm' and 'nitrat cao sọc đỏ nhạt' overlap the page's maintenance on organics/oxygen.",
+        "'Loài này nên nuôi một con hoặc cả đàn' and 'đổi kiểu cho ăn' are loosely rendered; 'cá xế hổ' for tiger barb is unnatural; 'Cá này hơi đắt' and 'vì người bán thường chịu bớt' stated as a rule from one keeper's guarantee."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/sawbwa-resplendens#8D2Wn53DSsg": [
     {
       "at": "2026-11-06T16:41:58Z",

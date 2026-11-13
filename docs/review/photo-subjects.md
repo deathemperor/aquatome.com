@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-13), most-read pages first. Rules: docs/governance.md, "Photos".
-6362 verdicts. Shows it: 4351; its habitat (asked again): 3; something else: 310; not a photo of it: 230; dead or as food: 308; a person in it: 101; a logo on it: 44; can't tell: 991.
+6362 verdicts. Shows it: 4351; its habitat (asked again): 3; something else: 310; not a photo of it: 230; dead or as food: 308; a person in it: 101; a logo on it: 44; can't tell: 990.
 
 ## Left with no photo (68)
 
@@ -74,7 +74,7 @@ Written by `pnpm engine check-photos` (2026-11-13), most-read pages first. Rules
 - species/thayeria-ifati
 - species/xenotilapia-sima
 
-## Can't tell: still shown (991)
+## Can't tell: still shown (990)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -988,7 +988,6 @@ Written by `pnpm engine check-photos` (2026-11-13), most-read pages first. Rules
 | species/gambusia-affinis | [photo](https://media.aquatome.com/inaturalist/6318780.webp) | subject unsure |
 | species/gambusia-affinis | [photo](https://media.aquatome.com/inaturalist/7498245.webp) | subject unsure |
 | species/gambusia-affinis | [photo](https://media.aquatome.com/inaturalist/783293.webp) | subject unsure |
-| species/gambusia-affinis | [photo](https://media.aquatome.com/panitvong/inat-233051860.webp) | subject unsure |
 | species/garra-ceylonensis | [photo](https://media.aquatome.com/inaturalist/614307660.webp) | subject unsure |
 | species/gymnothorax-tile | [photo](https://media.aquatome.com/inaturalist/576184543.webp) | subject unsure |
 | species/hemiancistrus-aspidolepis | [photo](https://media.aquatome.com/inaturalist/349527911.webp) | subject unsure |
@@ -1072,7 +1071,7 @@ Written by `pnpm engine check-photos` (2026-11-13), most-read pages first. Rules
 
 ## Removed (978)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |

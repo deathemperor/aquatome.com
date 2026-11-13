@@ -1,0 +1,147 @@
+{
+  "id": "youtube-Zm9498fWcgc",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=Zm9498fWcgc",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "rotala-rotundifolia",
+    "paracheirodon-innesi",
+    "caridina-multidentata"
+  ],
+  "updatedAt": "2026-11-13",
+  "video": {
+    "youtubeId": "Zm9498fWcgc",
+    "title": "I Can't Believe This Worked! Low Tech Grass Nano Tank",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 2377,
+    "publishedAt": "2026-01-30",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvIM5TufKaTkbfXyaw3dd8K",
+      "position": 29
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/Zm9498fWcgc/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Lagenandra sp.",
+      "Rotala rotundifolia",
+      "Micranthemus tweediei",
+      "Paracheirodon innesi",
+      "Caridina multidentata",
+      "Eleocharis sp."
+    ],
+    "gear": [
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Superfish",
+        "model": "Scaper LED",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "t": 0
+      },
+      {
+        "category": "co2",
+        "type": "mini",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 240
+      },
+      {
+        "category": "khac",
+        "brand": "Dennerle",
+        "t": 270
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "t": 720
+      },
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 240
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Bố cục và thiết bị",
+        "moments": [
+          {
+            "t": 20,
+            "url": "https://media.aquatome.com/video/Zm9498fWcgc/at20-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh có đá phủ rêu, thảm cỏ xanh thấp và cá betta.",
+            "sharpness": 2311.5
+          }
+        ]
+      },
+      {
+        "heading": "Pha bộ CO2 men đường",
+        "moments": [
+          {
+            "t": 30,
+            "url": "https://media.aquatome.com/video/Zm9498fWcgc/at30-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bình phản ứng CO2 nhỏ gắn trên thành hồ thủy sinh.",
+            "sharpness": 444.2
+          },
+          {
+            "t": 40,
+            "url": "https://media.aquatome.com/video/Zm9498fWcgc/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bình CO2 men đường đặt cạnh hồ thủy sinh.",
+            "sharpness": 608.3
+          }
+        ]
+      },
+      {
+        "heading": "Chăm bể mấy tuần đầu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Zm9498fWcgc/p5-9ycGhhXzAxLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/Zm9498fWcgc/p5-9ycGhhXzAxLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 2.5",
+          "author": "Tucsouffle",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:20061213210458_trigonostigma-heteromorpha_01.jpg",
+          "caption": "Bể thủy sinh mới set có nước xanh đục, cá và cây còn đang ổn định."
+        }
+      },
+      {
+        "heading": "Thả cá",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Zm9498fWcgc/p6-5faW5uZXNpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/Zm9498fWcgc/p6-5faW5uZXNpLmpwZw-480.webp",
+          "width": 960,
+          "height": 636,
+          "licence": "CC BY 3.0",
+          "author": "Holger Krisp",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neonsalmler_Paracheirodon_innesi.jpg",
+          "caption": "Cá neon nổi bật màu xanh và đỏ trên nền cây xanh tối trong bể."
+        }
+      }
+    ]
+  }
+}

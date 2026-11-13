@@ -1176,10 +1176,12 @@
     "reason": "multi-species science"
   },
   "bVLQnOUZnz4": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Discover the Extravagant Gold Laser Corydoras CW010",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "bx2VN17LLzg": {
     "at": "2026-11-07",
@@ -1206,10 +1208,15 @@
     "reason": "vague"
   },
   "c1siLU71MxI": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Denison Barb / Roseline shark ( Sahyadria denisonii) Species profile",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Sahyadria denisonii",
+    "page": "species/sahyadria-denisonii",
+    "done": "low",
+    "score": 0.4,
+    "reason": "Page already has the 1865 description? No, but notes repeat IUCN endangered/poaching facts partly; 'Sau khi loài này vào Sách đỏ IUCN... bắt trộm' is okay, yet 'cá trại đã có nhiều' overlaps page's mass captive production.; 'Bể 40 lít hay 60 lít' — video says 10 or 15 gallon; converted figures are invented, not stated."
   },
   "C39oa-DeWjQ": {
     "at": "2026-11-07",
@@ -1276,10 +1283,12 @@
     "reason": "species not named in title"
   },
   "cBhYmAOi22M": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Morse Code Tetra \"Hemigrammus sp. Morse Code\" (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "ceG1n3PAwQk": {
     "at": "2026-11-07",
@@ -1658,6 +1667,14 @@
     "kind": "other",
     "done": "skipped",
     "reason": "multiple GloFish, news"
+  },
+  "eXzcsob9Z4U": {
+    "at": "2026-11-13",
+    "title": "This Is My Kind of Aquarium Predator",
+    "channel": "Steenfott Aquatics",
+    "kind": "other",
+    "done": "skipped",
+    "reason": "Vague title, no species named; not clearly a single-species profile"
   },
   "EY13FDXeW3Q": {
     "at": "2026-11-07",
