@@ -37,6 +37,10 @@ test('a call to GitHub with no answer is stopped at its limit and says so; one t
   expect(hung.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [2-4] s, stopped$/), 'status 124'])
   expect(hung.seconds).toBeLessThan(10)
   expect(net(h, env, `sh -c 'echo fetched; exit 3'`).out).toEqual(['fetched', 'status 3'])
+  // Astra's read, 13 Nov: a stop that leaned on a file in the temp folder never came when the folder was missing.
+  const noTemp = net(h, { ...env, GIT_NET_SECONDS: '1', TMPDIR: '/dev/null/aq-net' }, 'sleep 30')
+  expect(noTemp.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [1-3] s, stopped$/), 'status 124'])
+  expect(noTemp.seconds).toBeLessThan(10)
   const quick = net(h, env, 'true')
   expect(quick.out).toEqual(['status 0'])
   // A call that answers isn't held back by its watchdog: one that looked each second added a second to every call.

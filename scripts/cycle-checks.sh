@@ -27,32 +27,35 @@ clock() {
 # the limit the call is stopped, the log says so (and how long the Mac slept in it), and it fails as a refused fetch or
 # push does: the opening fetch ends the cycle, which frees the next run (finish reports it to GitHub, engine-mac.yml).
 net() {
-  local limit="${GIT_NET_SECONDS:-600}" job dog status=0 t0 z0 t1 z1 slept why stopped="${TMPDIR:-/tmp}/aq-net.$$.$RANDOM"
+  local limit="${GIT_NET_SECONDS:-600}" job dog status=0 stopped=0 t0 z0 t1 z1 slept why
   read -r t0 z0 < <(clock)
   # In a process group of its own, so the stop reaches what it started too (git pull's fetch, ssh, a merge driver).
   perl -e 'setpgrp(0, 0); exec { $ARGV[0] } @ARGV or die "$ARGV[0]: $!\n"' "$@" &
   job=$!
   # By the clock, not by how many sleeps it took (a Mac asleep or busy stretches them), and with none of the caller's
   # output, so a sleep it leaves behind holds no pipe open. It ends by itself once nothing of the call is left, so it's
-  # never stopped from here (a stop that fails would end the cycle under set -e); at the limit it marks the stop, sends
-  # TERM to the group and KILL to what's left 10 s on, so a call that exits 0 on TERM is still stopped, children and all.
+  # never stopped from here (a stop that fails would end the cycle under set -e). At the limit it sends TERM to the group
+  # and KILL to what's left 10 s on, so a call that exits 0 on TERM is still stopped, children and all, and ends with 124,
+  # which is how the caller learns of the stop. Without set -e, so nothing in it can end it before the stop: a marker
+  # file it once wrote, in a temp folder that was missing, did (Astra's read, 13 Nov).
   # It looks every tenth of a second, so a call that answers waits no longer than that for it, and reads the clock every
   # second: looking each second added a second to every call, and a cycle makes dozens.
-  ( n=0
+  ( set +e
+    n=0
     while sleep 0.1; do
       kill -0 -- -"$job" 2>/dev/null || exit 0
       n=$((n + 1)); [ $((n % 10)) -eq 0 ] || continue
-      read -r t1 _ < <(clock); [ $((t1 - t0)) -lt "$limit" ] || break
+      read -r t1 _ < <(clock) || t1=$(date +%s)
+      [ $((${t1:-0} - t0)) -lt "$limit" ] || break
     done
-    : > "$stopped"
-    kill -TERM -- -"$job" 2>/dev/null
-    for _ in 1 2 3 4 5 6 7 8 9 10; do sleep 1; kill -0 -- -"$job" 2>/dev/null || exit 0; done
-    kill -KILL -- -"$job" 2>/dev/null ) </dev/null >/dev/null 2>&1 &
+    kill -TERM -- -"$job" 2>/dev/null || exit 0
+    for _ in 1 2 3 4 5 6 7 8 9 10; do sleep 1; kill -0 -- -"$job" 2>/dev/null || exit 124; done
+    kill -KILL -- -"$job" 2>/dev/null
+    exit 124 ) </dev/null >/dev/null 2>&1 &
   dog=$!
   wait "$job" 2>/dev/null || status=$?
-  wait "$dog" 2>/dev/null || true
-  [ -e "$stopped" ] || return "$status"
-  rm -f "$stopped"
+  wait "$dog" 2>/dev/null || stopped=$?
+  [ "$stopped" -eq 124 ] || return "$status"
   read -r t1 z1 < <(clock)
   slept=$((z1 - z0)); why="$*: no answer from GitHub in $((t1 - t0)) s, stopped"
   [ "$slept" -lt 60 ] || why="$why; the Mac slept $((slept / 60)) min of that, and a connection doesn't outlive a sleep"
