@@ -61,6 +61,11 @@ final class BluetoothLampAir: NSObject, LampAir {
 
 extension BluetoothLampAir: @preconcurrency CBPeripheralManagerDelegate {
   func peripheralManagerDidUpdateState(_ manager: CBPeripheralManager) {
+    // Bluetooth went off or reset while a broadcast was starting: say so, rather than leave the card sending.
+    if manager.state != .poweredOn, let done = starting {
+      starting = nil
+      done(Self.error(manager.state) ?? .failed)
+    }
     guard let w = waiting else { return }
     if let e = Self.error(manager.state) {
       waiting = nil
@@ -119,7 +124,7 @@ final class LoveEcologyModel {
       if let e { self.status = .problem(e); return }
       self.sent.append(command.id)
       self.ending = Task { [weak self] in
-        try? await Task.sleep(for: Self.seconds)
+        try? await Task.sleep(for: LoveEcologyModel.seconds)
         guard !Task.isCancelled, let self else { return }
         self.air.stop()
         self.status = .sent(command.id, Date())
