@@ -119,6 +119,31 @@ hatching, which Anthropic also stopped on) was taken after both scored 9. Not in
 - **Split:** "tạp chí" before a journal's name (Anthropic: always; xAI: never before "Journal of…", which stutters).
   It stays before a name that doesn't say it's a journal.
 
+## The weeks' themes and shelf titles, 7 Dec 2026 – 7 Feb 2027 (2026-11-13)
+
+The calendar's nine new weeks (`content/curation.json`). These aren't in the tallies below, which count pages.
+
+| Round | Seats | Vietnamese | Indonesian | Thai | Malay |
+|---|---|---|---|---|---|
+| 1 | xAI alone | 8 | 7 | 7 | 7 |
+
+Round 1 had the xAI seat alone: Cursor refused OpenAI and Google (not in that week's usage), and no Claude helper ran
+before 14 Nov.
+- **Vietnamese, held by the references:**
+  - "ăn rêu" for "đội dọn bể": 110.7 a million words in the videos and 20.4 in the forum, against 0 in both (the site's
+    guides have it at 30);
+  - "rêu hại" for "rêu tảo": 579 in the videos and 10.6 in the forum, against 7.4 and 2.6. The verb stays "xử lý",
+    which the videos use for it (22.1).
+- **Indonesian, Thai and Malay** have no hobbyist corpus yet. Changed only where the source or the site's own pages bear
+  the finding out:
+  - the season themes had lost the fish the Vietnamese names;
+  - Thai: the red-fish shelf takes the names its pages give, หลอฮั่น and ปลาหมอนกแก้ว, since หมอสี alone is the cichlids as a group;
+  - Indonesian "air dingin" for "air sejuk", which is the Malay word; "alga" in the algae eaters' row, as the next
+    shelf says;
+  - "crew" carried over word for word in all four (Tim pembersih, ทีมทำความสะอาดตู้, Pasukan pembersih): the finding the
+    Vietnamese references hold.
+- **Open, one seat and no corpus:** Malay "saudaranya" and "sempena".
+
 ## Vietnamese
 
 Rounds 1 and 2 (2026-11-07) had the Anthropic seat alone, and weren't tallied.
