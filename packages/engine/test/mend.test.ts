@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import type { FitCheck } from '../src/fit'
-import { asked, lostWords, mendPart, type Dropped } from '../src/mend'
+import { asked, mendPart, type Dropped } from '../src/mend'
 import { sentences } from '../src/sentences'
 
 /**
@@ -120,7 +120,7 @@ test('a size the writer kept as it was, then put in metric by the code, is not c
 
 // Astra's read of 42eaea950: a word that says something isn't a joining word, and a neighbour may name what its pronoun
 // stood for once the sentence it pointed to has gone.
-test('a changed sentence that loses "bị", a pronoun with no noun for it, or part of a frame fails; a neighbour that turns "Chúng" into the noun passes', async () => {
+test('a changed sentence that loses "bị", a pronoun, or part of a frame fails, though its reviewer lists nothing', async () => {
   const reviewer = (dropped: Dropped[]) => ({ score: 1, notes: [], dropped, hedges: [] })
   const llm = (sentences: { n: number; vi: string; why?: string }[], dropped: Dropped[] = []) => (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences') ? { sentences } : reviewer(dropped))) as Llm
   const reversed = await mendPart(llm([{ n: 1, vi: 'Tép con ăn cá.' }]), '<p>Tép con bị cá ăn, giá 5 đô la. Tép sống theo đàn.</p>', [{ check: 'price', quote: 'giá 5 đô la', note: 'Bỏ giá nước ngoài.' }])
@@ -129,9 +129,8 @@ test('a changed sentence that loses "bị", a pronoun with no noun for it, or pa
   const quote = 'Cây giá 5 đô la một bó.'
   const named = await mendPart(llm([{ n: 1, vi: '' }, { n: 2, vi: 'Cây chứa thuốc trừ sâu.', why: '"Chúng" pointed to the sentence that went' }], [{ sentence: 1, finding: 1, text: quote }]), `<p>${quote} Chúng chứa thuốc trừ sâu. Cây mọc nhanh.</p>`, [{ check: 'price', quote, note: 'Bỏ giá nước ngoài.' }])
   if (typeof named === 'string') throw new Error(named)
-  expect(named.unasked).toEqual([])
-  expect(named.html).toContain('Cây chứa thuốc trừ sâu.')
-  expect(named.html).not.toContain('Chúng')
+  // A pronoun counts like any word, even put as its noun: no rule found which noun is its own (Astra's reads, 13 Nov).
+  expect(named.unasked).toEqual(['Left out of sentence 2, and no finding asks for it to go: "chúng"'])
   // Astra's read of cb1647216: a pronoun dropped with no noun in its place, and a frame half kept under a negation.
   const price = [{ check: 'price' as const, quote: 'giá 5 đô la', note: 'Bỏ giá nước ngoài.' }]
   const whose = await mendPart(llm([{ n: 1, vi: 'Cá ăn con.' }]), '<p>Cá ăn con của chúng, giá 5 đô la. Cá sống theo đàn.</p>', price)
@@ -150,10 +149,8 @@ test('a changed sentence that loses "bị", a pronoun with no noun for it, or pa
   const inside = await mendPart(llm([{ n: 1, vi: 'Không cần nhiệt độ cao.' }]), '<p>Không cần lưu ý rằng nhiệt độ cao, giá 5 đô la. Cá sống theo đàn.</p>', price)
   if (typeof inside === 'string') throw new Error(inside)
   expect(inside.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "lưu ý"'])
-  // Astra's read of 9c7538ac8: a negation from the sentence before isn't a noun, and the noun must stand as it stood.
-  expect(lostWords('Chúng chứa thuốc trừ sâu.', 'Không chứa thuốc trừ sâu.', [], 'Cây không được bán ở đây.')).toEqual(['chúng'])
-  expect(lostWords('Chúng chứa thuốc trừ sâu.', 'Cây chứa thuốc trừ sâu.', [], 'Cây không được bán ở đây.')).toEqual([])
-  expect(lostWords('Chúng chứa thuốc trừ sâu.', 'Cây dạng bó chứa thuốc trừ sâu.', [], 'Cây dạng bó không được bán ở đây.')).toEqual([])
-  expect(lostWords('Chúng chứa thuốc trừ sâu.', 'Bó cây chứa thuốc trừ sâu.', [], 'Cây dạng bó không được bán ở đây.')).toEqual(['chúng'])
-  expect(lostWords('Chúng chứa thuốc trừ sâu.', 'Những cây này chứa thuốc trừ sâu.', [], 'Những cây này được bán theo bó.')).toEqual([])
+  // A phrase from the sentence before put in the pronoun's place: "Chỉ những cây này" adds that no other plant has it.
+  const scoped = await mendPart(llm([{ n: 1, vi: 'Chỉ những cây này chứa thuốc trừ sâu.' }]), '<p>Chúng chứa thuốc trừ sâu, giá 5 đô la. Cá sống theo đàn.</p>', price)
+  if (typeof scoped === 'string') throw new Error(scoped)
+  expect(scoped.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "chúng"'])
 })
