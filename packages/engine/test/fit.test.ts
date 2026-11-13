@@ -461,3 +461,57 @@ test('units: a figure the page\'s English gives in metric itself isn\'t counted;
   // A guide keeps its source elsewhere: still counted.
   expect(units(page('<p>Bể 38 lít là đủ.</p>'))).toEqual(['38 lít'])
 })
+
+// The 16 Vietnamese matches the chief of staff's count was checked by hand on (13 Nov 2026), as the site had them: half a
+// dealer's own news, half trade history the reader keeps.
+test('a dealer\'s own current batch or stock is the source check\'s; trade history stays', () => {
+  const news = [
+    'Dành cho khách hàng của chúng tôi: các loài này có mã 454900 (jardinii) và 454912 (leichardti) trong danh mục hàng.',
+    'Sau một thời gian gián đoạn, cuối cùng cũng lại có một lô cá nhập từ Congo. Trong lô này có hai loài Distichodus rất đẹp.',
+    'Một trong số đó là Poptella paraguayensis, nay đã được nhập về từ Paraguay. Đây là loài cá lớn, dài khoảng 8 cm.',
+    'Gần đây có một lô cá rô leo nhập từ Bengal. Trong lô, đa số là một loài đầu to.',
+    'Nhưng nếu dựa vào hoa văn ở lô cá này thì hầu như con nào cũng thuộc một loài khác nhau.',
+    'Corydoras imitator hiện được nhập về từ vùng thượng nguồn sông Rio Negro ở Brazil.',
+    'Bây giờ dạng thuần đã có hàng trở lại.',
+    'Gần đây có một đợt nhập từ Thái Lan về vài con đực có càng to khác thường.',
+    // Two more from the first run of the front list: a part that is a dealer's notice, and an import's colours.
+    'Hiện ngoài tiệm có bán cá phượng hoàng bắt ngoài tự nhiên ở Venezuela.',
+    'Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.',
+    // And from the count on the site: a batch in, this batch's fish.
+    'Mới đây có một lô lớn Corydoras burgessi về, toàn cá trưởng thành.',
+    'Đợt này về rất nhiều loài đẹp, trong đó có những loài rất hiếm.',
+    'Cá trong lô nhập về dài 14-18 cm. Lô này chỉ có 7 con.',
+    'Tên cũ cũng để chỉ ông. Hiện nay lại có cá thể hoang dã mới trưởng thành của loài này.',
+  ]
+  const history = [
+    'Cũng có con có thêm những đốm trắng nhỏ. Hai dạng màu này có thể lẫn chung trong cùng một lô nhập.',
+    'Tiệm cá bày bán quá nhiều loài, nên có những con bán khắp nơi mà người chơi lại ít để mắt tới.',
+    'Lý do là màu sắc của chúng biến đổi rất nhiều, và chúng thường được nhập về lẫn lộn với nhau.',
+    'Cửa hàng cá bán khá nhiều loài, nhưng nhiều loài phải đúng mùa mới có hàng.',
+    'Có khi cá về tiệm chỉ vì lẫn vào lô cá khác.',
+    'Năm 2002, một loài cá chì lùn màu đỏ đậm từ Peru được nhập về dưới tên Nannostomus marginatus “Purple”.',
+    'Nhiều khả năng tiếng xấu đó bắt nguồn từ những thiếu sót trong các đợt nhập đầu tiên vào thập niên 1970. Cá nhập về hiện nay thì nuôi không gặp vấn đề gì cả.',
+    'Ngày nay được nhập về khá đều từ nhiều nơi.',
+    // The count's false hits on the site: a museum's lots, the mixed batches a fish comes in, rounds and rarity, "now
+    // sold everywhere", taxa now available.
+    'Ông tìm thấy hai lô mẫu ghi nhãn Badis dario từ Wynaad. Hóa ra hai lô này cùng loài với mẫu vật mới.',
+    'Cá thường về lẫn trong các lô hàng trộn. Những lô này có thể có cả các loài Gastromyzon khác.',
+    'Những đợt này có thể dễ dàng làm chết các con yếu hơn.',
+    'Muốn cắt vòng đời thì phải làm hai đợt. Trong đợt này phân cá có thể trông lạ.',
+    'Thỉnh thoảng lắm mới có một đợt cá nhập về.',
+    'Loài cá tuyệt vời này bây giờ bán ở khắp nơi.',
+    'Hơn nữa, hiện đã có sẵn các đơn vị phân loại danh nghĩa.',
+    'Vì thế bạn sẽ phải liên tục săn loài mới để bổ sung vào danh mục hàng.',
+    // A batch told with its year, or as where the type specimens came from: history, the sentence after it too.
+    'Tháng 4/2002, nhà cung cấp nhận một lô Tetraodon mbu từ Cộng hòa Congo. Cá trong lô này to hơn mọi lô họ từng nhận trước đó.',
+    'Bộ mẫu chuẩn dùng để mô tả loài lấy từ một lô cá hoang dã nhập từ Peru về Đức. Sau đó, công ty nhập lô cá này ra thông báo rằng cá được bắt ở Saramirisa.',
+    'Hiện nay lại có ý kiến cho rằng đây là một loài riêng.',
+  ]
+  const dealer = (text: string) => fitRules(page(`<p>${text}</p>`, { kind: 'species' })).filter(f => f.check === 'source' && f.why.startsWith('a dealer'))
+  for (const t of news) expect(dealer(t).length, t).toBeGreaterThan(0)
+  for (const t of history) expect(dealer(t), t).toEqual([])
+  // Its quote is the words that say it, so the rewrite takes only the sentence they're in.
+  expect(dealer(news[6]!).map(f => f.quote)).toEqual(['đã có hàng trở lại'])
+  // Only Vietnamese, for now.
+  expect(fitRules(page('<p>Bây giờ dạng thuần đã có hàng trở lại.</p>', { lang: 'id', path: '/id/panduan/g/' })).filter(f => f.why.startsWith('a dealer'))).toEqual([])
+})

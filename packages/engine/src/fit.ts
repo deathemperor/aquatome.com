@@ -139,6 +139,37 @@ const SOURCE_NO = [
   re(`\\((?:sumber|nguồn|source|แหล่ง(?:ข้อมูล)?(?:ที่)?)\\s*\\d+(?:\\s*(?:,|dan|và|และ|and)\\s*\\d+)*\\)`),
   new RegExp('(?<![\\p{L}\\p{N}])(?:[Ss]umber|Nguồn|Source)\\s+\\d+(?=:|\\s+\\p{Ll})|แหล่ง(?:ข้อมูล)?ที่\\s*\\d+(?=\\s*[\\u0E00-\\u0E7F])', 'gu'),
 ]
+/**
+ * A dealer's own current batch or stock, in Vietnamese: news to no reader here, and the source check's (the chief of
+ * staff, 13 Nov 2026). On that day 245 Vietnamese pages had text from a dealer's bulletins (Glaser's most of it), and a
+ * hand check of 16 found half of it was the dealer's news ("lô cá này", "nay đã được nhập về", "đã có hàng trở lại", "mã
+ * 454900" for "khách hàng của chúng tôi") and half trade history a reader keeps ("các đợt nhập đầu tiên vào thập niên
+ * 1970", "thường được nhập về lẫn lộn", "lẫn vào lô cá khác"). So only what says now, this batch or our customers: a
+ * batch named as this one or just in, an arrival dated now, stock back, the shop's own stock, a catalogue code.
+ */
+const DEALER_VI = re([
+  WORD('khách hàng của chúng tôi|trong danh mục hàng(?: của chúng tôi)?|mã(?: số| hàng)? \\d{5,6}'),
+  // An arrival dated now: "gần đây có một lô", "cuối cùng cũng lại có một lô"; not "thỉnh thoảng mới có một đợt".
+  WORD('(?:gần đây|mới đây|vừa|cuối cùng(?: cũng)?)(?: lại)? có (?:thêm )?(?:một |vài )?(?:lô|đợt)'),
+  // This one batch: not "những lô này" (the mixed batches a fish comes in) or "hai lô mẫu" (a museum's), nor a bare
+  // "đợt này", which is as often a round of treatment or a migration.
+  `(?<!(?:những|các|hai|ba|mấy|vài|lô) )${WORD('lô(?: cá| hàng| nhập)? (?:này|lần này|(?:mới|vừa) (?:nhập|về)(?: về)?)')}`,
+  WORD('đợt (?:cá|hàng|nhập)(?: về)? (?:này|lần này|(?:mới|vừa) (?:nhập|về)(?: về)?)|đợt (?:này|lần này) về|(?:mới|vừa) về (?:trong )?(?:đợt|lô) này'),
+  '(?<![\\p{L}\\p{N}])trong lô(?=[,:])',
+  WORD('(?:(?<!ngày )nay|hiện nay|hiện|bây giờ|giờ đây)(?: thì)? (?:đã |đang |cũng )?(?:được )?(?:nhập về|có hàng)'),
+  WORD('(?:đã |lại )?có hàng (?:trở )?lại'),
+  // Stock back: "Hiện nay lại có cá thể hoang dã mới trưởng thành"; not "hiện nay lại có ý kiến".
+  WORD('(?:hiện nay|hiện|bây giờ|giờ đây) lại có (?:thêm )?(?:cá thể|cá|hàng|con)'),
+  WORD('hiện (?:ngoài|tại|ở|trong) tiệm (?:đang )?(?:có bán|bán|có)'),
+].join('|'))
+/**
+ * A batch told with its year, or as where a species' type specimens came from, in the same sentence or the one before:
+ * trade history, not a notice ("Tháng 4/2002, nhà cung cấp nhận một lô… Cá trong lô này to hơn", "Bộ mẫu chuẩn… lấy từ
+ * một lô cá hoang dã… công ty nhập lô cá này").
+ */
+const HISTORY_VI = /(?<!\d)(?:1[89]|20)\d\d(?!\d)|mẫu chuẩn|mẫu định danh|holotype|type series/iu
+const CUT = /(?<=[.!?])\s+|\n/
+const history = (text: string, at: number) => HISTORY_VI.test([...text.slice(0, at).split(CUT).slice(-2), text.slice(at).split(CUT)[0]].join(' '))
 const IMPERIAL = [
   re(WORD(`${AMOUNT}(?:gal|inch(?:es)?|inci|feet|ft|foot|pounds?|lbs?|ounces?|oz|độ F)`)),
   re(`${WORD('gallons?|galon|ga-?\\s?lông')}|แกลลอน|°\\s?F|\\d\\s*นิ้ว`),
@@ -387,6 +418,7 @@ export function fitRules(p: Page): FitFinding[] {
     for (const r of PRICE) each('price', r, 'a foreign price or shipping cost')
     if (p.lang !== 'vi') each('price', PRICE_OTHER, 'a price in Vietnamese đồng')
     each('source', SOURCE[p.lang], 'talks about the source or in its voice')
+    if (p.lang === 'vi') for (const m of text.matchAll(DEALER_VI)) if (!history(text, m.index)) say('source', id, m[0], 'a dealer\'s own batch or stock: news to no reader here')
     for (const r of SOURCE_NO) each('source', r, 'a source\'s number from the facts, which the reader never sees')
     for (const r of IMPERIAL) each('units', r, 'an imperial unit')
     for (const m of text.matchAll(CONVERTED)) if (!PER.test(text.slice(Math.max(0, m.index - 24), m.index))) say('units', id, m[0], 'a volume that shows it was converted from gallons')
