@@ -15,6 +15,307 @@
     "peru",
     "parana-paraguay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PY",
+        "AR"
+      ],
+      "regions": [
+        "Rio Paraná",
+        "Rio Paraguay"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Rio Paraná and Rio Paraguay basins in Brazil, Paraguay and Argentina.",
+          "countries": [
+            "BR",
+            "PY",
+            "AR"
+          ],
+          "regions": [
+            "Rio Paraná",
+            "Rio Paraguay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2419343,
+      "total": 262,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BR",
+          222
+        ],
+        [
+          "PE",
+          33
+        ],
+        [
+          "BO",
+          3
+        ],
+        [
+          "PY",
+          3
+        ],
+        [
+          "AR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -4.21875,
+          5,
+          0
+        ],
+        [
+          -75.9375,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          -74.53125,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          0
+        ],
+        [
+          -71.71875,
+          -14.0625,
+          8,
+          0
+        ],
+        [
+          -71.71875,
+          -12.65625,
+          10,
+          0
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          23,
+          22
+        ],
+        [
+          -63.28125,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -22.5,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -21.09375,
+          22,
+          22
+        ],
+        [
+          -57.65625,
+          -19.6875,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -15.46875,
+          20,
+          20
+        ],
+        [
+          -54.84375,
+          -26.71875,
+          10,
+          10
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -18.28125,
+          20,
+          20
+        ],
+        [
+          -53.4375,
+          -23.90625,
+          36,
+          36
+        ],
+        [
+          -53.4375,
+          -22.5,
+          11,
+          11
+        ],
+        [
+          -53.4375,
+          -21.09375,
+          4,
+          4
+        ],
+        [
+          -52.03125,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -21.09375,
+          45,
+          45
+        ],
+        [
+          -50.625,
+          0,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -164,19 +465,7 @@
       "html": "<p>Potamotrygon menchacai, the tiger stingray: a big, very beautifully patterned female with approximately 60 cm in diameter was imported in September 2006. Tiger rays can be colored quite differently and particularly can differ in the contrast. Through size and scrutiny, they certainly are among the most impressive ornamental fishes.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/f60ac405bf885946.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/f60ac405bf885946-480.webp",
-      "width": 640,
-      "height": 426,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/potamotrygon-falkneri",
-      "caption": "Potamotrygon falkneri",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "4lbkh4qciY8",

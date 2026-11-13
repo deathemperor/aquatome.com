@@ -47,7 +47,11 @@ test('the sitemap and redirects.json give the root addresses', () => {
   expect(locs).toContain('/id/')
   expect(locs.filter(p => p.startsWith('/vi/'))).toEqual([])
   // An old address of a renamed page, by its root form: the Worker reads an old /vi/… one without /vi.
-  expect(JSON.parse(readFileSync(join(DIST, 'redirects.json'), 'utf8'))).toEqual({ '/ca/ca-neon-vua-super-red/': '/ca/ca-neon-vua/?tu=ca-neon-vua-super-red', '/ca/ca-neon-vua-super-red/anh/': '/ca/ca-neon-vua/anh/' })
+  // One with no name (another animal's, page-folds.ts) forwards bare.
+  expect(JSON.parse(readFileSync(join(DIST, 'redirects.json'), 'utf8'))).toEqual({
+    '/ca/ca-neon-vua-super-red/': '/ca/ca-neon-vua/?tu=ca-neon-vua-super-red', '/ca/ca-neon-vua-super-red/anh/': '/ca/ca-neon-vua/anh/',
+    '/ca/ca-neon-vua-cu/': '/ca/ca-neon-vua/', '/ca/ca-neon-vua-cu/anh/': '/ca/ca-neon-vua/anh/',
+  })
 })
 
 test('the Vietnamese sections are the page folders, and the Worker runs first on each (wrangler.jsonc)', () => {

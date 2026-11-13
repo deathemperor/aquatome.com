@@ -627,7 +627,7 @@ test('a fish the chief of staff named takes its name, guarded, the old one among
   // Its own name, the kept ones dropped by a later write (Astra, 2026-11-13: species research writes a page's other
   // names afresh): they come back, once.
   await writeFile(join(c, at, 'vi.json'), JSON.stringify({ ...t, altNames: ['Red-Neon Blue-eye'] }, null, 1))
-  expect(await nameFish(c)).toEqual(['pseudomugil-luminatus'])
+  expect(await nameFish(c)).toEqual(['species/pseudomugil-luminatus'])
   expect((await json(root, `content/${at}/vi.json`)).altNames).toEqual(['Red-Neon Blue-eye', 'Cá cầu vồng neon đỏ mắt xanh'])
   expect(await nameFish(c)).toEqual([])
 })
@@ -915,4 +915,50 @@ test('a fish and a plant named by the names in use: new address, old one forward
   await sweep(root)
   expect((await json(root, 'content/plants/limnobium-laevigatum/vi.json')).altNames).toEqual(['Amazon frogbit'])
   expect((await json(root, 'content/species/glossolepis-incisus/vi.json')).altNames).toEqual(['Red rainbowfish', 'Cá cầu vồng đỏ', 'Cá cầu vồng táo đỏ'])
+})
+
+// Astra, 2026-11-13: the school size was read before the fold, so the skunk cory's came only on a second run.
+test('a page folded into its fish\'s gives that fish its school size in the same run', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const sf = { key: 'behaviour', source: 'seriouslyfish', sourceUrl: 'https://www.seriouslyfish.com/species/brochis-arcuata', html: '<p>Try to buy a mixed-sex group of at least 8-10 specimens.</p>' }
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await put('species/ditrupa-arietina/entity.json', { ...species('ditrupa-arietina', 'Ditrupa arietina'), sections: [sf] })
+  await put('species/ditrupa-arietina/vi.json', vi('Cá Ditrupa arietina', { 'behaviour:seriouslyfish': '<p>Nuôi theo nhóm ít nhất 8–10 con.</p>' }))
+  await put('species/corydoras-arcuatus/entity.json', { ...species('corydoras-arcuatus', 'Corydoras arcuatus'), sections: [] })
+  await put('species/corydoras-arcuatus/vi.json', vi('Cá chuột skunk', {}))
+  await put('traits/corydoras-arcuatus.json', { id: 'corydoras-arcuatus', temperament: 'peaceful', finNipper: false, schoolMin: 6, speciesUpdatedAt: '2026-10-29', generatedAt: '2026-10-29T15:29:02.830Z' })
+  const r = await sweep(root)
+  expect(r.folds).toEqual(['ditrupa-arietina → corydoras-arcuatus'])
+  expect((await json(root, 'content/traits/corydoras-arcuatus.json')).schoolMin).toBe(8)
+})
+
+test("a photo credited to someone its source's permission refuses leaves every page and album for good; another credit, a photo the saved page doesn't show, one with no caption and one whose caption's first figure is another's stay (the chief of staff, 2026-11-13)", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(join(root, 'sources', 'seriouslyfish'), { recursive: true })
+  const sources = JSON.parse(await readFile(new URL('../../../content/sources.json', import.meta.url), 'utf8'))
+  sources.seriouslyfish.permission.refusedCredits = ['Example Picture Agency']
+  await put('sources.json', sources)
+  const url = 'https://www.seriouslyfish.com/species/imaginichthys-testi'
+  await writeFile(join(root, 'sources', 'seriouslyfish', 'species-imaginichthys-testi.md'), `---\nurl: ${url}\n---\n\n## Species images · 4\nAdult male.Example Picture Agency\nAdult female.Imaginary Person\nJuvenile in the trade, older.Example Picture Agency\nJuvenile in the trade.Example Picture-agency\nA pair.Imaginary Person\nA pair.Example Picture Agency\nA trio.Example Picture Agency\nA trio.Imaginary Person\n- Adult male. is how the trade sells this fish, though the name it goes by in the trade is not the scientific one\n`)
+  const sf = (name: string, caption: string) => ({ ...photo(`https://media.aquatome.com/seriouslyfish/${name}.webp`, caption), author: 'Seriously Fish', sourceUrl: url, source: 'seriouslyfish' })
+  const agency = sf('agency', 'Adult male.'), person = sf('person', 'Adult female.'), variant = sf('variant', 'Juvenile in the trade.'), bare = sf('bare', ''), unseen = sf('unseen', 'Not on the saved page.')
+  // One caption under two credits: the picker keeps the first figure, so the pair is the person's and the trio the agency's.
+  const pair = sf('pair', 'A pair.'), trio = sf('trio', 'A trio.')
+  // Another source's photo with a caption the refused line starts with: its credit is its own source's.
+  const other = { ...photo('https://media.aquatome.com/commons/other.webp', 'Adult male.') }
+  await put('species/imaginichthys-testi/entity.json', species('imaginichthys-testi', 'Imaginichthys testi', { photos: [agency, person, bare, unseen, pair, trio, other] }))
+  await put('species/imaginichthys-testi/vi.json', vi('Cá thử', { 'distribution:seriouslyfish': '<p>Suối.</p>' }))
+  await put('gallery/imaginichthys-testi.json', { id: 'imaginichthys-testi', photos: [variant], seen: 1, updatedAt: '2026-10-01' })
+  const r = await sweep(root)
+  expect((await json(root, 'content/species/imaginichthys-testi/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([person, bare, unseen, pair, other].map(p => p.url))
+  expect((await json(root, 'content/gallery/imaginichthys-testi.json')).photos).toEqual([])
+  const rejected = await json(root, 'engine-state/_photo-rejected.json')
+  expect(Object.keys(rejected).sort()).toEqual([agency.url, trio.url, variant.url])
+  for (const u of [agency.url, trio.url, variant.url]) expect(rejected[u]).toMatch(/^rejected: withheld \[sha256:[a-f0-9]{64}\]$/)
+  expect(r.held).toEqual([])
+  expect((await sweep(root)).again).toEqual([])
 })

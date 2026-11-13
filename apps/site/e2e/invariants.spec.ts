@@ -2,7 +2,7 @@ import { existsSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import type { APIRequestContext } from '@playwright/test'
 import { DIST, LIVE, recheckPages, samplePages, sourcePages } from './pages'
-import { VIETNAMESE, VIETNAMESE_ALLOWED, expect, shownWhole, test } from './fixtures'
+import { VIETNAMESE, VIETNAMESE_ALLOWED, columnSpill, expect, photosMissing, shownWhole, sideways, test } from './fixtures'
 import { checkPage, loadFacts } from '../scripts/page-check'
 import { isViPage } from '../worker/paths'
 import { prefixedLang } from '@aq/schema/langs'
@@ -42,13 +42,7 @@ for (const path of pages) {
     expect(box.y + box.height, 'h1 on the first screen').toBeLessThanOrEqual(page.viewportSize()!.height)
 
     // Nothing wider than the screen: a sideways scroll on a phone means something broke out of the layout.
-    const overflow = await page.evaluate(() => {
-      const w = document.documentElement.clientWidth
-      if (document.documentElement.scrollWidth <= w + 1) return null
-      const wide = [...document.querySelectorAll<HTMLElement>('body *')].find(el => { const r = el.getBoundingClientRect(); return r.right > w + 1 && getComputedStyle(el).position !== 'fixed' })
-      return `${document.documentElement.scrollWidth}px > ${w}px: ${wide ? `<${wide.tagName.toLowerCase()} class="${wide.className}">` : '?'}`
-    })
-    expect(overflow, 'sideways scroll').toBeNull()
+    expect(await sideways(page), 'sideways scroll').toBeNull()
 
     // Pictures keep their space while loading (width and height), and carry alt text (empty when decorative). An empty
     // <img> a script fills later (the gallery's viewer) is not a picture yet.
@@ -82,6 +76,18 @@ for (const path of pages) {
     }
 
     expect(errors, 'script errors').toEqual([])
+
+    // A fish's photo column on a computer, pinned beside the facts, never drawn past the page's top onto what follows: the
+    // owner's fault of 13 November, a tall photo's two rows of thumbnails over the jump chips (photo-column.spec.ts). After
+    // the errors, as it scrolls the page.
+    expect(await columnSpill(page), 'the photo column outside the page top').toBeNull()
+
+    // Nor when its photos don't load: each shows its alt text in its place, which mustn't widen the page either. Checked on
+    // the live site, which loads no photo here (the media host is another origin, fixtures.ts), the Malay Bucephalandra
+    // page's strip of three thumbnails took 418 px of a 412 px phone (13 November, GalleryStrip.astro); a build's own
+    // photos load, so they're made to fail. Last, as it changes the page.
+    await photosMissing(page)
+    expect(await sideways(page), 'sideways scroll with the photos missing').toBeNull()
     info.annotations.push({ type: 'checked', description: path })
   })
 }

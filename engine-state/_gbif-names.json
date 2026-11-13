@@ -5017,13 +5017,6 @@
   "Brochis agassizii": null,
   "Brochis amandajanea": null,
   "Brochis ambiacus": null,
-  "Brochis arcuata": {
-    "canonicalName": "Ditrupa arietina",
-    "order": "Sabellida",
-    "family": "Serpulidae",
-    "genus": "Ditrupa",
-    "matchType": "FUZZY"
-  },
   "Brochis bifasciata": null,
   "Brochis britskii": {
     "canonicalName": "Corydoras britskii",
@@ -16003,13 +15996,6 @@
     "genus": "Liobagrus",
     "matchType": "EXACT"
   },
-  "Liobagrus chengduensis": {
-    "canonicalName": "Liobagrus chenghaiensis",
-    "order": "Siluriformes",
-    "family": "Amblycipitidae",
-    "genus": "Liobagrus",
-    "matchType": "FUZZY"
-  },
   "Liobagrus gigas": null,
   "Liobagrus kingi": {
     "canonicalName": "Liobagrus kingi",
@@ -16847,13 +16833,6 @@
     "family": "Characidae",
     "genus": "Hyphessobrycon",
     "matchType": "EXACT"
-  },
-  "Megalamphodus rosaceus": {
-    "canonicalName": "Hyphessobrycon roseus",
-    "order": "Characiformes",
-    "family": "Characidae",
-    "genus": "Hyphessobrycon",
-    "matchType": "FUZZY"
   },
   "Megalamphodus roseus": {
     "canonicalName": "Hyphessobrycon roseus",

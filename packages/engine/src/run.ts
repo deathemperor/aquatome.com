@@ -10,6 +10,7 @@ import { deeperPages, depthReport, popularityOrder, readSearchCache, runOrder, s
 import { discover } from './discover'
 import { ChallengeError, type ChromeFetcher } from './fetch'
 import { gbifMatch, pageTaxon, type Taxon } from './gbif'
+import { GROUP_PAGES } from './page-folds'
 import { ensurePlaces, guideId, mergePlant, mergeSpecies, writeGuide } from './merge'
 import { METRIC_KINDS } from './metric'
 import { htmlToOutline, isChallenge, type PageImage } from './outline'
@@ -184,7 +185,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const contentRoot = join(root, 'content')
   const s = store(contentRoot)
   const glossary = await glossaryTerms(s)
-  const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean | 'photos' }>>>(join(contentRoot, 'sources.json'))) ?? {}
+  const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean | 'photos'; permission?: { refusedCredits?: string[] } }>>>(join(contentRoot, 'sources.json'))) ?? {}
   const gbifCache: Record<string, Taxon | null> = {}
   const blocked = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))) ?? {}
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
@@ -259,13 +260,15 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const now = today()
     const minWidth = sourceById(source).minPhotoWidth
     const sourcePhotos = (names: string[], existing: Photo[], max?: number) =>
-      storeSourcePhotos(source, sourceNames[source]?.name ?? source, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth), { bytes, media: deps.media, blocked }, existing)
+      storeSourcePhotos(source, sourceNames[source]?.name ?? source, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth), { bytes, media: deps.media, blocked, refusedCredits: sourceNames[source]?.permission?.refusedCredits }, existing, max ?? 4)
     const log = (kind: ChangelogEntry['kind'], id: string, existed: boolean) => {
       const e: ChangelogEntry = { date: now, kind, id, source, action: existed ? 'updated' : 'new' }
       report.changed.push(e)
       return e
     }
     if (page.kind === 'species') {
+      // A source page about several species is no one species' page (page-folds.ts).
+      if (GROUP_PAGES.includes(url)) return null
       // A name newer than GBIF (the 2024 Corydoras split: Hoplisoma sterbai) is found under a synonym the page gives.
       const taxon = await pageTaxon([page.scientificName!, ...page.synonyms], page.group, n => gbifMatch(n, http, gbifCache))
       if (!taxon) return null

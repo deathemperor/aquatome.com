@@ -790,6 +790,18 @@
       "kept": true
     }
   ],
+  "id/places/barapani-lake": [
+    {
+      "at": "2026-11-13T05:06:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/baria": [
     {
       "at": "2026-11-10T17:42:33Z",
@@ -1719,6 +1731,18 @@
       "kept": true
     }
   ],
+  "id/places/caribbean-basin": [
+    {
+      "at": "2026-11-13T05:06:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/caroni": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -2017,11 +2041,51 @@
       "kept": true
     }
   ],
+  "id/places/chao-praya": [
+    {
+      "at": "2026-11-13T05:06:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Chao Phraya\" (Chao Praya region): acceptable but ID typically 'Sungai Chao Phraya'; bare name lacks 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/chari": [
     {
       "at": "2026-11-08T05:19:46Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/chauvery": [
+    {
+      "at": "2026-11-13T05:06:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Kaveri\" for Chauvery: acceptable, though 'Sungai Kaveri' is the usual form"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/chembarambakkam-lake": [
+    {
+      "at": "2026-11-13T05:06:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -3586,6 +3650,18 @@
       "kept": true
     }
   ],
+  "id/places/hemavathi": [
+    {
+      "at": "2026-11-13T05:06:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/hoa-creek": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -4252,6 +4328,18 @@
       "kept": true
     }
   ],
+  "id/places/kabani": [
+    {
+      "at": "2026-11-13T05:06:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/kabini": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -4259,6 +4347,20 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/kabini-river": [
+    {
+      "at": "2026-11-13T05:06:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Kabini\": river lacks 'Sungai'"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -5117,6 +5219,20 @@
       "kept": true
     }
   ],
+  "id/places/lagoa-dos-patos": [
+    {
+      "at": "2026-11-13T05:06:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Laguna Patos\": Indonesian atlas would write 'Laguna Patos' or 'Lagoa dos Patos'; questionable"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/laguna-catemaco": [
     {
       "at": "2026-11-08T05:20:20Z",
@@ -5806,6 +5922,18 @@
       "kept": true
     }
   ],
+  "id/places/likoma-island": [
+    {
+      "at": "2026-11-13T05:06:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/likoula": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -6267,6 +6395,20 @@
       "score": 0.2,
       "notes": [
         "sông Magdalena (Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/maha-oya": [
+    {
+      "at": "2026-11-13T05:06:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Maha Oya\": lacks 'Sungai'"
       ],
       "attempt": "first",
       "kept": true
@@ -7198,6 +7340,20 @@
       "kept": true
     }
   ],
+  "id/places/moyar-river": [
+    {
+      "at": "2026-11-13T05:06:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Moyar\": river lacks 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mpassa": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -7500,6 +7656,18 @@
       "at": "2026-11-08T05:20:55Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/nankumba-peninsula": [
+    {
+      "at": "2026-11-13T05:06:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -8514,6 +8682,18 @@
       "kept": true
     }
   ],
+  "id/places/pookode-lake": [
+    {
+      "at": "2026-11-13T05:06:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/pool-malebo": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -8664,6 +8844,20 @@
       "model": "sonnet",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/puyankutty-river": [
+    {
+      "at": "2026-11-13T05:06:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Puyankutty\": lacks 'Sungai'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -9214,6 +9408,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-corintijns": [
+    {
+      "at": "2026-11-13T05:06:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Corantijn\": lacks 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-cuiaba": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -9504,6 +9712,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-jauru": [
+    {
+      "at": "2026-11-13T05:06:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Jauru\": lacks 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-javari": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -9604,6 +9826,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-mampituba": [
+    {
+      "at": "2026-11-13T05:06:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Mampituba\": lacks 'Sungai'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -10350,6 +10586,18 @@
       "kept": true
     }
   ],
+  "id/places/rio-tramandai": [
+    {
+      "at": "2026-11-13T05:06:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-truando": [
     {
       "at": "2026-11-10T17:42:34Z",
@@ -10392,6 +10640,18 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/rio-uruguai": [
+    {
+      "at": "2026-11-13T05:06:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -12288,6 +12548,18 @@
       "kept": true
     }
   ],
+  "id/places/thumbi-island-west": [
+    {
+      "at": "2026-11-13T05:06:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/thumbi-west-island": [
     {
       "at": "2026-11-08T05:22:00Z",
@@ -12910,6 +13182,18 @@
       "at": "2026-11-08T12:08:49Z",
       "model": "sonnet",
       "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/west-indies": [
+    {
+      "at": "2026-11-13T05:06:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -14556,6 +14840,20 @@
       "kept": true
     }
   ],
+  "ms/places/barapani-lake": [
+    {
+      "at": "2026-11-13T05:22:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "hồ Barapani (Vietnamese source name; the Malay answer is given but the original is Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/barbados": [
     {
       "at": "2026-11-08T03:36:45Z",
@@ -15776,6 +16074,20 @@
       "kept": true
     }
   ],
+  "ms/places/caribbean-basin": [
+    {
+      "at": "2026-11-13T05:22:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "lưu vực Caribbean"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/carson-river": [
     {
       "at": "2026-11-10T10:07:21Z",
@@ -16044,12 +16356,54 @@
       "kept": true
     }
   ],
+  "ms/places/chao-praya": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Chao Phraya"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/chari": [
     {
       "at": "2026-11-08T12:43:57Z",
       "model": "sonnet",
       "score": 0.55,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/chauvery": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "Chauvery"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/chembarambakkam-lake": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "hồ Chembarambakkam"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -17629,6 +17983,20 @@
       "kept": true
     }
   ],
+  "ms/places/hemavathi": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "hemavathi"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/himalaya": [
     {
       "at": "2026-11-08T03:36:56Z",
@@ -18667,6 +19035,20 @@
       "kept": true
     }
   ],
+  "ms/places/kabani": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "kabani"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/kabili-river": [
     {
       "at": "2026-11-08T03:36:56Z",
@@ -18684,6 +19066,20 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/kabini-river": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Kabini"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -19655,6 +20051,20 @@
       "kept": true
     }
   ],
+  "ms/places/lagoa-dos-patos": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "phá Patos"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/laguna-catemaco": [
     {
       "at": "2026-11-08T12:45:09Z",
@@ -20233,6 +20643,20 @@
       "kept": true
     }
   ],
+  "ms/places/likoma-island": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "đảo Likoma"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/likoula-river": [
     {
       "at": "2026-11-08T12:45:10Z",
@@ -20647,6 +21071,18 @@
       "notes": [
         "\"Magdalena\": should be \"Sungai Magdalena\"."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/maha-oya": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -21437,6 +21873,18 @@
       "kept": true
     }
   ],
+  "ms/places/moyar-river": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/mpassa": [
     {
       "at": "2026-11-08T12:45:11Z",
@@ -21744,6 +22192,18 @@
       "at": "2026-11-08T12:45:45Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/nankumba-peninsula": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -22846,6 +23306,18 @@
       "kept": true
     }
   ],
+  "ms/places/pookode-lake": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/pool-malebo": [
     {
       "at": "2026-11-08T03:37:07Z",
@@ -23043,6 +23515,18 @@
       "at": "2026-11-10T10:08:06Z",
       "model": "sonnet",
       "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/puyankutty-river": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -23760,6 +24244,18 @@
       "kept": true
     }
   ],
+  "ms/places/rio-corintijns": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-cuiaba": [
     {
       "at": "2026-11-08T12:45:47Z",
@@ -24100,6 +24596,18 @@
       "kept": true
     }
   ],
+  "ms/places/rio-jauru": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-javari": [
     {
       "at": "2026-11-08T12:45:47Z",
@@ -24229,6 +24737,18 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-mampituba": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -25098,6 +25618,18 @@
       "kept": true
     }
   ],
+  "ms/places/rio-tramandai": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-trombetas": [
     {
       "at": "2026-11-08T03:37:07Z",
@@ -25169,6 +25701,18 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-uruguai": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -27053,6 +27597,18 @@
       "kept": true
     }
   ],
+  "ms/places/thumbi-island-west": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/thumbi-west-island": [
     {
       "at": "2026-11-08T12:46:23Z",
@@ -27977,6 +28533,18 @@
       "at": "2026-11-08T12:46:46Z",
       "model": "sonnet",
       "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/west-indies": [
+    {
+      "at": "2026-11-13T05:22:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -29325,6 +29893,20 @@
       "kept": true
     }
   ],
+  "th/places/barapani-lake": [
+    {
+      "at": "2026-11-13T05:09:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unclear and I can't confirm the names are as an atlas in Thailand would write them."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/baria": [
     {
       "at": "2026-11-10T17:43:56Z",
@@ -30247,6 +30829,20 @@
       "kept": true
     }
   ],
+  "th/places/caribbean-basin": [
+    {
+      "at": "2026-11-13T05:09:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "'แคริบเบียน' for 'lưu vực Caribbean': an atlas would write 'ลุ่มน้ำ/แอ่งแคริบเบียน' or 'ทะเลแคริบเบียน'; the bare form is incomplete."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/caroni": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -30567,11 +31163,51 @@
       "kept": true
     }
   ],
+  "th/places/chao-praya": [
+    {
+      "at": "2026-11-13T05:09:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "'เจ้าพระยา' for 'chao-praya': the region/river type is missing and the form is incomplete; 'แม่น้ำเจ้าพระยา' is standard."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/chari": [
     {
       "at": "2026-11-08T05:27:08Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/chauvery": [
+    {
+      "at": "2026-11-13T05:09:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "'กาเวรี' for 'Chauvery': the standard Thai form is 'กาเวรี' (Kaveri), but 'Chauvery' is an odd spelling, so I'm uncertain it matches."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/chembarambakkam-lake": [
+    {
+      "at": "2026-11-13T05:09:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -32200,6 +32836,20 @@
       "kept": true
     }
   ],
+  "th/places/hemavathi": [
+    {
+      "at": "2026-11-13T05:09:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "'เหมาวตี' for 'Hemavathi': the expected form is 'เหมวดี' or 'เฮมาวดี'; this looks wrong."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/himalaya": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -32934,6 +33584,18 @@
       "kept": true
     }
   ],
+  "th/places/kabani": [
+    {
+      "at": "2026-11-13T05:09:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/kabini": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -32941,6 +33603,20 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/kabini-river": [
+    {
+      "at": "2026-11-13T05:09:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unclear and I can't confirm the names are as an atlas in Thailand would write them."
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -33862,6 +34538,20 @@
       "kept": true
     }
   ],
+  "th/places/lagoa-dos-patos": [
+    {
+      "at": "2026-11-13T05:09:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "'ลากัวดุสปาตุส' for 'phá Patos': an atlas would write 'ลากูนปาตูส' or 'ลากัวดอสปาตอส'; the rendering is dubious."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/laguna-catemaco": [
     {
       "at": "2026-11-08T05:27:56Z",
@@ -34554,6 +35244,20 @@
       "kept": true
     }
   ],
+  "th/places/likoma-island": [
+    {
+      "at": "2026-11-13T05:09:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unclear and I can't confirm the names are as an atlas in Thailand would write them."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/likoula": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -35008,6 +35712,18 @@
         "Many entries are Thai-script transliterations, but several are questionable or incomplete.",
         "\"มักดาเลนา\" (sông Magdalena): the Thai name should include แม่น้ำ, so the name is incomplete."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/maha-oya": [
+    {
+      "at": "2026-11-13T05:09:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -35979,6 +36695,18 @@
       "kept": true
     }
   ],
+  "th/places/moyar-river": [
+    {
+      "at": "2026-11-13T05:09:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mpassa": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -36308,6 +37036,18 @@
       "at": "2026-11-08T05:28:40Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/nankumba-peninsula": [
+    {
+      "at": "2026-11-13T05:09:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -37397,6 +38137,18 @@
       "kept": true
     }
   ],
+  "th/places/pookode-lake": [
+    {
+      "at": "2026-11-13T05:09:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/porto-novo": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -37560,6 +38312,18 @@
       "notes": [
         "Many entries are Thai-script transliterations, but several are questionable or incomplete."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/puyankutty-river": [
+    {
+      "at": "2026-11-13T05:09:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -38130,6 +38894,20 @@
       "kept": true
     }
   ],
+  "th/places/rio-corintijns": [
+    {
+      "at": "2026-11-13T05:09:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "'คอแรนไทน์' for 'Corintijns': the Thai does not match the Dutch Corantijn river, which would be 'โคราน-ไทน์' or 'โคแรนไทน์'."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-cuiaba": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -38435,6 +39213,20 @@
       "kept": true
     }
   ],
+  "th/places/rio-jauru": [
+    {
+      "at": "2026-11-13T05:09:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "'เฌาอูรู' for 'Jauru': the Thai 'เฌา' is not a natural Thai transcription; 'เจาอูรู' would be expected."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-javari": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -38548,6 +39340,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/rio-mampituba": [
+    {
+      "at": "2026-11-13T05:09:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -39308,6 +40112,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-tramandai": [
+    {
+      "at": "2026-11-13T05:09:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-trombetas": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -39371,6 +40187,20 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/rio-uruguai": [
+    {
+      "at": "2026-11-13T05:09:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "'อุรุกวัย' for 'sông Uruguay': the river should read 'แม่น้ำอุรุกวัย'; the bare form reads as the country."
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -41359,6 +42189,18 @@
       "kept": true
     }
   ],
+  "th/places/thumbi-island-west": [
+    {
+      "at": "2026-11-13T05:09:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/thumbi-west-island": [
     {
       "at": "2026-11-08T05:30:02Z",
@@ -42023,6 +42865,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/west-indies": [
+    {
+      "at": "2026-11-13T05:09:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "'เวสต์อินดีส' for 'Tây Ấn': the standard Thai is 'หมู่เกาะเวสต์อินดีส' or 'เวสต์อินดีส'; the 'in JP' tag suggests a mismatch."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -43683,6 +44539,17 @@
       "kept": true
     }
   ],
+  "vi/places/barapani-lake": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/baria": [
     {
       "at": "2026-11-10T17:42:11Z",
@@ -45279,11 +46146,44 @@
       "kept": true
     }
   ],
+  "vi/places/chao-praya": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/chari": [
     {
       "at": "2026-11-07T20:33:13Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/chauvery": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/chembarambakkam-lake": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -47283,6 +48183,17 @@
       "kept": true
     }
   ],
+  "vi/places/hemavathi": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/himalaya": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -48211,6 +49122,17 @@
       "kept": true
     }
   ],
+  "vi/places/kabani": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/kabili-river": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -48226,6 +49148,17 @@
       "at": "2026-11-07T20:35:05Z",
       "model": "sonnet",
       "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/kabini-river": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -49438,6 +50371,17 @@
       "kept": true
     }
   ],
+  "vi/places/lagoa-dos-patos": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lagos": [
     {
       "at": "2026-11-07T20:35:59Z",
@@ -50471,6 +51415,17 @@
       "kept": true
     }
   ],
+  "vi/places/likoma-island": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/likoula": [
     {
       "at": "2026-11-07T20:35:59Z",
@@ -51049,6 +52004,17 @@
       "notes": [
         "No wrong places found. Generic words are put into Vietnamese correctly: sông (river), vịnh (bay), hồ (lake), đảo (island). Proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/maha-oya": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -52305,6 +53271,17 @@
       "kept": true
     }
   ],
+  "vi/places/moyar-river": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mpassa": [
     {
       "at": "2026-11-07T20:36:54Z",
@@ -52736,6 +53713,17 @@
       "at": "2026-11-07T20:36:54Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/nankumba-peninsula": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -54239,6 +55227,17 @@
       "kept": true
     }
   ],
+  "vi/places/pookode-lake": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/pool-malebo": [
     {
       "at": "2026-11-07T20:38:46Z",
@@ -54433,6 +55432,17 @@
       "notes": [
         "No wrong places found. Generic words are put into Vietnamese correctly: sông (river), vịnh (bay), hồ (lake), đảo (island). Proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/puyankutty-river": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -55172,6 +56182,17 @@
       "kept": true
     }
   ],
+  "vi/places/rio-corintijns": [
+    {
+      "at": "2026-11-13T05:05:52Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-cuiaba": [
     {
       "at": "2026-11-07T20:38:46Z",
@@ -55531,6 +56552,17 @@
       "kept": true
     }
   ],
+  "vi/places/rio-jauru": [
+    {
+      "at": "2026-11-13T05:05:53Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-javari": [
     {
       "at": "2026-11-07T20:38:47Z",
@@ -55658,6 +56690,17 @@
       "at": "2026-11-07T20:38:47Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-mampituba": [
+    {
+      "at": "2026-11-13T05:05:53Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -56581,6 +57624,17 @@
       "kept": true
     }
   ],
+  "vi/places/rio-tramandai": [
+    {
+      "at": "2026-11-13T05:05:53Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-trombetas": [
     {
       "at": "2026-11-07T20:39:30Z",
@@ -56661,6 +57715,17 @@
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-uruguai": [
+    {
+      "at": "2026-11-13T05:05:53Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -60123,6 +61188,17 @@
       "at": "2026-11-08T12:08:21Z",
       "model": "sonnet",
       "score": 0.86,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/west-indies": [
+    {
+      "at": "2026-11-13T05:05:53Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.85,
       "notes": [],
       "attempt": "first",
       "kept": true

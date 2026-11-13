@@ -24,6 +24,14 @@ test("the shop discus's old address 301s to /ca/ca-dia/; /ca/ca-dia/, now its pa
   expect(Object.entries(table).filter(([, to]) => to.startsWith('/ca/ca-dia-heckel/'))).toEqual([])
 })
 
+// The chief of staff, 2026-11-13 (page-folds.ts): the skunk cory's address under a tube worm's name forwards bare, nothing
+// of the worm in the address the reader lands on; the molly article's, which had a name, with its note.
+test("the tube worm's old address forwards bare to the skunk cory; the molly article's to the common molly with its note", () => {
+  const table = renamedPages(c)
+  expect(table['/ca/ca-ditrupa-arietina/']).toBe('/ca/ca-chuot-skunk/')
+  expect(table['/ca/ca-molly-bryophila/']).toBe('/ca/ca-molly/?tu=ca-molly-bryophila')
+})
+
 // The owner's names of 2026-11-07: locked, old address 301s here, old name still finds the fish.
 test.each([
   ['Crossocheilus langei', 'Cá bút chì', 'ca-but-chi', 'ca-rong-tao-xiem', 'Cá rong tảo Xiêm'],

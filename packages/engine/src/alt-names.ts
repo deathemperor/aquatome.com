@@ -43,9 +43,13 @@ const bare = (ws: string[]) => {
 /**
  * Two names a reader can't tell apart: case, accents, punctuation and a leading classifier aside. Words stay words: a
  * search for "horse face loach" doesn't find "Horseface loach", so the two are both kept. Thai is written with or
- * without spaces, so it is compared without.
+ * without spaces, so it is compared without; a Thai classifier before a name in another script doesn't make it Thai.
  */
-export const altKey = (s: string) => bare(words(s)).map(nameKey).join(/\p{Script=Thai}/u.test(s) ? '' : ' ')
+export const altKey = (s: string) => {
+  // Thai by what is left once its classifier is off: "ปลา Chili rasbora" is "chili rasbora" (Astra, 2026-11-13).
+  const ws = bare(words(s))
+  return ws.map(nameKey).join(ws.some(w => /\p{Script=Thai}/u.test(w)) ? '' : ' ')
+}
 /** "Cá betta (cá xiêm)" → the whole, "Cá betta" and "cá xiêm". */
 const parts = (s: string) => {
   const m = s.match(/^(.+?)\s*\(([^()]+)\)\s*$/)
@@ -93,8 +97,36 @@ function better(a: string, b: string) {
 }
 
 /**
+ * Names a person found are another fish's, by the scientific name of the page that had them: kept off it in every
+ * language (the name with or without "Cá", "Ikan", "ปลา"), however a later read brings them back. `of`: the page whose
+ * name it is, or the fish's when the site has no page. A name the trade shares between look-alikes (the rummy-noses)
+ * isn't here: their pages tell them apart instead.
+ */
+const of = (page: string, ...names: string[]) => names.map(name => ({ name, of: page }))
+export const NOT_ITS: Readonly<Record<string, readonly { name: string; of: string }[]>> = {
+  // 2026-11-13: the model that read BWAquatics and Glaser on 29 Oct gave the phoenix rasbora the chili rasbora's name;
+  // neither source says it.
+  'Boraras merah': of('boraras-brigittae', 'Chili rasbora'),
+  // The chief of staff's ten of 2026-11-13, the most-kept fish first: each name is the other page's.
+  'Devario aequipinnatus': of('danio-rerio', 'Cá danio sọc'),
+  'Poecilia latipinna': of('poecilia-sphenops', 'Cá molly'),
+  'Glossolepis incisus': of('melanotaenia-affinis', 'Cá cầu vồng New Guinea', 'New Guinea rainbowfish', 'New Guinea rainbow'),
+  'Alestopetersius hilgendorfi': of('phenacogrammus-interruptus', 'Cá tetra Congo', 'Congo tetra'),
+  'Phenacogrammus aurantiacus': of('phenacogrammus-interruptus', 'Cá tetra Congo', 'Congo tetra'),
+  // "Cá hề" alone is the marine clownfish to readers here (Amphiprion; Vietnamese Wikipedia).
+  'Chitala ornata': of('the marine clownfish (Amphiprion)', 'Cá hề'),
+  'Chromobotia macracanthus': of('the marine clownfish (Amphiprion)', 'Cá hề'),
+  // The trade sells C. trilineatus as julii: each page keeps its own names.
+  'Corydoras julii': of('corydoras-trilineatus', 'Cá chuột ba sọc', 'Three-lined cory'),
+  'Corydoras trilineatus': of('corydoras-julii', 'Cá chuột julii', 'Julii cory', 'Julii corydoras'),
+  'Ambastaia sidthimunki': of('corydoras-pygmaeus', 'Cá chuột lùn'),
+  'Trichopsis pumila': of('trichogaster-lalius', 'Cá sặc lùn'),
+}
+
+/**
  * A species page's other names in one language, cleaned: each name off it with why. Keeps the names' order (one name
  * written several ways stands where its first form stood, in its best-written form).
+ * - a name a person found is another fish's (NOT_ITS): that fish's page has it.
  * - a name that is a breed page's name ("Bubble Eye Goldfish" for the Bubble eye goldfish page, "Cá GloFish"): that page
  *   is found by it. Only a breed's own name, never its other names: a name both list is the species' and leaves the
  *   breed (cleanBreedAltNames). A breed whose name is the species' own (the koi and Cyprinus rubrofuscus, "Cá koi") takes none.
@@ -133,6 +165,8 @@ export function cleanAltNames(page: { name: string; sci: string; altNames: strin
     if (must.has(key)) { if (!required.some(n => altKey(n) === key)) required.push(name); continue }
     const breed = breedOf.get(key)
     if (breed) { off.push({ name: raw, why: 'breed', of: breed }); continue }
+    const other = NOT_ITS[page.sci]?.find(x => altKey(x.name) === key)
+    if (other) { off.push({ name: raw, why: 'species', of: other.of }); continue }
     kept.push(name)
   }
   // The species' own names, colours left out: what a form's name must come down to ("Cá betta", "Betta", "Betta splendens"),

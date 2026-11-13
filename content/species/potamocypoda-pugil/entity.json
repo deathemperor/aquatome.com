@@ -10,6 +10,44 @@
     "malaysia",
     "sedili"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Sedili"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "This species is endemic to Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "It is a tributary of the River Sedili.",
+          "countries": [],
+          "regions": [
+            "Sedili"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5974211,
+      "total": 0,
+      "fetched": "2026-11-13",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

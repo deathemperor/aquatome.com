@@ -1,0 +1,40 @@
+{
+  "id": "priapella-chamulae",
+  "native": {
+    "input": "87b6cf0391502777",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "glaser",
+        "quote": "chamulae: after the indigenous tribe of the Chamula, which live in the region in Mexico where the species is found.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Priapella chamulae",
+    "status": "ACCEPTED",
+    "taxonKey": 2350144,
+    "datasets": [
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        1
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}
