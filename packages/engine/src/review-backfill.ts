@@ -67,7 +67,7 @@ async function jobs(root: string, kind: BackfillKind, all = false): Promise<Job[
       // A source whose text has left the page, or whose Vietnamese is empty, has nothing to check: it isn't listed. On 13 Nov 2026 one such
       // (a fish's Glaser part) was tried and failed "no text to check" every run (the chief of staff: drop it).
       const sections = (await json<{ sections: Section[] }>(join(content, dir, id, 'entity.json')))?.sections ?? []
-      for (const [part, score] of low) if (sourcePairs(sections, t?.sections ?? {}, part).some(x => x.vi.trim())) out.push({ page: { id: `${dir}/${id}`, lang: 'vi', part }, score })
+      for (const [part, score] of low) if (sourcePairs(sections, t?.sections ?? {}, part).length) out.push({ page: { id: `${dir}/${id}`, lang: 'vi', part }, score })
     }
   } else {
     const dirs = kind === 'places' ? ['places'] : ['species', 'plants']
@@ -159,13 +159,15 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
         } else {
           const e = await json<{ sections: Section[] }>(join(at, 'entity.json'))
           const t = await json<Translation>(join(at, `${j.page.lang}.json`))
-          // The parts its reviewer read: one source's sections (references aside), or every translatable one.
-          const sections = (e?.sections ?? []).filter(s => s.html.trim() && (kind === 'translation' ? s.source === j.page.part && s.key !== 'references' : translatable(s.source)))
-          const parts = sections.map(s => ({ id: `${s.key}:${s.source}`, en: s.html })).filter(p => kind === 'localize' || t?.sections[p.id])
+          // The parts its reviewer read: one source's pairs, chosen as the listing and the page's score choose them
+          // (recheck-score.ts sourcePairs), or every translatable one. Chosen otherwise, a passing check hashed text the
+          // score's update didn't, and never reached the page (Astra's read).
+          const pairs = kind === 'translation' ? sourcePairs(e?.sections ?? [], t?.sections ?? {}, j.page.part ?? '') : []
+          const parts = kind === 'translation' ? pairs : (e?.sections ?? []).filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
           if (!parts.length || !t) { report.failed.push(`${reviewKey(j.page)}: no text to check`); return }
-          if (kind === 'translation') textHash = sourceTextHash(parts.map(p => ({ id: p.id, en: p.en, vi: t.sections[p.id]! })))
+          if (kind === 'translation') textHash = sourceTextHash(pairs)
           r = kind === 'translation'
-            ? await steady(() => reviewTranslation(d.llm, parts.map(p => ({ en: p.en, vi: t.sections[p.id]! }))))
+            ? await steady(() => reviewTranslation(d.llm, pairs.map(p => ({ en: p.en, vi: p.vi }))))
             : await steady(() => reviewLocalized(d.llm, j.page.lang as TargetLang, parts, new Map(Object.entries(t.sections))))
         }
         calls++
