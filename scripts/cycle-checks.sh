@@ -113,21 +113,37 @@ checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else turn bash -c
 # (pnpm's workspace-concurrency, set for the whole step): the same tests and the same limits, on half the load of
 # its own. If it fails again: TIMED_OUT when tests ran out of time on that run, and the run's work is kept
 # (keep_unpublished).
+# Each test's time limits, times AQ_TEST_TIME_SCALE (the vitest configs and @aq/schema/test-time read it): 1 on a Mac at
+# full strength, HOT_TIME_SCALE while heat has taken cores away and on a check's second try. Waiting for cool hours (cool)
+# and calm (calm, settled) wasn't enough on 2026-11-13: with cores cut to 8, three cycles in a day lost their checks to the
+# clock, tests with a 30 s limit running 100–180 s (the sf cycle's at 15:43, its slowest 182 s), hooks past their 120 s and
+# 300 s (the photos run that started 11:10, still unpublished at 16:28). Not a hung test: those ran to the end. A
+# limit 6 times as long holds those; a test that really hangs still fails, later.
+# The second try also starts SECOND_TRY_WORKERS of vitest's workers at a time, not one a core: vitest gives a worker 60 s
+# to start, a limit of its own that nothing raises, and that photos run's second try (16:25) lost 25 of the schema's 28
+# test files to workers that hadn't started in time.
+HOT_TIME_SCALE=6
+SECOND_TRY_WORKERS=2
+time_scale() { [ "$(cores_taken)" -gt 0 ] && echo "$HOT_TIME_SCALE" || echo 1; }
 verify() {
   local step from first name names
   : >"$TEST_LOG"
   TIMED_OUT=
   if [ -n "${MIGRATE_FAILED:-}" ]; then log "photo records not migrated: not tested, not published"; return 1; fi
   calm
+  export AQ_TEST_TIME_SCALE
   for step in "$@"; do
     from=$(wc -c <"$TEST_LOG")
+    AQ_TEST_TIME_SCALE=$(time_scale)
+    [ "$AQ_TEST_TIME_SCALE" = 1 ] || log "cores taken away by heat: tests get $AQ_TEST_TIME_SCALE times their time"
     checks "$step" >>"$TEST_LOG" 2>&1 && continue
     first=$from
     if ran_out "$first"; then log "tests ran out of time on a busy Mac: checking again once it is calmer"; else log "a check failed: running it once more once the Mac is calmer"; fi
     settled
     calm
     from=$(wc -c <"$TEST_LOG")
-    if checks "export pnpm_config_workspace_concurrency=1; $step" >>"$TEST_LOG" 2>&1; then
+    AQ_TEST_TIME_SCALE=$HOT_TIME_SCALE
+    if VITEST_MAX_WORKERS=$SECOND_TRY_WORKERS checks "export pnpm_config_workspace_concurrency=1; $step" >>"$TEST_LOG" 2>&1; then
       names=$(failed_tests "$first")
       [ -n "$names" ] || log "flaky: $step failed once and passed the second time, no test named"
       while IFS= read -r name; do [ -z "$name" ] || log "flaky: $name"; done <<<"$names"
@@ -139,9 +155,10 @@ verify() {
 }
 # The tests that failed in $TEST_LOG since byte $1, one a line: vitest's FAIL lines, with pnpm's prefix and the colours off.
 failed_tests() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | sed -nE 's/^([^[:space:]]+ test:)?[[:space:]]*FAIL[[:space:]]+//p' | sort -u; }
-# Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time. grep reads it all (-c, not -q): under
-# pipefail, tail cut off by grep's early exit would make a match read as none.
-ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | grep -c 'Test timed out in' >/dev/null; }
+# Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time: a test, a hook (beforeAll and the
+# like), or a vitest worker that didn't start in time. grep reads it all (-c, not -q): under pipefail, tail cut off by
+# grep's early exit would make a match read as none.
+ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | grep -cE '(Test|Hook) timed out in|Timeout waiting for worker to respond|Timeout starting .* runner' >/dev/null; }
 
 # A run whose tests ran out of time even on their second try (TIMED_OUT) ran on a Mac too busy for them, not on broken
 # work: its commit goes on a branch of its own, kept/<job>/<when>, which the next run's start from main (from_main)

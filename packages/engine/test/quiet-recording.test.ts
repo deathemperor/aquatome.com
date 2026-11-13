@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
+import { slow } from '@aq/schema/test-time'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const STATUS = join(ROOT, 'scripts/mac-status.py')
@@ -50,7 +51,7 @@ test('quiet enough to record is the load and the cores the takes held at', () =>
   const hot = status(mac({ load: '50', cores: 10 }))
   expect(hot.status).toBe(1)
   expect(hot.stdout).toContain('heat has left 10 cores')
-}, 60_000)
+}, slow(60_000))
 
 test("what can't be read isn't quiet, and a counter that wrapped isn't either", () => {
   const unread = status(mac({ cores: null }))
@@ -145,7 +146,7 @@ test('checks.sh puts the shared queue back when a lockf without -k has replaced 
   expect(r.status, r.stderr).toBe(0)
   expect(lstatSync(lock).isSymbolicLink()).toBe(true)
   expect(readlinkSync(lock)).toBe(join(shared, 'checks.lock'))
-}, 30_000)
+}, slow(30_000))
 
 // Tries a lock without waiting: "held" if someone has it.
 const PROBE = `import fcntl, os, sys
@@ -197,7 +198,7 @@ test('a recording runs with both turns held, after what is running, and gives th
   expect(readFileSync(join(r.m.home, 'seen'), 'utf8')).toBe('held\nheld\n')
   expect(r.probe('sim.lock')).toBe('free')
   expect(r.probe('checks.lock')).toBe('free')
-}, 60_000)
+}, slow(60_000))
 
 test.skipIf(!hasLockf)('it waits for a job holding the checks queue through lockf', async () => {
   const r = recording()
@@ -212,7 +213,7 @@ test.skipIf(!hasLockf)('it waits for a job holding the checks queue through lock
   expect(await end).toBe(0)
   expect(r.has('recorded')).toBe(true)
   holder.kill()
-}, 60_000)
+}, slow(60_000))
 
 test('stopped, a recording stops its command and frees both turns', async () => {
   const r = recording()
@@ -223,7 +224,7 @@ test('stopped, a recording stops its command and frees both turns', async () => 
   await end
   await r.until(() => r.has('stopped'))
   await r.until(() => r.probe('sim.lock') === 'free' && r.probe('checks.lock') === 'free')
-}, 60_000)
+}, slow(60_000))
 
 test('its queue process killed outright, a recording stops its command too', async () => {
   const r = recording()
@@ -232,7 +233,7 @@ test('its queue process killed outright, a recording stops its command too', asy
   rec.kill('SIGKILL')
   await r.until(() => r.has('stopped'))
   await r.until(() => r.probe('checks.lock') === 'free')
-}, 60_000)
+}, slow(60_000))
 
 test.skipIf(process.platform !== 'darwin')('it keeps its place in the checks queue: a job that came after it goes after it', async () => {
   const r = recording()
@@ -256,7 +257,7 @@ open(${JSON.stringify(join(r.m.home, 'second'))}, "w").close()
   await secondEnd
   expect(r.has('first')).toBe(true)
   holder.kill()
-}, 60_000)
+}, slow(60_000))
 
 test('the holding process killed, the command stops at once, without it the limit would never come', async () => {
   const r = recording()
@@ -268,7 +269,7 @@ test('the holding process killed, the command stops at once, without it the limi
   await r.until(() => r.has('stopped'))
   await end
   await r.until(() => r.probe('checks.lock') === 'free')
-}, 60_000)
+}, slow(60_000))
 
 test('killed while it waits for the Mac to quieten, it gives the checks turn back', async () => {
   const r = recording()
@@ -279,7 +280,7 @@ test('killed while it waits for the Mac to quieten, it gives the checks turn bac
   await r.until(() => r.probe('checks.lock') === 'free')
   expect(r.has('recorded')).toBe(false)
   writeFileSync(join(r.m.home, 'load'), '50') // its load check, left running, ends with the Mac quiet
-}, 60_000)
+}, slow(60_000))
 
 test('no checks turn in time: it gives the simulator turn back without recording', async () => {
   const r = recording()
@@ -292,7 +293,7 @@ test('no checks turn in time: it gives the simulator turn back without recording
   expect(r.probe('sim.lock')).toBe('free')
   writeFileSync(join(r.m.home, 'release'), '')
   await held
-}, 60_000)
+}, slow(60_000))
 
 test('stopped while it waits for the Mac to quieten, it gives both turns back at once', async () => {
   const r = recording()
@@ -304,21 +305,21 @@ test('stopped while it waits for the Mac to quieten, it gives both turns back at
   await end
   await r.until(() => r.probe('checks.lock') === 'free' && r.probe('sim.lock') === 'free')
   expect(r.has('recorded')).toBe(false)
-}, 60_000)
+}, slow(60_000))
 
 test('a recording longer than the wait for the checks turn runs to its end', async () => {
   const r = recording()
   const rec = spawn(QUIET, ['sh', '-c', `sleep 3; touch ${r.m.home}/recorded`], { env: { ...r.m.env, QUIET_CHECKS_WAIT_MINUTES: '0.02' }, stdio: 'ignore' })
   expect(await r.closed(rec)).toBe(0)
   expect(r.has('recorded')).toBe(true)
-}, 60_000)
+}, slow(60_000))
 
 test('too loaded after its wait, a recording gives its turns back without recording', () => {
   const m = mac({ load: '500' })
   const r = spawnSync(QUIET, ['sh', '-c', `touch ${m.home}/recorded`], { encoding: 'utf8', env: { ...m.env, QUIET_WAIT_MINUTES: '0.001' } })
   expect(r.status).toBe(75)
   expect(existsSync(`${m.home}/recorded`)).toBe(false)
-}, 60_000)
+}, slow(60_000))
 
 test('a recording that runs out of time stops, and its limit is 20 minutes at most', async () => {
   const r = recording()
@@ -328,7 +329,7 @@ test('a recording that runs out of time stops, and its limit is 20 minutes at mo
   const m = mac()
   expect(spawnSync(QUIET, ['21', 'true'], { encoding: 'utf8', env: m.env }).status).toBe(64)
   expect(spawnSync(QUIET, ['true'], { encoding: 'utf8', env: m.env }).status).toBe(0)
-}, 60_000)
+}, slow(60_000))
 
 test('at the limit a command that ignores the stop is killed, and the exit still says it ran out of time', async () => {
   const r = recording()
@@ -338,7 +339,7 @@ test('at the limit a command that ignores the stop is killed, and the exit still
   const pid = Number(readFileSync(join(r.m.home, 'pid'), 'utf8'))
   await r.until(() => { try { process.kill(pid, 0); return false } catch { return true } })
   expect(r.probe('sim.lock')).toBe('free')
-}, 60_000)
+}, slow(60_000))
 
 test('a command that takes a queue itself is refused: it would wait for its own turn', () => {
   const m = mac()
