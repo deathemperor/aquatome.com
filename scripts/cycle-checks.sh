@@ -14,26 +14,42 @@
 # (xcodebuild build, a site build) has no timeouts and doesn't need either: in the queue, it only holds up the tests
 # behind it. The engine takes it only for its tests too (verify_cycle).
 
-# `net git <fetch|pull|push> …`: a call to GitHub given GIT_NET_SECONDS (600) at most. On 13 Nov 2026 the Mac's 23:10
-# photos cycle hung for hours in its opening fetch, an ssh connection that never answered, and launchd starts no run of a
-# part while the last one lives, so no photos run started behind it. Past the limit the call is stopped (TERM, then KILL
-# 10 s on), the log says so, and it fails as a refused fetch or push does: the opening fetch ends the cycle, which frees
-# the next run (finish reports it to GitHub, engine-mac.yml).
+# The wall clock and the seconds the Mac has slept since it started, "1794527337 31355": the clock that counts sleep less
+# the one that doesn't, 0 where they can't be told apart (GitHub's runners, which don't sleep). AQ_CLOCK stands in for it
+# in tests.
+clock() {
+  if [ -n "${AQ_CLOCK:-}" ]; then "$AQ_CLOCK"; return; fi
+  perl -MTime::HiRes -e 'my $s = eval { Time::HiRes::clock_gettime(Time::HiRes::CLOCK_MONOTONIC()) - Time::HiRes::clock_gettime(Time::HiRes::CLOCK_UPTIME_RAW()) }; printf "%d %d\n", time, $s // 0'
+}
+# `net git <fetch|pull|push> …`: a call to GitHub given GIT_NET_SECONDS (600) at most. On 12 Nov 2026 the Mac's 23:10
+# photos cycle began its opening fetch as the Mac fell asleep with its lid shut; the connection died on GitHub's side, ours
+# never learned, and launchd starts no run of a part while the last one lives, so no photos run started behind it. Past
+# the limit the call is stopped, the log says so (and how long the Mac slept in it), and it fails as a refused fetch or
+# push does: the opening fetch ends the cycle, which frees the next run (finish reports it to GitHub, engine-mac.yml).
 net() {
-  local limit="${GIT_NET_SECONDS:-600}" start=$SECONDS job dog status=0
-  "$@" &
+  local limit="${GIT_NET_SECONDS:-600}" job dog status=0 t0 z0 t1 z1 slept why
+  read -r t0 z0 < <(clock)
+  # In a process group of its own, so the stop reaches what it started too (git pull's fetch, ssh, a merge driver).
+  perl -e 'setpgrp(0, 0); exec { $ARGV[0] } @ARGV or die "$ARGV[0]: $!\n"' "$@" &
   job=$!
-  # The watchdog goes by the clock, not by how many sleeps it took (a busy Mac stretches them), and has none of the
-  # caller's output, so a sleep it leaves behind holds no pipe open.
-  ( while [ $((SECONDS - start)) -lt "$limit" ]; do sleep 1; kill -0 "$job" 2>/dev/null || exit 0; done
-    kill -TERM "$job" 2>/dev/null
-    while [ $((SECONDS - start)) -lt $((limit + 10)) ]; do sleep 1; kill -0 "$job" 2>/dev/null || exit 0; done
-    kill -KILL "$job" 2>/dev/null ) </dev/null >/dev/null 2>&1 &
+  # By the clock, not by how many sleeps it took (a Mac asleep or busy stretches them), and with none of the caller's
+  # output, so a sleep it leaves behind holds no pipe open: TERM to the group at the limit, KILL to what's left 10 s on.
+  ( while sleep 1; do
+      kill -0 "$job" 2>/dev/null || exit 0
+      read -r t1 _ < <(clock); [ $((t1 - t0)) -lt "$limit" ] || break
+    done
+    kill -TERM -- -"$job" 2>/dev/null
+    for _ in 1 2 3 4 5 6 7 8 9 10; do sleep 1; kill -0 -- -"$job" 2>/dev/null || exit 0; done
+    kill -KILL -- -"$job" 2>/dev/null ) </dev/null >/dev/null 2>&1 &
   dog=$!
-  wait "$job" || status=$?
-  kill "$dog" 2>/dev/null; wait "$dog" 2>/dev/null || true
-  if [ $((SECONDS - start)) -ge "$limit" ] && [ "$status" != 0 ]; then log "$*: no answer from GitHub in $limit s, stopped"; return 124; fi
-  return "$status"
+  wait "$job" 2>/dev/null || status=$?
+  read -r t1 z1 < <(clock)
+  if [ "$status" = 0 ] || [ $((t1 - t0)) -lt "$limit" ]; then kill "$dog" 2>/dev/null; wait "$dog" 2>/dev/null || true; return "$status"; fi
+  # Stopped: until none of what it started is left.
+  wait "$dog" 2>/dev/null || true
+  slept=$((z1 - z0)); why="$*: no answer from GitHub in $((t1 - t0)) s, stopped"
+  [ "$slept" -lt 60 ] || why="$why; the Mac slept $((slept / 60)) min of that, and a connection doesn't outlive a sleep"
+  log "$why"; return 124
 }
 calm() { [ -z "${GITHUB_ACTIONS:-}" ] || return 0; local cores; cores=$(sysctl -n hw.ncpu); for _ in $(seq 90); do [ "$(sysctl -n vm.loadavg | awk '{print int($3)}')" -lt $((cores * 4)) ] && return; sleep 30; done; log "load still high after 45 min: checking anyway"; }
 # Engine work waits for cooler hours: under heat macOS takes cores away from work, and on 2026-11-08 it ran work on 6-8 of

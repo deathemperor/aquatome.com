@@ -1,12 +1,13 @@
 import { spawn, spawnSync } from 'node:child_process'
-import { chmodSync, copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, writeFileSync } from 'node:fs'
+import { chmodSync, copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, utimesSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 
-// A cycle can't hang on GitHub, and one that hangs anyway is said loudly (the chief of staff, 13 Nov 2026, after the
-// Mac's 23:10 photos cycle hung for hours in its opening fetch and launchd started no photos run behind it).
+// A cycle can't hang on GitHub, and one that hangs anyway is said loudly (the chief of staff, 13 Nov 2026). The Mac's
+// 23:10 photos cycle began its fetch as the Mac fell asleep with its lid shut, the connection died on GitHub's side, and
+// launchd started no photos run behind it.
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const SCRIPTS = join(ROOT, 'scripts')
@@ -16,25 +17,35 @@ const NO_GITHUB = { GITHUB_ACTIONS: '', GITHUB_WORKFLOW_REF: '' }
 function home() {
   const h = realpathSync(mkdtempSync(join(tmpdir(), 'aq-net-')))
   mkdirSync(join(h, 'bin'))
-  writeFileSync(join(h, 'bin/gh'), '#!/bin/sh\necho "$@" >> "$HOME/gh.log"\n')
-  chmodSync(join(h, 'bin/gh'), 0o755)
+  const exe = (name: string, body: string) => { writeFileSync(join(h, 'bin', name), `#!/bin/sh\n${body}\n`); chmodSync(join(h, 'bin', name), 0o755); return join(h, 'bin', name) }
+  exe('gh', 'echo "$@" >> "$HOME/gh.log"')
   const env = { ...process.env, ...NO_GITHUB, HOME: h, PATH: `${h}/bin:${process.env.PATH}` }
   const gh = () => (existsSync(join(h, 'gh.log')) ? readFileSync(join(h, 'gh.log'), 'utf8').trim().split('\n') : [])
-  return { h, env, gh }
+  return { h, env, gh, exe }
+}
+/** The clock as `clock` gives it (cycle-checks.sh): the Mac asleep for an hour after its first two readings. */
+const SLEEPS = 'n=$(cat "$HOME/clock.n" 2>/dev/null || echo 0); echo $((n + 1)) > "$HOME/clock.n"; if [ "$n" -lt 2 ]; then echo "1794500000 0"; else echo "1794503600 3500"; fi'
+const net = (h: string, env: NodeJS.ProcessEnv, call: string) => {
+  const t = Date.now()
+  const r = spawnSync('/bin/bash', ['-c', `log() { echo "LOG $*"; }; source "${SCRIPTS}/cycle-checks.sh"; net ${call}; echo "status $?"`], { cwd: h, encoding: 'utf8', env })
+  return { out: r.stdout.trim().split('\n'), seconds: (Date.now() - t) / 1000 }
 }
 
 test('a call to GitHub with no answer is stopped at its limit and says so; one that answers keeps its status and output', () => {
   const { h, env } = home()
-  const net = (call: string) => {
-    const t = Date.now()
-    const r = spawnSync('/bin/bash', ['-c', `log() { echo "LOG $*"; }; source "${SCRIPTS}/cycle-checks.sh"; net ${call}; echo "status $?"`], { cwd: h, encoding: 'utf8', env: { ...env, GIT_NET_SECONDS: '2' } })
-    return { out: r.stdout.trim().split('\n'), seconds: (Date.now() - t) / 1000 }
-  }
-  const hung = net('sleep 30')
-  expect(hung.out).toEqual(['LOG sleep 30: no answer from GitHub in 2 s, stopped', 'status 124'])
+  const hung = net(h, { ...env, GIT_NET_SECONDS: '2' }, 'sleep 30')
+  expect(hung.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [23] s, stopped$/), 'status 124'])
   expect(hung.seconds).toBeLessThan(10)
-  expect(net(`sh -c 'echo fetched; exit 3'`).out).toEqual(['fetched', 'status 3'])
-  expect(net('true').out).toEqual(['status 0'])
+  expect(net(h, env, `sh -c 'echo fetched; exit 3'`).out).toEqual(['fetched', 'status 3'])
+  expect(net(h, env, 'true').out).toEqual(['status 0'])
+})
+
+test('the stop reaches what the call started too, one that ignores TERM included', () => {
+  const { h, env } = home()
+  // git pull's fetch, its ssh, a merge driver: here a child, and one that ignores TERM.
+  const r = net(h, { ...env, GIT_NET_SECONDS: '1' }, `sh -c 'sleep 30 & echo $! > a; (trap "" TERM; exec sleep 31) & echo $! > b; wait'`)
+  expect(r.out.at(-1)).toBe('status 124')
+  for (const f of ['a', 'b']) expect(() => process.kill(Number(readFileSync(join(h, f), 'utf8')), 0), f).toThrow()
 })
 
 test('every call the cycle makes to GitHub has the limit', () => {
@@ -44,30 +55,61 @@ test('every call the cycle makes to GitHub has the limit', () => {
   }
 })
 
-// It ends: before, a fetch that failed let the run go on from the clone's old checkout (from_main).
-test('a Mac cycle whose opening fetch gets no answer ends, frees the next run and reports why', () => {
-  const { h, env, gh } = home()
-  // A dead ssh connection: it takes the call and never answers (13 Nov's had no CPU).
-  writeFileSync(join(h, 'bin/hang'), '#!/bin/sh\nexec >/dev/null 2>&1 </dev/null\nsleep 30\n')
-  chmodSync(join(h, 'bin/hang'), 0o755)
-  mkdirSync(join(h, '.config/aquatome'), { recursive: true })
-  writeFileSync(join(h, '.config/aquatome/cf-token'), 'x\n')
-  const clone = join(h, '.local/share/aquatome/engine-photos')
-  const sh = (command: string, cwd = h) => spawnSync('/bin/bash', ['-c', command], { cwd, encoding: 'utf8', env })
+/** One of the Mac's engine clones (photos), its origin GitHub over an ssh that takes the call and never answers. */
+function macClone() {
+  const m = home()
+  m.exe('hang', 'exec >/dev/null 2>&1 </dev/null\nsleep 30')
+  mkdirSync(join(m.h, '.config/aquatome'), { recursive: true })
+  writeFileSync(join(m.h, '.config/aquatome/cf-token'), 'x\n')
+  mkdirSync(join(m.h, 'Library/Logs'), { recursive: true })
+  const clone = join(m.h, '.local/share/aquatome/engine-photos')
+  const sh = (command: string, cwd = m.h) => spawnSync('/bin/bash', ['-c', command], { cwd, encoding: 'utf8', env: m.env })
   sh(`git init -q -b main ${clone} && cd ${clone} && git config user.email a@example.com && git config user.name a && mkdir scripts`)
   for (const f of ['engine-cycle.sh', 'cycle-checks.sh']) copyFileSync(join(SCRIPTS, f), join(clone, 'scripts', f))
   sh('git add . && git commit -qm main && git remote add origin ssh://github.invalid/r.git', clone)
+  const cycle = (extra: Record<string, string> = {}) => spawnSync('/bin/bash', [join(clone, 'scripts/engine-cycle.sh'), 'photos'], { cwd: m.h, encoding: 'utf8', env: { ...m.env, CI: '1', GIT_SSH_COMMAND: join(m.h, 'bin/hang'), ...extra } })
+  return { ...m, clone, cycle }
+}
+
+// It ends: before, a fetch that failed let the run go on from the clone's old checkout (from_main).
+test('a Mac cycle whose opening fetch outlives a sleep ends, says the Mac slept, frees the next run and reports why', () => {
+  const m = macClone()
   const t = Date.now()
-  const r = spawnSync('/bin/bash', [join(clone, 'scripts/engine-cycle.sh'), 'photos'], { cwd: h, encoding: 'utf8', env: { ...env, CI: '1', GIT_NET_SECONDS: '2', GIT_SSH_COMMAND: join(h, 'bin/hang') } })
+  // The default limit, 600 s, and the Mac asleep for an hour once the fetch has begun.
+  const r = m.cycle({ AQ_CLOCK: m.exe('clock', SLEEPS) })
   expect((Date.now() - t) / 1000).toBeLessThan(20)
   expect(r.status).toBe(124)
-  expect(r.stdout).toMatch(/Z git fetch -q origin: no answer from GitHub in 2 s, stopped$/m)
+  const stopped = 'git fetch -q origin: no answer from GitHub in 3600 s, stopped; the Mac slept 58 min of that, and a connection doesn\'t outlive a sleep'
+  expect(r.stdout).toMatch(new RegExp(`Z ${stopped.replace(/[().]/g, '\\$&')}\\n.*Z the Mac slept 58 min during this cycle\\n?$`))
   // Its PID file gone: the next run starts.
-  expect(existsSync(join(clone, '.git/aquatome-engine.pid'))).toBe(false)
-  expect(gh()).toEqual(['workflow run engine-mac.yml -R deathemperor/aquatome.com -f part=photos -f why=exit 124: git fetch -q origin: no answer from GitHub in 2 s, stopped'])
+  expect(existsSync(join(m.clone, '.git/aquatome-engine.pid'))).toBe(false)
+  expect(m.gh()).toEqual([`workflow run engine-mac.yml -R deathemperor/aquatome.com -f part=photos -f why=exit 124: ${stopped}`])
 })
 
-test('a part\'s cycle running past its hours is said in its log every hour and on GitHub once, and not stopped', async () => {
+test('"previous cycle still running" says when that cycle\'s last line is hours old', async () => {
+  const m = macClone()
+  writeFileSync(join(m.h, 'fake-cycle.sh'), 'sleep 60\n')
+  const previous = spawn('/bin/bash', [join(m.h, 'fake-cycle.sh')], { detached: true, stdio: 'ignore' })
+  try {
+    await new Promise(r => setTimeout(r, 300))
+    writeFileSync(join(m.clone, '.git/aquatome-engine.pid'), `${previous.pid}\n`)
+    const iso = (hoursAgo: number) => new Date(Date.now() - hoursAgo * 3_600_000).toISOString().replace(/\.\d+Z$/, 'Z')
+    const log = join(m.h, 'Library/Logs/aquatome-engine-photos.log')
+    // Its own last line 3 h ago; the notices since don't count as its own.
+    writeFileSync(log, `${iso(3.1)} cycle start (photos)\nsome step's output\n${iso(1)} stuck: the photos cycle (pid ${previous.pid}) has run 2 h 6 min\n`)
+    const hung = m.cycle()
+    expect(hung.status).toBe(0)
+    expect(hung.stdout.trim()).toMatch(new RegExp(`Z previous cycle \\(pid ${previous.pid}\\) still running, its last line 3 h [56] min ago: likely hung, and nothing here stops it$`))
+    // A cycle at work, its last line minutes old: the plain line.
+    writeFileSync(log, `${iso(0.2)} gate: took 62 s\n`)
+    expect(m.cycle().stdout.trim()).toMatch(new RegExp(`Z previous cycle \\(pid ${previous.pid}\\) still running$`))
+    expect(readFileSync(join(m.clone, '.git/aquatome-engine.pid'), 'utf8').trim()).toBe(String(previous.pid))
+  } finally {
+    process.kill(-previous.pid!)
+  }
+})
+
+test('a part\'s cycle running past its hours is said in its log every hour and on GitHub once a day, and not stopped', async () => {
   const { h, env, gh } = home()
   mkdirSync(join(h, 'Library/Logs'), { recursive: true })
   const clones = join(h, 'clones')
@@ -95,6 +137,11 @@ test('a part\'s cycle running past its hours is said in its log every hour and o
     expect(gh()).toHaveLength(1)
     expect(() => process.kill(cycle.pid!, 0)).not.toThrow()
     expect([...log('pages'), ...log('sf')]).toEqual([])
+    // A day on, GitHub again: the daily report reads a day's failures.
+    const day = (Date.now() - 24 * 3_600_000) / 1000
+    utimesSync(join(clones, 'engine-photos/.git/aquatome-engine.stuck'), day, day)
+    stuck('0')
+    expect(gh()).toHaveLength(2)
   } finally {
     process.kill(-cycle.pid!)
   }

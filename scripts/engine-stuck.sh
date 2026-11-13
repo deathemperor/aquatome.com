@@ -4,8 +4,8 @@
 # "previous cycle still running" (engine-cycle.sh), so a hung cycle stops its part with no line anywhere: on 13 Nov 2026
 # the 23:10 photos cycle hung in its opening fetch and no photos run started behind it. The longest that finished from 4
 # to 12 November ran 5 h 40 min, waits for the Mac's heat included.
-# Its part's log gets a line each hour it goes on, and GitHub a failed run once (engine-mac.yml), which the daily report
-# lists until that part publishes again. Nothing here stops it: which process to stop is a person's call.
+# Its part's log gets a line each hour it goes on, and GitHub a failed run once a day (engine-mac.yml), which the daily
+# report lists. Nothing here stops it: which process to stop is a person's call.
 set -uo pipefail
 log() { echo "$(date -u +%FT%TZ) $*"; }
 BASE="${ENGINE_CLONES:-$HOME/.local/share/aquatome}"
@@ -23,8 +23,8 @@ for part in pages sf photos; do
   [ "$secs" -ge $((HOURS * 3600)) ] || continue
   why="the $part cycle (pid $pid) has run $((secs / 3600)) h $((secs % 3600 / 60)) min, now in: $(inside "$pid" | cut -c1-120). launchd starts no $part run until it ends, and nothing stops it by itself"
   log "stuck: $why" | tee -a "$HOME/Library/Logs/aquatome-engine-$part.log"
-  # Once a cycle on GitHub.
-  [ "$(cat "$gitdir/aquatome-engine.stuck" 2>/dev/null)" != "$pid" ] || continue
+  # On GitHub once a cycle, and again each day it goes on: the daily report reads a day's failures (daily-report.mjs).
+  [ "$(cat "$gitdir/aquatome-engine.stuck" 2>/dev/null)" != "$pid" ] || [ -n "$(find "$gitdir/aquatome-engine.stuck" -mmin +1380 2>/dev/null)" ] || continue
   gh workflow run engine-mac.yml -R deathemperor/aquatome.com -f part="$part" -f why="stuck: $why" && echo "$pid" > "$gitdir/aquatome-engine.stuck"
 done
 exit 0
