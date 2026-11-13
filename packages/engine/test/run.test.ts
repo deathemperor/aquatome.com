@@ -568,3 +568,26 @@ test('a refusal during an archived source search stops that source, not the run,
   expect(pages).toBe(0)
   expect(JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
 })
+
+// The run's own read of a page (run.ts apply) refuses a credit its source's permission record refuses, before any request.
+test("a run's read of a page doesn't take a photo whose credit the source's permission record refuses", async () => {
+  const { createHash } = await import('node:crypto')
+  const { htmlToOutline } = await import('../src/outline')
+  const { pickSourcePhotos } = await import('../src/source-photos')
+  const url = `${SF}paracheirodon-axelrodi`
+  const picks = pickSourcePhotos(htmlToOutline(fx('pages/seriouslyfish-cardinal.html'), 'main').images, url, ['Paracheirodon axelrodi'])
+  const keyOf = (src: string) => `https://media.test/seriouslyfish/${createHash('sha256').update(src).digest('hex').slice(0, 16)}.webp`
+  const refused = picks[0]!.credit!
+  const root = await fresh()
+  const sources = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8'))
+  sources.seriouslyfish.permission.refusedCredits = [refused]
+  await writeFile(join(root, 'content/sources.json'), JSON.stringify(sources))
+  const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  await runEngine(d, { sources: ['seriouslyfish'] })
+  const entity = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/entity.json'), 'utf8'))
+  const gone = picks.filter(p => p.credit === refused).map(p => keyOf(p.src))
+  expect(gone.length).toBeGreaterThan(0)
+  expect(entity.photos.length).toBeGreaterThan(0)
+  for (const p of entity.photos) expect(gone).not.toContain(p.url)
+  expect(calls.images).toBe(picks.filter(p => p.credit !== refused).length)
+})

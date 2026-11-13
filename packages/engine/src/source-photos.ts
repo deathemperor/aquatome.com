@@ -112,6 +112,14 @@ export async function linkedPhotos(html: string, pageUrl: string, photoPage: Reg
   return out
 }
 
+/**
+ * A credit its source's permission record refuses (content/sources.json `permission.refusedCredits`: a picture agency is
+ * never ours, whatever the source allows; the chief of staff, 2026-11-13), compared by its letters and digits alone, so
+ * "Example Photo" and "example-photo" are one credit.
+ */
+export const refusedCredit = (credit: string | undefined, refused: readonly string[] | undefined) => !!credit && !!refused?.some(r => alnum(r) === alnum(credit))
+export const alnum = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '')
+
 /** A stored photo and the source heading it sat under (guide-sections.ts turns that into the guide's own heading). */
 export type SourcePhoto = Photo & { heading?: string }
 
@@ -122,14 +130,15 @@ export type SourcePhoto = Photo & { heading?: string }
  */
 export async function storeSourcePhotos(
   source: SourceId, sourceName: string, pageUrl: string, picked: Picked[],
-  deps: { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media; size?: (bytes: Uint8Array) => Promise<{ width?: number; height?: number }>; blocked?: Record<string, string> }, existing: Photo[], max = Infinity,
+  deps: { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media; size?: (bytes: Uint8Array) => Promise<{ width?: number; height?: number }>; blocked?: Record<string, string>; refusedCredits?: readonly string[] }, existing: Photo[], max = Infinity,
 ): Promise<SourcePhoto[]> {
   const out: SourcePhoto[] = []
   let extra = 0
   const keyFor = (src: string) => `${source}/${createHash('sha256').update(src).digest('hex').slice(0, 16)}.webp`
   const groups = picked.map(first => {
     const images = [first, ...(first.alternatives ?? [])]
-    return { images, done: images.some(img => !!deps.blocked?.[deps.media.urlFor(keyFor(img.src))]) }
+    // A refused credit is known before any request: none is made for it.
+    return { images, done: images.some(img => !!deps.blocked?.[deps.media.urlFor(keyFor(img.src))] || refusedCredit(img.credit, deps.refusedCredits)) }
   })
   // All normal requests finish first. Fallbacks and newly eligible photos share the extra turn and its budget.
   for (const extraTurn of [false, true]) for (const group of groups) {
