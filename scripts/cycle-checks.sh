@@ -36,8 +36,12 @@ net() {
   # output, so a sleep it leaves behind holds no pipe open. It ends by itself once nothing of the call is left, so it's
   # never stopped from here (a stop that fails would end the cycle under set -e); at the limit it marks the stop, sends
   # TERM to the group and KILL to what's left 10 s on, so a call that exits 0 on TERM is still stopped, children and all.
-  ( while sleep 1; do
+  # It looks every tenth of a second, so a call that answers waits no longer than that for it, and reads the clock every
+  # second: looking each second added a second to every call, and a cycle makes dozens.
+  ( n=0
+    while sleep 0.1; do
       kill -0 -- -"$job" 2>/dev/null || exit 0
+      n=$((n + 1)); [ $((n % 10)) -eq 0 ] || continue
       read -r t1 _ < <(clock); [ $((t1 - t0)) -lt "$limit" ] || break
     done
     : > "$stopped"

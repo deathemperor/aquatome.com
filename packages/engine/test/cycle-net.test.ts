@@ -37,7 +37,10 @@ test('a call to GitHub with no answer is stopped at its limit and says so; one t
   expect(hung.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [2-4] s, stopped$/), 'status 124'])
   expect(hung.seconds).toBeLessThan(10)
   expect(net(h, env, `sh -c 'echo fetched; exit 3'`).out).toEqual(['fetched', 'status 3'])
-  expect(net(h, env, 'true').out).toEqual(['status 0'])
+  const quick = net(h, env, 'true')
+  expect(quick.out).toEqual(['status 0'])
+  // A call that answers isn't held back by its watchdog: one that looked each second added a second to every call.
+  expect(quick.seconds).toBeLessThan(0.8)
 })
 
 test('the stop reaches what the call started too, one that ignores TERM included', () => {
