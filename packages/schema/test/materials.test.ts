@@ -23,7 +23,7 @@ async function changed(file: string, patch: (value: any) => void) {
 test('materials have their own schema, with all four kinds and web sources', async () => {
   const entity = await read('lua-sa-tung/entity.json')
   expect(schema.MaterialSchema).toBeDefined()
-  for (const kind of ['wood', 'substrate', 'rock', 'other']) expect(schema.MaterialSchema.parse({ ...entity, kind }).kind).toBe(kind)
+  for (const kind of ['wood', 'substrate', 'rock', 'botanical', 'other']) expect(schema.MaterialSchema.parse({ ...entity, kind }).kind).toBe(kind)
   expect(schema.MaterialSchema.safeParse({ ...entity, kind: 'fish' }).success).toBe(false)
   expect(schema.MaterialSchema.safeParse({ ...entity, sources: [{ ...entity.sources[0], url: 'javascript:alert(1)' }] }).success).toBe(false)
   expect(schema.MaterialSchema.safeParse({ ...entity, sources: [{ ...entity.sources[0], kind: 'breeder' }] }).success).toBe(false)
