@@ -113,6 +113,17 @@ private struct Connected: View {
       }
     }
     .accessibilityIdentifier("wa-last-sent")
+    // The tank the lights are kept on: the first one, until the reader picks the one they light.
+    if wa.tankChoices.count > 1, let current = wa.tankId {
+      LabeledContent("Bể") {
+        Picker("Bể", selection: Binding(get: { current }, set: { wa.move(to: $0) })) {
+          ForEach(wa.tankChoices) { t in Text(verbatim: t.name).tag(t.id) }
+        }
+        .pickerStyle(.menu)
+        .labelsHidden()
+        .accessibilityIdentifier("wa-tank")
+      }
+    }
     if wa.sentDiffers {
       Text("Các đèn trong nhóm không cùng lần gửi cuối. Lần ghi tới sẽ đặt chúng như nhau.").font(.footnote).foregroundStyle(Color.warning)
     }

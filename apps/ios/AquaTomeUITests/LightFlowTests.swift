@@ -895,6 +895,21 @@ final class LightFlowTests: XCTestCase {
     XCTAssertFalse(element(app, "saved-light").exists, "a Week Aqua light among the Chihiros ones")
   }
 
+  /// Two tanks: the group lands on the first, and its "Bể" moves all three to the tank they light (the owner, 13 Nov:
+  /// "my blackwater, weekaqua").
+  func testWeekAquaTheGroupMovesToTheTankItLights() {
+    let app = launch("-fake-weekaqua", "-seed-tanks", "two")
+    connectWeekAquaGroup(app)
+    tap(app, "wa-tank")
+    let other = app.buttons["Bể nước đen"].firstMatch
+    XCTAssertTrue(other.waitForExistence(timeout: 5), "no other tank in the group's Bể")
+    other.tap()
+    app.openTab("Bể của tôi")
+    let row = app.buttons.matching(identifier: "tank").matching(NSPredicate(format: "label CONTAINS %@", "Bể nước đen")).firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "no Bể nước đen in the list")
+    XCTAssertTrue(row.label.contains("3 đèn"), row.label)
+  }
+
   func testWeekAquaALightLostWhileWritingLeavesTheOthersWrittenWholeAndTheRecordTrue() {
     let app = launch("-fake-weekaqua", "-fake-weekaqua-drop")
     connectWeekAquaGroup(app)

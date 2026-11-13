@@ -79,6 +79,12 @@ final class WeekAquaModel {
 
   /// The records of the lights connected.
   var devices: [Device] { group.compactMap { l in Self.key(l).flatMap { tanks?.store.weekAquaLight(address: $0.address) } } }
+  /// The reader's tanks, for the group's "Bể".
+  var tankChoices: [Tank] { tanks?.tanks ?? [] }
+  /// The tank the group is kept on: its first light's (a group is kept on one tank).
+  var tankId: String? { devices.first?.tankId }
+  /// The group moved to the tank it lights: each light's record.
+  func move(to tankId: String) { tanks?.moveDevices(devices.map(\.id), to: tankId) }
   /// What AquaTome last sent to the group: the newest send among its lights, which are written together.
   var lastSent: WeekAquaSent? { devices.compactMap(\.weekAquaSent).max { $0.at < $1.at } }
   /// Not every light of the group was sent the same last (one was written apart, or missed a write).
