@@ -30,6 +30,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { parseArgs } from 'node:util'
+import { costLog, leftYielding } from '../src/ceiling'
 import { claudeCli } from '../src/claude'
 import { pool, retry } from './eval-lib'
 import { JUDGE_SCHEMA, JUDGE_SYSTEM, judgePrompt, outcome, type PairOutcome, type PostTank, savedTank, seenOurs, tankFacts, unbrand, type Verdict } from './chat-vs-plain-lib'
@@ -180,6 +181,20 @@ async function answer() {
   summary(args.arm, done)
 }
 
+/**
+ * The board yields to the engine (the chief of staff, 13 Nov 2026): before each call on the owner's sign-in it stops when
+ * that call could take what another step's line still has today (ceiling.ts `leftYielding`). `SPARE` is kept for the gate
+ * and moderation, which have no line; `CALL` covers the calls in the air at once (a judge's about $0.05, a plain Opus
+ * answer's $0.08).
+ */
+const SPARE = 10, CALL = 0.3
+class Yielded extends Error {}
+function mayCall() {
+  const log = costLog()
+  const left = log ? leftYielding('chat-board', log, SPARE) : null
+  if (left !== null && left < CALL) throw new Yielded(`the board yields to the engine: $${left.toFixed(2)} of its share left today`)
+}
+
 async function plain() {
   if (!args.arm) throw new Error('plain: --arm <name> --model <model>')
   const { done, jobs } = await todo(args.arm)
@@ -206,6 +221,7 @@ async function plain() {
     const q = plainQuestion(p, f)
     try {
       // Through the CLI: on the owner's subscription, a general assistant's one line for a system prompt, no tools.
+      if (cli) mayCall()
       const r = cli
         ? { text: (await retry(() => claudeCli<{ answer: string }>({ system: 'You are Claude, a helpful AI assistant.', prompt: q, schema: { type: 'object', additionalProperties: false, required: ['answer'], properties: { answer: { type: 'string' } } }, model: args.model }))).answer, usd: 0 }
         : await send!(q)
@@ -236,6 +252,7 @@ async function judge() {
   const once = async (prompt: string): Promise<Verdict> => {
     const file = join(cache, `${args.judge}-${hash(JUDGE_SYSTEM, prompt)}.json`)
     try { return JSON.parse(await readFile(file, 'utf8')) as Verdict } catch { /* not yet */ }
+    mayCall()
     const v = await retry(() => claudeCli<Verdict>({ system: JUDGE_SYSTEM, prompt, schema: JUDGE_SCHEMA, model: args.judge }))
     await writeFile(file, JSON.stringify(v))
     return v
@@ -244,16 +261,25 @@ async function judge() {
   const seen = (t: Turn) => unbrand(t.blocks ? seenOurs(t.text ?? '', args.cards ? (t.blocks as never) : [], t.suggestions ?? []) : t.text ?? '')
   const ids = [...ours.keys()].filter(id => ours.get(id)?.text && other.get(id)?.text && posts.has(ours.get(id)!.post))
   let n = 0
-  const rows = await pool(ids.map(id => async () => {
+  // A pair the board yields on, or whose judge fails twice, waits for the next run: its verdicts so far are kept.
+  let waiting = 0, why = ''
+  const judged = await pool(ids.map(id => async () => {
     const a = ours.get(id)!, b = other.get(id)!, p = posts.get(a.post)!
     const prompt = (x: string, y: string) => judgePrompt(asked(p, a.form), a.form === 'post' ? null : tankFacts(p.tank), x, y)
-    const [first, second] = await Promise.all([once(prompt(seen(a), seen(b))), once(prompt(seen(b), seen(a)))])
-    if (++n % 25 === 0) console.log(`${n}/${ids.length}`)
-    return { id, post: a.post, topic: a.topic, form: a.form, dev: dev(a.post), ...outcome({ first, second }) }
+    try {
+      const [first, second] = await Promise.all([once(prompt(seen(a), seen(b))), once(prompt(seen(b), seen(a)))])
+      if (++n % 25 === 0) console.log(`${n}/${ids.length}`)
+      return { id, post: a.post, topic: a.topic, form: a.form, dev: dev(a.post), ...outcome({ first, second }) }
+    } catch (e) {
+      waiting++
+      why ||= String((e as Error)?.message ?? e).slice(0, 160)
+      return undefined
+    }
   }), Number(args.concurrency))
+  const rows = judged.filter(r => r !== undefined)
   const out = join(args.dir!, `judge-${args.ours}-vs-${args.plain}${args.cards ? '-cards' : ''}.json`)
   await writeFile(out, JSON.stringify(rows, null, 1))
-  console.log(`${rows.length} judged, ${ids.length < ours.size ? `${ours.size - ids.length} left out (no answer on a side)` : 'none left out'}: ${out}`)
+  console.log(`${rows.length} judged, ${ids.length < ours.size ? `${ours.size - ids.length} left out (no answer on a side)` : 'none left out'}${waiting ? `, ${waiting} waiting (${why})` : ''}: ${out}`)
 }
 
 type Row = PairOutcome & { id: string; post: string; topic: string; form: Form; dev: boolean }
