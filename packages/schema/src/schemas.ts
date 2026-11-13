@@ -314,8 +314,13 @@ export const BreedSchema = z.object({
 
 /** Hobby materials: our own cited writing, Vietnamese-only during the unlisted pilot. */
 export const MATERIAL_SECTION_ORDER = ['about', 'water', 'prepare', 'suits', 'mistakes', 'buy'] as const
+/**
+ * A hobby material's page (content/materials/<id>/): a driftwood kind, a substrate, a rock, a botanical (lá bàng, quả
+ * thông). `names`, and each language's `altNames`, hold only names a source writes, as it writes them (the engine keeps
+ * the evidence). A price, in `buy`, only from a Vietnamese shop's own page, dated beside it.
+ */
 export const MaterialSchema = z.object({
-  id: z.string(), kind: z.enum(['wood', 'substrate', 'rock', 'other']),
+  id: z.string(), kind: z.enum(['wood', 'substrate', 'rock', 'botanical', 'other']),
   /** The general material page whose kinds include this one (for example, lua). */
   parent: z.string().optional(),
   names: z.array(z.string()), photos: z.array(Photo),
