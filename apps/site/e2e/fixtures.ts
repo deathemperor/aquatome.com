@@ -37,7 +37,7 @@ export const sideways = (page: Page) => page.evaluate(() => {
   return `${document.documentElement.scrollWidth}px > ${w}px: ${wide ? `<${wide.tagName.toLowerCase()} class="${wide.className}">` : '?'}`
 })
 
-/** Every picture on the page as one that didn't load: its alt text in its place, as when the media host is slow or refuses. */
+/** Every picture on the page as one that didn't load: its alt text in its place, as when the media host refuses it or is down. */
 export async function photosMissing(page: Page) {
   await page.evaluate(() => {
     document.querySelectorAll('picture source').forEach(s => s.remove())
