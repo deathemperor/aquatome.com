@@ -7,7 +7,11 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "venezuela"
+    "venezuela",
+    "colombia",
+    "orinoco",
+    "ecuador",
+    "bobonaza"
   ],
   "dataCard": {
     "sizeCm": [
@@ -18,6 +22,28 @@
       {
         "source": "glaser",
         "value": 10
+      },
+      {
+        "source": "scotcat",
+        "value": 13
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.6
+        }
       }
     ]
   },
@@ -35,6 +61,12 @@
       "html": "<p>This extremely odd species of banjo catfish was imported for the first time. The eyes are reduced to very small, black spots, which hints either at a strictly nocturnal way of life or at fish that live buried. The specimens came from Venezuela. They most probably belong to the species X. lepturus, but this is not certain (hence \"cf.\").</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_lepturus.htm",
+      "html": "<ul><li>Common name: Shark Banjo Catfish</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1040",
@@ -45,6 +77,18 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/xyliphius-cf-lepturus/",
       "html": "<p>The specimens were obtained from Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_lepturus.htm",
+      "html": "<p>South America: Upper Amazon and Orinoco River basins of Colombia, Ecuador and Venezuela. Type locality: near the mouth of the Río Pucayacu in the Bobonaza, Ecuador.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_lepturus.htm",
+      "html": "<p>Xyliphius live buried in the sand and perhaps gravel of swift flowing streams.</p>"
     },
     {
       "key": "reproduction",
@@ -59,10 +103,22 @@
       "html": "<p>The genus Xyliphius was established in 1912 by Carl Eigenmann for the species X. magdalenae from Colombia. Unfortunately, Eigenmann used two different spellings for the new genus simultaneously, Xiliphius and Xyliphius, which led to some confusion among later workers. Currently the spelling Xyliphius is the accepted one.</p><p>There are 7 described species in the genus. They are represented in the world's museum collections by only quite few specimens. The maximum length reported for members of the genus is between 8 and 15 cm. This means the 5 specimens, which already measure 8-10 cm, should be adult. For the first time, the behaviour of these unusual fish can be studied.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_lepturus.htm",
+      "html": "<p>The banjo catfish genus Xyliphius was established by Eigenmann (1912) to include a single species, X. magdalenae, from the Río Magdalena basin, Colombia. X. lepturus and X. melanopterus were described from the western headwaters of the Río Bobonaza, upper Amazon basin (Orcés, 1962). Etymology: the genus name Xyliphius derives from the Greek xylephion, a little piece of wood, referring to the woodlike appearance of the type species. The specific name lepturus derives from the Greek leptos = thin and the suffix -ouros (from oura = tail). IUCN Red List: Least Concern (LC) (IUCN 2022), as data do not suggest a perceptible reduction in the population.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1040",
       "html": "<p>Cienc. Nat. (Quito)v. 5 (no. 2) - pp50 - Figs. 1-2</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_lepturus.htm",
+      "html": "<p>DoNascimiento, CD, Herrera-Collazos, E.E., Mojica, J.I., Rodríguez-Olarte, D., Taphorn, D.C. &amp; Usma, S. 2022. Xyliphius lepturus. The IUCN Red List of Threatened Species 2022. Figueiredo Carlos A, Britto Marcelo R. A new species of Xyliphius, a rarely sampled banjo catfish (Siluriformes: Aspredinidae) from the rio Tocantins-Araguaia system. Neotrop. ichthyol. 2010.</p>"
     }
   ],
   "photos": [
@@ -115,5 +171,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-05"
+  "updatedAt": "2026-11-11"
 }

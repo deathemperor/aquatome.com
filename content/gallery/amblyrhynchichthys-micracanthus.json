@@ -1,0 +1,72 @@
+{
+  "id": "amblyrhynchichthys-micracanthus",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/97c6c0ea860e925c0ee8700615384f8b.webp",
+      "thumb": "https://media.aquatome.com/processed/97c6c0ea860e925c0ee8700615384f8b-480.webp",
+      "width": 700,
+      "height": 373,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amblyrhynchichthys-micracanthus",
+      "caption": "Specimen from Thailand.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-amblyrhynchichthys-micracanthus",
+        "pixelHash": "39882287ff8acabf561f0d2cab93b8b2f3188579f6322ee88f5e3333411ce0e3"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:30:20.676Z",
+          "originalHash": "c355209bd0a101609d38c42361eb57d90e4c38673e5c9ffdca4e50eb3c7e474f",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 700,
+            "originalHeight": 430,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 700,
+              "y1": 373
+            },
+            "subject": {
+              "x0": 147,
+              "y0": 77,
+              "x1": 568,
+              "y1": 329
+            },
+            "margin": 11
+          },
+          "excludedMarks": [
+            {
+              "x0": 506,
+              "y0": 378,
+              "x1": 650,
+              "y1": 404
+            }
+          ],
+          "checks": {
+            "species": [
+              "b0c89299834fc298f1ce535abaf335cabcef4c14850e92578e725541481e4472",
+              "56689f152550a86397d456032c98c2a1025a86c0bc88eb7066053fdf8489c53c"
+            ],
+            "ownership": [
+              "7b5bce70cf613bd0ee0153bfc2d43434157457c3bf43ec1af6f3e4bf78182726",
+              "947998e68977df4ca0c6acfccc083b4d075f91523bcda24573b39d8d61b24f9c"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/36272c86df0068ad.webp",
+        "width": 700,
+        "height": 430,
+        "thumb": "https://media.aquatome.com/seriouslyfish/36272c86df0068ad-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

@@ -10,6 +10,92 @@
     "brazil",
     "espirito-santo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Barra Sêca River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Barra Sêca River at Linhares to São Mateus road, Espírito Santo State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Barra Sêca River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339535,
+      "total": 295,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "BR",
+          295
+        ]
+      ],
+      "cells": [
+        [
+          -42.1875,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          7,
+          7
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          130,
+          130
+        ],
+        [
+          -40.78125,
+          -18.28125,
+          59,
+          59
+        ],
+        [
+          -40.78125,
+          -16.875,
+          12,
+          12
+        ],
+        [
+          -39.375,
+          -18.28125,
+          39,
+          39
+        ],
+        [
+          -39.375,
+          -16.875,
+          45,
+          45
+        ],
+        [
+          -39.375,
+          -14.0625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

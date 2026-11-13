@@ -1,8 +1,8 @@
 import { createHash } from 'node:crypto'
 import type { Candidate } from './gallery'
 
-export type Taxon = { canonicalName: string; order?: string; family?: string; genus?: string; matchType: string }
-type Match = { canonicalName?: string; species?: string; rank?: string; status?: string; matchType: string; order?: string; family?: string; genus?: string }
+export type Taxon = { canonicalName: string; phylum?: string; class?: string; order?: string; family?: string; genus?: string; matchType: string }
+type Match = { canonicalName?: string; species?: string; rank?: string; status?: string; matchType: string; phylum?: string; class?: string; order?: string; family?: string; genus?: string }
 
 /** GBIF backbone match; null when GBIF can't resolve the name to a species-level taxon. Synonyms resolve to the accepted species. */
 export async function gbifMatch(name: string, http: (url: string) => Promise<unknown>, cache: Record<string, Taxon | null>): Promise<Taxon | null> {
@@ -10,9 +10,39 @@ export async function gbifMatch(name: string, http: (url: string) => Promise<unk
   const m = (await http(`https://api.gbif.org/v1/species/match?name=${encodeURIComponent(name)}`)) as Match
   const ok = m.matchType !== 'NONE' && m.matchType !== 'HIGHERRANK' && m.canonicalName
   const accepted = m.status === 'SYNONYM' && m.rank === 'SPECIES' && m.species ? m.species : m.canonicalName
-  const t: Taxon | null = ok ? { canonicalName: accepted!, order: m.order, family: m.family, genus: m.genus, matchType: m.matchType } : null
+  const t: Taxon | null = ok ? { canonicalName: accepted!, ...(m.phylum ? { phylum: m.phylum } : {}), ...(m.class ? { class: m.class } : {}), order: m.order, family: m.family, genus: m.genus, matchType: m.matchType } : null
   cache[name] = t
   return t
+}
+
+// GBIF's backbone gives a ray-finned fish no class (2026-11-12: Hyphessobrycon, Corydoras, Polypterus, Acipenser), only
+// its phylum and order, so a chordate with none is a fish. The other fish classes it does give.
+const FISH = ['Coelacanthi', 'Dipneusti', 'Elasmobranchii', 'Holocephali', 'Petromyzonti']
+/** The classes a page's group (prompts/process.md) can be; a fish group by default. */
+const GROUP_CLASSES: Record<string, { fish: boolean; classes: string[] }> = {
+  shrimp: { fish: false, classes: ['Malacostraca'] },
+  snails: { fish: false, classes: ['Gastropoda', 'Bivalvia'] },
+  other: { fish: true, classes: [...FISH, 'Malacostraca', 'Branchiopoda', 'Gastropoda', 'Bivalvia', 'Amphibia', 'Anthozoa', 'Echinoidea', 'Clitellata'] },
+}
+
+/**
+ * The species a page is about, from its scientific name and the synonyms it gives: an exact match on any of them (a
+ * synonym resolving to its accepted name included) first, else a fuzzy one that is an animal the page's group can be,
+ * else none. An exact match of a class the group can't be is none too. A fuzzy match can be another animal: "Brochis
+ * arcuata" matched a tube worm's synonym and made a catfish page "Ditrupa arietina"; the genus Mollienisia, exactly, is a
+ * moth's.
+ */
+export async function pageTaxon(names: string[], group: string | undefined, match: (name: string) => Promise<Taxon | null>): Promise<Taxon | null> {
+  const can = GROUP_CLASSES[group ?? 'other'] ?? { fish: true, classes: FISH }
+  const wrong = (t: Taxon) => t.class !== undefined && !can.classes.includes(t.class)
+  const fits = (t: Taxon) => (t.class !== undefined ? can.classes.includes(t.class) : can.fish && t.phylum === 'Chordata')
+  const fuzzy: Taxon[] = []
+  for (const name of names) {
+    const t = await match(name)
+    if (t?.matchType === 'EXACT' && !wrong(t)) return t
+    if (t?.matchType !== 'EXACT' && t) fuzzy.push(t)
+  }
+  return fuzzy.find(fits) ?? null
 }
 
 type Usage = { canonicalName?: string; rank?: string; taxonomicStatus?: string; order?: string; family?: string; genus?: string; parentKey?: number }

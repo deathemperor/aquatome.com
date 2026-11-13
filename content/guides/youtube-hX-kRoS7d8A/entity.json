@@ -91,7 +91,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Mấy khúc lũa Malaysia với dáng và màu khác nhau.",
-            "sharpness": 599.3
+            "sharpness": 599.3,
+            "person": false
           },
           {
             "t": 85,
@@ -104,44 +105,16 @@
         ]
       },
       {
-        "heading": "Ghép và cố định lũa ra sao",
-        "moments": [
-          {
-            "t": 95,
-            "url": "https://media.aquatome.com/video/hX-kRoS7d8A/at95-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ướm thử các khúc lũa vào bể để tìm vị trí ghép.",
-            "sharpness": 541.4
-          },
-          {
-            "t": 105,
-            "url": "https://media.aquatome.com/video/hX-kRoS7d8A/at105-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đeo găng đang ghép hai khúc lũa với nhau.",
-            "sharpness": 392.5
-          }
-        ]
-      },
-      {
         "heading": "Lắp bơm cho vách nhỏ giọt",
         "moments": [
-          {
-            "t": 245,
-            "url": "https://media.aquatome.com/video/hX-kRoS7d8A/at245-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt bơm nano sát phía sau bể, khuất sau lũa và đá.",
-            "sharpness": 180.2
-          },
           {
             "t": 255,
             "url": "https://media.aquatome.com/video/hX-kRoS7d8A/at255-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Ống dẫn nước luồn dọc phía sau khối lũa trong bể.",
-            "sharpness": 564.7
+            "sharpness": 564.7,
+            "person": false
           }
         ]
       },
@@ -161,14 +134,6 @@
       {
         "heading": "Làm nền cho phần trên cạn và phần nước",
         "moments": [
-          {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/hX-kRoS7d8A/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt rêu sống lên lũa quanh gốc cây để che lớp sphagnum.",
-            "sharpness": 1563.1
-          },
           {
             "t": 400,
             "url": "https://media.aquatome.com/video/hX-kRoS7d8A/at400-hd.webp",
@@ -198,7 +163,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Sương phủ trên mặt nước trong bể, cây mọc xanh trên lũa.",
-            "sharpness": 1478.1
+            "sharpness": 1478.1,
+            "person": false
           },
           {
             "t": 460,
@@ -206,7 +172,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Máy tạo sương có tấm chắn phía trên, đặt trên mặt bàn.",
-            "sharpness": 1154.2
+            "sharpness": 1154.2,
+            "person": false
           }
         ]
       },
@@ -219,7 +186,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đáy bể rải đầy lá khô, mực nước hạ thấp so với miệng bể.",
-            "sharpness": 1231.8
+            "sharpness": 1231.8,
+            "person": false
           },
           {
             "t": 615,
@@ -227,7 +195,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con cá xiêm bơi trong bể có cành lũa và cây thủy sinh.",
-            "sharpness": 211.7
+            "sharpness": 211.7,
+            "person": false
           }
         ],
         "photo": {
@@ -250,7 +219,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây và lũa phủ kín phần trên cạn nhìn từ cạnh bể.",
-            "sharpness": 3008.8
+            "sharpness": 3008.8,
+            "person": false
           },
           {
             "t": 680,
@@ -258,7 +228,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể có cây mọc vượt khỏi miệng bể, phần trên cạn xanh tốt.",
-            "sharpness": 1214
+            "sharpness": 1214,
+            "person": false
           }
         ],
         "photo": {

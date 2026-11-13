@@ -1,13 +1,19 @@
 import { execFileSync } from 'node:child_process'
+import { existsSync } from 'node:fs'
 import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
-import { fitKey, fitText, type FitState } from '../src/fit'
-import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, wrongChecks } from '../src/gate'
+import { fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
+import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, HELD_BY_HAND, putBackFile, wrongChecks } from '../src/gate'
+import { localizeSpecies, partHash } from '../src/localize'
 import { loadPages, type Page } from '../src/pages'
+import { plantsWithoutPlanting } from '../src/planting'
 import { lastKept, logReviews, readReviews } from '../src/review-log'
+import { needsFetch, type UrlState } from '../src/state'
+import { rewriteExisting } from '../src/vi-backfill'
+import { VI_WRITE } from '../src/vi-rewrite'
 
 const FIXTURE = new URL('../../../apps/site/test/fixture-content', import.meta.url).pathname
 const GUIDE = 'content/guides/youtube-r53ZQW0m8VM/vi.json'
@@ -107,6 +113,104 @@ test('a text put back is the page\'s again in the review log: reviews of the tex
   expect((await lastKept(root, other, ['translation']))?.notes).toEqual(['the rewrite'])
 })
 
+const PUT_BACK = 'engine-state/put-back/guides/youtube-r53ZQW0m8VM.vi.json'
+/** A mender that takes the paragraphs naming Petco out of the guide, as the video's editor would, and says what it was sent. */
+const cutter = (root: string, sent: FitFinding[][] = [], file = GUIDE) => async (_p: Page, findings: FitFinding[]) => {
+  sent.push(findings)
+  await edit(root, file, t => { t.body = (t.body as string).replace(/<p>[^<]*Petco[^<]*<\/p>/g, '') })
+  return true
+}
+
+// The recheck job's runs of 8 to 10 Nov 2026 put 94 new texts back, 43 of them ones the video reviewer had passed, most
+// for one check, and kept none of them: each guide had had its one go.
+test('a text worse for a sentence the mender may fix is mended and read again, not put back: only the new faults are sent', async () => {
+  const root = await repo()
+  // The text readers have converts a tank from gallons, which a read of it finds; the new text also names a shop abroad.
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Bể 38 lít là đủ.</p>` })
+  git(root, 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'units')
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p><p>Thay nước mỗi tuần.</p>` })
+  const calls: string[] = [], sent: FitFinding[][] = []
+  const r = await gate(root, { llm: reader(calls), now, mend: cutter(root, sent) })
+  expect(r.report.revert).toEqual([])
+  expect(r.report.mended).toEqual(['/vi/huong-dan/' + (await readJson(root, GUIDE)).slug + '/ (shop)'])
+  expect(r.report.pass).toHaveLength(1)
+  const body = (await readJson(root, GUIDE)).body as string
+  expect(body).toContain('Thay nước mỗi tuần')
+  expect(body).not.toContain('Petco')
+  expect(sent.map(fs => fs.map(f => [f.check, f.quote]))).toEqual([[['shop', 'Petco']]]) // not the units the old text has too
+  expect(calls).toHaveLength(3) // the new text, the old one, the mended one
+  // The saved read is of the text on disk, and nothing was thrown away, so nothing is saved.
+  const page = (await loadPages(join(root, 'content'), ['vi'])).find(p => p.id === 'youtube-r53ZQW0m8VM')!
+  expect(r.state[fitKey(page)]!.hash).toBe(fitText(page).hash)
+  expect(r.pages.find(p => p.id === 'youtube-r53ZQW0m8VM')!.fields[0]!.html).not.toContain('Petco')
+  expect(existsSync(join(root, PUT_BACK))).toBe(false)
+})
+
+test('a text put back is kept, with its checks and their quotes: the text before a mend that failed, not the mend', async () => {
+  const root = await repo()
+  const before = await readFile(join(root, GUIDE), 'utf8')
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>` })
+  expect((await gate(root, { llm: reader(), now })).report.revert).toHaveLength(1)
+  expect(await readFile(join(root, GUIDE), 'utf8')).toBe(before)
+  const kept = await readJson(root, PUT_BACK)
+  expect(kept).toMatchObject({ at: '2026-11-09T00:00:00Z', checks: ['shop'], findings: [{ check: 'shop', quote: 'Petco', why: 'a US shop' }] })
+  expect(kept.text.body).toContain('<p>Mua ở Petco.</p>')
+  expect(kept.text.slug).toBe(JSON.parse(before).slug)
+
+  // A mend that leaves the fault: the text goes back, and what is kept is the text the mender was given.
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua lọc ở Petco.</p>` })
+  const worse = async () => { await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Hoặc Petco gần nhà.</p>` }); return true }
+  const r = await gate(root, { llm: reader(), now, mend: worse })
+  expect(r.report.revert).toHaveLength(1)
+  expect(r.report.mended).toEqual([])
+  expect(await readFile(join(root, GUIDE), 'utf8')).toBe(before)
+  const again = await readJson(root, PUT_BACK)
+  expect(again.text.body).toContain('<p>Mua lọc ở Petco.</p>')
+  expect(again.text.body).not.toContain('gần nhà')
+  const page = (await loadPages(join(root, 'content'), ['vi'])).find(p => p.id === 'youtube-r53ZQW0m8VM')!
+  expect(r.state[fitKey(page)]!.hash).toBe(fitText(page).hash) // the old text's read, as it stays
+
+  // A mender with nothing to offer (not a video guide, no transcript, an edit its reviewer fails): put back as before.
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Đặt hàng ở Petco.</p>` })
+  expect((await gate(root, { llm: reader(), now, mend: async () => false })).report.revert).toHaveLength(1)
+  expect((await readJson(root, PUT_BACK)).text.body).toContain('Đặt hàng ở Petco')
+})
+
+test('advice that would hurt is never the mender\'s to reword, and it mends so many pages a run', async () => {
+  const root = await repo()
+  const sent: FitFinding[][] = []
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Nên tắt lọc cho dễ bắt cá, rồi mua vợt ở Petco.</p>` })
+  const r = await gate(root, { llm: reader(), now, mend: cutter(root, sent) })
+  expect(r.report.revert).toEqual([expect.stringContaining('(harm, shop)')])
+  expect(sent).toEqual([])
+  expect((await readJson(root, PUT_BACK)).checks).toEqual(['harm', 'shop'])
+
+  // Two guides worse for a shop, and one mend a run: one is mended, the other goes back and is kept.
+  const OTHER = 'content/guides/youtube-vl1Lx9iWDYU/vi.json'
+  for (const f of [GUIDE, OTHER]) await edit(root, f, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>` })
+  const both = async (p: Page, fs: FitFinding[]) => cutter(root, sent, `content/guides/${p.id}/vi.json`)(p, fs)
+  const capped = await gate(root, { llm: reader(), now, mend: both, mends: 1, jobs: 1 })
+  expect(capped.report.mended).toHaveLength(1)
+  expect(capped.report.revert).toHaveLength(1)
+  expect(sent).toHaveLength(1)
+})
+
+// The pages run put back 10 fish pages on 11 Nov 2026 for a sentence a mender may fix. The video guides' mender turns
+// each away with no call, and each would take one of the run's 6 mends: a guide after six of them would go back unmended.
+test('a page the mender turns away, with no editor called, is not one of the run\'s mends', async () => {
+  const root = await repo()
+  const OTHER = 'content/guides/youtube-vl1Lx9iWDYU/vi.json'
+  for (const f of [GUIDE, OTHER]) await edit(root, f, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>` })
+  // The first page offered is turned away, the second goes to the editor.
+  const sent: FitFinding[][] = []
+  let offered = 0
+  const second = async (p: Page, fs: FitFinding[]) => (offered++ ? cutter(root, sent, `content/guides/${p.id}/vi.json`)(p, fs) : undefined)
+  const r = await gate(root, { llm: reader(), now, mend: second, mends: 1, jobs: 1 })
+  expect(offered).toBe(2)
+  expect(r.report.mended).toHaveLength(1)
+  expect(r.report.revert).toHaveLength(1)
+})
+
 test('a fault the old text had too, found again on a fresh read, is not worse', async () => {
   const root = await repo()
   await edit(root, GUIDE, t => { t.body = `<p>Mua ở Petco.</p>${t.body as string}` })
@@ -193,6 +297,33 @@ test('a held page that changed and passes is let out; a kit holds a page the cyc
   await gate(root, { llm: reader(calls), now })
   expect(calls).toHaveLength(0)
   expect((await readJson(root, GUIDE)).held).toEqual({ checks: ['kit'], at: '2026-11-09' })
+})
+
+// The chief of staff, 2026-11-11: a catfish page filed under a marine worm's name is taken out of readers' view at once,
+// in every language, with no model call, and stays out whatever writes it until the engine files it under the fish.
+test('a page held by hand is held in every language it has, with no read, whatever writes it, until its line goes', async () => {
+  const root = await repo()
+  const VI = 'content/breeds/flowerhorn-cichlid/vi.json', MS = 'content/breeds/flowerhorn-cichlid/ms.json'
+  await writeFile(join(root, HELD_BY_HAND), JSON.stringify({ 'breeds/flowerhorn-cichlid': { checks: ['taxon'], why: 'another animal\'s name', at: '2026-11-11' } }))
+  await edit(root, VI, t => { t.name = 'Cá khác' })
+  const calls: string[] = []
+  const { report } = await gate(root, { llm: reader(calls), now })
+  expect(calls).toHaveLength(0)
+  for (const f of [VI, MS]) expect((await readJson(root, f)).held, f).toEqual({ checks: ['taxon'], at: '2026-11-11' })
+  expect(report.hold).toHaveLength(2)
+  git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qam', 'held by hand')
+
+  // A writer that rewrites the page and drops the hold: held again, still unread.
+  await edit(root, VI, t => { delete t.held; t.name = 'Cá khác nữa' })
+  await gate(root, { llm: reader(calls), now })
+  expect(calls).toHaveLength(0)
+  expect((await readJson(root, VI)).held).toEqual({ checks: ['taxon'], at: '2026-11-11' })
+
+  // Its line taken out: the gate reads it like any held page and lets it out when it passes.
+  await writeFile(join(root, HELD_BY_HAND), '{}')
+  await gate(root, { llm: reader(calls), now })
+  expect(calls.length).toBeGreaterThan(0)
+  for (const f of [VI, MS]) expect((await readJson(root, f)).held, f).toBeUndefined()
 })
 
 test('with the accounts out, a new page waits held and a live one keeps its committed text; over the limit too', async () => {
@@ -507,6 +638,236 @@ test("a card is read and held like a page; the report and the owner's number lea
   expect(fitSummary(r.pages, r.state, r.held, '2026-11-09').langs.vi?.held).toBe(0)
 })
 
+/** The accounts are out: the message the gate treats as a limit, so a changed page is not read. */
+const limited = (async () => { throw new LlmError("claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)") }) as Llm
+const save = (root: string, message: string) => { git(root, 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', message) }
+
+test('unread: a live page the gate cannot read is put back, and the text it wrote is kept', async () => {
+  const root = await repo()
+  const committed = await readFile(join(root, GUIDE), 'utf8')
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Đã viết lại.</p>` })
+  const written = await readJson(root, GUIDE)
+  const path = (await guidePage(root)).path
+  const { report } = await gate(root, { llm: limited, now })
+  expect(await readFile(join(root, GUIDE), 'utf8')).toBe(committed)
+  expect(report.unread).toContain(path)
+  const kept = await readJson(root, PUT_BACK)
+  expect(kept).toMatchObject({ at: '2026-11-09T00:00:00Z', checks: [], findings: [], unread: true })
+  expect(kept.text).toEqual(written)
+})
+
+test('unread: the translator takes the page up again after its new text is put back', async () => {
+  const root = await repo()
+  const idFile = 'content/species/danio-margaritatus/id.json'
+  const stateFile = 'engine-state/localize-id.json'
+  await cp(join(root, 'content/species/danio-margaritatus/vi.json'), join(root, idFile))
+  await edit(root, 'content/sources.json', s => {
+    const sf = s.seriouslyfish as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }
+    sf.publish = true
+    sf.permission = { date: '2026-10-29', file: 'noted', scope: ['translation'] }
+  })
+  const entity = await readJson(root, 'content/species/danio-margaritatus/entity.json') as { updatedAt: string; sections: { key: string; source: string; html: string }[] }
+  const old = { at: '2026-01-01', from: '2026-01-01', name: 'Cá galaxy', confidence: 'high', score: 0.9 }
+  await writeFile(join(root, stateFile), `${JSON.stringify({ 'danio-margaritatus': old, 'left-alone': { at: '2026-01-01', from: '2026-01-01', name: 'Other', confidence: 'low', score: 0.5 } }, null, 2)}\n`)
+  save(root, 'translated once')
+
+  const parts = Object.fromEntries(entity.sections.filter(s => s.source === 'seriouslyfish' && s.html.trim()).map(s => [`${s.key}:${s.source}`, partHash(s.html)]))
+  await edit(root, idFile, t => { t.name = 'Ikan galaxy' })
+  const state = await readJson(root, stateFile) as Record<string, unknown>
+  state['danio-margaritatus'] = { at: '2026-11-09', from: entity.updatedAt, name: 'Ikan galaxy', confidence: 'high', score: 0.95, notes: [], parts }
+  state['left-alone'] = { at: '2026-01-01', from: '2026-01-01', name: 'Touched', confidence: 'low', score: 0.5 }
+  await writeFile(join(root, stateFile), `${JSON.stringify(state, null, 2)}\n`)
+  // As the cycle left it, the page was made from the English it has now: the translator leaves it.
+  const before = await localizeSpecies(root, limited, 'id', ['danio-margaritatus'], { now })
+  expect(before.skipped).toContain('danio-margaritatus')
+  expect(before.stopped).toBe('')
+
+  const { report } = await gate(root, { llm: limited, now })
+  expect(report.unread.length).toBeGreaterThan(0)
+  expect((await readJson(root, idFile)).name).toBe('Cá galaxy')
+  const again = await localizeSpecies(root, limited, 'id', ['danio-margaritatus'], { now })
+  expect(again.stopped).toContain('danio-margaritatus')
+  expect(again.skipped.some(s => s.startsWith('danio-margaritatus'))).toBe(false)
+  expect((await readJson(root, stateFile))['left-alone'].name).toBe('Touched')
+})
+
+test('unread: the Vietnamese rewrite takes the page up again after its new text is put back', async () => {
+  const root = await repo()
+  const file = 'content/guides/aquariumcoop-thay-nuoc/vi.json'
+  const stateFile = join(root, 'engine-state/vi-rewrite.json')
+  const opts = { llm: limited, opts: VI_WRITE, now }
+  // Published at HEAD: otherwise the build there has no page, and the gate treats the file as new.
+  await edit(root, 'content/sources.json', s => { const src = s.aquariumcoop as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }; src.publish = true; src.permission = { date: '2026-10-29', file: 'noted', scope: ['text'] } })
+  const dry = await rewriteExisting(join(root, 'content'), stateFile, opts, { limit: 1000, dry: true })
+  const id = 'guides/aquariumcoop-thay-nuoc'
+  const done = { at: '2026-10-01', rewritten: 1, of: 1, scores: [1], v: 2 }
+  const state = Object.fromEntries(dry.done.map(line => [line.split(' ')[0]!, done]))
+  state[id] = { at: '2026-10-01', rewritten: 0, of: 1, scores: [], v: 1 }
+  await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
+  save(root, 'rewrite so far')
+
+  await edit(root, file, t => { t.body = `${t.body as string}<p>Đã viết lại.</p>` })
+  state[id] = { at: '2026-11-09', rewritten: 1, of: 1, scores: [0.9], v: 2 }
+  await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
+  await gate(root, { llm: limited, now })
+  const again = await rewriteExisting(join(root, 'content'), stateFile, opts, { limit: 5 })
+  expect(again.stopped).toContain(id)
+  expect(again.done).toEqual([])
+})
+
+test('unread: a source is due again after the gate puts its page back, and one that only failed keeps its count', async () => {
+  const root = await repo()
+  const species = 'content/species/danio-margaritatus/vi.json'
+  const url = 'https://www.seriouslyfish.com/species/danio-margaritatus'
+  const other = 'https://www.seriouslyfish.com/species/other'
+  // A second source names the same fish and failed for the second time before this cycle.
+  const failing = 'https://www.planetcatfish.com/danio-margaritatus'
+  const video = 'r53ZQW0m8VM'
+  const fresh = (entityIds: string[], updatedAt: string, extra: Partial<UrlState> = {}): UrlState => ({ status: 'processed', entityIds, attempts: 0, updatedAt, ...extra })
+  await writeFile(join(root, 'engine-state/seriouslyfish.json'), `${JSON.stringify({
+    [url]: fresh(['species/danio-margaritatus'], '2026-01-01T00:00:00.000Z', { lastmod: '2026-01-01' }),
+    [other]: fresh(['species/other'], '2026-01-01T00:00:00.000Z', { hash: 'old' }),
+  }, null, 2)}\n`)
+  await writeFile(join(root, 'engine-state/planetcatfish.json'), `${JSON.stringify({ [failing]: fresh(['species/danio-margaritatus'], '2026-11-08T00:00:00.000Z', { status: 'error', attempts: 2, error: 'HTTP 500' }) }, null, 2)}\n`)
+  await writeFile(join(root, 'engine-state/youtube.json'), `${JSON.stringify({ [video]: fresh([`youtube-${video}`], '2025-01-01T00:00:00.000Z') }, null, 2)}\n`)
+  await edit(root, 'content/sources.json', s => { const src = s.seriouslyfish as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }; src.publish = true; src.permission = { date: '2026-10-29', file: 'noted', scope: ['text'] } })
+  save(root, 'fetched once')
+
+  // This cycle: Seriously Fish wrote the fish's page again, the other source failed a third time and wrote nothing, and a
+  // step that keeps no record of its own changed a video guide.
+  await edit(root, species, t => { t.name = `${t.name as string} mới` })
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Đã viết lại.</p>` })
+  const doneFish = fresh(['species/danio-margaritatus'], '2026-11-09T00:00:00.000Z', { lastmod: '2026-10-28', hash: 'new', processedHash: 'new' })
+  const third = fresh(['species/danio-margaritatus'], '2026-11-09T00:00:00.000Z', { status: 'error', attempts: 3, error: 'HTTP 500' })
+  const touchedVideo = fresh([`youtube-${video}`], '2026-11-09T00:00:00.000Z', { hash: 'new' })
+  await writeFile(join(root, 'engine-state/seriouslyfish.json'), `${JSON.stringify({
+    [url]: doneFish,
+    [other]: fresh(['species/other'], '2026-11-09T00:00:00.000Z', { hash: 'touched' }),
+  }, null, 2)}\n`)
+  await writeFile(join(root, 'engine-state/planetcatfish.json'), `${JSON.stringify({ [failing]: third }, null, 2)}\n`)
+  await writeFile(join(root, 'engine-state/youtube.json'), `${JSON.stringify({ [video]: touchedVideo }, null, 2)}\n`)
+  expect(needsFetch(doneFish, '2026-10-28', now())).toBe(false)
+
+  const { report } = await gate(root, { llm: limited, now })
+  expect(report.unread).toHaveLength(2)
+  const fish = await readJson(root, 'engine-state/seriouslyfish.json')
+  expect(needsFetch(fish[url], '2026-10-28', now())).toBe(true)
+  expect(fish[other].hash).toBe('touched')
+  // The failure wrote nothing, so it isn't undone: put back, each cycle would take a failure off its three attempts.
+  expect((await readJson(root, 'engine-state/planetcatfish.json'))[failing]).toEqual(third)
+  // A video is taken once (youtube.ts), so its record isn't what would have the guide written again: left as it is.
+  expect((await readJson(root, 'engine-state/youtube.json'))[video]).toEqual(touchedVideo)
+})
+
+// Planting writes the plant's entity.json and its Vietnamese page, and passes over a plant whose entity has its section.
+// With the page put back and the entity left, the advice would never be on the page.
+test('unread: planting advice the gate puts back is written again: its section leaves the entity, and its record goes', async () => {
+  const root = await repo()
+  const id = 'cryptocoryne-wendtii'
+  const entityFile = `content/plants/${id}/entity.json`, pageFile = `content/plants/${id}/vi.json`
+  const without = async () => (await plantsWithoutPlanting(join(root, 'content'))).map(p => p.id)
+  await edit(root, 'content/sources.json', s => {
+    for (const k of ['tropica', '2hraquarist', 'aquatome']) { const src = s[k] as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }; src.publish = true; src.permission = { date: '2026-10-29', file: 'noted', scope: ['text'] } }
+  })
+  save(root, 'the plant page is live')
+  expect(await without()).toContain(id)
+  const advice = '<p>Vùi rễ xuống nền, để hở cổ rễ.</p>'
+  await edit(root, entityFile, e => { (e.sections as unknown[]).push({ key: 'maintenance', source: 'aquatome', sourceUrl: 'https://aquatome.com/vi/gioi-thieu/', html: advice }); e.updatedAt = '2026-11-09' })
+  await edit(root, pageFile, t => { t.sections = { ...(t.sections as object), 'maintenance:aquatome': advice } })
+  await writeFile(join(root, 'engine-state/_planting.json'), `${JSON.stringify({ [id]: { at: '2026-11-09', score: 0.9, kept: true } }, null, 2)}\n`)
+  expect(await without()).not.toContain(id)
+
+  const { report } = await gate(root, { llm: limited, now })
+  expect(report.unread).toHaveLength(1)
+  expect((await readJson(root, pageFile)).sections['maintenance:aquatome']).toBeUndefined()
+  expect((await readJson(root, putBackFile({ kind: 'plants', id, lang: 'vi' }))).text.sections['maintenance:aquatome']).toBe(advice)
+  expect((await readJson(root, entityFile)).sections.some((x: { source: string }) => x.source === 'aquatome')).toBe(false)
+  expect((await readJson(root, 'engine-state/_planting.json'))[id]).toBeUndefined()
+  expect(await without()).toContain(id)
+})
+
+test('unread: a page put back for a check keeps the writer\'s record the cycle left', async () => {
+  const root = await repo()
+  const file = 'content/guides/aquariumcoop-thay-nuoc/vi.json'
+  const stateFile = join(root, 'engine-state/vi-rewrite.json')
+  const opts = { llm: limited, opts: VI_WRITE, now }
+  await edit(root, 'content/sources.json', s => { const src = s.aquariumcoop as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }; src.publish = true; src.permission = { date: '2026-10-29', file: 'noted', scope: ['text'] } })
+  const dry = await rewriteExisting(join(root, 'content'), stateFile, opts, { limit: 1000, dry: true })
+  const id = 'guides/aquariumcoop-thay-nuoc'
+  const state = Object.fromEntries(dry.done.map(line => [line.split(' ')[0]!, { at: '2026-10-01', rewritten: 1, of: 1, scores: [1], v: 2 }]))
+  state[id] = { at: '2026-10-01', rewritten: 0, of: 1, scores: [], v: 1 }
+  await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
+  save(root, 'rewrite so far')
+
+  await edit(root, file, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>` })
+  state[id] = { at: '2026-11-09', rewritten: 1, of: 1, scores: [0.9], v: 2 }
+  await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
+  const { report } = await gate(root, { llm: reader(), now })
+  expect(report.revert).toHaveLength(1)
+  expect(report.unread).toEqual([])
+  const kept = await readJson(root, putBackFile({ kind: 'guides', id: 'aquariumcoop-thay-nuoc', lang: 'vi' }))
+  expect(kept.checks).toEqual(['shop'])
+  expect(kept.unread).toBeUndefined()
+  expect((await readJson(root, 'engine-state/vi-rewrite.json'))[id].rewritten).toBe(1)
+  const again = await rewriteExisting(join(root, 'content'), stateFile, opts, { limit: 5 })
+  expect(again.stopped).toBe('')
+  expect(again.done).toEqual([])
+})
+
+// A failure of the gate's own on one page isn't the accounts being out: the same failure next cycle would have the writer
+// write the page again every cycle. The text is kept and the failure listed, for a person.
+test('unread: a page the gate itself fails on keeps its text and the record the cycle left', async () => {
+  const root = await repo()
+  const file = 'content/guides/aquariumcoop-thay-nuoc/vi.json'
+  const stateFile = join(root, 'engine-state/vi-rewrite.json')
+  const opts = { llm: limited, opts: VI_WRITE, now }
+  await edit(root, 'content/sources.json', s => { const src = s.aquariumcoop as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }; src.publish = true; src.permission = { date: '2026-10-29', file: 'noted', scope: ['text'] } })
+  const dry = await rewriteExisting(join(root, 'content'), stateFile, opts, { limit: 1000, dry: true })
+  const id = 'guides/aquariumcoop-thay-nuoc'
+  const state = Object.fromEntries(dry.done.map(line => [line.split(' ')[0]!, { at: '2026-10-01', rewritten: 1, of: 1, scores: [1], v: 2 }]))
+  state[id] = { at: '2026-10-01', rewritten: 0, of: 1, scores: [], v: 1 }
+  await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
+  save(root, 'rewrite so far')
+  const committed = await readFile(join(root, file), 'utf8')
+
+  await edit(root, file, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>` })
+  const written = await readJson(root, file)
+  state[id] = { at: '2026-11-09', rewritten: 1, of: 1, scores: [0.9], v: 2 }
+  await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
+  // Both texts are read, the new one is worse, and the gate fails once as it goes to keep it.
+  const calls: string[] = []
+  let failed = false
+  const failing = () => { if (calls.length === 2 && !failed) { failed = true; throw new Error('boom') } return now() }
+  const { report } = await gate(root, { llm: reader(calls), now: failing })
+  expect(report.failed).toEqual([`vi/${id}: boom`])
+  expect(report.unread).toHaveLength(1)
+  expect(await readFile(join(root, file), 'utf8')).toBe(committed)
+  const kept = await readJson(root, putBackFile({ kind: 'guides', id: 'aquariumcoop-thay-nuoc', lang: 'vi' }))
+  expect(kept.unread).toBe(true)
+  expect(kept.text).toEqual(written)
+  expect((await readJson(root, 'engine-state/vi-rewrite.json'))[id].rewritten).toBe(1)
+  const again = await rewriteExisting(join(root, 'content'), stateFile, opts, { limit: 5 })
+  expect(again.stopped).toBe('')
+  expect(again.done).toEqual([])
+})
+
+test('unread: a new page the gate cannot read waits held, and its text and records stay', async () => {
+  const root = await repo()
+  const dir = 'content/guides/youtube-r53ZQW0m8VM'
+  await cp(join(root, dir), join(root, 'content/guides/new-one'), { recursive: true })
+  await edit(root, 'content/guides/new-one/entity.json', e => { e.id = 'new-one' })
+  await edit(root, 'content/guides/new-one/vi.json', t => { t.slug = 'new-one'; t.body = '<p>Mới.</p>' })
+  const url = 'https://example.invalid/new-one'
+  await writeFile(join(root, 'engine-state/seriouslyfish.json'), `${JSON.stringify({ [url]: { status: 'processed', entityIds: ['guides/new-one'], attempts: 0, updatedAt: '2026-11-09T00:00:00.000Z' } }, null, 2)}\n`)
+  const { report } = await gate(root, { llm: limited, now })
+  const page = await readJson(root, 'content/guides/new-one/vi.json')
+  expect(page.body).toBe('<p>Mới.</p>')
+  expect(page.held).toEqual({ checks: [], at: '2026-11-09' })
+  expect(report.unread).toHaveLength(1)
+  expect(existsSync(join(root, 'engine-state/put-back/guides/new-one.vi.json'))).toBe(false)
+  expect((await readJson(root, 'engine-state/seriouslyfish.json'))[url].status).toBe('processed')
+})
+
 test('a held card that passes now is let out: the gate sees held cards, which the build leaves out', async () => {
   const root = await repo()
   await card(root, 'card-held', { body: '<p>Cá betta lên mặt nước đớp khí.</p>', held: { checks: ['shop'], at: '2026-11-08' } })
@@ -514,4 +875,31 @@ test('a held card that passes now is let out: the gate sees held cards, which th
   const r = await gate(root, { llm: reader(), now })
   expect((await readJson(root, 'content/cards/card-held/vi.json')).held).toBeUndefined()
   expect(r.report.release).toEqual(['/vi/cards/card-held/'])
+})
+
+test('a page held for units alone is let out, with no read, once its saved read\'s only figures are its English\'s own', async () => {
+  const held = async (en: string) => {
+    const root = await repo()
+    const dir = 'content/species/danio-margaritatus'
+    await edit(root, 'content/sources.json', s => { const sf = s.seriouslyfish as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }; sf.publish = true; sf.permission = { date: '2026-10-29', file: 'noted', scope: ['translation'] } })
+    await edit(root, `${dir}/entity.json`, e => { (e.sections as { key: string; source: string; html: string }[]).find(s => s.key === 'habitat' && s.source === 'seriouslyfish')!.html = en })
+    await edit(root, `${dir}/vi.json`, t => { (t.sections as Record<string, string>)['habitat:seriouslyfish'] = '<p>Nuôi được trong bể chỉ 38 lít.</p>'; t.held = { checks: ['units'], at: '2026-11-09' } })
+    const p = (await loadPages(join(root, 'content'), ['vi'])).find(x => x.id === 'danio-margaritatus')!
+    const state: FitState = { [fitKey(p)]: { at: '2026-11-09', hash: fitText(p).hash, model: 'm', products: [], findings: [], checklist: 3 } }
+    await writeFile(join(root, 'engine-state/_fit.json'), `${JSON.stringify(state)}\n`)
+    git(root, 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'held for units')
+    const calls: string[] = []
+    const { report } = await gate(root, { llm: reader(calls), now })
+    return { report, calls, held: (await readJson(root, `${dir}/vi.json`)).held }
+  }
+  // The English gives 38 litres itself: the rules find nothing now, and the saved read is of this text.
+  const own = await held('<p>Kept in tanks as small as 38 litres.</p>')
+  expect(own.held).toBeUndefined()
+  expect(own.report.release).toEqual(['/vi/ca/ca-galaxy/'])
+  expect(own.calls).toEqual([])
+  // The English gives gallons: "38 lít" is the writer's conversion, and the page stays held.
+  const converted = await held('<p>Kept in tanks as small as 10 gallons.</p>')
+  expect(converted.held).toEqual({ checks: ['units'], at: '2026-11-09' })
+  expect(converted.report.release).toEqual([])
+  expect(converted.calls).toEqual([])
 })

@@ -172,7 +172,73 @@
       "html": "<ul><li>Tan, H. H. (2009). Betta pardalotos, a new species of fighting fish (Teleostei: Osphronemidae) from Sumatra, Indonesia. Raffles Bulletin of Zoology 57(2), 501-504</li><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Tan, H. H. (1998). Description of two new species of the Betta waseri group (Teleostei: Osphronemidae). Ichthyological Exploration of Freshwaters 8(3), 281-287</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/d5d1288e744e9cad004ee79e4aed0d5e.webp",
+      "thumb": "https://media.aquatome.com/processed/d5d1288e744e9cad004ee79e4aed0d5e-480.webp",
+      "width": 640,
+      "height": 303,
+      "licence": "dùng với sự cho phép",
+      "author": "Stefan van der Voort",
+      "sourceUrl": "https://www.seriouslyfish.com/species/betta-pardalotos",
+      "caption": "Adult male specimen.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-betta-pardalotos",
+        "pixelHash": "bf639be01b79a0faa79005a1dd60ded2e8f0bbc2fd0d544c95602f6c40d24052"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:10:41.594Z",
+          "originalHash": "93608840ca5972fdb6a6730564dbc7b64dcddd67155e3da16faa3d2ff8037421",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 640,
+            "originalHeight": 345,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 640,
+              "y1": 303
+            },
+            "subject": {
+              "x0": 36,
+              "y0": 41,
+              "x1": 615,
+              "y1": 254
+            },
+            "margin": 9
+          },
+          "excludedMarks": [
+            {
+              "x0": 296,
+              "y0": 307,
+              "x1": 631,
+              "y1": 336
+            }
+          ],
+          "checks": {
+            "species": [
+              "90148a46333e050c6377298045956a572cefef429ee62a7847d2e2a6f9385da1",
+              "2a8b9d1b25d7485a496b10f8691d5924a7fee9ab113240bbfb0a5fb938ee6a31"
+            ],
+            "ownership": [
+              "8991e06c173ef7176fd3ebf0c8c9f558a59be37dfea5237747b08edce7cc6208",
+              "c465c521e7d0b164cf69aab18afd7d8d1d9c1917b2671a0942f55465a3a8671d"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/25aca074e4aaa058.webp",
+        "width": 640,
+        "height": 345,
+        "thumb": "https://media.aquatome.com/seriouslyfish/25aca074e4aaa058-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

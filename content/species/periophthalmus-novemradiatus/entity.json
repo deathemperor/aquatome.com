@@ -11,6 +11,138 @@
     "bengal",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The specimens come from Bengal in India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Found on the coasts of eastern India and as far east as southern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2376982,
+      "total": 42,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "ID",
+          22
+        ],
+        [
+          "IN",
+          9
+        ],
+        [
+          "MY",
+          8
+        ],
+        [
+          "BD",
+          2
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          11.25,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          21.09375,
+          6,
+          4
+        ],
+        [
+          97.03125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          101.25,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          5.625,
+          3,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          5.625,
+          3,
+          0
+        ],
+        [
+          108.28125,
+          -8.4375,
+          20,
+          0
+        ],
+        [
+          113.90625,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "water": {
     "kind": "brackish",
     "source": "glaser",
@@ -205,16 +337,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/04e0bb72e1d74506.webp",
-      "width": 960,
-      "height": 721,
-      "licence": "CC BY-SA 3.0",
-      "author": "Quartl",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Periophthalmus_novemradiatus_qtl1.jpg",
-      "caption": "Pearse's Mudskipper (Periophthalmus novemradiatus) in the Frankfurt Zoo.",
-      "thumb": "https://media.aquatome.com/commons/04e0bb72e1d74506-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/2a60988de1add4d8.webp",
       "width": 960,
       "height": 523,
@@ -222,7 +344,12 @@
       "author": "Michael K. Oliver, Ph.D.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Periophthalmus_novemradiatus.jpg",
       "caption": "A south Asian mudskipper, Periophthalmus novemradiatus (Hamilton), photographed at the Berlin Aquarium. The fish is sitting on wet sand above the surface of the water, to which it returns periodically",
-      "thumb": "https://media.aquatome.com/commons/2a60988de1add4d8-480.webp"
+      "thumb": "https://media.aquatome.com/commons/2a60988de1add4d8-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/2a60988de1add4d8-large.webp",
+        "width": 2201,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/6ed9e3f8ddc90890.webp",
@@ -233,6 +360,16 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pearse%27s_mudskipper_in_Sundarbans_National_Park_March_2026_by_Tisha_Mukherjee_01.jpg",
       "caption": "Pearse's mudskipper (Periophthalmus novemradiatus, Oxudercidae, Gobiiformes) in Sundarbans National Park (Basirhat Range), West Bengal, India.",
       "thumb": "https://media.aquatome.com/commons/6ed9e3f8ddc90890-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/04e0bb72e1d74506.webp",
+      "width": 960,
+      "height": 721,
+      "licence": "CC BY-SA 3.0",
+      "author": "Quartl",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Periophthalmus_novemradiatus_qtl1.jpg",
+      "caption": "Pearse's Mudskipper (Periophthalmus novemradiatus) in the Frankfurt Zoo.",
+      "thumb": "https://media.aquatome.com/commons/04e0bb72e1d74506-480.webp"
     }
   ],
   "videos": [],

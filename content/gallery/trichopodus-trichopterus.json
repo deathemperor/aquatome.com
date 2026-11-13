@@ -2,30 +2,6 @@
   "id": "trichopodus-trichopterus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/371607430.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/371607430-480.webp",
-      "width": 747,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Utain Pummarin",
-      "sourceUrl": "https://www.inaturalist.org/photos/371607430",
-      "caption": "Cá sặc bướm con có sọc ngang thân trong nước",
-      "best": true,
-      "kind": "juvenile"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/39291869.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/39291869-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Douglas",
-      "sourceUrl": "https://www.inaturalist.org/photos/39291869",
-      "caption": "Đàn cá sặc bướm với hai chấm đen đặc trưng trong nước",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/616354370.webp",
       "thumb": "https://media.aquatome.com/inaturalist/616354370-480.webp",
       "width": 1024,
@@ -92,18 +68,6 @@
       "author": "Yung-Lun Lin",
       "sourceUrl": "https://www.inaturalist.org/photos/565684230",
       "caption": "Cá sặc bướm bơi trong hộp trong suốt, thấy rõ vây và đốm thân",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/618952563.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/618952563-480.webp",
-      "width": 1024,
-      "height": 651,
-      "licence": "CC BY",
-      "author": "sucker69420",
-      "sourceUrl": "https://www.inaturalist.org/photos/618952563",
-      "caption": "Cá sặc bướm màu nhạt bơi gần mặt nước",
       "best": true,
       "kind": "other"
     },
@@ -555,6 +519,42 @@
       "authorUrl": "https://unsplash.com/@denisbayer?utm_source=aquatome&utm_medium=referral",
       "sourceUrl": "https://unsplash.com/photos/a-light-blue-fish-swims-near-rocks--trfIiFltKg?utm_source=aquatome&utm_medium=referral",
       "caption": "Cá sặc bướm màu xanh bạc bơi trên đá trong bể tối"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/371607430.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/371607430-480.webp",
+      "width": 747,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Utain Pummarin",
+      "sourceUrl": "https://www.inaturalist.org/photos/371607430",
+      "caption": "Cá sặc bướm con có sọc ngang thân trong nước",
+      "best": true,
+      "kind": "juvenile"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/39291869.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/39291869-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Douglas",
+      "sourceUrl": "https://www.inaturalist.org/photos/39291869",
+      "caption": "Đàn cá sặc bướm với hai chấm đen đặc trưng trong nước",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/618952563.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/618952563-480.webp",
+      "width": 1024,
+      "height": 651,
+      "licence": "CC BY",
+      "author": "sucker69420",
+      "sourceUrl": "https://www.inaturalist.org/photos/618952563",
+      "caption": "Cá sặc bướm màu nhạt bơi gần mặt nước",
+      "best": true,
+      "kind": "other"
     }
   ],
   "seen": 306,

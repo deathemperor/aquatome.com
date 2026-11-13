@@ -15,7 +15,7 @@ test('the public recorder never copies no-trace lettering, while verdicts and me
 test('committed no-trace evidence contains only controlled observations, including previously unseen lettering',async()=>{
  const root=fileURLToPath(new URL('../../..',import.meta.url))
  const check=(value:unknown)=>{if(Array.isArray(value)){value.forEach(check);return}if(!value||typeof value!=='object')return;const row=value as Record<string,unknown>;if(typeof row.residual==='boolean'&&typeof row.newMark==='boolean')expect(publicImageEvidence(row)).toEqual(row);Object.values(row).forEach(check)}
- for(const file of ['docs/residue-limit-results.json','docs/mark-calibration-results.json'])check(JSON.parse(await readFile(root+'/'+file,'utf8')))
+ for(const file of ['docs/residue-limit-results.json','docs/mark-calibration-results.json','docs/image-paired-mark-results.json'])check(JSON.parse(await readFile(root+'/'+file,'utf8')))
 })
 test('generated public evidence describes photographed lettering without quoting it or banning species data',async()=>{
  const root=fileURLToPath(new URL('../../..',import.meta.url)), data=JSON.parse(await readFile(root+'/docs/image-calibration-results.json','utf8'))
@@ -23,4 +23,9 @@ test('generated public evidence describes photographed lettering without quoting
  expect(transcribesPhotoLettering("The visible sign also identifies 'PRIVATE_SIGN_WORDING', reinforcing the identity mismatch.")).toBe(true)
  expect(transcribesPhotoLettering('The label reads: PRIVATE_SIGN_WORDING')).toBe(true)
  expect(transcribesPhotoLettering('Species: Hydrocotyle tripartita; comparison species: Marsilea hirsuta.')).toBe(false)
+})
+
+test('sanitizing evidence preserves text safety flags, while signature credits and prior-author records remain private',()=>{
+ const safe=publicImageEvidence({text:true,credit:'PRIVATE_CREDIT',recordAuthor:'PRIVATE_CREDIT',value:{text:'PRIVATE_LETTERING'},file:'/Users/private/path'})
+ expect(safe).toEqual({text:true,value:{}})
 })

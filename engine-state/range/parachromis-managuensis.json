@@ -1,0 +1,305 @@
+{
+  "id": "parachromis-managuensis",
+  "native": {
+    "input": "aea5fed6ae0cd9cc",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "HN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The jaguar cichlid, Parachromis managuensis, is a large predatory cichlid from eastern Central America, from Honduras through Nicaragua to Costa Rica.",
+        "words": "Honduras",
+        "ok": true
+      },
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The jaguar cichlid, Parachromis managuensis, is a large predatory cichlid from eastern Central America, from Honduras through Nicaragua to Costa Rica.",
+        "words": "Nicaragua",
+        "ok": true
+      },
+      {
+        "code": "CR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The jaguar cichlid, Parachromis managuensis, is a large predatory cichlid from eastern Central America, from Honduras through Nicaragua to Costa Rica.",
+        "words": "Costa Rica",
+        "ok": true
+      },
+      {
+        "code": "HN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species extends southwards down the eastern side of Central America, from the River Ulua in Honduras through Nicaragua to the River Matina in Costa Rica.",
+        "words": "Honduras",
+        "ok": true
+      },
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species extends southwards down the eastern side of Central America, from the River Ulua in Honduras through Nicaragua to the River Matina in Costa Rica.",
+        "words": "Nicaragua",
+        "ok": true
+      },
+      {
+        "code": "CR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species extends southwards down the eastern side of Central America, from the River Ulua in Honduras through Nicaragua to the River Matina in Costa Rica.",
+        "words": "Costa Rica",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It's been introduced into most other Central American countries as well as Hawaii, the USA, Philippines and Singapore.",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It's been introduced into most other Central American countries as well as Hawaii, the USA, Philippines and Singapore.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It's been introduced into most other Central American countries as well as Hawaii, the USA, Philippines and Singapore.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ulua",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species extends southwards down the eastern side of Central America, from the River Ulua in Honduras through Nicaragua to the River Matina in Costa Rica.",
+        "country": "HN",
+        "ok": true
+      },
+      {
+        "name": "Matina",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species extends southwards down the eastern side of Central America, from the River Ulua in Honduras through Nicaragua to the River Matina in Costa Rica.",
+        "country": "CR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parachromis managuensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5208202,
+    "datasets": [
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        147
+      ],
+      [
+        "bcd192c2-18bf-44a8-a9df-80f92a1cb76d",
+        77
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        64
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        54
+      ],
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        54
+      ],
+      [
+        "e46233d2-1baf-4aea-9bf7-a2f01c7cc7b0",
+        40
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        36
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        32
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        31
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        21
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        21
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        20
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        18
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        16
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        14
+      ],
+      [
+        "e5687c66-55a2-4f5f-82aa-1838d9e67470",
+        13
+      ],
+      [
+        "29b5289f-109b-4d45-b84f-2870c6590344",
+        12
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        11
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        7
+      ],
+      [
+        "805bbcde-f762-11e1-a439-00145eb45e9a",
+        6
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        6
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        6
+      ],
+      [
+        "ebab8ef5-b3b3-440e-a79f-cc4cf8a5180c",
+        6
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        5
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        5
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        4
+      ],
+      [
+        "5b7d4716-3ee7-4abb-a770-365e33c8b82c",
+        4
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        4
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        3
+      ],
+      [
+        "b211f32f-326b-43d3-8012-2fbce0cc6dcc",
+        3
+      ],
+      [
+        "faf9bd60-071c-4ed4-8705-faa17e645f60",
+        3
+      ],
+      [
+        "01f5d83c-91b1-4473-a67c-c86b35705d4d",
+        2
+      ],
+      [
+        "96ae8a00-c4f6-48e6-a99a-09e9bad57ae0",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        2
+      ],
+      [
+        "58c0f622-f643-48f5-af09-4dd2f8d2900f",
+        1
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "813b435e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        1
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "HN",
+      "NI",
+      "CR"
+    ],
+    "requests": 16,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

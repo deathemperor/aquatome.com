@@ -1,15 +1,15 @@
 {
   "id": "neritina-pulligera",
   "native": {
-    "input": "88964953865d1e9c",
-    "at": "2026-11-10T20:57:55.515Z",
+    "input": "cea56998f350dede",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
       {
-        "code": "IN",
+        "code": "TH",
         "status": "native",
-        "source": "aquariumbreeder",
-        "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
-        "words": "India",
+        "source": "glaser",
+        "quote": "Pitchblack racing snail (Neritina pulligera). Origin: Thailand.",
+        "words": "Thailand",
         "ok": true
       },
       {
@@ -19,115 +19,25 @@
         "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
         "words": "Seychelles",
         "ok": true
-      },
-      {
-        "code": "MG",
-        "status": "native",
-        "source": "aquariumbreeder",
-        "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
-        "words": "Madagascar",
-        "ok": true
-      },
-      {
-        "code": "TH",
-        "status": "native",
-        "source": "aquariumbreeder",
-        "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
-        "words": "Thailand",
-        "ok": true
-      },
-      {
-        "code": "ID",
-        "status": "native",
-        "source": "aquariumbreeder",
-        "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
-        "words": "Indonesia",
-        "ok": true
-      },
-      {
-        "code": "AU",
-        "status": "native",
-        "source": "aquariumbreeder",
-        "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
-        "words": "Australia",
-        "ok": true
-      },
-      {
-        "code": "NC",
-        "status": "native",
-        "source": "aquariumbreeder",
-        "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
-        "words": "New Caledonia",
-        "ok": true
-      },
-      {
-        "code": "SB",
-        "status": "native",
-        "source": "aquariumbreeder",
-        "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
-        "words": "Solomon Islands",
-        "ok": true
-      },
-      {
-        "code": "FJ",
-        "status": "native",
-        "source": "aquariumbreeder",
-        "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
-        "words": "Fiji",
-        "ok": true
-      },
-      {
-        "code": "PH",
-        "status": "native",
-        "source": "aquariumbreeder",
-        "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
-        "words": "Philippines",
-        "ok": true
-      },
-      {
-        "code": "JP",
-        "status": "native",
-        "source": "aquariumbreeder",
-        "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
-        "words": "Japan",
-        "ok": true
-      },
-      {
-        "code": "KE",
-        "status": "native",
-        "source": "aquariumbreeder",
-        "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
-        "words": "Kenya",
-        "ok": true
-      },
-      {
-        "code": "ZA",
-        "status": "native",
-        "source": "aquariumbreeder",
-        "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
-        "words": "South Africa",
-        "ok": true
       }
     ],
-    "regions": [
-      {
-        "name": "Celebes",
-        "source": "aquariumbreeder",
-        "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
-        "ok": true
-      },
-      {
-        "name": "New Guinea",
-        "source": "aquariumbreeder",
-        "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
-        "ok": true
-      }
-    ],
+    "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "PG"
+        "IN",
+        "MG",
+        "ID",
+        "AU",
+        "PG",
+        "NC",
+        "SB",
+        "FJ",
+        "PH",
+        "JP",
+        "KE",
+        "ZA"
       ],
       "sourcesOnly": []
     }
@@ -251,21 +161,10 @@
       ]
     ],
     "native": [
-      "IN",
-      "SC",
-      "MG",
       "TH",
-      "ID",
-      "AU",
-      "NC",
-      "SB",
-      "FJ",
-      "PH",
-      "JP",
-      "KE",
-      "ZA"
+      "SC"
     ],
     "requests": 15,
-    "at": "2026-11-10T20:57:55.515Z"
+    "at": "2026-11-11T08:59:40.517Z"
   }
 }

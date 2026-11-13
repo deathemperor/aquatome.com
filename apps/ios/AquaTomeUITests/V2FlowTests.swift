@@ -392,25 +392,26 @@ final class V2FlowTests: XCTestCase {
     XCTAssertFalse(app.buttons["v2-part-elsewhere"].exists, "a part left to v1's page")
   }
 
-  /// A long part folds between its pieces, never through a line: its first paragraphs whole, the next one's opening to a
-  /// word's end with "… thêm" ending its last line, not laid over its words, and the rest not there to read or touch until
-  /// "thêm" opens it in place. A part of one long paragraph shows its opening the same way, and a link in it works.
+  /// A long part folds between its pieces: its first paragraphs whole, then the next one's first lines with "thêm" at the
+  /// end of the last, and the rest not there to read or touch until "thêm" opens it in place. A part of one long paragraph
+  /// shows its opening the same way, and a link in it works.
   func testALongPartFoldsBetweenItsPiecesAndWhatShowsWorks() {
     let app = openNeon("-long-part")
     func text(_ s: String) -> XCUIElement { app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).firstMatch }
     reveal(app, app.staticTexts["Cho ăn gì?"])
     XCTAssertTrue(text("Thức ăn viên nhỏ").exists, "the part's opening isn't there")
     XCTAssertFalse(text("Đoạn cuối về cho ăn").exists, "a paragraph folded away is still there to read")
-    let cut = app.staticTexts.matching(NSPredicate(format: "label ENDSWITH %@", "… thêm")).firstMatch
-    XCTAssertTrue(cut.exists, "no text ends in '… thêm': it lies over the words, or stands on a row of its own")
-    let more = app.links["thêm"].firstMatch
-    reveal(app, more)
+    let folded = folds(app).firstMatch
+    reveal(app, folded)
+    guard let more = moreOnItsLastLine(app, folded) else { return XCTFail("no thêm at the end of the folded text's last line") }
     more.tap()
     XCTAssertTrue(text("Đoạn cuối về cho ăn").waitForExistence(timeout: 3), "thêm didn't open the part")
     // The long paragraph: its first lines, and the link in them.
     let mate = app.links["cá ngựa vằn"]
     reveal(app, mate)
-    XCTAssertTrue(text("Muốn cho đẻ").label.hasSuffix("… thêm"), "the long paragraph isn't folded")
+    let breeding = folds(app).allElementsBoundByIndex
+      .first { $0.staticTexts.firstMatch.label.contains("Muốn cho đẻ") }
+    XCTAssertNotNil(breeding.flatMap { moreOnItsLastLine(app, $0) }, "the long paragraph isn't folded")
     mate.tap()
     XCTAssertTrue(app.staticTexts["Cá ngựa vằn"].waitForExistence(timeout: 5), "a link in a folded part's first lines doesn't work")
   }
@@ -508,10 +509,56 @@ final class V2FlowTests: XCTestCase {
     let app = openNeon("-long-part")
     func text(_ s: String) -> XCUIElement { app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).firstMatch }
     reveal(app, app.staticTexts["Cần thiết bị gì?"])
-    XCTAssertTrue(text("Bể nhỏ cho cá neon").label.hasSuffix("thêm"), "the text before the lead-in doesn't end in thêm")
+    let before = folds(app).allElementsBoundByIndex.first { $0.staticTexts.firstMatch.label.contains("Bể nhỏ cho cá neon") }
+    XCTAssertNotNil(before.flatMap { moreOnItsLastLine(app, $0) }, "the text before the lead-in doesn't end in thêm")
     XCTAssertFalse(text("gồm:").exists, "the fold stopped on a line leading into what it hides")
     openFold(app, of: text("Bể nhỏ cho cá neon"))
     XCTAssertTrue(text("gồm:").waitForExistence(timeout: 3), "thêm didn't open the part")
+  }
+
+  /// A fold ends as the App Store's description ends (the owner, 10 Nov: "the more on appstore looks very nicer than us"),
+  /// dark and light: its last line runs to the column's edge and is cut there, no "…"; its words fade out over 1.75 em
+  /// before "thêm", which stands on that line at the column's right edge, 20 points in.
+  func testAFoldEndsAsTheAppStoresDescription() {
+    for dark in [false, true] {
+      let app = dark ? openNeon("-long-part", "-dark") : openNeon("-long-part")
+      reveal(app, app.staticTexts["Cho ăn gì?"])
+      let folded = folds(app).firstMatch
+      reveal(app, folded)
+      let look = dark ? "dark" : "light"
+      XCTAssertFalse(folded.staticTexts.firstMatch.label.contains("…"), "a fold ends in '…', \(look)")
+      guard let more = moreOnItsLastLine(app, folded) else { XCTFail("no thêm at the end of the last line, \(look)"); continue }
+      // The words, at the body's 17 points (size L): "thêm" starts 12 points inside its button, which is 44 tall.
+      let em: CGFloat = 17, word = more.frame.minX + 12
+      let line = CGRect(x: 0, y: folded.frame.maxY - 22, width: app.frame.width, height: 22)
+      guard let shot = XCUIScreen.main.screenshot().image.cgImage else { XCTFail("no screenshot"); continue }
+      let start = ink(shot, app, CGRect(x: 20, y: line.minY, width: em * 1.75, height: line.height))
+      let end = ink(shot, app, CGRect(x: word - em * 1.75, y: line.minY, width: em * 1.75, height: line.height))
+      XCTAssertGreaterThan(start, 0.01, "no words at the last line's start, \(look)")
+      XCTAssertLessThan(end, start * 0.3, "the words don't fade out before thêm, \(look): \(end) against \(start)")
+      // The line runs on to where the fade starts (1.75 em and half an em before the word), not ending short of it.
+      let edge = ink(shot, app, CGRect(x: word - em * 4.25, y: line.minY, width: em * 2, height: line.height))
+      XCTAssertGreaterThan(edge, start * 0.3, "the last line stops short of the fade, \(look): \(edge) against \(start)")
+      if !dark {
+        // A tap on its words, away from "thêm", opens it, as the App Store's does.
+        let before = folds(app).count
+        folded.coordinate(withNormalizedOffset: CGVector(dx: 0.25, dy: 0.3)).tap()
+        XCTAssertLessThan(folds(app).count, before, "a tap on the folded words didn't open the part")
+      }
+      app.terminate()
+    }
+  }
+
+  /// The viewer counts the photos its note counts: opened from the photos under the top, where the top photo is the first
+  /// of the gallery's, its "2/3" is the gallery's (the owner, 10 Nov: "1/8", then "9 ảnh").
+  func testTheViewerCountsTheGalleryItsNoteCounts() {
+    let app = openNeon("-lead-in-gallery")
+    let row = app.descendants(matching: .any)["v2-photos-row"].firstMatch
+    reveal(app, row)
+    row.buttons.firstMatch.tap()
+    let counter = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "2/3 · 3 ảnh")).firstMatch
+    XCTAssertTrue(counter.waitForExistence(timeout: 5),
+                  "the viewer doesn't count the gallery: \(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", " ảnh")).firstMatch.label)")
   }
 
   /// A list's lines stand apart, a long one wrapping under its own words: as one text, it ran on under its bullet.
@@ -827,10 +874,121 @@ final class V2FlowTests: XCTestCase {
     }
   }
 
+  /// A rightward swipe that starts anywhere on a page goes back, as in iOS's own apps: from its middle and from its right
+  /// third, on a fish's page (whose back button is the page's own) and a guide.
+  func testASwipeFromAnywhereOnThePageGoesBack() {
+    // With animations on: iOS's swipe doesn't go back without them.
+    let app = launch("-v2", "YES")
+    app.launch()
+    let swipes = { (card: XCUIElement, shown: XCUIElement, what: String) in
+      for (from, place) in [(0.5, "middle"), (0.654, "right third")] {
+        XCTAssertTrue(card.waitForExistence(timeout: 10), "no way into \(what)")
+        card.tap()
+        XCTAssertTrue(shown.waitForExistence(timeout: 8), "\(what) didn't open")
+        // High on the page, clear of what scrolls sideways.
+        self.flick(app, from: from, at: 0.25)
+        XCTAssertTrue(shown.waitForNonExistence(timeout: 5), "a swipe from the \(place) didn't go back from \(what)")
+      }
+    }
+    swipes(app.buttons["v2-fish-of-the-day"], app.buttons["v2-back"], "a fish's page")
+    swipes(app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch,
+           app.descendants(matching: .any)["native-page"], "a guide")
+  }
+
+  /// The right third and the middle, 12 flicks each at three heights, the flick and the heights counted against Settings on
+  /// iOS 27.2: a swipe back there is as sure as in iOS's own apps, not most of the time.
+  func testAFlickFromTheMiddleOrRightThirdGoesBackEveryTime() {
+    let app = launch("-v2", "YES")
+    app.launch()
+    for (from, place) in [(0.5, "middle"), (0.654, "right third")] {
+      for dy in Array(repeating: [0.56, 0.32, 0.76], count: 4).flatMap({ $0 }) {
+        let back = openFish(app)
+        flick(app, from: from, at: dy)
+        XCTAssertTrue(back.waitForNonExistence(timeout: 5), "a flick from the \(place), \(dy) down the page, didn't go back")
+      }
+    }
+  }
+
+  /// A fast flick from the very edge goes back as it does from any screen: at a fish's top over its photo and below it, and
+  /// scrolled, where it can start on the strip of photos. iOS's zoom starts nothing for it (`PageSwipes`).
+  func testAFastFlickFromTheVeryEdgeGoesBack() {
+    let app = launch("-v2", "YES")
+    app.launch()
+    for (scrolled, dy) in Array(repeating: [(false, 0.2), (false, 0.6), (true, 0.5)], count: 2).flatMap({ $0 }) {
+      let back = openFish(app)
+      if scrolled { app.swipeUp() }
+      flick(app, from: 0.01, to: 0.93, at: dy)
+      XCTAssertTrue(back.waitForNonExistence(timeout: 5), "a fast flick from the edge, \(dy) down the page\(scrolled ? ", scrolled" : ""), didn't go back")
+    }
+  }
+
+  /// A guard, never broken: a slow drag from the edge is the commonest way back, and iOS's own, at a fish's top and scrolled.
+  func testASlowDragFromTheEdgeGoesBack() {
+    let app = launch("-v2", "YES")
+    app.launch()
+    for scrolled in [false, true] {
+      let back = openFish(app)
+      if scrolled { app.swipeUp() }
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.01, dy: 0.6))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.93, dy: 0.6)), withVelocity: .slow, thenHoldForDuration: 0)
+      XCTAssertTrue(back.waitForNonExistence(timeout: 5), "a slow drag from the edge\(scrolled ? ", scrolled" : "") didn't go back")
+    }
+  }
+
+  /// A swipe let go of leaves nothing behind: the page still goes back from the edge and from the middle.
+  func testASwipeLetGoOfLeavesTheOthersGoingBack() {
+    let app = launch("-v2", "YES")
+    app.launch()
+    for (from, to, place) in [(0.01, 0.93, "edge"), (0.5, 0.99, "middle")] {
+      let back = openFish(app)
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.7, dy: 0.6))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.82, dy: 0.6)), withVelocity: .slow, thenHoldForDuration: 0.2)
+      XCTAssertFalse(back.waitForNonExistence(timeout: 2), "a short drag let go of went back")
+      flick(app, from: from, to: to, at: 0.6)
+      XCTAssertTrue(back.waitForNonExistence(timeout: 5), "after a swipe let go of, one from the \(place) didn't go back")
+    }
+  }
+
+  /// A thumb's flick across the page, a tenth of a second from start to end, as the swipes counted against Settings on
+  /// iOS 27.2. XCUITest's own pace is a slow drag, which iOS's zoom takes from anywhere: the fault a flick shows, it hides.
+  private func flick(_ app: XCUIApplication, from: CGFloat, to: CGFloat = 0.99, at dy: CGFloat) {
+    let across = (to - from) * app.frame.width
+    app.coordinate(withNormalizedOffset: CGVector(dx: from, dy: dy))
+      .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: to, dy: dy)), withVelocity: XCUIGestureVelocity(across / 0.1), thenHoldForDuration: 0)
+  }
+
+  /// Hôm nay's fish opened; its back button, there until the page has gone.
+  private func openFish(_ app: XCUIApplication) -> XCUIElement {
+    let card = app.buttons["v2-fish-of-the-day"], back = app.buttons["v2-back"]
+    XCTAssertTrue(card.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    card.tap()
+    XCTAssertTrue(back.waitForExistence(timeout: 8), "the fish's page didn't open")
+    return back
+  }
+
+  /// A guard, never broken: a swipe that starts on what scrolls sideways is its own, as in the App Store: the page stays.
+  func testASwipeOnAStripDoesntGoBack() {
+    // With animations on, or no swipe would go back from anywhere.
+    let app = launch("-v2", "YES", "-long-part")
+    app.launch()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    let back = app.buttons["v2-back"]
+    XCTAssertTrue(back.waitForExistence(timeout: 8), "the fish's page didn't open")
+    for id in ["v2-jumps", "v2-photos-row"] {
+      let strip = app.descendants(matching: .any)[id].firstMatch
+      repeatUntil(strip.exists && strip.isHittable, times: 8) { app.swipeUp() }
+      XCTAssertTrue(strip.isHittable, "no \(id) on the fish's page")
+      strip.swipeRight()
+      XCTAssertFalse(back.waitForNonExistence(timeout: 2), "a swipe on \(id) went back")
+    }
+  }
+
   /// The edge swipe goes back from a fish's top, where the back button on the bar is the page's own, not iOS's.
   func testAFishsPageGoesBackByTheEdgeSwipe() {
+    // With animations on: iOS's swipe doesn't go back without them.
     let app = launch("-v2", "YES")
-    app.launchForFlow()
+    app.launch()
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
     let back = app.buttons["v2-back"], lead = app.links["John Roe"]
@@ -1091,13 +1249,44 @@ final class V2FlowTests: XCTestCase {
   /// "thêm" at the end of this text: the page has one in each folded part.
   private func openFold(_ app: XCUIApplication, of paragraph: XCUIElement) {
     reveal(app, paragraph)
-    let box = paragraph.frame
-    let more = app.links.matching(NSPredicate(format: "label == %@", "thêm")).allElementsBoundByIndex.first {
-      box.contains(CGPoint(x: $0.frame.midX, y: $0.frame.midY))
-    }
+    let more = folds(app).allElementsBoundByIndex.first { $0.staticTexts.firstMatch.label == paragraph.label }.flatMap { moreOnItsLastLine(app, $0) }
     guard let more else { return XCTFail("no thêm in \(paragraph.label)") }
     reveal(app, more)
     more.tap()
+  }
+
+  /// The texts folds end in, as the eye sees them: the lines shown, not the text cut a line further.
+  private func folds(_ app: XCUIApplication) -> XCUIElementQuery {
+    app.descendants(matching: .any).matching(identifier: "v2-folded")
+  }
+
+  /// The fold's "thêm", where the App Store has its "more": its right edge on the column's, 20 points in, and its middle on
+  /// the last line shown.
+  private func moreOnItsLastLine(_ app: XCUIApplication, _ folded: XCUIElement) -> XCUIElement? {
+    let more = folded.buttons["v2-more"]
+    guard more.exists else { return nil }
+    let edge = abs(more.frame.maxX - (app.frame.width - 20)) <= 1
+    let onLast = more.frame.midY <= folded.frame.maxY && more.frame.midY >= folded.frame.maxY - 26
+    return edge && onLast ? more : nil
+  }
+
+  /// How much a box of the screen differs from its own ground, on average: its words' ink, 0 for none.
+  private func ink(_ shot: CGImage, _ app: XCUIApplication, _ box: CGRect) -> Double {
+    let scale = CGFloat(shot.width) / app.frame.width
+    guard let crop = shot.cropping(to: CGRect(x: box.minX * scale, y: box.minY * scale, width: box.width * scale, height: box.height * scale).integral)
+    else { return 0 }
+    let w = crop.width, h = crop.height
+    var px = [UInt8](repeating: 0, count: w * h * 4)
+    guard let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4, space: CGColorSpace(name: CGColorSpace.sRGB)!,
+                              bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue) else { return 0 }
+    ctx.draw(crop, in: CGRect(x: 0, y: 0, width: w, height: h))
+    func gray(_ i: Int) -> Double { (0.2126 * Double(px[i]) + 0.7152 * Double(px[i + 1]) + 0.0722 * Double(px[i + 2])) / 255 }
+    var often: [Int: Int] = [:]
+    for i in stride(from: 0, to: px.count, by: 4) { often[Int(gray(i) * 255), default: 0] += 1 }
+    guard let ground = often.max(by: { $0.value < $1.value })?.key else { return 0 }
+    var sum = 0.0
+    for i in stride(from: 0, to: px.count, by: 4) { sum += abs(gray(i) - Double(ground) / 255) }
+    return sum / Double(w * h)
   }
 
   private func goBack(_ app: XCUIApplication) {

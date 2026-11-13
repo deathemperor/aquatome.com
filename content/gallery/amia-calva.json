@@ -62,30 +62,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/128409833.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/128409833-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Ryan McMinds",
-      "sourceUrl": "https://www.inaturalist.org/photos/128409833",
-      "caption": "Cá bowfin bơi gần mặt nước có bèo, ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/401928889.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/401928889-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "harrier",
-      "sourceUrl": "https://www.inaturalist.org/photos/401928889",
-      "caption": "Cá bowfin bơi trong nước nông trong suốt ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/506397487.webp",
       "thumb": "https://media.aquatome.com/inaturalist/506397487-480.webp",
       "width": 1024,
@@ -339,6 +315,30 @@
       "sourceUrl": "https://www.inaturalist.org/photos/747922475",
       "caption": "Cá bowfin trên nền đá trong nước nông tự nhiên",
       "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/128409833.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/128409833-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Ryan McMinds",
+      "sourceUrl": "https://www.inaturalist.org/photos/128409833",
+      "caption": "Cá bowfin bơi gần mặt nước có bèo, ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/401928889.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/401928889-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "harrier",
+      "sourceUrl": "https://www.inaturalist.org/photos/401928889",
+      "caption": "Cá bowfin bơi trong nước nông trong suốt ngoài tự nhiên",
+      "best": true,
       "kind": "habitat"
     }
   ],

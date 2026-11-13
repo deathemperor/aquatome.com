@@ -9,7 +9,8 @@
     "asia",
     "indonesia",
     "oceania",
-    "papua-new-guinea"
+    "papua-new-guinea",
+    "yahukimo"
   ],
   "range": {
     "native": {
@@ -196,10 +197,6 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 14
-      },
-      {
         "source": "seriouslyfish",
         "value": 12.5
       }
@@ -238,27 +235,21 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia_rubrostriata_en/",
-      "html": "<p>A colorful rainbowfish that is found in the trade only very occasionally. The species attains a maximum length of about 14 cm, and each centimeter the fish grows it becomes even more colorful.</p>"
-    },
-    {
-      "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
       "html": "<p>The red-striped rainbowfish, Melanotaenia rubrostriata, is a rainbowfish from Indonesia and Papua New Guinea. Long treated as a subspecies of M. splendida and one of the most colourful of its former subspecies, it lives among vegetation and debris in the tributaries and swamps of coastal plain rivers. The different forms should not be mixed with each other or with M. splendida in the aquarium because they may hybridise, and the drab juveniles can take over 12 months to colour up.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia_rubrostriata_en/",
-      "html": "<p>Very nice German bred specimens were obtained; they were currently 5-7 cm long.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
       "html": "<p>Indonesia, Papua New Guinea.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia_rubrostriata_dekai_village__en/",
+      "html": "<p>The village named Dekai is located in West Papua (formerly Irian Jaya) in the district of Yahukimo. It seems to be a real hotspot for extremely beautiful species of rainbowfish. Many species and local varieties have been collected there in the past years and brought to the tanks of enthusiasts. This also applies to this variety of M. rubrostriata.</p>"
     },
     {
       "key": "habitat",
@@ -279,6 +270,12 @@
       "html": "<p>This species, like most rainbows, looks most at home in a planted aquarium. Provide areas of dense vegetation, along with some open areas for swimming. Water movement should be quite gentle.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia_rubrostriata_dekai_village__en/",
+      "html": "<p>Water quality is of great importance for this fish. The water should be changed as often as possible.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
@@ -297,6 +294,12 @@
       "html": "<p>Very peaceful, but can disturb smaller or slow-moving fish with its rapid movements and relatively large size. Good tankmates include other similarly-sized rainbowfish, characins, danios, barbs, freshwater gobies and catfish such as Corydoras. This rainbowfish can be quite skittish and does far better when kept in a shoal of at least 6-8, preferably more. The males will also be encouraged to display their best colours in the company of conspecifics. Obviously, a suitably-sized aquarium would be required for a very large group.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia_rubrostriata_dekai_village__en/",
+      "html": "<p>Different species of Melanotaenia or other rainbowfishes should never be kept together, because in the aquarium this would lead to unwanted hybrids.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
@@ -309,10 +312,22 @@
       "html": "<p>As with other members of the genus, this is not a difficult species to breed, being an egg scatterer, although the fry can prove somewhat tricky to raise. The breeding aquarium should be at least 76 cm long, and contain slightly hard, alkaline water with a pH of around 7.5 and a temperature of 26.5–29°C. A small air-powered filter will provide sufficient oxygenation and flow. The tank should be filled with fine-leaved plants such as java moss, or nylon spawning mops. No substrate is necessary. The adult fish are best conditioned in a group in a separate aquarium, with plenty of live and frozen foods. As the fish come into condition, the females will appear noticeably plumper, and males will display to each other almost constantly. Select the fattest, best-coloured pair for spawning and introduce them to the spawning tank. A small raise in temperature can often induce spawning. The pair will spawn for a period of several weeks, laying batches of eggs each day. These are attached to surfaces by a small thread. Although the adults tend not to eat the spawn, it's easier to raise the fry in a separate aquarium, so checking the plants or mops regularly and removing any eggs found to a raising tank containing water from the spawning tank is recommended. The eggs hatch in 7-12 days, depending on temperature, and the tiny fry initially require infusoria-type food, before graduating onto free swimming foods, such as brine shrimp nauplii, after a week or so. Sinking foods are unsuitable as the fry tend to stay very close to the water surface.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia_rubrostriata_dekai_village__en/",
+      "html": "<p>At temperatures of 24–28°C, medium hard water and a pH around 7 the fish will readily spawn. For spawning, fine plant material such as Myriophyllum or Java moss is needed, where the eggs are deposited.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
       "html": "<p>This species was long treated as a subspecies of Melanotaenia splendida, and it is one of the most colourful of the former subspecies. The different forms should not be mixed with each other or with M. splendida in the aquarium, as they may hybridise. Adult specimens are rarely seen for sale, and it's the much drabber juvenile fish that are almost always offered in dealers tanks. However, exercise some patience (even on a good diet, full colour development can take over 12 months), and you will be rewarded with a truly gorgeous adult fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia_rubrostriata_dekai_village__en/",
+      "html": "<p>It really doesn't matter from a hobbyist's point of view whether one prefers to see M. rubrostriata (Ramsay &amp; Ogilby, 1886) as a full species or only as a subspecies of M. splendida. In the latter case it has to be named M. splendida rubrostriata.</p>"
     }
   ],
   "photos": [],
@@ -364,5 +379,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-07"
+  "updatedAt": "2026-11-11"
 }

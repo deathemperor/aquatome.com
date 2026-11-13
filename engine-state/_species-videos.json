@@ -933,10 +933,12 @@
     "reason": "trailer"
   },
   "a5LsDyFgPJ4": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "How to Breed White Cloud Mountain Minnows - Freshwater Aquarium Nano Fish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "aC5TwJ6P_kg": {
     "at": "2026-11-07",
@@ -955,16 +957,21 @@
     "reason": "tank rehab"
   },
   "aIikRDZZQ30": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "Spotted Corydoras CW027 - Rare Aquarium Catfish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "aiVcRDpBSW0": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "Pros & Cons of keeping Duckweed (Lemna Minor) in Your Aquarium",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Lemna minor",
+    "done": "skipped",
+    "reason": "no plant page: a plant page comes from a licensed source"
   },
   "aLxwaPYThlY": {
     "at": "2026-11-07",
@@ -975,16 +982,20 @@
     "reason": "convention"
   },
   "AqbAr6DK5h8": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "ELECTRIC BLUE ACARA SPECIES PROFILE",
     "channel": "Daniel Keeping Fish",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "aR_6iiGIF1c": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "SPECIES PROFILE: FARLOWELLA CATFISH",
     "channel": "Daniel Keeping Fish",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "Ar3fHDXSCSk": {
     "at": "2026-11-07",
@@ -1051,10 +1062,14 @@
     "reason": "channel vlog"
   },
   "axPlxg-ortg": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "Dwarf Chain Loaches: Why Doesn't Anyone Keep These?",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Ambastaia sidthimunki",
+    "page": "species/ambastaia-sidthimunki",
+    "done": "added",
+    "score": 0.82
   },
   "b32_HfRz9xg": {
     "at": "2026-11-07",
@@ -1065,10 +1080,12 @@
     "reason": "studio tour"
   },
   "BDtIx9Xd4nY": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "RAMSHORN SNAIL (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "fetch failed"
   },
   "BE-E-k-fjzs": {
     "at": "2026-11-07",
@@ -1087,10 +1104,12 @@
     "reason": "live food cultures"
   },
   "BhtC1GTu9Is": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Endler Guppies Care Guide",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "fetch failed"
   },
   "bIb1FlMPF-A": {
     "at": "2026-11-07",
@@ -1125,10 +1144,12 @@
     "reason": "floating plants warning, general"
   },
   "bR5OgFk7kCk": {
-    "at": "2026-11-07",
+    "at": "2026-11-13",
     "title": "Before You Buy a Mooseface Loach, Watch This",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "fetch failed"
   },
   "BRFO8yflCzE": {
     "at": "2026-11-07",
@@ -3051,6 +3072,14 @@
     "done": "skipped",
     "reason": "trends discussion"
   },
+  "oHgx-jEHoro": {
+    "at": "2026-11-11",
+    "title": "Sumi Kitty Saves The Entire Fishtory Archive... and Family- From The ... WOLF SPIDER! ( 6 cm Across)",
+    "channel": "FISHTORY",
+    "kind": "other",
+    "done": "skipped",
+    "reason": "Pet cat vs wolf spider story, not a species profile"
+  },
   "OhIYotvKBcc": {
     "at": "2026-11-07",
     "title": "Strawberry Leporinus - Leporinus granti #shorts",
@@ -3243,6 +3272,12 @@
     "at": "2026-11-07",
     "title": "Saddleback Loach - Homaloptera Orthogoniata - Rare Freshwater Loach Aquarium Fish Profile",
     "channel": "Aquadiction",
+    "kind": "profile"
+  },
+  "ptOLs3ZBnB0": {
+    "at": "2026-11-11",
+    "title": "A Pike Cichlid That Actually Stays Small",
+    "channel": "Steenfott Aquatics",
     "kind": "profile"
   },
   "Pu6HlJCRRvI": {
@@ -3640,6 +3675,14 @@
     "kind": "other",
     "done": "skipped",
     "reason": "species not named in title"
+  },
+  "tQZze4odY6M": {
+    "at": "2026-11-11",
+    "title": "SEAOURA SR-620 AQUARIUM LIGHT WITH REMOTE CONTROL",
+    "channel": "Daniel Keeping Fish",
+    "kind": "other",
+    "done": "skipped",
+    "reason": "Product: aquarium light"
   },
   "tscVdxWPPqE": {
     "at": "2026-11-07",

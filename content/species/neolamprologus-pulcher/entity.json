@@ -22,7 +22,8 @@
         "Lake Tanganyika"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -125,6 +126,10 @@
       {
         "source": "seriouslyfish",
         "value": 7.2
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -152,6 +157,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-pulcher",
       "html": "<p>Endemic to Lake Tanganyika, mainly in the southern half of the lake, where it replaces N. brichardi, with type locality the town of Kasanga in southwestern Tanzania.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/neolamprologus_pulcher_en/",
+      "html": "<p>In the wild, this species is restricted to a comparatively small area in the extreme south of Lake Tanganyika. The type locality is Kasanga on the southeastern coast, the place belongs to Tanzania.</p>"
     },
     {
       "key": "habitat",
@@ -208,6 +219,12 @@
       "html": "<p>Deservedly one of the most popular Tanganyikan species available in the hobby, N. pulcher is ideal for newcomers to both Rift Lake cichlids and cichlids in general, being beautiful and easy to keep and breed. It is seen for sale under several common names including \"Fairy Cichlid\", \"Lyretail Cichlid\" and \"Princess of Burundi\". There are several colour morphs available, although these do not vary much in patterning, and an albino form is also occasionally available. The different species in the so-called \"Brichardi complex\", which include N. crassus, N. falcicula, N. gracilis, N. helianthus, N. savoryi and N. splendens, should not be mixed in aquaria as they will hybridise freely.</p><p>In nature, N. pulcher can be found in shoals of many thousands, exhibiting the same altruistic nature towards spawning pairs and young fish as is seen in aquaria but on a truly massive scale.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/neolamprologus_pulcher_en/",
+      "html": "<p>Deep inside of even the straightest democrat seems to live a small royalist. How can it be explained otherwise that extraordinarily beautiful species of ornamental fish so often get royal popular names? The first Neolamprologus with a lunate tail fin with long filaments was imported around 1958. It very soon was called the “Princess of Burundi”.</p><p>The Princess is a very recommendable aquarium fish. The species stays small (maximum length around 10 cm), is comparatively peaceful, does not destroy plants and displays a fantastic type of broodcare. The parents (both are involved) defend mainly the territory. If young fish survive they stay for quite a long time inside their parents' territory. These youngsters help to take care of their younger siblings. It is a fascinating sight to observe such a school of fish of different ages.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-pulcher",
@@ -223,7 +240,12 @@
       "licence": "CC BY-SA 4.0",
       "author": "DenesFeri",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_pulcher_-_aquarium_1.jpg",
-      "caption": "Cá Neolamprologus pulcher bơi gần đá trong bể cichlid"
+      "caption": "Cá Neolamprologus pulcher bơi gần đá trong bể cichlid",
+      "large": {
+        "url": "https://media.aquatome.com/commons/6127dca546ef6793-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
@@ -256,5 +278,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-11"
 }

@@ -15,7 +15,7 @@ function timedOut(runs: string[]) {
   const dir = mkdtempSync(join(tmpdir(), 'aq-timed-out-'))
   const r = spawnSync('bash', ['-c', `
     set -euo pipefail
-    log() { :; }; TEST_LOG="${dir}/test.log"; source "${CHECKS}"; calm() { :; }
+    log() { :; }; TEST_LOG="${dir}/test.log"; source "${CHECKS}"; calm() { :; }; settled() { :; }
     n=0; runs=(${runs.map(r => `'${r}'`).join(' ')})
     checks() {
       local r="\${runs[$n]}"; n=$((n + 1))
@@ -58,7 +58,7 @@ function clone() {
   sh('git config user.email a@example.com && git config user.name a && git checkout -q -b main && mkdir -p content sources engine-state docs/review && echo main > content/a.json && git add . && git commit -qm main && git push -q -u origin main 2>/dev/null')
   const cycle = (body: string, extra: Record<string, string> = {}) => sh(`
     set -euo pipefail; PUSH_PAUSE=0
-    log() { echo "LOG $*"; }; TEST_LOG="${home}/test.log"; source "${CHECKS}"; calm() { :; }
+    log() { echo "LOG $*"; }; TEST_LOG="${home}/test.log"; source "${CHECKS}"; calm() { :; }; settled() { :; }
     checks() {
       if [ -n "\${CHECK_ONCE:-}" ] && [ ! -f "$HOME/failed-once" ]; then touch "$HOME/failed-once"; printf '%b\\n' "$CHECK_ONCE"; return 1; fi
       [ -z "\${CHECK:-}" ] || { echo "$CHECK"; return 1; }
@@ -198,10 +198,11 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
   const jobs: [string, string][] = [['engine-cycle.sh', '"$PART"'], ['video-cycle.sh', 'videos'], ['video-recheck.sh', 'video-recheck']]
   for (const [name, job] of jobs) {
     const s = script(name)
-    // Each "not publishing" after the checks keeps the work first: after the run's commit, and after a merge on push.
+    // Each "not publishing" after the checks keeps the work first: after the run's commit, after a merge on push, and
+    // after the sweep on a clean pull that brought main's commits in.
     const gaveUp = s.split('\n').filter(l => /not publishing/.test(l) && !/gate:/.test(l))
-    expect(gaveUp.length, name).toBe(2)
-    expect(s.match(new RegExp(`keep_unpublished ${job.replace(/[$"]/g, m => `\\${m}`)}`, 'g'))?.length, name).toBe(2)
+    expect(gaveUp.length, name).toBe(3)
+    expect(s.match(new RegExp(`keep_unpublished ${job.replace(/[$"]/g, m => `\\${m}`)}`, 'g'))?.length, name).toBe(3)
     // Kept work is published once a run has installed and set its merge drivers, before it does its own work.
     expect(s, name).toMatch(new RegExp(`pnpm install --frozen-lockfile --silent\\npublish_kept ${job.replace(/[$"]/g, m => `\\${m}`)}\\n`))
     expect(s.indexOf('\npublish_kept '), name).toBeGreaterThan(s.indexOf('merge.entity.driver'))

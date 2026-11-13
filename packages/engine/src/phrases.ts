@@ -28,6 +28,12 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
   // site, except where its line says; per million words: site | forum | videos.
   vi: [
     { say: 'nhiều khả năng', instead: '"chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn)' }, // 473 | 5 | 0
+    // The owner, 2026-11-11: "Cá thài lài doesn't exist in Vietnamese". 0 in the forum and the videos; the plant's name.
+    { say: 'thài lài', find: '(?<!(?:cỏ|rau|cây|hoa|họ)\\s)thài lài(?! tía)', instead: 'tên cá: "cá sặc" cho cá gourami, "cá sặc mật ong", "cá bã trầu" (cây "cỏ thài lài" giữ nguyên)' },
+    // The reader check's wording findings on top-card pages (2026-11-08); the sweep writes each the keepers' way (sanitize.ts).
+    { say: 'trùn chỉ đỏ', find: 'trùng? chỉ đỏ', instead: '"trùng huyết" (bloodworm, ấu trùng muỗi lắc); "trùn chỉ" là giun Tubifex, con khác' }, // 13 | 0 | 0; "trùng chỉ đỏ" 6 | 0 | 0
+    { say: 'nửa tá', instead: '"6 con"' }, // 8 | 0 | 0; "nửa tá loài" (six kinds) stays
+    { say: 'thủng lỗ đầu', find: '(?:thủng|lủng) lỗ đầu', instead: '"lủng đầu" (bệnh lủng đầu; 11 lần mỗi triệu chữ trên diễn đàn)' }, // 0.4 | 0 | 0; "lủng lỗ đầu" 0.9 | 0 | 0
     { say: 'dù vậy', find: '(?:dù|tuy) vậy', instead: '"nhưng", "tuy nhiên"' }, // dù vậy 568 | 5 | 0, tuy vậy 560 | 3 | 26
     { say: 'phần lớn', instead: '"thường", "chủ yếu", hoặc bỏ' }, // 1100 | 25 | 15
     { say: 'nhìn chung', instead: '"thường", hoặc bỏ' }, // 167 | 14 | 15

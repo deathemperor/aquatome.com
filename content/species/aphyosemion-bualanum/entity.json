@@ -142,7 +142,73 @@
       "html": "<p>The specific name was mis-used to refer to various populations of the congener A. elberti prior to 1990, and we've been unable to confirm if the specimen pictured here is correctly identified or not. It is listed as 'endangered' by the IUCN.</p><p>Etymology: Aphyosemion: from the Greek aphúe, meaning 'a small fish', and semeion, meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members. bualanum: named for its type locality of \"Buala, Cameroon\" (now corresponds to a location in Central African Republic), in combination with the Latin suffix -anum, meaning 'of, pertaining to'.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/99c3fab5581db50cf724522f8e200322.webp",
+      "thumb": "https://media.aquatome.com/processed/99c3fab5581db50cf724522f8e200322-480.webp",
+      "width": 718,
+      "height": 539,
+      "licence": "dùng với sự cho phép",
+      "author": "Hristo Hristov",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bualanum",
+      "caption": "Adult male specimen; collection details unspecified.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-aphyosemion-bualanum",
+        "pixelHash": "5975d416f91fa380b48e9fed54fd8e5cee5fe716d8903436e11f0e443dda3773"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:35:24.797Z",
+          "originalHash": "eb4365cc1716ac1788e5fe0860bdb73a08ea6a20613a64294ed7bdd0384511d1",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 787,
+            "originalHeight": 585,
+            "window": {
+              "x0": 19,
+              "y0": 46,
+              "x1": 737,
+              "y1": 585
+            },
+            "subject": {
+              "x0": 49,
+              "y0": 176,
+              "x1": 706,
+              "y1": 464
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 16,
+              "y0": 10,
+              "x1": 220,
+              "y1": 40
+            }
+          ],
+          "checks": {
+            "species": [
+              "55d035e1b55345d07aa3b4bcb818f0dd201f7380e1a83e48eab6e9778fa77342",
+              "e5ad08b829b663fcdb13d238b3859155c8adbec768b5b2b06ce8be2b9cfcd817"
+            ],
+            "ownership": [
+              "dae72388ed3e4607f5d3cd036726eafae6ebdba3bb812b928c5a13f5b78b06a5",
+              "d5a2fcfdf8cf8e3e20f0f4a02cc2b55b3b6068fd883b7667de1695de69c1d283"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/080d3266f7ca0af1.webp",
+        "width": 787,
+        "height": 585,
+        "thumb": "https://media.aquatome.com/seriouslyfish/080d3266f7ca0af1-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

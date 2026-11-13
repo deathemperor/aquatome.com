@@ -1,0 +1,34 @@
+{
+  "slug": "ca-rong-dat-geophagus-harreri",
+  "name": "Cá hải hồ harreri",
+  "altNames": [
+    "Cá ăn đất Marowijne",
+    "Marowijne eartheater",
+    "Cá rồng đất Geophagus harreri"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Cá bố mẹ có gốc từ sông Tapanahoni ở Suriname. Loài này còn sống ở các sông khác của Suriname, chẳng hạn sông Maroni.</p>",
+    "habitat:glaser": "<p>Chúng thích chỗ nước chảy vừa đến mạnh. Tới mùa đẻ thì chúng dời sang chỗ nước chảy yếu hơn.</p>",
+    "waterConditions:glaser": "<p>Loài này cần nước khá ấm, ít nhất phải giữ 28°C. Nâng lên tới 32°C cũng không sao cả. Nước mềm, chua và ít vi khuẩn thì cá lên màu đẹp hơn và khỏe hơn.</p>",
+    "aquariumSize:glaser": "<p>So với các loài cá ăn đất khác, loài này có thể rất dữ. Vì thế chỉ nên nuôi G. harreri trong bể thật rộng, dài ít nhất 200 cm.</p>",
+    "behaviour:glaser": "<p>Loài này nuôi chung được với các loài cichlid lớn khác như các loài cá ăn đất khác, Mesonauta, Heros, Uaru. Thả G. harreri chung với nhiều cá khác thì chúng bớt dữ hơn.</p>",
+    "dimorphism:glaser": "<p>Con đực lớn hơn và thân thon dài hơn. Con cái nhỏ hơn, trông mập hơn. Cá già có thể nhô một chút gù trên đầu, nhưng con đực hay con cái đều có vẻ có thể bị như vậy.</p>",
+    "reproduction:glaser": "<p>Loài này đẻ trứng lộ thiên, đẻ lên rễ cây hoặc đá. Đến giờ mới thu được nhiều nhất 150 con bột, nhưng một cặp tốt có thể cho khoảng 400 cá con.</p>",
+    "quickFacts:glaser": "<p>Kích thước tối đa: có lẽ khoảng 25 cm.</p><p>Geophagus nghĩa là \"ăn đất\". Tên harreri đặt để ghi công một trong những người thu mẫu chuẩn.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  },
+  "nameFixed": true
+}

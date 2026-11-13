@@ -70,6 +70,27 @@ public struct OwnerReportPlace: Sendable, Equatable {
   }
 }
 
+extension OwnerError {
+  /// What the report's sheet says of a report that didn't go: what really happened, in the app's language.
+  public func reportProblem(after seconds: Int? = nil) -> String {
+    let kept = "Lời và ảnh vẫn còn đây"
+    switch self {
+    case .offline: return "Điện thoại đang không có mạng. \(kept), có mạng thì gửi lại nhé."
+    case .signedOut: return "Phiên đăng nhập đã hết nên chưa gửi được. Đăng nhập lại rồi gửi nhé."
+    case .refused("rate_limited", _): return "Đã gửi quá nhiều trong một giờ. \(kept), lát nữa thử lại nhé."
+    case .refused("too_large", _): return "Ảnh quá lớn. Chọn ảnh khác nhé."
+    case .refused(let why, _): return "Máy chủ chưa nhận báo lỗi này (\(why)). \(kept), thử lại nhé."
+    case .network(URLError.timedOut.rawValue):
+      if let seconds { return "Mạng chậm nên gửi không kịp (sau \(seconds) giây). \(kept), thử lại nhé." }
+      return "Mạng chậm nên gửi không kịp. \(kept), thử lại nhé."
+    case .network(let code):
+      if let seconds { return "Kết nối bị lỗi khi đang gửi (mã \(code), sau \(seconds) giây). \(kept), thử lại nhé." }
+      return "Kết nối bị lỗi khi đang gửi (mã \(code)). \(kept), thử lại nhé."
+    case .notFound, .badReply: return "Chưa gửi được. \(kept), thử lại nhé."
+    }
+  }
+}
+
 extension OwnerClient {
   /// Sends a report: the owner's words and the screenshot, as a form, with this app's session. Answers how many wait for
   /// the Mac, this one too: more than one means it hasn't collected lately. Throws as the rest of the owner's client does,
@@ -77,6 +98,8 @@ extension OwnerClient {
   public func report(words: String, place: OwnerReportPlace, jpeg: Data?) async throws -> Int {
     let boundary = "aquatome-\(UUID().uuidString)"
     var r = URLRequest(url: base.appending(path: "api/feedback"))
+    // A report carries a picture and may be on a slow connection.
+    r.timeoutInterval = 120
     r.httpMethod = "POST"
     r.httpShouldHandleCookies = false
     r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
@@ -93,7 +116,13 @@ extension OwnerClient {
     r.httpBody = body
 
     let data: Data, res: HTTPURLResponse
-    do { (data, res) = try await send(r) } catch let e as URLError { throw e.code == .cancelled ? CancellationError() : OwnerError.offline }
+    do { (data, res) = try await send(r) } catch let e as URLError {
+      switch e.code {
+      case .cancelled: throw CancellationError()
+      case .notConnectedToInternet, .dataNotAllowed, .internationalRoamingOff: throw OwnerError.offline
+      default: throw OwnerError.network(e.code.rawValue)
+      }
+    }
     let reply = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
     switch res.statusCode {
     case 201:

@@ -1,8 +1,8 @@
 {
   "id": "hypostomus-luteus",
   "native": {
-    "input": "fb441c664afa7070",
-    "at": "2026-11-09T05:57:45.266Z",
+    "input": "08d1c2fc0f914d88",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
       {
         "code": "BR",
@@ -18,6 +18,14 @@
         "source": "scotcat",
         "quote": "Hypostomus luteus is endemic to Brazil, occurring in the Uruguay, Canoas, Pelotas, Forquilha, Passo Fundo, Ijuí and Jaguari rivers, in the upper Uruguay River basin.",
         "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Paraguay.",
+        "words": "Paraguay",
         "ok": true
       }
     ],
@@ -87,9 +95,10 @@
       ]
     ],
     "native": [
-      "BR"
+      "BR",
+      "PY"
     ],
     "requests": 11,
-    "at": "2026-11-09T05:57:45.266Z"
+    "at": "2026-11-11T08:59:40.517Z"
   }
 }

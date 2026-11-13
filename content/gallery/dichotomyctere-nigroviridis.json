@@ -26,18 +26,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/556360607.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/556360607-480.webp",
-      "width": 1024,
-      "height": 763,
-      "licence": "CC BY",
-      "author": "Rainer Breitling",
-      "sourceUrl": "https://www.inaturalist.org/photos/556360607",
-      "caption": "Cá nóc xanh đốm vàng xanh bơi gần gỗ trong nước",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/1275ad3e5b49f559.webp",
       "thumb": "https://media.aquatome.com/commons/1275ad3e5b49f559-480.webp",
       "width": 1200,
@@ -161,6 +149,18 @@
       "caption": "Cá nóc xanh đốm bơi giữa cây thủy sinh",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/556360607.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/556360607-480.webp",
+      "width": 1024,
+      "height": 763,
+      "licence": "CC BY",
+      "author": "Rainer Breitling",
+      "sourceUrl": "https://www.inaturalist.org/photos/556360607",
+      "caption": "Cá nóc xanh đốm vàng xanh bơi gần gỗ trong nước",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 36,

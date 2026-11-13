@@ -27,6 +27,15 @@ trap 'rm -f "$PIDFILE"' EXIT
 . "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"
 COOKIES="$HOME/.config/aquatome/yt-cookies-from"
 [ -s "$COOKIES" ] && export YT_COOKIES_FROM="$(cat "$COOKIES")"
+# Claude: the engine's accounts, one token a line as in GitHub's CLAUDE_CODE_OAUTH_TOKENS, not the owner's own login
+# (as engine-cycle.sh). Until 11 Nov 2026 this job had no list and ran on the Mac's login, with no cost log: about 93
+# new video guides a day that no ceiling could count.
+CLAUDE_TOKENS="$HOME/.config/aquatome/claude-oauth-tokens"
+if [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}${CLAUDE_CODE_OAUTH_TOKENS:-}" ] && [ -s "$CLAUDE_TOKENS" ]; then
+  CLAUDE_CODE_OAUTH_TOKENS="$(cat "$CLAUDE_TOKENS")"; export CLAUDE_CODE_OAUTH_TOKENS
+fi
+# A line a model call: its cost, tokens and the account it went to (claude.ts), so a week's use can be split by job.
+export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$HOME/Library/Logs/aquatome-cost-videos.jsonl}"
 
 # Start from GitHub's main: anything this clone held unpushed was a run whose push failed, and is redone.
 from_main "$@"
@@ -40,6 +49,8 @@ git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 publish_kept videos
 log "videos start"
+# Records left saying pages were done on 11 Nov 2026, when the usage limit stopped the gate, put back before a writer runs.
+pnpm engine redo-unread || log "redo-unread: failed"
 pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: failed"
 # Guides are checked again (review-backfill) and redone from the notes by their own hourly job, video-recheck.sh, not
 # here: the two jobs never check one guide at once.
@@ -81,6 +92,7 @@ if ! verify 'pnpm test'; then keep_unpublished videos; log "tests failed, not pu
 # The GitHub engine pushes too; the files above merge through their drivers. Lines both changed (the photo verdicts
 # review page) give way to this run's, as engine-cycle.sh does; then the tests run again on the merge.
 for _ in 1 2 3; do
+  main=$(git rev-parse '@{u}' 2>/dev/null || true)
   if ! git pull -q --rebase; then
     log "the GitHub engine changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
     git rebase --abort 2>/dev/null || true
@@ -90,6 +102,8 @@ for _ in 1 2 3; do
     else
       git rebase --abort 2>/dev/null || true
     fi
+  elif ! swept_pull "$main"; then
+    verify 'pnpm test' || { keep_unpublished videos; log "tests failed after the sweep on main's changes, not publishing"; exit 1; }
   fi
   if git push -q; then log "pushed (GitHub deploys it)"; exit 0; fi
   sleep 30

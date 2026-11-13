@@ -1,33 +1,159 @@
-# Generated pictures and photo alterations
+# Generated pictures, crops and photo alterations
 
-Owner's direction, 10 November 2026. Every step and source permission is **off through merge**. The Chief of Staff arranges Astra's read-only review, then the Image Lead fixes findings and merges only after closure and a green test check. The owner sees a private first-batch preview before any publication. Activation needs the Chief of Staff's word.
+Owner's direction, 10–11 November 2026. All seven switches and every source alteration permission remain **off**. The Chief of Staff arranges Astra's review; activation/publication waits for their word after the owner's private first-batch review. No iOS or protocol changes.
 
-**Order and selection.** Recover eligible marked real photos first. Pending recovery, missing mark calibration, errors and any unjudged real entity or album photo defer generation, including popular additions. Missing means no visible real photo anywhere: 566 fish and 50 plants. Popular is the existing union of 70 species. Re-read eligibility before publication. Real photos always rank first; a later passing real photo immediately becomes the lead. Breeds are outside this feature.
+**Selection and evidence.** Empty means no visible photo anywhere: the original 616 pages, including 486 with a recorded appearance description. Popular means the existing union of 70. Real photos come first. For missing-photo generation, unjudged real entity/album pictures, pending recovery and permitted source photographs missed by intake defer generation. For popular species, generated pictures may supplement passing real photographs, always behind them; generation remains paused until the owner answers. Before either generation switch can turn on, a real photo awaiting the watermark screen on the raw page record or in its raw album must defer generation, even when the public loader hides it and its species check has passed. The planner uses the same screen record and waiting rule as the loader; absent records, detected lettering awaiting a verdict and logo-source photos awaiting a verdict all keep the real photo pending. A missing repaint calibration leaves recovery pending. A newly found permitted checking photograph goes to the sourcing queue. Small-photo policy is unchanged; intake defects belong to sourcing. No new generation attempts are authorized while the owner considers the check; the separately approved single-edit CLI audit charged one attempt (63 → 64).
 
-**Independent evidence.** Extract diagnostic appearance quotes verbatim from recorded external source sections, independently of the writer. Record species name, source URLs and checking-image byte hashes. Read real checking pictures privately, never as display assets. Compare the recorded claims against those pictures before generating when pictures exist. Conflicts and uncertainty prevent generation. Of the 616 empty pages, 486 have a recorded appearance description and 130 do not. No description means no generated picture; a description alone does not guarantee sufficient diagnostic evidence. The picture judge receives source evidence and attachment roles, never the generation prompt. Every required identity, anatomy and visible diagnostic feature must positively pass, with no people, hands, text or logos. Failure, missing answer or “can't tell” stays private.
+Select diagnostic quotes verbatim from recorded external sources, separately from the writer. Record source URLs, species name and real-reference byte hashes. Insufficient appearance evidence means no generation. Checking photographs remain private, never displayed, put in albums or passed to the generator; delete study files afterward, retaining provenance. Before generation, compare real references with recorded facts separately from the candidate. Conflicts/uncertainty hold it. The candidate judge receives evidence and attachment roles, never the generation prompt. Every required identity, anatomy and visible feature must pass; people, hands, text and logos refuse. Unknown stays hidden. No live prose is changed.
 
-**Qualification.** Chief of Staff ruling, 10 November 23:15: refuse every known-wrong control and refuse/list every source/reference conflict; known-right refusals with reasons are lost yield, replacing the original all-right-must-pass requirement. The frozen reviewed set gives 76/76 wrong refused, 12/14 right passed and 1/1 conflict refused/listed. Exact case identities, expected outcomes, candidate pixels, reference hashes and real-reference hashes are pinned in code. Extra submitted controls close readiness until reviewed; they cannot be ignored to retain a green result. Recalibration invalidates its active approval before quota/model work and replaces it atomically only after completion. Calibration conflicts have their own output; ordinary pages' recorded conflicts are preserved. The neon stripe is a source/reference disagreement, not established as a faulty generated picture. No live prose is corrected here.
+Before any generation switch turns on, the dashboard or the image step's log must
+name each fish deferred by a real photo without a completed watermark-screen
+record and say how long it has waited. The screen currently retries unreachable
+or unreadable files indefinitely; a silent permanent deferral is not ready for
+activation.
 
-**Records and revocation.** Private candidates keep original native bytes, prompt, requested image-model alias, controller model, date and evidence. Approved content records carry their positive check, image/reference/calibration hashes and alteration methods. An engine-written publication index is committed last, after both entity and album records; the reader requires all three to agree. Changed species name or source sections hide the image at build time. Changed checking manifest/bytes, calibration or reviewer, a refusing recheck, and checking errors withdraw existing approvals during the image step. A changed reference is held for renewed candidate preparation. Negative decisions are cached by complete input identity so one refusal cannot consume every later cycle's judgment slot.
+**Two judgments.** Each new judged gate requires two separate calls on identical immutable input, both positive. Disagreement, error or incomplete answers hold and are recorded. Original-species pairs are cached by bytes, species, prompt/schema/model and policy; both edits inherit them. A repaint also needs a paired subject-preservation comparison and whole-edited-photo checks for people, new lettering and marks, rather than fresh species guesses. Incomplete transport or schema answers keep real recovery pending and are retried; they cannot release a generated replacement. Species-cache JSON and retained native edits are written to a temporary file and atomically renamed. Malformed species JSON is absent and gets fresh judgments. Retained native edit bytes are reused after an incomplete check; undecodable bytes or an interrupted admitted edit hold recovery for inspection and never trigger another image attempt. Distinct judgment identities are hashed into content. The Chief's explicit 10 November 23:15 correction applies: all known-wrong cases and conflicts must be refused/listed; explained known-right refusals lose yield. The historical 76/76 wrong, 12/14 right and one conflict do not qualify the new pair rule. A partial paired run with control-identifying working paths is ineligible. Every attachment, including full real references and enlarged views, uses neutral hash paths before either pair; cached calibration rows without proof of this protocol are refused. Full neutral-path calibration is required; no control is dropped to obtain approval.
 
-**Independent switches.** `generateMissing`, `generatePopular`, `upscaleGenerated`, `removeMarks`, `upscaleReal`, `publishGenerated`, `publishAltered`: seven code switches, all false, no environment activation. All off returns before dependencies or output access. Unrelated enabled steps do not judge cached generated pictures. Generated upscaling, when enabled, uses recorded Lanczos interpolation within the large-copy bounds (1,200 px short side, 2,400 px long side); the final served pixels are checked. Real upscaling is a separate alteration switch. Each cycle stops admitting model work early enough for bounded children and has a 12-minute publication/download cancellation deadline, including upload retries and bodies.
+**Ownership and credit.** Require the global mark switch, dated source permission and a licence allowing changes. Two inventories identify every mark. Remove source logos or covered photographer signatures only; other sites, shops, agencies, stock libraries and indistinguishable marks remain refused. Seriously Fish and ScotCat cover contributors even where a signature differs from the record; PlanetCatfish contributors remain unapproved. Preserve attribution: adopt an agreed readable signature credit when necessary, clear a wrong author link and record the page, source, photo and disagreement in content, without either name. Ownership records contain lettering presence, boxes, owner and a structured decision basis, never the words. The one allowed name extraction goes straight from two in-memory Seriously Fish/ScotCat judgments to the page credit. The native CLI uses ephemeral judging and sends its final answer through a memory-only event stream; no raw answer file, transcript or event log is kept by this workflow. Evidence stores controlled observations. Preserve the true licence and visible change notice. No-derivatives and unknown licences are untouched. Keep original bytes/variants. Source revocation applies next build, with Glaser's permitted original-logo fallback. Clean replacements rank normally.
 
-**Mark boundaries.** Require a dated per-source `permission.markRemoval` grant plus the global step. Absent means off. Remove only the source's own mark or its recorded photographer's signature; third-party, stock and unproven marks stay rejected. Never alter no-derivatives or unknown licences. Preserve attribution, true licence and visible alteration notice. Keep original bytes and variants; a repaired record cannot inherit the marked large copy. Repaint only the approved original-coordinate box, feather inside it, encode losslessly and prove zero outside-pixel changes. No AquaTome mark is added. Re-read permission before upload and before committing. Revoking one source hides its replacements in the next build, restoring Glaser's previously permitted logo original where appropriate. A clean replacement ranks as an ordinary unmarked real photo.
+**Crop first.** Union the agreeing inventories' overlapping mark/subject boxes conservatively. Native windows must exclude every padded mark and retain the whole subject plus margin. Verify every retained pixel after lossless encoding. The crop pass calls neither the repaint's no-trace eye nor its residue measurement and needs no repaint calibration. Album-only crops remain available; heads/cards require the entire subject and margin in each actual centred frame. Try native frame-shaped windows; never upscale real photos to recover the loss. No unsafe crop falls through a card/head fallback, and an album-only real photo cannot yield its lead to AI.
 
-**No trace.** Require both positive vision and original-box fine-detail cosine overlap below 0.400; absent/flat original templates refuse. A flat candidate has zero outline overlap but still needs positive vision for naturalness. The interval above the highest observed clean score, 0.363169, and below 0.400 is numerical pass only, not a confidence band. At 0.400 refuse. Every refused replacement stays hidden; failed Glaser removal leaves its existing permitted logo photo. Frozen eight-control identities also pin original bytes and box coordinates. The five-clean/three-faint controls pass; measurement refuses every blended mark at tested strength 5% and above, vision every tested strength including 3%, combined 25/25. Natural-detail controls lose 5/20 to vision (overlapping reflections in one plant photo), 0/20 to measurement. On 10 November 23:50 the Chief of Staff accepted both gates for a first small batch, with these limitations; publication still waits. [Evidence and individual results](image-check-evidence.md).
+**Repaint qualification.** Repaint inside the approved box, harmonically match its inner boundary and prove zero outside-pixel changes after lossless encoding. Add no mark of ours; keep no marked large copy on a replacement. Require both no-trace eyes positive and original-box detail correlation below 0.400; absent/flat original templates refuse. At 0.400 refuse. The gap below that cutoff is numerical pass only, not a confidence band. Refusals stay hidden, never shown as smears; failed Glaser removal preserves its prior permitted presentation.
 
-**Readers and app.** Every served variant embeds provenance in XMP. Wherever AI appears, show translated “Ảnh do AI tạo”; mixed-album source lines stay truthful. Never use generated pictures for fish identification or the day's card. Inline app figures carry their actual credit kind and licence, without a false Unsplash claim. Generated photos are excluded from the app's gallery block because the installed full album grid cannot draw the label. The app lead must add a visible translated `credit.text` label and accessibility credit to every generated grid cell before that feed exclusion can be removed. No `apps/ios` or protocol change is needed here.
+Readiness pins all 58 paired controls and validates every measurement's shape, version and unchanged cutoff, including refusals. `ACCEPTED_MARK_RESIDUE` records strength 0.05, dated 2026-11-11, “accepted by the owner after viewing”. Every known residue at that strength and above must be refused by each judgment separately and by the measurement. Sub-limit controls remain in the set, and the calibration and report list every admitted sub-limit miss by identity, strength and score. The historical run's `residue-2-0.03` passed both eyes at 0.39035 and remains explicitly below the accepted limit; it is never counted as refused. Every tested five-case group at 5% and above was refused by both eyes and the measurement. Five clean controls passed, while five of twenty natural boxes were falsely refused; comparable clean scores moved from 0.214–0.363 to 0.243–0.362. This policy change invalidates old readiness and does not itself qualify a run or turn anything on. The complete valid calibration and the owner's first-batch review are still required.
 
-**Unattended, login and metering.** The installed CLI 0.167.0 is version-checked, never updated. Its app-server runs on the Mac's ChatGPT login, with direct provider transport; our code never proxies traffic, receives sign-in tokens, reads an authentication file or uses an API key. The native image alias is `gpt-image-2`; actual renderer revision is undisclosed and Images 2.6 cannot be selected or confirmed. Controller/extractor/generated judge: Sol 5.6; no-trace judge: Sol 6.1, never Terra. The earlier newer-Sol refusal was PATH's older CLI 0.153.4. The original unattended proof took 37.309 seconds. Live account quota reads surround each run and stop at 90%, unknown usage or spend-control refusal; all this work costs $0 engine Claude quota. Rounded readings cannot establish bulk cost.
+**Records and readers.** Keep native originals, model alias/controller/date/prompt, evidence hashes and alteration methods; served variants embed XMP. Commit generated approval last, after entity and album; require all three records to agree. Name/section changes hide at build time; changed reference/manifest, reviewer/calibration, refusing recheck or error withdraws approval. Keep a passing real album lead. Recalibration invalidates approval before work and preserves ordinary conflicts separately. AI always shows translated “Ảnh do AI tạo”, with truthful mixed-album source lines; never recognition or the day's card. App gallery exclusion also covers carousel/viewer until every cell has visible/accessibility AI credit; labelled hero/inline data remain separate.
 
-A locked durable ledger reserves before starting the CLI and observes image-call identities from its local event stream. The later observation/uncertainty policy below supersedes the original one-extra-attempt claim. No new run starts at the reviewed allowance or above, and unknown or 90%-used live quota refuses it. The receipt stores only image-event type, call identity, status and saved path; the ledger stores count/status/time/quota and receipt hash, never credentials or provider headers/bodies. Existing launchd photos runs call this disabled step every three hours, headless. Further bulk metering beyond the allowance still needs the Chief of Staff's yes.
+**Off switches and runtime.** Missing/popular generation, generated upscaling, mark removal, real upscaling and generated/altered publication are separate code switches, all false. All off with no pending individual owner approval returns before dependencies/output; the individually named crops below are the only reviewed exception. Generated interpolation targets large-copy bounds and is recorded; judge final served pixels. CLI 0.167.1 is the exact audited native pin and uses direct login transport: no token handling, authentication-file reads, proxy, API key or CLI update. Native alias `gpt-image-2`; actual renderer/Images 2.6 selection unconfirmed. Sol 5.6 controls/extracts/judges generated images; Sol 6.1 judges edits; never Terra. The earlier newer-Sol refusal used PATH's older CLI 0.153.4. Live quota surrounds calls; unknown, 90% or spend refusal stops work. Engine Claude cost: $0.
 
-**Observation is not admission control (Chief of Staff, 11 November).** The allowance is now 100 charged attempts for private experiments. The ledger counts every distinct image call it observes and stops its owned launch at the second call. Calls already started inside Codex/provider may exceed the allowance by an unknown amount; there is no one-extra-call bound and no sign-in proxy. A malformed, truncated or uncleanly closed event stream marks the launch uncertain and charges at least two attempts (or all observed calls if more). Another launch requires a fresh successful live quota reading first. The live 90%/unknown quota refusal is the real stop; neither rounded usage nor event observation proves a strict picture bound.
+The ledger counts observed native calls and stops its child at the second; already-started calls may overshoot by an unknown amount. Malformed/truncated/unclean runs are uncertain, charged at least two or all observed calls if more; another launch needs a fresh successful quota read. Live quota refusal is the real limit. Existing three-hour launchd cycles call the off step. Children/image uploads have bounded cancellation; unsignalled ordinary uploads retain their prior behavior.
 
-**Current app scope.** AI photos are excluded from the shared app gallery data, so its carousel and full-screen gallery viewer omit them too, as well as the grid. This intentionally wider temporary exclusion preserves the installed app's visible-label rule. Separately serialized labelled hero and inline images remain available.
+**Maintenance.** Add controls by (1) freezing private inputs/references and ground truth, (2) reviewing them, (3) extending pinned identities/tests, (4) exporting sanitized evidence and (5) rerunning the exact full set before activation. Partial uploads can leave orphaned objects: retry identical keys; cleanup separately inventories objects minus content/pending work, waits for in-flight runs and reviews deletion. Originals remain. No uploads or publication occurred in these studies. [Evidence, limitations and historical results](image-check-evidence.md).
 
-**Adding a frozen control.** (1) Keep its private input and independent real reference, record ground truth and freeze their hashes before judging. (2) Append it to the private calibration manifest and run calibration; an extra control closes readiness and must not be dropped to regain approval. (3) Have the control reviewed, then update `image-controls.json`, the required generated case IDs or mark-case list/expectations, and the substitution/extra-control tests in a code change. (4) Export public evidence through `publicImageEvidence`, which describes residual lettering without transcribing it; retain detailed observations privately. Update the evidence note, including all misses and conflicts. (5) Review the changed frozen set and rerun calibration against that exact version before activation. Wrong/conflict controls must all be refused; positive refusals remain reported yield loss. The no-transcription prompt revision also requires renewed mark calibration before activation.
+### Six individually approved crops, 11 November 2026
 
-**Partial uploads.** Cancellation is not a media transaction: a successful main PUT followed by a failed thumbnail/large PUT, or a server finishing after abort, can leave an object with no content record. This PR has no automatic rollback or garbage collector. Retrying identical bytes reuses content-derived keys. Cleanup is a separate reviewed maintenance operation: list `processed/` objects, subtract URLs referenced by current content and retained pending publication work, allow in-flight runs to finish, review the remaining list, then delete only confirmed unreferenced objects. Keep originals. No cleanup was run and none of the private trials uploaded media.
+The owner approved only the board 3 crops of Anablepsoides ornatus, Aphanius
+farsicus, Apteronotus macrostomus, Leptodoras cataniai, Macrognathus aculeatus and
+Ailia coila. A finite registry binds each approval to its page and scientific
+name, original bytes, decoded crop pixels, exact served addresses, geometry,
+paired species/ownership receipts, licence and complete credit. No source-wide
+permission or general alteration switch is enabled. Another crop, including a
+later edit of one of these six, needs another individual approval. An explicit
+source off switch still vetoes the individual approval.
 
-**Public evidence.** Model text is untrusted output. No-trace judges must describe where lettering remains without spelling it out; public evidence uses controlled descriptions and omits transcription/author fields. Identifying-signature regression digests guard every added PR file. Detailed private boards/caches may retain original observations, never public commits, PR text or logs.
+The scheduled images step publishes these already judged files from a durable
+private bundle. It verifies the original, lossless crop and retained pixels again;
+it never creates an image or calls a judge. Global rejection of the crop address
+and an ordinary refusal veto before encoding, before each upload, before content
+admission and before the completion receipt. A veto also withdraws an incomplete
+entity or gallery write; the marked original’s historical rejection does not veto
+its separately approved crop. Both variants are encoded and their exact addresses
+verified in memory before the first upload. It carries the two original species
+judgments into the ordinary photo-check cache, with the removed mark absent by
+geometry. Publication is acknowledged only after entity and gallery writes; a
+later refusal is not resurrected. An interrupted media upload can leave an
+unreferenced deterministic object; retry uses the same key, and ordinary media
+orphan cleanup can remove objects left without a content reference.
+
+The original is retained. The two ScotCat credits retain the existing combined
+source/photographer credit from recorded data, without fresh lettering extraction.
+On 11 Nov 2026 the owner said a cropped photo's credit names the photographer,
+the source and the licence, and says nothing about the crop.
+These six are excluded from Fish ID and the day's card regardless of their shape.
+Leptodoras cataniai keeps its safely framed site head. The other five show
+whole-photo fallback heads. The placement gate below derives `headFit: "contain"` on a loaded whole-photo fallback head only. Raw
+records and approval fingerprints remain unchanged. The site's renderer is the
+site lead's separate change; these crops remain out of unsafe app lead frames.
+
+The owner's “look OK” on small compressed, pre-fix previews of Acanthocobitis
+rubidipinnis, Acheilognathus tonkinensis, Apistogramma atahualpa and Bangana behri
+is a calibration observation only. All four were remade once after the CLI pin update and remain held on their own
+measurement or paired judgment. No further remake or reroll is authorized; their
+pages wait for a real photo. The 0.400 cutoff and both judgments still apply. The
+earlier Aphanius vladykovi photograph stays held on its species disagreement;
+the dead Clupisoma stays refused. No generated picture is approved or made.
+
+### Whole-photo head placement
+
+The site's renderer is live. An already admitted real crop may become a head with `headFit: "contain"` when no safely framed real head
+exists in the page or its album. The whole retained crop must contain the entire
+subject and its margin at native dimensions. A safely framed real photo arriving
+later takes the head immediately. The flag is derived on the loaded head only:
+raw photo/gallery records, pixels, credits and finite owner-approval fingerprints
+do not change, and this grants no new publication permission. Card and Fish ID
+exclusions remain unchanged.
+
+The current app's image contract omits headFit and its v2 detail banner fills a
+different frame. Crops failing the app/card frames stay out of app lead data;
+their album data and credits remain available. This includes a crop safe for the
+site's head but unsafe for the app banner. Ordinary heads retain their current
+behavior. An app fitting consumer and its data contract need separate work before
+these heads can be sent safely. No iOS or protocol file changes are made here.
+
+The app banner is protected at both data inputs: `apps/site/src/lib/app-page.ts` withholds a fitted or unsafe cropped lead, and `apps/site/src/lib/app-index.ts` withholds its index image. The loaded site head and album data keep the photo and its credit; no iOS or protocol change is included.
+
+
+### 33 more individually approved crops, 11 November 2026
+
+The owner viewed before/after sheets made from both 143-page private boards and
+accepted all 35 passes. Ailia coila and Macrognathus aculeatus were already among
+the first six; this addition names only the other 33 photographs, bringing the
+finite registry to 39. The approval binds to each exact Before photograph and
+retained original, never to a species name alone. Every board and display-copy
+hash, original hash, exact credit, full-subject geometry, zero-change proof and
+identity-bound paired receipt was verified before preparation. Nothing is omitted.
+The original two boards and the returned numbered list remain private.
+
+Fourteen photos fit the existing site head: Acestrorhynchus falcirostris, Ageneiosus marmoratus, Amatitlania nanolutea, Amblyrhynchichthys micracanthus, Aphyosemion bualanum, Aphyosemion celiae, Aphyosemion cognatum, Badis ruber, Betta unimaculata, Copella meinkeni, Crossocheilus burmanicus, Hyphessobrycon elachys, Parosphromenus parvulus, Tanakia signifer.
+
+Nineteen use the whole-photo head when no safely framed real head exists: Acrochordonichthys septentrionalis, Akysis pulvinatus, Aphanius asquamatus, Aphanius vladykovi, Aphyosemion gabunense, Apistogrammoides pucallpaensis, Aristochromis christyi, Bangana devdevi, Barilius bakeri, Betta pardalotos, Betta rutilans, Brachygobius xanthomelas, Cyclocheilichthys armatus, Esmaeilius persicus, Esomus caudiocellatus, Nemacheilus saravacensis, Opsarius koratensis, Opsarius pulchellus, Rasbosoma spilocerca.
+
+The admitted Aphanius vladykovi is a different original from the photograph held
+on species disagreement; that earlier refusal remains. Credits and placements
+are exactly those on the approved boards. This adds no source-wide grant or
+general switch and approves no later edit or fortieth photo. The existing
+model-free finite publisher, deterministic variants, original retention, per-source
+veto, global crop-address rejection, ordinary refusal and interrupted-publication
+retry guards apply unchanged. The watermark screen's waiting rule still applies
+to every crop; no other judge substitutes for a pending engine check. Every owner
+crop remains out of the day's card and Fish ID, and unsafe heads stay out of both
+app banner inputs while their album records and credits remain available.
+
+Twenty-two of the newly admitted credits adopt the photographer identified by
+the approved paired inspection. Their mismatch observations join the existing
+audit list as source, original photo, page and the fact of disagreement only.
+The photographer's name stays solely in the photo credit, never in that list.
+The finite publisher records this audit before acknowledging completion, and a
+retry keeps one observation even after an interrupted receipt write.
+
+The watermark records land with the admission. Before this batch was prepared,
+the unchanged watermark stage read all 33 exact encoded main files with its native
+reader: every result had zero text lines, no forced-logo URL and no model call.
+Each private bundle carries that stage's own empty record, its exact file hash
+and a receipt hash bound in the finite registry. The publisher checks the receipt
+and encoded bytes before upload, then merges the unchanged stage output into the
+current screen cache before writing the new photo into content. All older screen
+records stay. A missing or invalid cache, a changed receipt, or an existing pending
+or refused decision holds the crop; an empty read never overrides it. The screen
+record is checked again through completion. Thus no page loses its old head in a
+gap, and no crop waits for Claude until 13 November. These are stage-produced
+records copied by the engine, never a hand-written verdict.
+
+### Four empty-page recoveries, 12 November 2026
+
+The Chief of Staff approved the passing crops for Boraras micros (source photo
+4), Carnegiella marthae (1), Lobocheilos melanotaenia (1) and Oryzias
+songkhramensis (1). These four exact photographs extend the finite registry to
+43; they grant nothing to another photo, source or future crop. The other
+Seriously Fish candidates and the habitat-only group are not admitted here.
+No size rule changes, and the under-600-pixel Trochilocharax originals stay out.
+
+Each bundle binds its retained native original, lossless crop, unchanged pixels,
+paired original-species and ownership receipts, exact credit and the watermark
+stage's own empty native read of the exact served file. The existing publisher
+installs that byte-bound screen record before content admission; rejection,
+source objection, ordinary refusal and retry vetoes remain unchanged. All seven
+switches and source grants stay off. Credits contain photographer, source and
+licence only. Day cards and Fish ID remain excluded; unsafe app banner inputs
+remain absent. The separate recorded-author classification issue is not changed
+or bypassed by this admission.

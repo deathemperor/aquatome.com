@@ -1,0 +1,118 @@
+{
+  "id": "xiurenbagrus-gigas",
+  "scientificName": "Xiurenbagrus gigas",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Xiurenbagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "hongshuihe-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 16.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_gigas.htm",
+      "html": "<p>Family: Amblycipitidae. Common name: none. Synonym: Liobagrus gigas. Size: 16.5 cm. Temperature: 18–22°C. pH: 6.5–7.5. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_gigas.htm",
+      "html": "<p>Asia: Hongshuihe River, Pearl [= Zhujiang] River basin, China. Type locality: Zhujiang River basin: Hongshuihe River, Anyang Town (23°17'N, 106°29'E), Du'an County, Guangxi, P.R. China.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_gigas.htm",
+      "html": "<p>At the moment (2024) there are three described species in this genus: X. dorsalis, X. xiurenensis and X. gigas.</p><p>Description: Dorsal soft rays (total): 7; anal soft rays: 14–15; vertebrae: 40–43. Distinguished from all other species of Amblycipitidae by the following combination of characters: two patches of vomerine teeth; gill rakers 7–9; head large (head length 27.9–34.9% SL; head depth 14.4–17.9% SL; head width 22.4–29.4% SL); adipose fin low (4.6–6.0% SL); distance from dorsal origin to adipose origin short (25.7–32.0% SL); dorsal fin (21.2–24.9% SL), pectoral fin (18.4–20.7% SL) and pelvic fin (13.1–14.3% SL) long.</p><p>Etymology: The genus name Xiurenbagrus honours Mr Ning Xiuren, Hangzhou, Institute of Oceanography, oceanographer and phytoplankton specialist. The specific name gigas means giant (Latin) because it is the largest known species in the family Amblycipitidae.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_gigas.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, version (05/2024).</p><p>Zhao, Y., J. Lan and C. Zhang, 2004. A new species of amblycipitid catfish, Xiurenbagrus gigas (Teleostei: Siluriformes), from Guangxi, China. Ichthyol. Res. 51:228-232.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/c86861fc75237609.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c86861fc75237609-480.webp",
+      "width": 500,
+      "height": 275,
+      "licence": "dùng với sự cho phép",
+      "author": "/ / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_gigas.htm",
+      "caption": "Xiurenbagrus gigas: Lateral view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/2549a788f5c92271.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2549a788f5c92271-480.webp",
+      "width": 500,
+      "height": 303,
+      "licence": "dùng với sự cho phép",
+      "author": "/ / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_gigas.htm",
+      "caption": "Xiurenbagrus gigas: Dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a8eec19e5b3c4165.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a8eec19e5b3c4165-480.webp",
+      "width": 500,
+      "height": 312,
+      "licence": "dùng với sự cho phép",
+      "author": "/ / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_gigas.htm",
+      "caption": "Xiurenbagrus gigas: Ventral view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá nước chảy mạnh",
+        "máy sục khí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

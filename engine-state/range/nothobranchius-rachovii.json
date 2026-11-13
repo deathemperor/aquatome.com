@@ -1,8 +1,8 @@
 {
   "id": "nothobranchius-rachovii",
   "native": {
-    "input": "9ae8fa60e77e6529",
-    "at": "2026-11-10T20:57:55.515Z",
+    "input": "c8d4813f3a02d162",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
       {
         "code": "MZ",
@@ -17,14 +17,6 @@
         "status": "native",
         "source": "seriouslyfish",
         "quote": "The bluefin nothobranch, Nothobranchius rachovii, is a killifish of seasonal pools and swamps in eastern Mozambique.",
-        "words": "Mozambique",
-        "ok": true
-      },
-      {
-        "code": "MZ",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Described from close to the city of Beira, Mozambique and for many years thought widely-distributed between the Kruger National Park, South Africa to the Kwa-Kwa River north of the Zambezi delta.",
         "words": "Mozambique",
         "ok": true
       },
@@ -53,9 +45,17 @@
         "ok": true
       },
       {
+        "name": "Zambezi",
+        "source": "seriouslyfish",
+        "quote": "Populations from the south and north of this range exhibiting differences in colour pattern and morphology have now been described as N. pienaari and N. krysanovi, respectively, meaning N. rachovii sensu stricto is restricted to the area between the lower Pungwe and Zambezi river basins in eastern Mozambique.",
+        "country": "MZ",
+        "ok": true
+      },
+      {
         "name": "Pungwe",
         "source": "seriouslyfish",
-        "quote": "Northern and southern populations once included in it are now described as N. krysanovi and N. pienaari, and N. rachovii sensu stricto is restricted to the lower Pungwe and Zambezi basins.",
+        "quote": "Populations from the south and north of this range exhibiting differences in colour pattern and morphology have now been described as N. pienaari and N. krysanovi, respectively, meaning N. rachovii sensu stricto is restricted to the area between the lower Pungwe and Zambezi river basins in eastern Mozambique.",
+        "country": "MZ",
         "ok": true
       }
     ],

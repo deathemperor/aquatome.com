@@ -4,12 +4,14 @@ import { QUALITY_THRESHOLD, type GuideEntity, type Section, type Translation } f
 import { OTHER_LANGS } from '@aq/schema/langs'
 import { LlmError, type Llm } from './claude'
 import { placeLine, review as reviewLocalized, reviewPlaces, translatableIn, type TargetLang } from './localize'
-import { reviewTranslation } from './quality'
+import { reviewTranslation, steadyRead } from './quality'
+import { applySourceRechecks, sourceTextHash } from './recheck-score'
 import { itemReviews, logReviews, readReviews, reviewKey, type PageRef, type ReviewKind } from './review-log'
 import { setHold } from './video-hold'
 import { byRank } from './video-order'
 import { recheckTopic } from './topics'
 import { reviewDraft, throttled, VIDEO_GAP_MS, type YouTube } from './youtube'
+export { lowVideoGuides } from './youtube'
 
 /**
  * Pages under the bar whose review left no notes (it ran before reviews were kept), reviewed again as they are, nothing
@@ -22,7 +24,10 @@ import { reviewDraft, throttled, VIDEO_GAP_MS, type YouTube } from './youtube'
  * - video-guide: the guide against its transcript (yt; the video job's, on the Mac). The videos the owner added first,
  *   then the lowest scores.
  * - translation: a Vietnamese species or plant page's text from one source, against that source's English. A guide
- *   translated from a source keeps no English to check against, so it waits for its next translation.
+ *   translated from a source keeps no English to check against, so it waits for its next translation. A recheck
+ *   at or above the bar is copied onto that source when it read the text still on the page (recheck-score.ts);
+ *   the page's score is then the minimum across its sources. A topic guide already does this, because its one
+ *   score is the check's.
  * - localize: an Indonesian or Thai species or plant page, against the English.
  * - places: Indonesian and Thai place names, a batch a call.
  * - topic: a guide AquaTome wrote, in any language, against the facts its writer had (topics.ts recheckTopic). A guide's
@@ -71,7 +76,14 @@ async function jobs(root: string, kind: BackfillKind, all = false): Promise<Job[
 
 const matches = (only: string[], p: PageRef) => only.some(x => p.id === x || p.id.endsWith(`/${x}`) || reviewKey(p) === x)
 
-export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly BackfillKind[]; limit: number; only?: string[]; reviewedBefore?: string; rank?: (p: PageRef) => number[]; parallel?: number }): Promise<BackfillReport> {
+/**
+ * `band`: a read within this of the bar is read twice more and the middle read counts (steadyRead); none, one read. The
+ * command passes NEAR_BAR (the chief of staff, 2026-11-11: second reads move a page in or out of search). `fromLastRead`: the page's newest second read is the first of
+ * the three, so a page gets two more reads whatever its score (the low video guides: lowVideoGuides). `limit` counts pages.
+ */
+export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly BackfillKind[]; limit: number; only?: string[]; reviewedBefore?: string; rank?: (p: PageRef) => number[]; parallel?: number; band?: number; fromLastRead?: boolean }): Promise<BackfillReport> {
+  // Rechecks already in the log, applied before any new model call. A passing one of a source still on the page raises that source.
+  await applySourceRechecks(d.root)
   const report: BackfillReport = { checked: [], failed: [], stopped: '', left: {} }
   const content = join(d.root, 'content')
   const recheck = () => ({ recheck: true, now: d.now() })
@@ -95,7 +107,7 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
           try {
             const lines = await Promise.all(ids.map(id => placeLine(join(content, 'places'), id)))
             const named = new Map(await Promise.all(ids.map(async id => [id, (await json<Translation>(join(content, 'places', id, `${lang}.json`)))?.name ?? ''] as [string, string])))
-            const r = await reviewPlaces(d.llm, lang, lines, named)
+            const r = await steadyRead(() => reviewPlaces(d.llm, lang, lines, named), o.band ?? 0)
             calls++
             for (const [k, j] of batch.entries()) {
               const it = itemReviews([r], r, lines.map(l => [l.id, l.line.replace(/^### [^:]*: /, ''), named.get(l.id) ?? '']), k)
@@ -119,8 +131,15 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
     const one = async (j: Job): Promise<void> => {
       const [dir, id] = j.page.id.split('/') as [string, string]
       const at = join(content, dir, id)
+      // The newest second read, as the first of three (fromLastRead).
+      const last = traced[reviewKey(j.page)]?.[0]
+      const given = o.fromLastRead && last?.attempt === 'recheck' && !last.reads ? { score: last.score, notes: last.notes } : undefined
+      // Its newest second read changed since it was listed (another job read it): nothing to start from, so no read.
+      if (o.fromLastRead && !given) { report.failed.push(`${reviewKey(j.page)}: no single second read to start from`); return }
+      const steady = <T extends { score: number; notes: string[] }>(read: () => Promise<T>) => steadyRead(read, o.band ?? 0, given as T | undefined)
       try {
         let r
+        let textHash: string | undefined
         if (kind === 'topic') r = await recheckTopic(d.root, d.llm, id, j.page.lang as 'vi' | TargetLang)
         else if (kind === 'video-guide') {
           const e = await json<GuideEntity>(join(at, 'entity.json'))
@@ -130,7 +149,8 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
           const lang = e.video.lang ?? 'en'
           const transcript = (e.video.transcribed ? null : await d.yt.transcript(e.video.youtubeId, lang)) ?? (await d.yt.transcribe?.(e.video.youtubeId, lang)) ?? null
           if (!transcript) { report.failed.push(`${j.page.id}: no transcript`); return }
-          r = await reviewDraft(d.llm, transcript, { viTitle: vi.name, summary: vi.summary ?? [], body: vi.body ?? '', faq: vi.faq ?? [] }, { title: e.video.title, channel: e.video.channel, lang })
+          const { title, channel } = e.video
+          r = await steady(() => reviewDraft(d.llm, transcript, { viTitle: vi.name, summary: vi.summary ?? [], body: vi.body ?? '', faq: vi.faq ?? [] }, { title, channel, lang }))
         } else {
           const e = await json<{ sections: Section[] }>(join(at, 'entity.json'))
           const t = await json<Translation>(join(at, `${j.page.lang}.json`))
@@ -138,13 +158,14 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
           const sections = (e?.sections ?? []).filter(s => s.html.trim() && (kind === 'translation' ? s.source === j.page.part && s.key !== 'references' : translatable(s.source)))
           const parts = sections.map(s => ({ id: `${s.key}:${s.source}`, en: s.html })).filter(p => kind === 'localize' || t?.sections[p.id])
           if (!parts.length || !t) { report.failed.push(`${reviewKey(j.page)}: no text to check`); return }
+          if (kind === 'translation') textHash = sourceTextHash(parts.map(p => ({ id: p.id, en: p.en, vi: t.sections[p.id]! })))
           r = kind === 'translation'
-            ? await reviewTranslation(d.llm, parts.map(p => ({ en: p.en, vi: t.sections[p.id]! })))
-            : await reviewLocalized(d.llm, j.page.lang as TargetLang, parts, new Map(Object.entries(t.sections)))
+            ? await steady(() => reviewTranslation(d.llm, parts.map(p => ({ en: p.en, vi: t.sections[p.id]! }))))
+            : await steady(() => reviewLocalized(d.llm, j.page.lang as TargetLang, parts, new Map(Object.entries(t.sections))))
         }
         calls++
         done++
-        await logReviews(d.root, kind, j.page, [r], r, recheck())
+        await logReviews(d.root, kind, j.page, [r], r, { ...recheck(), ...(textHash ? { textHash } : {}) })
         // A video guide held out of the chat (video-hold.ts) that passes goes back in; under the bar, it waits for its redo.
         const back = kind === 'video-guide' && r.score >= QUALITY_THRESHOLD && await setHold(content, id, false)
         report.checked.push(`${kind} ${reviewKey(j.page)}: ${r.score.toFixed(2)} (was ${j.score.toFixed(2)}), ${r.notes.length} notes${back ? ', back in the chat' : ''}`)

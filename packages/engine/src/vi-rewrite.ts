@@ -2,8 +2,9 @@ import { readFileSync } from 'node:fs'
 import type { Llm } from './claude'
 import { sanitizeHtml } from './sanitize'
 import { phraseCount, phraseSlips, ticCount, ticSlips, VI_STYLE as STYLE } from './phrases'
+import { withTanks } from './round'
 
-const RULES = readFileSync(new URL('./prompts/vi-rewrite.md', import.meta.url), 'utf8')
+const RULES = withTanks(readFileSync(new URL('./prompts/vi-rewrite.md', import.meta.url), 'utf8'))
 const SCHEMA = {
   type: 'object', required: ['parts'],
   properties: { parts: { type: 'array', items: { type: 'object', required: ['id', 'vi'], properties: { id: { type: 'string' }, vi: { type: 'string' } } } } },

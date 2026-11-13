@@ -14,6 +14,107 @@
     "thailand",
     "laos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The humpback puffer, Pao palembangensis, is a predatory puffer from Thailand, Laos, Malaysia and Indonesia.",
+          "countries": [
+            "TH",
+            "LA",
+            "MY",
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It occurs only on Sumatra and Borneo.",
+          "countries": [],
+          "regions": [
+            "Sumatra",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8413659,
+      "total": 11,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "ID",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          3,
+          3
+        ],
+        [
+          113.90625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          0,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -184,7 +285,12 @@
       "licence": "CC BY",
       "author": "Jarro Nevsbaru",
       "sourceUrl": "https://www.inaturalist.org/photos/433951347",
-      "caption": "Cá nóc palembangensis bơi trong bể cát có cây thủy sinh"
+      "caption": "Cá nóc palembangensis bơi trong bể cát có cây thủy sinh",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/433951347-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

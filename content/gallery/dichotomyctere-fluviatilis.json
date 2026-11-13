@@ -2,18 +2,6 @@
   "id": "dichotomyctere-fluviatilis",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/631012652.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/631012652-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Pranav Chandra Bose",
-      "sourceUrl": "https://www.inaturalist.org/photos/631012652",
-      "caption": "Cá nóc xanh non bơi trong bể, thân vàng đốm đen",
-      "best": true,
-      "kind": "juvenile"
-    },
-    {
       "url": "https://media.aquatome.com/commons/9b9338f35b62109c.webp",
       "thumb": "https://media.aquatome.com/commons/9b9338f35b62109c-480.webp",
       "width": 1200,
@@ -24,6 +12,18 @@
       "caption": "Cá nóc xanh trưởng thành màu vàng lục trong bể cát",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/631012652.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/631012652-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Pranav Chandra Bose",
+      "sourceUrl": "https://www.inaturalist.org/photos/631012652",
+      "caption": "Cá nóc xanh non bơi trong bể, thân vàng đốm đen",
+      "best": true,
+      "kind": "juvenile"
     }
   ],
   "seen": 8,

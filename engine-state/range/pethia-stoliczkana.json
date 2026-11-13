@@ -1,0 +1,67 @@
+{
+  "id": "pethia-stoliczkana",
+  "native": {
+    "input": "75c89b7d19194b03",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "IN",
+        "MM",
+        "TH",
+        "LA",
+        "CN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia stoliczkana",
+    "status": "ACCEPTED",
+    "taxonKey": 8040366,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        54
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        9
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        7
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        5
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

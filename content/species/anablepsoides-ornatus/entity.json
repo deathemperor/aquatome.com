@@ -205,7 +205,72 @@
       "html": "<p>This tiny jewel among the fishes, recently imported from Peru, causes some confusion among taxonomists. It is possible that this fish represents a still undescribed species and will be named separately in the future.</p><p>As in all Rivulus species, it is necessary to cover the tank absolutely tight, otherwise the fish will sooner or later end up on the floor. If more than one male is to be kept per tank, they should be introduced simultaneously, as these little fish can be quite aggressive towards conspecifics.</p><p>Despite its small size, this killifish can live up to 3 years in the aquarium, so it is not one of the short-lived but one of the long-lived killifishes.</p><p>Lexicon: Rivulus: Latin, means \"small brook\", referring to the biotope. ornatus: Latin, means \"decorated\".</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/5dc4d808e2ad314b5ca7a44222d416a9.webp",
+      "thumb": "https://media.aquatome.com/processed/5dc4d808e2ad314b5ca7a44222d416a9-480.webp",
+      "width": 850,
+      "height": 417,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_ornatus_en/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-anablepsoides-ornatus",
+        "pixelHash": "69a9c62d00268aa759bf613bfc38b84cf50139ab99c5f6e39f6140cd429d5da7"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T07:29:10.772Z",
+          "originalHash": "7a5e3d460daa1e3c96faa061c368345a0c2d2fd9669e09a46aff1dc2fd27fc2c",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 567,
+            "window": {
+              "x0": 0,
+              "y0": 150,
+              "x1": 850,
+              "y1": 567
+            },
+            "subject": {
+              "x0": 20,
+              "y0": 200,
+              "x1": 813,
+              "y1": 490
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 28,
+              "y0": 28,
+              "x1": 831,
+              "y1": 144
+            }
+          ],
+          "checks": {
+            "species": [
+              "06f7685db7bf0e6f00f227253cb5aee48b5c5eaab4bc98603b6787fef537bef2",
+              "68c0843a2d9ffce5f94c9c3d0c877a3e4dcb171b85e8c12e62e667e06a30b06a"
+            ],
+            "ownership": [
+              "db69fbaaf4c84f5b5829e78907cecdd8f13befc247e3000cbf8abd7c922851ed",
+              "86a262798de29ac65c507b523a32471c5ce934c4ce3ced91fad5b6cdcc35d75e"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/a42d9b037d213b0a.webp",
+        "width": 850,
+        "height": 567,
+        "thumb": "https://media.aquatome.com/glaser/a42d9b037d213b0a-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

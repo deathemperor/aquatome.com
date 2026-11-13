@@ -10,7 +10,7 @@ import { mentions, PRODUCTS } from './market'
 import { LANG_NAME, type Page, type PageKind } from './pages'
 import { PHRASES, phraseQuotes } from './phrases'
 import { label, norm, readable, render, RETRACTED } from './reader'
-import { CONVERTED_LITRES } from './round'
+import { CONVERTED_LITRES, sourceGives } from './round'
 import { snapshotName } from './snapshot'
 
 /**
@@ -137,6 +137,8 @@ const IMPERIAL = [
 const CONVERTED = re(`(?<![\\d.,])(?:${CONVERTED_LITRES.join('|')})\\s*(?:lít|liter|litre|l|ลิตร)(?![\\p{L}\\p{N}])`)
 const PER = /(?:mỗi|cho|trên|per|setiap|untuk|ต่อ|\/)\s*(?:khoảng\s*)?(?:\d+\s*[–-]\s*)?$/iu
 const DOSE = re(WORD(`${AMOUNT}(?:ml|gói|viên|thìa|muỗng|giọt|mg|g|nắp|sachet|tablet|butir|ซอง|เม็ด|หยด)`))
+/** A sentence that gives a dose: an amount in a dose's unit. A product or a price in one isn't reworded (video-mend.ts). */
+export const givesDose = (s: string): boolean => s.search(DOSE) >= 0
 
 /** A page with an amount of something per volume, by its words: how a sample finds doses, which are too few at random. */
 const PER_VOLUME = re(`\\d[\\d.,]*\\s*(?:ml|mg|g|gói|viên|thìa|muỗng|giọt|sachet|tablet|ซอง|เม็ด|หยด)[^.\\n]{0,40}(?:lít|liter|litre|ลิตร|gallon|galon)`)
@@ -534,7 +536,24 @@ export function fitFindings(p: Page, entry?: FitEntry): FitFinding[] {
   })
   // What it's for, not how: two readers agree on the first and not on the second, which is only for comparing doses.
   const unsaid = (entry?.doses ?? []).filter(d => !d.use).map(d => ({ check: 'dose-purpose' as const, part: '', quote: clip(d.quote), why: 'doesn\'t say what this dose is for', by: 'model' as const }))
-  return dedupe([...fitRules(p), ...(entry?.findings ?? []), ...named, ...unsaid])
+  const all = dedupe([...fitRules(p), ...(entry?.findings ?? []), ...named, ...unsaid])
+  if (!p.en || !all.some(f => f.check === 'units')) return all
+  const { parts } = fitText(p)
+  return all.filter(f => !givenBySource(p, f, parts))
+}
+
+/**
+ * A units finding whose figures the page's English gives in metric itself (sourceGives), in every part that has its
+ * quote: a part's own English, or all of it for a part with none (a summary line, a question). The part a finding names
+ * isn't trusted, and the same words in two parts are one finding (dedupe). A section AquaTome wrote from many sources'
+ * facts (`:aquatome`) has no English of its own, and a guide keeps its source elsewhere (fitSource): their figures still
+ * count, and so does a quote no part has.
+ */
+function givenBySource(p: Page, f: FitFinding, parts: { field: string; text: string }[]): boolean {
+  if (f.check !== 'units' || !p.en) return false
+  const q = norm(f.quote), at = parts.filter(x => norm(x.text).includes(q))
+  const all = Object.entries(p.en).filter(([k]) => !k.endsWith(':aquatome')).map(([, v]) => v).join('\n')
+  return at.length > 0 && at.every(x => !x.field.endsWith(':aquatome') && sourceGives(f.quote, render(p.en![x.field] ?? (x.field.startsWith('sections.') ? '' : all)), p.lang))
 }
 
 /** Product names the table has no row for: what to look up next, with how many pages name each. */

@@ -1,4 +1,4 @@
-import { test as base, expect, type Page } from '@playwright/test'
+import { test as base, expect, type Locator, type Page } from '@playwright/test'
 
 /**
  * Every check runs offline from third parties (ads, analytics, video, photo hosts): only the site itself loads, so a
@@ -28,3 +28,10 @@ export async function openCard(page: Page) {
   const fold = page.locator('.facts details.full')
   if (await fold.count() && !(await fold.evaluate(d => (d as HTMLDetailsElement).open))) await fold.locator(':scope > summary').click()
 }
+
+/** Whether the head's whole picture shows: drawn to fit inside its box, or a box of the picture's own shape. */
+export const shownWhole = (img: Locator) => img.evaluate(i => {
+  const r = i.getBoundingClientRect(), own = Number(i.getAttribute('width')) / Number(i.getAttribute('height'))
+  const fit = getComputedStyle(i).objectFit
+  return fit === 'contain' || fit === 'scale-down' || Math.abs(r.width / r.height - own) / own < 0.01
+})

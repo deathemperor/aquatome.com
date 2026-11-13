@@ -9,7 +9,8 @@
     "asia",
     "malaysia",
     "indonesia",
-    "brunei"
+    "brunei",
+    "singapore"
   ],
   "range": {
     "native": {
@@ -127,6 +128,10 @@
       {
         "source": "seriouslyfish",
         "value": 20
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tankCm": [
@@ -150,6 +155,12 @@
       "html": "<p>The chocolate frogmouth catfish, Chaca bankanensis, is an ambush predator from rainforest waters in Malaysia, Indonesia and Brunei. It lies hidden among leaf litter and mulm, using its barbels as a lure to draw prey within reach of its capacious mouth. Very similar to C. chaca, it is darker and redder and lacks the hooklets on the lips and body. Chaca species appear to lower the pH in confined conditions, so water quality needs close attention.</p><ul><li>Max size: 200 mm SL (8 in)</li><li>Temperature: 22–26°C</li><li>pH: 6.0–8.0</li><li>Hardness: 3–10 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/chaca_bankanensis_en/",
+      "html": "<p>The frogmouth catfishes of the genus Chaca are very unusual fish. Only four species are known. They look quite similar to each other and form a catfish family on their own, the Chacidae.</p><p>All species of Chaca become 15-20 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chaca-bankanensis",
@@ -160,6 +171,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chaca-bankanensis",
       "html": "<p>It occurs in rainforests, in shallow, shady waters where it lies hidden amongst leaf litter and mulm.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/chaca_bankanensis_en/",
+      "html": "<p>Chaca bankanensis is a blackwater species.</p>"
     },
     {
       "key": "aquariumSize",
@@ -186,10 +203,22 @@
       "html": "<p>It is sometimes possible to wean young specimens onto dried or meaty frozen foods. However, many specimens refuse anything but live food. Small fish, river shrimp and earthworms can all be offered.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/chaca_bankanensis_en/",
+      "html": "<p>During acclimatization the catfish often refuses food for quite a long time. So it is best to put a number of live shrimps or feeder fish in the tank and to wait. Sooner or later the Chaca will start feeding.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chaca-bankanensis",
       "html": "<p>A highly predatory species, C. bankanensis is best kept alone. It will consume almost any fish that strays close enough to its capacious mouth, and is capable of swallowing prey items almost as big as itself. In large, deep aquaria it may be possible to keep it with fast-swimming species that live high in the water column, but even this carries risks. It can however be kept with others of its own kind with no problems.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/chaca_bankanensis_en/",
+      "html": "<p>Chaca lie on the bottom without any move for most of the day. They wait for shrimps or small fish that take them for stones and want to feed on Aufwuchs. As soon as the potential prey sits down on a Chaca and wants to start to feed, a huge mouth opens and the shrimp or fish ends up as food itself. Some species of Chaca even have small lappets on the skin that imitate algae and make their hunting strategy even more effective.</p>"
     },
     {
       "key": "dimorphism",
@@ -208,6 +237,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chaca-bankanensis",
       "html": "<p>Chaca are unsuitable subjects for the general aquarist, but are relatively popular among lovers of oddball species. This species is very similar in appearance to the closely related C. chaca. However, it is somewhat darker and redder in colour than its relative, and lacks the hooklets that occur on the lips and body of chaca. It is a true master of disguise, and is also known as the angler catfish, due to its ability to use its barbels as a kind of lure, using them to simulate the movements of a worm when potential prey approaches. The unwitting prey is attracted to this apparent feast, only to be grabbed in a lightning-fast movement by the catfish. As such, C. bankanensis is rarely observed moving around the aquarium during daylight hours, though it sometimes leaves its position to forage under cover of darkness. The use of a red light on the aquarium may allow you to witness this. Such is its commitment to camouflage it does not usually struggle even when netted or handled, although it does have the ability to emit a grunting sound when removed from the water.</p><p>An interesting fact about Chaca species is that they appear to bring down the pH of the water when kept in confined conditions. There is some debate as to the reasons for this; it may be that the fish have particularly potent digestive juices in order to efficiently digest large prey items, or that they use some kind of chemical to assist in luring prey. Alternatively, the fish may release an acid-containing secretion in order that they taste bad to potential predators, as they do not possess the means to escape quickly. Whichever of these theories is correct, what remains true is that stringent attention to water quality must be paid in aquaria containing Chaca. This is particularly true in smaller volumes of water, in which the chemistry can change more rapidly.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/chaca_bankanensis_en/",
+      "html": "<p>Usually this species is reddish brown to brick red; it has only few skin lappets.</p>"
     }
   ],
   "photos": [
@@ -275,5 +310,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-11"
 }

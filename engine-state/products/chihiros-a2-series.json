@@ -1,0 +1,491 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Housing material",
+      "value": "Aluminium alloy, black coated, anodised surface (for heat dissipation and rust resistance)",
+      "source": 1
+    },
+    {
+      "key": "Control",
+      "value": "Built-in Bluetooth, My Chihiros app (brightness, timer)",
+      "source": 1
+    },
+    {
+      "key": "Colour temperature",
+      "value": "approx. 8000K",
+      "source": 4
+    },
+    {
+      "key": "Spectrum",
+      "value": "approx. 400–700 nm",
+      "source": 4
+    },
+    {
+      "key": "LED layout",
+      "value": "3 dense LED rows",
+      "source": 4
+    },
+    {
+      "key": "Max glass thickness for mounting legs",
+      "value": "8 mm",
+      "source": 4
+    },
+    {
+      "key": "Fixture width x height",
+      "value": "6.7 cm x 10 cm (including legs)",
+      "source": 1
+    },
+    {
+      "key": "LED lifespan",
+      "value": ">50,000 h",
+      "source": 1
+    },
+    {
+      "key": "Warranty",
+      "value": "6 months for manufacturer defects",
+      "source": 1
+    },
+    {
+      "key": "Origin",
+      "value": "China",
+      "source": 1
+    },
+    {
+      "key": "Water protection",
+      "value": "IP43 splash-resistant",
+      "source": 6
+    }
+  ],
+  "variants": [
+    {
+      "name": "A2 301 (30 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "14 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1400 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "30",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "28.5 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "A2 351/361 (35 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "15 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1700 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "40",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "33.5 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "A2 401 (40 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "15 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1700 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "40",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "38.5 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "A2 451 (45 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "21 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1950 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "50",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "43.5 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "A2 501 (50 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "23 W",
+          "source": 3
+        },
+        {
+          "key": "Luminous flux",
+          "value": "2060 lm",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "A2 601 (60 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "26 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "2450 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "60",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "58.5 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "A2 801 (80 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "32 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "3300 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "80",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "78.5 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "A2 901 (90 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "40 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "3580 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "90",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "88.5 cm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "A2 1201 (120 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "53 W",
+          "source": 1
+        },
+        {
+          "key": "Luminous flux",
+          "value": "4800 lm",
+          "source": 1
+        },
+        {
+          "key": "LEDs",
+          "value": "120",
+          "source": 1
+        },
+        {
+          "key": "Fixture length",
+          "value": "118.5 cm",
+          "source": 1
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Vua Aqua",
+      "url": "https://vuaqua.vn/den/chihiros/chihiros-a-series/",
+      "variant": "A2 601 (60 cm)",
+      "vnd": 990000,
+      "source": 0
+    },
+    {
+      "shop": "Vua Aqua",
+      "url": "https://vuaqua.vn/den/chihiros/chihiros-a-series/",
+      "variant": "A2 301 (30 cm)",
+      "vnd": 800000,
+      "source": 0
+    },
+    {
+      "shop": "Vua Aqua",
+      "url": "https://vuaqua.vn/den/chihiros/chihiros-a-series/",
+      "variant": "A2 401 (40 cm)",
+      "vnd": 880000,
+      "source": 0
+    },
+    {
+      "shop": "Vua Aqua",
+      "url": "https://vuaqua.vn/den/chihiros/chihiros-a-series/",
+      "variant": "A2 901 (90 cm)",
+      "vnd": 1350000,
+      "source": 0
+    },
+    {
+      "shop": "Vua Aqua",
+      "url": "https://vuaqua.vn/den/chihiros/chihiros-a-series/",
+      "variant": "A2 1201 (120 cm)",
+      "vnd": 1650000,
+      "source": 0
+    },
+    {
+      "shop": "Thủy sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "variant": "A2 30 cm",
+      "vnd": 750000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "variant": "A2 60 cm",
+      "vnd": 1100000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "variant": "A2 120 cm",
+      "vnd": 1800000,
+      "source": 1
+    },
+    {
+      "shop": "Phương Nhi Aquarium",
+      "url": "https://phuongnhiaquarium.vn/products/chihiros-a2-601-led",
+      "variant": "A2 601 (60 cm)",
+      "vnd": 1050000,
+      "source": 2
+    },
+    {
+      "shop": "Phương Nhi Aquarium",
+      "url": "https://phuongnhiaquarium.vn/products/chihiros-a2-601-led",
+      "variant": "A2 401 (40 cm)",
+      "vnd": 900000,
+      "source": 2
+    },
+    {
+      "shop": "Bách Khoa Aqua",
+      "url": "https://bachkhoaaqua.com/san-pham/den-led-chihiros-a-version-2-dieu-chinh-qua-app",
+      "variant": "AII-601 (60 cm)",
+      "vnd": 980000,
+      "source": 3
+    },
+    {
+      "shop": "Bách Khoa Aqua",
+      "url": "https://bachkhoaaqua.com/san-pham/den-led-chihiros-a-version-2-dieu-chinh-qua-app",
+      "variant": "AII-301 (30 cm)",
+      "vnd": 730000,
+      "source": 3
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Pick the model that matches your tank length. Sizes run from 30 to 120 cm.",
+      "source": 1
+    },
+    {
+      "fact": "A shop says it suits most aquatic plants and also works for fish and shrimp tanks.",
+      "source": 1
+    },
+    {
+      "fact": "A shop says it is about twice as bright as the A1 and can grow carpeting plants such as pearlweed (trân châu).",
+      "source": 2
+    },
+    {
+      "fact": "The mounting legs clip onto glass up to 8 mm thick.",
+      "source": 4
+    },
+    {
+      "fact": "It isn't designed to be used under a closed lid.",
+      "source": 6
+    },
+    {
+      "fact": "If your tank needs more light than the A2 gives, the shop points you to the A2 Max, or above that the WRGB2 Slim.",
+      "source": 5
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Fit the power cord and legs fully before you plug the light in.",
+      "source": 1
+    },
+    {
+      "fact": "First setup: install the My Chihiros app, turn on Bluetooth and location, then choose the light from the list of found devices.",
+      "source": 1
+    },
+    {
+      "fact": "The legs tilt to change the light's angle, but they can't be lengthened. Riser legs are sold separately.",
+      "source": 1
+    },
+    {
+      "fact": "The app lets you set schedules, dimming and sunrise/sunset curves.",
+      "source": 4
+    },
+    {
+      "fact": "Clear acrylic legs clamp onto the tank rim.",
+      "source": 4
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Some owners say the app sometimes can't connect over Bluetooth. Restarting the app fixed it for one user. Another said the problem happens with several Chihiros products, including the A2.",
+      "source": 7
+    },
+    {
+      "fact": "Shop listings don't fully agree on model names: the 35 cm version appears as both 351 and 361, and one shop labels both the 40 cm and 45 cm units as AII 401. Check the exact model before you buy.",
+      "source": 1
+    },
+    {
+      "fact": "One shop calls the AII a 2020 model.",
+      "source": 3
+    },
+    {
+      "fact": "Difference between versions: the A2 Max adds a third LED strip and is much stronger (for example, 64 W and 66 LEDs on the 60 cm). It also takes glass up to 12 mm thick and comes with extension legs.",
+      "source": 5
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Chihiros",
+      "model": "A2 Max",
+      "why": "A stronger version with an extra LED strip (64 W on the 60 cm), for tanks with demanding plants. Price is on request at Vua Aqua.",
+      "source": 5
+    },
+    {
+      "brand": "Chihiros",
+      "model": "WRGB2 / WRGB2 Slim",
+      "why": "Sits above the A2 Max and adds RGB colour control. Uses the same app.",
+      "source": 5
+    },
+    {
+      "brand": "Chihiros",
+      "model": "A series (A1)",
+      "why": "The older, cheaper model. The A2 is about twice as bright.",
+      "source": 2
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://vuaqua.vn/den/chihiros/chihiros-a-series/",
+      "title": "Chihiros A series – Vua Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/den-led-chihiros-a2-series-led-lght",
+      "title": "Đèn LED Chihiros A2 Series – Thủy sinh Bích Phương",
+      "kind": "shop"
+    },
+    {
+      "url": "https://phuongnhiaquarium.vn/products/chihiros-a2-601-led",
+      "title": "Chihiros A2-601 led – Phương Nhi Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://bachkhoaaqua.com/san-pham/den-led-chihiros-a-version-2-dieu-chinh-qua-app",
+      "title": "Đèn LED Chihiros A Version 2 – Bách Khoa Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://buceplant.com/a/amp-1/products/chihiros-aii-series-led-light",
+      "title": "Chihiros A II Series LED Light – Buce Plant",
+      "kind": "shop"
+    },
+    {
+      "url": "https://vuaqua.vn/chihiros/den-chihiros-a2-max-601-60-cm/",
+      "title": "Đèn Chihiros A2 Max 601 (60 cm) – Vua Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.onlineaquariumspullen.nl/en/go/category/12669526",
+      "title": "Chihiros A2 – onlineaquariumspullen.nl",
+      "kind": "shop"
+    },
+    {
+      "url": "https://bbs.chihirosaquaticstudio.com/threads/bluetooth-connectivity-issues-with-the-app.7841/",
+      "title": "Bluetooth connectivity issues with the app – Chihiros forum",
+      "kind": "forum"
+    }
+  ]
+}

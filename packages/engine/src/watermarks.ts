@@ -6,20 +6,28 @@ import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { IMAGE_SWITCHES } from '@aq/schema'
+import { IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit } from '@aq/schema'
 import { rememberMarkedPhotos } from './marked-photos'
+import { compactScreen, summarizeOcr, PHOTO_MARK_KINDS, PHOTO_POSITIONS, photoFailure, photoModelStop, type CompactScreen } from './photo-observations'
+import { writePhotoState } from './photo-state'
 
 /** A line of text macOS Vision read on a photo: confidence 0–1, box 0–1 from the top left. */
 export type TextLine = { t: string; c: number; x: number; y: number; w: number; h: number }
 export type WatermarkKind = 'credit' | 'logo' | 'url' | 'name' | 'caption' | 'stamp' | 'none'
 /** One photo's screen: the text read on it (`at`: where on the photo), then the model's verdict once it has looked. */
-export type WatermarkEntry = { ocr: { t: string; c: number; at: string }[]; watermark?: boolean; kind?: WatermarkKind; what?: string; retainedOwnMark?: { source: 'glaser'; sourceUrl: string; owner: 'source' } }
+export type WatermarkEntry = CompactScreen
 export const retainedOwnMark = (url: string, entry: WatermarkEntry | undefined) =>
   url.startsWith('https://media.aquatome.com/glaser/') && entry?.retainedOwnMark?.source === 'glaser' && entry.retainedOwnMark.owner === 'source' && /^https?:\/\/(www\.)?aquariumglaser\.de\//.test(entry.retainedOwnMark.sourceUrl)
+/**
+ * A photo the never-again list (engine-state/_photo-rejected.json) holds that stays all the same: an Aquarium Glaser
+ * photo with the shop's own mark, kept (retainedOwnMark), where the list holds it for that mark alone.
+ */
+export const keptOwnMark = (rejected: Record<string, string>, marks: Record<string, WatermarkEntry>) => (url: string) =>
+  retainedOwnMark(url, marks[url]) && (!rejected[url] || rejected[url]!.startsWith('watermark:'))
 export type WatermarkDeps = {
   get: (url: string) => Promise<Uint8Array>
   read: (files: string[]) => Promise<(TextLine[] | null)[]>
-  look: (sheet: string, prompt: string) => Promise<{ photos: { n: number; watermark: boolean; kind: WatermarkKind; what: string }[] }>
+  look: (sheet: string, prompt: string) => Promise<{ photos: { n: number; watermark: boolean; kind: WatermarkKind; locations?: string[]; what?: string }[] }>
 }
 
 /** Text per image via macOS Vision (vision/text.swift); null = unreadable. `parallel` Swift processes of 100 images each. */
@@ -47,26 +55,13 @@ async function pool<T, R>(items: T[], n: number, f: (x: T) => Promise<R>): Promi
 
 const third = (v: number, lo: string, mid: string, hi: string) => (v < 1 / 3 ? lo : v > 2 / 3 ? hi : mid)
 const at = (l: TextLine) => `${third(l.y + l.h / 2, 'top', 'middle', 'bottom')} ${third(l.x + l.w / 2, 'left', 'centre', 'right')}`
-const MARK = /©|\(c\)|copyright|www\.|https?:|\.(com|net|org|de|co|vn|th|id|uk)\b/i
-
-/**
- * The intake rule: text on a photo worth a model's look. A credit sign or a web address always; otherwise a line Vision
- * is sure of with at least 3 letters or digits (fish scales and plant stems read as stray "I", "ll" or "W").
- */
-export function ocrHit(lines: { t: string; c: number }[]): boolean {
-  return lines.some(l => MARK.test(l.t) || (l.c >= 0.5 && (l.t.match(/[\p{L}\p{N}]/gu)?.length ?? 0) >= 3))
-}
-
-/**
- * R2 folders (sources) whose photos all go to the model, text read or not: the 2026-10-31 scan found marks on 15–96% of
- * their photos, some a logo with no letters or a signature too faint for Vision.
- */
-export const LOGO_FOLDERS = ['glaser', 'seriouslyfish', 'bwaquatics', 'scotcat', 'panitvong']
-const logoFolder = (url: string) => LOGO_FOLDERS.some(f => url.includes(`/${f}/`))
+// The intake rule (text worth a model's look) and the logo sources are the schema's (photo-screen.ts): the build reads
+// them too, to keep a photo the screen has not judged off pages.
+export { LOGO_FOLDERS, ocrHit }
 
 export const WATERMARK_SCHEMA = {
   type: 'object', required: ['photos'],
-  properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'watermark', 'kind', 'what'], properties: { n: { type: 'number' }, watermark: { type: 'boolean' }, kind: { type: 'string', enum: ['credit', 'logo', 'url', 'name', 'caption', 'stamp', 'none'] }, what: { type: 'string' } } } } },
+  properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'watermark', 'kind', 'locations'], properties: { n: { type: 'number' }, watermark: { type: 'boolean' }, kind: { type: 'string', enum: [...PHOTO_MARK_KINDS] }, locations: { type: 'array',items:{type:'string',enum:[...PHOTO_POSITIONS]} } } } } },
 }
 
 const prompt = (photos: { n: number; ocr: WatermarkEntry['ocr'] }[]) => `Numbered photos from an aquarium handbook. Some carry a watermark: text, a logo or a web address ADDED on top of the photo after it was taken.
@@ -78,21 +73,23 @@ Added (watermark: true):
 - caption: a title, caption or subtitle printed over the photo (also subtitles burned into a video still)
 - stamp: a camera's or phone's date stamp or "shot on" mark
 Not added (watermark: false, kind "none"): text that is part of the scene, there when the photo was taken: a product's own box, bottle, bag or label, a sticker or label on a tank, a shop sign or price tag in the shot, a museum or specimen tag, a ruler, a herbarium sheet's label, the printed caption of an old book plate or drawing, a diagram's own labels.
-Below is the text a machine reader found on each photo, with where it sits. It misreads and misses things: a logo without letters, faint text. Look at every photo, not only those with text listed.
-${photos.map(p => `${p.n}: ${p.ocr.length ? p.ocr.map(l => `"${l.t}" (${l.at})`).join('; ') : 'no text found'}`).join('\n')}
-For each photo n: watermark (true/false), kind (one of the above, "none" if not added), what: a few words on what was added and where (e.g. "Aquarium Glaser banner, top"), or what the text is if it belongs to the scene.`
+Below are the machine reader's measurements, never the words. It misreads and misses faint marks and logos without letters. Look at every photo and read the photo itself if needed. Never transcribe lettering, signatures, names or web addresses.
+${photos.map(p => `${p.n}: ${p.ocr.length ? p.ocr.map(l => `lettering (${l.at ?? 'unknown'}; letters/digits ${l.alnum}; credit/URL marker ${l.mark}; hash ${l.hash})`).join('; ') : 'no text found'}`).join('\n')}
+For each photo n: watermark (true/false), kind (one of the above, "none" if not added), and locations from the controlled position list; no prose or quoted words.`
 
-/** The text Vision read on a photo as its screen entry keeps it: what the model is shown. */
-export const ocrOf = (lines: TextLine[]): WatermarkEntry['ocr'] => lines.slice(0, 8).map(t => ({ t: t.t.slice(0, 60), c: t.c, at: at(t) }))
+/** Controlled measurements from the native reader; no lettering is kept or included in the prompt. */
+export const ocrOf = (lines: TextLine[]): WatermarkEntry['ocr'] => lines.slice(0, 8).map(l => summarizeOcr({...l,at:at(l)}))
 
 /** The model's verdicts on up to 6 photos with the text read on each, from one numbered sheet written to `file`; undefined where it gave none. */
-export async function judgeSheet(photos: { b: Buffer; ocr: WatermarkEntry['ocr'] }[], file: string, look: WatermarkDeps['look']): Promise<(Required<Omit<WatermarkEntry, 'ocr' | 'retainedOwnMark'>> | undefined)[]> {
+export async function judgeSheet(photos: { b: Buffer; ocr: WatermarkEntry['ocr'] }[], file: string, look: WatermarkDeps['look']): Promise<(Omit<WatermarkEntry, 'ocr'> | undefined)[]> {
   await writeFile(file, await contactSheet(photos.map(x => x.b), 640, 480, 2, 'contain'))
   const v = await look(file, prompt(photos.map((x, j) => ({ n: j + 1, ocr: x.ocr }))))
-  const out: (Required<Omit<WatermarkEntry, 'ocr' | 'retainedOwnMark'>> | undefined)[] = photos.map(() => undefined)
+  const out: (Omit<WatermarkEntry, 'ocr'> | undefined)[] = photos.map(() => undefined)
   for (const p of v.photos ?? []) {
     if (!photos[p.n - 1] || typeof p.watermark !== 'boolean') continue
-    out[p.n - 1] = { watermark: p.watermark, kind: p.watermark ? p.kind : 'none', what: String(p.what ?? '').slice(0, 120) }
+    if(!(PHOTO_MARK_KINDS as readonly unknown[]).includes(p.kind))continue
+    const {ocr:_ocr,...record}=compactScreen({ocr:[],watermark:p.watermark,kind:p.watermark?p.kind:'none',locations:p.locations,what:p.what})
+    out[p.n - 1] = record
   }
   return out
 }
@@ -143,7 +140,8 @@ async function contentFiles(content: string): Promise<string[]> {
  * `limit`: model calls this run; stops on a model failure (usage limit), and the rest wait for the next run.
  */
 export async function screenWatermarks(root: string, cacheFile: string, rejectedFile: string, d: WatermarkDeps, o: { limit: number; parallel?: number }) {
-  const cache: Record<string, WatermarkEntry> = JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
+  const old=JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
+  const cache: Record<string, WatermarkEntry> = Object.fromEntries(Object.entries(old).map(([u,v])=>[u,compactScreen(v)]))
   const rejected: Record<string, string> = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}'))
   const report = { read: 0, hits: 0, judged: 0, confirmed: [] as string[], removed: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '' }
   const files = await contentFiles(join(root, 'content'))
@@ -152,13 +150,13 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
 
   const dir = await mkdtemp(join(tmpdir(), 'watermarks-'))
   const fetchTo = async (url: string, file: string) => {
-    try { await writeFile(file, await d.get(url)); return true } catch (err) { report.failed.push(`${url}: ${(err as Error).message.slice(0, 120)}`); return false }
+    try { await writeFile(file, await d.get(url)); return true } catch (err) { report.failed.push(`${url}: ${photoFailure(err)}`); return false }
   }
   try {
     // 1. Vision reads every photo not read yet (an unreadable or unreachable one is retried next run).
     const todo = [...urls].filter(u => !(u in cache))
     const got = (await pool(todo.map((url, i) => ({ url, file: join(dir, `r${i}`) })), 8, async x => ((await fetchTo(x.url, x.file)) ? x : null))).filter(x => !!x)
-    const lines = got.length ? await d.read(got.map(x => x.file)) : []
+    const lines = got.length ? await d.read(got.map(x => x.file)).catch(()=>{throw new Error('native text reader unavailable')}) : []
     got.forEach((x, i) => {
       const l = lines[i]
       if (!l) { report.failed.push(`${x.url}: unreadable`); return }
@@ -181,8 +179,8 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
         const v = await judgeSheet(ok.map(x => ({ b: x.b, ocr: cache[x.url]!.ocr })), join(dir, `sheet-${i}.jpg`), d.look)
         v.forEach((r, j) => { if (r) { cache[ok[j]!.url] = { ...cache[ok[j]!.url]!, ...r }; report.judged++ } })
       } catch (err) {
-        if (err instanceof LlmError) report.stopped ||= err.message
-        else report.failed.push(`sheet ${i}: ${(err as Error).message.slice(0, 120)}`)
+        if (err instanceof LlmError) report.stopped ||= photoModelStop(err)
+        else report.failed.push(`sheet ${i}: ${photoFailure(err)}`)
       }
     })
   } finally {
@@ -193,7 +191,7 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   const marked = (u: string) => cache[u]?.watermark === true && !retainedOwnMark(u, cache[u])
   for (const u of urls) if (marked(u)) {
     report.confirmed.push(u)
-    if (!(u in rejected)) rejected[u] = `watermark: ${cache[u]!.what || cache[u]!.kind}`
+    if (!(u in rejected)) rejected[u] = `watermark: ${cache[u]!.kind ?? 'unknown'}`
   }
   for (const f of files) {
     const raw = await readFile(f, 'utf8')
@@ -205,7 +203,7 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
     report.removed.push(...removed.map(u => `${relative(root, f)}: ${u}`))
     await writeFile(f, `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }
-  await writeFile(cacheFile, `${JSON.stringify(Object.fromEntries(Object.entries(cache).sort()), null, 2)}\n`)
-  await writeFile(rejectedFile, `${JSON.stringify(rejected, null, 2)}\n`)
+  await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
+  await writePhotoState(rejectedFile, rejected)
   return report
 }

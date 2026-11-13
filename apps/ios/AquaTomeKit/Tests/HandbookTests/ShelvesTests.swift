@@ -71,6 +71,57 @@ private let words = HandbookIndex.Labels([
   #expect(old.groups.isEmpty && old.featuredFish.isEmpty && old.all(.fish).count == 1)
 }
 
+@Test func khamPhasShelvesReadTheirLongerListsAndASiteBeforeThemGivesTheHomesPicks() {
+  let thirty = (1...30).map { fish("f\($0)", "tetras") }
+  let ix = HandbookIndex(lang: "vi", items: thirty + [plant("nana", ["epiphyte"]), guide("a", "setup")],
+                         home: .init(fish: thirty.prefix(8).map(\.path), plants: ["/vi/cay/nana/"], guides: ["/vi/huong-dan/a/"],
+                                     browse: .init(fish: thirty.map(\.path) + ["/vi/ca/gone/"], plants: ["/vi/cay/nana/"], guides: [])))
+  let s = HandbookShelves(ix)
+  #expect(s.browseFish.map(\.path) == thirty.map(\.path))
+  #expect(s.featuredFish.count == 8 && s.browsePlants.count == 1 && s.browseGuides.isEmpty)
+  let old = HandbookShelves(HandbookIndex(lang: "vi", items: thirty, home: .init(fish: thirty.prefix(8).map(\.path))))
+  #expect(old.browseFish.map(\.path) == old.featuredFish.map(\.path) && old.browseFish.count == 8)
+}
+
+@Test func aKhamPhaListTheAppCantReadIsTheHomesOwnNotAnEmptyShelf() throws {
+  func shelves(_ browse: String) throws -> HandbookShelves {
+    let json = #"{"version":1,"lang":"vi","items":[{"kind":"fish","name":"Cá neon","path":"/vi/ca/neon/"},{"kind":"fish","name":"Cá đĩa","path":"/vi/ca/dia/"}],"home":{"fish":["/vi/ca/neon/"],"plants":[],"guides":[]"# + browse + "}}"
+    return HandbookShelves(try JSONDecoder().decode(HandbookIndex.self, from: Data(json.utf8)))
+  }
+  let paths = { (s: HandbookShelves) in s.browseFish.map(\.path) }
+  #expect(try paths(shelves(#","browse":{"fish":["/vi/ca/neon/","/vi/ca/dia/"]}"#)) == ["/vi/ca/neon/", "/vi/ca/dia/"])
+  // None, an empty object, a list in a newer shape, or not an object at all: the home's own fish.
+  for browse in ["", #","browse":{}"#, #","browse":{"fish":[{"path":"/vi/ca/dia/"}]}"#, #","browse":[]"#] {
+    #expect(try paths(shelves(browse)) == ["/vi/ca/neon/"], "\(browse)")
+  }
+  // A list the site sends empty stays empty (a language with no fish).
+  #expect(try paths(shelves(#","browse":{"fish":[]}"#)).isEmpty)
+}
+
+// Seven columns at most, as the App Store's shelves (the owner, 11 Nov: "Appstore gives up to 7 columns in total"): fish
+// and plants three to a column, guides and video series one.
+@Test func khamPhasShelvesStopAtSevenColumns() {
+  #expect(HandbookShelves.Shown.fish == 21 && HandbookShelves.Shown.plants == 21)
+  #expect(HandbookShelves.Shown.guides == 7 && HandbookShelves.Shown.videos == 7)
+}
+
+@Test func aShelfShows21AfterADropOf3AndWhatsLeftWhenTheDropIsBiggerThanItsSpare() {
+  let thirty = (1...30).map { fish("f\($0)", "tetras") }
+  let three = Set(["/vi/ca/f1/", "/vi/ca/f2/", "/vi/ca/f3/"])
+  let shelf = HandbookShelves.shelf(thirty, showing: HandbookShelves.Shown.fish, after: three)
+  #expect(shelf.count == 21 && shelf.first?.path == "/vi/ca/f4/" && shelf.last?.path == "/vi/ca/f24/")
+  // Twelve taken above, past its spare of nine: the 18 left, none from past the list.
+  let twelve = Set((1...12).map { "/vi/ca/f\($0 * 2)/" })
+  let short = HandbookShelves.shelf(thirty, showing: HandbookShelves.Shown.fish, after: twelve)
+  #expect(short.count == 18 && short.allSatisfy { !twelve.contains($0.path) } && short.last?.path == "/vi/ca/f30/")
+  // Pages shown above that aren't on the list take nothing off it.
+  #expect(HandbookShelves.shelf(thirty, showing: 21, after: ["/vi/cay/nana/"]).count == 21)
+  // The site's lists of 32 plants and 14 guides: 21 plants, and 7 guides with the top's two of them taken.
+  let thirtyTwo = (1...32).map { fish("f\($0)", "tetras") }
+  #expect(HandbookShelves.shelf(thirtyTwo, showing: HandbookShelves.Shown.plants, after: three).count == 21)
+  #expect(HandbookShelves.shelf(Array(thirtyTwo.prefix(14)), showing: HandbookShelves.Shown.guides, after: ["/vi/ca/f1/", "/vi/ca/f2/"]).count == 7)
+}
+
 @Test func theGlossaryGoesUnderItsFirstLettersAsVietnameseSortsThem() {
   let g = { (n: String) in HandbookIndex.Item(kind: .glossary, name: n, path: "/vi/thuat-ngu/\(n)/") }
   let s = HandbookShelves(HandbookIndex(lang: "vi", items: [g("Đệm pH"), g("Ánh sáng"), g("dGH"), g("Amoniac"), g("Chu trình nitơ")]))

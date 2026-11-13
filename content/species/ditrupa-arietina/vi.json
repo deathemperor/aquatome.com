@@ -36,5 +36,11 @@
       "seriouslyfish": 0.93,
       "planetcatfish": 0.93
     }
+  },
+  "held": {
+    "checks": [
+      "taxon"
+    ],
+    "at": "2026-11-11"
   }
 }

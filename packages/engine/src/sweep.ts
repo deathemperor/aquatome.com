@@ -1,23 +1,33 @@
+import { compactRejection } from './photo-observations'
+import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { loadAll, mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
+import { parse } from 'node-html-parser'
+import { loadAll, mayPublish, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, NAMED_KINDS, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { withLNumber } from './l-numbers'
+import { pickStands, readPersonYes } from './person-yes'
+import type { PhotoVerdict } from './photo-check'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { sweepPlaceNames } from './place-names'
 import { sfDifficulty } from './process'
+import { retitleGuide, sourceTitle, titleClashes, titleKey } from './guide-titles'
 import { rewriteTitle } from './reader'
 import { logReviews } from './review-log'
-import { viWording } from './sanitize'
+import { viSearchWords, viWording } from './sanitize'
 import { snapshotName } from './snapshot'
 import { SOURCES } from './sources'
+import { errorKind } from './state'
 import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { cardOf, cardProblems } from './summaries'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
+import { schoolFromSeriouslyFish } from './traits'
 import { readVideoRejected } from './videos'
+import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 
 /**
  * The content rules' safe fixes (content-rules.ts, RATCHETED) on every page, each cycle, before the build, as
@@ -27,11 +37,21 @@ import { readVideoRejected } from './videos'
  * - empty headings and blocks: dropped; a repeated paragraph: the later copy dropped; labels out of order: renumbered
  * - a sentence that only says the text is translated, adapted or used with permission (the source's note under an
  *   article it reprints): dropped, its paragraph too when it is all there is (dropPermissionNotes)
- * - a photo whose caption names another fish the site has, or is a map: off that page (its file and its gallery). A map
- *   leaves every page (engine-state/_photo-rejected.json); a photo of another fish may still join that fish's page, so
+ * - a photo whose caption names another fish the site has, or is a map, or a Wikimedia Commons photo whose own words say
+ *   it is a paper's plate, a microscope picture, a drawing or a dish: off that page (its file and its gallery). A map or
+ *   a plate leaves every page (engine-state/_photo-rejected.json); a photo of another fish may still join that fish's page, so
  *   it is taken off again whenever a later run brings it back here
+ * - a photo of a fish its source's caption calls unwell (dead, thin, wounded, sick), on a fish's or a breed's page that
+ *   has another photo of its own: off the page and its gallery, and onto engine-state/_photo-rejected.json. A page's only
+ *   photo stays and is listed (`unwell`)
  * - a guide's photo that is its source's "read next" card (an unplaced photo at the source's card width): off the guide, and
  *   onto engine-state/_photo-rejected.json so a re-read can't bring it back
+ * - a photo on the never-again list (engine-state/_photo-rejected.json): off every fish's, plant's, breed's and guide's
+ *   page and every album, as the photo check takes it off (an Aquarium Glaser photo with the shop's own mark kept stays).
+ *   So one that the cycle's catch-up with main or a clash at its push brings back leaves again before its tests
+ * - a head photo a person picked (engine-state/_photo-head-picks.json, page → photo, from its own photos or its gallery):
+ *   first on its page, the old head second. The steps before the sweep may reorder a page's photos; this has the last word.
+ *   A pick that rests on a person's yes lapses with it (person-yes.ts)
  * - a rejected video (engine-state/_video-rejected.json): off every species and plant page
  * - a card figure out of bounds, upside down, or a tank shorter than twice the fish: hidden (`hidden`: why), not deleted;
  *   worked out again each run, so a figure whose reason went (a corrected size) shows again. The species' approved
@@ -52,7 +72,11 @@ import { readVideoRejected } from './videos'
  *   smaller or mini tank the model named ("bể cá mini 20cm" for a betta whose card says 45 cm). A page with no tank row,
  *   or a card with no minimum tank, is left as it is
  * - a guide's title promising a count its text lacks: with `llm`, rewritten by the model (`titles` at most a run, reviewer-gated:
- *   reader.ts rewriteTitle); otherwise, or when the rewrite isn't kept, the number dropped from it. The address stays.
+ *   reader.ts rewriteTitle); otherwise, or when the rewrite isn't kept, the number dropped from it. A call that failed
+ *   for the usage limit leaves that title, and every later one this run, as it is. The address stays.
+ * - a guide's title another guide in its language has, or that is only a name ("Dou Mok"): with `llm`, written again by
+ *   the model (`retitles` at most a run, reviewer-gated: guide-titles.ts retitleGuide), a person's name kept as the credit.
+ *   The address stays.
  * - a fish's summary (content/summaries): the words Vietnamese readers write another way written their way (sanitize.ts
  *   viWording), as the page's own text has them (fixTranslation)
  * - a fish's old name, on a Vietnamese page, its summary or a buying guide: its name now, when the sentence says which fish
@@ -78,6 +102,14 @@ export type SweepReport = {
   text: Record<string, string[]>
   photos: string[]
   rejected: number
+  /** Photos on the never-again list (engine-state/_photo-rejected.json) taken off a page or an album, `file: url (why)`. */
+  again: string[]
+  /** Photos the caption rule would have taken off every page, left where they are: more than the cap in one run (`photoCap`), `url (why)`. */
+  held: string[]
+  /** A page's only photo that its source's caption calls unwell: left on the page, off every card, `kind/id: url (word; …)`. */
+  unwell: string[]
+  /** Heads a person picked (engine-state/_photo-head-picks.json) put first, `kind/id: old -> new`, picks not found on the page, or picks that lapsed with their person's yes. */
+  heads: string[]
   /** Rejected videos (engine-state/_video-rejected.json) taken off a page, `kind/id: youtubeId (why)`. */
   videos: string[]
   card: string[]
@@ -90,6 +122,8 @@ export type SweepReport = {
   /** Pages about one variety taken off a species page, `id: url`; `kept` when it is all the page has. */
   varieties: string[]
   titles: string[]
+  /** Fish cards whose school size was set to Seriously Fish's, never below another source's on the page (traits.ts cardSchool): ids. */
+  schools: string[]
   /** Other names taken off species pages, `lang/id: "name" (why)`, and off breed pages, `lang/breeds/id: …`. */
   names: string[]
   /** Breeds taken off a guide's mentions, its text naming them by none of their names: `guides/id: breed`. */
@@ -98,6 +132,8 @@ export type SweepReport = {
   links: string[]
   /** Breeds whose parents no longer match their research, left unlinked. */
   unmatched: string[]
+  /** Guide photos whose label names no heading of the guide, so the site shows them at its end: `guides/id: "label"`. */
+  unplaced: string[]
   stopped: string
 }
 
@@ -171,18 +207,40 @@ async function sfWord(root: string, card: Partial<Record<DataCardField, Value[]>
   return [`difficulty ${was} → ${d ?? 'none'} (Seriously Fish's word)`]
 }
 
-export async function sweep(root: string, o: { llm?: Llm; titles?: number; model?: string } = {}): Promise<SweepReport> {
+/**
+ * The photos a run takes off every page for good by its caption rule (a map, a paper's plate, an ad's poster), at most:
+ * nobody looks at them first, and a word that starts to match more than it should would empty pages for good. A run
+ * that finds more takes none off and lists them (`held`), the content rules' check keeps finding them, so the cycle's
+ * suite holds what it wrote until a person has looked and run `pnpm engine sweep --photo-cap <N>` (the chief of staff,
+ * 2026-11-11). The first run of the paper's-plate rule found 28, each looked at on a contact sheet before it ran.
+ */
+export const PHOTO_CAP = 10
+
+/** Guides whose title is shared or only a name, written again at most a run (each a write and a review). */
+export const GUIDE_RETITLES = 10
+
+export async function sweep(root: string, o: { llm?: Llm; titles?: number; retitles?: number; model?: string; photoCap?: number } = {}): Promise<SweepReport> {
+  // Before anything is written. Not a whole number ("1O" for 10 reads as none), every comparison with it is false and
+  // the cap would be off (the independent reader, 2026-11-11).
+  const cap = o.photoCap ?? PHOTO_CAP
+  if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], unwell: [], heads: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
+  // A fish card's school size: Seriously Fish's, never below what another source on the page says (traits.ts), here so
+  // every part of the cycle has it before its tests, whatever changed a page's sections.
+  for (const id of report.schools = await schoolFromSeriouslyFish(content)) changed(`traits/${id}.json`)
+  const titled: { file: string; raw: string; t: Stored; lang: WrittenLang; id: string; title: string }[] = []
   // A place's Vietnamese name with no generic word left in English (place-names.ts).
   for (const id of await sweepPlaceNames(root)) changed(`places/${id}/vi.json`)
 
   // Text, in every language the engine writes.
   for (const kind of SWEPT_KINDS) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
+      // A pleco's L number, in its name in every language (l-numbers.ts).
+      const fish = kind === 'species' ? JSON.parse(await readFile(join(content, kind, id, 'entity.json'), 'utf8').catch(() => '{}')) as Partial<SpeciesEntity> : {}
       for (const lang of WRITTEN_LANGS) {
         const file = join(content, kind, id, `${lang}.json`)
         const raw = await readFile(file, 'utf8').catch(() => null)
@@ -191,8 +249,10 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
         const swept = sweepTranslation(before)
         // A name as hobbyists write it (alt-names.ts tidyName): Vietnamese, on the pages named for what they are.
         const named = lang === 'vi' && NAMED_KINDS.includes(kind) && swept.t.name !== undefined && swept.t.altNames ? tidyNames(swept.t as Stored & { name: string; altNames: string[] }, kind) : swept.t
-        const t = lang === 'vi' ? renameStored(named) : named
-        const fixed = [...swept.fixed, ...(named === swept.t ? [] : ['name']), ...(t === named ? [] : ['renamed'])]
+        const renamed = lang === 'vi' ? renameStored(named) : named
+        const numbered = renamed.name === undefined ? renamed.name : withLNumber(renamed.name, fish.family, fish.lNumber)
+        const t = numbered === renamed.name ? renamed : { ...renamed, name: numbered }
+        const fixed = [...swept.fixed, ...(named === swept.t ? [] : ['name']), ...(renamed === named ? [] : ['renamed']), ...(t === renamed ? [] : ['lnumber'])]
         if (fixed.length) {
           await write(file, raw, t)
           changed(`${kind}/${id}/${lang}.json`)
@@ -200,6 +260,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
           if (kind === 'guides' && before.body !== undefined) guides.push({ key: lang === 'vi' ? id : `${id}:${lang}`, before: before.body, after: t.body! })
         }
         if (kind === 'guides' && t.name && t.body && countMismatch(t.name, t.body)) counted.push({ file, raw, t, kind, lang, id })
+        if (kind === 'guides' && t.name) titled.push({ file, raw, t, lang, id, title: t.name })
       }
     }
   }
@@ -226,6 +287,22 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
     await write(file, raw, next)
     changed(`summaries/${f}`)
     ;(report.text.wording ??= []).push(`summaries/${f.replace(/\.json$/, '')}`)
+  }
+
+  // A page's shop searches, in the words its text uses. Fish and plants are the pages with them.
+  for (const kind of ['species', 'plants']) {
+    for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
+      const file = join(content, kind, id, 'entity.json')
+      const raw = await readFile(file, 'utf8').catch(() => null)
+      if (!raw) continue
+      const e = JSON.parse(raw) as { productSlots?: { keywords: string[] }[] }
+      const before = JSON.stringify(e.productSlots ?? [])
+      for (const row of e.productSlots ?? []) row.keywords = row.keywords.map(viSearchWords)
+      if (JSON.stringify(e.productSlots ?? []) === before) continue
+      await write(file, raw, e)
+      changed(`${kind}/${id}/entity.json`)
+      ;(report.text.wording ??= []).push(`${kind}/${id}/searches`)
+    }
   }
 
   // A species' other names: its own, each once.
@@ -326,6 +403,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
         else how = `number dropped; rewrite "${r.title}" not kept (${r.score.toFixed(2)}${r.notes.length ? `: ${r.notes.slice(0, 2).join('; ')}` : ''})`
         await logReviews(root, 'title', { id: `${c.kind}/${c.id}`, lang: c.lang }, [r], title === r.title ? r : undefined, { model: o.model })
       } catch (e) {
+        // Every account is out of its limit: dropping the number would keep the title from being offered again.
+        if (e instanceof LlmError && errorKind(e.message) === 'usage') {
+          report.stopped = `title ${c.lang}/${c.kind}/${c.id}: ${e.message}`
+          break
+        }
         if (e instanceof LlmError) report.stopped = `title ${c.lang}/${c.kind}/${c.id}: ${e.message}`
         else how = `number dropped; rewrite failed: ${(e as Error).message.slice(0, 120)}`
       }
@@ -335,8 +417,71 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
     changed(`${c.kind}/${c.id}/${c.lang}.json`)
     report.titles.push(`${c.lang}/${c.kind}/${c.id}: "${old}" → "${title}" (${how})`)
   }
+
+  // A guide's title another guide in its language has, or that is only a name (guide-titles.ts): the model's title when
+  // it passes its review, `retitles` at most a run. One taken by a guide the run already titled is never written.
+  let retitles = o.llm ? (o.retitles ?? GUIDE_RETITLES) : 0
+  const taken = (lang: WrittenLang) => new Set(titled.filter(g => g.lang === lang).map(g => titleKey(g.title)))
+  for (const c of titleClashes(titled)) {
+    if (c.guide.t.nameFixed) continue // a title a person chose stays
+    if (retitles <= 0 || report.stopped) break
+    retitles--
+    const g = c.guide
+    const old = g.title
+    try {
+      const e = JSON.parse(await readFile(join(content, 'guides', g.id, 'entity.json'), 'utf8').catch(() => '{}')) as Parameters<typeof sourceTitle>[1]
+      const r = await retitleGuide(o.llm!, { title: g.title, body: g.t.body ?? '', lang: g.lang, why: c.why, source: await sourceTitle(root, e), others: c.with.map(w => ({ title: w.title, body: w.t.body ?? '' })), taken: taken(g.lang) }, o.model)
+      await logReviews(root, 'title', { id: `guides/${g.id}`, lang: g.lang }, [r], r.score >= QUALITY_THRESHOLD ? r : undefined, { model: o.model })
+      if (r.score < QUALITY_THRESHOLD) {
+        report.titles.push(`${g.lang}/guides/${g.id}: "${old}" (${c.why === 'name' ? 'only a name' : 'shared'}): "${r.title}" not kept (${r.score.toFixed(2)}${r.notes.length ? `: ${r.notes.slice(0, 2).join('; ')}` : ''})`)
+        continue
+      }
+      const raw = await readFile(g.file, 'utf8')
+      const now = JSON.parse(raw) as Stored
+      if (now.name !== g.title) continue // the count step wrote it this run
+      await write(g.file, raw, { ...now, name: r.title })
+      g.title = r.title
+      changed(`guides/${g.id}/${g.lang}.json`)
+      report.titles.push(`${g.lang}/guides/${g.id}: "${old}" (${c.why === 'name' ? 'only a name' : 'shared'}) → "${r.title}" (${r.score.toFixed(2)})`)
+    } catch (e) {
+      if (e instanceof LlmError) report.stopped = `title guides/${g.id}/${g.lang}: ${e.message}`
+      else report.titles.push(`${g.lang}/guides/${g.id}: retitle failed: ${(e as Error).message.slice(0, 120)}`)
+    }
+  }
   if (guides.length) await carryTopicChecks(root, guides)
 
+  // The owner, 2026-11-10: a card and its page's head are always the same photo, so a photo picked for a card becomes the head.
+  // Before the photo rules read the pages: a head picked from the gallery is one of the page's own photos from here on,
+  // so an unwell photo beside it is not kept as the page's only one and left for the next sweep (the cycle tests after
+  // one). No later step puts another photo ahead of the pick. One can still take the picked photo off its page, as it
+  // could before: a caption that names another fish, a map or a plate, or a variety's source.
+  // A pick that rests on a person's yes lapses with it (person-yes.ts pickStands): it is reported, and the page keeps its order.
+  const headPicks = JSON.parse(await readFile(join(root, 'engine-state', '_photo-head-picks.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+  const yes = await readPersonYes(root)
+  const subjects = JSON.parse(await readFile(join(root, 'engine-state', '_photo-subjects.json'), 'utf8').catch(() => '{}')) as Record<string, Record<string, PhotoVerdict>>
+  for (const [ref, url] of Object.entries(headPicks)) {
+    if (!pickStands(ref, url, subjects, yes)) { report.heads.push(`${ref}: pick lapsed with its person's yes`); continue }
+    const file = join(content, ref, 'entity.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    if (!raw) continue
+    const e = JSON.parse(raw) as { photos?: Photo[] }
+    const own = e.photos ?? []
+    let picked = own.find(p => p.url === url)
+    if (!picked) {
+      const id = ref.split('/')[1]!
+      const gallery = JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => '{}')) as { photos?: (Photo & { best?: boolean; kind?: string; unchecked?: boolean })[] }
+      const found = gallery.photos?.find(p => p.url === url && !p.unchecked)
+      if (found) {
+        const { best: _b, kind: _k, unchecked: _u, ...photo } = found
+        picked = photo
+      }
+    }
+    if (!picked) { report.heads.push(`${ref}: picked photo isn't on the page`); continue }
+    if (own[0]?.url === url) continue
+    report.heads.push(`${ref}: ${own[0]?.url ?? 'none'} -> ${url}`)
+    await write(file, raw, { ...e, photos: [picked, ...own.filter(p => p.url !== url)] })
+    changed(`${ref}/entity.json`)
+  }
   // Photos: what the caption rule finds on a published page (Vietnamese: the photos are the same in every language).
   const all = await loadPages(content, ['vi'])
   const ctx = ctxOf(all)
@@ -345,9 +490,43 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   const maps = new Map<string, string>() // url → why
   for (const p of pages) for (const c of p.captions) {
     const other = wrongFish(c.caption, p.sci!, p.latinNames, ctx)
-    const why = other ? `caption names ${other}, not ${p.sci}` : isMap(c.caption) ? `a map, not ${p.sci}` : isAdPoster(c.caption) ? `an ad video's poster, not ${p.sci}` : ''
+    // A plate's words name every fish on it, the page's among others: it is no photo of any of them.
+    const unfit = notAlive(c)
+    const why = unfit ? `${unfit}, not ${p.sci}` : other ? `caption names ${other}, not ${p.sci}` : isMap(c.caption) ? `a map, not ${p.sci}` : isAdPoster(c.caption) ? `an ad video's poster, not ${p.sci}` : ''
     if (why) off.set(`${p.kind}/${p.id}`, (off.get(`${p.kind}/${p.id}`) ?? new Map()).set(c.url, why))
-    if (!other && why) maps.set(c.url, `${why} (${p.kind}/${p.id})`)
+    if ((unfit || !other) && why) maps.set(c.url, `${why} (${p.kind}/${p.id})`)
+  }
+  // A fish its source's caption calls unwell (dead, thin, wounded, sick: content-rules.ts captionFlaw) is not shown where
+  // its page has another photo of its own: off the page and its gallery, and never picked again. A page's only photo
+  // stays, off every card (curation.ts cardWorthy), and is listed for a person.
+  const everyPage = new Set<string>() // the photos this rule alone would take off every page
+  for (const p of all) {
+    const key = `${p.kind}/${p.id}`
+    const { off: gone, kept, picked } = unwellOff(p, new Set(off.get(key)?.keys()))
+    if (kept) report.unwell.push(`${key}: ${kept.url} (${kept.word}; the page's only photo)`)
+    // A head a person picked stays until a person says it goes: listed each run with its caption, at the size readers see.
+    if (picked) report.unwell.push(`${key}: ${picked.url} (${picked.word}; a head a person picked. Its caption: "${p.captions.find(c => c.url === picked.url)?.caption ?? ''}")`)
+    for (const x of gone) {
+      const why = `unwell: its source's caption says "${x.word}"`
+      const drop = off.get(key) ?? new Map<string, string>()
+      if (!drop.has(x.url)) off.set(key, drop.set(x.url, why))
+      if (!maps.has(x.url)) { maps.set(x.url, `${why} (${key})`); everyPage.add(x.url) }
+    }
+  }
+  // A photo that is left as some page's only one, or is a head a person picked there, is not taken off every page on
+  // this rule's word: it leaves the page whose caption calls it unwell and stays on the other, whatever that page's own
+  // caption says of it. Another rule's word (a map, a plate) still takes it off every page.
+  for (const p of all) {
+    const drop = off.get(`${p.kind}/${p.id}`)
+    // Distinct photos: two pages today list one address twice among their own.
+    const left = [...new Set((p.own ?? []).filter(u => !drop?.has(u)))]
+    for (const url of [...(left.length === 1 ? left : []), ...(p.picked && left.includes(p.picked) ? [p.picked] : [])]) if (everyPage.has(url)) maps.delete(url)
+  }
+  if (maps.size > cap) {
+    // Too many to take off for good with nobody looking: they stay where they are, and a person is told (PHOTO_CAP).
+    report.held = [...maps].map(([url, why]) => `${url} (${why})`)
+    for (const drop of off.values()) for (const url of maps.keys()) drop.delete(url)
+    maps.clear()
   }
   for (const [page, drop] of off) {
     const [kind, id] = page.split('/') as [string, string]
@@ -383,12 +562,102 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
     await write(file, raw, { ...e, photos: photos.slice(0, end) })
     changed(`guides/${id}/entity.json`)
   }
-  // A map or an ad's poster is no fish's photo: off every page, and never picked again.
+  // A guide's photo goes under the heading its label names (the site matches the two), so a label follows its heading when
+  // the heading is rewritten: the words the sweep writes another way ("Trùn chỉ đỏ" → "Trùng huyết"), else the one heading
+  // with the label's own number ("2.", "#1", "Bước 2"; schema headings.ts, so a count title, "3 nguyên nhân chính", has
+  // none). One it can't place is listed and kept; the site shows it at the guide's end.
+  const near = (h: string) => h.replace(/\s+/g, ' ').trim().toLowerCase()
+  for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
+    const file = join(content, 'guides', id, 'entity.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    const e = raw ? JSON.parse(raw) as { photos?: (Photo & { section?: Record<string, string> })[] } : null
+    if (!e?.photos?.some(p => p.section?.vi)) continue
+    const t = JSON.parse(await readFile(join(content, 'guides', id, 'vi.json'), 'utf8').catch(() => 'null')) as Stored | null
+    const headings = parse(t?.body ?? '').querySelectorAll('h3').map(h => h.textContent.replace(/\s+/g, ' ').trim()).filter(Boolean)
+    const named = (label: string) => headings.find(h => near(h) === near(label))
+    let moved = false
+    const photos = e.photos.map(p => {
+      const label = p.section?.vi
+      if (!label || named(label)) return p
+      const numbered = ownNumber(label) === undefined ? [] : headings.filter(h => ownNumber(h) === ownNumber(label))
+      const to = named(viWording(label)) ?? (numbered.length === 1 ? numbered[0] : undefined)
+      if (!to) { report.unplaced.push(`guides/${id}: "${label}"`); return p }
+      moved = true
+      return { ...p, section: { ...p.section, vi: to } }
+    })
+    if (!moved) continue
+    await write(file, raw!, { ...e, photos })
+    changed(`guides/${id}/entity.json`)
+    ;(report.text['photo-heading'] ??= []).push(`guides/${id}`)
+  }
+
+  // A map, a paper's plate or an ad's poster is no fish's photo: off every page, and never picked again.
   if (maps.size) {
     const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
     const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
     for (const [url, why] of maps) if (!rejected[url]) { rejected[url] = why; report.rejected++ }
-    if (report.rejected) await writeFile(rejectedFile, `${JSON.stringify(rejected, null, 2)}\n`)
+    if (report.rejected) await writePhotoState(rejectedFile, rejected)
+  }
+  // Every photo on the never-again list leaves the pages and albums the photo check strips, by the check's own rule (an
+  // Aquarium Glaser photo with the shop's own mark kept stays: watermarks.ts keptOwnMark). The check strips them only
+  // in the tree its run started from. The cycle's push keeps its own lines where they clash with main's, so a photo a
+  // person took off while a run was under way came back in its album (three on 2026-11-11). The cycle sweeps after it
+  // catches up with main, after a clash at its push and after a clean pull there that brought main's commits in
+  // (cycle-checks.sh swept_pull).
+  const rejected = JSON.parse(await readFile(join(root, 'engine-state', '_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+  const kept = keptOwnMark(rejected, JSON.parse(await readFile(join(root, 'engine-state', '_photo-watermarks.json'), 'utf8').catch(() => '{}')) as Record<string, WatermarkEntry>)
+  const listed = (url: string) => url in rejected && !kept(url)
+  const shownIn = async (kind: string) => (await readdir(join(content, kind)).catch(() => [] as string[])).sort().map(id => join(content, kind, id, 'entity.json'))
+  const galleryFiles = (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort().map(f => join(content, 'gallery', f))
+  for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides'))]) {
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    if (!raw) continue
+    const data = JSON.parse(raw) as unknown
+    const removed: string[] = []
+    stripPhotos(data, listed, removed, [])
+    if (!removed.length) continue
+    for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(rejected[url]!)})`)
+    await write(file, raw, data)
+    changed(file.slice(content.length + 1))
+  }
+  // The calendar names its pictures by address, the app's large copy as often as the page's: a day's, a language's own
+  // day's, a guide's, a story's and a week's heroes'. One that is a listed photo, or its large copy, is dropped, and the
+  // app shows the page's own (apps/site/src/lib/curation.ts). The planner points the day at the page's head again when it
+  // next plans. A loop whose poster is listed goes whole: the poster is required, and the footage shows what it shows.
+  const unsplash = (url: string) => (url.startsWith('https://images.unsplash.com/') ? url.split('?')[0]! : url)
+  const listedBase = new Map(Object.keys(rejected).filter(listed).map(u => [unsplash(u), u]))
+  // The address itself first: a large copy can be listed by its own address too.
+  const listedImg = (url: string) => listedBase.get(unsplash(url)) ?? listedBase.get(unsplash(url.replace(/-large\.webp$/, '.webp')))
+  const calFile = join(content, 'curation.json')
+  const calRaw = await readFile(calFile, 'utf8').catch(() => null)
+  if (calRaw) {
+    const cal = JSON.parse(calRaw) as { days?: Record<string, unknown>[]; loops?: Record<string, { poster?: string }> }
+    let off = 0
+    const drop = (o: Record<string, unknown> | undefined, date: string, where: string) => {
+      for (const k of ['img', 'guideImg']) {
+        const url = typeof o?.[k] === 'string' ? o[k] as string : undefined
+        const page = url && listedImg(url)
+        if (!page) continue
+        delete o![k]
+        off++
+        report.again.push(`curation.json ${date}${where} ${k}: ${url} (${compactRejection(rejected[page]!)})`)
+      }
+    }
+    for (const d of cal.days ?? []) {
+      const date = String(d.date)
+      drop(d, date, '')
+      drop(d.story as Record<string, unknown> | undefined, date, ' story')
+      for (const [lang, own] of Object.entries((d.by ?? {}) as Record<string, Record<string, unknown>>)) drop(own, date, ` ${lang}`)
+    }
+    for (const w of (cal as { weeks?: { from?: string; hero?: Record<string, unknown>[] }[] }).weeks ?? []) for (const h of w.hero ?? []) drop(h, `week ${w.from}`, ` hero ${h.page}`)
+    for (const [id, loop] of Object.entries(cal.loops ?? {})) {
+      const page = typeof loop?.poster === 'string' ? listedImg(loop.poster) : undefined
+      if (!page) continue
+      delete cal.loops![id]
+      off++
+      report.again.push(`curation.json loop ${id} poster: ${loop.poster} (${compactRejection(rejected[page]!)})`)
+    }
+    if (off) { await write(calFile, calRaw, cal); changed('curation.json') }
   }
   // A rejected video (engine-state/_video-rejected.json: a thumbnail with a dead fish, …) leaves every page.
   const videoRejected = await readVideoRejected(root)

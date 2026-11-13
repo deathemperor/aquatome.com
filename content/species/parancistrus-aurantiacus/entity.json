@@ -5,12 +5,116 @@
   "family": "Loricariidae",
   "genus": "Parancistrus",
   "group": "catfish",
-  "lNumber": "L056X",
+  "lNumber": "L56x",
   "places": [
     "south-america",
     "brazil",
     "tocantins"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tocantins",
+        "Xingu River",
+        "Tocantins-Araguaia River basin"
+      ],
+      "sources": [
+        "scotcat",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This very unusual loricariid was imported from Brazil in a small number.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Brazil: Pará, Rio Tocantins (Cametá-Marabá).",
+          "countries": [],
+          "regions": [
+            "Rio Tocantins"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "The species has distribution in the lower Xingu River and in the Tocantins-Araguaia River basin.",
+          "countries": [],
+          "regions": [
+            "Xingu River",
+            "Tocantins-Araguaia River basin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340132,
+      "total": 119,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "BR",
+          119
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -5.625,
+          36,
+          36
+        ],
+        [
+          -53.4375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          18,
+          18
+        ],
+        [
+          -53.4375,
+          -5.625,
+          49,
+          49
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

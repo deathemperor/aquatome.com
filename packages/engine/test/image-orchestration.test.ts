@@ -1,14 +1,15 @@
+import { fixtureGeneratedCalibration, fixtureMarkCalibration, fixtureJudgments } from './image-fixtures'
 import { afterEach, expect, test, vi } from 'vitest'
 import { cp, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
-import { homedir } from 'node:os'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
-import { IMAGE_SWITCHES, loadAll, type Photo } from '@aq/schema'
+import { IMAGE_SWITCHES, loadAll, PHOTO_SCREEN_FILE, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import generatedResults from '../../../docs/image-calibration-results.json'
 import markResults from '../../../docs/mark-calibration-results.json'
 import reviewed from '../src/image-controls.json'
-import { imagePlan, imageSteps, type ImageStepDeps } from '../src/image-steps'
+import { generationPurpose, imagePlan, imageSteps, type ImageStepDeps } from '../src/image-steps'
 import { sha256 } from '../src/image-reference'
 import { noTraceVersion } from '../src/image-transforms'
 const dirs: string[] = []
@@ -20,14 +21,13 @@ const facts = [{ source: 'seriouslyfish', sourceUrl: 'https://www.seriouslyfish.
 const passed = { verdict: 'pass', identity: 'pass', anatomy: 'pass', referenceImages: 'pass', person: false, text: false, logo: false, features: [{ n: 1, verdict: 'pass', note: 'visible' }], conflicts: [], note: 'visible' }
 const on = { ...IMAGE_SWITCHES, generateMissing: true, publishGenerated: true }
 async function fixture() {
- await mkdir(join(homedir(),'.cache/aquatome'),{recursive:true})
- const root = await mkdtemp(join(homedir(), '.cache/aquatome/image-test-')); dirs.push(root)
+ const root = await mkdtemp(join(tmpdir(), 'image-test-')); dirs.push(root)
  await cp(fileURLToPath(new URL('../../schema/test/fixtures/store', import.meta.url)), join(root, 'content'), { recursive: true })
  const cache = join(root, 'private'); await mkdir(join(cache, 'candidates'), { recursive: true }); await mkdir(join(root, 'engine-state'))
  const file = join(root, 'content/species/alpha/entity.json'), e = await read(file)
  e.photos = []; e.scientificName = 'Paracheirodon innesi'; e.sections = [{ ...e.sections[0], ...facts[0], html: `<p>${facts[0]!.quote}</p>` }]; await save(file, e)
- await save(join(cache, 'calibration.json'), { ...generatedResults, model: generatedResults.reviewer })
- await save(join(cache, 'no-trace-calibration.json'), { version: noTraceVersion(), cases: markResults.cases.map(x => ({ ...x, ...reviewed.marks.find(f => f.n === x.n) })) })
+ await save(join(cache, 'calibration.json'), fixtureGeneratedCalibration())
+ await save(join(cache, 'no-trace-calibration.json'), fixtureMarkCalibration())
  await save(join(cache, 'marked-history-v1.json'), {})
  const bytes = await sharp({ create: { width: 100, height: 80, channels: 3, background: '#abcdef' } }).png().toBuffer()
  const d: ImageStepDeps = { cache, quota: vi.fn(async () => ({ at: new Date().toISOString(), limitId: 'codex', usedPercent: 5, spendControlReached: false })), native: vi.fn(async (prompt, _dir, _ref, admit) => (await admit('image-1'), { bytes, prompt, model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', seconds: 1, receiptHash: sha256('receipt') })), extract: vi.fn(async () => ({ facts })), judge: vi.fn(async () => passed) as ImageStepDeps['judge'], store: vi.fn(async key => `https://media.aquatome.com/${key}`), get: vi.fn(async () => bytes), locateMark: vi.fn(), now: () => new Date() }
@@ -57,15 +57,51 @@ test.each(['name', 'quote', 'manifest', 'reference-bytes', 'calibration', 'revie
 })
 test('planner defers unjudged real entity and album photos, popular too', async () => {
  const f = await fixture(); f.e.photos = [real]; await save(f.file, f.e)
+ await save(join(f.root, 'engine-state', PHOTO_SCREEN_FILE), { [real.url]: { ocr: [], watermark: false } })
  expect((await imagePlan(f.root))[0]).toMatchObject({ waitingReal: true, popular: true })
  await imageSteps(f.root, async () => f.d, { ...on, generatePopular: true }); expect(f.d.native).not.toHaveBeenCalled()
  await save(join(f.root, 'engine-state/_photo-subjects.json'), { [real.url]: { alpha: { ok: 'yes', person: false, logo: false } } }); expect((await imagePlan(f.root))[0]!.waitingReal).toBe(false)
  f.e.photos = []; await save(f.file, f.e); await mkdir(join(f.root, 'content/gallery'), { recursive: true }); await save(join(f.root, 'content/gallery/alpha.json'), { id: 'alpha', seen: 1, updatedAt: '2026-11-10', photos: [{ ...real, url: real.url + '?second' }] }); expect((await imagePlan(f.root))[0]!.waitingReal).toBe(true)
 })
+test.each(['entity', 'album'] as const)('a subject-approved %s photo awaiting the watermark screen defers the enabled image step', async placement => {
+ for (const pending of ['no-record', 'text-awaits-verdict', 'source-awaits-verdict'] as const) {
+  const f = await fixture()
+  const photo = { ...real, url: pending === 'source-awaits-verdict' ? 'https://media.aquatome.com/seriouslyfish/waiting.webp' : real.url }
+  if (placement === 'entity') { f.e.photos = [photo]; await save(f.file, f.e) }
+  else { await mkdir(join(f.root, 'content/gallery'), { recursive: true }); await save(join(f.root, 'content/gallery/alpha.json'), { id: 'alpha', seen: 1, updatedAt: '2026-11-11', photos: [photo] }) }
+  // Isolate the watermark wait: the ordinary species check is already positive and there is no unchecked flag.
+  await save(join(f.root, 'engine-state/_photo-subjects.json'), { [photo.url]: { alpha: { ok: 'yes', person: false, logo: false } } })
+  const screen: Record<string, PhotoScreenEntry> = pending === 'no-record' ? {} : { [photo.url]: { ocr: pending === 'text-awaits-verdict' ? [{ t: 'Synthetic fixture', c: 1 }] : [] } }
+  const screenFile = join(f.root, 'engine-state', PHOTO_SCREEN_FILE)
+  await save(screenFile, screen)
+  const page = (await imagePlan(f.root, on))[0]!
+  expect(page, pending).toMatchObject({ empty: true, waitingReal: true, popular: true })
+  for (const flags of [on, { ...IMAGE_SWITCHES, generatePopular: true, publishGenerated: true }]) {
+   expect(generationPurpose(page, flags), pending).toBeUndefined()
+   const result = await imageSteps(f.root, async () => f.d, flags)
+   expect(result, pending).toMatchObject({ generated: 0, published: 0, failed: [] })
+  }
+  for (const call of [f.d.native, f.d.extract, f.d.judge, f.d.store, f.d.quota]) expect(call, pending).not.toHaveBeenCalled()
+  // A real screen verdict releases the wait; an already visible real photo may then be supplemented for popularity.
+  await save(screenFile, { [photo.url]: { ocr: [], watermark: false } })
+  const cleared = (await imagePlan(f.root, on))[0]!
+  expect(cleared, pending).toMatchObject({ empty: false, waitingReal: false })
+  expect(generationPurpose(cleared, on)).toBeUndefined()
+  expect(generationPurpose(cleared, { ...IMAGE_SWITCHES, generatePopular: true })).toBe('popular')
+ }
+})
+test('a missing screen file still defers a subject-approved real photo', async () => {
+ const f = await fixture(); f.e.photos = [real]; await save(f.file, f.e)
+ await save(join(f.root, 'engine-state/_photo-subjects.json'), { [real.url]: { alpha: { ok: 'yes', person: false, logo: false } } })
+ expect((await imagePlan(f.root))[0]).toMatchObject({ waitingReal: true })
+ await imageSteps(f.root, async () => f.d, { ...on, generatePopular: true })
+ expect(f.d.native).not.toHaveBeenCalled(); expect(f.d.quota).not.toHaveBeenCalled()
+})
 test('absent mark calibration preserves real recovery pending before generation', async () => {
  const f = await fixture(), file = join(f.root, 'content/sources.json'), sources = await read(file)
  sources.seriouslyfish.permission = { date: '2026-11-10', file: 'owner word', scope: ['photos', 'text'], markRemoval: { allowed: true, date: '2026-11-10' } }; await save(file, sources)
- await mkdir(join(f.cache, 'marked')); await save(join(f.cache, 'marked/real.json'), { page: { kind: 'species', id: 'alpha' }, photo: { ...real, source: 'seriouslyfish' } }); await rm(join(f.cache, 'no-trace-calibration.json'))
+ f.d.judge=vi.fn(async()=>({photos:[{n:1,ok:'yes',typical:true,person:false,logo:true,note:'Original fixture species.'}]})) as ImageStepDeps['judge'];f.d.locateMark=async()=>({owner:'source',text:sources.seriouslyfish.name,sourceUrl:facts[0]!.sourceUrl,box:{x0:0,y0:0,x1:100,y1:80}})
+ await mkdir(join(f.cache, 'marked')); await save(join(f.cache, 'marked/real.json'), { page: { kind: 'species', id: 'alpha' }, photo: { ...real,sourceUrl:facts[0]!.sourceUrl, source: 'seriouslyfish' } }); await rm(join(f.cache, 'no-trace-calibration.json'))
  const r = await imageSteps(f.root, async () => f.d, { ...on, removeMarks: true }); expect(r.waiting.join()).toContain('not calibrated'); expect(r.failed).toEqual([]); expect(f.d.native).not.toHaveBeenCalled()
 })
 test.each(['upscaleReal', 'removeMarks', 'publishAltered'] as const)('%s does not judge cached generated candidates', async flag => {
@@ -93,7 +129,7 @@ test.each([false, true])('enabled real recovery precedes generation, strips mark
  const original = Buffer.alloc(100*80*3); for(let i=0;i<original.length;i++) original[i]=(i*37+Math.floor(i/83))%256
  f.d.get = async () => sharp(original, { raw: { width: 100, height:80, channels:3 } }).png().toBuffer()
  f.d.locateMark = async () => ({ owner: 'source', text: 'Seriously Fish', sourceUrl: facts[0]!.sourceUrl, box: { x0:0,y0:0,x1:100,y1:80 } })
- f.d.judge = vi.fn(async (_file,_prompt,schema) => 'photos' in (schema as {properties:object}).properties ? { photos: [{ n:1, ok:'yes', person:false,logo:false }] } : { verdict:'pass',residual:false,newMark:false,note:'clean' }) as ImageStepDeps['judge']
+ f.d.judge = vi.fn(async (_file,_prompt,schema) => 'photos' in (schema as {properties:object}).properties ? { photos: [{ n:1, ok:'yes', person:false,logo:false }] } : { verdict:'pass',residual:false,newMark:false,person:false,newText:false,logo:false,note:'clean' }) as ImageStepDeps['judge']
  const photo = { ...real, source:'seriouslyfish',sourceUrl:facts[0]!.sourceUrl,licence:'dùng với sự cho phép',large:{url:'https://media.aquatome.com/marked-large.webp',width:1500,height:1200} }
  await mkdir(join(f.cache,'marked')); await save(join(f.cache,'marked/real.json'),{page:{kind:'species',id:'alpha'},photo})
  if(revoke) f.d.store=async key=>{ sources.seriouslyfish.permission.markRemoval.allowed=false;await save(sourcesFile,sources);return `https://media.aquatome.com/${key}` }
@@ -110,7 +146,7 @@ test('publication aborts a hung store on the cycle signal and writes no approval
 })
 test('a refused first page lets a later page generate and pass under limit one',async()=>{
  const f=await fixture();await cp(join(f.root,'content/species/alpha'),join(f.root,'content/species/delta'),{recursive:true});await save(join(f.root,'content/species/delta/entity.json'),{...f.e,id:'delta',scientificName:'Different species'})
- f.d.judge=vi.fn(async file=>file.includes('species-alpha')||file.includes('/views/')&&vi.mocked(f.d.judge).mock.calls.length===1?{...passed,verdict:'fail'}:passed) as ImageStepDeps['judge']
+ f.d.judge=vi.fn(async file=>file.includes('species-alpha')||file.includes('/views/')&&vi.mocked(f.d.judge).mock.calls.length<=2?{...passed,verdict:'fail'}:passed) as ImageStepDeps['judge']
  const first=await imageSteps(f.root,async()=>f.d,on);expect(first.published).toBe(0)
  const second=await imageSteps(f.root,async()=>f.d,on);expect(second.published).toBe(1);expect((await read(join(f.root,'content/species/delta/entity.json'))).photos).toHaveLength(1)
 })
@@ -124,4 +160,77 @@ test('withdrawal after publication keeps the existing real album photo as lead',
 test('an already-cancelled image step starts no dependency work',async()=>{
  const c=new AbortController();c.abort(Error('cancelled'));const deps=vi.fn(async()=>{throw Error('must not start')})
  await expect(imageSteps('/unused',deps,on,1,720000,c.signal)).rejects.toThrow('cancelled');expect(deps).not.toHaveBeenCalled()
+})
+
+test('a known permitted marked original defers generation even when mark recovery is off',async()=>{
+ const f=await fixture();await mkdir(join(f.cache,'marked'));await save(join(f.cache,'marked/real.json'),{page:{kind:'species',id:'alpha'},photo:{...real,source:'seriouslyfish',sourceUrl:facts[0]!.sourceUrl}})
+ const result=await imageSteps(f.root,async()=>f.d,on)
+ expect(result.generated).toBe(0);expect(f.d.native).not.toHaveBeenCalled();expect(f.d.judge).not.toHaveBeenCalled()
+})
+test('the enabled whole crop step publishes a credited real original with zero repaint calls despite absent repaint calibration',async()=>{
+ const f=await fixture(),sourcesFile=join(f.root,'content/sources.json'),sources=await read(sourcesFile)
+ sources.seriouslyfish={name:'Seriously Fish',homepage:'https://www.seriouslyfish.com/',publish:true,permission:{date:'2026-11-10',file:'owner word',scope:['photos','text'],markRemoval:{allowed:true,date:'2026-11-10'}}};await save(sourcesFile,sources)
+ await rm(join(f.cache,'no-trace-calibration.json'))
+ const photo={...real,author:'Earlier credit',authorUrl:'https://earlier.example.org/',source:'seriouslyfish',sourceUrl:facts[0]!.sourceUrl,licence:'dùng với sự cho phép',large:{url:'https://media.aquatome.com/marked-large.webp',width:1500,height:1200}}
+ await mkdir(join(f.cache,'marked'));await save(join(f.cache,'marked/real.json'),{page:{kind:'species',id:'alpha'},photo})
+ f.d.locateMark=vi.fn(async()=>({owner:'photographer' as const,text:'Fixture contributor',credit:'Fixture contributor',sourceUrl:photo.sourceUrl,box:{x0:0,y0:65,x1:100,y1:78},subjectBox:{x0:20,y0:20,x1:60,y1:45},wholeSubject:true}))
+ f.d.judge=vi.fn(async(_file,_prompt,schema)=>{if(!('photos'in(schema as {properties:object}).properties))throw Error('A crop must not call a repaint judge');return{photos:[{n:1,ok:'yes',typical:true,person:false,logo:true,note:'Original fixture.'}]}}) as ImageStepDeps['judge']
+ const trip=['TEST','ONLY','INHERITED','PHOTO','WORDS'].join('_')
+ await save(join(f.root,'engine-state/_photo-subjects.json'),{'https://example.org/legacy.webp':{alpha:{ok:'none',person:false,logo:false,typical:false,note:trip}}})
+ const flags={...on,removeMarks:true,publishAltered:true},result=await imageSteps(f.root,async()=>f.d,flags)
+ expect(result).toMatchObject({repaired:1,published:1,generated:0,failed:[]});expect(f.d.native).not.toHaveBeenCalled();expect(f.d.judge).toHaveBeenCalledTimes(2);expect(f.d.locateMark).toHaveBeenCalledTimes(2)
+ const p=(await read(f.file)).photos[0];expect(p).toMatchObject({author:'Fixture contributor',licence:photo.licence,altered:[{method:'mark-crop',retainedChanged:0}]});expect(p.authorUrl).toBeUndefined();expect(p.large).toBeUndefined();expect(p.original.large.url).toBe(photo.large.url);expect(p.altered[0].noTrace).toBeUndefined();expect(p.altered[0].residue).toBeUndefined()
+ expect(await read(join(f.root,'content/photo-credit-mismatches.json'))).toEqual([{source:'seriouslyfish',photo:photo.url,differs:true,page:'species/alpha'}])
+ const savedSubjects=await read(join(f.root,'engine-state/_photo-subjects.json'));expect(JSON.stringify(savedSubjects)).not.toContain(trip);expect(savedSubjects['https://example.org/legacy.webp'].alpha).toMatchObject({ok:'none',person:false,logo:false,typical:false,note:'subject none'})
+ const shown=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,imageSwitches:flags});expect(shown.species[0]!.photos[0]!.url).toBe(p.url)
+ sources.seriouslyfish.permission.markRemoval.allowed=false;await save(sourcesFile,sources);const revoked=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,imageSwitches:flags});expect(revoked.species[0]!.photos).toHaveLength(0);expect(revoked.galleries.alpha).toBeUndefined()
+})
+
+test('a newly found checking photo on a permitted recorded source is routed to sourcing before any generation',async()=>{
+ const f=await fixture(),file=join(f.cache,'checking-only.png');await writeFile(file,f.bytes);await mkdir(join(f.cache,'references'))
+ await save(join(f.cache,'references/species-alpha.json'),[{file,sourceUrl:facts[0]!.sourceUrl,sha256:sha256(f.bytes)}])
+ const result=await imageSteps(f.root,async()=>f.d,on)
+ expect(result.generated).toBe(0);expect(result.waiting.join()).toContain('real-photo sourcing');expect(f.d.native).not.toHaveBeenCalled();expect(f.d.judge).not.toHaveBeenCalled();expect(f.d.store).not.toHaveBeenCalled()
+ expect((await read(join(f.cache,'source-photo-sourcing.json')))['species/alpha']).toMatchObject({status:'pending-real-photo-sourcing',images:[{source:'seriouslyfish',sourceUrl:facts[0]!.sourceUrl}]})
+})
+
+test('one cached refusal cannot release another pending real candidate on the same page',async()=>{
+ const f=await fixture(),sourceFile=join(f.root,'content/sources.json'),sources=await read(sourceFile)
+ sources.seriouslyfish={name:'Seriously Fish',homepage:'https://www.seriouslyfish.com/',publish:true,permission:{date:'2026-11-10',file:'owner word',scope:['photos','text'],markRemoval:{allowed:true,date:'2026-11-10'}}};await save(sourceFile,sources)
+ await rm(join(f.cache,'no-trace-calibration.json'));await mkdir(join(f.cache,'marked'))
+ const photo={...real,source:'seriouslyfish',sourceUrl:facts[0]!.sourceUrl,licence:'dùng với sự cho phép'}
+ await save(join(f.cache,'marked/z-refused.json'),{page:{kind:'species',id:'alpha'},photo})
+ const second=await sharp({create:{width:100,height:80,channels:3,background:'#112233'}}).png().toBuffer()
+ f.d.get=async url=>url.endsWith('/pending.webp')?second:f.bytes
+ f.d.judge=vi.fn(async(file,_prompt,schema)=>'photos'in(schema as {properties:object}).properties?{photos:[{n:1,ok:file.includes(sha256(f.bytes))?'dead':'yes',person:false,logo:true,typical:true,note:'Original fixture.'}]}:passed) as ImageStepDeps['judge']
+ f.d.locateMark=async()=>({owner:'source',text:'Seriously Fish',sourceUrl:photo.sourceUrl,box:{x0:0,y0:0,x1:100,y1:80}})
+ await imageSteps(f.root,async()=>f.d,{...IMAGE_SWITCHES,removeMarks:true})
+ await save(join(f.cache,'marked/a-pending.json'),{page:{kind:'species',id:'alpha'},photo:{...photo,url:'https://media.aquatome.com/pending.webp'}})
+ const result=await imageSteps(f.root,async()=>f.d,{...on,removeMarks:true})
+ expect(result.waiting.join()).toContain('not calibrated');expect(result.generated).toBe(0);expect(f.d.native).not.toHaveBeenCalled()
+})
+
+test.each(['species-error','species-missing','ownership-error'] as const)('an incomplete %s leaves real recovery pending instead of admitting AI',async stage=>{
+ const f=await fixture(),file=join(f.root,'content/sources.json'),sources=await read(file)
+ sources.seriouslyfish={name:'Seriously Fish',homepage:'https://www.seriouslyfish.com/',publish:true,permission:{date:'2026-11-10',file:'owner word',scope:['photos','text'],markRemoval:{allowed:true,date:'2026-11-10'}}};await save(file,sources)
+ await mkdir(join(f.cache,'marked'));await save(join(f.cache,'marked/real.json'),{page:{kind:'species',id:'alpha'},photo:{...real,source:'seriouslyfish',sourceUrl:facts[0]!.sourceUrl}})
+ f.d.judge=vi.fn(async()=>{if(stage==='species-error')throw Error('transport unavailable');return{photos:stage==='species-missing'?[]:[{n:1,ok:'yes',person:false,logo:true,typical:true,note:'Original fixture.'}]}}) as ImageStepDeps['judge']
+ f.d.locateMark=vi.fn(async()=>{throw Error('transport unavailable')})
+ const flags={...on,removeMarks:true},r=await imageSteps(f.root,async()=>f.d,flags)
+ expect(r.waiting.join()).toContain('real recovery pending');expect(f.d.native).not.toHaveBeenCalled();expect(r.generated).toBe(0)
+ await imageSteps(f.root,async()=>f.d,flags);expect(f.d.native).not.toHaveBeenCalled();await expect(readFile(join(f.cache,'marked/real.json.work'))).rejects.toThrow()
+})
+
+test.each(['mark','generated'] as const)('an enabled %s failure report cannot echo an upstream answer',async kind=>{
+ const f=await fixture(),trip=['TEST','ONLY','IMAGE','FAILURE','WORDS'].join('_')
+ if(kind==='mark'){
+  const file=join(f.root,'content/sources.json'),sources=await read(file)
+  sources.seriouslyfish={name:'Seriously Fish',homepage:'https://www.seriouslyfish.com/',publish:true,permission:{date:'2026-11-10',file:'fixture authority',scope:['photos'],markRemoval:{allowed:true,date:'2026-11-10'}}};await save(file,sources)
+  await mkdir(join(f.cache,'marked'));await save(join(f.cache,'marked/real.json'),{page:{kind:'species',id:'alpha'},photo:{...real,source:'seriouslyfish',sourceUrl:facts[0]!.sourceUrl}})
+  f.d.get=async()=>{throw Error(trip)}
+ }else f.d.extract=async()=>{throw Error(trip)}
+ const report=await imageSteps(f.root,async()=>f.d,kind==='mark'?{...IMAGE_SWITCHES,removeMarks:true,publishAltered:true}:on)
+ expect(report.failed).toHaveLength(1);expect(JSON.stringify(report)).not.toContain(trip)
+ expect(report.failed[0]).toMatch(/photo operation unavailable \[sha256:[a-f0-9]{64}\]$/)
+ expect(report.published).toBe(0);expect(f.d.native).not.toHaveBeenCalled()
 })

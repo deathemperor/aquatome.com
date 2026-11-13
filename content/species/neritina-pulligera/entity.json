@@ -27,57 +27,37 @@
   "range": {
     "native": {
       "countries": [
-        "IN",
-        "SC",
-        "MG",
         "TH",
-        "ID",
-        "AU",
-        "NC",
-        "SB",
-        "FJ",
-        "PH",
-        "JP",
-        "KE",
-        "ZA"
+        "SC"
       ],
-      "regions": [
-        "Celebes",
-        "New Guinea"
-      ],
+      "regions": [],
       "sources": [
-        "aquariumbreeder"
+        "aquariumbreeder",
+        "glaser"
       ],
       "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Pitchblack racing snail (Neritina pulligera). Origin: Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
         {
           "source": "aquariumbreeder",
           "quote": "It is found in South India, Seychelles, Madagascar, Thailand, Indonesia, northwestern Australia, Celebes, New Guinea, New Caledonia, Solomon Islands, Fiji, Philippines, Japan, and the eastern coast of Africa from Kenya to South Africa.",
           "countries": [
-            "IN",
-            "SC",
-            "MG",
-            "TH",
-            "ID",
-            "AU",
-            "NC",
-            "SB",
-            "FJ",
-            "PH",
-            "JP",
-            "KE",
-            "ZA"
+            "SC"
           ],
-          "regions": [
-            "Celebes",
-            "New Guinea"
-          ]
+          "regions": []
         }
       ]
     },
     "records": {
       "taxonKey": 2291424,
       "total": 103,
-      "fetched": "2026-11-10",
+      "fetched": "2026-11-11",
       "countries": [
         [
           "ID",
@@ -197,13 +177,13 @@
           46.40625,
           -15.46875,
           1,
-          1
+          0
         ],
         [
           47.8125,
           -14.0625,
           1,
-          1
+          0
         ],
         [
           54.84375,
@@ -215,19 +195,19 @@
           71.71875,
           18.28125,
           1,
-          1
+          0
         ],
         [
           92.8125,
           9.84375,
           1,
-          1
+          0
         ],
         [
           98.4375,
           -2.8125,
           2,
-          2
+          0
         ],
         [
           99.84375,
@@ -239,25 +219,25 @@
           108.28125,
           -8.4375,
           1,
-          1
+          0
         ],
         [
           108.28125,
           -2.8125,
           1,
-          1
+          0
         ],
         [
           109.6875,
           -8.4375,
           1,
-          1
+          0
         ],
         [
           109.6875,
           -7.03125,
           1,
-          1
+          0
         ],
         [
           109.6875,
@@ -269,37 +249,37 @@
           113.90625,
           0,
           1,
-          1
+          0
         ],
         [
           118.125,
           1.40625,
           1,
-          1
+          0
         ],
         [
           118.125,
           9.84375,
           1,
-          1
+          0
         ],
         [
           119.53125,
           4.21875,
           1,
-          1
+          0
         ],
         [
           119.53125,
           12.65625,
           1,
-          1
+          0
         ],
         [
           120.9375,
           12.65625,
           1,
-          1
+          0
         ],
         [
           120.9375,
@@ -311,13 +291,13 @@
           122.34375,
           23.90625,
           1,
-          1
+          0
         ],
         [
           123.75,
           23.90625,
           2,
-          2
+          0
         ],
         [
           125.15625,
@@ -329,37 +309,37 @@
           125.15625,
           7.03125,
           1,
-          1
+          0
         ],
         [
           126.5625,
           0,
           9,
-          9
+          0
         ],
         [
           126.5625,
           4.21875,
           1,
-          1
+          0
         ],
         [
           127.96875,
           -4.21875,
           5,
-          5
+          0
         ],
         [
           127.96875,
           1.40625,
           1,
-          1
+          0
         ],
         [
           130.78125,
           -1.40625,
           5,
-          5
+          0
         ],
         [
           133.59375,
@@ -371,37 +351,37 @@
           135,
           -4.21875,
           1,
-          1
+          0
         ],
         [
           135,
           -2.8125,
           2,
-          2
+          0
         ],
         [
           136.40625,
           -2.8125,
           1,
-          1
+          0
         ],
         [
           136.40625,
           36.5625,
           2,
-          2
+          0
         ],
         [
           142.03125,
           -14.0625,
           1,
-          1
+          0
         ],
         [
           142.03125,
           -11.25,
           1,
-          1
+          0
         ],
         [
           142.03125,
@@ -413,7 +393,7 @@
           143.4375,
           -14.0625,
           1,
-          1
+          0
         ],
         [
           143.4375,
@@ -431,13 +411,13 @@
           144.84375,
           -18.28125,
           4,
-          4
+          0
         ],
         [
           144.84375,
           -16.875,
           6,
-          6
+          0
         ],
         [
           146.25,
@@ -449,7 +429,7 @@
           147.65625,
           -21.09375,
           1,
-          1
+          0
         ],
         [
           149.0625,
@@ -479,31 +459,31 @@
           156.09375,
           -9.84375,
           1,
-          1
+          0
         ],
         [
           157.5,
           -8.4375,
           1,
-          1
+          0
         ],
         [
           158.90625,
           -9.84375,
           4,
-          4
+          0
         ],
         [
           160.3125,
           -9.84375,
           1,
-          1
+          0
         ],
         [
           165.9375,
           -22.5,
           1,
-          1
+          0
         ],
         [
           167.34375,
@@ -521,19 +501,19 @@
           177.1875,
           -18.28125,
           3,
-          3
+          0
         ],
         [
           178.59375,
           -18.28125,
           1,
-          1
+          0
         ],
         [
           178.59375,
           -16.875,
           1,
-          1
+          0
         ]
       ]
     }
@@ -596,6 +576,12 @@
       "html": "<ul><li>Name: Black Military Helmet Snail</li><li>Other names: Black nerite snail, Baseball cap nerite, Red lipped nerite, Dusky nerite, Black Racer Nerite Snail</li><li>Optimal tank size: 40 litres</li><li>Breeding: very difficult</li><li>Nitrate: less than 40 ppm</li><li>Diet: algae eater/omnivore</li><li>Temperament: peaceful</li><li>Colour: from dark olive to almost black</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/neritina_pulligera_en/",
+      "html": "<p>Pitchblack racing snail (Neritina pulligera). Origin: Thailand.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/neritina-pulligera-detailed-guide-care-diet-and-breeding/",
@@ -644,10 +630,22 @@
       "html": "<p>They are primarily herbivorous. In the wild they mostly eat algae and biofilm on rocks and plants, so keep live plants in the tank to encourage algae growth, and leaves for biofilm. They are one of few nerite species (besides Horned Nerite snails) that may even eat black beard algae.</p><p>Slow-growing large-leaved plants such as Anubias, Cryptocoryne and Java fern are ideal. They can be too heavy for grass-like plants such as dwarf hairgrass and Pogostemon quadrifolius.</p><p>Do not rely on their scavenging alone to survive (unless the tank is huge and full of algae), as they may starve. Supplement with other foods:</p><ul><li>Blanched vegetables (broccoli, cabbage, carrot, cucumber, lettuce, corn, spinach, peas, squash, leafy greens, etc.).</li><li>Fruits (sweet apple, banana, pear, melon, mango, etc.).</li><li>Leaves.</li></ul><p>Calcium is vital for snails, most obviously for shell formation.</p><p>Diet type: mostly herbivore/omnivore. Food preference: algae. Feeding frequency: 2–3 times a week.</p><p>Feeding problems: some aquarists report that their snails eat nothing but algae and biofilm, which becomes a problem once the tank is clean. Algae can be grown on rocks in a separate container:</p><ul><li>Use any transparent container (large bottle, spare tank, etc.).</li><li>Fill it with water from water changes.</li><li>Add many small, clean, aquarium-safe rocks such as marble chips and ceramic filter media.</li><li>Leave it under the strongest lighting available, ideally 24/7.</li><li>Optional: add a fertiliser for plants and/or an airstone to boost algae growth.</li><li>Once the rocks turn green, place a few in the tank for the snails, then repeat.</li></ul><p>Keep training the snails to eat algae wafers and vegetables, giving them time to learn these are food.</p><p>Plant safety: they are safe in planted tanks. They only graze on plant surfaces and have no interest in eating live plants.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/neritina_pulligera_en/",
+      "html": "<p>Like its close relative, the Zebra snail Neritina turrita, this snail is an excellent algae eater.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/neritina-pulligera-detailed-guide-care-diet-and-breeding/",
       "html": "<p>They are non-aggressive, solitary and very shy, and need a calm environment and peaceful tank mates. Like most snails they are nocturnal; activity starts at dusk and gradually stops before sunrise, mainly to avoid visual predators while feeding. At dusk, algae hold maximum nutrients at the end of the photosynthetic period, which suits grazers.</p><p>They are not natural diggers; even if they can burrow in soft substrate, they do not move under it.</p><p>When disturbed or threatened they close the shell completely with the operculum, and it may take time before they move again.</p><p>Social: no. Active: at night. Peaceful: yes. Burrower: no.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/neritina_pulligera_en/",
+      "html": "<p>Experience with this snail is that they do not leave the water, in contrast to other species of the genus.</p>"
     },
     {
       "key": "dimorphism",
@@ -660,6 +658,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/neritina-pulligera-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Black Military Helmet snails are not successfully bred in captivity. All available animals are wild-caught, which poses a potential biohazard and depletes natural populations. No successful breeding in laboratory conditions has been reported either. They need brackish water to breed and do not reproduce in freshwater.</p><p>The scarce scientific information says:</p><ul><li>Neritidae have internal fertilisation and encapsulate their eggs afterwards.</li><li>Females can store sperm from males, which permits continuous spawning.</li><li>Eggs are protected in a hard capsule, relatively large (1.4–1.8 mm long).</li><li>Each capsule contains 200 to 300 embryos (veliger larvae).</li><li>Females deposit clusters of 4–39 egg capsules, with about 10 minutes between ovipositions.</li><li>Capsules are usually attached to rocky substrate and to the shells of other snails.</li><li>In nature, females release free-swimming veligers into freshwater, where the current sweeps them into brackish lagoons or the open sea.</li><li>The veligers remain in marine plankton for at least several weeks, completing metamorphosis into small copies of the adults.</li><li>The larvae cannot develop in freshwater.</li><li>The veligers feed on microplankton (phyto- and zooplankton).</li></ul><p>By laying capsules on the shells of other snails, they increase their survival rate. The eggs and markings eventually dissolve in freshwater.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/neritina_pulligera_en/",
+      "html": "<p>The species does not breed in the aquarium.</p>"
     },
     {
       "key": "notes",
@@ -738,5 +742,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-11"
 }

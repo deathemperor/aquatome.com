@@ -31,6 +31,12 @@
             "CO",
             "VE"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Orinoco river basin in Colombia and Venezuela.",
+          "countries": [],
           "regions": [
             "Orinoco"
           ]
@@ -295,6 +301,13 @@
           "min": 24,
           "max": 27
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
       }
     ],
     "ph": [
@@ -351,6 +364,12 @@
       "html": "<p>The twig catfish, Farlowella vittata, is a stick-like loricariid from the Orinoco river basin in Colombia and Venezuela. This is the most common Farlowella in hobbyists' tanks, although much of the literature refers to it as F. acus, which has a shorter, less slender rostrum. It is super sensitive to poor water quality and should only go into an established aquarium with a good biofilm, algae or dried leaves.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_vittata_en/",
+      "html": "<p>The needle suckers of the genus Farlowella are quite speciose: to date 27 species are recognized as valid. Farlowella vittata is the species most often imported into the hobby from Colombia.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
@@ -361,6 +380,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
       "html": "<p>Orinoco river basin in Colombia and Venezuela. Type locality: A tributary of Río Uribanto [Uribante], Tachira State, Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_vittata_en/",
+      "html": "<p>Colombia.</p>"
     },
     {
       "key": "habitat",
@@ -381,16 +406,34 @@
       "html": "<p>A dimly lit stream-type setup with a sand substrate, rounded stones and rocks and lots of driftwood branches would simulate its natural biotope. However, it is equally at home in a planted tank. It is essential that the water is well-oxygenated, preferably with a small degree of current running through the tank. Tank maintenance must be of the highest order as the species is super sensitive to poor or deteriorating water conditions.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_vittata_en/",
+      "html": "<p>Keeping and even breeding Farlowella vittata in the aquarium is not difficult. The perfect tank for Farlowella has a fine layer of algae growing on all sides of the tank except the front glass. Planting should preferably consist of plants with broad leaves.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
       "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 6.0–7.0</li><li>Hardness: 3–10 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_vittata_en/",
+      "html": "<p>F. vittata likes higher temperatures, so the water temperature should be between 26 and 30°C. Hardness and pH are of no importance to the fish as long as extremes are avoided.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
       "html": "<p>Primarily vegetarian, so the bulk of the diet should be composed of vegetable matter in both fresh (cucumber slices, kale, blanched spinach etc.) and dried (algae wafers, spirulina tablets etc.) forms. It will accept small live and frozen foods such as bloodworm or daphnia and these should also be offered occasionally, although never as a main component of the diet.</p><p>This species will continually graze surfaces of plant leaves, wood, rock, the substrate and tank walls. It is an excellent consumer of diatoms and common green algae but will not eat troublesome algae like brush or beard.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_vittata_en/",
+      "html": "<p>The algae growing in the tank serve as basic food for the fish, but Farlowella also feed readily on all the usual types of dried and frozen fish food. Take care that the needle suckers get enough food, as they are very slow feeders.</p>"
     },
     {
       "key": "behaviour",
@@ -417,6 +460,12 @@
       "html": "<p>Of the 27 described species of Farlowella found throughout South America, only two are regularly exported. Most of the existing literature refers to these as F. acus and F. gracilis. F. acus is a species that is highly endangered and imported very rarely, if at all, and F. vittata rather than F. acus is the most common representative of the genus in hobbyists' tanks. The easiest way to distinguish the two is by comparing the shape of the rostrum, which is longer and more slender in vittata, although there are also differences in the arrangement of the ventral scutes.</p><p>This fish is truly a camouflage expert among aquarium fish; hanging or sitting motionless on a branch they are easily unnoticed. They move from surface to surface, usually with short \"hops;\" swimming when necessary is achieved by body undulations and propulsion from the caudal fin. They are believed to have a lifespan of up to 15 years; their frequent demise in aquaria is likely due to their demand for stable water parameters and conditions, and they should only be introduced to an established aquarium containing a good biofilm, algae or dried leaves. They do not appreciate being moved, and once introduced to an aquarium should be left alone.</p><p>Like most of the South American catfish, they are sensitive to chemicals and medications; when irritating substances are present in the water they will frequently select a plant leaf or object near the surface and remain motionless with their rostrum protruding above the water in an attempt to gain oxygen, and an immediate substantial partial water change should be undertaken.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_vittata_en/",
+      "html": "<p>As many species look very similar to each other, exact determination is often difficult. The 27th species was described very recently from Colombia (Farlowella yarigui, which has not been imported alive so far). Its scientific description is accompanied by a key to identify the 12 species of Farlowella known so far from Colombia. According to that key, the most often imported species of Farlowella in the hobby is in fact Farlowella vittata. It will undoubtedly take quite a long time until the correct name is commonly used in the trade; until now the Farlowella from Colombia has usually been called F. acus.</p><p>F. acus does occur in Colombia and is very similar to F. vittata, but there is one easily recognizable difference: in F. acus the males develop breeding odontodes (a \"beard\") on the snout, which is missing in ripe males of F. vittata.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
@@ -434,17 +483,6 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
       "caption": "Female F. vittata holding onto a branch of spiderwood.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/94ef004e440a791a.webp",
-      "thumb": "https://media.aquatome.com/scotcat/94ef004e440a791a-480.webp",
-      "width": 500,
-      "height": 284,
-      "licence": "dùng với sự cho phép",
-      "author": "Yann Fulliquet / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_vittata.htm",
-      "caption": "Farlowella vittata: head view",
-      "source": "scotcat"
     },
     {
       "url": "https://media.aquatome.com/scotcat/c5fa0aea71e4bc66.webp",
@@ -466,17 +504,6 @@
       "author": "ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_vittata.htm",
       "caption": "Farlowella vittata: ventral view",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/fd69d5234a9b6c10.webp",
-      "thumb": "https://media.aquatome.com/scotcat/fd69d5234a9b6c10-480.webp",
-      "width": 500,
-      "height": 312,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_vittata.htm",
-      "caption": "Farlowella vittata",
       "source": "scotcat"
     }
   ],
@@ -534,5 +561,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-07"
+  "updatedAt": "2026-11-11"
 }

@@ -79,6 +79,14 @@ final class HandbookModel {
   private let drawn: PageCache
   /// The site's copy has been read this run: showing the tab again doesn't fetch it again (pull to refresh does).
   private var fetched = false
+  /// When the index in use was last read: coming back to the front reads it again once it's older than `staleAfter`
+  /// (`cameToFront`). Else an app left open kept the first one until iOS ended it, days on (the owner, 11 Nov: build 347's
+  /// longer lists, put on the site that evening, didn't show).
+  private var readAt: Date?
+  #if DEBUG
+  /// UI tests (`-index-changes-after <s>`): the site's index has changed, once a read came that long after the one before.
+  @ObservationIgnored private var siteChanged = false
+  #endif
   #if DEBUG
   /// UI tests (`-pages-later`): the fixed index, with its `pages`, held back until a page opens.
   private var pagesLater: HandbookIndex?
@@ -276,10 +284,36 @@ final class HandbookModel {
     if !fetched { await load() }
   }
 
+  /// How old the index in use may be when the app comes back to the front: 15 minutes, as a reader back after a break sees
+  /// what the site put up meanwhile. UI tests shorten it (`-index-stale-after <s>`).
+  static var staleAfter: TimeInterval {
+    #if DEBUG
+    let args = ProcessInfo.processInfo.arguments
+    if let i = args.firstIndex(of: "-index-stale-after"), i + 1 < args.count, let s = TimeInterval(args[i + 1]) { return s }
+    #endif
+    return 15 * 60
+  }
+
+  /// Back in front: the index read again if the one in use is older than `staleAfter`. In place, as a pull to refresh
+  /// reads it: the shelves and pages shown stay until it comes, so nothing flashes and the reader stays where they were.
+  /// Not before a first read (the tabs' `appear` has that), so not at launch.
+  func cameToFront(now: Date = .now) async {
+    guard let readAt, now.timeIntervalSince(readAt) >= Self.staleAfter else { return }
+    await load()
+  }
+
   /// The kept copy first (instant, offline) if nothing is shown yet, then the site's current one.
   func load() async {
-    if case .fixed(let ix) = source {
+    if case .fixed(var ix) = source {
       #if DEBUG
+      // `-index-changes-after <s>`: a read that long after the one before finds the site's index changed, and so does every
+      // read after it: a fish just added comes first on Khám phá's shelf ("Cá mới đến").
+      let args = ProcessInfo.processInfo.arguments
+      if let i = args.firstIndex(of: "-index-changes-after"), i + 1 < args.count, let s = TimeInterval(args[i + 1]),
+         let readAt, Date().timeIntervalSince(readAt) >= s {
+        siteChanged = true
+      }
+      if siteChanged { ix = ix.withAFishJustAdded() }
       if ProcessInfo.processInfo.arguments.contains("-pages-later"), pagesLater == nil, count == 0 {
         pagesLater = ix
         return use(HandbookIndex(lang: ix.lang, items: ix.items, home: ix.home, labels: ix.labels, places: ix.places, telemetry: ix.telemetry), .ready)
@@ -292,6 +326,7 @@ final class HandbookModel {
       if ProcessInfo.processInfo.arguments.contains("-index-later"), count == 0 { try? await Task.sleep(for: .seconds(2)) }
       #endif
       use(ix, .ready)
+      readAt = .now
       #if DEBUG
       if ix.latest != nil { whatsNew = HandbookIndex.fixtureLatest }
       #endif
@@ -308,6 +343,7 @@ final class HandbookModel {
       let ix = try JSONDecoder().decode(HandbookIndex.self, from: data)
       try? data.write(to: file, options: .atomic)
       use(ix, .ready)
+      readAt = .now
       // What's new after it, the index shown without waiting; left for another tab, both are read again when it shows.
       switch await latestFile.read(ix.latest) {
       case .noList: whatsNew = nil
@@ -355,6 +391,10 @@ final class HandbookModel {
   static func defaultSource() -> Source {
     #if DEBUG
     let args = ProcessInfo.processInfo.arguments
+    // `-index-file PATH`: the index read from a file on this Mac (one built from today's content), for parity shots with the
+    // site's real pages.
+    if let i = args.firstIndex(of: "-index-file"), i + 1 < args.count, let data = FileManager.default.contents(atPath: args[i + 1]),
+       let ix = try? JSONDecoder().decode(HandbookIndex.self, from: data) { return .fixed(ix) }
     if args.contains("-large-handbook") { return .fixed(.large) }
     if args.contains("-fixed-handbook") {
       // `-vi-at-root`: the site has taken "/vi" out of its Vietnamese pages' addresses.
@@ -378,6 +418,13 @@ final class HandbookModel {
       }
       // `-plan`: the editors have planned Hôm nay's days (`fixtureDays`).
       var home = f.home
+      // `-familiar N`: Khám phá's fish shelf runs long, N fish after the fixture's own, as the hobbyists' list does.
+      if let n = args.firstIndex(of: "-familiar").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }), n > 0 {
+        let more = (1...n).map { HandbookIndex.Item(kind: .fish, contentId: "quen-\($0)", name: "Cá quen \($0)", sub: "Genus familiaris", path: "/vi/ca/ca-quen-\($0)/", group: "tetras") }
+        items += more
+        let browse = HandbookIndex.Home.Browse(fish: (home?.fish ?? []) + more.map(\.path), plants: home?.plants ?? [], guides: home?.guides ?? [])
+        home?.browse = browse
+      }
       if args.contains("-plan") { home?.days = HandbookIndex.fixtureDays }
       // `-site-telemetry`: the site takes the app's anonymous telemetry (the fixed index says nothing of it otherwise).
       return .fixed(HandbookIndex(lang: f.lang, items: items, home: home, labels: f.labels, pages: pages, places: f.places,
@@ -400,7 +447,8 @@ final class HandbookModel {
         : launch.contains("-vi-at-root") ? HandbookIndex.fixturePagesAtRoot
         : launch.contains("-newer-part") ? HandbookIndex.fixturePagesWithANewerPart
         : launch.contains("-long-page") ? HandbookIndex.fixturePagesLong
-        : launch.contains("-long-part") ? HandbookIndex.fixturePagesWithLongParts : HandbookIndex.fixturePages
+        : launch.contains("-long-part") ? HandbookIndex.fixturePagesWithLongParts
+        : launch.contains("-lead-in-gallery") ? HandbookIndex.fixturePagesLeadInGallery : HandbookIndex.fixturePages
       // `-slow-pages`: a page that takes its time to be read.
       let slow = launch.contains("-slow-pages")
       return PageCache(dir: dir, site: site, fetch: { _ in
@@ -581,6 +629,10 @@ extension HandbookIndex {
   static let fixturePagesWithANewerPart = Data(String(decoding: fixturePages, as: UTF8.self)
     .replacingOccurrences(of: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]}"#,
                           with: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]},{"t":"quiz","q":"Cá neon ăn gì?"}"#).utf8)
+  /// UI tests (`-lead-in-gallery`): the fixture's pages, the neon's top photo the first of its gallery's, as a live page's
+  /// is: the photos under the top are one fewer than the gallery.
+  static let fixturePagesLeadInGallery = Data(String(decoding: fixturePages, as: UTF8.self)
+    .replacingOccurrences(of: #""lead":{"src":"https://media.aquatome.com/a/neon.webp""#, with: #""lead":{"src":"https://media.aquatome.com/g/n1.webp""#).utf8)
   /// UI tests (`-long-part`): the fixture's pages, the neon's feeding six paragraphs long and its breeding one long
   /// paragraph with a link: parts that fold.
   static let fixturePagesWithLongParts = Data(String(decoding: fixturePages, as: UTF8.self)
@@ -632,5 +684,19 @@ extension HandbookIndex {
   /// Orders and families as the site's are (its longest names among them), for the large index's fish.
   private static let largeTaxa = [["Cypriniformes", "Cyprinidae"], ["Characiformes", "Characidae"], ["Siluriformes", "Loricariidae"],
                                   ["Cyprinodontiformes", "Nothobranchiidae"], ["Anabantiformes", "Osphronemidae"], ["Perciformes", "Cichlidae"]]
+}
+#endif
+
+#if DEBUG
+extension HandbookIndex {
+  /// The same index with a fish the site has just added, first on Khám phá's fish shelf (`-index-changes-after`).
+  func withAFishJustAdded() -> HandbookIndex {
+    let fish = Item(kind: .fish, contentId: "moi-den", name: "Cá mới đến", sub: "Genus novus", path: "/vi/ca/ca-moi-den/", group: "tetras")
+    let browse = Home.Browse(fish: [fish.path] + (home?.browse?.fish ?? home?.fish ?? []), plants: home?.browse?.plants ?? home?.plants ?? [],
+                             guides: home?.browse?.guides ?? home?.guides ?? [])
+    var home = home
+    home?.browse = browse
+    return HandbookIndex(lang: lang, items: items + [fish], home: home, labels: labels, pages: pages, places: places, telemetry: telemetry, latest: latest)
+  }
 }
 #endif

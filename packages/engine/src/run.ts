@@ -9,7 +9,7 @@ import { LlmError, type Llm } from './claude'
 import { deeperPages, depthReport, popularityOrder, readSearchCache, runOrder, saveSearchCache, searchThin, thinSpecies, type DepthReport } from './depth'
 import { discover } from './discover'
 import { ChallengeError, type ChromeFetcher } from './fetch'
-import { gbifMatch, type Taxon } from './gbif'
+import { gbifMatch, pageTaxon, type Taxon } from './gbif'
 import { ensurePlaces, guideId, mergePlant, mergeSpecies, writeGuide } from './merge'
 import { METRIC_KINDS } from './metric'
 import { htmlToOutline, isChallenge, type PageImage } from './outline'
@@ -18,7 +18,7 @@ import { withSections } from './guide-sections'
 import { processPage, type ProcessedPage } from './process'
 import { readVarietyPages, recordVarietyPage } from './species-sources'
 import { rewriteVi, VI_WRITE } from './vi-rewrite'
-import { QUALITY_THRESHOLD, gate, reviewTranslation } from './quality'
+import { QUALITY_THRESHOLD, gate, reviewTranslation, steadyRead, WRITER_BAND } from './quality'
 import { logReviews, type Review } from './review-log'
 import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
@@ -29,6 +29,7 @@ import { findVideos, readVideoRejected } from './videos'
 import { popularFirst } from './shops'
 import { acceptedNames, addSourceNames, candidates, resolveWanted, wantedFirst, wantedIn, withPopular, type Wanted } from './wanted'
 import { addReaders, readersReport, type ReaderRow, type ReaderWant } from './readers-wanted'
+import { WikimediaRefused } from './wikimedia-rest'
 
 /** How a source is read. `capturedAt`: the date of the archive's copy, for a source read through it. */
 type Reader = Pick<ChromeFetcher, 'text' | 'links' | 'bytes'> & { get(url: string): Promise<{ status: number; html: string; finalUrl: string; capturedAt?: string }> }
@@ -166,9 +167,12 @@ function combineQuality(prev: Translation['quality'] | undefined, source: Source
 const outranked = (sections: Section[] | undefined, source: SourceId, url: string, incoming: number) =>
   (sections ?? []).filter(x => x.source === source && x.sourceUrl !== url).length > incoming
 
-/** Optional enrichment never fails a page. */
-async function soft<T>(what: string, f: () => Promise<T>, fallback: T): Promise<T> {
-  try { return await f() } catch (e) { if (e instanceof ArchiveRefused) throw e; console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
+/**
+ * Optional enrichment never fails a page. A refusal is not "nothing found": the archive's stops the source, and
+ * Wikimedia's leaves the page unmarked, to be read again once the rest ends (wikimedia-rest.ts).
+ */
+export async function soft<T>(what: string, f: () => Promise<T>, fallback: T): Promise<T> {
+  try { return await f() } catch (e) { if (e instanceof ArchiveRefused || e instanceof WikimediaRefused) throw e; console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
 }
 
 /**
@@ -239,12 +243,13 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     if (page.kind === 'skip') return { page, score: 1, tries: [] }
     page = await polish(page, input.outline)
     const pairs = (p: ProcessedPage) => (p.kind === 'guide' ? [{ en: input.outline, vi: p.guide?.viBody ?? '' }] : p.sections)
-    const tries = [await reviewTranslation(llm, pairs(page))]
+    // Near the bar (WRITER_BAND), read three times: the middle read counts.
+    const tries = [await steadyRead(() => reviewTranslation(llm, pairs(page)), WRITER_BAND)]
     if (gate(tries[0]!.score, false) === 'retry') {
       page = await processPage(llm, { ...input, notes: tries[0]!.notes })
       if (page.kind === 'skip') return { page, score: 1, tries: [] }
       page = await polish(page, input.outline)
-      tries.push(await reviewTranslation(llm, pairs(page)))
+      tries.push(await steadyRead(() => reviewTranslation(llm, pairs(page)), WRITER_BAND))
     }
     return { page, score: tries.at(-1)!.score, tries }
   }
@@ -262,8 +267,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     }
     if (page.kind === 'species') {
       // A name newer than GBIF (the 2024 Corydoras split: Hoplisoma sterbai) is found under a synonym the page gives.
-      let taxon = await gbifMatch(page.scientificName!, http, gbifCache)
-      for (const syn of page.synonyms) if (!taxon) taxon = await gbifMatch(syn, http, gbifCache)
+      const taxon = await pageTaxon([page.scientificName!, ...page.synonyms], page.group, n => gbifMatch(n, http, gbifCache))
       if (!taxon) return null
       // A page about one variety or strain says what that line is, not the species: kept off its page (species-sources.ts).
       if (page.variety || varietyPages[url]) {
@@ -451,6 +455,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       } catch (e) {
         // Nothing is wrong with the page, so nothing is marked on it, and the source waits with the archive.
         if (e instanceof ArchiveRefused) { report.errors.push(`${id}: not read: ${e.message}`); break }
+        // Wikimedia resting: the page waits, unmarked and with its attempts, and the source goes on.
+        if (e instanceof WikimediaRefused) { report.errors.push(`${url}: waits for Wikimedia: ${e.message}`); continue }
         const message = (e as Error).message
         counts.errors++
         report.errors.push(`${url}: ${message}`)

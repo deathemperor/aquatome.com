@@ -470,12 +470,21 @@ func shelfCard(_ w: CGFloat, across: CGFloat, spacing: CGFloat) -> CGFloat {
   (w + 20 - 36 - across * spacing) / across
 }
 
-/// A card pressed: it gives a little under the finger, as the App Store's do.
+/// A card pressed: it gives a little under the finger, as the App Store's do; with Reduce Motion it dims a little instead
+/// of moving.
 struct CardPress: ButtonStyle {
-  func makeBody(configuration: Configuration) -> some View {
-    configuration.label
-      .scaleEffect(configuration.isPressed ? 0.97 : 1)
-      .animation(.spring(response: 0.3, dampingFraction: 0.7), value: configuration.isPressed)
+  func makeBody(configuration: Configuration) -> some View { Pressed(configuration: configuration) }
+
+  private struct Pressed: View {
+    let configuration: Configuration
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    var body: some View {
+      configuration.label
+        .scaleEffect(configuration.isPressed && !reduceMotion ? 0.97 : 1)
+        .opacity(configuration.isPressed && reduceMotion ? 0.8 : 1)
+        .animation(reduceMotion ? .easeInOut(duration: 0.1) : .spring(response: 0.3, dampingFraction: 0.7), value: configuration.isPressed)
+    }
   }
 }
 

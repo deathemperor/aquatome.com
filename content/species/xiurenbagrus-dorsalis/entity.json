@@ -1,0 +1,75 @@
+{
+  "id": "xiurenbagrus-dorsalis",
+  "scientificName": "Xiurenbagrus dorsalis",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Xiurenbagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "guangxi"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_dorsalis.htm",
+      "html": "<p>Family: Amblycipitidae. Size: 5 cm. Temperature: 18–22°C. pH: 6.5–7.5. Distribution: Asia: China, Guangxi.</p><p>There are three species in the genus Xiurenbagrus: X. dorsalis, X. xiurenensis and X. gigas.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_dorsalis.htm",
+      "html": "<p>Asia: China, Guangxi. This species only occurs in one county and underground cave system in Guangxi Province, China. It is restricted to an area of occupancy and extent of occurrence of 4 km2, and only 1 threat-based location. All three species of the genus are distributed in the Pearl River basin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_dorsalis.htm",
+      "html": "<p>Inhabits a very small underground stream with substrate of small rocks. The stream flows across the bottom of the well. A pump is connected to a 4 m depth well with plastic piping. The type specimen emerged through the water during pumping.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_dorsalis.htm",
+      "html": "<p>Xiurenbagrus dorsalis can be diagnosed from its congeners by the following combination of characters: 7 dorsal-fin branched rays (vs. 6 in X. xiurenensis and X. gigas); pelvic-fin origin opposite base of fourth branched dorsal-fin ray (pelvic-fin insertion posterior to dorsal-fin base in the other two species); serrations absent on the posterior edge of pectoral-fin spine (vs. strong serrations present); adipose fin confluent with caudal fin (vs. adipose fin posteriorly with a free flap and not confluent); maxillary barbel longer than head length and reaching posterior tip of pectoral-fin (vs. shorter than head length); eyes absent (vs. small eyes present). Dorsal soft rays (total): 8; anal soft rays: 12.</p><p>Though it is a blind catfish, it is placed in Xiurenbagrus because of the presence of two patches of vomerine teeth, a character not found in any other Amblycipitidae except the genus Xiurenbagrus.</p><p>Etymology: dorsalis refers to the unique position of the dorsal-fin origin (posterior to a vertical line at the tip of the pectoral fins) compared with its congeners.</p><p>IUCN Red List: the habitat is severely impacted by underground water use for agriculture by locals, and a continuing decline is inferred. The species is assessed as Critically Endangered and requires immediate protection (IUCN 2024).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_dorsalis.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2017. FishBase. World Wide Web electronic publication. www.fishbase.org, version (08/2017).</p><p>Shao, W. 2024. Xiurenbagrus dorsalis. The IUCN Red List of Threatened Species 2024.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p><p>Xiu, L.-H., J. Yang and H.-F. Zheng, 2014. An extraordinary new blind catfish, Xiurenbagrus dorsalis (Teleostei: Siluriformes: Amblycipitidae), from Guangxi, China. Zootaxa 3835(3):376-380.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-11"
+}

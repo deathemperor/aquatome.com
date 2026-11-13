@@ -5,9 +5,10 @@ import { expect, test } from 'vitest'
 import {
   blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
   imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
-  renameStored, renameSwapped, swappedNames, titleCount, vietnameseLeft, wrongFish, type Ctx,
+  renameStored, renameSwapped, swappedNames, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
+import { phraseSlips } from '../src/phrases'
 
 const page = (o: Partial<Page>): Page => ({ lang: 'vi', kind: 'guides', id: 'g', title: 'T', path: '/vi/huong-dan/g/', fields: [], lines: [], captions: [], latinNames: [], card: [], ...o })
 const found = (p: Page, rule: string) => checkPages([p], RULES.filter(r => r.id === rule)).findings.map(f => f.detail)
@@ -124,7 +125,104 @@ test('a map shown as a photo of the fish, in a caption', () => {
   expect(found(p, 'caption')).toEqual(['a map, not the fish: "Pterophyllum scalare map"', 'a map, not the fish: "Bản đồ phân bố"'])
 })
 
+// The owner's report, 2026-11-11: the only photo of Hemichromis elongatus was a parasite paper's plate from Wikimedia
+// Commons. A Commons photo's own words (its file's name, and the start of its description as its caption) say so.
+test("a paper's plate, a drawing or a dish from Wikimedia Commons shown as a photo of the fish, by the file's own words", () => {
+  const p = page({ kind: 'species', sci: 'Hemichromis elongatus', captions: [
+    { url: 'a', file: 'File:Parasite180080-Figure4 Compound micrographs of Cychlidogyrus spp. (Monogenea, Dactylogyridae).png', caption: 'Figure 4 of paper Compound micrographs of (a–c) Cichlidogyrus bixlerzavalai n. sp.' },
+    { url: 'b', file: 'File:Aquatic Biodiversity in the Amazon (1020205-f7).png', caption: 'Examples of species collected only in the Alto Purús.(A) Cichlasoma boliviense, 79 mm.(B) Dianema longibarbis, 73 mm.(C) Pimelodus sp. 2, 112 mm.' },
+    { url: 'c', file: 'File:EB9 - Angling - Fig 27.png', caption: 'Fig. 27.—The Tench.' },
+    // One plain photo named as a figure stays, and so does a photo from anywhere else, whatever its caption says.
+    { url: 'd', file: 'File:Clarias leiacanthus (10.3897-BDJ.11.e100337) Figure 20.jpg', caption: 'Figure 20 Clarias leiacanthus.' },
+    { url: 'e', caption: 'Figure 2; (a) male (b) female' },
+    // One photo of a pair, and a photo once filed under another name: only a look tells, so neither is taken off for good.
+    { url: 'f', file: 'File:Hemichromis elongatus pair.jpg', caption: 'Male (A) and female (B) Hemichromis elongatus, same tank.' },
+    { url: 'g', file: 'File:Hemichromis elongatus.jpg', caption: 'Hemichromis elongatus, first misidentified as another jewel cichlid.' },
+  ] })
+  expect(found(p, 'caption')).toEqual([
+    'not a photo: micrographs, not the fish: "Figure 4 of paper Compound micrographs of (a–c) Cichlidogyrus bixlerzavalai n.…"',
+    'not a photo: a paper\'s plate, (a), (b), (c), not the fish: "Examples of species collected only in the Alto Purús.(A) Cichlasoma boliviense,…"',
+    'drawing: EB9, not the fish: "Fig. 27.—The Tench."',
+  ])
+})
+
 // Live on two Seriously Fish species pages (2026-11-03): an ad player's poster taken from inside the source's article.
+// The owner's report, 2026-11-11: a sick betta on its page, then three fish their source called unwell. These are the 21
+// captions a first, wider word list hit over 14,615: 14 the source's own words, 7 hit wrongly.
+test("a caption in which the source calls the fish unwell, or names a split fin in passing; not a shipwreck, dead corals, breeding tubercules or a caption of ours", () => {
+  const kind = (c: string) => captionFlaw(c)?.kind
+  for (const c of [
+    'Recently-deceased specimen.', 'Two dead specimens of different ages, younger below.', 'Newly-imported, hence a little skinny, male of Barboides gracilis.', 'Skinny juvenile of Callochromis macrops',
+    '...and can be violent affairs as this wounded specimen exemplifies.', 'Individual missing an eye due to conspecific aggression in the confines of an aquarium.',
+    // Damage with a fight behind it is no blemish.
+    'Male specimen with fin damage caused by another male.', 'Male with fins torn in a fight.',
+    'Specimen with a fungal infection on the tail.', 'Adult with fungus on its fins.', 'Adult with fin rot.',
+    // A place after the damage is where the fish is. And the worse of two sentences counts.
+    'Male with badly torn fins in a river.', 'Split fin; badly damaged tail.', 'Fin damage due to conspecific aggression.', 'A serious injury to the tail.',
+    // Kept on purpose: a dead fish is in the picture, which no page shows.
+    'Healthy adult feeding on dead fish.',
+  ]) expect(kind(c), c).toBe('unwell')
+  for (const c of [
+    // "Damaged" with no "slightly", and "minor injuries" of a split fin: still said in passing of an ordinary fish.
+    'Individuals on sale in the Korean aquarium trade. The fish in the centre of the image has a damaged upper caudal-fin lobe.',
+    'Note the split caudal-fin of the fish to the left; minor injuries such as this are not uncommon.',
+    'Another specimen of R. dorsinotata with a slightly damaged caudal fin.', 'Subadult with slightly damaged caudal-fin.', 'Specimen from the Singapore aquarium trade with slight damage to lower caudal-fin lobe.',
+    'Adult specimen with slight caudal-fin damage.', 'Adult male individual with slightly-damaged caudal-fin.',
+    // Torn with no fight named. And damage is weighed in its own sentence: what the fish bites is another matter.
+    'Fins torn in transit.', 'Slightly damaged fin; this species bites at plants.',
+    // Only another fish makes damage a fight's. And the fight in a sentence of its own is missed, on the keeping side.
+    'Slight fin damage caused by transport.', 'Fins torn; caused by fighting.',
+    // A fight or a degree counts where it is said of the damage, not in the fish's name or of the tank.
+    'Siamese fighting fish with a slightly damaged caudal fin.', 'Fighter with a torn fin.', 'A torn fin in a Siamese fighting fish.', 'Male in a heavily planted tank with a torn fin.', 'An aggressive male with a split fin.',
+  ]) expect(kind(c), c).toBe('blemish')
+  for (const c of [
+    'Vài con cá piranha bụng đỏ bơi trong bể có xác tàu', 'Cá hổ báo biến dạng màu cam đen nhìn từ dưới trong bể',
+    // A caption of ours with the English words in it is still ours, not the source's.
+    'Cá piranha bụng đỏ rỉa một con cá chết (dead fish) trong bể', '...though physical damage is rare.', 'School of Monodactylus argenteus swimms above dead corals at Madagascar',
+    "I named him Rambo. He came with the aquarium I bought when 10 years old or so. When I was about 17 he died, shortly after which I sold my aquarium.",
+    'The tubercules on the snout and raised rows of soft, raised, tuberculated tissue on the anterior pectoral rays are clearly visible here.', 'Detail of tubercules on snout; specimen from northern Peninsular Malaysia.',
+    'Adult male.', undefined,
+    // Injuries said to be rare are none, a place's damage is not the fish's, and a fungus it eats is no infection.
+    'Males often fight but injuries are rare.', 'Habitat heavily damaged by logging.', 'It grazes on algae and fungus.',
+    // What a sentence denies, a fungus that is not on the fish, and an illness said of the species, not of this fish.
+    'No signs of fungal infection.', 'This fish is not sick.', 'No damage to the fins.', 'Fungus on the submerged log provides food.', 'This species is prone to infection in hard water.',
+  ]) expect(kind(c as string), c).toBeUndefined()
+  // On a breed's page a deformity or a growth can be the breed's own shape, and is not asked; the rest is.
+  for (const c of ['A balloon molly with its deformed spine.', 'The cap, a tumour-like growth over the head.']) {
+    expect(kind(c), c).toBe('unwell')
+    expect(captionFlaw(c, true), c).toBeUndefined()
+  }
+  expect(captionFlaw('Recently-deceased specimen.', true)?.kind).toBe('unwell')
+})
+
+test("a photo of an unwell fish fails its page where the page has another photo of its own, its gallery's too; a page's only photo, a plant's and a guide's do not", () => {
+  const dead = { url: 'a', caption: 'Recently-deceased specimen.' }, well = { url: 'b', caption: 'Adult male.' }, album = { url: 'g', caption: 'Two dead specimens of different ages.' }, split = { url: 's', caption: 'Adult specimen with slight caudal-fin damage.' }
+  expect(found(page({ kind: 'species', own: ['a', 'b', 's'], captions: [dead, well, split, album] }), 'unwell')).toEqual(['deceased: "Recently-deceased specimen."', 'dead specimens: "Two dead specimens of different ages."'])
+  expect(found(page({ kind: 'breeds', own: ['a', 'b'], captions: [dead, well] }), 'unwell')).toEqual(['deceased: "Recently-deceased specimen."'])
+  // A breed's gallery is read too, and its own shape is not called unwell.
+  expect(found(page({ kind: 'breeds', own: ['b'], captions: [well], album: [album] }), 'unwell')).toEqual(['dead specimens: "Two dead specimens of different ages."'])
+  expect(found(page({ kind: 'breeds', own: ['a', 'b'], captions: [{ url: 'a', caption: 'A balloon molly with its deformed spine.' }, well] }), 'unwell')).toEqual([])
+  // The page's only photo stays: nothing to fix, so nothing found. With two and nothing else, the first stays.
+  expect(found(page({ kind: 'species', own: ['a'], captions: [dead] }), 'unwell')).toEqual([])
+  expect(unwellOff(page({ kind: 'species', own: ['a'], captions: [dead] }))).toEqual({ off: [], kept: { url: 'a', word: 'deceased' } })
+  expect(unwellOff(page({ kind: 'species', own: ['a', 'g'], captions: [dead, album] }))).toEqual({ off: [{ url: 'g', word: 'dead specimens' }], kept: { url: 'a', word: 'deceased' } })
+  // A photo that is the page's own and in its gallery too is one photo: kept as the only one, not also taken off.
+  expect(unwellOff(page({ kind: 'breeds', own: ['a'], captions: [dead], album: [dead] }))).toEqual({ off: [], kept: { url: 'a', word: 'deceased' } })
+  expect(unwellOff(page({ kind: 'species', own: ['a'], captions: [dead, dead] }))).toEqual({ off: [], kept: { url: 'a', word: 'deceased' } })
+  expect(unwellOff(page({ kind: 'species', own: ['a', 'b'], captions: [dead, well, dead], picked: 'a' }))).toEqual({ off: [], picked: { url: 'a', word: 'deceased' } })
+  // A head a person picked is not taken off by a caption's words, whatever else the page has; the rule finds nothing.
+  expect(unwellOff(page({ kind: 'species', own: ['a', 'b'], captions: [dead, well], picked: 'a' }))).toEqual({ off: [], picked: { url: 'a', word: 'deceased' } })
+  expect(unwellOff(page({ kind: 'species', own: ['a', 'g'], captions: [dead, album], picked: 'a' }))).toEqual({ off: [{ url: 'g', word: 'dead specimens' }], picked: { url: 'a', word: 'deceased' } })
+  expect(found(page({ kind: 'species', own: ['a', 'b'], captions: [dead, well], picked: 'a' }), 'unwell')).toEqual([])
+  // A picked head another rule takes off in the same run shields nothing: the page's other unwell photo is kept as its
+  // only one, so the page is not left empty.
+  expect(unwellOff(page({ kind: 'species', own: ['a', 'g'], captions: [dead, album], picked: 'a' }), new Set(['a']))).toEqual({ off: [{ url: 'a', word: 'deceased' }], kept: { url: 'g', word: 'dead specimens' } })
+  // Another rule taking the page's other photo off in the same run leaves this one the only photo.
+  expect(unwellOff(page({ kind: 'species', own: ['a', 'b'], captions: [dead, well] }), new Set(['b'])).kept?.url).toBe('a')
+  expect(found(page({ kind: 'plants', own: ['a', 'b'], captions: [dead, well] }), 'unwell')).toEqual([])
+  expect(found(page({ kind: 'guides', captions: [dead, well] }), 'unwell')).toEqual([])
+})
+
 test("an ad video's poster shown as a photo of the fish, in a caption", () => {
   const p = page({ kind: 'species', sci: 'Nannocharax brevis', captions: [{ url: 'a', caption: 'video of: African Chop' }, { url: 'b', caption: 'A video of the species spawning was filmed in 2019.' }] })
   expect(found(p, 'caption')).toEqual(['an ad video\'s poster, not the fish: "video of: African Chop"'])
@@ -166,6 +264,34 @@ test('the fixes made on write, on a stored translation: HTML tidied, plain text 
   expect(out.faq).toEqual([{ q: 'Q & A?', a: 'Có.' }])
   expect(Object.keys(out)).toEqual(Object.keys(t))
   expect(fixTranslation(out)).toEqual(out)
+})
+
+// The owner, 2026-11-11: "Cá thài lài doesn't exist in Vietnamese".
+test('"thài lài" said of a fish is found on any Vietnamese page but a plant\'s, in its name, text, lines and captions; the sweep writes the fish it named by their names; the plant keeps it', () => {
+  const p = page({ kind: 'species', title: 'Cá thài lài mật', fields: [{ field: 'sections.diet:sf', html: '<p>Loài nhỏ nhất trong họ thài lài.</p>' }], lines: [{ field: 'faq.0.a', text: 'Khi nuôi thài lài, chọn bạn hiền.' }], captions: [{ url: 'u', caption: 'Cá thài lài kêu trong bể' }] })
+  expect(found(p, 'fish-words')).toEqual(['"Cá thài lài"', '"nhỏ nhất trong họ thài lài"', '"Khi nuôi thài lài"'])
+  expect(found(p, 'wording')).toEqual(['"Cá thài lài mật" → "cá sặc mật ong"'])
+  expect(fixTranslation({ name: 'Cá thài lài kêu', altNames: ['Cá thài lài kêu Mekong'], sections: { 'diet:sf': '<p>Cá thài lài quý tộc ăn mồi sống, như cá thài lài khác.</p>' } } as never))
+    .toMatchObject({ name: 'Cá bã trầu', altNames: ['Cá gourami kêu Mekong'], sections: { 'diet:sf': '<p>Cá Ctenops nobilis ăn mồi sống, như cá sặc khác.</p>' } })
+  const plant = 'Cây thuộc họ Thài lài, gần cỏ thài lài và thài lài tía.'
+  expect(found(page({ kind: 'plants', title: 'Cỏ thài lài', fields: [{ field: 'body', html: '<p>Thài lài mọc ven suối.</p>' }] }), 'fish-words')).toEqual([])
+  expect(found(page({ title: plant }), 'fish-words')).toEqual([])
+  expect(found(page({ lang: 'id', title: 'Ikan thài lài' }), 'fish-words')).toEqual([])
+})
+
+test('the writers\' list counts "thài lài" said of a fish, and leaves the plant', () => {
+  const thai = (s: string) => phraseSlips(s, 'vi').filter(x => x.startsWith('"thài lài"'))
+  expect(thai('Cây thuộc họ Thài lài, gần cỏ thài lài và thài lài tía.')).toEqual([])
+  expect(thai('Cá thài lài mật hợp bể nhỏ. Khi nuôi thài lài, chọn bạn hiền.')).toEqual([expect.stringMatching(/^"thài lài" ×2 → /)])
+})
+
+test("a pleco with an L number on record whose name gives none is listed, in any language; a fish with none, or another family's number, isn't (the owner, 2026-11-11)", () => {
+  const fish = (title: string, o: Partial<Page> = {}) => page({ kind: 'species', title, family: 'Loricariidae', lNumber: 'L46', ...o })
+  expect(found(fish('Cá zebra pleco'), 'l-number')).toEqual(['"Cá zebra pleco" → "Cá zebra pleco L46"'])
+  expect(found(fish('Zebra Pleco', { lang: 'id' }), 'l-number')).toEqual(['"Zebra Pleco" → "Zebra Pleco L46"'])
+  expect(found(fish('Cá zebra pleco L46'), 'l-number')).toEqual([])
+  expect(found(fish('Cá lau kiếng vàng', { lNumber: undefined }), 'l-number')).toEqual([])
+  expect(found(fish('Cá chuột panda', { family: 'Callichthyidae', lNumber: 'C20' }), 'l-number')).toEqual([])
 })
 
 test('"Phi châu" in a name, text, summary or FAQ is found, and fixTranslation writes it "châu Phi"; a product\'s review lines aren\'t the rule\'s', () => {

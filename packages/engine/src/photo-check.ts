@@ -1,11 +1,16 @@
+import { compactVerdict, photoHints, photoReason, deadNote, peopleNote, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
+import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { realPhotosFirst } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
+import { captionFlaw } from './content-rules'
 import { galleryPlan } from './gallery-plan'
+import { pickStands, readPersonYes } from './person-yes'
 import { contactSheet } from './video-images'
-import { LOGO_FOLDERS, retainedOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
+import { keptOwnMark, LOGO_FOLDERS, stripPhotos, type WatermarkEntry } from './watermarks'
 
 type Photo = { url: string; caption?: string; author?: string; sourceUrl?: string; generated?: unknown }
 /**
@@ -21,7 +26,7 @@ type Photo = { url: string; caption?: string; author?: string; sourceUrl?: strin
  * own stricter look. `file`: "other" from the photo's Commons file name, which names another species with a page
  * (fileNamesOther), with no model call.
  */
-export type PhotoVerdict = { ok: 'yes' | 'other' | 'none' | 'habitat' | 'unsure' | 'dead' | 'no'; typical: boolean; note: string; logo?: boolean; person?: boolean; guide?: boolean; file?: true }
+export type PhotoVerdict = { ok: 'yes' | 'other' | 'none' | 'habitat' | 'unsure' | 'dead' | 'no'; typical: boolean; note: string; noteHash?: string; hints?: PhotoHints; logo?: boolean; person?: boolean; guide?: boolean; file?: true }
 export type PhotoCheckDeps = {
   get: (url: string) => Promise<Uint8Array>
   look: (sheet: string, prompt: string) => Promise<{ photos: ({ n: number } & PhotoVerdict)[] }>
@@ -33,6 +38,18 @@ export const PHOTO_CHECK_SCHEMA = {
 }
 /** Verdicts that take a photo off its page. */
 export const OFF = new Set<PhotoVerdict['ok']>(['other', 'none', 'dead', 'no'])
+/**
+ * Whether the check could not tell that a photo shows this page's subject ("unsure"). Such a photo keeps showing (the
+ * owner, 2026-11-11), behind the others: it never leads a page that has a photo the check passed, and in an album it
+ * comes after every photo the check passed or has not reached yet.
+ */
+export const cantTellOn = (subjects: Record<string, Record<string, PhotoVerdict>>, page: string) => (url: string): boolean => {
+  const v = subjects[url]?.[page]
+  return !!v && !v.guide && v.ok === 'unsure'
+}
+/** "Can't tell" photos last, each group in the order it had. The album step ranks with it too (gallery.ts), so both agree. */
+export const cantTellLast = <P extends { url: string }>(photos: P[], cantTell: (url: string) => boolean): P[] =>
+  [...photos.filter(p => !cantTell(p.url)), ...photos.filter(p => cantTell(p.url))]
 /**
  * Why a photo leaves every page, whatever another page's verdict: it shows a dead fish or fish as food, a person or part
  * of one ("Photos never show people (hands count)", PRODUCT.md), or a logo.
@@ -190,12 +207,8 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
  * watermark step's notes (English) and the gallery step's captions (Vietnamese). Not a drawing or painting: the check
  * already calls one "not a photo of it".
  */
-const DEAD_NOTE = /\b(?:dead(?! (?:leaf|leaves|wood|plants?|twigs?|branch(?:es)?|stems?|vegetation|grass|reeds?|algae|coral|trees?|logs?))|died|carcass(?:es)?|markets?|fishmonger|preserved|museum|mounted|taxiderm\w*|fillets?|cooked|fried|grilled|on ice|on a plate|catch(?:es)?|caught|landed|trays?|nets?|formalin|pickled|herbarium|pressed)\b|(?<!(?:lá|cành|gỗ|cây) )chết|chợ|bày bán|mẫu ngâm|mẫu vật|bảo tàng|tiêu bản|phi lê/i
-const ARTWORK = /drawing|illustrat|engrav|painting|lithograph|watercolou?r/i
-export const deadNote = (note: string) => DEAD_NOTE.test(note) && !ARTWORK.test(note)
-/** Words in an earlier look's note that say a person or part of one may be in the photo (English, and the gallery's Vietnamese captions). */
-const PEOPLE_NOTE = /\b(?:hands?|held|holding|fingers?|fingertips?|palms?|person|people|man|woman|child|diver|angler|feet|foot|arms?)\b|\btay\b|người/i
-export const peopleNote = (note: string) => PEOPLE_NOTE.test(note)
+export { deadNote, peopleNote }
+
 
 /**
  * The photos to judge again first (`checkPagePhotos`' `recheck`): shown on a species, plant or breed page or its gallery,
@@ -209,7 +222,7 @@ export async function recheckCandidates(root: string): Promise<Map<string, strin
   const state = async <T>(f: string) => (await readJson<Record<string, T>>(join(root, 'engine-state', f))) ?? {}
   const legacy = await state<PhotoVerdict>('_photo-check.json')
   const cache = await state<Record<string, PhotoVerdict>>('_photo-subjects.json')
-  const marks = await state<{ what?: string }>('_photo-watermarks.json')
+  const marks = await state<{ what?: string; hints?: PhotoHints }>('_photo-watermarks.json')
   const rejected = await state<string>('_photo-rejected.json')
   const content = join(root, 'content')
   const notes = new Map<string, (string | undefined)[]>()
@@ -224,9 +237,11 @@ export async function recheckCandidates(root: string): Promise<Map<string, strin
   for (const [url, captions] of notes) {
     const by = Object.values(cache[url] ?? {})
     if (url in rejected || by.some(v => v.person !== undefined)) continue
-    const note = [legacy[url]?.note, ...by.map(v => v.note), marks[url]?.what, ...captions].find(n => !!n && (deadNote(n) || peopleNote(n)))
-      ?? [legacy[url], ...by].find(v => v?.ok === 'habitat')?.note
-    if (note !== undefined) out.set(url, note)
+    const cues=[legacy[url],...by,marks[url]].filter(Boolean).map(v=>photoHints(v!))
+    const dead=cues.some(v=>v.dead)||captions.some(n=>!!n&&deadNote(n))
+    const people=cues.some(v=>v.people)||captions.some(n=>!!n&&peopleNote(n))
+    if(dead||people)out.set(url,[dead?'possible dead subject':undefined,people?'possible person':undefined].filter(Boolean).join('; '))
+    else if([legacy[url],...by].some(v=>v?.ok==='habitat'))out.set(url,'habitat needs recheck')
   }
   return out
 }
@@ -251,6 +266,11 @@ type Shown = { file: string; url: string; page?: string; guide?: boolean; captio
  * Before all of them, a share of each run (`fill` sheets): a permitted source's own photos in the gallery of a page that
  * has none, which give that page its first photo once judged (Tropica's on the plant pages with none: the chief of
  * staff, 2026-11-10).
+ *
+ * And before the turns (the chief of staff, 2026-11-11, after the owner found a parasite paper's plate as a page's only
+ * photo, which the check had not reached in three days): a page's lead that neither check has looked at, from Flickr and
+ * Commons first, then from the other sources; then the gallery of a page with no photo of its own, which gives it one
+ * once judged. A lead's sheet is filled with its page's other photos, as any sheet is.
  */
 export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source'>): 0 | 1 | 2 | 3 =>
   x.waits ? (x.bare ? 2 : 3) : /\/\/(?:commons\.wikimedia\.org|(?:www\.)?flickr\.com)\//.test(x.source ?? '') ? 0 : 1
@@ -274,14 +294,18 @@ export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source'>): 0 | 1 | 2 | 3
  *   in the same run (they may carry it too).
  * - "unsure" stays and is listed for review with the removals (docs/review/photo-subjects.md). A page left without a
  *   photo shows none.
- * - A typical photo leads a species or plant page; an old "habitat" verdict goes last until it is asked again.
+ * - On a species or plant page a typical photo comes first, each group in the order it had: a lead the check passes as
+ *   typical stays the lead, and one that passes as less, can't be told, is taken off or is not judged yet gives way to
+ *   a typical photo in the run that judges that photo. An old "habitat" verdict goes last until it is asked again.
  *
  * - A gallery photo a step added waits (`unchecked`, gallery.ts) and no page shows it: judged and left on, it loses the
  *   mark here and shows from the next build.
  *
- * The order is `turn`'s, and within a turn most-read pages first (`rank`), the photos a page shows itself before the rest
- * of its gallery. A page's lead is judged in the first sheet a run gives the page, so no photo of the page is judged
- * before it. A page's last sheet is filled from its photos of a later turn, so no sheet goes out part empty.
+ * The order: the leads nothing has looked at and the pages with no photo of their own (see `turn`), then `turn`'s, and
+ * within each most-read pages first (`rank`), the photos a page shows itself before the rest of its gallery. A page's
+ * lead is judged in the first sheet a run gives the page, so no photo of the page is judged before it. A page's last
+ * sheet is filled from its photos of a later turn (a lead's sheet from the page's own photos first), so no sheet goes
+ * out part empty.
  * `limit`: model calls this run; stops on a model failure (usage limit), and the rest wait. `fill`: how many of them go
  * first to a source's photos that fill a page with none (`turn`).
  * `recheck`: with it, only these photos are judged, where their verdict is from before the check asked about people
@@ -291,11 +315,17 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const content = join(root, 'content')
   const cacheFile = join(root, 'engine-state/_photo-subjects.json')
   const rejectedFile = join(root, 'engine-state/_photo-rejected.json')
-  const cache = (await readJson<Record<string, Record<string, PhotoVerdict>>>(cacheFile)) ?? {}
-  const legacy = (await readJson<Record<string, PhotoVerdict>>(join(root, 'engine-state/_photo-check.json'))) ?? {}
+  const rawCache = (await readJson<Record<string, Record<string, PhotoVerdict>>>(cacheFile)) ?? {}
+  const cache = Object.fromEntries(Object.entries(rawCache).map(([u,by])=>[u,Object.fromEntries(Object.entries(by).map(([id,v])=>[id,compactVerdict(v)]))]))
+  const rawLegacy = (await readJson<Record<string, PhotoVerdict>>(join(root, 'engine-state/_photo-check.json'))) ?? {}
+  const legacy=Object.fromEntries(Object.entries(rawLegacy).map(([u,v])=>[u,compactVerdict(v)]))
   const rejected = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   const marks = (await readJson<Record<string, WatermarkEntry>>(join(root, 'engine-state/_photo-watermarks.json'))) ?? {}
-  const keepLogo = (url: string) => retainedOwnMark(url, marks[url]) && (!rejected[url] || rejected[url]!.startsWith('watermark:'))
+  const keepLogo = keptOwnMark(rejected, marks)
+  // A head a person picked (engine-state/_photo-head-picks.json, page → photo): it stays first on its page, while it
+  // counts (person-yes.ts pickStands).
+  const headPicks = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-head-picks.json'))) ?? {}
+  const yes = await readPersonYes(root)
   const report = { photos: 0, sheets: 0, judged: 0, removed: [] as string[], rejected: 0, blocked: [] as string[], unsure: 0, failed: [] as string[], stopped: '' }
 
   const all = await rank(root, await subjects(content))
@@ -340,7 +370,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     if (!s) continue
     const other = fileNamesOther(x.source, s, byName)
     const v = cache[x.url]?.[s.id]
-    if (other) cache[x.url] = { ...cache[x.url], [s.id]: { ...v, ok: 'other', typical: false, note: `its Commons file names ${other.sci}`, file: true } }
+    if (other) cache[x.url] = { ...cache[x.url], [s.id]: compactVerdict({ ...v, ok: 'other', typical: false, note: `its Commons file names ${other.sci}`, file: true }) }
     else if (v?.file) cache[x.url] = Object.fromEntries(Object.entries(cache[x.url]!).filter(([id]) => id !== s.id))
   }
 
@@ -349,6 +379,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // it), then the rest of each gallery.
   const stale = (x: Shown) => { const v = verdict(x.url, x.page!, !x.guide); return v?.person === undefined && !v?.file }
   const due = (x: Shown) => (!o.recheck || o.recheck.has(x.url)) && stale(x)
+  /** Neither check has a verdict on it for its page (a verdict from before the check asked about people is one). */
+  const unseen = (x: Shown) => !verdict(x.url, x.page!, !x.guide)
   const sheets: { s: Subject; urls: string[] }[] = []
   const queued = new Set<string>()
   // `only`: one page id, or several, comma-separated.
@@ -357,21 +389,32 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   for (const x of shown) if (x.page) onPage.set(x.page, [...(onPage.get(x.page) ?? []), x])
   const queue = (want: (x: Shown) => boolean, fill = 0) => {
     const from = sheets.length
-    // `first`: the share for a source's photos that fill a page with none, then each turn in order.
-    for (const now of ['first', 0, 1, 2, 3] as const) for (const later of [false, true]) for (const s of all) {
+    // `first`: the share for a source's photos that fill a page with none. Then the leads nothing has looked at
+    // (`lead0`: Flickr's and Commons', `lead1`: the rest), the pages with no photo of their own (`bare`), and each
+    // turn in order.
+    const phase = (x: Shown, now: 'first' | 'lead0' | 'lead1' | 'bare' | 0 | 1 | 2 | 3) =>
+      now === 'first' ? !!x.sourced
+      : now === 'lead0' || now === 'lead1' ? !!x.lead && unseen(x) && (turn(x) === 0) === (now === 'lead0')
+      : now === 'bare' ? !!x.bare
+      : turn(x) === now
+    for (const now of ['first', 'lead0', 'lead1', 'bare', 0, 1, 2, 3] as const) for (const later of [false, true]) for (const s of all) {
       if (sheets.length >= o.limit || (now === 'first' && sheets.length - from >= fill)) break
       if (only && !only.has(s.id)) continue
       const open = (onPage.get(s.id) ?? []).filter(x => !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`))
-      const mine = [...new Set(open.filter(x => (now === 'first' ? !!x.sourced : turn(x) === now) && !!x.galleryOnly === later).map(x => x.url))]
+      const mine = [...new Set(open.filter(x => phase(x, now) && !!x.galleryOnly === later).map(x => x.url))]
       if (!mine.length) continue
       // The page's lead, when it is not judged yet, heads the first sheet a run gives its page, whatever its turn, as it
       // did before the turns: the typical-first order below would put a photo judged a run before the lead ahead of it,
       // and leave it there once the lead passed too (found in review, 2026-11-10).
       const lead = open.find(x => x.lead)?.url
       const first = lead ? [lead, ...mine.filter(u => u !== lead)] : mine
-      // Its last sheet is filled from its photos whose turn comes later, the nearest turn first.
+      // Its last sheet is filled from its photos whose turn comes later, the nearest turn first. A sheet headed by a
+      // lead not judged yet takes the page's own photos before its gallery's: if the lead comes off, the photo that
+      // takes its place was judged beside it, not left to wait as one more lead nothing has looked at (found in
+      // review, 2026-11-11).
       const room = (PER_SHEET - (first.length % PER_SHEET)) % PER_SHEET
-      const more = [...new Set(open.filter(x => !first.includes(x.url)).sort((a, b) => turn(a) - turn(b) || Number(!!a.galleryOnly) - Number(!!b.galleryOnly)).map(x => x.url))].slice(0, room)
+      const album = (x: Shown) => Number(!lead || !x.file.endsWith('entity.json'))
+      const more = [...new Set(open.filter(x => !first.includes(x.url)).sort((a, b) => album(a) - album(b) || turn(a) - turn(b) || Number(!!a.galleryOnly) - Number(!!b.galleryOnly)).map(x => x.url))].slice(0, room)
       const todo = [...first, ...more]
       for (const u of todo) queued.add(`${s.id}\n${u}`)
       for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })
@@ -389,7 +432,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
           const b = Buffer.from(await d.get(url))
           await sharp(b).metadata() // not an image (an error page served as 200): left out, so the rest of the sheet is judged
           ok.push({ url, b })
-        } catch (err) { report.failed.push(`${s.id}: ${url}: ${(err as Error).message.slice(0, 120)}`) }
+        } catch (err) { report.failed.push(`${s.id}: ${url}: ${photoFailure(err)}`) }
       }
       if (!ok.length) return
       // A guide's caption goes with a photo judged here only because of it (a photo on the page itself is the page's).
@@ -403,13 +446,13 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
         for (const p of v.photos ?? []) {
           const x = ok[p.n - 1]
           if (!x || !(VERDICTS as readonly string[]).includes(p.ok)) continue
-          cache[x.url] = { ...cache[x.url], [s.id]: { ok: p.ok, typical: !!p.typical && p.ok !== 'dead', note: String(p.note ?? '').slice(0, 120), logo: !!p.logo, person: !!p.person, ...(captions[p.n - 1] ? { guide: true } : {}) } }
+          cache[x.url] = { ...cache[x.url], [s.id]: compactVerdict({ ok: p.ok, typical: !!p.typical && p.ok !== 'dead', note: String(p.note ?? '').slice(0, 120), logo: !!p.logo, person: !!p.person, ...(captions[p.n - 1] ? { guide: true } : {}) }) }
           if (p.logo) logos.add(x.url)
           report.judged++
         }
       } catch (err) {
-        if (err instanceof LlmError) report.stopped ||= `${s.id}: ${err.message}`
-        else report.failed.push(`${s.id}: ${(err as Error).message.slice(0, 120)}`)
+        if (err instanceof LlmError) report.stopped ||= `${s.id}: ${photoModelStop(err)}`
+        else report.failed.push(`${s.id}: ${photoFailure(err)}`)
       }
     })
   try {
@@ -462,11 +505,42 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       if (v && (v.person !== undefined || v.file)) delete p.unchecked
     }
     const s = byId.get(file.split('/').at(-2)!)
+    // A fish its source's caption calls unwell or blemished (a split fin) counts as not typical, whatever the model said:
+    // a fish's in the order below, and a fish's or a breed's where a photo goes ahead of a lead the check can't tell.
+    const flawed = (x: Photo) => !!s && s.kind !== 'plants' && !!captionFlaw(x.caption, s.kind === 'breeds')
     if (s && s.kind !== 'breeds' && file.endsWith('entity.json') && data.photos) {
-      // A typical photo first, other photos of it next, an old "habitat" verdict last (until it is asked again).
-      const r = (x: Photo) => { if (x.generated) return 3; const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical ? 0 : v?.ok === 'habitat' ? 2 : 1 }
+      // A typical photo first, other photos of it next, an old "habitat" verdict last (until it is asked again), each
+      // group in the order it had. So a lead the check passes as typical stays the lead, and one that passes but isn't
+      // typical gives way to a typical photo in the run that judges that photo, this one or a later one: no pair is
+      // compared and no call added (the chief of staff, 2026-11-11). What follows a move is as it was: a head a
+      // person picked is put back first by the sweep, which has the last word each cycle (_photo-head-picks.json).
+      // Any other head can move, a card's fish too: the cycle's planner then points the day's card at the new head
+      // (curation.ts), and no cycle runs `curate --check`, which would name a card and a head that differ.
+      const r = (x: Photo) => { if (x.generated) return 3; const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical && !flawed(x) ? 0 : v?.ok === 'habitat' ? 2 : 1 }
       data.photos = data.photos.map((x, i) => ({ x, i })).sort((a, b) => r(a.x) - r(b.x) || a.i - b.i).map(({ x }) => x)
     }
+    // A photo the check can't tell doesn't lead a page that has one it passed (the owner, 2026-11-11): the first passed
+    // photo, a typical one before another, goes ahead of it. A breed's page too, whose order is otherwise left as it is.
+    // Where nothing on the page passed, the lead stays: that may be the page's only photo.
+    if (s && file.endsWith('entity.json') && data.photos) {
+      const lead = data.photos.findIndex(x => !x.generated)
+      if (lead >= 0 && cantTellOn(cache, s.id)(data.photos[lead]!.url)) {
+        const passed = (typical: boolean) => data.photos!.findIndex(x => { const v = x.generated ? undefined : verdict(x.url, s.id); return v?.ok === 'yes' && (!typical || (v.typical && !flawed(x))) })
+        const i = passed(true) >= 0 ? passed(true) : passed(false)
+        if (i > lead) data.photos.splice(lead, 0, ...data.photos.splice(i, 1))
+      }
+      // A head a person picked stays first whatever the order above did, as the sweep puts it back each cycle: the steps
+      // between the two (the large copies of heads, the side-by-side look) then see the head a person chose. The
+      // person's yes for a card rests on it (person-yes.ts): its photo is the check's "can't tell" that the order above
+      // would move behind a passed one (the stated exception to the owner's rule of 2026-11-11). A pick that rests on a
+      // yes lapses with it, by this pass's verdicts: once the check says anything but "can't tell", the order above holds.
+      const ref = `${s.kind}/${s.id}`, pick = headPicks[ref]
+      const at = data.photos.findIndex(x => x.url === pick)
+      if (at > 0 && pickStands(ref, pick!, cache, yes)) data.photos.unshift(...data.photos.splice(at, 1))
+    }
+    // In an album it comes after the photos the check passed or has not reached. The album step ranks the same way, but
+    // only an album it adds to, so every album gets its order here, each run.
+    if (gallery && data.photos) data.photos = realPhotosFirst(cantTellLast(data.photos, cantTellOn(cache, gallery)))
     const out = `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`
     if (out === raw) continue
     report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))
@@ -474,10 +548,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
 
   // 3. Verdicts, the blocklist (re-read, so entries another step added meanwhile stay) and the review file.
-  await writeFile(cacheFile, `${JSON.stringify(Object.fromEntries(Object.entries(cache).sort()), null, 2)}\n`)
+  await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
   const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   for (const [u, why] of Object.entries(added)) if (!(u in now)) { now[u] = why; report.rejected++ }
-  await writeFile(rejectedFile, `${JSON.stringify(now, null, 2)}\n`)
+  await writePhotoState(rejectedFile, now)
   const left = new Map<string, number>()
   for (const s of all) left.set(s.id, 0)
   for (const f of [...new Set(shown.filter(x => !x.guide).map(x => x.file))]) {
@@ -505,8 +579,7 @@ export function reviewDoc(all: Subject[], cache: Record<string, Record<string, P
   const removed = sort(rows.filter(r => (r.v.ok === 'other' || r.v.ok === 'none' || r.v.ok === 'dead' || r.v.person || r.v.logo) && !on(r)))
   const unsure = sort(rows.filter(r => r.v.ok === 'unsure' && on(r)))
   const emptied = all.filter(s => left.get(s.id) === 0 && removed.some(r => r.id === s.id && !r.v.guide))
-  const why = (v: PhotoVerdict) => (v.ok === 'dead' ? 'dead: ' : v.person ? 'people: ' : v.logo ? 'logo: ' : '')
-  const table = (xs: typeof rows) => xs.map(r => `| ${page.get(r.id)}${r.v.guide ? ' (a guide photo)' : ''} | [photo](${r.url}) | ${cell(why(r.v) + r.v.note)} |`).join('\n')
+  const table = (xs: typeof rows) => xs.map(r => `| ${page.get(r.id)}${r.v.guide ? ' (a guide photo)' : ''} | [photo](${r.url}) | ${cell(photoReason(r.v))} |`).join('\n')
   const doc = `# Photos that don't show their page's subject
 
 Written by \`pnpm engine check-photos\` (${today}), most-read pages first. Rules: docs/governance.md, "Photos".
@@ -518,7 +591,7 @@ ${emptied.length ? emptied.map(s => `- ${page.get(s.id)}`).join('\n') : 'None.'}
 
 ## Can't tell: still shown (${unsure.length})
 
-| Page | Photo | What the model saw |
+| Page | Photo | Recorded outcome |
 | --- | --- | --- |
 ${table(unsure)}
 
@@ -526,7 +599,7 @@ ${table(unsure)}
 
 "Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
-| Page | Photo | What it shows |
+| Page | Photo | Recorded outcome |
 | --- | --- | --- |
 ${table(removed)}
 `

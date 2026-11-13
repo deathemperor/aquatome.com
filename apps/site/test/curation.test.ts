@@ -1,6 +1,7 @@
 import { expect, test } from 'vitest'
 import { CardSchema, CurationSchema, type Curation } from '@aq/schema'
 import { appIndex } from '../src/lib/app-index'
+import { curationFor } from '../src/lib/curation'
 import { getContent } from '../src/lib/content'
 
 // The editorial calendar (content/curation.json) as each language's app index carries it: Hôm nay's days, the week's
@@ -113,4 +114,33 @@ test('a page the planner found failing reader fit is left out of the top cards, 
   expect(vi.home.hero?.map(h => h.path)).toEqual([pathOf(vi, 'paracheirodon-axelrodi')])
   expect(vi.home.shelves?.[0]?.paths).not.toContain(pathOf(vi, 'apistogramma-cacatuoides'))
   expect(vi.home.days?.find(d => d.date === '2026-11-10')).toEqual({ date: '2026-11-10', fish: pathOf(vi, 'flowerhorn-cichlid'), img: IMG })
+})
+
+test("a picture the build holds back for the watermark screen is left off the calendar's day, guide, story and top card", async () => {
+  const OTHER = 'https://media.aquatome.com/commons/0000000000000002.webp'
+  const cur = CurationSchema.parse({
+    version: 1,
+    weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: { vi: 'Tuần' }, hero: [{ page: 'species/a', img: IMG }, { page: 'species/b', img: OTHER }] }],
+    days: [{ date: '2026-11-11', fish: 'species/a', img: IMG, guide: 'guides/g', guideImg: IMG, story: { page: 'species/b', img: IMG } }],
+  })
+  const of = (waits?: (address: string) => boolean) => curationFor(cur, 'vi', '2026-11-11', ref => `/${ref}/`, [], waits)
+  expect(of().days).toEqual([{ date: '2026-11-11', fish: '/species/a/', img: IMG, guide: '/guides/g/', guideImg: IMG, story: { path: '/species/b/', img: IMG } }])
+  const held = of(address => address === IMG)
+  expect(held.days).toEqual([{ date: '2026-11-11', fish: '/species/a/', guide: '/guides/g/', story: { path: '/species/b/' } }])
+  expect(held.hero).toEqual([{ path: '/species/a/' }, { path: '/species/b/', img: OTHER }])
+  // The app's index hands the build's own list over.
+  const vi = await getContent('vi')
+  const ix = appIndex('vi', { ...vi, photoWaits: address => address === IMG }, new Map(), vi.species, { calendar, today: '2026-11-10' })
+  expect(ix.home.days?.length).toBe(2)
+  expect([...ix.home.days!, ...ix.home.hero!].filter(x => x.img)).toEqual([])
+})
+
+test('Tìm\'s suggested searches reach each language\'s index as written; a language with none gets no section', async () => {
+  const vi = ['betta', 'cá vàng', 'bảy màu', 'tép', 'rêu java', 'bệnh đốm trắng', 'rêu hại', 'chu trình nitơ']
+  const ms = ['laga', 'guppy', 'udang', 'louhan', 'arowana', 'molly', 'discus', 'penapis']
+  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [], searches: { vi, ms } })
+  expect(curationFor(cur, 'vi', '2026-11-12', ref => `/${ref}/`).searches).toEqual(vi)
+  expect('searches' in curationFor(cur, 'th', '2026-11-12', ref => `/${ref}/`)).toBe(false)
+  const ix = appIndex('ms', await getContent('ms'), new Map(), (await getContent('vi')).species, { calendar: { ...calendar, searches: { vi, ms } }, today: '2026-11-10' })
+  expect(ix.home.searches).toEqual(ms)
 })

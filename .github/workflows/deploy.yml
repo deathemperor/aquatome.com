@@ -31,7 +31,7 @@ jobs:
       - name: Unit tests
         run: pnpm test
       - name: Install Chromium for the browser checks before upload
-        run: pnpm --filter site exec playwright install --with-deps chromium
+        run: scripts/install-browser.sh chromium
       # Stopgap, 11 Nov. The static build is what fills this step, and a long run was already near 28 minutes.
       # 60 minutes does not make the build faster. The browser checks before upload are unchanged.
       - name: Build the real site and check it in a browser

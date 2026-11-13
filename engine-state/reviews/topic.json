@@ -442,6 +442,39 @@
       ]
     }
   ],
+  "id/guides/aquatome-cach-lam-be-thuy-sinh-mini-be-don-gian": [
+    {
+      "at": "2026-11-11T05:02:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"Test kit kesadahan (GH)\": the facts only say a hardness kit is useful. Naming GH specifically is a small addition."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.92,
+        0.95,
+        0.93
+      ]
+    },
+    {
+      "at": "2026-11-11T05:02:05Z",
+      "model": "sonnet",
+      "score": 0.92,
+      "notes": [
+        "\"Pantau suhu dengan termometer, karena di akuarium kecil suhu cepat berubah\" is a monitoring recommendation the facts don't give. They only say small tanks change temperature faster.",
+        "\"nitrat terbaca, terutama setelah menambah ikan baru\" is a slightly invented check. The facts only say nitrate rises when the filter is mature."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.92,
+        0.92,
+        0.9
+      ]
+    }
+  ],
   "id/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
     {
       "at": "2026-11-08T08:50:23Z",
@@ -706,6 +739,46 @@
       ],
       "attempt": "rewrite",
       "kept": true
+    }
+  ],
+  "id/guides/aquatome-reu-hai-trong-be-thuy-sinh-nguyen-nhan-va-cach-loai-bo": [
+    {
+      "at": "2026-11-11T05:05:41Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Easy Carbo schedule \"Sekali sehari selama 3–4 hari, dengan jeda dua hari bila perlu\" is applied to Easy Carbo, but the facts give this schedule only for the general Aquasabi spot treatment steps, not specifically for Easy Carbo.",
+        "\"Easy Carbo paling efektif untuk alga merah (janggut hitam, staghorn)\": the parenthetical examples are not in the facts.",
+        "\"Air hijau itu yang disebabkan alga\" / \"Kutu air (daphnia)\": acceptable, but 'Siamese algae eater' and 'Amano' tables list Amano for fuzz as slow in a large group. The 'slow unless large group' note is from the Co-Op for black beard, not for fuzz.",
+        "The quoted wording \"Menurut sebuah panduan akuarium... Panduan yang sama menyebut anggapan bahwa nitrat atau fosfat saja...\" is fine, but \"Ikuti takaran serta jadwal di tabel\" for hydrogen peroxide safety with animals is a generalisation. The facts do not say it is safe for animals.",
+        "\"Otocinclus dan siput nerite mau memakannya\" in the FAQ is supported by GWAPA, but the dosing-by-label line for erythromycin is fine. The claim \"Alga janggut hitam... sangat sulit dibuang dengan tangan, jadi biasanya perlu cara pada bagian pengobatan\" is an unsupported inference.",
+        "\"Langkah pertama... buang sebanyak mungkin secara manual dan cari penyebabnya\" is a general recommendation not stated in the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
+    },
+    {
+      "at": "2026-11-11T05:05:41Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "The Seachem/Flourish Excel warnings (not an algicide, Vallisneria melt, Anacharis) are presented as applying to \"karbon cair\" in general. The facts do not tie Excel to the Aquasabi liquid-carbon spot treatment.",
+        "\"Alga bintik hijau menempel keras sebagai bintik\": the facts do not say green spot algae sticks hard.",
+        "\"Perbaiki aerasi dan aliran air\" for fish short of oxygen: the facts give this advice only as a remedy for dead spots, not for low oxygen in fish.",
+        "The introduction's list of correction factors (\"keseimbangan nutrisi, CO2, lama pencahayaan, aliran air, dan ganti air rutin\") is a generalised summary the facts do not state as a rule."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.82,
+        0.82,
+        0.82
+      ]
     }
   ],
   "id/guides/aquatome-su-co-may-bom-nuoc-keu-to-giat-cuc-nong-yeu-nhiem-dien-chay": [
@@ -1729,6 +1802,44 @@
       "kept": false
     }
   ],
+  "ms/guides/aquatome-cach-lam-be-thuy-sinh-mini-be-don-gian": [
+    {
+      "at": "2026-11-12T13:22:58Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "Kit kekerasan air \"(GH)\" – the facts only say a hardness kit is useful and never name GH; a small unsupported addition."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.93,
+        0.93
+      ]
+    },
+    {
+      "at": "2026-11-12T13:22:58Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"untuk memulakan sifon\": the facts only say never siphon aquarium water by mouth. The purpose \"to start the siphon\" is added.",
+        "\"Penapis: wajib untuk tangki nano\": the facts call filtration \"critical\", not mandatory. This is a slight strengthening.",
+        "\"Jangan.\" (tap water directly): the facts say to treat tap water with a conditioner but never ban untreated use outright. This is a mild generalisation."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.93,
+        0.88,
+        0.92
+      ]
+    }
+  ],
   "ms/guides/aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh": [
     {
       "at": "2026-11-10T10:11:17Z",
@@ -1797,6 +1908,103 @@
         0.9,
         0.9,
         0.92
+      ]
+    }
+  ],
+  "ms/guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua": [
+    {
+      "at": "2026-11-12T13:25:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.82,
+      "notes": [
+        "\"Menurut seorang pengeluar, penurunan sekitar 3 °C...\" is fine, but \"Menurut sebuah universiti, kebanyakan ikan tropika boleh tahan suhu sekitar 16–17 °C ... Panaskan air apabila suhu jatuh ke sekitar 12–13 °C\": the conversions are fine, so this is not an error.",
+        "\"Jika ais digunakan ... ais itu tidak dimasukkan ke dalam beg plastik bertutup\" is garbled. The fact says to seal the ice in a bag.",
+        "\"Menurut sebuah panduan memelihara ikan, air hujan boleh mengubah pH\": the fact says rain changes pH, with no mention of rainwater itself. This is minor.",
+        "\"Kepadatannya kira-kira 5 inci (sekitar 13 cm) ... setiap gelen (sekitar 3.8 liter)\": the metric conversions are fine, so this is not an error.",
+        "\"ikan sepatutnya boleh bertahan sekurang-kurangnya 36 jam jika suhu udara cukup panas\": the fact says 'warm enough', which is acceptable.",
+        "\"Isi penapis dengan air bersih supaya penapis boleh mula mengepam\" adds the explanation 'supaya penapis boleh mula mengepam', which the facts don't give. The fact only says to prime with fresh water.",
+        "\"Perhatikan juga ikan sama ada naik ke permukaan untuk menyedut udara\" and \"terus pantau suhu, ammonia, nitrit dan pH\" as a post-event routine are generalised rather than stated in the facts.",
+        "The summary line \"Air sejuk pula membebankan pemanas\" is a loose generalisation of the heater-running-constantly fact."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.82,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-12T13:25:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"Menurut pengeluar, haba hanya menjadi bahaya apabila berterusan selama berminggu-minggu\" is fine, but \"Ikan besar biasanya terjejas dahulu\" in the FAQ is a slight rewording: the fact says large fish are hit harder, not that they are affected first.",
+        "\"uji air jika anda mengesyaki air hujan telah masuk ke dalam tangki\" is an unsupported recommendation; the facts only say rain can change pH and raise ammonia, nitrite and nitrate.",
+        "\"(contohnya daripada air paip yang tidak dirawat)\" is an unsupported example of the source of chlorine.",
+        "\"Jika tiada, menurut sebuah universiti, kacau air dengan pemukul telur\" is framed as a fallback if there is no air pump. The facts give the whisk as a separate tip for an overheating tank, not as a substitute for a pump.",
+        "\"Selepas cuaca melampau atau elektrik terputus, ... penyakit bintik putih yang boleh timbul sehingga dua minggu selepas suhu jatuh\" slightly generalises the ich fact. It says ich follows a stressful event, especially a temperature drop.",
+        "\"ikan hiasan\" and \"ikan tropika dan ikan iklim sederhana ... high 80s hingga low 90s °F\" keep the Fahrenheit figures and are not converted. This is acceptable but inconsistent.",
+        "\"Tangki yang kurang padat dengan ikan\" is a fair paraphrase of fewer fish, so it is not a problem."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.8,
+        0.8,
+        0.78
+      ]
+    }
+  ],
+  "ms/guides/aquatome-cho-ca-an-bao-nhieu-va-may-lan-mot-ngay-tranh-cho-an-qua-nhieu": [
+    {
+      "at": "2026-11-12T20:54:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-12T20:54:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"pengeluar makanan ikan menyebut ini antara sebab paling biasa\": the facts only say owners often overfeed from fear of starvation, and call it a common mistake. \"Paling biasa\" overstates this.",
+        "\"Mulakan dengan kuantiti kecil\" as step 1 is a mild extrapolation. The facts say to increase slowly to find the right amount.",
+        "\"Kesilapan biasa\" lists fatty liver under \"Makanan yang kurang sesuai atau rosak\". The facts do not link it to overfeeding or call it a feeding mistake."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.8,
+        0.88,
+        0.88
+      ]
+    }
+  ],
+  "ms/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
+    {
+      "at": "2026-11-12T20:55:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.95,
+        0.95
       ]
     }
   ],
@@ -2307,6 +2515,55 @@
       ]
     }
   ],
+  "th/guides/aquatome-cach-lam-be-thuy-sinh-mini-be-don-gian": [
+    {
+      "at": "2026-11-11T05:09:31Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"แหล่งข้อมูลหนึ่งระบุว่า...\" is fine, but \"รายงานข่าวชิ้นหนึ่ง\" matches news; OK. However \"สัตวแพทย์แนะนำให้ใช้น้ำยาปรับสภาพน้ำ\" is fine too.",
+        "\"คู่มือการเลี้ยงปลาแนะนำว่าไม่ควรฝังเหง้า\" and \"คู่มือการเลี้ยงปลาอธิบายว่าการรันแบบไม่มีปลา\" are fine (shop = guide).",
+        "\"ชุดตรวจความกระด้าง (GH)\" – the facts say only hardness kit; GH is a small unsupported specification.",
+        "\"เปลี่ยนไม่เกิน 25% ต่อสัปดาห์\" is fine (up to 25%), but the FAQ \"ใบ Cryptocoryne ... ส่วนใหญ่จะฟื้นเอง\" is fine.",
+        "\"ปลาจะใส่ได้เมื่อแอมโมเนียและไนไตรต์อยู่ที่ 0 ต่อเนื่อง\" – mostly supported.",
+        "\"ก่อนซื้อควรดูขนาดตอนโตเต็มที่ของปลาให้เหมาะกับตู้\" – turned from a mistake into advice, which is acceptable.",
+        "\"เฟิร์นชวา\" is not named in the facts (it says Java fern, so the Thai name is fine); the setup step order \"ปลูกไม้น้ำ\" before equipment is not stated in the facts.",
+        "\"ใส่ปุ๋ยฝังรากประมาณทุก 3 เดือน\" is supported; the \"(ตามฉลากของผลิตภัณฑ์)\" additions are allowed.",
+        "\"ให้สายไฟห้อยโค้งลงต่ำกว่าปลั๊กก่อนเสียบ\" is a slight embellishment of the drip loop fact."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.72,
+        0.96
+      ]
+    },
+    {
+      "at": "2026-11-11T05:09:31Z",
+      "model": "sonnet",
+      "score": 0.68,
+      "notes": [
+        "\"สัตวแพทย์ระบุว่าวงจรแบบธรรมชาติ\" - the cycling times come from source 2, which is a vet, so this is fine; no issue there.",
+        "\"คู่มือการเลี้ยงปลาเสริมว่า\" - used-media claim is from source 3 (shop = guide), so this is fine.",
+        "\"ตรวจเพิ่มหลังเพิ่มปลาแต่ละครั้ง\" - the facts do not say to test extra after each fish addition. They only say each addition needs a mini-cycle.",
+        "\"ควรใส่ทีละน้อย\" in the closing fish FAQ is generic, but it is supported by the 'add fish slowly' fact.",
+        "\"รายงานข่าวชิ้นหนึ่งระบุว่ากรวดขนาดประมาณ 3 มม. เป็นที่นิยมในตู้ขนาดกลาง\" is correctly attributed to news (source 0), so this is fine.",
+        "\"เฟิร์นชวา\" is listed under the Cryptocoryne/plant list, but the facts do not say Java fern is a nano-tank plant recommended by the magazine. This is only a small generality.",
+        "\"ก่อนซื้อควรดูขนาดตอนโตเต็มที่ของปลาให้เหมาะกับตู้\" is derived from the 'tank too small' mistake, so it is roughly supported.",
+        "\"ให้ล้างก่อนใส่\" with the added condition \"ถ้าเป็นกรวดที่ไม่ใช่วัสดุชีวภาพ\" is supported.",
+        "\"(ใช้ตามฉลากของผลิตภัณฑ์)\" is allowed under the label rule and is not a note.",
+        "\"ไม้น้ำจะเริ่มตั้งตัว...\" is supported by the facts. \"ระบบกรองที่ดีและการตรวจน้ำบ่อย ๆ\" is supported."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.88,
+        0.6,
+        0.68
+      ]
+    }
+  ],
   "th/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
     {
       "at": "2026-11-08T08:59:52Z",
@@ -2536,6 +2793,41 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "th/guides/aquatome-reu-hai-trong-be-thuy-sinh-nguyen-nhan-va-cach-loai-bo": [
+    {
+      "at": "2026-11-11T05:14:42Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"รักษาระดับไว้ในช่วงนี้\" (phosphate row): the facts only say to dose PO4 to 0.5–2.0 ppm. Nothing says to keep it at that level.",
+        "\"สาหร่ายสีแดง (ตะไคร่ขนดำ ตะไคร่เขากวาง)\": the Aquasabi source says Easy Carbo works best on red algae. Applying that to these two species is an inference."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.9,
+        0.93
+      ]
+    },
+    {
+      "at": "2026-11-11T05:14:42Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"ควรเพิ่มออกซิเจนและกระแสน้ำทันที\": the facts give no such emergency action for fish gasping at the surface. This is an unsupported general recommendation.",
+        "\"มักต้องใช้วิธีรักษาด้านล่างร่วมด้วย\": the facts say only that black beard and staghorn algae are very hard to remove by hand. They don't say treatment is usually needed as well. This is a small unsupported generalisation.",
+        "The liquid carbon dose is given as \"ให้ดูตามฉลาก\" (see the label). The facts do give an Easy Carbo spot dose of 1 ml per 50 L, or 2 ml per 50 L as a double dose, so the guide leaves out a dose the facts supply. This is a minor omission, not an invented claim."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.82,
+        0.86,
+        0.85
+      ]
     }
   ],
   "th/guides/aquatome-su-co-may-bom-nuoc-keu-to-giat-cuc-nong-yeu-nhiem-dien-chay": [
@@ -3450,6 +3742,46 @@
       ],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "vi/guides/aquatome-nuoi-ca-rong-be-benh-thuc-an-ca-nuoi-chung": [
+    {
+      "at": "2026-11-12T21:30:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"nước mới cần cùng nhiệt độ với nước trong bể\" is not stated in the facts; it is an added generality inferred from keepers' fear of abrupt changes.",
+        "\"Hằng ngày xem mắt, nắp mang, vảy và bụng cá\" (daily checks) is not in the facts.",
+        "\"tạp chí kể trên cũng nghi ngờ cách này\" attributes the ping-pong doubt to a magazine; the facts say Jay Hemdal questions it, cited in a forum-sourced fact.",
+        "\"Cho ăn ở tầng mặt\" is presented as a set-up step, but the facts only say arowana feed mainly at the surface."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.88,
+        0.88,
+        0.82
+      ]
+    },
+    {
+      "at": "2026-11-12T21:30:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"Con đực ngậm cả trứng lẫn cá bột trong miệng cho tới khi chúng nở và lớn\": the facts only say the male broods eggs and larvae in his mouth. \"Until they hatch and grow\" is an unsupported addition.",
+        "\"Chỉ cá nuôi từ trại có đăng ký mới mua bán được\": the facts say captive-bred fish from registered farms may be traded. They do not say this is the only legal route."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.92,
+        0.9
+      ]
     }
   ],
   "vi/guides/aquatome-reu-hai-trong-be-thuy-sinh-nguyen-nhan-va-cach-loai-bo": [

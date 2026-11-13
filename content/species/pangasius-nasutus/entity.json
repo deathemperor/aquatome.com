@@ -11,6 +11,87 @@
     "barito",
     "malaysia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Barito River",
+        "Borneo",
+        "Sumatra",
+        "Kalimantan"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Barito River, Bandjarmasin, southern Kalimantan, Borneo, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Barito River",
+            "Kalimantan"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Greater Sunda Island rivers in Sumatra and Borneo, and Peninsular Malaysia.",
+          "countries": [],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202450,
+      "total": 8,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "MY",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          102.65625,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          111.09375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          112.5,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

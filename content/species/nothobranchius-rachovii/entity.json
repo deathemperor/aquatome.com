@@ -9,7 +9,8 @@
     "africa",
     "mozambique",
     "zambezi",
-    "pungwe"
+    "pungwe",
+    "beira"
   ],
   "range": {
     "native": {
@@ -194,6 +195,12 @@
       "html": "<p>The bluefin nothobranch, Nothobranchius rachovii, is a killifish of seasonal pools and swamps in eastern Mozambique. Its habitats dry out for several months each year and the adults die, while the eggs survive in the substrate and hatch when the rains return. Northern and southern populations once included in it are now described as N. krysanovi and N. pienaari, and N. rachovii sensu stricto is restricted to the lower Pungwe and Zambezi basins.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_rachovii_en/",
+      "html": "<ul><li>Origin: bred in captivity</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/nothobranchius-rachovii-detailed-guide-care-diet-and-breeding/",
@@ -330,6 +337,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
       "html": "<ul><li>Shidlovskiy, K. M., B. R. Watters, and R. H. Wildekamp (2010). Notes on the annual killifish species Nothobranchus rachovii (Cyprinodontiformes: Nothobranchiidae) with the description of two new species. Zootaxa 2724, 37-57</li><li>Dorn, A., E. Ng'oma , K. Janko , K. Reichwald, M. Polačik, M. Platzer, A. Cellerino, and M. Reichard (2011). Phylogeny, genetic variability and colour polymorphism of an emerging animal model: The short-lived annual Nothobranchius fishes from southern Mozambique. Molecular Phylogenetics and Evolution 61(3), 739-749</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_rachovii_en/",
+      "html": "<p>Lexikon: Nothobranchius: from ancient Greek \"nothos\" = false, untrue and \"branchion\" = gill, referring to the gill anatomy. rachovii: dedication name for the German aquarist Arthur Rachow (1884 – 1960).</p>"
     }
   ],
   "photos": [
@@ -375,5 +388,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-11"
 }

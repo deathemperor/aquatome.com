@@ -41,3 +41,56 @@ for(const lang of LANGS) test(`${lang}: complete fish data labels AI lead and in
  const figure=doc.blocks.find(b=>b.t==='figure'&&b.img.src===generatedInline.url);expect(figure?.t==='figure'&&figure.img.credit?.licence).toBe('')
  const galleries=doc.blocks.filter(b=>b.t==='gallery');expect(galleries).toHaveLength(1);expect(galleries[0]!.photos.every(p=>!p.src.includes('generated'))).toBe(true);expect(galleries[0]!.photos).toHaveLength(6)
 })
+
+for(const lang of LANGS)test(`${lang}: a permission-licensed cropped photo's credit names the photographer, source and licence, with no alteration notice`,()=>{
+ const p:Photo={...real,licence:'dùng với sự cho phép',ownerCrop:{id:'fixture',pixelHash:'a'.repeat(64)},altered:[{method:'mark-crop',date:'2026-11-11',originalHash:'a'.repeat(64)}]}
+ const t=translator(lang),plain=`${t('Ảnh:')} Source`,credit=photoCredit(lang,p),mark=photoMark(lang,p)
+ expect(credit).toMatchObject({text:plain,licence:'',url:p.sourceUrl})
+ expect(mark).toContain('Source');expect(mark).toContain(p.sourceUrl);expect(mark).not.toContain(t('Ảnh đã chỉnh sửa'));expect(mark).not.toContain('Đã cắt bỏ dấu của nguồn ảnh')
+ const {blocks}=htmlBlocks(`<figure><img src="${p.url}" width="800" height="600" alt="Fish"><figcaption>${mark}</figcaption></figure>`)
+ expect(blocks[0]?.t==='figure'&&blocks[0].img.credit).toMatchObject({text:plain,licence:'',url:p.sourceUrl})
+})
+for(const lang of LANGS)test(`${lang}: a CC BY cropped photo says it was edited; CC0 and public domain stay silent`,()=>{
+ const crop:Photo['altered']=[{method:'mark-crop',date:'2026-11-11',originalHash:'a'.repeat(64)}]
+ const t=translator(lang),edited=`${t('Ảnh:')} Source · ${t('Ảnh đã chỉnh sửa')}`
+ const cc:Photo={...real,altered:crop},credit=photoCredit(lang,cc),mark=photoMark(lang,cc)
+ expect(credit).toMatchObject({text:edited,licence:'CC BY-SA 4.0',url:cc.sourceUrl})
+ expect(mark).toContain(t('Ảnh đã chỉnh sửa'));expect(mark).not.toContain('Đã cắt bỏ dấu của nguồn ảnh')
+ const {blocks}=htmlBlocks(`<figure><img src="${cc.url}" width="800" height="600" alt="Fish"><figcaption>${mark}</figcaption></figure>`)
+ expect(blocks[0]?.t==='figure'&&blocks[0].img.credit).toMatchObject({licence:'CC BY-SA 4.0',url:cc.sourceUrl})
+ expect(blocks[0]?.t==='figure'&&blocks[0].img.credit?.text).toContain(edited)
+ for (const licence of ['CC0 1.0','Public domain']) expect(photoCredit(lang,{...cc,licence}).text).toBe(`${t('Ảnh:')} Source`)
+})
+test('a crop preserves the existing combined source and contributor credit',()=>{
+ const p:Photo={...real,source:'scotcat',author:'Fixture contributor / ScotCat',altered:[{method:'mark-crop',date:'2026-11-11',originalHash:'a'.repeat(64)}]}
+ const credit=photoCredit('vi',p)
+ expect(credit.text).toBe('Ảnh: Fixture contributor / ScotCat · Ảnh đã chỉnh sửa')
+ expect(credit.url).toBe(p.sourceUrl);expect(photoMark('vi',p)).toContain(credit.text)
+})
+
+test('an unsafe cropped head stays out of app lead data until the app can fit it, while album data and credits remain',async()=>{
+ const c=await loadAll({root:fileURLToPath(new URL('./fixture-content',import.meta.url)),lang:'vi',publicBuild:false}),s=c.species.find(s=>s.id==='paracheirodon-innesi')!
+ const crop:Photo={...real,width:800,height:520,headFit:'contain',altered:[{method:'mark-crop',date:'2026-11-11',originalHash:'a'.repeat(64),crop:{originalWidth:800,originalHeight:600,window:{x0:0,y0:0,x1:800,y1:520},subject:{x0:30,y0:180,x1:760,y1:420},margin:15}}]}
+ s.photos=[crop];c.galleries[s.id]=Array.from({length:6},(_,i)=>({...crop,url:`https://media.aquatome.com/crop-${i}.webp`}))
+ const doc=await fishDoc('vi',c,s,listedPaths('vi',c));expect(doc.lead).toBeUndefined()
+ const album=doc.blocks.find(b=>b.t==='gallery');expect(album?.t==='gallery'&&album.photos.length).toBe(6);expect(album?.t==='gallery'&&album.photos[0]?.credit?.text).toContain('Ảnh đã chỉnh sửa')
+ // Site-shaped alone does not make the current app's much taller banner safe.
+ s.photos=[{...crop,headFit:undefined,altered:[{...crop.altered![0]!,crop:{...crop.altered![0]!.crop!,subject:{x0:110,y0:180,x1:690,y1:420}}}]}]
+ const shaped=await fishDoc('vi',c,s,listedPaths('vi',c));expect(shaped.lead).toBeUndefined()
+ s.photos=[real];expect((await fishDoc('vi',c,s,listedPaths('vi',c))).lead?.src).toBe(real.url)
+})
+
+import { appIndex } from '../src/lib/app-index'
+for(const lang of ['vi','ms'] as const)test(`${lang}: a loaded whole-photo head never reaches either app banner input`,async()=>{
+ const c=await loadAll({root:fileURLToPath(new URL('./fixture-content',import.meta.url)),lang,publicBuild:false})
+ const s=c.species.find(s=>s.id==='apistogramma-cacatuoides')!
+ // The site's cockatoo cichlid fixture carries headFit, outside the shared vectors and with no crop alteration.
+ expect(s.photos[0]?.headFit).toBe('contain')
+ const photo=s.photos[0]!,before=JSON.stringify(s.photos)
+ expect((await fishDoc(lang,c,s,listedPaths(lang,c))).lead).toBeUndefined()
+ expect(appIndex(lang,c).items.find(i=>i.id===s.id)?.img).toBeUndefined()
+ expect(JSON.stringify(s.photos)).toBe(before)
+ s.photos=[{...photo,headFit:undefined}]
+ expect((await fishDoc(lang,c,s,listedPaths(lang,c))).lead?.src).toBe(photo.url)
+ expect(appIndex(lang,c).items.find(i=>i.id===s.id)?.img).toBeTruthy()
+})

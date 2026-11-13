@@ -5,12 +5,88 @@
   "family": "Loricariidae",
   "genus": "Peckoltia",
   "group": "catfish",
-  "lNumber": "L006",
+  "lNumber": "L6",
   "places": [
     "south-america",
     "brazil",
     "tocantins"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The brown dot peckoltia (Peckoltia oligospila), also known as L006, is a suckermouth catfish from the rios Tocantins and Capim in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202100,
+      "total": 28,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BR",
+          28
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          0,
+          5,
+          5
+        ],
+        [
+          -50.625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          14,
+          14
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

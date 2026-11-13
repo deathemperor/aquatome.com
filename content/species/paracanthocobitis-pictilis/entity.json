@@ -12,6 +12,73 @@
     "thailand",
     "kanchanaburi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MM"
+      ],
+      "regions": [
+        "Ataran River",
+        "Salween",
+        "Hanthayaw River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Kottelat (2012a) has this species occurring in the Ataran River, an affluent of the upper Salween basin flowing into Myanmar from Kanchanaburi province, Thailand, and the Mae Khlong watershed in western Thailand.",
+          "countries": [
+            "TH",
+            "MM"
+          ],
+          "regions": [
+            "Ataran River",
+            "Salween"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurrences of 'P. rubidipinnis' from the Hanthayaw River, another Salween tributary originating in Tak province, Thailand, before entering Myanmar presumably pertain to P. pictilis as well.",
+          "countries": [],
+          "regions": [
+            "Hanthayaw River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 12210402,
+      "total": 3,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "MM",
+          2
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          11.25,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

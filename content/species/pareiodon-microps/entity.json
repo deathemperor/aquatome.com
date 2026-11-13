@@ -11,6 +11,175 @@
     "peru",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Madeira"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species is monotypic (the only member of its genus) and is endemic to the Amazon river basin in Peru and Brazil.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Borba, Rio Madeira, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Madeira"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343306,
+      "total": 29,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BR",
+          23
+        ],
+        [
+          "PE",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -81.5625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {
@@ -101,26 +270,6 @@
       "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
       "caption": "Pareiodon microps: Maynas, Peru",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/a865a3f271fcc081.webp",
-      "thumb": "https://media.aquatome.com/commons/a865a3f271fcc081-480.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC0",
-      "author": "Whaldener Endo",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pareiodon_microps_204795342.jpg",
-      "caption": "Pareiodon microps in Brazil"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/75b48b8d31d73faf.webp",
-      "thumb": "https://media.aquatome.com/commons/75b48b8d31d73faf-480.webp",
-      "width": 960,
-      "height": 1340,
-      "licence": "Public domain",
-      "author": "François-Louis Laporte, comte de Castelnau",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:F_de_Castelnau-poissonsPl24.jpg",
-      "caption": "From top to bottom: Trichomycterus pussillus = Pareiodon microps Trichomycterus punctatissimus Trichomycterus pentlandi = Trichomycterus rivulatus Trichomycterus pictus = Trichomycterus rivulatus"
     }
   ],
   "videos": [

@@ -2,31 +2,6 @@
   "id": "potamotrygon-falkneri",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/566172490.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/566172490-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Donald Davesne",
-      "sourceUrl": "https://www.inaturalist.org/photos/566172490",
-      "caption": "Cá đuối đốm lớn bơi trên đáy sỏi đá trong suối tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/c64e5992947eb70d.webp",
-      "thumb": "https://media.aquatome.com/commons/c64e5992947eb70d-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 2.0",
-      "author": "Andrew Kuchling from Vienna, Virginia, USA",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Potamotrygon_ripley.jpg",
-      "caption": "Cá đuối đốm lớn màu nâu trên nền cát trong bể",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/566172672.webp",
       "thumb": "https://media.aquatome.com/inaturalist/566172672-480.webp",
       "width": 1024,
@@ -64,15 +39,27 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/d054741157a74845.webp",
-      "thumb": "https://media.aquatome.com/commons/d054741157a74845-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/566172490.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/566172490-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Donald Davesne",
+      "sourceUrl": "https://www.inaturalist.org/photos/566172490",
+      "caption": "Cá đuối đốm lớn bơi trên đáy sỏi đá trong suối tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c64e5992947eb70d.webp",
+      "thumb": "https://media.aquatome.com/commons/c64e5992947eb70d-480.webp",
       "width": 1200,
-      "height": 796,
-      "licence": "CC BY-SA 3.0",
-      "author": "KoS",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_-_Potamotrygon_castexi.jpg",
-      "caption": "Cá đuối đốm lớn bơi trên đá trong bể kính",
-      "best": false,
+      "height": 900,
+      "licence": "CC BY 2.0",
+      "author": "Andrew Kuchling from Vienna, Virginia, USA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Potamotrygon_ripley.jpg",
+      "caption": "Cá đuối đốm lớn màu nâu trên nền cát trong bể",
+      "best": true,
       "kind": "other"
     }
   ],

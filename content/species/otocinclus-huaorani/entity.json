@@ -10,6 +10,137 @@
     "ecuador",
     "napo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Río San Miguel",
+        "Rio Napo"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: tributary to Río San Miguel (kilometer 50, 4.5 kilometers south of Tipischca), about 0°10'N, 76°13'W, Río Amazonas/Napo basin, Napo, Ecuador.",
+          "countries": [
+            "EC"
+          ],
+          "regions": [
+            "Río San Miguel"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: western upper Amazon and Orinoco River basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Etymology: the specific name huaorani is named for the Huaorani indigenous people inhabiting the upper Rio Napo of Amazonian Ecuador, an area within the range of this species.",
+          "countries": [],
+          "regions": [
+            "Rio Napo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340476,
+      "total": 19,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CO",
+          11
+        ],
+        [
+          "PE",
+          4
+        ],
+        [
+          "EC",
+          3
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          0,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          -74.53125,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          5.625,
+          6,
+          0
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

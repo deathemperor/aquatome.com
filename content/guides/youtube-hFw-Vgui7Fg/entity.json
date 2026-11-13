@@ -121,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đổ cát hạt mịn xuống nền bể quanh đá và lũa.",
-            "sharpness": 1906.5
+            "sharpness": 1906.5,
+            "person": false
           }
         ]
       },
@@ -134,7 +135,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể rùa bố cục đơn giản với lũa, đá, cây và chỗ cạn.",
-            "sharpness": 2803.9
+            "sharpness": 2803.9,
+            "person": false
           },
           {
             "t": 320,
@@ -142,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa và đá tạo chỗ trốn và điểm phơi trên cạn cho rùa.",
-            "sharpness": 2965.1
+            "sharpness": 2965.1,
+            "person": false
           }
         ]
       },
@@ -150,20 +153,13 @@
         "heading": "Thả rùa và khi nào chuyển đi",
         "moments": [
           {
-            "t": 355,
-            "url": "https://media.aquatome.com/video/hFw-Vgui7Fg/at355-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai chú rùa con nhỏ xíu nằm gọn trên lòng bàn tay.",
-            "sharpness": 251.9
-          },
-          {
             "t": 410,
             "url": "https://media.aquatome.com/video/hFw-Vgui7Fg/at410-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Rùa con bơi khám phá giữa đám cây thủy sinh rậm rạp.",
-            "sharpness": 195.4
+            "sharpness": 195.4,
+            "person": false
           }
         ]
       }

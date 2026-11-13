@@ -2,18 +2,6 @@
   "id": "polypterus-endlicherii",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/add4436be6c5a332.webp",
-      "thumb": "https://media.aquatome.com/commons/add4436be6c5a332-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY 3.0",
-      "author": "lienyuan lee",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E8%99%8E%E6%96%91%E6%81%90%E9%BE%8D_Polypterus_endlicheri_-_panoramio.jpg",
-      "caption": "Cá khủng long yên ngựa con bơi trong bể kính",
-      "best": true,
-      "kind": "juvenile"
-    },
-    {
       "url": "https://media.aquatome.com/commons/af715f87c1c88969.webp",
       "thumb": "https://media.aquatome.com/commons/af715f87c1c88969-480.webp",
       "width": 1200,
@@ -35,8 +23,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/345855131",
       "caption": "Cá khủng long yên ngựa nhìn chính diện trên nền sỏi",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/1b70c951eb2d55b7.webp",
@@ -51,6 +38,18 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/commons/add4436be6c5a332.webp",
+      "thumb": "https://media.aquatome.com/commons/add4436be6c5a332-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY 3.0",
+      "author": "lienyuan lee",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E8%99%8E%E6%96%91%E6%81%90%E9%BE%8D_Polypterus_endlicheri_-_panoramio.jpg",
+      "caption": "Cá khủng long yên ngựa con bơi trong bể kính",
+      "best": true,
+      "kind": "juvenile"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/58007961.webp",
       "thumb": "https://media.aquatome.com/inaturalist/58007961-480.webp",
       "width": 1024,
@@ -60,8 +59,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/58007961",
       "caption": "Cá khủng long yên ngựa bơi sát kính trong bể nuôi",
       "best": false,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     }
   ],
   "seen": 12,

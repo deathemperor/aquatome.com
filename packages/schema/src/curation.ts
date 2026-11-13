@@ -44,8 +44,6 @@ export const CurationDaySchema = z.object({
   why: z.string().max(300).optional(),
   /** A person chose this day: the planner keeps it as long as its pages pass. */
   fixed: z.literal(true).optional(),
-  /** The owner chose this card's photo from the page's album: it may differ from the page's head, and the planner keeps it while it passes. */
-  imgChosen: z.literal(true).optional(),
 }).refine(d => !(d.story && d.card), { message: 'a day has a story or a card, not both' })
 
 export const CurationWeekSchema = z.object({
@@ -119,11 +117,24 @@ export const CurationSchema = z.object({
   /** Photos never to lead a card, with why (a sick fish, a dark tank where the fish is small). */
   avoid: z.record(z.string(), z.string()).default({}),
   /**
+   * Head photos, by the address a card loads, whose fish Hôm nay's card cuts, with why. That card crops its photo by the
+   * middle to the space under the fish's name, and a long fish's snout can fall outside it. Such a photo still leads its
+   * page and Khám phá's wide card; its fish isn't a day's fish while it is the head.
+   */
+  todayCut: z.record(z.string(), z.string()).default({}),
+  /**
    * Pages the weeks' top cards, shelves or days' stories name that don't pass reader fit now, with why. The planner
    * writes it afresh on each run and the build leaves them out, so the editor's picks come back once they pass. A day's
    * fish and guide are replaced instead.
    */
   off: z.record(z.string(), z.string()).default({}),
+  /**
+   * Tìm's suggested searches ("Gợi ý tìm kiếm") in each language, in order: eight a reader of that language types, each
+   * finding its own page or its topic first in that language's index with the app's search (Curation checks them there).
+   * A language with fewer than eight that pass has none, and the app shows no section (the chief of staff, 2026-11-12).
+   */
+  searches: z.partialRecord(z.enum(LANGS), z.array(z.string().trim().min(1).max(40)).length(8)
+    .refine(xs => new Set(xs.map(x => x.toLowerCase())).size === xs.length, 'a search listed twice')).default({}),
 })
 
 export type Curation = z.infer<typeof CurationSchema>

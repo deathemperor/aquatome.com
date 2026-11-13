@@ -4,6 +4,7 @@ import type { Taxon } from './gbif'
 import { fixFirst } from './guide-sections'
 import type { ProcessedPage } from './process'
 import { isShop, withoutShopTalk } from './species-sources'
+import { cleanLRecord } from './l-numbers'
 
 // takenNames: other items' names as nameKey keys (two fish under one name can't be told apart, or picked by name in the tools).
 type Ctx = { source: SourceId; url: string; now: string; takenSlugs: Set<string>; takenNames?: Set<string>; quality?: Translation['quality'] }
@@ -65,7 +66,12 @@ function mergeSections(prev: Section[], prevVi: Record<string, string>, page: Pr
   }
   for (const k of fixed) parts.delete(k)
   const added: Section[] = [...parts.values()].map(s => ({ key: s.key, source: ctx.source, sourceUrl: ctx.url, html: s.en }))
-  const sections = [...kept, ...added].map((s, i) => [s, i] as const).sort((a, b) => order(a[0].key) - order(b[0].key) || a[1] - b[1]).map(([s]) => s)
+  // A source read again keeps its part's place under the heading: a note of ours set after it stays after it, a planting
+  // how-to set first under care (planting.ts) stays first. A part the source didn't have before goes last.
+  const was = new Map(prev.map((s, i) => [s, i] as const))
+  const slot = new Map(prev.flatMap((s, i) => (s.source === ctx.source && !s.fixed ? [[s.key, i] as const] : [])))
+  const at = (s: Section, i: number) => was.get(s) ?? slot.get(s.key) ?? prev.length + i
+  const sections = [...kept, ...added].map((s, i) => [s, at(s, i)] as const).sort((a, b) => order(a[0].key) - order(b[0].key) || a[1] - b[1]).map(([s]) => s)
   const vi = Object.fromEntries(Object.entries(prevVi).filter(([k]) => !k.endsWith(`:${ctx.source}`) || fixed.has(k.slice(0, -ctx.source.length - 1))))
   for (const s of parts.values()) vi[`${s.key}:${ctx.source}`] = s.vi
   return { sections, vi }
@@ -91,7 +97,9 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
   const { taxon } = ctx
   const prev = existing.entity
   const genus = taxon.genus ?? taxon.canonicalName.split(' ')[0] ?? ''
-  const lNumber = prev?.lNumber ?? page.lNumber
+  // The record on file first, written as keepers write it (l-numbers.ts).
+  const record = prev?.lNumber ?? page.lNumber
+  const lNumber = record ? cleanLRecord(record) : undefined
   const { sections, vi } = mergeSections(prev?.sections ?? [], existing.vi?.sections ?? {}, page, ctx)
   const dataCard: SpeciesEntity['dataCard'] = {}
   const fields = uniq([...Object.keys(prev?.dataCard ?? {}), ...Object.keys(page.dataCard)]) as (keyof SpeciesEntity['dataCard'])[]
@@ -113,6 +121,8 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
     ...(prev?.water ? { water: prev.water } : {}),
     dataCard, sections, photos: prev?.photos ?? [], videos: prev?.videos ?? [],
     productSlots: prev?.productSlots.length ? prev.productSlots : page.productSlots, updatedAt: ctx.now,
+    // What parts and figures of ours cite (a video, a paper): kept, or the page no longer parses.
+    ...(prev?.refs?.length ? { refs: prev.refs } : {}),
   }
   // Its other names are its own: a shop listing's variety ("Cá betta Green Alien") or one name twice never adds up.
   const t = translation(existing.vi, page, ctx, `Cá ${taxon.canonicalName}`, genus, vi, 'species')
@@ -126,6 +136,7 @@ export function mergePlant(existing: { entity?: PlantEntity; vi?: Translation },
   const entity: PlantEntity = {
     id: slugify(page.scientificName), scientificName: page.scientificName, ...(prev?.synonyms?.length ? { synonyms: prev.synonyms } : {}), ...page.plant,
     sections, photos: prev?.photos ?? [], productSlots: prev?.productSlots.length ? prev.productSlots : page.productSlots, updatedAt: ctx.now,
+    ...(prev?.refs?.length ? { refs: prev.refs } : {}),
   }
   return { entity, vi: translation(existing.vi, page, ctx, page.scientificName, page.scientificName.split(' ')[0] ?? '', vi, 'plants') }
 }

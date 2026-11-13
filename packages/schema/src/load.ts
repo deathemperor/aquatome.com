@@ -1,11 +1,14 @@
 import { createHash } from 'node:crypto'
-import { readdir, readFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { readdir, readFile, stat } from 'node:fs/promises'
+import { dirname, join } from 'node:path'
 import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
-import { setsCookies } from './thumb'
-import { generatedApproved, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, type ImageSwitches } from './image-policy'
+import { setsCookies, THUMB_WIDTH } from './thumb'
+import { awaitsScreen, type PhotoScreenEntry } from './photo-screen'
+import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
+import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
+import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, SUBJECT_FRAMES, subjectPixels, validCropGeometry, type SubjectFractions } from './image-geometry'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
@@ -21,9 +24,21 @@ export const MARKET: Record<Lang, string> = { vi: 'vn', id: 'id', th: 'th', ms: 
  * `leaveOutHeld`: a page the reader-fit gate holds back in this language (its `held`) is no page here, as one without a
  * translation. The site's build sets it; the engine reads every page, to read the held ones again and let them out.
  */
-export type LoadOptions = { root: string; lang: Lang; publicBuild: boolean; leaveOutHeld?: boolean; imageSwitches?: Readonly<ImageSwitches> }
+export type LoadOptions = {
+  root: string; lang: Lang; publicBuild: boolean; leaveOutHeld?: boolean; imageSwitches?: Readonly<ImageSwitches>
+  /**
+   * The watermark screen's record, for a public build: by default the one in the engine's state beside the content root,
+   * where there is one (a fixture has none, and shows every photo). `'required'`: a build of the real content, which
+   * stops without it. A record given here stands in for it; `false`: none, every photo shows.
+   */
+  photoScreen?: Record<string, PhotoScreenEntry> | 'required' | false
+  /** Whether photos get their box from the engine's record (`subject`): by default SUBJECT_FRAMES (image-geometry.ts). */
+  subjectFrames?: boolean
+}
 export type Localized<E> = E & { t: Translation }
 export type Content = {
+  /** The language this content was loaded in. A content put together by hand (a test's) may have none: read as Vietnamese. */
+  lang?: Lang
   species: Localized<SpeciesEntity>[]
   plants: Localized<PlantEntity>[]
   guides: Localized<GuideEntity>[]
@@ -49,6 +64,13 @@ export type Content = {
   pictureHashes: PictureHashes
   /** The day each content file last changed for a reader (content/page-dates.json): the sitemap's dates. */
   pageDates: Record<string, string>
+  /**
+   * Whether this build holds a picture back until the watermark screen has judged it (photo-screen.ts), asked by any of
+   * the picture's addresses: its own, its thumb's or its larger copy's. For what names a picture by address alone (the
+   * calendar). It asks the screen's record, not only what this language's build loaded, so a picture on a page this
+   * build leaves out is answered too, and one the record doesn't know waits. None where the build has no screen.
+   */
+  photoWaits?: (address: string) => boolean
   /** The app's short cards (content/cards, cards.ts) in this language, those the gate holds back left out. No page of their own. */
   cards: Card[]
 }
@@ -99,6 +121,33 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
   return out
 }
 
+/** The watermark screen's record, in the engine's state beside the content root. */
+export const PHOTO_SCREEN_FILE = '_photo-watermarks.json'
+/** The engine's box of where the fish is in each photo, by address (null: no animal found), beside the content root. */
+export const PHOTO_BOXES_FILE = '_photo-boxes.json'
+const records = new Map<string, { at: string; record: Promise<unknown> }>()
+/**
+ * An engine record beside this content root (engine-state/<name>), read once per change of the file (a write, a
+ * replacement, a change of size or of either of its times). None where the root has none beside it (a fixture, a test's
+ * store).
+ */
+async function stateRecord<T>(root: string, name: string): Promise<T | undefined> {
+  const file = join(dirname(root), 'engine-state', name)
+  const at = await stat(file).then(s => `${s.ino} ${s.ctimeMs} ${s.mtimeMs} ${s.size}`, () => undefined)
+  if (at === undefined) return undefined
+  const had = records.get(file)
+  if (had?.at === at) return had.record as Promise<T>
+  const record = readFile(file, 'utf8').then(s => JSON.parse(s) as T)
+  records.set(file, { at, record })
+  return record
+}
+/** The watermark screen's record, unless it is `required`: a missing record must not show the real content's every photo unscreened. */
+async function photoScreenOf(root: string, required: boolean): Promise<Record<string, PhotoScreenEntry> | undefined> {
+  const record = await stateRecord<Record<string, PhotoScreenEntry>>(root, PHOTO_SCREEN_FILE)
+  if (!record && required) throw new Error(`${join(dirname(root), 'engine-state', PHOTO_SCREEN_FILE)}: the watermark screen's record is missing, so no photo can be shown as screened`)
+  return record
+}
+
 export async function loadAll(opts: LoadOptions): Promise<Content> {
   const { root, lang, publicBuild, leaveOutHeld = false } = opts
   const images = opts.imageSwitches ?? IMAGE_SWITCHES
@@ -116,11 +165,42 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (hash === approval.recordHash && e.photos.some(same) && gallery?.photos.some(same)) generatedUrls.add(url)
   }
   const photoAllowed = (s: SourceId) => !publicBuild || mayPublish(sources[s], 'photos')
+  // A public build shows no photo the watermark screen still owes a look (photo-screen.ts): it waits, on a page, in an
+  // album, a guide or a card, and shows by itself once judged. The engine's own reads see every photo.
+  const screen = !publicBuild || opts.photoScreen === false ? undefined
+    : typeof opts.photoScreen === 'object' ? opts.photoScreen : await photoScreenOf(root, opts.photoScreen === 'required')
+  // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
+  // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,
+  // for what names a picture by address alone (the calendar: `photoWaits`).
+  const shown = new Set<string>(), waiting = new Set<string>()
+  const screened = (p: { url: string; thumb?: string; large?: { url: string } }): boolean => {
+    if (!screen) return true
+    const waits = awaitsScreen(p.url, screen[p.url])
+    for (const u of [p.url, p.thumb, p.large?.url]) if (u) (waits ? waiting : shown).add(u)
+    return !waits
+  }
+  // An address this build did not load (a picture on a page this language lacks, or one the gate holds) is asked of the
+  // record by its photo's own address: in our store a thumb's and a larger copy's are the photo's with "-480" or
+  // "-large" before ".webp" (thumb.ts, the engine's large-photos.ts). One the record doesn't know waits.
+  const photoWaits = (address: string): boolean => {
+    if (shown.has(address)) return false
+    if (waiting.has(address)) return true
+    const photo = address.replace(new RegExp(`-(?:${THUMB_WIDTH}|large)\\.webp$`), '.webp')
+    return awaitsScreen(photo, screen![photo])
+  }
   const cleanSections = (xs: Section[]) => xs.filter(s => allowed(s.source))
   // Captions written in Vietnamese (galleries, breed photos) are shown in this language from content/captions/<lang>.json;
   // one not translated yet is left off, so the photo's alt text falls back to the page's name.
   const captionsFile = join(root, 'captions', `${lang}.json`)
   const captions = lang !== 'vi' && (await exists(captionsFile)) ? await readJson(captionsFile, CaptionsSchema) : {}
+  // Where the fish is in each photo, from the engine's record alone and behind its switch (SUBJECT_FRAMES): with it off
+  // no photo has a box. A photo the record doesn't know, or where it found no animal, has none.
+  const boxes = (opts.subjectFrames ?? SUBJECT_FRAMES) ? await stateRecord<Record<string, SubjectFractions | null>>(root, PHOTO_BOXES_FILE) : undefined
+  const boxed = <P extends Photo>(p: P): P => {
+    const { subject: _own, ...rest } = p
+    const f = boxes?.[p.url], subject = f && subjectPixels(f, p.width, p.height)
+    return subject ? { ...rest, subject } as P : _own ? rest as P : p
+  }
   const caption = <P extends Photo>(p: P): P => {
     if (lang === 'vi' || !p.caption || !isVietnamese(p.caption)) return p
     const { caption: vi, ...rest } = p
@@ -129,8 +209,13 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   /** Photos copied from a source follow that source's publish gate; others need an open licence. */
   // A public build shows no photo from a host that sets third-party cookies: it waits for `pnpm engine mirror-photos`
   // (2026-10-31: 487 Commons photos put on pages straight from Wikimedia failed best practices on every live page).
-  const cleanPhotos = <P extends Photo>(xs: P[]): P[] => realPhotosFirst(xs.flatMap(p => {
-    const removedMark = p.altered?.find(a => a.method === 'mark-removal')
+  const cleanPhotos = <P extends Photo>(xs: P[], page = '', scientificName = ''): P[] => realPhotosFirst(xs.flatMap(p => {
+    if (isOwnerCrop(p)) {
+      const valid=ownerCropApproved(p,page,scientificName,createHash('sha256').update(ownerCropCanonical(p,page,scientificName)).digest('hex'))
+      const veto=p.source && sources[p.source]?.permission?.markRemoval?.allowed===false
+      return valid && !veto ? [p] : []
+    }
+    const removedMark = p.altered?.find(a => a.method === 'mark-removal' || a.method === 'mark-crop')
     const permission = p.source && sources[p.source]?.permission?.markRemoval
     const markOn = images.removeMarks && !!permission && permission.allowed && permission.date === removedMark?.permissionDate
     const revoked = p.altered?.length && (!images.publishAltered || (removedMark ? !markOn : !images.upscaleReal))
@@ -144,19 +229,22 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     return [p]
   }).filter(p => {
     if (publicBuild && setsCookies(p.url)) return false
-    if (p.generated) return images.publishGenerated && generatedUrls.has(p.url) && generatedApproved(p) && !p.altered?.some(a => a.method === 'mark-removal')
+    if (!screened(p)) return false
+    if (p.generated) return images.publishGenerated && generatedUrls.has(p.url) && generatedApproved(p) && !p.altered?.some(a => a.method === 'mark-removal' || a.method === 'mark-crop')
     if (p.altered?.length) {
-      if (!images.publishAltered) return false
+      if (!images.publishAltered && !isOwnerCrop(p)) return false
       for (const a of p.altered) {
         if (a.method === 'lanczos3-upscale' && !images.upscaleReal) return false
-        if (a.method === 'mark-removal') {
+        if (a.method === 'mark-removal' || a.method === 'mark-crop') {
           const permission = p.source && sources[p.source]?.permission?.markRemoval
-          if (!images.removeMarks || !permission || !permission.allowed || permission.date !== a.permissionDate || a.outsideChanged !== 0 || a.noTrace !== 'pass' || !a.box || a.residue?.version !== MARK_RESIDUE_VERSION || a.residue.limit !== MARK_RESIDUE_LIMIT || !Number.isFinite(a.residue.score) || a.residue.score >= MARK_RESIDUE_LIMIT) return false
+          if ((!isOwnerCrop(p) && (!images.removeMarks || !permission || !permission.allowed || permission.date !== a.permissionDate)) || !validImageJudgmentHashes(a.checks?.species) || !validImageJudgmentHashes(a.checks?.ownership)) return false
+          if(a.method==='mark-removal' && (a.outsideChanged !== 0 || a.noTrace !== 'pass' || !a.box || !validImageJudgmentHashes(a.checks?.noTrace) || !validImageJudgmentHashes(a.checks?.preservation) || a.residue?.version !== MARK_RESIDUE_VERSION || a.residue.limit !== MARK_RESIDUE_LIMIT || !Number.isFinite(a.residue.score) || a.residue.score >= MARK_RESIDUE_LIMIT))return false
+          if(a.method==='mark-crop' && (a.retainedChanged!==0 || !validCropGeometry(a.crop) || p.width!==a.crop.window.x1-a.crop.window.x0 || p.height!==a.crop.window.y1-a.crop.window.y0 || !a.excludedMarks?.length || a.excludedMarks.some(m=>!markOutsideCrop(a.crop!,m))))return false
         }
       }
     }
     return p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence)
-  }).map(caption))
+  }).map(p => caption(boxed(p))))
   /** The card's values from sources this build may show, without a tank length that is that source's tank volume (card-facts). */
   const cleanCard = (card: SpeciesEntity['dataCard'], sections: Section[]): SpeciesEntity['dataCard'] => shownCard(card, sections, s => allowed(s as SourceId))
 
@@ -183,14 +271,15 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const generatedPages = new Set<string>()
   const rememberGenerated = <E extends { id: string; photos: Photo[] }>(page: E): E => { if (page.photos.some(p => p.generated)) generatedPages.add(page.id); return page }
   const species = (await loadKind(root, 'species', SpeciesSchema, lang, leaveOutHeld)).map(rememberGenerated)
-    .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
+    .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos, `species/${s.id}`, s.scientificName), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
     .filter(s => s.sections.length > 0)
   const plants = (await loadKind(root, 'plants', PlantSchema, lang, leaveOutHeld)).map(rememberGenerated)
     .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
     .filter(p => p.sections.length > 0)
   const guides = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld))
     .filter(g => allowed(g.source))
-    .map(g => ({ ...g, photos: cleanPhotos(g.photos) }))
+    // A video's sections show a photo and stills of their own, and a section's photo can lead the guide or a card.
+    .map(g => ({ ...g, photos: cleanPhotos(g.photos), ...(g.video?.figures ? { video: { ...g.video, figures: g.video.figures.map(f => ({ ...f, moments: f.moments.filter(screened), ...(f.photo ? { photo: screened(f.photo) ? boxed(f.photo) : undefined } : {}) })) } } : {}) }))
 
   const changelogPath = join(root, 'changelog.json')
   const changelog = (await exists(changelogPath) ? await readJson(changelogPath, ChangelogSchema) : []).filter(e => allowed(e.source))
@@ -203,7 +292,10 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (lang !== 'vi' && !(await exists(file))) continue
     const e = await readJson(file, EquipmentSchema)
     const ok = (p: Photo) => cleanPhotos([p]).length > 0
-    equipment.push({ ...e, types: e.types.map(t => (t.photo && !ok(t.photo) ? { ...t, photo: undefined } : t)) })
+    const types = e.types.map(t => (!t.photo ? t : { ...t, photo: ok(t.photo) ? boxed(t.photo) : undefined }))
+    // Its head picture waits like any other: a type's photo stands in, and with none to stand in the guide waits too.
+    const hero = screened(e.hero) ? boxed(e.hero) : types.find(t => t.photo)?.photo
+    if (hero) equipment.push({ ...e, hero, types })
   }
 
   const series: Series[] = []
@@ -216,7 +308,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   for (const f of (await readdir(join(root, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const g = await readJson(join(root, 'gallery', f), GallerySchema)
     // A photo the photo check has not judged yet (`unchecked`) waits: no page shows it, and it counts towards no album.
-    const photos = cleanPhotos(g.photos.filter(p => !p.unchecked))
+    const speciesPage=species.find(p=>p.id===g.id)
+    const photos = cleanPhotos(g.photos.filter(p => !p.unchecked), speciesPage ? `species/${g.id}` : '', speciesPage?.scientificName ?? '')
     if (photos.length) galleries[g.id] = photos
   }
 
@@ -225,9 +318,18 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const shownCare = (care: BreedEntity['care']) => Object.fromEntries(Object.entries(care).map(([f, vs]) => [f, (vs ?? []).filter(v => !v.hidden)] as const).filter(([, vs]) => vs.length)) as BreedEntity['care']
   const breeds = (await loadKind(root, 'breeds', BreedSchema, lang, leaveOutHeld)).map(rememberGenerated).map(b => ({ ...b, care: shownCare(b.care), photos: cleanPhotos(b.photos) }))
   // A newly passed real album photo immediately leads a formerly generated-only page, even before lead-photos runs.
-  for (const page of [...species, ...plants, ...breeds]) if (page.photos[0]?.generated || (!page.photos.length && generatedPages.has(page.id))) {
-    const real = galleries[page.id]?.find(p => !p.generated)
+  // Preserve explicitly fitted heads; add a fitted fallback only after ordinary publication admission.
+  const fitsHead = (p: Photo) => p.headFit === 'contain' || photoFitsHead(p)
+  for (const page of [...species, ...plants, ...breeds]) if (page.photos.some(p=>p.headFit==='contain'||!photoFitsHead(p)) || page.photos[0]?.generated || (!page.photos.length && (generatedPages.has(page.id) || (galleries[page.id]??[]).some(p=>!p.generated&&photoFitsWholeHead(p))))) {
+    const all=realPhotosFirst([...new Map([...page.photos,...(galleries[page.id]??[])].map(p=>[p.url,p])).values()])
+    const albumOnly=page.photos.filter(p=>!fitsHead(p))
+    if(albumOnly.length)galleries[page.id]=realPhotosFirst([...new Map([...(galleries[page.id]??[]),...albumOnly].map(p=>[p.url,p])).values()])
+    page.photos=page.photos.filter(fitsHead)
+    const real = all.find(p => !p.generated && photoFitsHead(p))
+    const whole = !real && all.find(p=>!p.generated&&(p.headFit==='contain'||photoFitsWholeHead(p)))
     if (real) page.photos = [real, ...page.photos.filter(p => p.url !== real.url)]
+    else if(whole)page.photos=[{...whole,headFit:'contain'}]
+    else if(all.some(p=>!p.generated))page.photos=page.photos.filter(p=>!p.generated)
   }
   const speciesSlugs = new Set(species.map(s => s.t.slug))
   const breedSlugs = new Set<string>()
@@ -253,13 +355,14 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (t.held) continue
     const { photo, ...card } = await readJson(join(cardsDir, id, 'entity.json'), CardSchema)
     if (!cardShownIn(card, lang)) continue
-    const shown = photo && !photo.generated ? cleanPhotos([photo])[0] : undefined
+    const shown = photo && !photo.generated && !isOwnerCrop(photo) && photoFitsCard(photo) ? cleanPhotos([photo])[0] : undefined
     cards.push({ ...card, ...(shown ? { photo: shown } : {}), t })
   }
 
   const allPlaces = await loadKind(root, 'places', PlaceSchema, lang)
   return {
-    species, plants, guides, changelog, equipment, series, galleries, products, breeds, cards,
+    lang, species, plants, guides, changelog, equipment, series, galleries, products, breeds, cards,
+    ...(screen ? { photoWaits } : {}),
     glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
     // Another language's species pages are still being made: it has the places one of its fish comes from, so no origin
     // page is empty and no link points at one it lacks. Vietnamese has every place.

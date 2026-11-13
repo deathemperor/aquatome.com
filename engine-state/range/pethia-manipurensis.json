@@ -1,0 +1,60 @@
+{
+  "id": "pethia-manipurensis",
+  "native": {
+    "input": "41d1ad673d34bd72",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The fish originates from the Indian state of Manipur, after which it is named.",
+        "words": "Indian",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from and apparently endemic to Loktak Lake in Bishnupur District, Manipur state, northeastern India, with no additional populations discovered to date.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Loktak Lake",
+        "source": "seriouslyfish",
+        "quote": "Described from and apparently endemic to Loktak Lake in Bishnupur District, Manipur state, northeastern India, with no additional populations discovered to date.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia manipurensis",
+    "status": "ACCEPTED",
+    "taxonKey": 7798441,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

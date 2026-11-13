@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { STAPLE_SPECIES } from '@aq/schema'
-import { localizeGlossary, localizePlaces, localizeSpecies, nativeTo, speciesOrder, TARGETS } from '../src/localize'
+import { heroesWithout, localizeGlossary, localizePlaces, localizeSpecies, nativeTo, partHash, speciesOrder, TARGETS } from '../src/localize'
 
 /** The fixture site, its sources allowed to be translated except `deny`. */
 async function site(deny: string[] = []) {
@@ -39,11 +39,13 @@ test('every English part translated; local name; Thai addressed by scientific na
   expect(t.altNames).toEqual(['Test fish'])
   expect(Object.keys(t.sections).sort()).toEqual(e.sections.filter(s => s.html.trim()).map(s => `${s.key}:${s.source}`).sort())
   expect(t.quality).toMatchObject({ score: 0.9, indexable: true })
-  // English changed since (state says it was made from an older one): made again.
+  // The English's date moved but no part of it changed: nothing is translated again (2026-11-11).
   const stateFile = join(root, 'engine-state/localize-th.json')
   const st = JSON.parse(await readFile(stateFile, 'utf8'))
   await writeFile(stateFile, JSON.stringify({ ...st, [id]: { ...st[id], from: '2000-01-01' } }))
-  expect((await localizeSpecies(root, llm, 'th', [id], { now })).done).toHaveLength(1)
+  const asked = calls.length
+  expect((await localizeSpecies(root, llm, 'th', [id], { now })).skipped).toEqual([id])
+  expect(calls.length).toBe(asked)
   // Done once: skipped next time; a redo keeps the address.
   expect((await localizeSpecies(root, llm, 'th', [id], { now })).skipped).toEqual([id])
   await writeFile(join(root, 'content/species', id, 'th.json'), JSON.stringify({ ...t, slug: 'kept-address' }))
@@ -177,12 +179,46 @@ test('place names: every place named in the language; a name with Vietnamese let
   expect([...prompts[0]!.matchAll(/^### (\S+)/gm)].map(m => m[1]).sort()).toEqual(['china', 'peru'])
 })
 
+test('the translator\'s reviewers of place names and glossary terms read a batch within 0.1 of the bar three times; the middle read counts', async () => {
+  const root = await site()
+  let reads = 0
+  const llm = async <T,>(a: { prompt: string; schema: object }) => {
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) return { score: [0.7, 0.9, 0.8][reads++ % 3]!, notes: [] } as T
+    const ids = [...a.prompt.matchAll(/^### (\S+)/gm)].map(m => m[1]!)
+    if ((a.schema as { required?: string[] }).required?.includes('terms')) return { terms: ids.map(i => ({ id: i, name: `คำ ${i}`, definition: `ความหมาย ${i}` })) } as T
+    return { places: ids.map(i => ({ id: i, name: `ประเทศ ${i}` })) } as T
+  }
+  await localizePlaces(root, llm, 'th')
+  expect(reads).toBe(3)
+  expect(JSON.parse(await readFile(join(root, 'content/places/brazil/th.json'), 'utf8')).quality).toMatchObject({ score: 0.8, indexable: true })
+  reads = 0
+  await localizeGlossary(root, llm, 'th')
+  expect(reads).toBe(3) // 0.7 alone would have sent the batch back to be written again
+})
+
 test('fish native to a country: listed under it or under a place inside it', async () => {
   const root = await site()
   const file = join(root, 'content/species/paracheirodon-axelrodi/entity.json')
   await writeFile(file, JSON.stringify({ ...JSON.parse(await readFile(file, 'utf8')), places: ['rio-negro'] }))
   expect([...await nativeTo(root, 'indonesia')]).toEqual(['boraras-brigittae'])
   expect([...await nativeTo(root, 'brazil')].sort()).toEqual(['paracheirodon-axelrodi', 'paracheirodon-innesi', 'pterophyllum-scalare', 'symphysodon-aequifasciatus'])
+})
+
+// The chief of staff, 2026-11-11: the translator's reviewer reads a page within 0.1 of the bar three times, and the middle
+// read is the page's score; one well clear of it is read once.
+test('a translation scored within 0.1 of the bar is read three times and gets the middle read', async () => {
+  const root = await site()
+  const id = (await import('node:fs')).readdirSync(join(root, 'content/species')).sort()[0]!
+  const scores = [0.8, 0.7, 0.85]
+  let reviews = 0
+  const llm = async <T,>(a: { prompt: string; schema: object }) => {
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) return { score: scores[reviews++] ?? 0.95, notes: [] } as T
+    const ids = [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => m[1])
+    return { name: 'Ikan uji', altNames: [], nameConfidence: 'medium', parts: ids.map(i => ({ id: i, text: `<p>terjemahan ${i}</p>` })) } as T
+  }
+  await localizeSpecies(root, llm, 'id', [id], { now })
+  expect(reviews).toBe(3)
+  expect(JSON.parse(await readFile(join(root, 'content/species', id, 'id.json'), 'utf8')).quality).toMatchObject({ score: 0.8, indexable: true })
 })
 
 test('translation order: staples and most-kept fish, then pages the other language has, then the country\'s own fish, then the rest', async () => {
@@ -198,6 +234,31 @@ test('translation order: staples and most-kept fish, then pages the other langua
   // The fixture's apistogramma-cacatuoides has a Malay page: it comes with the pages another served language has.
   expect(id.slice(-3)).toEqual(['apistogramma-cacatuoides', 'zzz-elsewhere', 'aaa-native'])
   expect((await speciesOrder(root, 'th')).slice(-3)).toEqual(['apistogramma-cacatuoides', 'aaa-native', 'zzz-elsewhere'])
+})
+
+// The chief of staff, 2026-11-11: on the first sign-in, pages whose English gained sections first, then the fish on
+// Khám phá's top cards a language has no page for (it shows fewer than five cards), earliest week first.
+test('translation order: new sections first, then the top cards without a page here, earliest week first', async () => {
+  const root = await site()
+  const e = JSON.parse(await readFile(join(root, 'content/species/boraras-brigittae/entity.json'), 'utf8')) as { sections: { key: string; source: string; html: string }[] }
+  const [first, second] = e.sections
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  // Translated from its first section only: the second is new.
+  await writeFile(join(root, 'engine-state/localize-id.json'), JSON.stringify({ 'boraras-brigittae': { at: '2026-11-01', from: '2026-11-01', name: 'x', confidence: 'high', score: 0.9, parts: { [`${first!.key}:${first!.source}`]: partHash(first!.html) } } }))
+  const week = (from: string, to: string, pages: string[]) => ({ from, to, hero: pages.map(page => ({ page, img: '' })) })
+  await writeFile(join(root, 'content/curation.json'), JSON.stringify({ weeks: [
+    week('2026-11-16', '2026-11-22', ['species/danio-margaritatus', 'breeds/oranda-goldfish']),
+    week('2026-11-02', '2026-11-08', ['species/neocaridina-davidi']), // over
+    week('2026-11-09', '2026-11-15', ['species/pterophyllum-scalare', 'species/apistogramma-cacatuoides', 'breeds/flowerhorn-cichlid']),
+  ] }))
+  expect((await speciesOrder(root, 'id', '2026-11-11')).slice(0, 3)).toEqual(['boraras-brigittae', 'pterophyllum-scalare', 'apistogramma-cacatuoides'])
+  expect((await speciesOrder(root, 'id', '2026-11-11'))[3]).toBe('danio-margaritatus')
+  // The fixture's cacatuoides and flowerhorn have Malay pages: not wanted there.
+  expect((await speciesOrder(root, 'ms', '2026-11-11')).slice(0, 2)).toEqual(['pterophyllum-scalare', 'danio-margaritatus'])
+  expect(await heroesWithout(root, 'ms', 'breeds', '2026-11-11')).toEqual(['oranda-goldfish'])
+  // Translated from both: nothing new.
+  await writeFile(join(root, 'engine-state/localize-id.json'), JSON.stringify({ 'boraras-brigittae': { parts: Object.fromEntries([first!, second!].map(x => [`${x.key}:${x.source}`, partHash(x.html)])) } }))
+  expect((await speciesOrder(root, 'id', '2026-11-11'))[0]).toBe('pterophyllum-scalare')
 })
 
 test("Malay's style is Malaysia's: its words, its number marks and money, and nothing asked in Indonesian's words", () => {
@@ -244,4 +305,127 @@ test('two Malay glossary terms under one address: the second takes its word for 
   expect(r.done).toHaveLength(2)
   const slug = async (id: string) => JSON.parse(await readFile(join(root, 'content/glossary', id, 'ms.json'), 'utf8')).slug as string
   expect([await slug('chu-trinh-nito'), await slug('gh')].sort()).toEqual(['takrif', 'takrif-istilah'])
+})
+
+// The Writing Lead's rule (the chief of staff, 2026-11-11): 18 pages lost a passing translation to a whole-page redo
+// under the bar when their English gained sections, though no section they were made from had changed.
+type Sec = { key: string; source: string; sourceUrl?: string; html: string }
+/** A translator that writes `<p>{tag} {id}</p>` for each part asked, and a reviewer whose score `score()` gives. */
+function translator(tag: () => string, score: () => number) {
+  const writes: string[] = []
+  const reviews: string[] = []
+  const llm = async <T,>(a: { prompt: string; schema: object }) => {
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) { reviews.push(a.prompt); return { score: score(), notes: [] } as T }
+    writes.push(a.prompt)
+    const ids = [...a.prompt.split('--- PARTS ---')[1]!.matchAll(/^### (\S+)$/gm)].map(m => m[1])
+    return { name: 'ปลาทดสอบ', altNames: [], nameConfidence: 'high', parts: ids.map(i => ({ id: i, text: `<p>${tag()} ${i}</p>` })) } as T
+  }
+  return { llm, writes, reviews }
+}
+async function pageWith(root: string, id: string, change: (sections: Sec[]) => Sec[]) {
+  const f = join(root, 'content/species', id, 'entity.json')
+  const e = JSON.parse(await readFile(f, 'utf8')) as { sections: Sec[]; updatedAt: string }
+  await writeFile(f, JSON.stringify({ ...e, sections: change(e.sections), updatedAt: '2099-01-01' }))
+}
+const asked = (prompt: string) => [...prompt.split('--- PARTS ---')[1]!.matchAll(/^### (\S+)$/gm)].map(m => m[1])
+const NEW: Sec = { key: 'diet', source: 'aquariumcoop', sourceUrl: 'https://www.aquariumcoop.com/blogs/aquarium/x', html: '<p>Feeds on worms.</p>' }
+
+test('the English gains a section and changes one: only those two are translated and reviewed, beside the kept text; each source its own score', async () => {
+  const root = await site()
+  const id = (await import('node:fs')).readdirSync(join(root, 'content/species')).sort()[0]!
+  let tag = 'T1', score = 0.9
+  const t = translator(() => tag, () => score)
+  await localizeSpecies(root, t.llm, 'th', [id], { now })
+  const first = JSON.parse(await readFile(join(root, 'content/species', id, 'th.json'), 'utf8'))
+  const [changed, ...rest] = Object.keys(first.sections) as string[]
+  await pageWith(root, id, s => [...s.map(x => (`${x.key}:${x.source}` === changed ? { ...x, html: `${x.html}<p>One more line.</p>` } : x)), NEW])
+  tag = 'T2'; score = 0.8
+  const r = await localizeSpecies(root, t.llm, 'th', [id], { now })
+  expect(r.done).toHaveLength(1)
+  expect(t.writes).toHaveLength(2)
+  expect(asked(t.writes[1]!).sort()).toEqual([changed, 'diet:aquariumcoop'].sort())
+  expect(t.writes[1]).toContain('--- ALREADY ON THE PAGE ---')
+  expect(t.writes[1]).toContain(`T1 ${rest[0]}`)
+  expect(t.reviews[1]!.match(/^### \d+$/gm)).toHaveLength(2)
+  const after = JSON.parse(await readFile(join(root, 'content/species', id, 'th.json'), 'utf8'))
+  for (const k of rest) expect(after.sections[k]).toBe(first.sections[k])
+  expect(after.sections[changed!]).toBe(`<p>T2 ${changed}</p>`)
+  expect(after.sections['diet:aquariumcoop']).toBe('<p>T2 diet:aquariumcoop</p>')
+  expect(after.quality.bySource.aquariumcoop).toBe(0.8)
+  expect(after.quality).toMatchObject({ score: 0.8, indexable: true })
+  expect(after.name).toBe(first.name)
+})
+
+test('new sections under the bar stay off the page, which keeps its text and score, and wait a week before they are tried again', async () => {
+  const root = await site()
+  const id = (await import('node:fs')).readdirSync(join(root, 'content/species')).sort()[0]!
+  let score = 0.9
+  const t = translator(() => 'T', () => score)
+  await localizeSpecies(root, t.llm, 'th', [id], { now })
+  const file = join(root, 'content/species', id, 'th.json')
+  const before = await readFile(file, 'utf8')
+  await pageWith(root, id, s => [...s, NEW])
+  score = 0.5
+  const r = await localizeSpecies(root, t.llm, 'th', [id], { now })
+  expect(r.failed.join('\n')).toMatch(/new parts under the bar \(0.5\), the page keeps its text/)
+  expect(await readFile(file, 'utf8')).toBe(before)
+  const calls = t.writes.length + t.reviews.length
+  expect((await localizeSpecies(root, t.llm, 'th', [id], { now: () => new Date('2026-11-06T23:00:00Z') })).skipped).toEqual([id])
+  expect(t.writes.length + t.reviews.length).toBe(calls)
+  score = 0.9
+  expect((await localizeSpecies(root, t.llm, 'th', [id], { now: () => new Date('2026-11-08T00:00:00Z') })).done).toHaveLength(1)
+  expect(JSON.parse(await readFile(file, 'utf8')).sections['diet:aquariumcoop']).toBe('<p>T diet:aquariumcoop</p>')
+})
+
+test('a page made before parts were recorded keeps its passing text when the whole page again scores under the bar', async () => {
+  const root = await site()
+  const id = (await import('node:fs')).readdirSync(join(root, 'content/species')).sort()[0]!
+  let score = 0.9
+  const t = translator(() => 'T', () => score)
+  await localizeSpecies(root, t.llm, 'th', [id], { now })
+  const stateFile = join(root, 'engine-state/localize-th.json')
+  const st = JSON.parse(await readFile(stateFile, 'utf8'))
+  const { parts: _, ...old } = st[id]
+  await writeFile(stateFile, JSON.stringify({ ...st, [id]: old }))
+  const file = join(root, 'content/species', id, 'th.json')
+  const before = await readFile(file, 'utf8')
+  await pageWith(root, id, s => [...s, NEW])
+  score = 0.5
+  const r = await localizeSpecies(root, t.llm, 'th', [id], { now })
+  expect(r.failed.join('\n')).toMatch(/the whole page again was under the bar/)
+  expect(await readFile(file, 'utf8')).toBe(before)
+  const after = JSON.parse(await readFile(stateFile, 'utf8'))[id]
+  expect(Object.keys(after.failed.parts)).toEqual(['diet:aquariumcoop'])
+  expect(Object.keys(after.parts)).not.toContain('diet:aquariumcoop')
+})
+
+// The independent read of the tap-water fixes (2026-11-12): a part fixed by hand (`fixed`, in English and in each language
+// beside it) was translated again whenever its English changed, so the hand-written text of the lucky bamboo's water parts
+// would have gone with the next batch.
+test('a part fixed by hand keeps its text in each language: not translated again, part by part or a whole page, and taken as made from its English', async () => {
+  const root = await site()
+  const id = (await import('node:fs')).readdirSync(join(root, 'content/species')).sort()[0]!
+  let tag = 'T1'
+  const t = translator(() => tag, () => 0.9)
+  await localizeSpecies(root, t.llm, 'th', [id], { now })
+  const file = join(root, 'content/species', id, 'th.json')
+  const first = JSON.parse(await readFile(file, 'utf8'))
+  const [held, other] = Object.keys(first.sections) as string[]
+  await writeFile(file, JSON.stringify({ ...first, sections: { ...first.sections, [held!]: '<p>by hand</p>' } }))
+  const fixedEn = '<p>Fixed by hand.</p>'
+  await pageWith(root, id, s => [...s.map(x => (`${x.key}:${x.source}` === held ? { ...x, html: fixedEn, fixed: true } : x)), NEW])
+  tag = 'T2'
+  expect((await localizeSpecies(root, t.llm, 'th', [id], { now })).done).toHaveLength(1)
+  expect(asked(t.writes[1]!)).toEqual(['diet:aquariumcoop'])
+  const after = JSON.parse(await readFile(file, 'utf8'))
+  expect(after.sections[held!]).toBe('<p>by hand</p>')
+  expect(after.sections['diet:aquariumcoop']).toBe('<p>T2 diet:aquariumcoop</p>')
+  const stateFile = join(root, 'engine-state/localize-th.json')
+  expect(JSON.parse(await readFile(stateFile, 'utf8'))[id].parts[held!]).toBe(partHash(fixedEn))
+  // A whole page again (a redo): every other part is written anew, the fixed one keeps its text.
+  tag = 'T3'
+  await localizeSpecies(root, t.llm, 'th', [id], { now, redo: true })
+  const redone = JSON.parse(await readFile(file, 'utf8'))
+  expect(redone.sections[held!]).toBe('<p>by hand</p>')
+  if (other) expect(redone.sections[other]).toBe(`<p>T3 ${other}</p>`)
 })

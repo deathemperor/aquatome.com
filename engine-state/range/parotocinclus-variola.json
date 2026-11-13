@@ -1,0 +1,55 @@
+{
+  "id": "parotocinclus-variola",
+  "native": {
+    "input": "ea59fb23ed4c87ea",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This dwarf suckermouth catfish originates from a only recently discovered region, namely the waterfalls of Cachoeira do el Dorado in the far northern parts of Brazil, almost at the border to Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Of all the different species of Parotocinclus described so far, these new importations are most similar to P. variola, a species described only this year on the basis of specimens collected near Leticia in Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "CO"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Parotocinclus variola",
+    "status": "ACCEPTED",
+    "taxonKey": 8728697,
+    "datasets": [
+      [
+        "6d35d331-3be9-4aed-8ba4-ee36dc7d95cb",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ]
+    ],
+    "native": [
+      "BR",
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

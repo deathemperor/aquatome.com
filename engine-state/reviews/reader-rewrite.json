@@ -69,6 +69,20 @@
       "kept": true
     }
   ],
+  "vi/guides/aquatome-reu-hai-trong-be-thuy-sinh-nguyen-nhan-va-cach-loai-bo#body": [
+    {
+      "at": "2026-11-11T03:44:51Z",
+      "model": "sonnet",
+      "score": 0.78,
+      "notes": [
+        "Dropped \"(ở tiệm còn gọi là tép mũi dài)\" alias for Amano shrimp.",
+        "\"Một hướng dẫn nuôi cá nói\" became \"Có sách hướng dẫn nuôi cá nói\": source is now a book, a slight change from a guide.",
+        "\"ốc thuộc các chi\" became \"các loài ốc thuộc chi\": minor wording shift."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/glaser-en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en#body": [
     {
       "at": "2026-11-07T06:57:24Z",
@@ -226,6 +240,20 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-2Wjd1L52uWE#body": [
+    {
+      "at": "2026-11-11T09:48:21Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"cây ráy (Cryptocoryne)\" became \"tiêu thảo (Cryptocoryne)\" in the third step. This is a different common name, though Cryptocoryne is still given. The first step keeps \"ráy\" for the epiphyte plants, so the two steps now disagree.",
+        "\"Nhổ cây như ... sẽ làm đục nước nhiều, nhưng lọc sẽ làm nước trong lại khá nhanh\": a contrast is added, a small nuance shift.",
+        "\"Làm nhẹ tay\" became \"Nhấc nhẹ tay\": \"nhấc\" (lift) is added, a minor change."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-7DFk4bnIxEg#body": [
@@ -401,6 +429,21 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-hO_nLV0YpX8#body": [
+    {
+      "at": "2026-11-11T03:46:24Z",
+      "model": "sonnet",
+      "score": 0.84,
+      "notes": [
+        "\"Tránh được keo thì nên tránh\" became \"nếu không cần keo thì đừng dùng\", a slightly stronger prohibition.",
+        "\"rễ sẽ tự bám vào\" became \"tự bám chặt\", so \"chặt\" is added.",
+        "\"Có thể nhét gốc cây\" adds a mild hedge or option wording that BEFORE did not have, since BEFORE gave it as a direct instruction.",
+        "\"Rêu đặt sát đèn\" became \"Chỗ nào sát đèn\", a small shift in wording."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-iS8fJvjUa1Q#body": [
     {
       "at": "2026-11-07T17:02:10Z",
@@ -442,6 +485,20 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-jSjctgA1RZQ#body": [
+    {
+      "at": "2026-11-11T03:47:11Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Added detail: \"thả cả bịch vào bể cho cân nhiệt\" (float bag to equalize temperature) not in BEFORE",
+        "Added procedure: \"châm nước bể vào bịch\" is more specific than BEFORE's \"tắm nước từ từ\"",
+        "\"Một cách chọn là\" (one option is) became \"Có thể thả\" (can/may add), a mild shift but still an option"
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-nXDe9QF-Gu8#body": [

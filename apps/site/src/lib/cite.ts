@@ -1,4 +1,5 @@
 import type { Photo } from '@aq/schema'
+import { alterationNotice } from './gallery'
 import { licenceLabel, translator, type Lang } from './i18n'
 import { isUnsplash, unsplashParts, type CreditPart } from './unsplash'
 
@@ -34,7 +35,8 @@ export const partsHtml = (parts: CreditPart[]) => parts.map(x => (x.href ? `<a${
 export function photoCredit(lang: Lang, p: Credited): { text: string; licence: string; url: string; authorUrl?: string; author?: string } {
   const t = translator(lang)
   if (p.generated) return { text: t('Ảnh do AI tạo'), licence: '', url: p.sourceUrl }
-  if (p.altered?.length) return { text: `${t('Ảnh:')} ${p.author} · ${t('Ảnh đã chỉnh sửa')}`, licence: licenceLabel(p.licence), url: p.sourceUrl }
+  const notice = alterationNotice(p)
+  if (notice) return { text: `${t('Ảnh:')} ${p.author} · ${t(notice)}`, licence: licenceLabel(p.licence), url: p.sourceUrl }
   if (isUnsplash(p.licence)) return { text: unsplashLine(lang, p).map(x => x.text).join(''), licence: licenceLabel(p.licence), url: p.sourceUrl, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), author: p.author }
   return { text: `${t('Ảnh:')} ${p.author}`, licence: licenceLabel(p.licence), url: p.sourceUrl }
 }
@@ -46,7 +48,7 @@ export function photoCredit(lang: Lang, p: Credited): { text: string; licence: s
 export function photoMark(lang: Lang, p: Credited): string {
   const t = translator(lang)
   if (p.generated) return `<span class="pic-by ai-photo-label" data-credit-kind="generated" data-licence="" data-src="${esc(p.sourceUrl)}" data-author="AI"> ${esc(t('Ảnh do AI tạo'))}</span>`
-  if (p.altered?.length) {
+  if (alterationNotice(p)) {
     const c = photoCredit(lang, p)
     return `<span class="pic-by" data-credit-kind="altered" data-licence="${esc(c.licence)}" data-src="${esc(c.url)}" data-author="${esc(p.author)}"> <a href="${esc(c.url)}" rel="noopener">${esc(c.text)}</a>${c.licence ? ` · ${esc(c.licence)}` : ''}</span>`
   }

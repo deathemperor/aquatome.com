@@ -12,6 +12,126 @@
     "laos",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "KH",
+        "LA",
+        "VN"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Thailand, Cambodia, Laos and Vietnam.",
+          "countries": [
+            "TH",
+            "KH",
+            "LA",
+            "VN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8368421,
+      "total": 49,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "KH",
+          26
+        ],
+        [
+          "TH",
+          19
+        ],
+        [
+          "LA",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          101.25,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          101.25,
+          16.875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          11,
+          11
+        ],
+        [
+          102.65625,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          11.25,
+          10,
+          10
+        ],
+        [
+          104.0625,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          104.0625,
+          14.0625,
+          7,
+          7
+        ],
+        [
+          104.0625,
+          15.46875,
+          4,
+          4
+        ],
+        [
+          105.46875,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          14.0625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -136,7 +256,12 @@
       "licence": "CC BY",
       "author": "Shane Austin",
       "sourceUrl": "https://www.inaturalist.org/photos/663352908",
-      "caption": "Cá nóc Fang đốm nâu mắt đỏ nằm trên đá dưới nước"
+      "caption": "Cá nóc Fang đốm nâu mắt đỏ nằm trên đá dưới nước",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/663352908-large.webp",
+        "width": 1823,
+        "height": 1076
+      }
     }
   ],
   "videos": [],

@@ -5,6 +5,7 @@ import { expect, test } from 'vitest'
 import { SpeciesSchema, type SpeciesEntity } from '@aq/schema'
 import { LlmError, type Llm } from '../src/claude'
 import { blocksOf, checkAnswer, sourceTier, speciesRanges, writeRangePlaces, type Audit, type Block } from '../src/range'
+import { atCeiling } from './at-ceiling'
 import { SOURCES } from '../src/sources'
 import { gbifClient, type Fetch } from '../src/range-records'
 import { mvt } from './mvt'
@@ -238,6 +239,39 @@ test('the step writes each species\' range after its places, keeps the sentences
   expect(month.native.calls).toBe(0)
   expect(month.records.fetched).toHaveLength(2)
   expect(JSON.parse(await s.read('betta-splendens')).range.records.fetched).toBe('2026-12-05')
+})
+
+const WEEKLY = "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
+
+// Claude's own limit, and the step's ceiling for the day (ceiling.ts), which is to leave exactly the same: nothing.
+test.each([WEEKLY, atCeiling('range')])('a usage limit leaves nativeFailed unset and stops the step\'s model calls: %s', async limit => {
+  const s = await site([entity(), entity({ id: 'danio', scientificName: 'Danio rerio' })])
+  await mkdir(join(s.root, 'engine-state/range'), { recursive: true })
+  const prior = async (id: string) => {
+    const text = `${JSON.stringify({ id }, null, 2)}\n`
+    await writeFile(join(s.root, 'engine-state/range', `${id}.json`), text)
+    return text
+  }
+  const a = await prior('betta-splendens')
+  const b = await prior('danio')
+  let calls = 0
+  const r = await speciesRanges(s.root, deps(async () => { calls++; throw new LlmError(limit) }), { limit: 5, records: 5 })
+  expect(calls).toBe(1)
+  expect(r.native.failed).toEqual([])
+  expect(r.stopped).toBe(limit)
+  expect(await readFile(join(s.root, 'engine-state/range/betta-splendens.json'), 'utf8')).toBe(a)
+  expect(await readFile(join(s.root, 'engine-state/range/danio.json'), 'utf8')).toBe(b)
+})
+
+test('a failure that is not the usage limit still stamps nativeFailed and the step goes on', async () => {
+  const s = await site([entity(), entity({ id: 'danio', scientificName: 'Danio rerio' })])
+  let calls = 0
+  const r = await speciesRanges(s.root, deps(async () => { calls++; throw calls === 1 ? new Error('bad answer') : new LlmError('claude failed (1): no JSON in the reply') }), { limit: 5, records: 5 })
+  expect(calls).toBe(2)
+  expect(r.stopped).toBe('')
+  expect(r.native.failed).toEqual(['betta-splendens', 'danio'])
+  expect((await s.audit('betta-splendens')).nativeFailed?.error).toBe('bad answer')
+  expect((await s.audit('danio')).nativeFailed?.error).toMatch(/no JSON/)
 })
 
 test('a failed model call or GBIF request leaves the species as it was, tried again a day later', async () => {

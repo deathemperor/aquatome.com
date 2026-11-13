@@ -1,0 +1,40 @@
+{
+  "id": "parosphromenus-tweediei",
+  "native": {
+    "input": "8e231fbf4c254a39",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus tweediei is a liquorice gourami restricted to a handful of localities in western Johor state, Peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parosphromenus tweediei",
+    "status": "ACCEPTED",
+    "taxonKey": 2394174,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

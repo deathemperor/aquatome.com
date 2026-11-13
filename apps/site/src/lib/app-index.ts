@@ -1,12 +1,12 @@
-import { resolveDataCard, type BreedEntity, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
-import type { KindShards, PageDoc } from '@aq/schema/app-page'
+import { boxFractions, FIRST_GUIDES, FIRST_PLANTS, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type BreedEntity, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
+import type { Box, KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { breedFigures, speciesOf, type BreedFigures } from './breeds'
 import { curationFor, loopOf, type AppCuration } from './curation'
 import { categoriesIn } from './equipment'
 import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
-import { smallSrc } from './img'
+import { resizeOf, sameShape, smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
 import { guideImage, mentionIndex } from './mentions'
 import { toIndexItem } from './species-index'
@@ -38,6 +38,8 @@ export type AppItem = {
   path: string
   /** A small photo (about 480 px wide). */
   img?: string
+  /** Where the fish is in `img` (a fish's or a breed's), once the site's switch for it is on: protocols/photo-crop-vectors.json. */
+  imgBox?: Box
   /** A fish's short silent loop, real footage of it (content/curation.json `loops`): for cards and its page. */
   loop?: Loop
   /** A guide's subject, as the guide list groups them (GuideEntity['kind']: setup, care, plantCare, …). */
@@ -151,7 +153,16 @@ export function appSeries(lang: Lang, c: Content): { s: Content['series'][number
  * What the site's home page leads with, so the app leads with the same (lib/home.ts), in its order: the fish groups
  * (with a photo of one of them), then fish, plants and guides by their path in this index.
  */
-export type AppHome = { groups: { id: string; img?: string }[]; fish: string[]; plants: string[]; guides: string[] } & AppCuration
+export type AppHome = {
+  groups: { id: string; img?: string; imgBox?: Box }[]; fish: string[]; plants: string[]; guides: string[]
+  /**
+   * Khám phá's longer shelves. Fish start with `fish` in its order, so what shows first stays first, and go on with
+   * those hobbyists keep most. Plants and guides are Curation's lists in their order (FIRST_PLANTS, FIRST_GUIDES), then
+   * the home's own ranking. Each holds at most seven columns, as the App Store's shelves do (BROWSE). An app that
+   * predates it shows `fish`, `plants` and `guides`.
+   */
+  browse?: { fish: string[]; plants: string[]; guides: string[] }
+} & AppCuration
 /**
  * The site's words, in this language, each entry a map of strings: for each key the items carry (fish groups, guide
  * subjects, plant care), and those of the taxon and origin pages (lib/taxa-places.ts), which the app draws as shelves.
@@ -188,10 +199,14 @@ export const appEquipment = (lang: Lang, c: Content) => (served(lang, '/vi/thiet
 export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = new Map(), everySpecies: Content['species'] = c.species, cur?: { calendar: Curation; today: string }): AppIndex {
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
-  const img = (photos: Photo[]) => { const p = photos.find(p => !p.generated); return p ? smallSrc(p) : undefined }
+  const leadOf = (photos: Photo[]) => photos.find(p => !p.generated && p.headFit !== 'contain' && photoFitsCard(p))
+  const img = (photos: Photo[]) => { const p = leadOf(photos); return p ? smallSrc(p) : undefined }
+  const imgBox = (photos: Photo[]) => { const p = leadOf(photos); return p && resizeOf(p, smallSrc(p)) ? boxFractions(p) : undefined }
   const aka = (names: string[]) => (names.length ? names : undefined)
   const items: AppItem[] = []
   const home: AppHome = { groups: [], fish: [], plants: [], guides: [] }
+  /** Each guide's path in this index, by its id. */
+  const guideAt = new Map<string, string>()
   const words = (labels: Record<string | number, string>) => Object.fromEntries(Object.entries(labels).map(([k, v]) => [k, t(v)]))
   const labels: AppLabels = {
     group: words(GROUP_LABELS), section: words(GUIDE_KIND_LABELS), ...(Object.fromEntries(Object.entries(PLANT_LABELS).map(([k, v]) => [k, words(v)])) as Pick<AppLabels, keyof typeof PLANT_LABELS>),
@@ -220,7 +235,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const life = resolveDataCard(s.dataCard.lifeYears ?? [], 'lifeYears')?.value
       const lifeYears = life === undefined ? undefined : typeof life === 'number' ? { min: life, max: life } : life
       items.push(clean({
-        kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), loop: loopOf(cur?.calendar ?? null, s.id), group: groupOf.get(s.id),
+        kind: 'fish', id: s.id, name: s.t.name, sub: s.scientificName, aka: aka(s.t.altNames), path: at(`/vi/ca/${s.t.slug}/`), img: img(s.photos), imgBox: imgBox(s.photos), loop: loopOf(cur?.calendar ?? null, s.id), group: groupOf.get(s.id),
         tax: taxa ? [s.order, s.family, s.genus] : undefined, from: from.length ? from : undefined, lifeYears, range: appRange(s.range, regionName), ...facts,
       }))
     }
@@ -232,11 +247,14 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const card = breedFigures(b)
       const { tempC, ph, gh, sizeCm, tankCm, difficulty } = card
       items.push(clean({
-        kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), loop: loopOf(cur?.calendar ?? null, b.id), group: breedGroup(b, groupOf, c.breeds),
+        kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), imgBox: imgBox(b.photos), loop: loopOf(cur?.calendar ?? null, b.id), group: breedGroup(b, groupOf, c.breeds),
         of, card: Object.keys(card).length ? card : undefined, ...(of ? {} : { tempC, ph, gh, sizeCm, tankCm, difficulty }),
       }))
     }
-    home.groups = groupTiles(lang, c).map(g => (g.photo ? { id: g.group, img: smallSrc(g.photo) } : { id: g.group }))
+    home.groups = groupTiles(lang, c).map(g => {
+      const box = g.photo && resizeOf(g.photo, smallSrc(g.photo)) ? boxFractions(g.photo) : undefined
+      return g.photo ? { id: g.group, img: smallSrc(g.photo), ...(box ? { imgBox: box } : {}) } : { id: g.group }
+    })
     home.fish = featuredSpecies(lang, c, 30).map(s => at(`/vi/ca/${s.t.slug}/`))
   }
   if (served(lang, '/vi/cay/x/')) {
@@ -244,7 +262,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const plant = { difficulty: p.difficulty, light: p.light, co2: p.co2, growth: p.growth, placement: p.placement }
       items.push(clean({ kind: 'plant', id: p.id, name: p.t.name, sub: p.scientificName, aka: aka([...(p.synonyms ?? []), ...p.t.altNames]), path: at(`/vi/cay/${p.t.slug}/`), img: img(p.photos), plant }))
     }
-    home.plants = easyPlants(c, 30).map(p => at(`/vi/cay/${p.t.slug}/`))
+    home.plants = easyPlants(c, c.plants.length).map(p => at(`/vi/cay/${p.t.slug}/`))
   }
   if (served(lang, '/vi/huong-dan/x/')) {
     const mentions = mentionIndex(c).guides
@@ -254,7 +272,9 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const about = m ? [...m.species.map(s => s.id), ...m.plants.map(p => p.id)] : []
       // Its card's picture on the site: its own photo, else one from its video's sections, else a fish or plant it names.
       const ph = guideImage(c, g)
-      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/huong-dan/${g.t.slug}/`), img: ph && smallSrc(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
+      const path = at(`/vi/huong-dan/${g.t.slug}/`)
+      guideAt.set(g.id, path)
+      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path, img: ph && smallSrc(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
     }
     home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
@@ -275,9 +295,24 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   for (const [vi, name, own, short] of TOOLS) {
     if (served(lang, vi)) items.push(clean({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)), short: short && t(short) }))
   }
-  // Only what the index lists: a row's worth of each.
+  // Only what the index lists: a row's worth of each, for Tìm and Hôm nay.
   const paths = new Set(items.map(i => i.path))
-  for (const [k, n] of [['fish', 8], ['plants', 6], ['guides', 8]] as const) home[k] = home[k].filter(p => paths.has(p)).slice(0, n)
+  const listed = (k: 'fish' | 'plants' | 'guides') => home[k].filter(p => paths.has(p))
+  const row = { fish: listed('fish').slice(0, 8), plants: listed('plants').slice(0, 6), guides: listed('guides').slice(0, 8) }
+  // Khám phá's longer shelves. Fish start with that row in its order and go on with those hobbyists keep most, most kept
+  // first, each with a photo: past its staples the site's own ranking is the richest profile, not the best known. Plants
+  // and guides are Curation's lists in their order, each page only as this index lists it (one that stops passing reader
+  // fit drops out), then the home's own ranking: a language with fewer of Curation's pages (most are Vietnamese) still
+  // fills its shelf.
+  const pictured = new Map(items.filter(i => i.kind === 'fish' && i.img).map(i => [i.id, i.path]))
+  const popular = [...STAPLE_SPECIES, ...POPULAR.map(slugify)].flatMap(id => pictured.get(id) ?? [])
+  const plantAt = new Map(items.filter(i => i.kind === 'plant').map(i => [i.id, i.path]))
+  home.browse = {
+    fish: [...new Set([...row.fish, ...popular])].slice(0, BROWSE.fish),
+    plants: [...new Set([...FIRST_PLANTS.flatMap(id => plantAt.get(id) ?? []), ...listed('plants')])].slice(0, BROWSE.plants),
+    guides: [...new Set([...FIRST_GUIDES.flatMap(id => guideAt.get(id) ?? []), ...listed('guides')])].slice(0, BROWSE.guides),
+  }
+  Object.assign(home, row)
   const groups = new Set(items.map(i => i.group))
   home.groups = home.groups.filter(g => groups.has(g.id))
   // The editorial calendar's days and this week's picks, only those this index lists.
@@ -288,7 +323,20 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     for (const b of appBreeds(lang, c)) refs.set(`breeds/${b.id}`, at(`/vi/ca/${b.t.slug}/`))
     for (const g of appGuides(lang, c)) refs.set(`guides/${g.id}`, at(`/vi/huong-dan/${g.t.slug}/`))
     for (const p of appPlants(lang, c)) refs.set(`plants/${p.id}`, at(`/vi/cay/${p.t.slug}/`))
-    Object.assign(home, curationFor(cur.calendar, lang, cur.today, ref => { const p = refs.get(ref); return p && paths.has(p) ? p : undefined }, c.cards))
+    // Where the fish is in each fish and breed photo the calendar can name by address: the photo's own address first, then
+    // its copies only resized (its small copy, a large copy of the same shape). An address two photos' copies claim with
+    // different boxes gets none.
+    const own = new Map<string, Box>(), copies = new Map<string, Box | null>()
+    const copy = (u: string, box: Box) => copies.set(u, copies.has(u) && JSON.stringify(copies.get(u)) !== JSON.stringify(box) ? null : box)
+    for (const p of [...c.species.flatMap(s => s.photos), ...c.breeds.flatMap(b => b.photos), ...Object.values(c.galleries).flat()]) {
+      const box = boxFractions(p)
+      if (!box) continue
+      own.set(p.url, box)
+      for (const u of new Set([p.thumb, smallSrc(p)])) if (u && u !== p.url && resizeOf(p, u)) copy(u, box)
+      if (p.large && sameShape(p, p.large)) copy(p.large.url, box)
+    }
+    const boxAt = (u: string) => (own.has(u) ? own.get(u) : copies.get(u) ?? undefined)
+    Object.assign(home, curationFor(cur.calendar, lang, cur.today, ref => { const p = refs.get(ref); return p && paths.has(p) ? p : undefined }, c.cards, c.photoWaits, boxAt))
   }
   const codes = [...new Set(items.flatMap(i => [...(i.range?.native ?? []), ...(i.range?.records?.outside ?? []).map(([code]) => code)]))].sort()
   const nameOf = countryNames(lang, c.places, paged)
@@ -354,5 +402,10 @@ const TOOLS: readonly (readonly [string, string, readonly string[], string?])[] 
   ], 'Bể của tôi'],
 ]
 
+/**
+ * How long Khám phá's lists are: at most seven columns, as the App Store's shelves show (the owner's note, 11 Nov). Fish
+ * and plants go three to a column, guides one. The top always takes the home's first 3 fish, so the fish shelf shows 21.
+ */
+const BROWSE = { fish: 24, plants: 21, guides: 7 }
 /** Leaves out empty fields, so the file stays small. */
 const clean = (i: AppItem): AppItem => Object.fromEntries(Object.entries(i).filter(([, v]) => v !== undefined)) as AppItem

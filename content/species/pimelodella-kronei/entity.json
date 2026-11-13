@@ -10,6 +10,86 @@
     "brazil",
     "ribeira-de-iguape"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Ribeira de Iguape"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Cavernas das Areieas, Iporanga, upper River Ribeira basin, São Paulo state, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: São Paulo State rivers, Iguape and Ribeira de Iguape, Iporanga.",
+          "countries": [],
+          "regions": [
+            "Ribeira de Iguape"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343464,
+      "total": 36,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BR",
+          36
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          28,
+          28
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -45,
+          -23.90625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -78,16 +158,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pimelodella_kronei_(10.3897-subtbiol.19.8207)_Figure_2_(cropped).jpg",
       "caption": "Figure 2; Pimelodella kronei",
       "thumb": "https://media.aquatome.com/commons/fa1229a768acc6c7-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/b939fe0753963786.webp",
-      "width": 960,
-      "height": 1342,
-      "licence": "CC BY 4.0",
-      "author": "Souza Silva M, Ferreira RL (2016) The first two hotspots of subterranean biodiversity in South America. Subterranean Biology 19: 1-21. https://doi.org/10.3897/subtbiol.19.8207",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stygobiotic_and_troglobitic_species_(10.3897-subtbiol.19.8207)_Figure_2.jpg",
-      "caption": "Figure 2; Some of the stygobiotic and troglobitic species in Areias cave system, São Paulo, Brazil. Pimelodella kronei (A), Pachylospeleus strinatii (B), Pseudochthonius strinatii (C), Ideoroncus cavi",
-      "thumb": "https://media.aquatome.com/commons/b939fe0753963786-480.webp"
     }
   ],
   "videos": [

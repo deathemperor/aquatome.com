@@ -7,8 +7,219 @@
   "group": "catfish",
   "places": [
     "asia",
-    "india"
+    "india",
+    "ganges",
+    "pakistan",
+    "indus",
+    "myanmar",
+    "salween"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ganges",
+        "Indus",
+        "Mahanadi",
+        "Brahmaputra",
+        "Salwin"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Widely distributed in the Ganges basin, the Indus River system, and the Mahanadi River. The Brahmaputra drainage is also part of its range, and it has also been reported from the Salwin River and Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Ganges",
+            "Indus",
+            "Mahanadi",
+            "Brahmaputra",
+            "Salwin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341155,
+      "total": 81,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "IN",
+          61
+        ],
+        [
+          "BD",
+          15
+        ],
+        [
+          "NP",
+          3
+        ],
+        [
+          "MM",
+          1
+        ],
+        [
+          "PK",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          67.5,
+          26.71875,
+          1,
+          0
+        ],
+        [
+          74.53125,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          80.15625,
+          22.5,
+          1,
+          0
+        ],
+        [
+          80.15625,
+          28.125,
+          1,
+          0
+        ],
+        [
+          82.96875,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          84.375,
+          23.90625,
+          2,
+          0
+        ],
+        [
+          84.375,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          85.78125,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          87.1875,
+          22.5,
+          3,
+          0
+        ],
+        [
+          87.1875,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          88.59375,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          88.59375,
+          23.90625,
+          2,
+          0
+        ],
+        [
+          88.59375,
+          25.3125,
+          3,
+          0
+        ],
+        [
+          90,
+          22.5,
+          6,
+          0
+        ],
+        [
+          90,
+          23.90625,
+          2,
+          0
+        ],
+        [
+          90,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          91.40625,
+          22.5,
+          2,
+          0
+        ],
+        [
+          91.40625,
+          23.90625,
+          14,
+          0
+        ],
+        [
+          91.40625,
+          25.3125,
+          2,
+          0
+        ],
+        [
+          92.8125,
+          23.90625,
+          14,
+          0
+        ],
+        [
+          92.8125,
+          25.3125,
+          5,
+          0
+        ],
+        [
+          94.21875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          26.71875,
+          1,
+          0
+        ],
+        [
+          94.21875,
+          28.125,
+          13,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -16,6 +227,13 @@
         "value": {
           "min": 18,
           "max": 26
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
         }
       }
     ],
@@ -25,6 +243,13 @@
         "value": {
           "min": 6.5,
           "max": 8
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
         }
       }
     ],
@@ -41,6 +266,10 @@
       {
         "source": "glaser",
         "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 12
       }
     ]
   },
@@ -52,10 +281,34 @@
       "html": "<p>The Assamese Clown Catfish attains a maximum length of about 15 cm, but matures at a length of less than 7 cm. It is a very active fish that is hardly ever found resting and is always on the move.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_cenia.htm",
+      "html": "<ul><li>Common name: Clown Catfish</li><li>Synonym: Pimelodus cenia</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/gagata_cenia_en/",
       "html": "<p>India.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_cenia.htm",
+      "html": "<p>Asia: Widely distributed in the Ganges basin, the Indus River system, and the Mahanadi River. The Brahmaputra drainage is also part of its range, and it has also been reported from the Salwin River and Myanmar.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_cenia.htm",
+      "html": "<p>Inhabits sandy and muddy bottoms in the rivers.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_cenia.htm",
+      "html": "<p>This is a peaceful species which would be better kept in a group of about 6 specimens with plenty of swimming space. Provide good filtration and aeration as this species is not the easiest to keep in the aquarium. Provide a sand substrate with plants as an option.</p>"
     },
     {
       "key": "waterConditions",
@@ -70,10 +323,28 @@
       "html": "<p>There should be a good current in the tank. The bottom should be covered with sand and some larger stones.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_cenia.htm",
+      "html": "<p>Live, frozen and tablet foods.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/gagata_cenia_en/",
       "html": "<p>Gagata cenia should always be kept in groups, because the fish are very social.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_cenia.htm",
+      "html": "<p>Description: Dorsal soft rays (total): 6; anal soft rays: 9–12; vertebrae: 35–36. Matures at less than 7 cm SL. Anal fin with 4–5 simple rays, 9–11 branched rays. Upper jaw and 4th ceratobranchial toothless; lower jaw with few conical teeth in pocket or depression near symphysis. Snout tip acutely pointed in lateral view, with tip separated from the rest of the snout by distinct notch. Colouration: Dorsal with dark saddles extending ventrally only to lateral line. Caudal fin with transverse black bar across peduncle and round or square black spot on middle of each lobe. Dorsal fin with black spot on distal part of anterior rays.</p><p>Etymology: The genus name Gagata is a local fish name, kenyakatta, in Bengal. The specific name cenia comes from the local name of the fish (sinia).</p><p>IUCN Red List: Although there is little information on the global population and its trend, it is still a relatively common species, especially in the Ganges-Brahmaputra system. There are no perceptible threats currently, although more research is needed. Even though the taxonomy requires some study (its presence in the Indus River drainage in Pakistan needs confirmation), it is assessed as Least Concern, but needs updating (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_cenia.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl, 1991. Aquarien atlas. Bd. 3. Melle: Mergus, Verlag für Natur-und Heimtierkunde, Germany. 1104 p. Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version. Mahbubur Rahman Sampod pers comm 2023. Ng, H.H. 2010. Gagata cenia. The IUCN Red List of Threatened Species 2010. Roberts, T.R. and C.J. Ferraris Jr., 1998. Review of South Asian sisorid catfish genera Gagata and Nangra, with descriptions of a new genus and five new species. Proc. Calif. Acad. Sci. 50(14):315-345. Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam, i-xxii + 543-1158, 1 pl.</p>"
     }
   ],
   "photos": [
@@ -164,156 +435,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10",
-  "range": {
-    "records": {
-      "taxonKey": 2341155,
-      "total": 81,
-      "fetched": "2026-11-10",
-      "countries": [
-        [
-          "IN",
-          61
-        ],
-        [
-          "BD",
-          15
-        ],
-        [
-          "NP",
-          3
-        ],
-        [
-          "MM",
-          1
-        ],
-        [
-          "PK",
-          1
-        ]
-      ],
-      "cells": [
-        [
-          67.5,
-          26.71875,
-          1
-        ],
-        [
-          74.53125,
-          21.09375,
-          2
-        ],
-        [
-          80.15625,
-          22.5,
-          1
-        ],
-        [
-          80.15625,
-          28.125,
-          1
-        ],
-        [
-          82.96875,
-          25.3125,
-          1
-        ],
-        [
-          84.375,
-          23.90625,
-          2
-        ],
-        [
-          84.375,
-          25.3125,
-          1
-        ],
-        [
-          85.78125,
-          25.3125,
-          1
-        ],
-        [
-          87.1875,
-          22.5,
-          3
-        ],
-        [
-          87.1875,
-          25.3125,
-          1
-        ],
-        [
-          88.59375,
-          21.09375,
-          1
-        ],
-        [
-          88.59375,
-          23.90625,
-          2
-        ],
-        [
-          88.59375,
-          25.3125,
-          3
-        ],
-        [
-          90,
-          22.5,
-          6
-        ],
-        [
-          90,
-          23.90625,
-          2
-        ],
-        [
-          90,
-          25.3125,
-          1
-        ],
-        [
-          91.40625,
-          22.5,
-          2
-        ],
-        [
-          91.40625,
-          23.90625,
-          14
-        ],
-        [
-          91.40625,
-          25.3125,
-          2
-        ],
-        [
-          92.8125,
-          23.90625,
-          14
-        ],
-        [
-          92.8125,
-          25.3125,
-          5
-        ],
-        [
-          94.21875,
-          18.28125,
-          1
-        ],
-        [
-          94.21875,
-          26.71875,
-          1
-        ],
-        [
-          94.21875,
-          28.125,
-          13
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-11"
 }

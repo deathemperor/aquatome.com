@@ -7,13 +7,37 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "peru"
+    "peru",
+    "brazil",
+    "amazon"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 12
+      },
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -31,10 +55,28 @@
       "html": "<p>This interesting dolphin catfish was imported from Peru for the first time. In contrast to many of its congeners, this species stays relatively small and reaches only 12 cm in total length, so it is also suitable for normally sized home aquaria. Keep in mind, however, that these catfishes are predatory and tankmates must not be too small. Otherwise the dolphin cat is a peaceful species.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tympanopleura_atronasus.htm",
+      "html": "<p>South America: Middle and upper Amazon River basin.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tympanopleura_atronasus.htm",
+      "html": "<p>Presumably meat based.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ageneiosus_cf_atronasus_en/",
       "html": "<p>Predatory, but otherwise peaceful.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tympanopleura_atronasus.htm",
+      "html": "<p>Although smaller than its close relative Ageneiosus, it could still prove to be predatory like that genus, so it would need to be kept with fish that are not too small.</p>"
     },
     {
       "key": "dimorphism",
@@ -53,6 +95,18 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ageneiosus_cf_atronasus_en/",
       "html": "<p>Ageneiosus: from ancient Greek, meaning \"without a beard\"; this refers to the fact that the barbels are usually hidden and cannot be seen externally. atronasus: Latin, meaning \"with a black nose\".</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tympanopleura_atronasus.htm",
+      "html": "<p>Tympanopleura atronasus differs from its congeners in having the greatest number of pleural ribs (7–8 pairs vs. 4–6 in all other species), a large dark patch of dense melanophores on the flank above the anal fin, a longitudinal black to purplish stripe in each caudal-fin lobe, and a broad black crescent on the chin. It reaches a considerably larger maximum size (about 116 mm SL) than T. cryptica, T. longipinna and T. piperata (all less than about 80 mm SL).</p><p>Etymology: the genus name Tympanopleura refers to the prominent pseudotympanum on the side of the body; the specific name atronasus (atrum, black; nasus, nose) refers to the intense black pigmentation on the tip of the snout in live and freshly preserved specimens.</p><p>IUCN Red List: despite little information being available, the species is assessed as Least Concern due to its wide range and no direct threats (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tympanopleura_atronasus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2003. Auchenipteridae (Driftwood catfishes). p. 470-482. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil. Frederico, R.G. 2023. Tympanopleura atronasus. The IUCN Red List of Threatened Species 2023. Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf. Walsh, S.J., F.R.V. Ribeiro and L.H.R. Py-Daniel, 2015. Revision of Tympanopleura Eigenmann (Siluriformes: Auchenipteridae) with description of two new species. Neotrop. Ichthyol. 13(1):1-46.</p>"
     }
   ],
   "photos": [
@@ -139,5 +193,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-11"
 }

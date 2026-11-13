@@ -1,0 +1,44 @@
+{
+  "id": "parakysis-notialis",
+  "native": {
+    "input": "5400ada411018504",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Barito River",
+        "source": "scotcat",
+        "quote": "Asia: Known only from the Barito River drainage, southern Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "scotcat",
+        "quote": "Asia: Known only from the Barito River drainage, southern Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parakysis notialis",
+    "status": "ACCEPTED",
+    "taxonKey": 2340932,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

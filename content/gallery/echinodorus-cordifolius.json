@@ -74,30 +74,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/77750672.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/77750672-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Will McFarland",
-      "sourceUrl": "https://www.inaturalist.org/photos/77750672",
-      "caption": "Ba bông hoa trắng nhụy vàng của Cây kiếm lá tim",
-      "best": true,
-      "kind": "flower"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/233006186.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/233006186-480.webp",
-      "width": 751,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Mike Duran",
-      "sourceUrl": "https://www.inaturalist.org/photos/233006186",
-      "caption": "Bụi Cây kiếm lá tim đang ra hoa trên đất ẩm",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/134981099.webp",
       "thumb": "https://media.aquatome.com/inaturalist/134981099-480.webp",
       "width": 768,
@@ -805,6 +781,30 @@
       "sourceUrl": "https://www.inaturalist.org/photos/48738965",
       "caption": "Lá tim lớn của Cây kiếm lá tim mọc ngoài tự nhiên",
       "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/77750672.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/77750672-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Will McFarland",
+      "sourceUrl": "https://www.inaturalist.org/photos/77750672",
+      "caption": "Ba bông hoa trắng nhụy vàng của Cây kiếm lá tim",
+      "best": true,
+      "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/233006186.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/233006186-480.webp",
+      "width": 751,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Mike Duran",
+      "sourceUrl": "https://www.inaturalist.org/photos/233006186",
+      "caption": "Bụi Cây kiếm lá tim đang ra hoa trên đất ẩm",
+      "best": true,
       "kind": "habitat"
     }
   ],

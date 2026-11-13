@@ -18,7 +18,9 @@
     "equatorial-guinea",
     "gabon",
     "republic-of-the-congo",
-    "zambia"
+    "zambia",
+    "nigeria",
+    "benue"
   ],
   "range": {
     "native": {
@@ -28,11 +30,15 @@
         "AO",
         "NA",
         "BW",
-        "ZW"
+        "ZW",
+        "NG"
       ],
-      "regions": [],
+      "regions": [
+        "Benue"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -47,13 +53,23 @@
             "ZW"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The photographed specimens originate from the Benue river in Nigeria and are still youngsters.",
+          "countries": [
+            "NG"
+          ],
+          "regions": [
+            "Benue"
+          ]
         }
       ]
     },
     "records": {
       "taxonKey": 2371378,
       "total": 954,
-      "fetched": "2026-11-08",
+      "fetched": "2026-11-11",
       "countries": [
         [
           "CD",
@@ -203,19 +219,19 @@
           2.8125,
           5.625,
           1,
-          0
+          1
         ],
         [
           5.625,
           4.21875,
           4,
-          0
+          4
         ],
         [
           7.03125,
           4.21875,
           3,
-          0
+          3
         ],
         [
           8.4375,
@@ -905,10 +921,22 @@
       "html": "<p>The five star general, Hemichromis elongatus, is a highly aggressive cichlid recorded from Guinea, Cameroon, Angola, Namibia, Botswana and Zimbabwe. The common name comes from the row of five dark markings along its flanks. A piscivore, it eats any fish it can fit into its mouth, does not tolerate conspecifics outside a pair and is best kept in a species tank. The patchy recorded range suggests it has been misidentified in places or occurs in more countries.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_elongatus_en/",
+      "html": "<p>The Five Star General has a very wide distribution in western Africa and is one of the most beautiful species of cichlid at all. Sadly it is also one of the most aggressive species of cichlid and this is the reason why it is only very rarely seen in aquaria.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemichromis-elongatus",
       "html": "<p>Officially recorded from Guinea, Cameroon, Angola, Namibia, Botswana and Zimbabwe. Given the patchy nature of this distribution, it would seem that the species has either been misidentified at some of these locations, or is likely to be present in several additional countries.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_elongatus_en/",
+      "html": "<p>Western Africa, very wide distribution. The photographed specimens originate from the Benue river in Nigeria and are still youngsters.</p>"
     },
     {
       "key": "habitat",
@@ -947,6 +975,12 @@
       "html": "<p>Highly aggressive and piscivorous. It will eat any fish it can fit into its mouth, and usually batter any it can't. It's best kept in a species tank unless the tank is enormous. Conspecifics aren't tolerated either, although once a pair forms, they usually remain together for life. The best option is probably to buy a group of 6 or so juveniles and allow a pair to form naturally. Keep a very close eye on proceedings and be ready to remove the additional fish once a pair is apparent, as they will usually eliminate the others quite quickly.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_elongatus_en/",
+      "html": "<p>One of the most aggressive species of cichlid.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemichromis-elongatus",
@@ -965,18 +999,7 @@
       "html": "<p>A real bruiser of a cichlid, H. elongatus is not seen for sale very often, and with good reason. Pound for pound it must rank as one of the most aggressive cichlids available in the hobby. It is such an efficient predator that, in some of its native countries, it is used to control populations of Tilapia. As a result it's definitely not recommended for the inexperienced aquarist. The common name is derived from the row of 5 dark markings that run laterally along the flanks of the fish. It is sometimes seen for sale with other names, including 'banded jewel cichlid' and 'elongate Hemichromis'.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/acfb5f8a64e04fdd.webp",
-      "width": 960,
-      "height": 1005,
-      "licence": "CC BY 4.0",
-      "author": "Michiel W. P. Jorissen, Antoine Pariselle, Tine Huyse, Emmanuel J. Vreven, Jos Snoeks, Eva Decru, Thomas Kusters, Soleil Wamuini Lunkayilakio, Fidel Muterezi Bukinga, Tom Artois and Maarten P. M. Vanhove",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parasite180080-Figure4_Compound_micrographs_of_Cychlidogyrus_spp._(Monogenea,_Dactylogyridae).png",
-      "caption": "Figure 4 of paper Compound micrographs of (a–c) Cichlidogyrus bixlerzavalai n. sp. from Tylochromis praecox: haptor of holotype (a), MCO of holotype (b) and MCO of paratype (c); (d–f) Cichlidogyrus ca",
-      "thumb": "https://media.aquatome.com/commons/acfb5f8a64e04fdd-480.webp"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "oCVW07GjZSM",
@@ -1031,5 +1054,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-11"
 }

@@ -1,16 +1,19 @@
+import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { metricPage, nameKey, POPULAR, QUALITY_THRESHOLD, slugify, STAPLE_SPECIES, TranslationSchema, type Section } from '@aq/schema'
+import { metricPage, nameKey, POPULAR, QUALITY_THRESHOLD, slugify, STAPLE_SPECIES, TranslationSchema, type Section, type SourceId, type Translation } from '@aq/schema'
 import { OTHER_LANGS, type WrittenOtherLang } from '@aq/schema/langs'
 import { LlmError, type Llm } from './claude'
 import { itemReviews, lastKept, logReviews, type Review } from './review-log'
 import { pickSlug } from './merge'
+import { steadyRead, WRITER_BAND } from './quality'
+import { withTanks } from './round'
 import { shopIds } from './shops'
 import { sanitizeHtml } from './sanitize'
 
-const WRITE = readFileSync(new URL('./prompts/localize.md', import.meta.url), 'utf8')
-const REVIEW = readFileSync(new URL('./prompts/localize-review.md', import.meta.url), 'utf8')
+const WRITE = withTanks(readFileSync(new URL('./prompts/localize.md', import.meta.url), 'utf8'))
+const REVIEW = withTanks(readFileSync(new URL('./prompts/localize-review.md', import.meta.url), 'utf8'))
 const GLOSSARY = readFileSync(new URL('./prompts/localize-glossary.md', import.meta.url), 'utf8')
 const GLOSSARY_REVIEW = readFileSync(new URL('./prompts/localize-glossary-review.md', import.meta.url), 'utf8')
 const PLACES = readFileSync(new URL('./prompts/localize-places.md', import.meta.url), 'utf8')
@@ -69,12 +72,40 @@ export async function nativeTo(root: string, place: string): Promise<Set<string>
  * fish, pages a language the site serves already has (so the sites end up with the same fish), the country's own wild
  * fish, then the rest.
  */
-export async function speciesOrder(root: string, lang: TargetLang): Promise<string[]> {
+export async function speciesOrder(root: string, lang: TargetLang, today = new Date().toISOString().slice(0, 10)): Promise<string[]> {
   const all = (await readdir(join(root, 'content/species'))).sort()
   const others = OTHER_LANGS.filter(l => l !== lang)
   const has = async (id: string) => (await readdir(join(root, 'content/species', id)).catch(() => [] as string[])).some(f => others.some(l => f === `${l}.json`))
   const elsewhere = (await Promise.all(all.map(async id => ((await has(id)) ? id : '')))).filter(Boolean)
-  return [...new Set([...STAPLE_SPECIES, ...await shopIds(root, [lang]), ...POPULAR.map(slugify), ...elsewhere, ...await nativeTo(root, TARGETS[lang].place), ...all])].filter(id => all.includes(id))
+  // Ahead of all of them (the chief of staff, 2026-11-11): pages whose English gained sections the translation lacks, then
+  // the fish on Khám phá's top cards that have no page in the language yet.
+  return [...new Set([...await newPartsIn(root, lang, all), ...await heroesWithout(root, lang, 'species', today), ...STAPLE_SPECIES, ...await shopIds(root, [lang]), ...POPULAR.map(slugify), ...elsewhere, ...await nativeTo(root, TARGETS[lang].place), ...all])].filter(id => all.includes(id))
+}
+
+/** Species translated part by part (their record's `parts`) whose English now has a part the translation wasn't made from. */
+async function newPartsIn(root: string, lang: TargetLang, ids: string[]): Promise<string[]> {
+  const state = JSON.parse(await readFile(join(root, `engine-state/localize-${lang}.json`), 'utf8').catch(() => '{}')) as Record<string, { parts?: Record<string, string> }>
+  const translatable = await translatableIn(root)
+  const out: string[] = []
+  for (const id of ids) {
+    const made = state[id]?.parts
+    if (!made) continue
+    const e = JSON.parse(await readFile(join(root, 'content/species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { sections?: Section[] }
+    if ((e.sections ?? []).some(s => s.html.trim() && translatable(s.source) && made[`${s.key}:${s.source}`] !== partHash(s.html))) out.push(id)
+  }
+  return out
+}
+
+/**
+ * The pages on Khám phá's top cards (content/curation.json, each week's `hero`) of this kind with no page in the language,
+ * from the week showing today on, earliest week first: a language without them shows fewer than five cards.
+ */
+export async function heroesWithout(root: string, lang: TargetLang, kind: 'species' | 'breeds', today: string): Promise<string[]> {
+  const c = JSON.parse(await readFile(join(root, 'content/curation.json'), 'utf8').catch(() => '{}')) as { weeks?: { from: string; to: string; hero?: { page: string }[] }[] }
+  const weeks = (c.weeks ?? []).filter(w => w.to >= today).sort((a, b) => a.from.localeCompare(b.from))
+  const ids = weeks.flatMap(w => (w.hero ?? []).map(h => h.page.split('/')).filter(([k]) => k === kind).map(([, id]) => id!))
+  const missing = await Promise.all(ids.map(async id => (await readFile(join(root, 'content', kind, id, `${lang}.json`)).then(() => '', () => id))))
+  return [...new Set(missing.filter(Boolean))]
 }
 
 const fill = (s: string, lang: TargetLang, species = '') =>
@@ -100,11 +131,23 @@ export function localName(proposed: string, prev: { name: string; nameFixed?: bo
   return [proposed, prev?.name ?? ''].map(n => n.trim()).find(n => n && !taken.has(nameKey(n))) ?? scientificName
 }
 
-/** One page's English parts → the language's text and names; HTML stays HTML, plain stays plain, every part present. */
-async function write(llm: Llm, lang: TargetLang, species: string, parts: { id: string; en: string }[], notes: string[], model?: string) {
+/** A part's English as the translation state keeps it: while a part's English has this hash, its translation was made from it. */
+export const partHash = (en: string) => createHash('sha256').update(en).digest('hex').slice(0, 12)
+/** New parts that scored under the bar are tried again after this, or as soon as their English changes. */
+export const NEW_PARTS_RETRY_DAYS = 7
+/** As much of the page's kept translation as the translator sees beside the new parts, for its names and words. */
+const BESIDE_CHARS = 12_000
+
+/**
+ * One page's English parts → the language's text and names; HTML stays HTML, plain stays plain, every part present.
+ * `beside`: the page's parts already translated and kept, shown so the new ones use the same names and words.
+ */
+async function write(llm: Llm, lang: TargetLang, species: string, parts: { id: string; en: string }[], notes: string[], model?: string, beside: { id: string; text: string }[] = []) {
+  const kept = beside.map(b => `### ${b.id}\n${b.text}`).join('\n\n').slice(0, BESIDE_CHARS)
   const prompt = [
     fill(WRITE, lang, species),
     ...(notes.length ? [`A reviewer scored the previous translation low. Fix these:\n${notes.map(n => `- ${n}`).join('\n')}`] : []),
+    ...(kept ? [`--- ALREADY ON THE PAGE ---\nThe page's other parts, already in ${TARGETS[lang].lang}. Use the same names and words for the same things. Don't translate them again or return them.\n\n${kept}`] : []),
     `--- PARTS ---\n${parts.map(p => `### ${p.id}\n${p.en}`).join('\n\n')}`,
   ].join('\n\n')
   const r = await llm<Written>({ system: `You translate aquarium-handbook pages into ${TARGETS[lang].lang}. Reply only with JSON.`, prompt, schema: SCHEMA, model })
@@ -143,7 +186,11 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
   const kind = o.kind ?? 'species'
   const dir = join(root, 'content', kind)
   const stateFile = join(root, `engine-state/localize-${lang}${kind === 'plants' ? '-plants' : ''}.json`)
-  const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as Record<string, { at: string; from: string; name: string; confidence: string; score: number; notes?: string[] }>
+  /**
+   * `parts`: each part's English hash, as the page's translation was made from it. `failed`: new parts whose translation
+   * scored under the bar, by hash, and when, so they wait NEW_PARTS_RETRY_DAYS before they are tried again.
+   */
+  const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as Record<string, { at: string; from: string; name: string; confidence: string; score: number; notes?: string[]; parts?: Record<string, string>; failed?: { at: string; parts: Record<string, string> } }>
   const taken = new Set<string>()
   const names = new Map<string, string>() // `kind/id` → nameKey of its name in this language
   // Addresses are per section: species and breeds share /ca/, plants have /cay/. Names are kept apart the same way.
@@ -163,11 +210,38 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
     const file = join(dir, id, `${lang}.json`)
     try {
       const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { scientificName: string; family?: string; sections: Section[]; updatedAt: string }
-      // Done, and made from the English as it is now: nothing to do. A page whose English changed since is made again.
+      // Done, and made from the English as it is now: nothing to do. A page that records what each part was made from is
+      // judged by its parts, so a new date on the same English costs nothing and parts waiting to be tried again come back.
       const done = await readFile(file, 'utf8').then(() => true, () => false)
-      if (!o.redo && done && (state[id]?.from ?? '') >= e.updatedAt) { report.skipped.push(id); continue }
-      const parts = e.sections.filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
+      const made = state[id]?.parts
+      if (!o.redo && done && !made && (state[id]?.from ?? '') >= e.updatedAt) { report.skipped.push(id); continue }
+      const parts = e.sections.filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html, fixed: s.fixed === true }))
       if (!parts.length) { report.skipped.push(`${id}: no English`); continue }
+      const at = (o.now?.() ?? new Date()).toISOString()
+      // A part fixed by hand (`fixed`, in English and in each language beside it) keeps the text it has here, and is taken
+      // as made from its English as it is now: no translation replaces it, part by part or a whole page.
+      const here = done ? TranslationSchema.safeParse(JSON.parse(await readFile(file, 'utf8'))).data?.sections ?? {} : {}
+      const held = (p: { id: string; fixed: boolean }) => p.fixed && here[p.id] !== undefined
+      let changes: { prev: Translation; kept: typeof parts; due: typeof parts; still: Record<string, string> } | undefined
+      if (!o.redo && done && made) {
+        // The English changed, and the page knows what each part was made from: a part whose English is the same keeps its
+        // text; only new and changed parts are translated and reviewed (the Writing Lead's rule, the chief of staff, 2026-11-11).
+        const prev = TranslationSchema.parse(JSON.parse(await readFile(file, 'utf8')))
+        const failed = state[id]?.failed
+        const waiting = (p: { id: string; en: string }) => !!failed && failed.parts[p.id] === partHash(p.en) && Date.parse(at) - Date.parse(failed.at) < NEW_PARTS_RETRY_DAYS * 86_400_000
+        const kept = parts.filter(p => made[p.id] === partHash(p.en) || held(p))
+        const due = parts.filter(p => made[p.id] !== partHash(p.en) && !waiting(p) && !held(p))
+        const still = { ...Object.fromEntries(Object.entries(made).filter(([k]) => parts.some(p => p.id === k))), ...Object.fromEntries(parts.filter(held).map(p => [p.id, partHash(p.en)])) }
+        if (!due.length) {
+          if (state[id]!.from !== e.updatedAt || JSON.stringify(state[id]!.parts) !== JSON.stringify(still)) {
+            state[id] = { ...state[id]!, from: e.updatedAt, parts: still }
+            await save()
+          }
+          report.skipped.push(id)
+          continue
+        }
+        changes = { prev, kept, due, still }
+      }
       // The species' English name (Wikipedia's title for it) points the translator at the trade name. A fish page's text
       // may be about one strain or hybrid of it, so the name is asked for the species; a plant page is about exactly the
       // cultivar or variety it names (Anubias barteri 'Mini Coin' has its own page), so that keeps its name.
@@ -177,16 +251,66 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       const species = `${e.scientificName}${e.family ? ` (family ${e.family})` : ''}${english !== e.scientificName ? `, in English "${english}"` : ''}${vi ? `, sold in Vietnam as "${vi}"` : ''}. ${kind === 'plants'
         ? 'The names are for exactly this plant: a cultivar or variety keeps its cultivar or variety name (as sellers write it, e.g. "Anubias Mini Coin"), never just the species name'
         : 'The names are for the species as a whole, never for one strain, colour form or hybrid the text may describe'}`
+      if (changes) {
+        const { prev, kept, due, still } = changes
+        let w = await write(llm, lang, species, due, [], o.model, kept.flatMap(p => (prev.sections[p.id] ? [{ id: p.id, text: prev.sections[p.id]! }] : [])))
+        let r = await steadyRead(() => review(llm, lang, due, w.parts), WRITER_BAND)
+        const tries = [r]
+        if (r.score < QUALITY_THRESHOLD) {
+          const again = await write(llm, lang, species, due, r.notes, o.model, kept.flatMap(p => (prev.sections[p.id] ? [{ id: p.id, text: prev.sections[p.id]! }] : [])))
+          const r2 = await steadyRead(() => review(llm, lang, due, again.parts), WRITER_BAND)
+          tries.push(r2)
+          if (r2.score > r.score) { w = again; r = r2 }
+        }
+        if (r.score < QUALITY_THRESHOLD) {
+          // Under the bar: the new parts stay off the page, which keeps its text and score; a changed part keeps its old text.
+          state[id] = { ...state[id]!, from: e.updatedAt, parts: still, failed: { at, parts: Object.fromEntries(due.map(p => [p.id, partHash(p.en)])) } }
+          await save()
+          await logReviews(root, 'localize', { id: `${kind}/${id}`, lang }, tries, undefined, o.now ? { now: o.now() } : {})
+          report.failed.push(`${id}: new parts under the bar (${r.score}), the page keeps its text`)
+          continue
+        }
+        // Each source keeps its own score: a source with new parts takes the lower of its old score and theirs.
+        const sections = { ...Object.fromEntries(Object.entries(prev.sections).filter(([k]) => parts.some(p => p.id === k))), ...Object.fromEntries(due.filter(p => w.parts.get(p.id)).map(p => [p.id, w.parts.get(p.id)!])) }
+        const newSources = new Set(due.map(p => p.id.split(':')[1]!))
+        const bySource = Object.fromEntries([...new Set(parts.map(p => p.id.split(':')[1]!))].flatMap(src => {
+          const old = prev.quality.bySource?.[src as SourceId]
+          if (!newSources.has(src)) return old === undefined ? [] : [[src, old]]
+          return [[src, old === undefined || !kept.some(p => p.id.endsWith(`:${src}`)) ? r.score : Math.min(old, r.score)]]
+        }))
+        const score = Math.min(...Object.values(bySource))
+        const t = TranslationSchema.parse(metricPage({ ...prev, sections, quality: { ...prev.quality, score, indexable: score >= QUALITY_THRESHOLD, bySource } }, lang))
+        await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
+        await logReviews(root, 'localize', { id: `${kind}/${id}`, lang }, tries, r, o.now ? { now: o.now() } : {})
+        state[id] = { at: at.slice(0, 10), from: e.updatedAt, name: prev.name, confidence: state[id]!.confidence, score, notes: r.notes, parts: { ...still, ...Object.fromEntries(due.map(p => [p.id, partHash(p.en)])) } }
+        await save()
+        report.done.push(`${id}: ${prev.name} (new parts ${due.length}, ${r.score})`)
+        continue
+      }
       // A redo starts from what the last review of the page on the site found, when it was under the bar.
       const before = o.redo ? await lastKept(root, { id: `${kind}/${id}`, lang }, ['localize']) : undefined
       let w = await write(llm, lang, species, parts, before && before.score < QUALITY_THRESHOLD ? before.notes : [], o.model)
-      let r = await review(llm, lang, parts, w.parts)
+      let r = await steadyRead(() => review(llm, lang, parts, w.parts), WRITER_BAND)
       const tries = [r]
       if (r.score < QUALITY_THRESHOLD) {
         const again = await write(llm, lang, species, parts, r.notes, o.model)
-        const r2 = await review(llm, lang, parts, again.parts)
+        const r2 = await steadyRead(() => review(llm, lang, parts, again.parts), WRITER_BAND)
         tries.push(r2)
         if (r2.score > r.score) { w = again; r = r2 }
+      }
+      // A passing translation isn't replaced by a whole-page one under the bar (18 pages were, 10 Nov): it stays, and the
+      // parts it lacks wait as new parts. Its parts are taken as made from today's English, which the page doesn't record.
+      const had = done && !o.redo ? TranslationSchema.safeParse(JSON.parse(await readFile(file, 'utf8'))) : undefined
+      if (had?.success && had.data.quality.indexable && r.score < QUALITY_THRESHOLD) {
+        const has = (p: { id: string }) => had.data.sections[p.id] !== undefined
+        state[id] = {
+          at: at.slice(0, 10), from: e.updatedAt, name: had.data.name, confidence: state[id]?.confidence ?? w.nameConfidence, score: had.data.quality.score, notes: [],
+          parts: Object.fromEntries(parts.filter(has).map(p => [p.id, partHash(p.en)])), failed: { at, parts: Object.fromEntries(parts.filter(p => !has(p)).map(p => [p.id, partHash(p.en)])) },
+        }
+        await save()
+        await logReviews(root, 'localize', { id: `${kind}/${id}`, lang }, tries, undefined, o.now ? { now: o.now() } : {})
+        report.failed.push(`${id}: the whole page again was under the bar (${r.score}), the page keeps its text`)
+        continue
       }
       // A page keeps its address once made (a redo never moves it); Thai script has no Latin slug, so Thai pages are
       // addressed by the scientific name, and so is the second of two pages with one name.
@@ -200,14 +324,14 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       const fresh = [...new Set([w.name, ...w.altNames].map(n => n.trim()).filter(n => n && n !== name))].slice(0, 5)
       const t = TranslationSchema.parse(metricPage({
         slug, name, altNames: [...new Set([...(prev?.nameFixed ? prev.altNames : []), ...fresh])].filter(n => n !== name),
-        sections: Object.fromEntries(parts.filter(p => w.parts.get(p.id)).map(p => [p.id, w.parts.get(p.id)!])),
+        sections: Object.fromEntries(parts.filter(p => held(p) || w.parts.get(p.id)).map(p => [p.id, held(p) ? here[p.id]! : w.parts.get(p.id)!])),
         quality: { score: r.score, indexable: r.score >= QUALITY_THRESHOLD, bySource: Object.fromEntries(sources.map(s => [s, r.score])) },
         ...(prev?.nameFixed ? { nameFixed: true } : {}),
       }, lang))
       names.set(`${kind}/${id}`, nameKey(name))
       await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
       await logReviews(root, 'localize', { id: `${kind}/${id}`, lang }, tries, r, o.now ? { now: o.now() } : {})
-      state[id] = { at: (o.now?.() ?? new Date()).toISOString().slice(0, 10), from: e.updatedAt, name, confidence: w.nameConfidence, score: r.score, notes: r.notes }
+      state[id] = { at: at.slice(0, 10), from: e.updatedAt, name, confidence: w.nameConfidence, score: r.score, notes: r.notes, parts: Object.fromEntries(parts.map(p => [p.id, partHash(p.en)])) }
       await save() // after every page: a stopped batch doesn't redo what it finished
       report.done.push(`${id}: ${name} (${w.nameConfidence}, ${r.score})`)
     } catch (err) {
@@ -262,11 +386,11 @@ export async function localizeGlossary(root: string, llm: Llm, lang: TargetLang,
       // A redo starts from what the last reviews of these terms on the site found, when they were under the bar.
       const before = o.redo ? (await Promise.all(batch.map(x => lastKept(root, { id: `glossary/${x.id}`, lang }, ['glossary'])))).filter(t => !!t && t.score < QUALITY_THRESHOLD).flatMap(t => t!.notes) : []
       let w = await write([...new Set(before)])
-      let r = await review(w)
+      let r = await steadyRead(() => review(w), WRITER_BAND)
       const tries = [r]
       if (r.score < QUALITY_THRESHOLD) {
         const again = await write(r.notes)
-        const r2 = await review(again)
+        const r2 = await steadyRead(() => review(again), WRITER_BAND)
         tries.push(r2)
         if (r2.score > r.score) { w = again; r = r2 }
       }
@@ -346,7 +470,7 @@ export async function localizePlaces(root: string, llm: Llm, lang: TargetLang, o
     try {
       const w = await llm<{ places: { id: string; name: string }[] }>({ system: `You name places in ${TARGETS[lang].lang}. Reply only with JSON.`, schema: PLACES_SCHEMA, model: o.model, prompt: `${fill(PLACES, lang)}\n\n--- PLACES ---\n${batch.map(x => x.line).join('\n')}` })
       const named = new Map(w.places.map(p => [p.id, p.name.trim()]))
-      const checked = await reviewPlaces(llm, lang, batch, named)
+      const checked = await steadyRead(() => reviewPlaces(llm, lang, batch, named), WRITER_BAND)
       const score = checked.score
       report.reviews.push(`${batch[0]!.id}…: ${score}${checked.notes.length ? `\n  - ${checked.notes.join('\n  - ')}` : ''}`)
       for (const x of batch) {

@@ -1,15 +1,21 @@
 import { spawnSync } from 'node:child_process'
-import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, realpathSync, writeFileSync } from 'node:fs'
 import { homedir, tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 // @ts-expect-error a plain script
-import { archiveWorktree, expireArchive, simVerdict, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
+import { archiveNamed, archiveWorktree, expireArchive, simVerdict, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 
 const home = () => mkdtempSync(join(tmpdir(), 'aq-load-'))
+
+const sh = (cwd: string, script: string) => {
+  const r = spawnSync('sh', ['-c', script], { cwd, encoding: 'utf8', env: { ...process.env, GIT_CONFIG_GLOBAL: '/dev/null', GIT_AUTHOR_NAME: 't', GIT_AUTHOR_EMAIL: 't@t', GIT_COMMITTER_NAME: 't', GIT_COMMITTER_EMAIL: 't@t' } })
+  expect(r.status, r.stderr).toBe(0)
+  return r.stdout
+}
 
 test('the sweep closes a simulator nobody uses, and no other', () => {
   const sim = { name: 'iPhone 17', testing: false, session: 't3-a', abandoned: false, idleHours: 1, upHours: 20 }
@@ -104,11 +110,6 @@ test("the engine's parts give way and start apart, and installing never stops a 
 
 test('an archived worktree can be brought back: its commits, its changes, its untracked files', () => {
   const dir = home()
-  const sh = (cwd: string, script: string) => {
-    const r = spawnSync('sh', ['-c', script], { cwd, encoding: 'utf8', env: { ...process.env, GIT_CONFIG_GLOBAL: '/dev/null', GIT_AUTHOR_NAME: 't', GIT_AUTHOR_EMAIL: 't@t', GIT_COMMITTER_NAME: 't', GIT_COMMITTER_EMAIL: 't@t' } })
-    expect(r.status, r.stderr).toBe(0)
-    return r.stdout
-  }
   sh(dir, 'git init -q -b main --bare origin.git && git clone -q origin.git main 2>/dev/null && cd main && git checkout -q -b main 2>/dev/null; echo a > a && git add a && git commit -qm base && git push -q origin main && git worktree add -q -b work ../wt')
   sh(`${dir}/main`, 'printf "NOTES.md\\nbuild/\\n" > .gitignore && git add .gitignore && git commit -qm ignore && git push -q origin main')
   sh(`${dir}/wt`, 'git merge -q --ff-only main && echo unsaved > b && git add b && git commit -qm "on no remote" && echo changed > a && echo new > c && echo mine > NOTES.md && mkdir build && echo out > build/x')
@@ -128,6 +129,42 @@ test('an archived worktree can be brought back: its commits, its changes, its un
   // Thirty days later it goes, and nothing younger does.
   expect(expireArchive(`${dir}/archive`, Date.parse('2026-12-07T00:00:00Z'))).toEqual([])
   expect(expireArchive(`${dir}/archive`, Date.parse('2026-12-09T00:00:00Z'))).toEqual(['2026-11-08-wt', '2026-11-08-wt-2'])
+}, 60_000)
+
+test('--archive saves and removes a worktree its caller names, only says so with --dry-run, and leaves one whose thread is live', () => {
+  const dir = realpathSync(home()) // as git and lsof write a path
+  const at = (name: string) => `${dir}/${name}`
+  sh(dir, 'git init -q -b main main && cd main && echo a > a && git add a && git commit -qm base && for n in dry gone live named unread busy; do git worktree add -q -b $n ../$n; done')
+  const run = (argv: string[], live: Set<string> | null = new Set(), cwds: string[] | null = []) => {
+    const said: string[] = []
+    archiveNamed(argv, { cwds, live, repo: at('main'), archive: at('archive'), say: (line: string) => said.push(line) })
+    return said
+  }
+  // --dry-run, before the paths or after them: it says what it would do, and nothing is saved and nothing goes.
+  expect(run(['--dry-run', '--archive', at('dry'), at('gone')])).toEqual([`would save and remove ${at('dry')}`, `would save and remove ${at('gone')}`])
+  expect(run(['--archive', at('gone'), '--dry-run'])).toEqual([`would save and remove ${at('gone')}`])
+  expect(existsSync(at('dry')) && existsSync(at('gone'))).toBe(true)
+  expect(existsSync(at('archive'))).toBe(false)
+  // Without it the same worktree is saved and goes: on 2026-11-11 twelve were, with --dry-run given.
+  expect(run(['--archive', at('gone')])).toEqual([expect.stringMatching(/^saved .*\/gone in .*\/archive\/\d{4}-\d\d-\d\d-gone, and removed it$/)])
+  expect(existsSync(at('gone'))).toBe(false)
+  expect(readdirSync(at('archive'))).toHaveLength(1)
+  // A live thread's worktree stays, with a slash after its path too, until the caller names that very path again.
+  const live = new Set([at('live'), at('named')])
+  expect(run(['--archive', at('live'), `${at('named')}/`], live)).toEqual(['live', 'named'].map(n => `kept ${at(n)}: its thread is live. To save and remove it all the same, name it again after --though-live`))
+  expect(run(['--archive', at('live'), at('named'), '--though-live', `${at('named')}/`, at('dry')], live)).toEqual([expect.stringContaining(`kept ${at('live')}: its thread is live`), expect.stringContaining(`saved ${at('named')} in`)])
+  expect(existsSync(at('live'))).toBe(true)
+  expect(existsSync(at('named'))).toBe(false)
+  expect(existsSync(at('dry'))).toBe(true) // named only after the word: nobody asked for it to go
+  // Threads nobody could read: it stays, as the nightly pass leaves every worktree then.
+  expect(run(['--archive', at('unread')], null)).toEqual([expect.stringContaining(`kept ${at('unread')}: its thread couldn't be read`)])
+  expect(run(['--dry-run', '--archive', at('unread'), '--though-live', at('unread')], null)).toEqual([`would save and remove ${at('unread')}`])
+  expect(existsSync(at('unread'))).toBe(true)
+  // The word is about the thread alone: a process working in it keeps it.
+  expect(run(['--archive', at('busy'), '--though-live', at('busy')], new Set(), [`${at('busy')}/packages`])).toEqual([`kept ${at('busy')}: a process is working in it`])
+  // And when lsof can't say who is working where, nothing goes, named again or not.
+  expect(run(['--archive', at('busy'), '--though-live', at('busy')], new Set(), null)).toEqual([`kept ${at('busy')}: couldn't read whether a process is working in it`])
+  expect(existsSync(at('busy'))).toBe(true)
 }, 60_000)
 
 test('a reading of the Mac: the small job, the queues, and load only as background', () => {

@@ -1,5 +1,5 @@
 import { fitsCard, linkTerms, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity } from '@aq/schema'
-import { categories } from './equipment'
+import { categoriesIn } from './equipment'
 import { GROUP_LABELS } from './format'
 import { taxonHref } from './taxa-places'
 
@@ -43,7 +43,12 @@ const specific = (all: string[]) => {
   return (n: string, own: string[] = []) => lower.filter(o => o.startsWith(`${n.toLowerCase()} `) && !own.some(x => x.toLowerCase() === o)).length < 2
 }
 
+/** How many times this process has walked every name to build the link list. The app's pages do that once a language. */
+let linkListBuilds = 0
+export const linkListsBuilt = (): number => linkListBuilds
+
 export function linkTargets(c: Content): LinkTarget[] {
+  linkListBuilds++
   const out: LinkTarget[] = []
   const ok = specific([...c.species, ...c.plants].flatMap(x => [x.scientificName, x.t.name, ...x.t.altNames]).concat(c.plants.flatMap(p => p.synonyms ?? []), c.breeds.flatMap(b => [b.t.name, ...b.t.altNames])))
   // A man-made fish before the species: "cá vàng Ranchu" is the Ranchu page, not the goldfish one.
@@ -79,7 +84,11 @@ export function linkTargets(c: Content): LinkTarget[] {
     const names = [...own, ...(PLACE_VI[p.id] ?? [])]
     if (names.length) out.push({ key: `place:${p.id}`, href, names, exact: true })
   }
-  for (const u of categories(c)) if (EQUIPMENT_TERMS[u.category]) out.push({ key: `equipment:${u.category}`, href: `/vi/thiet-bi/${u.category}/`, names: EQUIPMENT_TERMS[u.category]! })
+  // A kind of kit is linked where this language builds a page for it (equipment.ts categoriesIn): every kind in
+  // Vietnamese, elsewhere those whose guide it has. A guide not translated yet, or held back while its pictures wait for
+  // the watermark screen, has no page there, and the link would lead nowhere. The chips under a guide come from these
+  // links, so they follow.
+  for (const u of categoriesIn(c.lang ?? 'vi', c)) if (EQUIPMENT_TERMS[u.category]) out.push({ key: `equipment:${u.category}`, href: `/vi/thiet-bi/${u.category}/`, names: EQUIPMENT_TERMS[u.category]! })
   return out
 }
 

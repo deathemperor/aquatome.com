@@ -1,0 +1,23 @@
+{
+  "slug": "ca-nheo-chuot-bao",
+  "name": "Cá nheo chuột báo",
+  "altNames": [
+    "Cá nheo Synodontis pardalis",
+    "Leopard-Squeaker"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cá dài tối đa khoảng 20 cm. Loài này hiền, dễ ăn và không kén nước. Nên nuôi thành nhóm 5–8 con.</p>",
+    "distribution:glaser": "<p>Hiện chỉ biết loài này có ở sông Dja và nhánh Libi của nó tại Cameroon. Nó bị coi là loài nguy cấp, vì sông Dja đã bị tàn phá và ô nhiễm nặng do khai thác coban ồ ạt.</p>",
+    "behaviour:glaser": "<p>Synodontis pardalis thuộc nhóm Synodontis có thân rất thon, cùng nhóm với S. decorus và S. brichardi. Chúng sống với nhau hiền đến bất ngờ. Nên nuôi loài này thành nhóm 5–8 con.</p>",
+    "diet:glaser": "<p>Loài này dễ ăn và không kén nước.</p>",
+    "notes:glaser": "<p>S. pardalis thỉnh thoảng có hàng nhập về, nên các chương trình cho đẻ và bảo tồn mới có cá để dùng.</p><p>Nguồn gốc tên gọi: Synodontis là tên cổ dùng cho một loài cá ở sông Nile mà đến nay chưa rõ là loài nào. pardalis nghĩa là \"mang hoa văn như da báo\".</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

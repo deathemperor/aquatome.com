@@ -27,27 +27,35 @@ const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficul
 
 /**
  * `refs`: text AquaTome wrote from web research (source 'aquatome'), the pages in the species' `refs` its facts come from.
- * `fixed`: a person rewrote this part, in English and in the Vietnamese beside it, and reading its source again never
- * replaces it, as `nameFixed` holds a name.
+ * `fixed`: a person rewrote this part, in English and in each language beside it, and neither reading its source again
+ * nor translating the page replaces it, as `nameFixed` holds a name.
  */
 const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string(), refs: z.array(z.number().int().nonnegative()).optional(), fixed: z.literal(true).optional() })
 /** `authorUrl`: the photographer's own page (an Unsplash profile), which their credit links. */
 /**
  * `large`: a copy for the app's large cards, 1,200 px on its short side (the engine's large-photos.ts); the site's pages
  * show `url`, at most 1,200 wide.
+ * `subject`: where the fish is, in the photo's pixels, from the engine's box record (engine-state/_photo-boxes.json). The
+ * engine never writes one into content: the loader adds it from the record alone, behind its switch (image-geometry.ts
+ * SUBJECT_FRAMES), to the photos it clears (pages', albums', guides', breeds' and cards'), dropping any other.
  */
 const Hash = z.string().regex(/^[a-f0-9]{64}$/)
+const PixelBox = z.object({ x0:z.number().int().nonnegative(),y0:z.number().int().nonnegative(),x1:z.number().int().positive(),y1:z.number().int().positive() })
+const HashPair = z.tuple([Hash,Hash])
 const Generated = z.object({
   model: z.string().min(1), driverModel: z.string().min(1), date: z.string().min(1), prompt: z.string().min(1), referenceHash: Hash,
-  check: z.object({ verdict: z.literal('pass'), version: Hash, model: z.string().min(1), at: z.string().min(1), referenceHash: Hash, pixelHash: Hash, calibrationHash: Hash }).optional(),
+  check: z.object({ passes: z.literal(2).optional(), judgments: z.tuple([Hash, Hash]).optional(), verdict: z.literal('pass'), version: Hash, model: z.string().min(1), at: z.string().min(1), referenceHash: Hash, pixelHash: Hash, calibrationHash: Hash }).optional(),
 })
 const Alteration = z.object({
-  method: z.enum(['mark-removal', 'lanczos3-upscale']), date: z.string().min(1), originalHash: Hash,
+  method: z.enum(['mark-removal', 'mark-crop', 'lanczos3-upscale']), date: z.string().min(1), originalHash: Hash,
   box: z.object({ x0: z.number().int().nonnegative(), y0: z.number().int().nonnegative(), x1: z.number().int().positive(), y1: z.number().int().positive() }).optional(),
   outsideChanged: z.literal(0).optional(), noTrace: z.literal('pass').optional(), permissionDate: z.string().optional(), residue: z.object({ version: z.string(), score: z.number().min(0).max(1), limit: z.number().min(0).max(1) }).optional(),
+  retainedChanged:z.literal(0).optional(), crop:z.object({originalWidth:z.number().int().positive(),originalHeight:z.number().int().positive(),window:PixelBox,subject:PixelBox,margin:z.number().int().nonnegative()}).optional(),
+  excludedMarks:z.array(PixelBox).optional(),
+  checks:z.object({species:HashPair,ownership:HashPair,noTrace:HashPair.optional(),preservation:HashPair.optional()}).optional(),
 })
 const OriginalPicture = z.object({ url: z.string(), width: z.number(), height: z.number(), thumb: z.string().optional(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional() })
-const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional() })
+const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional(), ownerCrop: z.object({ id: z.string(), pixelHash: Hash }).optional(), headFit: z.literal("contain").optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional(), subject: PixelBox.optional() })
 export const PhotoSchema = Photo
 const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string() })
 const ProductSlot = z.object({ category: z.string(), keywords: z.array(z.string()) })

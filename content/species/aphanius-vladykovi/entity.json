@@ -93,7 +93,72 @@
       "html": "<p>In the aquarium hobby Aphanius are rarely seen. Many of the currently 22 accepted species and subspecies are in danger of extinction due to habitat destruction, which is why some specialised aquarists breed them as a conservation effort.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/96b2404af1272ceae11a71d45d76a5c2.webp",
+      "thumb": "https://media.aquatome.com/processed/96b2404af1272ceae11a71d45d76a5c2-480.webp",
+      "width": 850,
+      "height": 448,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphanius_vladykovi_boldaji_en/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-aphanius-vladykovi",
+        "pixelHash": "63fa150d494d44826aba8ea053542f75fc372049517e07376ddac368d63b7b75"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:34:28.766Z",
+          "originalHash": "ed50c858d9d4193c9543bfe9f528b79e90bc4a926db9bf20aa4921daf4ec25b7",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 567,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 850,
+              "y1": 448
+            },
+            "subject": {
+              "x0": 43,
+              "y0": 98,
+              "x1": 785,
+              "y1": 422
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 23,
+              "y0": 454,
+              "x1": 827,
+              "y1": 566
+            }
+          ],
+          "checks": {
+            "species": [
+              "6b5c6640a9644b0d03d771c9aa13bb4ff22950deeab97fff1f7cf90822dbf0d9",
+              "52490a2810c888426b7f49496c5e107b4fcd62520770d7f94279ece31c71ba48"
+            ],
+            "ownership": [
+              "c87a03fd0c9de213ccadd0f7491d94a9bb1cd49c2dea9e3d408c8ddd171a1944",
+              "f7d102313d8edb504e2c66110b68807684a0dc3b64b4b18a06d56995d1a7fb98"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/22dc56c9cfed7272.webp",
+        "width": 850,
+        "height": 567,
+        "thumb": "https://media.aquatome.com/glaser/22dc56c9cfed7272-480.webp"
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "7QkQ7_n6mrM",

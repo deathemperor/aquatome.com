@@ -1,5 +1,5 @@
 {
- "day": "2026-11-11",
+ "day": "2026-11-13",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 3956,
-   "read": 3549,
-   "wrong": 1601,
-   "pct": 45,
-   "held": 339
+   "pages": 4077,
+   "read": 3509,
+   "wrong": 1577,
+   "pct": 44,
+   "held": 405
   },
   "id": {
-   "pages": 1257,
-   "read": 1096,
-   "wrong": 325,
-   "pct": 30,
-   "held": 50
+   "pages": 1304,
+   "read": 1134,
+   "wrong": 332,
+   "pct": 29,
+   "held": 70
   },
   "th": {
-   "pages": 1250,
-   "read": 1063,
-   "wrong": 296,
-   "pct": 28,
-   "held": 52
+   "pages": 1293,
+   "read": 1094,
+   "wrong": 299,
+   "pct": 27,
+   "held": 66
   },
   "ms": {
-   "pages": 180,
-   "read": 138,
-   "wrong": 56,
-   "pct": 41,
-   "held": 12
+   "pages": 198,
+   "read": 153,
+   "wrong": 55,
+   "pct": 37,
+   "held": 18
   }
  },
  "labels": {
@@ -58,37 +58,24 @@
  },
  "sample": [
   {
-   "lang": "id",
-   "path": "/id/tanaman/creeping-jenny/",
-   "url": "https://aquatome.com/id/tanaman/creeping-jenny/",
-   "title": "Creeping Jenny",
+   "lang": "vi",
+   "path": "/vi/ca/ca-tetra-heterocharax-virgulatus/",
+   "url": "https://aquatome.com/ca/ca-tetra-heterocharax-virgulatus/",
+   "title": "Cá tetra Heterocharax virgulatus",
    "wrong": []
   },
   {
-   "lang": "vi",
-   "path": "/vi/ca/ca-hoang-hau-vang/",
-   "url": "https://aquatome.com/ca/ca-hoang-hau-vang/",
-   "title": "Cá hoàng hậu vàng",
-   "wrong": [
-    {
-     "check": "words",
-     "quote": "phần lớn"
-    },
-    {
-     "check": "words",
-     "quote": "dân chơi"
-    },
-    {
-     "check": "words",
-     "quote": "cá nhân giống"
-    }
-   ]
+   "lang": "id",
+   "path": "/id/ikan/chalinochromis-brichardi/",
+   "url": "https://aquatome.com/id/ikan/chalinochromis-brichardi/",
+   "title": "Chalinochromis brichardi",
+   "wrong": []
   },
   {
    "lang": "id",
-   "path": "/id/ikan/batasio-tigrinus/",
-   "url": "https://aquatome.com/id/ikan/batasio-tigrinus/",
-   "title": "Batasio tigrinus",
+   "path": "/id/ikan/malabar-baril/",
+   "url": "https://aquatome.com/id/ikan/malabar-baril/",
+   "title": "Malabar Baril",
    "wrong": []
   }
  ]

@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "taiwan",
-    "tadu"
+    "tadu",
+    "china"
   ],
   "dataCard": {
     "tempC": [
@@ -42,6 +43,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -63,6 +68,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-rubromaculatus",
       "html": "<p>The red-spotted goby, Rhinogobius rubromaculatus, is endemic to Taiwan and apparently quite common in central and western parts of the island. Fish from the Linbian river in the south are smaller, with larger and more intense red spots, and have been called R. rubromaculatus 'rot' or 'red' in the hobby, but they show only minor genetic differences. Among the less problematic members of the genus to breed, it can spawn year-round in aquaria.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_rubromaculatus_en/",
+      "html": "<p>Origin: China. The species grows to only about 4 cm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_rubromaculatus_en/",
+      "html": "<p>A new, pretty species was imported under the name \"Rhinogobius chrysanthemum\" via Hong Kong. However, this name does not exist at all; it is a mere fiction. The species, only about 4 cm long, looks most like Rhinogobius rubromaculatus, so this is the name used to list the fish.</p>"
     },
     {
       "key": "distribution",
@@ -87,6 +104,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-rubromaculatus",
       "html": "<p>Not difficult to maintain under the correct conditions; we strongly recommend keeping it in a tank designed to simulate a flowing stream with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches, terracotta pipes, plant pots, etc., arranged to form a network of nooks, crannies, and shaded spots, thus providing broken lines of sight.</p><p>While the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis, or Anubias spp. can be grown attached to the décor.</p><p>Like many fishes that naturally inhabit running water it's intolerant to accumulation of organic pollutants and requires spotless water in order to thrive. Weekly water changes of 30-50% tank volume should also be considered routine.</p><p>Though torrent-like conditions are unnecessary it does best if there is a high proportion of dissolved oxygen and some water movement in the tank meaning power filter(s), additional powerhead(s), or airstone(s) should be employed as necessary.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_rubromaculatus_en/",
+      "html": "<p>Keeping these nice fish is rather easy and can be compared to keeping the well-known Rhinogobius duospilus (also known under the synonym R. wui).</p>"
     },
     {
       "key": "waterConditions",
@@ -177,5 +200,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-11"
 }

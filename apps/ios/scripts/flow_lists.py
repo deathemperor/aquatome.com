@@ -216,7 +216,7 @@ REACH = {
     APP + 'Account/GoogleSignIn.swift': ACCOUNT_SHEET, APP + 'Account/Appearance.swift': ACCOUNT_SHEET,
     # v2, the app's look since 2026-11-08: its own flows (the switch, its tabs, a link into it, a fish put on a tank from
     # its page), and its page shots. Its root, which every flow on v2 runs through, reaches them all, as AquaTomeApp does.
-    APP + 'V2/': ['V2FlowTests'] + shots('v2'),
+    APP + 'V2/': ['V2FlowTests', 'BrowseShelvesFlowTests'] + shots('v2'),
     APP + 'V2/V2Root.swift': ALL,
     # The stand-in server also takes the names readers want pages for (a fish put on a tank by name), and serves the
     # owner's dashboard.

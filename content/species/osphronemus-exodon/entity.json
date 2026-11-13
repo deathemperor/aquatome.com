@@ -11,6 +11,82 @@
     "laos",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "KH"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The elephant ear gourami, Osphronemus exodon, is a large gourami from Thailand, Laos and Cambodia.",
+          "countries": [
+            "TH",
+            "LA",
+            "KH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394167,
+      "total": 15,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "KH",
+          11
+        ],
+        [
+          "LA",
+          3
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          12.65625,
+          10,
+          10
+        ],
+        [
+          106.875,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          106.875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

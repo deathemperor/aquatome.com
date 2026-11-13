@@ -7,8 +7,9 @@ import sharp from 'sharp'
 import { ArchiveRefused } from '../src/archive'
 import { LlmError } from '../src/claude'
 import { ChallengeError } from '../src/fetch'
-import { runEngine } from '../src/run'
+import { runEngine, soft } from '../src/run'
 import { moveToArchive } from '../src/state'
+import { WikimediaRefused } from '../src/wikimedia-rest'
 
 const fx = (p: string) => readFileSync(new URL(`./fixtures/${p}`, import.meta.url), 'utf8')
 const SF = 'https://www.seriouslyfish.com/species/'
@@ -20,7 +21,7 @@ const species = {
   sections: [{ key: 'habitat', en: '<p>Blackwater.</p>', vi: '<p>Nước đen.</p>' }], productSlots: [],
 }
 
-function deps(root: string, opts: { urls?: string[]; score?: number; page?: object; llmFails?: boolean; rewritten?: string } = {}) {
+function deps(root: string, opts: { urls?: string[]; score?: number; /** The reviewer's reads in turn, then `score`. */ scores?: number[]; page?: object; llmFails?: boolean; rewritten?: string } = {}) {
   const calls = { images: 0, commons: 0, llm: 0, review: 0, process: 0, rewrite: 0, sleeps: 0, prompts: [] as string[] }
   const fetcher = {
     text: async (_u: string) => sitemap(opts.urls ?? ['paracheirodon-axelrodi', 'broken-fish', 'blocked-fish']),
@@ -35,7 +36,7 @@ function deps(root: string, opts: { urls?: string[]; score?: number; page?: obje
   const llm = async <T,>(a: { prompt: string; schema: object }): Promise<T> => {
     calls.llm++
     calls.prompts.push(a.prompt)
-    if ('score' in ((a.schema as { properties?: object }).properties ?? {})) { calls.review++; return { score: opts.score ?? 0.9, notes: ['fix "Nước đen"'] } as T }
+    if ('score' in ((a.schema as { properties?: object }).properties ?? {})) { const score = opts.scores?.[calls.review] ?? opts.score ?? 0.9; calls.review++; return { score, notes: ['fix "Nước đen"'] } as T }
     if (opts.llmFails) throw new LlmError('claude failed (1): usage limit')
     if ('parts' in ((a.schema as { properties?: object }).properties ?? {})) { calls.rewrite++; return { parts: [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => ({ id: m[1], vi: opts.rewritten ?? `<p>Viết lại ${m[1]}</p>` })) } as T }
     calls.process++
@@ -182,6 +183,21 @@ test('the archive refusing this Mac: the source stops, no page is marked, and th
   expect(JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
 })
 
+test('Wikimedia resting: a page that needs it waits, unmarked and with its attempts, and the source goes on; a refusal is no "nothing found"', async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  const get = d.fetcher.get
+  const fetcher = { ...d.fetcher, get: async (url: string) => { if (url.endsWith('broken-fish')) throw new WikimediaRefused('2026-10-28T22:00:00.000Z'); return get(url) } }
+  const r = await runEngine({ ...d, fetcher }, { sources: ['seriouslyfish'] })
+  expect(r.errors).toContain(`${SF}broken-fish: waits for Wikimedia: Wikimedia refused this Mac: no request before 2026-10-28T22:00:00.000Z`)
+  const state = JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8'))
+  expect(state[`${SF}broken-fish`]).toBeUndefined()
+  expect(state[`${SF}paracheirodon-axelrodi`]).toMatchObject({ status: 'processed' })
+  // The Commons photo lookup (soft) passes a rest on, so a page isn't saved as having found none.
+  await expect(soft('commons photos', async () => { throw new WikimediaRefused('t') }, [])).rejects.toBeInstanceOf(WikimediaRefused)
+  expect(await soft('commons photos', async () => { throw new Error('HTTP 500') }, ['fallback'])).toEqual(['fallback'])
+})
+
 test('the archive refusing this Mac at its index: no fallback on the last list, so no page is asked for', async () => {
   const root = await fresh()
   const { d } = deps(root)
@@ -252,6 +268,20 @@ test('low quality: one re-translation with reviewer notes, then noindex', async 
   expect(calls.prompts[3]).toContain('fix "Nước đen"') // process, style pass, review, then process again with the notes
   const vi = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/vi.json'), 'utf8'))
   expect(vi.quality).toMatchObject({ score: 0.5, indexable: false, bySource: { seriouslyfish: 0.5 } })
+})
+
+test('the page writer\'s reviewer reads a page within 0.1 of the bar three times and the middle read counts; one clear of it, once', async () => {
+  // The chief of staff, 2026-11-11. 0.7 alone would send the page back to be written again; the middle of 0.7, 0.9 and
+  // 0.8 passes it.
+  const root = await fresh()
+  const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi'], scores: [0.7, 0.9, 0.8] })
+  await runEngine(d, { sources: ['seriouslyfish'] })
+  expect(calls).toMatchObject({ process: 1, review: 3 })
+  const vi = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/vi.json'), 'utf8'))
+  expect(vi.quality).toMatchObject({ score: 0.8, indexable: true })
+  const clear = deps(await fresh(), { urls: ['paracheirodon-axelrodi'], scores: [0.86] })
+  await runEngine(clear.d, { sources: ['seriouslyfish'] })
+  expect(clear.calls).toMatchObject({ process: 1, review: 1 })
 })
 
 test('a challenge stops the source, keeps processedHash, and the source is skipped for a day unless retried explicitly', async () => {

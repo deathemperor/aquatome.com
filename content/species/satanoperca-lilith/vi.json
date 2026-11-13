@@ -1,10 +1,11 @@
 {
   "slug": "ca-quy-mot-dom",
-  "name": "Cá quỷ một đốm",
+  "name": "Cá hải hồ lilith",
   "altNames": [
     "Cá ăn đất một đốm",
     "One-spotted demon fish",
-    "One spot eartheater"
+    "One spot eartheater",
+    "Cá quỷ một đốm"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Độ khó: Khó, vì cần bể dài ít nhất 2 m.</li></ul>",
@@ -27,5 +28,6 @@
     "bySource": {
       "seriouslyfish": 0.85
     }
-  }
+  },
+  "nameFixed": true
 }

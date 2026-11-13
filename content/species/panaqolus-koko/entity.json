@@ -13,6 +13,79 @@
     "marowijne",
     "guyana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GF",
+        "GY",
+        "SR"
+      ],
+      "regions": [
+        "Maroni River",
+        "Marouini River",
+        "Marowijne"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Antecume Pata in the upper Maroni River basin, French Guiana.",
+          "countries": [
+            "GF"
+          ],
+          "regions": [
+            "Maroni River"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Also recorded from Guyana waters, coastal rivers of the Guianas, Suriname coastal rivers, Marowijne and Upper Marowijne.",
+          "countries": [
+            "GY",
+            "SR"
+          ],
+          "regions": [
+            "Marowijne"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Marouini River, vicinity of Antecume Pata, French Guiana.",
+          "countries": [],
+          "regions": [
+            "Marouini River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7192993,
+      "total": 6,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "GF",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

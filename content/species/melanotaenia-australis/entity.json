@@ -525,7 +525,12 @@
       "author": "laurent MARSOL - Aussie Oc",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:300_Melanotaenia_australis_Western_rainbowfish_Mitchell_River_NP_VIII-2013.jpg",
       "caption": "Western rainbowfish (Melanotaenia australis) Mitchell River NP VIII-2013; Location: Mitchell River National Park, Mitchell Falls",
-      "thumb": "https://media.aquatome.com/commons/180151452e0d32c3-480.webp"
+      "thumb": "https://media.aquatome.com/commons/180151452e0d32c3-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/180151452e0d32c3-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [

@@ -1,9 +1,18 @@
 {
   "id": "heros-efasciatus",
   "native": {
-    "input": "0fd63579904dfd00",
-    "at": "2026-11-10T07:58:31.896Z",
-    "claims": [],
+    "input": "df3e95e68a150bee",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The fish were collected in the Rio Negro in the municipality of Japaueri, Brazil, according to the supplier.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
     "regions": [
       {
         "name": "Amazon",
@@ -12,15 +21,22 @@
         "ok": true
       },
       {
-        "name": "rio Solimoes",
+        "name": "Rio Solimoes",
         "source": "seriouslyfish",
         "quote": "Widespread throughout the Amazon main channel and rio Solimoes and also recorded from the rio Xingu.",
         "ok": true
       },
       {
-        "name": "rio Xingu",
+        "name": "Rio Xingu",
         "source": "seriouslyfish",
         "quote": "Widespread throughout the Amazon main channel and rio Solimoes and also recorded from the rio Xingu.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "The fish were collected in the Rio Negro in the municipality of Japaueri, Brazil, according to the supplier.",
+        "country": "BR",
         "ok": true
       }
     ],
@@ -28,7 +44,6 @@
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "BR",
         "PE"
       ],
       "sourcesOnly": []
@@ -148,8 +163,10 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-08T18:57:48.756Z"
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-11T08:59:40.517Z"
   }
 }

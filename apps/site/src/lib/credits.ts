@@ -1,4 +1,5 @@
 import type { Photo } from '@aq/schema'
+import { alterationNotice } from './gallery'
 import { licenceLabel } from './i18n'
 
 /** `authorUrl`: the photographer's own page, an Unsplash photo's (lib/unsplash.ts). */
@@ -10,7 +11,7 @@ export function creditsFor(photos: (Photo | undefined)[], what = 'Ảnh'): Credi
   return photos.flatMap(p => {
     if (!p || seen.has(p.url)) return []
     seen.add(p.url)
-    return [{ author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), licence: p.generated ? '' : licenceLabel(p.licence), sourceUrl: p.sourceUrl, what, ...(p.generated ? { generated: true as const } : {}), ...(p.altered?.length ? { altered: true as const } : {}) }]
+    return [{ author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), licence: p.generated ? '' : licenceLabel(p.licence), sourceUrl: p.sourceUrl, what, ...(p.generated ? { generated: true as const } : {}), ...(alterationNotice(p) ? { altered: true as const } : {}) }]
   })
 }
 

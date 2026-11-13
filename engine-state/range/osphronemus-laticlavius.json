@@ -1,0 +1,56 @@
+{
+  "id": "osphronemus-laticlavius",
+  "native": {
+    "input": "ed0a3232dae47c7f",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The giant red tail gourami, Osphronemus laticlavius, is a large gourami from Indonesia and Malaysia, described to science in the early 1990s.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The giant red tail gourami, Osphronemus laticlavius, is a large gourami from Indonesia and Malaysia, described to science in the early 1990s.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "O. laticlavius originates from Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Osphronemus laticlavius",
+    "status": "ACCEPTED",
+    "taxonKey": 2394168,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

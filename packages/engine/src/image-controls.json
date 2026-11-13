@@ -7,7 +7,8 @@
       "referenceHash": "89ba82bcb139ce0dab7a79fd75b7892ce05885007e0e927a43ea21c572b3072c",
       "realReferenceHashes": [
         "3687ba0066d07829fe2051b17ec4f32536f5292a96feb9387d11311a84b93454"
-      ]
+      ],
+      "referenceJudgmentsRequired": true
     },
     {
       "id": "lookalike",
@@ -16,7 +17,8 @@
       "referenceHash": "5707b1bde74840565bf895db442bf7dc9fb45d7dfbe82880f30728da7c8cf36b",
       "realReferenceHashes": [
         "ae66022a5d9fb1ea6cd9cd91cb4c7e23ee11191d48f738c236697f90e8b66a06"
-      ]
+      ],
+      "referenceJudgmentsRequired": true
     },
     {
       "id": "fin-pattern",
@@ -25,7 +27,8 @@
       "referenceHash": "699c049693cf1c426e49bba8699b69a9d2d1802ac3bbb30a98d033549568e771",
       "realReferenceHashes": [
         "3687ba0066d07829fe2051b17ec4f32536f5292a96feb9387d11311a84b93454"
-      ]
+      ],
+      "referenceJudgmentsRequired": true
     },
     {
       "id": "growth-habit",
@@ -34,7 +37,8 @@
       "referenceHash": "af20f5e2449730c421a98e10a01d13a547bfa553f1f6a7e8aece0e48e9f838c6",
       "realReferenceHashes": [
         "180ea100bf2adbf6d87f828b7b993dc6ee9594ed66b97a92039470c3c693bb7b"
-      ]
+      ],
+      "referenceJudgmentsRequired": true
     },
     {
       "id": "right-fish",
@@ -43,7 +47,8 @@
       "referenceHash": "5707b1bde74840565bf895db442bf7dc9fb45d7dfbe82880f30728da7c8cf36b",
       "realReferenceHashes": [
         "ae66022a5d9fb1ea6cd9cd91cb4c7e23ee11191d48f738c236697f90e8b66a06"
-      ]
+      ],
+      "referenceJudgmentsRequired": true
     },
     {
       "id": "right-neon",
@@ -52,7 +57,8 @@
       "referenceHash": "4a277e47fe56e081a064f3354a62d1e56391c7ea6e0d091a45a098eac7580e60",
       "realReferenceHashes": [
         "a5d54b125dbdd3e90d107fad4f3e0ff5f74f9b7c379fc429bcbe0e295fb4aa02"
-      ]
+      ],
+      "referenceJudgmentsRequired": true
     },
     {
       "id": "right-plant",
@@ -61,7 +67,8 @@
       "referenceHash": "af20f5e2449730c421a98e10a01d13a547bfa553f1f6a7e8aece0e48e9f838c6",
       "realReferenceHashes": [
         "180ea100bf2adbf6d87f828b7b993dc6ee9594ed66b97a92039470c3c693bb7b"
-      ]
+      ],
+      "referenceJudgmentsRequired": true
     },
     {
       "id": "right-altum",
@@ -70,7 +77,8 @@
       "referenceHash": "2cfebe627f4b14cd5087780c5450cd4bb385d28001694446045e446d61dc7c78",
       "realReferenceHashes": [
         "78a9ccb5ba5955a7d2ff27236ff450c3b55c0415eb1e0397ee51b924ba02c0f6"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "right-scalare",
@@ -79,7 +87,8 @@
       "referenceHash": "a008f64e2d356bd38b5af0a05df60a72cd1f8691f9797aa245c70cda8ef89c6a",
       "realReferenceHashes": [
         "086777d6b900d4220ff19a6148e1878b7cdfd97d50f7781cbe5efd769b8a4718"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "right-betta",
@@ -88,7 +97,8 @@
       "referenceHash": "524d377bcdfc5a63660008b58d52d8c7d35918ee8b4e3bb86f500fb083536b03",
       "realReferenceHashes": [
         "a03ce70f697e5a693771f22043487724c5ced3ca61d6c5da55d39d7537dc0182"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "right-discus",
@@ -97,7 +107,8 @@
       "referenceHash": "d2a73207c7bd219e8079b00211dd8720f32614b58ef987217888832957bfa5b4",
       "realReferenceHashes": [
         "0775c7b4e3a84db21f7f464ca538030050e75cc1073495f2b3df29683eed2d24"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "right-danio",
@@ -106,7 +117,8 @@
       "referenceHash": "087afcf5adbd0eb75458dbd097a444398ab9af09ea3f9cdcbe6c867b2fa797c6",
       "realReferenceHashes": [
         "96306844089059698946d284cdd64bb2b589db9a6e73218765fc2e0d019d3c57"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "right-galaxy",
@@ -115,7 +127,8 @@
       "referenceHash": "4b40f2322203274bf94bd554abac462db54e786ea643db0fb3c4ce76cf14c467",
       "realReferenceHashes": [
         "cac0802d67c1fc8f19b9c9c79228b9d2c25a4ca383aa3a867c45ad57429673fd"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "right-harlequin",
@@ -124,7 +137,8 @@
       "referenceHash": "4049242def12ba355feaf2e9d19d34cbc0a5ad64dd8d8839388b1a5de3afef98",
       "realReferenceHashes": [
         "dd9012d07cd20f2c912a06d27a9daf55172d97ff7a6e1c3d96edcaee0dfe8bd8"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "right-cory",
@@ -133,7 +147,8 @@
       "referenceHash": "ae101e900781d3a79908a43f44fbcc25731f781fdcefa28745550588ce2ce026",
       "realReferenceHashes": [
         "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "right-anubias",
@@ -142,7 +157,8 @@
       "referenceHash": "9ed3fd067a8fa2f920a49e01823f539fb67c706436bd74608c80f8a869e8317e",
       "realReferenceHashes": [
         "e59002ffbb5f5f25219e06144b03838de15be55b1eb39490d5898642f35edf1a"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "right-bacopa",
@@ -151,7 +167,8 @@
       "referenceHash": "4f87982681204bfc81200638791f91bfdf95b68b25063e9b649390b44d4a0ca5",
       "realReferenceHashes": [
         "b5aebe12404e48037d03c8f35e5867d427d66ad894ffd9e0a7d0c02ff158759d"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "right-rotala",
@@ -160,7 +177,8 @@
       "referenceHash": "10f38828447dd4fd0d37eb86cf30313a2ef854031b671e866e554c047ae08bd3",
       "realReferenceHashes": [
         "63077ed02d287be9ccb62070dc5469f4d2c26f372ddff325807156c493d1aa6b"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "wrong-altum-scalare",
@@ -169,7 +187,8 @@
       "referenceHash": "2cfebe627f4b14cd5087780c5450cd4bb385d28001694446045e446d61dc7c78",
       "realReferenceHashes": [
         "78a9ccb5ba5955a7d2ff27236ff450c3b55c0415eb1e0397ee51b924ba02c0f6"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "wrong-scalare-discus",
@@ -178,7 +197,8 @@
       "referenceHash": "a008f64e2d356bd38b5af0a05df60a72cd1f8691f9797aa245c70cda8ef89c6a",
       "realReferenceHashes": [
         "086777d6b900d4220ff19a6148e1878b7cdfd97d50f7781cbe5efd769b8a4718"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "wrong-betta-harlequin",
@@ -187,7 +207,8 @@
       "referenceHash": "524d377bcdfc5a63660008b58d52d8c7d35918ee8b4e3bb86f500fb083536b03",
       "realReferenceHashes": [
         "a03ce70f697e5a693771f22043487724c5ced3ca61d6c5da55d39d7537dc0182"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "wrong-discus-altum",
@@ -196,7 +217,8 @@
       "referenceHash": "d2a73207c7bd219e8079b00211dd8720f32614b58ef987217888832957bfa5b4",
       "realReferenceHashes": [
         "0775c7b4e3a84db21f7f464ca538030050e75cc1073495f2b3df29683eed2d24"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "wrong-danio-galaxy",
@@ -205,7 +227,8 @@
       "referenceHash": "087afcf5adbd0eb75458dbd097a444398ab9af09ea3f9cdcbe6c867b2fa797c6",
       "realReferenceHashes": [
         "96306844089059698946d284cdd64bb2b589db9a6e73218765fc2e0d019d3c57"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "wrong-galaxy-danio",
@@ -214,7 +237,8 @@
       "referenceHash": "4b40f2322203274bf94bd554abac462db54e786ea643db0fb3c4ce76cf14c467",
       "realReferenceHashes": [
         "cac0802d67c1fc8f19b9c9c79228b9d2c25a4ca383aa3a867c45ad57429673fd"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "wrong-harlequin-neon",
@@ -223,7 +247,8 @@
       "referenceHash": "4049242def12ba355feaf2e9d19d34cbc0a5ad64dd8d8839388b1a5de3afef98",
       "realReferenceHashes": [
         "dd9012d07cd20f2c912a06d27a9daf55172d97ff7a6e1c3d96edcaee0dfe8bd8"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "wrong-cory-altum",
@@ -232,7 +257,8 @@
       "referenceHash": "ae101e900781d3a79908a43f44fbcc25731f781fdcefa28745550588ce2ce026",
       "realReferenceHashes": [
         "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "wrong-anubias-bacopa",
@@ -241,7 +267,8 @@
       "referenceHash": "9ed3fd067a8fa2f920a49e01823f539fb67c706436bd74608c80f8a869e8317e",
       "realReferenceHashes": [
         "e59002ffbb5f5f25219e06144b03838de15be55b1eb39490d5898642f35edf1a"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "wrong-bacopa-rotala",
@@ -250,7 +277,8 @@
       "referenceHash": "4f87982681204bfc81200638791f91bfdf95b68b25063e9b649390b44d4a0ca5",
       "realReferenceHashes": [
         "b5aebe12404e48037d03c8f35e5867d427d66ad894ffd9e0a7d0c02ff158759d"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "wrong-rotala-monte",
@@ -259,7 +287,8 @@
       "referenceHash": "10f38828447dd4fd0d37eb86cf30313a2ef854031b671e866e554c047ae08bd3",
       "realReferenceHashes": [
         "63077ed02d287be9ccb62070dc5469f4d2c26f372ddff325807156c493d1aa6b"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-paracheirodon-innesi--paracheirodon-simulans",
@@ -268,7 +297,8 @@
       "referenceHash": "ef4c54293037adf4ce35ef271ec258579fa48b23aa8e1f86d67c9b08f2742d31",
       "realReferenceHashes": [
         "a5d54b125dbdd3e90d107fad4f3e0ff5f74f9b7c379fc429bcbe0e295fb4aa02"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-paracheirodon-simulans--paracheirodon-innesi",
@@ -277,7 +307,8 @@
       "referenceHash": "ba3e98371167ef473879ae937d6d0bc40ba73def928ede9f5dde1c507dac95f5",
       "realReferenceHashes": [
         "3f8dad9fe525a12b8307965b461da9e1393cab0f844ab93fb5a1fa82b70708ae"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-trigonostigma-espei--trigonostigma-hengeli",
@@ -286,7 +317,8 @@
       "referenceHash": "a94931e7c27396be9783fcf22e1599df8bd1fc828389119979b8648f538ee069",
       "realReferenceHashes": [
         "689cc61717d9393ffc93bf1e17fd48de886333cccd273ed8821d9dfc30aeaf20"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-trigonostigma-hengeli--trigonostigma-espei",
@@ -295,7 +327,8 @@
       "referenceHash": "fa33f9eae1c0fa113d2b6aafe0d2466401e58fe7527bda8b52f6e27b248ebfee",
       "realReferenceHashes": [
         "bfdef6332e9d0f676c14a954520b7880b230c88a18cb7a5adace36c75ff71033"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-corydoras-adolfoi--corydoras-burgessi",
@@ -304,7 +337,8 @@
       "referenceHash": "01bbfd5f60b2925070ba2ddcef0a57b336a4c110f3e5a1d630300ccdef60d4f7",
       "realReferenceHashes": [
         "8afd69de4a29bf5c3e36548f4ed09aabefb1b086448d1786267ce3af2a9f4acf"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-corydoras-burgessi--corydoras-adolfoi",
@@ -313,7 +347,8 @@
       "referenceHash": "77bd859fcb4fbb0aeccaab8eb2afb3507021613e1a43130d13d773145e86e741",
       "realReferenceHashes": [
         "94625b07a1c59158866206747d42396c6977d38a476c3c09f3011c18484fa2fd"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-corydoras-sterbai--corydoras-haraldschultzi",
@@ -322,7 +357,8 @@
       "referenceHash": "29455c96557a2c25267ffa22cf9052584e94ec2cd295500b7ed9b2e7c7bd35f5",
       "realReferenceHashes": [
         "9eec27ed211b71a4fe072a612dcc5508f4f3aa9d4d901f49b06a54d5f59c0b4c"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-corydoras-haraldschultzi--corydoras-sterbai",
@@ -331,7 +367,8 @@
       "referenceHash": "e19aefa1a6c4b2979c8d80f85313274b2c2a206209605ab5763b886851cb47d2",
       "realReferenceHashes": [
         "6db7ebd98339af6e97683bc26e95259d2ca32f97f916ea64fb326850a34f389f"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-corydoras-melini--corydoras-panda",
@@ -340,7 +377,8 @@
       "referenceHash": "09f15002e747f8dab604599d6d9969abae410a39736dd510d7639ed96471b2cc",
       "realReferenceHashes": [
         "2dfb110f120bb28bf6e8f6b3be15668b27cac8c3518641afd507af040fd0986a"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-corydoras-panda--corydoras-melini",
@@ -349,7 +387,8 @@
       "referenceHash": "5b2c7fc00e7dfa42b274643add2c9cebb3feef4ec4113d09907210e9d8ba1d7d",
       "realReferenceHashes": [
         "4e6029fcd559123b65559c1e811f26edb49bd83980e0807a92629a1def55c3fc"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-danio-rerio--danio-kyathit",
@@ -358,7 +397,8 @@
       "referenceHash": "1ffacedce78061bc81fbda92482f51b14fe4f1d05a8fa029833a24b890c9cd20",
       "realReferenceHashes": [
         "51e76584180a6307df3c0cbe3ff87f8b9a957c18eda8756d18501839298b7389"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-danio-kyathit--danio-rerio",
@@ -367,7 +407,8 @@
       "referenceHash": "7dc3423364e9ee9a389ac7d507091a7f206bb9cb2fc52ae2408ae500872db839",
       "realReferenceHashes": [
         "287c11128957e2e7365ed8cc35dffb55822cff7c1595d96ebd1f90ee60a46f49"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-boraras-brigittae--boraras-merah",
@@ -376,7 +417,8 @@
       "referenceHash": "886a0c9c42e7f41c55bef4512f144036ec549699f930b7602449ceab4bf79386",
       "realReferenceHashes": [
         "b63e93ae0a51045aaade1f09e606f789a58a3d45ed4ddf83706e215faf851be4"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-boraras-merah--boraras-brigittae",
@@ -385,7 +427,8 @@
       "referenceHash": "5106d274dff947add38bacabd4b1386edda8dc071ce27036e71471d02092ba74",
       "realReferenceHashes": [
         "ff7e5775f4f12c7395ebffe4e4f32f3d79025eb89acbe978056a6230ae96c2de"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-betta-albimarginata--betta-channoides",
@@ -394,7 +437,8 @@
       "referenceHash": "822cbfcaf571007443a128a0f090b49439f1ed20ce43ca9ca15a93cbfb8e5ca1",
       "realReferenceHashes": [
         "d260bce2e647716457105f4b5bf3a129e9248ec0f950a52e7d93fd0bdaf21f31"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-betta-channoides--betta-albimarginata",
@@ -403,7 +447,8 @@
       "referenceHash": "72dd490d2e6418888a14391bd99eddba094564d62d177dac3c236b422c959782",
       "realReferenceHashes": [
         "3a9ba1ecb3e6aac123f998073b0697537c2ab351687ca91df3271e435077d210"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-betta-imbellis--betta-smaragdina",
@@ -412,7 +457,8 @@
       "referenceHash": "3e3924b719b02645e3c7d05ef0e138102c17b0100daf8daccb910c52e3d1da02",
       "realReferenceHashes": [
         "186bc2a86c8c91f01781285335ee194198f908f12aa79d123404bf20909c276e"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-betta-smaragdina--betta-imbellis",
@@ -421,7 +467,8 @@
       "referenceHash": "90653eaa93f5485a05fe7bcd9d5ea425fbea211733766d26000ed9023f3181b3",
       "realReferenceHashes": [
         "67bbeb5fdfb43fb8ab118ef4e7615c9a251f2d30bad063b0d43478df3551fd0b"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-hyphessobrycon-bentosi--hyphessobrycon-sweglesi",
@@ -430,7 +477,8 @@
       "referenceHash": "09352285fec7841be08084adec53f1dbdcc5b9ea0c1ff8f8bf970ab1dbbdeff2",
       "realReferenceHashes": [
         "18ad7b583c2b77be0b13abd85f6cfa27085802cf78de3d7a5b7c74a48263bbee"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-hyphessobrycon-sweglesi--hyphessobrycon-bentosi",
@@ -439,7 +487,8 @@
       "referenceHash": "25850baacf721fcd22bcc7907e64f839722fd98e5dc87074ca2757d2c14f9c5c",
       "realReferenceHashes": [
         "addc6eb1d018f06241ac7689243837e7757bfa4bef8069dad9dad28d594c7b84"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-hemigrammus-bleheri--hemigrammus-rhodostomus",
@@ -448,7 +497,8 @@
       "referenceHash": "039cba49f9c9a13e0d56be4842947e803e6e6e52db3453f7a7635d143bdd8309",
       "realReferenceHashes": [
         "92c34c54f04052331cfbdbac66f608fec5196317845811eca564289bae59b114"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-hemigrammus-rhodostomus--hemigrammus-bleheri",
@@ -457,7 +507,8 @@
       "referenceHash": "08c74fdb5c93c804857bab9dc2cd2bc135832cae65c3c18525802fc89de23f32",
       "realReferenceHashes": [
         "811e949a2405cf7f0185e074d0ca1341cb32158ee471e01ef9a056b321f1c344"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-desmopuntius-hexazona--desmopuntius-pentazona",
@@ -466,7 +517,8 @@
       "referenceHash": "9aeaf0b98e2d73d56ae6a435f7d55c488d38206ca1e20d80bf7b270c2ecca0d6",
       "realReferenceHashes": [
         "eab8f75d63a5a9400fe0eaa7afcdb5c2de039e5c1709d05f1cdd0ef287ec237c"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-desmopuntius-pentazona--desmopuntius-hexazona",
@@ -475,7 +527,8 @@
       "referenceHash": "3817332ddcaa6a511795401f4d0e7e6cbd4f7d91f4275b7df9afff719ba9af62",
       "realReferenceHashes": [
         "56a960895193e3129f2528ea4e170637e992dbddf1065be54c091bb234cda7bd"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-julidochromis-marlieri--julidochromis-transcriptus",
@@ -484,7 +537,8 @@
       "referenceHash": "a5acc45174f1930efa45f5dcbee1d955ca6ebccf2fb384718a3e95678aa64b72",
       "realReferenceHashes": [
         "48929b461c69a3328c6061bd598ab7489e98d39a8e7f951c5367ba17e1af8370"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-julidochromis-transcriptus--julidochromis-marlieri",
@@ -493,7 +547,8 @@
       "referenceHash": "ecbc8ed8913d063649c9cebaea7164d7909f8bba6166c828b9891ebab7b486f5",
       "realReferenceHashes": [
         "bd542c37a497974f0fe18ed7ad90b1f7b24dc3908e09a49692e3b6eff8b4c98c"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-tanichthys-albonubes--tanichthys-micagemmae",
@@ -502,7 +557,8 @@
       "referenceHash": "d0c33d663e82356ecc2b9ac1f709cb58169555c1cfcddc06a87c802775fe1d7c",
       "realReferenceHashes": [
         "84947e13cd7d85a7408ac585a57d861ee2f4c6a9644065354a40d6b0cd2ac1f0"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-tanichthys-micagemmae--tanichthys-albonubes",
@@ -511,7 +567,8 @@
       "referenceHash": "38176e7bf462e0fe48dfab5f0f60f7fe3761862ae23c1a4d15a686b0dc06a331",
       "realReferenceHashes": [
         "c119c7ac77739efc4599d1559fadc2213f611d4e47b14f95a93776669235d8f9"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-poecilia-reticulata--poecilia-wingei",
@@ -520,7 +577,8 @@
       "referenceHash": "d8004da850e607a4f7c1488015bb71452c0df170d30d1e20cd4cb83fac52fdb5",
       "realReferenceHashes": [
         "8209dac30680ec2ac186dfe956885130d14c424ede6a7c95a3f87455018b11db"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-poecilia-wingei--poecilia-reticulata",
@@ -529,7 +587,8 @@
       "referenceHash": "eb6fa1e160fd31317588474fa10e7bf2ce74f0fc82be06a895478375cfb5b80d",
       "realReferenceHashes": [
         "b252522f045231a4f6dccedce21b75fa496e07deea8d807163b84c3abddd508a"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-bacopa-caroliniana--bacopa-monnieri",
@@ -538,7 +597,8 @@
       "referenceHash": "45e5783c735e6f35b2d9e495dd484c817df1f99908171029c14fc73fdfc5f0c5",
       "realReferenceHashes": [
         "8f5d64992364491df453dc483bf3056fd956d3d6f01b97573e2f22ba298eff5a"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-bacopa-monnieri--bacopa-caroliniana",
@@ -547,7 +607,8 @@
       "referenceHash": "da12495a1c316566864cf78ad817377eed5f56becc7d11e34831c564c087ddf5",
       "realReferenceHashes": [
         "c11b9449dc75fbc5f444e4d08b857cb5692135d518daf6aeab90aaf42880d95d"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-bacopa-caroliniana--bacopa-salzmannii",
@@ -556,7 +617,8 @@
       "referenceHash": "45e5783c735e6f35b2d9e495dd484c817df1f99908171029c14fc73fdfc5f0c5",
       "realReferenceHashes": [
         "8f5d64992364491df453dc483bf3056fd956d3d6f01b97573e2f22ba298eff5a"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-bacopa-salzmannii--bacopa-caroliniana",
@@ -565,7 +627,8 @@
       "referenceHash": "82ca0495cd2beac1759740944859276b754f776c716b388242e6ae747d11d791",
       "realReferenceHashes": [
         "b341ebccd3f3829f63fd69eeaed8a05400ca0ec25bc6b7b46ec4c82784e26f95"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-eleocharis-acicularis--eleocharis-parvula",
@@ -574,7 +637,8 @@
       "referenceHash": "a18bd9274183887d1545514faf7da9f8e43e64f3f145caa09b68c940d5009311",
       "realReferenceHashes": [
         "e16145a3d652ce52d9520cd665891d81234816f8faa6483079248f29621af06e"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-eleocharis-parvula--eleocharis-acicularis",
@@ -583,7 +647,8 @@
       "referenceHash": "da9b2c233c76296fffa4aa271ddc7e42c8d5a4510e1cd99b42d22bd01351c405",
       "realReferenceHashes": [
         "0d49896e902759be485343a4038a05f3596e873c91211708686a133863db9314"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-cryptocoryne-beckettii--cryptocoryne-wendtii",
@@ -592,7 +657,8 @@
       "referenceHash": "e078c5c532d1f184972e4d332cf6d22d5ec022a87c2e3567a4d3fcac9bacc861",
       "realReferenceHashes": [
         "1da8872f7727a5d919c23b0b715081ffb720f6553ced7d8cca7c4a02741a8038"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-cryptocoryne-wendtii--cryptocoryne-beckettii",
@@ -601,7 +667,8 @@
       "referenceHash": "36c2db46e121563498d473079084b9c1f873c685670f8c0722d430af4c62d2a3",
       "realReferenceHashes": [
         "c66f40d41f11498cf83dfb69d9da4dac0354539620ee3ca02b82b6b4975f2bd7"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-rotala-macrandra--rotala-rotundifolia",
@@ -610,7 +677,8 @@
       "referenceHash": "086880a38f9a3eb9e571796604b2c6a64953a16eb9a567be4baf5d477f4dfbb3",
       "realReferenceHashes": [
         "73435f6ba3e9286e3886fd92f8bcf08bb77ae738f77f85c111adab595a8db285"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-rotala-rotundifolia--rotala-macrandra",
@@ -619,7 +687,8 @@
       "referenceHash": "968cca7dbc353879231151d16dc18dda46e024877202dcba7a6712d664600fd4",
       "realReferenceHashes": [
         "1e5817b378ebb19a0b4e1b620523c344591135dcdbd2fa2ad40d0b56641fbe99"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-hygrophila-corymbosa--hygrophila-polysperma",
@@ -628,7 +697,8 @@
       "referenceHash": "0c2b2e8cb8733563f05a27074997c4ecbbcfca677be3ca2317e8ddefb40516da",
       "realReferenceHashes": [
         "b306756ae1397fb4139a955915161f6184c6781f9f807e9dae3b88f33608299b"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-hygrophila-polysperma--hygrophila-corymbosa",
@@ -637,7 +707,8 @@
       "referenceHash": "ab11561c83984d12f1688464de5d8c6a5f49f0e18bf5de75e67ec69953a2905b",
       "realReferenceHashes": [
         "1681a56afec6fe1b05caec3a77e5937daaf3c52aa88c328d3698b10d4b208523"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-pogostemon-deccanensis--pogostemon-stellatus",
@@ -646,7 +717,8 @@
       "referenceHash": "f17ab007033d704d7614a169b7d16c0d0303e3a5f66ec8f8385429a948acfd84",
       "realReferenceHashes": [
         "3e1271587b63b3f7897098be83aac3bde95875c5851df7a3c5c24f6e18154308"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-pogostemon-stellatus--pogostemon-deccanensis",
@@ -655,7 +727,8 @@
       "referenceHash": "1294169d4ddf7ebe38d2c13804614e941ab5ca356dcc70198a00159ba8d51637",
       "realReferenceHashes": [
         "a269fc123b84a8793681f57f555f8f7d72a83b5eff5c95977afc4385cdaac8bf"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-micranthemum-callitrichoides--glossostigma-elatinoides",
@@ -664,7 +737,8 @@
       "referenceHash": "8e3c81b0ca71b9cb7d53f9cb70da37f6183872e173dc113e8cfebece20a73609",
       "realReferenceHashes": [
         "c53ca6e7b4f33e4e9995ff774180055e9fe18784af1568a81da924b2b3d4c7af"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-glossostigma-elatinoides--micranthemum-callitrichoides",
@@ -673,7 +747,8 @@
       "referenceHash": "6eca34d464c5aecc972863adeebe3928d915f07a62457378d358d638e2313b15",
       "realReferenceHashes": [
         "9f0a934d6a9e683bb69a32240e7dda1e5c1502635a22df239aa6d424937865a4"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-hydrocotyle-tripartita--hydrocotyle-verticillata",
@@ -682,7 +757,8 @@
       "referenceHash": "338fc5859faa1d596ce5e0e9b6aa4ccc5fa09f77161c0fc778d9d2d9931b2982",
       "realReferenceHashes": [
         "bd9e6e73d0dd19df40ae1cb9416d8fcf7294338af762ee724304a5fdddc3a0d2"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-hydrocotyle-verticillata--hydrocotyle-tripartita",
@@ -691,7 +767,8 @@
       "referenceHash": "18f94d015865b40d352b70505c99d851163c6c79bef3fb4208d1bdcc6ed20b3c",
       "realReferenceHashes": [
         "dbd8cc233d0e7c9ae03f68d1eb4409fdef5749d5c987e1b2625210a76dd683ca"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-vesicularia-montagnei--taxiphyllum-barbieri",
@@ -700,7 +777,8 @@
       "referenceHash": "c94af90ad85c7a0e30212c86d747a345dee39794ac0175f68eefc7140495a74d",
       "realReferenceHashes": [
         "cd2a17323854fa98a15bf8ebd9d624f0d8bdc6c76b92d56a7f811070e885093e"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-taxiphyllum-barbieri--vesicularia-montagnei",
@@ -709,7 +787,8 @@
       "referenceHash": "812610f575e5caeb91f60786c78c46d48994766155b145a2356e4b49d8f72b5f",
       "realReferenceHashes": [
         "2bc2f9b27df6216ac5f74001f24600aa7a653a4c9e031ac023486b71966b10aa"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-bolbitis-heudelotii--bolbitis-heteroclita",
@@ -718,7 +797,8 @@
       "referenceHash": "ee35aa3399b05544763a1894454e98330eb0da112e7c40302fbcd42b80b6a149",
       "realReferenceHashes": [
         "36e4c59757de396ff61155fe3ce36638ff32dae1c4c390928e002ac8d99b2d63"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-bolbitis-heteroclita--bolbitis-heudelotii",
@@ -727,7 +807,8 @@
       "referenceHash": "a13e2ea285f31b21a46c157e994dfd7f0bf4cc79181039c908a999a82557c73d",
       "realReferenceHashes": [
         "3d614384d34b3c548ab6d573b1303c4ed12a232155df7e513ca7a033e23dcd24"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-sagittaria-subulata--helanthium-tenellum",
@@ -736,7 +817,8 @@
       "referenceHash": "63b0be3d09cffc4f2e7e7319dc7097134d9c94756cf7d23d47a1390dd9262539",
       "realReferenceHashes": [
         "94760fca0a3e134053d58b016a43501b88ee8755c6b650e9e8817edefb8fdabe"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-helanthium-tenellum--sagittaria-subulata",
@@ -745,7 +827,8 @@
       "referenceHash": "0ddc0bc58c333a0501180ee807e2ca9f32cea4f1887544c624ce8d0a7457c7d0",
       "realReferenceHashes": [
         "3599af7a8d8d222ffadb4b88073ce4c712bbc202b34001a3781ef057a3c3a865"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-riccia-fluitans--monosolenium-tenerum",
@@ -754,7 +837,8 @@
       "referenceHash": "d8a17daaca939e94b5f7531c0b183ff5ef4a811f2407584dea6f08861da74706",
       "realReferenceHashes": [
         "724c3aeb997ca1b8de9b66329d4d8084beb0bfc47e118332782533b85454e823"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-monosolenium-tenerum--riccia-fluitans",
@@ -763,7 +847,8 @@
       "referenceHash": "a70ada7fac9d4f4d81b036a7c54d4a9c820c1a1ee2207fd51826451300374200",
       "realReferenceHashes": [
         "65d2296bc44078688174708443dd5406919a366b414653ee822630ef5b95c6c2"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-marsilea-hirsuta--hydrocotyle-tripartita",
@@ -772,7 +857,8 @@
       "referenceHash": "cf811469a2427d5a56ed500497c741dad9fa4d4a3ae0669e719049bad978e4e5",
       "realReferenceHashes": [
         "14d8193475ca4e4bc3906493e32bb774000dc84b11c31dc5aeddc416d4de6dcd"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-hydrocotyle-tripartita--marsilea-hirsuta",
@@ -781,7 +867,8 @@
       "referenceHash": "338fc5859faa1d596ce5e0e9b6aa4ccc5fa09f77161c0fc778d9d2d9931b2982",
       "realReferenceHashes": [
         "bd9e6e73d0dd19df40ae1cb9416d8fcf7294338af762ee724304a5fdddc3a0d2"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-mayaca-fluviatilis--limnophila-sessiliflora",
@@ -790,7 +877,8 @@
       "referenceHash": "c97850612fe598cb885911a1c7898adf4d301f7f7a82441cb555726c4d4964d7",
       "realReferenceHashes": [
         "16afb21b6534e9bef60c930c13ecd5b1623fcb295a6a52f5b13527ddbef512c6"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-limnophila-sessiliflora--mayaca-fluviatilis",
@@ -799,7 +887,8 @@
       "referenceHash": "887321762402be5ac96c3bc6f5e724118b44a1b6ca6ee632d2e4e383142f8405",
       "realReferenceHashes": [
         "8ef4c7f6fe18d7209fe8e9d2fbf941e96629843447cbc4109c407e8265659db1"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-staurogyne-repens--gratiola-viscidula",
@@ -808,7 +897,8 @@
       "referenceHash": "b94f3a30581fcf0f04e0ce56d440eb0f47805803c5f56cf89d32e0cab4a1689a",
       "realReferenceHashes": [
         "631f316ab13b8751629bf256103db91864758a6676898ff341b1a3e935461802"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     },
     {
       "id": "lookalike-gratiola-viscidula--staurogyne-repens",
@@ -817,7 +907,8 @@
       "referenceHash": "631dbb983363ecf94bc77afebcf32b08bba5384cc1ac8c2ec66d31bd06125cd7",
       "realReferenceHashes": [
         "05066fabb39dc92ff685c7ba0a63a87193e2b6034fa0f4c84e81981b5b52f422"
-      ]
+      ],
+      "referenceJudgmentsRequired": false
     }
   ],
   "marks": [
@@ -916,6 +1007,723 @@
         "x1": 233,
         "y1": 500
       }
+    }
+  ],
+  "markSupplement": [
+    {
+      "kind": "clean",
+      "id": "clean-1",
+      "expected": "pass",
+      "box": {
+        "x0": 409,
+        "y0": 830,
+        "x1": 794,
+        "y1": 885
+      },
+      "originalHash": "2054b3c71810ec7b359eed334907ac841cfa01cecf666ffce5f5db6ced380f22",
+      "pixelHash": "f3af0c952d9700cb7a6b17da08d3d449ebdf9438bbeddafb2f684b8b7cec189d"
+    },
+    {
+      "kind": "residue",
+      "id": "residue-1-0.03",
+      "expected": "refuse",
+      "box": {
+        "x0": 409,
+        "y0": 830,
+        "x1": 794,
+        "y1": 885
+      },
+      "originalHash": "2054b3c71810ec7b359eed334907ac841cfa01cecf666ffce5f5db6ced380f22",
+      "pixelHash": "c23e87cd2272ca395d920910c23f8ca057ac16d67f1e09f22694b35a3c49bd42",
+      "strength": 0.03
+    },
+    {
+      "kind": "residue",
+      "id": "residue-1-0.05",
+      "expected": "refuse",
+      "box": {
+        "x0": 409,
+        "y0": 830,
+        "x1": 794,
+        "y1": 885
+      },
+      "originalHash": "2054b3c71810ec7b359eed334907ac841cfa01cecf666ffce5f5db6ced380f22",
+      "pixelHash": "267082bab68bf1f08b4593c9607c6f518607160ad4a67640b4a5a6ef322038bf",
+      "strength": 0.05
+    },
+    {
+      "kind": "residue",
+      "id": "residue-1-0.08",
+      "expected": "refuse",
+      "box": {
+        "x0": 409,
+        "y0": 830,
+        "x1": 794,
+        "y1": 885
+      },
+      "originalHash": "2054b3c71810ec7b359eed334907ac841cfa01cecf666ffce5f5db6ced380f22",
+      "pixelHash": "b55fabeadd890f9d08cfbef76a91f4eeb0b9299ded75a7a0ccbde8d6e552bdba",
+      "strength": 0.08
+    },
+    {
+      "kind": "residue",
+      "id": "residue-1-0.12",
+      "expected": "refuse",
+      "box": {
+        "x0": 409,
+        "y0": 830,
+        "x1": 794,
+        "y1": 885
+      },
+      "originalHash": "2054b3c71810ec7b359eed334907ac841cfa01cecf666ffce5f5db6ced380f22",
+      "pixelHash": "06be5856e301ccc079bf490620caebc05263c9a33fed191c6ef2b373b60f3add",
+      "strength": 0.12
+    },
+    {
+      "kind": "residue",
+      "id": "residue-1-0.2",
+      "expected": "refuse",
+      "box": {
+        "x0": 409,
+        "y0": 830,
+        "x1": 794,
+        "y1": 885
+      },
+      "originalHash": "2054b3c71810ec7b359eed334907ac841cfa01cecf666ffce5f5db6ced380f22",
+      "pixelHash": "c5a79731e5eccf8eae696789d1a3a6b23dcd1229c4a549e4dce9d65651233ca3",
+      "strength": 0.2
+    },
+    {
+      "kind": "clean",
+      "id": "clean-2",
+      "expected": "pass",
+      "box": {
+        "x0": 463,
+        "y0": 823,
+        "x1": 922,
+        "y1": 887
+      },
+      "originalHash": "7400c2f6bd1571aabdf10e17c931ee24654dd798d5bf1483b2d8f9f9383e9373",
+      "pixelHash": "5e0439108c467894dab0ca4b18e4439a4eb5d692d452eb791eaf61dcd910df19"
+    },
+    {
+      "kind": "residue",
+      "id": "residue-2-0.03",
+      "expected": "refuse",
+      "box": {
+        "x0": 463,
+        "y0": 823,
+        "x1": 922,
+        "y1": 887
+      },
+      "originalHash": "7400c2f6bd1571aabdf10e17c931ee24654dd798d5bf1483b2d8f9f9383e9373",
+      "pixelHash": "0b89c5146e0e49a12e7165d3fdc4985290a2c9efeef0ec90df7159968258a3bd",
+      "strength": 0.03
+    },
+    {
+      "kind": "residue",
+      "id": "residue-2-0.05",
+      "expected": "refuse",
+      "box": {
+        "x0": 463,
+        "y0": 823,
+        "x1": 922,
+        "y1": 887
+      },
+      "originalHash": "7400c2f6bd1571aabdf10e17c931ee24654dd798d5bf1483b2d8f9f9383e9373",
+      "pixelHash": "61a1348bf1b2518c7cd32d1e019ca0c4f31848bcf121613f4853c7d276ce6798",
+      "strength": 0.05
+    },
+    {
+      "kind": "residue",
+      "id": "residue-2-0.08",
+      "expected": "refuse",
+      "box": {
+        "x0": 463,
+        "y0": 823,
+        "x1": 922,
+        "y1": 887
+      },
+      "originalHash": "7400c2f6bd1571aabdf10e17c931ee24654dd798d5bf1483b2d8f9f9383e9373",
+      "pixelHash": "62a2ea215026ad74f919d9e6741bd48a1408ee4385224f6270227b91b1accf53",
+      "strength": 0.08
+    },
+    {
+      "kind": "residue",
+      "id": "residue-2-0.12",
+      "expected": "refuse",
+      "box": {
+        "x0": 463,
+        "y0": 823,
+        "x1": 922,
+        "y1": 887
+      },
+      "originalHash": "7400c2f6bd1571aabdf10e17c931ee24654dd798d5bf1483b2d8f9f9383e9373",
+      "pixelHash": "09b98835ad4b18e99a5142b953668d6fe7e56d812b2af83cdc1d36e56e3ed83e",
+      "strength": 0.12
+    },
+    {
+      "kind": "residue",
+      "id": "residue-2-0.2",
+      "expected": "refuse",
+      "box": {
+        "x0": 463,
+        "y0": 823,
+        "x1": 922,
+        "y1": 887
+      },
+      "originalHash": "7400c2f6bd1571aabdf10e17c931ee24654dd798d5bf1483b2d8f9f9383e9373",
+      "pixelHash": "5bbf8dc7ae855ea4a373c820a1e4e6124cffc7b5b8890a368a54d1ac8e6de5b0",
+      "strength": 0.2
+    },
+    {
+      "kind": "clean",
+      "id": "clean-3",
+      "expected": "pass",
+      "box": {
+        "x0": 385,
+        "y0": 440,
+        "x1": 672,
+        "y1": 485
+      },
+      "originalHash": "403e3a3e2ce435d66104d1f5211965037c5279a93a3a37c5d4a3b9af8b28e423",
+      "pixelHash": "c61047b458537476c1bb6ac322e127cd229303f0ed4e3a92f31d7157ce58bcb9"
+    },
+    {
+      "kind": "residue",
+      "id": "residue-3-0.03",
+      "expected": "refuse",
+      "box": {
+        "x0": 385,
+        "y0": 440,
+        "x1": 672,
+        "y1": 485
+      },
+      "originalHash": "403e3a3e2ce435d66104d1f5211965037c5279a93a3a37c5d4a3b9af8b28e423",
+      "pixelHash": "f67cc69d600055240fa2ff069744875fa9f34175c7dda361be8bb324f550b3dc",
+      "strength": 0.03
+    },
+    {
+      "kind": "residue",
+      "id": "residue-3-0.05",
+      "expected": "refuse",
+      "box": {
+        "x0": 385,
+        "y0": 440,
+        "x1": 672,
+        "y1": 485
+      },
+      "originalHash": "403e3a3e2ce435d66104d1f5211965037c5279a93a3a37c5d4a3b9af8b28e423",
+      "pixelHash": "6c357a055285f57d49528826296512f4ad92a9b99e465ba8624c0ac50baed793",
+      "strength": 0.05
+    },
+    {
+      "kind": "residue",
+      "id": "residue-3-0.08",
+      "expected": "refuse",
+      "box": {
+        "x0": 385,
+        "y0": 440,
+        "x1": 672,
+        "y1": 485
+      },
+      "originalHash": "403e3a3e2ce435d66104d1f5211965037c5279a93a3a37c5d4a3b9af8b28e423",
+      "pixelHash": "8533d573d5520a6bc730817da7d6758793c91beb5a3fb4df48d28dc01598a66e",
+      "strength": 0.08
+    },
+    {
+      "kind": "residue",
+      "id": "residue-3-0.12",
+      "expected": "refuse",
+      "box": {
+        "x0": 385,
+        "y0": 440,
+        "x1": 672,
+        "y1": 485
+      },
+      "originalHash": "403e3a3e2ce435d66104d1f5211965037c5279a93a3a37c5d4a3b9af8b28e423",
+      "pixelHash": "6a005765ad9cfc795f188ca519dd7f507fc9f98f81a8836b8e54efd682d89b7a",
+      "strength": 0.12
+    },
+    {
+      "kind": "residue",
+      "id": "residue-3-0.2",
+      "expected": "refuse",
+      "box": {
+        "x0": 385,
+        "y0": 440,
+        "x1": 672,
+        "y1": 485
+      },
+      "originalHash": "403e3a3e2ce435d66104d1f5211965037c5279a93a3a37c5d4a3b9af8b28e423",
+      "pixelHash": "ad7f34b5983fab85a8c390fd63eff43e83db158d8a58d0e3fd04a1468c6392c0",
+      "strength": 0.2
+    },
+    {
+      "kind": "clean",
+      "id": "clean-6",
+      "expected": "pass",
+      "box": {
+        "x0": 101,
+        "y0": 17,
+        "x1": 343,
+        "y1": 76
+      },
+      "originalHash": "c278a315945937d26a1f3a2529a487d6aa21fad80d8e34dec59bb0228747d9d5",
+      "pixelHash": "003d8a422661242bf7c30248acd83234b26abd098804eac43aaa5fad7cc00589"
+    },
+    {
+      "kind": "residue",
+      "id": "residue-6-0.03",
+      "expected": "refuse",
+      "box": {
+        "x0": 101,
+        "y0": 17,
+        "x1": 343,
+        "y1": 76
+      },
+      "originalHash": "c278a315945937d26a1f3a2529a487d6aa21fad80d8e34dec59bb0228747d9d5",
+      "pixelHash": "26103ca0d2094b786df4f9d8997034be057a54458daa660b8e79c944abf2a849",
+      "strength": 0.03
+    },
+    {
+      "kind": "residue",
+      "id": "residue-6-0.05",
+      "expected": "refuse",
+      "box": {
+        "x0": 101,
+        "y0": 17,
+        "x1": 343,
+        "y1": 76
+      },
+      "originalHash": "c278a315945937d26a1f3a2529a487d6aa21fad80d8e34dec59bb0228747d9d5",
+      "pixelHash": "6cc2be7c72006de7d14b0e41cc156916e46278d458051fe7b5d52461c0901c36",
+      "strength": 0.05
+    },
+    {
+      "kind": "residue",
+      "id": "residue-6-0.08",
+      "expected": "refuse",
+      "box": {
+        "x0": 101,
+        "y0": 17,
+        "x1": 343,
+        "y1": 76
+      },
+      "originalHash": "c278a315945937d26a1f3a2529a487d6aa21fad80d8e34dec59bb0228747d9d5",
+      "pixelHash": "11404ca83f23a42be5735903b179b2c1bc385de6418f65b08e949b6fb7dfebe4",
+      "strength": 0.08
+    },
+    {
+      "kind": "residue",
+      "id": "residue-6-0.12",
+      "expected": "refuse",
+      "box": {
+        "x0": 101,
+        "y0": 17,
+        "x1": 343,
+        "y1": 76
+      },
+      "originalHash": "c278a315945937d26a1f3a2529a487d6aa21fad80d8e34dec59bb0228747d9d5",
+      "pixelHash": "008a26ea03c224e44560d379b2546f3c63a468f713cad0cd6b13cfadcc82acca",
+      "strength": 0.12
+    },
+    {
+      "kind": "residue",
+      "id": "residue-6-0.2",
+      "expected": "refuse",
+      "box": {
+        "x0": 101,
+        "y0": 17,
+        "x1": 343,
+        "y1": 76
+      },
+      "originalHash": "c278a315945937d26a1f3a2529a487d6aa21fad80d8e34dec59bb0228747d9d5",
+      "pixelHash": "75fc5595a2fd9669e9b8aabada99e36e34172770bbd5b696efe129b04ae494be",
+      "strength": 0.2
+    },
+    {
+      "kind": "clean",
+      "id": "clean-8",
+      "expected": "pass",
+      "box": {
+        "x0": 0,
+        "y0": 422,
+        "x1": 233,
+        "y1": 500
+      },
+      "originalHash": "2a44c3ac4a2a6b3a7356cb051fde2d174d288bf6091ef1a226d36d7d6991e6b9",
+      "pixelHash": "b3dd692836146bc4a9009cce334eec01e5c3c2a4c73d5d25176b751f89663400"
+    },
+    {
+      "kind": "residue",
+      "id": "residue-8-0.03",
+      "expected": "refuse",
+      "box": {
+        "x0": 0,
+        "y0": 422,
+        "x1": 233,
+        "y1": 500
+      },
+      "originalHash": "2a44c3ac4a2a6b3a7356cb051fde2d174d288bf6091ef1a226d36d7d6991e6b9",
+      "pixelHash": "454bb56cc0ab102b308b8a0a9d921ba3d58171642e0eb948866b6c12a94fbec9",
+      "strength": 0.03
+    },
+    {
+      "kind": "residue",
+      "id": "residue-8-0.05",
+      "expected": "refuse",
+      "box": {
+        "x0": 0,
+        "y0": 422,
+        "x1": 233,
+        "y1": 500
+      },
+      "originalHash": "2a44c3ac4a2a6b3a7356cb051fde2d174d288bf6091ef1a226d36d7d6991e6b9",
+      "pixelHash": "fcce1fafc508427e06b852e8ece361f979cb57fc6f6353e6484e4ec65efdb1d7",
+      "strength": 0.05
+    },
+    {
+      "kind": "residue",
+      "id": "residue-8-0.08",
+      "expected": "refuse",
+      "box": {
+        "x0": 0,
+        "y0": 422,
+        "x1": 233,
+        "y1": 500
+      },
+      "originalHash": "2a44c3ac4a2a6b3a7356cb051fde2d174d288bf6091ef1a226d36d7d6991e6b9",
+      "pixelHash": "7803c6151a154dceec47a22d5e08699be551217a4ec197e613b9e0cb7826f658",
+      "strength": 0.08
+    },
+    {
+      "kind": "residue",
+      "id": "residue-8-0.12",
+      "expected": "refuse",
+      "box": {
+        "x0": 0,
+        "y0": 422,
+        "x1": 233,
+        "y1": 500
+      },
+      "originalHash": "2a44c3ac4a2a6b3a7356cb051fde2d174d288bf6091ef1a226d36d7d6991e6b9",
+      "pixelHash": "268766c07e32bb0d63a7edf832809588d81ba4c3119ae777440efcd17d770e9d",
+      "strength": 0.12
+    },
+    {
+      "kind": "residue",
+      "id": "residue-8-0.2",
+      "expected": "refuse",
+      "box": {
+        "x0": 0,
+        "y0": 422,
+        "x1": 233,
+        "y1": 500
+      },
+      "originalHash": "2a44c3ac4a2a6b3a7356cb051fde2d174d288bf6091ef1a226d36d7d6991e6b9",
+      "pixelHash": "d8dceb478856ee353dc5ed802d159a3d8e17fccf0dc975d70a3e1a465273811a",
+      "strength": 0.2
+    },
+    {
+      "kind": "natural",
+      "id": "natural-sand-1",
+      "expected": "pass",
+      "box": {
+        "x0": 15,
+        "y0": 370,
+        "x1": 400,
+        "y1": 425
+      },
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "category": "sand",
+      "measurementTemplateHash": "438c73ce911f63901cf8c194dc8e309fd5036d4e9ab0c5bf759a9cb507650ae0"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-sand-2",
+      "expected": "pass",
+      "box": {
+        "x0": 30,
+        "y0": 370,
+        "x1": 489,
+        "y1": 434
+      },
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "category": "sand",
+      "measurementTemplateHash": "27d09685a9197808f7c5d5851aabc73e95f22bad5b9635b4f74eaa6772257a94"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-sand-3",
+      "expected": "pass",
+      "box": {
+        "x0": 0,
+        "y0": 370,
+        "x1": 287,
+        "y1": 415
+      },
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "category": "sand",
+      "measurementTemplateHash": "b63b05f7de64088ab4cd010d66628b3e662e520b1dbfdd185acd3d01f8f9fc3f"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-sand-6",
+      "expected": "pass",
+      "box": {
+        "x0": 0,
+        "y0": 370,
+        "x1": 242,
+        "y1": 429
+      },
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "category": "sand",
+      "measurementTemplateHash": "a8cc037e411cef7a610415c06b9dcb52b8d67e97023322213b80281377644646"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-sand-8",
+      "expected": "pass",
+      "box": {
+        "x0": 30,
+        "y0": 370,
+        "x1": 263,
+        "y1": 448
+      },
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "category": "sand",
+      "measurementTemplateHash": "193b4cc76a571750add821bb08c14a996a057b6f2368d2e1a05ec5817836edfc"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-plants-1",
+      "expected": "pass",
+      "box": {
+        "x0": 115,
+        "y0": 60,
+        "x1": 500,
+        "y1": 115
+      },
+      "originalHash": "66f379905bc4b1ff997b4660c5035f253632840bd7ab06f0fcabbc6ccceb1118",
+      "pixelHash": "16350c5be870bcce981b94998457b714dd739d109b8a790982963dec503622b5",
+      "category": "plants",
+      "measurementTemplateHash": "438c73ce911f63901cf8c194dc8e309fd5036d4e9ab0c5bf759a9cb507650ae0"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-plants-2",
+      "expected": "pass",
+      "box": {
+        "x0": 130,
+        "y0": 60,
+        "x1": 589,
+        "y1": 124
+      },
+      "originalHash": "66f379905bc4b1ff997b4660c5035f253632840bd7ab06f0fcabbc6ccceb1118",
+      "pixelHash": "16350c5be870bcce981b94998457b714dd739d109b8a790982963dec503622b5",
+      "category": "plants",
+      "measurementTemplateHash": "27d09685a9197808f7c5d5851aabc73e95f22bad5b9635b4f74eaa6772257a94"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-plants-3",
+      "expected": "pass",
+      "box": {
+        "x0": 100,
+        "y0": 60,
+        "x1": 387,
+        "y1": 105
+      },
+      "originalHash": "66f379905bc4b1ff997b4660c5035f253632840bd7ab06f0fcabbc6ccceb1118",
+      "pixelHash": "16350c5be870bcce981b94998457b714dd739d109b8a790982963dec503622b5",
+      "category": "plants",
+      "measurementTemplateHash": "b63b05f7de64088ab4cd010d66628b3e662e520b1dbfdd185acd3d01f8f9fc3f"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-plants-6",
+      "expected": "pass",
+      "box": {
+        "x0": 100,
+        "y0": 60,
+        "x1": 342,
+        "y1": 119
+      },
+      "originalHash": "66f379905bc4b1ff997b4660c5035f253632840bd7ab06f0fcabbc6ccceb1118",
+      "pixelHash": "16350c5be870bcce981b94998457b714dd739d109b8a790982963dec503622b5",
+      "category": "plants",
+      "measurementTemplateHash": "a8cc037e411cef7a610415c06b9dcb52b8d67e97023322213b80281377644646"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-plants-8",
+      "expected": "pass",
+      "box": {
+        "x0": 130,
+        "y0": 60,
+        "x1": 363,
+        "y1": 138
+      },
+      "originalHash": "66f379905bc4b1ff997b4660c5035f253632840bd7ab06f0fcabbc6ccceb1118",
+      "pixelHash": "16350c5be870bcce981b94998457b714dd739d109b8a790982963dec503622b5",
+      "category": "plants",
+      "measurementTemplateHash": "193b4cc76a571750add821bb08c14a996a057b6f2368d2e1a05ec5817836edfc"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-fins-1",
+      "expected": "pass",
+      "box": {
+        "x0": 25,
+        "y0": 115,
+        "x1": 410,
+        "y1": 170
+      },
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "category": "fins",
+      "measurementTemplateHash": "438c73ce911f63901cf8c194dc8e309fd5036d4e9ab0c5bf759a9cb507650ae0"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-fins-2",
+      "expected": "pass",
+      "box": {
+        "x0": 40,
+        "y0": 115,
+        "x1": 499,
+        "y1": 179
+      },
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "category": "fins",
+      "measurementTemplateHash": "27d09685a9197808f7c5d5851aabc73e95f22bad5b9635b4f74eaa6772257a94"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-fins-3",
+      "expected": "pass",
+      "box": {
+        "x0": 10,
+        "y0": 115,
+        "x1": 297,
+        "y1": 160
+      },
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "category": "fins",
+      "measurementTemplateHash": "b63b05f7de64088ab4cd010d66628b3e662e520b1dbfdd185acd3d01f8f9fc3f"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-fins-6",
+      "expected": "pass",
+      "box": {
+        "x0": 10,
+        "y0": 115,
+        "x1": 252,
+        "y1": 174
+      },
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "category": "fins",
+      "measurementTemplateHash": "a8cc037e411cef7a610415c06b9dcb52b8d67e97023322213b80281377644646"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-fins-8",
+      "expected": "pass",
+      "box": {
+        "x0": 40,
+        "y0": 115,
+        "x1": 273,
+        "y1": 193
+      },
+      "originalHash": "01f71e1e826c5af8eae8b18dff42c2f1216fd8bb29094369d7e110e7a701912d",
+      "pixelHash": "3ebc85435886519d6a1fefc69b919d7c0fff041bec6f0e53a3a8b57cfefcb8df",
+      "category": "fins",
+      "measurementTemplateHash": "193b4cc76a571750add821bb08c14a996a057b6f2368d2e1a05ec5817836edfc"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-water-1",
+      "expected": "pass",
+      "box": {
+        "x0": 20,
+        "y0": 5,
+        "x1": 405,
+        "y1": 60
+      },
+      "originalHash": "a5d54b125dbdd3e90d107fad4f3e0ff5f74f9b7c379fc429bcbe0e295fb4aa02",
+      "pixelHash": "2215a5ffe8e95c6121a56473099db038609315ab713788d15d4df935e148a393",
+      "category": "water",
+      "measurementTemplateHash": "438c73ce911f63901cf8c194dc8e309fd5036d4e9ab0c5bf759a9cb507650ae0"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-water-2",
+      "expected": "pass",
+      "box": {
+        "x0": 35,
+        "y0": 5,
+        "x1": 494,
+        "y1": 69
+      },
+      "originalHash": "a5d54b125dbdd3e90d107fad4f3e0ff5f74f9b7c379fc429bcbe0e295fb4aa02",
+      "pixelHash": "2215a5ffe8e95c6121a56473099db038609315ab713788d15d4df935e148a393",
+      "category": "water",
+      "measurementTemplateHash": "27d09685a9197808f7c5d5851aabc73e95f22bad5b9635b4f74eaa6772257a94"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-water-3",
+      "expected": "pass",
+      "box": {
+        "x0": 5,
+        "y0": 5,
+        "x1": 292,
+        "y1": 50
+      },
+      "originalHash": "a5d54b125dbdd3e90d107fad4f3e0ff5f74f9b7c379fc429bcbe0e295fb4aa02",
+      "pixelHash": "2215a5ffe8e95c6121a56473099db038609315ab713788d15d4df935e148a393",
+      "category": "water",
+      "measurementTemplateHash": "b63b05f7de64088ab4cd010d66628b3e662e520b1dbfdd185acd3d01f8f9fc3f"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-water-6",
+      "expected": "pass",
+      "box": {
+        "x0": 5,
+        "y0": 5,
+        "x1": 247,
+        "y1": 64
+      },
+      "originalHash": "a5d54b125dbdd3e90d107fad4f3e0ff5f74f9b7c379fc429bcbe0e295fb4aa02",
+      "pixelHash": "2215a5ffe8e95c6121a56473099db038609315ab713788d15d4df935e148a393",
+      "category": "water",
+      "measurementTemplateHash": "a8cc037e411cef7a610415c06b9dcb52b8d67e97023322213b80281377644646"
+    },
+    {
+      "kind": "natural",
+      "id": "natural-water-8",
+      "expected": "pass",
+      "box": {
+        "x0": 35,
+        "y0": 5,
+        "x1": 268,
+        "y1": 83
+      },
+      "originalHash": "a5d54b125dbdd3e90d107fad4f3e0ff5f74f9b7c379fc429bcbe0e295fb4aa02",
+      "pixelHash": "2215a5ffe8e95c6121a56473099db038609315ab713788d15d4df935e148a393",
+      "category": "water",
+      "measurementTemplateHash": "193b4cc76a571750add821bb08c14a996a057b6f2368d2e1a05ec5817836edfc"
     }
   ]
 }

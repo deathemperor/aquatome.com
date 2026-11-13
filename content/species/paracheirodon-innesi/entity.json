@@ -25,9 +25,9 @@
       "regions": [
         "Amazon",
         "Orinoco",
-        "Putumayo",
-        "Purus",
-        "Ucayali"
+        "Rio Putumayo",
+        "Rio Purus",
+        "Río Ucayali"
       ],
       "sources": [
         "sprucepets",
@@ -53,7 +53,7 @@
             "EC"
           ],
           "regions": [
-            "Ucayali"
+            "Río Ucayali"
           ]
         },
         {
@@ -69,7 +69,7 @@
           "quote": "Here P. innesi is known from the lower rio Putumayo (aka Içá) and some small streams flowing into the rio Solimões downstream of Leticia.",
           "countries": [],
           "regions": [
-            "Putumayo"
+            "Rio Putumayo"
           ]
         },
         {
@@ -77,7 +77,7 @@
           "quote": "The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás.",
           "countries": [],
           "regions": [
-            "Purus"
+            "Rio Purus"
           ]
         }
       ]
@@ -400,7 +400,8 @@
       "key": "notes",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/neon-tetra-paracheirodon-1381835",
-      "html": "<p>The neon tetra has a slender torpedo-shaped body that reaches no more than an inch and a half in length. From the tip of the nose to the adipose fin, the neon tetra has a bright neon blue stripe. It is believed this bright stripe makes them more readily visible to each other in blackwater conditions. Below the blue stripe, the neon tetra sports a white-silver belly. Past the belly, a bright red stripe extends all the way to the tail. The fish is rivaled only by the cardinal tetra, for which they are often mistaken. The key difference between the two fish is the red stripe. In the neon tetra, it only extends from the middle of the body to the tail. In the cardinal tetra, the red stripe runs the entire length of the fish, from snout to tail.</p>"
+      "html": "<p>The neon tetra has a slender torpedo-shaped body that reaches no more than an inch and a half in length. It has a bright neon blue stripe that runs along the body to the adipose fin. It is believed this bright stripe makes them more readily visible to each other in blackwater conditions. Below the blue stripe, the neon tetra sports a white-silver belly. Past the belly, a bright red stripe extends all the way to the tail. The fish is rivaled only by the cardinal tetra, for which they are often mistaken. The key difference between the two fish is the red stripe. In the neon tetra, it only extends from the middle of the body to the tail. In the cardinal tetra, the red stripe runs the entire length of the fish, from snout to tail.</p>",
+      "fixed": true
     },
     {
       "key": "notes",

@@ -54,6 +54,10 @@
       {
         "source": "seriouslyfish",
         "value": 240
+      },
+      {
+        "source": "glaser",
+        "value": 200
       }
     ],
     "tankCm": [
@@ -78,6 +82,12 @@
       "html": "<ul><li>Difficulty: Difficult. Rated difficult because it needs a tank at least 2 m long.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/wallago_attu_en/",
+      "html": "<p>Wallago attu attains a maximum length of about 2 m. It is one of the most voracious of all predatory Asian catfishes.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
@@ -88,6 +98,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
       "html": "<p>Widely distributed throughout much of Asia. It has been recorded in Afghanistan, Pakistan, India, Nepal, Bangladesh, Sri Lanka, Myanmar, China, Thailand, Laos, Cambodia, Vietnam, Indonesia and Malaysia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/wallago_attu_en/",
+      "html": "<p>Origin: India.</p>"
     },
     {
       "key": "habitat",
@@ -142,6 +158,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
       "html": "<p>This species is clearly not an aquarium fish, and thankfully is not imported with any great regularity. Young specimens are occasionally seen for sale however and no matter how cute they look, don't be tempted to buy one. The gigantic adult size is not the only problem with W. attu, as the mouth is filled with needle sharp, backward-pointing teeth. The fish will bite aggressively when being fed, especially when handled and larger individuals could easily sever a hand or worse. It is a genuinely dangerous fish to own, and should only be considered by the most experienced aquarist with the resources required to house it properly.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/wallago_attu_en/",
+      "html": "<p>The enormous mouth extends far behind the eyes and contains a large number of spiky teeth. The catfish does not hesitate to use them against nasty anglers when handled. Fish that are caught by these teeth are doomed. This is maybe the reason why this catfish is offered to the Goddess Kali, the Goddess of death and destruction (but also of renewal) by the Hindus.</p>"
     }
   ],
   "photos": [
@@ -202,5 +224,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-11"
 }

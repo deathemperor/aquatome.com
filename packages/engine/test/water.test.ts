@@ -3,9 +3,10 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { SpeciesSchema } from '@aq/schema'
-import type { Llm } from '../src/claude'
+import { LlmError, type Llm } from '../src/claude'
 import type { Block } from '../src/range'
 import { checkAnswer, speciesWater } from '../src/water'
+import { atCeiling } from './at-ceiling'
 
 // The green spotted puffer's, the guppy's and the climbing perch's own sentences on Seriously Fish.
 const PUFFER = 'Occurs in brackish water in coastal areas; freshwater rivers, streams, lakes and flooded areas. Although it\'s often considered a true freshwater species, it tends to be more long-lived with the addition of marine salt to a sg of around 1.005.'
@@ -86,4 +87,47 @@ test('toadfish: water a person set (`fixed`) stays, with no call, whatever its t
   expect(r).toMatchObject({ read: [], quiet: [], calls: 0 })
   expect(await readFile(join(root, 'content/species/toadfish/entity.json'), 'utf8')).toBe(raw)
   expect(SpeciesSchema.parse(JSON.parse(raw)).water).toEqual(water)
+})
+
+const WEEKLY = "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
+
+/** Two species whose sources mention salt, each with an audit that has no `failed`. */
+async function saltyPair() {
+  const root = await mkdtemp(join(tmpdir(), 'water-'))
+  await mkdir(join(root, 'content'), { recursive: true })
+  await writeFile(join(root, 'content/sources.json'), JSON.stringify({ seriouslyfish: { publish: true } }))
+  await mkdir(join(root, 'engine-state/water'), { recursive: true })
+  const prior = (id: string) => `${JSON.stringify({ id }, null, 2)}\n`
+  for (const id of ['brackish-a', 'brackish-b']) {
+    await mkdir(join(root, 'content/species', id), { recursive: true })
+    await writeFile(join(root, 'content/species', id, 'entity.json'), `${JSON.stringify(entity(id, `<p>${PUFFER}</p>`), null, 2)}\n`)
+    await writeFile(join(root, 'engine-state/water', `${id}.json`), prior(id))
+  }
+  const audit = (id: string) => readFile(join(root, 'engine-state/water', `${id}.json`), 'utf8')
+  return { root, prior, audit }
+}
+const waterDeps = (llm: Llm) => ({ llm, now: () => new Date('2026-11-07T00:00:00Z'), order: ['brackish-a', 'brackish-b'] })
+
+// Claude's own limit, and the step's ceiling for the day (ceiling.ts), which is to leave exactly the same: nothing.
+test.each([WEEKLY, atCeiling('water')])('a usage limit leaves each audit as it was and stops the step\'s model calls: %s', async limit => {
+  const s = await saltyPair()
+  let calls = 0
+  const r = await speciesWater(s.root, waterDeps((async () => { calls++; throw new LlmError(limit) }) as Llm), { limit: 5 })
+  expect(calls).toBe(1)
+  expect(r.failed).toEqual([])
+  expect(r.stopped).toBe(limit)
+  expect(await s.audit('brackish-a')).toBe(s.prior('brackish-a'))
+  expect(await s.audit('brackish-b')).toBe(s.prior('brackish-b'))
+})
+
+test('a failure that is not the usage limit still stamps the species and the step goes on', async () => {
+  const s = await saltyPair()
+  let calls = 0
+  const llm = (async () => { calls++; throw calls === 1 ? new Error('bad answer') : new LlmError('claude failed (1): no JSON in the reply') }) as Llm
+  const r = await speciesWater(s.root, waterDeps(llm), { limit: 5 })
+  expect(calls).toBe(2)
+  expect(r.stopped).toBe('')
+  expect(r.failed).toEqual(['brackish-a', 'brackish-b'])
+  expect(JSON.parse(await s.audit('brackish-a')).failed.error).toBe('bad answer')
+  expect(JSON.parse(await s.audit('brackish-b')).failed.error).toMatch(/no JSON/)
 })
