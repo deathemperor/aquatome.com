@@ -101,17 +101,19 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
   ].join('\n\n')
   const w = await llm<{ sentences: { n: number; vi: string; why?: string }[] }>({ system: 'You edit Vietnamese for an aquarium handbook. Reply only with JSON.', prompt, schema: WRITER_SCHEMA, ...(o.model ? { model: o.model } : {}) })
   const changes = new Map<number, string>()
-  const written = (vi: string) => { const t = inline(vi); return o.metric && t ? toMetric(t, 'vi') : t }
+  // What the writer wrote, before any conversion: the words it lost are counted on this, not on the metric we add.
+  const raw = new Map<number, string>()
+  const written = (n: number, vi: string) => { const t = inline(vi); raw.set(n - 1, t); return o.metric && t ? toMetric(t, 'vi') : t }
   for (const n of fix) {
     const r = w.sentences.find(x => Number(x.n) === n)
     if (!r) throw new Error(`the writer left out sentence ${n}`)
-    changes.set(n - 1, written(r.vi))
+    changes.set(n - 1, written(n, r.vi))
   }
   // A neighbour of a sentence that changed, said why, and not left out: one that no longer read beside the change.
   for (const r of w.sentences) {
     const n = Number(r.n)
     if (fix.includes(n) || !texts[n - 1] || !r.why?.trim() || !inline(r.vi)) continue
-    if (fix.some(m => Math.abs(m - n) === 1 && changes.get(m - 1) !== texts[m - 1])) changes.set(n - 1, written(r.vi))
+    if (fix.some(m => Math.abs(m - n) === 1 && changes.get(m - 1) !== texts[m - 1])) changes.set(n - 1, written(n, r.vi))
   }
   for (const [i, t] of [...changes]) if (t === texts[i]) changes.delete(i)
   const after = splice(pieces, changes)
@@ -132,7 +134,7 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     ...shown.filter(i => changes.get(i) === '' && !named.some(f => !NO_DROP.includes(f.check) && f.sentences.includes(i + 1))).map(i => `Left out, and no finding asks for it to go: "${plain(texts[i]!)}"`),
     ...shown.flatMap(i => {
       const covered = [...named.filter(f => f.sentences.includes(i + 1)).map(f => f.quote), ...licensed.filter(d => d.sentence === i + 1).map(d => d.text)]
-      const lost = lostWords(texts[i]!, changes.get(i)!, covered)
+      const lost = lostWords(texts[i]!, raw.get(i) ?? changes.get(i)!, covered)
       return lost.length ? [`Left out of sentence ${i + 1}, and no finding asks for it to go: "${lost.join(' ')}"`] : []
     }),
     ...dropped.filter(d => !asked(d, named)).map(d => `Left out, and no finding asks for it to go: "${d.text}"`),

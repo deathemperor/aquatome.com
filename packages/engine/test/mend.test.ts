@@ -109,3 +109,11 @@ test('a word a changed sentence loses that no finding quotes or asks to go fails
   if (typeof kept === 'string') throw new Error(kept)
   expect(kept.unasked).toEqual([])
 })
+
+test('a size the writer kept as it was, then put in metric by the code, is not counted as left out', async () => {
+  const llm = (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences') ? { sentences: [{ n: 1, vi: 'Cá dài 2 inch.' }] } : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
+  const r = await mendPart(llm, '<p>Cá dài 2 inch, giá 5 đô la.</p>', [{ check: 'price', quote: 'giá 5 đô la', note: 'Bỏ giá nước ngoài.' }], { metric: true })
+  if (typeof r === 'string') throw new Error(r)
+  expect(r.html).not.toMatch(/inch/)
+  expect(r.unasked).toEqual([])
+})
