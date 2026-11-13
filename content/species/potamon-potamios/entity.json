@@ -22,6 +22,178 @@
     "egypt",
     "sinai"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GR",
+        "RU",
+        "CY",
+        "TR",
+        "PS",
+        "SY",
+        "LB",
+        "IR",
+        "IL",
+        "EG"
+      ],
+      "regions": [
+        "Sinai Peninsula",
+        "Balkans",
+        "Aegean Islands"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "It occurs in the Balkans, Greece (mainland and south-eastern Aegean Islands), southern Russia, Cyprus, southern Turkey, Palestine, Syria, Lebanon, northern Iran, Israel (Dead Sea area) and Egypt (Sinai Peninsula).",
+          "countries": [
+            "GR",
+            "RU",
+            "CY",
+            "TR",
+            "PS",
+            "SY",
+            "LB",
+            "IR",
+            "IL",
+            "EG"
+          ],
+          "regions": [
+            "Sinai Peninsula",
+            "Balkans",
+            "Aegean Islands"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2225546,
+      "total": 56,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "IL",
+          23
+        ],
+        [
+          "GR",
+          10
+        ],
+        [
+          "JO",
+          7
+        ],
+        [
+          "TR",
+          6
+        ],
+        [
+          "PS",
+          5
+        ],
+        [
+          "CY",
+          3
+        ],
+        [
+          "IQ",
+          1
+        ],
+        [
+          "LB",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          23.90625,
+          35.15625,
+          2,
+          2
+        ],
+        [
+          26.71875,
+          35.15625,
+          7,
+          7
+        ],
+        [
+          26.71875,
+          36.5625,
+          2,
+          2
+        ],
+        [
+          29.53125,
+          36.5625,
+          4,
+          4
+        ],
+        [
+          30.9375,
+          33.75,
+          1,
+          1
+        ],
+        [
+          32.34375,
+          33.75,
+          2,
+          2
+        ],
+        [
+          32.34375,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          33.75,
+          29.53125,
+          3,
+          3
+        ],
+        [
+          33.75,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          33.75,
+          32.34375,
+          3,
+          3
+        ],
+        [
+          35.15625,
+          29.53125,
+          3,
+          0
+        ],
+        [
+          35.15625,
+          30.9375,
+          14,
+          10
+        ],
+        [
+          35.15625,
+          32.34375,
+          12,
+          12
+        ],
+        [
+          43.59375,
+          32.34375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

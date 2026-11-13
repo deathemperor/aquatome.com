@@ -1,0 +1,56 @@
+{
+  "id": "pseudobagarius-leucorhynchus",
+  "native": {
+    "input": "80b40bc2531e9875",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Thailand; Chao Phraya basin and southern Peninsular.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "scotcat",
+        "quote": "Asia: Thailand; Chao Phraya basin and southern Peninsular.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudobagarius leucorhynchus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340952,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

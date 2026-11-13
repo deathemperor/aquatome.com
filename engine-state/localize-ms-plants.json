@@ -678,5 +678,71 @@
       "maintenance:aquatome": "a3554148c926",
       "notes:tropica": "7ad93da15bc2"
     }
+  },
+  "crinum-thaianum": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Crinum thaianum",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"bebawang (bulb)\": acceptable, but \"ubi/umbi\" is the more common botanical term for bulb in Malay; consider \"umbi (bulb)\".",
+      "\"menghantar tangkai bunga\": literal; more natural is \"mengeluarkan tangkai bunga\".",
+      "\"tersendiri\" for \"distinctive\": better \"unik\" or \"istimewa\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "977b46fd4c80",
+      "maintenance:tropica": "043830765aca",
+      "notes:tropica": "f406d736c303"
+    }
+  },
+  "cryptocoryne-albida": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne albida 'Brown'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Minor: \"tangki\" is acceptable but \"akuarium\" is more consistent with item 2 (\"dalam akuarium\")."
+    ],
+    "parts": {
+      "quickFacts:tropica": "78acbbfae78a",
+      "notes:tropica": "bcd9ba76befe"
+    }
+  },
+  "cryptocoryne-beckettii": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne beckettii 'Petchii'",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"Daunnya cantik, panjangnya 10-15 cm\": the English says the leaf margins are fluted and the leaves are 10-15 cm long. Rephrase to make clear it is the leaf margins that are slightly fluted, e.g. \"daun sepanjang 10-15 cm dengan tepi daun yang cantik dan sedikit beralun\".",
+      "\"Daunnya bertukar menjadi warna coklat zaitun gelap\": slightly awkward. Use \"Daun menjadi coklat zaitun gelap dengan bahagian bawah berwarna ungu\".",
+      "\"Ketinggian\" for plant height is acceptable, but \"Tinggi\" is more natural in a hobby spec list."
+    ],
+    "parts": {
+      "quickFacts:tropica": "ccedb6e3e24b",
+      "notes:tropica": "e629fca60fb6"
+    }
+  },
+  "cryptocoryne-crispatula": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne crispatula",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 3: \"sebelum mula tumbuh dengan betul-betul aktif\" is awkward; use \"sebelum pertumbuhan benar-benar bermula\" or \"tumbuh dengan aktif\".",
+      "Item 3: \"tangki\" is acceptable, but \"akuarium\" is more common among Malaysian hobbyists; consider it.",
+      "Item 3: \"supaya daunnya boleh terapung\" adds a purpose clause; the original says \"from where\", so use \"di mana daunnya boleh terapung\" or similar.",
+      "Item 3: \"cerewet\" is slightly colloquial for \"demanding\"; \"tidak terlalu menuntut\" or \"mudah dijaga\" is neutral."
+    ],
+    "parts": {
+      "quickFacts:tropica": "583842b77a37",
+      "distribution:tropica": "3d416a233130",
+      "maintenance:tropica": "3ea35aa382ff",
+      "notes:tropica": "89c371283731"
+    }
   }
 }

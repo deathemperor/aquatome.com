@@ -81,10 +81,14 @@ trap 'FAILED="$BASH_COMMAND"' ERR
 finish() {
   local status=$? now
   rm -f "$PIDFILE"
+  # A fault the run went on past (FAULT, cycle-checks.sh: kept work its photo records held back) fails the run when it
+  # ends, so it's reported as any failed run is: engine-mac.yml on the Mac, the run itself on GitHub.
+  [ "$status" != 0 ] || [ -z "${FAULT:-}" ] || { status=1; FAILED="$FAULT"; }
   [ "$status" = 0 ] || [ -n "${GITHUB_ACTIONS:-}" ] || gh workflow run engine-mac.yml -R deathemperor/aquatome.com -f part="$PART" -f why="exit $status: ${FAILED:-$LAST}" || true
   # A night the lid was shut shows in the cycle's last line (12 to 13 Nov 2026: asleep from 22:36, waking 45 s every 15 min).
   read -r _ now < <(clock)
   [ $((now - ${AQ_ASLEEP0:-$now})) -lt 60 ] || log "the Mac slept $(((now - AQ_ASLEEP0) / 60)) min during this cycle"
+  exit "$status"
 }
 trap finish EXIT
 
@@ -231,8 +235,9 @@ if part pages sf photos; then
   # Where the fish is in each fish and breed photo (photo-boxes.ts: macOS Vision, no model call), heads first, each photo
   # once: what keeps a tile, a banner or a card from cutting the fish. After mirroring, so it reads the addresses pages use.
   # The photos part alone, or each part would box the same photos: the others' new photos wait for its next run, as
-  # nothing waits on a box. 2,000 a run until the albums are boxed, then 400 (the chief of staff, 2026-11-12).
-  if part photos; then pnpm engine photo-boxes --limit "${PHOTO_BOXES_LIMIT:-2000}" || log "photo-boxes: failed (new photos carry no box: drawn as today)"; fi
+  # nothing waits on a box. 400 a run: the albums were boxed by 12 Nov (2,000 a run until then, the chief of staff,
+  # 2026-11-12), and a run now boxes only the photos new since the last.
+  if part photos; then pnpm engine photo-boxes --limit "${PHOTO_BOXES_LIMIT:-400}" || log "photo-boxes: failed (new photos carry no box: drawn as today)"; fi
   # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
   pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
   # Wikimedia photos credited before Commons' placeholder authors were tidied on import: "RuthJM", not its sentence.

@@ -1,7 +1,7 @@
 import { mkdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { createHash } from 'node:crypto'
-import { OWNER_CROPS, ownerCropApproved, ownerCropCanonical, PhotoSchema, SourcesSchema, mayPublish, validCropGeometry, markOutsideCrop, validImageJudgmentHashes, awaitsScreen, validOcrSummary, type PhotoScreenEntry, type Photo, type OwnerCropApproval } from '@aq/schema'
+import { OWNER_CROPS, ownerCropApproved, ownerCropCanonical, PhotoSchema, SourcesSchema, mayPublish, isAllowedLicence, validCropGeometry, markOutsideCrop, validImageJudgmentHashes, awaitsScreen, validOcrSummary, type PhotoScreenEntry, type Photo, type OwnerCropApproval } from '@aq/schema'
 import { validJudgmentPair, judgmentHashes } from './image-judgments'
 import type { PhotoVerdict } from './photo-check'
 import { pixelHash } from './image-transforms'
@@ -26,7 +26,9 @@ async function permitted(root:string,p:Photo,page:string) {
   const subjects=await decisions(join(root,'engine-state/_photo-subjects.json')),previous=subjects[p.url]?.[page]
   if(previous&&(previous.ok!=='yes'||previous.person!==false||previous.logo||previous.guide))throw new PhotoVeto('crop refused')
   const sources=SourcesSchema.parse(await read(join(root,'content/sources.json'))),source=p.source&&sources[p.source]
-  if(!p.source||!mayPublish(source,'photos')||source?.permission?.markRemoval?.allowed===false)throw new PhotoVeto('source withdrawn')
+  if(p.source){
+    if(!mayPublish(source,'photos')||source?.permission?.markRemoval?.allowed===false)throw new PhotoVeto('source withdrawn')
+  }else if(!isAllowedLicence(p.licence))throw new PhotoVeto('open licence unavailable')
   return subjects
 }
 /** Withdraw only this approved address, including an entity left behind by an interrupted gallery/receipt write. */

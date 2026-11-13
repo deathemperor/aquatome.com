@@ -1,10 +1,13 @@
 {
   "slug": "lagoa-dos-patos",
-  "name": "Lagoa dos Patos",
-  "altNames": [],
+  "name": "phá Patos",
+  "altNames": [
+    "Lagoa dos Patos"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

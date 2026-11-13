@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url'
 import { HTMLElement, parse } from 'node-html-parser'
 import { headingSubject, loadAll, PictureSet, pictureOf, type LinkTarget, type PictureHashes } from '@aq/schema'
 import { LANGS, langOf, localizePath, type Lang } from '../src/lib/i18n'
+import { sciWords } from '../src/lib/meta'
 import { linkTargets } from '../src/lib/mentions'
 
 export const CHECKS = {
@@ -18,6 +19,7 @@ export const CHECKS = {
   'missing-photo': 'a fish\'s section without a photo, though the fish has one',
   toc: 'contents that disagree with the headings, or numbers out of order',
   'empty-section': 'a heading with nothing under it',
+  'name-twice': "a fish's or plant's title or description saying its scientific name twice",
 } as const
 export type Check = keyof typeof CHECKS
 export type Problem = { check: Check; detail: string }
@@ -27,8 +29,9 @@ export type Facts = {
   hashes: PictureHashes
   /** A living thing's page (by its path in every language) → its target key ("species:betta-splendens"). */
   byPath: Map<string, string>
-  /** By key: scientific name (a plant's former ones too) and every name, lowercased; its photos' addresses. */
-  living: Map<string, { names: Set<string>; photos: Set<string> }>
+  /** By key: scientific name (a plant's former ones too) and every name, lowercased; its photos' addresses; a fish's or
+   * plant's scientific name. */
+  living: Map<string, { names: Set<string>; photos: Set<string>; sci?: string }>
   /** A photo's address → the page it belongs to (its key). */
   owner: Map<string, string>
   targets: Record<Lang, LinkTarget[]>
@@ -43,16 +46,16 @@ export async function loadFacts(root: string): Promise<Facts> {
     const c = await loadAll({ root, lang, publicBuild: false })
     facts.hashes = c.pictureHashes
     facts.targets[lang] = linkTargets(c)
-    const add = (key: string, href: string, names: string[], photos: { url: string }[]) => {
+    const add = (key: string, href: string, names: string[], photos: { url: string }[], sci?: string) => {
       facts.byPath.set(localizePath(lang, href), key)
-      const l = facts.living.get(key) ?? facts.living.set(key, { names: new Set(), photos: new Set() }).get(key)!
+      const l = facts.living.get(key) ?? facts.living.set(key, { names: new Set(), photos: new Set(), sci }).get(key)!
       for (const n of names) l.names.add(n.toLowerCase())
       for (const p of photos) { l.photos.add(p.url); if (!facts.owner.has(p.url)) facts.owner.set(p.url, key) }
     }
     for (const s of c.species) facts.genera.add(s.genus)
     for (const p of c.plants) facts.genera.add(p.scientificName.split(' ')[0]!)
-    for (const s of c.species) add(`species:${s.id}`, `/vi/ca/${s.t.slug}/`, [s.scientificName, s.t.name, ...s.t.altNames], s.photos)
-    for (const p of c.plants) add(`plant:${p.id}`, `/vi/cay/${p.t.slug}/`, [p.scientificName, ...(p.synonyms ?? []), p.t.name, ...p.t.altNames], p.photos)
+    for (const s of c.species) add(`species:${s.id}`, `/vi/ca/${s.t.slug}/`, [s.scientificName, s.t.name, ...s.t.altNames], s.photos, s.scientificName)
+    for (const p of c.plants) add(`plant:${p.id}`, `/vi/cay/${p.t.slug}/`, [p.scientificName, ...(p.synonyms ?? []), p.t.name, ...p.t.altNames], p.photos, p.scientificName)
     for (const b of c.breeds) add(`breed:${b.id}`, `/vi/ca/${b.t.slug}/`, [b.t.name, ...b.t.altNames], b.photos)
   }
   return facts
@@ -81,6 +84,15 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
   const root = parse(html)
   const lang = langOf(path)
   const owner = (src: string) => facts.owner.get(pictureOf(src, {}).key)
+
+  // A fish's or plant's page says its scientific name once in its title and its description, where its name says it
+  // already too ("Cá Abbottina rivularis"): 1,337 titles said it twice (13 November, lib/meta.ts).
+  const sci = facts.living.get(facts.byPath.get(path) ?? '')?.sci
+  if (sci) {
+    for (const [what, said] of [['title', root.querySelector('title')?.text], ['description', root.querySelector('meta[name="description"]')?.getAttribute('content')]] as const) {
+      if (said && (said.match(sciWords(sci, 'giu'))?.length ?? 0) > 1) out.push({ check: 'name-twice', detail: `${what}: ${said}` })
+    }
+  }
 
   // The same picture twice, whatever its file. A picture hidden from screen readers is a backdrop (a whole tile's blurred
   // ground: SpeciesCard.astro), not a picture shown.

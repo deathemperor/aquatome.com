@@ -31,15 +31,18 @@ const net = (h: string, env: NodeJS.ProcessEnv, call: string) => {
   return { out: r.stdout.trim().split('\n'), seconds: (Date.now() - t) / 1000 }
 }
 
+// A stop is said up to 4 s past its limit: the watchdog reads the clock each second, waits a second for what it stopped,
+// and on this Mac at a load of 60 its tenth-second looks and the clock's perl run slow (a 1 s limit was said at 4 s on
+// 13 Nov, and the engine's own cycles run these tests here).
 test('a call to GitHub with no answer is stopped at its limit and says so; one that answers keeps its status and output', () => {
   const { h, env } = home()
   const hung = net(h, { ...env, GIT_NET_SECONDS: '2' }, 'sleep 30')
-  expect(hung.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [2-4] s, stopped$/), 'status 124'])
+  expect(hung.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [2-6] s, stopped$/), 'status 124'])
   expect(hung.seconds).toBeLessThan(10)
   expect(net(h, env, `sh -c 'echo fetched; exit 3'`).out).toEqual(['fetched', 'status 3'])
   // Astra's read, 13 Nov: a stop that leaned on a file in the temp folder never came when the folder was missing.
   const noTemp = net(h, { ...env, GIT_NET_SECONDS: '1', TMPDIR: '/dev/null/aq-net' }, 'sleep 30')
-  expect(noTemp.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [1-3] s, stopped$/), 'status 124'])
+  expect(noTemp.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [1-5] s, stopped$/), 'status 124'])
   expect(noTemp.seconds).toBeLessThan(10)
   const quick = net(h, env, 'true')
   expect(quick.out).toEqual(['status 0'])
@@ -76,7 +79,7 @@ test('a call slow to make its process group is still watched, and stopped at its
   writeFileSync(join(h, 'perl5', 'Slow.pm'), 'package Slow; sleep 1; 1;\n')
   const slow = { ...env, GIT_NET_SECONDS: '2', PERL5LIB: join(h, 'perl5'), PERL5OPT: '-MSlow', AQ_CLOCK: exe('clock', 'echo "$(date +%s) 0"') }
   const r = net(h, slow, 'sleep 30')
-  expect(r.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [2-4] s, stopped$/), 'status 124'])
+  expect(r.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [2-6] s, stopped$/), 'status 124'])
   expect(r.seconds).toBeLessThan(10)
 })
 

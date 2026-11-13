@@ -1,6 +1,6 @@
 {
   "slug": "rio-uruguai",
-  "name": "sông Uruguai",
+  "name": "sông Uruguay",
   "altNames": [
     "Rio Uruguai"
   ],
@@ -8,5 +8,6 @@
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

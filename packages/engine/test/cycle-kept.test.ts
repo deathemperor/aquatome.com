@@ -72,7 +72,7 @@ function clone() {
     return log
   }
   // Another job's push meanwhile, from a second clone.
-  const elsewhere = (file = 'content/c.json') => sh(`rm -rf other && git clone -q origin.git other 2>/dev/null && cd other && git config user.email a@example.com && git config user.name a && echo sf > ${file} && git add . && git commit -qm sf && git push -q 2>/dev/null`, {}, home)
+  const elsewhere = (file = 'content/c.json', text = 'sf') => sh(`rm -rf other && git clone -q origin.git other 2>/dev/null && cd other && git config user.email a@example.com && git config user.name a && mkdir -p $(dirname ${file}) && echo ${text} > ${file} && git add . && git commit -qm sf && git push -q 2>/dev/null`, {}, home)
   const onMain = (file: string) => sh(`git --git-dir=origin.git show main:${file} 2>/dev/null || true`, {}, home)
   const branches = () => sh("git for-each-ref --format='%(refname:short)' refs/heads/").split('\n').filter(b => b !== 'main')
   // The origin refusing every push, or taking them again.
@@ -207,4 +207,149 @@ test('the engine cycle and both video jobs keep unpublished work wherever they g
     expect(s, name).toMatch(new RegExp(`pnpm install --frozen-lockfile --silent\\npublish_kept ${job.replace(/[$"]/g, m => `\\${m}`)}\\n`))
     expect(s.indexOf('\npublish_kept '), name).toBeGreaterThan(s.indexOf('merge.entity.driver'))
   }
+})
+
+// 13 Nov 2026: two engine pushes made on older code put photo records in the format before photo-privacy.ts on main, and
+// every run's tests failed on them. Here `pnpm` stands in for the migration (`engine photo-privacy --write`: "legacy"
+// becomes "migrated" in engine-state, or it fails) and for the sweep, each call noted in order with the checks, which fail
+// while an old record is left, as the privacy test does.
+function migrating(c: ReturnType<typeof clone>, fails = false) {
+  c.sh(`cat > "$HOME/bin/pnpm" <<'EOF'
+#!/bin/sh
+case "$2" in
+  photo-privacy) echo migrate >> "$HOME/order"; ${fails ? 'exit 1' : `perl -pi -e 's/legacy/migrated/g' engine-state/*.json`} ;;
+  sweep) echo sweep >> "$HOME/order" ;;
+esac
+exit 0
+EOF`)
+  return { order: () => c.sh('cat "$HOME/order" 2>/dev/null || true').split('\n').filter(Boolean).join(' ') }
+}
+test('the migration the cycle calls is a command of the engine', () => {
+  expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toContain('pnpm engine photo-privacy --write ||')
+  // Missing, every run would keep its work and publish nothing.
+  expect(readFileSync(join(ROOT, 'packages/engine/src/cli.ts'), 'utf8')).toContain("cmd === 'photo-privacy'")
+})
+const privacy = `checks() { echo tests >> "$HOME/order"; ! grep -q legacy engine-state/*.json; }`
+// As engine-cycle.sh ends: main caught up with, swept and checked, then pushed.
+const ending = `${privacy}; catch_up; sweep_merged; if ! verify_cycle; then keep_unpublished photos; echo "NOT PUBLISHED"; exit 0; fi; git push -q origin HEAD:main`
+// As engine-cycle.sh's push() takes a clean pull: swept, and checked again when that changed anything.
+const pushing = `${privacy}; main=$(git rev-parse '@{u}'); git pull -q --rebase; if ! swept_pull "$main" && ! verify_cycle; then keep_unpublished photos; echo "NOT PUBLISHED"; exit 0; fi; git push -q origin HEAD:main`
+
+test('old-format photo records that a pull brings in are migrated before the tests, and go out migrated', () => {
+  const c = clone()
+  const m = migrating(c)
+  c.sh(work)
+  c.elsewhere('engine-state/_photo-watermarks.json', 'legacy')
+  expect(c.cycle(ending)).not.toContain('NOT PUBLISHED')
+  expect(m.order()).toBe('migrate sweep tests')
+  expect(c.onMain('engine-state/_photo-watermarks.json')).toBe('migrated')
+  expect(c.onMain('content/b.json')).toBe('photos')
+  // At the push, a clean pull that brought them in: migrated, and the tests run again on that.
+  c.sh('echo more > content/d.json && git add . && git commit -qm "content: engine photos"')
+  c.elsewhere('engine-state/_photo-check.json', 'legacy')
+  c.sh('rm -f "$HOME/order"')
+  expect(c.cycle(pushing)).not.toContain('NOT PUBLISHED')
+  expect(m.order()).toBe('migrate sweep tests')
+  expect(c.onMain('engine-state/_photo-check.json')).toBe('migrated')
+  // Kept work, published on a main that has them.
+  const k = clone()
+  const n = migrating(k)
+  k.timedOutRun()
+  k.elsewhere('engine-state/_photo-rejected.json', 'legacy')
+  expect(k.cycle(`${privacy}; publish_kept photos`)).toMatch(/LOG published kept\/photos\//)
+  expect(n.order()).toBe('migrate sweep tests')
+  expect(k.onMain('engine-state/_photo-rejected.json')).toBe('migrated')
+  expect(k.onMain('content/b.json')).toBe('photos')
+}, 60_000)
+
+test('a migration that fails publishes nothing, and the work is kept for the next run, never held', () => {
+  const c = clone()
+  migrating(c, true)
+  c.sh(work)
+  c.elsewhere('engine-state/_photo-watermarks.json', 'legacy')
+  const log = c.cycle(`${ending.replace('echo "NOT PUBLISHED"', 'echo "NOT PUBLISHED, reported as: $FAILED"')}`)
+  expect(log).toContain('LOG photo records: the migration failed, so nothing is published')
+  // The run's failure is reported with that line (engine-cycle.sh finish), never as plain failed tests.
+  expect(log).toMatch(/NOT PUBLISHED, reported as: photo records not migrated: this run's work is kept on kept\/photos\//)
+  expect(log).toContain('LOG photo records not migrated: not tested, not published')
+  expect(log).toMatch(/LOG photo records not migrated: this run's work is kept on kept\/photos\/\d{8}T\d{6} for the next run/)
+  expect(c.sh('cat "$HOME/order"')).not.toContain('tests')
+  expect(c.onMain('content/b.json')).toBe('')
+  const [kept = ''] = c.branches()
+  expect(kept).toMatch(/^kept\/photos\//)
+  // The next run: still failing, it stays kept; once the migration works, it goes out migrated.
+  c.sh('git fetch -q origin && git reset -q --hard origin/main')
+  const again = c.cycle(`${privacy}; publish_kept photos; echo "FAULT=$FAULT"`)
+  expect(again).toContain(`LOG ${kept} isn't published yet (its photo records couldn't be migrated): it stays kept`)
+  // The run goes on to its own work, and reports this when it ends.
+  expect(again).toContain(`FAULT=${kept} isn't published: its photo records couldn't be migrated, and it stays kept`)
+  expect(c.branches()).toEqual([kept])
+  migrating(c)
+  expect(c.cycle(`${privacy}; publish_kept photos; [ -z "$MIGRATE_FAILED" ] && echo cleared`)).toMatch(/LOG published kept\/photos\/[\s\S]*cleared/)
+  expect(c.onMain('content/b.json')).toBe('photos')
+  expect(c.onMain('engine-state/_photo-watermarks.json')).toBe('migrated')
+  expect(c.branches()).toEqual([])
+}, 60_000)
+
+// engine-cycle.sh's finish, on its own: a fault the run went on past fails the run when it ends, and on the Mac goes to
+// GitHub as a failed run's line does (engine-mac.yml), which the daily report lists.
+test('a run that kept work back for its photo records ends failed, and says why on GitHub', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-finish-'))
+  writeFileSync(join(dir, 'gh'), `#!/bin/sh\necho "$*" >> '${dir}/gh.log'\n`)
+  chmodSync(join(dir, 'gh'), 0o755)
+  const finish = /^finish\(\) \{[\s\S]*?^\}$/m.exec(script('engine-cycle.sh'))![0]
+  const run = (body: string, extra: Record<string, string> = {}) => spawnSync('bash', ['-c', `
+    set -euo pipefail; PART=pages; PIDFILE='${dir}/pid'; LAST=; FAILED=; log() { LAST="$*"; }; clock() { echo "1 0"; }
+    ${finish}
+    trap finish EXIT
+    ${body}`], { encoding: 'utf8', env: { ...process.env, PATH: `${dir}:${process.env.PATH}`, GITHUB_ACTIONS: '', ...extra } })
+  expect(run('true').status).toBe(0)
+  expect(run('FAULT="kept/pages/x isn\'t published: its photo records couldn\'t be migrated, and it stays kept"').status).toBe(1)
+  expect(readFileSync(join(dir, 'gh.log'), 'utf8')).toBe("workflow run engine-mac.yml -R deathemperor/aquatome.com -f part=pages -f why=exit 1: kept/pages/x isn't published: its photo records couldn't be migrated, and it stays kept\n")
+  // On GitHub, the run itself fails.
+  expect(run('FAULT=x', { GITHUB_ACTIONS: 'true' }).status).toBe(1)
+  expect(readFileSync(join(dir, 'gh.log'), 'utf8').split('\n').filter(Boolean)).toHaveLength(1)
+})
+
+// Astra's read of 1df3f00d7: the failure test above takes the run's ending, and a clean pull at the push whose sweep
+// commits nothing went unchecked: swept_pull's guard taken out, a failed migration there would publish.
+test('at the push, a clean pull whose migration fails publishes nothing, even when its sweep commits nothing', () => {
+  const c = clone()
+  migrating(c, true)
+  c.sh(work)
+  c.elsewhere('content/c.json', 'sf')
+  const log = c.cycle(pushing)
+  expect(log).toContain('LOG photo records: the migration failed, so nothing is published')
+  expect(log).toContain('NOT PUBLISHED')
+  expect(c.onMain('content/b.json')).toBe('')
+  expect(c.branches()[0]).toMatch(/^kept\/photos\//)
+}, 60_000)
+
+test('kept work is judged by its own migration, not an earlier branch\'s', () => {
+  const c = clone()
+  // A branch whose pull fails before its sweep, after another branch's migration failed.
+  const r = c.cycle('MIGRATE_FAILED=1; net() { return 1; }; push_kept kept/photos/b || true; echo "why=$KEPT_WHY migrate=$MIGRATE_FAILED"')
+  expect(r).toContain('why=a clash with main migrate=')
+  expect(r).not.toContain('migrate=1')
+  // Two branches held back by their records are both named in the run's fault.
+  expect(readFileSync(CHECKS, 'utf8')).toContain('FAULT="${FAULT:+$FAULT; }$branch isn\'t published')
+})
+
+// A video job that kept work back for its photo records ends failed and says why on GitHub, as a part's cycle does.
+test('a video job that kept work back for its photo records ends failed, and says why on GitHub', () => {
+  for (const [name, job] of [['video-cycle.sh', 'videos'], ['video-recheck.sh', 'video-recheck']] as const) {
+    expect(script(name), name).toContain(`trap 'status=$?; rm -f "$PIDFILE"; fault_exit "$status" ${job}' EXIT`)
+  }
+  const dir = mkdtempSync(join(tmpdir(), 'aq-fault-'))
+  writeFileSync(join(dir, 'gh'), `#!/bin/sh\necho "$*" >> '${dir}/gh.log'\n`)
+  chmodSync(join(dir, 'gh'), 0o755)
+  const run = (body: string, extra: Record<string, string> = {}) => spawnSync('bash', ['-c', `
+    set -euo pipefail; log() { :; }; source "${CHECKS}"
+    trap 'status=$?; fault_exit "$status" videos' EXIT
+    ${body}`], { encoding: 'utf8', env: { ...process.env, PATH: `${dir}:${process.env.PATH}`, GITHUB_ACTIONS: '', ...extra } })
+  expect(run('true').status).toBe(0)
+  expect(run('FAULT="kept/videos/x isn\'t published: its photo records couldn\'t be migrated, and it stays kept"').status).toBe(1)
+  expect(readFileSync(join(dir, 'gh.log'), 'utf8')).toBe("workflow run engine-mac.yml -R deathemperor/aquatome.com -f part=videos -f why=exit 1: kept/videos/x isn't published: its photo records couldn't be migrated, and it stays kept\n")
+  // A job that failed already keeps its own status.
+  expect(run('FAULT=x; exit 3').status).toBe(3)
 })

@@ -225,8 +225,8 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
   // 12 Nov 13:00, the first on 13 Nov 08:00, the second on 14 Nov 08:00. `steps` is every named ceiling added up.
   const periods = [
     { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 142, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1 },
-    { from: '2026-11-13T08:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 272, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 6, crops: 4 },
-    { from: '2026-11-14T08:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 383, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 9, crops: 1 },
+    { from: '2026-11-13T08:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 278, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4 },
+    { from: '2026-11-14T08:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 386, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1 },
   ]
   for (const p of periods) for (const when of [p.from, p.to]) {
     const t = tableInForce(CEILINGS.tables, new Date(when))!
@@ -239,6 +239,8 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     expect(cap(when, 'mac', 'review-backfill')! + cap(when, 'github', 'review-backfill')!).toBe(p.second)
     // The reader-fit rewrite's share comes out of the Vietnamese rewrite's line.
     expect(cap(when, 'github', 'fit-rewrite')).toBe(p.fit)
+    // The style rewrite: $12 from 13 Nov. At $6 it stopped after 5 pages that day, all 5 kept (the chief of staff, 13 Nov
+    // 2026); the cloud's backstop is what keeps the sign-in inside its day, and it stays.
     expect(cap(when, 'github', 'rewrite-vi')).toBe(p.vi)
     // The 97 video guides' two more reads have $10 of their own, whatever the column.
     expect(cap(when, 'mac', 'review-backfill-97')).toBe(10)
