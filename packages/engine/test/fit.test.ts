@@ -482,6 +482,9 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     'Đợt này về rất nhiều loài đẹp, trong đó có những loài rất hiếm.',
     'Cá trong lô nhập về dài 14-18 cm. Lô này chỉ có 7 con.',
     'Tên cũ cũng để chỉ ông. Hiện nay lại có cá thể hoang dã mới trưởng thành của loài này.',
+    // Astra's read: a brood just in, and a wild batch just in.
+    'Nhiều loài Parotocinclus họ hàng gần khá khó nuôi, nhưng lứa cá mới nhập này lại khá khỏe.',
+    'Trong đợt cá hoang dã mới nhập gần đây có một con đực màu đỏ.',
   ]
   const history = [
     'Cũng có con có thêm những đốm trắng nhỏ. Hai dạng màu này có thể lẫn chung trong cùng một lô nhập.',
@@ -506,6 +509,8 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
     'Tháng 4/2002, nhà cung cấp nhận một lô Tetraodon mbu từ Cộng hòa Congo. Cá trong lô này to hơn mọi lô họ từng nhận trước đó.',
     'Bộ mẫu chuẩn dùng để mô tả loài lấy từ một lô cá hoang dã nhập từ Peru về Đức. Sau đó, công ty nhập lô cá này ra thông báo rằng cá được bắt ở Saramirisa.',
     'Hiện nay lại có ý kiến cho rằng đây là một loài riêng.',
+    // A grower's lot of plants, with no fish or stock beside it (Astra's read).
+    'Cây ở lô này nằm ngoài nước khá lâu và được cất trong tủ lạnh trước khi trồng.',
   ]
   const dealer = (text: string) => fitRules(page(`<p>${text}</p>`, { kind: 'species' })).filter(f => f.check === 'source' && f.why.startsWith('a dealer'))
   for (const t of news) expect(dealer(t).length, t).toBeGreaterThan(0)

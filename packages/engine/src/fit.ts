@@ -153,8 +153,10 @@ const DEALER_VI = re([
   WORD('(?:gần đây|mới đây|vừa|cuối cùng(?: cũng)?)(?: lại)? có (?:thêm )?(?:một |vài )?(?:lô|đợt)'),
   // This one batch: not "những lô này" (the mixed batches a fish comes in) or "hai lô mẫu" (a museum's), nor a bare
   // "đợt này", which is as often a round of treatment or a migration.
-  `(?<!(?:những|các|hai|ba|mấy|vài|lô) )${WORD('lô(?: cá| hàng| nhập)? (?:này|lần này|(?:mới|vừa) (?:nhập|về)(?: về)?)')}`,
-  WORD('đợt (?:cá|hàng|nhập)(?: về)? (?:này|lần này|(?:mới|vừa) (?:nhập|về)(?: về)?)|đợt (?:này|lần này) về|(?:mới|vừa) về (?:trong )?(?:đợt|lô) này'),
+  `(?<!(?:những|các|hai|ba|mấy|vài|lô) )${WORD('lô(?: cá(?: hoang dã)?| hàng| nhập)? (?:này|lần này|(?:mới|vừa) (?:nhập|về)(?: về)?)')}`,
+  WORD('đợt (?:cá(?: hoang dã)?|hàng|nhập)(?: về)? (?:này|lần này|(?:mới|vừa) (?:nhập|về)(?: về)?)|đợt (?:này|lần này) về|(?:mới|vừa) về (?:trong )?(?:đợt|lô) này'),
+  // A brood just in: "lứa cá mới nhập này lại khá khỏe" (Astra's read).
+  WORD('lứa(?: cá(?: hoang dã)?)? (?:mới|vừa) (?:nhập|về)(?: về)?'),
   '(?<![\\p{L}\\p{N}])trong lô(?=[,:])',
   WORD('(?:(?<!ngày )nay|hiện nay|hiện|bây giờ|giờ đây)(?: thì)? (?:đã |đang |cũng )?(?:được )?(?:nhập về|có hàng)'),
   WORD('(?:đã |lại )?có hàng (?:trở )?lại'),
@@ -170,6 +172,13 @@ const DEALER_VI = re([
 const HISTORY_VI = /(?<!\d)(?:1[89]|20)\d\d(?!\d)|mẫu chuẩn|mẫu định danh|holotype|type series/iu
 const CUT = /(?<=[.!?])\s+|\n/
 const history = (text: string, at: number) => HISTORY_VI.test([...text.slice(0, at).split(CUT).slice(-2), text.slice(at).split(CUT)[0]].join(' '))
+/**
+ * A bare "lô này" is a batch of fish only beside one, in its sentence or the one before: a plot's or a grower's lot isn't
+ * ("Cây ở lô này nằm ngoài nước khá lâu và được cất trong tủ lạnh trước khi trồng", Astra's read).
+ */
+const BARE_LOT = /^lô (?:lần )?này$/iu
+const FISH_LOT = /(?<![\p{L}\p{N}])(?:cá|con|hàng|nhập|về)(?![\p{L}\p{N}])/iu
+const notice = (text: string, m: RegExpMatchArray) => !history(text, m.index!) && (!BARE_LOT.test(m[0]) || FISH_LOT.test([...text.slice(0, m.index).split(CUT).slice(-2), text.slice(m.index).split(CUT)[0]].join(' ')))
 
 /**
  * Whether a Vietnamese part is wholly a dealer's notice: every sentence of it names the dealer's own current batch or
@@ -179,7 +188,7 @@ const history = (text: string, at: number) => HISTORY_VI.test([...text.slice(0, 
  */
 export function dealerNotice(html: string): boolean {
   const text = render(html)
-  const at = [...text.matchAll(DEALER_VI)].filter(m => !history(text, m.index)).map(m => m.index)
+  const at = [...text.matchAll(DEALER_VI)].filter(m => notice(text, m)).map(m => m.index)
   // Its sentences, as the history test cuts them: each must hold a notice.
   const spans: [number, number][] = []
   let from = 0
@@ -437,7 +446,7 @@ export function fitRules(p: Page): FitFinding[] {
     for (const r of PRICE) each('price', r, 'a foreign price or shipping cost')
     if (p.lang !== 'vi') each('price', PRICE_OTHER, 'a price in Vietnamese đồng')
     each('source', SOURCE[p.lang], 'talks about the source or in its voice')
-    if (p.lang === 'vi') for (const m of text.matchAll(DEALER_VI)) if (!history(text, m.index)) say('source', id, m[0], 'a dealer\'s own batch or stock: news to no reader here')
+    if (p.lang === 'vi') for (const m of text.matchAll(DEALER_VI)) if (notice(text, m)) say('source', id, m[0], 'a dealer\'s own batch or stock: news to no reader here')
     for (const r of SOURCE_NO) each('source', r, 'a source\'s number from the facts, which the reader never sees')
     for (const r of IMPERIAL) each('units', r, 'an imperial unit')
     for (const m of text.matchAll(CONVERTED)) if (!PER.test(text.slice(Math.max(0, m.index - 24), m.index))) say('units', id, m[0], 'a volume that shows it was converted from gallons')
