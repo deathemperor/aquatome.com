@@ -6,14 +6,14 @@ import { hedgesAsk, hedgesLost, HEDGES_SCHEMA, type HedgePair } from './hedges'
 import { VI_STYLE } from './phrases'
 import { withTanks } from './round'
 import { sanitizeHtml } from './sanitize'
-import { plain, quoted, sentences, splice } from './sentences'
+import { blockOf, plain, quoted, sentences, splice } from './sentences'
 
 /**
  * A part of a fish, plant or breed page mended for what the reader-fit read found (fit-rewrite.ts), by two rules of the
  * chief of staff's (13 Nov 2026), which the code holds, not the prompts:
  * - Only the sentences a finding quotes are written again; every other sentence is put back word for word (sentences.ts).
- *   A sentence next to one that changed may change too when the writer says why: one that no longer reads once its
- *   neighbour changed.
+ *   A sentence right before or after one that changed, in the same paragraph or list item, may change too when the
+ *   writer says why: one that no longer reads once its neighbour changed.
  * - Something left out is accepted only when a finding that names that sentence asks for it to go. On 13 Nov the front
  *   list's first run kept 4 of 17 parts: its reviewer, judging against the English, asked back what the findings had
  *   dropped ("In the population imported now", "bunches are currently NOT produced at Tropica's own nursery", "in the
@@ -153,11 +153,13 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     if (!r) throw new Error(`the writer left out sentence ${n}`)
     changes.set(n - 1, written(n, r.vi))
   }
-  // A neighbour of a sentence that changed, said why, and not left out: one that no longer read beside the change.
+  // A neighbour of a sentence that changed, said why, and not left out: one that no longer read beside the change, right
+  // before or after it in the same paragraph or list item (the Writing Lead: across a block, the reader starts afresh).
+  const block = blockOf(pieces)
   for (const r of w.sentences) {
     const n = Number(r.n)
     if (fix.includes(n) || !texts[n - 1] || !r.why?.trim() || !inline(r.vi)) continue
-    if (fix.some(m => Math.abs(m - n) === 1 && changes.get(m - 1) !== texts[m - 1])) changes.set(n - 1, written(n, r.vi))
+    if (fix.some(m => Math.abs(m - n) === 1 && block[m - 1] === block[n - 1] && changes.get(m - 1) !== texts[m - 1])) changes.set(n - 1, written(n, r.vi))
   }
   for (const [i, t] of [...changes]) if (t === texts[i]) changes.delete(i)
   const after = splice(pieces, changes)

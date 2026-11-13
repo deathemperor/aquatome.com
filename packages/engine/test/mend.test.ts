@@ -169,3 +169,22 @@ test('a changed sentence that loses "bị", a pronoun, or part of a frame fails,
   expect(spanning.unasked).toEqual([])
   expect(spanning.html).toBe('<p>Cây mọc nhanh.</p>')
 })
+
+// The Writing Lead, 13 Nov 2026: a neighbour may change only right before or after a sentence that changed, in the same
+// paragraph or list item; across a block, the reader starts afresh.
+test('a neighbour in the next paragraph or list item stays as it was, though the writer says why', async () => {
+  const llm = (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences')
+    ? { sentences: [{ n: 1, vi: 'Cây mọc nhanh.' }, { n: 2, vi: 'Cây ưa sáng.', why: '"Chúng" pointed to the plant' }] }
+    : { score: 1, notes: [], dropped: [], hedges: [] })) as Llm
+  const price = [{ check: 'price' as const, quote: 'giá 5 đô la', note: 'Bỏ giá nước ngoài.' }]
+  for (const html of ['<p>Cây mọc nhanh, giá 5 đô la.</p><p>Chúng ưa sáng.</p>', '<ul><li>Cây mọc nhanh, giá 5 đô la.</li><li>Chúng ưa sáng.</li></ul>']) {
+    const r = await mendPart(llm, html, price)
+    if (typeof r === 'string') throw new Error(r)
+    expect(r.html).toContain('Chúng ưa sáng.')
+    expect(r.html).not.toContain('5 đô la')
+  }
+  // In the same paragraph it may change.
+  const same = await mendPart(llm, '<p>Cây mọc nhanh, giá 5 đô la. Chúng ưa sáng.</p>', price)
+  if (typeof same === 'string') throw new Error(same)
+  expect(same.html).toBe('<p>Cây mọc nhanh. Cây ưa sáng.</p>')
+})

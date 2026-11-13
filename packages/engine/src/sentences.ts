@@ -70,6 +70,20 @@ export function sentences(html: string): Piece[] {
 }
 
 /** A sentence's words as a reader sees them: its tags gone, its entities read. */
+/**
+ * Each sentence's block (numbered from 0, one entry a sentence): a paragraph, a list item, a cell or a line, so a
+ * neighbour across one is never in the same paragraph or list item (the Writing Lead, 13 Nov 2026).
+ */
+export function blockOf(pieces: Piece[]): number[] {
+  let block = 0
+  const out: number[] = []
+  for (const p of pieces) {
+    if (p.sentence) out.push(block)
+    else if (p.html.split(/(<[^>]*>)/).some(t => BLOCK.test(t))) block++
+  }
+  return out
+}
+
 export const plain = (html: string) => parse(html).text.replace(/\s+/g, ' ').trim()
 
 /**
