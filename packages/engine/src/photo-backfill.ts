@@ -47,7 +47,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
   // within this step's existing limit. Ordinary failed monthly reads remain due by the existing rules.
   const intakeFile = join(root, 'engine-state/_photo-intake-retry.json')
   const intake: Record<string, string> = JSON.parse(await readFile(intakeFile, 'utf8').catch(() => '{}'))
-  const names: Record<string, { name?: string }> = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8').catch(() => '{}'))
+  const names: Record<string, { name?: string; permission?: { refusedCredits?: string[] } }> = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8').catch(() => '{}'))
   const blocked: Record<string, string> = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}'))
   const last = new Map<SourceId, number>()
   // Every request to a source (its page, photo pages, images) at the engine's pace for it.
@@ -91,7 +91,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           // Same photos as the engine takes: from their own pages where the source keeps them there (ScotCat).
           const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images
           const picked = pickSourcePhotos(images, url, e.scientificName ? [e.scientificName] : [], max, kind === 'guides' ? 'guide' : 'subject', src.minPhotoWidth)
-          const stored = await storeSourcePhotos(source, names[source]?.name ?? source, url, picked, { bytes: polite(source, d.bytes), media: d.media, blocked }, e.photos, max)
+          const stored = await storeSourcePhotos(source, names[source]?.name ?? source, url, picked, { bytes: polite(source, d.bytes), media: d.media, blocked, refusedCredits: names[source]?.permission?.refusedCredits }, e.photos, max)
           if (stored.length && kind === 'guides') {
             const body = async (l: string) => (JSON.parse(await readFile(join(root, 'content', kind, id, `${l}.json`), 'utf8').catch(() => '{}')) as { body?: string }).body
             e.photos = [...withSections(stored, { vi: (await body('vi')) ?? '', ...Object.fromEntries(await Promise.all(WRITTEN_OTHER_LANGS.map(async l => [l, await body(l)]))) }), ...e.photos.filter(p => p.sourceUrl !== url)]

@@ -84,8 +84,18 @@ const TEMPLATE = readFileSync(new URL('./prompts/fit.md', import.meta.url), 'utf
  */
 const CARD_NOTE = `
 - card: this one is a short card for the app's home screen, not a page, and it names its dated sources by design: a paper, a publisher or the source of a count named as the authority for a claim ("theo …, 2026") is expected here, not \`source\`. Report instead: a newly described species called discovered ("phát hiện", "ditemukan", "ditemui", "ค้นพบ") when it was described; a new species without the year or date of the paper that described it; a trend without its figures (views, searches, upvotes) or without where they come from.`
+/**
+ * A reader's own climate, where the checklist's examples ("a room at 12 °C") would call it elsewhere. On 13 Nov 2026
+ * AquaTome's own guide to the seasons was faulted for a room at 12–14 °C on a winter night with the heater on all night,
+ * which is a winter in Hà Nội, and was kept off a winter shelf for it. A page takes it at its next read, when its text
+ * changes: a guide's rewrite works from its source's facts, not from what an older read found (for-reader.ts).
+ */
+const CLIMATE_NOTE: Partial<Record<Lang, string>> = {
+  vi: ' For this reader the North\'s winter is their own (December to February: rooms at 10–15 °C at night, a heater in the tank), and so is the South\'s rainy season: a cold room in winter, or heating the tank against it, doesn\'t count. A home warmed by a furnace, radiators or central heating, a basement, snow or a frozen pond still does.',
+}
 export const fitPrompt = (lang: Lang, kind?: PageKind) => TEMPLATE
   .replace('{{CARD_NOTE}}', kind === 'cards' ? CARD_NOTE : '')
+  .replace('{{CLIMATE_NOTE}}', CLIMATE_NOTE[lang] ?? '')
   .replaceAll('{{COUNTRY}}', COUNTRY[lang]).replaceAll('{{LANG}}', LANG_NAME[lang])
   .replace('{{SHOP_NOTE}}', lang === 'vi' ? '' : ' A Vietnamese chain (Pharmacity) counts too: this reader isn\'t in Vietnam.')
   .replace('{{PRICE_NOTE}}', lang === 'vi' ? '' : ' Vietnamese đồng counts too.')

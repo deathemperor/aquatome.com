@@ -406,3 +406,25 @@ test('thumbnail and icon folders exclude newly eligible images while normal imag
   }, [], Infinity)).toHaveLength(3)
   expect(fetched).toEqual(normal)
 })
+
+// Seriously Fish prints each photo's credit under it (figcaption's credit line): a photographer, or a picture agency its
+// permission doesn't cover. The intake reads it, so a refused credit can be refused (the chief of staff, 2026-11-13).
+test("every photo in a source's figure carries the credit line printed under it", () => {
+  const images = htmlToOutline(html, 'main').images
+  const lines = [...html.matchAll(/<span class="_credit_[^"]*"><b>([^<]+)<\/b><\/span>/g)].map(m => m[1]!.trim())
+  expect(lines.length).toBeGreaterThan(10)
+  expect(images.filter(i => i.credit).map(i => i.credit)).toEqual(lines)
+  for (const i of images.filter(i => i.credit)) expect(i.alt.endsWith(i.credit!)).toBe(false) // the caption stays the caption
+})
+
+test('a photo whose credit its source refuses is never fetched or stored, however the credit is spaced or cased', async () => {
+  const fetched: string[] = []
+  const media = { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 800, height: 600 }) }
+  const picked = [
+    { src: 'https://x.test/a.jpg', alt: 'Adult male.', credit: 'Example Picture-Agency' },
+    { src: 'https://x.test/b.jpg', alt: 'Adult female.', credit: 'Imaginary Person' },
+  ]
+  const out = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, picked, { bytes: async u => (fetched.push(u), jpeg()), media, refusedCredits: ['example picture agency'] }, [])
+  expect(fetched).toEqual(['https://x.test/b.jpg'])
+  expect(out.map(p => p.caption)).toEqual(['Adult female.'])
+})

@@ -229,3 +229,25 @@ test('failed overdue monthly reads remain due each cycle after the one-time reco
   expect(await backfillPhotos(root, deps)).toMatchObject({ pages: 1, errors: [expect.stringContaining('HTTP 404')] })
   expect(reads).toBe(2)
 })
+
+test("a re-read doesn't take a photo whose credit the source's permission record refuses", async () => {
+  const url = 'https://www.seriouslyfish.com/species/imaginichthys-testi/'
+  const root = await mkdtemp(join(tmpdir(), 'pb-'))
+  const dir = join(root, 'content', 'species', 'imaginichthys-testi')
+  await mkdir(dir, { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish', permission: { refusedCredits: ['Example Picture Agency'] } } }))
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ scientificName: 'Imaginichthys testi', photos: [], sections: [{ source: 'seriouslyfish', sourceUrl: url }] }))
+  const fig = (n: number, credit: string) => `<figure><a href="/images/testi-${n}.jpg"><img src="/images/testi-${n}.jpg" alt="Imaginichthys testi, view ${n}." width="800" height="600"></a><figcaption>Imaginichthys testi, view ${n}.<span class="_credit_x"><b>${credit}</b></span></figcaption></figure>`
+  const html = `<html><head><title>Imaginichthys testi</title></head><body><main><h1>Imaginichthys testi</h1><p>${'A made-up fish. '.repeat(20)}</p>${fig(1, 'Example Picture Agency')}${fig(2, 'Imaginary Person')}</main></body></html>`
+  const fetched: string[] = []
+  const r = await backfillPhotos(root, {
+    get: async () => ({ status: 200, html }),
+    bytes: async (u: string) => { fetched.push(u); return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
+    media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 800, height: 600 }) },
+    now: () => new Date('2026-11-13T12:00:00Z'),
+    sleep: async () => {},
+  })
+  expect(r).toMatchObject({ pages: 1, added: 1, errors: [] })
+  expect(fetched).toEqual(['https://www.seriouslyfish.com/images/testi-2.jpg'])
+})

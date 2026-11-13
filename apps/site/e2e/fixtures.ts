@@ -29,6 +29,23 @@ export async function openCard(page: Page) {
   if (await fold.count() && !(await fold.evaluate(d => (d as HTMLDetailsElement).open))) await fold.locator(':scope > summary').click()
 }
 
+/** The page wider than the screen, and the first thing past its edge; null when it fits. */
+export const sideways = (page: Page) => page.evaluate(() => {
+  const w = document.documentElement.clientWidth
+  if (document.documentElement.scrollWidth <= w + 1) return null
+  const wide = [...document.querySelectorAll<HTMLElement>('body *')].find(el => { const r = el.getBoundingClientRect(); return r.right > w + 1 && getComputedStyle(el).position !== 'fixed' })
+  return `${document.documentElement.scrollWidth}px > ${w}px: ${wide ? `<${wide.tagName.toLowerCase()} class="${wide.className}">` : '?'}`
+})
+
+/** Every picture on the page as one that didn't load: its alt text in its place, as when the media host refuses it or is down. */
+export async function photosMissing(page: Page) {
+  await page.evaluate(() => {
+    document.querySelectorAll('picture source').forEach(s => s.remove())
+    for (const img of document.querySelectorAll('img')) { img.removeAttribute('srcset'); img.loading = 'eager'; img.src = 'data:,' }
+  })
+  await page.waitForFunction(() => [...document.images].every(i => i.complete))
+}
+
 /** Whether the head's whole picture shows: drawn to fit inside its box, or a box of the picture's own shape. */
 export const shownWhole = (img: Locator) => img.evaluate(i => {
   const r = i.getBoundingClientRect(), own = Number(i.getAttribute('width')) / Number(i.getAttribute('height'))

@@ -157,3 +157,29 @@ switches and source grants stay off. Credits contain photographer, source and
 licence only. Day cards and Fish ID remain excluded; unsafe app banner inputs
 remain absent. The separate recorded-author classification issue is not changed
 or bypassed by this admission.
+
+
+## Three Carnegiella myersi crops
+
+The chief of staff authorized exactly three retained crops for this fish's own
+page: Seriously Fish photos 1 and 4, and the Commons photo. The finite registry
+adds those three identities only, for 46 approvals in all (39 from the owner and
+seven from the chief of staff). No other photograph, source-wide permission or
+general image switch is enabled. Originals, zero-change proofs, paired species
+and ownership receipts, exact credits and native empty watermark reads are bound
+to the approvals. The watermark stage's records travel with admission before a
+content write; the rejection and retry vetoes remain in force.
+
+The Seriously Fish credits remain plain. The Commons original's recorded
+CC BY-SA 2.5 licence allows this crop; its attribution, licence, plain edited
+notice and share-alike requirement remain. Its native original and cached licence
+proof are retained. The publisher permits an individually approved photo without
+a source permission record only under an allowed open licence; changing that
+licence or any other bound record field invalidates the approval. It cannot
+publish an unlisted crop. No fresh Commons read, judgment, repaint or generated
+picture is part of admission. All general switches and source grants remain off.
+
+All three remain excluded from the day card and fish identifier. Whole-photo
+head fitting and the app's existing frame guards apply unchanged. Publication
+and the all-language live read-back follow the next scheduled photos cycle
+after the reviewed admission merges; no cycle is started by hand.
