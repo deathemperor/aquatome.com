@@ -1001,7 +1001,7 @@ Written by `pnpm engine check-photos` (2026-11-13), most-read pages first. Rules
 | species/copadichromis-azureus | [photo](https://media.aquatome.com/commons/f5c54275bbc66583.webp) | subject unsure |
 | species/corydoras-agassizii | [photo](https://media.aquatome.com/commons/29e1f1418fdd5619.webp) | subject unsure |
 | species/corydoras-zygatus | [photo](https://media.aquatome.com/commons/17a93e5162df5184.webp) | subject unsure |
-| species/craterocephalus-stercusmuscarum | [photo](https://media.aquatome.com/commons/1747110e264267b4.webp) | subject unsure |
+| species/craterocephalus-stercusmuscarum | [photo](https://media.aquatome.com/commons/1747110e264267b4.webp) | subject yes |
 | species/crenicichla-albopunctata | [photo](https://media.aquatome.com/commons/781c437ae2c6f98a.webp) | subject unsure |
 | species/crenicichla-lepidota | [photo](https://media.aquatome.com/inaturalist/743992411.webp) | subject unsure |
 | species/crenicichla-marmorata | [photo](https://media.aquatome.com/commons/e8cb82a86126e499.webp) | subject unsure |
@@ -1112,7 +1112,7 @@ Written by `pnpm engine check-photos` (2026-11-13), most-read pages first. Rules
 
 ## Removed (1024)
 
-"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
