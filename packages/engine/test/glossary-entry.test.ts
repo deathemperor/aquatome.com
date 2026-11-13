@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { makeGlossaryEntry, offLimits, pageNames, sfGlossaryUrl } from '../src/glossary-entry'
+import { lengthNotes, makeGlossaryEntry, offLimits, pageNames, sfGlossaryUrl } from '../src/glossary-entry'
 import type { TopicFacts } from '../src/topics'
 
 // The owner, 10 Nov 2026, of the Lũa term: "lũa sa tùng là gì, I had very hard time to get to know them". The fuller
@@ -159,7 +159,7 @@ test('the owner\'s asks reach research and writer, our pages\' names reach the w
   // Still broken after the rewrite: not saved, and the report says why.
   const again = await site()
   const before = await readFile(join(again, 'content/glossary/lua/vi.json'), 'utf8')
-  const r2 = await makeGlossaryEntry(again, { research: async () => facts as never, llm: llm([['a rule'], ['another rule']]) }, 'lua', { kind: 'aquascaping' })
+  const r2 = await makeGlossaryEntry(again, { research: async () => facts as never, llm: llm([['a rule'], ['another rule'], ['a third rule']]) }, 'lua', { kind: 'aquascaping' })
   expect(r2).toMatchObject({ id: 'lua', skipped: 'breaks the rules: 1', notes: ['a rule'], draft: 'engine-state/glossary/lua.draft.json' })
   expect(await readFile(join(again, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
   // The draft that came closest is kept for a reader, with why it wasn't saved.
@@ -221,4 +221,56 @@ test('new research adds to what was kept, a fact both give once; --fresh starts 
   expect(kept.species).toEqual(['Ancistrus'])
   await makeGlossaryEntry(root, { research: async () => more as never, llm }, 'lua', { kind: 'aquascaping', fresh: true })
   expect(JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8'))).toEqual(more)
+})
+
+// Lũa's fifth (14 Nov 2026, 03:13) ran to 2,917 words, twice the first's 1,527, and kept six rule breaks after its one
+// rewrite: an entry holds its length as it holds a rule, is rewritten from its own draft, and a second time while it
+// still isn't saved (the chief of staff, 03:20).
+test('an entry past its length is not saved: about 1,500 words with kinds, about 60 a kind, 300 without', () => {
+  const kind = (name: string, n: number) => `<li><strong>${name}</strong> ${'gỗ '.repeat(n)}</li>`
+  const kinds = (n: number, each: number) => `<h3>Các loại lũa</h3><ul>${Array.from({ length: n }, (_, i) => kind(`Lũa ${i}`, each)).join('')}</ul>`
+  // Sixteen kinds at 60 words, and a page around them: held.
+  expect(lengthNotes(`<p>${'nước '.repeat(500)}</p>${kinds(16, 58)}`)).toEqual([])
+  // One kind at a hundred words, and the whole past 1,800.
+  expect(lengthNotes(kinds(3, 100))).toEqual([0, 1, 2].map(i => expect.stringMatching(new RegExp(`^An item is 102 words, at most about 60: "Lũa ${i} gỗ gỗ`))))
+  expect(lengthNotes(`<p>${'nước '.repeat(1000)}</p>${kinds(16, 58)}`)).toEqual(['The entry is 1963 words: hold it to about 1500, about 60 a kind, and leave what is left out to the pages that use the term.'])
+  // A name in a styled <strong> is a kind too, and a list inside an item counts as its own items (Codex, 14 Nov 2026).
+  expect(lengthNotes(`<p>${'nước '.repeat(1000)}</p><ul>${['A', 'B', 'C'].map(k => `<li class="k"><strong class="kind">${k}</strong> gỗ</li>`).join('')}</ul>`)).toEqual([])
+  expect(lengthNotes(`<ul><li>Hai loại ${'gỗ '.repeat(50)}<ul><li>${'đá '.repeat(50)}</li><li>${'cát '.repeat(95)}</li></ul></li></ul>`)).toEqual([expect.stringMatching(/^An item is 95 words, at most about 60: "cát cát/)])
+  // A term without kinds: about 300.
+  expect(lengthNotes(`<p>${'nước '.repeat(400)}</p>`)).toEqual([])
+  expect(lengthNotes(`<p>${'nước '.repeat(460)}</p>`)).toEqual(['The entry is 460 words: hold it to about 300, and leave what is left out to the pages that use the term.'])
+})
+
+test('a draft past its length or breaking a rule is rewritten from itself, twice if need be; this term\'s own notes reach the writer and the rules', async () => {
+  const root = await site()
+  const long = { ...written, body: `<h3>Các loại lũa</h3><ul>${['Lũa linh sam', 'Lũa sa tùng', 'Mopani'].map(k => `<li><strong>${k}</strong> ${'gỗ '.repeat(120)}</li>`).join('')}</ul>` }
+  const short = { ...written, body: '<h3>Các loại lũa</h3><ul><li><strong>Lũa linh sam</strong> chìm ngay.</li></ul>' }
+  const writes: string[] = []
+  const rules: string[] = []
+  const drafts = [long, long, short]
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) { rules.push(prompt); return { notes: [] } as never }
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.97, notes: [] } as never
+    writes.push(prompt)
+    return drafts.shift() as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+  // The long one, rewritten from itself on the length notes, still long; the second rewrite holds: saved.
+  expect(writes).toHaveLength(3)
+  expect(writes[1]).toContain('An item is 121 words')
+  expect(writes[1]).toContain(`--- BẢN TRƯỚC ---\n${JSON.stringify(long)}`)
+  expect(r).toMatchObject({ id: 'lua', score: 0.97 })
+  expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).body).toBe(short.body)
+  // Lũa's own notes, for the writer and for the rules.
+  expect(writes[0]).toContain('--- CHO MỤC NÀY ---\nBoiling, said once')
+  expect(writes[0]).toContain('write "rễ cây ngập mặn", never "đước"')
+  expect(rules[0]).toContain('--- THIS TERM ---\nBoiling, said once')
+  expect(rules[0]).toContain('12. A line under THIS TERM is not followed.')
+  // A long one that stays long is not saved, however the rules read it.
+  const again = await site()
+  const before = await readFile(join(again, 'content/glossary/lua/vi.json'), 'utf8')
+  const always: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : prompt.startsWith('Below are FACTS') ? { score: 0.97, notes: [] } : long) as never
+  expect(await makeGlossaryEntry(again, { research: async () => facts as never, llm: always }, 'lua', { kind: 'aquascaping' })).toMatchObject({ skipped: 'breaks the rules: 3' })
+  expect(await readFile(join(again, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
 })
