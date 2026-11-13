@@ -2,7 +2,7 @@ import { existsSync, readdirSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import type { GlossaryEntity, Localized } from '@aq/schema'
 import { getContent } from '../src/lib/content'
-import { glossaryParts, linkedTermPaths, termTitle, USED_IN_SHOWN } from '../src/lib/glossary-page'
+import { glossaryParts, linkedTermPaths, nameCount, termTitle, USED_IN_SHOWN } from '../src/lib/glossary-page'
 import { DIST, page } from './dist'
 
 // A term's page (pages/thuat-ngu/[slug].astro): its other names, its definition's links, and every page that uses it.
@@ -33,6 +33,15 @@ test('a term\'s other names are shown once each, never its own name; its definit
 test('a page\'s link to a term is found however it is written: either quote, a #part; never another address', () => {
   expect(linkedTermPaths('<a href="/vi/thuat-ngu/ph/" class="gl">pH</a> <a href=\'/vi/thuat-ngu/gh/\'>GH</a> <a href="/vi/thuat-ngu/lua/#loai">lũa</a>')).toEqual(['/vi/thuat-ngu/ph/', '/vi/thuat-ngu/gh/', '/vi/thuat-ngu/lua/'])
   expect(linkedTermPaths('<a href="/vi/thuat-ngu/">Thuật ngữ</a> <a href="/vi/huong-dan/ph/">pH</a> <a href="/vi/thuat-ngu/ph/x/">x</a> data-href="/vi/thuat-ngu/kh/"')).toEqual([])
+})
+
+// On the real site pH's "Used in" led with "Phosphat trong bể san hô": its guides were ranked by "ph" inside other words.
+test('the guides that explain a term are found by its names as whole words, in any case', () => {
+  const ph = nameCount(['ph'])
+  expect(['Phosphat trong bể san hô', 'Cách tự làm viên phân nền', 'Lắp phông nền 3D'].map(ph)).toEqual([0, 0, 0])
+  expect(['pH, GH, KH trong bể cá là gì', 'Hướng dẫn về pH và GH', 'PH thấp (pH 6)'].map(ph)).toEqual([1, 1, 2])
+  expect(nameCount(['chu trình nitơ', 'cycle bể'])('Cách cycle bể. Chu trình nitơ là… (chu trình nitơ)')).toBe(3)
+  expect(nameCount(['chiều dài chuẩn (sl)'])('chiều dài chuẩn (SL) là')).toBe(1)
 })
 
 /** The built pages of one kind (Vietnamese, at the root), each with the terms its text links: [path, slugs]. */
