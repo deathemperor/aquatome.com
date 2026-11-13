@@ -89979,5 +89979,61 @@
         "people": false
       }
     }
+  },
+  "https://media.aquatome.com/scotcat/f0173b5ccf4f5f54.webp": {
+    "hemibagrus-punctatus": {
+      "ok": "dead",
+      "typical": false,
+      "person": true,
+      "logo": false,
+      "note": "subject dead; person",
+      "noteHash": "24e3c8cdd576392bc6d58f9102130d948ed4f4beb59c506a50f0370985b50395",
+      "hints": {
+        "dead": true,
+        "people": true
+      }
+    }
+  },
+  "https://media.aquatome.com/processed/ef3b506952a44cc27542238bf18011ab.webp": {
+    "carnegiella-myersi": {
+      "ok": "yes",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "4cec120a588d48f1316506731bf0a543f52157dc9f7d4174e14cc25915b8d119",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/processed/42c1ebdc155076ffc83fd65a56d8ac66.webp": {
+    "carnegiella-myersi": {
+      "ok": "yes",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "4cec120a588d48f1316506731bf0a543f52157dc9f7d4174e14cc25915b8d119",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/processed/604fb2b42a1f6f403b1e150476b3fed1.webp": {
+    "carnegiella-myersi": {
+      "ok": "yes",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "4cec120a588d48f1316506731bf0a543f52157dc9f7d4174e14cc25915b8d119",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
   }
 }

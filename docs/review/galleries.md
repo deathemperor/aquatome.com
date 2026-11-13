@@ -8,9 +8,9 @@ Written by `pnpm engine gallery` (2026-11-13). Targets: packages/engine/src/gall
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
 | covered | 30 | 584 | 30 | 9 | 20 | 603 |
-| rest | 20 | 1688 | 74 | 0 | 53 | 1709 |
+| rest | 20 | 1686 | 74 | 0 | 53 | 1707 |
 
-## Short of target: every source read (309)
+## Short of target: every source read (308)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -322,6 +322,5 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/aphyosemion-gabunense | covered | 1 | 30 |
 | species/apistogramma-agassizii | covered | 4 | 30 |
 | species/apistogramma-baenschi | covered | 0 | 30 |
-| species/apistogramma-borellii | covered | 19 | 30 |
-| species/apistogramma-cacatuoides | covered | 22 | 30 |
+| species/apistogramma-borellii | covered | 18 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |

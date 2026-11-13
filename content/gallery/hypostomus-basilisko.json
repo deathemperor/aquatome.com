@@ -2,19 +2,6 @@
   "id": "hypostomus-basilisko",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/650966936.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/650966936-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Nicola Crockford",
-      "sourceUrl": "https://www.inaturalist.org/photos/650966936",
-      "caption": "Cá lau kiếng màu đỏ nâu bám trên gỗ dưới nước",
-      "best": true,
-      "kind": "habitat",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/650966958.webp",
       "thumb": "https://media.aquatome.com/inaturalist/650966958-480.webp",
       "width": 1024,
@@ -22,9 +9,22 @@
       "licence": "CC BY",
       "author": "Nicola Crockford",
       "sourceUrl": "https://www.inaturalist.org/photos/650966958",
-      "caption": "Cá lau kiếng màu đỏ violet trên nền sỏi",
+      "caption": "Cá lau kiếng màu đỏ violet trên nền sỏi, cận cảnh",
       "best": true,
-      "kind": "other",
+      "kind": "form",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/650966936.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/650966936-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Nicola Crockford",
+      "sourceUrl": "https://www.inaturalist.org/photos/650966936",
+      "caption": "Cá lau kiếng màu đỏ nâu bên gốc gỗ trong suối",
+      "best": true,
+      "kind": "habitat",
       "unchecked": true
     },
     {
@@ -35,7 +35,7 @@
       "licence": "CC BY",
       "author": "Nicola Crockford",
       "sourceUrl": "https://www.inaturalist.org/photos/650966935",
-      "caption": "Cá lau kiếng đỏ cam nằm trên gỗ chìm",
+      "caption": "Cá lau kiếng màu đỏ cam trên gỗ chìm trong tự nhiên",
       "best": true,
       "kind": "habitat",
       "unchecked": true
@@ -48,7 +48,7 @@
       "licence": "CC BY",
       "author": "João D'Andretta",
       "sourceUrl": "https://www.inaturalist.org/photos/107511638",
-      "caption": "Cá lau kiếng trưởng thành trên nền đá trong môi trường tự nhiên",
+      "caption": "Cá lau kiếng trưởng thành nằm trên nền đá trong tự nhiên",
       "best": false,
       "kind": "habitat",
       "unchecked": true
@@ -61,7 +61,7 @@
       "licence": "CC BY-SA 4.0",
       "author": "Fiver, der Hellseher",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Schokoladen-Harnischwels_(Tierpark_Hellabrunn).jpg",
-      "caption": "Cá lau kiếng trên nền sỏi trắng trong bể thủy sinh",
+      "caption": "Cá lau kiếng trong bể thủy sinh nền sỏi trắng",
       "best": false,
       "kind": "other",
       "unchecked": true
@@ -74,7 +74,7 @@
       "licence": "CC BY",
       "author": "João D'Andretta",
       "sourceUrl": "https://www.inaturalist.org/photos/107511710",
-      "caption": "Cá lau kiếng vằn sọc trên nền sỏi đá dưới suối",
+      "caption": "Cá lau kiếng vằn sọc trên nền sỏi đá dưới sông",
       "best": false,
       "kind": "habitat",
       "unchecked": true
@@ -87,20 +87,20 @@
       "licence": "CC BY",
       "author": "Nicola Crockford",
       "sourceUrl": "https://www.inaturalist.org/photos/650966879",
-      "caption": "Cá lau kiếng vây lưng lớn bơi trên đáy sông",
+      "caption": "Cá lau kiếng vây lưng cao bơi trên đáy sông",
       "best": false,
       "kind": "habitat",
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/650966918.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/650966918-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/650966900.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/650966900-480.webp",
       "width": 1024,
       "height": 576,
       "licence": "CC BY",
       "author": "Nicola Crockford",
-      "sourceUrl": "https://www.inaturalist.org/photos/650966918",
-      "caption": "Cá lau kiếng bơi gần khúc gỗ trong nước trong",
+      "sourceUrl": "https://www.inaturalist.org/photos/650966900",
+      "caption": "Cá lau kiếng nhìn từ trên xuống trên nền cát",
       "best": false,
       "kind": "habitat",
       "unchecked": true

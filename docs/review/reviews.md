@@ -10,16 +10,16 @@ under `<lang>/<path>`.
 | --- | --- | --- | --- |
 | video-guide | 849 | 617 (vi 617) | 617 |
 | translation | 1452 | 246 (vi 246) | 246 |
-| vi-rewrite | 291 | 15 (vi 15) | 15 |
+| vi-rewrite | 296 | 16 (vi 16) | 16 |
 | reader-rewrite | 24 | 0 | 0 |
 | title | 24 | 0 | 0 |
-| breed | 16 | 3 (ms 3) | 3 |
-| topic | 75 | 5 (ms 1, th 4) | 5 |
+| breed | 18 | 3 (ms 3) | 3 |
+| topic | 78 | 5 (ms 1, th 4) | 5 |
 | product | 13 | 1 (vi 1) | 1 |
 | product-reviews | 12 | 0 | 0 |
 | summary | 1717 | 78 (vi 78) | 78 |
-| localize | 1636 | 728 (id 343, ms 35, th 350) | 728 |
-| places | 5696 | 3374 (id 1150, ms 1138, th 987, vi 99) | 718 |
+| localize | 1699 | 743 (id 345, ms 38, th 360) | 743 |
+| places | 5782 | 3440 (id 1172, ms 1160, th 1009, vi 99) | 750 |
 | equipment | 5 | 0 | 0 |
 | planting | 31 | 0 | 0 |
 | species | 10 | 0 | 0 |
@@ -214,20 +214,20 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-15 of 291 pages under the bar.
+16 of 296 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 15 | 39 |
+| Other | 16 | 40 |
 | Wording: unnatural, literal, stiff or chatty | 14 | 27 |
 | Says what the source doesn't (invented, added) | 13 | 33 |
 | Meaning changed or wrong | 13 | 22 |
 | A number, unit, dose or price | 9 | 11 |
-| Hobby terms and names | 7 | 12 |
+| Hobby terms and names | 8 | 13 |
 | States as certain what the source hedges, or what garbled captions only hint at | 6 | 7 |
 | Repeats itself (intro, summary, steps and FAQ) | 6 | 7 |
+| Text left in another language | 6 | 6 |
 | Leaves out what the source says | 5 | 8 |
-| Text left in another language | 5 | 5 |
 | Names or points to the video, channel, creator or source | 1 | 1 |
 
 ### Other
@@ -264,7 +264,7 @@ under `<lang>/<path>`.
 
 - Item 5: 'Quả tống quán sủ (alder cone)' is a doubtful name and leaves English in brackets. Use 'quả cây alder (tống quán sủ)' or a clearer common name. — vi/species/apistogramma-baenschi (seriouslyfish), 0.70
 - Item 4: "Cá sấu hỏa tiễn (Alligator gar)" is wrong. Alligator gars are Atractosteus spp. (cá sấu hỏa tiễn is fine for them), but "gars" in general are Lepisosteidae. The text uses the same Vietnamese term for both, which blurs the distinct… — vi/species/atractosteus-tristoechus (glaser), 0.70
-- Item 5: "lá dẻ gai" for beech is a non-standard term (beech = lá sồi/dẻ gai is ambiguous, oak given as "lá sồi"); beech and oak are both rendered ambiguously – use "lá sồi tây (beech)" and "lá sồi (oak)" or similar. — vi/species/apistogramma-panduro (seriouslyfish), 0.72
+- Untranslated English left in place: "needle sucker" — use a Vietnamese description or an established name (e.g. "cá hút đá mũi kim") instead of leaving the English term, optionally with the Latin/trade name in parentheses. — vi/species/farlowella-oxyrryncha (glaser), 0.70
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
@@ -278,17 +278,17 @@ under `<lang>/<path>`.
 - Item 3: "Aquarium base 90 × 38 cm" vs. the tank 90 × 45 cm – source inconsistency retained, fine; but "là 160 lít" is okay. Item 8: "vây vàng có sọc" → "vây vàng có sọc vằn" (awkward repetition of "có"). — vi/species/crenicichla-compressiceps (seriouslyfish), 0.68
 - Item 1: "có thể bắt chước (nhại)" has a redundant bracketed synonym. Use "có thể nhại hình" (mimic) only. Also "các loài cá Pimelodella spp." is redundant: either "các loài Pimelodella" or "Pimelodella spp.". — vi/species/brachyrhamdia-heteropleura (scotcat), 0.70
 
-### Leaves out what the source says
-
-- "Dưới đây là từng bước ... Bước 4.4 missing": the numbering jumps from 4.3 to 4.5, which mirrors the source. Not an error. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
-- Item 7: 'Hầu hết các loài rồi cũng tập ăn' - 'although' contrast lost; 'bo bo' for Daphnia is acceptable but 'mồi nhỏ sống ở đáy' ok. 'đồ tươi sống' ok. — vi/species/apistogramma-alacrina (seriouslyfish), 0.72
-- Item 2: 'cá tỳ bà bướm' for a hillstream loach is a non-standard name; also 'sông Qing, Wu và Da Ning He' mixes forms (Da Ning He already means river) and omits 'Ming' that other entries use. — vi/species/beaufortia-szechuanensis (seriouslyfish), 0.72
-
 ### Text left in another language
 
 - Item 5: 'bể càng tự nhiên' added; 'could also add to the effect' is not stated that way. Item 11: Latin 'Chisel-toothed' left in English in quotes - acceptable but unnecessary. — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
 - Item 5: "Để làm nước giống tự nhiên, cũng có thể dùng nón alder (quả cây alder, Alnus)" leaves "alder" untranslated. Use the Vietnamese name "cây tống quán sủi" or just "nón/quả cây Alnus (alder)". Also "giống tự nhiên" is repeated in the … — vi/species/apistogramma-viejita (seriouslyfish), 0.72
 - Item 6: 'aufwuchs' is left in English with a gloss; prefer the Vietnamese term 'lớp sinh vật bám' and drop the foreign word. — vi/species/beaufortia-szechuanensis (seriouslyfish), 0.72
+
+### Leaves out what the source says
+
+- "Dưới đây là từng bước ... Bước 4.4 missing": the numbering jumps from 4.3 to 4.5, which mirrors the source. Not an error. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
+- Item 7: 'Hầu hết các loài rồi cũng tập ăn' - 'although' contrast lost; 'bo bo' for Daphnia is acceptable but 'mồi nhỏ sống ở đáy' ok. 'đồ tươi sống' ok. — vi/species/apistogramma-alacrina (seriouslyfish), 0.72
+- Item 2: 'cá tỳ bà bướm' for a hillstream loach is a non-standard name; also 'sông Qing, Wu và Da Ning He' mixes forms (Da Ning He already means river) and omits 'Ming' that other entries use. — vi/species/beaufortia-szechuanensis (seriouslyfish), 0.72
 
 ### Names or points to the video, channel, creator or source
 
@@ -304,7 +304,7 @@ under `<lang>/<path>`.
 
 ## breed: breed pages, against their research
 
-3 of 16 pages under the bar.
+3 of 18 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -331,7 +331,7 @@ under `<lang>/<path>`.
 
 ## topic: AquaTome's own guides, against their research
 
-5 of 75 pages under the bar.
+5 of 78 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -453,20 +453,20 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-728 of 1636 pages under the bar.
+743 of 1699 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 684 | 1989 |
-| Wording: unnatural, literal, stiff or chatty | 636 | 1383 |
-| Says what the source doesn't (invented, added) | 440 | 646 |
-| Hobby terms and names | 409 | 546 |
-| Meaning changed or wrong | 407 | 637 |
-| A number, unit, dose or price | 375 | 486 |
-| Text left in another language | 279 | 356 |
-| Leaves out what the source says | 236 | 280 |
-| Repeats itself (intro, summary, steps and FAQ) | 210 | 237 |
-| States as certain what the source hedges, or what garbled captions only hint at | 162 | 180 |
+| Other | 698 | 2027 |
+| Wording: unnatural, literal, stiff or chatty | 649 | 1407 |
+| Says what the source doesn't (invented, added) | 448 | 654 |
+| Hobby terms and names | 420 | 559 |
+| Meaning changed or wrong | 415 | 650 |
+| A number, unit, dose or price | 382 | 496 |
+| Text left in another language | 281 | 359 |
+| Leaves out what the source says | 241 | 285 |
+| Repeats itself (intro, summary, steps and FAQ) | 214 | 242 |
+| States as certain what the source hedges, or what garbled captions only hint at | 164 | 182 |
 | Copied from the transcript or source | 26 | 26 |
 | Off the title's topic | 1 | 1 |
 
@@ -515,8 +515,8 @@ under `<lang>/<path>`.
 ### Leaves out what the source says
 
 - Item 4: translation is missing ("left out"). The whole paragraph on type locality and colour forms must be translated. — th/species/betta-patoti, 0.30
+- Item 5: the translation is missing, shown as "(left out)". Translate the whole paragraph on the natural range (Colombia, Guyana … Far East and Eastern Europe). — ms/species/pterophyllum-scalare, 0.30
 - Item 13: the '(77–84 °F)' figure was dropped. This is acceptable. However, 'GH 0–4 °d' is left in Latin letters and is fine. — th/species/sphaerichthys-osphromenoides, 0.30
-- Item 6: '125 mm SL' left in mm and the '5 in SL' figure dropped. Use '12.5 ซม. SL' (or 'ความยาวมาตรฐาน ~12.5 ซม.') for consistency with the other cm figures. — th/species/anostomus-ternetzi, 0.40
 
 ### Repeats itself (intro, summary, steps and FAQ)
 
@@ -542,24 +542,24 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-3374 of 5696 pages under the bar.
+3440 of 5782 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 623 | 680 |
-| Meaning changed or wrong | 59 | 59 |
-| Leaves out what the source says | 41 | 41 |
-| Wording: unnatural, literal, stiff or chatty | 17 | 17 |
+| Other | 648 | 705 |
+| Meaning changed or wrong | 60 | 60 |
+| Leaves out what the source says | 42 | 42 |
+| Wording: unnatural, literal, stiff or chatty | 19 | 19 |
+| States as certain what the source hedges, or what garbled captions only hint at | 8 | 8 |
 | Hobby terms and names | 8 | 8 |
 | Text left in another language | 6 | 6 |
-| States as certain what the source hedges, or what garbled captions only hint at | 5 | 5 |
 | Repeats itself (intro, summary, steps and FAQ) | 4 | 4 |
 
 ### Other
 
 - sông Bandama (Vietnamese, not Indonesian; should be Sungai Bandama) — id/places/bandama-river, 0.10
+- hồ Barapani (Vietnamese source name; the Malay answer is given but the original is Vietnamese) — ms/places/barapani-lake, 0.10
 - sông Benue (should be Sungai Benue) — id/places/benue-river, 0.10
-- sông Cavalla (should be Sungai Cavalla) — id/places/cavalla-river, 0.10
 
 ### Meaning changed or wrong
 
@@ -569,15 +569,21 @@ under `<lang>/<path>`.
 
 ### Leaves out what the source says
 
+- 'เจ้าพระยา' for 'chao-praya': the region/river type is missing and the form is incomplete; 'แม่น้ำเจ้าพระยา' is standard. — th/places/chao-praya, 0.30
 - "Kayan" for kajan-river: the river is the Kajan/Kayan in Borneo. Indonesian atlases write Sungai Kayan, but the answer omits the 'Sungai' generic. — id/places/kajan-river, 0.30
 - Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/rio-orinoco, 0.30
-- Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/river-congo, 0.30
 
 ### Wording: unnatural, literal, stiff or chatty
 
 - "Perbukitan Kardamom" for Cardamom Hills in India: the usual Indonesian form is 'Bukit Kardamom' or 'Perbukitan Cardamom'. The spelling is doubtful. — id/places/cardamom-hills, 0.30
-- 'Paraguay' for rio-paraguai: inconsistent/incorrect spelling for the Paraguai river (Brazil); Malay would be Sungai Paraguay — ms/places/rio-paraguai, 0.30
-- Mishmee-hills → "Bukit Mishmi" (spelling differs from source) — ms/places/mishmee-hills, 0.40
+- 'กาเวรี' for 'Chauvery': the standard Thai form is 'กาเวรี' (Kaveri), but 'Chauvery' is an odd spelling, so I'm uncertain it matches. — th/places/chauvery, 0.30
+- 'เฌาอูรู' for 'Jauru': the Thai 'เฌา' is not a natural Thai transcription; 'เจาอูรู' would be expected. — th/places/rio-jauru, 0.30
+
+### States as certain what the source hedges, or what garbled captions only hint at
+
+- The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unc… — th/places/barapani-lake, 0.30
+- The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unc… — th/places/kabini-river, 0.30
+- The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unc… — th/places/likoma-island, 0.30
 
 ### Hobby terms and names
 
@@ -590,12 +596,6 @@ under `<lang>/<path>`.
 - Hoa Creek → Hoa Creek (the English "Creek" is left untranslated, so it should be Malay, e.g. "Sungai Hoa") — ms/places/hoa-creek, 0.70
 - "Mogaung Chaung" and "Nan Hto Chaung": 'Chaung' is the Burmese word for stream or river, left untranslated. I did not mark these wrong because the source names are kept as written, but 'sông Mogaung' and 'sông Nan Hto' would read better to… — vi/places/mogaung-chaung, 0.72
 - "Mogaung Chaung" and "Nan Hto Chaung": 'Chaung' is the Burmese word for stream or river, left untranslated. I did not mark these wrong because the source names are kept as written, but 'sông Mogaung' and 'sông Nan Hto' would read better to… — vi/places/nam-leuk, 0.72
-
-### States as certain what the source hedges, or what garbled captions only hint at
-
-- "Yongdokoship": looks like a garbled or non-standard name — ms/places/yongdokoship, 0.30
-- Ribeira de Iguape → ริเบย์ราจีอีกวาปี (garbled; should be ริเบย์รา-ดี-อีกวาเป) — th/places/ribeira-de-iguape, 0.40
-- ambohitra-massif: "Massif Ambohitra" (Malay would be "Gunung Ambohitra"/"Massif Ambohitra" unclear, minor) — ms/places/ambohitra-massif, 0.50
 
 ### Repeats itself (intro, summary, steps and FAQ)
 
