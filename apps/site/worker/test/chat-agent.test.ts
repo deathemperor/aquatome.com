@@ -789,6 +789,13 @@ test('a chat opened from a saved tank says so first, with the tank as every hand
   expect(first.indexOf('The reader asks:')).toBeLessThan(first.indexOf('id t1: what they ask is about that tank'))
 })
 
+test('asked whether their tank is all right, the chat reviews it with the tank-mates check on that tank, says what to fix first, and asks for the readings it lacks', () => {
+  expect(SYSTEM).toContain('whether it is all right ("bể này ổn không"), review that tank: check_tank_mates with its id')
+  expect(SYSTEM).toContain('and no fish to add')
+  expect(SYSTEM).toContain('Open with the check\'s verdict, then what to fix first and why')
+  expect(SYSTEM).toContain('Its saved facts hold no water readings, so end by asking for the one to three')
+})
+
 test('the first message says where the chat started, what fish ID named, the earlier turns and what they showed, then the question', async () => {
   const h = await hb()
   const m = firstMessage('vi', 'Bể 60 lít nuôi được bao nhiêu con?', [{ question: 'Nuôi cá này thế nào?', text: 'Nuôi theo đàn.', blocks: [{ t: 'tool', tool: 'tank-mates', name: 'Nuôi chung', url: '/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:6' }] }],
