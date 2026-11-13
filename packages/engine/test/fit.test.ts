@@ -523,8 +523,10 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
   for (const t of history) expect(dealer(t), t).toEqual([])
   // Wholly a notice, each sentence one (two of the four such parts on the site on 13 Nov); a notice beside a fact, or a
   // dated batch, isn't.
-  for (const t of ['<p>Hiện ngoài tiệm có bán cá phượng hoàng bắt ngoài tự nhiên ở Venezuela, con nào cũng đã lớn hẳn.</p>', '<p>Gần đây có một đợt nhập từ Thái Lan về vài con đực có càng to khác thường.</p>', '<p>Lô này chỉ có 7 con.</p><p>Mới đây có một lô lớn Corydoras burgessi về.</p>']) expect(dealerNotice(t), t).toBe(true)
-  for (const t of ['<p>Loài này rất gần với B. brigittae. Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.</p>', `<p>${history[8]}</p>`, '<p>Cá chuột hiền.</p>', '', '<p>Cá cần nước mềm… Lô này chỉ có 7 con.</p>', '<p>Người ta gọi nó là “cá chuột.” Lô này chỉ có 7 con.</p>', '<p>Lô này chỉ có 7 con. pH phù hợp là 6–7.</p>', '<p>Lô này chỉ có 7 con; loài này cần nước mềm và pH 6–7.</p>', '<p>Lô này chỉ có 7 con, loài này cần nước mềm.</p>',
+  for (const t of ['<p>Hiện ngoài tiệm có bán cá phượng hoàng bắt ngoài tự nhiên ở Venezuela.</p>', '<p>Gần đây có một đợt nhập từ Thái Lan về vài con đực có càng to khác thường.</p>', '<p>Lô này chỉ có 7 con.</p><p>Mới đây có một lô lớn Corydoras burgessi về.</p>']) expect(dealerNotice(t), t).toBe(true)
+  for (const t of ['<p>Loài này rất gần với B. brigittae. Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.</p>', `<p>${history[8]}</p>`, '<p>Cá chuột hiền.</p>', '', '<p>Cá cần nước mềm… Lô này chỉ có 7 con.</p>', '<p>Người ta gọi nó là “cá chuột.” Lô này chỉ có 7 con.</p>', '<p>Lô này chỉ có 7 con. pH phù hợp là 6–7.</p>', '<p>Lô này chỉ có 7 con; loài này cần nước mềm và pH 6–7.</p>', '<p>Lô này chỉ có 7 con, loài này cần nước mềm.</p>', '<p>Lô này chỉ có 7 con, chúng cần nước mềm và chua.</p>',
+    // Every comma ends a clause, so the ram's notice that goes on about its batch after one stays too, to be rewritten.
+    '<p>Hiện ngoài tiệm có bán cá phượng hoàng bắt ngoài tự nhiên ở Venezuela, con nào cũng đã lớn hẳn.</p>',
     // Cut at every stop, so a notice cut in two by a quoted question or an initial stays too: unsure, nothing comes off.
     '<p>Lô này gồm cá mang nhãn “dolloi?” với 7 con.</p>', '<p>Lô này chỉ có 7 con P. dolloi.</p>']) expect(dealerNotice(t), t).toBe(false)
   // Its quote is the words that say it, so the rewrite takes only the sentence they're in.

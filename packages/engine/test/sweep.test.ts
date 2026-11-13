@@ -449,7 +449,7 @@ test('a shop\'s part that is wholly its notice of a batch or stock comes off whe
   await writeFile(file('entity.json'), JSON.stringify(e, null, 1))
   const vi = JSON.parse(await readFile(file('vi.json'), 'utf8'))
   Object.assign(vi.sections, {
-    'distribution:glaser': '<p>Hiện ngoài tiệm có bán cá bắt ngoài tự nhiên ở Venezuela, con nào cũng đã lớn hẳn.</p>',
+    'distribution:glaser': '<p>Hiện ngoài tiệm có bán cá bắt ngoài tự nhiên ở Venezuela.</p>',
     'beforeYouBuy:glaser': '<p>Gần đây có một đợt cá bắt tự nhiên từ Brazil rất đẹp vừa được nhập về.</p>',
     'notes:glaser': '<p>Cá chuột hiền. Gần đây có một đợt nhập từ Peru về.</p>',
     'diet:glaser': '<p>Lô này chỉ có 7 con.</p>',
