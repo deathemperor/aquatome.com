@@ -27,6 +27,11 @@ type Asks = {
   /** Pages to read (again: a top-up keeps what they said before) and the shops whose own pages to read. */
   read?: string[]
   shops?: string[]
+  /**
+   * How this term's entry is to say what it says, from a reader's read of a draft (the chief of staff, 14 Nov 2026, of
+   * Lũa's fifth: boiling and rot each once, what to leave out): the writer follows each line, and the rules check reads it.
+   */
+  write?: string[]
 }
 const ASKS = JSON.parse(readFileSync(new URL('./glossary-asks.json', import.meta.url), 'utf8')) as Record<string, Asks>
 const ENTRY_SCHEMA = {
@@ -38,21 +43,46 @@ type Entry = { definition: string; altNames: string[]; body: string; related: st
 /**
  * The house rules a glossary entry is read against besides its facts (the chief of staff, 14 Nov 2026, of the first Lũa:
  * industrial alcohol on one shop's word, "harmless" beside "toxic", tannins that "soften" water, six "one shop says…,
- * another says…", animals by names our pages don't use). Its notes join the fact check's, for the one rewrite; an entry
+ * another says…", animals by names our pages don't use). Its notes join the fact check's, for the rewrites; an entry
  * that still breaks one is not saved.
  */
 const RULES = `GLOSSARY RULES. Below are a Vietnamese glossary ENTRY about a fishkeeping term, the FACTS it was written from, the KINDS it must cover, the site's PAGES for the animals and plants the facts name, and the site's other TERMS with their definitions. List every place the ENTRY breaks one of these rules, in English, quoting the Vietnamese phrase:
 1. Two statements contradict each other (for example "tannins do not harm fish" and "the water turns toxic").
 2. A chemical (alcohol, bleach, hydrogen peroxide, an acid, a dye) is advised for wood, rock or decor on one shop's word. It needs a second source that is not a shop, or the source's own caution and a thorough rinse. Industrial alcohol is never advised.
 3. A word is used against a TERM's definition: tannins that lower pH a little do not soften water (hardness is GH and KH), and so on.
-4. The remark that sources or shops disagree appears more than once. It should be said once, with what the keeper can do about it.
+4. A thing is said in more than one place (a step such as boiling, a warning such as rot, a number): it should be said once, in one place. Or the remark that sources or shops disagree appears more than once, or another line takes a side on what it says they disagree on: it should be said once, with what the keeper can do about it (about one kind alone, in that kind's item).
 5. A kind in KINDS that the FACTS describe is missing; a kind is without the English name the FACTS give it; an English name is given that the FACTS don't give.
-6. An animal or plant in PAGES is called by a name its line doesn't list. One with no line in PAGES is called by anything but its scientific name or its English name as the FACTS write them: a Vietnamese name for it is invented.
-7. The kinds sold in Vietnam (KINDS, local) don't come first, or one says less than the FACTS give while a foreign name gets more. A kind doesn't open with what it is and how it looks, where the FACTS say so (a remark that no English name was found goes last).
+6. An animal or plant in PAGES is called by anything but its page's name, the first name on its line. One with no line in PAGES, or a group of them (a genus, "plecos", "pencilfish"), is called by anything but its scientific name as the FACTS write it: an English name, or a Vietnamese name the writer made up.
+7. The kinds sold in Vietnam (KINDS, local) don't come first, or one says less than the FACTS give while a foreign name gets more. A kind's item isn't in this order, where the FACTS say these: what it is, how it looks, whether it sinks and colours the water, what it is used for, then its other names (a remark that no English name was found goes last). A kind's own key facts (it sinks at once, it colours the water for long) sit elsewhere and not in its item.
 8. A brand or a product's name (a maker's, as in "Zoo Med Mopani"), where the kind's name is enough.
 9. A remark on safety that leaves a keeper unsure whether to use it in a tank ("the leaves are poisonous, the wood less so"), where the FACTS say how it is used in tanks.
+10. A comparison the FACTS don't make ("it lowers pH more than other woods").
+11. "Rêu" (moss) is used for algae, which is "tảo", as the TERMS have it.
+12. A line under THIS TERM is not followed.
 Reply {"notes": [...]}, empty if the entry keeps every rule.`
 const RULES_SCHEMA = { type: 'object', required: ['notes'], properties: { notes: { type: 'array', items: { type: 'string' } } } }
+
+/** Words as a reader counts them: a Vietnamese syllable is one, as the 1,527 and 2,917 of Lũa's drafts were counted. */
+const words = (html: string) => unescapePlain(html.replace(/<[^>]+>/g, ' ')).split(/\s+/).filter(Boolean).length
+
+/**
+ * Where an entry runs past its length, as notes that block the save like a broken rule (the chief of staff, 14 Nov 2026:
+ * Lũa's fifth ran to 2,917 words, twice the first's 1,527, and the length bred contradictions). A term that comes in
+ * kinds (three items or more that open with a name) holds to about 1,500 words and about 60 a kind, its depth left to
+ * the kinds' own pages; any other to about 300. Each limit has a fifth's slack, or half for an item.
+ */
+export function lengthNotes(body: string): string[] {
+  const items = body.match(/<li\b[^>]*>[\s\S]*?<\/li>/g) ?? []
+  const kinds = items.filter(li => /^<li\b[^>]*>\s*<strong>/.test(li)).length >= 3
+  const [cap, most] = kinds ? [1500, 1800] : [300, 450]
+  const n = words(body)
+  const out = n > most ? [`The entry is ${n} words: hold it to about ${cap}${kinds ? ', about 60 a kind' : ''}, and leave what is left out to the pages that use the term.`] : []
+  for (const li of items) {
+    const m = words(li)
+    if (m > 90) out.push(`An item is ${m} words, at most about 60: "${unescapePlain(li.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim().slice(0, 50)}…". Keep what it is, how it looks, whether it sinks and colours the water and what it is for.`)
+  }
+  return out
+}
 
 /**
  * The site's pages for the animals and plants a text names: a page one of whose names of two words or more (its own, its
@@ -132,8 +162,8 @@ export function addResearch(a: TopicFacts, b: TopicFacts): TopicFacts {
 /**
  * A glossary term's fuller Vietnamese entry, written by AquaTome from web research as its own guides are (topics.ts): the
  * research's cited facts (kept in engine-state/glossary/<id>.json, reused with `reuse`), an entry written from them only
- * (meaning, other names, what it means in a tank and what to do, related terms), checked against them with one rewrite on
- * the checker's notes. `sf`: the term's slug in Seriously Fish's glossary, read first and cited.
+ * (meaning, other names, what it means in a tank and what to do, related terms), checked against them and the house rules,
+ * rewritten on the notes, and again while it still isn't saved. `sf`: the term's slug in Seriously Fish's glossary, read first and cited.
  *
  * The entry replaces the old one only at the bar: below it, the term keeps the entry it has, and the report says why.
  * Other names are added only as a source writes them: word for word in the research's facts, never one the writer
@@ -190,26 +220,31 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     asks.local?.length ? `--- LOẠI BÁN Ở VIỆT NAM ---\n${asks.local.join('\n')}` : '',
     asks.foreign?.length ? `--- TÊN NƯỚC NGOÀI ---\n${asks.foreign.join('\n')}` : '',
     asks.asked?.length ? `--- NGƯỜI ĐỌC ĐÃ HỎI ---\n${asks.asked.join('\n')}` : '',
+    asks.write?.length ? `--- CHO MỤC NÀY ---\n${asks.write.join('\n')}` : '',
   ].filter(Boolean).map(x => `\n\n${x}`).join('')
-  const write = (notes?: string[]) => d.llm<Entry>({
+  // A rewrite starts from the draft before it, so what the notes don't touch stays as it was.
+  const write = (notes?: string[], before?: Entry) => d.llm<Entry>({
     system: 'You write Vietnamese aquarium glossary entries from facts. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: ENTRY_SCHEMA,
-    prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện hoặc phạm quy tắc. Sửa theo các ghi chú sau, chỉ viết điều dữ kiện có:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}${kinds}\n\n--- TRANG CỦA AQUATOME (tên trang | tên khác) ---\n${pages.join('\n')}\n\n--- CÁC THUẬT NGỮ KHÁC (id: tên: định nghĩa) ---\n${terms}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter)}`,
+    prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện, phạm quy tắc hoặc quá dài. Viết lại từ bản trước: sửa theo các ghi chú sau, giữ những chỗ không bị ghi chú, chỉ viết điều dữ kiện có:\n${notes.map(n => `- ${n}`).join('\n')}${before ? `\n\n--- BẢN TRƯỚC ---\n${JSON.stringify(before)}` : ''}` : ''}${kinds}\n\n--- TRANG CỦA AQUATOME (tên trang | tên khác) ---\n${pages.join('\n')}\n\n--- CÁC THUẬT NGỮ KHÁC (id: tên: định nghĩa) ---\n${terms}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter)}`,
   })
   const asGuide = (e: Entry): Written => ({ name: vi.name, summary: [e.definition], body: e.body, faq: [] })
   const rules = async (e: Entry) => (await d.llm<{ notes?: string[] }>({
     system: 'You check a Vietnamese glossary entry against house rules. Reply only with JSON.', model: 'opus', schema: RULES_SCHEMA,
-    prompt: `${RULES}\n\n--- KINDS ---\nlocal: ${(asks.local ?? []).join('; ') || '(none named)'}\nforeign: ${(asks.foreign ?? []).join('; ') || '(none named)'}\n\n--- PAGES ---\n${pages.join('\n') || '(none)'}\n\n--- TERMS ---\n${terms}\n\n--- FACTS ---\n${JSON.stringify(forWriter)}\n\n--- ENTRY ---\n${JSON.stringify(e)}`,
+    prompt: `${RULES}\n\n--- KINDS ---\nlocal: ${(asks.local ?? []).join('; ') || '(none named)'}\nforeign: ${(asks.foreign ?? []).join('; ') || '(none named)'}\n\n--- THIS TERM ---\n${(asks.write ?? []).join('\n') || '(nothing more)'}\n\n--- PAGES ---\n${pages.join('\n') || '(none)'}\n\n--- TERMS ---\n${terms}\n\n--- FACTS ---\n${JSON.stringify(forWriter)}\n\n--- ENTRY ---\n${JSON.stringify(e)}`,
   })).notes ?? []
   const check = async (e: Entry) => {
     const [g, r] = await Promise.all([checkGuide(d.llm, 'Vietnamese', forWriter, asGuide(e)), rules(e)])
-    return { score: g.score, notes: [...g.notes, ...r], broken: r.length }
+    const long = lengthNotes(e.body)
+    return { score: g.score, notes: [...g.notes, ...r, ...long], broken: r.length + long.length }
   }
   const passes = (r: { score: number; broken: number }) => r.score >= QUALITY_THRESHOLD && !r.broken
   let w = await write()
   let review = await check(w)
   const tries = [review]
-  if (!passes(review) || review.notes.length) {
-    const again = await write(review.notes)
+  // A rewrite on the notes, and a second while the best still isn't saved (the chief of staff, 14 Nov 2026: Lũa's fifth
+  // left six rule breaks after its one rewrite).
+  for (let i = 0; i < 2 && (!passes(review) || (i === 0 && review.notes.length)); i++) {
+    const again = await write(review.notes, w)
     const r = await check(again)
     tries.push(r)
     // The one that keeps more of the rules, then the better grounded.
