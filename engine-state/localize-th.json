@@ -8392,12 +8392,44 @@
     ]
   },
   "corydoras-arcuatus": {
-    "at": "2026-11-10",
-    "from": "2026-10-29",
-    "name": "ปลาแพะสกังค์",
+    "at": "2026-11-13",
+    "from": "2026-11-13",
+    "name": "แพะอาร์คัวตัส",
     "confidence": "medium",
-    "score": 0.92,
-    "notes": []
+    "score": 0.9,
+    "notes": [
+      "Item 4: \"ปลาแพะอาจได้กินไม่พอได้\" is clumsy with the doubled \"ได้\"; rephrase to \"ปลาแพะอาจได้กินไม่พอ\".",
+      "Item 24: \"armoured' or 'mailed' catfishes\" is rendered as one term, so \"mailed\" is dropped; this is minor.",
+      "Item 22: \"แทนที่จะมนกว่า\" is a literal rendering of \"as opposed to more rounded\"; use \"ไม่มนเหมือนตัวเมีย\" instead."
+    ],
+    "parts": {
+      "quickFacts:sprucepets": "77b251131f71",
+      "distribution:sprucepets": "50adf3f25a77",
+      "maintenance:sprucepets": "6355d9cae65c",
+      "diet:sprucepets": "3e0c88e02894",
+      "behaviour:sprucepets": "81fe7e13c657",
+      "dimorphism:sprucepets": "7483206f0bd1",
+      "reproduction:sprucepets": "9840e8bb2475",
+      "notes:sprucepets": "953c07b9b488",
+      "quickFacts:seriouslyfish": "9d21b1db96c0",
+      "quickFacts:planetcatfish": "77cb4cdf3806",
+      "beforeYouBuy:planetcatfish": "b87ab4d8fa4c",
+      "distribution:seriouslyfish": "98743949ef08",
+      "distribution:planetcatfish": "b18ad85ef164",
+      "maintenance:seriouslyfish": "b62c38e62b44",
+      "waterConditions:seriouslyfish": "35ac7ca12953",
+      "equipment:planetcatfish": "b4b4ca98f717",
+      "diet:seriouslyfish": "d71ea10328b3",
+      "diet:planetcatfish": "d39a792fb78c",
+      "behaviour:seriouslyfish": "e937301ff286",
+      "behaviour:planetcatfish": "3416a78f8e1b",
+      "dimorphism:seriouslyfish": "a4f3f03129d1",
+      "dimorphism:planetcatfish": "0f88f578bd73",
+      "reproduction:planetcatfish": "7b5ecc39a7f1",
+      "notes:seriouslyfish": "79efd6225ffb",
+      "references:seriouslyfish": "6215246f90c4",
+      "references:planetcatfish": "7f6b33202a2d"
+    }
   },
   "corydoras-armatus": {
     "at": "2026-11-10",
@@ -10198,6 +10230,349 @@
       "notes:glaser": "4541ec840953"
     }
   },
+  "crenicichla-albopunctata": {
+    "at": "2026-11-13",
+    "from": "2026-11-09",
+    "name": "ไพค์ซิคลิดจุดขาว",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 4: tank volume '137 ลิตร' (120×38×30 cm) left as an exact figure. This is a tank size, so use the keepers' size of about 150 litres, not the exact conversion.",
+      "Items 1–3: river names 'Demerara' and 'Approuague' are left in Latin letters. Add Thai transliterations (เดเมอราระ, อัปรูอาก) or an equivalent, so readers can read them.",
+      "Item 7: 'อาหารเม็ดแผ่นสาหร่าย' is clumsy for 'algae wafers'. Use 'อาหารเม็ดจมสาหร่าย' or 'วาเฟอร์สาหร่าย'. 'ไรทะเล' is acceptable for brine shrimp but 'อาร์ทีเมีย' is more common among Thai hobbyists.",
+      "Item 1: 'ไพค์ซิคลิด' and 'ปลาหมอ' are used together. Use one hobby term consistently, e.g. 'ปลาหมอไพค์' or 'ไพค์ซิคลิด'. Put the English term in brackets if needed.",
+      "Item 5: 'มีแนวโน้มจะขุดคุ้ยและจัดของตกแต่งในตู้ใหม่ตามใจตัวเอง' is stiff. Use more natural wording such as 'มักขุดและย้ายของตกแต่งตามใจ'."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "498eb8a45fd9",
+      "distribution:seriouslyfish": "60f8e3970b0b",
+      "habitat:seriouslyfish": "90572251ec03",
+      "aquariumSize:seriouslyfish": "37ee0d6731b0",
+      "maintenance:seriouslyfish": "a34f98f938ed",
+      "waterConditions:seriouslyfish": "69f32a9d9b00",
+      "diet:seriouslyfish": "0043472b4c05",
+      "behaviour:seriouslyfish": "ec66a14f77f0",
+      "dimorphism:seriouslyfish": "50dfa8075064",
+      "reproduction:seriouslyfish": "e537dac7e7f7"
+    }
+  },
+  "crenicichla-compressiceps": {
+    "at": "2026-11-13",
+    "from": "2026-11-10",
+    "name": "ปลาหมอไพค์คอมเพรสซิเซ็ปส์",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 10: Thai adds 'ครีบหลัง ครีบก้น และครีบหางทั้งสองเพศ' — English only says 'vertical fins'. This specifies which fins, an added fact; keep general (e.g., 'ครีบแนวตั้ง').",
+      "Item 10: 'ปลาสายที่มีจำหน่าย' for 'variety' is okay but 'the females wear the trousers' rendered as 'คุมอำนาจ' is fine; no change needed there.",
+      "Item 8: 'Earth and mealworms' translated as 'ไส้เดือนดินและหนอนนก' — 'หนอนนก' is mealworm in Thai hobby usage, but 'หนอนนก' sometimes means superworm; consider 'หนอนนก (mealworm)'. Also 'สัตว์จำพวกกุ้งกั้งปูด้วย' is awkward; use 'สัตว์น้ำเปลือกแข็ง/กุ้งขนาดเล็ก'.",
+      "Item 5: 'Aquarium base: 90 × 38 cm' vs later 90×45×37.5 cm - fine as source; but 'ประมาณ 154 ลิตร' ok. No change.",
+      "Item 12: 'ขุนคู่' (condition a pair) is acceptable but 'ปลาหมอคริบ' for Kribensis — use common Thai name 'ปลาหมอคริบ/คริบเบนซิส'.",
+      "Item 2/3/4: 'Tocantins' river name left in Latin letters; consider Thai transliteration 'โตกันตินส์' with Latin in brackets.",
+      "Item 2: 'ก้าวร้าวมาก ... ใหญ่กว่าที่ขนาดตัวของมันบ่งบอก' is clunky; rephrase as 'ใหญ่กว่าที่คาดจากขนาดตัว'.",
+      "Item 13: Thai omits nothing major, but 'ตัวเล็กที่ยอดเยี่ยม' reads literal; 'ปลาตัวเล็กที่น่าเลี้ยงมาก' is more natural."
+    ],
+    "parts": {
+      "quickFacts:glaser": "bd539e85e4eb",
+      "beforeYouBuy:seriouslyfish": "c01748f06603",
+      "distribution:seriouslyfish": "3abe51bcb364",
+      "habitat:seriouslyfish": "3abe51bcb364",
+      "aquariumSize:seriouslyfish": "6bdd5b3f7efa",
+      "maintenance:seriouslyfish": "b66378f17b5d",
+      "waterConditions:seriouslyfish": "72feae526064",
+      "diet:seriouslyfish": "b710766fcaaf",
+      "behaviour:seriouslyfish": "4886e05dccb8",
+      "dimorphism:glaser": "cd9bbbc7542d",
+      "dimorphism:seriouslyfish": "264c6977f282",
+      "reproduction:seriouslyfish": "e195e96c2a0d",
+      "notes:seriouslyfish": "593e228b88fa"
+    }
+  },
+  "crenicichla-johanna": {
+    "at": "2026-11-13",
+    "from": "2026-11-08",
+    "name": "ไพค์ โจฮันนา",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "Item 10: \"ยังไม่มีการเพาะพันธุ์ได้\" is slightly awkward; use \"ยังไม่มีรายงานการเพาะพันธุ์ในวงการปลาสวยงาม\" or \"ยังไม่เคยเพาะพันธุ์ได้\".",
+      "Items 1 and 11: \"หลายสีสันที่เกิดขึ้น\" is vague for \"colour forms\"; use \"หลายรูปแบบสี\" or \"สายพันธุ์สีต่าง ๆ\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "ebcd23c9b57a",
+      "distribution:seriouslyfish": "71882c1a5181",
+      "habitat:seriouslyfish": "049ca96d4542",
+      "aquariumSize:seriouslyfish": "46eda0e0f964",
+      "maintenance:seriouslyfish": "c3d200bce558",
+      "waterConditions:seriouslyfish": "9175d041c073",
+      "diet:seriouslyfish": "a5b299fadc94",
+      "behaviour:seriouslyfish": "7e8ae1f3bdbd",
+      "dimorphism:seriouslyfish": "73c8d142c85d",
+      "reproduction:seriouslyfish": "4a42ae34b084",
+      "notes:seriouslyfish": "3b143870e9eb"
+    }
+  },
+  "crenicichla-lepidota": {
+    "at": "2026-11-13",
+    "from": "2026-11-09",
+    "name": "ปลาหมอไพค์ เลพิโดต้า",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"ปลาที่นำเข้ามา\" adds the idea of importing; the English says only \"the fish received\". Use a neutral wording such as \"ปลาที่ได้รับมา\"."
+    ],
+    "parts": {
+      "quickFacts:glaser": "be17291cf0bf",
+      "distribution:glaser": "f8bca674ea6f",
+      "notes:glaser": "825b80754711",
+      "references:glaser": "118efd84cc10"
+    }
+  },
+  "crenicichla-lugubris": {
+    "at": "2026-11-13",
+    "from": "2026-11-09",
+    "name": "ไพค์ลูกูบริส",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 6: \"ประมาณ 972 ลิตร (180 × 60 × 90 ซม.)\" — the volume is an exact conversion of the figure. It should be a rounded whole number (about 970 litres), or follow the rounding the handbook uses.",
+      "Item 9: \"ไรทะเล\" for brine shrimp is a non-standard term. Hobbyists say \"อาร์ทีเมีย\" (artemia). Also, \"อาหารผัก\" is awkward; use \"อาหารจากพืช\" (plant-based food).",
+      "Item 3: the river names (Corantijn, Essequibo, Negro, Uatumã, Branco) are left in Latin script. Give the Thai form or add it in brackets, and keep the place names consistent with item 4. Item 4 transliterates some names (แอมะซอน) but not others.",
+      "Item 1: \"Atabo red pike cichlid\" is left in English. Add a Thai common name or a short explanation. The phrase \"ตัวที่จะมาเป็นคู่มักถูกฆ่าตาย\" is awkward; use \"ปลาที่จะนำมาจับคู่มักถูกฆ่า\". The same applies in item 13.",
+      "Item 7: \"ตามใจตัวเอง\" is too colloquial; use \"ตามความต้องการของมัน\". \"ไม้น้ำ... ผูกติดกับขอนไม้\" is fine, but \"rooted\" is better rendered as \"ปลูก/ยึดเกาะ\".",
+      "Item 4: \"ซึ่งเป็นแม่น้ำสาขา\" is correct, but \"Jutai เป็นเทศบาล\" leaves the name in Latin script. Consider \"ชูไตย์\" or a similar Thai form."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "e0c459bcc31c",
+      "quickFacts:glaser": "0e0414c9e74d",
+      "distribution:seriouslyfish": "1fc78210408d",
+      "distribution:glaser": "c4c9339602ee",
+      "habitat:seriouslyfish": "24bae8af20ed",
+      "aquariumSize:seriouslyfish": "3c0f6c9b308f",
+      "maintenance:seriouslyfish": "a34f98f938ed",
+      "waterConditions:seriouslyfish": "58be5062d8f3",
+      "diet:seriouslyfish": "88ba0102f912",
+      "behaviour:seriouslyfish": "4e042d2ef565",
+      "dimorphism:seriouslyfish": "ca69732ec468",
+      "dimorphism:glaser": "07462e211924",
+      "reproduction:seriouslyfish": "339ee602e2be",
+      "notes:seriouslyfish": "a867ba1400d2"
+    }
+  },
+  "crenicichla-marmorata": {
+    "at": "2026-11-13",
+    "from": "2026-11-09",
+    "name": "ไพค์ซิคลิด มาร์โมราต้า",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"Lago Maracana\" is left in Latin script; optionally add Thai transliteration or \"ทะเลสาบ Maracana\" for readability (minor).",
+      "Item 1: \"ได้รับ Crenicichla marmorata\" is slightly ambiguous; \"ได้รับปลา Crenicichla marmorata\" would be clearer (minor)."
+    ],
+    "parts": {
+      "distribution:glaser": "92ab58474a3a",
+      "notes:glaser": "d2e7c122bdde"
+    }
+  },
+  "crenicichla-notophthalmus": {
+    "at": "2026-11-13",
+    "from": "2026-11-03",
+    "name": "ไพค์ซิคลิด โนทอฟทาลมัส",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "#5: \"really have fire in their bodies\" rendered as \"มีนิสัยดุดันและใจร้อนจริง ๆ\" — adds 'aggressive and hot-tempered' traits not in the source; it is an idiom for spirited/feisty, so use a more neutral rendering such as \"ซุกซนและมีพลังเหลือเฟือ\" or \"ดุและแข็งแรงเกินตัว\".",
+      "#6: \"which is not found elsewhere in the genus\" — fine, but \"จุดคล้ายตา\" for eye spots; use the hobby term \"จุดตา (eye spot)\" or \"ลายจุดคล้ายดวงตา\".",
+      "#6: \"cherry-red\" translated as \"สีแดงเชอร์รี\" is acceptable but \"แดงเลือดนก/แดงสด\" is more natural.",
+      "#1/#2: \"ปลาหมอสี\" is correct; but \"ได้รับการบรรยายลักษณะไว้\" is stiff — use \"ได้รับการตั้งชื่อ/อธิบายชนิดเมื่อปี 1913\".",
+      "#1/#7: \"กลุ่มขนาดเล็ก\" for \"dwarf\" is vague; use \"ชนิดแคระ/ขนาดเล็ก (dwarf)\"."
+    ],
+    "parts": {
+      "quickFacts:glaser": "a168e8d4e10b",
+      "beforeYouBuy:glaser": "058959cda35d",
+      "distribution:glaser": "1e2edc36fa3f",
+      "aquariumSize:glaser": "931681970dca",
+      "behaviour:glaser": "89261d42b479",
+      "dimorphism:glaser": "2a150f3d3c39",
+      "reproduction:glaser": "bc12635334ff"
+    }
+  },
+  "crenicichla-proteus": {
+    "at": "2026-11-13",
+    "from": "2026-11-09",
+    "name": "ไพค์ซิคลิด โพรเทียส",
+    "confidence": "low",
+    "score": 0.93,
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "e2aa1cf6623f",
+      "distribution:seriouslyfish": "39714b45702d",
+      "habitat:seriouslyfish": "353a34c7d860",
+      "aquariumSize:seriouslyfish": "3007282d09f5",
+      "maintenance:seriouslyfish": "a34f98f938ed",
+      "waterConditions:seriouslyfish": "69f32a9d9b00",
+      "diet:seriouslyfish": "0043472b4c05",
+      "behaviour:seriouslyfish": "7d4998a3a698",
+      "dimorphism:seriouslyfish": "5c575250616b",
+      "reproduction:seriouslyfish": "4a42ae34b084",
+      "notes:seriouslyfish": "5c3bb68f77c6"
+    }
+  },
+  "crenicichla-regani": {
+    "at": "2026-11-13",
+    "from": "2026-11-09",
+    "name": "ไพค์ซิคลิด รีกานิ",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 1: \"ถูกต้องตามหลักอนุกรมวิธานนั้น\" adds \"taxonomic\" validity; the English only says \"valid\". This is minor.",
+      "Item 1: \"the number for sure increases to over 90\" is rendered as \"จำนวนนี้เกิน 90 ชนิดแน่นอน\". That is acceptable, but \"ไพค์ซิคลิด\" is a transliteration. Consider adding the more common Thai name, such as \"ปลาหมอไพค์ (Pike cichlid)\".",
+      "Item 1: \"most species-rich genus of cichlid at all\" is rendered as \"สกุลที่มีจำนวนชนิดมากที่สุดในบรรดาปลาหมอสีทั้งหมด\". This is acceptable.",
+      "Item 1: \"real dwarf cichlids\" is rendered as \"ปลาหมอแคระแท้ ๆ\". \"ปลาหมอสีแคระ\" is the term hobbyists usually use, so use it for consistency with \"ปลาหมอสี\" earlier in the text.",
+      "Item 3: \"cave brooder\" is rendered as \"วางไข่ในโพรง\". This is fine, but \"ปลาที่วางไข่ในโพรง/ถ้ำ (cave spawner)\" is closer to the hobby term. It could also say that the fish breeds in caves, not only that it lays eggs there."
+    ],
+    "parts": {
+      "quickFacts:glaser": "7def64bbc38e",
+      "dimorphism:glaser": "012919e1fb4d",
+      "reproduction:glaser": "9aca4947d1cc",
+      "notes:glaser": "f73aeebf17f6"
+    }
+  },
+  "crenicichla-semifasciata": {
+    "at": "2026-11-13",
+    "from": "2026-11-10",
+    "name": "ไพค์ซิคลิด เซมิฟาสเซียตา",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "\"ปลาไพค์ซิคลิด\" is a transliteration; hobbyists in Thailand more often say \"ปลาไพค์ซิกลิด\" or \"ปลาซิคลิดไพค์\" (or add the Latin name Crenicichla) — optional, minor."
+    ],
+    "parts": {
+      "notes:glaser": "c767d71a5794"
+    }
+  },
+  "crenicichla-strigata": {
+    "at": "2026-11-13",
+    "from": "2026-11-03",
+    "name": "ไพค์ซิคลิด สตริกาต้า",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 4: \"Volume: ~972 litres (180 × 60 × 90 cm)\" is a tank-size figure; per the table, a tank this size should be given as a keeper-style rounded figure, not the exact calculated 972 litres. Use e.g. ประมาณ 1,000 ลิตร (or the whole-litre convention), as 972 reads as an exact conversion.",
+      "Item 1: \"Lugubria strigata\" is the text's Latin name. The original English says the fish is from Brazil only, which the translation matches, but the ranges in items 2 and 3 say Guyana and Brazil. The inconsistency is in the source, so it is not a translation error.",
+      "Item 7: \"brineshrimp\" is rendered as \"ไรทะเล (อาร์ทีเมีย)\". Thai hobbyists usually say \"อาร์ทีเมีย\" or \"ไรน้ำเค็ม\", and \"ไรทะเล\" is non-standard. \"mussel\" as \"หอยแมลงภู่\" is acceptable.",
+      "Item 1/11: \"ไพค์ซิคลิดลาย\" and \"susceptible to hole in the head\" are fine. In item 5, \"จัดของตกแต่งในตู้ใหม่ตามใจตัวเอง\" adds \"ใหม่\" (new), which is not in the source. Delete it."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "a4431d451d1b",
+      "distribution:seriouslyfish": "aaa7f36cf945",
+      "habitat:seriouslyfish": "aaa7f36cf945",
+      "aquariumSize:seriouslyfish": "f710a051bbd9",
+      "maintenance:seriouslyfish": "a34f98f938ed",
+      "waterConditions:seriouslyfish": "742d4338f584",
+      "diet:seriouslyfish": "0b0d9fa0c772",
+      "behaviour:seriouslyfish": "4e042d2ef565",
+      "dimorphism:seriouslyfish": "d6d0bd705b94",
+      "reproduction:seriouslyfish": "34797846fc58",
+      "notes:seriouslyfish": "cb1eaaf8cd14"
+    }
+  },
+  "crenicichla-tigrina": {
+    "at": "2026-11-13",
+    "from": "2026-11-08",
+    "name": "ไทเกอร์ไพค์ซิคลิด",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 10: \"in the hobby\" is translated as \"ในตู้ปลา\" (in aquariums). \"ในวงการปลาสวยงาม\", as in items 1 and 11, is more consistent and closer to the original.",
+      "Items 1–3: \"แม่น้ำ Rio Trombetas\" leaves \"Rio\" (river) in Latin letters after \"แม่น้ำ\", so the word for river appears twice. Consider \"แม่น้ำตรอมเบตัส (Rio Trombetas)\" or drop \"แม่น้ำ\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "7145db03fc9e",
+      "distribution:seriouslyfish": "8e56c551f27f",
+      "habitat:seriouslyfish": "8e56c551f27f",
+      "aquariumSize:seriouslyfish": "03519ca1bdd7",
+      "maintenance:seriouslyfish": "a34f98f938ed",
+      "waterConditions:seriouslyfish": "287f2ef0cda5",
+      "diet:seriouslyfish": "88ba0102f912",
+      "behaviour:seriouslyfish": "7e8ae1f3bdbd",
+      "dimorphism:seriouslyfish": "394bfd24866d",
+      "reproduction:seriouslyfish": "34797846fc58",
+      "notes:seriouslyfish": "5cf9997bc034"
+    }
+  },
+  "crenicichla-zebrina": {
+    "at": "2026-11-13",
+    "from": "2026-11-09",
+    "name": "ปลาไพค์ซีบรีน่า",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [],
+    "parts": {
+      "distribution:glaser": "9c210686676d",
+      "dimorphism:glaser": "ae2d7af8bd35",
+      "notes:glaser": "a630f576706d"
+    }
+  },
+  "crenuchus-spilurus": {
+    "at": "2026-11-13",
+    "from": "2026-11-03",
+    "name": "เซลฟินเตตร้า",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 6: 'Alder cones' translated as 'ลูกสนอัลเดอร์' (pine cones of alder) – alder is not a pine; cones should be 'ผลอัลเดอร์/โคนต้นอัลเดอร์' (alder cones), mistranslation.",
+      "Item 6: 'biologically-immature aquaria' rendered as 'ตู้ที่วงจรไนโตรเจนยังไม่สมบูรณ์' – adds specific meaning; better 'ตู้ที่ระบบชีวภาพ/ระบบกรองยังไม่เสถียร (ตู้ที่เพิ่งตั้งใหม่)'.",
+      "Item 6: 'driftwood roots and branches' as 'รากและกิ่งขอนไม้' is awkward; use 'ขอนไม้ รากไม้ และกิ่งไม้'.",
+      "Item 8: 'micropredator' rendered as 'นักล่าขนาดเล็ก' loses meaning; use 'ผู้ล่าสัตว์ขนาดจิ๋ว'. 'Daphnia, Moina' glossed as 'ไรแดง' is fine, but 'Artemia nauplii' as 'ไรทะเลแรกฟัก' is non-standard; use 'อาร์ทีเมียแรกฟัก'.",
+      "Item 12: 'microworm' left as 'ไมโครเวิร์ม' and 'grindal worm' as 'หนอนกรินดัล' – acceptable but 'ผสมพันธุ์/ถูกไล่ออก' fine; 'ejected' is okay. 'brine shrimp' as 'ไรทะเล' is inconsistent with 'Artemia' usage; unify as 'อาร์ทีเมีย'.",
+      "Item 1/9: 'sailfin characin' as 'เซลฟินคาราซิน' transliterated; consider 'ปลาคาราซินครีบเรือใบ'.",
+      "Item 13: 'Crenuchidae ... แยกออกจากปลาอันดับ Characiformes' – wording odd; 'อาจเคยเห็นข้อมูล' omits subject 'you'; use 'อาจเคยเห็นการกล่าวว่า'.",
+      "Item 3/14: 'Crenuchus cf. spilurus' placed first in the sentence without a noun, acceptable; item 14 'ครีบเรือใบ' fine. Item 5: 'Volume ~68 litres' kept; ok."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "38bf91c53318",
+      "distribution:seriouslyfish": "3a51e833829f",
+      "distribution:glaser": "1808b62df486",
+      "habitat:seriouslyfish": "51c5b9138316",
+      "aquariumSize:seriouslyfish": "c212c7b7335c",
+      "maintenance:seriouslyfish": "9b111adc2dd7",
+      "waterConditions:seriouslyfish": "56dff68842e3",
+      "diet:seriouslyfish": "34fd474fb99a",
+      "behaviour:seriouslyfish": "ba64a8abcec7",
+      "dimorphism:seriouslyfish": "be399e519288",
+      "dimorphism:glaser": "e8db9ee5c880",
+      "reproduction:seriouslyfish": "3fd1a4ba62b9",
+      "notes:seriouslyfish": "779d4758465e",
+      "notes:glaser": "463fe0195b93",
+      "references:seriouslyfish": "49054efc536e"
+    }
+  },
+  "crossocheilus-atrilimes": {
+    "at": "2026-11-13",
+    "from": "2026-11-06",
+    "name": "Crossocheilus atrilimes",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "Item 7: \"มอสในสกุล Vesicularia\" adds \"มอส\" for \"fine-leaved, higher plants\". Mosses are not \"higher plants\", so keep the wording close to the source or drop \"มอส\".",
+      "Item 7: the term \"aufwuchs\" is left in German. Add a Thai gloss such as \"สิ่งมีชีวิตและตะไคร่ที่เกาะตามพื้นผิว\" or \"อาหารที่เกาะตามผิวหน้าวัสดุ\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "3e94a5e78cac",
+      "distribution:seriouslyfish": "36f20ea97c6f",
+      "habitat:seriouslyfish": "26ab7bf60663",
+      "aquariumSize:seriouslyfish": "317e86095a9c",
+      "maintenance:seriouslyfish": "7caf451c4e86",
+      "waterConditions:seriouslyfish": "c822ddafac95",
+      "diet:seriouslyfish": "5e4f02042d80",
+      "behaviour:seriouslyfish": "a64f0a61e8b0",
+      "dimorphism:seriouslyfish": "0453c2d6717e",
+      "reproduction:seriouslyfish": "36e16f0b5811",
+      "notes:seriouslyfish": "8ca35e944228",
+      "references:seriouslyfish": "a307bdc512d4"
+    }
+  },
   "crossocheilus-burmanicus": {
     "at": "2026-10-31",
     "from": "2026-10-30",
@@ -10221,6 +10596,24 @@
       "Item 7: \"มีลายจาง ๆ บนครีบหาง\" blurs the source, where the posterior blotch is faintly marked on the caudal fin; make that link clearer."
     ]
   },
+  "crossocheilus-elegans": {
+    "at": "2026-11-13",
+    "from": "2026-10-31",
+    "name": "Crossocheilus elegans",
+    "confidence": "low",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "8f0e9459f841",
+      "distribution:seriouslyfish": "2b5e8cd56023",
+      "habitat:seriouslyfish": "d20427f12135",
+      "aquariumSize:seriouslyfish": "2d77117355d0",
+      "waterConditions:seriouslyfish": "82bcf310c130",
+      "diet:seriouslyfish": "71e2233a7064",
+      "notes:seriouslyfish": "5ef0f5554aa4",
+      "references:seriouslyfish": "62711e4482af"
+    }
+  },
   "crossocheilus-langei": {
     "at": "2026-11-04",
     "from": "2026-11-03",
@@ -10233,6 +10626,34 @@
       "Item 11: 'ผู้เลี้ยง', 'ตลาด' and 'ตู้ปลา' are used loosely across the item. Consider 'ตลาดปลาสวยงาม' consistently, and 'ผสมพันธุ์' for the breeding sentences."
     ]
   },
+  "crossocheilus-latius": {
+    "at": "2026-11-13",
+    "from": "2026-10-31",
+    "name": "ทาริคิลาบีโอ ลาเทียส",
+    "confidence": "low",
+    "score": 0.45,
+    "notes": [
+      "Item 4: '304 litres (80 US gal)' became 'ประมาณ 300 ลิตร'. Per the table, 80 US gal is not listed, so it should be converted and rounded to whole litres, i.e. 'ประมาณ 304 ลิตร'. 300 is the wrong figure.",
+      "Item 6: the temperature bullet drops the pH-independent detail 'Weakly acidic to neutral' only partly, but 'ทนต่ออุณหภูมิที่สูงหรือต่ำกว่านี้' is vaguer than 'even greater extremes'. Consider 'ทนอุณหภูมิที่สุดโต่งกว่านี้ได้ในช่วงสั้น ๆ'.",
+      "Item 8: 'SF member Andy Rushworth has kept T. latius' became 'มีรายงานจากผู้เลี้ยง'. This is acceptable as neutral wording, but the original says the keeper kept this fish personally, so 'ผู้เลี้ยงรายหนึ่งที่เคยเลี้ยงปลาชนิดนี้ระบุว่า' is more faithful.",
+      "Item 2: 'เพิ่งมีการแยกกลุ่มอนุกรมวิธาน...เมื่อไม่นานมานี้' is redundant ('เพิ่ง' and 'ไม่นานมานี้'). Drop one.",
+      "Item 1: 'ปลาตะเพียน' for cyprinid and 'ปลาสกุลเดียวกัน' are fine. 'ปลา Garra' is left in Latin, so add the Thai name or a bracket."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "be9e3c663b83",
+      "distribution:seriouslyfish": "b537fbc5ed88",
+      "habitat:seriouslyfish": "cf7371f23697",
+      "aquariumSize:seriouslyfish": "06f8735a3875",
+      "maintenance:seriouslyfish": "0be93de890a1",
+      "waterConditions:seriouslyfish": "6ca42d0926fd",
+      "diet:seriouslyfish": "cf6b1aa360bc",
+      "behaviour:seriouslyfish": "9b9bb2baf0ef",
+      "dimorphism:seriouslyfish": "0453c2d6717e",
+      "reproduction:seriouslyfish": "d9edec85828e",
+      "notes:seriouslyfish": "b475864b84cb",
+      "references:seriouslyfish": "bf06ac76e54d"
+    }
+  },
   "crossocheilus-nigriloba": {
     "at": "2026-11-04",
     "from": "2026-11-03",
@@ -10242,6 +10663,50 @@
     "notes": [
       "Item 11: \"แตกออกเป็นจุดด่างต่อเนื่องกัน\" adds \"ต่อเนื่องกัน\"; \"a series of blotches\" could read more simply as \"เป็นปื้นเรียงต่อกัน\"."
     ]
+  },
+  "crossocheilus-reticulatus": {
+    "at": "2026-11-13",
+    "from": "2026-10-31",
+    "name": "ฟิชเน็ต ฟลายอิ้งฟ็อกซ์",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 7: the transliteration \"ออฟวูคส์ (aufwuchs)\" reads awkwardly. Consider a descriptive phrase such as \"สิ่งมีชีวิตและตะกอนที่เกาะติดพื้นผิว\" with aufwuchs in brackets.",
+      "Item 8: \"ตัวเลือกที่ส่งออกจากประเทศไทยเช่นกัน ได้แก่...\" is stiff and calqued from \"Possibilities also exported from Thailand\". A more natural wording is \"ปลาที่ส่งออกจากไทยเช่นกันและเลี้ยงร่วมได้ เช่น ...\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "f16ff91a1d4c",
+      "distribution:seriouslyfish": "2bbca5c38e07",
+      "habitat:seriouslyfish": "d9c154b182bb",
+      "aquariumSize:seriouslyfish": "571966f31f87",
+      "maintenance:seriouslyfish": "70ae575c824c",
+      "waterConditions:seriouslyfish": "ea6526fac149",
+      "diet:seriouslyfish": "33e4a0a606ff",
+      "behaviour:seriouslyfish": "565febf37a87",
+      "dimorphism:seriouslyfish": "0453c2d6717e",
+      "reproduction:seriouslyfish": "ba72676e0b0a",
+      "notes:seriouslyfish": "9034fa1363d1",
+      "references:seriouslyfish": "9bef5d9f32da"
+    }
+  },
+  "cryptoheros-cutteri": {
+    "at": "2026-11-13",
+    "from": "2026-11-09",
+    "name": "ปลาหมอคัทเทอรี",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "\"อารมณ์รุนแรงมาก\" for \"very vivid temper\": better \"นิสัยดุมาก/ก้าวร้าวมาก\" (more natural).",
+      "\"กลุ่มเครือญาติ Cichlasoma\" is stiff for \"Cichlasoma relationship\": use \"กลุ่มปลาที่มีความใกล้ชิดกับ Cichlasoma\" or similar.",
+      "\"ปลาหมอชนิดนี้\" in #2 vs \"ปลาหมอสี\" in #1: use the hobby term \"ปลาหมอสี\" consistently.",
+      "\"inter alia\" is rendered as \"ประการหนึ่ง\"; better \"ซึ่งรวมถึง/หนึ่งในข้อแตกต่างคือ\" (minor)."
+    ],
+    "parts": {
+      "quickFacts:glaser": "493ca8dd117c",
+      "aquariumSize:glaser": "f7eb9b3aafaa",
+      "behaviour:glaser": "d5370b86423f",
+      "reproduction:glaser": "f58f667969db"
+    }
   },
   "ctenolucius-hujeta": {
     "at": "2026-10-31",

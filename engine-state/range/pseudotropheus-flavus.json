@@ -1,0 +1,44 @@
+{
+  "id": "pseudotropheus-flavus",
+  "native": {
+    "input": "dcb39a7afe5d18c4",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi.",
+        "ok": true
+      },
+      {
+        "name": "Chinyankwazi Island",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded exclusively at Chinyankwazi Island and Chinyamwezi Reef.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudotropheus flavus",
+    "status": "ACCEPTED",
+    "taxonKey": 2373082,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        3
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

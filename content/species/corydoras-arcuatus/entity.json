@@ -21,28 +21,50 @@
     "native": {
       "countries": [
         "BR",
-        "CO",
+        "PE",
         "EC",
-        "PE"
+        "CO"
       ],
       "regions": [
-        "Amazon"
+        "Amazon",
+        "Solimões",
+        "Purus",
+        "Ucayali",
+        "Napo"
       ],
       "sources": [
-        "sprucepets"
+        "sprucepets",
+        "seriouslyfish"
       ],
       "quotes": [
         {
-          "source": "sprucepets",
-          "quote": "The Skunk Cory is native to the upper Amazon River basin in Brazil, Colombia, Ecuador and Peru.",
+          "source": "seriouslyfish",
+          "quote": "The skunk cory, Brochis arcuata, long known as Corydoras arcuatus, is an armoured catfish from the upper Amazon region in Brazil, Peru, Ecuador and Colombia.",
           "countries": [
             "BR",
-            "CO",
+            "PE",
             "EC",
-            "PE"
+            "CO"
           ],
+          "regions": []
+        },
+        {
+          "source": "sprucepets",
+          "quote": "The Skunk Cory is native to the upper Amazon River basin in Brazil, Colombia, Ecuador and Peru.",
+          "countries": [],
           "regions": [
             "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Records thus exist from the Solimões, Purus, Japurá, Caquetá, Yavarí, Tefé, Napo and Ucayali drainage basins although it's worth noting that a number of similar-looking fishes also exist in the region, and only some of them are described to science (see 'Notes').",
+          "countries": [],
+          "regions": [
+            "Solimões",
+            "Purus",
+            "Ucayali",
+            "Napo"
           ]
         }
       ]

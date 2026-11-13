@@ -11,6 +11,69 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Orinoco",
+        "Ventuari"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: backwater of Río Orinoco behind a sand playa, approximately 0.5 hr upstream from Isla Temblador, 3°04'N, 66°28'W, Estado Amazonas, Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper Orinoco and Ventuari River basins in Venezuela.",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Ventuari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340039,
+      "total": 10,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "VE",
+          9
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

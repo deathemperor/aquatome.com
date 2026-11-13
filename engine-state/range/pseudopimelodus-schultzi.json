@@ -1,0 +1,96 @@
+{
+  "id": "pseudopimelodus-schultzi",
+  "native": {
+    "input": "13d4ac976bb843a1",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Cereté, Colombia",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Rio Magdalena, Colombia (Colombia Caribbean Rivers, Magdalena).",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Magdalena",
+        "source": "planetcatfish",
+        "quote": "Rio Magdalena, Colombia (Colombia Caribbean Rivers, Magdalena).",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudopimelodus schultzi",
+    "status": "ACCEPTED",
+    "taxonKey": 2344087,
+    "datasets": [
+      [
+        "0a795556-3b24-4ff7-9113-22eb1bca08a4",
+        3949
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        186
+      ],
+      [
+        "ad68e7eb-1f8c-4c48-b0b5-ffcbda299c36",
+        98
+      ],
+      [
+        "f442ef1d-7104-4a8c-85d6-a55181d6b265",
+        78
+      ],
+      [
+        "cf679f54-a82a-4892-b581-23b61b1e78bb",
+        27
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        23
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        5
+      ],
+      [
+        "13b4fdb0-92a0-4497-bc0a-16d2fdf806fd",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

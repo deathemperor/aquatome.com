@@ -1,0 +1,135 @@
+{
+  "id": "pterobunocephalus-depressus",
+  "native": {
+    "input": "22b6a5dc742c00bf",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Machupo near San Joaquín, Amazon system, Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon, Orinoco and Paraguay River basins. Type locality: Todos Santos, Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Orinoco and Paraguay River basins.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Orinoco and Paraguay River basins.",
+        "ok": true
+      },
+      {
+        "name": "Paraguay",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon, Orinoco and Paraguay River basins.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon, Orinoco and Paraguay River basins. Type locality: Todos Santos, Bolivia.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Amazon, Orinoco and Paraguay River basins. Type locality: Todos Santos, Bolivia.",
+        "ok": true
+      },
+      {
+        "name": "Paraguay",
+        "source": "scotcat",
+        "quote": "South America: Amazon, Orinoco and Paraguay River basins. Type locality: Todos Santos, Bolivia.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR",
+        "VE",
+        "PY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pterobunocephalus depressus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340526,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "5aaf221f-db58-4725-b6a7-ba24caeffec7",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BO"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

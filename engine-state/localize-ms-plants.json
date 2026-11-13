@@ -744,5 +744,73 @@
       "maintenance:tropica": "3ea35aa382ff",
       "notes:tropica": "89c371283731"
     }
+  },
+  "cryptocoryne-nurii": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne nurii 'Rose Maiden'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"tangki\" is acceptable, but \"akuarium\" is the more common term for the tank in Malaysian hobby usage.",
+      "\"anak pokok selalunya muncul\" adds the idea of plantlets; the English only says runners show up far from the mother plant. Rephrase as \"stolon ... selalunya muncul agak jauh dari pokok induk\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "f0911c9de39e",
+      "notes:tropica": "92142cf5d3bb"
+    }
+  },
+  "cryptocoryne-parva": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne parva",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 10: \"dilindungi oleh tumbuhan lain\" for \"overshadowed\" reads as 'protected'. Use \"dinaungi\" or \"ditutupi\" instead.",
+      "Item 8 and item 6: \"kurang berkemungkinan tumbuh dengan baik\" and \"kurang berkemungkinan menyebabkan\" are stiff calques. Use \"kurang sesuai\" or \"sukar tumbuh dengan baik\", and \"lebih jarang menyebabkan\".",
+      "Item 11: \"Sepasu pokok berharga beberapa ringgit\" turns \"a few dollars\" into ringgit. This is acceptable localisation, but check that the price range is still plausible."
+    ],
+    "parts": {
+      "quickFacts:tropica": "8e7bf24fa8c7",
+      "quickFacts:aquariumbreeder": "b1d610270ff5",
+      "distribution:aquariumbreeder": "9583d378ebcb",
+      "aquariumSize:aquariumbreeder": "8f544eb8b235",
+      "maintenance:tropica": "bb48b0dbeefe",
+      "maintenance:aquariumbreeder": "ae096e4baa7f",
+      "waterConditions:aquariumbreeder": "98b0296b8a62",
+      "equipment:aquariumbreeder": "fb9b18a4c19c",
+      "behaviour:aquariumbreeder": "5d9bedcff3e3",
+      "notes:tropica": "7aefd8401209",
+      "notes:aquariumbreeder": "7bf8baeef89f"
+    }
+  },
+  "cryptocoryne-spiralis": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne spiralis 'Red'",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "6484e9600ff0",
+      "maintenance:tropica": "10d55b6d3914",
+      "notes:tropica": "9e3bddf6bfbf"
+    }
+  },
+  "cryptocoryne-undulata": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Cryptocoryne undulata 'Broad Leaves'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "'Ia juga membesar lebih besar' is redundant; use 'Ia juga tumbuh lebih besar' or 'Saiznya juga lebih besar'.",
+      "'the single rosette becomes 10-20 cm wide' became 'setiap roset boleh mencapai lebar 10–20 cm'. 'single' is changed to 'setiap' (each), and 'boleh' (can) is added. Use 'roset tunggal ... mencapai lebar 10–20 cm'."
+    ],
+    "parts": {
+      "quickFacts:tropica": "379f74c2c226",
+      "notes:tropica": "1eaca456496b"
+    }
   }
 }

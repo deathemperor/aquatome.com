@@ -543,6 +543,21 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-rWaSv_jw6Rs#body": [
+    {
+      "at": "2026-11-13T11:34:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"Chừa sẵn một khoảng phía sau\": 'một khoảng' is a trivial addition, no meaning change.",
+        "\"bể sẽ trông sâu hơn\": the 'sẽ' of the original is kept; the 'cảm giác' (impression) nuance is slightly flattened, since AFTER says the tank looks deeper."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-rh8iBySuUpE#body": [
     {
       "at": "2026-11-09T10:45:56Z",
