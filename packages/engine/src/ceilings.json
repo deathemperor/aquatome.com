@@ -108,7 +108,7 @@
     },
     {
       "from": "2026-11-14T08:00:00+07:00",
-      "note": "Three sign-ins' day, about $420: the second is back. The style rewrite keeps the $12 it has had since 13 Nov.",
+      "note": "Three sign-ins' day, about $420: the second is back. The style rewrite keeps the $12 it has had since 13 Nov. The glossary's fuller entries (glossary-entry, run by hand) have $10 on the Mac, Lũa's first, ahead of the AI lead's scoreboard (the chief of staff, 13 Nov 2026).",
       "mac": {
         "default": 4,
         "backstop": 270,
@@ -126,6 +126,7 @@
           "traits": 6,
           "gallery": 5,
           "card-crops": 1,
+          "glossary-entry": 10,
           "write-ideas": 0
         }
       },

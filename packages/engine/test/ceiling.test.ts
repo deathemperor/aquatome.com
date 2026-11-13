@@ -226,7 +226,7 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
   const periods = [
     { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 142, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1 },
     { from: '2026-11-13T08:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 278, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4 },
-    { from: '2026-11-14T08:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 386, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1 },
+    { from: '2026-11-14T08:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 396, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, glossary: 10 },
   ]
   for (const p of periods) for (const when of [p.from, p.to]) {
     const t = tableInForce(CEILINGS.tables, new Date(when))!
@@ -251,6 +251,8 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     // guides, in the cloud, where the step runs; the Mac's is $0 (the chief of staff, 12 Nov 2026).
     expect(cap(when, 'github', 'write-ideas')).toBe(3)
     expect(cap(when, 'mac', 'write-ideas')).toBe(0)
+    // The glossary's fuller entries, run by hand on the Mac: $10 from 14 Nov, Lũa's first (the chief of staff, 13 Nov 2026).
+    expect(cap(when, 'mac', 'glossary-entry')).toBe(p.glossary ?? p.small)
     // A step that runs on the other machine, or a new one, has the small ceiling, never none.
     expect(cap(when, 'github', 'run')).toBe(p.small)
     expect(cap(when, 'mac', 'anything-new')).toBe(p.small)
