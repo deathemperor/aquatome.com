@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { metricPage, QUALITY_THRESHOLD } from '@aq/schema'
 import { HTMLElement, parse } from 'node-html-parser'
-import { breedFigures, figuresSaid, keepsFigures, moved, unitsLeft, withoutConcentrations, type BreedFigure } from './breed-units'
+import { breedFigures, figuresSaid, keepsFigures, moved, unitsLeft, withoutConcentrations, type BreedFigure, type PlacedFigure } from './breed-units'
 import { LlmError, type Llm } from './claude'
 import { FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
@@ -26,8 +26,8 @@ import { metricFigures, TANK_RULE, US_UNITS } from './round'
  *   (the chief of staff, 2026-11-12). One with a dose near it (its paragraph, the one before or after, or the rest of its
  *   section between the headings either side), or with a litre figure with no US figure to work from, is left to a
  *   person (unitsLeft), and so is one code works out no figure for (gallons or a length in it, or a figure already the
- *   size keepers say) and a reworded quote that can't be told apart. Kept only with the part's litres as they were,
- *   each mended figure in place of its old one and no other moved (keepsFigures).
+ *   size keepers say) and a reworded quote that can't be told apart. Kept only with each paragraph's litres as they
+ *   were, in their order, each mended figure in place of its old one and no other moved (keepsFigures).
  * Left to others: units on a guide, which its writer rounds; a figure the English gives in metric ("tanks as small as 11
  * litres"), which the check doesn't count (round.ts sourceGives); words, which the phrase list carries; a kit, which no rewording
  * fixes (the gate holds it), advice on a fish, plant or breed page that would hurt (held too, for a person), and the doses
@@ -156,7 +156,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
         const passes = units.length && others.some(f => f.check !== 'words') ? [others, units] : [fs]
         // Each part's blocks, with their tags; a units quote's block before any mend, to find it again in (breed-units.ts moved).
         const blocksOf = (text: string) => (faq ? [{ tag: 'p', text }] : parse(text).childNodes.filter((n): n is HTMLElement => n instanceof HTMLElement).map(e => ({ tag: e.rawTagName.toLowerCase(), text: e.text })))
-        const textOf = (text: string) => blocksOf(text).map(b => b.text).join('\n')
+        const textOf = (text: string) => blocksOf(text).map(b => b.text.replace(/\s+/g, ' ')).join('\n')
         const start = blocksOf(read()!).map(b => b.text)
         const home = new Map(units.map(f => [f, start.findIndex(b => norm(b).includes(norm(f.quote)))]))
         for (const pass of passes) {
@@ -188,8 +188,10 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
             const quote = !f.quote || blockOf(f.quote) ? f.quote : blocks.length === start.length && was >= 0 ? moved(f.quote, blocks[was]!) : undefined
             // Each figure read whole in the quote's paragraph (breed-units.ts breedFigures).
             const figures = quote ? breedFigures(quote, facts, blockOf(quote)) : []
+            // An FAQ answer's question is beside it: "Pha 1 ml thuốc vào bao nhiêu nước?" makes its answer a dose's water.
+            const near = (q: string) => (faq ? `${t.faq?.[Number(faq[1])]?.q ?? ''}\n${around(q)}` : around(q))
             const left = f.quote && !quote ? 'the other mend reworded it, and its figure can\'t be told apart'
-              : (quote ? unitsLeft(quote, facts, around(quote)) : undefined) ?? (figures.length ? undefined : 'code works out no figure for it (gallons or a length in it, or a figure already the size keepers say)')
+              : (quote ? unitsLeft(quote, facts, near(quote), blockOf(quote)) : undefined) ?? (figures.length ? undefined : 'code works out no figure for it (gallons or a length in it, or a figure already the size keepers say)')
             if (left) { report.skipped.push(`${key} ${field} units: ${left} ("${f.quote}")`); continue }
             const g = { ...f, quote: quote ?? f.quote }
             mine.push(g)
@@ -199,7 +201,10 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
           if (!now.some(f => f.check !== 'words')) continue
           // Each figure once: the check's own finding on "132 lít" and the model's on its sentence mend one figure.
           const seen = new Set<string>()
-          const figures = [...told].flatMap(([g, fs]) => fs.filter(x => { const k = `${blocks.findIndex(b => norm(b).includes(norm(g.quote ?? '')))}|${x.at}`; return !seen.has(k) && !!seen.add(k) }))
+          const figures: PlacedFigure[] = [...told].flatMap(([g, fs]) => {
+            const block = blocks.findIndex(b => norm(b).includes(norm(g.quote ?? '')))
+            return fs.filter(x => !seen.has(`${block}|${x.at}`) && !!seen.add(`${block}|${x.at}`)).map(x => ({ ...x, block }))
+          })
           const said = figures.length ? `This is a breed page with no English source: its litres are our conversion of a source's US figure, and the editor was told to name these as keepers here say, from the source's own US figure, a minimum never more than a twentieth under it: ${figuresSaid(figures)}. Those changes are correct, not errors.` : undefined
           const r = await rewritePart(d.llm, html, now.map(f => asNote(f, told.get(f))), { en: p.en?.[field], source: source && names[source]?.name, ...(said ? { figures: said } : {}) })
           if (!r) { report.skipped.push(`${key} ${field}: its quotes aren't in one block`); continue }

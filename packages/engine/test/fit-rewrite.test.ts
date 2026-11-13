@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { CHECKLIST, fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
-import { breedFigures, keepsFigures, unitsLeft } from '../src/breed-units'
+import { breedFigures, keepsFigures, unitsLeft, withoutConcentrations } from '../src/breed-units'
 import { convertible, fitRewrite, mendable, rewriteDue } from '../src/fit-rewrite'
 import { loadPages, type Page } from '../src/pages'
 
@@ -219,12 +219,13 @@ test('a part said more surely than its English is not kept, however well its rev
 })
 
 /** A breed page (no English beside it) with ranchu's case: a source finding and a converted tank in one paragraph, and a converted tank in an FAQ answer. */
-const breed = async (o: { faq?: string; faqQuote?: string; body?: string } = {}) => {
+const breed = async (o: { faq?: string; faqQuote?: string; faqQ?: string; body?: string } = {}) => {
   const root = await content()
   const file = join(root, 'content/breeds/pigeon-blood-discus/vi.json')
   const t = JSON.parse(await readFile(file, 'utf8'))
   t.body += o.body ?? '<p>Một người chơi ở Anh kể rằng cá cần nhiều chỗ. Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.</p>'
   t.faq[0].a = o.faq ?? 'Cá con có thể bắt đầu trong bể 110 lít.'
+  if (o.faqQ) t.faq[0].q = o.faqQ
   await writeFile(file, JSON.stringify(t, null, 2))
   await mkdir(join(root, 'engine-state/breeds'), { recursive: true })
   await writeFile(join(root, 'engine-state/breeds/pigeon-blood-discus.json'), JSON.stringify({ keeping: ['For one large fish, 35 US gal (about 132 L) is the bare minimum; 40–50 gal (151–189 L) is better.'] }))
@@ -269,19 +270,19 @@ test('a breed page\'s figures, from its source\'s own US figure: a table tank it
 
 test('a breed page\'s figure is kept only as its whole quantity, and a dose\'s water or a figure with no US figure is left to a person', () => {
   // 10 gallons an inch: 15 lít mỗi cm, not 15 lít mỗi 2,5 cm, nor a 15-litre tank beside an allowance reworded.
-  const [perCm] = breedFigures('khoảng 40 lít cho mỗi 2,5 cm chiều dài', '')
   const quote = ['khoảng 40 lít cho mỗi 2,5 cm chiều dài']
-  expect(keepsFigures(quote[0]!, 'Cho khoảng 15 lít cho mỗi cm chiều dài.', quote, [perCm!])).toBeUndefined()
-  expect(keepsFigures(quote[0]!, 'Cho khoảng 15 lít cho mỗi 2,5 cm chiều dài.', quote, [perCm!])).toContain('15 lít cho mỗi cm')
-  expect(keepsFigures(quote[0]!, 'Cá con ở bể 15 lít; cá lớn cần 40 lít nước với từng 2,5 cm.', quote, [perCm!])).toContain('15 lít cho mỗi cm')
+  const perCm = { ...breedFigures(quote[0]!, '', quote[0])[0]!, block: 0 }
+  expect(keepsFigures(quote[0]!, 'Cho khoảng 15 lít cho mỗi cm chiều dài.', quote, [perCm])).toBeUndefined()
+  expect(keepsFigures(quote[0]!, 'Cho khoảng 15 lít cho mỗi 2,5 cm chiều dài.', quote, [perCm])).toContain('15 lít cho mỗi cm')
+  expect(keepsFigures(quote[0]!, 'Cá con ở bể 15 lít; cá lớn cần 40 lít nước với từng 2,5 cm.', quote, [perCm])).toContain('15 lít cho mỗi cm')
   // The part's litres as they were, the figure in place of its old one: the same litres in another paragraph don't
   // stand in for one dropped, and no other figure moves.
-  const [min] = breedFigures('132 lít là mức tối thiểu', '35 US gal (about 132 L)')
+  const min = { ...breedFigures('132 lít là mức tối thiểu', '35 US gal (about 132 L)', 'Một nguồn coi 132 lít là mức tối thiểu.')[0]!, block: 1 }
   const two = 'Bể nuôi chung thường 130 lít.\nMột nguồn coi 132 lít là mức tối thiểu.'
-  expect(keepsFigures(two, 'Bể nuôi chung thường 130 lít.\nMột nguồn coi 130 lít là mức tối thiểu.', ['132 lít là mức tối thiểu'], [min!])).toBeUndefined()
-  expect(keepsFigures(two, 'Bể nuôi chung thường 130 lít.\nMột nguồn coi bể rộng là cần.', ['132 lít là mức tối thiểu'], [min!])).toBe('the figures as keepers say them aren\'t there: 130 lít')
-  expect(keepsFigures(two, 'Bể nuôi chung thường 120 lít.\nMột nguồn coi 130 lít là mức tối thiểu.', ['132 lít là mức tối thiểu'], [min!])).toBe('the figures as keepers say them aren\'t there: 130 lít')
-  expect(keepsFigures(two.replace('130 lít.', '100 lít.'), 'Bể nuôi chung thường 120 lít.\nMột nguồn coi 130 lít là mức tối thiểu.', ['132 lít là mức tối thiểu'], [min!])).toBe('another figure changed: 100 lít gone, 120 lít added')
+  expect(keepsFigures(two, 'Bể nuôi chung thường 130 lít.\nMột nguồn coi 130 lít là mức tối thiểu.', ['132 lít là mức tối thiểu'], [min])).toBeUndefined()
+  expect(keepsFigures(two, 'Bể nuôi chung thường 130 lít.\nMột nguồn coi bể rộng là cần.', ['132 lít là mức tối thiểu'], [min])).toBe('the figures as keepers say them aren\'t there: 130 lít')
+  expect(keepsFigures(two, 'Bể nuôi chung thường 120 lít.\nMột nguồn coi 130 lít là mức tối thiểu.', ['132 lít là mức tối thiểu'], [min])).toBe('another figure changed: 130 lít gone, 120 lít added')
+  expect(keepsFigures(two.replace('130 lít.', '100 lít.'), 'Bể nuôi chung thường 120 lít.\nMột nguồn coi 130 lít là mức tối thiểu.', ['132 lít là mức tối thiểu'], [min])).toBe('another figure changed: 100 lít gone, 120 lít added')
   // A dose's water stays exact: any figure beside a dose, its sentences before and after too (round.ts givesDose).
   const facts = 'Dose 1 ml per 10 US gal (38 L). 35 US gal (about 132 L) at least.'
   for (const block of ['Dùng 1 ml thuốc trong 38 lít nước.', 'Hòa 1 gói muối vào 38 lít nước.', 'Lấy 1 ml xanh methylen. Hòa vào 38 lít nước.']) expect(unitsLeft('38 lít', facts, block)).toBe('a dose is given beside it, whose water stays exact')
@@ -290,6 +291,48 @@ test('a breed page\'s figure is kept only as its whole quantity, and a dose\'s w
   // No US figure to work from: 36 gallons isn't beside 136 lít, nor a US tank; a Vietnamese decimal after thousands is read.
   expect(unitsLeft('Cần 136 lít cho một con.', 'Minimum 36 US gallons.')).toBe('no US figure to work 136 lít from')
   expect(unitsLeft('Cần 1.132,5 lít cho một con.', 'Minimum 36 US gallons.')).toBe('no US figure to work 1.132,5 lít from')
+})
+
+// Astra's read of 1e0aa388b: counts alone let figures trade places, a reading of the water and a treatment's rate were
+// both taken for readings, and some ways of writing "per inch" were read as a tank.
+test('a breed page\'s figures are held to their places, a treatment\'s rate is a dose, and each way of writing per inch is read', () => {
+  const facts = '35 US gal (about 132 L) at least. A water-change bin of 50 US gal (190 L).'
+  const place = (quote: string, block: string, i: number) => breedFigures(quote, facts, block).map(f => ({ ...f, block: i }))
+  // Across paragraphs: 132 and 190 written as 200 and 130, each in the other's place.
+  const across = 'Bể nuôi tối thiểu 132 lít.\nThùng thay nước 190 lít.'
+  const both = [...place('132 lít', 'Bể nuôi tối thiểu 132 lít.', 0), ...place('190 lít', 'Thùng thay nước 190 lít.', 1)]
+  expect(both.map(f => f.to)).toEqual(['130 lít', '200 lít'])
+  expect(keepsFigures(across, 'Bể nuôi tối thiểu 130 lít.\nThùng thay nước 200 lít.', ['132 lít', '190 lít'], both)).toBeUndefined()
+  expect(keepsFigures(across, 'Bể nuôi tối thiểu 200 lít.\nThùng thay nước 130 lít.', ['132 lít', '190 lít'], both)).toBe('the figures as keepers say them aren\'t there: 130 lít, 200 lít')
+  // Within one: the minimum written as the bin's 100 and the bin as 130.
+  const within = 'Bể nuôi tối thiểu 132 lít. Thùng thay nước 100 lít.'
+  const one = place('132 lít', within, 0)
+  expect(keepsFigures(within, 'Bể nuôi tối thiểu 130 lít. Thùng thay nước 100 lít.', ['132 lít'], one)).toBeUndefined()
+  expect(keepsFigures(within, 'Bể nuôi tối thiểu 100 lít. Thùng thay nước 130 lít.', ['132 lít'], one)).toBe('its figures changed places')
+  // Paragraphs split or joined, or a figure not where it was read: for a person.
+  expect(keepsFigures(within, 'Bể nuôi tối thiểu 130 lít.\nThùng thay nước 100 lít.', ['132 lít'], one)).toBe('its paragraphs went from 1 to 2, so its figures can\'t be held to their places')
+  expect(keepsFigures('Thùng thay nước 100 lít. Bể nuôi tối thiểu 132 lít.', 'Thùng thay nước 100 lít. Bể nuôi tối thiểu 130 lít.', ['132 lít'], one)).toContain('isn\'t where it was read')
+  // The same 132 lít under another heading stays, and the mended one's paragraph is all that's read for its quote.
+  const apart = 'Một nguồn coi 132 lít là mức tối thiểu.\nBể dự phòng 132 lít.'
+  const first = place('132 lít là mức tối thiểu', 'Một nguồn coi 132 lít là mức tối thiểu.', 0)
+  expect(keepsFigures(apart, 'Một nguồn coi 130 lít là mức tối thiểu.\nBể dự phòng 132 lít.', ['132 lít'], first)).toBeUndefined()
+  expect(keepsFigures(apart, 'Một nguồn coi 130 lít là mức tối thiểu.\nBể dự phòng 130 lít.', ['132 lít'], first)).toBe('another figure changed: 132 lít gone, 130 lít added')
+
+  // A reading of the water is no dose; a treatment's rate, in so many mg a litre too, is.
+  expect(withoutConcentrations('Oxy hòa tan nên giữ từ 2,5 mg/l trở lên.')).not.toMatch(/2,5/)
+  expect(withoutConcentrations('Giữ nitrat dưới 20 mg/l.')).not.toMatch(/20/)
+  expect(withoutConcentrations('Dùng xanh methylen với liều 2 mg/l.')).toBe('Dùng xanh methylen với liều 2 mg/l.')
+  expect(unitsLeft('132 lít', facts, withoutConcentrations('Bể nuôi tối thiểu 132 lít.\nDùng xanh methylen với liều 2 mg/l.'))).toBe('a dose is given beside it, whose water stays exact')
+
+  // Per inch, each way: "cho 2,5 cm", "mỗi 2,54 cm", "mỗi 1 inch"; any other length is for a person.
+  const inch = 'Allow about 10 US gal (38 L) per inch of adult length.'
+  for (const block of ['Cần 38 lít cho 2,5 cm chiều dài cá.', 'Cần 38 lít mỗi 2,54 cm chiều dài cá.', 'Cần 38 lít mỗi 1 inch chiều dài cá.', 'Cần 38 lít cho mỗi inch chiều dài cá.']) {
+    expect(breedFigures('38 lít', inch, block).map(f => [f.to, f.was, f.is])).toEqual([['15 lít cho mỗi cm', '38/2.5cm', '15/cm']])
+  }
+  for (const block of ['Cần 38 lít mỗi 5 cm chiều dài cá.', 'Cần 38 lít cho 3 inch chiều dài cá.']) {
+    expect(breedFigures('38 lít', inch, block)).toEqual([])
+    expect(unitsLeft('38 lít', inch, block, block)).toBe('a figure per a length code doesn\'t work from (only per inch or per cm)')
+  }
 })
 
 test('a breed page\'s units are mended, in an FAQ answer too, after the part\'s other mend in the same try, with each figure as the rule names it', async () => {
@@ -337,6 +380,12 @@ test('a breed page\'s units quote the other mend reworded is found again by its 
   const none = notesLlm()
   const d = await fitRewrite(dose.root, [dose.p], reading(dose.p, [dose.faq]), { llm: none.llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
   expect(none.prompts).toEqual([])
+  // A dose in the FAQ's question makes its answer's water the dose's (Astra's read of 1e0aa388b).
+  const asked = await breed({ faq: 'Dùng 38 lít nước đã khử clo.', faqQuote: '38 lít nước', faqQ: 'Pha 1 ml thuốc vào bao nhiêu nước?' })
+  const askedLlm = notesLlm()
+  const a = await fitRewrite(asked.root, [asked.p], reading(asked.p, [asked.faq]), { llm: askedLlm.llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
+  expect(askedLlm.prompts).toEqual([])
+  expect(a.skipped.every(x => x.includes('a dose is given beside it'))).toBe(true)
   // The check's own units finding on the figure too (fit.ts fitRules): both left.
   expect(d.skipped).toEqual(['vi/breeds/pigeon-blood-discus faq.0.a units: a dose is given beside it, whose water stays exact ("38 lít")', 'vi/breeds/pigeon-blood-discus faq.0.a units: a dose is given beside it, whose water stays exact ("38 lít nước")'])
 })
