@@ -8,6 +8,7 @@ import { easyPlants, leadGuides } from '../src/lib/home'
 import { getContent } from '../src/lib/content'
 import { appPath, LANGS, localizePath, OTHER_LANGS } from '../src/lib/i18n'
 import { appHref, appPage, DIST, page } from './dist'
+import { slow } from '@aq/schema/test-time'
 
 // The native app searches these files and opens each item's page: every item must lead to a page that was built.
 const index = (lang: string): AppIndex => JSON.parse(readFileSync(`${DIST}/app/${lang}.json`, 'utf8'))
@@ -355,7 +356,7 @@ test('every series /video/ lists is listed, one whose guides are all out of sear
   // As /video/ lists them.
   const parts = listed.map(i => i.parts!)
   expect(parts).toEqual([...parts].sort((a, b) => b - a))
-}, 60_000) // reading the content and two indexes of it: seconds, more beside the other tests
+}, slow(60_000)) // reading the content and two indexes of it: seconds, more beside the other tests
 
 test('a tool carries its page\'s own title, the line under its heading and its description, all of them, so a search finds it by them', () => {
   for (const lang of LANGS) {

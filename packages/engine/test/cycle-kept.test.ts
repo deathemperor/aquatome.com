@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
+import { slow } from '@aq/schema/test-time'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const CHECKS = join(ROOT, 'scripts/cycle-checks.sh')
@@ -260,7 +261,7 @@ test('old-format photo records that a pull brings in are migrated before the tes
   expect(n.order()).toBe('migrate sweep tests')
   expect(k.onMain('engine-state/_photo-rejected.json')).toBe('migrated')
   expect(k.onMain('content/b.json')).toBe('photos')
-}, 60_000)
+}, slow(60_000))
 
 test('a migration that fails publishes nothing, and the work is kept for the next run, never held', () => {
   const c = clone()
@@ -289,7 +290,7 @@ test('a migration that fails publishes nothing, and the work is kept for the nex
   expect(c.onMain('content/b.json')).toBe('photos')
   expect(c.onMain('engine-state/_photo-watermarks.json')).toBe('migrated')
   expect(c.branches()).toEqual([])
-}, 60_000)
+}, slow(60_000))
 
 // engine-cycle.sh's finish, on its own: a fault the run went on past fails the run when it ends, and on the Mac goes to
 // GitHub as a failed run's line does (engine-mac.yml), which the daily report lists.
@@ -323,7 +324,7 @@ test('at the push, a clean pull whose migration fails publishes nothing, even wh
   expect(log).toContain('NOT PUBLISHED')
   expect(c.onMain('content/b.json')).toBe('')
   expect(c.branches()[0]).toMatch(/^kept\/photos\//)
-}, 60_000)
+}, slow(60_000))
 
 test('kept work is judged by its own migration, not an earlier branch\'s', () => {
   const c = clone()

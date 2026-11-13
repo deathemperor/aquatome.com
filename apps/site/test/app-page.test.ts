@@ -11,6 +11,7 @@ import { guideParts } from '../src/lib/guide-page'
 import { appPath, LANGS, translator } from '../src/lib/i18n'
 import { htmlBlocks } from '../src/lib/page-blocks'
 import { appPage, DIST } from './dist'
+import { slow } from '@aq/schema/test-time'
 
 // The app draws guides from these files instead of loading the web page: what they hold must be the page.
 type Vectors = {
@@ -63,7 +64,7 @@ test('every content file\'s text converts: nothing the app would have to send to
   }
   expect(n).toBeGreaterThan(100)
   expect([...unknown]).toEqual([])
-}, 60_000) // about 17,000 texts: a second alone, more beside the other tests
+}, slow(60_000)) // about 17,000 texts: a second alone, more beside the other tests
 
 test('every guide converts as its page shows it (links, photos, a video\'s pictures), and is the format', async () => {
   let n = 0

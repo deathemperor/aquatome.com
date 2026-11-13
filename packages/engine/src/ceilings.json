@@ -108,7 +108,97 @@
     },
     {
       "from": "2026-11-14T08:00:00+07:00",
-      "note": "Three sign-ins' day, about $420: the second is back. The style rewrite keeps the $12 it has had since 13 Nov. The glossary's fuller entries (glossary-entry, run by hand) have $10 on the Mac, Lũa's first, ahead of the AI lead's scoreboard (the chief of staff, 13 Nov 2026).",
+      "note": "Three sign-ins' day, about $420: the second is back. The style rewrite keeps the $12 it has had since 13 Nov. The troubleshooting board has $40 on the Mac today: plain Opus's answers and today's chat judged against them (the chief of staff, 13 Nov 2026). It yields: it spends only what leaves every other step its whole line (leftYielding). The glossary's fuller entries (glossary-entry, run by hand) have $10 on the Mac, Lũa first, ahead of the troubleshooting board (the chief of staff, 13 Nov 2026).",
+      "mac": {
+        "default": 4,
+        "backstop": 270,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "run": 105,
+          "chat-board": 40,
+          "videos": 30,
+          "summaries": 24,
+          "review-backfill": 14,
+          "check-photos": 12,
+          "review-backfill-97": 10,
+          "watermarks": 7,
+          "guide-photos": 7,
+          "traits": 6,
+          "gallery": 5,
+          "card-crops": 1,
+          "glossary-entry": 10,
+          "write-ideas": 0
+        }
+      },
+      "github": {
+        "default": 4,
+        "backstop": 180,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "localize": 75,
+          "fit-rewrite": 15,
+          "reader": 15,
+          "rewrite-vi": 12,
+          "review-backfill": 7,
+          "range": 6,
+          "localize-guides": 4,
+          "page-review": 12,
+          "autofix": 12,
+          "nightly-review": 4,
+          "write-ideas": 3
+        }
+      }
+    },
+    {
+      "from": "2026-11-15T00:00:00+07:00",
+      "note": "As on 14 Nov, and the troubleshooting board has $60 on the Mac: the two fix versions and the noise run judged against plain Opus (the chief of staff, 13 Nov 2026). It yields as on 14 Nov. The glossary's fuller entries keep $10.",
+      "mac": {
+        "default": 4,
+        "backstop": 270,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "run": 105,
+          "chat-board": 60,
+          "videos": 30,
+          "summaries": 24,
+          "review-backfill": 14,
+          "check-photos": 12,
+          "review-backfill-97": 10,
+          "watermarks": 7,
+          "guide-photos": 7,
+          "traits": 6,
+          "gallery": 5,
+          "card-crops": 1,
+          "glossary-entry": 10,
+          "write-ideas": 0
+        }
+      },
+      "github": {
+        "default": 4,
+        "backstop": 180,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "localize": 75,
+          "fit-rewrite": 15,
+          "reader": 15,
+          "rewrite-vi": 12,
+          "review-backfill": 7,
+          "range": 6,
+          "localize-guides": 4,
+          "page-review": 12,
+          "autofix": 12,
+          "nightly-review": 4,
+          "write-ideas": 3
+        }
+      }
+    },
+    {
+      "from": "2026-11-16T00:00:00+07:00",
+      "note": "As on 14 Nov: the troubleshooting board's two days are over, and it has the small line again. The glossary's fuller entries have $20 for the next four terms; the line comes out after they run.",
       "mac": {
         "default": 4,
         "backstop": 270,
@@ -126,7 +216,7 @@
           "traits": 6,
           "gallery": 5,
           "card-crops": 1,
-          "glossary-entry": 10,
+          "glossary-entry": 20,
           "write-ideas": 0
         }
       },

@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
+import { slow } from '@aq/schema/test-time'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const ONLY_MAIN = join(ROOT, 'apps/ios/scripts/only-main-merged.sh')
@@ -128,4 +129,4 @@ test("a ready pull request's branch takes main in only to resolve a conflict", (
   r.git('update-ref', 'refs/remotes/origin/main', 'main')
   r.git('checkout', '-q', 'pr')
   expect(hook(r.dir, 'git merge origin/main', false)).toBe(0)
-}, 90_000)
+}, slow(90_000))
