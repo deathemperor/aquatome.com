@@ -1,0 +1,260 @@
+{
+  "id": "mylochromis-melanonotus",
+  "scientificName": "Mylochromis melanonotus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Mylochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "malawi",
+    "lake-malawi",
+    "mozambique",
+    "tanzania"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372223,
+      "total": 16,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MW",
+          14
+        ],
+        [
+          "MZ",
+          1
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -15.46875,
+          5
+        ],
+        [
+          33.75,
+          -14.0625,
+          4
+        ],
+        [
+          33.75,
+          -12.65625,
+          4
+        ],
+        [
+          33.75,
+          -11.25,
+          1
+        ],
+        [
+          35.15625,
+          -15.46875,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.6,
+          "max": 8.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 26
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mylochromis-melanonotus",
+      "html": "<p>Known in the trade as 'Haplochromis yellow-black line', Mylochromis melanonotus is a predatory cichlid endemic to Lake Malawi. Rarely imported, it caused confusion because some individuals have a shovel-like lower jaw. Ad Konings found wild populations with and without it, and Platygnathochromis and M. semipalatus are now regarded as synonyms. A sandy substrate is essential, and it will eat small fish.</p><ul><li>Needs a very large tank</li><li>Needs a soft, sandy substrate</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mylochromis-melanonotus",
+      "html": "<p>Endemic to Lake Malawi. It has a wide distribution in the lake.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mylochromis-melanonotus",
+      "html": "<p>It usually inhabits areas with sandy substrates in deeper water but is also often found around the intermediate shoreline areas, where there are scattered rocks over sandy bottoms.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mylochromis-melanonotus",
+      "html": "<p>Standard length: 26 cm SL. Aquarium base: 150 × 60 cm. Volume: ~540 litres.</p><p>150 × 60 × 60 cm - ~540 litres for adult specimens. Juveniles can be kept in smaller aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mylochromis-melanonotus",
+      "html": "<p>Arrange piles of rocks to form caves and hiding places, with areas of open space between for swimming. A sandy substrate is essential, as the fish will often take mouthfuls of sand into their mouths, sifting it for food items. If gravel is used the mouthparts or gills may be damaged or a piece may get stuck in the throat of the fish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mylochromis-melanonotus",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 7.6–8.8</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mylochromis-melanonotus",
+      "html": "<p>Offer a varied diet of meaty live and frozen foods and good quality cichlid pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mylochromis-melanonotus",
+      "html": "<p>It is piscivorous and will eat small fish. It is not particularly aggressive with anything too large to fit in its mouth, but the choices are fairly limited. Tankmates could include Aristochomis, Fossorochromis rostratus or Rift Lake Synodontis species. It should not be kept with mbuna. Male fish should be kept along with several females but are territorial with other males, so only one male per aquarium is suggested.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mylochromis-melanonotus",
+      "html": "<p>Males are more colourful than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mylochromis-melanonotus",
+      "html": "<p>Not known to have occurred in aquaria. It is a maternal mouthbrooder and in nature, breeding occurs in a similar fashion to others of the genus, with the males excavating large pits which they defend against other males. Spawning occurs in these pits after which the female leaves the male's territory.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mylochromis-melanonotus",
+      "html": "<p>M. melanonotus is rarely imported and little information is available regarding its captive care. The shovel-like lower jaw possessed by some individuals of this species has been the cause of some confusion regarding the fishes' true identity. It was originally placed in the genus Platygnathochromis, in which it was the only species. However, Ad Konings observed that amongst wild breeding populations there existed individuals both with and without the modified lower jaw. The specimens without the modification were identical to another species, Mylochromis semipalatus. Therefore all these fish are now classified as Mylochromis melanonotus, with Platygnathochromis and semipalatus being regarded as synonyms of this species.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/0cfe366a2af682ff.webp",
+      "width": 811,
+      "height": 413,
+      "licence": "Public domain",
+      "author": "Charles Tate Regan (1878 - 1943)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mylochromis_melanonotus2.jpg",
+      "caption": "Mylochromis melanonotus",
+      "thumb": "https://media.aquatome.com/commons/0cfe366a2af682ff-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1872d50d4365e190.webp",
+      "width": 960,
+      "height": 486,
+      "licence": "CC BY-SA 4.0",
+      "author": "Crowone",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mylochromis_Melanonotus._Hane_till_v%C3%A4nster,_honor_till_h%C3%B6ger._.png",
+      "caption": "Mylochromis Melanonotus. Hane till vänster, honor till höger. Hanen har på bilden sin klassiskt svarta rand längs med kroppen då de inte är i lek på bilden. Bild tagen i privat akvarium.",
+      "thumb": "https://media.aquatome.com/commons/1872d50d4365e190-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0a8fe63d51c4889d.webp",
+      "width": 903,
+      "height": 482,
+      "licence": "Public domain",
+      "author": "Charles Tate Regan (1878 - 1943)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mylochromis_melanonotus.jpg",
+      "caption": "Mylochromis melanonotus",
+      "thumb": "https://media.aquatome.com/commons/0a8fe63d51c4889d-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá cichlid",
+        "cát mịn hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid",
+        "cám cá cichlid ăn thịt"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc bể 540 lít"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

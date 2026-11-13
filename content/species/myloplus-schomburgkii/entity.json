@@ -14,6 +14,492 @@
     "nanay",
     "brazil"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Rio Orinoco",
+        "Rio Nanay"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Northeastern South America, in parts of Venezuela, Peru and Brazil.",
+          "countries": [
+            "VE",
+            "PE",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It occurs in a number of river basins, including the Rio Nanay and Rio Orinoco.",
+          "countries": [],
+          "regions": [
+            "Rio Orinoco",
+            "Rio Nanay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7193781,
+      "total": 323,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BR",
+          257
+        ],
+        [
+          "VE",
+          46
+        ],
+        [
+          "PE",
+          15
+        ],
+        [
+          "CO",
+          4
+        ],
+        [
+          "GY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          5.625,
+          3,
+          2
+        ],
+        [
+          -68.90625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          0,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          2.8125,
+          5,
+          5
+        ],
+        [
+          -67.5,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          5.625,
+          25,
+          25
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          7,
+          7
+        ],
+        [
+          -63.28125,
+          0,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -9.84375,
+          8,
+          8
+        ],
+        [
+          -61.875,
+          -8.4375,
+          5,
+          5
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -61.875,
+          0,
+          5,
+          5
+        ],
+        [
+          -61.875,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          14,
+          14
+        ],
+        [
+          -57.65625,
+          -5.625,
+          12,
+          12
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          7,
+          7
+        ],
+        [
+          -57.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -12.65625,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -11.25,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          13,
+          13
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          66,
+          66
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          36,
+          36
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -22,7 +508,8 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 12
+        "value": 12,
+        "overruled": "Glaser 45 cm and FishBase 42 cm SL (Jégu 2003) agree against it, 3.5 times the 12 cm given: the two-source exception, 2026-11-10"
       }
     ],
     "tempC": [
@@ -55,13 +542,14 @@
     "tankCm": [
       {
         "source": "seriouslyfish",
-        "value": 120
+        "value": 120,
+        "overruled": "Set for a 12 cm fish; the page takes 45 cm and no source gives a tank for that size (chief's ruling, 2026-11-10)"
       }
     ],
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -155,6 +643,16 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/myloplus-schomburgkii",
       "html": "<p>Similar in care and appearance to its close relative, the Redhook (Myloplus rubripinnis), Myleus schomburgkii is easily distinguished by the black vertical bar on the flanks. It is also a smaller adult fish. Despite this, it is sometimes offered for sale marked as a Redhook. This fish is also variously referred to as the Black-ear Pacu, Disc Pacu and Disk Tetra.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>The sources give no tank size for a fish reaching 45 cm.</p>",
+      "refs": [
+        0,
+        1
+      ]
     }
   ],
   "photos": [
@@ -166,7 +664,12 @@
       "author": "Ltshears",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Myleus_schomburgkii.jpg",
       "caption": "Black-barred Myleus ( Myleus schomburgkii ) at Newport Aquarium, newport ky",
-      "thumb": "https://media.aquatome.com/commons/44e2a783b57f8df0-480.webp"
+      "thumb": "https://media.aquatome.com/commons/44e2a783b57f8df0-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/44e2a783b57f8df0-large.webp",
+        "width": 1412,
+        "height": 1024
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/4e6d2b6efe36a006.webp",
@@ -219,8 +722,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 200cm",
-        "bể cá 600 lít"
+        "bể cá 120cm"
       ]
     },
     {
@@ -238,5 +740,15 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-04",
+  "refs": [
+    {
+      "url": "https://www.aquariumglaser.de/en/fisharchive/myleus_schomburgkii_en/",
+      "title": "Aquarium Glaser: Myloplus schomburgkii"
+    },
+    {
+      "url": "https://fishbase.se/summary/Myloplus-schomburgkii.html",
+      "title": "FishBase: Myloplus schomburgkii"
+    }
+  ]
 }

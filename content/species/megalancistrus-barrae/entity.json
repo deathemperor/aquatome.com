@@ -10,6 +10,75 @@
     "brazil",
     "sao-francisco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "São Francisco"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio São Francisco near Barra, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: São Francisco River basin, Brazil.",
+          "countries": [],
+          "regions": [
+            "São Francisco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340023,
+      "total": 12,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BR",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -46.40625,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -45,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -39.375,
+          -9.84375,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -114,30 +183,7 @@
       "html": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Megalancistrus barrae. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Fisch-Muller, S., 2003. Loricariidae-Ancistrinae (Armored catfishes). p. 373-400. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2021. FishBase. World Wide Web electronic publication. www.fishbase.org, (08/2021).</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/6c1a46461b198d92.webp",
-      "thumb": "https://media.aquatome.com/scotcat/6c1a46461b198d92-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "Hudson Crizanto Gonçalves / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/megalancistrus_barrae.htm",
-      "caption": "Megalancistrus barrae",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/11abb21c93fc318c.webp",
-      "thumb": "https://media.aquatome.com/scotcat/11abb21c93fc318c-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "Hudson Crizanto Gonçalves / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/megalancistrus_barrae.htm",
-      "caption": "Megalancistrus barrae",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "PgwMjS4o7nY",

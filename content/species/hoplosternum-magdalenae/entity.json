@@ -10,6 +10,140 @@
     "colombia",
     "magdalena"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Magdalena",
+        "Sinú"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Hoplosternum magdalenae Eigenmann, 1913. Type locality: Soplaviento, Colombia. Etymology: Hoplosternum comes from the Greek hoplon, meaning shield, and sternum, meaning breast, in reference to the prominent coracoid bones on the breast. The species is named after the Magdalena River, part of its native habitat.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Magdalena and Sinú River basins, Colombia.",
+          "countries": [],
+          "regions": [
+            "Magdalena",
+            "Sinú"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342515,
+      "total": 1116,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CO",
+          1098
+        ],
+        [
+          "VE",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          5.625,
+          28,
+          28
+        ],
+        [
+          -75.9375,
+          7.03125,
+          176,
+          176
+        ],
+        [
+          -75.9375,
+          8.4375,
+          16,
+          16
+        ],
+        [
+          -75.9375,
+          9.84375,
+          7,
+          7
+        ],
+        [
+          -74.53125,
+          5.625,
+          63,
+          63
+        ],
+        [
+          -74.53125,
+          7.03125,
+          232,
+          232
+        ],
+        [
+          -74.53125,
+          8.4375,
+          568,
+          568
+        ],
+        [
+          -74.53125,
+          9.84375,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          8.4375,
+          7,
+          0
+        ],
+        [
+          -73.125,
+          9.84375,
+          5,
+          0
+        ],
+        [
+          -71.71875,
+          9.84375,
+          5,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

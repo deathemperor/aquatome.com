@@ -1,0 +1,162 @@
+{
+  "id": "tropheus-brichardi",
+  "scientificName": "Tropheus brichardi",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Tropheus",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "tanzania"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 9.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 11.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 152
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-brichardi",
+      "html": "<p>Tropheus brichardi is a cichlid endemic to the northern end of Lake Tanganyika, found in shallow water around rocky shorelines. Not a good species for the beginner, it is very susceptible to 'bloat', so water quality is of the utmost importance. It exists in numerous colour morphs that hybridise freely and should not be mixed, and some may eventually be described as distinct species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-brichardi",
+      "html": "<p>Endemic to the northern end of Lake Tanganyika (Burundi, DR Congo, Tanzania).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-brichardi",
+      "html": "<p>It inhabits shallow waters around rocky parts of the shoreline.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-brichardi",
+      "html": "<p>Standard length: 11.5 cm SL.</p><p>A tank of 120 cm x 30 cm x 30 cm (110 litres) for a single specimen. A much larger tank is required for a group (see below).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-brichardi",
+      "html": "<p>Many aquarists keep Tropheus in bare setups to reduce territorial behaviour, but they can also be maintained in decorated aquaria. If you wish to decorate the tank, use piles of rockwork to form many cave-like structures and hiding places, interspersed with open areas for swimming. In either case use sand as substrate and ensure the water is well oxygenated.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-brichardi",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 8.0–9.5</li><li>Hardness: 8–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-brichardi",
+      "html": "<p>It will accept most foods offered but vegetable matter in the form of spirulina flakes, blanched spinach, nori etc. should form the basis of the diet. This can be supplemented with low protein live and frozen varieties. Never feed beefheart or any other animal meat as it interferes with the digestive system of these fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-brichardi",
+      "html": "<p>It has a somewhat dubious reputation for aggressive behaviour but this is undeserved. In fact it is relatively peaceful towards other species but will squabble with conspecifics. These fish are very active and should not be kept with shy species. Possible tankmates include Julidochromis, Eretmodus and Tanganicodus species, as these require a similar diet to the Tropheus.</p><p>Obtaining a peaceful species group of T. brichardi is, unfortunately, rather difficult. The fish do not school in nature and will usually fight amongst themselves in the aquarium, until a natural pecking order is established. However, in smaller groups (5-6 fish), the fish do not settle easily and may fight to the death. It is therefore generally recommended to purchase a group of 15-20 fish in order to reduce territorial behaviour. There are exceptions to this, and small groups and even pairs of Tropheus have been seen living peacefully together, but these are exceptions to the rule. The main problems associated with successfully keeping a Tropheus colony are thus cost and tank size, with a tank of 152 cm x 46 cm x 46 cm being the minimum size for a group. If it is maintained in a large group, the social interactions between the fish are truly fascinating. New individuals should never be introduced into an established community of Tropheus, as they will not be tolerated.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-brichardi",
+      "html": "<p>A very difficult species to sex correctly. The only guaranteed method is to examine the genital papillae of the fish, but this is recommended to experts only. The genital papillae is pointed in the male and rounded in the female.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-brichardi",
+      "html": "<p>Possible. Maternal mouthbrooder. The tank should be set up as described above. Provide some flat stones and areas of sand to act as potential spawning sites. It is recommended to purchase 20-30 young fish and allow them to grow on together, as adults are costly. If you can, try and obtain tank-bred fish, as wild specimens tend to be far more delicate, aggressive and expensive. It is difficult to obtain the perfect group and some fish (particularly subdominant males) may be lost. The other method is to remove dominant males as they develop until you have the desired sex ratio.</p><p>If you wish to keep more than one male you should provide each with around 60 cm of territory, each containing a rock pile which the male will defend. 6-10 females should be kept per male. If there are multiple males in the tank, but only a single or continuous rock pile, only one male will become dominant and spawn with the females.</p><p>The fish are open spawners, although a spawning site is usually selected. This is often a flat rock surface, but may also simply be an area of open substrate. During spawning itself, which occurs above this site, the female takes the eggs into her mouth before they reach the substrate. She then nuzzles the vent of the male, who releases his milt directly into the female's mouth, thus fertilising the eggs. The female may carry the brood of 5-12 eggs for over 4 weeks before releasing the free swimming fry. She will usually continue to feed during this period and can be easily spotted by her distended mouth.</p><p>If a female is overly stressed she may spit out the brood prematurely or eat them, so care must be taken if you decide to move the fish. This is not recommended for Tropheus as if a female is away from the colony for too long she will lose her position in the pecking order of the group and may be viciously attacked when she is returned. Conversely, if she is left in the main aquarium she may lose most of the brood due to harassment from other fish. If you do move the female, turn off the tank lights and cover it with a blanket for a few hours when she is reintroduced.</p><p>Most breeders who wish to raise large numbers of fry artificially strip them from the mother's mouth at the 2 week stage and raise them from that point. This approach is only for experts, however. The fry are large enough to take brine shrimp nauplii, microworm and powdered dry foods once they become free swimming. If they are left with the mother brood care continues for a time, with the fry seeking refuge in her mouth when they feel threatened.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tropheus-brichardi",
+      "html": "<p>Like others in the genus, Tropheus brichardi is something of an enigma in the aquarium hobby, and is not a good species for the beginner. There has been much argument and discussion about how best to maintain it in the aquarium, and some of these debates still rage on. The generally accepted method of keeping the fish is given here, but in reality what works for one aquarist may not for another. One aspect which is always true is that water quality is of the utmost importance in a Tropheus tank, as they are very susceptible to \"bloat\". T. brichardi exists in numerous colour morphs. Obviously these should not be mixed in aquaria as they will hybridise freely. It is likely that some of the morphs will eventually be described as distinct species.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 160cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina cho cá cichlid",
+        "thức ăn thực vật cho cá Tanganyika"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "đá làm hang bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

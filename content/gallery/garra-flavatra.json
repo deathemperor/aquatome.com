@@ -11,6 +11,47 @@
       "sourceUrl": "https://www.inaturalist.org/photos/59257368",
       "caption": "Cá hút rêu Garra flavatra bò trên đá trong bể",
       "best": true,
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/59257368-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/53632232541.webp",
+      "thumb": "https://media.aquatome.com/flickr/53632232541-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA 2.0",
+      "author": "Gunnar Ries zwo",
+      "sourceUrl": "https://www.flickr.com/photos/44949218@N02/53632232541",
+      "caption": "Cá garra panda sọc vàng đen bơi trên ống gốm trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/53632232511.webp",
+      "thumb": "https://media.aquatome.com/flickr/53632232511-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA 2.0",
+      "author": "Gunnar Ries zwo",
+      "sourceUrl": "https://www.flickr.com/photos/44949218@N02/53632232511",
+      "caption": "Cá garra panda trên ống gốm trong bể nuôi",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/53632232711.webp",
+      "thumb": "https://media.aquatome.com/flickr/53632232711-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA 2.0",
+      "author": "Gunnar Ries zwo",
+      "sourceUrl": "https://www.flickr.com/photos/44949218@N02/53632232711",
+      "caption": "Cá garra panda bơi trên nền sỏi trong bể cạnh ống gốm",
+      "best": true,
       "kind": "other"
     },
     {
@@ -31,7 +72,12 @@
       "licence": "CC BY",
       "author": "Morgan Hay",
       "sourceUrl": "https://www.inaturalist.org/photos/59257228",
-      "caption": "Cá Garra flavatra có sọc vàng đen giữa đá cuội trong bể"
+      "caption": "Cá Garra flavatra có sọc vàng đen giữa đá cuội trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/59257228-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/59257217.webp",
@@ -41,7 +87,12 @@
       "licence": "CC BY",
       "author": "Morgan Hay",
       "sourceUrl": "https://www.inaturalist.org/photos/59257217",
-      "caption": "Cá Garra flavatra vằn đen vàng bơi trên đá trong bể"
+      "caption": "Cá Garra flavatra vằn đen vàng bơi trên đá trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/59257217-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/8bef81e73813c3bb.webp",
@@ -54,7 +105,7 @@
       "caption": "Cá Garra flavatra thân sẫm nằm trên lá cây trong bể thủy sinh"
     }
   ],
-  "seen": 11,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 14,
+  "updatedAt": "2026-11-06",
+  "builtAt": "2026-11-06"
 }

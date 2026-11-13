@@ -5,8 +5,12 @@
   "sourceUrl": "https://www.youtube.com/watch?v=J_PR999bgtw",
   "html": "",
   "photos": [],
-  "mentions": [],
-  "updatedAt": "2026-10-30",
+  "mentions": [
+    "eleocharis-parvula",
+    "juncus-repens",
+    "cryptocoryne-parva"
+  ],
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "J_PR999bgtw",
     "title": "7 Reasons Why You Have Black Beard Algae",
@@ -35,26 +39,28 @@
     ],
     "gear": [
       {
+        "category": "co2",
+        "t": 0
+      },
+      {
         "category": "khac",
         "brand": "Seachem",
         "model": "Excel",
-        "t": 270
-      },
-      {
-        "category": "co2",
-        "t": 0
+        "t": 287
       }
     ],
     "figures": [
       {
-        "heading": "Ba nguyên nhân chính gây BBA",
+        "heading": "Ba nguyên nhân hay gặp",
         "moments": [
           {
-            "t": 162,
-            "url": "https://media.aquatome.com/video/J_PR999bgtw/t162.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh trồng nhiều cây, rêu hại dễ xuất hiện khi mất cân bằng."
+            "t": 165,
+            "url": "https://media.aquatome.com/video/J_PR999bgtw/at165-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh trồng nhiều cây, lũa và đá, đèn chiếu sáng phía trên.",
+            "sharpness": 1391.6,
+            "person": false
           }
         ],
         "photo": {
@@ -65,8 +71,21 @@
           "licence": "CC BY 3.0",
           "author": "Emboli",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_beard_algae.png",
-          "caption": "Tảo BBA mọc thành chùm đen xơ xác trên lá cây trong bể."
+          "caption": "Tảo BBA mọc thành chùm xám đen bám trên lá cây và nền sỏi."
         }
+      },
+      {
+        "heading": "Bốn nguyên nhân khác",
+        "moments": [
+          {
+            "t": 140,
+            "url": "https://media.aquatome.com/video/J_PR999bgtw/at140-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Rêu hại BBA đen bám trên lá cây trong bể.",
+            "sharpness": 6.3
+          }
+        ]
       },
       {
         "heading": "BBA có lây từ cá mới hay dụng cụ không",
@@ -79,20 +98,8 @@
           "licence": "CC BY-SA 4.0",
           "author": "Coughdrop12",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scartella_cristata_Quarantine.jpg",
-          "caption": "Cá nhỏ bơi giữa cây nhựa đỏ trong bể, minh họa cá mới thả vào."
+          "caption": "Một chú cá nhỏ bơi giữa cành cây nhựa đỏ trong bể cảnh."
         }
-      },
-      {
-        "heading": "Carbon lỏng dùng vào việc gì",
-        "moments": [
-          {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/J_PR999bgtw/t280.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Chai carbon lỏng đặt trước đám cây thủy sinh xanh tốt."
-          }
-        ]
       }
     ]
   }

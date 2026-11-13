@@ -10,6 +10,64 @@
     "india",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BT"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Raidak River",
+        "Garo Hills"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Badis blosyrus is a badid from western Assam and northern West Bengal in India, in the Brahmaputra drainage.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has since been collected in the nearby Buxa (often spelled 'Buxar') National Park, West Bengal state, from the Raidak River, a tributary of the Brahmaputra rising in Bhutan, and from streams of the western Garo Hills in Meghalaya state, south of the main Brahmaputra channel (tentative identifications).",
+          "countries": [
+            "BT"
+          ],
+          "regions": [
+            "Raidak River",
+            "Garo Hills"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2389468,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          88.59375,
+          25.3125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +111,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -137,8 +195,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 75cm",
-        "bể cá 70 lít"
+        "bể cá 80cm"
       ]
     },
     {

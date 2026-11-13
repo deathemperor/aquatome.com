@@ -1,0 +1,104 @@
+{
+  "id": "tylochromis-lateralis",
+  "scientificName": "Tylochromis lateralis",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Tylochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "congo"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 7,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/tylochromis_cf_lateralis_german_bred_en/",
+      "html": "<p>German bred specimens of this large, unusual cichlid are offered for the first time. The parents were imported from the Congo. Keeping and breeding were successful at a total hardness of 14° and pH 7.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/tylochromis_cf_lateralis_german_bred_en/",
+      "html": "<p>The feeding habit is similar to Geophagus: fine sand is sieved by the fish for food, and the food particles the fish feed on are comparatively small. They are fed granulates, flakes, and frozen white and black mosquito larvae.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/tylochromis_cf_lateralis_german_bred_en/",
+      "html": "<p>These fish look a bit like Geophagus from South America, and the behaviour is also comparable. Dominant males are territorial.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/tylochromis_cf_lateralis_german_bred_en/",
+      "html": "<p>The sexes show a clearly visible sexual dimorphism at an age of about 1.5–2 years. Dominant males are fully developed after 3 years. At this age they are about 30 cm long. Females are only 20 cm long at this age.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/tylochromis_cf_lateralis_german_bred_en/",
+      "html": "<p>There are also parallels to Geophagus in the breeding behaviour. Tylochromis cf. lateralis are ovophilous, maternal mouthbrooders. Wild-collected fish spawn only seasonally. It is too early to say anything about this for bred specimens. Currently only an F1 has been bred.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/ed50ead4b9a9b99d.webp",
+      "thumb": "https://media.aquatome.com/commons/ed50ead4b9a9b99d-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "John P. Friel Ph.D.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tylochromis_lateralis_53146450.jpg",
+      "caption": "Cá Tylochromis lateralis màu bạc trong bể kính, nhìn nghiêng",
+      "large": {
+        "url": "https://media.aquatome.com/commons/ed50ead4b9a9b99d-large.webp",
+        "width": 1280,
+        "height": 960
+      }
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200cm",
+        "bể cá cichlid"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá",
+        "nền cát hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid dạng hạt",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

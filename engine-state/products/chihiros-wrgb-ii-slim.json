@@ -1,0 +1,395 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "LED type",
+      "value": "RGB 3-in-1 LEDs",
+      "source": 0
+    },
+    {
+      "key": "Fixture thickness",
+      "value": "15 mm (all sizes)",
+      "source": 0
+    },
+    {
+      "key": "Fixture width",
+      "value": "128 mm",
+      "source": 0
+    },
+    {
+      "key": "Leg/stand",
+      "value": "Alloy legs, 18 cm tall, length adjustable within a set range",
+      "source": 2
+    },
+    {
+      "key": "Dimming",
+      "value": "0–100% intensity",
+      "source": 0
+    },
+    {
+      "key": "Color temperature",
+      "value": "Adjustable 3000K–13000K",
+      "source": 0
+    },
+    {
+      "key": "Control",
+      "value": "Bluetooth, My Chihiros app (iOS/Android): schedules, brightness, RGB mix",
+      "source": 0
+    },
+    {
+      "key": "Sunrise/sunset",
+      "value": "Sunrise/sunset simulation through the app",
+      "source": 3
+    },
+    {
+      "key": "Housing material",
+      "value": "Aluminium; edges only 2.8 mm thick",
+      "source": 1
+    },
+    {
+      "key": "Cooling",
+      "value": "Passive (no fan)",
+      "source": 1
+    },
+    {
+      "key": "Included",
+      "value": "Power adapter, Bluetooth controller, alloy legs; shade and hanging kit sold separately",
+      "source": 0
+    },
+    {
+      "key": "Warranty",
+      "value": "6 months (Sen Aquatic)",
+      "source": 1
+    },
+    {
+      "key": "Warranty",
+      "value": "1 month from receipt; drops, breakage and water damage not covered (Thủy Sinh Quới Decor)",
+      "source": 2
+    }
+  ],
+  "variants": [
+    {
+      "name": "Slim 30",
+      "specs": [
+        {
+          "key": "Dimensions",
+          "value": "284 × 128 × 15 mm",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "20",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "23 W",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1200 lm",
+          "source": 3
+        },
+        {
+          "key": "Tank length",
+          "value": "30–45 cm",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "Slim 45",
+      "specs": [
+        {
+          "key": "Dimensions",
+          "value": "434 × 128 × 15 mm",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "30",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "35 W",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1800 lm",
+          "source": 3
+        },
+        {
+          "key": "Tank length",
+          "value": "45–60 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Slim 60",
+      "specs": [
+        {
+          "key": "Dimensions",
+          "value": "584 × 128 × 15 mm",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "40",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "45 W",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "2400 lm",
+          "source": 3
+        },
+        {
+          "key": "Tank length",
+          "value": "60–80 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Slim 90",
+      "specs": [
+        {
+          "key": "Dimensions",
+          "value": "884 × 128 × 15 mm",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "60",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "69 W",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "3600 lm",
+          "source": 0
+        },
+        {
+          "key": "Tank length",
+          "value": "90–110 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Slim 120",
+      "specs": [
+        {
+          "key": "Dimensions",
+          "value": "1184 × 128 × 15 mm",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "80",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "90 W",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "4800 lm",
+          "source": 0
+        },
+        {
+          "key": "Tank length",
+          "value": "120–140 cm",
+          "source": 0
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Thủy Sinh Quới Decor",
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-wrgb-2-slim-90cm/",
+      "variant": "Slim 90 (in stock)",
+      "vnd": 2800000,
+      "source": 2
+    },
+    {
+      "shop": "Sen Aquatic",
+      "url": "https://senaquatic.vn/chihiros-den-wrgb-ii-slim-60cm",
+      "variant": "Slim 45 (out of stock)",
+      "vnd": 1800000,
+      "source": 1
+    },
+    {
+      "shop": "Sen Aquatic",
+      "url": "https://senaquatic.vn/chihiros-den-wrgb-ii-slim-60cm",
+      "variant": "Slim 60 (out of stock)",
+      "vnd": 2150000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2-slim",
+      "variant": "Slim 30 (out of stock)",
+      "vnd": 1521500,
+      "source": 0
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2-slim",
+      "variant": "Slim 45 (out of stock)",
+      "vnd": 1729750,
+      "source": 0
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2-slim",
+      "variant": "Slim 60 (out of stock)",
+      "vnd": 1989000,
+      "source": 0
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2-slim",
+      "variant": "Slim 90 (out of stock)",
+      "vnd": 2735300,
+      "source": 0
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2-slim",
+      "variant": "Slim 120 (out of stock; listed original price 4,672,000₫)",
+      "vnd": 3255500,
+      "source": 0
+    }
+  ],
+  "fits": [
+    {
+      "fact": "The five sizes cover rimless tanks about 30 to 140 cm long. Pick the size that matches the tank length.",
+      "source": 3
+    },
+    {
+      "fact": "A shop calls it a cheaper, lower-power option than the regular WRGB 2. It suits tanks whose plants don't need very strong light.",
+      "source": 0
+    },
+    {
+      "fact": "The thin fixture is meant for rectangular planted tanks and setups with little room.",
+      "source": 1
+    },
+    {
+      "fact": "The Slim has two rows of LEDs, while the regular WRGB II has three. It sits below the WRGB II and the WRGB II Pro in output.",
+      "source": 6
+    }
+  ],
+  "usage": [
+    {
+      "fact": "It sits on the tank rim on its alloy legs. You can hang it instead with a separately sold hanging cable kit.",
+      "source": 1
+    },
+    {
+      "fact": "First setup: install the light on its legs or hang it, then power it on. Install the My Chihiros app and register an email, turn on the phone's Bluetooth and location, then choose the light in the app.",
+      "source": 2
+    },
+    {
+      "fact": "In the app you can set the on/off schedule, overall intensity and the R/G/B mix.",
+      "source": 0
+    },
+    {
+      "fact": "Keep it away from water. One shop's warranty doesn't cover water damage or drops.",
+      "source": 2
+    }
+  ],
+  "issues": [
+    {
+      "fact": "One owner said the light stopped turning on after they came back from a holiday.",
+      "source": 4
+    },
+    {
+      "fact": "One owner's Slim 120 suddenly lost its Bluetooth link to the app, so its schedule stopped running. Their other Chihiros lights still connected. Suggested troubleshooting was to close My Chihiros and scan for the light with nRF Connect.",
+      "source": 5
+    },
+    {
+      "fact": "Compared with the regular version: fewer LED rows (2 vs 3) and lower output than the WRGB II and WRGB II Pro.",
+      "source": 6
+    },
+    {
+      "fact": "Vietnamese shops list very different warranties, from 1 month to 6 months, so check before buying.",
+      "source": 2
+    },
+    {
+      "fact": "Stock in Vietnam is patchy. Several shops list most or all sizes as out of stock.",
+      "source": 0
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Chihiros",
+      "model": "WRGB II (regular / 10th Edition)",
+      "why": "The better pick for demanding plants or deeper tanks. It has three LED rows and more output than the Slim, and Vietnamese shops carry it.",
+      "source": 6
+    },
+    {
+      "brand": "Week Aqua",
+      "model": "A-430 Pro WRGB+UVA",
+      "why": "A Chinese full-spectrum rival sold by the same Vietnamese shops. It's usually cheaper and adds UVA.",
+      "source": 3
+    },
+    {
+      "brand": "Kaokui",
+      "model": "6-row WRGB",
+      "why": "A budget multi-row RGB light sold in Vietnam in sizes for tanks about 30 to 165 cm.",
+      "source": 3
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2-slim",
+      "title": "Đèn Chihiros Wrgb 2 Slim cho bể thủy sinh cá cảnh – Thủy Sinh 4U",
+      "kind": "shop"
+    },
+    {
+      "url": "https://senaquatic.vn/chihiros-den-wrgb-ii-slim-60cm",
+      "title": "Đèn Chihiros WRGB II Slim – Sen Aquatic",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-wrgb-2-slim-90cm/",
+      "title": "Đèn Chihiros WRGB 2 Slim 90cm – Thủy Sinh Quới Decor",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cacanhnamaqua.com/chihiros-wrgb-ii-slim-den-led-thuy-sinh-sieu-mong-dieu-khien-thong-minh-qua-app/",
+      "title": "Chihiros WRGB II Slim – Cá Cảnh Nam Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://bbs.chihirosaquaticstudio.com/threads/chihiros-wrgb-ii-slim-problem.7090/",
+      "title": "Chihiros WRGB II Slim problem – Chihiros forum",
+      "kind": "forum"
+    },
+    {
+      "url": "https://bbs.chihirosaquaticstudio.com/threads/wrgb-ii-slim-not-connecting.518",
+      "title": "WRGB II Slim Not Connecting – Chihiros forum",
+      "kind": "forum"
+    },
+    {
+      "url": "https://bbs.chihirosaquaticstudio.com/threads/chihiros-wrgb-ii-or-slim.198",
+      "title": "Chihiros WRGB II or Slim – Chihiros forum",
+      "kind": "forum"
+    }
+  ]
+}

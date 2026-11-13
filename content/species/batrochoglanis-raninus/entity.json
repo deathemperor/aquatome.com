@@ -7,13 +7,456 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "colombia"
+    "colombia",
+    "amazon",
+    "guyana",
+    "french-guiana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "GY",
+        "GF"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon River basin, Guyana and French Guiana.",
+          "countries": [
+            "GY",
+            "GF"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344107,
+      "total": 397,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "GF",
+          287
+        ],
+        [
+          "BR",
+          58
+        ],
+        [
+          "PE",
+          22
+        ],
+        [
+          "SR",
+          10
+        ],
+        [
+          "VE",
+          10
+        ],
+        [
+          "CO",
+          6
+        ],
+        [
+          "EC",
+          2
+        ],
+        [
+          "BO",
+          1
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          -78.75,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -78.75,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          0,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          3,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          6,
+          0
+        ],
+        [
+          -74.53125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          6,
+          0
+        ],
+        [
+          -73.125,
+          8.4375,
+          4,
+          0
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          -71.71875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          3,
+          0
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          2,
+          0
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -61.875,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          4.21875,
+          3,
+          0
+        ],
+        [
+          -56.25,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          -56.25,
+          -4.21875,
+          9,
+          0
+        ],
+        [
+          -56.25,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          2.8125,
+          31,
+          29
+        ],
+        [
+          -54.84375,
+          4.21875,
+          66,
+          62
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          51,
+          49
+        ],
+        [
+          -53.4375,
+          4.21875,
+          144,
+          144
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -52.03125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          10,
+          0
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          5,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 8
+      },
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -25,16 +468,58 @@
       "html": "<p>Origin: Colombia. Available size: 6-8 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm",
+      "html": "<ul><li>Conservation: Least Concern (IUCN 2022), assessed as such due to its wide range despite limited information.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm",
+      "html": "<p>South America: Amazon River basin, Guyana and French Guiana.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm",
+      "html": "<p>Commonly occurs in creeks as well as in rivers. Found in very shady and deep zones of rivers where the current is slow, the bottom is shady and the gravel is covered with plant debris. During the day, it lies hidden under branches or rocks.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm",
+      "html": "<p>In its natural habitat it goes stalk-hunting, swallowing prey within its range. Starts feeding on micro-crustaceans and aquatic insect larvae, then shifts its diet to fishes of notable size. No problem in the aquarium with eating all types of aquarium fare, flake, tablets, pellets, live and frozen foods.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/batrochoglanis_raninus_dwarf_en/",
       "html": "<p>Batrochoglanis are nocturnal fish that love to hide. They are very peaceful towards all other fish that do not fit in their mouths. Although they cannot be called social animals, they gather in large aggregations in the plastic tubes offered as hiding places.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm",
+      "html": "<p>Predatory in the aquarium towards fish that are smaller. Provide plenty of hiding places to hide during the day and best kept in a small group of 2-3. Very secretive in its surroundings.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/batrochoglanis_raninus_dwarf_en/",
-      "html": "<p>The genus Batrochoglanis was formerly placed in Pseudopimelodus. Batrochoglanis can be best distinguished from Pseudopimelodus by the shape of the caudal fin. Pseudopimelodus has a deeply forked caudal fin, Batrochoglanis only a slightly indented one.</p><p>Currently five species of Batrochoglanis are accepted. Specimens of that genus are occasionally obtained from Colombia, which fit perfectly in all respects to the described species B. raninus, with one exception: the fish stay small! Usually B. raninus should be a fast growing species that becomes 15-20 cm long. But the supplier could never deliver larger specimens, nor did they grow much in the facility. The largest specimens observed so far were about 8 cm long (including caudal fin). It seems that the larger and heavier fish are the females.</p>"
+      "html": "<p>The genus Batrochoglanis was formerly placed in Pseudopimelodus. Batrochoglanis can be best distinguished from Pseudopimelodus by the shape of the caudal fin. Pseudopimelodus has a deeply forked caudal fin, Batrochoglanis only a slightly indented one.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm",
+      "html": "<p>Etymology: the specific name raninus is Latin for frog-like, referring to its frog-like shape or appearance, particularly its wide mouth and head.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl, 1985. Aquarien atlas. Band 2. Mergus, Verlag für Natur-und Heimtierkunde GmbH, Melle, Germany. 1216 p.</p><p>Brejão, G.L. 2022. Batrochoglanis raninus. The IUCN Red List of Threatened Species 2022.</p><p>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Shibatta, O.A., 2003. Pseudopimelodidae (Bumblebee catfishes, dwarf marbled catfishes). p. 401-405. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p>"
     }
   ],
   "photos": [
@@ -72,7 +557,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "hhu_hYpC_uc",
+      "title": "Crazy Bumblebee Jelly Catfish (Batrochoglanis raninus)",
+      "durationSec": 115,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "EVjC_FwsyqU",
+      "title": "Batrochoglanis raninus (bumblee bee jelly catfish)",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zchfLJpVhOU",
+      "title": "Pseudopimelodus raninus - feeding time - earthworms",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9pjb3rNBqTM",
+      "title": "Raninus tank after the move",
+      "durationSec": 152,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -96,5 +606,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-05"
+  "updatedAt": "2026-11-06"
 }

@@ -13,6 +13,94 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika, and recorded from the waters of all four countries bordering the lake: Burundi, DR Congo, Tanzania and Zambia.",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ",
+            "ZM"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373775,
+      "total": 29,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ZM",
+          18
+        ],
+        [
+          "TZ",
+          7
+        ],
+        [
+          "CD",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          29.53125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          29.53125,
+          -7.03125,
+          5,
+          5
+        ],
+        [
+          29.53125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          30.9375,
+          -9.84375,
+          17,
+          17
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -56,7 +144,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -140,8 +228,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá dài 150x60"
+        "bể cá 150cm"
       ]
     },
     {

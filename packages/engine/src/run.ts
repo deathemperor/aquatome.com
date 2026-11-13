@@ -2,34 +2,43 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { GuideSchema, mayPublish, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
 import type { z } from 'zod'
+import { across, LARGE_PX } from './curation'
 import { cardGaps } from './card-fill'
 import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
 import { deeperPages, depthReport, popularityOrder, readSearchCache, runOrder, saveSearchCache, searchThin, thinSpecies, type DepthReport } from './depth'
 import { discover } from './discover'
 import { ChallengeError, type ChromeFetcher } from './fetch'
-import { gbifMatch, type Taxon } from './gbif'
+import { gbifMatch, pageTaxon, type Taxon } from './gbif'
+import { GROUP_PAGES } from './page-folds'
 import { ensurePlaces, guideId, mergePlant, mergeSpecies, writeGuide } from './merge'
 import { METRIC_KINDS } from './metric'
 import { htmlToOutline, isChallenge, type PageImage } from './outline'
 import { findPhotos } from './photos'
 import { withSections } from './guide-sections'
 import { processPage, type ProcessedPage } from './process'
+import { readVarietyPages, recordVarietyPage } from './species-sources'
 import { rewriteVi, VI_WRITE } from './vi-rewrite'
-import { QUALITY_THRESHOLD, gate, reviewTranslation } from './quality'
+import { QUALITY_THRESHOLD, gate, reviewTranslation, steadyRead, WRITER_BAND } from './quality'
+import { logReviews, type Review } from './review-log'
 import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
-import { SOURCES, sourceById } from './sources'
-import { BROWSER_GONE, attemptsAfter, errorKind, loadState, needsFetch, saveState, setSourceBlock, sourceBlockedSince, type UrlState } from './state'
-import { findVideos } from './videos'
+import { ARCHIVE_POLITE, ArchiveRefused } from './archive'
+import { SOURCES, sourceById, type SourceConfig } from './sources'
+import { BROWSER_GONE, attemptsAfter, errorKind, loadState, moveToArchive, needsFetch, noteBlock, saveState, setSourceBlock, sourceBlockedSince, sourcesOnArchive, type UrlState } from './state'
+import { findVideos, readVideoRejected } from './videos'
 import { popularFirst } from './shops'
 import { acceptedNames, addSourceNames, candidates, resolveWanted, wantedFirst, wantedIn, withPopular, type Wanted } from './wanted'
 import { addReaders, readersReport, type ReaderRow, type ReaderWant } from './readers-wanted'
+import { WikimediaRefused } from './wikimedia-rest'
+
+/** How a source is read. `capturedAt`: the date of the archive's copy, for a source read through it. */
+type Reader = Pick<ChromeFetcher, 'text' | 'links' | 'bytes'> & { get(url: string): Promise<{ status: number; html: string; finalUrl: string; capturedAt?: string }> }
 
 export type Deps = {
-  fetcher: Pick<ChromeFetcher, 'get' | 'text' | 'links' | 'bytes'>
-  /** Reads sources with `via: 'archive'` (the Internet Archive's copies). */
-  archive?: Pick<ChromeFetcher, 'get' | 'text' | 'links' | 'bytes'>
+  fetcher: Reader
+  /** Reads sources with `via: 'archive'`, and those that moved there by themselves (the Internet Archive's copies). */
+  archive?: Reader
   llm: Llm
   http: (url: string) => Promise<unknown>
   media: Media
@@ -40,22 +49,56 @@ export type Deps = {
   readersWanted?: () => Promise<ReaderWant[]>
 }
 type Counts = { discovered: number; fetched: number; processed: number; skipped: number; blocked: number; errors: number }
-export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; changed: ChangelogEntry[]; errors: string[]; depth?: DepthReport }
+export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; movedToArchive: SourceId[]; changed: ChangelogEntry[]; errors: string[]; depth?: DepthReport }
 
 type Kind = 'species' | 'plants' | 'guides' | 'places' | 'glossary' | 'breeds'
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
 const writeJson = async (path: string, data: unknown) => writeFile(path, `${JSON.stringify(data, null, 2)}\n`)
-const MAX_PHOTOS = 8
-const rank = (p: Photo) => (p.source ? SOURCE_IDS.indexOf(p.source) : SOURCE_IDS.length)
+/** The photos a page keeps as its own. */
+export const MAX_PHOTOS = 8
+/**
+ * A source's photos come before open-licence ones, in the registry's order. Not those a step of the source's own places
+ * (`photoStep`: Tropica): they keep the place that step gave them, behind what the page had, whichever source is read.
+ */
+const rank = (p: Photo) => (p.source && !SOURCES.find(s => s.id === p.source)?.photoStep ? SOURCE_IDS.indexOf(p.source) : SOURCE_IDS.length)
 
 const MAX_LLM_FAILURES = 3
 /** Pages in a row that failed on the network: it is the network, not the pages, so the source stops (their attempts last). */
 const MAX_NETWORK_FAILURES = 3
 const BLOCK_MEMORY_MS = 86_400_000
+/** A source that meets a browser check on this many runs within the window reads the Internet Archive's copies from then on (the owner, 2026-11-10: a person can't always pass one). */
+export const ARCHIVE_AFTER_BLOCKS = 2
+export const ARCHIVE_BLOCK_WINDOW_MS = 7 * 86_400_000
 
-/** This page's fresh photos replace its old ones; source photos first (registry order), open-licence photos after. */
-export const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh: Photo[]) =>
-  [...fresh, ...prev.filter(p => !(p.source === source && p.sourceUrl === url))].map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map(x => x.p).slice(0, MAX_PHOTOS)
+/** Whether the archive has a readable copy of the page that lists this source, or else of a page already read. */
+async function archiveHolds(archive: Reader | undefined, src: SourceConfig, read: string[]): Promise<boolean> {
+  if (!archive) return false
+  const listing = src.discover.kind === 'crawl' ? src.discover.start[0] : src.discover.kind === 'sitemap' ? src.discover.urls[0] : undefined
+  for (const url of [listing, read[0]]) {
+    if (!url) continue
+    try { await archive.get(url); return true } catch { /* no copy of this one */ }
+  }
+  return false
+}
+
+/**
+ * This page's fresh photos replace its old ones; source photos first (registry order), open-licence photos after. A head
+ * that fills the card stays first, unless this read replaced it: it's what the fish's cards show (lead-photo.ts).
+ */
+export const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh: Photo[]) => {
+  const replaced = (p: Photo) => p.source === source && p.sourceUrl === url
+  const merged = [...fresh, ...prev.filter(p => !replaced(p))].map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map(x => x.p)
+  const head = prev[0] && !replaced(prev[0]) && across(prev[0].large ?? prev[0], 'square') >= LARGE_PX ? prev[0] : undefined
+  return (head ? [head, ...merged.filter(p => p.url !== head.url)] : merged).slice(0, MAX_PHOTOS)
+}
+
+/**
+ * A page's photos once one of its source pages is read: that page's photos as they are now (mergePhotos), but for a
+ * source whose photos a step of its own takes (sources.ts `photoStep`: Tropica). Its page's pictures aren't the picker's
+ * to find, so a read brings none, and the ones its step stored stay.
+ */
+export const photosAfterRead = async (prev: Photo[], source: SourceId, url: string, fresh: () => Promise<Photo[]>) =>
+  sourceById(source).photoStep ? prev : mergePhotos(prev, source, url, await fresh())
 
 /** content/ access for one run: existing items, taken slugs, validated writes. */
 function store(contentRoot: string) {
@@ -125,9 +168,12 @@ function combineQuality(prev: Translation['quality'] | undefined, source: Source
 const outranked = (sections: Section[] | undefined, source: SourceId, url: string, incoming: number) =>
   (sections ?? []).filter(x => x.source === source && x.sourceUrl !== url).length > incoming
 
-/** Optional enrichment never fails a page. */
-async function soft<T>(what: string, f: () => Promise<T>, fallback: T): Promise<T> {
-  try { return await f() } catch (e) { console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
+/**
+ * Optional enrichment never fails a page. A refusal is not "nothing found": the archive's stops the source, and
+ * Wikimedia's leaves the page unmarked, to be read again once the rest ends (wikimedia-rest.ts).
+ */
+export async function soft<T>(what: string, f: () => Promise<T>, fallback: T): Promise<T> {
+  try { return await f() } catch (e) { if (e instanceof ArchiveRefused || e instanceof WikimediaRefused) throw e; console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
 }
 
 /**
@@ -139,11 +185,11 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const contentRoot = join(root, 'content')
   const s = store(contentRoot)
   const glossary = await glossaryTerms(s)
-  const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean | 'photos' }>>>(join(contentRoot, 'sources.json'))) ?? {}
+  const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean | 'photos'; permission?: { refusedCredits?: string[] } }>>>(join(contentRoot, 'sources.json'))) ?? {}
   const gbifCache: Record<string, Taxon | null> = {}
   const blocked = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))) ?? {}
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
-  const report: RunReport = { perSource: {}, needsHuman: [], changed: [], errors: [] }
+  const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
 
   // Species our pages name but don't have yet: their source pages are fetched first (see wanted.ts); the audit lists the rest.
@@ -174,6 +220,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     return w
   }, new Map() as Wanted)
   const onSource: Record<string, string> = {}
+  const varietyPages = await readVarietyPages(root)
+  const videoRejected = await readVideoRejected(root)
 
   /** The site's Vietnamese style over the first translation (VI_WRITE, scripts/eval-translate.ts); unchanged if the output is
    * unusable. A model failure (usage limit) stops the run like any other: no page publishes unpolished without a trace. */
@@ -191,19 +239,20 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   }
 
   /** Translate, polish, review, and re-translate once with the reviewer's notes if it scores low. */
-  async function translate(input: Parameters<typeof processPage>[1]) {
+  async function translate(input: Parameters<typeof processPage>[1]): Promise<{ page: ProcessedPage; score: number; tries: Review[] }> {
     let page = await processPage(llm, input)
-    if (page.kind === 'skip') return { page, score: 1 }
+    if (page.kind === 'skip') return { page, score: 1, tries: [] }
     page = await polish(page, input.outline)
     const pairs = (p: ProcessedPage) => (p.kind === 'guide' ? [{ en: input.outline, vi: p.guide?.viBody ?? '' }] : p.sections)
-    let { score, notes } = await reviewTranslation(llm, pairs(page))
-    if (gate(score, false) === 'retry') {
-      page = await processPage(llm, { ...input, notes })
-      if (page.kind === 'skip') return { page, score: 1 }
+    // Near the bar (WRITER_BAND), read three times: the middle read counts.
+    const tries = [await steadyRead(() => reviewTranslation(llm, pairs(page)), WRITER_BAND)]
+    if (gate(tries[0]!.score, false) === 'retry') {
+      page = await processPage(llm, { ...input, notes: tries[0]!.notes })
+      if (page.kind === 'skip') return { page, score: 1, tries: [] }
       page = await polish(page, input.outline)
-      score = (await reviewTranslation(llm, pairs(page))).score
+      tries.push(await steadyRead(() => reviewTranslation(llm, pairs(page)), WRITER_BAND))
     }
-    return { page, score }
+    return { page, score: tries.at(-1)!.score, tries }
   }
 
   /** Write the processed page; returns entity ids (`kind/id`) or null when it isn't usable content. */
@@ -211,25 +260,31 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const now = today()
     const minWidth = sourceById(source).minPhotoWidth
     const sourcePhotos = (names: string[], existing: Photo[], max?: number) =>
-      storeSourcePhotos(source, sourceNames[source]?.name ?? source, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth), { bytes, media: deps.media, blocked }, existing)
+      storeSourcePhotos(source, sourceNames[source]?.name ?? source, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth), { bytes, media: deps.media, blocked, refusedCredits: sourceNames[source]?.permission?.refusedCredits }, existing, max ?? 4)
     const log = (kind: ChangelogEntry['kind'], id: string, existed: boolean) => {
       const e: ChangelogEntry = { date: now, kind, id, source, action: existed ? 'updated' : 'new' }
       report.changed.push(e)
       return e
     }
     if (page.kind === 'species') {
+      // A source page about several species is no one species' page (page-folds.ts).
+      if (GROUP_PAGES.includes(url)) return null
       // A name newer than GBIF (the 2024 Corydoras split: Hoplisoma sterbai) is found under a synonym the page gives.
-      let taxon = await gbifMatch(page.scientificName!, http, gbifCache)
-      for (const syn of page.synonyms) if (!taxon) taxon = await gbifMatch(syn, http, gbifCache)
+      const taxon = await pageTaxon([page.scientificName!, ...page.synonyms], page.group, n => gbifMatch(n, http, gbifCache))
       if (!taxon) return null
+      // A page about one variety or strain says what that line is, not the species: kept off its page (species-sources.ts).
+      if (page.variety || varietyPages[url]) {
+        if (!varietyPages[url]) await recordVarietyPage(root, url, varietyPages[url] = { species: slugify(taxon.canonicalName), variety: page.variety, at: now })
+        return null
+      }
       const existing = await s.read<z.infer<typeof SpeciesSchema>>('species', slugify(taxon.canonicalName))
       if (outranked(existing.entity?.sections, source, url, page.sections.length)) return [`species/${slugify(taxon.canonicalName)}`]
       const item = mergeSpecies(existing, page, { source, url, taxon, now, takenSlugs: new Set([...await s.taken('species', existing.vi?.slug), ...await s.taken('breeds')]), takenNames: new Set([...await s.takenNames('species', slugify(taxon.canonicalName)), ...await s.takenNames('breeds')]), quality: combineQuality(existing.vi?.quality, source, score) })
       // Judged on depth at every merge too, as the public build shows it (published sources): a thin page is out of search.
       item.vi.quality = judgeQuality(item.vi.quality, item.vi.quality.indexable, speciesDepth(item.entity.sections.filter(x => mayPublish(sourceNames[x.source], 'text'))).deep)
-      item.entity.photos = mergePhotos(item.entity.photos, source, url, await sourcePhotos([taxon.canonicalName, page.scientificName!, ...page.enCommonNames], item.entity.photos))
-      if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(taxon.canonicalName, http), [])
-      if (!item.entity.videos.length) item.entity.videos = await soft('videos', () => findVideos([taxon.canonicalName, ...page.enCommonNames], llm, http), [])
+      item.entity.photos = await photosAfterRead(item.entity.photos, source, url, () => sourcePhotos([taxon.canonicalName, page.scientificName!, ...page.enCommonNames], item.entity.photos))
+      if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(taxon.canonicalName, http, 4, blocked), [])
+      if (!item.entity.videos.length) item.entity.videos = await soft('videos', () => findVideos([taxon.canonicalName, ...page.enCommonNames], llm, http, { skip: videoRejected }), [])
       const known = new Set(await s.ids('places'))
       for (const p of ensurePlaces(page.places, known)) await s.write('places', PlaceSchema, p)
       await s.write('species', SpeciesSchema, item)
@@ -242,8 +297,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       if (outranked(existing.entity?.sections, source, url, page.sections.length)) return [`plants/${slugify(page.scientificName)}`]
       const item = mergePlant(existing, page, { source, url, now, takenSlugs: await s.taken('plants', existing.vi?.slug), takenNames: await s.takenNames('plants', slugify(page.scientificName)), quality: combineQuality(existing.vi?.quality, source, score) })
       if (!item) return null
-      item.entity.photos = mergePhotos(item.entity.photos, source, url, await sourcePhotos([item.entity.scientificName, ...page.enCommonNames], item.entity.photos))
-      if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(item.entity.scientificName, http), [])
+      item.entity.photos = await photosAfterRead(item.entity.photos, source, url, () => sourcePhotos([item.entity.scientificName, ...page.enCommonNames], item.entity.photos))
+      if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(item.entity.scientificName, http, 4, blocked), [])
       await s.write('plants', PlantSchema, item)
       await appendChangelog(contentRoot, [log('plant', item.entity.id, !!existing.entity)])
       return [`plants/${item.entity.id}`]
@@ -277,19 +332,34 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const until = deadline === Infinity ? Infinity : deps.now().getTime() + (deadline - deps.now().getTime()) / (order.length - i)
     const counts: Counts = { discovered: 0, fetched: 0, processed: 0, skipped: 0, blocked: 0, errors: 0 }
     report.perSource[id] = counts
-    const fetcher = src.via === 'archive' ? deps.archive : deps.fetcher
+    const onArchive = src.via === 'archive' || (await sourcesOnArchive(root)).has(id)
+    const fetcher = onArchive ? deps.archive : deps.fetcher
     if (!fetcher) { report.errors.push(`${id}: no archive reader`); continue }
     // An archived source never meets the site's browser check, so an old block doesn't hold it back.
-    const blockedAt = src.via === 'archive' ? undefined : await sourceBlockedSince(root, id)
+    const blockedAt = onArchive ? undefined : await sourceBlockedSince(root, id)
     if (blockedAt && !opts.retryBlocked && deps.now().getTime() - new Date(blockedAt).getTime() < BLOCK_MEMORY_MS) {
       report.needsHuman.push(id) // still waiting for the owner to pass the browser check in the engine's Chrome profile
       continue
     }
-    const block = async () => { counts.blocked++; report.needsHuman.push(id); await setSourceBlock(root, id, deps.now().toISOString()) }
+    let blockNoted = false
+    const block = async () => {
+      counts.blocked++
+      if (blockNoted) return
+      blockNoted = true
+      const at = deps.now().toISOString()
+      if (await noteBlock(root, id, at, ARCHIVE_BLOCK_WINDOW_MS) >= ARCHIVE_AFTER_BLOCKS && await archiveHolds(deps.archive, src, Object.keys(await loadState(root, id)))) {
+        await moveToArchive(root, id, at)
+        report.movedToArchive.push(id)
+        return
+      }
+      report.needsHuman.push(id)
+      await setSourceBlock(root, id, at)
+    }
+    const delayMs = onArchive ? Math.max(src.delayMs, ARCHIVE_POLITE) : src.delayMs
     let last = -Infinity
     /** ≥ delayMs between any two requests to this source (pages, sitemaps, images); time spent translating counts. */
     const polite = <A extends unknown[], R>(f: (...a: A) => Promise<R>) => async (...a: A) => {
-      await deps.sleep(Math.max(0, last + src.delayMs - deps.now().getTime()))
+      await deps.sleep(Math.max(0, last + delayMs - deps.now().getTime()))
       try { return await f(...a) } finally { last = deps.now().getTime() }
     }
     const get = polite((u: string) => fetcher.get(u))
@@ -299,12 +369,18 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     // An archived source keeps its last good index: the archive's index is often down, the species list barely changes.
     const indexFile = join(root, 'engine-state', `_index-${id}.json`)
     try {
-      found = await discover(src, polite((u: string) => fetcher.text(u)), links)
-      if (src.via === 'archive' && found.length) await mkdir(join(root, 'engine-state'), { recursive: true }).then(() => writeFile(indexFile, `${JSON.stringify(found)}\n`))
+      // Off the capture index, a sitemap is read from its archived copy, never from the site.
+      const text = onArchive && src.discover.kind !== 'archive' ? polite(async (u: string) => (await fetcher.get(u)).html) : polite((u: string) => fetcher.text(u))
+      found = await discover(src, text, links)
+      if (onArchive && !found.length) throw new Error('the archive lists no pages')
+      if (onArchive && found.length) await mkdir(join(root, 'engine-state'), { recursive: true }).then(() => writeFile(indexFile, `${JSON.stringify(found)}\n`))
     } catch (e) {
       if (e instanceof ChallengeError) { await block(); continue }
-      const kept = src.via === 'archive' ? JSON.parse(await readFile(indexFile, 'utf8').catch(() => 'null')) as typeof found | null : null
-      if (!kept) {
+      if (e instanceof ArchiveRefused) { report.errors.push(`${id}: not read: ${e.message}`); continue }
+      const lastIndex = onArchive ? JSON.parse(await readFile(indexFile, 'utf8').catch(() => 'null')) as typeof found | null : null
+      // No index yet: the pages already read are still there to read again.
+      const kept = lastIndex?.length || !onArchive ? lastIndex : Object.keys(await loadState(root, id)).map(url => ({ url }))
+      if (!kept?.length) {
         counts.errors++
         report.errors.push(`${id}: discovery failed: ${(e as Error).message}`)
         continue
@@ -325,7 +401,14 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const deeper = opts.cardFill ? deeperPages(found, gaps.filter(g => !g.sources.includes(id)), src) : deeperPages(found, thinNow.thin, src)
     // Not under our name in the index: the source's own search (not on targeted runs or card-fill).
     if (!opts.only && !opts.cardFill) {
-      const searched = await soft(`${id}: thin species search`, () => searchThin(src, thinNow.thin, new Set(deeper.values()), thinNow.families, u => links(u), searchCache, deps.now()), new Map<string, number>())
+      let searched: Map<string, number>
+      try {
+        searched = await soft(`${id}: thin species search`, () => searchThin(src, thinNow.thin, new Set(deeper.values()), thinNow.families, u => links(u), searchCache, deps.now()), new Map<string, number>())
+      } catch (e) {
+        if (!(e instanceof ArchiveRefused)) throw e
+        report.errors.push(`${id}: not read: ${e.message}`)
+        continue
+      }
       for (const [url, i] of searched) {
         if (!found.some(f => f.url === url)) found.push({ url })
         if (!deeper.has(url)) deeper.set(url, i)
@@ -353,21 +436,30 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         }
         if (r.status >= 400) throw new Error(`HTTP ${r.status}`)
         const hash = snapshotHash(o)
-        if (hash !== prev?.hash) await writeSnapshot(root, id, url, o, deps.now())
+        if (hash !== prev?.hash || r.capturedAt) await writeSnapshot(root, id, url, o, deps.now(), r.capturedAt)
         if (prev?.processedHash === hash && !forced(url)) {
           counts.skipped++
           const { error: _stale, ...rest } = prev
           await save({ ...rest, ...base, hash, status: prev.entityIds.length ? 'processed' : 'skipped', attempts: 0 })
           continue
         }
-        const { page, score } = await translate({ source: id, url, title: o.title, outline: o.outline, glossary })
+        const { page, score, tries } = await translate({ source: id, url, title: o.title, outline: o.outline, glossary })
         const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images
         const entityIds = await apply(id, url, page, score, images, bytes)
+        // The last translation reviewed is the page's, unless another source outranks this one there; a page is reviewed per source.
+        for (const e of entityIds ?? []) {
+          const on = (await readJson<Translation>(join(contentRoot, e, 'vi.json')))?.quality?.bySource?.[id] === score
+          await logReviews(root, 'translation', { id: e, lang: 'vi', part: id }, tries, on ? tries.at(-1) : undefined, { now: deps.now() })
+        }
         if (entityIds) counts.processed++
         else counts.skipped++
         await save({ ...base, hash, processedHash: hash, status: entityIds ? 'processed' : 'skipped', entityIds: entityIds ?? [], attempts: 0 })
         llmFailures = 0
       } catch (e) {
+        // Nothing is wrong with the page, so nothing is marked on it, and the source waits with the archive.
+        if (e instanceof ArchiveRefused) { report.errors.push(`${id}: not read: ${e.message}`); break }
+        // Wikimedia resting: the page waits, unmarked and with its attempts, and the source goes on.
+        if (e instanceof WikimediaRefused) { report.errors.push(`${url}: waits for Wikimedia: ${e.message}`); continue }
         const message = (e as Error).message
         counts.errors++
         report.errors.push(`${url}: ${message}`)
@@ -377,6 +469,11 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         if (BROWSER_GONE.test(message)) {
           report.errors.push('stopping: the browser closed — the next cycle starts a fresh one')
           break sources
+        }
+        // The archive said slow down: another request now only makes it wait longer. The next run carries on.
+        if (errorKind(message) === 'throttled') {
+          report.errors.push(`${id}: stopping: the archive asked us to slow down (${message.slice(0, 120)})`)
+          break
         }
         if (!(e instanceof LlmError) && errorKind(message) === 'transient' && ++networkFailures >= MAX_NETWORK_FAILURES) {
           report.errors.push(`${id}: stopping: ${MAX_NETWORK_FAILURES} pages in a row failed on the network (${message.slice(0, 120)})`)

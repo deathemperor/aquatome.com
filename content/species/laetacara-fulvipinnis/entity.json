@@ -12,6 +12,155 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BR"
+      ],
+      "regions": [
+        "Orinoco",
+        "Casiquiare",
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Laetacara fulvipinnis is a cichlid from the Orinoco, the Casiquiare and the upper and middle rio Negro in Venezuela and Brazil.",
+          "countries": [
+            "VE",
+            "BR"
+          ],
+          "regions": [
+            "Orinoco",
+            "Casiquiare",
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370399,
+      "total": 72,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          29
+        ],
+        [
+          "VE",
+          24
+        ],
+        [
+          "CO",
+          19
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          1.40625,
+          2,
+          1
+        ],
+        [
+          -68.90625,
+          2.8125,
+          14,
+          0
+        ],
+        [
+          -68.90625,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -1.40625,
+          17,
+          17
+        ],
+        [
+          -67.5,
+          0,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          7,
+          7
+        ],
+        [
+          -67.5,
+          2.8125,
+          10,
+          10
+        ],
+        [
+          -67.5,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -53,7 +202,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },

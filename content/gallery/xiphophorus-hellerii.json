@@ -11,7 +11,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/268032912",
       "caption": "Cá kiếm xanh đực có kiếm dài trong bể chụp ảnh",
       "best": true,
-      "kind": "male"
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/268032912-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/296295754.webp",
@@ -23,7 +28,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/296295754",
       "caption": "Cá kiếm xanh cái thân ánh xanh vàng trong bể chụp ảnh",
       "best": true,
-      "kind": "female"
+      "kind": "female",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/296295754-large.webp",
+        "width": 1798,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/66191914.webp",
@@ -35,7 +45,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/66191914",
       "caption": "Cá kiếm xanh bơi trên nền đá sỏi trong suối",
       "best": true,
-      "kind": "habitat"
+      "kind": "habitat",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/66191914-large.webp",
+        "width": 1200,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/223427768.webp",
@@ -47,7 +62,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/223427768",
       "caption": "Cá kiếm xanh có sọc ngang thân trong hộp chụp ảnh",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/223427768-large.webp",
+        "width": 1798,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/298676261.webp",
@@ -59,19 +79,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/298676261",
       "caption": "Cá kiếm xanh đực đuôi kiếm dài bơi trong bể chụp",
       "best": true,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/177220108.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/177220108-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Lawrence Hylton",
-      "sourceUrl": "https://www.inaturalist.org/photos/177220108",
-      "caption": "Cá kiếm xanh sống ngoài tự nhiên, bơi trên nền bùn cát",
-      "best": true,
-      "kind": "habitat"
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/298676261-large.webp",
+        "width": 1798,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/298703517.webp",
@@ -83,7 +96,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/298703517",
       "caption": "Cá kiếm xanh đực đuôi vàng trong bể chụp có thước đo",
       "best": true,
-      "kind": "male"
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/298703517-large.webp",
+        "width": 1798,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/298703386.webp",
@@ -95,7 +113,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/298703386",
       "caption": "Cá kiếm xanh đực với sọc đỏ bên hông trong bể đo",
       "best": true,
-      "kind": "male"
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/298703386-large.webp",
+        "width": 1798,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/347913338.webp",
@@ -467,7 +490,12 @@
       "licence": "CC BY-SA 4.0",
       "author": "Corydoras-adolfoi",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:DSC_0690_-_Edited.jpg",
-      "caption": "Cá kiếm đực có sọc đỏ và đuôi kiếm dài trong bể"
+      "caption": "Cá kiếm đực có sọc đỏ và đuôi kiếm dài trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/fc467aa2fef340c2-large.webp",
+        "width": 1965,
+        "height": 1009
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/21b6169a44b67de3.webp",
@@ -628,6 +656,18 @@
       "caption": "Cá kiếm xanh cái nhỏ màu vàng trong bể chụp ảnh",
       "best": false,
       "kind": "female"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/177220108.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/177220108-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Lawrence Hylton",
+      "sourceUrl": "https://www.inaturalist.org/photos/177220108",
+      "caption": "Cá kiếm xanh sống ngoài tự nhiên, bơi trên nền bùn cát",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 258,

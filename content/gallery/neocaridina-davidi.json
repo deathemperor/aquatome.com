@@ -2,28 +2,16 @@
   "id": "neocaridina-davidi",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/757287248.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/757287248-480.webp",
-      "width": 1024,
-      "height": 473,
+      "url": "https://media.aquatome.com/inaturalist/758321468.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/758321468-480.webp",
+      "width": 1017,
+      "height": 572,
       "licence": "CC BY",
-      "author": "Rubén F. A.",
-      "sourceUrl": "https://www.inaturalist.org/photos/757287248",
-      "caption": "Tép đỏ cherry trên nền cát trắng trong bể thủy sinh",
+      "author": "🪶🐾☘️Nandan Sreejith🦌🍄🌍",
+      "sourceUrl": "https://www.inaturalist.org/photos/758321468",
+      "caption": "Tép Neocaridina màu xanh lam bò trên cây thủy sinh trong bể",
       "best": true,
       "kind": "form"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/259004710.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/259004710-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Nico Hernandez",
-      "sourceUrl": "https://www.inaturalist.org/photos/259004710",
-      "caption": "Hai tép Neocaridina màu nâu hoang dã trên nền sỏi trắng",
-      "best": true,
-      "kind": "pair"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/603056247.webp",
@@ -38,16 +26,16 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/417540239.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/417540239-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/757287248.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/757287248-480.webp",
       "width": 1024,
-      "height": 768,
+      "height": 473,
       "licence": "CC BY",
-      "author": "Yoshihiro Tokue",
-      "sourceUrl": "https://www.inaturalist.org/photos/417540239",
-      "caption": "Tép đỏ Neocaridina màu hoang dã trong hộp nước trong suốt",
+      "author": "Rubén F. A.",
+      "sourceUrl": "https://www.inaturalist.org/photos/757287248",
+      "caption": "Tép đỏ cherry trên nền cát trắng trong bể thủy sinh",
       "best": true,
-      "kind": "other"
+      "kind": "form"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/603056309.webp",
@@ -537,9 +525,33 @@
       "caption": "Tép màu tím nâu bám trên cây thủy sinh",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/259004710.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/259004710-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Nico Hernandez",
+      "sourceUrl": "https://www.inaturalist.org/photos/259004710",
+      "caption": "Hai tép Neocaridina màu nâu hoang dã trên nền sỏi trắng",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/417540239.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/417540239-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Yoshihiro Tokue",
+      "sourceUrl": "https://www.inaturalist.org/photos/417540239",
+      "caption": "Tép đỏ Neocaridina màu hoang dã trong hộp nước trong suốt",
+      "best": true,
+      "kind": "other"
     }
   ],
-  "seen": 260,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 261,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

@@ -10,6 +10,72 @@
     "myanmar",
     "ayeyarwady"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ayeyarwady",
+        "Lake Indawgyi"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This unique dwarf barb (max. 4 cm total length) from Burma has a red “moustache”.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "To date known only from the upper Ayeyarwady River basin in northern Myanmar with type locality 'Hap Lap Chaung just south of Yuzana Myaing village, 8 kilometers left from Myitkyina-Myitzon road kilometer 11, Ayeyarwaddy River drainage, Kachin State, Myanmar'.",
+          "countries": [],
+          "regions": [
+            "Ayeyarwady"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's been collected from small streams and tributaries close to the city of Myitkyina in Kachin State as well as in nearby Lake Indawgyi, the largest inland lake in Southeast Asia.",
+          "countries": [],
+          "regions": [
+            "Lake Indawgyi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8127406,
+      "total": 18,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "MM",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          25.3125,
+          16,
+          16
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -57,7 +123,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -170,17 +236,6 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/pethia-erythromycter",
       "caption": "Subadult individual. The reddish colouration in the dorsal-fin is lost as the fish mature.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/9b6281b588b15ff5.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/9b6281b588b15ff5-480.webp",
-      "width": 899,
-      "height": 599,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-erythromycter",
-      "caption": "There are settlements around some parts of Lake Indawgyi...",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -188,8 +243,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá cộng đồng"
+        "bể cá 90cm"
       ]
     },
     {

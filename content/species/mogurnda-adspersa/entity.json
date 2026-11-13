@@ -1,0 +1,519 @@
+{
+  "id": "mogurnda-adspersa",
+  "scientificName": "Mogurnda adspersa",
+  "order": "Perciformes",
+  "family": "Eleotridae",
+  "genus": "Mogurnda",
+  "group": "gobies",
+  "places": [
+    "oceania",
+    "australia"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2386181,
+      "total": 3970,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "AU",
+          3969
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          125.15625,
+          -16.875,
+          1
+        ],
+        [
+          136.40625,
+          -35.15625,
+          1
+        ],
+        [
+          136.40625,
+          35.15625,
+          1
+        ],
+        [
+          137.8125,
+          -36.5625,
+          11
+        ],
+        [
+          137.8125,
+          -35.15625,
+          9
+        ],
+        [
+          139.21875,
+          -35.15625,
+          275
+        ],
+        [
+          139.21875,
+          -30.9375,
+          1
+        ],
+        [
+          140.625,
+          -35.15625,
+          1
+        ],
+        [
+          142.03125,
+          -37.96875,
+          1
+        ],
+        [
+          142.03125,
+          -35.15625,
+          14
+        ],
+        [
+          142.03125,
+          -14.0625,
+          1
+        ],
+        [
+          142.03125,
+          -12.65625,
+          2
+        ],
+        [
+          142.03125,
+          -11.25,
+          1
+        ],
+        [
+          143.4375,
+          -37.96875,
+          22
+        ],
+        [
+          143.4375,
+          -36.5625,
+          17
+        ],
+        [
+          143.4375,
+          -35.15625,
+          1
+        ],
+        [
+          143.4375,
+          -29.53125,
+          1
+        ],
+        [
+          143.4375,
+          -21.09375,
+          12
+        ],
+        [
+          143.4375,
+          -19.6875,
+          7
+        ],
+        [
+          143.4375,
+          -16.875,
+          1
+        ],
+        [
+          143.4375,
+          -15.46875,
+          1
+        ],
+        [
+          144.84375,
+          -37.96875,
+          10
+        ],
+        [
+          144.84375,
+          -36.5625,
+          3
+        ],
+        [
+          144.84375,
+          -35.15625,
+          1
+        ],
+        [
+          144.84375,
+          -25.3125,
+          1
+        ],
+        [
+          144.84375,
+          -21.09375,
+          25
+        ],
+        [
+          144.84375,
+          -19.6875,
+          175
+        ],
+        [
+          144.84375,
+          -18.28125,
+          634
+        ],
+        [
+          144.84375,
+          -16.875,
+          156
+        ],
+        [
+          144.84375,
+          -15.46875,
+          14
+        ],
+        [
+          146.25,
+          -23.90625,
+          7
+        ],
+        [
+          146.25,
+          -22.5,
+          2
+        ],
+        [
+          146.25,
+          -21.09375,
+          14
+        ],
+        [
+          146.25,
+          -19.6875,
+          72
+        ],
+        [
+          147.65625,
+          -33.75,
+          13
+        ],
+        [
+          147.65625,
+          -32.34375,
+          1
+        ],
+        [
+          147.65625,
+          -25.3125,
+          15
+        ],
+        [
+          147.65625,
+          -23.90625,
+          6
+        ],
+        [
+          147.65625,
+          -22.5,
+          97
+        ],
+        [
+          147.65625,
+          -21.09375,
+          122
+        ],
+        [
+          149.0625,
+          -33.75,
+          22
+        ],
+        [
+          149.0625,
+          -28.125,
+          4
+        ],
+        [
+          149.0625,
+          -26.71875,
+          7
+        ],
+        [
+          149.0625,
+          -25.3125,
+          11
+        ],
+        [
+          149.0625,
+          -23.90625,
+          15
+        ],
+        [
+          149.0625,
+          -22.5,
+          67
+        ],
+        [
+          150.46875,
+          -33.75,
+          36
+        ],
+        [
+          150.46875,
+          -30.9375,
+          24
+        ],
+        [
+          150.46875,
+          -29.53125,
+          53
+        ],
+        [
+          150.46875,
+          -28.125,
+          9
+        ],
+        [
+          150.46875,
+          -26.71875,
+          87
+        ],
+        [
+          150.46875,
+          -25.3125,
+          138
+        ],
+        [
+          150.46875,
+          -23.90625,
+          42
+        ],
+        [
+          150.46875,
+          -22.5,
+          1
+        ],
+        [
+          151.875,
+          -30.9375,
+          1
+        ],
+        [
+          151.875,
+          -29.53125,
+          46
+        ],
+        [
+          151.875,
+          -28.125,
+          1355
+        ],
+        [
+          151.875,
+          -26.71875,
+          254
+        ],
+        [
+          151.875,
+          -25.3125,
+          20
+        ],
+        [
+          153.28125,
+          -29.53125,
+          10
+        ],
+        [
+          153.28125,
+          -28.125,
+          19
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 16,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 14
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mogurnda-adspersa",
+      "html": "<p>The southern purple spotted gudgeon, Mogurnda adspersa, is an Australian gudgeon considered endangered across its native range. Commercially farmed fish reach the hobby. It looks very similar to the commoner northern purple spotted gudgeon, M. mogurnda, but has only 30-36 lateral line scales (37-48 in M. mogurnda) and more red spotting in the second dorsal fin. Territorial but not particularly boisterous, it will probably eat any tankmate it can fit in its mouth.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mogurnda-adspersa",
+      "html": "<p>Australia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mogurnda-adspersa",
+      "html": "<p>Slow-moving, weedy areas of rivers and creeks. Can also be found in ponds.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mogurnda-adspersa",
+      "html": "<p>A tank measuring 120 × 30 × 30 cm (about 108 litres) is suggested. Breeding can be achieved in smaller aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mogurnda-adspersa",
+      "html": "<p>The decor itself is not essential but should contain plenty of potential hiding places for this shy species. A sand substrate with rocks and bogwood for cover works well, and plants can also be added as there is no need to add salt to the water, unlike with many other related species. Dim lighting will encourage the fish to be out and about more. These gudgeon do not like strong current, and water movement should therefore be kept to a minimum. Cover the tank tightly as this species is a great jumper.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mogurnda-adspersa",
+      "html": "<ul><li>Temperature: 16–24°C</li><li>pH: 7.0–7.5</li><li>Hardness: 10–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mogurnda-adspersa",
+      "html": "<p>This gudgeon is a very unfussy eater and will accept most foods offered. Try to include some frozen and live foods for the fish to be in the best condition. They will then reward you with some beautiful colouration.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mogurnda-adspersa",
+      "html": "<p>It is territorial but is not particularly boisterous, although it will probably eat any tankmate it can fit in its mouth. It mixes well with rainbowfish, Corydoras catfish and other robust but peaceable species. It can be kept in small groups in suitably-sized aquaria.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mogurnda-adspersa",
+      "html": "<p>Male fish have a clearly pointed genital papilla which can be brightly coloured, while females have a much shorter, wider ovipositor. Some males also develop a visible nuchal hump, and exhibit brighter colours when spawning.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mogurnda-adspersa",
+      "html": "<p>Use a species tank for breeding purposes, set up as suggested above. The best chance of obtaining a breeding pair is by purchasing a group of young fish and allowing them to pair off naturally. Condition the group on a decent, varied diet and you should see signs of pairing before long, as the fish become sexually mature well before they attain maximum size.</p><p>Spawning is initiated by the male, who exhibits an increase in colouration before enticing a female to spawn with him by displaying with outstretched fins. The eggs are laid on a flat surface, although the fish are somewhat unfussy regarding this and will use the aquarium glass if nothing else is available. Once the female has laid her eggs (between 20-40), her job is done and she is chased away by the male. He now assumes responsibility for the brood, and tends to them almost constantly, fanning the eggs with his fins and defending them against any intruders. If the tank is also to be used for raising the fry, any other inhabitants should now be removed.</p><p>If you look closely, you'll be able to see that the eggs are attached to the spawning site by small adhesive threads, in a similar fashion to some marine species. The eggs hatch in 5-7 days, and parental care by the male ceases at this point. Unless fry or adults are removed at this point, few young will survive predation. Once the fry have used up their yolk sacs they require infusoria for the first few days, after which they can be offered brine shrimp nauplii. Keep a close eye on the fry as growth rates can vary wildly, and predation can occur.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mogurnda-adspersa",
+      "html": "<p>This species is considered endangered across its native range, but has recently begun to appear in the hobby a little more often as a result of commercial farming. It's still by no means common though. Superficially it looks very similar to the much commoner Northern purple spotted gudgeon (Mogurnda mogurnda), but can be distinguished by the presence of only 30-36 scales along its lateral line (as opposed to 37-48 in M. mogurnda), and a higher degree of red spotting in the second dorsal fin.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8cbb873d7b704692.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8cbb873d7b704692-480.webp",
+      "width": 1200,
+      "height": 1600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mogurnda-adspersa",
+      "caption": "Two juvenile Southern Purple Spotted Gudgeons resting on leaves of Java Fern, one behind the other.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "UfGktx-qllk",
+      "title": "My Freshwater Purple Spot Gudgeon / Goby - Morgurnda adspersa",
+      "durationSec": 96,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "iFYFY0HwsOc",
+      "title": "mogurnda adspersa laying eggs",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ohI9dDkejRM",
+      "title": "Southern Purple Spotted Gudgeon  (Mogurnda adspersa) Biotope Aquarium Southern Queensland Australia.",
+      "durationSec": 208,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OZgchGj-dzU",
+      "title": "Purple Spotted Gudgeon (Mogurnda adspersa)",
+      "durationSec": 26,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "lũa trang trí bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

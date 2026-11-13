@@ -10,6 +10,58 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta krataios is a paternal mouthbrooding labyrinth fish that appears endemic to the lower River Kapuas basin in West Kalimantan, Indonesian Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It appears endemic to parts of the lower River Kapuas basin within the province of western Kalimantan (Kalimantan Barat), Borneo, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Kapuas",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394009,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +105,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -149,8 +201,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá nhỏ 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

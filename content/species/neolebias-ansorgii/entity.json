@@ -16,6 +16,224 @@
     "democratic-republic-of-the-congo",
     "republic-of-the-congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "CD",
+        "NG",
+        "GA",
+        "BJ",
+        "AO"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Ansorge's neolebias, Neolebias ansorgii, is a small distichodontid from Cameroon, Democratic Republic of Congo, Nigeria, Gabon and Benin.",
+          "countries": [
+            "CM",
+            "CD",
+            "NG",
+            "GA",
+            "BJ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It has been reported from Angola, Benin, Nigeria, Cameroon, Gabon, and the D. R. Congo.",
+          "countries": [
+            "AO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355753,
+      "total": 86,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BJ",
+          26
+        ],
+        [
+          "NG",
+          17
+        ],
+        [
+          "CM",
+          14
+        ],
+        [
+          "CG",
+          12
+        ],
+        [
+          "CD",
+          9
+        ],
+        [
+          "GQ",
+          4
+        ],
+        [
+          "GA",
+          3
+        ],
+        [
+          "AO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          0,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          1.40625,
+          5.625,
+          15,
+          15
+        ],
+        [
+          1.40625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          1.40625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          2.8125,
+          5.625,
+          4,
+          4
+        ],
+        [
+          2.8125,
+          11.25,
+          7,
+          7
+        ],
+        [
+          4.21875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          5.625,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          5.625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          7.03125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          7.03125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          8.4375,
+          1.40625,
+          3,
+          0
+        ],
+        [
+          8.4375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          9.84375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          1.40625,
+          4,
+          3
+        ],
+        [
+          9.84375,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          11.25,
+          -7.03125,
+          6,
+          6
+        ],
+        [
+          11.25,
+          -5.625,
+          9,
+          1
+        ],
+        [
+          11.25,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          12.65625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          12.65625,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -77,7 +295,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 4
       }
     ]
   },
@@ -185,8 +403,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá nhỏ 30cm",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {

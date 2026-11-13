@@ -1,0 +1,131 @@
+{
+  "id": "gagata-cenia",
+  "native": {
+    "input": "6f7d9bb39fe2cd8e",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "India.",
+        "words": "India",
+        "ok": false,
+        "why": "no sentence"
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Widely distributed in the Ganges basin, the Indus River system, and the Mahanadi River. The Brahmaputra drainage is also part of its range, and it has also been reported from the Salwin River and Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "doubtful",
+        "source": "scotcat",
+        "quote": "Even though the taxonomy requires some study (its presence in the Indus River drainage in Pakistan needs confirmation), it is assessed as Least Concern, but needs updating (IUCN 2010).",
+        "words": "Pakistan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "scotcat",
+        "quote": "Asia: Widely distributed in the Ganges basin, the Indus River system, and the Mahanadi River. The Brahmaputra drainage is also part of its range, and it has also been reported from the Salwin River and Myanmar.",
+        "ok": true
+      },
+      {
+        "name": "Indus",
+        "source": "scotcat",
+        "quote": "Asia: Widely distributed in the Ganges basin, the Indus River system, and the Mahanadi River. The Brahmaputra drainage is also part of its range, and it has also been reported from the Salwin River and Myanmar.",
+        "ok": true
+      },
+      {
+        "name": "Mahanadi",
+        "source": "scotcat",
+        "quote": "Asia: Widely distributed in the Ganges basin, the Indus River system, and the Mahanadi River. The Brahmaputra drainage is also part of its range, and it has also been reported from the Salwin River and Myanmar.",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "scotcat",
+        "quote": "Asia: Widely distributed in the Ganges basin, the Indus River system, and the Mahanadi River. The Brahmaputra drainage is also part of its range, and it has also been reported from the Salwin River and Myanmar.",
+        "ok": true
+      },
+      {
+        "name": "Salwin",
+        "source": "scotcat",
+        "quote": "Asia: Widely distributed in the Ganges basin, the Indus River system, and the Mahanadi River. The Brahmaputra drainage is also part of its range, and it has also been reported from the Salwin River and Myanmar.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "IN",
+        "PK"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gagata cenia",
+    "status": "ACCEPTED",
+    "taxonKey": 2341155,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        29
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        26
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 12,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

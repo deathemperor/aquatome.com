@@ -1,0 +1,198 @@
+{
+  "id": "pterophyllum-leopoldi",
+  "scientificName": "Pterophyllum leopoldi",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Pterophyllum",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro",
+    "guyana",
+    "essequibo",
+    "peru"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-leopoldi",
+      "html": "<p>The roman nose angelfish, Pterophyllum leopoldi, is a cichlid from the lower Rio Negro in Brazil and the Rupununi and Essequibo basins of Guyana. It can be told from other members of the genus by up to 11 vertical stripes, a dark patch over the operculum and the roman nose that gives it its name. Reportedly one of the more aggressive species in the genus towards conspecifics, it should be kept in a group of four or more to prevent bullying.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_wild_leopoldi_peru_spotted__en/",
+      "html": "<p>Wild-caught large angelfish from Peru, traditionally called \"Pterophyllum leopoldi\" in the hobby. It has a reddish back and a number of red spots on the flanks.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-leopoldi",
+      "html": "<p>The Roman Nose Angelfish is native to the lower Rio Negro at the Solimoes confluence of Brazil and the Rupununi and Essequibo basins of Guyana.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_wild_leopoldi_peru_spotted__en/",
+      "html": "<p>Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-leopoldi",
+      "html": "<p>In nature, P. leopoldi can be found in loose aggregations in slower flowing water, often underneath rooty overhangs and floating vegetation, as well as other microhabitats with plenty of cover.</p><p>This species can be found in both clear and tannin stained water, but the pH values for these habitats are virtually always less than 7, so soft, acidic water is best for long term care.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-leopoldi",
+      "html": "<p>An aquarium with base dimensions of 90 × 30 × 45 cm should be considered a bare minimum (about 122 litres). As with other Angelfish species, it is important to consider height to allow for the tall dorsal and trailing ventral fins. Due to the social nature of this fish, for the long term care of a shoal, a longer (120 cm) aquarium would be ideal.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-leopoldi",
+      "html": "<p>A naturally social and gregarious species, a group of 4 or more specimens should be aimed for in order to prevent excessive bullying of individuals, except for breeding purposes where fish pair off.</p><p>As with other Pterophyllum, the tank should be well decorated in order to offer refuge for less dominant individuals in the group. This can be done with tall plants such as Echinodorus spp., bogwood, rootwood, or even plastic plants. To add an authentic touch, add dried leaf litter and botanicals.</p><p>As mid to surface dwellers, substrate is of lesser importance, though as with many cichlids, sandsifting behaviour may be witnessed very rarely, if kept on a sand substrate.</p><p>Due to the natural affinity for a low pH, Pterophyllum leopoldi has a low tolerance of Nitrates and so water quality should always be maintained to a high standard.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-leopoldi",
+      "html": "<ul><li>Temperature: 22–29°C</li><li>pH: 5.0–7.0</li><li>Hardness: 0–6 dGH</li></ul><p>As most P. leopoldi are wild caught in the aquarium trade, it is important that water parameters reflect those of the natural environment. Therefore prospective keepers must aim for a low pH and hardness, though the species is unfussy on temperature so long as extremes are avoided.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-leopoldi",
+      "html": "<p>Omnivorous but wild fish feed predominantly on various items of zoobenthos such as small crustaceans and other aquatic invertebrates. Will accept pellet or flake food in the aquarium. Relishes live or frozen foods.</p><p>Interestingly this species seems more interested in green foods than congeners and will happily pick at filamentous algae, though luckily will not upset a planted aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-leopoldi",
+      "html": "<p>Reportedly one of the more aggressive species in the genus towards conspecifics, it would be wise to aim for as large a group as constraints will allow to prevent bullying. Due to its smaller stature, however, some smaller fish will not be considered prey items.</p><p>Medium Tetras, Corydoras, Loricariids, dwarf Cichlids and similar peaceful, softwater community fish will work well. In larger aquaria, smaller Geophagus could even work.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-leopoldi",
+      "html": "<p>As with other Angelfish, sexual dimorphism may manifest itself as longer, more elaborate finnage in males as well as a small nuchal hump. Females may also be somewhat larger bodied, but sexing is best performed by a means of comparison.</p><p>To be certain of the sex, one must wait until spawning takes place. Males have smaller, pointed genital papillae whilst females may be seen laying eggs.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-leopoldi",
+      "html": "<p>The best way to ensure you have a viable pair is to purchase a large group and allow for the natural formation of pairs in a communal tank. Once you are certain you can identify such a sexed pair, they may be removed to a spawning tank.</p><p>Roman Nose Angels spawn on vertical surfaces such as slate, broad-leaved plants or even the aquarium glass. If you have a bonded pair, little needs to be done to encourage them to breed. Ensure the fish are well conditioned with live food such as bloodworm and Artemia. Angels make good parents and will guard the eggs and then the fry, once hatched. Ensure the adults are kept well fed as it is not unknown for them to eat their fry. Fry can be fed with newly hatched brine shrimp after they have absorbed their yolk sacs (usually after two days) and then moved on to commercially available fry food.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-leopoldi",
+      "html": "<p>Pterophyllum leopoldi can be differentiated from other members of the genus by the presence of up to 11 vertical stripes on the body, though often only the 3 largest, boldest stripes can be seen. This species also shows a dark patch over the operculum.</p><p>In adult specimens, a red/maroon hue over the back and fins is characteristic of the species, leading some to believe the most colourful natural form of angelfish.</p><p>The name-sake roman nose possessed by the fish is also very distinctive and used as a meristic feature.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_wild_leopoldi_peru_spotted__en/",
+      "html": "<p>The name \"Pterophyllum leopoldi\" for this fish is based on a mis-identification. The \"real\" P. leopoldi originates from Brazil and is in truth what is called P. dumerilii in the hobby, whereas the \"real\" P. dumerilii from Brazil is currently regarded as a synonym of P. scalare.</p><p>Despite the confusion regarding the scientific name, the fish from Peru are breathtakingly beautiful. They can only be imported seldom and in small numbers. Freshly imported fish are still a bit shy.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-leopoldi",
+      "html": "<ul><li>Reyes, Rodolfo B. https://www.fishbase.se/summary/Pterophyllum-leopoldi.html Fish Base</li><li>http://researcharchive.calacademy.org/research/ichthyology/catalog/fishcatmain.asp Eschmeyer's Catalog of Fishes</li><li>Gosse, J.-P. (1963). Description de deux cichlidés nouveaux de la région amazonienne. Bulletin de l'Institut Royal des Sciences Naturelles de Belgique 39(35), 1-7</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/33b2eef2ae963cdb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/33b2eef2ae963cdb-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-leopoldi",
+      "caption": "Pterophyllum leopoldi",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120 lít",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ông tiên",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

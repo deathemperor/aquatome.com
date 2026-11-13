@@ -1,0 +1,64 @@
+{
+  "id": "microsynodontis-nannoculus",
+  "native": {
+    "input": "915afcdf5f37ed1e",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: southern Cameroon waters, Ntem and Kyé.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GQ",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Mami River, a tributary of Kyé River, Equatorial Guinea.",
+        "words": "Equatorial Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ntem",
+        "source": "planetcatfish",
+        "quote": "Africa: southern Cameroon waters, Ntem and Kyé.",
+        "country": "CM",
+        "ok": true
+      },
+      {
+        "name": "Kyé",
+        "source": "planetcatfish",
+        "quote": "Type locality: Mami River, a tributary of Kyé River, Equatorial Guinea.",
+        "country": "GQ",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Microsynodontis nannoculus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344197,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        2
+      ]
+    ],
+    "native": [
+      "CM",
+      "GQ"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

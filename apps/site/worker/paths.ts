@@ -21,11 +21,17 @@ export const isViPage = (path: string) => {
   return p === '/' || (VI_SECTIONS as readonly string[]).includes(p.split('/')[1]!)
 }
 
+/** A Vietnamese, Indonesian or Thai photo page forwards to its parent while its album has fewer than six photos. */
+export const galleryParent = (path: string) => {
+  const match = /^(\/(?:ca|cay)\/[^/]+\/)anh\/?$|^(\/id\/(?:ikan|tanaman)\/[^/]+\/)foto\/?$|^(\/th\/(?:fish|plants)\/[^/]+\/)photos\/?$/.exec(path)
+  return match?.[1] ?? match?.[2] ?? match?.[3]
+}
+
 /**
  * Apple's return address for the web's sign-in, in each language: the tanks page, as its Services ID (com.aquatome.web)
  * lists it. Apple refuses an address it doesn't list.
  */
-export const APPLE_RETURN = { vi: '/cong-cu/be-cua-toi/', id: '/id/alat/akuarium-saya/', th: '/th/tools/my-tanks/' } as const satisfies Record<Lang, string>
+export const APPLE_RETURN = { vi: '/cong-cu/be-cua-toi/', id: '/id/alat/akuarium-saya/', th: '/th/tools/my-tanks/', ms: '/ms/alat/tangki-saya/' } as const satisfies Record<Lang, string>
 
 /** The site's own host, and the owner's dashboard's (dashboard-host.ts). */
 export const SITE_HOST = 'aquatome.com'

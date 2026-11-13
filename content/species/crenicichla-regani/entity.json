@@ -1,0 +1,359 @@
+{
+  "id": "crenicichla-regani",
+  "scientificName": "Crenicichla regani",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Crenicichla",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2370965,
+      "total": 184,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BR",
+          183
+        ],
+        [
+          "BO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          -5.625,
+          4
+        ],
+        [
+          -67.5,
+          -4.21875,
+          8
+        ],
+        [
+          -67.5,
+          -2.8125,
+          2
+        ],
+        [
+          -66.09375,
+          -11.25,
+          1
+        ],
+        [
+          -66.09375,
+          -9.84375,
+          2
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          4
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          5
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          4
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          1
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          10
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          1
+        ],
+        [
+          -63.28125,
+          -11.25,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          4
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          2
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          10
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1
+        ],
+        [
+          -61.875,
+          -9.84375,
+          6
+        ],
+        [
+          -61.875,
+          -8.4375,
+          1
+        ],
+        [
+          -61.875,
+          -5.625,
+          2
+        ],
+        [
+          -61.875,
+          -4.21875,
+          5
+        ],
+        [
+          -61.875,
+          1.40625,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          1
+        ],
+        [
+          -60.46875,
+          -11.25,
+          1
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          1
+        ],
+        [
+          -60.46875,
+          -7.03125,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          12
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1
+        ],
+        [
+          -59.0625,
+          -8.4375,
+          2
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          6
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          6
+        ],
+        [
+          -57.65625,
+          -7.03125,
+          1
+        ],
+        [
+          -57.65625,
+          -5.625,
+          3
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          4
+        ],
+        [
+          -56.25,
+          -5.625,
+          3
+        ],
+        [
+          -56.25,
+          -4.21875,
+          11
+        ],
+        [
+          -56.25,
+          -2.8125,
+          10
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          2
+        ],
+        [
+          -54.84375,
+          -4.21875,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          9
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          1
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          2
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          6
+        ],
+        [
+          -52.03125,
+          -5.625,
+          1
+        ],
+        [
+          -50.625,
+          -14.0625,
+          2
+        ],
+        [
+          -50.625,
+          -12.65625,
+          1
+        ],
+        [
+          -50.625,
+          -7.03125,
+          3
+        ],
+        [
+          -50.625,
+          -5.625,
+          1
+        ],
+        [
+          -50.625,
+          -4.21875,
+          6
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          3
+        ],
+        [
+          -49.21875,
+          -5.625,
+          2
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          1
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_regani_alenquer_en/",
+      "html": "<p>The pike cichlids (Crenicichla) represent the most species-rich genus of cichlid at all. More than 130 species have been described. How many of them are valid is subject of discussions, but the number for sure increases to over 90. Some species become pretty large, more than 30 cm, but there are also real dwarf cichlids within the genus that never grow larger than 10 cm.</p><p>One of the latter is Crenicichla regani.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_regani_alenquer_en/",
+      "html": "<p>The females can be easily distinguished from the males by the fact that only the females' dorsal has eye-spots (ocelli).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_regani_alenquer_en/",
+      "html": "<p>The species is a cave brooder.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_regani_alenquer_en/",
+      "html": "<p>They are beautiful, elegant fish.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cichlid"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

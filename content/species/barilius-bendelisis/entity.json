@@ -16,6 +16,385 @@
     "pakistan",
     "myanmar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD",
+        "NP"
+      ],
+      "regions": [
+        "Krishna River",
+        "Indrawati River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently considered to occur throughout India, Bangladesh, Nepal, and probably Bhutan, and has also been recorded in Pakistan, Myanmar, Thailand, and Sri Lanka, although some or all of these reports may refer to other species.",
+          "countries": [
+            "IN",
+            "BD",
+            "NP"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Cedawáti [Vedawati] stream, headwaters of Krishna River near Heriuru, Mysore, India'.",
+          "countries": [],
+          "regions": [
+            "Krishna River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "At one locality in the Indrawati River basin, Nepal, it was collected from a pristine, fast-to-torrential flowing river with a substrate of cobbles and boulders and a gravel shoreline.",
+          "countries": [],
+          "regions": [
+            "Indrawati River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363257,
+      "total": 205,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          132
+        ],
+        [
+          "NP",
+          52
+        ],
+        [
+          "BD",
+          18
+        ],
+        [
+          "MM",
+          2
+        ],
+        [
+          "PK",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          67.5,
+          26.71875,
+          1,
+          0
+        ],
+        [
+          73.125,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          73.125,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          73.125,
+          21.09375,
+          6,
+          6
+        ],
+        [
+          73.125,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          74.53125,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          74.53125,
+          32.34375,
+          2,
+          2
+        ],
+        [
+          75.9375,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          75.9375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          75.9375,
+          29.53125,
+          2,
+          2
+        ],
+        [
+          77.34375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          22.5,
+          8,
+          8
+        ],
+        [
+          77.34375,
+          29.53125,
+          14,
+          14
+        ],
+        [
+          78.75,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          78.75,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          78.75,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          78.75,
+          28.125,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          16.875,
+          4,
+          4
+        ],
+        [
+          80.15625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          22.5,
+          21,
+          21
+        ],
+        [
+          80.15625,
+          28.125,
+          8,
+          8
+        ],
+        [
+          81.5625,
+          21.09375,
+          4,
+          4
+        ],
+        [
+          81.5625,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          81.5625,
+          28.125,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          26.71875,
+          9,
+          9
+        ],
+        [
+          82.96875,
+          28.125,
+          3,
+          3
+        ],
+        [
+          84.375,
+          22.5,
+          2,
+          2
+        ],
+        [
+          84.375,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          84.375,
+          26.71875,
+          14,
+          14
+        ],
+        [
+          85.78125,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          85.78125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          85.78125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          25.3125,
+          10,
+          10
+        ],
+        [
+          87.1875,
+          26.71875,
+          11,
+          11
+        ],
+        [
+          88.59375,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          25.3125,
+          9,
+          9
+        ],
+        [
+          88.59375,
+          26.71875,
+          18,
+          18
+        ],
+        [
+          90,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          90,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          91.40625,
+          23.90625,
+          10,
+          10
+        ],
+        [
+          91.40625,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          28.125,
+          1,
+          1
+        ],
+        [
+          95.625,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          95.625,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          28.125,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -59,7 +438,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -137,26 +516,13 @@
       "html": "<ul><li>Collins R. A., K. F. Armstrong, R. Meier, Y. Yi, S. D. J. Brown, R. H. Cruickshank, S. Keeling, and C. Johnston (2012). Barcoding and border biosecurity: identifying cyprinid fishes in the aquarium trade. PLoS ONE 7(1), e28381</li><li>Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li><li>Liao, T-Y, S. O. Kullander, and F. Fang (2011). Phylogenetic position of rasborin cyprinids and monophyly of major lineages among the Danioninae, based on morphological characters (Cypriniformes: Cyprinidae). Journal of Zoological Systematics and Evolutionary Research 49(3), 224-232</li><li>Howes, G. J. (1980). The anatomy, phylogeny and classification of bariliine cyprinid fishes. Bulletin of the British Museum (Natural History) : Zoology series 37(3), 129-198</li><li>Nath, P., D. Dam, and A. Kumar (2010). A New Fish Species of the Genus Barilius (Cyprinidae: Rasborinae) from River Siang, D'Ering Memorial Wildlife Sanctuary, Arunachal Pradesh, India. Records of the Zoological Survey of India 110(3), 19-33</li><li>Selim, K. and W. Vishwanath (2002). A new cyprinid fish species of Barilius Hamilton from the Chatrickong River, Manipur, India. Journal of the Bombay Natural History Society 99(2), 267-270</li><li>Arunkumar, L. and H. Tombi Singh (2000). Journal of the Bombay Natural History Society 97(2), 247-252</li><li>Hamilton, F. (1807). A journey from Madras through the countries of Mysore, Canara, and Malabar. T. Cadell and W. Davies, London, i-iv + 1-479</li><li>Dishma, M., and W. Vishwanath (2012). Barilius profundus, a new cyprinid fish (Teleostei: Cyprinidae) from the Koladyne basin, India. Journal of Threatened Taxa 4(2), 2363-2369</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/c4cf988efac96970.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/c4cf988efac96970-480.webp",
-      "width": 768,
-      "height": 524,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-bendelisis",
-      "caption": "Detail of head, adult male individual. Note breeding tubercules on snout.",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 180x60",
-        "bể cá lớn"
+        "bể cá 180cm"
       ]
     },
     {

@@ -10,6 +10,52 @@
     "peru",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Río Ucayali",
+        "Río Tahuayo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Apistogramma panduro is a dwarf cichlid from the Río Ucayali drainage and the Río Tahuayo in Loreto Region, northern Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Ucayali",
+            "Río Tahuayo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371223,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          -5.625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +99,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -62,7 +108,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-panduro",
-      "html": "<p>Apistogramma panduro is a dwarf cichlid from the Río Ucayali drainage and the Río Tahuayo in Loreto Region, northern Peru. Also known as the blue panda cichlid and by the trade name A. sp. 'pandurini', it is told apart from similar species by a lower jaw that extends beyond the upper. It can be quite aggressive towards conspecifics, though pairs often remain monogamous once formed.</p><ul><li>Max size: ♂ 75 mm SL (3.0 in), ♀ 55 mm SL (2.2 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 22–29°C (72–84°F)</li><li>pH: 4.0–6.5</li><li>Hardness: 0–5 dGH</li><li>Difficulty: 5 of 8 (moderate)</li></ul>"
+      "html": "<p>Apistogramma panduro is a dwarf cichlid from the Río Ucayali drainage and the Río Tahuayo in Loreto Region, northern Peru. Also known as the blue panda cichlid and by the trade name A. sp. 'pandurini', it is told apart from similar species by a lower jaw that extends beyond the upper. It can be quite aggressive towards conspecifics, though pairs often remain monogamous once formed.</p><ul><li>Max size: ♂ 75 mm SL (3.0 in), ♀ 55 mm SL (2.2 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 22–29°C (72–84°F)</li><li>pH: 4.0–6.5</li><li>Hardness: 0–5 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
       "key": "distribution",
@@ -129,52 +175,70 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-panduro",
       "html": "<ul><li>Kullander, S. O. (1986). Cichlid fishes of the Amazon River drainage of Peru. Swedish Museum of Natural History, 1-431</li><li>Kullander, S. O. (2003). Cichlidae (Cichlids). In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre, EDIPUCRS, Brasil</li><li>Römer, U. (2006). Cichlid Atlas Volume 2. Mergus Verlag GmBH, Melle, Germany. 1320 p.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_panduro_var_marsel__en/",
+      "html": "<p>This dwarf cichlid was imported from Peru.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_panduro_var_marsel__en/",
+      "html": "<p>Like all dwarf cichlids of this group, the males have bright blue shining scales. In contrast to related species, the seam around the caudal fin in males is yellow instead of red-orange.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_panduro_var_marsel__en/",
+      "html": "<p>The fish is without any doubt a close relative of the species Apistogramma nijsseni, A. panduro and the still undescribed A. sp. \"Inka II\". The tailspot looks most like that of A. nijsseni.</p><p>Lexicon: Apistogramma: ancient Greek, means \"with unreliable line\". It is not known whether the lateral line organ or the pattern is meant. panduro: dedication name. nijsseni: dedication name.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/9b3b988d4c4713b0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9b3b988d4c4713b0-480.webp",
       "width": 800,
       "height": 523,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-panduro",
       "caption": "Adult male specimen.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/9b3b988d4c4713b0-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/f8c249dcf0cabb62.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f8c249dcf0cabb62-480.webp",
       "width": 800,
       "height": 655,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-panduro",
       "caption": "Adult female - aggressive mood.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/f8c249dcf0cabb62-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/61d5d5f357f2cf82.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/61d5d5f357f2cf82-480.webp",
       "width": 800,
       "height": 529,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-panduro",
       "caption": "Adult male - aggressive mood.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/61d5d5f357f2cf82-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/7b581f5bf26b8dcf.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7b581f5bf26b8dcf-480.webp",
       "width": 1024,
       "height": 527,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-panduro",
       "caption": "Adult female specimen.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/7b581f5bf26b8dcf-480.webp"
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -182,8 +246,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30",
-        "bể cá 54 lít"
+        "bể cá 60cm"
       ]
     },
     {
@@ -209,5 +272,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-09"
 }

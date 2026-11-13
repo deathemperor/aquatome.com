@@ -10,6 +10,64 @@
     "myanmar",
     "ayeyarwady"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ayeyarwady",
+        "Shweli River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Badis kyar is a slender badid from the upper Ayeyarwady River basin in northern Myanmar, recorded near Myitkyina and in the lower Shweli River.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Ayeyarwady",
+            "Shweli River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2389477,
+      "total": 37,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          37
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          25.3125,
+          4,
+          4
+        ],
+        [
+          95.625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          25.3125,
+          32,
+          32
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +111,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -131,14 +189,24 @@
       "html": "<ul><li>Kullander, S. O. and R. Britz (2002). Revision of the family Badidae (Teleostei: Perciformes), with description of a new genus and ten new species. Ichthyological Exploration of Freshwaters 13(4), 295-372</li><li>Rüber, L., R. Britz, S. O. Kullander and R. Zardoya (2004). Evolutionary and biogeographic patterns of the Badidae (Teleostei: Perciformes) inferred from mitochondrial and nuclear DNA sequence data. Molecular Phylogenetics and Evolution 32(3), 1010-1022</li><li>Geetakumari, K.H. and W. Vishwanath (2010). Badis dilbruensis, a new species (Teleostei: Badidaae) from northeastern India. Journal of Threatened Taxa 2(1), 644-647</li><li>Schindler, I. and H. Linke (2010). Badis juergenschmidti - a new species of the Indo-Burmese fish family Badidae (Teleostei: Perciformes) from Myanmar. Vertebrate Zoology 60(3), 209-216</li><li>Vishwanath, W. and K. Shanta (2004). A new fish species of the Indo-Burmese genus Badis Bleeker (Teleostei: Perciformes) from Manipur, India. Zoos' Print Journal 19(9), 1619-1621</li><li>van der Voort, S. (2009). Badis ferrarisi, Badis kyar, Badis sp. 'Wahumiam River' &amp; Badis sp. 'Buxar'. Der Makropode 31, 141-147</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/1bc6d0b81cb855d8.webp",
+      "thumb": "https://media.aquatome.com/commons/1bc6d0b81cb855d8-480.webp",
+      "width": 937,
+      "height": 639,
+      "licence": "CC0",
+      "author": "Crotaphil",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Badis_kyar_in_the_aquarium_male_(cropped).png",
+      "caption": "Cá Badis kyar bơi trong bể thủy sinh có đá và cây"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể thủy sinh mini"
+        "bể cá 60cm"
       ]
     },
     {

@@ -1,0 +1,28 @@
+name: Search Console figures for the content page
+# Every morning: Google Search Console's last 28 days per page, the 28 before them, and the top searches by page
+# (scripts/search-console.mjs), POSTed to the site, which keeps the latest for the content page's quality score
+# (apps/site/worker/admin/quality.ts). Read through a service account that is a restricted, read-only user of
+# sc-domain:aquatome.com; its key is the GSC_SERVICE_ACCOUNT secret.
+on:
+  schedule:
+    - cron: '30 23 * * *' # 06:30 in Vietnam, before the daily report
+  workflow_dispatch:
+concurrency:
+  group: search-console
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  fetch:
+    name: Fetch Search Console's figures and post them to the site
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Fetch and post
+        run: node scripts/search-console.mjs
+        env:
+          GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
+          AB_DASH_TOKEN: ${{ secrets.AB_DASH_TOKEN }}

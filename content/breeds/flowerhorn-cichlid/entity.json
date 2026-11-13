@@ -80,19 +80,31 @@
         "source": 5,
         "value": 80
       }
+    ],
+    "difficulty": [
+      {
+        "source": 9,
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 9,
+        "value": {
+          "min": 10,
+          "max": 12
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 10,
+          "max": 10
+        }
+      }
     ]
   },
   "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/863c52a8b36a716c.webp",
-      "thumb": "https://media.aquatome.com/commons/863c52a8b36a716c-480.webp",
-      "width": 1200,
-      "height": 675,
-      "licence": "CC BY-SA 4.0",
-      "author": "Themagpierobinbird",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Can_flowerhorn_live_with_african_cichlids.png",
-      "caption": "Cá La Hán u đầu đỏ vân lớn trong bể"
-    },
     {
       "url": "https://media.aquatome.com/commons/19baaafa3f516888.webp",
       "thumb": "https://media.aquatome.com/commons/19baaafa3f516888-480.webp",
@@ -101,7 +113,27 @@
       "licence": "CC BY 2.0",
       "author": "Garry Knight from London, England",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flowerhorn_(48821775218).jpg",
-      "caption": "Cá La Hán đỏ vân hoa u đầu to trong bể xanh"
+      "caption": "Cá La Hán đỏ vân hoa u đầu to trong bể xanh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/19baaafa3f516888-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/863c52a8b36a716c.webp",
+      "thumb": "https://media.aquatome.com/commons/863c52a8b36a716c-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "CC BY-SA 4.0",
+      "author": "Themagpierobinbird",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Can_flowerhorn_live_with_african_cichlids.png",
+      "caption": "Cá La Hán u đầu đỏ vân lớn trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/863c52a8b36a716c-large.webp",
+        "width": 1280,
+        "height": 720
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/b4020dd4dfbcb56d.webp",
@@ -179,6 +211,12 @@
       "title": "The most technical standard with how to raise King Kamfa fish – Fishforums",
       "kind": "forum",
       "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/flowerhorn-cichlid",
+      "title": "Flowerhorn Cichlid – Fishkeeping World",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-29"

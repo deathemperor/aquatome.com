@@ -2,6 +2,42 @@
   "id": "aphanius-fasciatus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/86004639.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/86004639-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matej Vucić",
+      "sourceUrl": "https://www.inaturalist.org/photos/86004639",
+      "caption": "Cá đực Aphanius fasciatus vây vàng, vằn sọc trong bể có đá",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/86004474.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/86004474-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matej Vucić",
+      "sourceUrl": "https://www.inaturalist.org/photos/86004474",
+      "caption": "Cá cái Aphanius fasciatus trong bể nhỏ có đá",
+      "best": true,
+      "kind": "female"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/83e7fa89f02e9345.webp",
+      "thumb": "https://media.aquatome.com/commons/83e7fa89f02e9345-480.webp",
+      "width": 1000,
+      "height": 527,
+      "licence": "CC BY-SA 3.0",
+      "author": "Gastcrf / Gastcrf at Greek Wikipedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aphan.jpg",
+      "caption": "Nhóm cá cyprinodon trong vùng nước nông có lá mục",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/42f7cc678b27f2b0.webp",
       "thumb": "https://media.aquatome.com/commons/42f7cc678b27f2b0-480.webp",
       "width": 850,
@@ -24,21 +60,9 @@
       "caption": "Cá cyprinodon Địa Trung Hải bơi trong nước nông ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/83e7fa89f02e9345.webp",
-      "thumb": "https://media.aquatome.com/commons/83e7fa89f02e9345-480.webp",
-      "width": 1000,
-      "height": 527,
-      "licence": "CC BY-SA 3.0",
-      "author": "Gastcrf / Gastcrf at Greek Wikipedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aphan.jpg",
-      "caption": "Nhóm cá cyprinodon trong vùng nước nông có lá mục",
-      "best": true,
-      "kind": "habitat"
     }
   ],
-  "seen": 7,
-  "updatedAt": "2026-11-04",
-  "builtAt": "2026-11-04"
+  "seen": 20,
+  "updatedAt": "2026-11-06",
+  "builtAt": "2026-11-06"
 }

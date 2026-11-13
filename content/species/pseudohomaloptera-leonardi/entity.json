@@ -7,7 +7,11 @@
   "group": "loaches",
   "places": [
     "asia",
-    "vietnam"
+    "vietnam",
+    "malaysia",
+    "pahang",
+    "thailand",
+    "tapi"
   ],
   "dataCard": {
     "tempC": [
@@ -17,12 +21,53 @@
           "min": 22,
           "max": 24
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 6.5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -34,10 +79,46 @@
       "html": "<p>Hillstream loach imported from Vietnam, tentatively identified as Homaloptera cf. leonardi. If identical with H. leonardi, it should reach a maximum length of about 6.5 cm.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-leonardi",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour.</li></ul><p>Since it needs stable water conditions and feeds on biofilm, this species should never be added to a biologically immature set-up, and a tightly-fitting cover is necessary since it can literally climb glass.</p><p>Pseudohomaloptera leonardi is a 'lizard' loach ranging through Peninsular Malaysia and north into Thailand as far as the Tapi river drainage. It is very similar to P. sexmaculata, and both are sometimes misidentified as H. yunnanensis. Naturally reclusive, it needs clean, fast-flowing, well-oxygenated water and a group of four or more.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-leonardi",
+      "html": "<p>Type locality is given as 'Kuala Tahan, Pahang (King George V National Park)', which corresponds to the village of Kuala Tahan in Pahang state, central Peninsular Malaysia.</p><p>The settlement is located at the confluence of the Tahan and Tembiling Rivers, which form part of the Pahang river basin, while the national park was renamed 'Taman Negara' after Malaysia regained its independence from the British in 1957.</p><p>H. leonardi is currently considered to range throughout Peninsular Malaysia and northwards into Thailand as far as the Tapi river drainage in Surat Thani province. Records from other river systems in Thailand and Cambodia, particularly the Mekong basin, are in need of confirmation.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-leonardi",
+      "html": "<p>An obligate dweller of swiftly-flowing streams and headwaters containing clear, oxygen-saturated water. Adults usually inhabit riffles and runs, and show a preference for shallower zones with substrates of gravel, rocks, boulders or bedrock, typically carpeted by a rich biofilm formed by algae and other micro-organisms.</p><p>Juveniles are often found in slower-moving stretches with gravel substrate and submerged wood structures such as tree roots. In both cases patches of aquatic plants are only occasionally present but riparian vegetation is usually well-developed.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-leonardi",
+      "html": "<p>An aquarium with base dimensions of 80 × 30 cm or more ought to prove sufficient (about 72 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-leonardi",
+      "html": "<p>Most importantly the water must be clean and well-oxygenated, so we suggest the use of an over-sized filter as a minimum requirement.</p><p>Turnover should ideally be 10–15 times per hour, so additional powerheads, airstones, etc., should be employed to achieve the desired flow and oxygenation if necessary.</p><p>Base substrate can either be of gravel, sand or a mixture of both, to which should be added a layer of water-worn rocks and pebbles of varying sizes.</p><p>Driftwood roots and branches are also suitable, and although rarely a feature of the natural habitat, aquatic plants from genera such as Microsorum, Crinum and Anubias can be grown attached to the décor. The latter are particularly useful as Homaloptera spp. appear to enjoy resting on their leaves.</p><p>Since it needs stable water conditions and feeds on biofilm, this species should never be added to a biologically immature set-up, and a tightly-fitting cover is necessary since it can literally climb glass.</p><p>While regular partial water changes are essential, aufwuchs can be allowed to grow on all surfaces except perhaps the viewing pane.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_cf_leonardi_vietnam_en/",
       "html": "<p>The water temperature should be between 22 and 24°C.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-leonardi",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -52,22 +133,74 @@
       "html": "<p>Homaloptera are micropredators and feed on a wide variety of live and frozen food items. Well acclimatized specimens often also accept dried food (best: granulates), but one should not do any feeding experiments in the phase of settling, because uneaten food will pollute the water heavily.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-leonardi",
+      "html": "<p>Homaloptera spp. are specialised grazers feeding on biofilm, small crustaceans, insect larvae and other invertebrates.</p><p>In captivity some sinking dry foods may be accepted, but regular meals of live or frozen Daphnia, Artemia, bloodworm, etc., are essential for the maintenance of good health, and it is highly preferable if the tank contains rock and other solid surfaces with growths of algae and other aufwuchs.</p><p>Balitorids are often seen on sale in an emaciated state, which can be difficult to correct. A good dealer will have done something about this prior to sale, but if you decide to take a chance with severely weakened specimens they will initially require a continual, easily obtainable source of suitable foods in the absence of competitors if they are to recover.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-leonardi",
+      "html": "<p>Not an aggressive fish, although its environmental requirements limit the choice of suitable tankmates, plus it is naturally reclusive.</p><p>Species inhabiting similar environments include Danio, Devario, some Rasbora, Rhinogobius, Sicyopterus and Stiphodon gobies plus catfishes like Glyptothorax, Akysis and Oreoglanis.</p><p>Many loaches from the family Nemacheilidae and most from Balitoridae are also suitable, although harmless squabbles may sometimes occur with the latter group in particular. Research your choices before purchase in order to be sure.</p><p>Homaloptera spp. are not particularly territorial towards conspecifics and seem to require their presence to thrive, meaning the purchase of four or more is recommended.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-leonardi",
+      "html": "<p>Sexually mature females are usually a little larger and fuller-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-leonardi",
+      "html": "<p>Presumably a seasonal spawner in nature, but nothing has been recorded in aquaria as far as we know.</p>"
+    },
+    {
       "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_cf_leonardi_vietnam_en/",
-      "html": "<p>We were able to import once more hillstream loaches from Vietnam. Instead of the expected Annamia normani we received another species. The determination is a very tricky thing. The most coincidences are to the species Homaloptera leonardi. Especially the scale-less zone between pectoral and ventral fins is said to be very typical for H. leonardi. It looks, at least on our photos (we had no losses and refuse to preserve fish for determination), that this feature is present in our new fish.</p><p>One very special thing is observable in some of our new fish: they show a magnificent, bright green coloration. It is unknown to us whether this represents sexual differences or if these green colours are only a temporary phenomenon.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-leonardi",
+      "html": "<p>This species was formerly referred to as Homaloptera sp. 'H01' prior to establishing its identity.</p><p>Fowler (1934) described the subject species in the genus Homaloptera, where it remained until Kottelat (2012, 2013) placed it in Balitoropsis. Randall &amp; Page (2012) considered this species a member of the putative subgenus Balitoropsis, which they felt at the time was not well defined.</p><p>Homaloptera has long been considered a polyphyletic assemblage (Kottelat, 1998), and some former members were moved into the revalidated genus Homalopteroides (Fowler, 1905) by Randall and Page (2012) on the basis of their oral morphology. Following Randall and Page (2015) the majority of members have been moved into other genera as recognized therein.</p><p>The genus Pseudohomaloptera was initially raised by Silas (1953) for the type species Homaloptera tatereganii Popta 1905. Tan (2009) recognized Pseudohomaloptera as a junior synonym of Homaloptera, and Kottelat (2012) also recognized this synonymy. Randall and Page (2015) revalidated Pseudohomaloptera as a distinct genus, containing P. tatereganii (Popta 1905), P. sexmaculata (Fowler 1934), P. leonardi (Hora 1941), P. yunnanensis (Chen 1978), P. vulgaris (Kottelat &amp; Chu 1988) and P. batek (Tan 2009).</p><p>P. leonardi is very similar to P. sexmaculata but can be told apart since it possesses 6 simple and 11 branched pectoral-fin rays (versus 2 simple and 12–14 branched rays). Both of these species are sometimes misidentified as H. yunnanensis, which has 7 simple and 12 branched pectoral-fin rays.</p><p>All species make fascinating aquarium inhabitants and are often referred to as 'lizard' loaches due to their behaviour and appearance. Like all balitorids they have morphology specialised for life in fast-flowing water, i.e., the paired fins are orientated and extended horizontally, head and body flattened, belly depressed. These features form a powerful sucking cup which allows the fish to cling tightly to solid surfaces. The ability to swim in open water is greatly reduced and they instead appear to crawl and hop their way over rocks and other surfaces.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-leonardi",
+      "html": "<ul><li>Hora, S. L. (1941). Notes on Malayan fishes in the collection of the Raffles Museum, Singapore. Parts 2 and 3. Bulletin of the Raffles Museum 17, 44-64</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Randall, Z. S. and L. M. Page (2015). On the paraphyly of Homaloptera (Teleostei: Balitoridae) and description of a new genus of hillstream loaches from the Western Ghats of India. Zootaxa 3926(1), 57-86</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/6fff7559aa000117.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6fff7559aa000117-480.webp",
+      "width": 799,
+      "height": 530,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-leonardi",
+      "caption": "H. cf. leonardi from the U.S. aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5d5cb3629c2fe56f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5d5cb3629c2fe56f-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-leonardi",
+      "caption": "Ventral view of H. cf. leonardi from the Japanese aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/1fd659b9f6bf78df.webp",
+      "thumb": "https://media.aquatome.com/commons/1fd659b9f6bf78df-480.webp",
       "width": 960,
       "height": 404,
       "licence": "CC BY 4.0",
       "author": "Aqmal-Naser et al. (2023)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudohomaloptera_leonardi_(10.3897-BDJ.11.e100337)_Figure_8.jpg",
-      "caption": "Figure 8 Pseudohomaloptera leonardi.",
-      "thumb": "https://media.aquatome.com/commons/1fd659b9f6bf78df-480.webp"
+      "caption": "Figure 8 Pseudohomaloptera leonardi."
     }
   ],
   "videos": [],
@@ -75,8 +208,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá suối"
+        "bể cá 80cm"
       ]
     },
     {
@@ -102,5 +234,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-06"
 }

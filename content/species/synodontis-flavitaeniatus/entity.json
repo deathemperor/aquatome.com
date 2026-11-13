@@ -8,7 +8,9 @@
   "places": [
     "africa",
     "democratic-republic-of-the-congo",
-    "pool-malebo"
+    "pool-malebo",
+    "malebo-pool",
+    "republic-of-the-congo"
   ],
   "dataCard": {
     "tempC": [
@@ -18,12 +20,53 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 20
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 19.5
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 25
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
       }
     ]
   },
@@ -33,6 +76,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-flavitaeniatus-2/",
       "html": "<p>This attractive squeaker catfish reaches a final size of around 20 cm, making it one of the medium-sized species of the genus. It can be kept in aquariums for decades without much effort.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-flavitaeniatus",
+      "html": "<p>The pyjama Synodontis, Synodontis flavitaeniatus, is a catfish endemic to the Malebo Pool area of the River Congo in the Democratic Republic of Congo. Its patterning and colouration vary considerably, but it is difficult to misidentify. Also known as the orange striped squeaker, it has filamentous maxillary barbels like only two other members of the genus, and it is more sensitive to deteriorating water quality than many Synodontis.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -47,10 +96,34 @@
       "html": "<p>This catfish originates from the lower Congo, for example in the Pool Malebo area (formerly known as Stanley Pool).</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-flavitaeniatus",
+      "html": "<p>Endemic to the Democratic Republic of Congo. It occurs only in the Malebo Pool area of the River Congo.</p>"
+    },
+    {
       "key": "habitat",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-flavitaeniatus-2/",
       "html": "<p>It prefers to sit in relatively finely branched roots, where it visually disappears into nothingness. The reddish-yellow-brown striping that is so conspicuous in swimming animals is perfect camouflage in this environment.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-flavitaeniatus",
+      "html": "<p>Occurs in various biotopes in the Malebo Pool region, hence its flexibility with regards to water parameters.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-flavitaeniatus",
+      "html": "<p>Standard length: 195 mm SL. Aquarium base: 90 × 30 cm. Volume: ~81 litres.</p><p>90 × 30 × 30 cm – ~81 litres. This is not an active species.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-flavitaeniatus",
+      "html": "<p>Provide a dimly lit aquarium with soft substrate, rocks, pieces of driftwood and twisted roots arranged to form hiding places. Floating vegetation is also recommended in order to diffuse the light entering the tank. Other planting is beneficial but not essential. This species of Synodontis will not uproot plants at all which makes it a possibility for the planted aquarium.</p>"
     },
     {
       "key": "waterConditions",
@@ -59,16 +132,52 @@
       "html": "<p>The chemical composition of the water is irrelevant; any drinking water is suitable. The water temperature can range from 22-28°C.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-flavitaeniatus",
+      "html": "<ul><li>Temperature: 23–28°C</li><li>pH: 6.5–8.0</li><li>Hardness: 3–25 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-flavitaeniatus-2/",
       "html": "<p>They will eat any standard ornamental fish food of a suitable size. The teeth, which already begin on the outside of the upper lip, indicate that in nature it feeds on animals sitting in depressions, which it can pick out with its special teeth.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-flavitaeniatus",
+      "html": "<p>Synodontis are omnivorous and are most unfussy in terms of feeding. Frozen, live and dried foods are all accepted. It also relishes vegetable matter in the form of shelled peas, cucumber etc., which it will rasp at with the teeth in its lower jaw.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/synodontis-flavitaeniatus-2/",
       "html": "<p>Like most squeaker catfish, they form a hierarchy among themselves. This regularly results in skin abrasions, but these heal easily and without complications. The animals are relatively peaceful towards other species. Tank mates should not be too delicate, but they are a wonderful addition to a West African aquarium with medium-sized tetras, barbs, and cichlids. These crepuscular fish need daytime hiding places, but after a certain acclimatization period they are also very active during the day, especially at feeding times.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-flavitaeniatus",
+      "html": "<p>A peaceful fish that can be maintained with many species provided they are over 5 cm in length and thus can escape predation. Good tankmates include Alestiid tetras, Pelvicachromis sp. and other peaceful cichlids, Mormyrids, Gouramis and larger rasboras and barbs. It should not be kept with boisterous species such as Rift Lake cichlids. Can be kept with others of its own kind if each fish is provided with a refuge it can call home.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-flavitaeniatus",
+      "html": "<p>Difficult to sex using the genital papilla technique as it is small. It is therefore difficult to sex, although adult females are generally more plump than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-flavitaeniatus",
+      "html": "<p>Not recorded in aquaria. In nature S. flavitaeniatus breeds like other riverine Synodontis in areas of seasonal flooding that are rich in micro-organisms. They are egg scatterers and exhibit no parental care.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-flavitaeniatus",
+      "html": "<p>Also known as the Orange Striped Squeaker, this fish is one of the most attractively patterned Synos. S. flavitaeniatus can vary considerably in patterning and colouration but is difficult to misidentify. This fish is more sensitive to deteriorating water quality than many Syno species so aquarium maintenance must be rigorous. Its flexibility with regards to water parameters, its maximum size and its unique patterning make this Synodontis a very attractive proposition for any mature, well-maintained aquarium. The Pyjama Synodontis is one of only 3 members of the genus to exhibit filamentous maxillary (outer) barbels, the others being S. decorus and S. clarias.</p>"
     }
   ],
   "photos": [],
@@ -77,8 +186,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá cảnh lớn"
+        "bể cá 90cm"
       ]
     },
     {
@@ -96,5 +204,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-06"
 }

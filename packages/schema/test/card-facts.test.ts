@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { cardRepeats, dropCardRepeats, dropItems, figuresOffCard, shownCard, states, tankIsVolume } from '../src/index'
+import { cardRepeats, dropCardRepeats, dropItems, dropLowCo2, dropOffItems, figuresOffCard, isOneEnded, litresOffCard, shownCard, sizeIsForSale, states, tankIsVolume, tempIsNotForKeeping } from '../src/index'
 
 // Cá neon vua and Cá chạch bùn as aquatome.com had them (design critique 2026-10-31): the card said 3,5 cm, pH 4,6–6,2,
 // 23–27 °C; The Spruce Pets' quick facts and Seriously Fish's water text said 5 cm, pH 3,5–7,5, 23–29 °C.
@@ -71,13 +71,10 @@ test('states: the figure as each language writes it, with its unit', () => {
 
 test('figuresOffCard: what a block states that the card shows otherwise, never what it agrees on', () => {
   const water = '<ul><li>Nhiệt độ: 23–29 °C</li><li>pH: 3,5–7,5, nhưng cá hoang dã sống khỏe nhất ở nước có tính axit hơn.</li><li>Độ cứng: 1–12 dGH.</li></ul>'
-  expect(figuresOffCard(neon, 'seriouslyfish', water)).toEqual([
-    { field: 'tempC', own: { min: 23, max: 29 }, card: { min: 23, max: 27 } },
-    { field: 'ph', own: { min: 3.5, max: 7.5 }, card: { min: 4.6, max: 6.2 } },
-    { field: 'gh', own: { min: 1, max: 12 }, card: { min: 1, max: 4 } },
-  ])
-  // The Spruce Pets' range is the card's: nothing to say.
-  expect(figuresOffCard(neon, 'sprucepets', '<p>Nhiệt độ có thể dao động trong khoảng 23 đến 27 °C.</p>')).toEqual([])
+  // The card is Seriously Fish's: its own block has nothing to say.
+  expect(figuresOffCard(neon, 'seriouslyfish', water)).toEqual([])
+  // The Spruce Pets' range is not the card's.
+  expect(figuresOffCard(neon, 'sprucepets', '<p>Nhiệt độ có thể dao động trong khoảng 23 đến 27 °C.</p>')).toEqual([{ field: 'tempC', own: { min: 23, max: 27 }, card: { min: 23, max: 29 } }])
   // Cá chạch bùn: Loaches Online says 25 cm, the card 30 cm (The Spruce Pets').
   const loach = { sizeCm: [{ source: 'loachesonline', value: 25 }, { source: 'sprucepets', value: 30 }] }
   expect(figuresOffCard(loach, 'loachesonline', '<p>Cá trưởng thành có thể dài tới 25 cm.</p>')).toEqual([{ field: 'sizeCm', own: 25, card: 30 }])
@@ -117,4 +114,107 @@ test('a card figure the engine hid (out of bounds, a tank too short for the fish
   expect(shownCard(card, [], () => true)).toEqual({ sizeCm: [{ source: 'seriouslyfish', value: 90 }], tankCm: [{ source: 'glaser', value: 200 }] })
   expect(shownCard({ tankCm: [card.tankCm[0]!] }, [], () => true)).toEqual({})
   expect(card.tankCm).toHaveLength(2)
+})
+
+// The betta's and the neon's pages (design critique 2026-11-06): the card said 45 and 60 cm, The Spruce Pets' text 8 and
+// 38 litres; Seriously Fish's own volume, beside its tank's base, is that tank's.
+const betta = { tankCm: [{ source: 'sprucepets', value: 30, hidden: 'a volume' }, { source: 'seriouslyfish', value: 45 }].filter(v => !v.hidden) }
+const neonTank = { tankCm: [{ source: 'seriouslyfish', value: 60 }] }
+
+test('a tank volume that makes a shorter tank than the card is off the card; one beside its tank\'s sides or length is that tank\'s', () => {
+  expect(litresOffCard(betta, '<p>Dung tích bể tối thiểu: 8 lít. Việc duy trì nhiệt độ nước phù hợp…</p>')).toEqual([{ field: 'tankL', own: 8, card: 45 }])
+  expect(litresOffCard(neonTank, '<p><strong>Kích thước bể tối thiểu:</strong> 38 lít</p>')).toEqual([{ field: 'tankL', own: 38, card: 60 }])
+  expect(litresOffCard(betta, '<p>Đáy bể: 45 × 30 cm. Thể tích: khoảng 41 lít.</p>')).toEqual([])
+  expect(litresOffCard(neonTank, '<p>Bạn nên dùng bể có đáy từ 60 × 30 cm trở lên (khoảng 54 lít).</p>')).toEqual([])
+  expect(litresOffCard({ tankCm: [{ source: 'seriouslyfish', value: 120 }] }, '<p>Đáy 120 × 30 cm (khoảng 108 lít).</p>')).toEqual([])
+  expect(litresOffCard(neonTank, '<p>Bể dài 60 cm, khoảng 40 lít.</p>')).toEqual([])
+  // Enough volume, a rate, a thousand litres, the other languages, a range by its low end; no minimum on the card.
+  expect(litresOffCard(neonTank, '<p>Bể 54 lít trở lên; lọc 300 lít/giờ; hồ 1.000 lít.</p>')).toEqual([])
+  expect(litresOffCard(neonTank, '<p>Akuarium minimal 38 liter.</p><p>ตู้ขนาด 20 ลิตรขึ้นไป</p><p>Bể 30–40 L.</p>')).toEqual([
+    { field: 'tankL', own: 38, card: 60 }, { field: 'tankL', own: 20, card: 60 }, { field: 'tankL', own: { min: 30, max: 40 }, card: 60 }])
+  expect(litresOffCard({}, '<p>8 lít</p>')).toEqual([])
+})
+
+test('a quick-facts line off the card goes; the rest of the block stays', () => {
+  const facts = '<ul><li><strong>Tuổi thọ:</strong> 5 đến 10 năm</li><li><strong>Kích thước bể tối thiểu:</strong> 38 lít</li><li><strong>Nhiệt độ:</strong> 20 đến 26 °C</li></ul><p>Cá hiền.</p>'
+  const card = { ...neonTank, tempC: [{ source: 'seriouslyfish', value: { min: 20, max: 26 } }, { source: 'sprucepets', value: { min: 20, max: 28 } }] }
+  expect(dropOffItems(card, 'sprucepets', facts)).toBe('<ul><li><strong>Tuổi thọ:</strong> 5 đến 10 năm</li><li><strong>Nhiệt độ:</strong> 20 đến 26 °C</li></ul><p>Cá hiền.</p>')
+  // A line stating this source's own figure where the card shows another: off too.
+  expect(dropOffItems(card, 'sprucepets', '<ul><li>Nhiệt độ: 20 đến 28 °C</li></ul>')).toBe('')
+  expect(dropOffItems(card, 'sprucepets', '<ul><li>Hiền.</li></ul>')).toBe('<ul><li>Hiền.</li></ul>')
+})
+
+// Anubias as aquatome.com had it (the council, 2026-11-10): the card said "Không cần", Tropica's row "CO2: Thấp".
+const tropicaEn = (co2: string) => `<ul><li><strong>Growth rate:</strong> Slow</li><li><strong>Light demand:</strong> Low</li><li>${co2}</li></ul>`
+const tropicaVi = '<ul><li><strong>Tốc độ phát triển:</strong> Chậm</li><li><strong>Nhu cầu ánh sáng:</strong> Thấp</li><li><strong>CO2:</strong> Thấp</li></ul>'
+const withoutRow = '<ul><li><strong>Tốc độ phát triển:</strong> Chậm</li><li><strong>Nhu cầu ánh sáng:</strong> Thấp</li></ul>'
+
+test('a plant\'s "Low" CO₂ row goes beside a card that answers otherwise, in either of Tropica\'s wordings', () => {
+  expect(dropLowCo2(tropicaEn('<strong>CO2:</strong> Low'), tropicaVi, 'none')).toBe(withoutRow)
+  expect(dropLowCo2(tropicaEn('CO2 demand: low'), tropicaVi, 'none')).toBe(withoutRow)
+  expect(dropLowCo2(tropicaEn('<strong>CO2:</strong> Low'), tropicaVi, 'required')).toBe(withoutRow)
+})
+
+test('a plant\'s CO₂ row stays where it says more than the card', () => {
+  expect(dropLowCo2(tropicaEn('<strong>CO2:</strong> Low'), tropicaVi, 'optional')).toBe(tropicaVi)
+  expect(dropLowCo2(tropicaEn('<strong>CO2:</strong> Medium (6-14 mg/L)'), tropicaVi, 'none')).toBe(tropicaVi)
+  // A translation whose list doesn't match the English one item for item is left alone.
+  expect(dropLowCo2('<ul><li>CO2: Low</li></ul>', tropicaVi, 'none')).toBe(tropicaVi)
+})
+
+test('sizeIsForSale: a size a shop has in stock, never one the source also gives as the fish\'s', () => {
+  expect(sizeIsForSale('<p>Common name: Empire gudgeon. Available size: 4–5 cm. Origin: Indonesia.</p>', 5)).toBe(true)
+  expect(sizeIsForSale('<p>Currently the specimens are 20-25 cm long.</p>', 25)).toBe(true)
+  expect(sizeIsForSale('<p>Available size: 4–5 cm. Males reach 5 cm.</p>', 5)).toBe(false)
+  expect(sizeIsForSale('<p>Currently available: wonderful, fully grown (5-6 cm) fish.</p>', 6)).toBe(false)
+  expect(sizeIsForSale('<p>It grows to 12 cm.</p>', 12)).toBe(false)
+})
+
+test('tempIsNotForKeeping: a single figure for the wild or breeding, never a keeper\'s target', () => {
+  const figure = (t: number) => ({ min: t, max: t })
+  expect(tempIsNotForKeeping('<p>During the monsoon season the water temperature drops to 14°C.</p>', figure(14))).toBe(true)
+  expect(tempIsNotForKeeping('<p>It is used to temperatures as low as 10°C at times.</p>', figure(10))).toBe(true)
+  expect(tempIsNotForKeeping('<p>So far the breeding was possible only at 30°C.</p>', figure(30))).toBe(true)
+  expect(tempIsNotForKeeping('<p>Keep it warm, around 28°C.</p>', figure(28))).toBe(false)
+  expect(tempIsNotForKeeping('<p>In the wild it reaches 26°C. In the aquarium keep it at 26°C.</p>', figure(26))).toBe(false)
+  expect(tempIsNotForKeeping('<p>In the wild, 24 to 28°C.</p>', { min: 24, max: 28 })).toBe(false)
+  expect(tempIsNotForKeeping('<p>No figure here.</p>', figure(25))).toBe(false)
+})
+
+// What the pages said (Aquarium Co-op, Glaser, 2026-11-10): one end only, and the card had a range with an end nobody gave.
+test('a pH or hardness the page gives only as one end has no range; a page that states a range does', () => {
+  expect(isOneEnded('<p>pH: above 7.0</p><p>GH: at least 5 dGH</p>', 'gh', { min: 5, max: 12 })).toBe(true)
+  expect(isOneEnded('<p>pH: above 7.0</p><p>GH: at least 5 dGH</p>', 'ph', { min: 7, max: 8 })).toBe(true)
+  expect(isOneEnded('<p>Basically, the pH should not fall below 7.</p>', 'ph', { min: 7, max: 8.5 })).toBe(true)
+  expect(isOneEnded('<p>The pH must be over 8.</p>', 'ph', { min: 8, max: 8 })).toBe(true)
+  expect(isOneEnded('<p>Keep the pH below 6.5.</p>', 'ph', { min: 5, max: 6.5 })).toBe(true)
+  expect(isOneEnded('<p>pH 6.0 – 7.5, and never below 6.</p>', 'ph', { min: 6, max: 7.5 })).toBe(false)
+  expect(isOneEnded('<p>Hardness: 15–30 dGH</p>', 'gh', { min: 15, max: 30 })).toBe(false)
+  expect(isOneEnded('<p>GH 1–12 dGH. Needs a tank at least 2 m long.</p>', 'gh', { min: 1, max: 12 })).toBe(false)
+  expect(isOneEnded('<p>Hardness less than 1° dH.</p>', 'gh', { min: 0, max: 1 })).toBe(true)
+  expect(isOneEnded('<p>A pH up to 8.</p>', 'ph', { min: 6, max: 8 })).toBe(true)
+  expect(isOneEnded('<p>pH above 7.5, temperature 25°C or warmer.</p>', 'tempC', { min: 25, max: 30 })).toBe(true)
+  expect(isOneEnded('<p>Temperature: up to 86°F.</p>', 'tempC', { min: 22, max: 30 })).toBe(true)
+  expect(isOneEnded('<p>Temperature: 24–28°C, never above 30°C.</p>', 'tempC', { min: 24, max: 28 })).toBe(false)
+  expect(isOneEnded('<p>Lifespan: up to 5 years.</p>', 'lifeYears', { min: 3, max: 5 })).toBe(true)
+  expect(isOneEnded('<p>Temperatures below 26°C in summer and around 17°C in winter are ideal.</p>', 'tempC', { min: 17, max: 26 })).toBe(false)
+  expect(isOneEnded('<p>pH: requires strictly acidic conditions within the range 4.0–6.5.</p><p>The pH should ideally be below 6.0.</p>', 'ph', { min: 4, max: 6.5 })).toBe(false)
+  expect(isOneEnded('<p>It lives 3–5 years.</p>', 'lifeYears', { min: 3, max: 5 })).toBe(false)
+  expect(isOneEnded('<p>The pH should not rise above 7.</p>', 'ph', { min: 6, max: 7 })).toBe(true)
+  const card = { ph: [{ source: 'aquariumcoop', value: { min: 7, max: 8 } }, { source: 'seriouslyfish', value: { min: 7, max: 8 } }] }
+  expect(shownCard(card, [{ source: 'aquariumcoop', html: '<p>pH: above 7.0</p>' }, { source: 'seriouslyfish', html: '<p>pH: 7.0–8.0</p>' }], () => true)).toEqual({ ph: [{ source: 'seriouslyfish', value: { min: 7, max: 8 } }] })
+})
+
+test('shownCard: a figure two other sources overrule is off the card, and the card takes theirs', () => {
+  const card = { sizeCm: [{ source: 'seriouslyfish', value: 12, overruled: 'Glaser 45 cm and FishBase 42 cm SL agree against it' }, { source: 'glaser', value: 45 }] }
+  expect(shownCard(card, [], () => true)).toEqual({ sizeCm: [{ source: 'glaser', value: 45 }] })
+  expect(card.sizeCm).toHaveLength(2)
+})
+
+test('shownCard: a card doesn\'t show a shop\'s selling size as the adult size, or a temperature only for the wild', () => {
+  const card = { sizeCm: [{ source: 'glaser', value: 5 }, { source: 'seriouslyfish', value: 12 }], tempC: [{ source: 'glaser', value: { min: 14, max: 14 } }, { source: 'seriouslyfish', value: { min: 23, max: 28 } }] }
+  const sections = [{ source: 'glaser', html: '<p>Available size: 4–5 cm. During the monsoon season the water temperature drops to 14°C.</p>' }, { source: 'seriouslyfish', html: '<p>Max size: 12 cm.</p>' }]
+  const shown = shownCard(card, sections, () => true)
+  expect(shown.sizeCm?.map(v => v.source)).toEqual(['seriouslyfish'])
+  expect(shown.tempC?.map(v => v.source)).toEqual(['seriouslyfish'])
 })

@@ -1,0 +1,267 @@
+{
+  "id": "danio-kerri",
+  "scientificName": "Danio kerri",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Danio",
+  "group": "danios",
+  "places": [
+    "asia",
+    "thailand",
+    "phang-nga",
+    "malaysia",
+    "langkawi"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Koh Yao Yai",
+        "Malay Peninsula",
+        "Phuket",
+        "Ko Lanta",
+        "Langkawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Koh Yao Yai island, Phang Nga province, south-western Thailand but it has subsequently been recorded from other islands in the area including Phuket, Ko Lanta and Langkawi as well as mainland southern Thailand (upper Malay Peninsula) including Krabi and Ranong provinces.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Koh Yao Yai",
+            "Malay Peninsula",
+            "Phuket",
+            "Ko Lanta",
+            "Langkawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362690,
+      "total": 9,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "TH",
+          8
+        ],
+        [
+          "KH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          7.03125,
+          6,
+          6
+        ],
+        [
+          98.4375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          9.84375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-kerri",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. The aquarium must have a very tightly-fitting cover as members of this genus are accomplished jumpers and can fit through surprisingly small gaps.</p><p>The blue danio, Danio kerri, is a small cyprinid from islands and the adjacent mainland of south-western Thailand. It was described from Phang Nga province and has since been recorded from Phuket, Ko Lanta, Langkawi, Krabi and Ranong. Base body colour is powdery-blue in the north of its range and more yellowish in the south, with pinkish-yellow lateral stripes. It inhabits clear forest streams over rocks and gravel, and can be hard to find in aquarium shops.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-kerri",
+      "html": "<p>Described from Koh Yao Yai island, Phang Nga province, south-western Thailand but it has subsequently been recorded from other islands in the area including Phuket, Ko Lanta and Langkawi as well as mainland southern Thailand (upper Malay Peninsula) including Krabi and Ranong provinces.</p><p>The full type locality is 'Pool in hill stream, Koh Yao Yai, Puket, Thailand'.</p><p>Populations from different localities vary in base body colouration; those from the northern end of the range tend to be blue while from the south they're more yellowish.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-kerri",
+      "html": "<p>Inhabits forest streams and small rivers typified by very clear water with substrates of rocks, boulders and gravel.</p><p>Macrophytes are normally absent but submerged surfaces are often carpeted with a rich biofilm while marginal vegetation grows thickly.</p><p>At the Ton Chongfah waterfall near the coastal resort of Khao Lak it lives alongside Devario regina, Neolissochilus stracheyi, Tor tambroides, and Systomus orphoides.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-kerri",
+      "html": "<p>Standard length: 45 mm SL (4.5 cm). Aquarium base: 80 × 30 cm. Volume: ~72 litres.</p><p>An aquarium with base dimensions of 80 × 30 cm or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-kerri",
+      "html": "<p>Looks particularly effective in a heavily-planted arrangement with a darker substrate, and may appear paler in sparsely-decorated set-ups.</p><p>We suggest maintaining it in a well-planted aquarium or set-up designed to resemble a flowing river or stream, with a substrate of variably-sized rocks and gravel and some large water-worn boulders.</p><p>Additional powerhead(s) or filter outlets can be used to provide flow but torrent-like conditions should be avoided as small danionins tend to occupy calmer stretches and marginal zones in nature.</p><p>Driftwood roots, branches and aquatic plants, with hardy genera such as Microsorum, Bolbitis or Anubias ideal since they can be grown attached to the décor, can also be added.</p><p>The aquarium must have a very tightly-fitting cover as members of this genus are accomplished jumpers and can fit through surprisingly small gaps.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-kerri",
+      "html": "<ul><li>Temperature: 18–26°C</li><li>pH: 6.5–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-kerri",
+      "html": "<p>Stomach analyses of wild specimens have revealed this species to be chiefly insectivorous, feeding on a variety of aquatic/terrestrial insects and their larvae.</p><p>Small amounts of algae, other plant material and organic detritus were also recorded but may have derived from the gut contents of prey items.</p><p>In the aquarium it's largely an unfussy feeder and will accept most foods.</p><p>A good quality dried product can be used as the staple diet but this should be supplemented with regular meals of small live and frozen fare such as bloodworm, Daphnia, Artemia, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-kerri",
+      "html": "<p>This species is very peaceful indeed making it an ideal resident of the well-furnished community tank.</p><p>As it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, rainbowfishes, anabantoids, catfishes and loaches.</p><p>A community based around species from one of its native countries or river basins would also make an interesting project with examples from southern Thailand including Devario regina, Rasbora borapetensis, Rasbora trilineata, Microdevario kubotai and Badis siamensis.</p><p>It's a schooling species by nature and really should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less nervous but result in a more effective, natural-looking display while males will also exhibit their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-kerri",
+      "html": "<p>Sexually mature females are usually rounder-bellied, slightly less colourful and a little larger than males.</p><p>The differences are especially clear when the fish are in spawning condition.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-kerri",
+      "html": "<p>Like most cyprinids this species is an egg-scattering spawner that exhibits no parental care.</p><p>That is to say when the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it is possible that small numbers of fry may start to appear without human intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more small, say 30-40 litre, containers should also be set up and half-filled with water.</p><p>Much of the available space should be filled with a suitable spawning medium such as Java moss, wool mops or a spawning grid.</p><p>The water should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. An internal power filter can be added initially and this should be positioned so that the flow is directed down the full length of the tank.</p><p>When the adult fish are well-conditioned and the females appear full of eggs one or two pairs should then be introduced to each container.</p><p>Spawning can be initiated by adding small amounts of cool water every few hours in such a way that the tank is gradually topped up and feeding small amounts of live and frozen foods, or by performing a large (50-60%) water change in the evening.</p><p>The adults will eat any they find and are best removed once eggs are spotted.</p><p>At this point the power filter (if using) should be switched for a mature sponge-type unit in order to avoid fry being sucked into the mechanism.</p><p>Incubation in is temperature-dependant to an extent but usually takes between 24-36 hours with the young free-swimming a few days later.</p><p>Initial food should be Artemia nauplii or similar.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-kerri",
+      "html": "<p>D. kerri can be hard to find in aquarium shops, and there has been some confusion surrounding its identity in the past.</p><p>Base body colour is either powdery-blue or yellow-green (see 'Distribution') and this continues into the caudal-fin, while pinkish-yellow lateral stripes extend from opercle to caudal peduncle.</p><p>A form of D. albolineatus from northern Peninsular Malaysia (described as the currently invalid D. tweedei Brittan 1956) is sometimes referred to D. kerri, but is a smaller, slimmer fish with a purplish base colour and only a single, prominent lateral stripe extending from the caudal peduncle about halfway along the body.</p><p>More similar is an undescribed fish from Myanmar that's sold under the name 'Danio sp. Hikari' and unlike most members of the genus is sexually dimorphic, with females predominantly blue and males yellowish-green. It can easily be told apart from D. kerri since the central body stripe always extends into the caudal-fin.</p><p>In recent years it's become commonplace to refer to the stripes on the body and fins of danionins as follows:</p><ul><li>P stripe: or \"pigment stripe\" is the central, dark, lateral stripe on the body which extends into the caudal-fin in some species. Stripes above it are numbered P+1, P+2, etc. and those beneath P-1, P-2, P-3.</li><li>A stripe: the central stripe on the anal-fin; the proximal stripe (above it) is A+1 and the distal stripe (beneath) A-1.</li><li>D stripe: The submarginal dorsal-fin stripe.</li></ul><p>Following Fang (2003) Danio spp. are characterised by the presence of an A stripe on the anal-fin and two or more P stripes on the caudal, plus some internal characteristics such as enlarged nasal lamellae.</p><p>The genus has undergone some significant taxonomic reshuffling in recent years following the publication of a series of phylogenetic studies.</p><p>Older, molecular, phylogenies tended to agree that it represented a monophyletic group consisting of two major clades; the 'Danio devario' group containing the larger, deeper-bodied species and the 'D. rerio' clade comprising the smaller, slimmer fish.</p><p>However in 2003 Fang conducted a more detailed study based on morphological characters which included members of other related genera, and the results suggested for the first time that the genus Danio as previously considered represents a polyphyletic grouping, i.e., not all members derived from a single common ancestor.</p><p>The genus name Devario was suggested for the larger species with Danio being applied only to the smaller fish (with the exception of the type species, D. dangila which can grow to around 89 mm / 8.9 cm SL). Recent molecular studies by Mayden et al. (2007) and Fang et al. (2009) resulted in further changes, with the latter study considering the genus Danio to be composed of three subclades. These were subsequently split into distinct genera by Kottelat (2013), as follows:</p><p>The former species D. erythromicron, D. margaritatus, D. choprae and D. flagrans were grouped together in the revalidated genus Celestichthys Roberts, 2007. These exhibit unique body patterning consisting of vertical bars (D. erythromicron, D. choprae, D. flagrans) or light spots (D. margaritatus) and possess either very short barbels or none at all.</p><p>Kottelat (2013) left only the type species, D. dangila, in Danio, separated on the basis of its larger size and the shape of the caudal-fin, which in adults is only slightly emarginate or even truncate in shape, a feature it shares only with Tinca tinca (the common tench) among other cyprinids.</p><p>The remaining species, of which D. rerio is thought to be the most ancient, were placed in the revalidated genus Brachydanio Weber &amp; de Beaufort, 1916. Kullander (2015) did not follow this split, because phylogenetic analyses strongly support a single Danio in the sense of Fang (2003), with Devario a separate genus. The Catalog of Fishes and FishBase both keep all of these species in Danio.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-kerri",
+      "html": "<ul><li>Conway, K. W., W.-J. Chen and R. L. Mayden (2008). The 'Celestial Pearl danio' is a miniature Danio (s.s) (Ostariophysi: Cyprinidae): evidence from morphology and molecules. Zootaxa 1686, 1-28</li><li>Fang, F. (2003). Phylogenetic Analysis of the Asian Cyprinid Genus Danio (Teleostei, Cyprinidae). Copeia 2003(4), 714-728</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>McClure, M. M., P. B. Mcintyre and A. R. McCune (2006). Notes on the natural diet and habitat of eight danionin fishes, including the zebrafish Danio rerio. Journal of Fish Biology 69, 553-570</li><li>Smith, H. M. (1931). Descriptions of new genera and species of Siamese fishes. Proceedings of the United States National Museum 79(2873), 1-48</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b8c267e0ceb7d6eb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b8c267e0ceb7d6eb-480.webp",
+      "width": 600,
+      "height": 390,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-kerri",
+      "caption": "Specimen from mainland Thailand.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/83e14798719794e2.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/83e14798719794e2-480.webp",
+      "width": 639,
+      "height": 464,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-kerri",
+      "caption": "Aquarium-bred juveniles.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 80cm",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "trùng huyết đông lạnh",
+        "artemia"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "dương xỉ java",
+        "anubias",
+        "bolbitis"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

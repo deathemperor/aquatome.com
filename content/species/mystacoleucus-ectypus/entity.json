@@ -1,0 +1,217 @@
+{
+  "id": "mystacoleucus-ectypus",
+  "scientificName": "Mystacoleucus ectypus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Mystacoleucus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "thailand",
+    "mun"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Khorat Plateau",
+        "Mun",
+        "Songkhram",
+        "Nam Mang",
+        "Nam Kou"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Mystacoleucus ectypus is a pelagic cyprinid from the middle Mekong basin in Laos and Thailand, and may be endemic to the Khorat Plateau.",
+          "countries": [
+            "LA",
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the middle Mekong basin in Laos and Thailand, and may be endemic to the Khorat Plateau.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Khorat Plateau"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Records exist from the Mun and Songkhram watersheds in northeastern Thailand, and a number of Mekong tributaries in Laos, including the Nam Mang and Nam Kou drainages.",
+          "countries": [],
+          "regions": [
+            "Mun",
+            "Songkhram",
+            "Nam Mang",
+            "Nam Kou"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363146,
+      "total": 8,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "LA",
+          5
+        ],
+        [
+          "TH",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-ectypus",
+      "html": "<p>Mystacoleucus ectypus is a pelagic cyprinid from the middle Mekong basin in Laos and Thailand, and may be endemic to the Khorat Plateau. It inhabits flowing lowland rivers and swift tributary streams with rock and gravel. It has a triangular blotch at the tip of the dorsal fin but no black fin margins or crescent-shaped scale markings, and like all Mystacoleucus it has a forward-pointing predorsal spine that can snag in a net.</p><p>Maximum size: 80 mm SL (8 cm).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-ectypus",
+      "html": "<p>Known from the middle Mekong basin in Laos and Thailand, and may be endemic to the Khorat Plateau. Records exist from the Mun and Songkhram watersheds in northeastern Thailand, and a number of Mekong tributaries in Laos, including the Nam Mang and Nam Kou drainages.</p><p>Type locality is 'Nam Mang downstream of Ban Thabok, between 18°22'25\"N, 103°13'30\"E, and about 1 kilometer upstream, Vientiane Province, Laos'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-ectypus",
+      "html": "<p>A pelagic species displaying a preference for flowing lowland river channels and swiftly-flowing tributary streams and small-to-medium sized rivers with substrates of rock and gravel.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-ectypus",
+      "html": "<p>This species can be distinguished from congeners by the following combination of characters: body depth measures 34.5-38.7 % (fits 2.6-2.9 times) SL; 33-37 + 2-4 lateral line scales; 7½-8/1/5-6½ scales in transverse row anterior to pelvic-fin origin, 3½-4/1/3½ scales in transverse row on caudal peduncle; 16-17 circumpeduncular scales; 9-10½ branched anal-fin rays; presence of a triangular distal blotch at tip of dorsal fin; no black distal margins on dorsal or caudal fins; no black crescent-shaped markings on body scales; barbels absent or very rudimentary.</p><p>All Mystacoleucus species possess a procumbent predorsal spine orientated towards the head, though it can be difficult to spot with the naked eye. This can become entangled in an aquarium net so care must be taken when handling the fish.</p><p>The trait is shared by members of Tor, Spinibarbus and Paraspinibarbus although there exists no strong evidence to suggest that these genera form a monophyletic lineage and it is likely that they developed the spine independantly of one another. Mystacoleucus spp. can be further identified by the presence of 6-10 branched anal-fin rays and 24-39 lateral line scales.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-ectypus",
+      "html": "<ul><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Kottelat, M. (2000). Diagnoses of a new genus and 64 new species of fishes from Laos (Teleostei: Cyprinidae, Balitoridae, Bagridae, Syngnathidae, Chaudhuriidae and Tetraodontidae). Journal of South Asian Natural History 5(1), 37-82</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/dc66fff723dbb78c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/dc66fff723dbb78c-480.webp",
+      "width": 820,
+      "height": 421,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-ectypus",
+      "caption": "Specimen from Vientiane province, western Laos.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2ee94ac6e5d66744.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2ee94ac6e5d66744-480.webp",
+      "width": 820,
+      "height": 549,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-ectypus",
+      "caption": "Specimen from Thapak Shap in Vientiane province, western Laos.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fa4d134e77e6b452.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fa4d134e77e6b452-480.webp",
+      "width": 820,
+      "height": 545,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-ectypus",
+      "caption": "Individual from Savannakhet province, western Laos.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

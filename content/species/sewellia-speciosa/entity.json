@@ -61,7 +61,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -71,12 +71,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sewellia_speciosa_en/",
       "html": "<p>Maximum length is around 6 cm.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sewellia_speciosa_en/",
-      "html": "<p>Currently we were able to import this nice hillstream loach from Laos for the first time.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -200,17 +194,6 @@
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/b593b96934136b9f.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/b593b96934136b9f-480.webp",
-      "width": 800,
-      "height": 800,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/sewellia-speciosa",
-      "caption": "Ventral view.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/c00927469d95a226.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/c00927469d95a226-480.webp",
       "width": 800,
@@ -230,6 +213,17 @@
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sewellia-speciosa",
       "caption": "Like other members of the genus S. speciosa possesses the ability to cling to solid objects.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b593b96934136b9f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b593b96934136b9f-480.webp",
+      "width": 800,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sewellia-speciosa",
+      "caption": "Ventral view.",
       "source": "seriouslyfish"
     }
   ],
@@ -252,7 +246,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm"
+        "bể cá 80cm"
       ]
     }
   ],

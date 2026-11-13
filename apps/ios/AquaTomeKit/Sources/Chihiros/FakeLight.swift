@@ -5,6 +5,8 @@
 /// - `askStatus` → a runtime reply, then a status snapshot (`Snapshot`).
 /// - A schedule is stored as a curve with one level, the first channel's; with no ramp it is two points.
 /// - Clearing the scenes empties the curve.
+/// Each period written is also kept by its weekday mask (`periods`), for tests to check what the light holds; what the
+/// real light reports holding several isn't known, so the curve is the last one written.
 @MainActor
 public final class FakeLight: LightLink {
   public let replies: AsyncStream<[UInt8]>
@@ -15,6 +17,9 @@ public final class FakeLight: LightLink {
   public var firmware: Int
   public var clock: Snapshot.Clock
   public var points: [Snapshot.Point]
+  /// The periods written since the scenes were last cleared, by weekday mask (`Weekdays`), as written: an off of 00:00
+  /// reads 23:59.
+  public private(set) var periods: [UInt8: Schedule] = [:]
   public private(set) var isManual = false
   public private(set) var levels: [Int: Int] = [:]
   /// Status reads after a schedule write that still show the cleared curve, as the real light sometimes does.
@@ -59,7 +64,7 @@ public final class FakeLight: LightLink {
       clock = Snapshot.Clock(weekday: Int(params[2]), time: TimeOfDay(hour: Int(params[3]), minute: Int(params[4])))
     case (0x5a, 0x05):
       isManual = params[0] == Mode.manual
-      if params[0] == Mode.sceneReset { points = [] }
+      if params[0] == Mode.sceneReset { points = []; periods = [:] }
     case (0x5a, 0x07):
       levels[Int(params[0])] = Int(params[1])
     case (0xa5, 0x19):
@@ -78,6 +83,7 @@ public final class FakeLight: LightLink {
   private func store(_ p: [UInt8]) {
     let on = TimeOfDay(hour: Int(p[0]), minute: Int(p[1])), off = TimeOfDay(hour: Int(p[2]), minute: Int(p[3]))
     let (ramp, level) = (Int(p[4]), Int(p[6]))
+    periods[p[5]] = Schedule(on: on, off: off, ramp: ramp, levels: p[6...].prefix { $0 != 255 }.map(Int.init))
     points = ramp == 0
       ? [.init(time: on, level: level), .init(time: off, level: 0)]
       : [.init(time: on, level: 0), .init(time: TimeOfDay(minutes: on.minutes + ramp), level: level),

@@ -10,6 +10,62 @@
     "iran",
     "lake-shiraz"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IR"
+      ],
+      "regions": [
+        "Lake Shiraz"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Aphanius farsicus originates from Iran, where it lives around Lake Shiraz.",
+          "countries": [
+            "IR"
+          ],
+          "regions": [
+            "Lake Shiraz"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6103959,
+      "total": 36,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IR",
+          36
+        ]
+      ],
+      "cells": [
+        [
+          50.625,
+          35.15625,
+          1,
+          1
+        ],
+        [
+          52.03125,
+          28.125,
+          24,
+          24
+        ],
+        [
+          52.03125,
+          29.53125,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -38,7 +94,72 @@
       "html": "<p>Killifish living around the Mediterranean in North Africa, Europe and Western Asia belong clearly to the \"balcony fish\". These are species kept and bred by hobbyists outdoors (aquaria, small garden ponds) over most of the year. They are specialized in water temperatures that differ clearly between day and night and need unfiltered sunlight. Most belong to the genus Aphanius.</p><p>Specimens observed in the winter season were quite pretty but not in breeding mood. During the breeding season they look spectacular.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/82a221342d42f5039ad072c0b0d725fa.webp",
+      "thumb": "https://media.aquatome.com/processed/82a221342d42f5039ad072c0b0d725fa-480.webp",
+      "width": 850,
+      "height": 412,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphanius_farsicus_en/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-aphanius-farsicus",
+        "pixelHash": "b4064593e421bd4202c5fcb5876373196f6b0e6eb963c721dbcf6dcec0847d6a"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T07:29:55.554Z",
+          "originalHash": "2da722262c4aafa5354c78d8def0e1070fe496177640878c07539653a70d7728",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 567,
+            "window": {
+              "x0": 0,
+              "y0": 155,
+              "x1": 850,
+              "y1": 567
+            },
+            "subject": {
+              "x0": 177,
+              "y0": 215,
+              "x1": 710,
+              "y1": 445
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 27,
+              "y0": 33,
+              "x1": 832,
+              "y1": 149
+            }
+          ],
+          "checks": {
+            "species": [
+              "f24e4c0146b959fb0f53f0aa774ecedaebdb816a9057a99a0f206e8f86c97497",
+              "edbdba33891a6788c5d517f3c95caa504b4c908af96a7a2622717c708867c2ad"
+            ],
+            "ownership": [
+              "4956cb846a63a04dd79c501e4957ae16d4a514223920f3358ef9d22ed4b12bf3",
+              "4ce49677fde94d59bf702d2842d8a350dd36a0795fe331bc65567470fb976ebf"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/c6b04f0df65c3b46.webp",
+        "width": 850,
+        "height": 567,
+        "thumb": "https://media.aquatome.com/glaser/c6b04f0df65c3b46-480.webp"
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "WRnDgaKNz2c",

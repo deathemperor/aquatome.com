@@ -11,7 +11,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_photo_of_an_Monodactylus_sebae.jpg",
       "caption": "Cá mono châu Phi con màu nâu trong bể thủy sinh",
       "best": true,
-      "kind": "juvenile"
+      "kind": "juvenile",
+      "large": {
+        "url": "https://media.aquatome.com/commons/5c8499d28116bdee-large.webp",
+        "width": 1808,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/f951f81ed157dba7.webp",
@@ -26,14 +31,14 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/b5601a44e500ccf7.webp",
-      "thumb": "https://media.aquatome.com/commons/b5601a44e500ccf7-480.webp",
-      "width": 1200,
-      "height": 1273,
-      "licence": "CC BY-SA 3.0",
-      "author": "Ltshears",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:African_Moony_036.jpg",
-      "caption": "Cá mono châu Phi trưởng thành màu bạc, cận cảnh trong bể",
+      "url": "https://media.aquatome.com/flickr/54567280846.webp",
+      "thumb": "https://media.aquatome.com/flickr/54567280846-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "Public Domain Mark 1.0",
+      "author": "DCHNwam",
+      "sourceUrl": "https://www.flickr.com/photos/57179180@N07/54567280846",
+      "caption": "Cá mono châu Phi bơi trong bể có rễ cây ngập mặn",
       "best": true,
       "kind": "other"
     },
@@ -47,7 +52,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_122.jpg",
       "caption": "Cá mono châu Phi con có vằn sọc trong bể đá",
       "best": false,
-      "kind": "juvenile"
+      "kind": "juvenile",
+      "large": {
+        "url": "https://media.aquatome.com/commons/e7661b4ec36b8b68-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/ab38a8f4826cf19d.webp",
@@ -59,7 +69,41 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Tropical_Palais_Porte_Dor%C3%A9e_-_Paris_XII_(FR75)_-_2021-06-26_-_61.jpg",
       "caption": "Cá mono châu Phi bơi cùng cá khác trong bể lớn",
       "best": false,
-      "kind": "group"
+      "kind": "group",
+      "large": {
+        "url": "https://media.aquatome.com/commons/ab38a8f4826cf19d-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/24bb4625bcd2f449.webp",
+      "thumb": "https://media.aquatome.com/commons/24bb4625bcd2f449-480.webp",
+      "width": 1200,
+      "height": 797,
+      "licence": "CC BY 4.0",
+      "author": "Retro Lenses",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_photo_of_an_african_moony_(Monodactylus_sebae).jpg",
+      "caption": "Cá mono châu Phi con màu nâu giữa cây thủy sinh",
+      "best": false,
+      "kind": "juvenile",
+      "large": {
+        "url": "https://media.aquatome.com/commons/24bb4625bcd2f449-large.webp",
+        "width": 1807,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b5601a44e500ccf7.webp",
+      "thumb": "https://media.aquatome.com/commons/b5601a44e500ccf7-480.webp",
+      "width": 1200,
+      "height": 1273,
+      "licence": "CC BY-SA 3.0",
+      "author": "Ltshears",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:African_Moony_036.jpg",
+      "caption": "Cá mono châu Phi trưởng thành màu bạc, cận cảnh trong bể",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/560f8eb61207f5fd.webp",
@@ -72,21 +116,9 @@
       "caption": "Cá mono châu Phi bạc trưởng thành bơi trong bể",
       "best": false,
       "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/24bb4625bcd2f449.webp",
-      "thumb": "https://media.aquatome.com/commons/24bb4625bcd2f449-480.webp",
-      "width": 1200,
-      "height": 797,
-      "licence": "CC BY 4.0",
-      "author": "Retro Lenses",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_photo_of_an_african_moony_(Monodactylus_sebae).jpg",
-      "caption": "Cá mono châu Phi con màu nâu giữa cây thủy sinh",
-      "best": false,
-      "kind": "juvenile"
     }
   ],
-  "seen": 20,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 21,
+  "updatedAt": "2026-11-07",
+  "builtAt": "2026-11-07"
 }

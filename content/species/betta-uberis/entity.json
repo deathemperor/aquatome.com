@@ -11,57 +11,102 @@
     "kalimantan",
     "kalimantan-tengah"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Arut",
+        "Kumai",
+        "Sampit"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta uberis is a small bubble-nesting labyrinth fish from peat swamp forests in Central and West Kalimantan, Borneo, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The majority of records pertain to an area sandwiched between the lower Arut and Kumai rivers, south of the towns of Pangkalan Bun and Kumai in Kalimantan Tengah (Central Kalimantan) province, Borneo, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Arut",
+            "Kumai"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Additional collections have taken place in the Sampit river basin to the east, and several hundred kilometres further north in Sukadana district, Kalimantan Barat (West Kalimantan) province.",
+          "countries": [],
+          "regions": [
+            "Sampit"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394044,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
-      {
-        "source": "bwaquatics",
-        "value": {
-          "min": 22,
-          "max": 28
-        }
-      },
       {
         "source": "seriouslyfish",
         "value": {
           "min": 22,
           "max": 27
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 4,
-          "max": 6.5
+          "min": 24,
+          "max": 28
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 4,
           "max": 6
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
       }
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": 3.6
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": 3.6
       }
     ],
     "gh": [
-      {
-        "source": "bwaquatics",
-        "value": {
-          "min": 0,
-          "max": 2
-        }
-      },
       {
         "source": "seriouslyfish",
         "value": {
@@ -72,12 +117,8 @@
     ],
     "difficulty": [
       {
-        "source": "bwaquatics",
-        "value": 5
-      },
-      {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ],
     "tankCm": [
@@ -90,75 +131,27 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
-      "html": "<ul><li>IUCN Red List: Vulnerable (threatened and facing a high risk of extinction in the wild)</li><li>Size: up to approximately 3.6 cm standard length</li><li>pH 4.0–6.5, GH ≤ 2 °d, KH ≤ 1 °d, TDS &lt; 100 ppm</li></ul>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
-      "html": "<p>These fish are wild-caught. Have the habitat ready before purchase. Because they are wild-caught, quarantine them carefully before introducing them to display tanks.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
-      "html": "<p>Betta uberis is a small labyrinth fish native to the peat-swamp forests and blackwater streams of Borneo (Kalimantan, Indonesia), described in 2006.</p>"
-    },
-    {
-      "key": "habitat",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
-      "html": "<p>In the wild it inhabits extremely soft, acidic, tannin-dark water beneath dense forest canopy.</p>"
-    },
-    {
-      "key": "waterConditions",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
-      "html": "<p>Very soft and acidic blackwater conditions are ideal.</p><ul><li>pH 4.0–6.5</li><li>GH ≤ 2 °d</li><li>KH ≤ 1 °d</li><li>TDS &lt; 100 ppm</li><li>Temperature: 22–28 °C; many keepers prefer 24–26 °C for stability</li></ul><p>Extremely clean, stable water is required.</p>"
-    },
-    {
-      "key": "equipment",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
-      "html": "<p>Provide dense leaf litter, floating plants, and very subdued lighting. Avoid bright light or strong current — this species thrives in calm, shaded water.</p>"
-    },
-    {
-      "key": "diet",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
-      "html": "<p>Carnivorous; feed tiny live or frozen foods such as micro-worms, daphnia, newly hatched brine shrimp, and blackworms. May accept fine-sized frozen or soft pellets once fully acclimated.</p>"
-    },
-    {
-      "key": "behaviour",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
-      "html": "<p>Best kept singly, as a pair, or in a small species group. If in a community, only with very peaceful, tiny soft-water fish such as Boraras rasboras or other micro blackwater species. Avoid active and aggressive larger fish.</p>"
-    },
-    {
-      "key": "dimorphism",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
-      "html": "<p>Males display an elegant form with numerous dorsal-fin rays (hence the species name uberis, meaning “abundant”) and subtle green iridescence.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-west-kalimantan-wild-type-bettas",
-      "html": "<p>A classic bubble-nesting species, with refined bubble-nesting behaviour typical of the Betta coccina complex. The male builds a bubble nest beneath floating leaves or at the water surface, often among Indian almond leaves or plant roots. Courtship involves gentle circling and embraces beneath the nest. After each spawning embrace, the male collects the eggs and places them carefully into the nest.</p><p>Once spawning is complete, the female should be removed to prevent aggression. The male guards and tends the nest until the fry hatch, typically within 24–48 hours. Fry become free-swimming after another 3–4 days and can be fed infusoria, followed by baby brine shrimp or microworms as they grow.</p><p>Maintain very gentle or still water during this period — excessive surface movement will destroy the nest and stress both male and fry.</p>"
-    },
-    {
-      "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-uberis",
       "html": "<p>Betta uberis is a small bubble-nesting labyrinth fish from peat swamp forests in Central and West Kalimantan, Borneo, Indonesia. Most records come from between the lower Arut and Kumai rivers near Pangkalan Bun. Known to aquarists as Betta sp. 'Sukadana' or B. sp. 'Pangkalanbun' before its description, it belongs to the B. coccina group and is named for its high count of 14 to 17 dorsal-fin rays, which also separates it from its nearest neighbour in the group, B. hendra.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
+      "html": "<p>Wild-caught Betta uberis from Palangkaraya, part of the Betta coccina complex. IUCN Red List: Vulnerable (threatened and facing a high risk of extinction in the wild).</p><ul><li>TDS: 60–100</li><li>Diet: carnivorous</li><li>Breeding: bubble nest builder</li></ul>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-uberis",
       "html": "<p>The majority of records pertain to an area sandwiched between the lower Arut and Kumai rivers, south of the towns of Pangkalan Bun and Kumai in Kalimantan Tengah (Central Kalimantan) province, Borneo, Indonesia. Additional collections have taken place in the Sampit river basin to the east, and several hundred kilometres further north in Sukadana district, Kalimantan Barat (West Kalimantan) province.</p><p>Type locality is 'Indonesia: Borneo: Kalimantan Tengah: Arut basin: Pankalanbun', with the specimens having been obtained from the aquarium trade.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
+      "html": "<p>Collected in the wild around Palangkaraya. Part of the Betta coccina complex.</p>"
     },
     {
       "key": "habitat",
@@ -173,6 +166,12 @@
       "html": "<p>An aquarium with base measurements of 45 × 30 cm (18 × 12 in) or equivalent should be the minimum considered. Volume: about 41 litres.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
+      "html": "<p>Recommended 1 pair per 20 litres. Because of their small size, several pairs can be kept together as long as there is enough space.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-uberis",
@@ -185,10 +184,22 @@
       "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 4.0–6.0</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
+      "html": "<p>pH: 5.0–6.5. TDS: 60–100. Temperature: 24–28°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-uberis",
       "html": "<p>Likely to prey on small aquatic and terrestrial invertebrates in nature.</p><p>Captive fish will normally accept dried products once they are recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or chironomid larvae (bloodworm) regularly to ensure development of optimal colour and condition.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
+      "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "behaviour",
@@ -197,10 +208,22 @@
       "html": "<p>Not recommended for the standard community aquarium. Its care requirements and disposition mean it is best kept alone or with very peaceful species. Some small cyprinids and loaches that inhabit similar environments in nature are suitable, but proper research prior to purchase is essential and in most cases it is best maintained alone.</p><p>Mixed reports exist as to whether it can be maintained in multiple pairs or harem-type groups comprising a single male alongside several females.</p><p>Some observe that although some chasing and squabbling over territory occurs actual physical damage is rare, while others recommend keeping it in single pairs having observed sustained aggression towards conspecifics from the dominant individuals in a group.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
+      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-uberis",
       "html": "<p>Males are more colourful and develop more-extended fins than females as they mature.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
+      "html": "<p>The colour is very similar to Betta burdigala, but male Betta uberis show a green iridescent mid-lateral stripe and generally have a less robust body. The fins are also shorter than those of B. burdigala.</p>"
     },
     {
       "key": "reproduction",
@@ -209,10 +232,22 @@
       "html": "<p>Bubble nester. It is particularly important to provide plenty of cover for the female, and empty camera film canisters or lengths of plastic tubing can be used to offer potential nesting sites. Floating plants may be incorporated into the nest if present.</p><p>The aquarium should have the tightest-fitting cover possible (some breeders use clingfilm/plastic wrap) because the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>The pair need not be separated prior to spawning. The male might construct the nest in a tube or canister, under a broad plant leaf or among fine-leaved surface vegetation, and will not usually tolerate the female in the vicinity until it is complete.</p><p>The nuptial female becomes paler in colour and dark bars appear on the flanks. Spawning normally occurs beneath the nest in an 'embrace' typical of osphronemids, with the male wrapped around the female.</p><p>At the point of climax milt and a few eggs are released, which the female proceeds to catch between pelvic fins and body. The male then transfers these to the nest while the female recovers any loose eggs. The process is then repeated until the female is spent. This is not a particularly prolific species with less than 20 eggs being typical although bigger broods of up to 50 are not uncommon.</p><p>Post-spawning the adults can normally be left in situ although the female is no longer actively involved, the male assuming sole responsibility for guarding and tending the nest.</p><p>The eggs hatch in 24-48 hours, remaining in the nest for a further 3-4 days until the yolk sac is fully-absorbed, the male continuing to collect and return any that fall. Once the fry begin to swim freely the male will lose interest, but the adults do not usually eat their offspring.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter. Water changes should be small and regular rather than large and intermittent.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
+      "html": "<p>Bubble nest builder.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-uberis",
       "html": "<p>This species was known to aquarists as Betta sp. 'Sukadana' or B. sp. 'Pangkalanbun' prior to its description, and may appear as such in older aquarium literature.</p><p>It is included in the B. coccina group of closely-related Betta species within the genus. This assemblage mostly comprises small, red-coloured fishes with the exceptions of B. hendra, B. persephone and B. miniopinna which are greenish or darkish.</p><p>Members of the B. coccina group possess the following shared characters: small adult size (up to 40 mm SL); either red or black body colouration; presence of midlateral blotch in some species; 9 abdominal vertebrae (vs. 10-12 in all other Betta species); stenotopic inhabitants of forest peat swamps.</p><p>B. uberis can be told apart from other members of the group by the following characters: male with or without iridescent green lateral body blotch; presence of iridescent green markings on interradial membranes of dorsal, caudal and anal fins when live; distal tip of pelvic-fin relatively wide; 14-17 dorsal-fin rays; 12-13½ subdorsal scales; length of dorsal-fin base 30.0-37.3 % SL.</p><p>The closest member of the B. coccina group in terms of geography is B. hendra from which B. uberis can be distinguished by possession of 14-17 dorsal-fin rays (vs. 10-12 in B. hendra).</p><p>The genus Betta is the most speciose within the family Osphronemidae. Members have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, which permits the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be more developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-uberis-pangkalabun-wild-type-bettas",
+      "html": "<p>The spot on the body varies from individual to individual, and some fish in the wild do not have it. Have the habitat ready before buying.</p>"
     },
     {
       "key": "references",
@@ -222,16 +257,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/bwaquatics/dfb3c8e748123ea0.webp",
-      "thumb": "https://media.aquatome.com/bwaquatics/dfb3c8e748123ea0-480.webp",
-      "width": 1000,
-      "height": 667,
-      "licence": "dùng với sự cho phép",
-      "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
-      "source": "bwaquatics"
-    },
     {
       "url": "https://media.aquatome.com/seriouslyfish/146fa2725f2741bb.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/146fa2725f2741bb-480.webp",
@@ -255,6 +280,26 @@
       "source": "seriouslyfish"
     },
     {
+      "url": "https://media.aquatome.com/bwaquatics/dfb3c8e748123ea0.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/dfb3c8e748123ea0-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/dfb3c8e748123ea0.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/dfb3c8e748123ea0-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/wild-betta-uberis",
+      "source": "bwaquatics"
+    },
+    {
       "url": "https://media.aquatome.com/bwaquatics/7de3e867c1a9cce1.webp",
       "thumb": "https://media.aquatome.com/bwaquatics/7de3e867c1a9cce1-480.webp",
       "width": 1000,
@@ -270,8 +315,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 20 lít",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {
@@ -296,5 +340,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

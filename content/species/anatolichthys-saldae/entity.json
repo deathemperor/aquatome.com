@@ -10,6 +10,59 @@
     "turkey",
     "lake-salda"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TR"
+      ],
+      "regions": [
+        "Lake Salda",
+        "Taurus",
+        "Anatolia"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Salda in the Turkish Lakes (Göller Bölgesi) region of the west Taurus mountains, southwestern Anatolia, Turkey.",
+          "countries": [
+            "TR"
+          ],
+          "regions": [
+            "Lake Salda",
+            "Taurus",
+            "Anatolia"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11836669,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          36.5625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "Fine-leaved plants such as Java moss or Ceratophyllum can be used but may fail to thrive as the addition of marine salt to the water in the ratio of 2-3 g/L is necessary."
+  },
   "dataCard": {
     "tempC": [
       {
@@ -153,28 +206,6 @@
       "caption": "Female of A. splendens.",
       "source": "seriouslyfish",
       "thumb": "https://media.aquatome.com/seriouslyfish/8598f29fb619a582-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/5aaf2fb2815f4324.webp",
-      "width": 847,
-      "height": 554,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/anatolichthys-saldae",
-      "caption": "This species is endemic to Lake Salda, Turkey.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/5aaf2fb2815f4324-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/ec2d2f840963fc8c.webp",
-      "width": 670,
-      "height": 504,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/anatolichthys-saldae",
-      "caption": "It seems likely that the type specimens were collected from this now dessicated lake bed near the town of Gŏlcük, close to Salda.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/ec2d2f840963fc8c-480.webp"
     }
   ],
   "videos": [],
@@ -182,7 +213,6 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x30cm",
         "bể cá 120cm"
       ]
     },

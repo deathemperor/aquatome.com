@@ -19,10 +19,22 @@
   "https://media.aquatome.com/seriouslyfish/b0fa1a45b6159be0.webp": "69d3470e07473f4d",
   "https://media.aquatome.com/seriouslyfish/8783543ddb79a0ad.webp": "8b36c547b7ffbeed",
   "https://media.aquatome.com/seriouslyfish/8287338095814717.webp": "ef47cb962fce8e98",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Apistogramma_agassizii_%28Wroclaw_zoo%29-1.JPG/1280px-Apistogramma_agassizii_%28Wroclaw_zoo%29-1.JPG": "662e299931c9b9c0",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Apistogramma_agassizii_%28Wroclaw_zoo%29-2.JPG/1280px-Apistogramma_agassizii_%28Wroclaw_zoo%29-2.JPG": "2f2f4b98718188c7",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Apistogramma_agassizii_in_aquarium.jpg/1280px-Apistogramma_agassizii_in_aquarium.jpg": "13550d06c420c0ca",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Agassiz%27s_dwarf_cichlid_%28Apistogramma_agassizii%29_%2815443591763%29.jpg/1280px-Agassiz%27s_dwarf_cichlid_%28Apistogramma_agassizii%29_%2815443591763%29.jpg": "08319889491e0f4c"
+  "https://media.aquatome.com/commons/674e44488ae84f21.webp": "663f29893389b9e0",
+  "https://media.aquatome.com/commons/2dd201b73a0a094c.webp": "3d2fcb9c7189c0c7",
+  "https://media.aquatome.com/commons/ecfec18674b2d021.webp": "13558d06c420cc6a",
+  "https://media.aquatome.com/commons/eb83d72469fa1516.webp": "001198890d0e4f4c"
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "inat": {
+  "taxon": 418118,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2371326,
+  "next": null
+ }
 }

@@ -39,17 +39,11 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "Brazil, Paraguay and Argentina.",
+          "quote": "The red-eye tetra, Bario sanctaefilomenae, is a characin from Brazil, Paraguay and Argentina, living mostly in clear rivers that feed the Pantanal.",
           "countries": [
             "BR",
             "AR"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Mostly inhabits clear water rivers that feed the famous Pantanal wetlands.",
-          "countries": [],
           "regions": [
             "Pantanal"
           ]
@@ -892,7 +886,7 @@
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_sanctaefilomenae_wild_en/",
-      "html": "<p>Some fish species are so common in the trade that we sometimes forget to look at them with the eyes of a child. One of these is the red eye tetra, one of the top classics among ornamental fish. It can be found in any pet shop around the world. Usually these fish in the trade are tank-reared, but here wild-collected specimens from Paraguay were obtained.</p><p>Etymology: Moenkhausia is a dedication name for W. J. Moenkhaus, a friend of Eigenmann, the describer of the genus. sanctaefilomenae refers to the collection site of the type specimens (\"lagoon near St. Filomena at the Parnahyba\").</p>"
+      "html": "<p>Etymology: Moenkhausia is a dedication name for W. J. Moenkhaus, a friend of Eigenmann, the describer of the genus. sanctaefilomenae refers to the collection site of the type specimens (\"lagoon near St. Filomena at the Parnahyba\").</p>"
     },
     {
       "key": "notes",
@@ -910,7 +904,12 @@
       "author": "Cedricguppy - Loury Cédric",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moenkhausia_sanctaefilomenae_-_T%C3%A9tra_yeux_rouge_-_Aqua_Porte_Dor%C3%A9e_02.JPG",
       "caption": "Moenkhausia sanctaefilomenae - Tétra yeux rouge - Aquarium tropical du Palais de la Porte Dorée - 12/2014",
-      "thumb": "https://media.aquatome.com/commons/0aae87b0e641671f-480.webp"
+      "thumb": "https://media.aquatome.com/commons/0aae87b0e641671f-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/0aae87b0e641671f-large.webp",
+        "width": 2129,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/ab013443c9e94b13.webp",
@@ -953,8 +952,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá cộng đồng"
+        "bể cá 90cm"
       ]
     },
     {

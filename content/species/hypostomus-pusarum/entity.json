@@ -1,0 +1,296 @@
+{
+  "id": "hypostomus-pusarum",
+  "scientificName": "Hypostomus pusarum",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "lNumber": "L78",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-parnaiba"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Parnaiba"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Brazil, Maranhão, Rio Parnaiba drainage, Piauí Rivers, Parnaíba.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Parnaiba"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202177,
+      "total": 74,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          74
+        ]
+      ],
+      "cells": [
+        [
+          -43.59375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -39.375,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -39.375,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -39.375,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -39.375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -37.96875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -37.96875,
+          -7.03125,
+          27,
+          27
+        ],
+        [
+          -37.96875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -36.5625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -36.5625,
+          -8.4375,
+          10,
+          10
+        ],
+        [
+          -36.5625,
+          -7.03125,
+          16,
+          16
+        ],
+        [
+          -35.15625,
+          -8.4375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 30
+      },
+      {
+        "source": "scotcat",
+        "value": 20.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1251",
+      "html": "<ul><li>Scientific name: Hypostomus aff. pusarum</li><li>Common names: L078, Parnaiba Pleco</li><li>Etymology: Greek, hypo = under + Greek, stoma = mouth.</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "html": "<ul><li>Diet: omnivore</li><li>IUCN Red List: Least Concern (2022)</li></ul><p>The Hypostomus genus has 7 soft rays in the dorsal fin, whereas the similar-looking Pterygoplichthys species have 10 soft dorsal fin rays.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1251",
+      "html": "<p>Brazil, Maranhão, Rio Parnaiba drainage, Piauí Rivers, Parnaíba.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "html": "<p>South America: middle Rio Parnaíba basin and northeastern coastal drainages of Brazil. Type locality: Ceará Mirim, Brazil.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "html": "<p>As with most of this genus, it will do well in a larger aquarium, although this is one of the smaller species in the genus. The aquarium should be well filtered.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "html": "<p>Water parameters can be quite diverse for this genus. Temperature 22-25°C, pH 6.5-7.2.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "html": "<p>Omnivore with a liking for green foods, tablet foods and frozen foods.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1251",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "html": "<p>Etymology: the specific name pusarum has the commemorative suffix -arum (Latin, plural), in memory of the boys who collected this catfish with their hands and with dip-nets under overhanging grassy banks at Ceará-Mirim, Rio Grande do Norte, Brazil, \"the best collectors we found in Brazil\" (presumably based on a native word, meaning unknown).</p><p>IUCN: Hypostomus pusarum occurs in the coastal basins of Rio Grande do Norte and Paraíba, northeastern Brazil. It is a frequent, abundant species and no threats that compromise its population have been identified. It was categorised as Least Concern (IUCN 2022).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "html": "<p>Abrantes, Y. G., Bennemann, A. B. A., Lustosa-Costa, S. Y., Bento, D. de M., Ramos, T. P. A., &amp; Lima, S. M. Q. (2023). Diversity and conservation of fishes from karstic areas of the Jandaíra Formation in the Brazilian semiarid. Papéis Avulsos De Zoologia, 63, e202363011.</p><p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2023).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Hypostomus pusarum. The IUCN Red List of Threatened Species 2022.</p><p>Nathalia Kaluana Rodrigues da Costa, Roney Emanuel Costa de Paiva, Márcio Joaquim da Silva, Telton Pedro Anselmo Ramos, Sergio Maia Queiroz Lima, CC BY-SA 4.0.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/f01c82e8332624ac.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f01c82e8332624ac-480.webp",
+      "width": 500,
+      "height": 271,
+      "licence": "dùng với sự cho phép",
+      "author": "da Costa et al / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "caption": "Hypostomus pusarum",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/704cd52e0bcd9e6b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/704cd52e0bcd9e6b-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "&n / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "caption": "Hypostomus pusarum",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "-eEYVu_2s0c",
+      "title": "Hypostomus pusarum (Starks, 1913) o cascudo que inspirou nossa logomarca.#peixesdacaatinga #cascudo",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "P-eHD8BJFZ0",
+      "title": "Peixe Cascudo (Hypostomus pusarum)",
+      "durationSec": 20,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn nuôi cá lau kính"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá lau kính",
+        "rong tảo viên cho cá pleco"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

@@ -14,18 +14,6 @@
       "kind": "emersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/16338969.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/16338969-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Alison Northup",
-      "sourceUrl": "https://www.inaturalist.org/photos/16338969",
-      "caption": "Cụm hoa tím của Cây cỏ thìa là nước",
-      "best": true,
-      "kind": "flower"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/478502534.webp",
       "thumb": "https://media.aquatome.com/inaturalist/478502534-480.webp",
       "width": 1024,
@@ -50,6 +38,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/tropica/be91141c8a4b68f2.webp",
+      "thumb": "https://media.aquatome.com/tropica/be91141c8a4b68f2-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophilacorymbosa'Stricta'(053ACLP)/31140",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/16338923.webp",
       "thumb": "https://media.aquatome.com/inaturalist/16338923-480.webp",
       "width": 768,
@@ -60,6 +60,30 @@
       "caption": "Cận cảnh lá và thân có lông của Cây cỏ thìa là nước",
       "best": false,
       "kind": "detail"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/62825ac024f628cd.webp",
+      "thumb": "https://media.aquatome.com/tropica/62825ac024f628cd-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophilacorymbosa'Stricta'(053ACLP)/31140",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/16338969.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/16338969-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Alison Northup",
+      "sourceUrl": "https://www.inaturalist.org/photos/16338969",
+      "caption": "Cụm hoa tím của Cây cỏ thìa là nước",
+      "best": true,
+      "kind": "flower"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/123606812.webp",
@@ -87,6 +111,6 @@
     }
   ],
   "seen": 18,
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-10-31"
 }

@@ -2,10 +2,27 @@
   "id": "datnioides-microlepis",
   "photos": [
     {
+      "url": "https://media.aquatome.com/flickr/42099988004.webp",
+      "thumb": "https://media.aquatome.com/flickr/42099988004-480.webp",
+      "width": 1023,
+      "height": 719,
+      "licence": "CC BY 2.0",
+      "author": "mepuppy",
+      "sourceUrl": "https://www.flickr.com/photos/154997589@N04/42099988004",
+      "caption": "Đàn cá thái hổ Indonesia bơi cùng nhau trong bể kính lớn",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/commons/3c736744cee17c47.webp",
       "thumb": "https://media.aquatome.com/commons/3c736744cee17c47-480.webp",
       "width": 1200,
       "height": 900,
+      "large": {
+        "url": "https://media.aquatome.com/commons/3c736744cee17c47-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
       "licence": "CC BY-SA 3.0",
       "author": "Ginkgo100",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tigerfish037.JPG",
@@ -14,7 +31,7 @@
       "kind": "other"
     }
   ],
-  "seen": 3,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 4,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-10"
 }

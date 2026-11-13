@@ -1,0 +1,148 @@
+{
+  "id": "margarites-pupillus",
+  "native": {
+    "input": "0c845b1364f5cf70",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "US",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Margarites pupillus is primarily a subtidal species found along sub-tropical coastlines from the Bering Sea to San Diego, California.",
+        "words": "California",
+        "ok": false,
+        "why": "\"California\" is not US"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bering Sea",
+        "source": "aquariumbreeder",
+        "quote": "Margarites pupillus is primarily a subtidal species found along sub-tropical coastlines from the Bering Sea to San Diego, California.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "US"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Margarites pupillus",
+    "status": "ACCEPTED",
+    "taxonKey": 5190256,
+    "datasets": [
+      [
+        "3c539c5d-6444-4ad1-a50b-6711807ffb80",
+        221
+      ],
+      [
+        "ec0ad39f-3370-4d51-a663-cb27abd2a6bb",
+        214
+      ],
+      [
+        "6d28a527-bf84-4e58-b133-0e60987b5e7c",
+        124
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        116
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        66
+      ],
+      [
+        "34fbcf59-d9bb-47e7-9672-99e13ea8c736",
+        60
+      ],
+      [
+        "80ebe7f9-00ee-4fe3-80f6-303729cf5bac",
+        57
+      ],
+      [
+        "83c964d4-f762-11e1-a439-00145eb45e9a",
+        27
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        18
+      ],
+      [
+        "9358fbd7-cfd0-4eab-99fa-0934396a0529",
+        18
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        18
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        16
+      ],
+      [
+        "3ee66eb3-4786-4bda-b7f1-c145b1a57a6b",
+        14
+      ],
+      [
+        "0b94e07b-898e-47fc-b95f-31a5538f326b",
+        13
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        9
+      ],
+      [
+        "5199d77b-fc69-4c85-94f2-4d3e63e777ff",
+        8
+      ],
+      [
+        "a267b6a7-91f9-457c-889a-481e7aa920b6",
+        6
+      ],
+      [
+        "a307e4d7-1de2-4adc-95d5-a0a8d5f57236",
+        5
+      ],
+      [
+        "07ae2aa8-5031-4312-b26e-84a5c753daac",
+        4
+      ],
+      [
+        "56687a3d-b48f-44e5-b2b8-d55bafff2f33",
+        4
+      ],
+      [
+        "7a9ad56e-7452-4f24-a1b4-3be3400c9a9d",
+        4
+      ],
+      [
+        "763f9aee-060c-4d71-a538-16c383e53a4d",
+        3
+      ],
+      [
+        "5ca5f0b6-d221-4f69-b7ac-8579180942b5",
+        2
+      ],
+      [
+        "857bce66-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "51c49096-dc31-4077-b35c-4510a8ee1ee8",
+        1
+      ],
+      [
+        "f3e441df-2d69-474c-9edd-12c7fe7b0fde",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

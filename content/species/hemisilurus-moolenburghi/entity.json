@@ -12,6 +12,59 @@
     "malaysia",
     "borneo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Batang Hari",
+        "Sumatra",
+        "Borneo",
+        "Kapuas"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Batang Hari River, Sumatra, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Batang Hari"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Sumatra and western Borneo.",
+          "countries": [],
+          "regions": [
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species is reported only from the Batang Hari drainage in Sumatra and the Kapuas River drainage in Borneo.",
+          "countries": [],
+          "regions": [
+            "Kapuas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337585,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

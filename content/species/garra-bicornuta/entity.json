@@ -10,6 +10,100 @@
     "india",
     "tunga"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Tunga",
+        "Krishna",
+        "Western Ghats",
+        "Bhadra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to southern India with the type series originating from the 'Tunga River at Shimoga in Karnataka' (previously Mysore) state.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Tunga"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Tunga is part of the Upper Krishna River drainage and arises from a hill known as Varaha Parvata in the Western Ghats mountain range.",
+          "countries": [],
+          "regions": [
+            "Krishna",
+            "Western Ghats"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A 2008 fish diversity survey of the Bhadra failed to record G. bicornuta at any locality other than its confluence with the Tunga, suggesting this might represent the lower limit of its range.",
+          "countries": [],
+          "regions": [
+            "Bhadra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366823,
+      "total": 23,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IN",
+          23
+        ]
+      ],
+      "cells": [
+        [
+          73.125,
+          15.46875,
+          6,
+          6
+        ],
+        [
+          73.125,
+          16.875,
+          6,
+          6
+        ],
+        [
+          75.9375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          15.46875,
+          4,
+          4
+        ],
+        [
+          80.15625,
+          22.5,
+          2,
+          2
+        ],
+        [
+          81.5625,
+          16.875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +147,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -139,17 +233,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/4f3f5f7dfd33a423.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/4f3f5f7dfd33a423-480.webp",
-      "width": 960,
-      "height": 346,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/garra-bicornuta",
-      "caption": "Putative adult male.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/8017b9d14bf34a0d.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/8017b9d14bf34a0d-480.webp",
       "width": 600,
@@ -188,8 +271,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá dài 120x45"
+        "bể cá 120cm"
       ]
     },
     {

@@ -1,0 +1,163 @@
+{
+  "id": "mystus-gulio",
+  "native": {
+    "input": "73ae5fd2f854460d",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: estuaries and lower portions of rivers of India, Bangladesh, Myanmar and Java.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: estuaries and lower portions of rivers of India, Bangladesh, Myanmar and Java.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: estuaries and lower portions of rivers of India, Bangladesh, Myanmar and Java.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Java",
+        "source": "scotcat",
+        "quote": "Asia: estuaries and lower portions of rivers of India, Bangladesh, Myanmar and Java.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mystus gulio",
+    "status": "ACCEPTED",
+    "taxonKey": 5201896,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        31
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        26
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        20
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        16
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        13
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        13
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        7
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        6
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "701b3ecf-3c35-4373-81cc-a570d3be7368",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "9f2af0c5-2ff7-42fe-aad6-c0b5af96535a",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "BD",
+      "MM"
+    ],
+    "requests": 13,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

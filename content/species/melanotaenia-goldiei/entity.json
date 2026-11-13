@@ -9,6 +9,60 @@
     "oceania",
     "papua-new-guinea"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2411669,
+      "total": 120,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          106
+        ],
+        [
+          "PG",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          133.59375,
+          -4.21875,
+          72
+        ],
+        [
+          133.59375,
+          -2.8125,
+          20
+        ],
+        [
+          135,
+          -4.21875,
+          12
+        ],
+        [
+          139.21875,
+          -9.84375,
+          2
+        ],
+        [
+          140.625,
+          -7.03125,
+          2
+        ],
+        [
+          142.03125,
+          -7.03125,
+          1
+        ],
+        [
+          146.25,
+          -8.4375,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -27,12 +81,6 @@
     ]
   },
   "sections": [
-    {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/melanotaenia-goldiei-kafiamke-2/",
-      "html": "<p>This species of rainbowfish from Papua New Guinea was scientifically described as early as 1883. However, it was not until around 100 years later that the first specimens were introduced into aquaria outside Australia, although M. goldiei is one of the most common and widespread species in the southern part of the island. As is usual with rainbowfishes with a wide distribution, there are numerous locality variants, some of which differ considerably in color. As these animals grow slowly and juveniles are inconspicuously silvery, this species is rarely found in the trade. The adult specimens that we can currently offer are captive-bred from Indonesia; we have no further information on these impressive animals.</p>"
-    },
     {
       "key": "waterConditions",
       "source": "glaser",

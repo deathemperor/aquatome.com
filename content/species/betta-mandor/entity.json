@@ -10,6 +10,48 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Borneo"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Betta mandor occurs in the forested blackwater peat-swamps of West Kalimantan, Borneo (Indonesia).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "At time of writing it has only been collected close to the villages of Mandor and Anjungan in the lower Kapuas River basin, West Kalimantan (Kalimantan Barat), Borneo, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Kapuas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394054,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -76,7 +118,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ],
     "tankCm": [
@@ -103,7 +145,7 @@
       "key": "beforeYouBuy",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/wild-betta-mandor",
-      "html": "<p>These fish are wild-caught, please proceed with caution. Be sure to have the habitat ready before purchase.</p><p>This fish is highly vulnerable in the wild, and only aquarists with solid experience keeping peat-swamp species should attempt to maintain it.</p>"
+      "html": "<p>This fish is highly vulnerable in the wild, and only aquarists with solid experience keeping peat-swamp species should attempt to maintain it.</p>"
     },
     {
       "key": "distribution",
@@ -275,8 +317,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 40cm",
-        "bể thủy sinh mini"
+        "bể cá 60cm"
       ]
     },
     {

@@ -20,6 +20,329 @@
     "malaysia",
     "peninsular-malaysia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH",
+        "LA",
+        "KH",
+        "VN",
+        "MY",
+        "ID",
+        "CN"
+      ],
+      "regions": [
+        "Sumatra",
+        "Mekong",
+        "Chao Phraya",
+        "Irrawaddy",
+        "Salween"
+      ],
+      "sources": [
+        "sprucepets",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently understood to be widely-distributed with records existing from parts of Myanmar, Thailand, Laos, Cambodia, Vietnam, Peninsular Malaysia and the Indonesian island of Sumatra.",
+          "countries": [
+            "MM",
+            "TH",
+            "LA",
+            "KH",
+            "VN",
+            "MY",
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There is also a natural form from Yunnan province, China that superficially resembles D. roseus; this is unlikely to have been collected for the aquarium trade.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "sprucepets",
+          "quote": "It originates from clear, swiftly moving streams and rivers in Myanmar (formerly Burma), Thailand, and Sumatra.",
+          "countries": [],
+          "regions": [
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It thus occurs in several major river drainages including the Mekong, Chao Phraya, Mae Klong, Irrawaddy and Salween, plus countless smaller ones.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Irrawaddy",
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362695,
+      "total": 138,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MM",
+          54
+        ],
+        [
+          "TH",
+          35
+        ],
+        [
+          "KH",
+          26
+        ],
+        [
+          "ID",
+          9
+        ],
+        [
+          "MY",
+          7
+        ],
+        [
+          "SG",
+          3
+        ],
+        [
+          "VN",
+          2
+        ],
+        [
+          "LA",
+          1
+        ],
+        [
+          "ZA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          30.9375,
+          -29.53125,
+          1,
+          0
+        ],
+        [
+          92.8125,
+          22.5,
+          23,
+          23
+        ],
+        [
+          94.21875,
+          16.875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          22.5,
+          5,
+          5
+        ],
+        [
+          95.625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          16.875,
+          2,
+          2
+        ],
+        [
+          95.625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          95.625,
+          19.6875,
+          3,
+          3
+        ],
+        [
+          95.625,
+          21.09375,
+          5,
+          5
+        ],
+        [
+          97.03125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          15.46875,
+          5,
+          5
+        ],
+        [
+          97.03125,
+          16.875,
+          7,
+          7
+        ],
+        [
+          97.03125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          98.4375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          8.4375,
+          4,
+          4
+        ],
+        [
+          99.84375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          5.625,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          99.84375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          11.25,
+          16,
+          16
+        ],
+        [
+          101.25,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          0,
+          3,
+          0
+        ],
+        [
+          102.65625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          12.65625,
+          24,
+          24
+        ],
+        [
+          104.0625,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          105.46875,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          106.875,
+          9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -86,7 +409,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ],
     "tankCm": [
@@ -321,8 +644,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá dài 75 lít"
+        "bể cá 90cm"
       ]
     },
     {

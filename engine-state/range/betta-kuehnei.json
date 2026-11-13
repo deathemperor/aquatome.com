@@ -1,0 +1,82 @@
+{
+  "id": "betta-kuehnei",
+  "native": {
+    "input": "4224d775ae0869cd",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta kuehnei is a paternal mouthbrooding labyrinth fish from Kelantan state, northeastern Peninsular Malaysia, and neighbouring Narathiwat, Thailand.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta kuehnei is a paternal mouthbrooding labyrinth fish from Kelantan state, northeastern Peninsular Malaysia, and neighbouring Narathiwat, Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The most recently described species is Betta kuehnei from the northernmost province Kelantan of Malaysia and the southernmost parts of Thailand.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The most recently described species is Betta kuehnei from the northernmost province Kelantan of Malaysia and the southernmost parts of Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "Betta kuehnei is a paternal mouthbrooding labyrinth fish from Kelantan state, northeastern Peninsular Malaysia, and neighbouring Narathiwat, Thailand.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta kuehnei",
+    "status": "ACCEPTED",
+    "taxonKey": 2393989,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

@@ -1,6 +1,20 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "File:Examples-of-Apistogrammoides-pucallpaensis-A-Living-example-B-Living-example-in.jpg"
+ ],
  "hashes": {},
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "inat": {
+  "taxon": 566807,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2370734,
+  "next": null
+ }
 }

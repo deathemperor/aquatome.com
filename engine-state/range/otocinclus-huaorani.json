@@ -1,0 +1,115 @@
+{
+  "id": "otocinclus-huaorani",
+  "native": {
+    "input": "ea31043c29ef3ccd",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: tributary to Río San Miguel (kilometer 50, 4.5 kilometers south of Tipischca), about 0°10'N, 76°13'W, Río Amazonas/Napo basin, Napo, Ecuador.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: tributary to Río San Miguel (km 50, 4.5 km S of Tipischca), ca. 0º10'N, 76º13'W, Río Amazonas/Napo drainage, Napo, Ecuador.",
+        "words": "Ecuador",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: western upper Amazon and Orinoco River basins.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: western upper Amazon and Orinoco River basins.",
+        "ok": true
+      },
+      {
+        "name": "Río San Miguel",
+        "source": "planetcatfish",
+        "quote": "Type locality: tributary to Río San Miguel (kilometer 50, 4.5 kilometers south of Tipischca), about 0°10'N, 76°13'W, Río Amazonas/Napo basin, Napo, Ecuador.",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Western upper Amazon and Orinoco River basins.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Western upper Amazon and Orinoco River basins.",
+        "ok": true
+      },
+      {
+        "name": "Rio Napo",
+        "source": "scotcat",
+        "quote": "Etymology: the specific name huaorani is named for the Huaorani indigenous people inhabiting the upper Rio Napo of Amazonian Ecuador, an area within the range of this species.",
+        "country": "EC",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Otocinclus huaorani",
+    "status": "ACCEPTED",
+    "taxonKey": 2340476,
+    "datasets": [
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "EC"
+    ],
+    "requests": 12,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

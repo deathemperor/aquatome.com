@@ -13,6 +13,421 @@
     "argentina",
     "uruguay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PY",
+        "AR",
+        "UY"
+      ],
+      "regions": [
+        "Paraná",
+        "Esteros del Iberá"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Buenos Aires tetra, Psalidodon anisitsi, is a characid from the Paraná and Uruguay river systems in Brazil, Paraguay, Argentina and Uruguay.",
+          "countries": [
+            "BR",
+            "PY",
+            "AR",
+            "UY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Widely-distributed throughout much of the Paraná river system in Brazil, Paraguay, and Argentina, plus the Uruguay watershed in Uruguay and Brazil.",
+          "countries": [],
+          "regions": [
+            "Paraná"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Esteros del Iberá wetland reserve, Argentina, it occurs sympatrically with a number of other genus members including H. auca, H. elachys, H. eques, H. igneus, H. luetkeni, H. meridionalis, H. reticulatus and H. wajat.",
+          "countries": [],
+          "regions": [
+            "Esteros del Iberá"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354671,
+      "total": 337,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          203
+        ],
+        [
+          "PY",
+          106
+        ],
+        [
+          "AR",
+          21
+        ],
+        [
+          "UY",
+          5
+        ],
+        [
+          "BO",
+          1
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -33.75,
+          12,
+          12
+        ],
+        [
+          -61.875,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -36.5625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -35.15625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -33.75,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          -32.34375,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          -25.3125,
+          44,
+          44
+        ],
+        [
+          -57.65625,
+          -30.9375,
+          7,
+          7
+        ],
+        [
+          -57.65625,
+          -29.53125,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -28.125,
+          7,
+          7
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          15,
+          15
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -30.9375,
+          7,
+          7
+        ],
+        [
+          -56.25,
+          -28.125,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -26.71875,
+          16,
+          16
+        ],
+        [
+          -56.25,
+          -25.3125,
+          7,
+          7
+        ],
+        [
+          -56.25,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -32.34375,
+          7,
+          7
+        ],
+        [
+          -54.84375,
+          -30.9375,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          -29.53125,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -26.71875,
+          9,
+          9
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -32.34375,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -23.90625,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          -23.90625,
+          19,
+          19
+        ],
+        [
+          -49.21875,
+          -22.5,
+          8,
+          8
+        ],
+        [
+          -49.21875,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          11,
+          11
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          59,
+          59
+        ],
+        [
+          -47.8125,
+          -22.5,
+          22,
+          22
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          15,
+          15
+        ],
+        [
+          -43.59375,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -56,7 +471,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 2
       }
     ]
   },
@@ -147,17 +562,6 @@
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/31bbb29def82301b.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/31bbb29def82301b-480.webp",
-      "width": 800,
-      "height": 600,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/psalidodon-anisitsi",
-      "caption": "Specimen from the Singapore aquarium trade with slight damage to lower caudal-fin lobe.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/51fe869b87e8b23f.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/51fe869b87e8b23f-480.webp",
       "width": 800,
@@ -167,6 +571,17 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/psalidodon-anisitsi",
       "caption": "Specimen from the Irish aquarium trade.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/31bbb29def82301b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/31bbb29def82301b-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/psalidodon-anisitsi",
+      "caption": "Specimen from the Singapore aquarium trade with slight damage to lower caudal-fin lobe.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -174,8 +589,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 90x30"
+        "bể cá 90cm"
       ]
     },
     {

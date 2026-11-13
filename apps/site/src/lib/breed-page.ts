@@ -3,11 +3,15 @@ import { slugify } from '@aq/schema/slug'
 import { basedOn, breedGallery, breedsOf, careCard, type Breed } from './breeds'
 import { GALLERY_MIN, GALLERY_STRIP } from './gallery'
 import { isVietnamese, type Lang } from './i18n'
-import { guidesMentioning, linkTargets } from './mentions'
+import { guideImages, guidesMentioning, mentionIndex } from './mentions'
 import { distinctPhotos, pagePictures, takeEach } from './pictures'
 
-/** A hybrid's parent as its page names it: the species page when there is one, else the name the sources give. */
-export type BreedParent = { name: string; sci?: string; path?: string; certain: boolean }
+/**
+ * A hybrid's parent as its page names it: the species page when there is one, else the name the sources give. `vi`: that
+ * name is Vietnamese on another language's page (its translation left the parents out), marked as the site marks
+ * Vietnamese names in translated text.
+ */
+export type BreedParent = { name: string; sci?: string; path?: string; certain: boolean; vi?: boolean }
 
 /**
  * What a breed's page shows, put together once for the page (pages/ca/[breed].astro) and for the app's copy of it
@@ -22,9 +26,9 @@ export function breedParts(lang: Lang, c: Content, b: Breed) {
     // A parent the breed's sources name only by its scientific name in brackets is still that species.
     const sci = /\(([A-Z][a-z]+ [a-z]+)\)\s*$/.exec(p.name)?.[1]
     const s = species.get(p.species ?? (sci ? slugify(sci) : ''))
-    return s
-      ? { name: s.t.name, sci: s.scientificName, path: `/vi/ca/${s.t.slug}/`, certain: p.certain }
-      : { name: b.t.parents?.[i] ?? ((lang !== 'vi' && isVietnamese(p.name) && sci) || p.name), certain: p.certain }
+    if (s) return { name: s.t.name, sci: s.scientificName, path: `/vi/ca/${s.t.slug}/`, certain: p.certain }
+    const name = b.t.parents?.[i] ?? ((lang !== 'vi' && isVietnamese(p.name) && sci) || p.name)
+    return { name, certain: p.certain, ...(lang !== 'vi' && isVietnamese(name) ? { vi: true } : {}) }
   })
   const pics = pagePictures(c)
   pics.add(b.photos[0]?.url)
@@ -32,13 +36,16 @@ export function breedParts(lang: Lang, c: Content, b: Breed) {
   const strip = gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null)
   const lines = breedsOf(lang, c, b.id)
   const linePhotos = takeEach(pics, lines, x => x.photos)
-  // Its own text links the species, glossary terms and other pages it names, never itself.
-  const body = b.t.body ? linkTerms(b.t.body, linkTargets(c).filter(t => t.key !== key), 'ml').html : ''
+  // Its own text links the species, glossary terms and other pages it names, never itself. The list is the one
+  // mentionIndex keeps for this content: building it walks every species, plant and breed name.
+  const body = b.t.body ? linkTerms(b.t.body, mentionIndex(c).targets.filter(t => t.key !== key), 'ml').html : ''
   const mentioning = guidesMentioning(c, key)
+  // The video guides' cards last, as on the page: two of one channel can carry the same photo.
+  const videoGuides = mentioning.filter(g => g.video)
   return {
     key, parent: basedOn(c, b), parents, ...careCard(b), gallery, strip,
     // Its gallery page, once there are enough photos for one.
     galleryPath: gallery.length >= GALLERY_MIN ? `/vi/ca/${b.t.slug}/anh/` : undefined,
-    lines, linePhotos, body, guides: mentioning.filter(g => !g.video), videoGuides: mentioning.filter(g => g.video),
+    lines, linePhotos, body, guides: mentioning.filter(g => !g.video), videoGuides, videoPhotos: takeEach(pics, videoGuides, g => guideImages(c, g)),
   }
 }

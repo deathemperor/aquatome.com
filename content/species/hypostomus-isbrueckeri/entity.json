@@ -10,6 +10,117 @@
     "brazil",
     "uruguay-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Uruguay River",
+        "La Plata"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Conceição, Ijui, Rio Grande do Sul, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Middle and upper Uruguay River basin (La Plata basin).",
+          "countries": [],
+          "regions": [
+            "Uruguay River",
+            "La Plata"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202137,
+      "total": 124,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          123
+        ],
+        [
+          "UY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -33.75,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -29.53125,
+          8,
+          8
+        ],
+        [
+          -56.25,
+          -28.125,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -29.53125,
+          17,
+          17
+        ],
+        [
+          -54.84375,
+          -28.125,
+          5,
+          5
+        ],
+        [
+          -53.4375,
+          -28.125,
+          38,
+          38
+        ],
+        [
+          -53.4375,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -28.125,
+          45,
+          45
+        ],
+        [
+          -50.625,
+          -29.53125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -109,17 +220,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/ac6f8abed35f757a.webp",
-      "thumb": "https://media.aquatome.com/scotcat/ac6f8abed35f757a-480.webp",
-      "width": 500,
-      "height": 564,
-      "licence": "dùng với sự cho phép",
-      "author": "aleduarte / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_isbrueckeri.htm",
-      "caption": "Hypostomus isbrueckeri: Sección 11, Durazno, Uruguay",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/d799f3a83dc624f0.webp",
       "thumb": "https://media.aquatome.com/scotcat/d799f3a83dc624f0-480.webp",

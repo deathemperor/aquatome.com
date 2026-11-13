@@ -14,6 +14,490 @@
     "brazil",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "GY"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Nanay",
+        "Orinoco",
+        "Essequibo",
+        "Demerara River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Photographed in the Rio Nanay near Iquitos, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Rio Nanay"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Potaro Landing, British Guiana.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Amazon, Upper Amazon, Nanay.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Demerara River, Essequibo basin, Orinoco, and Amazon River basins.",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Essequibo",
+            "Demerara River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344095,
+      "total": 153,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          80
+        ],
+        [
+          "GY",
+          48
+        ],
+        [
+          "VE",
+          13
+        ],
+        [
+          "GF",
+          4
+        ],
+        [
+          "SR",
+          4
+        ],
+        [
+          "CO",
+          3
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          0,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          6,
+          0
+        ],
+        [
+          -70.3125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          0,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          3,
+          0
+        ],
+        [
+          -67.5,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          7.03125,
+          3,
+          0
+        ],
+        [
+          -63.28125,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -8.4375,
+          3,
+          0
+        ],
+        [
+          -61.875,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -61.875,
+          0,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          3,
+          0
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          2.8125,
+          20,
+          19
+        ],
+        [
+          -60.46875,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          -60.46875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -59.0625,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          4.21875,
+          10,
+          8
+        ],
+        [
+          -59.0625,
+          5.625,
+          7,
+          7
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          3,
+          0
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -4.21875,
+          5,
+          0
+        ],
+        [
+          -56.25,
+          -2.8125,
+          7,
+          0
+        ],
+        [
+          -56.25,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          4,
+          0
+        ],
+        [
+          -50.625,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -47.8125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -96,30 +580,7 @@
       "html": "<p>Brejão, G.L. 2022. Batrochoglanis villosus. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org (11/2019).</p><p>Shibatta, O.A., 2003. Pseudopimelodidae (Bumblebee catfishes, dwarf marbled catfishes). p. 401-405. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/3791e2af24d1623b.webp",
-      "thumb": "https://media.aquatome.com/scotcat/3791e2af24d1623b-480.webp",
-      "width": 500,
-      "height": 355,
-      "licence": "dùng với sự cho phép",
-      "author": "Mark Henry Sabaj / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_villosus.htm",
-      "caption": "Batrochoglanis villosus: Juvenile - Oyapock expedition",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/10cac58c446e6b0c.webp",
-      "thumb": "https://media.aquatome.com/scotcat/10cac58c446e6b0c-480.webp",
-      "width": 500,
-      "height": 332,
-      "licence": "dùng với sự cho phép",
-      "author": "Gabriel Lelis Togni / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_villosus.htm",
-      "caption": "Batrochoglanis villosus: Juvenile - Brazil: Rio Xingu, - Altamira, Para",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "215Jhioibiw",

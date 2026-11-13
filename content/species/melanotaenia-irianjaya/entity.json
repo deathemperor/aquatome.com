@@ -1,0 +1,211 @@
+{
+  "id": "melanotaenia-irianjaya",
+  "scientificName": "Melanotaenia irianjaya",
+  "order": "Atheriniformes",
+  "family": "Melanotaeniidae",
+  "genus": "Melanotaenia",
+  "group": "rainbowfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "bintuni-bay"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Irian Jaya rainbowfish, Melanotaenia irianjaya, is a rainbowfish from Indonesia, recorded only around Bintuni Bay in Irian Jaya.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411698,
+      "total": 27,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          27
+        ]
+      ],
+      "cells": [
+        [
+          132.1875,
+          -4.21875,
+          13,
+          13
+        ],
+        [
+          132.1875,
+          -2.8125,
+          12,
+          12
+        ],
+        [
+          132.1875,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-irianjaya",
+      "html": "<p>The Irian Jaya rainbowfish, Melanotaenia irianjaya, is a rainbowfish from Indonesia, recorded only around Bintuni Bay in Irian Jaya. It can be identified by the longer middle rays in the dorsal and anal fins, a feature usually associated with the closely related genus Glossolepis. It is not often seen in the hobby. In nature it lives in slow and fast-flowing rainforest streams with little aquatic vegetation, using submerged logs and branches for cover.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-irianjaya",
+      "html": "<p>Indonesia. It has only been recorded from areas around the Bintuni Bay area of Irian Jaya.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-irianjaya",
+      "html": "<p>It occurs in both slow and fast-flowing rainforest streams. In contrast to the biotopes preferred by many other members of the genus, these tend to contain little aquatic vegetation, with the fish tending to use submerged logs and branches for cover instead.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-irianjaya",
+      "html": "<p>Standard length: 12 cm SL. Aquarium base: 90 × 30 cm. Volume: ~81 litres (90 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-irianjaya",
+      "html": "<p>The choice of decor is not particularly essential with this species. A biotope aquarium could consist of a substrate of sand or fine gravel with some driftwood pieces and beech branches. However the fish are equally as happy in a densely planted setup. The level of water movement is unimportant.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-irianjaya",
+      "html": "<ul><li>Temperature: 23–26°C</li><li>pH: 6.5–8.0. Above neutral is preferred by the fish.</li><li>Hardness: 10–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-irianjaya",
+      "html": "<p>Like most of its congeners it's an unfussy, omnivorous species, and will accept most dried, frozen and live foods. Regular feedings of the latter will help to ensure the fish exhibit their best colours.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-irianjaya",
+      "html": "<p>Very peaceful but should only be kept with species which enjoy similar water chemistry. Good tankmates include other similarly-sized rainbowfish, characins, danios, barbs, freshwater gobies, and catfish such as Corydoras. Like other rainbowfish, it can be quite skittish and does far better when kept in a shoal of at least 6-8, preferably more. The males will also be encouraged to display their best colours in the company of conspecifics.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-irianjaya",
+      "html": "<p>Mature males are larger and exhibit brighter colouration than females. They also develop a deeper body than females as they grow.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-irianjaya",
+      "html": "<p>As with other members of the genus, this is not a difficult species to breed, being an egg scatterer, although the fry can prove somewhat tricky to raise. The breeding aquarium should be at least 75 cm long, and contain slightly hard, alkaline water with a pH of around 7.5 and a temperature of 26.5–29°C. A small air-powered filter will provide sufficient oxygenation and flow. The tank should be filled with fine-leaved plants such as java moss, or nylon spawning mops. No substrate is necessary. The adult fish are best conditioned in a group in a separate aquarium, with plenty of live and frozen foods. As the fish come into condition, the females will appear noticeably plumper, and males will display to each other almost constantly. Select the fattest, best-coloured pair for spawning and introduce them to the spawning tank. A small raise in temperature can often induce spawning. The pair will spawn for a period of several weeks, laying batches of eggs each day. These are attached to surfaces by a small thread. Although the adults tend not to eat the spawn, it's easier to raise the fry in a separate aquarium, so it is recommended to check the plants or mops regularly and remove any eggs found to a raising tank containing water from the spawning tank. The eggs hatch in 7-12 days, depending on temperature, and the tiny fry initially require infusoria-type food, before graduating onto free swimming foods, such as brine shrimp nauplii, after a week or so. Sinking foods are unsuitable as the fry tend to stay very close to the water surface.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-irianjaya",
+      "html": "<p>This beautiful rainbow is not often seen in the hobby. It can be identified by the fact that the middle rays in the dorsal and anal fins are longer than the other fin rays. This feature is usually associated with the closely related Glossolepis genus of rainbowfish.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 90cm",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cầu vồng",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

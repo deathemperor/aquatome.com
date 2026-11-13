@@ -12,6 +12,68 @@
     "malaysia",
     "johor"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY"
+      ],
+      "regions": [
+        "Sumatra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from a number of localities in Jambi and Riau provinces on the island of Sumatra, Indonesia, and Johor state, Peninsular Malaysia.",
+          "countries": [
+            "ID",
+            "MY"
+          ],
+          "regions": [
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394018,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          3
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +117,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -184,8 +246,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

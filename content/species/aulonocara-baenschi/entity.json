@@ -10,6 +10,45 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi where it's known from Usisya, Nkhomo reef, Benga (to the south of Chia lagoon), the Maleri Islands and Chipoka, all located along the lake's western shoreline.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370481,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -14.0625,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +92,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -62,7 +101,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-baenschi",
-      "html": "<ul><li>Max size: ♂ 120 mm SL, ♀ 90 mm SL (♂ 5 in, ♀ 3.5 in)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 25–29°C (77–84°F)</li><li>pH: 7.5–9.0</li><li>Hardness: 10–25 dGH</li><li>Difficulty: 7 of 8 – Moderate. Rated moderate because it needs a well-established tank and stable water.</li></ul><p>The new yellow regal peacock, Aulonocara baenschi, is a cichlid endemic to Lake Malawi, known from five sites along the lake's western shoreline. It inhabits intermediate zones where rocky shores give way to sand with scattered rocks, usually at 4 to 6 metres. Also sold as the 'yellow regal cichlid', 'Baensch's peacock', 'sunshine peacock' and 'Nkhomo-Benga peacock', it is most easily told from similar congeners by its steeper, more curved snout.</p>"
+      "html": "<ul><li>Max size: ♂ 120 mm SL, ♀ 90 mm SL (♂ 5 in, ♀ 3.5 in)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 25–29°C (77–84°F)</li><li>pH: 7.5–9.0</li><li>Hardness: 10–25 dGH</li><li>Difficulty: 4 of 8 – Moderate. Rated moderate because it needs a well-established tank and stable water.</li></ul><p>The new yellow regal peacock, Aulonocara baenschi, is a cichlid endemic to Lake Malawi, known from five sites along the lake's western shoreline. It inhabits intermediate zones where rocky shores give way to sand with scattered rocks, usually at 4 to 6 metres. Also sold as the 'yellow regal cichlid', 'Baensch's peacock', 'sunshine peacock' and 'Nkhomo-Benga peacock', it is most easily told from similar congeners by its steeper, more curved snout.</p>"
     },
     {
       "key": "distribution",
@@ -131,8 +170,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 120x45"
+        "bể cá 120cm"
       ]
     },
     {

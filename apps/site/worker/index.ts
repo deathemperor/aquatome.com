@@ -3,17 +3,22 @@ import { runChecks } from './affiliate/check'
 import { fromOurPage, parseGo, recordClick, resolveGo } from './affiliate/go'
 import { searchTarget, type AffEnv } from './affiliate/networks'
 import { applyDecisions, listComments, moderationQueue, postComment, purgeRemoved, type CommentsEnv } from './comments/api'
+import { postCommentWithPhoto, sweepCommentPhotos } from './comments/photo'
 import { isBot } from './bots'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { adminRoute, bearerOk as dashBearer } from './dashboard'
 import { dashboardHostRoute } from './dashboard-host'
-import { dailyReportRoute } from './daily/api'
+import { changesRoute, dailyReportRoute } from './daily/api'
+import { feedbackQueue, sendFeedback } from './feedback'
 import { ownerApi } from './owner-api'
-import { isOwnerVisit } from './owner'
+import { ourNetworkRoute, usLinkRoute, whoIs, type Who } from './us'
+import { APP_STORE_FROM } from './readers'
+import { searchConsoleRoute } from './admin/quality'
 import { recordSnapshot } from './admin/content'
-import { parseEvent, toDataPoint } from './events'
+import { ownReferrer, parseEvent, toDataPoint, visitorOf } from './events'
+import { VISITOR_STATS } from './stats-switch'
 import { redirectFor } from './redirects'
-import { DASHBOARD_HOST, isViPage, withoutVi } from './paths'
+import { DASHBOARD_HOST, galleryParent, isViPage, withoutVi } from './paths'
 import { appPageClosed } from './app-switch'
 import { gonePage, isHidden, pagePath } from './hidden'
 import { prefersMarkdown } from './markdown'
@@ -23,13 +28,17 @@ import { accounts, depsFor, type AccountDeps, type AccountsEnv } from './account
 import { APP_SITE_ASSOCIATION } from './accounts/passkey'
 import { purgeExpired } from './accounts/ratelimit'
 import { wantedRoute } from './wanted'
+import { chat, type ChatEnv } from './chat/api'
+import { chatPast } from './chat/past'
 import { fishId, type FishIdDeps, type FishIdEnv } from './fishid/api'
 import { appEventsRoute } from './telemetry/events'
 import { appDiagnosticsRoute } from './telemetry/diagnostics'
 import { countryOf } from './telemetry/shared'
-import { asksLang, chooserPage, langCookie, langPoint, pickedLang, pickResponse } from './lang-ask'
+import { asksLang, chooserEvent, chooserPage, langCookie, langPoint, pickedLang, pickResponse } from './lang-ask'
 import { homeOf, LANGS, langOfCountry, langOfTag, prefixedLang, type Lang } from '@aq/schema/langs'
+import { sweepRetries } from './chat/store'
 import { sweepKept } from './fishid/kept'
+import { sweepRuns } from './fishid/transcript'
 
 export interface Env {
   ASSETS: Fetcher
@@ -62,7 +71,7 @@ export interface Env {
   APNS_KEY?: string
   APNS_KEY_ID?: string
 }
-type FullEnv = Env & AffEnv & CommentsEnv & AccountsEnv & FishIdEnv
+type FullEnv = Env & AffEnv & CommentsEnv & AccountsEnv & FishIdEnv & ChatEnv
 const MAX_EVENT_BYTES = 4096
 
 function finish(res: Response, env: Env, extra: Record<string, string> = {}): Response {
@@ -72,18 +81,25 @@ function finish(res: Response, env: Env, extra: Record<string, string> = {}): Re
   return out
 }
 
-/** Beacon intake: same-origin only, bots and the owner dropped, small bodies only. */
-async function events(req: Request, env: Env): Promise<Response> {
+/** Beacon intake: same-origin only, bots (our checks among them) dropped, small bodies only; us marked, not dropped (us.ts). */
+async function events(req: Request, url: URL, env: FullEnv): Promise<Response> {
+  if (req.method === 'GET') return usLinkRoute(url) ?? new Response(null, { status: 405 })
   if (req.method !== 'POST') return new Response(null, { status: 405 })
   if (Number(req.headers.get('content-length') ?? 0) > MAX_EVENT_BYTES) return new Response(null, { status: 413 })
   const origin = req.headers.get('origin')
   const site = req.headers.get('sec-fetch-site')
   if ((origin && origin !== new URL(req.url).origin) || (site && site !== 'same-origin')) return new Response(null, { status: 403 })
   if (isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))) return new Response(null, { status: 204 })
-  if (isOwnerVisit(req)) return new Response(null, { status: 204 })
-  const e = parseEvent((await req.text()).slice(0, MAX_EVENT_BYTES + 1))
+  const body = (await req.text()).slice(0, MAX_EVENT_BYTES + 1)
+  const country = String((req as { cf?: { country?: string } }).cf?.country ?? '')
+  const chooser = chooserEvent(body)
+  if (chooser) {
+    env.EVENTS?.writeDataPoint(langPoint(chooser, country, await whoIs(req, env)))
+    return new Response(null, { status: 204 })
+  }
+  const e = parseEvent(body)
   if (!e) return new Response(null, { status: 400 })
-  env.EVENTS?.writeDataPoint(toDataPoint(e, String((req as { cf?: { country?: string } }).cf?.country ?? '')))
+  env.EVENTS?.writeDataPoint(toDataPoint(visitorOf(ownReferrer(e, url.hostname), req, VISITOR_STATS), country, await whoIs(req, env)))
   return new Response(null, { status: 204 })
 }
 
@@ -96,8 +112,11 @@ async function goRoute(req: Request, url: URL, env: FullEnv, wait: (p: Promise<u
   // The catalog is an upgrade, never a dependency: any D1 problem falls back to the search link.
   if (env.DB) target = await resolveGo(p, env.DB, env, now).catch(() => target)
   const { location, productId } = target
-  const click = req.method === 'GET' && fromOurPage(req) && !isOwnerVisit(req) && !isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))
-  if (env.DB && click) wait(recordClick(env.DB, p, productId, now).catch(() => {}))
+  const click = req.method === 'GET' && fromOurPage(req) && !isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))
+  // A reader's click only, as the readers page counts them (us.ts): not ours, and not the app's until it is on the App Store.
+  const theirs = (who: Who) => who === '' || (who === 'app' && APP_STORE_FROM !== null && now.getTime() >= Date.parse(APP_STORE_FROM))
+  const db = env.DB
+  if (db && click) wait(whoIs(req, env).then(who => (theirs(who) ? recordClick(db, p, productId, now) : undefined)).catch(() => {}))
   return finish(new Response(null, { status: 302, headers: { location, 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' } }), env)
 }
 
@@ -120,7 +139,10 @@ async function commentsAdmin(req: Request, url: URL, env: FullEnv): Promise<Resp
   if (route === 'queue') return Response.json(await moderationQueue(env.DB, new Date()), { headers: { 'cache-control': 'no-store' } })
   const body = await req.json().catch(() => null)
   if (!Array.isArray(body) || body.length > 500) return new Response('expected a JSON array (≤500)', { status: 400 })
-  return Response.json(await applyDecisions(env.DB, body, new Date()))
+  const r = await applyDecisions(env.DB, body, new Date())
+  // A comment removed takes its photo with it.
+  await sweepCommentPhotos(env, new Date())
+  return Response.json(r)
 }
 
 /** A page's address in any language: Vietnamese ones at the root, the others under their prefix (/id/, /th/). */
@@ -204,26 +226,24 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/') {
     const al = req.headers.get('accept-language')
     const country = isBot(req.headers.get('user-agent'), al) ? '' : countryOf(req)
-    // A page fetched ahead of a click (the Vietnamese pages prefetch /, Base.astro) is served but not counted.
-    const count = country && !/prefetch/i.test(req.headers.get('sec-purpose') ?? '')
     const picked = pickedLang(url)
-    if (picked && count) env.EVENTS?.writeDataPoint(langPoint(`/?lang=${picked}`, country))
     if (picked && picked !== 'vi') return finish(pickResponse(picked, url.searchParams), env)
     if (picked) remember = langCookie(picked)
     const chosen = picked ?? chosenLang(req.headers.get('cookie'))
-    if (!chosen && !askedLang(al) && asksLang(country)) {
-      if (count) env.EVENTS?.writeDataPoint(langPoint('/', country))
-      return finish(chooserPage(url.searchParams), env)
-    }
+    if (!chosen && !askedLang(al) && asksLang(country)) return finish(chooserPage(url.searchParams), env)
     const lang = chosen ?? rootLang(al, country)
     if (lang !== 'vi') return finish(new Response(null, { status: 302, headers: { location: `${homeOf(lang)}${url.search}`, link: DISCOVERY_LINK, vary: 'Accept-Language, Cookie', 'cache-control': 'private, no-store' } }), env)
   }
-  if (url.pathname === '/_e') return events(req, env)
+  if (url.pathname === '/_e') return events(req, url, env)
   // Names readers keep that have no page (worker/wanted.ts): open to everyone, signed in or not, accounts on or off.
   if (url.pathname === '/api/v1/wanted' || url.pathname === '/api/v1/wanted/') return finish(await wantedRoute(req, env, new Date()), env)
   // Readers report a comment or photo (worker/report.ts): signed in or not, accounts on or off.
   if (url.pathname === '/api/v1/report') return finish(await reportRoute(req, env, new Date()), env)
   if (url.pathname === '/api/fish-id' || url.pathname === '/api/fish-id/') return finish(await fishId(req, url, env, new Date(), fishDeps, wait), env)
+  // The chat (worker/chat/api.ts, protocols/chat.openapi.json): signed-in readers only, off unless CHAT is "1".
+  if (url.pathname === '/api/chat' || url.pathname === '/api/chat/') return finish(await chat(req, url, env, new Date(), {}, wait), env)
+  // Its Stop and its past conversations (worker/chat/past.ts): behind the same gate.
+  if (url.pathname === '/api/chat/cancel' || url.pathname.startsWith('/api/chat/conversations')) return finish(await chatPast(req, url, env, new Date()), env)
   // A reader's own photos, sent from the app (worker/photos.ts): listed or taken back with its account's bearer.
   if (url.pathname.startsWith('/api/v1/talk/photos/mine')) return finish(await minePhotos(req, url, env, new Date()), env)
   // The iOS app's anonymous events and crash and performance reports (worker/telemetry): no account, no cookie.
@@ -231,16 +251,24 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/api/v1/app/diagnostics') return finish(await appDiagnosticsRoute(req, env, new Date()), env)
   // The owner's dashboard as JSON, for the iOS app (worker/owner-api.ts): the owner's app session only.
   if (url.pathname === '/api/owner' || url.pathname.startsWith('/api/owner/')) return finish(await ownerApi(req, url, env), env)
+  // What the owner sends from a page or an app screen (worker/feedback.ts): the owner's signed-in account only.
+  if (url.pathname === '/api/feedback' || url.pathname.startsWith('/api/feedback/')) return finish(await sendFeedback(req, url, env, new Date()), env)
   if (url.pathname.startsWith('/api/')) return finish(await accounts(req, url, env, new Date(), accountDeps ?? depsFor(env)), env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)
-  if (url.pathname === '/_c') return finish(req.method === 'POST' ? await postComment(req, env, new Date()) : req.method === 'GET' ? await listComments(url, env) : new Response(null, { status: 405 }), env)
+  // A comment with its photo comes as multipart (comments/photo.ts); without one, as JSON.
+  if (url.pathname === '/_c') return finish(req.method === 'POST' ? await (req.headers.get('content-type')?.startsWith('multipart/form-data') ? postCommentWithPhoto : postComment)(req, env, new Date()) : req.method === 'GET' ? await listComments(url, env) : new Response(null, { status: 405 }), env)
   if (url.pathname.startsWith('/_c/admin/')) return commentsAdmin(req, url, env)
   if (url.pathname === '/_p') return finish(req.method === 'POST' ? await postPhoto(req, env, new Date()) : req.method === 'GET' ? await listPhotos(url, env) : new Response(null, { status: 405 }), env)
   if (url.pathname === '/_p/xoa/' || url.pathname === '/_p/xoa') return finish(await deleteRoute(req, url, env, new Date()), env)
   if (url.pathname.startsWith('/_p/admin/')) return bearerOk(req, env) ? photosAdmin(req, url, env, new Date()) : new Response('Not found', { status: 404 })
   // The daily report's GitHub half, from daily-report.yml (worker/daily): the dashboard token only.
+  if (url.pathname === '/_ab/our-network') return ourNetworkRoute(req, env)
+  if (url.pathname === '/_ab/search-console') return searchConsoleRoute(req, env.AB, bearerOk(req, env))
   if (url.pathname === '/_ab/report') return dailyReportRoute(req, url, env)
+  if (url.pathname === '/_ab/changelog') return changesRoute(req, env)
+  // The owner's reports waiting for the Mac (worker/feedback.ts): the dashboard token only.
+  if (url.pathname === '/_ab/feedback' || url.pathname.startsWith('/_ab/feedback/')) return finish(await feedbackQueue(req, url, env), env)
   // The owner's dashboard (worker/dashboard.ts): every /_ab path, each behind the token.
   if (url.pathname === '/_ab' || url.pathname.startsWith('/_ab/')) return adminRoute(req, url, env)
 
@@ -254,6 +282,10 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (res.status === 404 && isPage(url.pathname)) {
     const to = await redirectFor(env.ASSETS, url.origin, url.pathname)
     if (to) return finish(new Response(null, { status: 301, headers: { location: to } }), env)
+    const parent = galleryParent(url.pathname)
+    if (parent && (await env.ASSETS.fetch(new Request(`${url.origin}${parent}`))).ok) {
+      return finish(new Response(null, { status: 302, headers: { location: parent + url.search } }), env)
+    }
   }
   if (!res.headers.get('content-type')?.includes('text/html')) return finish(res, env)
   const extra: Record<string, string> = { Vary: 'Accept', 'Server-Timing': `asset;dur=${assetMs}` }
@@ -277,7 +309,7 @@ export default {
 
   /**
    * Daily: the affiliate checker, the removed-comment purge, expired sign-in data, kept fish-ID photos past their 6
-   * months (fishid/kept.ts) and the day's content totals (KV stats:YYYY-MM-DD, admin/content.ts) — independent, so one
+   * months (fishid/kept.ts), fish-ID transcripts past their year (fishid/transcript.ts), the chat's retries' answers past a day (chat/store.ts) and the day's content totals (KV stats:YYYY-MM-DD, admin/content.ts) — independent, so one
    * failing never blocks the others.
    */
   async scheduled(_: ScheduledController, env: FullEnv): Promise<void> {
@@ -286,6 +318,8 @@ export default {
       env.DB ? purgeRemoved(env.DB, new Date()) : Promise.resolve(),
       env.DB ? purgeExpired(env.DB, new Date()) : Promise.resolve(),
       env.UPLOADS ? sweepKept(env.UPLOADS, new Date()) : Promise.resolve(),
+      env.UPLOADS ? sweepRuns(env.UPLOADS, new Date()) : Promise.resolve(),
+      env.UPLOADS ? sweepRetries(env.UPLOADS, new Date()) : Promise.resolve(),
       recordSnapshot(env.AB, env.ASSETS, `https://${env.CANONICAL_HOST ?? 'aquatome.com'}`, new Date()),
     ])
     for (const r of results) if (r.status === 'rejected') console.error('scheduled task failed:', r.reason)

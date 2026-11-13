@@ -62,15 +62,15 @@
     ]
   },
   "alternanthera-reineckii-mini": {
-    "at": "2026-10-30",
-    "from": "2026-10-28",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "อัลเทอร์แนนเทอร่า มินิ",
     "confidence": "medium",
-    "score": 0.75,
+    "score": 0.85,
     "notes": [
-      "Keep the Latin genus name unchanged: write \"Alternanthera\" instead of the Thai transliteration \"อัลเทอร์แนนเทอร่า\".",
-      "\"small aquariums\" became \"ตู้ปลาขนาดเล็ก\". In a plant context, \"ตู้ไม้น้ำขนาดเล็ก\" or \"ตู้ขนาดเล็ก\" is more natural.",
-      "\"ถิ่นกำเนิด: สายพันธุ์ปรับปรุง (cultivar)\" is a bit odd. Consider \"ถิ่นกำเนิด: พันธุ์ปลูกเลี้ยง (cultivar)\", or keep \"คัลติวาร์\"."
+      "Items 2 and 3: the Latin genus name \"Alternanthera\" is transliterated as \"อัลเทอร์แนนเทอร่า\". Keep it in Latin letters (Alternanthera), or give it in brackets after the Thai. Spellings of the transliteration vary among hobbyists.",
+      "Item 3: \"แสงที่มีความเข้มสูง\" is slightly stiff. \"แสงแรง\" or \"ความเข้มแสงสูง\" is more natural.",
+      "Item 3: the opening sentence \"อัลเทอร์แนนเทอร่าที่เป็นที่รู้จักกันดีในรูปแบบขนาดจิ๋วนี้\" is long and awkward. Split it or rephrase it, for example \"อัลเทอร์แนนเทอร่าสายพันธุ์จิ๋วที่รู้จักกันดี\"."
     ]
   },
   "ammannia-crassicaulis": {
@@ -115,9 +115,9 @@
     ]
   },
   "anubias-barteri-nana": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "อนูเบียสนานา",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "อนูเบียส นานา",
     "confidence": "high",
     "score": 0.95,
     "notes": []
@@ -141,15 +141,12 @@
     "notes": []
   },
   "anubias-barteri-var-caladiifolia": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "อนูเบียส คาลาดิโฟเลีย",
     "confidence": "medium",
-    "score": 0.92,
-    "notes": [
-      "Item 2: \"เป็นสายพันธุ์ที่สวยงามมาก\" renders \"variety\" loosely; \"พันธุ์ไม้น้ำที่สวยงามมาก\" would be more natural, but the meaning is intact.",
-      "Item 2: \"ใบเป็นรูปหัวใจ ใบมีอายุอยู่ได้หลายปี\" repeats \"ใบ\" and reads choppy. Joining the clauses would read more smoothly, e.g. \"ใบรูปหัวใจและมีอายุหลายปี\"."
-    ]
+    "score": 0.95,
+    "notes": []
   },
   "anubias-barteri-var-coffeifolia": {
     "at": "2026-10-30",
@@ -245,25 +242,47 @@
     ]
   },
   "aponogeton-madagascariensis": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-08",
+    "from": "2026-11-07",
     "name": "อะโพโนจีตอน มาดากัสการ์",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.75,
     "notes": [
-      "Item 3: \"นิยมนำมาจัดแสดงเป็นพิเศษ\" adds \"popular\" and \"display\", which the English doesn't say. The source says it is a speciality of botanical gardens worldwide. Use something closer, such as \"เป็นพืชพิเศษ/โดดเด่นที่พบในสวนพฤกษศาสตร์ทั่วโลก\"."
+      "Item 8: 'ต้องการแสงเพียงปานกลางเป็นอย่างมาก' is a muddled rendering of 'moderate lighting at best'. Use 'ต้องการแสงปานกลางอย่างมากที่สุด' or 'แค่แสงปานกลางก็พอ'.",
+      "Item 10: 'mollies' became 'ปลาบลูมอลลี่', which adds 'blue' that is not in the source. Use 'ปลาโมลลี่'.",
+      "Item 3: 'naturalized' became 'พืชที่ตั้งถิ่นฐานในธรรมชาติ', which is stiff. Use 'กลายเป็นพืชต่างถิ่นที่ขยายพันธุ์เองในธรรมชาติ'.",
+      "Item 10: 'pygmy Corydoras' became 'แพะแคระ', which is ambiguous. Write 'ปลาแพะแคระ (pygmy Corydoras)'.",
+      "Item 10: 'Otocinclus catfish' became 'ปลาแคระโอโต้', which loses the catfish meaning. Use 'ปลาซัคเกอร์/ปลาโอโตซิงคลัส'.",
+      "Item 10: 'ช่วงพัก (ระยะพักตัว)' is redundant. 'Rest (dormancy) periods' can be simplified."
     ]
   },
   "aponogeton-ulvaceus": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "อะโพโนจีตอน อุลวาเซียส",
     "confidence": "medium",
     "score": 0.85,
     "notes": [
-      "\"วงศ์ Aponogeton\" is imprecise: Aponogeton is a genus, not a family. Use \"สกุล Aponogeton\" (the English \"family\" is itself loose, but Thai should be taxonomically correct).",
-      "\"ทรงพุ่มกว้างได้ถึง 50 ซม.\" adds \"ทรงพุ่ม\" (bush shape), which the source doesn't say. Use \"กว้างได้ถึง 50 ซม.\".",
-      "\"หัวเพียงหัวเดียว\" for \"A single root\" is acceptable, but \"fluted margin\" as \"ขอบใบเป็นคลื่นจีบ\" could be simpler: \"ขอบใบหยักเป็นลอน\"."
+      "Item 2: \"ปุ๋ยเม็ด\" is narrower than the source \"phân\" (fertiliser). Use \"ปุ๋ย\" or \"ปุ๋ยเสียบ/ปุ๋ยรองพื้น\" so no detail is added.",
+      "Item 2: the source field is Vietnamese, not English. The Thai matches it closely, but check that the right source text was supplied."
+    ]
+  },
+  "azolla": {
+    "at": "2026-11-10",
+    "from": "2026-11-10",
+    "name": "แหนแดง",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "Item 5: the 'TH' text is a translation of the Vietnamese passage; the Thai is fine, but it was checked against Vietnamese, not the English source. It also adds details not in the English item list (e.g. 'bèo chỉ nằm ở một phần bể'), so this item should be treated as non-English source.",
+      "Item 8: 'ปลาคาร์ดินัลจีน' for white cloud mountain minnow is awkward; the common Thai name is 'ปลาเรนโบว์/ปลาไวท์คลาวด์' (white cloud). Please fix.",
+      "Item 8: 'ปลาม้าลาย' for zebra danio is fine, but 'ปลาซิว' for rasboras is too generic; use 'ราสโบร่า'.",
+      "Item 8: 'หอยขมญี่ปุ่น' for Japanese trapdoor snail and 'หอยเจดีย์' for Malaysian trumpet snail are questionable; use 'หอยเจดีย์' only for MTS and check the others. 'หอยแบล็คเดวิล' and 'หอยแรบบิท' are transliterated only.",
+      "Item 8: 'ปลาคาร์ป' for koi should be 'ปลาคาร์ฟ/ปลาแฟนซีคาร์ป'; 'ปลาเท็กซัส' should be 'ปลาเท็กซัสซิกลิด' and 'แจ็คเดมป์ซีย์' should be 'ปลาแจ็คเดมป์ซีย์'.",
+      "Item 8: 'ฉีดยาฆ่าแมลง' for 'treated with pesticides' adds 'sprayed'; use 'ใช้ยาฆ่าแมลง/ผ่านการใช้สารกำจัดศัตรูพืช'.",
+      "Item 7: '(>8.4 g/l)' is kept from the source and is a possible source error; the Thai 'ความเค็มต่ำ' paired with '>' is contradictory. Translate faithfully but flag it.",
+      "Item 7: 'น้ำแข็งเป็นเวลานาน' for 'prolonged freezing' should be 'น้ำค้างแข็ง/การแข็งตัวของน้ำเป็นเวลานาน'. 'ฤดูใบไม้ผลิ' (spring) is not a natural fit for Thailand; consider 'ช่วงอากาศอุ่นขึ้น'.",
+      "Item 3: 'พื้นที่ชุ่มน้ำ บ่อ คู คลอง' translates 'ditches' as 'คูคลอง', which is acceptable. 'Anabaena azollae' and the item's wording 'แหนแดง' are fine. In item 1, 'ไม้ลอยผิวน้ำ' for 'floater' is acceptable."
     ]
   },
   "bacopa-australis": {
@@ -406,51 +425,52 @@
     "notes": []
   },
   "bucephalandra-sp": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "บูเซ่ใบเข้ม",
-    "confidence": "low",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "บูเซ",
+    "confidence": "medium",
     "score": 0.75,
     "notes": [
-      "Source spells the genus \"Bucephelandra\" but the Thai adds \"Bucephalandra\"; this silently changes the Latin name. Keep the source spelling, or flag the typo, rather than correcting it unseen.",
-      "\"สลับกันไปตามช่วงเวลา\" is slightly wordy and adds \"alternating\". The source says \"at times\", so use something like \"บางช่วง\".",
-      "\"habitat\" in \"have the habitat ready\" is rendered as \"ตู้\". This is acceptable, but \"ที่อยู่/สภาพแวดล้อมสำหรับปลูก\" would be closer to the source.",
-      "\"ตู้ปลากัดแบบเรียบง่าย\" is fine, but \"your simple betta tanks\" could be more natural as \"ตู้เลี้ยงปลากัดทั่วไป\"."
+      "Item 2: The added parenthetical \"(นักเลี้ยงในไทยมักเรียกสั้น ๆ ว่า บูเซ ซึ่งเป็นต้นเดียวกัน)\" isn't in the source. It adds a claim about Thai hobbyists. Drop it, or just write \"บูเซ\" where the source says \"Bucep\", for example \"Bucephalandra (บูเซ)\".",
+      "Item 2: \"ให้ภาพรวมของการจัดสมดุล\" is awkward for \"cho bố cục cân\". Use something like \"เพื่อให้องค์ประกอบของการจัดสมดุลกัน\" or \"เพื่อให้ภาพรวมการจัดดูสมดุล\".",
+      "Item 2: \"ใยหิน\" can read as asbestos. Consider \"ร็อกวูล\" or \"ใยหิน (rockwool)\" for the rockwool on potted plants.",
+      "Item 1: The source writes \"Bucephelandra\" and the translation writes \"Bucephalandra\". The correct spelling is fine, but it is a change to the Latin name as written."
     ]
   },
   "bucephalandra-sp-dark-skeleton-king": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "บูเซ่ Dark Skeleton King",
-    "confidence": "medium",
-    "score": 0.75,
-    "notes": [
-      "Item 1: Latin name changed — source spells \"Bucephelandra\" but TH gives \"Bucephalandra\"; keep the Latin name as the source has it, or note the correction deliberately.",
-      "Item 1: \"Dark Achilles\" is left in Latin script with no Thai gloss; acceptable as a trade name, but \"มีอีกชื่อหนึ่งว่า\" could read more smoothly, e.g. \"หรือที่รู้จักกันในชื่อ\".",
-      "Item 3: \"habitat\" is rendered as \"ตู้\" (tank); the source says habitat, so \"ที่อยู่อาศัย/ตู้เลี้ยง\" would be more faithful. Meaning is still intact."
-    ]
-  },
-  "bucephalandra-sp-degori": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "บูเซ เดโกริ",
-    "confidence": "medium",
-    "score": 0.85,
-    "notes": [
-      "Item 3: \"ก่อนซื้อต้นไม้มาลง\" adds \"plants\" and \"put in the tank\", which the source doesn't say. Use a plainer wording such as \"ก่อนสั่งซื้อ\" or \"ก่อนซื้อ\".",
-      "Item 1: the Latin name was changed from the source spelling \"Bucephelandra\" to \"Bucephalandra\". The corrected spelling is probably right, but the translator should confirm it knowingly. The Thai transliteration \"บูเซฟาลันดรา\" is fine.",
-      "Item 1: \"ปริมาณ\" for \"Portion\" is slightly stiff. A more natural Thai wording is \"ขนาดต่อชุด\" or \"จำนวนที่ได้รับ\"."
-    ]
-  },
-  "bucephalandra-sp-mini-melawi": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "บูเซป มินิ เมลาวี",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "บูเซป Dark Skeleton King",
     "confidence": "medium",
     "score": 0.9,
     "notes": [
-      "\"ขนาด:\" for \"Portion\" is slightly off. \"จำนวน:\" or \"ปริมาณ:\" would read more naturally for a number of rhizome nodes.",
-      "\"ตู้หรือที่อยู่อาศัย\" is a bit redundant for \"habitat\". \"ตู้\" or \"สภาพแวดล้อม/ตู้ที่จะใช้เลี้ยง\" alone would be smoother."
+      "Item 1: the source spells the genus 'Bucephelandra'. The Thai silently uses 'Bucephalandra', which is the correct spelling, so no change is needed.",
+      "Item 2: 'ผูกติดขอนไม้' says to tie the plant on, while the source says 'gắn' (attach). Consider 'ยึด/เกาะติดขอนไม้' so it also covers gluing."
+    ]
+  },
+  "bucephalandra-sp-degori": {
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "บูเซป ดีโกริ",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "#1: Thai writes \"Bucephalandra\" while the source has \"Bucephelandra\". Latin names should stay unchanged, so either keep the source spelling or confirm the correction on purpose.",
+      "#1: \"เติบโตแบบจมน้ำ\" sounds like the plant is drowning. Use \"เติบโตใต้น้ำ (submersed)\" and \"เติบโตเหนือน้ำ/โผล่พ้นน้ำ (emersed)\".",
+      "#2: \"ปลูกในกระถาง\" for \"cây chậu\" (potted plants) is a bit off. Hobbyists usually say \"ต้นที่ปลูกในถ้วย/ถ้วยปลูก\" for tissue-culture or nursery plants.",
+      "#2: \"กระจายไปวางตามจุดอื่นอย่างทั่วถึง\" is stiff. Use something like \"วางกระจายตามจุดอื่นๆ ให้สมดุล\"."
+    ]
+  },
+  "bucephalandra-sp-mini-melawi": {
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "บูเซป มินิ เมลาวี",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "Item 1: The source spells it \"Bucephelandra\", but the Thai has \"Bucephalandra\". Quietly correcting the Latin name goes against the rule that Latin names stay unchanged. It is a minor point, since the correction is botanically right.",
+      "Item 2: \"มองเห็นได้ชัดมาก\" only says the rockwool is easy to see. The Vietnamese \"nhìn rất lộ\" means it looks unsightly or exposed. Use something like \"ดูไม่เนียน\" or \"เห็นชัดและไม่สวย\".",
+      "Item 2: \"ใยหิน\" for rockwool is understandable, but Thai hobbyists often write \"ร็อกวูล\". You could add it in brackets after the Thai term."
     ]
   },
   "bucephalandra-sp-needle-leaf": {
@@ -476,20 +496,20 @@
     ]
   },
   "bucephalandra-sp-red-cherry": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
     "name": "บูเซ เรดเชอร์รี่",
     "confidence": "medium",
-    "score": 0.92,
+    "score": 0.9,
     "notes": [
-      "Item 3: \"ตู้หรือที่อยู่\" is slightly vague for \"habitat\". Consider \"เตรียมตู้/ระบบเลี้ยงให้พร้อมก่อนสั่งซื้อ\"."
+      "Item 1: The source spells the genus \"Bucephelandra\", but the Thai has \"Bucephalandra\". This is the correct spelling and a harmless fix, though it is not literally unchanged. It is minor."
     ]
   },
   "bucephalandra-sp-round-leaf": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "บูเซ่ Round Leaf",
-    "confidence": "medium",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "บูเซ ราวด์ลีฟ",
+    "confidence": "low",
     "score": 0.95,
     "notes": []
   },
@@ -540,37 +560,33 @@
     ]
   },
   "ceratophyllum-demersum": {
-    "at": "2026-10-31",
-    "from": "2026-10-31",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "สาหร่ายพุงชะโด",
     "confidence": "high",
-    "score": 0.6,
+    "score": 0.85,
     "notes": [
-      "Items 2-6, 8: \"สาหร่ายพุงชะโด\" is the wrong Thai name for hornwort. พุงชะโด normally means Utricularia (bladderwort), a different plant. Use the name Thai hobbyists use for Ceratophyllum, such as \"สาหร่ายหางกระรอก\", and use it consistently.",
-      "Item 1: \"ไม้ต้น (stem plant)\" is awkward. Use the usual hobby term \"ไม้ลำต้น\" or similar.",
-      "Item 8: \"คุณภาพน้ำ\" for \"water parameters\" is a bit loose. \"ค่าน้ำ\" is more natural.",
-      "Item 8: \"คาร์บอนน้ำ\" for \"liquid carbon\" is a literal rendering. Use \"ลิควิดคาร์บอน\", which is the term hobbyists use."
+      "Item 6: \"ไม่ต้องอัดคาร์บอนไดออกไซด์ (CO2) เพราะโตเร็วมาก จึงเหมาะใช้เป็นไม้หลังตู้\" reads as if fast growth is the reason CO2 isn't needed. The English gives fast growth as the reason for using it as a background plant. Split the sentences, for example: \"...ไม่ต้องอัด CO2 และเพราะโตเร็วมาก จึงเหมาะใช้เป็นไม้หลังตู้...\"",
+      "Item 6: \"ให้ไม้น้ำต้นอื่นได้รับอาหารเพียงพอ\" should say nutrients (\"ธาตุอาหาร\") instead of \"อาหาร\", which could be read as food.",
+      "Item 9: \"ปลาคาร์ป\" for koi is too general. Use \"ปลาคาร์ป (โคอิ)\" or \"ปลาแฟนซีคาร์ป\"."
     ]
   },
   "ceratopteris-thalictroides": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "ผักกูดน้ำ",
     "confidence": "medium",
-    "score": 0.9,
+    "score": 0.95,
     "notes": []
   },
   "crinum-calamistratum": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "คริมัม คาลามิสตราตัม",
+    "at": "2026-11-07",
+    "from": "2026-11-07",
+    "name": "ครินัม คาลามิสตราตัม",
     "confidence": "low",
-    "score": 0.8,
+    "score": 0.9,
     "notes": [
-      "\"ใบหยักเป็นลอน\": source says \"curly leaves\" (leaves are curly/wavy, not serrated); \"หยัก\" suggests jagged edges. Use \"ใบเป็นลอนหยิก/ม้วนเป็นลอน\".",
-      "\"Crinum calamistratum\" is a Latin name and is correctly kept, but \"คริมัมชนิดอื่น\" is an inconsistent transliteration; use \"ครินัม\" (the form hobbyists commonly use) or keep \"Crinum\" in Latin.",
-      "\"ไม้น้ำประเภทไม้หัวที่มีรูปทรงสง่างามมาก\" is slightly stiff; \"graceful\" could read more naturally as \"ทรงต้นสวยงามอ่อนช้อย\".",
-      "\"ปลากินพืชไม่กินไม้น้ำชนิดนี้\": acceptable meaning, but \"ปลากินพืชจะไม่กิน\" reads more naturally."
+      "Item 2: \"เฟิร์นใบหอก (Java fern)\" is a poor match for Java fern. Hobbyists in Thailand usually write \"เฟินชวา\" (or \"เฟิร์นชวา\"). \"ใบหอก\" is the Lance variety, not the general name."
     ]
   },
   "crinum-thaianum": {
@@ -706,16 +722,30 @@
       "\"ในตู้ที่มีกระแสน้ำดี\" is slightly awkward; \"ในตู้ที่มีการไหลเวียนของน้ำดี\" is clearer."
     ]
   },
+  "dracaena-sanderiana": {
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "ไผ่กวนอิม",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "Item 5 'ขยายพันธุ์แบบไม่อาศัยเพศ' is fine, but 'สารเคมีเหล่านี้' etc. are OK; the real error: 'The plant ... pest such as snails' translated 'ศัตรูพืชอย่างหอย' is acceptable. Main problem: 'Lucky bamboo ... Full submersion' paragraph and list are fine.",
+      "Item 8: 'กุ้งเครย์ฟิช' is wrong for crayfish; use 'เครย์ฟิช' or 'กุ้งแม่น้ำ/crayfish' (crayfish are not กุ้งทั่วไป).",
+      "Item 8: 'ไม่ผลัดใบ ... ใบมักบิดและมีสีเขียว' fine, but 'พืชในสกุล Dracaena spp.' is redundant/incorrect; use 'พืชสกุล Dracaena'.",
+      "Item 8: 'ไม่ปล่อยสารพิษลงในน้ำ ... จึงเลี้ยงร่วมกับสัตว์อื่นที่ไม่สามารถฉีกกินต้นได้' loses the 'can be kept with' logic slightly; rephrase as 'จึงเลี้ยงร่วมกับสัตว์อื่นที่ฉีกกินต้นไม่ได้ได้'.",
+      "Item 5: 'ไผ่กวนอิมขยายพันธุ์แบบไม่อาศัยเพศ' is correct, but 'ตัดกิ่งแขนง (ตรงข้อ) ให้เรียบร้อยเพื่อไม่ให้รอยตัดแตกเป็นขุย' is OK; 'ปลูกแบบจมน้ำทั้งต้น' repeated heading is fine.",
+      "Item 5: 'ต้นจะเหลืองเมื่อสัมผัสคลอรีน' fine; 'ซึ่งต้นจะรอด' ('It will survive') is fine; 'โรยกรวดผิวเรียบ' for 'soft pebbles' changes meaning (soft vs smooth); use 'กรวดเม็ดเล็กนุ่ม' or similar.",
+      "Item 3: 'เงินไหลมา (Syngonium)' is a mismatch: Syngonium is usually called 'ออมเงิน/เงินไหลมา' ambiguous; verify the common name.",
+      "Item 7: 'แบบไม่โดนโดยตรง' lacks the word 'แสง'; write 'แสงทางอ้อม'. 'ของเสียจากปลา หอย กบ กุ้ง' fine."
+    ]
+  },
   "echinodorus-angustifolia": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "อิคิโนโดรัส วิซูเวียส",
+    "at": "2026-11-10",
+    "from": "2026-11-10",
+    "name": "อิชิโนโดรัส วิซูเวียส",
     "confidence": "medium",
     "score": 0.9,
-    "notes": [
-      "\"สาหร่ายริบบิ้น\" for vallisneria: Thai hobbyists more commonly write \"วาลิสเนเรีย\" or \"สาหร่ายหางหมา/หางไหม\"; consider giving the Latin name in brackets once.",
-      "\"ไม้น้ำกลุ่มอเมซอน\" for \"sword plant\": consider \"ไม้น้ำกลุ่มอเมซอนซอร์ด (sword plant)\" to keep the source term."
-    ]
+    "notes": []
   },
   "echinodorus-aquartica": {
     "at": "2026-10-30",
@@ -781,15 +811,14 @@
     ]
   },
   "echinodorus-ozelot-green": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "อเมซอน โอซีลอต กรีน",
+    "at": "2026-11-07",
+    "from": "2026-11-07",
+    "name": "อเมซอน โอซีล็อต กรีน",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.9,
     "notes": [
-      "Item 1: \"ไม้น้ำทรงกอ (rosulate)\" is acceptable, but \"ไม้น้ำทรงกอ/ทรงพุ่มกุหลาบ\" or a plain \"โรซูเลต\" would be more standard for hobbyists.",
-      "Item 2: \"พื้นตู้ที่มีธาตุอาหารสมบูรณ์\" is a little loose for \"nutritious bottom\". \"วัสดุรองพื้นที่อุดมด้วยธาตุอาหาร\" is more natural.",
-      "Item 2: \"จุดสีเข้มตัดกับใบสีอ่อนได้ชัดเจนกว่า\" is vague about what the contrast is compared with. \"จุดสีเข้มตัดกับสีใบที่อ่อนกว่าได้ชัดเจน\" reads more naturally."
+      "Item 2: \"ซับสเตรต\" is acceptable, but \"วัสดุปลูก\" or \"พื้นตู้\" is more familiar to Thai hobbyists. Use one term consistently across items 2 and 3.",
+      "Item 2: the source says \"Kiếm Ozelot Green\", and \"อเมซอน โอซีล็อต กรีน\" is acceptable. You could add the Latin name Echinodorus 'Ozelot' in brackets, or use \"ใบพาย\", so it matches item 3."
     ]
   },
   "echinodorus-red-diamond": {
@@ -834,16 +863,14 @@
     ]
   },
   "echinodorus-x-barthii": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "อเมซอนบาร์ทิไอ",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "อเมซอน บาร์ธี",
     "confidence": "medium",
     "score": 0.75,
     "notes": [
-      "Item 1: Height '20–30+ ซม.' conflicts with item 3 (25–50 cm) but that is the source's inconsistency; keep as is. Minor: 'Light demand: low' vs. text saying high light gives colour is source issue, not translation.",
-      "Item 2: 'ธาตุอาหารรอง' for 'micronutrients' is acceptable but 'จุลธาตุ' or 'ธาตุอาหารเสริม' is more common among Thai hobbyists.",
-      "Item 2: 'วัสดุปลูกที่มีธาตุอาหารสูง' for 'nutritious bottom' is fine, but 'บดบังแสงของไม้น้ำด้านล่างมาก' reads slightly awkward; consider 'บังแสงไม้น้ำที่อยู่ข้างล่างมาก'.",
-      "Item 3: 'ทั้งกอใบแผ่กว้าง' is slightly awkward; consider 'ทั้งกอกว้าง 20–30 ซม.'. 'ใบที่อ่อนที่สุด/แก่ที่สุด' could be 'ใบอ่อน/ใบแก่'."
+      "Item 3: \"micronutrients\" is rendered as \"ธาตุอาหารรอง\", which means secondary nutrients (Ca, Mg, S). Use \"จุลธาตุ\" or \"ธาตุอาหารเสริม\" instead.",
+      "Item 3: \"วัสดุปลูกที่มีธาตุอาหาร\" is slightly awkward. \"วัสดุปลูกที่อุดมด้วยธาตุอาหาร\" reads more naturally."
     ]
   },
   "egeria-densa": {
@@ -889,25 +916,24 @@
     ]
   },
   "eleocharis-parvula": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "หญ้าหัวเข็มแคระ",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "แฮร์กราสแคระ",
     "confidence": "medium",
-    "score": 0.9,
+    "score": 0.95,
     "notes": []
   },
   "eleocharis-pusilla": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "Eleocharis Mini",
+    "at": "2026-11-09",
+    "from": "2026-11-08",
+    "name": "หญ้าหัวไม้ขีดมินิ",
     "confidence": "medium",
-    "score": 0.75,
+    "score": 0.85,
     "notes": [
-      "#3: \"even lower growth\" means slower/lower growing; \"เตี้ยกว่า...เสียอีก\" is acceptable but reads as height only. Consider \"โตช้า/เตี้ยกว่า\" for fidelity.",
-      "#2: \"ปลูกทำพรมได้อย่างเชื่อถือได้ที่สุด\" is awkward; use \"ปลูกเป็นพรมได้แน่นอน/ได้ผลดีที่สุด\".",
-      "#2: \"เวอร์ชันมินิ\" is a stiff term; use \"แบบมินิ\" or \"สายพันธุ์มินิ\".",
-      "#1: \"สายพันธุ์ปลูกคัดเลือก (cultivar)\" is clumsy; use \"สายพันธุ์ปลูกเลี้ยง (cultivar)\" or \"พันธุ์ผสม/พันธุ์คัดเลือก\".",
-      "#3: \"มอบให้ Tropica\" is fine, but \"Aquarium plant from tissue culture in closed cup\" would be more natural as \"ไม้น้ำเนื้อเยื่อแบบถ้วยปิด\"."
+      "Item 2: the source text is Vietnamese, not English. The Thai follows it faithfully, but the source should be checked.",
+      "Item 2: \"หญ้าหัวไม้ขีด\" is not the name Thai hobbyists usually use for Eleocharis. Use \"หญ้าเข็ม\" or \"หญ้าผมนางเงือก\" (hairgrass), and keep it the same in all items.",
+      "Item 2: \"แผ่ขยายค่อนข้างเร็ว\" is weaker than the source \"lan khá hung\" (spreads aggressively). Use something like \"แผ่ขยายรุนแรง/เร็วมาก\".",
+      "Item 3: \"ปูพรมได้ผลแน่นอนที่สุด\" is slightly stiff. Consider \"เป็นหนึ่งในไม้ปูพรมที่เชื่อถือได้ที่สุด\"."
     ]
   },
   "eriocaulon-cinereum": {
@@ -990,6 +1016,23 @@
       "Item 2: \"ไม่ค่อยเรื่องมาก\" is colloquial; consider \"ไม่ต้องดูแลมาก\"."
     ]
   },
+  "hemianthus-micranthemoides": {
+    "at": "2026-11-11",
+    "from": "2026-11-10",
+    "name": "เพิร์ลกราส",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 8: \"keep the lights on for up to 10 hours daily\" -> \"ควรเปิดไฟไม่เกิน 10 ชั่วโมง\" is acceptable, but 'Fertilizer: essential' conflicts with item 1 'ควรใส่' (recommended); make consistent with each source.",
+      "Item 9: \"pearl and honey gouramis\" -> \"ปลากระดี่มุก\" is fine, but \"Japanese trapdoor\" snail -> \"หอยขมญี่ปุ่น\" is wrong (Japanese trapdoor snail is Viviparus; it is not 'หอยขม'); also \"Malaysian trumpet\" -> \"หอยมาเลเซีย\" drops 'trumpet' (use หอยเทพมาเลเซีย/หอยจุ๊บแจง style term or 'Malaysian trumpet snail').",
+      "Item 9: \"zebra danios\" -> \"ปลาม้าลาย\" ok, but \"clown loaches\" -> \"ปลาหมูอินเดีย\" is wrong; clown loach is ปลาหมูปลาตัวตลก/'ปลาหมูข้างลาย' (ปลาหมูบอลลูน? no). Use the proper name \"ปลาหมูอารีย์/โคลวน์โลช\".",
+      "Item 9: \"pygmy corydoras\" -> \"ปลาแพะแคระ\" is unusual; use \"ปลาคอรี่แคระ\".",
+      "Item 9: \"Amano\" shrimp -> \"กุ้งยามาโตะ\" ok; \"ghost shrimp\" -> \"กุ้งฝอยใส\" ok; \"koi\" -> \"ปลาคาร์ป\" loses specificity, use \"ปลาคาร์ปโคอิ\".",
+      "Item 2: \"Choose only healthy specimens\" and \"bleach solution\" -> \"น้ำยาฟอกขาวเจือจาง\" adds 'diluted' not in the source; also no dilution ratio given, which is risky care advice—state concentration or omit 'เจือจาง' consistently.",
+      "Item 6: \"Let them grow to about 5–6 cm\" fine; but \"until it takes hold it is not a rapid grower\" fine. \"Heavy trimming promotes ... giving a carpet-like look\" ok.",
+      "Item 11: \"Hard to plant\" heading -> \"ปลูกยาก\" ok; \"Yellowing leaves: ... high pH\" ok. \"Pot variant\" -> \"แบบกระถาง\" is fine."
+    ]
+  },
   "heteranthera-zosterifolia": {
     "at": "2026-11-03",
     "from": "2026-11-03",
@@ -1022,6 +1065,24 @@
       "Item 3: \"แนวเปลี่ยนผ่าน\" for \"passage\" is somewhat stiff; consider \"ช่วงเชื่อมระหว่าง\"."
     ]
   },
+  "hydrocotyle-leucocephala": {
+    "at": "2026-11-10",
+    "from": "2026-11-10",
+    "name": "บัวบกบราซิล",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Section 8 \"ปลาแพะแคระ (pygmy cory)\": pygmy cory catfish is Corydoras pygmaeus (ปลาคอรี่แคระ), not 'goat fish'. Fix the term.",
+      "Section 8 \"ปลาคาร์ป\" for koi: use ปลาคาร์พ/ปลาแฟนซีคาร์ป (koi). Plain 'carp' changes the meaning.",
+      "Section 8 \"หอยเจดีย์\" for Malaysian trumpet snails: use หอยเจดีย์มาเลเซีย or its usual name. The plain form is vague.",
+      "Section 8 \"ตัวอ่อนแมลงปอและแมลงปอเข็ม\": damselfly nymphs are ตัวอ่อนแมลงปอเข็ม. As written it reads as dragonfly nymphs plus adult damselflies.",
+      "Section 8 \"กุ้งฝอยใส (ghost shrimp)\": ghost shrimp is usually กุ้งแก้ว. Check this against the common name.",
+      "Section 6: \"คาร์บอนน้ำ\" is an unnatural rendering of liquid carbon. Use คาร์บอนน้ำ/ปุ๋ยคาร์บอนชนิดน้ำ with a clear explanation.",
+      "Section 5 \"เติมฟอสเฟตเล็กน้อย\" adds 'a little' (เล็กน้อย), which the English 'add some phosphate' does not say. Section 5 \"เปลี่ยนน้ำในปริมาณมาก\" for 'significant partial water change' drops the 'partial' sense.",
+      "Section 5 \"ตัดใบส่วนเกิน\" and \"ละลาย\" are acceptable; but 'Balling' \"จับตัวเป็นก้อน\" and 'Melting' headings are fine. Section 8: \"ปลาหางนกยูง\" is guppies and \"ปลาหางดาบ\" is swordtails, which are right.",
+      "Section 8 \"ธาตุอาหารส่วนเกิน\" and \"แหล่งหาอาหาร\" are fine. Section 8 \"ปลาแจ็คเดมป์ซีย์\" and \"ปลาซิลเวอร์ดอลลาร์\" are fine. Section 8: Asolene spixi is left in Latin, and 'rabbit snails' as \"หอยแรบบิท\" is a loose transliteration."
+    ]
+  },
   "hydrocotyle-tripartita": {
     "at": "2026-11-02",
     "from": "2026-10-30",
@@ -1036,18 +1097,19 @@
     ]
   },
   "hydrocotyle-verticillata": {
-    "at": "2026-11-02",
-    "from": "2026-10-30",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "แว่นแก้ว",
     "confidence": "medium",
     "score": 0.6,
     "notes": [
-      "Item 2: \"soft, slightly acidic water\" became \"น้ำอ่อนที่มีค่า pH เป็นกรดอ่อนเท่านั้น\". The added \"pH\" and the misplaced \"เท่านั้น\" make it read as if only weakly acidic water works. Rephrase: \"เติบโตได้ดีที่สุดเมื่อได้รับแสงจัดและอยู่ในน้ำอ่อนที่เป็นกรดเล็กน้อยเท่านั้น\".",
-      "Item 2: \"but can be used as a floating plant\" is rendered \"ปล่อยให้เป็นไม้ลอยน้ำได้\". This is acceptable, but \"แต่สามารถใช้เป็นไม้ลอยน้ำได้\" is more faithful.",
-      "Item 3: \"Verticillata originates from America\" is rendered \"ทวีปอเมริกา\". Fine, but the bare \"Verticillata\" stays in Latin as a sentence subject. Use \"H. verticillata\" or \"ไม้น้ำชนิดนี้\" for clarity.",
-      "Item 3: \"definitely a foreground plant\" is rendered \"ไม้หน้าตู้อย่างแน่นอน\". Prefer \"ไม้ปูพื้น/ไม้หน้าตู้โดยแท้\", since \"อย่างแน่นอน\" is stiff.",
-      "Item 3: \"garden ponds\" is rendered \"บ่อในสวน\". Prefer \"บ่อน้ำในสวน\".",
-      "Item 3: \"indoor plant\" is rendered \"ไม้ประดับในบ้าน\", which is fine. \"รักษาให้ดินชุ่มชื้น\" is slightly unnatural. Prefer \"ทำให้ดินชื้นอยู่เสมอ\". \"อยู่เสมอ\" is an added word, since the English says only \"kept moist\"."
+      "Item 6: \"ต่อเมื่อ...เท่านั้น\" says optimum growth only under strong light and soft acidic water, but the original's \"does not need to be rooted\" is fine. The real issue is item 7: \"free excess CO2\" was rendered as \"ส่วนเกินจากอากาศโดยไม่ต้องเติม\", which adds the claim that the CO2 comes from the air. Reword to something like \"CO2 ส่วนเกินฟรี\".",
+      "Item 9: \"Medium lighting is enough for it to thrive\" contradicts the 'high light' wording elsewhere. This is a source inconsistency, but \"เติบโตได้ดี\" should not be inflated. Keep it as \"เพียงพอให้เติบโตได้\".",
+      "Item 10: \"koi\" was translated as \"ปลาคาร์ฟ (ปลาแฟนซีคาร์ป)\". Use \"ปลาคาร์ป/ปลาโคอิ\" instead. \"Silver dollars\" is better as \"ปลาเหรียญเงิน/ซิลเวอร์ดอลลาร์\". \"Otocinclus\" is \"ปลาอ็อตโต\", not \"ออตโต้\", and \"หอยแรบบิท\" should be \"หอยแรบบิทสเนล\". \"Malaysian trumpet snails\" as \"หอยเจดีย์\" is acceptable.",
+      "Item 10: \"Jack Dempsey\" was rendered as \"แจ็คเดมซีย์\", which is acceptable. \"Amano shrimp\" was rendered as \"กุ้งยามาโตะ (อามาโน่)\"; this is fine.",
+      "Item 12: \"ใบเน่า/ใบเปื่อยยุ่ย\" for \"Melting\" is inaccurate, because the text describes die-back of the emersed form. Use \"อาการใบละลาย (melting)\" or \"ใบร่วงยุบ\".",
+      "Item 12: \"ปล่อยให้แผ่ไปทั่วผิวน้ำ\" is fine. In the final paragraph, \"การตกแต่งขอนไม้\" changes the meaning of \"driftwood\" (ideal for driftwood setups). Reword to \"ตู้ที่ตกแต่งด้วยขอนไม้\".",
+      "Item 11: \"Verticillata originates from America\" is fine. \"indoor plant\" as \"ไม้ประดับในบ้าน\" is fine. Item 7: \"Emersed in high humidity\" is fine. \"the dry start method ... providing unlimited CO2\" is acceptable."
     ]
   },
   "hygrophila-angustifolia": {
@@ -1145,15 +1207,16 @@
     "notes": []
   },
   "hygrophila-polysperma-rosanervig": {
-    "at": "2026-11-03",
-    "from": "2026-10-30",
-    "name": "ไฮโกรฟิล่า โรซาเนอร์วิก",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "ไฮโกรฟิลา โรซาเนอร์วิก",
     "confidence": "medium",
     "score": 0.85,
     "notes": [
-      "Item 3: \"อันเป็นเอกลักษณ์\" is repeated twice in close succession (mirrors the English, but reads stiff in Thai); vary or drop the second one, e.g. \"สีของเส้นใบที่ซีดจางนี้\".",
-      "Item 1: \"ถิ่นกำเนิด: สายพันธุ์ที่ปรับปรุงขึ้น (cultivar)\" is a bit wordy; Thai hobbyists more commonly write \"สายพันธุ์คัดเลือก (cultivar)\" or \"พันธุ์ปลูกเลี้ยง\".",
-      "Item 2: \"ต้องให้แสงจัด\" is acceptable, but \"แสงสว่างมาก/แสงแรง\" is the usual hobby phrasing; \"ต้นจะสูงได้ ... และกว้าง\" is fine, though \"ต้น\" for \"stems\" loses a little precision."
+      "Item 2: the source is Vietnamese and gives the plant only as \"Đại hồng hà\". The Thai \"ไฮโกรฟิลา โรซาเนอร์วิก\" is acceptable but should be written as the Latin name Hygrophila polysperma 'Rosanervig', as in item 3, so the name is consistent.",
+      "Item 2: \"ตัดแรง\" is a little colloquial and vague for \"mạnh tay\". Use something like \"ค่อนข้างรุนแรง\".",
+      "Item 4: \"ใบลายหินอ่อน\" is a slightly literal rendering of \"marbled leaves\". \"ใบลายเส้นสีชมพู\" would be more natural.",
+      "Item 1: \"สายพันธุ์ปรับปรุง (cultivar)\" is fine, but \"พันธุ์ปลูกเลี้ยง\" is the more common hobby term."
     ]
   },
   "hygrophila-serpyllum": {
@@ -1222,15 +1285,15 @@
     ]
   },
   "limnobium-laevigatum": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
-    "name": "อเมซอนฟร็อกบิท",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "Amazon Frogbit",
     "confidence": "medium",
     "score": 0.85,
     "notes": [
-      "Item 3: \"ตู้ปลาแบบเปิดฝา\" for \"open aquariums\" is acceptable, but \"ตู้เปิด\" (open-top tank) is more usual for hobbyists.",
-      "Item 2: \"it will grow much slower\" is rendered as \"ต้นจะโตช้าลงมาก\". This is fine, but \"เก็บออก\" could be \"ตัดแต่งใบออก\" to make clear that leaves are being removed.",
-      "Item 3: \"รากที่เส้นเล็ก ยาว\" is slightly awkward. Use \"รากเส้นเล็กและยาว\"."
+      "Item 2: the source text is Vietnamese, not English. The Thai matches its meaning, but check that the right source was supplied.",
+      "Item 2: \"Amazon Frogbit\" is left in Latin letters with no Thai name. Consider adding a Thai transliteration such as \"แอมะซอน ฟร็อกบิต\" the first time it appears.",
+      "Item 4: \"ปลากระดี่\" is fine for gouramies. \"ที่ชอบรากของไม้ลอย\" ends abruptly; it would read better as \"ที่ชอบอาศัยใกล้รากไม้ลอย\"."
     ]
   },
   "limnophila-aquatica": {
@@ -1243,6 +1306,18 @@
       "Item 2: \"nutritious bottom\" rendered as \"วัสดุปลูกที่มีธาตุอาหารสูง\" is fine, but \"each stem up to 15 cm wide\" -> \"แต่ละต้นกว้างได้ถึง 15 ซม.\" is a literal rendering; consider \"แต่ละกอ/ก้านแผ่กว้างได้\" to read more naturally (minor).",
       "Item 3: \"circled by ... leaves\" -> \"เรียงรอบลำต้น\" is acceptable, but \"แตกเป็นฝอยละเอียด\" is slightly awkward; \"ใบเป็นฝอยแตกแขนงละเอียด\" is more natural (minor).",
       "Item 3: \"In open aquariums\" -> \"ตู้ปลาแบบเปิดด้านบน\" is a bit wordy; \"ตู้เปิด\" is the common hobby term (minor)."
+    ]
+  },
+  "limnophila-aromatica": {
+    "at": "2026-11-10",
+    "from": "2026-11-10",
+    "name": "ผักแขยง",
+    "confidence": "high",
+    "score": 0.88,
+    "notes": [
+      "Item 3: \"ตัดยอดที่แหลมออกนอกแนวลาด\" is slightly unclear for \"outlying shoots\"; use \"ยอดที่ยื่นออกนอกแนวลาด\".",
+      "Item 2: \"เปิดไฟน้อยก่อน\" is a little ambiguous for \"để đèn thấp\"; \"ใช้แสงอ่อน/ลดความแรงของไฟ\" is clearer.",
+      "Item 1: \"ต้นที่โตแบบบก (emersed)\" is fine, but \"ต้นที่เลี้ยงนอกน้ำ\" would read more naturally."
     ]
   },
   "limnophila-hippuridoides": {
@@ -1278,29 +1353,28 @@
     "notes": []
   },
   "littorella-uniflora": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "ลิตโตเรลลา",
-    "confidence": "medium",
-    "score": 0.85,
+    "confidence": "low",
+    "score": 0.8,
     "notes": [
-      "Item 1: \"cosmopolitan\" rendered as \"พบได้ทั่วโลก\" is acceptable, but \"ไม้น้ำที่แตกไหล\" for \"stolon\" is fine; no real issue beyond this.",
-      "Item 3: \"ด้วยรูปลักษณ์ของ Littorella uniflora ทำให้เป็นไม้น้ำ...\" is a slightly awkward sentence (no clear subject); rephrase e.g. \"Littorella uniflora มีรูปลักษณ์เฉพาะตัว จึงเป็นไม้น้ำที่จดจำได้ง่ายในตู้ปลา\".",
-      "Item 3: \"lakeshores\" -> \"ริมทะเลสาบ\" is fine, but \"garden ponds\" -> \"บ่อในสวน\" could be more natural as \"บ่อน้ำในสวน\"; \"เทอร์ราเรียม\" is OK, optionally add \"ตู้ปลูกไม้บก\"."
+      "Item 2: the source text is Vietnamese, not English. Check that the right source was supplied. The Thai itself matches the Vietnamese meaning.",
+      "Item 2: \"กอใบเรียงแบบกุหลาบซ้อน\" is an awkward rendering of rosette (lá hoa thị). \"กอใบเป็นดอกกุหลาบ\" or \"กอใบแบบโรเซ็ตต์\" is more natural. \"ซ้อน\" adds a meaning that isn't in the source.",
+      "Item 4: \"ด้วยรูปลักษณ์ของ Littorella uniflora ทำให้เป็นไม้น้ำ...\" is clumsy because it has no clear subject. Rephrase as \"Littorella uniflora มีรูปลักษณ์โดดเด่น จดจำได้ง่ายในตู้ไม้น้ำ\"."
     ]
   },
   "lobelia-cardinalis": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "โลบีเลีย คาร์ดินาลิส",
     "confidence": "medium",
-    "score": 0.75,
+    "score": 0.7,
     "notes": [
-      "\"ไม้ต้น (ไม้ข้อ)\": \"Stem plant\" is usually just \"ไม้ข้อ\"; \"ไม้ต้น\" is vague, so drop it or use \"ไม้ข้อ (Stem plant)\".",
-      "\"เติบโตเป็นพุ่มเตี้ยและแน่น\": \"The growth is low and dense\" is rendered a bit loosely, but the meaning is intact.",
-      "\"เกิดขึ้นมาจากการผลิต Lobelia cardinalis ตามปกติ\": \"general production\" means commercial cultivation or propagation. \"การผลิต\" is stiff, so use \"การเพาะเลี้ยง/ขยายพันธุ์เพื่อการค้า\".",
-      "\"ถึงไม่เติมก็ยังเติบโตได้ดี\": add \"CO2\" to make clear that it grows well without CO2.",
-      "\"ปักลงในวัสดุปลูก\": \"bottom layer\" means the substrate. Use \"พื้นตู้/วัสดุปลูก\"; the current wording is acceptable but could be more precise."
+      "Item 7, Problems: \"ฆ่าเชื้อหรือแช่น้ำยากำจัดหอยให้ต้นไม้น้ำ\" adds a snail-killing solution soak that the source does not mention. The English says only \"remove snails and/or disinfect plants\". Delete the addition.",
+      "Item 1: \"สายพันธุ์ปลูกเลี้ยง (cultivar)\" has nested brackets and is awkward. Use \"พันธุ์ปลูกเลี้ยง (cultivar)\" or just \"คัลทิวาร์\".",
+      "Item 3: \"ชื่อสกุลตั้งตาม...\" narrows \"It was named after\" to the genus name. Say \"ชื่อ Lobelia ตั้งตาม...\" or keep it neutral.",
+      "Item 7: \"ดูเหมือนเป็นต้นไม้คนละชนิด\" is acceptable. \"ผอมยืด\" and \"โปร่งและผอมยืด\" for \"sparse and slender\" read a bit awkwardly. Use \"ต้นโปร่งและเรียวยาว\"."
     ]
   },
   "ludwigia-arcuata": {
@@ -1317,6 +1391,18 @@
       "Item 5: \"pond snails, slugs\" became \"หอยเล็ก ทาก\". Use the common hobby term \"หอยฝาเดียว/หอยขม\" or \"หอยกระดิ่ง\" for pond snails.",
       "Item 5: \"ฆ่าเชื้อหรือกักโรค\" is fine. \"Pests\" as \"ศัตรูพืช\" is fine. \"Melting\" as \"ใบละลาย\" in the problems list, but item 3 says \"ละลายได้ง่าย\" without \"ใบ\". Add \"ใบ\" for consistency.",
       "Item 3: \"Submerged leaves formed at 23 °C were clearly narrower\" is translated acceptably. \"พึงระวัง\" is stiff for a handbook, so use \"ควรระวัง\"."
+    ]
+  },
+  "ludwigia-brevipes": {
+    "at": "2026-11-10",
+    "from": "2026-11-10",
+    "name": "ลัดวิเจีย เบรวิเปส",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 3: \"หลายเซนติเมตร\" for \"a few inches\" is vague and reads like a larger number. Use a rounded metric range, e.g. \"ประมาณ 5–8 ซม.\", to match the 5–10 ซม. in item 2.",
+      "Item 4: \"อัตราการเติบโตค่อนข้างปานกลางกว่าเล็กน้อย\" is awkward. Say \"โตช้ากว่าเล็กน้อย\" or \"โตปานกลาง\".",
+      "Item 2: the source text is Vietnamese, not English. The Thai is faithful, but check that the source was supplied correctly."
     ]
   },
   "ludwigia-glandulosa": {
@@ -1398,12 +1484,17 @@
     ]
   },
   "marsilea-minuta": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
-    "name": "ผักแว่น",
+    "at": "2026-11-07",
+    "from": "2026-11-07",
+    "name": "มาซิเลีย มินูต้า",
     "confidence": "medium",
-    "score": 0.9,
-    "notes": []
+    "score": 0.75,
+    "notes": [
+      "Item 2: The source is Vietnamese, not English. The Thai follows it faithfully, but check that the right source text was supplied.",
+      "Item 2: \"น้ำค่อนข้างอุ่น\" renders \"nước hơi nóng\" (slightly hot water) too mildly. Use \"น้ำค่อนข้างร้อน\" or \"น้ำอุณหภูมิสูงเล็กน้อย\".",
+      "Item 2: \"Cỏ ba lá nhỏ\" (small clover) became the transliterated Latin name \"มาซิเลีย มินูต้า\". The Latin name was added, and it was not in the source. Use a Thai common name such as \"โคลเวอร์เล็ก\", or put the Latin name in brackets.",
+      "Item 2: \"แต่ถ้าตู้ยิ่งเสถียร พรมก็จะยิ่งขึ้นสวย\" is slightly stiff. Something like \"ยิ่งตู้นิ่งเท่าไร พรมก็ยิ่งสวยเท่านั้น\" reads more naturally."
+    ]
   },
   "mayaca-fluviatilis": {
     "at": "2026-11-04",
@@ -1419,17 +1510,14 @@
     ]
   },
   "micranthemum-callitrichoides": {
-    "at": "2026-11-04",
-    "from": "2026-10-31",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "HC คิวบา",
     "confidence": "high",
-    "score": 0.7,
+    "score": 0.9,
     "notes": [
-      "\"มีใบกลมขนาดเพียงไม่กี่มิลลิเมตร\" changes the source: \"millimetre-sized\" means the leaves are about 1 mm. Use \"ขนาดระดับมิลลิเมตร\" or similar.",
-      "\"เพราะเลี้ยงง่ายกว่า\" is fine, but \"ไม่ใช่ไม้น้ำที่เลี้ยงยาก\" and the shift to \"ไม้หน้าตู้\" are loose. Hobbyists also use \"ไม้ปูพื้น\" for the foreground carpet, so keep the term consistent.",
-      "\"พบในคิวบา\" drops the sense of \"on Cuba\" (the island). Use \"พบบนเกาะคิวบา\".",
-      "\"ฟองออกซิเจนเม็ดเล็กๆ เกิดขึ้นบนต้นไม้\" is vague. The source says \"on top of the plants\" and \"pearls or bubbles\", so use \"บนต้นไม้น้ำ\" or \"เหนือใบ\", and mention the pearling (ไข่มุก/ฟองอากาศ).",
-      "\"ทำให้รากตาย\" says the roots die, which matches the source. The cause, though, is lack of light in the lower parts, so \"ทำให้ส่วนล่างและรากเน่าตาย\" would read more naturally. Optional."
+      "Item 4: \"ขนาดเพียงไม่กี่มิลลิเมตร\" adds \"a few\". The English says \"millimetre-sized\", so use something like \"ขนาดระดับมิลลิเมตร\".",
+      "Item 3: the source text is Vietnamese, not English. The Thai matches its meaning, but the source should be checked."
     ]
   },
   "micranthemum-glomeratum": {
@@ -1443,19 +1531,25 @@
       "\"เบาะ\" for \"cushion\" is a bit literal; consider \"พุ่มหนาแน่นคล้ายเบาะ/หมอนนุ่ม\" or \"ก้อนกลมแน่น\""
     ]
   },
-  "micranthemum-tweediei-monte-carlo": {
-    "at": "2026-11-04",
-    "from": "2026-10-31",
+  "micranthemum-tweediei": {
+    "at": "2026-11-08",
+    "from": "2026-11-07",
     "name": "มอนติคาโล",
     "confidence": "high",
-    "score": 0.75,
+    "score": 0.9,
     "notes": [
-      "Item 2: \"ใบกลม เล็ก เรียงกันแน่น\" – English says \"compact, round\" leaves; adding \"เล็ก\" (small) is a minor addition not in the source; consider \"ใบกลมกะทัดรัด\".",
-      "Item 2: \"ต้นไม้ชนิดนี้\" is stiff; \"ไม้น้ำชนิดนี้\" is the usual hobby term.",
-      "Item 2: \"เป็นพุ่มแน่นจริง ๆ\" – \"compact\" for a carpet plant is better as \"ขึ้นเป็นพรมแน่น/หนาแน่น\" than \"พุ่ม\" (bush).",
-      "Item 2: \"ที่ร่มรำไร\" is a bit literary; \"แสงน้อย/แสงรำไร\" is more natural for aquarium use.",
-      "Item 1: \"ปลูกในตู้ได้สองเดือน\" – the source says \"in the tank\" and is slightly looser; fine in meaning but \"ซม.\" could be \"cm\" as hobbyists write it."
+      "Name inconsistency: item 1 keeps \"Monte carlo\" in Latin letters, but item 2 uses \"มอนติคาโล\" throughout. Pick one form, or give the Thai with (Monte carlo) in brackets on first use.",
+      "\"ค่าน้ำคงที่\" in the last key-factor bullet narrows \"stable\" to water parameters. A plain \"ตู้ที่นิ่งและระบบชีวภาพเซ็ตตัวแล้ว\" is closer to the English.",
+      "\"บนหินหรือขอนไม้\" for \"hardscape\" is fine in meaning but narrower. Consider \"วัสดุตกแต่งตู้ (หิน/ไม้)\"."
     ]
+  },
+  "micranthemum-tweediei-monte-carlo": {
+    "at": "2026-11-07",
+    "from": "2026-11-07",
+    "name": "มอนติคาร์โล",
+    "confidence": "high",
+    "score": 1,
+    "notes": []
   },
   "micranthemum-umbrosum": {
     "at": "2026-11-04",
@@ -1489,13 +1583,17 @@
     ]
   },
   "microsorum-pteropus-narrow": {
-    "at": "2026-11-04",
-    "from": "2026-10-31",
-    "name": "เฟิร์นชวาใบแคบ",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
+    "name": "เฟิร์นชวา Narrow",
     "confidence": "medium",
-    "score": 0.92,
+    "score": 0.78,
     "notes": [
-      "\"สายพันธุ์ปลูก\" for \"cultivars\" is slightly unnatural; \"พันธุ์ปลูกเลี้ยง\" or \"คัลทิวาร์\" would read more naturally. Meaning is intact."
+      "Item 1: \"สายพันธุ์ปลูกเกิดขึ้นหรือได้มาจากการเพาะในแหล่งเพาะเลี้ยง\" is clumsy. Use something like \"สายพันธุ์ที่เกิดหรือถูกพัฒนาขึ้นจากการเพาะเลี้ยง (cultivar)\".",
+      "Item 3: \"เพาะได้สายพันธุ์ใหม่ขึ้นมาได้ง่าย\" is repetitive (\"ได้…ได้\"). \"เพาะ\" is also not the natural verb for plants. Use \"ปรับปรุง/พัฒนาสายพันธุ์ใหม่ได้ง่าย\".",
+      "Item 2: \"เหง้าต้องโดนน้ำทั่วถึง\" shifts the meaning of \"thông thoáng\" (kept open and airy, not buried). Use \"เหง้าต้องโล่ง ไม่ถูกกลบ\".",
+      "Item 2: \"เฟิร์นชวา Narrow\" leaves \"Narrow\" untranslated. Use \"เฟิร์นชวาใบแคบ\", with (Narrow) in brackets if wanted.",
+      "Item 2: \"แกะเชือกออก\" does not match the source, which names \"ด้าย/เอ็น\" (thread or fishing line). Use \"แกะด้ายหรือเอ็นออก\"."
     ]
   },
   "microsorum-pteropus-trident": {
@@ -1586,16 +1684,13 @@
     ]
   },
   "najas-guadalupensis": {
-    "at": "2026-11-05",
-    "from": "2026-10-31",
-    "name": "กัปปี้กราส",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "นาจาส",
     "confidence": "medium",
-    "score": 0.75,
+    "score": 0.85,
     "notes": [
-      "\"ลำต้นและใบที่ละเอียดและโปร่ง\" adds 'stem and leaves'; the English only says 'fine, porous structure'. Minor, and the meaning is intact.",
-      "\"ขยายพันธุ์ได้เองโดยไม่ต้องทำอะไรมาก\" is a loose, wordy rendering of 'propagates effortlessly'. Consider \"ขยายพันธุ์ง่าย\".",
-      "\"วัสดุปลูก\" is acceptable, but hobbyists often say \"พื้นตู้\" or \"ทราย/ซับสเตรท\" for the substrate.",
-      "\"Najas guadalupensis\" in sentence 3 is a bare Latin name with no Thai common name. Fine, but \"สาหร่ายเขี้ยวกุ้ง\" is not the right plant, so keep the Latin name. It could be written more smoothly in the sentence."
+      "Item 2: the Latin genus name \"Najas\" is transliterated as \"นาจาส\". Keep \"Najas\" in Latin letters, as the other items do. You could also add a Thai common name such as \"สาหร่ายหางกระรอก\" if you want to use one, but check it first."
     ]
   },
   "nymphaea-lotus": {
@@ -1621,20 +1716,12 @@
     "notes": []
   },
   "nymphaea-zenkeri": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-10",
+    "from": "2026-11-10",
     "name": "ไทเกอร์โลตัส",
     "confidence": "medium",
-    "score": 0.85,
-    "notes": [
-      "\"ใบใต้น้ำที่จมอยู่ใต้น้ำทั้งหมด\" is redundant; use \"ใบใต้น้ำที่จมอยู่ทั้งใบ\" or \"ใบที่จมน้ำทั้งหมด\".",
-      "\"ลวดลายด่างสลับสี\" and \"ลายด่างสีแดง\" are slightly awkward for \"variegated\"; \"ลายด่าง/ลายแต้ม\" is more natural.",
-      "\"หัวบัวมักมาในกระถางพลาสติก\" reads a little unnatural; \"หัวบัวมักส่งมาในกระถางพลาสติกที่หุ้มด้วยใยหิน\" would be smoother.",
-      "\"ละลายหลังปลูก\" for \"melt away\" is a bit odd; \"เปื่อยยุ่ย/เน่าสลายไปหลังปลูก\" is more usual.",
-      "\"ตรงกลางตู้\" for \"midground\" is imprecise; \"ฉากกลาง\" or \"ระยะกลางของตู้\" is better.",
-      "\"ปุ๋ยฝังราก Easy Root Tabs\" mixes a descriptor with the brand name; the added descriptor is fine but \"ปุ๋ยเม็ดฝังราก\" is the usual hobby term.",
-      "\"การขยายพันธุ์ด้วยหัว\" is correct, but the sentence \"Another method\" follows a flower/seed sentence with no stated lead-in. Add \"การขยายพันธุ์: ด้วยเมล็ด\" or similar for clarity."
-    ]
+    "score": 0.95,
+    "notes": []
   },
   "nymphoides-aquatica": {
     "at": "2026-10-30",
@@ -1721,16 +1808,17 @@
     "notes": []
   },
   "pogostemon-deccanensis": {
-    "at": "2026-11-05",
-    "from": "2026-10-31",
+    "at": "2026-11-09",
+    "from": "2026-11-08",
     "name": "โพโกสเตมอน อีเรคตัส",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.75,
     "notes": [
-      "\"ใบคล้ายต้นสน\": the English says the stems are conifer-like (\"conifer-like stems\"). Rephrase as \"ต้นคล้ายต้นสน\" or \"ลำต้นคล้ายต้นสน\" so it doesn't read as only the leaves.",
-      "\"เติบโตปานกลาง\" is a bit stiff. \"อัตราการเติบโตปานกลาง\" is more natural.",
-      "\"รากแข็งแรง\": \"vigorous roots\" would be better as \"รากเจริญเร็ว/แข็งแรง\". This is minor.",
-      "\"ยอดที่ตัดออกมานำไปปักปลูกก็เริ่มเติบโตได้ง่าย\" is slightly awkward. Use \"ยอดที่ตัดแล้วนำไปปักชำจะแตกรากและโตได้ง่าย\"."
+      "Item 4: \"ยอดที่ตัดออกเมื่อนำไปปลูกจะเริ่มเติบโตได้ง่าย\" is awkward; rephrase as \"ยอดที่ตัดแล้วนำไปปลูกต่อจะแตกรากและโตได้ง่าย\".",
+      "Item 4: \"มีรากแข็งแรง\" for \"vigorous roots\" and \"เติบโตปานกลาง\" read abruptly; smooth them, e.g. \"อัตราการเติบโตปานกลาง รากแข็งแรง\".",
+      "Item 2: \"ต้นจะตั้งตรงขึ้นในแนวดิ่ง\" is redundant. Use \"ต้นตั้งตรงในแนวดิ่งอย่างเป็นระเบียบ\".",
+      "Item 5: \"ยอดต้นไม้\" should be \"ยอดไม้น้ำ\". \"ปลูกในช่วงกลางตู้\" would read more naturally as \"ปลูกบริเวณกลางตู้\".",
+      "Item 1: \"CO2\" and \"mg/L\" are acceptable. \"ไม้ต้น (ไม้ข้อ)\" is fine, but \"ไม้ข้อ\" alone is the more common hobby term."
     ]
   },
   "pogostemon-helferi": {
@@ -1747,28 +1835,29 @@
     ]
   },
   "pogostemon-quadrifolius": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
-    "name": "Pogostemon Octopus",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "โพโกสเตมอน ออคโตปัส",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.7,
     "notes": [
-      "\"กิ่งแขนงด้านข้าง\" for side shoots is a bit botanical; hobbyists more often say \"ยอดข้าง\" or \"หน่อข้าง\".",
-      "\"ไว้ใจได้\" is slightly colloquial for \"reliable choice\"; \"น่าเลือก\" or \"แนะนำ\" would read more naturally.",
-      "\"Nano Cubes\" is a product/trade term. \"ตู้นาโน\" is fine, but you could add the brand-style \"Nano Cube\" in brackets."
+      "Item 11: 'Neocaridina, Caridina' kept in Latin is fine, but 'ปลาซิวสามเหลี่ยม (ฮาร์เลควิน ราสโบร่า)' is OK; main issue: 'ปลาออโตซิงคลัส' is a non-standard term, use 'ปลาอ๊อตโต้' (ออโต้/อ็อตโต)",
+      "Item 11: 'ปลาเท็กซัส' for Texas cichlid is unclear, use 'ปลาหมอเท็กซัส' (Texas cichlid); 'ปลาแจ็คเดมป์ซีย์' should be 'ปลาหมอแจ็คเดมป์ซีย์', 'ปลาเรดเดวิล' should be 'ปลาหมอเรดเดวิล'",
+      "Item 11: 'กุ้งฝอยใส' for ghost shrimp is acceptable, but 'ปลาเตตร้า' is better written 'ปลาเทตร้า'",
+      "Item 3/10: 'Southeast Asia (India...)' faithfully translated, but 'ปัจจุบันแพร่กระจาย' adds 'ปัจจุบัน' (now) not in the source",
+      "Item 2: 'chicken pox' etc. fine; item 9: 'ต้นดูดธาตุอาหาร' fine. Item 7: 'ต้นละลาย' is acceptable but 'ใบเน่า/ละลาย' is more common; 'กิ่งที่ตัด' vs stems minor",
+      "Item 4: 'พาลูดาเรียม' fine; item 11 'กบตัวเล็ก' ok; 'สัตว์ไม่มีกระดูกสันหลัง' for invertebrates is stiff, use 'สัตว์น้ำเล็ก ๆ เช่น กุ้ง หอย'",
+      "Item 11: 'bunched plants (stems held with foam and a lead weight)' translated as 'รัดด้วยฟองน้ำและตะกั่วถ่วง' fine; 'ใยหิน' ok"
     ]
   },
   "pogostemon-stellatus": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
-    "name": "Pogostemon stellatus",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "โพโกสเตมอน สเตลลาตัส",
     "confidence": "medium",
     "score": 0.75,
     "notes": [
-      "Item 3: \"ปลูกแบบบก (ในสภาพชื้นแฉะ)\" – \"marshy conditions\" is better rendered as emersed growth (เลี้ยงแบบน้ำตื้น/ปลูกเหนือน้ำ/ใบเหนือน้ำ); \"ชื้นแฉะ\" sounds unnatural and slightly changes meaning.",
-      "Item 3: \"Stems from 20-60 cm and up to 10 cm wide\" – \"กว้างได้ถึง 10 ซม.\" is ambiguous; clarify that the plant/bush spreads up to 10 cm wide (ความกว้างของพุ่ม).",
-      "Item 2: \"แม้อยู่ในสภาพที่ดี\" is slightly awkward; use \"แม้จะดูแลในสภาพที่เหมาะสมแล้ว\".",
-      "Item 2: \"ตู้ปลา\" for aquarium in a plant context could be \"ตู้ไม้น้ำ\"; \"แสงจัด\" is okay but \"แสงสว่างมาก\" is more natural."
+      "Item 4: the English has \"Pogostemon stellata\", but the Thai has \"Pogostemon stellatus\". Keep the Latin name as the source gives it, or use the same form in every item."
     ]
   },
   "proserpinaca-palustris": {
@@ -1822,6 +1911,25 @@
     "score": 0.9,
     "notes": []
   },
+  "rotala-indica": {
+    "at": "2026-11-10",
+    "from": "2026-11-09",
+    "name": "โรทาล่า อินดิก้า",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Section 3: 'The author recommends a tank of no less than 40 litres' is rendered as a bare 'แนะนำให้ใช้ตู้...'. This is fine, but check the neutral phrasing.",
+      "Section 4: 'ดูแลไม่ยากถึงปานกลาง' mistranslates 'low to moderate care demands'. Use 'ต้องการการดูแลน้อยถึงปานกลาง'.",
+      "Section 4: 'Chlorosis' is rendered as 'อาการใบเหลือง' and then 'ขาดไนโตรเจน และค่า pH เป็นกรดหรือด่างมากเกินไป'. The wording is OK, but 'คนหรือปัดกอต้น ... ช้อนออก' is awkward. Consider 'ใช้มือโบกเบา ๆ'.",
+      "Section 7: 'Anacharis' is rendered 'สาเหตุ สาหร่ายหางกระรอก' and 'Amano shrimp' as 'กุ้งยามาโตะ'. Both are acceptable. However, 'harlequin rasbora' → 'ปลาซิวฮาร์เลควิน' and 'zebra danio' → 'ปลาม้าลาย' are fine.",
+      "Section 7: 'Texas cichlids' → 'ปลาเท็กซัส' is an unclear term. Use 'ปลาหมอเท็กซัส'. 'Jack Dempsey' is rendered 'ปลาแจ็คเดมป์ซีย์', which is acceptable.",
+      "Section 7: 'spike inflorescence' → 'ช่อเชิงเดี่ยว' is an incorrect botanical term. A spike is 'ช่อดอกแบบช่อเชิงลด'.",
+      "Section 7: 'freshwater crayfish' is rendered 'กุ้งเครย์ฟิช', which is acceptable. 'Pygmy corydoras' → 'ปลาคอรี่แคระ' is fine.",
+      "Section 7 table: 'Smaller (up to 20+ cm)' → 'ได้ถึง 20 ซม. ขึ้นไป' is acceptable. The 'Benefits' item 'Oxygenation' is fine.",
+      "Section 1: 'Fertilizers: not needed to low' → 'ไม่จำเป็นถึงต้องการเล็กน้อย' is awkward. Use 'ไม่จำเป็นถึงใช้น้อย'.",
+      "Section 5: 'keep it at 2–12 °dGH' has an added '(GH)' clarification. This is minor."
+    ]
+  },
   "rotala-indica-bonsai": {
     "at": "2026-11-06",
     "from": "2026-10-31",
@@ -1855,57 +1963,232 @@
     ]
   },
   "rotala-rotundifolia": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-06",
+    "from": "2026-10-31",
     "name": "โรทาล่า โรทันดิโฟเลีย",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 8: 'ปลาโอโต (otocinclus)' - the Thai hobby name is 'ปลาอ็อตโต' or 'ปลาโอโตซิงคลัส'; 'ปลาโอโต' is non-standard.",
+      "Item 8: 'ปลาม้าลาย' for zebra danio is OK, but 'ปลาหมู (ปลาหมูข้างลาย ปลาหมูคูลลี่)' for clown loach and coolie loach is questionable: clown loach is usually 'ปลาหมูอารีย์/คลาวน์โลช' and coolie loach is 'ปลาหมูคูลลี่'. Check the names.",
+      "Item 8: 'กุ้งฝอยใส' for ghost shrimp and 'กุ้งพัด' for bamboo shrimp are non-standard. Use 'กุ้งโกสต์' and 'กุ้งไผ่/บัมบูชริมป์'.",
+      "Item 8: 'ปลาปอมปาดัวร์' is used for discus. Discus is 'ปลาปอมปาดัวร์' in Thai, so this is acceptable, but add 'ดิสคัส' for clarity.",
+      "Item 8: 'หอยทรัปดอร์ญี่ปุ่น' is a transliteration that Thai readers won't know. 'Mystery snail' as 'หอยมิสเทอรี' and 'Malaysian trumpet' as 'หอยเจดีย์มาเลเซีย' are also awkward. Use hobby names.",
+      "Item 8: 'Anacharis' is translated as 'สาหร่ายหางกระรอก', which is a different plant name (Egeria densa vs. Ceratophyllum). Check it, and 'water wisteria' as 'วอเตอร์วิสทีเรีย' is acceptable.",
+      "Item 8: 'ศัตรูพืชอย่างหอย' - 'pests such as snails' is rendered correctly, but 'ตัวอ่อนแมลงปอและแมลงปอเข็ม' is fine. The phrase 'ต้นไม้อาจมีปรสิต' should say 'ไม้น้ำ'.",
+      "Item 4: 'เซ็ตวงจรไนโตรเจน' is a hobby term and fine, but 'ธาตุอาหารรอง' for micronutrients is less accurate: iron is a micronutrient ('ธาตุอาหารเสริม/จุลธาตุ'). Same in 'ธาตุอาหารรองไม่พอ' for trace elements.",
+      "Item 3: The '10 gallons' figure was dropped and only 40 L is given. This is allowed, but 10 US gallons is about 38 L, so 40 L is fine.",
+      "Item 8: 'ความยืดหยุ่นของลักษณะปรากฏ' is hard to read. Use 'ความแปรผันของรูปร่างตามสภาพแวดล้อม'."
+    ]
+  },
+  "rotala-rotundifolia-h-ra": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "โรทาล่า ฮาร่า",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"overhanging or creeping growth\" rendered as \"โน้มลงหรือเลื้อยไปตามพื้น\" is slightly loose; \"ทิ้งตัว\" or \"ห้อยลง\" would be more natural for overhanging.",
+      "\"พุ่มสีส้มหนาแน่น\" for \"cushion\" is acceptable but \"พรมกลางตู้\" or \"กอเตี้ยหนาแน่น\" may suit better.",
+      "\"ไม้น้ำจากการเพาะเลี้ยงเนื้อเยื่อในถ้วยปิด\" is fine, but \"ไม้น้ำเนื้อเยื่อ (tissue culture) ในถ้วย\" is the common hobby phrase."
+    ]
+  },
+  "rotala-wallichii": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "โรทาล่า วาลิชิ",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "\"Rotala wallichii เป็นไม้น้ำที่เลี้ยงค่อนข้างยาก\": the English says \"demanding\". Thai \"ค่อนข้างยาก\" is acceptable, but the English also says \"easy to prune\". Keep the sense of \"demanding\" (เรียกร้อง/ต้องการการดูแลมาก) and avoid implying it is generally hard to keep.",
+      "\"ปลูกเป็นกลุ่มจำนวนหลายต้น\": reads awkwardly. Use \"ปลูกหลาย ๆ ต้นรวมกันเป็นกลุ่ม\".",
+      "\"น้ำอ่อนที่มีค่า pH เป็นกรดอ่อน ๆ\": \"soft\" water refers to hardness. Make it explicit, e.g. \"น้ำอ่อน (ค่า GH ต่ำ) และเป็นกรดเล็กน้อย\", so it is not confused with pH.",
+      "\"ไม้น้ำประเภทต้น (ไม้ข้อ)\": \"ไม้ข้อ\" is not the common hobby term. Use \"ไม้น้ำก้านตัด\" or \"ไม้ก้าน\", which Thai hobbyists use.",
+      "\"ไม้น้ำฉากหลังและฉากกลาง\": the usual hobby phrasing is \"ไม้ฉากหลัง/ไม้ฉากกลาง\". Minor."
+    ]
+  },
+  "sagittaria-subulata": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "ซาจิทาเรีย ซูบูลาต้า",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
+  },
+  "salvinia-auriculata": {
+    "at": "2026-11-08",
+    "from": "2026-11-08",
+    "name": "จอกหูหนู",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": []
+  },
+  "salvinia-minima": {
+    "at": "2026-11-12",
+    "from": "2026-11-11",
+    "name": "จอกหูหนูจิ๋ว",
     "confidence": "medium",
     "score": 0.9,
     "notes": [
-      "Item 6: \"อนาคาริส (Egeria densa)\" adds a Latin name that is not in the source; use just \"อนาคาริส\" or add the Latin name only if it is verified.",
-      "Item 3: \"ส่วนที่ตายและใบเน่า\" is slightly off for \"dead parts and leaves\"; \"ส่วนและใบที่ตาย\" is closer.",
-      "Item 6: \"พืชน้ำกึ่งบกในเขตร้อนและกึ่งร้อน\" is stiff for \"amphibious, tropical and sub-tropical\"; \"พืชน้ำที่ขึ้นได้ทั้งในน้ำและบนบก พบในเขตร้อนและกึ่งเขตร้อน\" reads more naturally."
+      "\"ปลากลุ่ม Anabantids\" leaves English untranslated; use \"ปลากลุ่มลาบรินท์ (ปลากัด ปลากระดี่)\" or put the English in brackets after the Thai.",
+      "\"เอ็นด์เลอร์\" and \"โอโตซินครัส\" are transliterations that hobbyists rarely use; write \"กัปปี้เอนด์เลอร์\" or add the English in brackets, and write \"ปลาอ็อตโต\" or \"โอโตซินคลัส\" in a more common form."
+    ],
+    "parts": {
+      "quickFacts:tropica": "80039c344aff",
+      "quickFacts:aquariumbreeder": "4b2d572500f9",
+      "distribution:aquariumbreeder": "f69f64b46963",
+      "habitat:aquariumbreeder": "5f817f7b47bd",
+      "aquariumSize:aquariumbreeder": "e0f56a6b4b7b",
+      "maintenance:aquariumbreeder": "acd511749648",
+      "waterConditions:aquariumbreeder": "d24c8ba5ca4f",
+      "notes:tropica": "0272a26d026f",
+      "notes:aquariumbreeder": "243fcddce1a4"
+    }
+  },
+  "schismatoglottis-prietoi": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Schismatoglottis prietoi",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 2: \"ปลูกลงในพื้นวัสดุปลูก\" is slightly awkward for \"bottom layer\"; \"ปลูกลงในพื้นตู้\" or \"ปลูกลงในดิน/ทรายพื้นตู้\" is more natural.",
+      "Item 2: \"ซึ่งจะแตกไหลออกมาได้ง่าย\" reads as if the substrate produces the runners; use \"และแตกไหลได้ง่าย\" so the plant is the subject.",
+      "Item 2: \"อนูเบียส\" is a transliteration; hobbyists usually write \"อนูเบียส\" or \"Anubias\", so keeping the Latin name or adding it in brackets is safer."
+    ]
+  },
+  "selaginella-uncinata": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Selaginella uncinata",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"พรมสีสันเขียวชอุ่ม\" is slightly awkward for \"lush carpet of colour\"; consider \"พรมสีสันสดใสเขียวชอุ่ม\" or a more natural phrasing.",
+      "\"พื้นวัสดุปลูก\" for \"substrate\": hobbyists in Thailand usually say \"วัสดุปลูก\" or \"พื้นดิน/ซับสเตรท\"; \"คลุมพื้นวัสดุปลูก\" is slightly redundant.",
+      "\"มอสเฟิร์น\" for \"moss fern\" is acceptable, but \"สไปก์มอส/ตีนตุ๊กแก\" is the common local name for Selaginella. Consider adding it."
+    ]
+  },
+  "shinnersia-rivularis": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "ใบโอ๊คเม็กซิโก",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": []
+  },
+  "solenostoma-tetragonum": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Pearl Moss (Solenostoma tetragonum)",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ความสูงเฉลี่ยหลังปลูกในตู้ได้สองเดือน\": the English says \"after two months in the tank\". Use something simpler like \"หลังอยู่ในตู้ครบสองเดือน\".",
+      "\"เป็นลิเวอร์เวิร์ตหายากและมีเอกลักษณ์\": \"distinctive\" is rendered awkwardly. \"มีเอกลักษณ์เฉพาะตัว\" is more natural.",
+      "\"ที่ชอบที่ร่ม\": \"shade-loving\" is better as \"ที่ชอบแสงน้อย\" or \"ไม้น้ำร่ม\", the usual hobby term.",
+      "\"ลุค\" and \"เลย์เอาต์\": these are colloquial transliterations. \"ลักษณะ\" and \"การจัดตู้\" would fit a handbook better.",
+      "\"มอสที่นิยมใช้ในตู้ปลาทั่วไป\": the English says \"traditional aquarium mosses\". \"มอสดั้งเดิม\" or \"มอสแบบทั่วไปในตู้ไม้น้ำ\" is closer. \"ตู้ปลา\" should also be \"ตู้ไม้น้ำ\".",
+      "\"ฟองออกซิเจนเม็ดเล็กคล้ายไข่มุก\": \"เม็ดเล็ก\" is added and \"striking\" is not translated. The closing \"ดูสวยงามโดดเด่น\" is padding."
+    ]
+  },
+  "spirodela-polyrrhiza": {
+    "at": "2026-11-10",
+    "from": "2026-11-10",
+    "name": "แหนใหญ่",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"หลังเลี้ยงในตู้ปลาได้สองเดือน\" is slightly awkward; more natural: \"หลังปลูกในตู้ครบสองเดือน\".",
+      "Item 2: The English original is missing: the source is Vietnamese, not English. The Thai is faithful, though; \"แหนใหญ่\" is acceptable. Consider adding \"(Greater Duckweed)\" or the Latin name for clarity.",
+      "Item 3: \"ใบกลมเล็กสีเขียว\" for \"fronds\" is fine, but \"ใช้งานได้หลากหลาย\" for \"versatile\" is a literal, slightly stiff rendering. Prefer a more natural phrasing such as \"ใช้ประโยชน์ได้หลายอย่าง\".",
+      "Item 3: \"การที่โตเร็วช่วยให้ดูดซับธาตุอาหารได้มาก\" is clumsy; rephrase as \"เพราะโตเร็วจึงดูดซับธาตุอาหารได้มาก\"."
     ]
   },
   "staurogyne-repens": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-06",
+    "from": "2026-10-31",
     "name": "สตอโรไจน์ รีเพนส์",
     "confidence": "medium",
     "score": 0.9,
     "notes": [
-      "Item 8: \"ปลาเพลตี้ sunburst\" leaves 'sunburst' in English; use a Thai form such as \"ปลาเพลตี้ซันเบิร์สต์\" or \"ปลาเพลตี้สีส้มเหลือง\".",
-      "Item 8: \"หอย black devil\" is left in English; transliterate it (\"หอยแบล็กเดวิล\") or give the Thai name.",
-      "Item 8: \"ปลาคาร์ดินัลจีน (White Mountain minnow)\" and \"หอยขมญี่ปุ่น\" are uncommon Thai terms. Check that hobbyists use them, or use the more usual names (e.g. \"ปลาเรดไวท์คลาวด์\" for White Cloud Mountain minnow).",
-      "Item 5: \"Staurogyne repens เป็นไม้ต้น\" for 'stem plant' is awkward; use \"ไม้ลำต้น\" or \"ไม้ก้าน\" (ไม้ประเภทมีลำต้น).",
-      "Item 8: \"ด้วยความบอบบางและเป็นที่ชอบของสัตว์กินพืช\" slightly restates 'palatable'; \"เป็นที่ชอบของสัตว์กินพืช\" adds 'herbivores', which the source doesn't say. Use \"ถูกสัตว์แทะกินได้ง่าย\"."
+      "Item 9: \"หอยขมญี่ปุ่น\" for Japanese trapdoor snail is not a well-known hobby term; consider \"หอยญี่ปุ่น (Japanese trapdoor snail)\" or keep the English in brackets.",
+      "Item 10: \"ผ่านการเซ็ตวงจรไนโตรเจน\" adds \"nitrogen\" to \"cycles the substrate\". Phrase it more simply, e.g. \"ช่วยให้วัสดุปลูกเข้าที่/ผ่านการไซเคิล\"."
     ]
   },
   "taxiphyllum-alternans": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "ไต้หวันมอส",
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "มอสไต้หวัน",
     "confidence": "high",
-    "score": 0.85,
+    "score": 0.8,
     "notes": [
-      "\"ข้อแตกกิ่ง\" is a stiff rendering of \"branching nodes\"; more natural: \"จุดแตกกิ่ง\" or \"ข้อต่อที่แตกกิ่ง\".",
-      "\"ไต้หวันมอส\" is acceptable, but hobbyists usually write \"ไต้หวันมอส (Taiwan moss)\"; add the English name in brackets, as was done for Java moss.",
-      "\"ตู้ปลาที่มีแสงน้อย\" is fine, but \"ตู้รวม\" is ambiguous. Use \"ตู้รวมปลา\" or \"ตู้ community\" for clarity.",
-      "\"habitat ready before purchase\" is translated as \"เตรียมตู้ให้พร้อม\". This is slightly narrower than \"habitat\". Consider \"เตรียมตู้/สภาพแวดล้อมให้พร้อม\"."
+      "Item 4: \"Be sure to have the habitat ready before purchase\" was rendered as \"เตรียมตู้หรือที่ปลูกให้พร้อม\". This is a slight reinterpretation, because it adds \"ตู้หรือ\". Keep it closer to the source, e.g. \"เตรียมที่อยู่/ที่ปลูกให้พร้อมก่อนซื้อ\".",
+      "Item 5: \"family Isopterygium\" is wrong in the source, because Isopterygium is a genus. The Thai \"กลุ่ม\" blurs this, which is acceptable. Consider \"สกุล\" only if correcting is allowed. Otherwise keep \"กลุ่ม\".",
+      "Item 3: \"วีปปิ้งมอส\" is a transliteration. The common Thai name is \"วีปปิ้งมอส\", so this is fine, but \"ขนาดย่อส่วน\" placed after the name reads slightly awkwardly.",
+      "Item 1: \"ข้อ\" for \"nodes\" is a little unusual. Consider \"ข้อ/จุดแตกกิ่ง\" for clarity."
     ]
   },
   "taxiphyllum-barbieri": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-10-31",
     "name": "มอสจาวา",
     "confidence": "high",
-    "score": 0.75,
+    "score": 0.7,
     "notes": [
-      "Item 2: \"ถูกลืมทิ้งไว้ในถังนานถึงสองเดือน\" — source says \"bucket\" (ถัง/xัง) and \"in the tank\" is not stated; use \"ถัง/xังน้ำ\" is fine but avoid confusion with aquarium tank \"ตู้\"; consider \"ในถังน้ำ (xัง)\" to distinguish from \"ตู้ปลา\".",
-      "Item 2: \"มอสในตู้ปลาดูเป็นระเบียบ\" — fine, but \"ให้เล็มแต่งเล็กน้อย\" for \"quick trim\" could be \"ตัดแต่งคร่าว ๆ\"; \"ไม่ทำให้การเติบโตในภายหลังเสียหาย\" is stiff, use \"ไม่กระทบการเติบโตต่อไป\".",
-      "Item 2: \"ตะไคร่ขน\" for hair algae is acceptable but \"ตะไคร่ขนผม/สาหร่ายเส้นผม\" is also used; and \"กินปุยสีขาวนั้นจนหมดอย่างเพลิดเพลิน\" is slightly awkward, try \"กินปุยสีขาวนั้นจนหมดอย่างเอร็ดอร่อย\".",
-      "Item 3: \"กุ้งก็ชอบที่มีที่ให้อาศัย\" — \"nest\" is better rendered as \"ที่วางไข่/ที่ทำรัง\" or \"ที่เกาะอาศัยเลี้ยงลูก\"; \"เก็บกินทำความสะอาดมอสอย่างเบามือ\" is awkward, try \"ช่วยแทะเล็มทำความสะอาดมอสอย่างอ่อนโยน\".",
-      "Item 4: \"เส้นสีเขียวฝอย ๆ ลอยอยู่เหนือกรวด\" — \"wisps resting above the gravel\" means resting, not floating; use \"พาดอยู่เหนือกรวด\" to avoid repeating \"ลอย\"."
+      "Item 3: \"ลืมต้นไม้ไว้ในถัง\" – \"bucket\" is a bucket (xô/กะละมัง/ถังน้ำ), and \"plant\" here is the moss; use \"ลืมมอสไว้ในถังน้ำ\" so it isn't confused with the aquarium. \"ถัง\" alone is ambiguous.",
+      "Item 3: \"มอสในตู้ปลา\" – the source says \"in the tank\" (the aquarium it is in), fine, but \"เล็มสั้น ๆ\" for \"a quick trim\" loses the meaning of a quick/easy trim; use \"ตัดแต่งสั้น ๆ\" or \"ตัดแต่งเล็กน้อย\".",
+      "Item 3: \"white fluff\" is rendered as \"ปุยสีขาว\"; the source says shrimp eat the fluff of hair algae, so name it as the algae (\"ตะไคร่ขนสีขาวฟู\") rather than a separate fluff.",
+      "Item 6: \"ไม้เลื้อยไอวี่\" – ivy is better as \"ไอวี่\" or \"ไม้เลื้อยอย่างไอวี่\"; \"เส้นสีเขียวพลิ้ว\" for \"green wisps\" is awkward; use \"เส้นใยสีเขียวพลิ้วไหว\".",
+      "Item 6: \"สามารถคลุมหรือผูกไว้กับกิ่งไม้ได้ทั้งในระดับสูงและต่ำ\" – \"drape over\" should be \"พาดคลุมกิ่งไม้\"; this wording is vague.",
+      "Item 5: \"กุ้งก็ชอบที่มีที่ให้อาศัย\" – \"nest\" is rendered as \"live in\"; use \"ที่วางไข่/ที่ทำรัง\" if the sense is nesting, or \"ที่เกาะพักอาศัย\".",
+      "Item 7: \"South-East Asia\" is \"เอเชียตะวันออกเฉียงใต้\" (correct), but \"ไม่ค่อยเรื่องมาก\" is colloquial for a handbook; use \"ไม่ต้องการการดูแลมาก\". Also \"มอสจะเติบโตหนา 3–10 ซม.\" is fine, but \"ในตู้เพาะพันธุ์ ... ชั้นดี\" is slightly literary.",
+      "Item 1: \"ใช้ได้หลากหลาย\" for \"versatile\" is vague; use \"ปรับใช้ได้หลายแบบ/จัดตู้ได้หลากหลาย\". \"ไม่มีราก\" – source says \"does not root\", better \"ไม่หยั่งราก\" (it has rhizoids).",
+      "Item 1: \"ส่วนปลายที่เป็นสีเขียวอ่อนคือส่วนที่งอกใหม่\" – OK in meaning, but \"indicate\" is better as \"แสดงถึงการเติบโตใหม่\"."
     ]
+  },
+  "taxiphyllum-sp-flame-moss": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "เฟลมมอส",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "\"ลงตู้ได้สองเดือน\" is fine, but the height is inconsistent: item 1 says 3–10+ cm and item 2 says 5–15 cm. This is in the source, so keep it. No fix is needed there.",
+      "\"เหมาะมากกับพื้นผิวแนวราบ\": the English says \"horizontal surfaces\", but the sentence \"only spreads slowly horizontally\" has a logic problem in the source. The Thai \"แผ่ขยายออกด้านข้างได้ช้าเท่านั้น\" reads awkwardly. Rephrase it as \"แผ่ขยายไปด้านข้างได้ช้า\".",
+      "\"บรรจุในถ้วยปิด\": \"closed cup\" is rendered literally. Use the hobby phrasing \"ถ้วยปิดสนิท\" or \"คัพ\" (tissue culture cup).",
+      "\"ผูกมอสไว้กับหินก้อนเล็ก ๆ หรือผูกเป็นกระจุกเล็ก ๆ บนรากไม้\": \"Attach\" is rendered as \"ผูก\" (tie). Only the second half has \"in small bundles\", and that is covered. Consider \"ยึด\" or \"ผูกติด\" to be more neutral, since the moss can also be glued."
+    ]
+  },
+  "taxiphyllum-sp-spiky-moss": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "สไปกี้มอส",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "Item 1: Height '3 - 10+ cm' vs item 2 '2-10 cm' is a source inconsistency, not a translation error; no change needed except consider keeping consistent.",
+      "Item 2: 'ถ้าจะอธิบายให้เห็นภาพที่สุดก็คือ' is a bit wordy for 'Best described as'; consider 'เรียกได้ว่าเป็นพี่ใหญ่ของ...'.",
+      "Item 2: 'คริสต์มาสมอส' is fine, but could add the common Thai hobby form 'Christmas Moss' in brackets for clarity.",
+      "Item 2: 'ขึ้นได้สวยที่สุด' for 'does best' slightly narrows meaning to looks; 'เติบโตได้ดีที่สุด' is closer."
+    ]
+  },
+  "utricularia-graminifolia": {
+    "at": "2026-11-12",
+    "from": "2026-11-09",
+    "name": "ยูจี (Utricularia graminifolia)",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"ไม่มีราก\" is a faithful rendering but the plant (UG, Utricularia graminifolia) is not named in full; fine as in source, though \"แค่โดนกระทบเบา ๆ ก็หลุด...แล้ว\" has a slightly awkward \"แล้ว\"; consider \"แค่สัมผัสเบา ๆ ก็หลุดจากวัสดุปลูก\".",
+      "\"ปลูกต้นใหม่ซ่อมแทน\" is slightly clumsy; consider \"ปลูกต้นใหม่ซ่อมแทนจุดนั้น\" or \"ปลูกเสริม\".",
+      "\"หน้าตู้\" for \"tiền cảnh\" is acceptable but \"ด้านหน้าตู้\" or \"ฉากหน้า\" reads more natural."
+    ],
+    "parts": {
+      "quickFacts:tropica": "45d7e205dfe7",
+      "notes:tropica": "7ae068c36b4a",
+      "maintenance:aquatome": "36fb817a8ba0"
+    }
   },
   "vallisneria": {
     "at": "2026-10-30",
@@ -1916,6 +2199,60 @@
     "notes": [
       "\"ปุ๋ยน้ำแบบครบสูตร\": the source says only \"all-in-one fertilizer\", so \"น้ำ\" (liquid) is added. Use \"ปุ๋ยแบบครบสูตร (all-in-one)\".",
       "\"10 ดอลลาร์\": the price is left in US dollars. Thai readers would be better served by a baht equivalent (about 350 บาท) or a rough local price."
+    ]
+  },
+  "vallisneria-americana-natans": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "วาลิสเนอเรีย นาทานส์",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
+  },
+  "vallisneria-sp-gigantea": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "วาลิสเนเรีย ไจแกนเทีย",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Minor: \"ไม้น้ำที่ขยายพันธุ์ด้วยไหล\" is fine, but \"Type: stolon\" could be shorter, e.g. \"ประเภท: ไม้ไหล\". Optional.",
+      "Minor: \"ลงตู้ปลา\" could be \"ลงตู้\" for naturalness."
+    ]
+  },
+  "vallisneria-spiralis": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "วาลิสเนเรีย ไทเกอร์",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 3: \"ลายบนใบ\" is vaguer than \"striped leaves\". Use \"ลายแถบ/ลายทางบนใบ\" so the tiger-stripe image comes through.",
+      "Item 1: \"ไม้น้ำที่แตกต้นใหม่จากไหล\" is a long paraphrase of \"Stolon\". A shorter form such as \"ประเภท: ไม้แตกไหล\" would suit a spec list better."
+    ]
+  },
+  "vesicularia-ferriei": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "วีปปิ้งมอส",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"เคยถูกจัดจำหน่ายโดย\": The English \"has been distributed by\" doesn't say the distribution has stopped. \"เคย\" suggests it did. Use \"ถูกจัดจำหน่ายโดย\" or \"มีการจัดจำหน่ายโดย\".",
+      "\"เหมาะที่สุดคือการผูกติด...\": This is slightly clumsy. A smoother version is \"ควรผูกติดกับขอนไม้หรือรากไม้\" or \"เหมาะที่สุดที่จะผูกติด...\"."
+    ]
+  },
+  "vesicularia-montagnei": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "คริสต์มาสมอส",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"ซึ่งทำให้แยกออกจาก Vesicularia dubyana ธรรมดาได้\" is slightly ambiguous about what \"which\" refers to (the branching structure). Rephrase to make it clear, e.g. \"ลักษณะนี้ช่วยแยกออกจาก...\".",
+      "\"ที่ได้ชื่อว่า ... ก็เพราะ\" is a bit stiff. Consider \"ได้ชื่อว่า 'คริสต์มาสมอส' เพราะ...\".",
+      "\"ทรงยังสวยอยู่\" is colloquial. Consider \"คงทรงที่สวยงามไว้\".",
+      "\"after two months in the tank\" is rendered as \"หลังลงตู้ปลา\". \"ตู้\" or \"ตู้ไม้น้ำ\" would be more natural for a planted tank."
     ]
   }
 }

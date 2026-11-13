@@ -1,0 +1,104 @@
+{
+  "id": "hypostomus-luteus",
+  "native": {
+    "input": "08d1c2fc0f914d88",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Pelotas at Volta Grande Dois, Marcelino Ramos, Rio Grande do Sul, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Hypostomus luteus is endemic to Brazil, occurring in the Uruguay, Canoas, Pelotas, Forquilha, Passo Fundo, Ijuí and Jaguari rivers, in the upper Uruguay River basin.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Uruguay River",
+        "source": "planetcatfish",
+        "quote": "South America: upper Uruguay River basin (La Plata, Uruguay, Upper Uruguay, Pelotas).",
+        "ok": true
+      },
+      {
+        "name": "Rio Pelotas",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Pelotas at Volta Grande Dois, Marcelino Ramos, Rio Grande do Sul, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Uruguay River",
+        "source": "scotcat",
+        "quote": "Hypostomus luteus is endemic to Brazil, occurring in the Uruguay, Canoas, Pelotas, Forquilha, Passo Fundo, Ijuí and Jaguari rivers, in the upper Uruguay River basin.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "UY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus luteus",
+    "status": "ACCEPTED",
+    "taxonKey": 5202268,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        46
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        15
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        3
+      ],
+      [
+        "10896e86-2118-4f8e-8711-adedf11bec7a",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PY"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

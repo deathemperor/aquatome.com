@@ -1,10 +1,13 @@
 {
   "slug": "lake-tebera",
-  "name": "Lake Tebera",
-  "altNames": [],
+  "name": "hồ Tebera",
+  "altNames": [
+    "Lake Tebera"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

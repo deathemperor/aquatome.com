@@ -1,0 +1,76 @@
+{
+  "id": "lacustricola-katangae",
+  "native": {
+    "input": "d1dc71badb05a241",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Congo.",
+        "words": "Congo",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lacustricola katangae",
+    "status": "ACCEPTED",
+    "taxonKey": 4284421,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        518
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        120
+      ],
+      [
+        "3ea542dc-885d-4c8a-91a3-64d0a5d78301",
+        25
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        20
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        14
+      ],
+      [
+        "2ca312ee-40cf-49e0-b864-31531b7eba81",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        2
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "d27a7bf0-d78e-46d4-bc74-6b2ae4705367",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

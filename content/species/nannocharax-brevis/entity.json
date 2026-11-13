@@ -11,6 +11,112 @@
     "congo",
     "central-african-republic"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Congo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The African darter characin, Nannocharax brevis, is a citharinid endemic to parts of the River Congo basin in the Democratic Republic of Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to parts of River Congo basin in the Democratic Republic of Congo.",
+          "countries": [],
+          "regions": [
+            "Congo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355865,
+      "total": 15,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CD",
+          10
+        ],
+        [
+          "CF",
+          4
+        ],
+        [
+          "GN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -9.84375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          19.6875,
+          5.625,
+          2,
+          0
+        ],
+        [
+          21.09375,
+          4.21875,
+          3,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          4,
+          4
+        ],
+        [
+          23.90625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -132,8 +238,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

@@ -1,0 +1,755 @@
+{
+  "id": "crenicichla-lugubris",
+  "scientificName": "Crenicichla lugubris",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Crenicichla",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "suriname",
+    "corantijn",
+    "guyana",
+    "essequibo",
+    "brazil",
+    "rio-negro",
+    "rio-jutai"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR",
+        "GY",
+        "BR"
+      ],
+      "regions": [
+        "Rio Corantijn",
+        "Rio Essequibo",
+        "Rio Negro",
+        "Rio Uatumã",
+        "Rio Branco",
+        "Rio Jutai"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Atabo red pike cichlid, Lugubria lugubris, is a large pike cichlid from rivers in Suriname, Guyana and Brazil.",
+          "countries": [
+            "SR",
+            "GY",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.",
+          "countries": [],
+          "regions": [
+            "Rio Corantijn",
+            "Rio Essequibo",
+            "Rio Negro",
+            "Rio Uatumã",
+            "Rio Branco"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Jutai is a municipality in western Brazil, named after the Rio Jutai, which is an affluent to the Amazon river.",
+          "countries": [],
+          "regions": [
+            "Rio Jutai"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370957,
+      "total": 404,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          199
+        ],
+        [
+          "BR",
+          132
+        ],
+        [
+          "GY",
+          54
+        ],
+        [
+          "CO",
+          13
+        ],
+        [
+          "SR",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          0,
+          2,
+          0
+        ],
+        [
+          -73.125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          0,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          0,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          5.625,
+          5,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          8,
+          0
+        ],
+        [
+          -70.3125,
+          8.4375,
+          4,
+          0
+        ],
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          4.21875,
+          7,
+          0
+        ],
+        [
+          -68.90625,
+          5.625,
+          75,
+          0
+        ],
+        [
+          -68.90625,
+          7.03125,
+          4,
+          0
+        ],
+        [
+          -67.5,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          7,
+          0
+        ],
+        [
+          -67.5,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          5.625,
+          46,
+          0
+        ],
+        [
+          -67.5,
+          7.03125,
+          20,
+          0
+        ],
+        [
+          -67.5,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          7.03125,
+          7,
+          0
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          25,
+          25
+        ],
+        [
+          -61.875,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -61.875,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          5.625,
+          7,
+          1
+        ],
+        [
+          -60.46875,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -60.46875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          13,
+          13
+        ],
+        [
+          -60.46875,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          -60.46875,
+          5.625,
+          10,
+          10
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          -59.0625,
+          5.625,
+          9,
+          9
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          12,
+          12
+        ],
+        [
+          -57.65625,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          -56.25,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          0,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          -50.625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          8,
+          8
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -11.25,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 27,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 40
+      },
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
+      "html": "<p>The Atabo red pike cichlid, Lugubria lugubris, is a large pike cichlid from rivers in Suriname, Guyana and Brazil. Colourful when small, it quickly grows into an aggressive adult of up to 40 cm and will eat any fish small enough to be considered food. Pairs are difficult to form because males become increasingly aggressive as they mature, and prospective mates are often killed.</p><ul><li>Needs 27 °C or warmer</li><li>Needs a very large tank</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_jutai_en/",
+      "html": "<p>Currently the specimens are 20-25 cm long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
+      "html": "<p>Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_jutai_en/",
+      "html": "<p>Jutai is a municipality in western Brazil, named after the Rio Jutai, which is an affluent to the Amazon river. From this region originates the impressive, beautiful Crenicichla lugubris, which could be imported in very small numbers.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
+      "html": "<p>Well planted rivers and tributaries.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
+      "html": "<ul><li>Standard length: 40 cm SL</li><li>Aquarium base: 180 × 60 cm</li><li>Volume: ~972 litres (180 × 60 × 90 cm)</li></ul>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
+      "html": "<p>Sand substrate is recommended. This species is likely to dig and arrange the decor to suit itself. Some rockwork should be provided to form caves as pikes like to have an area to which they can retreat. Plants should be robust, ideally potted or rooted to bogwood.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
+      "html": "<ul><li>Temperature: 27–29°C</li><li>pH: 5.5–6.5</li><li>Hardness: up to 15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
+      "html": "<p>Feed a varied diet including a good quality cichlid pellet or flake, live or frozen foods such as bloodworm or brine shrimp, meaty foods such as prawn and mussel and vegetable matter in the form of spirulina or algae wafers.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
+      "html": "<p>Can be aggressive, especially towards conspecifics. May be kept with other large cichlids or as a species only setup. Likely to eat any fish small enough to be considered food - and they have big mouths!</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
+      "html": "<p>Male has white stripe on the dorsal fin. Females are more colourful.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_jutai_en/",
+      "html": "<p>The females can be recognized by the broad white seam in the dorsal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
+      "html": "<p>Very few reports of breeding in captivity. Believed to be a cave spawner. Excellent parental care is exhibited. Can be difficult to form a pair due to the increasing aggression from the male as the fish mature. Prospective mates are often killed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
+      "html": "<p>An attractive and colourful fish when small, this species quickly grows into a large aggressive adult, requiring a large tank.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/b745cf5f5aef5694.webp",
+      "thumb": "https://media.aquatome.com/commons/b745cf5f5aef5694-480.webp",
+      "width": 960,
+      "height": 680,
+      "licence": "CC BY-SA 4.0",
+      "author": "Herbisius",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crenicichla_Xingu_1_female_and_male.tif",
+      "caption": "Paar Crenicichla Xingu 1 (W oben, M unten)",
+      "large": {
+        "url": "https://media.aquatome.com/commons/b745cf5f5aef5694-large.webp",
+        "width": 1694,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7a50b50eaa7d6011.webp",
+      "thumb": "https://media.aquatome.com/commons/7a50b50eaa7d6011-480.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "CC BY-SA 4.0",
+      "author": "Herbisius",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crenicichla_Xingu_1_female_(front)_and_male.tif",
+      "caption": "Paar Crenicichla Xingu 1 (W vorne, M hinten)"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá công suất lớn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

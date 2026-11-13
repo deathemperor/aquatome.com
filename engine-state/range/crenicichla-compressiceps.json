@@ -1,0 +1,52 @@
+{
+  "id": "crenicichla-compressiceps",
+  "native": {
+    "input": "120a98b3196c8290",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the lower Rio Tocantins basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tocantins",
+        "source": "seriouslyfish",
+        "quote": "Known only from the lower Rio Tocantins basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Crenicichla compressiceps",
+    "status": "ACCEPTED",
+    "taxonKey": 2370999,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T04:57:39.069Z"
+  }
+}

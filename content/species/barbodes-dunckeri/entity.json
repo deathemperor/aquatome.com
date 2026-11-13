@@ -11,6 +11,58 @@
     "peninsular-malaysia",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "SG"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from 'Bukith Timah, Singapore' and also occurs throughout Peninsular Malaysia though may now be extirpated in Singapore.",
+          "countries": [
+            "MY",
+            "SG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9304972,
+      "total": 6,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          5
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -54,7 +106,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -134,17 +186,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/e3f33910717fbf0e.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/e3f33910717fbf0e-480.webp",
-      "width": 640,
-      "height": 258,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-dunckeri",
-      "caption": "Preserved specimen.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/4d43deba9a8e4c39.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/4d43deba9a8e4c39-480.webp",
       "width": 640,
@@ -161,8 +202,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x45 cm",
-        "bể cá 240 lít"
+        "bể cá 120cm"
       ]
     },
     {

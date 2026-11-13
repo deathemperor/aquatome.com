@@ -11,6 +11,70 @@
     "brahmaputra",
     "bhutan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BT"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Mahananda River",
+        "Kalmoni"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Streamlets near Tangla, Darrang District, Assam, India', but records also exist from the Mahananda River in West Bengal state and other tributaries of the lower Brahmaputra river system, some of which originate in Bhutan.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Brahmaputra",
+            "Mahananda River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "If distribution records are correct this species occurs in both lowland and higher altitude environments, from around 250 m AMSL in Darrang to 1767 m in Mirik, and possibly higher in Bhutan.",
+          "countries": [
+            "BT"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Further upstream it's been recorded in the Kalmoni river drainage in Dibrungharh district, close to the border between Assam and neighbouring Arunachal Pradesh state.",
+          "countries": [],
+          "regions": [
+            "Kalmoni"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361540,
+      "total": 5,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MM",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          21.09375,
+          5,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -54,7 +118,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -160,17 +224,6 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/devario-assamensis",
       "caption": "Specimen of the 'blood stripe' form collected in the hills around Darjeeling, West Bengal state, northern India.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/67de2da4efb648bc.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/67de2da4efb648bc-480.webp",
-      "width": 768,
-      "height": 478,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/devario-assamensis",
-      "caption": "Specimen of the 'blood stripe' form collected at over 1000 m AMSL in the Siwalik mountains, West Bengal state, India. NM",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -178,8 +231,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá dài 120x45"
+        "bể cá 120cm"
       ]
     },
     {

@@ -2,6 +2,69 @@
   "id": "taxiphyllum-alternans",
   "photos": [
     {
+      "url": "https://media.aquatome.com/tropica/059db1a8c191bb3a.webp",
+      "thumb": "https://media.aquatome.com/tropica/059db1a8c191bb3a-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Taxiphyllumalternans'TaiwanMoss'(003CTC)/19551",
+      "source": "tropica",
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/f096649ad963f6ff.webp",
+      "thumb": "https://media.aquatome.com/tropica/f096649ad963f6ff-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Taxiphyllumalternans'TaiwanMoss'(003CTC)/19551",
+      "source": "tropica",
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/24760273561.webp",
+      "thumb": "https://media.aquatome.com/flickr/24760273561-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-SA 2.0",
+      "author": "kochibi@JPN",
+      "sourceUrl": "https://www.flickr.com/photos/94410816@N02/24760273561",
+      "caption": "Rêu Đài Loan mọc xen cây khác ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/28bf736b6e6aadd1.webp",
+      "thumb": "https://media.aquatome.com/tropica/28bf736b6e6aadd1-480.webp",
+      "width": 1200,
+      "height": 855,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/28bf736b6e6aadd1-large.webp",
+        "width": 1685,
+        "height": 1200
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Taxiphyllumalternans'TaiwanMoss'(003CTC)/19551",
+      "source": "tropica",
+      "best": true,
+      "kind": "submersed"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/24486132179.webp",
+      "thumb": "https://media.aquatome.com/flickr/24486132179-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-SA 2.0",
+      "author": "kochibi@JPN",
+      "sourceUrl": "https://www.flickr.com/photos/94410816@N02/24486132179",
+      "caption": "Thảm Rêu Đài Loan mọc dày ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/472757565.webp",
       "thumb": "https://media.aquatome.com/inaturalist/472757565-480.webp",
       "width": 768,
@@ -14,7 +77,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 3,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 23,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-08"
 }

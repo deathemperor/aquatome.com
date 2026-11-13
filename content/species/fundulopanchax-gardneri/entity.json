@@ -11,6 +11,141 @@
     "cross-river",
     "cameroon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG",
+        "CM"
+      ],
+      "regions": [
+        "Cross River",
+        "Benue River",
+        "Lake Ejagham"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Cross River system in southeastern Nigeria and western Cameroon plus the Benue River drainage in central Nigeria.",
+          "countries": [
+            "NG",
+            "CM"
+          ],
+          "regions": [
+            "Cross River",
+            "Benue River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Of the nominal subspecies (see 'Notes'), F. g. lacustris is known only from Lake Ejagham and its tributary stream in western Cameroon, F. g. mamfensis occurs in rainforest tributaries of the upper Cross River in the Mamfe lowlands of southwestern Cameroon and F. g. nigerianus is distributed throughout southern, southwestern, central, northern and eastern Nigeria including the Niger and Benue rivers plus minor coastal drainages of southeastern Nigeria, and in the Benue system it's also been recorded in western Cameroon.",
+          "countries": [],
+          "regions": [
+            "Lake Ejagham"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348519,
+      "total": 20,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "NG",
+          13
+        ],
+        [
+          "CM",
+          4
+        ],
+        [
+          "DE",
+          2
+        ],
+        [
+          "GH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -4.21875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          5.625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          7.03125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          7.03125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          7.03125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          8.4375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          8.4375,
+          6,
+          6
+        ],
+        [
+          9.84375,
+          50.625,
+          2,
+          0
+        ],
+        [
+          11.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          11.25,
+          7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -48,7 +183,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },

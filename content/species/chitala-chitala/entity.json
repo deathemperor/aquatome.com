@@ -1,0 +1,490 @@
+{
+  "id": "chitala-chitala",
+  "scientificName": "Chitala chitala",
+  "order": "Osteoglossiformes",
+  "family": "Notopteridae",
+  "genus": "Chitala",
+  "group": "other",
+  "places": [
+    "asia",
+    "pakistan",
+    "indus",
+    "india",
+    "ganges",
+    "nepal",
+    "koshi",
+    "bangladesh",
+    "brahmaputra"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 122
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200,
+        "hidden": "shorter than twice the fish (122 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-chitala",
+      "html": "<p>The Indian featherback, Chitala chitala, is a very large notopterid probably restricted to Pakistan, India, Nepal and Bangladesh. Its name has been widely misapplied in the trade, most often to the Southeast Asian C. ornata, but it is very rarely exported for aquaria and is fished and cultured for food in India. Growing to 1220 mm SL, it has non-ocellated black spots above the anal fin and is the only Chitala normally showing gold or silver bars on the back.</p><p>Rated difficult because it needs a tank at least 2 m long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-chitala",
+      "html": "<p>Although often reported to range throughout most of southern Asia this species is probably restricted to the Indian subcontinent in Pakistan, India (records from the states of Manipur, Uttaranchal, West Bengal, Assam, Tripura, Uttar Pradesh, and Bihar), Nepal, and Bangladesh.</p><p>Records from Myanmar appear to refer to misidentification of Notopterus notopterus, and those from Southeast Asia to the congeners C. blanci, C. borneensis, C. hypselonotus, C. lopis or C. ornata.</p><p>Type locality is 'Bengal and Bebar rivers, India'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-chitala",
+      "html": "<p>Mostly known from major river channels and freshwater lakes, but has also been observed in swamps, beels, presumably during the spawning season.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-chitala",
+      "html": "<p>Suitable only for public installations or the very largest, highly-specialised private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-chitala",
+      "html": "<p>Prefers dim lighting and access to refuges in the form of driftwood, large rocks or lengths of plastic piping.</p><p>A large, mature filter system, rigorous maintenance regime comprising weekly water changes of 50-70% tank volume, and provision of highly-oxygenated water with a degree of movement should be considered mandatory.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-chitala",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-chitala",
+      "html": "<p>An obligate, typically nocturnal, predator feeding on smaller fishes, crustaceans and other invertebrates in nature but in most cases adapting well to dead alternatives in captivity.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc., as well as dried pellets although the latter should not form the staple diet.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-chitala",
+      "html": "<p>Relatively peaceful with fishes too large to be considered prey but can be territorial with conspecifics and other similarly-shaped species, especially if space is at a premium.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-chitala",
+      "html": "<p>Unreported in captivity but in nature female individuals have been observed to deposit eggs on solid surfaces such as submerged tree stumps or stakes, after which the male remains to guard and tend them. Spawning takes place on a seasonal basis between May and August, which corresponds to the timing of the summer monsoon.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-chitala",
+      "html": "<p>This species' name has been widely misapplied in the aquarium trade and hobbyist literature, most often in reference to the Southeast Asian species C. ornata, but unlike its relative is in fact very rarely exported for ornamental purposes although its is fished and cultured for food in India.</p><p>It can be told apart from C. ornata by possessing a row of non-ocellated (vs. ocellated) black spots in the posterior portion of the body, above the anal-fin. In addition it is the only member of the genus in which a series of transverse gold or silver bars is normally present on the dorsum.</p><p>Notopterids are distributed in Africa and Southeast Asia and all possess an elongated anal-fin which is continuous with the caudal-fin, a 'humped' appearance, very small scales, plus the ability to breathe atmospheric air.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-chitala",
+      "html": "<ul><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches. An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Shrestha, T. K. (2008). Ichthyology of Nepal. A study of fishes of the Himalayan waters. Himalayan Ecosphere, Kathmandu, Nepal., 389 pp., 72 pls.</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/66be7c0556572082.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/66be7c0556572082-480.webp",
+      "width": 800,
+      "height": 465,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-chitala",
+      "caption": "C. chitala differs from C. ornata in that the black spots in the posterior portion of the body are not ocellated.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/89c9f7f7c4a0150a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/89c9f7f7c4a0150a-480.webp",
+      "width": 800,
+      "height": 510,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-chitala",
+      "caption": "This species normally possesses silver or gold transverse bars on the dorsum of the body, as seen here.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e08833894d4df39d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e08833894d4df39d-480.webp",
+      "width": 800,
+      "height": 450,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-chitala",
+      "caption": "Adult specimen from Assam state, northeastern India.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "98592RlWGpY",
+      "title": "Chitala fish #aquarium #fish #endangeredspecies #uttarpradesh #statefish #shorts #newshorts #latest",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bKTJ_9hUN2c",
+      "title": "Chitala fish l Different Types Of Aquarium Fish",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kkVEdLy9FJY",
+      "title": "Chitala Fish part 2 #information #fishing #aquarium #shorts #newshorts #latestshorts #fish #asmr",
+      "durationSec": 24,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-LASjDhQDRs",
+      "title": "Chitala featherback fish in aquarium #chitalfish #featherbackfish #shorts #viral #trending",
+      "durationSec": 31,
+      "lang": "hi"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200cm",
+        "bể cá kính cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá săn mồi",
+        "tôm tươi cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [
+        "PK",
+        "IN",
+        "NP",
+        "BD"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Indian featherback, Chitala chitala, is a very large notopterid probably restricted to Pakistan, India, Nepal and Bangladesh.",
+          "countries": [
+            "PK",
+            "IN",
+            "NP",
+            "BD"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2402277,
+      "total": 80,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          50
+        ],
+        [
+          "PK",
+          14
+        ],
+        [
+          "TH",
+          6
+        ],
+        [
+          "BD",
+          4
+        ],
+        [
+          "ID",
+          2
+        ],
+        [
+          "KH",
+          1
+        ],
+        [
+          "MM",
+          1
+        ],
+        [
+          "MY",
+          1
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -97.03125,
+          29.53125,
+          1,
+          0
+        ],
+        [
+          66.09375,
+          23.90625,
+          7,
+          7
+        ],
+        [
+          71.71875,
+          18.28125,
+          4,
+          4
+        ],
+        [
+          71.71875,
+          30.9375,
+          5,
+          5
+        ],
+        [
+          73.125,
+          30.9375,
+          2,
+          2
+        ],
+        [
+          74.53125,
+          16.875,
+          1,
+          1
+        ],
+        [
+          74.53125,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          75.9375,
+          22.5,
+          2,
+          2
+        ],
+        [
+          75.9375,
+          28.125,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          78.75,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          84.375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          23.90625,
+          6,
+          6
+        ],
+        [
+          88.59375,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          90,
+          22.5,
+          2,
+          2
+        ],
+        [
+          90,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          25.3125,
+          11,
+          11
+        ],
+        [
+          92.8125,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          94.21875,
+          28.125,
+          10,
+          10
+        ],
+        [
+          95.625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          98.4375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          18.28125,
+          2,
+          0
+        ],
+        [
+          101.25,
+          0,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          0
+        ]
+      ]
+    }
+  }
+}

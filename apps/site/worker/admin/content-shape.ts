@@ -98,6 +98,8 @@ export type EngineStats = {
   sources: SourceRow[]
   /** Sources waiting for the owner to pass a browser check (engine-state/_sources.json). */
   needsHuman: { source: string; since: string }[]
+  /** Sources read through the Internet Archive since they kept meeting a browser check (engine-state/_sources.json). */
+  movedToArchive?: { source: string; since: string }[]
   /** The video-guide queue: every video of the playlists and single videos queued (engine-state/youtube*.json). */
   videos: {
     /** Videos listed, each once. */
@@ -132,6 +134,24 @@ export type PhotoStats = {
   waitingMirror: number
   gallery: { pages: number; photos: number }
 }
+
+/**
+ * A quality review as the engine keeps it (engine-state/reviews/<kind>.json, packages/engine/src/review-log.ts), less its
+ * model and attempt. `kind`: the step that reviewed ("video-guide", "translation", "localize"…); `kept`: the page has the
+ * version it reviewed.
+ */
+export type LastReview = { kind: string; at: string; score: number; notes: string[]; kept: boolean }
+
+/** A built page out of search for a score under the bar: its path, its kind, its score as the build judged it, and its last review. */
+export type LowPage = { path: string; kind: PageKind; score: number; review?: LastReview }
+
+/**
+ * The shape of dist/_ab/reviews.json, written by scripts/content-stats.ts beside content.json and read only by the Worker's
+ * content page (admin/content.ts loadLowScores): every built page out of search for its score, lowest score first.
+ * Its own file, as the notes can run to a few KB a page: content.json, which every dashboard page and the nightly totals
+ * read, stays small.
+ */
+export type LowScores = { v: 1; /** The score a page needs (@aq/schema QUALITY_THRESHOLD). */ bar: number; pages: LowPage[] }
 
 export type ContentStats = {
   v: 1

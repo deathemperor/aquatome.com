@@ -13,6 +13,90 @@
     "narathiwat",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH",
+        "ID"
+      ],
+      "regions": [
+        "Sumatra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Bukit Merah, a large man-made lake in Perak state, north-western Peninsular Malaysia, and since recorded throughout the country as well as in Narathiwat and Yala provinces, southern Thailand and Sumatera Utara (North Sumatra) province, Sumatra, Indonesia.",
+          "countries": [
+            "MY",
+            "TH",
+            "ID"
+          ],
+          "regions": [
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368052,
+      "total": 5,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "KH",
+          2
+        ],
+        [
+          "LA",
+          1
+        ],
+        [
+          "MY",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -56,7 +140,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -65,7 +149,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-furcatus",
-      "html": "<ul><li>Max size: 50 mm SL (2.0 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 23–26°C (73–79°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–10 dGH</li><li>Difficulty: 5 of 8, moderate</li></ul>"
+      "html": "<ul><li>Max size: 50 mm SL (2.0 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 23–26°C (73–79°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–10 dGH</li><li>Difficulty: 4 of 8, moderate</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -180,8 +264,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

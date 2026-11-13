@@ -19,6 +19,548 @@
     "pahang",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "KH",
+        "VN",
+        "TH",
+        "MM",
+        "MY",
+        "SG",
+        "ID"
+      ],
+      "regions": [
+        "Mekong",
+        "Salween",
+        "Java"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently accepted to occur throughout much of Indochina, including the lower Mekong River basin in Laos, Cambodia, Viet Nam, throughout southern Thailand, the lower Salween basin in Myanmar, Peninsular Malaysia, and Singapore.",
+          "countries": [
+            "LA",
+            "KH",
+            "VN",
+            "TH",
+            "MM",
+            "MY",
+            "SG"
+          ],
+          "regions": [
+            "Mekong",
+            "Salween"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Java, Indonesia'.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Java"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5211201,
+      "total": 472,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          216
+        ],
+        [
+          "KH",
+          94
+        ],
+        [
+          "BD",
+          34
+        ],
+        [
+          "MM",
+          31
+        ],
+        [
+          "ID",
+          25
+        ],
+        [
+          "VN",
+          24
+        ],
+        [
+          "MY",
+          23
+        ],
+        [
+          "US",
+          11
+        ],
+        [
+          "LA",
+          8
+        ],
+        [
+          "SG",
+          4
+        ],
+        [
+          "SE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -81.5625,
+          25.3125,
+          10,
+          0
+        ],
+        [
+          -80.15625,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          16.875,
+          59.0625,
+          2,
+          0
+        ],
+        [
+          90,
+          22.5,
+          29,
+          0
+        ],
+        [
+          90,
+          23.90625,
+          5,
+          0
+        ],
+        [
+          94.21875,
+          16.875,
+          10,
+          10
+        ],
+        [
+          95.625,
+          16.875,
+          11,
+          11
+        ],
+        [
+          97.03125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          15.46875,
+          7,
+          7
+        ],
+        [
+          97.03125,
+          16.875,
+          5,
+          5
+        ],
+        [
+          97.03125,
+          18.28125,
+          12,
+          12
+        ],
+        [
+          98.4375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          11.25,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          14.0625,
+          8,
+          8
+        ],
+        [
+          98.4375,
+          15.46875,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          16.875,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          18.28125,
+          22,
+          22
+        ],
+        [
+          99.84375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          11.25,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          12.65625,
+          44,
+          44
+        ],
+        [
+          99.84375,
+          14.0625,
+          8,
+          8
+        ],
+        [
+          99.84375,
+          15.46875,
+          24,
+          24
+        ],
+        [
+          99.84375,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          19.6875,
+          3,
+          3
+        ],
+        [
+          101.25,
+          2.8125,
+          6,
+          6
+        ],
+        [
+          101.25,
+          5.625,
+          4,
+          4
+        ],
+        [
+          101.25,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          101.25,
+          11.25,
+          4,
+          4
+        ],
+        [
+          101.25,
+          12.65625,
+          11,
+          11
+        ],
+        [
+          101.25,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          101.25,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          16.875,
+          4,
+          4
+        ],
+        [
+          101.25,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          0,
+          4,
+          4
+        ],
+        [
+          102.65625,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          5.625,
+          6,
+          6
+        ],
+        [
+          102.65625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          63,
+          63
+        ],
+        [
+          102.65625,
+          14.0625,
+          5,
+          5
+        ],
+        [
+          102.65625,
+          15.46875,
+          5,
+          5
+        ],
+        [
+          102.65625,
+          16.875,
+          5,
+          5
+        ],
+        [
+          102.65625,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          5,
+          5
+        ],
+        [
+          104.0625,
+          11.25,
+          16,
+          16
+        ],
+        [
+          104.0625,
+          12.65625,
+          12,
+          12
+        ],
+        [
+          104.0625,
+          14.0625,
+          19,
+          19
+        ],
+        [
+          104.0625,
+          15.46875,
+          6,
+          6
+        ],
+        [
+          104.0625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          -7.03125,
+          10,
+          10
+        ],
+        [
+          105.46875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          9.84375,
+          11,
+          11
+        ],
+        [
+          105.46875,
+          14.0625,
+          4,
+          4
+        ],
+        [
+          106.875,
+          11.25,
+          4,
+          4
+        ],
+        [
+          106.875,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          11.25,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          109.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          113.90625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -62,7 +604,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -142,44 +684,19 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/e13ecfe1afc12de2.webp",
-      "width": 960,
-      "height": 465,
-      "licence": "CC BY 4.0",
-      "author": "Aqmal-Naser et al. (2023)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichopsis_vittata_(10.3897-BDJ.11.e100337)_Figure_27.jpg",
-      "caption": "Figure 27 Trichopsis vittata.",
-      "thumb": "https://media.aquatome.com/commons/e13ecfe1afc12de2-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/123991e9c578a3dc.webp",
-      "width": 800,
-      "height": 560,
-      "licence": "Public domain",
-      "author": "Howard Jelks, U.S. Geological Survey",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichopsis_vittata_(USGS).jpg",
-      "caption": "Trichopsis vittata (USGS)",
-      "thumb": "https://media.aquatome.com/commons/123991e9c578a3dc-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/7b7bcddffff6bd8c.webp",
-      "width": 960,
-      "height": 973,
-      "licence": "Public domain",
-      "author": "Internet Archive Book Images",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_complete_aquarium_book;_the_care_and_breeding_of_goldfish_and_tropical_fishes_(1936)_(20483748590).jpg",
-      "caption": "Title: The complete aquarium book; the care and breeding of goldfish and tropical fishes Identifier: completeaquarium00inne (find matches) Year: 1936 (1930s) Authors: Innes, William T. (William Thornt",
-      "thumb": "https://media.aquatome.com/commons/7b7bcddffff6bd8c-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/panitvong/inat-179239938.webp",
-      "thumb": "https://media.aquatome.com/panitvong/inat-179239938-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "dùng với sự cho phép",
-      "author": "Nonn Panitvong",
-      "sourceUrl": "https://www.inaturalist.org/photos/179239938",
-      "source": "panitvong"
+      "url": "https://media.aquatome.com/inaturalist/371607430.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/371607430-480.webp",
+      "width": 747,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Utain Pummarin",
+      "sourceUrl": "https://www.inaturalist.org/photos/371607430",
+      "caption": "Cá bã trầu mắt xanh, sọc thân rõ, cùng đàn",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/371607430-large.webp",
+        "width": 1200,
+        "height": 1646
+      }
     }
   ],
   "videos": [],
@@ -187,8 +704,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể thủy sinh 60x30"
+        "bể cá 60cm"
       ]
     },
     {

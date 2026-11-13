@@ -1,0 +1,392 @@
+{
+  "id": "geophagus-iporangensis",
+  "scientificName": "Geophagus iporangensis",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Geophagus",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "ribeira-de-iguape"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Ribeira de Iguapé"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the rio Ribeira de Iguapé drainage basin which lies within the Vale do Ribeira, a coastal valley formed by the river straddling the border region between the states of São Paulo and Paraná, southern Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Ribeira de Iguapé"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208421,
+      "total": 149,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          145
+        ],
+        [
+          "UY",
+          3
+        ],
+        [
+          "AR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -33.75,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -32.34375,
+          2,
+          0
+        ],
+        [
+          -54.84375,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -26.71875,
+          4,
+          4
+        ],
+        [
+          -50.625,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -29.53125,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -25.3125,
+          32,
+          32
+        ],
+        [
+          -50.625,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -28.125,
+          5,
+          5
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          22,
+          22
+        ],
+        [
+          -49.21875,
+          -19.6875,
+          8,
+          8
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          22,
+          22
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          11,
+          11
+        ],
+        [
+          -47.8125,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -19.6875,
+          5,
+          5
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          10,
+          10
+        ],
+        [
+          -46.40625,
+          -22.5,
+          7,
+          7
+        ],
+        [
+          -46.40625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -45,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -45,
+          -21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
+      "html": "<p>Needs a soft, sandy substrate. The most essential item of décor is a soft, sandy substrate so that the fish can browse naturally (see 'Diet').</p><p>Geophagus iporangensis is a cichlid known only from the rio Ribeira de Iguapé basin, on the border of São Paulo and Paraná states in southern Brazil. A member of the 'G.' brasiliensis group, it reaches 90 to 100 mm, a more manageable size than some related species. Juveniles are readily confused with others in the group, but adults are smaller with comparatively few reflective blue scales. It is not common in the aquarium hobby.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
+      "html": "<p>Known only from the rio Ribeira de Iguapé drainage basin which lies within the Vale do Ribeira, a coastal valley formed by the river straddling the border region between the states of São Paulo and Paraná, southern Brazil.</p><p>Type locality is given as 'Mountain streams of Rio Ribeira de Iguapé, Iporanga, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
+      "html": "<p>Likely to range throughout a significant proportion of the Ribera de Iguapé system, much of which is heavily-forested.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
+      "html": "<p>Standard length: 100 mm SL (10 cm).</p><p>Aquarium base: 120 × 30 cm. Volume: about 108 litres.</p><p>Minimum base dimensions of 120 × 30 cm or equivalent are recommended.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
+      "html": "<p>The most essential item of décor is a soft, sandy substrate so that the fish can browse naturally (see 'Diet').</p><p>Coarser materials such as gravel or small pebbles can inhibit feeding, damage gill filaments and even be ingested with the potential of internal damage or blockages.</p><p>Additional furnishings are as much a case of personal taste as anything else but the most favoured set-ups tend to feature relatively dim lighting plus some chunks of driftwood and scattered roots or branches.</p><p>Leaf litter is a typical feature of the natural environment but not really recommended in aquaria because the feeding behaviour of Geophagus spp. tends to cause an excess of partially-decomposed material in suspension which not only looks unsightly but can block filter and pump mechanisms.</p><p>One or two flattish, water-worn rocks can also be included to provide potential spawning sites if you wish.</p><p>Water quality is of the utmost importance since these cichlids are extremely susceptible to deteriorating water quality and swings in chemical parameters so should never be introduced to a biologically immature aquarium.</p><p>The best way to achieve the desired stability is to over-filter the tank using a combination of external canister filters and/or a sump system and perform minimum weekly water changes of 50-70%.</p><p>If the maintenance regime is insufficient health issues such as head and lateral line erosion or stunted growth can occur.</p><p>Mechanical filtration should also be tailored to trap small particles stirred up by the fish as sand can cause blockages and wearing issues with filter mechanisms if allowed to continually run through the system.</p><p>High flow rates should be avoided so position filter returns accordingly.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
+      "html": "<p>Likely a generalised omnivore in nature. Stomach content analyses of the relative 'G.' brasiliensis revealed it to feed on a variety of plant material, aquatic invertebrates (particularly chironomid larvae, ostracods and cladocerans), fish scales and fry.</p><p>Although often referred to as an 'eartheater' this species isn't as benthophagous as members of Geophagus though mouthfuls of substrate are sometimes taken and sifted for edible items.</p><p>In the aquarium offer good quality, sinking dry foods as staple alongside regular meals of live or frozen bloodworm, Artemia, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
+      "html": "<p>Males are territorial, particularly when spawning, while very small tankmates may be predated upon.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
+      "html": "<p>Males grow larger than females, often significantly so, and most dominant specimens develop a nuchal hump to some extent.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
+      "html": "<p>Biparental substrate spawner.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
+      "html": "<p>Not a common species in the aquarium hobby which is a shame since its adult size is more manageable than that of some related species.</p><p>Juvenile specimens of this species are readily confused with those of other members of the 'G.' brasiliensis species group, but adults are easily-distinguished by their relatively smaller adult size and comparative lack of reflective blue scales on the body and head.</p><p>The genus Geophagus was rediagnosed by Kullander (1986) who restricted it to include only those species with paired caudal extensions to the swimbladder lined by 6-12 epihemal 'ribs' plus a greater number of caudal than abdominal vertebrae.</p><p>Some former species were moved into the resurrected genus Satanoperca while others, such as the 'Geophagus' brasiliensis and 'G.' steindachneri groups represent distinct groupings still in need of definitive classification.</p><p>Geophagus and a number of related genera are often included in the putative subfamily Geophaginae.</p><p>Kullander (1998) conducted a morphology-based phylogenetic study in which the neotropical Cichlidae was divided into six subfamilies of which the Geophaginae contained 16 genera divided among three 'tribes':</p><ul><li>Acarichthyini - Acarichthys and Guianacara.</li><li>Crenicaratini - Biotoecus, Crenicara, Dicrossus and Mazarunia.</li><li>Geophagini - Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides and Taeniacara.</li></ul><p>Later molecular studies by Farias et al. (1999, 2000, 2001) resulted in the additions of Crenicichla and Teleocichla to the Geophaginae, a result supported by López-Fernández et al. (2005) who conducted the most detailed molecular analysis of the grouping to date including 16 of the 18 genera and 30 species.</p><p>However their conclusions regarding interrelationships between genera did vary somewhat from previous hypotheses and can be summarised by the following loosely-defined groups:</p><ul><li>a weakly-supported sister group relationship between Acarichthys and Guianacara.</li><li>a well-supported \"Satanoperca clade\" comprising Satanoperca, Apistogramma, Apistogrammoides and Taeniacara.</li><li>a \"big clade\" with Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Biotodoma, Crenicara and Dicrossus.</li><li>a \"crenicarine clade\" with Biotoecus and Crenicichla.</li></ul><p>No representatives of Teleocichla or Mazarunia were included in the study but the former is well-established as sister to Crenicichla while the latter has grouped closely with Dicrossus and Crenicara in earlier works.</p><p>The other main conclusions of the paper are confirmation that Geophaginae is a monophyletic group exhibiting strong signs of having undergone rapid adaptive radiation.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
+      "html": "<ul><li>Farias, I. P., G. Ortí and A. Meyer (2000). Total evidence: molecules, morphology, and the phylogenetics of cichlid fishes. The Journal of Experimental Zoology 288(1), 76-92</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (1999). Mitochondrial DNA phylogeny of the family Cichlidae: monophyly and fast molecular evolution of the Neotropical assemblage. Journal of Molecular Evolution 48(6), 703-711</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (2001). The cytochrome b gene as a phylogenetic marker: the limits of resolution for analyzing relationships among cichlid fishes. Journal of Molecular Evolution 53(2), 89-103</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>López-Fernández, H., R. L. Honeycutt, M. L. J. Stiassny and K. O. Winemiller (2005). Morphology, molecules, and character congruence in the phylogeny of South American geophagine cichlids (Perciformes, Labroidei). Zoologica Scripta 34(6), 627-651</li><li>Haseman, J. D. (1911). An annotated catalog of the cichlid fishes collected by the expedition of the Carnegie Museum to central South America, 1907-10. Annals of the Carnegie Museum v. 7 (nos 3-4) (18), 329-373</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3ef6e7ce86a28134.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3ef6e7ce86a28134-480.webp",
+      "width": 677,
+      "height": 679,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
+      "caption": "Adult pair from the aquarium trade, male upper.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "lọc sump"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá cichlid",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -12,6 +12,164 @@
     "honduras",
     "north-america"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NI",
+        "CR",
+        "HN"
+      ],
+      "regions": [
+        "River Patuca",
+        "River Matina",
+        "River Guasaule",
+        "Tempisque",
+        "Bebedero"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This medium-sized cichlid originally comes from Central America (Nicaragua, Costa Rica, Honduras).",
+          "countries": [
+            "NI",
+            "CR",
+            "HN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its Atlantic (eastern) range extends south from the River Patuca in Honduras to the River Matina in Costa Rica.",
+          "countries": [],
+          "regions": [
+            "River Patuca",
+            "River Matina"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the west it can be found from the River Guasaule in Nicaragua to the Costa Rican Rivers of Tempisque and Bebedero.",
+          "countries": [],
+          "regions": [
+            "River Guasaule",
+            "Tempisque",
+            "Bebedero"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370521,
+      "total": 89,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CR",
+          45
+        ],
+        [
+          "NI",
+          26
+        ],
+        [
+          "HN",
+          8
+        ],
+        [
+          "DE",
+          6
+        ],
+        [
+          "PA",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -87.1875,
+          11.25,
+          11,
+          11
+        ],
+        [
+          -87.1875,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          -85.78125,
+          9.84375,
+          15,
+          15
+        ],
+        [
+          -85.78125,
+          11.25,
+          4,
+          4
+        ],
+        [
+          -85.78125,
+          15.46875,
+          6,
+          6
+        ],
+        [
+          -84.375,
+          8.4375,
+          6,
+          6
+        ],
+        [
+          -84.375,
+          9.84375,
+          27,
+          27
+        ],
+        [
+          -84.375,
+          11.25,
+          2,
+          2
+        ],
+        [
+          -84.375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          -84.375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          -84.375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          -82.96875,
+          8.4375,
+          4,
+          0
+        ],
+        [
+          7.03125,
+          50.625,
+          6,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -59,7 +217,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -176,7 +334,12 @@
       "author": "Happy Birthday To You!",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:RainbowCichlid.JPG",
       "caption": "One of my rainbow cichlids",
-      "thumb": "https://media.aquatome.com/commons/9a1a743ce15738c2-480.webp"
+      "thumb": "https://media.aquatome.com/commons/9a1a743ce15738c2-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/9a1a743ce15738c2-large.webp",
+        "width": 1599,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
@@ -184,8 +347,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá cichlid"
+        "bể cá 90cm"
       ]
     },
     {

@@ -14,18 +14,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/520939686.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/520939686-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Tiago Lubiana",
-      "sourceUrl": "https://www.inaturalist.org/photos/520939686",
-      "caption": "Thảm Cây rong bèo đất lá cỏ mọc trên cạn, đang ra hoa",
-      "best": true,
-      "kind": "emersed"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/50292635.webp",
       "thumb": "https://media.aquatome.com/inaturalist/50292635-480.webp",
       "width": 768,
@@ -34,18 +22,6 @@
       "author": "Siddarth Machado",
       "sourceUrl": "https://www.inaturalist.org/photos/50292635",
       "caption": "Cận cảnh hoa tím nhạt của rong bèo đất lá cỏ ngoài tự nhiên",
-      "best": true,
-      "kind": "flower"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/50292634.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/50292634-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Siddarth Machado",
-      "sourceUrl": "https://www.inaturalist.org/photos/50292634",
-      "caption": "Hoa Cây rong bèo đất lá cỏ mọc ngoài tự nhiên",
       "best": true,
       "kind": "flower"
     },
@@ -86,6 +62,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/tropica/eded4561320177cb.webp",
+      "thumb": "https://media.aquatome.com/tropica/eded4561320177cb-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Utriculariagraminifolia(049BTC)/4480",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/227624896.webp",
       "thumb": "https://media.aquatome.com/inaturalist/227624896-480.webp",
       "width": 768,
@@ -110,6 +98,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/tropica/59a35eccdbeed2ea.webp",
+      "thumb": "https://media.aquatome.com/tropica/59a35eccdbeed2ea-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Utriculariagraminifolia(049BTC)/4480",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/227624766.webp",
       "thumb": "https://media.aquatome.com/inaturalist/227624766-480.webp",
       "width": 768,
@@ -120,9 +120,45 @@
       "caption": "Cuống hoa mảnh vươn lên từ thảm rong bèo đất trên đá",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/3d23c1c05a4f01d6.webp",
+      "thumb": "https://media.aquatome.com/tropica/3d23c1c05a4f01d6-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Utriculariagraminifolia(049BTC)/4480",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/520939686.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/520939686-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Tiago Lubiana",
+      "sourceUrl": "https://www.inaturalist.org/photos/520939686",
+      "caption": "Thảm Cây rong bèo đất lá cỏ mọc trên cạn, đang ra hoa",
+      "best": true,
+      "kind": "emersed"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/50292634.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/50292634-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Siddarth Machado",
+      "sourceUrl": "https://www.inaturalist.org/photos/50292634",
+      "caption": "Hoa Cây rong bèo đất lá cỏ mọc ngoài tự nhiên",
+      "best": true,
+      "kind": "flower"
     }
   ],
-  "seen": 50,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 54,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-07"
 }

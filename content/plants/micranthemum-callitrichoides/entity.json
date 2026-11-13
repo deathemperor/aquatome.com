@@ -26,6 +26,12 @@
     },
     {
       "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cuba là cây trải thảm, chỗ của nó là tiền cảnh. Chia cây thành từng cụm nhỏ rồi trồng xuống nền, mỗi cụm cách nhau vài cm. Chúng sẽ bò lan nhanh và phủ kín mặt nền thành một tấm thảm. Khi thảm đã lên thì phải tỉa thường xuyên. Không tỉa thì lớp lá bên dưới bị che mất sáng, và rễ sẽ chết dần.</p>"
+    },
+    {
+      "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Micranthemumcallitrichoides'Cuba'(048BTC)/4478",
       "html": "<p>Hemianthus callitrichoides is one of the smallest aquarium plants in the world, and creeps over the bottom with millimetre-sized, round leaves. It is an attractive and popular foreground plant for small aquariums. It is not a difficult plant, but it requires good conditions such as enough light, added CO2, water circulation and fertilizer to thrive. If these conditions are hard to create, you may use Micranthemum 'Monte-Carlo' as an alternative, as it is less demanding.</p><p>If planted in small clumps a few centimetres apart, it will spread rapidly and cover the bottom like a carpet. Trim the carpet regularly, otherwise the lower parts will not get enough light causing root death.</p>"
@@ -57,6 +63,26 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_aquarium_U.A.E.jpg",
       "caption": "Freshwater aquarium",
       "thumb": "https://media.aquatome.com/commons/fb645fc661ecb3ba-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/d3f9870119a6fe0c.webp",
+      "thumb": "https://media.aquatome.com/tropica/d3f9870119a6fe0c-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Micranthemumcallitrichoides'Cuba'(048BTC)/4478",
+      "source": "tropica"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/fa6c7c9d66f15a3d.webp",
+      "thumb": "https://media.aquatome.com/tropica/fa6c7c9d66f15a3d-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Micranthemumcallitrichoides'Cuba'(048BTC)/4478",
+      "source": "tropica"
     }
   ],
   "productSlots": [
@@ -86,5 +112,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

@@ -1,0 +1,637 @@
+{
+  "id": "papyrocranus-afer",
+  "scientificName": "Papyrocranus afer",
+  "order": "Osteoglossiformes",
+  "family": "Notopteridae",
+  "genus": "Papyrocranus",
+  "group": "other",
+  "places": [
+    "africa",
+    "sudan",
+    "democratic-republic-of-the-congo",
+    "cameroon",
+    "sanaga",
+    "nigeria",
+    "niger",
+    "benin",
+    "ghana",
+    "prah",
+    "ivory-coast",
+    "tano",
+    "mali",
+    "liberia",
+    "sierra-leone",
+    "guinea",
+    "guinea-bissau",
+    "gambia",
+    "senegal"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "SD",
+        "CD",
+        "CM",
+        "NG",
+        "NE",
+        "BJ",
+        "GH",
+        "CI",
+        "ML",
+        "LR",
+        "SL",
+        "GN",
+        "GW",
+        "GM",
+        "SN"
+      ],
+      "regions": [
+        "Cross",
+        "Sanaga",
+        "Tano",
+        "Prah"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It has been recorded from Sudan, Democratic Republic of Congo, Cameroon, Nigeria, Niger, Benin, Ghana, Ivory Coast, Mali, Liberia, Sierra Leone, Guinea, Guinea-Bissau, Gambia and Senegal.",
+          "countries": [
+            "SD",
+            "CD",
+            "CM",
+            "NG",
+            "NE",
+            "BJ",
+            "GH",
+            "CI",
+            "ML",
+            "LR",
+            "SL",
+            "GN",
+            "GW",
+            "GM",
+            "SN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It occurs in a number of river systems over this range, including the Niger, Cross, Sanaga, Tano and Prah.",
+          "countries": [],
+          "regions": [
+            "Cross",
+            "Sanaga",
+            "Tano",
+            "Prah"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2402283,
+      "total": 160,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CI",
+          34
+        ],
+        [
+          "CD",
+          20
+        ],
+        [
+          "BJ",
+          18
+        ],
+        [
+          "GM",
+          14
+        ],
+        [
+          "NG",
+          14
+        ],
+        [
+          "GH",
+          11
+        ],
+        [
+          "SL",
+          11
+        ],
+        [
+          "LR",
+          9
+        ],
+        [
+          "CM",
+          8
+        ],
+        [
+          "GN",
+          8
+        ],
+        [
+          "CG",
+          5
+        ],
+        [
+          "SN",
+          5
+        ],
+        [
+          "ML",
+          2
+        ],
+        [
+          "GW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -16.875,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          -15.46875,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -15.46875,
+          11.25,
+          2,
+          2
+        ],
+        [
+          -15.46875,
+          12.65625,
+          18,
+          18
+        ],
+        [
+          -14.0625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -14.0625,
+          8.4375,
+          6,
+          6
+        ],
+        [
+          -12.65625,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -12.65625,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          -12.65625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -11.25,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -11.25,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          -9.84375,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -8.4375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -8.4375,
+          5.625,
+          5,
+          5
+        ],
+        [
+          -8.4375,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -8.4375,
+          11.25,
+          1,
+          1
+        ],
+        [
+          -8.4375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          -7.03125,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -5.625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -5.625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -5.625,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -4.21875,
+          4.21875,
+          16,
+          16
+        ],
+        [
+          -2.8125,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -2.8125,
+          5.625,
+          3,
+          3
+        ],
+        [
+          0,
+          5.625,
+          1,
+          1
+        ],
+        [
+          0,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          1.40625,
+          5.625,
+          11,
+          11
+        ],
+        [
+          1.40625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          2.8125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          2.8125,
+          11.25,
+          4,
+          4
+        ],
+        [
+          5.625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          5.625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          7.03125,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          7.03125,
+          5.625,
+          4,
+          4
+        ],
+        [
+          8.4375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          5.625,
+          4,
+          4
+        ],
+        [
+          9.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          14.0625,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          14.0625,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          15.46875,
+          -4.21875,
+          2,
+          1
+        ],
+        [
+          16.875,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          16.875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          16.875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          0,
+          3,
+          3
+        ],
+        [
+          18.28125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          21.09375,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 210
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/papyrocranus-afer",
+      "html": "<p>The arowana knifefish, Papyrocranus afer, is a notopterid knifefish widespread over much of western and central Africa, from Senegal to Sudan. Its anal and caudal fins are fused into one long, undulating fin. Infrequently imported, it grows to 80 cm and becomes increasingly territorial as it matures, so it is recommended only to the experienced fishkeeper and best kept as a single specimen.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/papyrocranus-afer",
+      "html": "<p>Rated difficult because it needs a tank at least 2 m long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/papyrocranus-afer",
+      "html": "<p>Widespread over much of western and central Africa. It has been recorded from Sudan, Democratic Republic of Congo, Cameroon, Nigeria, Niger, Benin, Ghana, Ivory Coast, Mali, Liberia, Sierra Leone, Guinea, Guinea-Bissau, Gambia and Senegal. It occurs in a number of river systems over this range, including the Niger, Cross, Sanaga, Tano and Prah.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/papyrocranus-afer",
+      "html": "<p>It is usually found in heavily vegetated, slow moving parts of rivers and sluggish backwaters.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/papyrocranus-afer",
+      "html": "<p>210 × 90 × 90 cm, about 1701 litres, for a fully grown specimen. Juveniles can be grown on in smaller aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/papyrocranus-afer",
+      "html": "<p>A dimly lit tank with areas of dense planting, pieces of driftwood and twisted roots is ideal for this species. Water movement should be minimal.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/papyrocranus-afer",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 6.5–7.5</li><li>Hardness: 5–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/papyrocranus-afer",
+      "html": "<p>This species is primarily carnivorous and will accept most meaty live and frozen foods. Some specimens will also accept pelleted varieties. A varied diet is suggested, including lance fish, prawns, chopped mussel, earthworms, carnivore pellets etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/papyrocranus-afer",
+      "html": "<p>An aggressive species that should only be kept with very robust species. It can be kept in a group when young, but as it matures it becomes increasingly territorial, particularly towards other knifefish but also towards any fish it takes a disliking to. While there are reports of it coexisting peacefully with other large fish such as arowana there are at least as many of it attacking the same species in other aquaria. It is recommended that it is kept as a single specimen in its own tank or perhaps with a large loricariid such as Acanthicus adonis for company.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/papyrocranus-afer",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/papyrocranus-afer",
+      "html": "<p>Not reported in captivity.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/papyrocranus-afer",
+      "html": "<p>Like other members of the family Notopteridae this species differs from Gymnotiform knifefish in that its anal and caudal fins are fused together into one long, undulating fin running along the underside of the fish. There is only one other species in the genus. P. congoensis is a smaller, plain brown coloured fish found only in the Democratic Republic of Congo and is very rare in the hobby. P. afer is also infrequently imported and is one of the rarer knifefish species in the hobby. It can develop into a stunningly patterned fish when adult, but due to its potential size and aggressive nature is recommended only to the experienced fishkeeper.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "J_wvoP34qaQ",
+      "title": "Papyrocranus afer ( reticulated / pop pom knifefish) 12 inch",
+      "durationSec": 49,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XMsxRJlkZMU",
+      "title": "Reticulate knifefish - Papyrocranus afer #shorts",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3Kl0KRALth4",
+      "title": "Reticulate knifefish,  Papyrocranus afer",
+      "durationSec": 45,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8rGIp-6elE4",
+      "title": "Papyrocranus afer - (Günther, 1868) - (Notopteridae) - Poisson-couteau - 10/2016",
+      "durationSec": 130,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 210cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng lớn",
+        "máy lọc bể 2m"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá lớn",
+        "máy sưởi 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá ăn thịt",
+        "tôm đông lạnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

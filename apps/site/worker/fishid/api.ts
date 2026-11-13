@@ -12,7 +12,8 @@ import { askClaude, costOf, DEFAULT_MODEL, readAnswer, worstCost, type Answer, t
 import { factShardOf, factShards, type Facts, type FactsShard } from './facts'
 import { healthyKeys, loadKeys, parseKeys, rotate, type Attempt, type HealthStore, type KeyEntry, type KeyHealth, type KeyProblem } from './keys'
 import { keepPhoto } from './kept'
-import { emptyDay, ledgerClient, type Counts } from './ledger'
+import { saveRun, turnsOf, type RunRecord } from './transcript'
+import { emptyDay, ledgerClient, usdCap, type Counts } from './ledger'
 import { emptyLog, FROM, toFishIdPoint, type CallLog, type From } from './log'
 import { matchGuesses, type Result } from './match'
 import { relayFetch } from './relay'
@@ -76,7 +77,6 @@ export const MAX_IMAGE = 1.5 * 1024 * 1024
 const PER_IP = 10
 const PER_ACCOUNT = 10
 const PER_DAY = 300
-const USD_PER_DAY = 15
 /** A stream's keep-alive while Claude works, so no proxy closes it. */
 const PING_MS = 10_000
 /** How sure Claude must be of a guess with no page for it to count as a reader's request. */
@@ -93,7 +93,7 @@ const json = (data: unknown, status = 200) => Response.json(data, { status, head
 /** On with at least one readable key (a file of comments only is none), Turnstile, the rate-limit key, the accounts' database and the ledger. */
 const live = (env: FishIdEnv): env is Live => Boolean(parseKeys(env.ANTHROPIC_KEYS).entries.length && env.TURNSTILE_SECRET && env.TURNSTILE_SITEKEY && env.COMMENT_HMAC_KEY && env.DB && env.FISHID_LEDGER)
 const limit = (v: string | undefined, d: number) => (Number(v) > 0 ? Math.floor(Number(v)) : d)
-const usdLimit = (env: FishIdEnv) => (Number(env.FISH_ID_USD_PER_DAY) > 0 ? Number(env.FISH_ID_USD_PER_DAY) : USD_PER_DAY)
+const usdLimit = (env: FishIdEnv) => usdCap(env.FISH_ID_USD_PER_DAY)
 
 /**
  * Each key's problem in KV (fishid:key:<hash>), gone by itself once it no longer applies (KV's TTL, and `until`): a key
@@ -245,7 +245,7 @@ export async function fishId(req: Request, url: URL, env: FishIdEnv, now: Date, 
 /** What an identification answers: the JSON body and its status (a stream sends the body as its last event). */
 type Done = { status: number; body: Record<string, unknown> }
 /** A run's outcome, from today's single call or the agent, before its answer is read. */
-type Called = { attempts: Attempt[]; usage: Usage; agent?: Pick<AgentOutcome, 'calls' | 'tools' | 'photos' | 'steps' | 'stopped' | 'later400'> } & ({ ok: true; message: Anthropic.Message; hash: string } | { ok: false; reason: 'resting' | 'unavailable' | 'request' })
+type Called = { attempts: Attempt[]; usage: Usage; agent?: Pick<AgentOutcome, 'calls' | 'tools' | 'photos' | 'steps' | 'stopped' | 'rechecked' | 'later400' | 'history'> } & ({ ok: true; message: Anthropic.Message; hash: string } | { ok: false; reason: 'resting' | 'unavailable' | 'request' })
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 /** How long a result is kept for a retry with the same Idempotency-Key. */
 const RETRY_SEC = 15 * 60
@@ -326,6 +326,9 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
   /** The run's time left: it ends RUN_WITHIN_MS after the photo was read. */
   const runMs = () => RUN_WITHIN_MS - (Date.now() - read)
 
+  /** The run's transcript (fishid/transcript.ts): its id (a kept photo names it), and what Claude was sent and said. */
+  const runId = crypto.randomUUID()
+  let trail: { message?: Anthropic.Message; agent?: Called['agent'] } | undefined
   /** The identification, after admission: today's call, or the agent with the flag on and the page list readable. */
   const work = async (onStep?: (step: Step) => void): Promise<Done> => {
     const t = Date.now()
@@ -333,7 +336,7 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
     let out: Called
     if (catalogFirst) {
       const a = await identifyWithAgent({ healthy, store, photo, model, lang: up.lang, fetch: fetchImpl, random: deps.random, limits: { ...deps.limits, ms: Math.min(lim.ms, runMs()) }, onStep, onUsage, tools: { catalog: catalogFirst, facts: factsOf(env, url.origin, catalogFirst), onFactsMissing: () => count('facts') } })
-      const agent = { calls: a.calls, tools: a.tools, photos: a.photos, steps: a.steps, stopped: a.stopped, ...(a.later400 !== undefined ? { later400: a.later400 } : {}) }
+      const agent = { calls: a.calls, tools: a.tools, photos: a.photos, steps: a.steps, stopped: a.stopped, history: a.history, ...(a.rechecked ? { rechecked: true } : {}), ...(a.later400 !== undefined ? { later400: a.later400 } : {}) }
       out = { ...(a.ok ? { ok: true, message: a.message, hash: a.hash } : { ok: false, reason: a.reason }), attempts: a.attempts, usage: { input: a.spent.input, output: a.spent.output, cacheRead: a.spent.cacheRead, cacheWrite: a.spent.cacheWrite }, agent }
       if (a.stopped === 'fallback') count('fallback')
       if (a.stopped === 'calls') count('callLimit')
@@ -345,18 +348,19 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
         ? { ok: true, message: r.value, hash: r.hash, attempts: r.attempts, usage: { input: r.value.usage?.input_tokens ?? 0, output: r.value.usage?.output_tokens ?? 0 } }
         : { ok: false, reason: r.reason, attempts: r.attempts, usage: { input: 0, output: 0 } }
     }
+    trail = { ...(out.ok ? { message: out.message } : {}), ...(out.agent ? { agent: out.agent } : {}) }
     // Tokens from the messages themselves: an answer that can't be read was still paid for, and so were the agent's calls before one failed.
     rec.input = out.usage.input + (out.usage.cacheRead ?? 0) + (out.usage.cacheWrite ?? 0)
     rec.output = out.usage.output
     rec.cost = costOf(model, out.usage)
-    if (out.agent) Object.assign(rec, { turns: out.agent.calls, tools: out.agent.tools, refs: out.agent.photos, stopped: out.agent.stopped } satisfies Partial<CallLog>)
+    if (out.agent) Object.assign(rec, { turns: out.agent.calls, tools: out.agent.tools, refs: out.agent.photos, stopped: out.agent.stopped, rechecked: out.agent.rechecked ? 1 : 0 } satisfies Partial<CallLog>)
     else if (out.ok) rec.turns = 1
     for (const a of out.attempts) tally.keys[a.hash] = (tally.keys[a.hash] ?? 0) + 1
     if (out.ok) tally.ok = out.hash
     const log = (outcome: string, extra: Record<string, unknown> = {}) => {
       rec.outcome = outcome
       // The agent's counts and its steps' kinds; never what it searched for. A later call's 400: the API's message.
-      const agent = out.agent ? { turns: out.agent.calls, tools: out.agent.tools, refs: out.agent.photos, stopped: out.agent.stopped, steps: out.agent.steps.map(s => s.kind), ...(out.agent.later400 !== undefined ? { later400: out.agent.later400 } : {}) } : {}
+      const agent = out.agent ? { turns: out.agent.calls, tools: out.agent.tools, refs: out.agent.photos, stopped: out.agent.stopped, steps: out.agent.steps.map(s => s.kind), ...(out.agent.rechecked ? { rechecked: true } : {}), ...(out.agent.later400 !== undefined ? { later400: out.agent.later400 } : {}) } : {}
       line({ fishId: outcome, model, ms: Date.now() - t, attempts: out.attempts.map(slim), ...agent, ...extra })
     }
     rec.attempts = out.attempts.length
@@ -380,7 +384,7 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
       if (!up.keep) return {}
       const owner = account ?? (await sessionOf(req, env.DB, now))?.userId
       const id = env.UPLOADS && type === 'image/jpeg'
-        ? await keepPhoto(env.UPLOADS, owner, up.bytes!, { verdict, guesses, model, lang: up.lang }, now).catch(e => { console.error('fish-id keep:', e); return null })
+        ? await keepPhoto(env.UPLOADS, owner, up.bytes!, { verdict, guesses, model, lang: up.lang, run: runId }, now).catch(e => { console.error('fish-id keep:', e); return null })
         : null
       return { kept: Boolean(id) }
     }
@@ -411,7 +415,26 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
     if (d.status === 200 && retryKey) await env.AB.put(retryKey, JSON.stringify(d.body), { expirationTtl: RETRY_SEC }).catch(() => undefined)
     await Promise.allSettled(spends)
     await ledger.settle({ day, run, refund: d.status === 503, keys: tally.keys, ...(tally.ok ? { ok: tally.ok } : {}), counts: tally.counts }).catch(e => console.error('fish-id settle:', e))
+    if (trail && env.UPLOADS) {
+      // Never in the reader's way: a record that can't be made or saved is only logged (its error, never its content).
+      const bucket = env.UPLOADS
+      const t = trail
+      wait(Promise.resolve().then(() => saveRun(bucket, transcript(d, t))).catch(e => console.error('fish-id transcript:', e)))
+    }
     return d
+  }
+  /** The run as kept a year: what the reader got and how, never who they are (fishid/transcript.ts). */
+  const transcript = (d: Done, t: NonNullable<typeof trail>): RunRecord => {
+    const body = d.body as { verdict?: string; results?: Result[] }
+    const a = t.agent
+    return {
+      v: 1, id: runId, at: now.toISOString(), lang: up.lang, from: up.from, model, outcome: rec.outcome || 'error', ms: Date.now() - read, cost: rec.cost,
+      tokens: { input: rec.input, output: rec.output },
+      ...(a ? { agent: { calls: a.calls, tools: a.tools, photos: a.photos, stopped: a.stopped, ...(a.rechecked ? { rechecked: true as const } : {}) } } : {}),
+      ...(body.verdict ? { verdict: body.verdict } : {}),
+      ...(body.results ? { results: body.results.map(r => ({ scientificName: r.scientificName, commonName: r.commonName, confidence: r.confidence, reason: r.reason, ...(r.page ? { page: r.page.id } : {}) })) } : {}),
+      turns: turnsOf(a?.history ?? [], t.message),
+    }
   }
   /** A fault of ours mid-run: the reader sees failed, the data point says error, and the run still settles. */
   const fault = (e: unknown): Done => {
@@ -450,20 +473,27 @@ const slim = (a: Attempt) => ({ key: a.hash, ms: a.ms, ...(a.status ? { status: 
 
 /** The owner's dashboard: each key by number and hash, whether it is in use or set aside (until when), today's calls with it and the answers among them. */
 export type KeyRow = { n: number; hash: string; workspace: boolean; state: 'ok' | KeyProblem; until?: string; calls: number; answered: number }
-/** `counts`: today's fallbacks, runs the call limit ended, later calls refused (400), unreadable facts and refunds; `mostRefunds`: the most one reader had. */
-export type FishIdStatus = { rows: KeyRow[]; bad: number; today: number; model: string; counts: Counts; mostRefunds: number }
+/**
+ * `counts`: today's fallbacks, runs the call limit ended, later calls refused (400), unreadable facts and refunds;
+ * `mostRefunds`: the most one reader had. `spend`: the AI spend (fish ID's and chat's) of today and yesterday, UTC days,
+ * newest first, against `cap`, the day's limit.
+ */
+export type FishIdStatus = { rows: KeyRow[]; bad: number; today: number; model: string; counts: Counts; mostRefunds: number; cap: number; spend: { day: string; usd: number }[] }
 export async function fishIdStatus(env: FishIdEnv, now: Date): Promise<FishIdStatus | undefined> {
   const text = env.ANTHROPIC_KEYS
   if (!text || !parseKeys(text).entries.length) return undefined
   const { keys, bad } = await keysOf(text)
   const store = kvHealth(env.AB)
   // The ledger's day; none (no binding, or it can't be read) reads as an empty one, as the dashboard reads a quiet day.
-  const day = (env.FISHID_LEDGER ? await ledgerClient(env.FISHID_LEDGER).read(dayOf(now)).catch(e => { console.error('fish-id ledger:', e); return undefined }) : undefined)
-    ?? { ...emptyDay(), mostRefunds: 0 }
+  const read = (d: string) => (env.FISHID_LEDGER ? ledgerClient(env.FISHID_LEDGER).read(d).catch(e => { console.error('fish-id ledger:', e); return undefined }) : undefined)
+  const days = [dayOf(now), dayOf(new Date(now.getTime() - 86_400_000))]
+  const [today, yesterday] = await Promise.all(days.map(read))
+  const day = today ?? { ...emptyDay(), mostRefunds: 0 }
   const rows = await Promise.all(keys.map(async (k, i): Promise<KeyRow> => {
     const h = await store.get(k.hash).catch(() => null)
     const off = h && h.until > now.getTime() ? h : null
     return { n: i + 1, hash: k.hash, workspace: Boolean(k.workspace), state: off ? off.why : 'ok', ...(off ? { until: new Date(off.until).toISOString() } : {}), calls: day.keys[k.hash] ?? 0, answered: day.ok[k.hash] ?? 0 }
   }))
-  return { rows, bad, today: day.calls, model: env.FISH_ID_MODEL || DEFAULT_MODEL, counts: day.counts, mostRefunds: day.mostRefunds }
+  const spend = [today, yesterday].flatMap((v, i) => (v ? [{ day: days[i]!, usd: v.usd }] : []))
+  return { rows, bad, today: day.calls, model: env.FISH_ID_MODEL || DEFAULT_MODEL, counts: day.counts, mostRefunds: day.mostRefunds, cap: usdLimit(env), spend }
 }

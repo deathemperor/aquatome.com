@@ -10,6 +10,71 @@
     "vietnam",
     "thu-bon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [
+        "Thu Bồn",
+        "Hương"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Native to central Vietnam, particularly the Thu Bồn River system in Quảng Nam province and the Hương (Perfume) River basin in Thừa Thiên-Huế province.",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Thu Bồn",
+            "Hương"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5211156,
+      "total": 25,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VN",
+          25
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          16.875,
+          1,
+          1
+        ],
+        [
+          106.875,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          106.875,
+          15.46875,
+          19,
+          19
+        ],
+        [
+          108.28125,
+          14.0625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -70,7 +135,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ],
     "gh": [
@@ -213,6 +278,31 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/6db772ab3060692b.webp",
+      "thumb": "https://media.aquatome.com/commons/6db772ab3060692b-480.webp",
+      "width": 960,
+      "height": 650,
+      "licence": "CC BY-SA 4.0",
+      "author": "Andrew Bogott",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macropodus_spechti_male.png",
+      "caption": "Male wild-caught black paradisefish (Macropodus spechti)",
+      "large": {
+        "url": "https://media.aquatome.com/commons/6db772ab3060692b-large.webp",
+        "width": 1771,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/830bbaa63f7b96ed.webp",
+      "thumb": "https://media.aquatome.com/commons/830bbaa63f7b96ed-480.webp",
+      "width": 960,
+      "height": 537,
+      "licence": "Public domain",
+      "author": "BS Thurner Hof",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Makropode_Quang_Binh-Makropode_060114_5.jpg",
+      "caption": "Nov2005 Photo taken by user de:Benutzer:BS Thurner Hof"
+    },
+    {
       "url": "https://media.aquatome.com/seriouslyfish/edae2830460bcef9.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/edae2830460bcef9-480.webp",
       "width": 762,
@@ -233,26 +323,6 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
       "caption": "Adult male from the German aquarium trade.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/6db772ab3060692b.webp",
-      "thumb": "https://media.aquatome.com/commons/6db772ab3060692b-480.webp",
-      "width": 960,
-      "height": 650,
-      "licence": "CC BY-SA 4.0",
-      "author": "Andrew Bogott",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macropodus_spechti_male.png",
-      "caption": "Male wild-caught black paradisefish (Macropodus spechti)"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/830bbaa63f7b96ed.webp",
-      "thumb": "https://media.aquatome.com/commons/830bbaa63f7b96ed-480.webp",
-      "width": 960,
-      "height": 537,
-      "licence": "Public domain",
-      "author": "BS Thurner Hof",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Makropode_Quang_Binh-Makropode_060114_5.jpg",
-      "caption": "Nov2005 Photo taken by user de:Benutzer:BS Thurner Hof"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/ed3a843fd4d4bd68.webp",
@@ -307,8 +377,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60 lít",
-        "bể cá thủy sinh nhỏ"
+        "bể cá 80cm"
       ]
     },
     {

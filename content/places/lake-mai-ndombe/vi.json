@@ -1,10 +1,13 @@
 {
   "slug": "lake-mai-ndombe",
-  "name": "Lake Mai Ndombe",
-  "altNames": [],
+  "name": "hồ Mai Ndombe",
+  "altNames": [
+    "Lake Mai Ndombe"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

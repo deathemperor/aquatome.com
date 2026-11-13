@@ -23,6 +23,260 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The type locality is given simply as 'Amazon River, Brazil'.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Widely-distributed throughout most of the Amazon and Orinoco river drainages plus other important fluvial systems in the Guianas and northeastern Brazil.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338831,
+      "total": 188,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          121
+        ],
+        [
+          "CO",
+          55
+        ],
+        [
+          "PE",
+          8
+        ],
+        [
+          "GF",
+          3
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          3,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          -73.125,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          4.21875,
+          54,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          68,
+          68
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -52.03125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          0,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -50.625,
+          0,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          10,
+          10
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -60,7 +314,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -69,7 +323,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-rousseauxii",
-      "html": "<ul><li>Max size: 1900 mm SL (75 in SL)</li><li>Aquarium size: not recorded</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 1–20 dGH</li><li>Difficulty: 5 of 8 (rated difficult because it needs a tank at least 2 m long)</li></ul><p>The dourada, Brachyplatystoma rousseauxii, is a large migratory pimelodid catfish from the Amazon and Orinoco drainages and rivers of the Guianas. Juveniles feed in the Amazon delta, while sexually mature adults are found only in the western Amazon. Some populations cover as much as 5500 km during migration from the delta, the longest known in any freshwater fish, and it is heavily fished during its upstream movement. It grows to 1900 mm SL.</p>"
+      "html": "<ul><li>Max size: 1900 mm SL (75 in SL)</li><li>Aquarium size: not recorded</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 1–20 dGH</li><li>Difficulty: 6 of 8 (rated difficult because it needs a tank at least 2 m long)</li></ul><p>The dourada, Brachyplatystoma rousseauxii, is a large migratory pimelodid catfish from the Amazon and Orinoco drainages and rivers of the Guianas. Juveniles feed in the Amazon delta, while sexually mature adults are found only in the western Amazon. Some populations cover as much as 5500 km during migration from the delta, the longest known in any freshwater fish, and it is heavily fished during its upstream movement. It grows to 1900 mm SL.</p>"
     },
     {
       "key": "distribution",

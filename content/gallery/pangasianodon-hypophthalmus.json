@@ -14,18 +14,6 @@
       "kind": "form"
     },
     {
-      "url": "https://media.aquatome.com/commons/e8c2f03ba5629268.webp",
-      "thumb": "https://media.aquatome.com/commons/e8c2f03ba5629268-480.webp",
-      "width": 1200,
-      "height": 902,
-      "licence": "CC BY-SA 3.0",
-      "author": "Hectonichus",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangasiidae_-_Pangasius_sanitwongsei.jpg",
-      "caption": "Cá tra non bơi trên nền sỏi trong bể nuôi",
-      "best": true,
-      "kind": "juvenile"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/259166169.webp",
       "thumb": "https://media.aquatome.com/inaturalist/259166169-480.webp",
       "width": 1024,
@@ -50,18 +38,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/f29e8529f2571332.webp",
-      "thumb": "https://media.aquatome.com/commons/f29e8529f2571332-480.webp",
-      "width": 1200,
-      "height": 976,
-      "licence": "CC0",
-      "author": "Raymond Ellis",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangasius_sanitwongsei_Zoologischer_Garten_Aquarium_Berlin.JPG",
-      "caption": "Cá tra bơi trong bể thủy cung có đáy cát và ánh sáng",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/c5f7b004c3cebbd0.webp",
       "thumb": "https://media.aquatome.com/commons/c5f7b004c3cebbd0-480.webp",
       "width": 1200,
@@ -74,18 +50,6 @@
       "kind": "form"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/56317257.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/56317257-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Philipp Pavelka",
-      "sourceUrl": "https://www.inaturalist.org/photos/56317257",
-      "caption": "Đàn cá tra bơi trong nước đục ngoài tự nhiên",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/commons/31ee82e61c172146.webp",
       "thumb": "https://media.aquatome.com/commons/31ee82e61c172146-480.webp",
       "width": 1200,
@@ -95,7 +59,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oniria_-_Poisson_73.jpg",
       "caption": "Cá tra bơi trong bể thủy cung, thân xám vây dài",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/commons/31ee82e61c172146-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/615164114.webp",
@@ -178,18 +147,6 @@
       "author": "User:Lerdsuwa",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iridescent_Shark_Catfish.jpg",
       "caption": "Cá tra thân sẫm bơi trong bể công cộng",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/85aed283b556b527.webp",
-      "thumb": "https://media.aquatome.com/commons/85aed283b556b527-480.webp",
-      "width": 1138,
-      "height": 522,
-      "licence": "CC BY-SA 3.0",
-      "author": "Cymothoa exigua",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangasius_sanitwongsei_adult.jpg",
-      "caption": "Cá tra bơi sát kính bể, nhìn nghiêng toàn thân",
       "best": true,
       "kind": "other"
     },
@@ -347,7 +304,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/341364126",
       "caption": "Cá tra bạc bơi sát kính bể",
       "best": false,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/341364126-large.webp",
+        "width": 1604,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/616439840.webp",
@@ -395,6 +357,18 @@
       "authorUrl": "https://unsplash.com/@muneerok?utm_source=aquatome&utm_medium=referral",
       "sourceUrl": "https://unsplash.com/photos/silver-fish-swims-near-orange-fish-in-aquarium-QgKa4yygR5Q?utm_source=aquatome&utm_medium=referral",
       "caption": "Cá tra non bơi trong bể thủy sinh có cây thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/56317257.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/56317257-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Philipp Pavelka",
+      "sourceUrl": "https://www.inaturalist.org/photos/56317257",
+      "caption": "Đàn cá tra bơi trong nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "group"
     }
   ],
   "seen": 139,

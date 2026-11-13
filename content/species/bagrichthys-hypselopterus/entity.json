@@ -12,6 +12,74 @@
     "sumatra",
     "musi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "TH"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Batang Hari",
+        "Musi",
+        "Kapuas"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Palembang, Sumatra, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Thailand to Indonesia. Pacific, Greater Sunda Island Rivers, Borneo Waters; Pacific, Greater Sunda Island Rivers, Sumatra Waters.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species is reported from the Batang Hari and Musi River drainages in Sumatra, as well as the Kapuas River drainage in western Borneo.",
+          "countries": [],
+          "regions": [
+            "Sumatra",
+            "Borneo",
+            "Batang Hari",
+            "Musi",
+            "Kapuas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338053,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {
@@ -135,29 +203,7 @@
       "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2014. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 11/2014 ).</p><p>Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo, 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong. 221 p.</p><p>Ng, H.H. 2019. Bagrichthys hypselopterus. The IUCN Red List of Threatened Species 2019.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/4ef7f583904cb584.webp",
-      "thumb": "https://media.aquatome.com/scotcat/4ef7f583904cb584-480.webp",
-      "width": 500,
-      "height": 294,
-      "licence": "dùng với sự cho phép",
-      "author": "Zhou Hang / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/bagridae/bagrichthys_hypselopterus.htm",
-      "caption": "Bagrichthys hypselopterus: mouth view",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/0605645206a8c833.webp",
-      "thumb": "https://media.aquatome.com/commons/0605645206a8c833-480.webp",
-      "width": 960,
-      "height": 570,
-      "licence": "Public domain",
-      "author": "P. Bleeker",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bagrichthys_hypselopterus.jpg",
-      "caption": "Bagrichthys hypselopterus"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "v0S8VrS2YA8",

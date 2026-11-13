@@ -5,10 +5,8 @@
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/bd9742b8fcf4d627.webp": "7e7edc3c3f8f639f",
-  "https://media.aquatome.com/seriouslyfish/3eae6136496615e7.webp": "2a038baaeae56566",
   "https://media.aquatome.com/seriouslyfish/8e29b1277fc4c481.webp": "252531492f0c030f",
-  "https://media.aquatome.com/seriouslyfish/bfba79a9685c2608.webp": "67d743233b163a69",
-  "https://media.aquatome.com/commons/118f850adffbbb20.webp": "0d69f3f87cf8f171"
+  "https://media.aquatome.com/seriouslyfish/bfba79a9685c2608.webp": "67d743233b163a69"
  },
  "commons": "2026-11-02",
  "inat": {
@@ -18,5 +16,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2368273,
+  "next": null
  }
 }

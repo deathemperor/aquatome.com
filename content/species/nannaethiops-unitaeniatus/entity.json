@@ -1,0 +1,491 @@
+{
+  "id": "nannaethiops-unitaeniatus",
+  "scientificName": "Nannaethiops unitaeniatus",
+  "order": "Characiformes",
+  "family": "Distichodontidae",
+  "genus": "Nannaethiops",
+  "group": "tetras",
+  "places": [
+    "africa",
+    "cameroon",
+    "nigeria",
+    "cross",
+    "gabon",
+    "republic-of-the-congo",
+    "congo",
+    "democratic-republic-of-the-congo"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "NG",
+        "GA",
+        "CG",
+        "CD"
+      ],
+      "regions": [
+        "Congo",
+        "Cross"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The one-lined African characin, Nannaethiops unitaeniatus, is a small citharinid from Cameroon, Nigeria, Gabon and both Congo republics.",
+          "countries": [
+            "CM",
+            "NG",
+            "GA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Found in Cameroon, Nigeria, Gabon, Republic of Congo and Democratic Republic of Congo.",
+          "countries": [
+            "CG",
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's been recorded from several river systems including the Congo, Niger and Cross.",
+          "countries": [],
+          "regions": [
+            "Congo",
+            "Cross"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355761,
+      "total": 128,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CM",
+          28
+        ],
+        [
+          "GA",
+          26
+        ],
+        [
+          "NG",
+          15
+        ],
+        [
+          "BJ",
+          13
+        ],
+        [
+          "CG",
+          13
+        ],
+        [
+          "GH",
+          11
+        ],
+        [
+          "CD",
+          10
+        ],
+        [
+          "GM",
+          4
+        ],
+        [
+          "SS",
+          3
+        ],
+        [
+          "AO",
+          2
+        ],
+        [
+          "CF",
+          1
+        ],
+        [
+          "CI",
+          1
+        ],
+        [
+          "GQ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -15.46875,
+          12.65625,
+          4,
+          0
+        ],
+        [
+          -4.21875,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -2.8125,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          -2.8125,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -1.40625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          0,
+          5.625,
+          3,
+          0
+        ],
+        [
+          1.40625,
+          5.625,
+          7,
+          0
+        ],
+        [
+          1.40625,
+          7.03125,
+          2,
+          1
+        ],
+        [
+          1.40625,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          2.8125,
+          11.25,
+          3,
+          0
+        ],
+        [
+          5.625,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          7.03125,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          8.4375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          0,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          8.4375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          8.4375,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          8.4375,
+          5.625,
+          10,
+          10
+        ],
+        [
+          8.4375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          -2.8125,
+          15,
+          15
+        ],
+        [
+          9.84375,
+          -1.40625,
+          7,
+          7
+        ],
+        [
+          9.84375,
+          0,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          2.8125,
+          6,
+          6
+        ],
+        [
+          11.25,
+          -7.03125,
+          5,
+          5
+        ],
+        [
+          11.25,
+          -5.625,
+          10,
+          8
+        ],
+        [
+          11.25,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          11.25,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          12.65625,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          12.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          16.875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          26.71875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          30.9375,
+          8.4375,
+          3,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannaethiops-unitaeniatus",
+      "html": "<p>The one-lined African characin, Nannaethiops unitaeniatus, is a small citharinid from Cameroon, Nigeria, Gabon and both Congo republics. A shy, peaceful fish of streams, small rivers, lakes and ponds, it should be kept in a shoal. Not often seen for sale, it is often confused with similar-looking members of the genus Neolebias, and mature males are smaller, slimmer and more brightly coloured than females.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannaethiops-unitaeniatus",
+      "html": "<p>Found in Cameroon, Nigeria, Gabon, Republic of Congo and Democratic Republic of Congo. The supposed existence of a Ghanaian population is currently deemed questionable. It's been recorded from several river systems including the Congo, Niger and Cross.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannaethiops-unitaeniatus",
+      "html": "<p>Inhabits streams, small rivers, lakes and ponds.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannaethiops-unitaeniatus",
+      "html": "<p>A standard 60 × 30 × 30 cm tank (~54 litres) is easily big enough to house a small shoal of these.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannaethiops-unitaeniatus",
+      "html": "<p>Seems to do best in a well-planted set-up, preferably with subdued lighting. In a brightly-lit, sparsely decorated tank this species will often fail to settle or show its best colours. Use plenty of plants that will grow up to the surface and consider the addition of some floating species. These will make the light hitting the water even softer and give the set-up a pleasingly organic appearance. The other option of course is to simply install dim lighting. While many plants will fail to thrive under these conditions, others will continue to grow. The various Anubias species are ideal, particularly as they hail from Africa. Java fern (Microsorum pteropus), java moss (Taxiphyllum barbieri) and many species of Cryptocoryne will also flourish under low lighting. Additional decor such as driftwood and smooth rocks can also be used to create a convincing natural effect and provide hiding places to give this rather shy species some extra security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannaethiops-unitaeniatus",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.5–7.5</li><li>Hardness: 5–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannaethiops-unitaeniatus",
+      "html": "<p>In nature it's something of an opportunistic omnivore, feeding on small invertebrates, algae and other zooplankton. May initially refuse dried foods. Most live and frozen foods are readily accepted.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannaethiops-unitaeniatus",
+      "html": "<p>A shy species that nevertheless can be maintained in a community tank with other small, peaceful species. Should be kept in a shoal for it to feel secure.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannaethiops-unitaeniatus",
+      "html": "<p>Easy to sex, especially if the fish in question are adults. Sexually mature males are smaller, more brightly coloured and much slimmer than the females. Males also exhibit dashes of quite a deep red colouration in the dorsal and upper caudal fins when in spawning condition.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannaethiops-unitaeniatus",
+      "html": "<p>Not often bred in aquaria. Egg scatterer. A small breeding tank should be prepared with soft, acidic water (pH 6.0-6.5, dH 0-5). Clumps of java moss or spawning mops should also be added. Filtering the water through peat beforehand is beneficial. The fish should be conditioned with plenty of live food until the males show their best colouration and then the fattest female and most colourful male placed in the breeding tank. It may take several days before a spawn. Spawning occurs at dawn and the eggs are scattered among the plants or mops. The parents should be removed after spawning is complete. The eggs hatch in around 30-36 hours with the fry becoming free swimming 2-3 days later. They should be fed infusoria for the first few days and can then be moved on to brine shrimp nauplii or microworm.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannaethiops-unitaeniatus",
+      "html": "<p>Not often seen for sale, this is a pretty, peaceful little fish that deserves more popularity in the hobby. It is often confused with similar-looking members of the genus Neolebias.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/efb958e9bb42a212.webp",
+      "width": 800,
+      "height": 458,
+      "licence": "CC BY-SA 2.0",
+      "author": "Francois Libert",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:One-lined_African_Characin_-_Nannaethiops_unitaeniatus.jpg",
+      "caption": "(EN) One-lined African Characin - (FR) Tétra africain à une raie Nannaethiops unitaeniatus from Edea-Kribi, Cameroon Wild specimen photographed in an aquarium",
+      "thumb": "https://media.aquatome.com/commons/efb958e9bb42a212-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn LED ánh sáng dịu",
+        "đèn bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây anubias",
+        "dương xỉ java",
+        "rêu java"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá nhỏ",
+        "trùng chỉ đông lạnh",
+        "artemia"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

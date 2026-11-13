@@ -11,14 +11,24 @@ import { POPULAR, STAPLE_SPECIES } from '@aq/schema/staples'
 import { setsCookies } from '@aq/schema/thumb'
 import { LANG, LANGS, OTHER_LANGS, type OtherLang } from '@aq/schema/langs'
 import { langOf, toVi } from '../src/lib/i18n.ts'
+import { pageSignals } from './page-signals.ts'
 import { VI_SECTIONS, withoutVi } from '../worker/paths.ts'
-import type { ByLang, ContentStats, EngineStats, EntityKind, Gap, GapKey, Lang, PageKind, PageRow, PhotoStats, SourceRow, Totals } from '../worker/admin/content-shape.ts'
+import type { ByLang, ContentStats, EngineStats, EntityKind, Gap, GapKey, Lang, LastReview, LowPage, LowScores, PageKind, PageRow, PhotoStats, SourceRow, Totals } from '../worker/admin/content-shape.ts'
 
 export const MAX_BYTES = 1_000_000
 const GAP_LIST = 50
 /** Engine rules this mirrors, kept in step by test/content-stats.test.ts: a video's 3 tries (youtube.ts), a page's (state.ts), REWRITE_V (vi-backfill.ts). */
 export const MAX_ATTEMPTS = 3
 export const REWRITE_V = 2
+/** @aq/schema QUALITY_THRESHOLD (load.ts, which plain node can't import), kept in step by test/content-stats.test.ts. */
+export const QUALITY_BAR = 0.75
+/**
+ * The engine's reviews (review-log.ts REVIEW_KINDS) that set a page's score, and the rest: a title, a part the reader step
+ * rewrote (kept only at a passing score), a product's review section, a quick summary, a place's name (no place page is
+ * out of search for it), a plant's planting part (kept only at a passing score). test/content-stats.test.ts holds each of the engine's kinds to one list.
+ */
+export const SCORE_REVIEWS = ['video-guide', 'translation', 'vi-rewrite', 'breed', 'topic', 'product', 'localize', 'glossary', 'equipment', 'species'] as const
+export const OTHER_REVIEWS = ['reader-rewrite', 'title', 'product-reviews', 'summary', 'places', 'planting'] as const
 
 // Content files are read as the engine wrote them, without the schema's parser: the backfill runs this on old commits too.
 type Json = Record<string, any>
@@ -207,13 +217,16 @@ export function computeContentStats(o: StatsInput): ContentStats {
     photos.covered[kind] = { with: withPhoto, of: xs.length }
   }
   for (const f of files(join(root, 'gallery'))) {
-    const n = shown(read(join(root, 'gallery', f))?.photos).length
+    // A photo that waits for the photo check (`unchecked`) is on no page yet.
+    const n = shown(read(join(root, 'gallery', f))?.photos).filter(p => !p.unchecked).length
     if (n) { photos.gallery.pages++; photos.gallery.photos += n }
   }
 
   // ——— Gaps ———
   const hidden = o.hidden ?? new Set<string>()
-  const engineHere = !!o.engineState && existsSync(o.engineState)
+  // The loader's record of where the fish is in each photo (load.ts PHOTO_BOXES_FILE) is no engine run: the fixture keeps
+  // one beside its content for its fish frames, and has no engine state.
+  const engineHere = !!o.engineState && existsSync(o.engineState) && readdirSync(o.engineState).some(f => f !== '_photo-boxes.json')
   // The rewrite's record (none yet: nothing rewritten); without engine state at all, the oldVi gaps are left out.
   const rewrite = engineHere ? (read(join(o.engineState!, 'vi-rewrite.json')) ?? {}) : undefined
   const staple = new Map(STAPLE_SPECIES.map((id, i) => [id, i]))
@@ -287,6 +300,79 @@ export function computeContentStats(o: StatsInput): ContentStats {
   return { v: 1, builtAt: now.toISOString(), publicBuild: o.publicBuild, inventory, built, sources, photos, engine, gaps, pages, totals }
 }
 
+/** Each kind of page with a score of its own: where its item is in content/ (and in a review's key). */
+export const SCORED: Partial<Record<PageKind, string>> = { fish: 'species', breed: 'breeds', plant: 'plants', guide: 'guides', videoGuide: 'guides', glossary: 'glossary', product: 'products', equipment: 'equipment' }
+
+/**
+ * Whether a page is out of search for its score, as the build judges it (@aq/schema load.ts): a fish's or plant's score
+ * is the lowest of its shown sources' (cleanQuality), and with one its `indexable` follows that score; a fish's recorded
+ * `thin` was the depth rule's own call, so its score alone decides (judgeDepth). Out for its score: not passed, and under
+ * the bar. A fish out of search for being thin as well is in both lists (its gap `thin`).
+ */
+export function outForScore(dir: string, q: Json | undefined, textOk: (source: string) => boolean): number | undefined {
+  if (!q || typeof q.score !== 'number') return undefined
+  let { score, indexable } = q as { score: number; indexable: boolean }
+  if (dir === 'species' || dir === 'plants') {
+    const by = Object.entries((q.bySource ?? {}) as Record<string, number>).filter(([s]) => textOk(s)).map(([, v]) => v)
+    if (by.length) { score = Math.min(...by); indexable = score >= QUALITY_BAR }
+  }
+  const passed = dir === 'species' && q.reason === 'thin' ? score >= QUALITY_BAR : indexable
+  return !passed && score < QUALITY_BAR ? score : undefined
+}
+
+/** A page's last review, of these traces: one of the version it has, under the bar if any is (it says why), the newest. */
+export function lastReview(traces: LastReview[]): LastReview | undefined {
+  const rank = (t: LastReview) => [Number(t.kept), Number(t.score < QUALITY_BAR), t.at] as const
+  const after = (a: LastReview, b: LastReview) => {
+    const [x, y] = [rank(a), rank(b)]
+    return x[0] - y[0] || x[1] - y[1] || x[2].localeCompare(y[2])
+  }
+  return traces.reduce<LastReview | undefined>((best, t) => (!best || after(t, best) > 0 ? t : best), undefined)
+}
+
+/**
+ * dist/_ab/reviews.json: every built page out of search for its score (outForScore), lowest first, each with its last
+ * review (engine-state/reviews/<kind>.json, keyed "<lang>/<content path>", a part after "#"); none without engine state.
+ */
+/** The editors' reviews that set a score (SCORE_REVIEWS), by "<lang>/<content path>"; none without engine state. */
+export function reviewTraces(engineState?: string): Map<string, LastReview[]> {
+  const traces = new Map<string, LastReview[]>()
+  const dir = engineState && join(engineState, 'reviews')
+  if (dir && existsSync(dir)) {
+    for (const kind of SCORE_REVIEWS) {
+      for (const [key, ts] of Object.entries((read(join(dir, `${kind}.json`)) ?? {}) as Record<string, Json[]>)) {
+        const page = key.split('#')[0]!
+        const list = traces.get(page) ?? []
+        for (const t of ts) list.push({ kind, at: String(t.at), score: Number(t.score), notes: ((t.notes ?? []) as unknown[]).map(String), kept: t.kept === true })
+        traces.set(page, list)
+      }
+    }
+  }
+  return traces
+}
+
+export function lowScores(o: { contentRoot: string; engineState?: string; publicBuild: boolean; pages: ContentStats['pages'] }): LowScores {
+  const root = o.contentRoot
+  const sourcesInfo = read(join(root, 'sources.json')) ?? {}
+  const textOk = (s: string) => !o.publicBuild || sourcesInfo[s]?.publish === true
+  const traces = reviewTraces(o.engineState)
+  const pages: LowPage[] = []
+  for (const [kind, d] of Object.entries(SCORED) as [PageKind, string][]) {
+    for (const [path, , id] of o.pages?.[kind] ?? []) {
+      if (!id) continue
+      const lang = langOf(path)
+      // An equipment guide's other languages are content/equipment/<lang>/<category>.json; the Vietnamese one has no score.
+      const t = kind === 'equipment' ? (lang === 'vi' ? undefined : read(join(root, d, lang, `${id}.json`))) : read(join(root, d, id, `${lang}.json`))
+      const score = outForScore(d, t?.quality, textOk)
+      if (score === undefined) continue
+      const review = lastReview(traces.get(`${lang}/${d}/${id}`) ?? [])
+      pages.push({ path, kind, score, ...(review ? { review } : {}) })
+    }
+  }
+  pages.sort((a, b) => a.score - b.score || a.path.localeCompare(b.path))
+  return { v: 1, bar: QUALITY_BAR, pages }
+}
+
 /** The rewrite does a page again when it never ran, or did part of it under an older version (vi-backfill.ts `due`). */
 const rewriteDue = (s: Json | undefined) => !s || (s.rewritten < s.of && (s.v ?? 1) < REWRITE_V)
 
@@ -313,6 +399,7 @@ function engineStats(dir: string, sourcesInfo: Json, now: Date): Omit<EngineStat
     sources.push(row)
   }
   const needsHuman = Object.entries(blocks).flatMap(([source, b]) => (b && typeof (b as Json).blockedAt === 'string' ? [{ source, since: (b as Json).blockedAt as string }] : []))
+  const movedToArchive = Object.entries(blocks).flatMap(([source, b]) => (b && typeof (b as Json).archive === 'string' ? [{ source, since: (b as Json).archive as string }] : []))
 
   // The video queue (youtube.ts videoGuides): each listed video once, playlists' then single videos', the skipped lists left out.
   const yt = (read(join(dir, 'youtube.json')) ?? {}) as Record<string, Json>
@@ -339,7 +426,7 @@ function engineStats(dir: string, sourcesInfo: Json, now: Date): Omit<EngineStat
   videos.writtenAt = Object.values(yt).filter(s => s.status === 'processed' && Date.parse(String(s.updatedAt)) >= since).map(s => new Date(String(s.updatedAt)).toISOString()).sort()
 
   return {
-    sources, needsHuman, videos,
+    sources, needsHuman, movedToArchive, videos,
     lastRun: lastRun ? { startedAt: String(lastRun.startedAt), finishedAt: String(lastRun.finishedAt), needsHuman: lastRun.needsHuman ?? [], errors: (lastRun.errors ?? []).length, changed: (lastRun.changed ?? []).length } : null,
   }
 }
@@ -349,12 +436,26 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const dist = resolve(process.env.OUT_DIR ?? fileURLToPath(new URL('../dist', import.meta.url)))
   const hiddenFile = process.env.HIDDEN_FILE ?? resolve(process.cwd(), '.hidden.json')
   const hidden = new Set(Object.keys(read(hiddenFile) ?? {}).map(withoutVi))
-  const stats = computeContentStats({ contentRoot, engineState: resolve(process.env.ENGINE_STATE ?? join(contentRoot, '../engine-state')), dist, publicBuild: process.env.PUBLIC_BUILD === '1', hidden })
+  const engineState = resolve(process.env.ENGINE_STATE ?? join(contentRoot, '../engine-state'))
+  const publicBuild = process.env.PUBLIC_BUILD === '1'
+  const stats = computeContentStats({ contentRoot, engineState, dist, publicBuild, hidden })
   const body = JSON.stringify(stats)
   mkdirSync(join(dist, '_ab'), { recursive: true })
   writeFileSync(join(dist, '_ab', 'content.json'), body)
   const n = Object.values(stats.pages ?? {}).reduce((a, xs) => a + xs.length, 0)
   console.log(`content-stats: ${n} pages, ${Math.round(Buffer.byteLength(body) / 1024)} KB${stats.engine ? '' : ' (no engine state)'}`)
+  // The pages out of search for their score, for the content page's "Còn thiếu"; read, like content.json, by the Worker alone.
+  const low = lowScores({ contentRoot, engineState, publicBuild, pages: stats.pages })
+  const lowBody = JSON.stringify(low)
+  writeFileSync(join(dist, '_ab', 'reviews.json'), lowBody)
+  console.log(`content-stats: ${low.pages.length} pages out of search for their score, ${low.pages.filter(p => p.review).length} with a review, ${Math.round(Buffer.byteLength(lowBody) / 1024)} KB`)
+  // The same budget: about 2 KB of notes a page, it fits some 450 pages with a review.
+  if (Buffer.byteLength(lowBody) > MAX_BYTES) console.warn(`::warning title=content-stats::dist/_ab/reviews.json is ${Math.round(Buffer.byteLength(lowBody) / 1024)} KB, over its 1 MB budget: keep fewer notes a page`)
+  // What the engine knows of each item page, for the content page's quality lists (scripts/page-signals.ts).
+  const signals = JSON.stringify(pageSignals({ contentRoot, engineState, pages: stats.pages }))
+  writeFileSync(join(dist, '_ab', 'page-signals.json'), signals)
+  console.log(`content-stats: page signals, ${Math.round(Buffer.byteLength(signals) / 1024)} KB`)
+  if (Buffer.byteLength(signals) > MAX_BYTES) console.warn(`::warning title=content-stats::dist/_ab/page-signals.json is ${Math.round(Buffer.byteLength(signals) / 1024)} KB, over its 1 MB budget`)
   // A budget, not a limit (an asset may be 25 MiB): over it, a warning on the deploy's run rather than a failed deploy,
   // since the dashboard's file shouldn't hold back the site's content. At about 90 bytes a page, it fits some 10,000 pages.
   if (Buffer.byteLength(body) > MAX_BYTES) console.warn(`::warning title=content-stats::dist/_ab/content.json is ${Math.round(Buffer.byteLength(body) / 1024)} KB, over its 1 MB budget: make the page index smaller`)

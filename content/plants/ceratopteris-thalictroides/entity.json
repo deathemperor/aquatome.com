@@ -19,6 +19,12 @@
     },
     {
       "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<ul><li>Dương xỉ nước trồng ở hậu cảnh, trung cảnh hay thả nổi đều được. Lá nó xẻ nhánh mảnh, đặt cạnh những cây có dáng lá khác thì nhìn tương phản rõ.</li><li>Với bể có phần cây mọc trên cạn, nó trồng ở phía sau, đúng chỗ chuyển từ phần dưới nước lên phần trên cạn. Cây vươn khỏi mặt nước được thì tốt, không thì cũng không sao.</li><li>Trong bể nhỏ để hở mặt, cây có thể vươn lên khỏi mặt nước và ra những lá cạn rất đẹp.</li><li>Loài này mọc nhanh nên phải cắt tỉa thường xuyên.</li></ul>"
+    },
+    {
+      "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ceratopteristhalictroides(005ACLP)/31137",
       "html": "<p>Ceratopteris thalictroides is a pantropical fern, 15-30 cm high and 10-20 cm wide. This plant normally grows fast, but the addition of CO2 may be necessary to promote growth. In small, open aquariums, it can grow out of the tank and form beautiful surface leaves.</p>"
@@ -31,16 +37,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/f2bd094727ae17f8.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 3.0 us",
-      "author": "Forest and Kim Starr",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Starr-130322-3784-Ceratopteris_thalictroides-habit-Hanalei_NWR-Kauai_(25183377336).jpg",
-      "caption": "Ceratopteris thalictroides (Water sprite, Indian fern, water fern, oriental waterfern, and water hornfern) habit at Hanalei NWR, Kauai, Hawaii. March 22, 2013 #130322-3784 Image Use Policy",
-      "thumb": "https://media.aquatome.com/commons/f2bd094727ae17f8-480.webp"
-    },
     {
       "url": "https://media.aquatome.com/commons/57d72dc835fe13e6.webp",
       "width": 960,
@@ -100,5 +96,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-09"
 }

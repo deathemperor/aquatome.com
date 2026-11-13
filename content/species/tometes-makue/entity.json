@@ -1,0 +1,81 @@
+{
+  "id": "tometes-makue",
+  "scientificName": "Tometes makue",
+  "order": "Characiformes",
+  "family": "Serrasalmidae",
+  "genus": "Tometes",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 40
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tometes_cf_makue_en/",
+      "html": "<p>Tometes makue was described only in 2002. It may reach a total length of about 40 cm. It is a hardy fish and as undemanding as one is used to from Myleus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tometes_cf_makue_en/",
+      "html": "<p>It is reported from Brasil (Rio Negro basin) and Venezuela (Caroni basin and Orinoco basin).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tometes_cf_makue_en/",
+      "html": "<p>Compared with the \"broadbands\" (Myleus schomburgkii), the new import was quarrelsome, but not much information on the behaviour of such a rare new importation can be given yet.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tometes_cf_makue_en/",
+      "html": "<p>The species has been mis-identified several times: by Kner in 1860 as Mylesinus schomburgkii, followed by Nelson (1961), Hurtado Sepulveda (1989), Lasso et al. (1995), and Machado-Allison &amp; Fink (1995). Other mis-identifications are as Myleus setiger and Utiaritichthys sennaebragai, then followed the original description as Tometes makue.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tometes_cf_makue_en/",
+      "html": "<p>Jégu, M. , G. M. dos Santos &amp; E. Belmont-Jégu (2002): Tometes makue n. sp. (Characidae: Serrasalminae), une nouvelle espèce du bouclier guyanais décrite des bassins du Rio Negro (Brésil) et de l’Orénoque (Venezuela). Cybium v. 26 (no. 4): 253-274.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể kính 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ăn thực vật",
+        "thức ăn viên cá hồng phát"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

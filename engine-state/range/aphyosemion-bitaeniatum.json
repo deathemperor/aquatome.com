@@ -1,0 +1,112 @@
+{
+  "id": "aphyosemion-bitaeniatum",
+  "native": {
+    "input": "c1b485529fa3e571",
+    "at": "2026-11-09T23:57:44.132Z",
+    "claims": [
+      {
+        "code": "TG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is widely-distributed in lowland, coastal regions of Togo, Benin and Nigeria as far as the Cross River delta, and occurs at some inland localities along the lower Niger River.",
+        "words": "Togo",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is widely-distributed in lowland, coastal regions of Togo, Benin and Nigeria as far as the Cross River delta, and occurs at some inland localities along the lower Niger River.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is widely-distributed in lowland, coastal regions of Togo, Benin and Nigeria as far as the Cross River delta, and occurs at some inland localities along the lower Niger River.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Populations in Cameroon, Equatorial Guinea and Gabon are now considered to represent other species.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GQ",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Populations in Cameroon, Equatorial Guinea and Gabon are now considered to represent other species.",
+        "words": "Equatorial Guinea",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Populations in Cameroon, Equatorial Guinea and Gabon are now considered to represent other species.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Niger",
+        "source": "seriouslyfish",
+        "quote": "This species is widely-distributed in lowland, coastal regions of Togo, Benin and Nigeria as far as the Cross River delta, and occurs at some inland localities along the lower Niger River.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Cross River",
+        "source": "seriouslyfish",
+        "quote": "This species is widely-distributed in lowland, coastal regions of Togo, Benin and Nigeria as far as the Cross River delta, and occurs at some inland localities along the lower Niger River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion bitaeniatum",
+    "status": "ACCEPTED",
+    "taxonKey": 2348297,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        22
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        13
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        5
+      ]
+    ],
+    "native": [
+      "TG",
+      "BJ",
+      "NG"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

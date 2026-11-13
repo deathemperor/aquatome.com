@@ -9,10 +9,20 @@
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/0bdf4be1002d9c3a.webp": "2c10470743679d76",
-  "https://upload.wikimedia.org/wikipedia/commons/1/1c/Anomalochromis_thomasi.jpg": "e8cccf9f9f9fe3ed",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Anomalochromis_thomasi_2.jpg/1280px-Anomalochromis_thomasi_2.jpg": "0306021b1317b638",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Anomalochromis_thomasi_A.jpg/1280px-Anomalochromis_thomasi_A.jpg": "73638f971e7d73ef",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Anomalochromis_thomasi_B.jpg/1280px-Anomalochromis_thomasi_B.jpg": "2a1a19060606a978"
+  "https://media.aquatome.com/commons/618af995c6a24020.webp": "0306021f139eb638",
+  "https://media.aquatome.com/commons/7358bf317d9c7d83.webp": "accecf9f9f8fcbed"
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "inat": {
+  "taxon": 94190,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2372864,
+  "next": null
+ }
 }

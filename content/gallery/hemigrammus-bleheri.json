@@ -2,6 +2,30 @@
   "id": "hemigrammus-bleheri",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/758321332.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/758321332-480.webp",
+      "width": 1200,
+      "height": 933,
+      "licence": "CC BY",
+      "author": "🪶🐾☘️Nandan Sreejith🦌🍄🌍",
+      "sourceUrl": "https://www.inaturalist.org/photos/758321332",
+      "caption": "Hai cá rummy-nose đầu lửa bơi trong bể thủy sinh",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/758321304.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/758321304-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "CC BY",
+      "author": "🪶🐾☘️Nandan Sreejith🦌🍄🌍",
+      "sourceUrl": "https://www.inaturalist.org/photos/758321304",
+      "caption": "Đàn cá rummy-nose đầu lửa bơi giữa rêu và cây thủy sinh",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/commons/09748178d6724462.webp",
       "thumb": "https://media.aquatome.com/commons/09748178d6724462-480.webp",
       "width": 1200,
@@ -10,18 +34,6 @@
       "author": "Soulkeeper",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Petitella_bleheri_(Hemigrammus_bleheri).jpg",
       "caption": "Cá mũi đỏ bơi nghiêng, đuôi vằn đen trắng rõ nét",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/61f277b28873fa96.webp",
-      "thumb": "https://media.aquatome.com/commons/61f277b28873fa96-480.webp",
-      "width": 824,
-      "height": 492,
-      "licence": "CC BY-SA 3.0",
-      "author": "User:Lerdsuwa",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brilliant_rummy_nose_-_Petitella_bleheri.jpg",
-      "caption": "Cá mũi đỏ bơi trong bể thủy sinh nền xanh",
       "best": true,
       "kind": "other"
     },
@@ -108,9 +120,21 @@
       "caption": "Cá mũi đỏ bơi trong bể, đầu đỏ nổi bật",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/61f277b28873fa96.webp",
+      "thumb": "https://media.aquatome.com/commons/61f277b28873fa96-480.webp",
+      "width": 824,
+      "height": 492,
+      "licence": "CC BY-SA 3.0",
+      "author": "User:Lerdsuwa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brilliant_rummy_nose_-_Petitella_bleheri.jpg",
+      "caption": "Cá mũi đỏ bơi trong bể thủy sinh nền xanh",
+      "best": true,
+      "kind": "other"
     }
   ],
-  "seen": 17,
-  "updatedAt": "2026-11-01",
-  "builtAt": "2026-11-01"
+  "seen": 20,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

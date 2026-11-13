@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "2cJXsJUdOfk",
     "title": "DIY aquarium Bio-Pellet reactor",
@@ -30,26 +30,29 @@
         "category": "khac",
         "brand": "Pro Video",
         "model": "Bio Digest",
-        "t": 225
+        "t": 226
       }
     ],
     "figures": [
       {
-        "heading": "Bình bio pellet hoạt động thế nào",
+        "heading": "Bình bio pellet giảm nitrate bằng cách nào",
         "moments": [
           {
-            "t": 306,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/t306.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hạt bio pellet đang xoay trong bình lọc làm từ chai nhựa."
+            "t": 5,
+            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at5-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hạt bio pellet màu trắng ngà đầy trong bình lọc.",
+            "sharpness": 11.7
           },
           {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/t330.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bình bio pellet gắn với máy bơm nhỏ đặt trong bể."
+            "t": 10,
+            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at10-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể nước mặn có đá sống dưới ánh đèn tím.",
+            "sharpness": 916.7,
+            "person": false
           }
         ]
       },
@@ -57,85 +60,69 @@
         "heading": "Cần chuẩn bị những gì",
         "moments": [
           {
-            "t": 44,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/t44.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đồ cần chuẩn bị: chai nhựa, keo, bơm nhỏ và hũ hạt bio pellet."
-          },
-          {
-            "t": 49,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/t49.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hũ hạt bio pellet dùng làm nguồn carbon cho vi khuẩn."
+            "t": 45,
+            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at45-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn bộ đồ cần chuẩn bị: chai nước, keo, bơm nhỏ và hạt bio pellet.",
+            "sharpness": 772.8,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Các bước làm bình",
+        "heading": "Chỉnh dòng nước cho đúng",
         "moments": [
           {
-            "t": 104,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/t104.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bơm đã gắn vào nắp chai, đầu chai nối với bơm."
+            "t": 165,
+            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at165-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai hạt lọc có bơm nhỏ bên dưới, cá cảnh bơi gần đó.",
+            "sharpness": 595.6,
+            "person": false
           },
           {
-            "t": 123,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/t123.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dùng máy khoan khoan các lỗ nhỏ trên thân chai."
+            "t": 190,
+            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at190-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai lọc đầy hạt gắn bơm, đặt trong bể để chỉnh dòng chảy.",
+            "sharpness": 267.1,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/2cJXsJUdOfk/p2-b3NhZ2FpYWsuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/2cJXsJUdOfk/p2-b3NhZ2FpYWsuanBn-480.webp",
-          "width": 960,
-          "height": 540,
-          "licence": "CC BY 4.0",
-          "author": "Gorkaazk",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liztor_beltzak_harrapatzeko_tranpak_egiteko_behar_diren_osagaiak.jpg",
-          "caption": "Chai nhựa đã khoan lỗ, cùng mũi khoan và dụng cụ để tự làm bình lọc."
+          "url": "https://media.aquatome.com/video/2cJXsJUdOfk/p3-dCVDMyVCNnIuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/2cJXsJUdOfk/p3-dCVDMyVCNnIuanBn-480.webp",
+          "width": 843,
+          "height": 1024,
+          "licence": "CC0",
+          "author": "Hughesy127",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ak%C4%B1%C5%9Fkan_Yatakl%C4%B1_Reakt%C3%B6r.jpg",
+          "caption": "Sơ đồ lớp hạt lơ lửng và đảo đều trong bình khi có dòng chảy qua."
         }
       },
       {
-        "heading": "Chỉnh lưu lượng bơm cho đúng",
+        "heading": "Đặt bình ở đâu trong sump",
         "moments": [
           {
-            "t": 158,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/t158.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Chai lọc úp ngược chứa đầy hạt lọc, chuẩn bị gắn bơm."
+            "t": 200,
+            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bình chứa hạt vi khuẩn đặt trong nước, nước chảy xuyên qua hạt.",
+            "sharpness": 194,
+            "person": false
           },
           {
-            "t": 187,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/t187.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh chai lọc đầy hạt đang chạy trong bể, bơm nhỏ ở đáy."
-          }
-        ]
-      },
-      {
-        "heading": "Đặt bình ở đâu trong hệ thống",
-        "moments": [
-          {
-            "t": 197,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/t197.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bình lọc làm từ chai chứa đầy hạt lọc trắng, đặt đứng trong bể."
-          },
-          {
-            "t": 202,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/t202.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đáy bình hạt lọc nối với máy bơm nhỏ đẩy nước đi qua hạt."
+            "t": 205,
+            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at205-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bình lọc chứa hạt đặt úp ngược, nối với bơm nhỏ bên dưới.",
+            "sharpness": 51.8,
+            "person": false
           }
         ],
         "photo": {
@@ -146,44 +133,43 @@
           "licence": "Public domain",
           "author": "Gtstricky",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Sump acrylic nhiều ngăn với bình phản ứng đặt trên, sau ngăn lọc cơ học."
+          "caption": "Sump acrylic nhiều ngăn với bình lọc dạng trụ đặt trong ngăn sump."
         }
       },
       {
-        "heading": "Bao lâu thì thấy nitrate giảm",
+        "heading": "Bao lâu thì nitrate giảm",
         "moments": [
           {
-            "t": 207,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/t207.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bình hạt cạnh máy bơm nhỏ dùng để chạy hạt vi khuẩn."
-          },
-          {
-            "t": 212,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/t212.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bình chạy hạt vi khuẩn xử lý nitrate với các hạt trắng bên trong."
+            "t": 215,
+            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at215-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hạt vi khuẩn xử lý nitrate trong bình phản ứng.",
+            "sharpness": 144.7,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Bảo trì: hạt không dùng mãi được",
+        "heading": "Bình xử lý được bể bao nhiêu lít và tốn bao nhiêu tiền",
         "moments": [
           {
-            "t": 261,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/t261.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể cá biển nhỏ có đèn LED đặt cạnh cửa sổ."
+            "t": 315,
+            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at315-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bình làm từ chai nhựa chứa đầy hạt bio pellet trắng đặt trong bể.",
+            "sharpness": 278.3,
+            "person": false
           },
           {
-            "t": 271,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/t271.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá hề bơi cạnh đá sống trong bể cá biển."
+            "t": 325,
+            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at325-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh hạt bio pellet trong chai, phần đáy chai nối với bơm.",
+            "sharpness": 100.9,
+            "person": false
           }
         ]
       }

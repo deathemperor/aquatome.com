@@ -1,13 +1,14 @@
 import { homeOf, LANG, LANGS, langOfCountry, type Lang } from '@aq/schema/langs'
-import { COUNTED, EVENTS, eventsSql, num } from './admin/ae'
+import { COUNTED, dt, EVENTS, eventsSql, num } from './admin/ae'
 import { DISCOVERY_LINK } from './agents'
+import { NOCOUNT } from '../src/lib/beacon'
 
 /**
  * The language chooser at aquatome.com/: for a reader whose browser asks for none of our languages, from a country that
  * has none of them (worker/index.ts). Its own words in English; each language's name (the language table) and line in
  * that language (its home page's subtitle, src/i18n).
  */
-export const LINE: Record<Lang, string> = { vi: 'Cẩm nang cá cảnh & thủy sinh', id: 'Panduan ikan hias & aquascape', th: 'คู่มือปลาสวยงามและตู้ไม้น้ำ' }
+export const LINE: Record<Lang, string> = { vi: 'Cẩm nang cá cảnh & thủy sinh', id: 'Panduan ikan hias & aquascape', th: 'คู่มือปลาสวยงามและตู้ไม้น้ำ', ms: 'Buku panduan ikan hiasan & aquascape' }
 
 /** A country Cloudflare could place: not unknown (XX) or Tor (T1). */
 const placed = (country: string) => /^[A-Z]{2}$/.test(country) && country !== 'XX' && country !== 'T1'
@@ -18,7 +19,31 @@ export const asksLang = (country: string) => placed(country) && !langOfCountry(c
 export const pickedLang = (url: URL): Lang | undefined => LANGS.find(l => l === url.searchParams.get('lang'))
 
 /** One chooser event (Analytics Engine, the readers' dataset, type `lang`): shown (path /) or picked (the link's, /?lang=id). No session. */
-export const langPoint = (path: string, country: string) => ({ blobs: ['', 'lang', path, '', '', country], doubles: [1], indexes: [country] })
+export const langPoint = (path: string, country: string, who = '') => ({ blobs: [who, 'lang', path, '', '', country], doubles: [1], indexes: [country] })
+
+/** The chooser's own count, what its script sent to /_e: `/`, or `/?lang=` and one of ours. Anything else is no chooser event. */
+export function chooserEvent(body: string): string | undefined {
+  let e: { chooser?: unknown } | null
+  try { e = JSON.parse(body) } catch { return undefined }
+  const p = e && typeof e === 'object' ? e.chooser : undefined
+  return p === '/' || LANGS.some(l => p === `/?lang=${l}`) ? (p as string) : undefined
+}
+
+/**
+ * Counts the chooser, in the browser, as every other statistic is: a program that runs no script isn't a view. From when
+ * the page is shown, not while it's only preloaded; nothing at all after «Không đếm tôi». No code and nothing kept.
+ */
+const COUNT = `(()=>{var go=()=>{try{if(localStorage.getItem('${NOCOUNT}'))return}catch(e){}var s=p=>navigator.sendBeacon&&navigator.sendBeacon('/_e',JSON.stringify({chooser:p}));s('/');document.addEventListener('click',e=>{var a=e.target.closest&&e.target.closest('a');a&&s('/?lang='+new URL(a.href).searchParams.get('lang'))},true)};document.prerendering?document.addEventListener('prerenderingchange',go,{once:true}):go()})()`
+
+/** When the chooser first counted a view: until it has been up for the table's days, the table says "since". */
+export const CHOOSER_FROM = '2026-11-05T19:07:00Z'
+/** From this day a view is counted by the script above; before it, on the server, for every request that wasn't a known bot. */
+export const CHOOSER_SCRIPT_FROM = '2026-11-10T12:00:00Z'
+/**
+ * Our own check counted as chooser views, left out as OUR_RUNS are and listed beside them on the readers page: Lighthouse
+ * on GitHub's US machines, before it said it was ours (2026-11-05, 20:19 UTC). Sets of six loads, retried, on each live check.
+ */
+export const CHOOSER_OUR_RUNS = [{ cc: 'US', from: '2026-11-05T19:07:00Z', to: '2026-11-05T20:26:00Z', views: 87 }] as const
 
 const page = (links: string) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>AquaTome: choose a language</title><style>
 :root{color-scheme:light dark;--paper:#f3eee3;--ink:#1d2a22;--soft:#4d5a52;--rule:#d9d0bd;--moss:#2f6b4f;--kicker:#a0522d}
@@ -34,7 +59,7 @@ b{display:block;font:600 1.5rem/1.3 Georgia,'Noto Serif Thai',Thonburi,serif;col
 span{color:var(--soft)}
 a:hover b,a:focus-visible b{text-decoration:underline;text-underline-offset:.2em}
 a:focus-visible{outline:2px solid var(--kicker);outline-offset:4px}
-</style></head><body><main><p class="k">AquaTome</p><h1>An aquarium handbook, not in your language yet</h1><p>Fish, aquatic plants and tank care, written in three languages so far. Pick the one you read best, and aquatome.com will open in it next time.</p><ul>${links}</ul></main></body></html>`
+</style></head><body><main><p class="k">AquaTome</p><h1>An aquarium handbook, not in your language yet</h1><p>Fish, aquatic plants and tank care, written in four languages so far. Pick the one you read best, and aquatome.com will open in it next time.</p><ul>${links}</ul></main><script>${COUNT}</script></body></html>`
 
 /** The chooser; its links keep the address's own query (utm_*, …) for the page they lead to. */
 export const chooserPage = (search: URLSearchParams) => {
@@ -63,8 +88,8 @@ export const pickResponse = (lang: Lang, search: URLSearchParams) => {
 
 export type LangAsks = { days: number; rows: { cc: string; shown: number; picked: Record<Lang, number> }[] }
 type Row = { cc: string; p: string; n: number | string }
-const LANG_SQL = (days: number, table = EVENTS) => `SELECT blob6 AS cc, blob3 AS p, SUM(_sample_interval) AS n
-FROM ${table} WHERE blob2 = 'lang' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${COUNTED} GROUP BY cc, p FORMAT JSON`
+export const LANG_SQL = (days: number, table = EVENTS) => `SELECT blob6 AS cc, blob3 AS p, SUM(_sample_interval) AS n
+FROM ${table} WHERE blob2 = 'lang' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${COUNTED}${CHOOSER_OUR_RUNS.map(r => ` AND NOT (blob6 = '${r.cc}' AND timestamp >= ${dt(r.from)} AND timestamp < ${dt(r.to)})`).join('')} GROUP BY cc, p FORMAT JSON`
 
 /** Per country, most shown first: times the chooser was shown, and each language picked. */
 export function summariseAsks(rows: Row[], days: number): LangAsks {

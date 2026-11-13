@@ -1,0 +1,52 @@
+{
+  "id": "aphyosemion-gabunense",
+  "native": {
+    "input": "ceb040d29bb01fd5",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from close to the city of Lambarené, western Gabon, and thought endemic to the lower Ogooué river basin, including the tributary Ngounie drainage.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ogooué",
+        "source": "seriouslyfish",
+        "quote": "Described from close to the city of Lambarené, western Gabon, and thought endemic to the lower Ogooué river basin, including the tributary Ngounie drainage.",
+        "country": "GA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion gabunense",
+    "status": "ACCEPTED",
+    "taxonKey": 4284383,
+    "datasets": [
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        2
+      ]
+    ],
+    "native": [
+      "GA"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

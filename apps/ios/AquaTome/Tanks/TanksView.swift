@@ -1,6 +1,27 @@
 import Handbook
 import SwiftUI
 import Tanks
+import Telemetry
+
+/// Signed out, under the tanks: they're kept on this phone alone, and (with accounts on) a way to keep them on
+/// aquatome.com too, which opens the Tài khoản sheet.
+private struct KeptHere: View {
+  @Environment(AccountModel.self) private var account
+  @Environment(\.openScreen) private var openScreen
+
+  var body: some View {
+    if account.state == .signedOut && account.canSync {
+      Button { openScreen(.account) } label: {
+        Text("Các bể lưu trên máy này, không cần tài khoản.") + Text(verbatim: " ")
+          + Text("Đăng nhập để giữ cả trên aquatome.com").foregroundStyle(.tint)
+      }
+      .buttonStyle(.plain)
+      .accessibilityIdentifier("keep-online-hint")
+    } else {
+      Text("Các bể lưu trên máy này, không cần tài khoản.")
+    }
+  }
+}
 
 /// "Bể của tôi": the reader's tanks and the lights on them, as on the site's page (/vi/cong-cu/be-cua-toi/).
 struct TanksView: View {
@@ -11,28 +32,40 @@ struct TanksView: View {
   @Binding var path: NavigationPath
   @State private var adding = false
 
+  /// Words on the tint: white on its dark green, near-black on the pale green it is in the dark.
+  private static let onTint = Color(UIColor { $0.userInterfaceStyle == .dark
+    ? UIColor(red: 0, green: 0x24 / 255, blue: 0x1B / 255, alpha: 1)
+    : .white })
+
   var body: some View {
     NavigationStack(path: $path) {
       Group {
         // A store left alone (newer, unreadable) is said so in the list; after a failed save there's still a first tank to add.
-        // Signed in, the list stays, for the account's buttons.
-        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) && account.user == nil {
-          // Centred on the screen; it scrolls when the sign-in and its fine print run past the tab bar (a small phone,
-          // large text).
-          GeometryReader { g in
-            ScrollView {
-              ContentUnavailableView {
-                Label("Chưa có bể nào", systemImage: "fish")
-              } description: {
-                Text("Thêm bể đầu tiên để ghi lại kích thước, nền và ghi chú.")
-              } actions: {
-                Button("Thêm bể đầu tiên") { adding = true }.buttonStyle(.borderedProminent).accessibilityIdentifier("add-first")
-                AccountSignIn()
-                BlockedPanel()
+        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) {
+          // Where the mock has it, a third of the way down; it scrolls when it runs past the tab bar (a small phone, large text).
+          ScrollView {
+            VStack(spacing: 0) {
+              Image(systemName: "fish").font(.system(size: 41)).foregroundStyle(.secondary).accessibilityHidden(true)
+              Text("Chưa có bể nào").font(.title2.bold()).accessibilityAddTraits(.isHeader).padding(.top, 18)
+              Text("Thêm bể đầu tiên để ghi lại kích thước, nền và ghi chú.").foregroundStyle(.secondary).padding(.top, 8)
+              Button { adding = true } label: {
+                Text("Thêm bể đầu tiên").fontWeight(.semibold).foregroundStyle(Self.onTint).padding(.horizontal, 3)
               }
-              .frame(minHeight: g.size.height)
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.capsule)
+                .controlSize(.large)
+                .padding(.top, 24)
+                .accessibilityIdentifier("add-first")
+              // A new phone: signing in, in the Tài khoản sheet, brings back tanks saved elsewhere.
+              SignInHint().padding(.top, 10)
             }
+            .multilineTextAlignment(.center)
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 32)
+            .padding(.top, 88)
           }
+          // The grey of the lists, as the tab has with tanks in it.
+          .background(Color(.systemGroupedBackground))
         } else {
           List {
             if let p = tanks.problem { Section { ProblemText(problem: p) } }
@@ -46,37 +79,48 @@ struct TanksView: View {
                 .disabled(!tanks.canAdd)
                 .accessibilityIdentifier("add-row")
             } footer: {
-              if account.user != nil {
-                Text("Các bể lưu trên máy này và trong tài khoản của bạn trên máy chủ AquaTome (Cloudflare), để các thiết bị đã đăng nhập cùng thấy.")
-              } else {
-                Text("Các bể lưu trên máy này, không cần tài khoản.")
-              }
+              // Signed in, the Tài khoản sheet says where they're kept.
+              if account.user == nil { KeptHere() }
             }
-            AccountSection()
-            BlockedSection()
+            PlugKeysSection()
           }
         }
       }
+      #if DEBUG
+      .background {
+        // For the UI tests (debug builds only): the server has said whether it offers accounts, and to whom.
+        if account.state != .unknown { Text(verbatim: "answered").font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("account-answered") }
+      }
+      #endif
+      .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle("Bể của tôi")
+      // Before the toolbar below: the bar shows the last toolbar's buttons first, so this one comes after them.
+      .profileButton()
       .navigationDestination(for: String.self) { id in TankDetail(id: id) }
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
+      .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query) }
+      .navigationDestination(for: TankMatesTool.self) { TankMatesView(query: $0.query) }
+      .navigationDestination(for: ChatRoute.self) { ChatView(route: $0) }
       .toolbar {
-        ToolbarItem(placement: .primaryAction) {
+        // Beside each other, then the account's button (the sheet's spec). A secondary action would stay last, past it.
+        ToolbarItemGroup(placement: .topBarTrailing) {
           Button { adding = true } label: { Label("Thêm bể", systemImage: "plus") }
             .disabled(!tanks.canAdd)
             .accessibilityIdentifier("add")
-        }
-        if let data = tanks.exportData(), !tanks.tanks.isEmpty {
-          ToolbarItem(placement: .secondaryAction) {
-            let file = ExportFile(data: data)
-            ShareLink(item: file, preview: SharePreview(file.name)) {
-              Label("Tải bản sao (JSON)", systemImage: "square.and.arrow.up")
+          if let data = tanks.exportData(), !tanks.tanks.isEmpty {
+            Menu {
+              let file = ExportFile(data: data)
+              ShareLink(item: file, preview: SharePreview(file.name)) {
+                Label("Tải bản sao (JSON)", systemImage: "square.and.arrow.up")
+              }
+            } label: {
+              Label("Tải bản sao (JSON)", systemImage: "ellipsis")
             }
           }
         }
       }
-      .sheet(isPresented: $adding) { TankForm(editing: nil) }
+      .sheet(isPresented: $adding) { TankForm(editing: nil).ownerScreen("sheet tank-form") }
     }
   }
 }
@@ -102,7 +146,7 @@ private struct TankRow: View {
 /// The line under a tank's name: size, litres, substrate (what it has of them), as the site writes it.
 func facts(_ t: Tank) -> [String] {
   var out: [String] = []
-  let num = { (n: Double) in n.formatted(.number.rounded(rule: .toNearestOrAwayFromZero).precision(.fractionLength(0...1))) }
+  let num = { (n: Double) in n.formatted(.number.locale(.app).rounded(rule: .toNearestOrAwayFromZero).precision(.fractionLength(0...1))) }
   if let d = t.dims { out.append("\(num(d.l)) × \(num(d.w)) × \(num(d.h)) cm") }
   if let l = t.totalLitres { out.append(litresText(l)) }
   if let s = t.substrate { out.append(Substrate.label(s)) }
@@ -117,8 +161,14 @@ private struct TankDetail: View {
   @State private var editing = false
   @State private var confirmDelete = false
   @State private var lifeSheet: LifeSheet?
+  @Environment(TelemetryModel.self) private var telemetry
 
   var body: some View {
+    tank.onAppear { telemetry.telemetry.record(.view(.tank)) }
+      .ownerScreen("tank")
+  }
+
+  @ViewBuilder private var tank: some View {
     if let t = tanks.tanks.first(where: { $0.id == id }) {
       let lights = tanks.devices(in: t).filter { $0.kind == "light" }
       List {
@@ -139,25 +189,27 @@ private struct TankDetail: View {
         }
         PlugsSection(tank: t)
         Section {
+          // On the button: iOS shows the question as a popover from the view it's on.
           Button("Xóa bể", role: .destructive) { confirmDelete = true }.accessibilityIdentifier("delete")
+            .confirmationDialog(
+              lights.isEmpty ? String(localized: "Xóa bể “\(t.name)”?") : String(localized: "Xóa bể “\(t.name)” cùng \(lights.count) đèn đã lưu trên bể?"),
+              isPresented: $confirmDelete, titleVisibility: .visible
+            ) {
+              Button("Xóa", role: .destructive) {
+                try? tanks.delete(id)
+                dismiss()
+              }
+            }
         }
       }
       .readsPlugs()
+      .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle(t.name)
       // Fish and plants are named from the handbook's index, which may not be loaded yet if the Tìm tab wasn't opened.
       .task { if !t.species.isEmpty || !t.plants.isEmpty || !t.unlisted.isEmpty { await handbook.appear() } }
       .toolbar { Button("Sửa") { editing = true }.accessibilityIdentifier("edit") }
-      .sheet(isPresented: $editing) { TankForm(editing: t) }
-      .sheet(item: $lifeSheet) { LifeSheetView(sheet: $0, tankId: t.id) }
-      .confirmationDialog(
-        lights.isEmpty ? String(localized: "Xóa bể “\(t.name)”?") : String(localized: "Xóa bể “\(t.name)” cùng \(lights.count) đèn đã lưu trên bể?"),
-        isPresented: $confirmDelete, titleVisibility: .visible
-      ) {
-        Button("Xóa", role: .destructive) {
-          try? tanks.delete(id)
-          dismiss()
-        }
-      }
+      .sheet(isPresented: $editing) { TankForm(editing: t).ownerScreen("sheet tank-form") }
+      .sheet(item: $lifeSheet) { LifeSheetView(sheet: $0, tankId: t.id).ownerScreen("sheet tank-life") }
     } else {
       ContentUnavailableView("Bể này đã bị xóa.", systemImage: "trash")
     }

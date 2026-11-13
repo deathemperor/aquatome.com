@@ -1,0 +1,105 @@
+{
+  "id": "youtube-oXXJ8UgM2kM",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=oXXJ8UgM2kM",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-09",
+  "video": {
+    "youtubeId": "oXXJ8UgM2kM",
+    "title": "What is Old Tank Syndrome?",
+    "channel": "Aquarium Co-Op",
+    "channelUrl": "https://www.youtube.com/channel/UCNJuJfXCKNWu4-VifYixs8A",
+    "durationSec": 468,
+    "publishedAt": "2018-05-27",
+    "chapters": [
+      {
+        "start": 0,
+        "title": "The question we will answer"
+      },
+      {
+        "start": 27,
+        "title": "How does old tank syndrome happen?"
+      },
+      {
+        "start": 330,
+        "title": "How do we fix old tank syndrome?"
+      }
+    ],
+    "series": {
+      "id": "PLNM4mDAXGxWyWwI9j6NsO6swhmXLkwojx",
+      "position": 4
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/oXXJ8UgM2kM/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "brand": "API",
+        "model": "Master Test Kit",
+        "t": 284
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "t": 284
+      },
+      {
+        "category": "thuc-an",
+        "type": "dong-lanh",
+        "t": 376
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Hội chứng bể cũ hình thành thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/oXXJ8UgM2kM/p0-MDItMjdfMDMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/oXXJ8UgM2kM/p0-MDItMjdfMDMuanBn-480.webp",
+          "width": 960,
+          "height": 742,
+          "licence": "CC BY-SA 4.0",
+          "author": "Chris Woodrich",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mars_M%26M%27s,_Canada,_2026-02-27_03.jpg",
+          "caption": "Kẹo nhiều màu xanh, nâu, đỏ trộn lẫn, minh họa nước sạch và chất tích tụ."
+        }
+      },
+      {
+        "heading": "Vì sao cá cũ khỏe mà cá mới chết",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/oXXJ8UgM2kM/p1-faW5fMjAyNC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/oXXJ8UgM2kM/p1-faW5fMjAyNC5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "NaBUru38",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ornamental_fish_street_market_stall_in_Montevideo_in_2024.jpg",
+          "caption": "Tiệm cá cảnh với nhiều bể nhỏ và cá mới chờ bán."
+        }
+      },
+      {
+        "heading": "Thay nước đều đặn vẫn có thể bị",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/oXXJ8UgM2kM/p2-bV9maXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/oXXJ8UgM2kM/p2-bV9maXNoZXMuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "KannanVM",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
+          "caption": "Cá vàng trong bể nuôi có nền sỏi nhiều màu, đáy bể dễ tích chất bẩn."
+        }
+      }
+    ]
+  }
+}

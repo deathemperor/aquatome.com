@@ -1,10 +1,13 @@
 {
   "slug": "white-nile",
-  "name": "White Nile",
-  "altNames": [],
+  "name": "sông Nin Trắng",
+  "altNames": [
+    "White Nile"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -563,10 +563,10 @@ test('the owner\'s dashboard: each key by number and hash, its state and today\'
   ])
   expect(status.today).toBe(1)
   const html = fishIdPage({ now: new Date(), stats: unset('AE'), keys: status, pages: new Map() })
-  expect(html).toContain('hết credit')
-  // The tool counts by UTC day: the column says when that day began, in the viewer's time (07:00 in Vietnam).
-  expect(html).toMatch(/Lần gọi API từ 07:00 hôm (nay|qua)/)
-  expect(html).toContain('Claude trả lời')
+  expect(html).toContain('Out of credit')
+  // The tool counts by UTC day: the column says when that day began, in the viewer's time (7:00 in Vietnam).
+  expect(html).toMatch(/Since 7:00( yesterday)?</)
+  expect(html).toContain('all answered')
   expect(html).toContain(await keyHash(A))
   for (const k of [A, B, C, 'wrkspc_orgA']) expect(html).not.toContain(k)
   expect(kv.size).toBeGreaterThan(0)
@@ -578,6 +578,8 @@ const ascii = (t: string) => [...new TextEncoder().encode(t)]
 const SCAN = [0xff, 0xda, 0, 4, 1, 2, 9, 9, 9, 0xff, 0xd9]
 const PHONE_JPEG = new Uint8Array([0xff, 0xd8, ...seg(0xe0, ascii('JFIF\0')), ...seg(0xe1, ascii('Exif\0\0GPS 10.77N 106.70E')), ...seg(0xed, ascii('Photoshop 3.0\0IPTC')), ...seg(0xfe, ascii('my tank')), ...seg(0xdb, [0, 1, 2, 3]), ...SCAN])
 const accounts = contract('accounts.openapi.json')
+/** The bucket's kept photos (fish-id/), not the runs' transcripts beside them (fish-id-runs/, fishid/transcript.ts). */
+const keptKeys = (r2: ReturnType<typeof memoryR2>) => [...r2.m.keys()].filter(k => k.startsWith('fish-id/'))
 const keepEnv = async () => {
   const db = testD1()
   const r2 = memoryR2()
@@ -606,12 +608,15 @@ test('keeping: a ticked photo is kept under the app\'s account with its result, 
   const me = await signIn(db)
   // Unticked: nothing stored, and no `kept` in the answer.
   expect(await (await run(appJson(me.token), e, d)).json()).not.toHaveProperty('kept')
-  expect(r2.m.size).toBe(0)
+  expect(keptKeys(r2)).toHaveLength(0)
   expect(await (await run(appJson(me.token, { keep: true }), e, d)).json()).toMatchObject({ verdict: 'fish', kept: true })
-  const [key, o] = [...r2.m][0]!
+  const key = keptKeys(r2)[0]!
+  const o = r2.m.get(key)!
   expect(key).toMatch(new RegExp(`^fish-id/${me.id}/[0-9a-f-]{36}$`))
   expect(new TextDecoder().decode(o.bytes)).not.toContain('GPS')
-  expect(o.customMetadata).toEqual({ created: expect.any(String), verdict: 'fish', guesses: expect.any(String), model: 'claude-opus-5-5', lang: 'vi' })
+  expect(o.customMetadata).toEqual({ created: expect.any(String), verdict: 'fish', guesses: expect.any(String), model: 'claude-opus-5-5', lang: 'vi', run: expect.stringMatching(/^[0-9a-f-]{36}$/) })
+  // It names its run, whose transcript is kept beside it (the photo isn't in the transcript).
+  expect(r2.m.has(`fish-id-runs/${o.customMetadata!.created!.slice(0, 10)}/${o.customMetadata!.run}.json`)).toBe(true)
   expect(JSON.parse(o.customMetadata!.guesses!).map((g: { scientificName: string }) => g.scientificName)).toEqual(['Paracheirodon innesi', 'Hyphessobrycon amandae', 'Paracheirodon simulans'])
   expect(JSON.stringify([...r2.m.keys(), o.customMetadata])).not.toContain('203.0.113.7')
   // The account's list: the date and the result, never the image.
@@ -626,7 +631,7 @@ test('keeping: a ticked photo is kept under the app\'s account with its result, 
   expect((await accounts.answer('/api/v1/fish-id/photos/{id}', 'delete', await del({ authorization: `Bearer ${other.token}` }))).error).toBe('not_found')
   expect((await accounts.answer('/api/v1/fish-id/photos', 'get', await run(new Request('https://x.test/api/v1/fish-id/photos'), e, d))).error).toBe('signed_out')
   expect((await del(bearer)).status).toBe(204)
-  expect(r2.m.size).toBe(0)
+  expect(keptKeys(r2)).toHaveLength(0)
   expect((await del(bearer)).status).toBe(404)
 })
 
@@ -639,7 +644,7 @@ test('keeping on the page: under the signed-in reader\'s cookie, or signed out t
   expect(await (await run(page({ keep: '1' }), e, d)).json()).toMatchObject({ kept: true })
   const PNG = new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0, 0, 0, 0])
   expect(await (await run(page({ keep: '1' }, {}, new Blob([PNG])), e, d)).json()).toMatchObject({ verdict: 'fish', kept: false })
-  expect([...r2.m.keys()].map(k => k.split('/').slice(0, 2).join('/')).sort()).toEqual(['fish-id/anon', `fish-id/${reader.id}`].sort())
+  expect(keptKeys(r2).map(k => k.split('/').slice(0, 2).join('/')).sort()).toEqual(['fish-id/anon', `fish-id/${reader.id}`].sort())
   // Without the bucket: identified, not kept.
   const bare = env({ DB: db })
   expect(await (await run(page({ keep: '1' }), bare.e, d)).json()).toMatchObject({ verdict: 'fish', kept: false })
@@ -657,11 +662,11 @@ test('kept photos go with their account, and from everyone 6 months on (the dail
   r2.setNow(() => new Date(now - 10 * 86_400_000))
   await run(appJson(b.token, { keep: true }), e, d)
   await run(appJson(a.token, { keep: true }), e, d)
-  expect(r2.m.size).toBe(3)
+  expect(keptKeys(r2)).toHaveLength(3)
   expect(await sweepKept(r2.bucket, new Date(now))).toBe(1)
-  expect(r2.m.size).toBe(2)
+  expect(keptKeys(r2)).toHaveLength(2)
   await deleteUser(db, a.id, { UPLOADS: r2.bucket })
-  expect([...r2.m.keys()].every(k => k.startsWith(`fish-id/${b.id}/`))).toBe(true)
+  expect(keptKeys(r2).every(k => k.startsWith(`fish-id/${b.id}/`))).toBe(true)
   // Across R2's pages of a listing.
   const paged = memoryR2(2)
   for (let i = 0; i < 5; i++) await paged.bucket.put(`fish-id/anon/${crypto.randomUUID()}`, PHONE_JPEG)

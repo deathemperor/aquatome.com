@@ -15,6 +15,274 @@
     "brazil",
     "parnaiba"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BR",
+        "GY",
+        "SR",
+        "GF"
+      ],
+      "regions": [
+        "Amazon",
+        "Parnaíba",
+        "Gulf of Paria",
+        "Caeté"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The four-eyed fish, Anableps anableps, is a viviparous fish of brackish mangrove coasts in north-eastern South America, from Venezuela to Brazil.",
+          "countries": [
+            "VE",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs along much of the north-east South American coastline from the Gulf of Paria (the shallow, brackish inland sea which separates Trinidad and Tobago from Venezuela) through Guyana, Suriname and French Guiana and past the Amazon delta in Brazil as far as the Parnaíba River estuary at the border between the states of Maranhão and Piauí.",
+          "countries": [
+            "GY",
+            "SR",
+            "GF"
+          ],
+          "regions": [
+            "Amazon",
+            "Parnaíba",
+            "Gulf of Paria"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Fieldwork by Brenner and Krumme (2007) in the Furo do Meio, a tidally-influenced tributary of the Caeté mangrove estuary located to the north of Bragança City, 200 km south of the Amazon delta, revealed that these daily migrations are entirely related to feeding (see 'diet').",
+          "countries": [],
+          "regions": [
+            "Caeté"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350683,
+      "total": 323,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "GF",
+          198
+        ],
+        [
+          "BR",
+          91
+        ],
+        [
+          "GY",
+          19
+        ],
+        [
+          "SR",
+          7
+        ],
+        [
+          "TT",
+          5
+        ],
+        [
+          "CD",
+          1
+        ],
+        [
+          "DE",
+          1
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          9.84375,
+          5,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          18,
+          18
+        ],
+        [
+          -59.0625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          5.625,
+          6,
+          6
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          5.625,
+          25,
+          25
+        ],
+        [
+          -53.4375,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          -53.4375,
+          4.21875,
+          140,
+          140
+        ],
+        [
+          -52.03125,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -52.03125,
+          4.21875,
+          19,
+          19
+        ],
+        [
+          -50.625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          0,
+          7,
+          7
+        ],
+        [
+          -50.625,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          10,
+          10
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          13,
+          13
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          30,
+          30
+        ],
+        [
+          -45,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -45,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -43.59375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -42.1875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -40.78125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          8.4375,
+          47.8125,
+          1,
+          0
+        ],
+        [
+          19.6875,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -58,7 +326,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -169,17 +437,6 @@
       "caption": "...whereas during low tide they typically congregate in large groups. This and the previous image were taken off the coast of Suriname.",
       "source": "seriouslyfish",
       "thumb": "https://media.aquatome.com/seriouslyfish/d75ea81f47e6b06e-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/5cd3d208639aa972.webp",
-      "width": 879,
-      "height": 659,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/anableps-anableps",
-      "caption": "The red and green algae upon which the fish feed during high tide is clearly visible on these mangrove stilt roots in the high inter-tidal zone.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/5cd3d208639aa972-480.webp"
     }
   ],
   "videos": [],
@@ -187,8 +444,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150x45",
-        "bể cá lớn nước lợ"
+        "bể cá 150cm"
       ]
     },
     {
@@ -213,5 +469,10 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-10-29",
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "It moves in and out with the tides, and in aquaria it needs brackish water, shallow depth and a large surface area, with a group of at least six in a tank no smaller than 150 x 45 cm."
+  }
 }

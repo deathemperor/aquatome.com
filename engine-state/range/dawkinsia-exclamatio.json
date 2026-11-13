@@ -1,0 +1,43 @@
+{
+  "id": "dawkinsia-exclamatio",
+  "native": {
+    "input": "f11a9bac9e8f3fbb",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Dawkinsia exclamatio is a cyprinid from the Kallada River in southern Kerala, India, and may be endemic to that river system.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kallada River",
+        "source": "seriouslyfish",
+        "quote": "Dawkinsia exclamatio is a cyprinid from the Kallada River in southern Kerala, India, and may be endemic to that river system.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dawkinsia exclamatio",
+    "status": "ACCEPTED",
+    "taxonKey": 7442037,
+    "datasets": [],
+    "native": [
+      "IN"
+    ],
+    "requests": 2,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

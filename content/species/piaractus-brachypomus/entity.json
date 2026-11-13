@@ -25,7 +25,7 @@
         "BR"
       ],
       "regions": [
-        "Orinoco",
+        "Rio Orinoco",
         "Amazon"
       ],
       "sources": [
@@ -34,7 +34,7 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+          "quote": "Native to the Rio Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
           "countries": [
             "CO",
             "VE",
@@ -43,7 +43,7 @@
             "BR"
           ],
           "regions": [
-            "Orinoco",
+            "Rio Orinoco",
             "Amazon"
           ]
         }
@@ -874,7 +874,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -883,7 +883,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/piaractus-brachypomus",
-      "html": "<ul><li>Max size: 880 mm SL (35 in)</li><li>Aquarium size: 300 × 90 cm (118 × 36 in)</li><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 4.8–7.5</li><li>Hardness: 0–15 dGH</li><li>Difficulty: difficult (5 of 8), because it needs a tank at least 2 m long.</li></ul><p>The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil. Known as the pirapitinga in its native countries, it is one of the largest scaled fishes in the Amazon basin, with wild fish recorded to 88 cm. Juveniles mimic the red-bellied piranha and are sold small as 'vegetarian piranha', and releases by aquarists have left populations in the USA and elsewhere.</p>"
+      "html": "<ul><li>Max size: 880 mm SL (35 in)</li><li>Aquarium size: 300 × 90 cm (118 × 36 in)</li><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 4.8–7.5</li><li>Hardness: 0–15 dGH</li><li>Difficulty: difficult (6 of 8), because it needs a tank at least 2 m long.</li></ul><p>The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil. Known as the pirapitinga in its native countries, it is one of the largest scaled fishes in the Amazon basin, with wild fish recorded to 88 cm. Juveniles mimic the red-bellied piranha and are sold small as 'vegetarian piranha', and releases by aquarists have left populations in the USA and elsewhere.</p>"
     },
     {
       "key": "distribution",
@@ -934,12 +934,6 @@
       "html": "<p>Mature females are a little rounder-bellied than males.</p>"
     },
     {
-      "key": "dimorphism",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/albino_pacus_en/",
-      "html": "<p>The two fish differ in the shape of the anal fin, which suggests they are a pair.</p>"
-    },
-    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/piaractus-brachypomus",
@@ -950,12 +944,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/piaractus-brachypomus",
       "html": "<p>Known as the pirapitinga in its native countries, this is one of the largest species of scaled fish found in the Amazon basin. This alone should tell you much of what you need to know about its suitability as an aquarium inhabitant. In reality it's debatable whether the species should be considered an aquarium subject at all. While pacu rarely reach their maximum size in captivity, they're still easily capable of growing to a couple of feet in length. The myth that fish will only grow to match the size of the tank they're kept in is just that - a myth.</p><p>Unfortunately it's regularly offered for sale as a cute 2-3\" fish, often labeled with enticing names such as \"vegetarian piranha\" or even \"red-bellied piranha\" (pacu are included in the same subfamily as piranha and resemble them superficially). Juveniles of P. brachypomus are in fact patterned to mimic the real red-bellied piranha, Pygocentrus nattereri as a deterrent to potential predators. As a result many public aquaria have large displays of adult specimens that have been \"donated\" by fishkeepers, often to the extent where they refuse to accept any more. A more depressing, but equally common scenario is that the fish are dumped into rivers and ponds when they outgrow their tank. In colder climates they will obviously not survive, but populations exist in various states of the USA and several other countries as a result of releases by irresponsible aquarists. The species has subsequently been banned from sale by many wildlife authorities in the US.</p><p>Pacu have developed amazing dentition to allow them to crush fruit, nuts and seeds. Their teeth are cusped and resemble human molars, and they also have very powerful jaws. Although they are rarely aggressive they can inflict a really nasty bite, so take care when performing tank maintenance.</p><p>The species is widely used in aquaculture projects in South America. It's ideally suited for the purpose, being tolerant of a wide range of water chemistry and possessing the ability to survive in oxygen-depleted conditions. Much research is being undertaken to find the most ecologically sound way of farming it, as it's suffering from gross overfishing in many of its native waters. If wild stocks become further depleted, there could be serious implications not only for the species itself, but also entire ecosystems. The seeds of many of the fruits eaten by pacu are indigestible, and are excreted intact. Some experts believe the fish play a significant role in seed dispersal of plants from areas of flooded forest. Sustainable commercial farming of pacu is therefore considered a priority. Not only will this prevent further depletion of wild stocks, but it will provide an alternative source of income for farmers. The hope is that it may also encourage them to take up aquaculture instead of agriculture, which is having a devastating effect on many parts of the Amazon rainforest.</p><p>As a food fish pacu is apparently very tasty. Its natural diet of fruit and nuts is said to enhance the flavour of the flesh. As the fish is so large cuts are often sold on the bone in a similar way to pork ribs. One further commercial use of the species is as a sport fish, both in its natural environment and artificially-stocked lakes. It's been introduced into several Far Eastern countries for this purpose, including Thailand and Malaysia.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/albino_pacus_en/",
-      "html": "<p>Two albino pacus (Piaractus brachypomus, formerly Colossoma brachypomum) were imported from Colombia for the first time. The fish are very attractive, as the red colours on the body are retained even in the albino variety. The fish were currently 16-20 cm long. Because of the different shapes of their anal fins, they appear to represent a pair.</p>"
     }
   ],
   "photos": [
@@ -967,7 +955,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Omnitarian",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacu_shedd.jpg",
-      "caption": "Large Pacu at the Shedd Aquarium, Chicago."
+      "caption": "Large Pacu at the Shedd Aquarium, Chicago.",
+      "large": {
+        "url": "https://media.aquatome.com/commons/f4b0659554826e73-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/c9edc751ed21b785.webp",
@@ -1030,8 +1023,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 3m",
-        "bể cá kính cường lực cỡ lớn"
+        "bể cá 300cm"
       ]
     },
     {

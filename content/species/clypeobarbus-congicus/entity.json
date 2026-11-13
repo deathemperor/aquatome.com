@@ -11,6 +11,114 @@
     "congo",
     "republic-of-the-congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CG",
+        "CD"
+      ],
+      "regions": [
+        "Congo River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to parts of the Congo River drainage in both the Republic of Congo and the Democratic Republic of Congo.",
+          "countries": [
+            "CG",
+            "CD"
+          ],
+          "regions": [
+            "Congo River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367240,
+      "total": 29,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CD",
+          23
+        ],
+        [
+          "CG",
+          3
+        ],
+        [
+          "TZ",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -7.03125,
+          13,
+          13
+        ],
+        [
+          14.0625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          15.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          22.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          5,
+          5
+        ],
+        [
+          23.90625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -5.625,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -58,7 +166,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -74,12 +182,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/clypeobarbus-congicus",
       "html": "<p>The Congo barb, Clypeobarbus congicus, is a small African cyprinid from the Congo River drainage in the Republic of Congo and DR Congo. Rare in the hobby, it often turns out to be something else when it appears on exporters' lists. Its genus is characterised by a midlateral row of greatly enlarged, shield-like scales. A shoaling species with a distinct pecking order between males, it should be kept in a group of 8 or more in a well-planted tank.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/clypeobarbus_congicus_en/",
-      "html": "<p>Currently we can offer the rare species after a long time once more.</p><p>For our customers: the fish have code 100832 on our stocklist. Please note that we exclusively supply the wholesale trade.</p>"
     },
     {
       "key": "distribution",
@@ -185,8 +287,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá thủy sinh 60cm"
+        "bể cá 90cm"
       ]
     },
     {

@@ -5,6 +5,7 @@ import { dirname, join } from 'node:path'
 import sharp from 'sharp'
 import { GallerySchema, type Photo } from '@aq/schema'
 import { LlmError } from '../claude'
+import { waiting } from '../gallery'
 import { SOURCE_PHOTO_LICENCE, type Media } from '../source-photos'
 import { contactSheet } from '../video-images'
 import { loadFbState } from './collect'
@@ -120,7 +121,7 @@ export async function identifyPhotos(root: string, d: FbIdDeps, o: { limit: numb
           const file = galleryFile(v.species)
           const prev = await json<unknown>(file, null)
           const gal = prev ? GallerySchema.parse(prev) : { id: v.species, photos: [], seen: 0, updatedAt: today }
-          if (!gal.photos.some(p => p.url === photo.url)) gal.photos.push(photo)
+          if (!gal.photos.some(p => p.url === photo.url)) gal.photos.push(waiting(photo)) // it waits for the photo check, as every new gallery photo does
           await save(file, GallerySchema.parse({ ...gal, updatedAt: today }))
           await decide(g.id, { status: 'added', species: v.species })
           report.added.push(`${v.species}: ${g.id}`)

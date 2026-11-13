@@ -1,0 +1,71 @@
+{
+  "id": "channa-baramensis",
+  "native": {
+    "input": "71bfedf5def28d44",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Borneo where it's known from throughout Sarawak state and in western parts of Sabah state, Malaysia, plus Brunei Darussalam which is surrounded by Sarawak.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Borneo where it's known from throughout Sarawak state and in western parts of Sabah state, Malaysia, plus Brunei Darussalam which is surrounded by Sarawak.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Borneo where it's known from throughout Sarawak state and in western parts of Sabah state, Malaysia, plus Brunei Darussalam which is surrounded by Sarawak.",
+        "ok": true
+      },
+      {
+        "name": "Baram River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Baram River, northern Sarawak [n. Borneo], Malaysia'.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa baramensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2391503,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        8
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ]
+    ],
+    "native": [
+      "MY",
+      "BN"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

@@ -1,27 +1,47 @@
 import Handbook
 import SwiftUI
+import Telemetry
 import UIKit
 
 /// A page the app draws itself from the site's blocks (PageDoc, kept on the phone by PageCache): the site's page, read
 /// offline once opened. The blocks become a few kinds of piece (styled text, photos, links to pages, the web page for a
 /// part it can't draw): one view per kind of block cost the app 90 kB. A page opens on its photo, across the screen,
-/// with its name under it; a fish's or plant's then answers its reader's questions in turn (what is it, can I keep it
-/// here, with what), then its photos, the detail, its videos, its readers, where to go next and its sources.
+/// with its name under it; a fish's or plant's then its facts, the summary (the answer), the care text ("Thông tin
+/// nhanh" folded, the climate and tank-mates in the sections they answer), then its photos, its videos, its readers,
+/// where to go next and its sources, as the site's page on a phone has them.
 struct NativePage: View {
   let pieces: [Piece]
   /// A fish's facts or a plant's care (FactsCard), where the page puts them (`.facts`).
   var facts: FactsCard?
   /// A fish's or plant's: onto one of the reader's tanks, from under its name (`.facts`), not a button in the bar.
   var put: (() -> Void)?
+  /// A fish's or plant's, while the chat is on: asking about it, under its facts.
+  var ask: ChatRoute?
   let web: () -> Void
   /// Told whether the page's name is on the screen (iOS 18 on): the bar shows it only once it has scrolled away.
   var nameInView: (Bool) -> Void = { _ in }
+  /// The page's path on the site, for the app's anonymous telemetry (PageReading).
+  var path: String?
+  /// A part to open the page at (its heading's id): v2's page offers this one where it holds a part it can't draw.
+  var at: String?
+  /// A smaller copy of its photo, already on the screen, shown until the photo itself has come (`NativePage.head`).
+  var stillPhoto: String?
   @Environment(HandbookModel.self) private var handbook
+  @Environment(TelemetryModel.self) private var telemetry
+  @Environment(\.scenePhase) private var phase
+  /// This page being read: how far down and how long, its shop links (made when it first shows).
+  @State private var reading: PageReading?
   @Environment(\.openScreen) private var openScreen
   @State private var tip: Tip?
   /// A page of the site the app can't show itself (one the index leaves out, a tool set by the link): the web page, in
   /// the app.
   @State private var onSite: URL?
+  /// The page's photo grid, open where its way in opens it.
+  @State private var gridAt: PhotoGrid.Place?
+  /// Its readers' photos, as the site answered: nil until it has. Shared by the page's part and the grid.
+  @State private var readerPhotos: [Readers.Photo]?
+  /// Its videos' player, one at a time (PagePlayer).
+  @State private var player = PagePlayer()
   /// VoiceOver's place: moved with a `#id` link, as the scroll is.
   @AccessibilityFocusState private var focus: String?
 
@@ -35,6 +55,8 @@ struct NativePage: View {
     /// above its name.
     case photo(src: String, ratio: CGFloat, alt: String?, caption: AttributedString, credit: AttributedString? = nil, href: URL?, play: Bool = false,
                hero: Bool = false)
+    /// A video, played in the page (VideoSlot); its caption's chapters seek it.
+    case video(id: String, title: String, caption: AttributedString)
     /// Other pages the index lists, each opening in the app.
     case pages(String, [String])
     /// Other pages as rows drawn from what they carry (tank-mates, breeds), each opening in the app, or else on the web;
@@ -45,6 +67,9 @@ struct NativePage: View {
     case gallery(title: String, note: String, photos: [PageDoc.Image], strip: [Int])
     /// Text shown once its title is tapped (the sources behind each figure).
     case more(String, AttributedString)
+    /// A section whose text shows once its heading is tapped ("Thông tin nhanh", which the facts and the summary above
+    /// mostly give), as the site's page folds it on a phone. `anchor`, the heading's id.
+    case fold(AttributedString, anchor: String?, AttributedString)
     /// Lines each marked fine or a warning (the climate in each region, keepers' mistakes), under a title, with a note.
     case notes(String?, [Note], note: String?)
     /// Where a fish's facts or a plant's care go: under its name.
@@ -89,15 +114,45 @@ struct NativePage: View {
       }
       // Links in the text: a page the index lists opens in the app, `#id` scrolls to it, a word's tip shows.
       .environment(\.openURL, OpenURLAction { open($0, proxy) })
+      // Laid out first, then at its part.
+      .task {
+        guard let at else { return }
+        await Task.yield()
+        proxy.scrollTo(at, anchor: .top)
+      }
+      // A chapter or a still tapped: its video in view.
+      .onChange(of: player.asked) { withAnimation { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
+      .modifier(SeenDown { reading?.scrolled(to: $0) })
     }
+    .environment(player)
     .accessibilityIdentifier("native-page")
+    .onAppear {
+      if reading == nil, let path { reading = PageReading(path: path, telemetry: telemetry.telemetry) }
+      reading?.shown(true)
+    }
+    .onDisappear { reading?.shown(false) }
+    .onChange(of: phase) { reading?.inFront(phase == .active) }
     .navigationDestination(item: $onSite) { WebScreen(url: $0) }
+    .navigationDestination(item: $gridAt) { place in
+      if let gallery { PhotoGrid(gallery: gallery, talk: talk, at: place, readerPhotos: $readerPhotos).ownerScreen("photos") }
+    }
     .alert(tip?.term ?? "", isPresented: Binding(get: { tip != nil }, set: { if !$0 { tip = nil } }), presenting: tip) { t in
       if let h = t.href, let u = URL(string: h) { Button("Xem thêm") { _ = open(u, nil) } }
       Button("Đóng", role: .cancel) {}
     } message: { t in
       Text(t.text)
     }
+  }
+
+  /// The page's gallery, for its grid: a page has one at most, after its name.
+  private var gallery: PhotoGrid.Gallery? {
+    let title = pieces.lazy.compactMap { if case let .text(s, _, .title) = $0 { String(s.characters) } else { nil } }.first
+    return PhotoGrid.Gallery(pieces: pieces, name: title ?? "")
+  }
+
+  private var talk: PageDoc.Talk? {
+    for p in pieces { if case let .readers(t, _) = p { return t } }
+    return nil
   }
 
   /// The space above a piece. A part that heads itself (a gallery) takes a heading's; one that may show nothing (the
@@ -110,7 +165,7 @@ struct NativePage: View {
     case .text(_, _, .title): i == 0 ? 12 : 20
     case _ where i == 0: 12
     case .text(_, _, .line): 4
-    case .text(_, _, .heading), .gallery: 40
+    case .text(_, _, .heading), .gallery, .fold: 40
     case .text(_, _, .subheading), .facts, .more: 24
     case .cards(.some, _, _): 20
     default: 12
@@ -132,25 +187,35 @@ struct NativePage: View {
     case let .photo(src, ratio, alt, caption, credit, href, play, hero):
       VStack(alignment: hero ? .trailing : .leading, spacing: 6) {
         // The page's own photo no taller than 4:3, cut to fit: a fish's side, not a screen of water.
-        let image = PageImage(src: src, ratio: hero ? max(ratio, 4 / 3) : ratio, alt: alt, corner: hero ? 0 : 10)
+        let image = PageImage(src: src, ratio: hero ? max(ratio, 4 / 3) : ratio, alt: alt, corner: hero ? 0 : 10, until: hero ? stillPhoto : nil)
           .overlay { if play { Image(systemName: "play.circle.fill").font(.system(size: 56)).foregroundStyle(.white, .black.opacity(0.5)) } }
         if let href {
           // Tapped, the page it shows or the video at that moment; read as its words, or else its caption.
           Button { _ = open(href, nil) } label: { image }
             .buttonStyle(.plain)
             .accessibilityLabel(Text(verbatim: alt ?? String((caption + (credit ?? AttributedString())).characters)))
+        } else if hero, let gallery {
+          // The page's own photo, carrying how many it has: the whole of it opens them all.
+          Button { gridAt = .photos } label: {
+            image.overlay(alignment: .bottomTrailing) { PhotosBadge(count: gallery.photos.count).padding(12) }
+          }
+          .buttonStyle(.plain)
+          .accessibilityLabel(Text(verbatim: (alt ?? gallery.title) + ", ") + Text("Xem tất cả \(gallery.photos.count) ảnh"))
+          .accessibilityIdentifier("lead-photo-grid")
         } else {
           image
         }
         if !caption.characters.isEmpty { Text(caption).font(.footnote).foregroundStyle(.secondary) }
         if let credit { Text(credit).foregroundStyle(.secondary).tint(Color.secondary).padding(.horizontal, hero ? nil : 0) }
       }
+    case let .video(id, title, caption):
+      VideoSlot(id: id, title: title, caption: caption)
     case let .pages(title, paths):
       PagesBlock(title: title, paths: paths)
     case let .cards(title, cards, good):
       CardsPart(title: title, cards: cards, good: good) { _ = open($0, nil) }
     case let .gallery(title, note, photos, strip):
-      GalleryRow(title: title, note: note, photos: photos, strip: strip)
+      GalleryRow(title: title, note: note, photos: photos, strip: strip, grid: { gridAt = .photos })
     case let .more(title, text):
       DisclosureGroup {
         Text(text).frame(maxWidth: .infinity, alignment: .leading).padding(.top, 6)
@@ -158,6 +223,17 @@ struct NativePage: View {
         Text(title).font(.headline)
       }
       .accessibilityIdentifier("page-more")
+    case let .fold(heading, anchor, text):
+      DisclosureGroup {
+        Text(text).lineSpacing(3).frame(maxWidth: .infinity, alignment: .leading).padding(.top, 12)
+      } label: {
+        // In the text's colour, as the page's other headings: only the chevron in the tint, which the links in the
+        // text keep too.
+        Text(heading).foregroundStyle(Color.primary).accessibilityAddTraits(.isHeader)
+      }
+      .accessibilityFocused($focus, equals: anchor ?? "piece-\(i)")
+      .id(anchor ?? "piece-\(i)")
+      .accessibilityIdentifier("page-fold")
     case let .notes(title, notes, note):
       VStack(alignment: .leading, spacing: 8) {
         if let title { Text(title).font(.headline).accessibilityAddTraits(.isHeader) }
@@ -182,13 +258,14 @@ struct NativePage: View {
       VStack(alignment: .leading, spacing: 16) {
         if let put { PutButton(put: put) }
         if let facts { facts }
+        if let ask { AskEntry(route: ask) }
       }
     case .web:
       Button(action: web) { Label("Xem phần này trên web", systemImage: "safari") }
         .buttonStyle(.bordered)
         .accessibilityIdentifier("page-web")
     case let .readers(talk, name):
-      ReadersPart(talk: talk, name: name)
+      ReadersPart(talk: talk, name: name, photos: $readerPhotos, grid: gallery != nil ? { gridAt = .readers } : nil)
     case let .table(head, rows):
       TablePart(head: head, rows: rows)
     }
@@ -204,15 +281,25 @@ struct NativePage: View {
     case "page-tip":
       tip = Tip(url)
       return .handled
+    case "page-video":
+      // A chapter or a still: the page's player at its time; a video the page doesn't show, on YouTube.
+      guard let (id, at) = PagePlayer.asked(url) else { return .handled }
+      if pieces.contains(where: { if case let .video(v, _, _) = $0 { v == id } else { false } }) {
+        player.ask(id, at: at, lang: handbook.lang, site: handbook.site)
+      } else {
+        UIApplication.shared.open(youtube(id, at: at))
+      }
+      return .handled
     default:
       let u = url.scheme == nil ? URL(string: url.relativeString, relativeTo: handbook.site)?.absoluteURL ?? url : url
-      if let screen = AppScreen.of(u, site: handbook.site, listed: { handbook.item(at: $0) != nil },
+      if let screen = AppScreen.of(u, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil },
                                    group: { !handbook.shelves.fish(group: $0, handbook.labels).isEmpty }) {
         openScreen(screen)
         return .handled
       }
       // A shop: outside, as the site opens it in a new tab (not a page here that only redirects away).
       if ShopLink.is(u, site: handbook.site) {
+        reading?.tapped(u)
         Task { await OwnCopy.open(u, site: handbook.site) }
         return .handled
       }
@@ -224,6 +311,21 @@ struct NativePage: View {
       UIApplication.shared.open(u)
       return .handled
     }
+  }
+
+  /// The top of a page not read yet: its photo and name, which whatever opened it already holds, where the page will put
+  /// them. A card zooms into this, not into an empty screen. The photo's credit keeps its line, so the name doesn't move
+  /// when the page comes.
+  static func head(_ item: HandbookIndex.Item) -> [Piece] {
+    var out: [Piece] = []
+    if let src = item.img {
+      var line = AttributedString(" ")
+      line.font = .caption2
+      let ratio = PageImages.cached(src).map { $0.size.width / $0.size.height } ?? 3 / 2
+      out.append(.photo(src: src, ratio: ratio, alt: nil, caption: AttributedString(), credit: line, href: nil, hero: true))
+    }
+    out.append(.text(styled(item.name, .pageTitle), look: .title))
+    return out
   }
 
   /// The page as pieces: worked out once, when it's read, not on every redraw. `traits`: a fish's temperament and
@@ -242,15 +344,16 @@ struct NativePage: View {
     // A species' credit goes under its facts, as on the site's page.
     if !species, !doc.credit.isEmpty { out.append(credit) }
     if let v = doc.video {
-      var cap = styled("\(v.title) · \(v.channel) · \(clock(v.durationSec))")
+      // No channel: a page names no YouTube channel (the owner, 2026-11-06); its sources, the video first, say whose it is.
+      var cap = styled("\(v.title) · \(clock(v.durationSec))")
       if let s = v.subtitles { cap += styled("\n" + s, .caption.bold()) }
       for ch in v.chapters ?? [] {
-        var line = AttributedString("\n\(clock(ch.at))  \(ch.title)")
-        line.link = youtube(v.youtubeId, at: ch.at)
-        cap += line
+        // The link its line alone, not the line break before it: tapped and read where it shows.
+        var line = AttributedString("\(clock(ch.at))  \(ch.title)")
+        line.link = PagePlayer.link(v.youtubeId, at: ch.at)
+        cap += AttributedString("\n") + line
       }
-      out.append(.photo(src: PageDoc.thumbnail(v.youtubeId), ratio: 16 / 9, alt: String(localized: "Phát video: \(v.title)"), caption: cap,
-                        href: youtube(v.youtubeId, at: 0), play: true))
+      out.append(.video(id: v.youtubeId, title: v.title, caption: cap))
     }
     if species {
       // As the site's data card: the facts, the sources behind them, then whose text the page is.
@@ -258,48 +361,112 @@ struct NativePage: View {
       for b in doc.blocks { if case .trust = b { add(b, to: &out) } }
       if !doc.credit.isEmpty { out.append(credit) }
     }
-    // A species' parts in the order its reader asks (rank), its readers before where to go next; a guide's as written.
-    // A paragraph before a species' summary and sections is the tank-mates tool's link, sent alone when the page shows
-    // no tank-mates: it goes where they would.
+    // A species' parts in the order its reader asks (rank); a guide's as written. A fish's page (one with tank-mates or
+    // the tank-mates tool's link, which a breed's hasn't) reads as the site's on a phone: the summary, the care text,
+    // then its photos (`answerFirst`), its climate and tank-mates at the end of the sections they answer (slot). The
+    // tool's link is a paragraph before the summary and sections, sent alone when the page shows no tank-mates: it goes
+    // where they would. A plant's or a breed's: the summary, a breed's line before it (its parents), the photos, the text.
     let lead = doc.blocks.firstIndex { if case .summary = $0 { true } else if case .heading = $0 { true } else { false } } ?? doc.blocks.count
-    let ranks = doc.blocks.indices.map { i in if case .paragraph = doc.blocks[i], i < lead { 2 } else { rank(doc.blocks[i]) } }
-    let blocks = species ? doc.blocks.indices.sorted { (ranks[$0], $0) < (ranks[$1], $1) }.map { doc.blocks[$0] } : doc.blocks
+    let slot = { (i: Int) -> String? in
+      switch doc.blocks[i] {
+      case .climate: "waterConditions"
+      case .mates: "behaviour"
+      // The tool's link alone (fishDoc's), not a breed's line naming its parents.
+      case let .paragraph(runs) where i < lead && runs.count == 1 && runs[0].href != nil: "behaviour"
+      default: nil
+      }
+    }
+    let answerFirst = doc.kind == "fish" && doc.blocks.indices.contains { slot($0) != nil }
+    let rank = { (b: PageDoc.Block, i: Int) in Self.rank(b, answerFirst: answerFirst, lead: species && i < lead) }
+    var order = doc.blocks.indices.map { $0 }
+    if species {
+      order = order.filter { !answerFirst || slot($0) == nil }.sorted { (rank(doc.blocks[$0], $0), $0) < (rank(doc.blocks[$1], $1), $1) }
+      if answerFirst {
+        let slotted = doc.blocks.indices.filter { slot($0) != nil }.sorted { (sectionOrder.firstIndex(of: slot($0)!)!, $0) < (sectionOrder.firstIndex(of: slot($1)!)!, $1) }
+        for i in slotted { order.insert(i, at: place(slot(i)!, in: order.map { doc.blocks[$0] })) }
+      }
+    }
     var readers = doc.talk.map { Piece.readers($0, name: doc.title) }
     var webBefore = false
-    for b in blocks {
-      if species, rank(b) > 5, let r = readers { out.append(r); readers = nil }
+    var at = 0
+    while at < order.count {
+      let b = doc.blocks[order[at]]
+      at += 1
+      if species, rank(b, order[at - 1]) > 6, let r = readers { out.append(r); readers = nil }
       // A run of parts it can't draw is one offer of the web page.
       if case .web = b { if !webBefore { out.append(.web) }; webBefore = true; continue }
       webBefore = false
       if species, case .trust = b { continue }
-      let at = out.count
+      // A fish's "Thông tin nhanh" folded under its heading, as the site's page on a phone has it, when all of it is
+      // text: its blocks up to the next heading, photo, or climate or tank-mates put after it. Else open, as it was.
+      if answerFirst, case let .heading(text, id) = b, id == "muc-quickFacts" {
+        var part: [Piece] = []
+        var end = at
+        while end < order.count, slot(order[end]) == nil, rank(doc.blocks[order[end]], order[end]) == 3 {
+          if case .heading = doc.blocks[order[end]] { break }
+          if case .figure = doc.blocks[order[end]] { break }
+          add(doc.blocks[order[end]], to: &part)
+          end += 1
+        }
+        let texts = part.compactMap { if case let .text(t, _, _) = $0 { t } else { nil } }
+        if !part.isEmpty, texts.count == part.count {
+          out.append(.fold(styled(text, .pageHeading), anchor: id, texts.dropFirst().reduce(texts[0]) { $0 + AttributedString("\n\n") + $1 }))
+          at = end
+          continue
+        }
+      }
+      let before = out.count
       add(b, to: &out)
       // Under "Nuôi chung", before its fish, as the site's has them.
-      if case .mates = b, let traits { out.insert(.text(traits, look: .line), at: at + 1) }
+      if case .mates = b, let traits { out.insert(.text(traits, look: .line), at: before + 1) }
     }
     if let readers { out.append(readers) }
     return out
   }
 
-  /// Where a species' block goes: the answer first (the summary), then where and with what it lives, its photos (where
-  /// the web page has them: after its climate and tank-mates, before the detail), the detail, its videos, where to go
-  /// next, its sources last.
-  private static func rank(_ b: PageDoc.Block) -> Int {
+  /// The site's order of a species' sections (DISPLAY_ORDER, apps/site/src/lib/sections.ts), each heading's id
+  /// `muc-<key>`: where the climate and tank-mates go when the page has no section of their own.
+  private static let sectionOrder = ["quickFacts", "beforeYouBuy", "aquariumSize", "waterConditions", "maintenance", "equipment", "diet", "behaviour",
+                                     "dimorphism", "reproduction", "distribution", "habitat", "notes", "references"]
+
+  /// Where a part that answers section `key` goes among a fish's blocks (in rank order), as the site's page puts it
+  /// (Sections.astro): at the end of that section, before the photo the site puts between it and the next; else where it
+  /// would be, before the first section that comes after it (one the order doesn't name, such as the wild range, counts
+  /// as after); else at the end of the care text.
+  private static func place(_ key: String, in blocks: [PageDoc.Block]) -> Int {
+    let mine = sectionOrder.firstIndex(of: key)!
+    var inside = false
+    for (i, b) in blocks.enumerated() {
+      if rank(b, answerFirst: true, lead: false) > 3 { return i }
+      if inside, case .figure = b { return i }
+      guard case let .heading(_, id) = b, let id, id.hasPrefix("muc-") else { continue }
+      let k = String(id.dropFirst(4))
+      if inside { return i }
+      if k == key { inside = true; continue }
+      if (sectionOrder.firstIndex(of: k) ?? .max) > mine { return i }
+    }
+    return blocks.count
+  }
+
+  /// Where a species' block goes: the answer first (the summary), then the text; a fish's photos after it, as the site's
+  /// page on a phone has them (`answerFirst`), a plant's or breed's before it, after a breed's line under its summary
+  /// (`lead`: a paragraph before the summary and sections); then its videos, where to go next, its sources last.
+  private static func rank(_ b: PageDoc.Block, answerFirst: Bool, lead: Bool) -> Int {
     switch b {
     case .summary: 0
-    case .climate: 1
-    case .mates: 2
-    case .gallery: 3
-    case .videos: 5
-    case .cards: 6
-    case .pages: 7
-    case .refs: 8
-    case .trust: 9
-    default: 4
+    case .paragraph where lead: 1
+    case .gallery: answerFirst ? 4 : 2
+    case .videos: 6
+    case .cards: 7
+    case .pages: 8
+    case .refs: 9
+    case .trust: 10
+    default: 3
     }
   }
 
-  private static func add(_ b: PageDoc.Block, to out: inout [Piece]) {
+  /// A block as pieces, for v1's page and v2's (SpeciesPage), which draws a page's sections from them.
+  static func add(_ b: PageDoc.Block, to out: inout [Piece]) {
     switch b {
     case let .heading(text, id):
       out.append(.text(styled(text, .pageHeading), anchor: id, look: .heading))
@@ -317,7 +484,7 @@ struct NativePage: View {
       out.append(.text(styled(title, .headline), look: .subheading))
       for s in items {
         out.append(.photo(src: s.img.src, ratio: CGFloat(s.img.w) / CGFloat(s.img.h), alt: s.img.alt, caption: styled("\(clock(s.at)) · \(s.caption)"),
-                          href: youtube(id, at: s.at), play: true))
+                          href: PagePlayer.link(id, at: s.at), play: true))
       }
     case let .summary(title, items, paragraph, mistakes, by):
       out.append(.text(styled(title, .pageHeading), look: .heading))
@@ -351,15 +518,16 @@ struct NativePage: View {
       out.append(.web)
     case let .gallery(title, note, photos, strip, _):
       // No row on the page (too few photos for one): none here either.
-      if !strip.isEmpty { out.append(GalleryViewer.row(title: title, note: note, photos: photos, strip: strip)) }
+      if !strip.isEmpty, let row = GalleryViewer.row(title: title, note: note, photos: photos, strip: strip) { out.append(row) }
     case let .trust(title, legend, rows):
       // The mark on a figure the sources disagree on, in the warning colour, as its legend says.
       var dot = AttributedString("●")
       dot.foregroundColor = Color.warning
       var text = AttributedString()
-      if let legend, rows.contains(where: \.conflict) { text += dot + styled(" " + legend + "\n\n", .footnote, secondary: true) }
+      // Only where the sources disagree by enough to change how the fish is kept (`marked`), as the site's card has it.
+      if let legend, rows.contains(where: \.marked) { text += dot + styled(" " + legend + "\n\n", .footnote, secondary: true) }
       for (i, r) in rows.enumerated() {
-        text += styled((i > 0 ? "\n\n" : "") + r.label + (r.conflict ? " " : ""), .subheadline.bold()) + (r.conflict ? dot : AttributedString())
+        text += styled((i > 0 ? "\n\n" : "") + r.label + (r.marked ? " " : ""), .subheadline.bold()) + (r.marked ? dot : AttributedString())
         if let note = r.note { text += styled("\n" + note, .footnote, secondary: true) }
         text += styled(r.items.map { "\n" + $0 }.joined(), .subheadline)
       }
@@ -384,8 +552,7 @@ struct NativePage: View {
       out.append(.text(styled(title, .pageHeading), look: .heading))
       for v in items {
         let length = v.durationSec > 0 ? " · \(clock(v.durationSec))" : ""
-        out.append(.photo(src: PageDoc.thumbnail(v.youtubeId), ratio: 16 / 9, alt: String(localized: "Phát video: \(v.title)"),
-                          caption: styled("\(v.title)\(length) · \(v.lang)"), href: youtube(v.youtubeId, at: 0), play: true))
+        out.append(.video(id: v.youtubeId, title: v.title, caption: styled("\(v.title)\(length) · \(v.lang)")))
       }
     }
   }
@@ -418,7 +585,7 @@ struct NativePage: View {
 }
 
 /// A word's explanation (a glossary term, a citation), shown when its link is tapped.
-private struct Tip {
+struct Tip {
   let term: String
   let text: String
   let href: String?
@@ -451,7 +618,7 @@ func credit(_ c: PageDoc.Image.Credit, photo: Bool = true) -> AttributedString {
   return line
 }
 
-private func styled(_ s: String, _ font: Font? = nil, secondary: Bool = false) -> AttributedString {
+func styled(_ s: String, _ font: Font? = nil, secondary: Bool = false) -> AttributedString {
   var a = AttributedString(s)
   a.font = font
   if secondary { a.foregroundColor = .secondary }
@@ -460,7 +627,7 @@ private func styled(_ s: String, _ font: Font? = nil, secondary: Bool = false) -
 
 /// Runs as styled text; links as URLs the page's `openURL` understands (a site path is left relative). A source's number
 /// after a sentence is raised and small, as a printed note's; `secondary`, the words but its links.
-private func styled(_ runs: [PageDoc.Run], font: Font? = nil, secondary: Bool = false) -> AttributedString {
+func styled(_ runs: [PageDoc.Run], font: Font? = nil, secondary: Bool = false) -> AttributedString {
   runs.reduce(into: AttributedString()) { s, r in
     var a = AttributedString(r.text)
     a.font = font
@@ -494,7 +661,7 @@ private extension Array {
   subscript(safe i: Int) -> Element? { indices.contains(i) ? self[i] : nil }
 }
 
-private extension Font {
+extension Font {
   /// A page's name and its headings: the serif of a printed field guide, at the reader's text size.
   static let pageTitle = Font.system(.largeTitle, design: .serif, weight: .bold)
   static let pageHeading = Font.system(.title2, design: .serif, weight: .bold)
@@ -502,12 +669,17 @@ private extension Font {
 
 /// Other pages as rows in one panel (tank-mates, breeds), each with its photo, opening in the app or else on the web;
 /// under the rows, the photos' credits, linking each photo's own page (a link inside a row would be the row).
-private struct CardsPart: View {
+struct CardsPart: View {
   let title: String?
   let cards: [NativePage.Card]
   /// Tank-mates' "Hợp với" (true) or "Tránh" (false), marked so for the eye.
   let good: Bool?
   let open: (URL) -> Void
+  /// Its photos' credits under it; v2's page has them at its foot.
+  var credits = true
+  /// v2's rows (docs/design/v2-fish-page.md): a small photo, none where a page has none, and plain titles.
+  var v2 = false
+  @Environment(\.dynamicTypeSize) private var size
   @ScaledMetric(relativeTo: .body) private var thumb: CGFloat = 56
   /// The width each of a credit's numbers takes: 44 points to tap, as the app's other small controls have.
   @ScaledMetric(relativeTo: .caption2) private var number: CGFloat = 44
@@ -519,24 +691,24 @@ private struct CardsPart: View {
     VStack(alignment: .leading, spacing: 8) {
       if let title {
         HStack(spacing: 6) {
-          if let good {
+          if let good, !v2 {
             Image(systemName: good ? "checkmark.circle.fill" : "xmark.circle.fill")
               .foregroundStyle(good ? Color.green : Color.red)
               .accessibilityHidden(true)
           }
           Text(title)
         }
-        .font(.headline)
+        .font(v2 && good != nil ? .subheadline.weight(.semibold) : .headline)
         .accessibilityAddTraits(.isHeader)
       }
       VStack(spacing: 0) {
         ForEach(cards.indices, id: \.self) { j in
-          if j > 0 { Divider().padding(.leading, thumbs ? thumb + 24 : 12) }
-          row(cards[j], thumbs: thumbs)
+          if j > 0 { Divider().padding(.leading, v2 ? 0 : thumbs ? thumb + 24 : 12) }
+          if v2 { v2Row(cards[j]) } else { row(cards[j], thumbs: thumbs) }
         }
       }
       .background(.fill.quaternary, in: .rect(cornerRadius: 12))
-      if !credits.isEmpty {
+      if self.credits, !credits.isEmpty {
         VStack(alignment: .leading, spacing: 0) {
           ForEach(credits.indices, id: \.self) { creditRow(credits[$0]) }
         }
@@ -586,6 +758,37 @@ private struct CardsPart: View {
     }
   }
 
+  /// v2's row: its photo at 44 × 33, or none, its name and its line, a chevron. At the accessibility sizes the photo is over
+  /// the words: beside them it left a few letters a line.
+  private func v2Row(_ c: NativePage.Card) -> some View {
+    Button { if let u = URL(string: c.path) { open(u) } } label: {
+      HStack(spacing: 12) {
+        let words = VStack(alignment: .leading, spacing: 0) {
+          Text(c.name).font(.callout)
+          if let sub = c.sub { Text(sub).font(.footnote).foregroundStyle(.secondary) }
+        }
+        let photo = c.img.map { PageImage(src: $0.thumb ?? $0.src, ratio: 4.0 / 3, corner: 5).frame(width: 44, height: 33) }
+        if size.isAccessibilitySize {
+          VStack(alignment: .leading, spacing: 8) {
+            photo
+            words
+          }
+        } else {
+          photo
+          words
+        }
+        Spacer(minLength: 0)
+        Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary)
+      }
+      .padding(.horizontal, 14)
+      .padding(.vertical, 9)
+      .frame(minHeight: 48)
+      .contentShape(.rect)
+    }
+    .buttonStyle(.plain)
+    .accessibilityIdentifier("card")
+  }
+
   private func row(_ c: NativePage.Card, thumbs: Bool) -> some View {
     Button { if let u = URL(string: c.path) { open(u) } } label: {
       HStack(spacing: 12) {
@@ -613,28 +816,72 @@ private struct CardsPart: View {
 }
 
 /// Other pages the index lists, each opening in the app.
-private struct PagesBlock: View {
+struct PagesBlock: View {
   let title: String
   let paths: [String]
+  /// Its own heading, set apart from what's above it, as v1's page has it; v2's page gives it its own.
+  var titled = true
   @Environment(HandbookModel.self) private var handbook
 
   var body: some View {
     let items = paths.compactMap(handbook.item(at:))
     if !items.isEmpty {
+      let shown = PageList.inPlace(items.count)
       VStack(alignment: .leading, spacing: 8) {
-        Text(title).font(.pageHeading).accessibilityAddTraits(.isHeader)
+        if titled { Text(title).font(.pageHeading).accessibilityAddTraits(.isHeader) }
         // As in a list of results: a tool opens its tab (AppScreen), a page pushes on this one. In one panel, as the
         // page's other rows of pages (CardsPart) are.
         VStack(alignment: .leading, spacing: 0) {
-          ForEach(Array(items.enumerated()), id: \.element.id) { j, item in
+          ForEach(Array(items.prefix(shown).enumerated()), id: \.element.id) { j, item in
             if j > 0 { Divider().padding(.leading, 12) }
             Row(item: item, chevron: true, inPanel: true).buttonStyle(.plain)
+          }
+          // The whole list, in a list that draws its rows as they scroll in.
+          if shown < items.count {
+            Divider().padding(.leading, 12)
+            NavigationLink(value: Browse.pages(title, paths)) {
+              HStack {
+                Text("Xem tất cả \(items.count)")
+                Spacer()
+                Image(systemName: "chevron.right").foregroundStyle(.tertiary)
+              }
+              .padding(12)
+              .contentShape(.rect)
+            }
+            .buttonStyle(.plain)
+            .accessibilityIdentifier("pages-all")
           }
         }
         .background(.fill.quaternary, in: .rect(cornerRadius: 12))
       }
-      .padding(.top, 40)
+      .padding(.top, titled ? 40 : 0)
     }
+  }
+}
+
+/// How many photos a page has, over its own photo, as the mock draws it: a photo's icon then "N ảnh", white on a dark
+/// rounded blur, the same over a light photo or a dark one. v2's banner shows this one too.
+struct PhotosBadge: View {
+  let count: Int
+  @Environment(\.dynamicTypeSize) private var type
+  @ScaledMetric(relativeTo: .subheadline) private var scale: CGFloat = 1
+
+  var body: some View {
+    // The mock's two sizes: 14 on 32 with 12 at the sides, and 28 on 52 with 18 at the accessibility sizes, past which
+    // it would cover the photo. The sizes between grow with the text.
+    let ax = type.isAccessibilitySize
+    HStack(spacing: 6) {
+      Image(systemName: "photo.on.rectangle").font(.system(size: ax ? 23 : 12.25 * scale, weight: .medium))
+      Text("\(count) ảnh")
+    }
+    .font(.system(size: ax ? 28 : 14 * scale, weight: .semibold))
+    .lineLimit(1)
+    .foregroundStyle(.white)
+    .padding(.horizontal, ax ? 18 : 12 * scale)
+    .frame(height: ax ? 52 : 32 * scale)
+    .background(.black.opacity(0.46), in: .capsule)
+    .background(.ultraThinMaterial, in: .capsule)
+    .environment(\.colorScheme, .dark)
   }
 }
 
@@ -649,6 +896,9 @@ private struct GalleryRow: View {
   var all = "gallery-all"
   /// Readers' photos, each as the reader can report it or block who sent it (in the viewer); a page's own, none.
   var readers: [ReaderItem]?
+  /// Opens the page's grid, for its "all photos" button: without one (readers' photos on a page with no gallery), the
+  /// viewer.
+  var grid: (() -> Void)?
   @State private var shown: Int?
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
@@ -672,7 +922,9 @@ private struct GalleryRow: View {
           }
         }
       }
-      Button("Xem tất cả \(photos.count) ảnh") { show(strip.first ?? 0) }
+      Button("Xem tất cả \(photos.count) ảnh") {
+        if let grid { grid() } else { show(strip.first ?? 0) }
+      }
         .buttonStyle(.bordered)
         .buttonBorderShape(.capsule)
         .controlSize(.small)
@@ -697,18 +949,30 @@ private struct GalleryRow: View {
 /// A page's readers' photos and comments (Readers), read when it opens: shown once the site has some, as its web page
 /// shows those sections only once the site answers; with accounts on, also with none yet, and a reader signed in posts
 /// to them (ReaderPost). The photos are a gallery's row, each credited with the reader's name.
-private struct ReadersPart: View {
+struct ReadersPart: View {
   let talk: PageDoc.Talk
   let name: String
+  /// What the site answered: nil until it has (still reading, or offline), so "none yet" is said only of a page that has none.
+  @Binding var photos: [Readers.Photo]?
+  /// Opens the page's grid at this part: on a page with a gallery.
+  var grid: (() -> Void)?
+  /// Its headings' font: v1's page's own, v2's its.
+  var heading: Font = .pageHeading
+  /// The room it keeps from the next part (v1: above it), only when it shows something.
+  var space: (edge: Edge.Set, length: CGFloat) = (.top, 40)
   @Environment(HandbookModel.self) private var handbook
   @Environment(AccountModel.self) private var account
-  /// What the site answered: nil until it has (still reading, or offline), so "none yet" is said only of a page that has none.
   @State private var comments: [Readers.Comment]?
-  @State private var photos: [Readers.Photo]?
   @State private var posting: ReaderPost.Kind?
   @State private var reporting: ReaderItem?
   @State private var blocking: ReaderItem?
   @State private var managing = false
+  #if DEBUG
+  /// This page's read has ended (answered, or failed): only then can a UI test say the page shows none (debug builds).
+  /// Each time the page shows, it reads again and this is false until that read ends. It says nothing of the section
+  /// shown for posting: that one shows whenever accounts are open, read or not.
+  @State private var answered = false
+  #endif
 
   var body: some View {
     // Posting needs an account: where the site has none, a section with nothing in it would only be empty.
@@ -722,18 +986,17 @@ private struct ReadersPart: View {
     VStack(alignment: .leading, spacing: 14) {
       if showsPhotos {
         if shownPhotos.isEmpty {
-          Text("Ảnh bạn đọc").font(.pageHeading).accessibilityAddTraits(.isHeader)
+          Text("Ảnh bạn đọc").font(heading).accessibilityAddTraits(.isHeader)
           // None at all: hidden ones the note below says.
           if photos?.isEmpty == true { Text("Chưa có ảnh nào. Bạn nuôi \(name)? Gửi một tấm ảnh cho mọi người cùng xem.").foregroundStyle(.secondary) }
         } else {
-          GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: shownPhotos.map {
-            PageDoc.Image(src: $0.url, w: $0.width, h: $0.height, alt: String(localized: "Ảnh của \($0.name)"), thumb: $0.thumb, credit: PageDoc.Image.Credit(text: $0.name, licence: "", url: nil))
-          }, strip: Array(shownPhotos.indices.prefix(10)), all: "readers-all", readers: shownPhotos.map(ReaderItem.init))
+          GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: shownPhotos.map(PageDoc.Image.init(reader:)),
+                     strip: Array(shownPhotos.indices.prefix(10)), all: "readers-all", readers: shownPhotos.map(ReaderItem.init), grid: grid)
         }
         if open { Button("Gửi ảnh \(name) của bạn") { posting = .photo }.buttonStyle(.bordered).accessibilityIdentifier("post-photo") }
       }
       if showsComments {
-        Text("Thảo luận").font(.pageHeading).accessibilityAddTraits(.isHeader).padding(.top, showsPhotos ? 26 : 0)
+        Text("Thảo luận").font(heading).accessibilityAddTraits(.isHeader).padding(.top, showsPhotos ? 26 : 0)
         if comments?.isEmpty == true { Text("Chưa có bình luận. Hãy là người đầu tiên chia sẻ kinh nghiệm.").foregroundStyle(.secondary) }
         ForEach(shownComments, id: \.id) { c in
           Divider()
@@ -758,19 +1021,32 @@ private struct ReadersPart: View {
     .sheet(isPresented: $managing) {
       NavigationStack {
         List { BlockedList() }
+          .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
+          .ownerScreen("sheet blocked-readers")
           .navigationTitle("Người đã chặn")
           .navigationBarTitleDisplayMode(.inline)
           .toolbar { Button("Đóng") { managing = false } }
       }
     }
     // Its own space above, when it shows anything (or says what it hides): none for a page with no readers' part.
-    .padding(.top, showsPhotos || showsComments || hidden > 0 ? 40 : 0)
+    .padding(space.edge, showsPhotos || showsComments || hidden > 0 ? space.length : 0)
+    #if DEBUG
+    .background {
+      if answered { Text(verbatim: "read").font(.system(size: 1)).fixedSize().opacity(0.01).accessibilityIdentifier("readers-read") }
+    }
+    #endif
     .task(id: talk) {
       // Read again each time the page shows; one that fails (offline, or left before it came) keeps what was shown.
+      #if DEBUG
+      answered = false
+      #endif
       let (c, p) = await handbook.readers(talk)
       guard !Task.isCancelled else { return }
       if let c { comments = c }
       if let p { photos = p }
+      #if DEBUG
+      answered = true
+      #endif
     }
     .sheet(item: $posting) { kind in
       ReaderPost(kind: kind, key: (kind == .comment ? talk.comments : talk.photos) ?? "", name: name) { c in
@@ -795,7 +1071,7 @@ private struct ReadersPart: View {
   }
 }
 
-private func youtube(_ id: String, at: Int) -> URL { URL(string: "https://www.youtube.com/watch?v=\(id)" + (at > 0 ? "&t=\(at)s" : ""))! }
+func youtube(_ id: String, at: Int) -> URL { URL(string: "https://www.youtube.com/watch?v=\(id)" + (at > 0 ? "&t=\(at)s" : ""))! }
 
 /// 75 → "1:15", 3725 → "1:02:05", as the site writes a video's times (lib/video.ts), in every language: not the
 /// phone's own time style, which writes "1.15" in Indonesian.
@@ -809,6 +1085,24 @@ private struct InView: ViewModifier {
   func body(content: Content) -> some View {
     if #available(iOS 18, *), let report {
       content.onScrollVisibilityChange(threshold: 0.3, report)
+    } else {
+      content
+    }
+  }
+}
+
+/// Reports the share of the page seen down to as it scrolls past each of the site beacon's marks, 50 and 90% (iOS 18
+/// on; as the site's pages measure it: the bottom of the screen against the page's height).
+private struct SeenDown: ViewModifier {
+  let report: (Double) -> Void
+  func body(content: Content) -> some View {
+    if #available(iOS 18, *) {
+      content.onScrollGeometryChange(for: Int.self) { g in
+        let share = g.contentSize.height > 0 ? 100 * g.visibleRect.maxY / g.contentSize.height : 0
+        return Event.depths.last { share >= Double($0) } ?? 0
+      } action: { _, mark in
+        report(Double(mark) / 100)
+      }
     } else {
       content
     }
@@ -833,7 +1127,7 @@ private struct PutButton: View {
 /// A table as the site's, in a panel: a grid with its columns' names over them while they fit side by side; else each
 /// row's cells one under another, each under its column's name. No cell is shown without its column's name, the first
 /// column's too (a pros-and-cons table's "Ưu điểm").
-private struct TablePart: View {
+struct TablePart: View {
   let head: [AttributedString]?
   let rows: [[AttributedString]]
 

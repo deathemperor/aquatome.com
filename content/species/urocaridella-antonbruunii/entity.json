@@ -22,6 +22,11 @@
     "indonesia",
     "china"
   ],
+  "water": {
+    "kind": "marine",
+    "source": "aquariumbreeder",
+    "quote": "These shrimp should be kept under conditions suitable for any typical marine aquarium."
+  },
   "dataCard": {
     "tempC": [
       {

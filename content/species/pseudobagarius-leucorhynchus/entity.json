@@ -10,6 +10,62 @@
     "thailand",
     "chao-phraya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Chao Phraya"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Thailand; Chao Phraya basin and southern Peninsular.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340952,
+      "total": 3,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "TH",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

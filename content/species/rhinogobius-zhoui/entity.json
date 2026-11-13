@@ -64,17 +64,11 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
   "sections": [
-    {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius-zhoui-2/",
-      "html": "<p>This freshwater goby, which attains a maximum length of 4-5 cm, is one of the most attractive discoveries of ornamental fish of the last years. In the beginning the fish were extremely expensive, but they are now available at a comparably moderate price.</p>"
-    },
     {
       "key": "quickFacts",
       "source": "seriouslyfish",
@@ -186,17 +180,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/311a1f9b5259039b.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/311a1f9b5259039b-480.webp",
-      "width": 1023,
-      "height": 680,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
-      "caption": "Young female individual that was imported to the U.S. as a contaminant among a shipment of the congener R. duospilus.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/cd962b30869c526a.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/cd962b30869c526a-480.webp",
       "width": 600,
@@ -206,6 +189,17 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
       "caption": "Adult male in spawning condition.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/311a1f9b5259039b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/311a1f9b5259039b-480.webp",
+      "width": 1023,
+      "height": 680,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-zhoui",
+      "caption": "Young female individual that was imported to the U.S. as a contaminant among a shipment of the congener R. duospilus.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -213,8 +207,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá mini"
+        "bể cá 60cm"
       ]
     },
     {

@@ -1,10 +1,13 @@
 {
   "slug": "ishigaki-island",
-  "name": "Ishigaki Island",
-  "altNames": [],
+  "name": "đảo Ishigaki",
+  "altNames": [
+    "Ishigaki Island"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

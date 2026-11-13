@@ -1,0 +1,104 @@
+{
+  "id": "potamotrygon-scobina",
+  "native": {
+    "input": "2dcb38ddb07b0d9f",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is restricted – as far as known – to the Rio Tocantins in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's found exclusively in the middle and lower parts of the Amazon drainage in Brazil, including the Rio Trombetas, Rio Tocantins and Rio Pará.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tocantins",
+        "source": "glaser",
+        "quote": "The species is restricted – as far as known – to the Rio Tocantins in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "It's found exclusively in the middle and lower parts of the Amazon drainage in Brazil, including the Rio Trombetas, Rio Tocantins and Rio Pará.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Trombetas",
+        "source": "seriouslyfish",
+        "quote": "It's found exclusively in the middle and lower parts of the Amazon drainage in Brazil, including the Rio Trombetas, Rio Tocantins and Rio Pará.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Tocantins",
+        "source": "seriouslyfish",
+        "quote": "It's found exclusively in the middle and lower parts of the Amazon drainage in Brazil, including the Rio Trombetas, Rio Tocantins and Rio Pará.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Pará",
+        "source": "seriouslyfish",
+        "quote": "It's found exclusively in the middle and lower parts of the Amazon drainage in Brazil, including the Rio Trombetas, Rio Tocantins and Rio Pará.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Potamotrygon scobina",
+    "status": "ACCEPTED",
+    "taxonKey": 2419354,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        33
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        21
+      ],
+      [
+        "fa2c148d-adf5-4ee3-9eee-d6f18b85c44d",
+        18
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        9
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

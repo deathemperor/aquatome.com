@@ -10,6 +10,47 @@
     "myanmar",
     "ayeyarwady"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Mogaung Chaung",
+        "Ayeyarwady"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Mogaung Chaung (Mogaung stream), Myitkyina District, Kachin State, northern Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Mogaung Chaung"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This is a tributary of the Ayeyarwady River and the species is probably found only over a relatively small area.",
+          "countries": [],
+          "regions": [
+            "Ayeyarwady"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359135,
+      "total": 0,
+      "fetched": "2026-11-07",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +94,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -171,8 +212,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {

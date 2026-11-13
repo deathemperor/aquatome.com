@@ -5,13 +5,149 @@
   "family": "Loricariidae",
   "genus": "Parancistrus",
   "group": "catfish",
-  "lNumber": "L056X",
+  "lNumber": "L56x",
   "places": [
     "south-america",
-    "brazil"
+    "brazil",
+    "tocantins"
   ],
-  "dataCard": {},
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tocantins",
+        "Xingu River",
+        "Tocantins-Araguaia River basin"
+      ],
+      "sources": [
+        "scotcat",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This very unusual loricariid was imported from Brazil in a small number.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Brazil: Pará, Rio Tocantins (Cametá-Marabá).",
+          "countries": [],
+          "regions": [
+            "Rio Tocantins"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "The species has distribution in the lower Xingu River and in the Tocantins-Araguaia River basin.",
+          "countries": [],
+          "regions": [
+            "Xingu River",
+            "Tocantins-Araguaia River basin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340132,
+      "total": 119,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "BR",
+          119
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -5.625,
+          36,
+          36
+        ],
+        [
+          -53.4375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          18,
+          18
+        ],
+        [
+          -53.4375,
+          -5.625,
+          49,
+          49
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 25
+      }
+    ]
+  },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_aurantiacus.htm",
+      "html": "<p>Family: Loricariidae. Common names: Chubby pleco, Rubber pleco. Size: 25 cm. Temperature: 26-30°C. pH 6.0-7.2.</p><p>It was initially thought that the gold-yellow forms found in imports were males and they subsequently went for higher prices, but they tended to lose this colouration after a short time in captivity.</p>"
+    },
     {
       "key": "distribution",
       "source": "glaser",
@@ -19,10 +155,46 @@
       "html": "<p>This very unusual loricariid was imported from Brazil in a small number.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_aurantiacus.htm",
+      "html": "<p>Brazil: Pará, Rio Tocantins (Cametá-Marabá).</p><p>The species has distribution in the lower Xingu River and in the Tocantins-Araguaia River basin. In Xingu, the species will be threatened by dams and in the Tocantins-Araguaia river basin, other dams have already been implemented and there are projects to implement others. This is suspected to cause a reduction rate approaching 30% in the next three-generation period in the species and its distribution. As such, the species is assessed as Near Threatened (IUCN 2024).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_aurantiacus.htm",
+      "html": "<p>Omnivore. A varied diet with both vegetable and other foods such as tablet, live and frozen.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_aurantiacus.htm",
+      "html": "<p>Only fairly territorial while youngsters prefer to rest under pieces of wood and on to rockwork. Adults rest on the substrate in hiding places.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_aurantiacus.htm",
+      "html": "<p>Males possess a broader head and more strongly bristled pectoral spines. The bristles on the posterior of the males' scutes are elongated when sexually mature.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l56x_parancistrus_sp_2_color_en/",
       "html": "<p>Technically, these fish belong to the species P. aurantiacus. The species is famous for the fact that it can be bright golden, marbled or black in colour, and it is documented that it can change colour in a comparatively short time. This phenomenon was also observed in the specimens described here.</p><p>The fish were 8-12 cm long at the time. The photographed specimens are males and had already reached full maturity.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_aurantiacus.htm",
+      "html": "<p>Can be distinguished from P. nudiventris by having a plated abdomen (naked in P. nudiventris), uniformly dark or clear brown or mottled (bluish spots in P. nudiventris), shorter interbranchial distance (39-56% in HL vs. 24.9-39.5% in P. aurantiacus), wider interorbital distance (38.5-43.1% vs. 26.8-38% in HL in P. nudiventris). Parancistrus nudiventris also has buccal teeth more conspicuous than in P. aurantiacus. Main skeletal differences include the presence of a strong condyle on the lateral ethmoid for articulation with the metapterygoid in P. nudiventris (not seen in P. aurantiacus); anguloarticular processes short in P. nudiventris (long in P. aurantiacus); opercle with odontodes, partly exposed in P. nudiventris (completely embedded in skin in P. aurantiacus). This genus has a broad and flattened body with large scutes. The dorsal and adipose fin is connected with a membrane and they have very large gill openings.</p><p>Etymology: The specific name aurantiacus: Latin for orange-coloured, referring to its orange-yellow body colouration.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_aurantiacus.htm",
+      "html": "<p>All L-Numbers; Datz Special Habitat &amp; Care. Salvador, G.N. 2024. Parancistrus aurantiacus. The IUCN Red List of Threatened Species 2024. Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
     }
   ],
   "photos": [
@@ -73,5 +245,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-09"
 }

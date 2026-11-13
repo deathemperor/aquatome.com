@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { APP_VI_ROOT } from '../src/lib/i18n'
 import { VI_SECTIONS } from '../worker/paths'
-import { DIST, page } from './dist'
+import { DIST, page, sitemapText } from './dist'
 
 // Vietnamese pages live at the root (/ca/x/), and nothing the site builds links to the old /vi/… addresses, which the
 // Worker 301s (worker/test/handler.test.ts). The apps' files keep the /vi/ form until the app reads both (APP_VI_ROOT).
@@ -33,21 +33,25 @@ test('the home page is the Vietnamese one, at the root; nothing is built under /
 
 test('canonical, hreflang and x-default name the root addresses; the other languages\' stay', () => {
   const links = (path: string) => Object.fromEntries(page(path).dom.querySelectorAll('link[rel="canonical"], link[rel="alternate"][hreflang]').map(l => [l.getAttribute('hreflang') ?? 'canonical', new URL(l.getAttribute('href')!).pathname]))
-  expect(links('/')).toEqual({ canonical: '/', vi: '/', id: '/id/', th: '/th/', 'x-default': '/' })
-  expect(links('/cong-cu/the-tich-be/')).toEqual({ canonical: '/cong-cu/the-tich-be/', vi: '/cong-cu/the-tich-be/', id: '/id/alat/volume-akuarium/', th: '/th/tools/tank-volume/', 'x-default': '/cong-cu/the-tich-be/' })
+  expect(links('/')).toEqual({ canonical: '/', vi: '/', id: '/id/', th: '/th/', ms: '/ms/', 'x-default': '/' })
+  expect(links('/cong-cu/the-tich-be/')).toEqual({ canonical: '/cong-cu/the-tich-be/', vi: '/cong-cu/the-tich-be/', id: '/id/alat/volume-akuarium/', th: '/th/tools/tank-volume/', ms: '/ms/alat/isi-padu-tangki/', 'x-default': '/cong-cu/the-tich-be/' })
   expect(links('/id/alat/volume-akuarium/')).toMatchObject({ canonical: '/id/alat/volume-akuarium/', vi: '/cong-cu/the-tich-be/', 'x-default': '/cong-cu/the-tich-be/' })
   // The language menu takes a reader to the root address too.
   expect(page('/id/').dom.querySelector('[data-lang-menu] a[data-lang="vi"]')?.getAttribute('href')).toBe('/')
 })
 
 test('the sitemap and redirects.json give the root addresses', () => {
-  const locs = [...readFileSync(join(DIST, 'sitemap.xml'), 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => new URL(m[1]!).pathname)
+  const locs = [...sitemapText().matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => new URL(m[1]!).pathname)
   expect(locs).toContain('/')
   expect(locs).toContain('/ca/ca-neon-vua/')
   expect(locs).toContain('/id/')
   expect(locs.filter(p => p.startsWith('/vi/'))).toEqual([])
   // An old address of a renamed page, by its root form: the Worker reads an old /vi/… one without /vi.
-  expect(JSON.parse(readFileSync(join(DIST, 'redirects.json'), 'utf8'))).toEqual({ '/ca/ca-neon-vua-super-red/': '/ca/ca-neon-vua/?tu=ca-neon-vua-super-red' })
+  // One with no name (another animal's, page-folds.ts) forwards bare.
+  expect(JSON.parse(readFileSync(join(DIST, 'redirects.json'), 'utf8'))).toEqual({
+    '/ca/ca-neon-vua-super-red/': '/ca/ca-neon-vua/?tu=ca-neon-vua-super-red', '/ca/ca-neon-vua-super-red/anh/': '/ca/ca-neon-vua/anh/',
+    '/ca/ca-neon-vua-cu/': '/ca/ca-neon-vua/', '/ca/ca-neon-vua-cu/anh/': '/ca/ca-neon-vua/anh/',
+  })
 })
 
 test('the Vietnamese sections are the page folders, and the Worker runs first on each (wrangler.jsonc)', () => {

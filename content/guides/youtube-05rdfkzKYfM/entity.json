@@ -50,10 +50,12 @@
         "moments": [
           {
             "t": 10,
-            "url": "https://media.aquatome.com/video/05rdfkzKYfM/t10.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Nước chảy xối xả xuống bể, minh họa cảnh nước dâng không kiểm soát."
+            "url": "https://media.aquatome.com/video/05rdfkzKYfM/at10-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nước chảy xối xả xuống bể, minh họa cảnh nước dâng không kiểm soát.",
+            "sharpness": 199.2,
+            "person": false
           }
         ]
       },
@@ -62,10 +64,12 @@
         "moments": [
           {
             "t": 15,
-            "url": "https://media.aquatome.com/video/05rdfkzKYfM/t15.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Nước chảy qua các khe răng của lược tràn xuống bên dưới."
+            "url": "https://media.aquatome.com/video/05rdfkzKYfM/at15-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nước chảy qua các khe răng của lược tràn xuống bên dưới.",
+            "sharpness": 255.8,
+            "person": false
           }
         ]
       },

@@ -14,6 +14,132 @@
     "brunei",
     "belait"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID",
+        "BN"
+      ],
+      "regions": [
+        "Borneo",
+        "Natuna Islands",
+        "Kapuas"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Malaysian state of Sarawak on the island of Borneo, and appears endemic to western parts of the island plus the Natuna Islands archipelago which lies off Borneo's western coast but forms part of Riau Islands province, Indonesia.",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Borneo",
+            "Natuna Islands"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On Borneo itself records exist from various localities in Sarawak and Brunei Darussalam, with the Kapuas river system, Kalimantan Barat (West Kalimantan) province, Indonesia, appearing to mark the limit of its eastward range.",
+          "countries": [
+            "BN"
+          ],
+          "regions": [
+            "Kapuas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377140,
+      "total": 24,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          11
+        ],
+        [
+          "BN",
+          10
+        ],
+        [
+          "ID",
+          2
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          108.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          0,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          112.5,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          113.90625,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          115.3125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          118.125,
+          4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -46,6 +172,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.5
+      },
+      {
+        "source": "glaser",
+        "value": 3.5
       }
     ],
     "tankCm": [
@@ -57,7 +187,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -66,13 +196,25 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-doriae",
-      "html": "<p>The bumblebee goby, Brachygobius doriae, is a small goby from western Borneo and the Natuna Islands, described from Sarawak. Among the more frequently traded members of the genus, it is often misidentified as B. nunus or B. xanthozona and is most easily confused with B. sabanus. It lives in fresh and brackish water in lowland coastal habitats such as mangrove swamps, estuaries and tidal streams. It is best kept in a species-specific set-up.</p><ul><li>Max size: 35 mm SL (1.4 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 7.0–8.5</li><li>Hardness: 8–20 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+      "html": "<p>The bumblebee goby, Brachygobius doriae, is a small goby from western Borneo and the Natuna Islands, described from Sarawak. Among the more frequently traded members of the genus, it is often misidentified as B. nunus or B. xanthozona and is most easily confused with B. sabanus. It lives in fresh and brackish water in lowland coastal habitats such as mangrove swamps, estuaries and tidal streams. It is best kept in a species-specific set-up.</p><ul><li>Max size: 35 mm SL (1.4 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 7.0–8.5</li><li>Hardness: 8–20 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_doriae_en/",
+      "html": "<p>This is by far the most beautiful species of the bumblebee gobies. The males develop a splendid orange-red in the vertical bands of the body and tail. Females most often have yellow bands, but despite the colours they can be easily recognized by the comparably smaller head.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-doriae",
       "html": "<p>Described from the Malaysian state of Sarawak on the island of Borneo, and appears endemic to western parts of the island plus the Natuna Islands archipelago which lies off Borneo's western coast but forms part of Riau Islands province, Indonesia.</p><p>On Borneo itself records exist from various localities in Sarawak and Brunei Darussalam, with the Kapuas river system, Kalimantan Barat (West Kalimantan) province, Indonesia, appearing to mark the limit of its eastward range.</p><p>Records from Singapore are apparently erroneous.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_doriae_en/",
+      "html": "<p>Indonesia.</p>"
     },
     {
       "key": "habitat",
@@ -87,6 +229,12 @@
       "html": "<p>Standard length: 35 mm SL (1.4 in). Aquarium base: 45 × 30 cm (18 × 12 in). Volume: ~41 litres (~11 US gal).</p><p>Base dimensions of 45 × 30 cm (18 × 12 in) or equivalent should be the minimum considered.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_doriae_en/",
+      "html": "<p>Brachygobius doriae becomes only 3.5 cm long and fits perfectly for small aquaria.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-doriae",
@@ -97,6 +245,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-doriae",
       "html": "<ul><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 7.0–8.5</li><li>Hardness: 8–20 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_doriae_en/",
+      "html": "<p>Adding some salt to the water (1-2 grams per litre) is much appreciated, but not necessary.</p>"
     },
     {
       "key": "diet",
@@ -117,16 +271,34 @@
       "html": "<p>Sexually mature females often appear rounder-bodied than males, particularly when gravid.</p><p>When in spawning condition males take on an overall reddish tinge with the dark bars on the body becoming paler, while the first yellow bar in females becomes brighter.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_doriae_en/",
+      "html": "<p>Males develop a splendid orange-red in the vertical bands of the body and tail. Females most often have yellow bands and a comparably smaller head.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-doriae",
       "html": "<p>This species spawns in small caves with small flower pots, ceramic tubes, shells, or plastic camera film canisters all suitable (the latter may need to be weighed down somehow).</p><p>An individual male will select a site and display to female in the vicinity until he finds a receptive partner. Around 100-200 eggs are deposited in the cave after which the female departs, leaving the male to guard and tend the clutch.</p><p>Once a male is guarding eggs you may wish to remove any other fish present, or if possible the cave with male and eggs inside, to a different tank containing identical water in order to avoid fry predation. The incubation period is 7-9 days.</p><p>Once free swimming the fry require microscopic foods such as Paramecium or Brachionus until large enough to accept Artemia nauplii and suchlike. They are pelagic for the first few weeks of life, eventually settling on the substrate.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_doriae_en/",
+      "html": "<p>Bumblebee gobies are broodcaring fishes. The males take care of the eggs that become attached to the wall of caves etc. As soon as the fry swims free the broodcare ends.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-doriae",
       "html": "<p>This species is among the more frequently-traded members of the genus, although confusion regarding its identification and natural distribution is commonplace and it's often misidentified as B. nunus or B. xanthozona.</p><p>According to current knowledge it can be diagnosed as follows: &lt;30 lateral scales; one black band on head, three on body; first black band on body beginning opposite centre of opercle and overlapping first dorsal-fin to the extent that almost all of the fin, except a narrow margin, is black; second black band reaching ventral midline posterior to anal-fin; black pigment present on all rays of second dorsal-fin; opercular scales present; basal two thirds of ventral-fin black; basal two thirds of pectoral-fin black.</p><p>In some specimens there is an additional black marking between the first and second body bands, and in most cases the black bands are wider than the yellow interspaces between.</p><p>B. sabanus is very similar to B. doriae and these two are more-easily confused. However in B. doriae most of the first-dorsal-fin and two-thirds of the pectoral-fin are black while in B. sabanus the last one or two rays of the first dorsal-fin are colourless and less than half of the pectoral-fin is black.</p><p>In addition there are usually smaller dark 'saddles' between the dark body bands in B. sabanus which tend to be lacking in B. doriae, and there is a significant difference in maximum size between the two with B. doriae much the larger.</p><p>That said, intermediate forms displaying a mix of the above characters are common so they're perhaps best considered nominal taxa for the time being since several species might be involved. Therefore, although we've assigned images to profiles based on how well they match the key of Inger (1958) their identification can only be thought of as tentative pending publication of a forthcoming review.</p><p>B. nunus is native to India, Sri Lanka, and Bangladesh and possesses 4 relatively thin dark bars on the body rather than the three wide bars seen in B. doriae and B. sabanus.</p><p>B. xanthozona has 50+ lateral scales, a feature setting it apart from all other genus members and giving it an overall elongated appearance. It's previously been placed in its own genus, Hypogymnogobius, is possibly endemic to Java, and not currently in the aquarium hobby.</p><p>Brachygobius currently contains 9 described species, and although all are referred to collectively as 'bumblebee' gobies only B. doriae and B. sabanus are commonly-available in the ornamental trade. Both are sometimes referred to as 'golden-banded goby'.</p><p>The grouping is often included in the subfamily Gobionellinae alongside genera such as Chlamydogobius, Mugilogobius, Pseudogobiopsis, Rhinogobius, Schismatogobius, and Stigmatogobius.</p><p>It's considered most closely-related to the genus Pandaka with the two sharing numerous characters but differing in the morphology of the head lateral line system and number of epurals present.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_doriae_en/",
+      "html": "<p>The species has been confused with B. xanthozonus for decades. The fish were received and stocked under that name, because almost all aquarium books and websites depict B. doriae but name it B. xanthozonus. However, B. xanthozonus has more than 50 scales in the horizontal row (these fish have somewhat more than 30); it is very questionable if the \"true\" B. xanthozonus has ever been kept in aquaria.</p><p>Lexicon: Brachygobius: Latin, means \"short goby\". doriae: dedication name for the collector of the fish, the Marquis J. Doria. xanthozonus: Latin, means \"with yellow bands\".</p>"
     },
     {
       "key": "references",
@@ -138,23 +310,47 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/9a27be470f738d6c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9a27be470f738d6c-480.webp",
       "width": 800,
       "height": 534,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-doriae",
       "caption": "The main issue with fish in the hobby matching the description of B. doriae is that black pigmentation does not cover two thirds of the pectoral-fin, as here (see 'Notes').",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/9a27be470f738d6c-480.webp"
+      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "W8vkpqGSOZY",
+      "title": "Brachygobius doriae - Gobie abeille ✔",
+      "durationSec": 233,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "G5Vd83sjXB0",
+      "title": "Introduction to BUMBLEBEE GOBY: Fish Profile (Brachygobius doriae)",
+      "durationSec": 180,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5j6xGc_qEEs",
+      "title": "Fischvorstellung:  Goldringelgrundel - Brachygobius doriae",
+      "durationSec": 699,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "WRIspeT6jn4",
+      "title": "Goldringelgrundeln Brachygobius doriae, Beobachtungen bei der Brutpflege",
+      "durationSec": 459,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {
@@ -180,5 +376,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-10"
 }

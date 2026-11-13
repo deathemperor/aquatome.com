@@ -10,6 +10,78 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Yangtze",
+        "Yangtse"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from and native to middle and upper sections of the Yangtze River (aka Chiang Jiang), China with a similar but unidentified fish being recorded from the Lo River drainage, northern Vietnam by Kottelat (2001).",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Yangtze"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The species is known only from the upper and middle Yangtse River.",
+          "countries": [],
+          "regions": [
+            "Yangtse"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368273,
+      "total": 10,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CN",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          29.53125,
+          6,
+          6
+        ],
+        [
+          104.0625,
+          28.125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          29.53125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -186,17 +258,6 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/leptobotia-elongata",
       "caption": "Juvenile from the UK aquarium trade.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/3eae6136496615e7.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/3eae6136496615e7-480.webp",
-      "width": 947,
-      "height": 405,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leptobotia-elongata",
-      "caption": "Subadult specimen.",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -204,9 +265,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn",
-        "bể cá 200 lít",
-        "bể cá dài 120cm"
+        "bể cá 360cm"
       ]
     },
     {

@@ -1,0 +1,243 @@
+{
+  "id": "crenicara-latruncularium",
+  "scientificName": "Crenicara latruncularium",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Crenicara",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-guapore",
+    "bolivia",
+    "rio-mamore"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "BO"
+      ],
+      "regions": [
+        "Rio Guaporé",
+        "Rio Mamoré"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Rio Guaporé in western Brazil and Rio Mamoré in Bolivia.",
+          "countries": [
+            "BR",
+            "BO"
+          ],
+          "regions": [
+            "Rio Guaporé",
+            "Rio Mamoré"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370382,
+      "total": 18,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BO",
+          10
+        ],
+        [
+          "BR",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -11.25,
+          4,
+          4
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          8,
+          8
+        ],
+        [
+          -63.28125,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 9
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenicara-latruncularium",
+      "html": "<p>Crenicara latruncularium is a South American cichlid from the Rio Guaporé in western Brazil and the Rio Mamoré in Bolivia. Fairly peaceful unless a pair is breeding, it can be kept with tetras, rasboras, small catfish and other small peaceful fish. Spawning takes place in a cave, and the female guards it and will drive away any fish that come near, including the male.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenicara-latruncularium",
+      "html": "<p>Native to the Rio Guaporé in western Brazil and Rio Mamoré in Bolivia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenicara-latruncularium",
+      "html": "<p>Native to the Rio Guaporé in western Brazil and Rio Mamoré in Bolivia.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenicara-latruncularium",
+      "html": "<p>Standard length: 90 mm SL. Aquarium base: 90 × 38 cm. Volume: ~103 litres (90 × 38 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenicara-latruncularium",
+      "html": "<p>Provide a well planted aquarium, with plenty of cover in the shape of wood, rocks and floating plants.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenicara-latruncularium",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 6.0–7.0</li><li>Hardness: up to 10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenicara-latruncularium",
+      "html": "<p>Feed a good quality cichlid pellet or flake as staple. Vary diet with frozen and live foods, and add a vegetative component such as algae wafers or spirulina flakes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenicara-latruncularium",
+      "html": "<p>A fairly peaceful cichlid, unless a pair is breeding. Can be maintained as part of a community setup with tetras, rasboras, small catfish (such as corydoras) and most other small peaceful fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenicara-latruncularium",
+      "html": "<p>The male is the larger fish and has much more prominent colouring, especially the blue markings around the gill area that give this fish its common name. The male also has elongated dorsal and anal fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenicara-latruncularium",
+      "html": "<p>Spawning takes place in a cave. The female assumes guard duty at this point and will fearlessly drive away any fish that encroach on her territory, including the male. Eggs hatch in around three days and the fry are free swimming four or five days after that. Male may not be tolerated in the tank once fry are free swimming and should be removed if attacked. Fry can be fed on newly-hatched brineshrimp and progressed onto adult foods as they grow.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/crenicara-latruncularium",
+      "html": "<p>Rarely seen in the hobby in the UK, but makes an interesting addition to a South American setup.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 100 lít",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá rô phi cảnh",
+        "cám cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

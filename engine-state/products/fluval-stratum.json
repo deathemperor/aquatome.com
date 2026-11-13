@@ -1,0 +1,323 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Type",
+      "value": "Volcanic soil substrate for freshwater planted and shrimp aquariums",
+      "source": 0
+    },
+    {
+      "key": "Origin / material",
+      "value": "Mineral-rich volcanic soil from the foothills of Mount Aso, Japan",
+      "source": 0
+    },
+    {
+      "key": "Pack sizes",
+      "value": "2 kg, 4 kg, 8 kg",
+      "source": 0
+    },
+    {
+      "key": "pH effect",
+      "value": "Supports neutral to slightly acidic pH",
+      "source": 0
+    },
+    {
+      "key": "Structure",
+      "value": "Light, porous, non-compacting; nitrifying bacteria can colonise it",
+      "source": 1
+    },
+    {
+      "key": "Water colour",
+      "value": "Does not discolour water; helps control tannin staining from driftwood",
+      "source": 1
+    },
+    {
+      "key": "Item number (4 kg / 8.8 lb)",
+      "value": "12686 (UPC 015561126861)",
+      "source": 1
+    },
+    {
+      "key": "Water type",
+      "value": "Freshwater only",
+      "source": 0
+    },
+    {
+      "key": "Grain size",
+      "value": "1–3 mm (Vietnamese seller's figure)",
+      "source": 3
+    },
+    {
+      "key": "Colour",
+      "value": "Black",
+      "source": 3
+    },
+    {
+      "key": "Manufacture",
+      "value": "Fluval brand (Canada), made and packed in Japan (according to the seller)",
+      "source": 3
+    }
+  ],
+  "variants": [
+    {
+      "name": "Fluval Stratum 2 kg",
+      "specs": [
+        {
+          "key": "Weight",
+          "value": "2 kg",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Fluval Stratum 4 kg",
+      "specs": [
+        {
+          "key": "Weight",
+          "value": "4 kg / 8.8 lb",
+          "source": 1
+        },
+        {
+          "key": "Item no.",
+          "value": "12686",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Fluval Stratum 8 kg",
+      "specs": [
+        {
+          "key": "Weight",
+          "value": "8 kg",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Fluval Bio-Stratum (related product)",
+      "specs": [
+        {
+          "key": "Difference",
+          "value": "Contains dormant beneficial bacteria that activate in water to help start the nitrogen cycle and lower ammonia in new tanks",
+          "source": 2
+        },
+        {
+          "key": "Grain size",
+          "value": "1–3 mm",
+          "source": 2
+        },
+        {
+          "key": "Recommended for",
+          "value": "Planted tanks; can be the main substrate in small tanks or a top layer in large ones",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "name": "1 kg repacked bag (sold by Vietnamese shops)",
+      "specs": [
+        {
+          "key": "Note",
+          "value": "A shop-made repack sold as a trial bag, not an official Fluval size",
+          "source": 3
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/phan-nen-fluval-bio-stratum-va-stratum",
+      "variant": "Fluval Stratum (pack size not stated; out of stock)",
+      "vnd": 458745,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/phan-nen-fluval-bio-stratum-va-stratum",
+      "variant": "Fluval Bio Stratum (pack size not stated; out of stock)",
+      "vnd": 606900,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/fluval-stratum-8kg-phan-nen-dat-nen-thuy-sinh",
+      "variant": "Stratum 8 kg bag (listed as sold out)",
+      "vnd": 600000,
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/fluval-stratum-8kg-phan-nen-dat-nen-thuy-sinh",
+      "variant": "1 kg repacked trial bag (listed as sold out)",
+      "vnd": 85000,
+      "source": 3
+    },
+    {
+      "shop": "Mỹ Đình Aquarium",
+      "url": "https://mdaqua.com.vn/san-pham/phan-nen-fluval-8kg/",
+      "variant": "Fluval substrate 8 kg (Stratum or Bio not specified; earlier listing showed out of stock)",
+      "vnd": 600000,
+      "source": 4
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Made for planted aquariums and shrimp tanks; the granules give newborn shrimp somewhere to hide",
+      "source": 0
+    },
+    {
+      "fact": "For freshwater only",
+      "source": 0
+    },
+    {
+      "fact": "The slightly acidic, neutral pH suits most tropical plants, fish and shrimp",
+      "source": 2
+    },
+    {
+      "fact": "A Vietnamese seller says it suits plants from mosses and ferns to carpeting plants such as Monte Carlo and hairgrass",
+      "source": 5
+    },
+    {
+      "fact": "Not recommended with fish that dig in the substrate, such as African cichlids and catfish",
+      "source": 7
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Do not rinse it. Fill the tank slowly; if the water turns cloudy, run the filter for 24–48 hours",
+      "source": 3
+    },
+    {
+      "fact": "Lay it about 3–5 cm deep. One shop advises 5–8 cm",
+      "source": 3
+    },
+    {
+      "fact": "Plants can go in on the first day. Add root tabs for heavy root feeders after 2–3 weeks, and liquid fertiliser after about 2 weeks",
+      "source": 3
+    },
+    {
+      "fact": "Wait 3–5 days before adding a few hardy animals. A bacteria starter can shorten cycling to about 5–7 days",
+      "source": 3
+    },
+    {
+      "fact": "To reduce cloudiness, pour water onto a container placed on the soil. Do not vacuum it like gravel. Prefer small water changes (10–15%, once or twice a week)",
+      "source": 7
+    },
+    {
+      "fact": "If cloudiness lasts past 48 hours, change 10% of the water daily for 1–2 days. Fine filter wool also helps",
+      "source": 7
+    },
+    {
+      "fact": "Plan to replace it every 2–3 years, as its nutrients run out",
+      "source": 7
+    },
+    {
+      "fact": "For cloudiness after setup, one shop suggests 30–50% daily water changes for the first few days plus fine filter wool",
+      "source": 5
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Users report cloudy water lasting more than a day, and black clouds whenever the substrate is disturbed",
+      "source": 6
+    },
+    {
+      "fact": "The granules are light and break easily. Rinsing or vacuuming turns them to mud, and plants can be hard to anchor",
+      "source": 7
+    },
+    {
+      "fact": "Light granules make cleaning harder, and small balls can clog siphons",
+      "source": 6
+    },
+    {
+      "fact": "Some reviewers saw no difference in shrimp health compared with other substrates",
+      "source": 6
+    },
+    {
+      "fact": "Bio-Stratum adds dormant bacteria for a faster cycle; plain Stratum does not. Some Vietnamese shop pages mix up the two (the Bích Phương Stratum page describes dormant microbes)",
+      "source": 3
+    },
+    {
+      "fact": "The Bích Phương category page shows 85,000₫ for 'Fluval Stratum 8KG', which is actually the 1 kg repack price. Confirm the size before buying",
+      "source": 8
+    },
+    {
+      "fact": "Vietnamese sellers' pH claims (stable 6.5–6.8) are unverified",
+      "source": 5
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Fluval",
+      "model": "Bio-Stratum 8 kg",
+      "why": "Same volcanic soil with added dormant bacteria to start cycling faster; sold in Vietnam for about 607,000–650,000₫",
+      "source": 2
+    },
+    {
+      "brand": "JBL",
+      "model": "Manado",
+      "why": "A cheaper, inert clay-type substrate (about 265,000₫ at Bích Phương); it does not turn to mud but adds no nutrients",
+      "source": 8
+    },
+    {
+      "brand": "Tropica",
+      "model": "Aquarium Soil 9L",
+      "why": "A premium nutrient soil for planted tanks (790,000₫ at Bích Phương, out of stock when checked)",
+      "source": 8
+    },
+    {
+      "brand": "Kotobuki",
+      "model": "J. Soil Plants 8L",
+      "why": "A Japanese soil at a similar price (550,000₫) for planted and shrimp tanks",
+      "source": 8
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.practicalfishkeeping.co.uk/fishkeeping-news/new-fluval-stratum-substrate-for-plants-and-shrimp/",
+      "title": "New Fluval Stratum substrate for plants and shrimp – Practical Fishkeeping",
+      "kind": "review"
+    },
+    {
+      "url": "https://www.theshrimpfarm.com/fluval-stratum-substrate-for-shrimp-aquariums-4kg-8-8lbs.html",
+      "title": "Fluval Stratum Substrate for Shrimp Aquariums (4kg) – The Shrimp Farm",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinh4u.com/phan-nen-fluval-bio-stratum-va-stratum",
+      "title": "Phân nền Fluval (Bio Stratum và Stratum) – Thủy Sinh 4U",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/fluval-stratum-8kg-phan-nen-dat-nen-thuy-sinh",
+      "title": "FLUVAL STRATUM 8KG – Thủy Sinh Bích Phương",
+      "kind": "shop"
+    },
+    {
+      "url": "https://mdaqua.com.vn/san-pham/phan-nen-fluval-8kg/",
+      "title": "Phân nền FLUVAL (8kg) – Mỹ Đình Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://yeuthuysinh.vn/fluval-stratum-8kg-dat-nen-thuy-sinh",
+      "title": "FLUVAL STRATUM 8KG – Yêu Thủy Sinh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shopsavvy.com/reviews-tldr/fluval-plant-and-shrimp-stratum.md",
+      "title": "TLDR Review: Fluval Plant and Shrimp Stratum – ShopSavvy",
+      "kind": "review"
+    },
+    {
+      "url": "https://smartaquariumguide.com/?p=4685",
+      "title": "Fluval Stratum Caused Cloudy Water – What Should You Do? – Smart Aquarium Guide",
+      "kind": "review"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/phan-nen",
+      "title": "Phân Nền category – Thủy Sinh Bích Phương",
+      "kind": "shop"
+    }
+  ]
+}

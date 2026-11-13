@@ -1,0 +1,56 @@
+{
+  "id": "macrobrachium-dayanum",
+  "native": {
+    "input": "f424aca7e84c0b89",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Macrobrachium dayanum occurs in southern India, the Bay of Bengal area, the Kaira River, and the Rajshahi area of Bangladesh.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Macrobrachium dayanum occurs in southern India, the Bay of Bengal area, the Kaira River, and the Rajshahi area of Bangladesh.",
+        "words": "Bangladesh",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kaira River",
+        "source": "aquariumbreeder",
+        "quote": "Macrobrachium dayanum occurs in southern India, the Bay of Bengal area, the Kaira River, and the Rajshahi area of Bangladesh.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Macrobrachium dayanum",
+    "status": "ACCEPTED",
+    "taxonKey": 2224763,
+    "datasets": [
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "BD"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

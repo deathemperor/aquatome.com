@@ -1,0 +1,12 @@
+---
+url: https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia_sp_new_cambodian_tiger_en/
+title: Yasuhikotakia sp New Cambodian Tiger - Aquarium Glaser GmbH
+fetchedAt: 2026-11-10T21:38:42.196Z
+hash: 232be7df1fb9dd36a9a015c979b4cc37213789e69cc906f512000fb0f6e09f74
+---
+
+Formerly all the deep bodies loaches from Indochina were placed in the catch-all genus Botia. This generic name should be used now only for the Indian species, while the species from Laos, Thailand, Cambodia, and Vietnam are placed in Ambastia, Syncrossus, and Yasuhikotakia. We now were able to import for the first time ever a really spectacular coloured species, belonging to the genus Yasuhikotakia, which has been collected in Cambodia, near the Mekong river. This species is still unnamed scientifically, so we provisionally call them “New Cambodian Tiger Loach”.
+In fact this species is known at least since 1937, when Fowler (Fowler, H. W. (1937): Zoological results of the third De Schauensee Siamese Expedition. Part VIII,–Fishes obtained in 1936. Proceedings of the Academy of Natural Sciences of Philadelphia v. 89: 125-264) published drawings he made from it. However, Fowler misidentified the fish as Botia hymenophysa (nowadays Syncrossus h.). There are also many pictures of the new species in the internet; they are determined here almost as juveniles of Yasuhikotakia eos or Y. lecontei. However, both species most often do not display a special juvenile coloration at all, juveniles look like adults. But there are striped individuals/populations documented in several species of Yasuhikotakia (both juveniles and adults), which are currently placed in Y. lecontei, Y. modesta, or Y. morleti. So a lot of time consuming scientific work will have to be done to clarify the status of the “New Cambodian Tiger Loach”.
+The new species will probably attain a maximum length of about 10-15 cm (the photographed specimens are 6-7 cm long). They can be kept easily in the aquarium, like all these botiine loaches. The most important thing is to keep them in large groups, better not less than 10 specimens. Otherwise these fish can develop a very nasty behaviour against other fish in the same tank and become very aggressive. If not enough specimens of a peculiar species are available, one can also combine different species of Yasuhikotakia to hinder that they become over-aggressive.
+For our customers: the animals have code 405453 on our stocklist. Please note that we exclusively supply the wholesale trade.
+Text & photos: Frank Schäfer

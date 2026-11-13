@@ -2,7 +2,12 @@
   "id": "sphaerichthys-vaillanti",
   "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": null,
-  "speciesUpdatedAt": "2026-10-31",
-  "generatedAt": "2026-10-31T14:36:37.122Z"
+  "schoolMin": 6,
+  "speciesUpdatedAt": "2026-11-09",
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-09T10:58:04.721Z"
 }

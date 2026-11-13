@@ -10,6 +10,98 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Barito",
+        "Sumatra",
+        "Kalimantan",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to southeastern Sumatra plus the Kapuas and Barito river basins of Kalimantan, Indonesian Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Barito",
+            "Sumatra",
+            "Kalimantan",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391478,
+      "total": 21,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          20
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          -4.21875,
+          12,
+          12
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          0,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -166,8 +258,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 240x60 cm",
-        "bể cá lớn nuôi cá lóc"
+        "bể cá 240cm"
       ]
     },
     {

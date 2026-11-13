@@ -10,6 +10,58 @@
     "peru",
     "madre-de-dios"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The scientific description in 1971 gave \"Cuzco in Peru\" as the type locality, and several expeditions searched the region without success.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342702,
+      "total": 13,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PE",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -71.71875,
+          -14.0625,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {
@@ -43,7 +95,23 @@
       "html": "<p>Corydoras: from ancient Greek, meaning \"with helmet and spear\", referring to the strong armor and fin spines. weitzmani: a dedication name for the ichthyologist Stanley H. Weitzman.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/df30288bdd49fccd.webp",
+      "thumb": "https://media.aquatome.com/commons/df30288bdd49fccd-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "NasserHalaweh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Callichthyidae_Corydoras_weitzmani_1.jpg",
+      "caption": "Cặp cá chuột Corydoras weitzmani trên nền sỏi trong bể có cây thủy sinh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/df30288bdd49fccd-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

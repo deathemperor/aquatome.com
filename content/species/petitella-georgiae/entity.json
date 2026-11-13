@@ -12,6 +12,124 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Rio Purus",
+        "Rio Negro",
+        "Rio Madeira"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The false rummy-nose, Petitella georgiae, is a small tetra from the Rio Purus in Peru and Brazil and the Rio Negro and Rio Madeira in Brazil.",
+          "countries": [
+            "PE",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Rio Purus in Peru and Brazil, as well as the Rio Negro and Rio Madeira in Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Purus",
+            "Rio Negro",
+            "Rio Madeira"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204489,
+      "total": 84,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "PE",
+          71
+        ],
+        [
+          "BR",
+          12
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -5.625,
+          37,
+          37
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          34,
+          34
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +173,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -135,16 +253,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/b3f50ef9dd9e3e26.webp",
-      "width": 800,
-      "height": 528,
-      "licence": "CC BY-SA 3.0",
-      "author": "Staatliche Naturwissenschaftliche Sammlungen Bayerns",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Petitella_georgiae_(1122942535).jpg",
-      "caption": "Petitella georgiae, captured from a shallow creek into Rio Huallaga, surrounding Lagunas, Loreto District, Peru.",
-      "thumb": "https://media.aquatome.com/commons/b3f50ef9dd9e3e26-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/4320d3fd55a22b7b.webp",
       "width": 960,
       "height": 720,
@@ -160,8 +268,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá thủy sinh 90cm"
+        "bể cá 90cm"
       ]
     },
     {

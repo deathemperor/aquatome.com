@@ -1,0 +1,164 @@
+{
+  "id": "brachyrhaphis-roseni",
+  "scientificName": "Brachyrhaphis roseni",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Brachyrhaphis",
+  "group": "livebearers",
+  "places": [
+    "north-america",
+    "panama",
+    "costa-rica"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PA",
+        "CR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "B. roseni originates from brooks running through woodland in Panama and Costa Rica.",
+          "countries": [
+            "PA",
+            "CR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350304,
+      "total": 31,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "PA",
+          19
+        ],
+        [
+          "CR",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -84.375,
+          8.4375,
+          11,
+          11
+        ],
+        [
+          -82.96875,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -82.96875,
+          8.4375,
+          13,
+          13
+        ],
+        [
+          -81.5625,
+          7.03125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/brachyrhaphis_roseni_en/",
+      "html": "<p>Wild forms of livebearers are only rarely seen in the hobby. Brachyrhaphis roseni is one of the most beautiful species. Keeping these fishes is not difficult. Females attain a maximum length of about 6 cm, while males stay much smaller.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/brachyrhaphis_roseni_en/",
+      "html": "<p>B. roseni originates from brooks running through woodland in Panama and Costa Rica.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/brachyrhaphis_roseni_en/",
+      "html": "<p>One should keep B. roseni in schools. The species prefers to swim near the water surface. Tankmates can be smaller cichlids, fast swimming species of tetra, catfish, etc. Other species of livebearers should be avoided, because B. roseni can be quite rough against similar fishes.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/brachyrhaphis_roseni_en/",
+      "html": "<p>Half grown females look almost like males and are much more colourful than fully grown females. A \"gravity spot\" is present in both sexes.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/brachyrhaphis_roseni_en/",
+      "html": "<p>Breeding these livebearers is really tricky and not many people are successful. One of the reasons is that the species is extremely cannibalistic towards the fry. Trying to keep them in breeding boxes always fails, because the females are much too nervous for that.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/brachyrhaphis_roseni_en/",
+      "html": "<p>Lexicon: Brachyrhaphis means \"short needle\"; this refers to the mating organ of the males. roseni is a dedication name for Donn E. Rosen (1929-1986).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/de98d699c7bca0ee.webp",
+      "thumb": "https://media.aquatome.com/commons/de98d699c7bca0ee-480.webp",
+      "width": 1200,
+      "height": 1055,
+      "licence": "CC BY-SA 4.0",
+      "author": "Livebearerguy",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brachyrhaphis_roseni.jpg",
+      "caption": "Cặp cá Brachyrhaphis roseni trong bể nuôi",
+      "large": {
+        "url": "https://media.aquatome.com/commons/de98d699c7bca0ee-large.webp",
+        "width": 1365,
+        "height": 1200
+      }
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "thức ăn viên cho cá bảy màu"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

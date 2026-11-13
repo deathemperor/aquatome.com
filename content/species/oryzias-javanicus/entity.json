@@ -14,6 +14,243 @@
     "singapore",
     "java"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "SG",
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Java",
+        "Borneo",
+        "Sulawesi",
+        "Malay Peninsula",
+        "Lombok"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Javanese ricefish, Oryzias javanicus, ranges through Peninsular Thailand, Malaysia, Singapore and Indonesia as far east as Lombok and Sulawesi.",
+          "countries": [
+            "TH",
+            "MY",
+            "SG",
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is widely-distributed throughout Peninsular Thailand, Malaysia (Malay Peninsula plus the states of Sabah and Sarawak, Borneo), Singapore and Indonesia, with records from the Riau Archipelago, Sumatra, Java, Borneo, Bali, Lombok, and Sulawesi existing in the latter.",
+          "countries": [],
+          "regions": [
+            "Sumatra",
+            "Java",
+            "Borneo",
+            "Sulawesi",
+            "Malay Peninsula",
+            "Lombok"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368403,
+      "total": 136,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MY",
+          47
+        ],
+        [
+          "BD",
+          35
+        ],
+        [
+          "ID",
+          20
+        ],
+        [
+          "SG",
+          16
+        ],
+        [
+          "TH",
+          15
+        ],
+        [
+          "IN",
+          1
+        ],
+        [
+          "JP",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          1,
+          0
+        ],
+        [
+          88.59375,
+          21.09375,
+          33,
+          0
+        ],
+        [
+          91.40625,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          94.21875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          7.03125,
+          8,
+          8
+        ],
+        [
+          97.03125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          0,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          37,
+          37
+        ],
+        [
+          99.84375,
+          5.625,
+          7,
+          7
+        ],
+        [
+          101.25,
+          11.25,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          0,
+          5,
+          5
+        ],
+        [
+          102.65625,
+          1.40625,
+          12,
+          12
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          -7.03125,
+          9,
+          9
+        ],
+        [
+          106.875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          112.5,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          119.53125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "Try to find out the origin of your fish as some populations will do best in freshwater but if in doubt the addition of marine salt in the ratio of 1-3 g/L is recommended."
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -32,7 +269,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ],
     "tempC": [
@@ -173,14 +410,29 @@
       "html": "<ul><li>Herder, F. and S. Chapuis (2010). Oryzias hadiatyae, a new species of ricefish (Atherinomorpha: Belonifornes: Adrianichthyidae) endemic to Lake Masapi, Central Sulawesi, Indonesia. The Raffles Bulletin of Zoology 58(2), 269-280</li><li>Magtoon, W. (2010). Oryzias songkhramensis, a new species of ricefish (Beloniformes; Adrianichthyidae) from northeast Thailand and central Laos. Tropical Natural History 10(1), 107-129</li><li>Magtoon, W. and A. Termvidchakorn (2009). A Revised Taxonomic Account of Ricefish Oryzias (Beloniformes; Adrianichthyidae), in Thailand, Indonesia and Japan. The Natural History Journal of Chulalongkorn University 9(1), 35-68</li><li>Parenti, L. R. (2008). A phylogenetic analysis and taxonomic revision of ricefishes, Oryzias and relatives (Beloniformes, Adrianichthyidae). Zoological Journal of the Linnean Society 154(3), 494-610</li><li>Parenti, L. R. and B. Soeroto (2004). Adrianichthys roseni and Oryzias nebulosus, two new ricefishes (Atherinomorpha: Beloniformes: Adrianichthyidae) from Lake Poso, Sulawesi, Indonesia. Ichthyological Research 51(1), 10-19</li><li>Parenti, L. R. and R. K. Hadiaty (2010). A new, remarkably colorful, small ricefish of the genus Oryzias (Beloniformes, Adrianichthyidae) from Sulawesi, Indonesia. Copeia 2010 (2), 268-273</li><li>Roberts, T. R. (1998). Systematic observations on tropical Asian medakas or ricefishes of the genus Oryzias, with descriptions of four new species. Ichthyological Research 45(3), 213-224</li><li>Rosen, D. E. and L. R. Parenti (1981). Relationships of Oryzias, and the groups of atherinomorph fishes. American Museum Novitates 2719, 1–25</li><li>Takehana, Y., K. Naruse K and M. Sakaizumi (2005). Molecular phylogeny of the medaka fishes genus Oryzias (Beloniformes: Adrianichthyidae) based on nuclear and mitochondrial DNA sequences. Molecular Phylogenetics and Evolution 36(2), 417–428</li><li>Uwa, H. and L. Parenti (1988). Morphometric and meristic variation in ricefishes, genus Oryzias: a comparison with cytogenetic data. Japanese Journal of Ichthyology 35(2), 159-166</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/b141c258130b27c5.webp",
+      "thumb": "https://media.aquatome.com/commons/b141c258130b27c5-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Ahsan A.H",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oryzias_javanicus_3.jpg",
+      "caption": "Cá medaka Java trưởng thành bơi trong bể kính",
+      "large": {
+        "url": "https://media.aquatome.com/commons/b141c258130b27c5-large.webp",
+        "width": 1409,
+        "height": 1057
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 40cm",
-        "bể cá mini"
+        "bể cá 50cm"
       ]
     },
     {

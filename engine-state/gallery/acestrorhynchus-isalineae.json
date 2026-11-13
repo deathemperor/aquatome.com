@@ -1,9 +1,7 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {
-  "https://media.aquatome.com/seriouslyfish/6a88b7484dfad953.webp": "68f0e0daf8f0e0f2"
- },
+ "hashes": {},
  "commons": "2026-11-03",
  "inat": {
   "taxon": 607819,
@@ -12,5 +10,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2355590,
+  "next": null
  }
 }

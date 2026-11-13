@@ -8,7 +8,7 @@
   "mentions": [
     "microsorum-pteropus"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "wHma4dxeecU",
     "title": "EP:6 Complete Aquascaping Beginners Guide - Maintenance",
@@ -33,7 +33,6 @@
     "gear": [
       {
         "category": "be-ca",
-        "type": "chuan",
         "brand": "Dennerle",
         "model": "Scaper's Tank 55L",
         "t": 0
@@ -42,71 +41,67 @@
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Chihiros",
-        "model": "45B series"
+        "model": "45B series",
+        "t": 0
       },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Twinstar",
-        "model": "450 E series IV"
+        "model": "450 E series IV",
+        "t": 0
       },
       {
         "category": "loc",
-        "type": "thung",
         "brand": "Superfish",
         "model": "Aquaflow 200"
       },
       {
         "category": "loc",
-        "type": "thung",
         "brand": "Oase",
         "model": "Filtosmart 100 Thermo"
       },
       {
         "category": "suoi",
-        "type": "mini",
         "brand": "Dennerle",
-        "model": "Compact heater",
-        "t": 151
+        "model": "Compact heater"
       },
       {
         "category": "co2",
-        "type": "binh",
-        "t": 91
+        "type": "binh"
       },
       {
         "category": "phan-nen",
         "type": "phan",
-        "t": 570
+        "t": 590
       },
       {
         "category": "test-nuoc",
         "type": "tds",
-        "t": 165
-      },
-      {
-        "category": "khac",
-        "brand": "Glass Lily Pipe Set",
-        "t": 332
+        "t": 160
       }
     ],
     "figures": [
       {
-        "heading": "Khi nào bể cần bảo dưỡng lớn",
+        "heading": "Khi nào bể cần bảo dưỡng",
         "moments": [
           {
-            "t": 74,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/t74.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể low-tech sau một tuần vẫn đẹp, chỉ hơi rêu bám."
+            "t": 75,
+            "url": "https://media.aquatome.com/video/wHma4dxeecU/at75-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể low tech sau một tuần vẫn nhìn ổn, cây còn gọn.",
+            "sharpness": 2082.3,
+            "person": false
           },
           {
-            "t": 94,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/t94.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể high-tech cây thân mọc dày, cản dòng chảy và CO2."
+            "t": 95,
+            "url": "https://media.aquatome.com/video/wHma4dxeecU/at95-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể high tech với cây cắt thân mọc dày, rậm và chắn dòng chảy.",
+            "sharpness": 2114.2,
+            "person": false
           }
         ],
         "photo": {
@@ -117,25 +112,20 @@
           "licence": "CC BY 4.0",
           "author": "Yercaud-elango",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_pinnatifida-3-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Cây thân mọc dày đặc trong bể, cần tỉa bớt để dòng chảy thông thoáng."
+          "caption": "Cây mọc rậm che kín góc bể, cần tỉa để dòng chảy thông thoáng."
         }
       },
       {
-        "heading": "Chuẩn bị những dụng cụ gì",
+        "heading": "Chọn thời điểm và chuẩn bị dụng cụ",
         "moments": [
           {
-            "t": 169,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/t169.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bộ dụng cụ bày trên bàn: kéo, nhíp, máy đo TDS, kẹp ống và thau nước."
-          },
-          {
-            "t": 193,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/t193.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ống xi phông kiểu hút nền đặt trong xô lớn để hứng nước."
+            "t": 160,
+            "url": "https://media.aquatome.com/video/wHma4dxeecU/at160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thau ngâm, kéo, nhíp và ống lily được bày sẵn.",
+            "sharpness": 652.5,
+            "person": false
           }
         ]
       },
@@ -143,66 +133,51 @@
         "heading": "Các bước bảo dưỡng theo thứ tự",
         "moments": [
           {
-            "t": 223,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/t223.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dụng cụ đưa vào bể để rút nước và vệ sinh kính."
-          },
-          {
-            "t": 278,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/t278.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh bể thủy sinh với ống hút nước đang đưa vào bể."
+            "t": 225,
+            "url": "https://media.aquatome.com/video/wHma4dxeecU/at225-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nhiều cây, có dụng cụ đưa vào từ phía trên.",
+            "sharpness": 1876.9,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Nước RO và chuyện bù khoáng",
+        "heading": "Châm nước RO và bù khoáng",
         "moments": [
           {
-            "t": 501,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/t501.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đang châm nước vào bể thủy sinh bằng ống."
-          },
-          {
-            "t": 526,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/t526.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Máy lọc RO nhiều cấp lắp trong góc nhà."
+            "t": 530,
+            "url": "https://media.aquatome.com/video/wHma4dxeecU/at530-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Máy lọc nước RO nhiều cấp lắp trong góc nhà.",
+            "sharpness": 295.1,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/wHma4dxeecU/p3-c19TeXN0ZW0uanBn.webp",
-          "thumb": "https://media.aquatome.com/video/wHma4dxeecU/p3-c19TeXN0ZW0uanBn-480.webp",
+          "url": "https://media.aquatome.com/video/wHma4dxeecU/p5-FuZV9jb2lsLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/wHma4dxeecU/p5-FuZV9jb2lsLmpwZw-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "Mas mufti",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reverse_Osmosis_System.jpg",
-          "caption": "Hệ thống máy lọc RO công suất lớn với bình áp và bơm cao áp."
+          "height": 1158,
+          "licence": "CC BY 3.0",
+          "author": "David Shankbone",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reverse_osmosis_membrane_coil.jpg",
+          "caption": "Lõi màng lọc RO cuộn, bộ phận chính của máy lọc nước RO."
         }
       },
       {
-        "heading": "Làm gì với ngọn cây vừa tỉa",
+        "heading": "Bảo dưỡng mất bao lâu và bao lâu làm một lần",
         "moments": [
           {
-            "t": 699,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/t699.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Xô đầy ngọn cây vừa tỉa, còn khỏe và xanh đỏ."
-          },
-          {
-            "t": 704,
-            "url": "https://media.aquatome.com/video/wHma4dxeecU/t704.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể sau khi tỉa, cây còn thưa và hơi trơ."
+            "t": 705,
+            "url": "https://media.aquatome.com/video/wHma4dxeecU/at705-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Xô nước thải với ống siphon sau khi hút cặn và tỉa cây.",
+            "sharpness": 862.2,
+            "person": false
           }
         ]
       }

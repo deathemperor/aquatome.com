@@ -1,0 +1,158 @@
+{
+  "id": "devario-aequipinnatus",
+  "native": {
+    "input": "a59528e2e4f75682",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "In Bangladesh it's known from fast-flowing small streams in the Meghna, Feni and Karnafuli drainages, and in India from the upper Brahmaputra, Barak and Tista rivers.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "In Bangladesh it's known from fast-flowing small streams in the Meghna, Feni and Karnafuli drainages, and in India from the upper Brahmaputra, Barak and Tista rivers.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "There is also a record from the upper Kosi River, a tributary of the Ganges, in Nepal (Kullander et al., 2017).",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from southern India and Sri Lanka refer to D. malabaricus and similar species.",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "In Bangladesh it's known from fast-flowing small streams in the Meghna, Feni and Karnafuli drainages, and in India from the upper Brahmaputra, Barak and Tista rivers.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Barak",
+        "source": "seriouslyfish",
+        "quote": "In Bangladesh it's known from fast-flowing small streams in the Meghna, Feni and Karnafuli drainages, and in India from the upper Brahmaputra, Barak and Tista rivers.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Tista",
+        "source": "seriouslyfish",
+        "quote": "In Bangladesh it's known from fast-flowing small streams in the Meghna, Feni and Karnafuli drainages, and in India from the upper Brahmaputra, Barak and Tista rivers.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Meghna",
+        "source": "seriouslyfish",
+        "quote": "In Bangladesh it's known from fast-flowing small streams in the Meghna, Feni and Karnafuli drainages, and in India from the upper Brahmaputra, Barak and Tista rivers.",
+        "country": "BD",
+        "ok": true
+      },
+      {
+        "name": "Ganges",
+        "source": "seriouslyfish",
+        "quote": "There is also a record from the upper Kosi River, a tributary of the Ganges, in Nepal (Kullander et al., 2017).",
+        "country": "NP",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Devario aequipinnatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2361515,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        61
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        37
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        25
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        8
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "926f3dd4-89d9-4cbd-8ed7-32fb6fcfa861",
+        3
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "50dc97cf-251f-471e-997d-2f9d7d39a1be",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "BD",
+      "NP"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

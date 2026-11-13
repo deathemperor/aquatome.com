@@ -1,0 +1,139 @@
+{
+  "id": "entacmaea-quadricolor",
+  "native": {
+    "input": "f5ef230bdbf62e5c",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [
+      {
+        "code": "FJ",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Entacmaea quadricolor occurs throughout the tropical waters of the Indian Ocean, Red Sea, Fiji, Indonesia, Tonga and the Philippines.",
+        "words": "Fiji",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Entacmaea quadricolor occurs throughout the tropical waters of the Indian Ocean, Red Sea, Fiji, Indonesia, Tonga and the Philippines.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "TO",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Entacmaea quadricolor occurs throughout the tropical waters of the Indian Ocean, Red Sea, Fiji, Indonesia, Tonga and the Philippines.",
+        "words": "Tonga",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Entacmaea quadricolor occurs throughout the tropical waters of the Indian Ocean, Red Sea, Fiji, Indonesia, Tonga and the Philippines.",
+        "words": "Philippines",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Entacmaea quadricolor",
+    "status": "ACCEPTED",
+    "taxonKey": 4339208,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        567
+      ],
+      [
+        "adb92d68-aaff-47ba-b197-d3d26f72f728",
+        210
+      ],
+      [
+        "25e3e8f1-86ee-440c-adfc-8e63759a6505",
+        145
+      ],
+      [
+        "be62fffc-d0e7-45f2-9404-d4bc4322bc57",
+        96
+      ],
+      [
+        "8e9974a4-12e2-475f-9aec-5abdf24a1f50",
+        62
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        49
+      ],
+      [
+        "c6ca96bc-7cf5-4fe7-ac44-d01e06394ef3",
+        20
+      ],
+      [
+        "7898cf5f-11e4-404c-87d2-1d5e3b3e0a18",
+        18
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        15
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        13
+      ],
+      [
+        "7447a228-a4cf-414b-87e4-3aba15275580",
+        9
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        6
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "2f7c33b3-ea7a-40ac-a3b7-bace96f978f7",
+        4
+      ],
+      [
+        "0d0f1fc9-3dff-435d-ad51-907485ea584c",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "f2ec825d-145a-42fd-9bfe-a411a557bc47",
+        1
+      ]
+    ],
+    "native": [
+      "FJ",
+      "ID",
+      "TO",
+      "PH"
+    ],
+    "requests": 17,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

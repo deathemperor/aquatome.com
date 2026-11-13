@@ -14,6 +14,244 @@
     "ucayali",
     "madeira"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Río Ucayali",
+        "Rio Madeira",
+        "Solimoes"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Caño \"Sabalito,\" a small creek on terra firma about 40 kilometers south of Iquitos, Loreto, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Also recorded at Reserva Florestal Adolfo Ducke, Amazonas State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Western Amazon River basin, and possibly southwestern Orinoco River basin.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "The type series that originated in the Río Ucayali basin and in the region of Iquitos in northeastern Peru, and the non-type population samples of the species from the Rio Aripuanã in the rio Madeira basin, Brazil agree in all examined features.",
+          "countries": [],
+          "regions": [
+            "Río Ucayali",
+            "Rio Madeira"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Upper Amazon and Middle Amazon (Solimoes).",
+          "countries": [],
+          "regions": [
+            "Solimoes"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337972,
+      "total": 57,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          40
+        ],
+        [
+          "PE",
+          16
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -54.84375,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,6 +293,10 @@
       {
         "source": "scotcat",
         "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ]
   },
@@ -64,6 +306,18 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1159",
       "html": "<ul><li>Scientific name: Denticetopsis seducta Vari, Ferraris &amp; de Pinna, 2005</li><li>Common name: Red Dwarf Whale Catfish</li><li>Size: 51 mm (2 in) SL</li><li>IUCN Red List: Least Concern (last assessed 2020)</li><li>Breeding: no breeding report</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/denticetopsis_seducta_en/",
+      "html": "<p>A tiny dwarf whale catfish imported from Peru for the first time. Maximum length seems to be around 5-6 cm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/denticetopsis_seducta_en/",
+      "html": "<p>Denticetopsis are strictly night active and secretive, so they will be kept mainly by catfish specialists. The species is available in very limited numbers only.</p>"
     },
     {
       "key": "distribution",
@@ -78,6 +332,12 @@
       "html": "<p>South America: Western Amazon River basin, and possibly southwestern Orinoco River basin. Type locality: Peru. Loreto: Caño “Sabalito,” small creek on terra firma approximately 25 km S of Iquitos (4º14'45\"S, 73º24'57\"W).</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/denticetopsis_seducta_en/",
+      "html": "<p>Peru.</p>"
+    },
+    {
       "key": "habitat",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_seducta.htm",
@@ -90,10 +350,40 @@
       "html": "<ul><li>pH: 5.0 - 7.0</li><li>Temperature: 22.0-27.0°C (71.6-80.6°F)</li></ul>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/denticetopsis_seducta_en/",
+      "html": "<p>All Denticetopsis are completely harmless insectivorous fishes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/denticetopsis_seducta_en/",
+      "html": "<p>In contrast to the better known blue whale catfish, Cetopsis coecutiens, which is an aggressive predatory species, all Denticetopsis are completely harmless. They are strictly night active and secretive.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/denticetopsis_seducta_en/",
+      "html": "<p>Although the describers had 69 preserved specimens, they were unable to find the usual, well developed sexual dimorphism known from other whale catfish. Obviously they had only females, as the imported group also contains clearly recognizable males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/denticetopsis_seducta_en/",
+      "html": "<p>Nothing is known so far about the way these fish breed.</p>"
+    },
+    {
       "key": "notes",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/cetopsidae/denticetopsis_seducta.htm",
       "html": "<p>A single specimen from the upper Río Napo in eastern Ecuador (ANSP 139105), tentatively identified as Denticetopsis seducta, has a slightly higher number of total vertebrae (43) than the 39 to 42 total vertebrae in the other examined specimens assigned to the species. Additional population samples of Denticetopsis from the upper Río Napo basin are necessary to determine whether this specimen represents yet another undescribed species.</p><p>Etymology: the specific name seducta is Latin for remote or apart, referring to its disjunct or scattered distribution relative to congeners.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/denticetopsis_seducta_en/",
+      "html": "<p>The species was discovered by scientists only in the year 2005.</p>"
     },
     {
       "key": "references",
@@ -155,5 +445,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-06"
 }

@@ -3,9 +3,13 @@ import { copyFile, mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import sharp from 'sharp'
+import { ArchiveRefused } from '../src/archive'
 import { LlmError } from '../src/claude'
 import { ChallengeError } from '../src/fetch'
-import { runEngine } from '../src/run'
+import { runEngine, soft } from '../src/run'
+import { moveToArchive } from '../src/state'
+import { WikimediaRefused } from '../src/wikimedia-rest'
 
 const fx = (p: string) => readFileSync(new URL(`./fixtures/${p}`, import.meta.url), 'utf8')
 const SF = 'https://www.seriouslyfish.com/species/'
@@ -17,7 +21,7 @@ const species = {
   sections: [{ key: 'habitat', en: '<p>Blackwater.</p>', vi: '<p>Nước đen.</p>' }], productSlots: [],
 }
 
-function deps(root: string, opts: { urls?: string[]; score?: number; page?: object; llmFails?: boolean; rewritten?: string } = {}) {
+function deps(root: string, opts: { urls?: string[]; score?: number; /** The reviewer's reads in turn, then `score`. */ scores?: number[]; page?: object; llmFails?: boolean; rewritten?: string } = {}) {
   const calls = { images: 0, commons: 0, llm: 0, review: 0, process: 0, rewrite: 0, sleeps: 0, prompts: [] as string[] }
   const fetcher = {
     text: async (_u: string) => sitemap(opts.urls ?? ['paracheirodon-axelrodi', 'broken-fish', 'blocked-fish']),
@@ -26,13 +30,13 @@ function deps(root: string, opts: { urls?: string[]; score?: number; page?: obje
       if (url.endsWith('broken-fish')) throw new Error('net::ERR_CONNECTION_RESET')
       return { status: 200, html: fx(url.endsWith('blocked-fish') ? 'pages/challenge.html' : 'pages/seriouslyfish-cardinal.html'), finalUrl: url }
     },
-    bytes: async (url: string) => { calls.images++; return new TextEncoder().encode(url) },
+    bytes: async () => { calls.images++; return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
   }
   const media = { urlFor: (k: string) => `https://media.test/${k}`, put: async (k: string) => ({ url: `https://media.test/${k}`, width: 800, height: 600 }) }
   const llm = async <T,>(a: { prompt: string; schema: object }): Promise<T> => {
     calls.llm++
     calls.prompts.push(a.prompt)
-    if ('score' in ((a.schema as { properties?: object }).properties ?? {})) { calls.review++; return { score: opts.score ?? 0.9, notes: ['fix "Nước đen"'] } as T }
+    if ('score' in ((a.schema as { properties?: object }).properties ?? {})) { const score = opts.scores?.[calls.review] ?? opts.score ?? 0.9; calls.review++; return { score, notes: ['fix "Nước đen"'] } as T }
     if (opts.llmFails) throw new LlmError('claude failed (1): usage limit')
     if ('parts' in ((a.schema as { properties?: object }).properties ?? {})) { calls.rewrite++; return { parts: [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => ({ id: m[1], vi: opts.rewritten ?? `<p>Viết lại ${m[1]}</p>` })) } as T }
     calls.process++
@@ -152,6 +156,73 @@ test('an archived source falls back on its last good index while the archive ind
   expect(down.errors.join('\n')).toMatch(/using the last index \(1 pages\)/)
 })
 
+test('the archive slowing us down stops that source at once, with no attempt used and the other sources still running', async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  const pages = [9, 10, 11].map(n => `https://www.planetcatfish.com/common/species.php?species_id=${n}`)
+  let asked = 0
+  const archive = { ...d.fetcher, text: async () => `${pages.join('\n')}\n`, get: async () => { asked++; throw new Error('no archived copy (HTTP 429)') } }
+  const r = await runEngine({ ...d, archive }, { sources: ['planetcatfish', 'seriouslyfish'] })
+  expect(asked).toBe(1)
+  expect(r.errors.join('\n')).toMatch(/planetcatfish: stopping: the archive asked us to slow down/)
+  expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
+  const state = JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8')) as Record<string, { attempts: number }>
+  expect(Object.values(state).map(s => s.attempts)).toEqual([0])
+})
+
+test('the archive refusing this Mac: the source stops, no page is marked, and the next archived source asks nothing', async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  const pages = [9, 10].map(n => `https://www.planetcatfish.com/common/species.php?species_id=${n}`)
+  let asked = 0
+  const archive = { ...d.fetcher, text: async () => `${pages.join('\n')}\n`, get: async () => { asked++; throw new ArchiveRefused('2026-11-10T12:00:00.000Z') } }
+  const r = await runEngine({ ...d, archive }, { sources: ['planetcatfish', 'seriouslyfish'] })
+  expect(asked).toBe(1)
+  expect(r.errors.join('\n')).toMatch(/planetcatfish: not read: the archive refused this Mac: no request before 2026-11-10T12:00:00.000Z/)
+  expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
+  expect(JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
+})
+
+test('Wikimedia resting: a page that needs it waits, unmarked and with its attempts, and the source goes on; a refusal is no "nothing found"', async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  const get = d.fetcher.get
+  const fetcher = { ...d.fetcher, get: async (url: string) => { if (url.endsWith('broken-fish')) throw new WikimediaRefused('2026-10-28T22:00:00.000Z'); return get(url) } }
+  const r = await runEngine({ ...d, fetcher }, { sources: ['seriouslyfish'] })
+  expect(r.errors).toContain(`${SF}broken-fish: waits for Wikimedia: Wikimedia refused this Mac: no request before 2026-10-28T22:00:00.000Z`)
+  const state = JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8'))
+  expect(state[`${SF}broken-fish`]).toBeUndefined()
+  expect(state[`${SF}paracheirodon-axelrodi`]).toMatchObject({ status: 'processed' })
+  // The Commons photo lookup (soft) passes a rest on, so a page isn't saved as having found none.
+  await expect(soft('commons photos', async () => { throw new WikimediaRefused('t') }, [])).rejects.toBeInstanceOf(WikimediaRefused)
+  expect(await soft('commons photos', async () => { throw new Error('HTTP 500') }, ['fallback'])).toEqual(['fallback'])
+})
+
+test('the archive refusing this Mac at its index: no fallback on the last list, so no page is asked for', async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'engine-state/_index-planetcatfish.json'), JSON.stringify([{ url: 'https://www.planetcatfish.com/common/species.php?species_id=9' }]))
+  let asked = 0
+  const archive = { ...d.fetcher, text: async () => { throw new ArchiveRefused('2026-11-10T12:00:00.000Z') }, get: async () => { asked++; throw new Error('should not be asked') } }
+  const r = await runEngine({ ...d, archive }, { sources: ['planetcatfish'] })
+  expect(asked).toBe(0)
+  expect(r.errors.join('\n')).toMatch(/planetcatfish: not read: the archive refused this Mac/)
+})
+
+test('a page read through the archive records its capture date beside the real address', async () => {
+  const root = await fresh()
+  const { d } = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  const page = 'https://www.planetcatfish.com/common/species.php?species_id=9'
+  const html = await d.fetcher.get('https://www.seriouslyfish.com/species/paracheirodon-axelrodi/')
+  const archive = { ...d.fetcher, text: async () => `${page}\n`, get: async () => ({ ...html, finalUrl: page, capturedAt: '2025-10-17T04:09:55.000Z' }) }
+  await runEngine({ ...d, archive }, { sources: ['planetcatfish'] })
+  const snapshot = await readFile(join(root, 'sources/planetcatfish/common-species-php.md'), 'utf8')
+  expect(snapshot).toContain(`url: ${page}`)
+  expect(snapshot).toContain('capturedAt: 2025-10-17T04:09:55.000Z')
+  expect(snapshot).not.toContain('web.archive.org')
+})
+
 test('a name newer than GBIF is found under a synonym the page gives', async () => {
   const root = await fresh()
   const { d } = deps(root, { urls: ['paracheirodon-axelrodi'], page: { ...species, scientificName: 'Novum axelrodi', synonyms: ['Paracheirodon axelrodi'] } })
@@ -197,6 +268,20 @@ test('low quality: one re-translation with reviewer notes, then noindex', async 
   expect(calls.prompts[3]).toContain('fix "Nước đen"') // process, style pass, review, then process again with the notes
   const vi = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/vi.json'), 'utf8'))
   expect(vi.quality).toMatchObject({ score: 0.5, indexable: false, bySource: { seriouslyfish: 0.5 } })
+})
+
+test('the page writer\'s reviewer reads a page within 0.1 of the bar three times and the middle read counts; one clear of it, once', async () => {
+  // The chief of staff, 2026-11-11. 0.7 alone would send the page back to be written again; the middle of 0.7, 0.9 and
+  // 0.8 passes it.
+  const root = await fresh()
+  const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi'], scores: [0.7, 0.9, 0.8] })
+  await runEngine(d, { sources: ['seriouslyfish'] })
+  expect(calls).toMatchObject({ process: 1, review: 3 })
+  const vi = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/vi.json'), 'utf8'))
+  expect(vi.quality).toMatchObject({ score: 0.8, indexable: true })
+  const clear = deps(await fresh(), { urls: ['paracheirodon-axelrodi'], scores: [0.86] })
+  await runEngine(clear.d, { sources: ['seriouslyfish'] })
+  expect(clear.calls).toMatchObject({ process: 1, review: 1 })
 })
 
 test('a challenge stops the source, keeps processedHash, and the source is skipped for a day unless retried explicitly', async () => {
@@ -357,6 +442,24 @@ test('a page from a shop listing alone is recorded out of search (thin); an in-d
   expect((await vi()).quality).toEqual({ score: 0.9, indexable: true, bySource: { bwaquatics: 0.9, seriouslyfish: 0.9 } })
 })
 
+test('a page about one variety stays off the species page, now and on every later run', async () => {
+  // BW Aquatics' Copper Alien product page gave the betta's page the hybrid's facts (design critique 2026-11-06).
+  const root = await fresh()
+  const BW = 'https://bwaquatics.com/products/'
+  const shop = deps(root, { page: { ...species, variety: 'Albino' } })
+  shop.d.fetcher.text = async () => `<urlset><url><loc>${BW}albino-cardinal</loc></url></urlset>`
+  const r = await runEngine(shop.d, { sources: ['bwaquatics'] })
+  expect(r.perSource.bwaquatics).toMatchObject({ processed: 0, skipped: 1 })
+  await expect(readFile(join(root, 'content/species/paracheirodon-axelrodi/entity.json'), 'utf8')).rejects.toThrow()
+  expect(JSON.parse(await readFile(join(root, 'engine-state/_variety-pages.json'), 'utf8'))).toEqual({ [`${BW}albino-cardinal`]: { species: 'paracheirodon-axelrodi', variety: 'Albino', at: '2026-10-28' } })
+  // Translated again with no variety named, it is still that variety's page.
+  const again = deps(root)
+  again.d.fetcher.text = shop.d.fetcher.text
+  await runEngine(again.d, { sources: ['bwaquatics'], force: true, only: /albino/ })
+  expect(again.calls.process).toBe(1)
+  await expect(readFile(join(root, 'content/species/paracheirodon-axelrodi/entity.json'), 'utf8')).rejects.toThrow()
+})
+
 test('a usage limit during the style pass stops the run; nothing publishes unpolished', async () => {
   const root = await fresh()
   const { d } = deps(root, { urls: ['paracheirodon-axelrodi'] })
@@ -398,4 +501,93 @@ test("card-fill reads only the profiles of pages whose card lacks a figure, most
   expect(card.tankCm).toEqual([{ source: 'sprucepets', value: 40 }, { source: 'seriouslyfish', value: 60 }])
   // Next cycle: the cardinal has Seriously Fish now; the danio is next; the rest are no card's gap.
   expect(await run(5)).toEqual(['danio-rerio'])
+})
+
+// The owner, 2026-11-10: "won't get pass the check, switch to internet archive for this. any site that are often blocked should use the same way."
+const blockedThenArchived = async (holds: boolean, gapDays: number) => {
+  const root = await fresh()
+  const { d } = deps(root)
+  let clock = Date.parse('2026-11-01T00:00:00Z')
+  let siteAsked = 0
+  const fetcher = { ...d.fetcher, text: async (u: string) => { siteAsked++; throw new ChallengeError(u) } }
+  const archive = { ...d.fetcher, get: async (u: string) => { if (!holds) throw new Error('no archived copy (HTTP 404)'); return { status: 200, html: sitemap(['paracheirodon-axelrodi']), finalUrl: u } } }
+  const run = () => runEngine({ ...d, now: () => new Date(clock), fetcher, archive }, { sources: ['seriouslyfish'] })
+  const first = await run()
+  clock += gapDays * 86_400_000
+  const second = await run()
+  const asked = siteAsked
+  clock += 2 * 86_400_000
+  const third = await run()
+  const blocks = JSON.parse(await readFile(join(root, 'engine-state/_sources.json'), 'utf8'))
+  return { first, second, third, entry: blocks.seriouslyfish, siteAskedThird: siteAsked - asked }
+}
+
+test('a source blocked on two runs within a week moves to the archive, and the owner is not asked', async () => {
+  const { first, second, third, entry, siteAskedThird } = await blockedThenArchived(true, 2)
+  expect(first.needsHuman).toEqual(['seriouslyfish'])
+  expect(first.movedToArchive).toEqual([])
+  expect(second.needsHuman).toEqual([])
+  expect(second.movedToArchive).toEqual(['seriouslyfish'])
+  expect(entry.archive).toBeTruthy()
+  expect(entry.blockedAt).toBeUndefined()
+  expect(third.needsHuman).toEqual([])
+  expect(siteAskedThird).toBe(0)
+})
+
+test('a source the archive does not hold still asks the owner', async () => {
+  const { second, entry } = await blockedThenArchived(false, 2)
+  expect(second.movedToArchive).toEqual([])
+  expect(second.needsHuman).toEqual(['seriouslyfish'])
+  expect(entry.archive).toBeUndefined()
+})
+
+test('two blocks more than a week apart do not move a source', async () => {
+  const { second } = await blockedThenArchived(true, 8)
+  expect(second.movedToArchive).toEqual([])
+  expect(second.needsHuman).toEqual(['seriouslyfish'])
+})
+
+test('a refusal during an archived source search stops that source, not the run, before reading or marking pages', async () => {
+  const root = await fresh()
+  // Two thin pages, made from one Glaser note each.
+  for (const [id, sci] of [['corydoras-panda', 'Corydoras panda'], ['betta-macrostoma', 'Betta macrostoma']]) {
+    await mkdir(join(root, 'content/species', id!), { recursive: true })
+    await writeFile(join(root, 'content/species', id!, 'entity.json'), JSON.stringify({ id, scientificName: sci, order: 'O', family: 'F', genus: sci!.split(' ')[0], group: 'other', places: [], dataCard: {}, sections: [{ key: 'notes', source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/en/x/y', html: '<p>A note.</p>' }], photos: [], videos: [], productSlots: [], updatedAt: '2026-10-01' }))
+    await writeFile(join(root, 'content/species', id!, 'vi.json'), JSON.stringify({ slug: id, name: id, altNames: [], sections: { 'notes:glaser': '<p>Ghi chú.</p>' }, quality: { score: 0.9, indexable: true, bySource: { glaser: 0.9 } } }))
+  }
+  const { d } = deps(root, { urls: ['aaa-new'] })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await moveToArchive(root, 'seriouslyfish', '2026-10-27T10:00:00Z')
+  const refused = new ArchiveRefused('2026-11-10T12:00:00.000Z')
+  let asked = 0
+  let pages = 0
+  const archive = { ...d.fetcher, links: async () => { asked++; throw refused }, get: async (u: string) => { if (u.endsWith('/sitemap.xml')) return { status: 200, html: sitemap(['aaa-new']), finalUrl: u }; pages++; throw new Error('should not read a page') } }
+  const r = await runEngine({ ...d, archive }, { sources: ['seriouslyfish'] })
+  expect(r.errors.join('\n')).toMatch(/seriouslyfish: not read: the archive refused this Mac/)
+  expect(asked).toBe(1)
+  expect(pages).toBe(0)
+  expect(JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
+})
+
+// The run's own read of a page (run.ts apply) refuses a credit its source's permission record refuses, before any request.
+test("a run's read of a page doesn't take a photo whose credit the source's permission record refuses", async () => {
+  const { createHash } = await import('node:crypto')
+  const { htmlToOutline } = await import('../src/outline')
+  const { pickSourcePhotos } = await import('../src/source-photos')
+  const url = `${SF}paracheirodon-axelrodi`
+  const picks = pickSourcePhotos(htmlToOutline(fx('pages/seriouslyfish-cardinal.html'), 'main').images, url, ['Paracheirodon axelrodi'])
+  const keyOf = (src: string) => `https://media.test/seriouslyfish/${createHash('sha256').update(src).digest('hex').slice(0, 16)}.webp`
+  const refused = picks[0]!.credit!
+  const root = await fresh()
+  const sources = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8'))
+  sources.seriouslyfish.permission.refusedCredits = [refused]
+  await writeFile(join(root, 'content/sources.json'), JSON.stringify(sources))
+  const { d, calls } = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  await runEngine(d, { sources: ['seriouslyfish'] })
+  const entity = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/entity.json'), 'utf8'))
+  const gone = picks.filter(p => p.credit === refused).map(p => keyOf(p.src))
+  expect(gone.length).toBeGreaterThan(0)
+  expect(entity.photos.length).toBeGreaterThan(0)
+  for (const p of entity.photos) expect(gone).not.toContain(p.url)
+  expect(calls.images).toBe(picks.filter(p => p.credit !== refused).length)
 })

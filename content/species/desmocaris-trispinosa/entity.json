@@ -1,0 +1,178 @@
+{
+  "id": "desmocaris-trispinosa",
+  "scientificName": "Desmocaris trispinosa",
+  "order": "Decapoda",
+  "family": "Desmocarididae",
+  "genus": "Desmocaris",
+  "group": "shrimp",
+  "places": [
+    "africa",
+    "nigeria"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A charming dwarf shrimp from Nigeria.",
+          "countries": [
+            "NG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4310125,
+      "total": 16,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CI",
+          11
+        ],
+        [
+          "NG",
+          3
+        ],
+        [
+          "GN",
+          1
+        ],
+        [
+          "SL",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -15.46875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -14.0625,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -5.625,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -4.21875,
+          4.21875,
+          8,
+          0
+        ],
+        [
+          -4.21875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          5.625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          5.625,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/nigerian_floating_shrimps_desmocaris_trispinosa_en/",
+      "html": "<p>A charming dwarf shrimp from Nigeria. Maximum length is around 4 cm.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/nigerian_floating_shrimps_desmocaris_trispinosa_en/",
+      "html": "<p>The floating behaviour is fascinating and unique. However, the shrimps show it only in very quiet water.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/nigerian_floating_shrimps_desmocaris_trispinosa_en/",
+      "html": "<p>The species can be bred quite well under aquarium conditions, for the babies are very large already when born.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "em5XqWU91Aw",
+      "title": "Desmocaris trispinosa male",
+      "durationSec": 42,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cS-B5telH7k",
+      "title": "Schwebegarnelen - Desmocaris trispinosa",
+      "durationSec": 90,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tEneY7cd66E",
+      "title": "Desmocaris trispinosa making cat sounds?!?",
+      "durationSec": 68,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "aT2YEVu6A9I",
+      "title": "trächtiges Weibchen Desmocaris trispinosa",
+      "durationSec": 54,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể tép mini",
+        "bể thủy sinh 40cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi tép",
+        "lọc bọt khí cho tép"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho tép cảnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

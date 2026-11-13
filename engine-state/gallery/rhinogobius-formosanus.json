@@ -1,0 +1,30 @@
+{
+ "queue": [],
+ "judged": [
+  "File:Rhinogobius formosanus (10.3897-zookeys.951.50429) Figure 1.jpg",
+  "File:Rhinogobius formosanus (10.3897-zookeys.951.50429) Figure 5.jpg",
+  "inat:395260818",
+  "inat:395260835",
+  "inat:395260875",
+  "inat:395263839",
+  "inat:395263910"
+ ],
+ "hashes": {
+  "https://media.aquatome.com/commons/fc053250e72b92a6.webp": "0f17470f077ccc0e",
+  "https://media.aquatome.com/inaturalist/395260818.webp": "0582c7c194e64e93",
+  "https://media.aquatome.com/inaturalist/395263839.webp": "96264e5c0c5b4b9b"
+ },
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 614849,
+  "pass": "done",
+  "after": {
+   "research": 223100006,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 4840516,
+  "next": null
+ }
+}

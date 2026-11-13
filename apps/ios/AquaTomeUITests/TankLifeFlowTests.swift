@@ -6,7 +6,7 @@ final class TankLifeFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
   func testPutsAFishFromItsPageOnATankStartingAtItsSchoolSize() {
-    let app = launch("-seed-tanks", "litres") // one tank, "Bể cũ", no fish
+    let app = launch("-seed-tanks", "litres", "-v2", "NO") // one tank, "Bể cũ", no fish
     openPage(app, "Cá neon")
     // On the page the app draws, under the fish's name, not in the bar.
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].buttons["put-on-tank"].exists, "not on the page")
@@ -25,7 +25,7 @@ final class TankLifeFlowTests: XCTestCase {
   }
 
   func testAFishAlreadyOnTheTankGetsTheNewNumber() {
-    let app = launch("-seed-tanks", "life") // "Bể cá neon": 12 neons, a fish the handbook lacks, a rotala
+    let app = launch("-seed-tanks", "life", "-v2", "NO") // "Bể cá neon": 12 neons, a fish the handbook lacks, a rotala
     openPage(app, "Cá neon")
     app.buttons["put-on-tank"].tap()
     let count = app.textFields["put-count"]
@@ -40,7 +40,7 @@ final class TankLifeFlowTests: XCTestCase {
   }
 
   func testPutsAPlantOnANewTank() {
-    let app = launch()
+    let app = launch("-v2", "NO")
     openPage(app, "Rotala đỏ")
     app.buttons["put-on-tank"].tap()
     XCTAssertTrue(app.textFields["put-name"].waitForExistence(timeout: 5), "no new tank offered")
@@ -54,8 +54,149 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertTrue(life(app, "Rotala đỏ").exists)
   }
 
+  /// The owner's new tank opened blank, only its name showing (7 Nov): from a fish's page with the phone's animations on,
+  /// as a reader has them, the sheet closing as the tab changed and the tank was pushed.
+  func testAFishPutOnANewTankFromItsPageIsSeenOnTheTankItOpens() {
+    let app = launchAnimated("-v2", "NO")
+    openPage(app, "Cá neon")
+    app.buttons["put-on-tank"].tap()
+    let name = app.textFields["put-name"]
+    XCTAssertTrue(name.waitForExistence(timeout: 5), "no new tank offered")
+    name.tap()
+    name.typeText("Blackwater")
+    app.buttons["put-save"].tap()
+    XCTAssertTrue(app.buttons["put-open"].waitForExistence(timeout: 5), "no way to the tank")
+    app.buttons["put-open"].tap()
+    XCTAssertTrue(app.navigationBars["Blackwater"].waitForExistence(timeout: 5), "the tank didn't open")
+    let neon = life(app, "Cá neon")
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "the fish isn't on the tank")
+    shoot("put-open")
+    XCTAssertTrue(neon.isHittable, "the fish is there but not shown")
+    XCTAssertTrue(app.buttons["edit"].isHittable, "the tank's Sửa isn't shown")
+  }
+
+  /// The same tank, reached as a reader also would: the sheet closed, then the tank from the Bể của tôi tab.
+  func testAFishPutOnANewTankFromItsPageIsSeenOnItFromTheTanksTab() {
+    let app = launchAnimated("-v2", "NO")
+    openPage(app, "Cá neon")
+    app.buttons["put-on-tank"].tap()
+    let name = app.textFields["put-name"]
+    XCTAssertTrue(name.waitForExistence(timeout: 5), "no new tank offered")
+    name.tap()
+    name.typeText("Blackwater")
+    app.buttons["put-save"].tap()
+    XCTAssertTrue(app.buttons["put-open"].waitForExistence(timeout: 5), "not saved")
+    app.buttons["Xong"].tap()
+    app.openTab("Bể của tôi")
+    app.buttons["tank"].firstMatch.tap()
+    XCTAssertTrue(app.navigationBars["Blackwater"].waitForExistence(timeout: 5), "the tank didn't open")
+    let neon = life(app, "Cá neon")
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "the fish isn't on the tank")
+    shoot("tanks-tab")
+    XCTAssertTrue(neon.isHittable, "the fish is there but not shown")
+    XCTAssertTrue(app.buttons["edit"].isHittable, "the tank's Sửa isn't shown")
+  }
+
+  /// The owner's phone, as near as a flow gets to it: signed in to the owner's account (a sync follows the put), Tuya
+  /// keys and a tank with a plug (the plugs' section on every tank), and the site's whole handbook, not the fixed one.
+  func testOnTheOwnersSetupAFishPutOnANewTankFromItsPageIsSeenOnTheTankItOpens() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fake-accounts", "on",
+                           "-reset-fake-server", "-fake-owner", "ui-apple", "-seed-tanks", "plug", "-seed-tuya-keys", "-v2", "NO"]
+    app.launch()
+    app.openAccount()
+    app.signInWithStandInApple()
+    app.closeAccount()
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 10), "no search field")
+    field.tap()
+    field.typeText("ca neon")
+    let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 30), "no Cá neon in the site's handbook")
+    row.tap()
+    let put = app.buttons["put-on-tank"]
+    XCTAssertTrue(put.waitForExistence(timeout: 15), "no way to put it on a tank")
+    put.tap()
+    let name = app.textFields["put-name"]
+    if !name.waitForExistence(timeout: 3) {
+      app.buttons["put-tank"].tap()
+      let new = app.buttons["Bể mới"].firstMatch
+      XCTAssertTrue(new.waitForExistence(timeout: 5), "no Bể mới among the tanks")
+      new.tap()
+    }
+    XCTAssertTrue(name.waitForExistence(timeout: 5), "no new tank offered")
+    name.tap()
+    name.typeText("Blackwater")
+    app.buttons["put-save"].tap()
+    XCTAssertTrue(app.buttons["put-open"].waitForExistence(timeout: 5), "no way to the tank")
+    app.buttons["put-open"].tap()
+    XCTAssertTrue(app.navigationBars["Blackwater"].waitForExistence(timeout: 5), "the tank didn't open")
+    let neon = life(app, "Cá neon")
+    XCTAssertTrue(neon.waitForExistence(timeout: 10), "the fish isn't on the tank")
+    shoot("owner")
+    XCTAssertTrue(neon.isHittable, "the fish is there but not shown")
+    XCTAssertTrue(app.buttons["edit"].isHittable, "the tank's Sửa isn't shown")
+    // Below the guides, in a list that builds its rows as they come on screen.
+    let plugs = app.descendants(matching: .any)["plugs-header"].firstMatch
+    for _ in 0..<6 where !plugs.exists { app.swipeUp() }
+    XCTAssertTrue(plugs.waitForExistence(timeout: 5), "no plugs on the tank")
+  }
+
+  /// The owner's way to the blank tank (7 Nov): a fish's page opened from a tank on Bể của tôi, a new tank made in the put
+  /// sheet (it opens on the tank already there; "Bể mới" picked from its list), then "Xem trong Bể của tôi →", which
+  /// replaces the stack the sheet's page is on once the sheet has closed.
+  func testANewTankMadeFromAPageOpenedOnATankIsSeenOnTheTankItOpens() {
+    let app = launchAnimated("-seed-tanks", "life") // "Bể cá neon": 12 neons
+    app.openTab("Bể của tôi")
+    app.buttons["tank"].firstMatch.tap()
+    let row = life(app, "Cá neon")
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "the tank didn't open")
+    row.tap()
+    putOnANewTank(app, "Blackwater")
+    seesTheNeons(app, on: "Blackwater", shot: "from-a-tank")
+  }
+
+  /// The same in dark, as the owner's phone was.
+  func testANewTankMadeFromAPageInTheDarkIsSeenOnTheTankItOpens() {
+    let app = launchAnimated("-seed-tanks", "life", "-dark")
+    app.openTab("Bể của tôi")
+    app.buttons["tank"].firstMatch.tap()
+    let row = life(app, "Cá neon")
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "the tank didn't open")
+    row.tap()
+    putOnANewTank(app, "Blackwater")
+    seesTheNeons(app, on: "Blackwater", shot: "from-a-tank-dark")
+  }
+
+  /// The same new tank, the fish's page from Tìm while Bể của tôi has a tank open: that stack replaced while it isn't shown.
+  func testANewTankMadeFromAPageWhileAnotherTankIsOpenIsSeenOnTheTankItOpens() {
+    let app = launchAnimated("-seed-tanks", "life", "-v2", "NO")
+    app.openTab("Bể của tôi")
+    app.buttons["tank"].firstMatch.tap()
+    XCTAssertTrue(app.navigationBars["Bể cá neon"].waitForExistence(timeout: 5), "the tank didn't open")
+    app.openTab("Tìm")
+    openPage(app, "Cá neon")
+    putOnANewTank(app, "Blackwater")
+    seesTheNeons(app, on: "Blackwater", shot: "another-tank-open")
+  }
+
+  /// A link to a tank opened while on the Tìm tab, its tanks tab never opened: the tab changes and the tank is pushed
+  /// at once, with no sheet closing.
+  func testALinkToATankOpensItShownFromAnotherTab() {
+    let app = launchAnimated("-seed-tanks", "litres", "-v2", "NO") // one tank, "Bể cũ"
+    XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "not on the Tìm tab")
+    let page = "https://aquatome.com/vi/cong-cu/be-cua-toi/#be-00000000-0000-4000-8000-000000000001"
+    app.open(URL(string: "aquatome://open?url=" + page.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.navigationBars["Bể cũ"].waitForExistence(timeout: 5), "the tank didn't open")
+    let add = app.buttons["add-life"]
+    XCTAssertTrue(add.waitForExistence(timeout: 5), "the tank's list isn't there")
+    shoot("link")
+    XCTAssertTrue(add.isHittable, "the tank's list is there but not shown")
+    XCTAssertTrue(app.buttons["edit"].isHittable, "the tank's Sửa isn't shown")
+  }
+
   func testAddsAFishFromTheTankChangesItsNumberAndTakesItOffKeptAfterARelaunch() {
-    var app = launch("-seed-tanks", "life")
+    var app = launch("-seed-tanks", "life", "-v2", "NO")
     app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     app.buttons["add-life"].tap()
@@ -86,13 +227,13 @@ final class TankLifeFlowTests: XCTestCase {
 
     // The tank's screen has grown (the check above, the guides below): the plant may be under the tab bar.
     let rotala = life(app, "Rotala đỏ")
-    for _ in 0..<4 where !(rotala.exists && rotala.isHittable) { app.swipeUp() }
+    repeatUntil(rotala.exists && rotala.isHittable, times: 4) { app.swipeUp() }
     rotala.swipeLeft()
     app.buttons["Xóa"].tap()
     XCTAssertTrue(life(app, "Rotala đỏ").waitForNonExistence(timeout: 5), "the plant is still on the tank")
 
     app.terminate()
-    app = launch(reset: false)
+    app = launch(reset: false, "-v2", "NO")
     app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     XCTAssertTrue(life(app, "Cá ngựa vằn").waitForExistence(timeout: 5), "the fish wasn't kept")
@@ -124,13 +265,13 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertTrue(life(app, "Cá neon").waitForExistence(timeout: 5))
     // Under the fish, the plants and the tank-mates check: it may start under the tab bar.
     let guide = app.buttons.matching(identifier: "tank-guide").firstMatch
-    for _ in 0..<4 where !(guide.exists && guide.isHittable) { app.swipeUp() }
+    repeatUntil(guide.exists && guide.isHittable, times: 4) { app.swipeUp() }
     XCTAssertTrue(guide.waitForExistence(timeout: 5), "no related guide")
     XCTAssertEqual(app.buttons.matching(identifier: "tank-guide").count, 1)
     XCTAssertTrue(guide.label.contains("Nuôi cá neon trong bể nhỏ"), guide.label)
     // The video guide apart, as a species page on the site lists them.
     let video = app.buttons.matching(identifier: "tank-video").firstMatch
-    for _ in 0..<2 where !(video.exists && video.isHittable) { app.swipeUp() }
+    repeatUntil(video.exists && video.isHittable, times: 2) { app.swipeUp() }
     XCTAssertTrue(video.exists && video.label.contains("Cách hạn chế rêu hại"), "no video guide apart")
     XCTAssertTrue(app.staticTexts["Có trong video hướng dẫn"].exists)
     guide.tap()
@@ -167,13 +308,13 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertTrue(waitForWanted(app, sent), "not sent as wanted, or not as the server takes it: \(wanted(app))")
     // Not checked with the fish the handbook has figures for: said so.
     let unchecked = app.staticTexts["unchecked"]
-    for _ in 0..<4 where !(unchecked.exists && unchecked.isHittable) { app.swipeUp() }
+    repeatUntil(unchecked.exists && unchecked.isHittable, times: 4) { app.swipeUp() }
     let line = "Chưa kiểm tra Ca bong mat tre: cẩm nang chưa có trang nên chưa có số liệu để so."
     let said = expectation(for: NSPredicate(format: "label == %@", line), evaluatedWith: unchecked)
     XCTAssertEqual(XCTWaiter.wait(for: [said], timeout: 5), .completed, "said instead: \(unchecked.label)")
 
     // Its number changed: not sent again.
-    for _ in 0..<4 where !(fish.exists && fish.isHittable) { app.swipeDown() }
+    repeatUntil(fish.exists && fish.isHittable, times: 4) { app.swipeDown() }
     swipeOpen(app, fish, "Số con")
     app.buttons["Số con"].tap()
     let count = app.textFields["put-count"]
@@ -206,7 +347,7 @@ final class TankLifeFlowTests: XCTestCase {
 
     let plant = life(app, "reu suoi")
     XCTAssertTrue(plant.waitForExistence(timeout: 5), "not on the tank")
-    for _ in 0..<4 where !(plant.exists && plant.isHittable) { app.swipeUp() }
+    repeatUntil(plant.exists && plant.isHittable, times: 4) { app.swipeUp() }
     XCTAssertTrue(plant.exists && plant.label.contains("chưa có trang"), "not with the tank's plants: \(plant.label)")
     // Among the plants: after the tank's rotala, in the same section.
     XCTAssertGreaterThan(plant.frame.minY, life(app, "Rotala đỏ").frame.minY)
@@ -248,7 +389,7 @@ final class TankLifeFlowTests: XCTestCase {
   }
 
   func testNothingIsPutIntoAStoreTheAppMustLeaveAlone() {
-    let app = launch("-seed-tanks", "newer")
+    let app = launch("-seed-tanks", "newer", "-v2", "NO")
     let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
     XCTAssertTrue(row.waitForExistence(timeout: 5))
     row.tap()
@@ -259,11 +400,58 @@ final class TankLifeFlowTests: XCTestCase {
 
   // MARK: Helpers
 
+  /// With UIKit's animations on, as on a reader's phone: every other flow turns them off (launchForFlow).
+  private func launchAnimated(_ args: String...) -> XCUIApplication {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults"] + args
+      + (args.contains("-v2") ? [] : ["-v2", Look.v2.rawValue])
+    app.launch()
+    return app
+  }
+
+  /// The screen as it is, kept with the run's results.
+  private func shoot(_ name: String) {
+    let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    shot.name = name
+    shot.lifetime = .keepAlways
+    add(shot)
+  }
+
   private func launch(reset: Bool = true, _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"] + (reset ? ["-reset-defaults"] : []) + args
     app.launchForFlow()
     return app
+  }
+
+  /// From a fish's page: "Bể mới" picked in the put sheet (it opens on the first tank), named, saved, then the tank opened.
+  private func putOnANewTank(_ app: XCUIApplication, _ name: String) {
+    let put = app.buttons["put-on-tank"]
+    XCTAssertTrue(put.waitForExistence(timeout: 10), "no way to put it on a tank")
+    put.tap()
+    let picker = app.buttons["put-tank"]
+    XCTAssertTrue(picker.waitForExistence(timeout: 5), "no tanks to pick from")
+    picker.tap()
+    let new = app.buttons["Bể mới"].firstMatch
+    XCTAssertTrue(new.waitForExistence(timeout: 5), "no Bể mới among the tanks")
+    new.tap()
+    let field = app.textFields["put-name"]
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no new tank offered")
+    field.tap()
+    field.typeText(name)
+    app.buttons["put-save"].tap()
+    XCTAssertTrue(app.buttons["put-open"].waitForExistence(timeout: 5), "no way to the tank")
+    app.buttons["put-open"].tap()
+  }
+
+  /// The tank open, its neons and its Sửa on screen, not only there for VoiceOver.
+  private func seesTheNeons(_ app: XCUIApplication, on tank: String, shot: String) {
+    XCTAssertTrue(app.navigationBars[tank].waitForExistence(timeout: 5), "the tank didn't open")
+    let neon = life(app, "Cá neon")
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "the fish isn't on the tank")
+    shoot(shot)
+    XCTAssertTrue(neon.isHittable, "the fish is there but not shown")
+    XCTAssertTrue(app.buttons["edit"].isHittable, "the tank's Sửa isn't shown")
   }
 
   /// A page from the Tìm tab, searched by its name (a row below the fold isn't there to find), typed without accents: the

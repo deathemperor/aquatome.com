@@ -45,9 +45,7 @@ final class PhotoViewerFlowTests: XCTestCase {
   /// Full photos held back (`-slow-pictures`), the fetches left far behind are stopped on the way.
   func testOnlyThePhotosNearTheOneShownAreFetched() {
     let app = launch("-slow-pictures", "-large-gallery")
-    let all = app.buttons["gallery-all"]
-    reveal(app, all)
-    all.tap()
+    rowPhoto(app, "Ảnh thử 1").tap()
     let asked = app.descendants(matching: .any)["picture-requests"]
     XCTAssertTrue(wait(asked, label: "1 2 3", timeout: 5), "fetched \(asked.label), not 1 2 3")
     let eighth = app.buttons["Ảnh 8 trên 28"]
@@ -70,9 +68,7 @@ final class PhotoViewerFlowTests: XCTestCase {
   /// decoded for 40 points and blurred scaled up.
   func testAPhotoPickedInTheStripShowsItsThumbnailSharp() {
     let app = launch("-slow-pictures", "-large-gallery")
-    let all = app.buttons["gallery-all"]
-    reveal(app, all)
-    all.tap()
+    rowPhoto(app, "Ảnh thử 1").tap()
     let eighth = app.buttons["Ảnh 8 trên 28"]
     XCTAssertTrue(eighth.waitForExistence(timeout: 5), "no photo 8 in the strip")
     eighth.tap()
@@ -205,7 +201,7 @@ final class PhotoViewerFlowTests: XCTestCase {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"]
       + (pictures ? ["-fixed-pictures"] : []) + more
-    app.launchForFlow()
+    app.launchForFlow(.old)
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()
@@ -290,7 +286,7 @@ final class PhotoViewerFlowTests: XCTestCase {
 
   /// Scrolls the page down until `e` is on screen.
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement) {
-    for _ in 0..<24 where !(e.exists && e.isHittable) {
+    repeatUntil(e.exists && e.isHittable, times: 24) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .fast,
                thenHoldForDuration: 0.1)

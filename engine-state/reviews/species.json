@@ -1,0 +1,978 @@
+{
+  "vi/plants/ceratophyllum-demersum#5K1_KCFudYM": [
+    {
+      "at": "2026-11-09T11:43:35Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "[distribution] \"có mặt ở mọi châu lục\" is already on the page; \"lan ra tự nhiên ở các châu lục khác\" repeats the page's worldwide distribution claim (the North America origin is new, but the spread part overlaps).",
+        "[distribution] \"một phần vì nó rất khỏe\" - the video links the spread to hardiness, but this is stated as a fact, not a keeper's view; acceptable but borderline.",
+        "[notes] \"Nhiều người chơi coi loài này là cây hại\" - the video says many aquarists consider it a pest; fine, but the following \"trông không đẹp mắt\" is the video's own opinion, presented as a general rule for \"ai muốn bể thật đẹp\".",
+        "[notes] \"Một người nuôi nó trong nhiều bể thấy cây hay giữ lại nhiều cặn bẩn\" - the video states the dirt-holding as a general fact, not as personal experience; attribution mismatch.",
+        "[notes] \"Ở ao thì đám cặn đó lại thành điểm lợi\" - the video says a pond may benefit, written as certain; slight overstatement.",
+        "[beforeYouBuy] \"ốc nhỏ và trứng ốc\" - the video says pest snails and their eggs, but \"thường sẽ có\" (in majority of cases) is a generalization; also \"không như bèo tấm\" is fine.",
+        "[maintenance] \"Đèn mạnh thì cây hay bị rêu bám\" - the page says the plant lives in weak to strong light, and the video says with high light it grows algae; this conflict is not flagged as a difference from the page.",
+        "[waterConditions] \"loại nước nào nó cũng sống được\" - the page already gives a temperature range of 10-30°C, so the new text overlaps and does not mention that it differs; also the video said any temperature, which is more absolute."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T11:43:35Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"ốc hại\": the video says hitchhiker pest snails, but the speaker likes snails; minor framing.",
+        "\"đa phần sẽ có ốc\": the video says \"in majority of cases\", so this is acceptable but slightly firm.",
+        "\"Loài này không kén thông số nước\": close to the page's wide temperature range, but the video says it too, so low overlap.",
+        "The first paragraph of [maintenance] states the algae point as a keeper's experience, which is fine.",
+        "Overall the statements are supported by the video, and the phrasing is natural Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/pogostemon-stellatus#-b8xzLDI9zE": [
+    {
+      "at": "2026-11-08T03:05:11Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Lá cây hẹp và dài\" / \"đúng bốn lá\" per node and Australia-style details: fine, but \"Trước đây cây này không được mấy ai để ý\" is ok; \"Phải đến khi dân chơi thủy sinh bắt đầu chuộng\" ok. No major issue here.",
+        "\"Một người trồng cây này lâu năm\": the video never says the keeper has kept it for many years; invented 'lâu năm'.",
+        "\"Cứ mỗi đốt thân... xòe ra như ngôi sao\": ok, but \"Đây là trải nghiệm của một người, khác với mức khó và nhu cầu CO2 ghi cho loài này\" is meta-commentary; awkward, reads as translated/instructional.",
+        "\"đèn chỉ cần từ mức trung bình trở lên chứ không nhất thiết phải mạnh\": video says at least medium lighting; 'không nhất thiết phải mạnh' is an added inference, and contradicts page as rule-like.",
+        "\"Nếu tỉa ngọn đều tay, cây sẽ ra bụi rậm\": ok, but \"bể đẻ\" and \"người này thấy\" repeat; the keeper's experience is partly given as a general statement (\"Châm phân nước chắc chắn có lợi cho cây\") rather than as one keeper's view.",
+        "\"Vì mọc nhanh nên cây hút nitrate tốt, nước trong bể sạch hơn\": video says healthier environment for fish, not 'nước sạch hơn'; also 'khác với tốc độ trung bình' contrasts with page, but video says 'fast-growing' as the keeper's view — fine.",
+        "\"Cắt như vậy không làm hại cây mẹ\" and \"với bể nhỏ thì gần như bắt buộc\": video says 'a must' for small tanks regarding propagation being easy; OK but slightly stretched.",
+        "Omits nothing required, but the 'Bạn có thể thả nổi, nên trồng xuống nền' is stated as a rule though it's the keeper's opinion ('I think it looks much better')."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T03:05:11Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "Contradiction with page not flagged: video says easy, hardy, no CO2 needed, medium light; page says difficulty 3/3, high light, CO2 required. NEW says \"dễ trồng và khỏe, không châm CO2 cây vẫn lên\" without saying it differs from the page.",
+        "\"Cây cần đèn ít nhất ở mức trung bình\" contradicts page light high, and the difference is not stated.",
+        "\"Bể nhỏ thì bạn phải cắt tỉa thường xuyên, nên lúc nào cũng có sẵn ngọn để trồng\" is not in the video; video only says propagation is a must for smaller tanks.",
+        "\"dù có châm thêm phân thì cây vẫn tốt hơn\" is a mild extrapolation; video says fertilizer will definitely help.",
+        "\"Cây mẹ không bị ảnh hưởng gì\" slightly overstates; video says it will not be harmed and recovers.",
+        "\"Một người nuôi loài này thấy...\" then \"người nuôi này\" is stilted and the generalised statements (\"Bể đèn yếu thì cây không đẹp\") are given as a rule; video says it does not do well in low light.",
+        "The video's \"up to 50cm\" and Australia origin are omitted, which is fine; but \"Chỉ khi giới chơi thủy sinh chuộng nó, cây mới lan ra bể của dân chơi khắp nơi\" is awkward, translation-like Vietnamese.",
+        "\"Do là cây thân lớn nhanh\" is unnatural; it should be \"cây thân dài mọc nhanh\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/ambastaia-sidthimunki#axPlxg-ortg": [
+    {
+      "at": "2026-11-11T15:48:54Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Nếu bể bạn đang nuôi ốc cảnh\": the video only says snail-eating can be a plus or minus depending on how you feel about snails. It never mentions ornamental snails.",
+        "The snail-eating point (\"rất mê ốc\") is already on the PAGE, which says they eat small snails. It is only partly new.",
+        "The video says snail-eating can be a plus, as pest control. The PAGE says to never treat them as pest control. NEW does not say that the video differs from the PAGE here.",
+        "\"không dữ, chỉ ồn ào và bạo dạn\": the PAGE already says nobody has seen them bully other fish. It also lists reports of fin and eye damage that conflict with this. NEW does not point out that the video differs from the PAGE.",
+        "\"Cá cầu vồng cũng nuôi chung được\": the video does say this, but the sentence is a bare fact in the keeper's voice with no attribution. It is also loosely tied to the keeper framing of the neighbouring sentences.",
+        "\"Một người nuôi loài này lâu năm\" is repeated in three sections. It is acceptable, but it reads a bit stiff and formulaic.",
+        "\"Cá heo hề\" for clown loach and the wording \"hay để ý đến chúng\" are slightly awkward. Facts are intact."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-11T15:48:54Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "Behaviour: \"Ngoài các loài cá nuôi chung đã kể, chúng cũng sống được với cá cầu vồng\" refers to species \"đã kể\" that NEW never lists. It is awkward, and the page's own list (tetra, rasbora, cá chuột) is only implied.",
+        "Behaviour: \"chỉ là tò mò lại xem\" and \"lúc nào cũng mò mẫm\" overlap with the page, which already says the fish are curious and swim up to look at new fish.",
+        "Waterconditions: \"khoảng 25–26 °C\" is a conversion of the video's 78°F. It is credited to one keeper, which is fine. The video's \"can swing back and forth\" is left out, so the point is only partly conveyed.",
+        "Notes: the claim that the \"chuỗi\" name comes from the pattern is supported by the video. The wording \"mắt xích nối nhau\" is the writer's own paraphrase of \"chain-like\", though the page already describes the pattern at length.",
+        "Diet: the snail-eating detail from the video is not used. This is a minor omission and does not make NEW wrong."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/anentome-helena#91J9w0-vZDM": [
+    {
+      "at": "2026-11-10T06:36:40Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "[behaviour] 'Radula có răng rất nhỏ' fine, but 'bàn chân khỏe giữ chặt' ok; however 'tìm miệng vỏ' fine.",
+        "[notes] 'Nhiều người tưởng loài này ăn bằng ống thở' - the page already says the siphon is used for breathing and sniffing; the 'ăn bằng vòi' point partly repeats the page's 'dùng chiếc vòi để dò tìm con mồi' (which conflicts: video says siphon detects prey, proboscis feeds). The page mislabels the siphon as 'vòi'; NEW does not flag this difference.",
+        "[waterConditions] 'Thông số nước chỉ cần ổn định là ốc tự quen' - fine but vague; the video's ideal pH 7-8, 21-28°C differs from page (7.2-8, 21-27) and NEW doesn't say so.",
+        "[reproduction] 'Trứng chuyển dần sang nâu nhạt' omits the yellowish start and the page already says one yellow egg per capsule; also page already says reproduction is much slower than pest snails, so 'đẻ chậm' repeats it.",
+        "[reproduction] 'chắc là loài này không tràn bể' - hedge 'chắc là' reads awkward; video says 'most likely will not overrun'.",
+        "[beforeYouBuy] 'ai cho đẻ để bán có thể bán được giá cao hơn nhiều' - awkward, translation-like Vietnamese; also repeats slow breeding already on page.",
+        "[diet] 'thích ăn ốc hơn các loại thức ăn đạm' and snail eggs/baby shrimp: page already says it eats fish eggs and protein food once pests are gone; 'tép con' is new and fine, but the preference partly duplicates page.",
+        "[maintenance] Lifespan ~2 years is fine, but 'bể có đủ mồi... không khó' is OK; sentence 'Bể có đủ mồi... thì chăm... không khó' slightly stiff."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-10T06:36:40Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [
+        "\"Đói đến mấy, loài này cũng không đụng tới trứng của đồng loại\": the video says they don't attack each other or their own kind, not that they leave eggs alone.",
+        "\"Ốc cũng có thể ăn bo bo\": the video lists fish flakes, pellets, bloodworms, daphnia. Daphnia is not bo bo (it is water fleas, though bo bo is a common Vietnamese word for it), and the dietary item is loosely rendered.",
+        "\"một người nuôi loài này cho rằng pH 7 và nhiệt độ tới 28 °C vẫn hợp\": the video gives pH 7 to 8 and 21 to 28 °C as the ideal parameters, not one keeper's opinion. This also misstates the range and overlaps the page's figures.",
+        "\"một người nuôi loài này lưu ý ốc có thể ăn cả tép con\": the video presents baby shrimp as a plain warning, not one keeper's remark. The attribution is wrong.",
+        "\"Ai cho ốc đẻ để bán thì có thể bán giá cao hơn hẳn\": a partial claim, since the video says it can possibly be sold for much more than any other pest snail. \"Hẳn\" overstates it.",
+        "\"Nó thường vùi mình chờ mồi đi ngang\" and the siphon passage overlap what the page already says about burying and the siphon (the page covers burying in the substrate and using the siphon to find prey).",
+        "\"ốc dùng bàn chân khỏe giữ chặt con mồi\": the video says \"muscular food\" (foot) captures the prey after the siphon locates it, which matches. But the claim \"lâu nở như vậy nên chắc là không tràn bể\" is slightly changed: the video says they reproduce more slowly than other snails.",
+        "\"Thân ốc màu kem nhạt, lấm tấm đốm sẫm\" is fine, but the page says the shell has brown stripes, and the NEW text does not say that the video differs from the page. The video says a cone-shaped shell, with no stripes mentioned."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/apistogramma-borellii#1rJLXLHEGE4": [
+    {
+      "at": "2026-11-08T23:56:07Z",
+      "model": "sonnet",
+      "score": 0.45,
+      "notes": [
+        "aquariumSize: 'Bể khoảng 75 lít' — video says 20 gallons (~75 L) but never in litres; conversion OK, yet 'có lẽ là vừa nhất' is fine. Page already has tank size 45x30 (~41 L); the difference from the page is not stated plainly.",
+        "waterConditions: '22–28 °C' differs from page's 20–26°C but the difference isn't pointed out as video vs page.",
+        "waterConditions: 'Chúng thích nước hơi cứng' — video says they tend to prefer harder water; fine, but the page's 1–15 dGH is not contrasted.",
+        "waterConditions: 'Lọc phải đủ mạnh' — video says 'adequate filtration', not strong; also says to keep ammonia/nitrite at zero, which is OK.",
+        "maintenance: 'Lá bàng có tính kháng khuẩn' — the video says Indian almond leaves have antimicrobial and antibacterial properties; fine, but the page already covers Ketapang leaves and microorganisms as food, so this overlaps the page.",
+        "maintenance: 'bẻ đôi lá rồi thả vào bể. Lá ngấm nước rồi tự chìm' — the video says he covers one half and puts the other in water; the 'bẻ đôi lá rồi thả vào bể' detail is garbled; also unattributed generalization in 'khi lá mục chỉ còn trơ gân'.",
+        "behaviour: 'twig catfish', 'Cooley loach', 'Dulanker' left in English/garbled; mixed-language, reads as translation. 'cá chuột' for Cory is also unnatural for a hobbyist.",
+        "reproduction: 'dù có thể phải vài lần mới thành công' — in the video this is about mothers raising fry ('after a few tries'), not spawning; misplaced. 'Trong bể đã set lâu' is slang; fry-feeding and parents paragraph overlap with page's reproduction themes (female cares for eggs/fry)."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T23:56:07Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [
+        "aquariumSize: '75 lít' — the video says 20 gallons (about 75 L), so the conversion is fine, but it's presented as one keeper's view while the video states it as a general recommendation; also overlaps the page's tank size",
+        "behaviour: 'cá tỳ bà que (Farlowella)' — video says 'Dulanker catfish, Twig catfish'; the Farlowella identification is a guess, and 'Dulanker' is dropped",
+        "behaviour: 'cá chạch rắn (kuhli)' — video says 'Cooley loach'; kuhli is a different identification not in the video",
+        "behaviour: 'cá tam giác (harlequin rasbora)' — video says Harley Quinn rasbora; the Vietnamese name is a questionable rendering",
+        "behaviour: 'Cả đực lẫn cái đều có thể tự làm nhạt màu' — fine, but 'Chuyện này cũng hay xảy ra khi người nuôi cầm điện thoại' overstates the offhand remark as a common occurrence",
+        "waterConditions: 'Loài này chịu được khá nhiều kiểu nước' is stated as a rule; the video also says they prefer harder water, which is omitted. 'Một người nuôi... 22–28 °C' presents the video's species range as one keeper's setting",
+        "reproduction: 'Nếu cần cho ăn thì lúc đầu dùng trùng cỏ (infusoria)' — the video says 'ciliates', which is not necessarily infusoria/trùng cỏ; 'mấy lứa đầu thường hỏng' is stated as a rule",
+        "reproduction: the video says the mother 'may take them in her mouth' as a fry-retrieval behaviour, but the text says 'ngậm một con bơi lạc', which adds an unsupported detail; also 'bố mẹ' keeper preference is attributed fine but the 'bể đã chạy lâu' reasoning is partly inferred"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/axelrodia-riesei#G7YKeIn7c1w": [
+    {
+      "at": "2026-11-07T20:43:36Z",
+      "model": "sonnet",
+      "score": 0.45,
+      "notes": [
+        "[reproduction] 'khuyên giữ nước ở khoảng 20–26 °C và pH 4,5–6,5' already on the page (waterConditions: 'Nhiệt độ có thể dao động từ 20 đến 26 °C', pH 4,5 đến 6,5) and the card; redundant.",
+        "[reproduction] The video gives this range as a recommendation 'if you want to breed them', but 'nước lệch đôi chút vẫn được' is stated loosely; it's okay in itself but the figure repeats the page.",
+        "[notes] 'Cá trong cùng một nhóm không đồng màu. Có con đỏ hơn, có con ngả cam hoặc hơi hồng' is already on the page (notes: 'Sắc đỏ ... khác nhau', card 'từ đỏ tươi đến hồng nhạt'); mostly duplicate.",
+        "[diet] 'Khi cho ăn nhiều đồ sống ... lên màu đỏ rất đẹp' partly duplicates the page (Cyclops makes the red deeper; 'lên màu đẹp hơn').",
+        "[diet] 'microworm' is a mix of Vietnamese and English; the page uses 'giun mùn'/'giun giấm', so wording is not natural.",
+        "[behaviour] 'chưa bao giờ thấy cá ăn tép con' correctly attributed to one keeper, but the page already says baby shrimp are easily eaten; the video differs (not sure), and NEW doesn't say plainly that it contradicts the page.",
+        "[distribution] 'không phải cá vùng Amazon ... khu hệ cá nước ngọt nhiệt đới Nam Mỹ' is stated in the video and is new, fine; but 'Nói đúng về mặt địa lý' reads like a translation.",
+        "[notes] Chihiros lamp statement fits the video as one keeper's experience, but 'người này thấy cá trông rực hơn hẳn' is stronger than the video (it said 'even brighter')."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-07T20:43:36Z",
+      "model": "sonnet",
+      "score": 0.45,
+      "notes": [
+        "[notes] \"Chính thứ nước màu trà do tanin nhuộm mang lại màu đỏ cho loài này\" overstates the video; the speaker says the fish have this colour thanks to tea water, but it is presented as fact and the page already says tannin water/black water.",
+        "[notes] \"phần khác biệt này do cả ánh sáng lẫn thức ăn\" is given as a rule; the video says 'it depends on lighting, but also on food' as the speaker's remark, not firm cause.",
+        "[notes] \"Cá đỏ sống đúng ở vùng nước nhuộm tanin cũng là chuyện gặp ở nhiều loài khác\" is a general remark, not about this species, and the page already covers tannin water.",
+        "[habitat] \"Nơi cá sống có lẽ có nhiều thực vật mọc dày\" - the speaker is guessing from a description, never having visited; the page already says dense forest, leaf litter and tannin water, so this overlaps.",
+        "[waterConditions] \"nhiệt độ và pH lệch đi đôi chút vẫn được\" - the video says 'some fluctuations are possible' if not breeding, but the page already gives wide ranges; 'độ dẫn điện thấp' and 'nhiệt độ ổn định' are in the video but 'Dù vậy' framing is awkward.",
+        "[maintenance] \"Đèn kiểu Chihiros\" - names a brand from the video; not wrong, but placed under maintenance as a rule about lighting with no keeper attribution, and the page says the fish prefer dim light.",
+        "[behaviour] \"Một người từng nuôi loài này chưa bao giờ thấy cá ăn tép con\" - the page already says baby shrimp are easily eaten; the video's uncertainty differs from the page and this is not stated plainly as a difference.",
+        "[diet] The keeper-attributed statement repeats the page's claim on Cyclops and colour, and the video's list of live foods is not used; the page already covers diet in detail."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/crossocheilus-reticulatus#9wkUPrMzqfo": [
+    {
+      "at": "2026-11-10T14:42:33Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "The size claim \"cá có thể dài tới 15 cm\" differs from the page's sizeCm 17. NEW doesn't say it differs, and it presents the figure as one keeper's observation when the video gives it as a general maximum.",
+        "\"cho gì cũng ăn\" and \"ăn tạp\" conflict with the page's advice to avoid protein-rich food. NEW doesn't say the video differs from the page here.",
+        "\"một người nuôi lâu năm\" is repeated in every section. The wording reads stiff and translated, for example \"Người này thì đợi cá ăn hết rêu\" and \"Cá của họ\".",
+        "\"nghe hơi lạ là bỏ thêm rêu tóc vào bể cho cá no\" is a clumsy rendering of the video's aside \"I know this sounds crazy\".",
+        "\"Dọn hết rêu chùm đen và rêu tóc xong, nó có xu hướng quay sang gặm hầu hết các loại moss\" is stated as the fish's behaviour in general. The video says this only about \"most types of moss\" in the keeper's own tanks.",
+        "\"còn tính thì hiền hơn hẳn hai loài kia\" partly repeats the page's \"Loài này nhìn chung hiền\". The shark comparison is new, but the gentleness itself is already on the page."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-10T14:42:33Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "[notes] 'Cá có thể dài tới 15 cm' – the page card already gives size 17 cm; the video's 15 cm differs from the page, but NEW doesn't say it differs from the page's 17 cm.",
+        "[maintenance] 'Một người nuôi loài này lâu năm chưa thấy nó đụng đến cây nào' – the 'long-time keeper' framing is fine, but the whole video is 'we' (a fish room); fine. Still, no explicit contrast with the page, which says Anubias/Microsorum are fine and tanks should be stream-style.",
+        "[maintenance] 'Dọn hết rêu chùm đen và rêu tóc xong, cá hay quay sang gặm hầu hết các loại moss' – stated as general fact in the wording ('hay'), while the video says it 'tends to'; acceptable, but 'Rêu trồng (moss)' is odd wording.",
+        "[maintenance] Second paragraph repeats the first paragraph's point (move the fish to a moss-free tank), redundant; 'cứ để cá dọn xong đám rêu này rồi hẵng bắt ra' is slightly changed from the video.",
+        "[diet] 'không loài cá nào sánh được với nó' – a keeper's experience, but 'rêu chùm đen (BBA...)' and 'sạch tận gốc' are fine; 'Không như vài loài cá ăn rêu khác, loài này càng lớn càng ăn rêu giỏi' is stated as a fact rather than the keeper's own observation.",
+        "[diet] 'cho gì cũng ăn' and 'ăn được nhiều thứ nên lớn nhanh' conflicts with the page's advice to avoid protein-rich food and its wild aufwuchs diet; the video differs from the page here and NEW doesn't say so.",
+        "[behaviour] 'tính nó hiền hơn hẳn' and the peaceful claim contradict nothing, but the page says small groups can be bullied and to keep 6+; NEW doesn't note differences.",
+        "[notes] Comparison with rainbow shark/red tail shark in notes and again in behaviour is duplicated."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/doryichthys-heterosoma": [
+    {
+      "at": "2026-11-09T11:49:28Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"thuộc kiểu benthopelagic, tức là sống quanh khu vực gần đáy\" - the explanation of benthopelagic as living near the bottom is not in the facts (it is only listed as a classification).",
+        "\"Bảng dữ liệu ghi cỡ trưởng thành là 34 cm\" - this is in the figures, so it is supported. However, it sits oddly beside the 8 cm retail size, and no sources are cited for it.",
+        "\"Khi cá đã quen bể thì có thể nó sẽ chịu ăn đồ đông lạnh\" - this is consistent with the facts (frozen food may be accepted), so it is fine.",
+        "\"Theo tài liệu khoa học\" and \"Những thông tin này không khớp với vùng phân bố trong tài liệu khoa học\" - the facts do not say the sources are scientific or that the hobbyist claims conflict with them; this is the page's own framing.",
+        "\"Set thật nhiều cây\" - this is supported by the plants-and-structure fact, so it is fine.",
+        "\"nó khỏe và chịu được nhiều mức thông số nước\" - this is supported by the hardiness fact, so it is fine."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T11:49:28Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Bảng dữ liệu ghi cỡ trưởng thành là 34 cm\" is supported by the data card (34), so it is fine.",
+        "\"Nghe nói nhiều pipefish nước ngọt đang nuôi là cá sinh ra trong bể ở nhà, nhưng thông tin đó nói chung cho cả nhóm chứ không riêng loài này\" adds a qualification that the facts do not state. It is a minor embellishment.",
+        "\"Tài liệu phân loại chỉ có tên nó ở Kalimantan và quần đảo Natuna, cụ thể là sông Sambas\" is a slight reframing. The facts give the Sambas River and the Natuna Islands as the known range.",
+        "\"Con đực giữ trứng ở đó cho đến khi cá con ra đời\" is supported. \"dưới đuôi con đực\" is supported by the brood pouch under the tail.",
+        "\"Nó không cần một cái bể gì ghê gớm\" is supported by f25, so it is fine.",
+        "\"nó khỏe và chịu được nhiều mức thông số nước\" is supported.",
+        "\"Có thể dành hẳn bể cho riêng loài này\" softens the presenter's preference for a species-only tank. It is minor."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/elassoma-gilberti": [
+    {
+      "at": "2026-11-10T14:40:14Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T14:40:14Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Hand-feeding... có người đứng đó chúng vẫn ra khỏi chỗ trốn\" is fine, but \"Con đực rất hay giành chỗ\" is okay; minor: \"cá con cũng không ra nữa\" (fry production stopped) is slightly reworded as fry not appearing, acceptable.",
+        "\"dài khoảng 2,5 cm\" is from the data card, supported.",
+        "\"Khi vào mùa đẻ\" for breeding females is a small embellishment; facts say 'breeding females'.",
+        "\"Chỉ có đá là sai\" slightly generalizes Rohde's comment about the biotope, minor.",
+        "\"Nó thường ở gần cây thủy sinh hoặc cành gỗ chìm, chủ yếu tại những chỗ nước lặng\" is supported; \"hơi thon hơn\" for 'slightly less deep' is acceptable.",
+        "\"Fritz Rohde, một chuyên gia về Elassoma\" is supported as 'expert Fritz Rohde' but the Elassoma specialization is a small inference.",
+        "\"Muốn giữ vài con đực lên màu... để chúng không nhìn thấy nhau\" is supported.",
+        "\"bo bo\" for daphnia and \"bể không sưởi... 20–27 °C\" are supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/garra-panitvongi": [
+    {
+      "at": "2026-11-08T18:10:43Z",
+      "model": "sonnet",
+      "score": 0.94,
+      "notes": [
+        "\"Nửa trước thân màu xanh ô liu\" (the front half of the body): the facts say only \"the front of the body\" and don't say half. This is a minor embellishment.",
+        "\"cá không nhìn thấy nhau từ đầu bể đến cuối bể\" (so the fish can't see each other from one end of the tank to the other): this is a slight elaboration of \"break lines of sight\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T18:10:43Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Các nhà khoa học đặt tên cho nó là Weerapongse Tangjitjaroen...\" reverses the fact: they are the authors who described the species, not the name it was given.",
+        "\"tức là không tính vây đuôi\" explains SL, which is not in the facts.",
+        "\"bể khoảng 150 lít, dáng thấp và rộng đáy\" adds a tank shape not in the facts. 40-gallon is about 150 L, but \"low and wide-based\" is invented.",
+        "\"bể dài cỡ 125 lít\" is 33 gallons, so the number is fine. It is a minor stretch.",
+        "\"cá đòng đong (barb) và cá sọc ngựa (danio)\" gives Vietnamese names not in the facts, which only say barbs and danios.",
+        "\"đang phổ biến dần\" is supported, but \"cá chuột\" for corydoras is a questionable translation. Low severity.",
+        "\"Chịu được nhiệt độ khoảng 20–28 °C\" matches the card figure. No issue.",
+        "\"Cá dùng miệng chuyên hóa\" and \"các loài chân khớp nhỏ\" add \"small\" to arthropods, which is not in the facts."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/hyphessobrycon-eschwartzae#4QNZbyXjZuI": [
+    {
+      "at": "2026-11-09T05:53:01Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "notes: \"Cá tự nhiên vừa bắt về có màu vàng và vàng óng sáng hơn nhiều\" is stated flatly as fact. The video says it was noticed in wild fish and \"it is said\" colours fade, so the claim is attributed too loosely.",
+        "notes: \"Người chơi đã nuôi loài này từ trước khi nó được mô tả chính thức\" is in the video, but it sits under the notes heading with colour-fading content. This is a minor structure issue.",
+        "behaviour: \"Người này nuôi chung chúng với cá chuột...\" The video does not say the keeper actually keeps them with these fish. It only lists options (\"you have plenty of options for neighbors\"), so this is invented personal experience.",
+        "behaviour: \"một người nuôi loài này thấy đàn 10, 15 hay 20 con thì đẹp hơn hẳn\" turns the narrator's opinion into a keeper's experience. The video frames it as a recommendation. This is acceptable but slightly shifted.",
+        "behaviour: \"cá chuột\" is a poor translation of corydoras (\"corridors\" in the video). Hobbyists say \"cá chuột\" for corydoras, but the sense is unclear. \"Đủ lớn để coi một con tetra 2 cm là mồi\" is also awkward.",
+        "maintenance: \"Một người nuôi loài này muốn set bể giống nơi chúng sống ngoài tự nhiên\" and \"Người này cũng khuyên\" repeat the one-keeper framing mechanically. The result reads stiff and translated.",
+        "waterConditions: \"Một người nuôi chúng chọn nước mềm, hơi chua đến trung tính\" is a recommendation in the video (\"I would recommend\"), not the keeper's own setup. The 22–27 °C range is stated as a fact for the species, which is fine.",
+        "diet: \"cám lá\" is an unnatural term for flakes. \"Cho chúng ăn khá dễ\" is fine. The krill remark is accurate."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T05:53:01Z",
+      "model": "sonnet",
+      "score": 0.62,
+      "notes": [
+        "notes: 'Loài này đã có trong bể của người chơi từ trước khi được mô tả chính thức' is fine, but the sculptor/philanthropist origin overlaps the PAGE's name-origin text (Schwartz financial support), so it repeats what the page already has.",
+        "dimorphism: 'Cá cái tròn bụng rõ nhất khi đang mang trứng' repeats the page's point that females are fuller, and the 'hooks on anal fin' in NEW partly duplicates the page.",
+        "notes: 'dải sáng phản quang' above the dark stripe partly duplicates the page's description of stripes (black stripe, red stripe above).",
+        "behaviour: 'cá chuột' for corridors is acceptable, but 'Chúng hiền và nhỏ' plus the compatibility list: 'Nuôi chung được với…' repeats page card 'Nuôi chung: hợp với các loài khác' in more detail; ok but the list is the video narrator's opinion presented as a rule.",
+        "notes: 'Cá tự nhiên mới bắt về có màu vàng và ánh kim đậm hơn hẳn' - the video says brighter yellow and golden, not 'ánh kim'; 'đậm hơn hẳn' overstated.",
+        "maintenance/waterConditions: narrator's personal advice ('I would recommend', 'Nothing I've found indicates') given as flat rules, not attributed to one keeper's experience.",
+        "reproduction: 'cá bố mẹ sẽ ăn trứng' is stated as fact; the video only implies eggs should fall where adults cannot immediately eat them.",
+        "diet: 'Miệng chúng rất nhỏ' is an inference; the video only says they are tiny tetras."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/mastacembelus-notophthalmus": [
+    {
+      "at": "2026-11-08T18:05:03Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T18:05:03Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"một loài cá chạch\" – facts only say spiny eel of Mastacembelidae; calling it 'cá chạch' is not stated, and 'cá chạch chui ra được' generalizes (minor).",
+        "\"Vệt sọc đứng này cũng là chỗ dễ nhất để phân biệt\" – 'easiest' distinguishing feature is not stated; facts only say the other three lack the bar.",
+        "\"Ở Sumatra và Borneo thì đã có ghi chép từ trước. Sau đó một nghiên cứu...\" – sequence is roughly supported, but minor embellishment.",
+        "\"bể cao không có ích gì cho nó\" – slight overstatement of 'large bottom area rather than a tall tank'.",
+        "\"nên trải nền cát\" – facts say provide sand among other items; acceptable but 'trùn chỉ đông lạnh' mistranslates bloodworms (trùn chỉ are tubifex; bloodworms are lăng quăng đỏ)."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/nannostomus-marginatus#4mcmcGUXioo": [
+    {
+      "at": "2026-11-09T05:51:40Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "[behaviour] \"Một người nuôi loài này lâu thấy chúng hợp nuôi chung\": the video presents the community-tank fit and the shyness as general statements, not one keeper's experience. The page says the opposite (\"không hợp với bể cộng đồng\"), and NEW doesn't say it differs.",
+        "[behaviour] \"Cùng người nuôi đó thấy cá vẫn gây nhau đôi lúc\": the video states the disputes as general fact, not as this keeper's observation. The attribution is wrong.",
+        "[behaviour] \"Nên nuôi ít nhất 10 con\": the page already says \"lý tưởng là từ 10 con trở lên\", so this repeats it.",
+        "[behaviour] The video's reasons for larger groups (natural behaviour, subordinate males not harassed) are left out. The page says male aggression is rare, but NEW says \"cá vẫn gây nhau đôi lúc\" and doesn't note the difference.",
+        "[beforeYouBuy] \"khỏe hơn mong đợi\": the video says \"incredibly hardy\". \"Hơn mong đợi\" is added, and \"Với người đó\" is stiff.",
+        "[notes] \"đứng ngay sau, chênh không bao nhiêu\" and \"khó loài nào trong chi qua được nó\": the video says only \"close second\" and \"definite winner in the cuteness pageantry\". NEW overstates this, and it reads as translated.",
+        "[behaviour] \"như trẻ con chơi đuổi bắt\" and \"túm chặt vào nhau\" are loose, translated-sounding wording of the video's \"games of tag\" and \"tight shoal\".",
+        "[behaviour] The video's plants, mid-to-top level and hiding-spot details are not used. The behaviour text is thin and carries the unsupported attributions."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T05:51:40Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "[behaviour] \"Thỉnh thoảng con đực vẫn gây nhau, chuyện này bình thường\" repeats page's male-competition point, and the page says males rarely fight, so the video's difference (occasional disputes are normal) isn't stated plainly.",
+        "[behaviour] \"Đàn càng đông thì mấy con đực yếu càng ít bị bắt nạt\" is close to the page's group-size claim (đàn đông chia đều hung hăng), so it is partly already on the page.",
+        "[behaviour] The video says to keep them in groups of at least 10, but NEW omits it. It also doesn't say where the video differs from the page, which says they aren't suited to community tanks while the video calls them a good community fish.",
+        "[behaviour] \"lao qua lại khắp bể\" and \"hay đuổi nhau như chơi đùa\" are a loose paraphrase of \"zipping around... games of tag\"; the wording is translation-like.",
+        "[maintenance] \"Một người nuôi loài này thấy chúng rất khỏe\" turns the video channel's experience into a keeper's note, which is acceptable, but it is placed under maintenance and is vague. \"Người nuôi đó\" in [diet] relies on the previous section and does not stand alone.",
+        "[notes] \"chỉ đứng thứ hai về độ nhỏ\" is fine, but the video says \"close second\" (gần nhất sau), and the \"cute\" point is missing. The tone is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/nanosphronemus-gemma": [
+    {
+      "at": "2026-11-06T16:36:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Một nhóm người Việt mê thiên nhiên\" – facts say only 'Vietnamese nature enthusiasts'; 'nhóm' is minor embellishment.",
+        "\"Các nhà khoa học công bố cùng lúc một chi mới và một loài mới\" – supported (new genus and species).",
+        "\"Trong tiếng Anh, loài này có các tên Jewel Gourami, Minigourami \\\"Vietnam\\\" và Pho Xua Gourami\" – supported by names list.",
+        "\"Bảng dữ liệu ghi độ cứng 2 dGH\" – supported by the figures card (c2), though no source states it in the facts text; fine.",
+        "\"Có lô cá đến tay người chơi qua một nhà bán sỉ ở Đức\" – facts say the video presenter obtained his fish from a German wholesaler; generalised to 'a batch'/'người chơi'.",
+        "\"các loại ấu trùng nauplii\" listed as separate food from brine shrimp – facts list 'newly hatched brine shrimp, nauplii', ambiguous; minor.",
+        "\"Chi mới khác mọi chi cá rô, cá sặc khác\" – facts say 'other anabantoid genera'; minor rewording.",
+        "\"cũng là một loài rất nhỏ\" about P. ornaticauda – facts say 'tiny', so supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T16:36:33Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Các nhà khoa học mô tả cùng lúc một chi mới và một loài mới\" is supported in substance, so no issue there.",
+        "\"Một nhóm người Việt mê thiên nhiên\" - the facts say \"Vietnamese nature enthusiasts\"; this is fine.",
+        "\"Nhiệt độ và pH trong bảng dữ liệu là các số đo ngoài tự nhiên này\" is a stated inference. It is plausible, but the facts do not say it.",
+        "\"Bạn làm chua nhẹ nước bằng lá khô\" - the facts say \"leaves\". They don't say dried leaves, but this is minor.",
+        "\"một lớp lá khô dưới nền\" - the facts say \"a layer of leaves\". \"Dried\" and \"on the substrate\" are added details.",
+        "\"Đó chỉ là để tham khảo thêm, còn các điểm ở trên vẫn là phần chính\" is an editorial caveat. The facts don't contain it.",
+        "\"một loài cũng rất nhỏ\" for Parosphromenus ornaticauda - the facts say \"tiny\", so this is fine.",
+        "\"các loại ấu trùng nauplii\" is listed as a separate food from the brine shrimp. That follows the facts' wording.",
+        "\"Artemia mới nở là thức ăn chính\" - the facts say \"Artemia nauplii are the main food\". This is acceptable.",
+        "The care-section figure of 2 dGH (c2) is not stated in the page. That is an omission, not an invented claim."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T16:30:39Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Vây lưng có XIX–XXI tia gai và 2–3 tia mềm\" / anal \"XX–XXIV tia gai và 4–5 tia mềm\": facts give only the counts XIX–XXI+2–3, spines vs soft rays interpretation is mild inference.",
+        "\"Ba ông xếp nó vào một chi mới và mô tả chi lẫn loài cùng một lúc\": roughly supported, fine.",
+        "\"Nếu bạn mới chơi, đây chưa phải loài để bắt đầu\": beginner advice not stated in facts (only that importer classes it for specialists).",
+        "\"Trong tiếng Anh, cá có vài tên gọi như Jewel Gourami hay Vietnamese mini gourami\": supported by names list.",
+        "\"nhóm cá sặc nhỏ nhất từng biết\": facts say one of the smallest known gouramis; page's 'nhóm... nhỏ nhất' is slightly turned.",
+        "\"Chi này khác mọi chi cá rô, cá sặc\": facts say differs from all other anabantoid genera; 'cá rô' is a loose rendering.",
+        "\"ấu trùng giáp xác (nauplii)\" listed as separate food from artemia; and \"Lăng quăng đỏ\" for bloodworm larvae is a loose translation.",
+        "\"một loài cũng rất nhỏ\" for P. ornaticauda is supported ('tiny').",
+        "Hardness (dGH 2) figure is not mentioned on the page, which is fine; \"Nước... rất mềm\" is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T16:30:39Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Bắt cá lên là màu phai ngay, nên nhìn cá trong vợt hay trong túi sẽ không thấy hết vẻ đẹp\" - embellishment beyond 'fish lose their colour when caught' (net/bag is invented).",
+        "\"nên khi thay nước bạn cần pha cho nước mới thật sát nước cũ\" - water-change advice is not in the facts.",
+        "\"Cá bé cỡ này cần nhiều chỗ khuất mới thấy yên\" - unsupported care rationale.",
+        "\"Bạn đừng trông vào cám viên\" - pellet-food advice not in facts; facts only say it often refuses dry food.",
+        "\"Độ cứng ghi trong bảng là khoảng 2 dGH\" - the 2 dGH figure is on the card, but no source states it; presented as given and not tied to the natural habitat.",
+        "\"Đây là cá Việt Nam\" - overstated; facts only say it is known from near Huế.",
+        "\"quả trám (alder cone)\" - alder cones are not Canarium (quả trám); mistranslation.",
+        "\"Parosphromenus ornaticauda, một loài cũng rất nhỏ\" - acceptable, but the 'ornaticauda' care comparison is carried as the only guidance.",
+        "\"Ba ông mô tả nó là một chi mới và một loài mới cùng lúc\" - fine; but 'cá sặc tí hon' is an unsupported generalisation about the name."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/neocaridina-davidi#6pcqIM3VdwA": [
+    {
+      "at": "2026-11-09T23:39:28Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "\"Ở Đức, tép Sunburst chỉ có một nơi phân phối\" – video says Garnelo sells exclusively in Germany, 'I even think worldwide'; the rewrite drops the 'I believe' hedge on the worldwide claim in a way that reads as fact",
+        "\"lứa Sunburst chỉ sau một tuần đã đậm hơn hẳn\" – video says a week after getting them they were more intense, but this is phrased as a general result and is redundant with the 1–2 weeks claim",
+        "\"mất một đến hai tuần mới lên đủ màu\" – stated generally ('tép mới về'); video says NEOS always need 1–2 weeks, but it is one keeper's view and mixed with the Sunburst-specific line, which is confusing",
+        "\"Một người nuôi thấy khoảng nhiệt tép chịu được rộng hơn mức thường nêu, từ 4–5 °C đến 28–29 °C\" – the PAGE already gives 16–28 °C; the contrast is OK, but 'mức thường nêu' isn't said in the video, and 30 °C line is fine",
+        "\"nghe nói đến từ Đài Loan\" – video says 'ich weiß' (he knows), not hearsay; also 'Skyfish' is a breeder name, fine, but 'dòng mới của loài này' should be hedged as a Neocaridina davidi selection",
+        "\"có thể là gốc của một dòng mới\" – the video says females with white, red and some orange could be the basis of a new line, and the future of breeding lies in such females; OK, but 'Một người nuôi đoán một hai năm tới' mixes the speaker's guess about other colors, not just orange-like Sunburst",
+        "\"Màu của nó có lẽ bắt nguồn từ những con tép cam chọn lọc, vốn không đều màu mà hơi ngả vàng\" – acceptable, but the sentence is clumsy translated Vietnamese ('hơi ngả vàng' for yellowish-orange)",
+        "Missing mention that the page's own claims on easy breeding in normal water overlap; the waterConditions text partly repeats the page's hardy/wide-range message"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T23:39:28Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "[beforeYouBuy] \"Một người nuôi loài này lâu năm thấy tép mới về luôn cần một đến hai tuần\": the video says this as a general statement (\"immer ein bis zwei Wochen\"). It is the speaker's own experience and should not be written as a rule with \"luôn\". It also adds a long-time-keeper framing the video doesn't give.",
+        "[waterConditions] \"4–5 °C đến 28–29 °C, lên 30 °C cũng không sao\": the page already gives 16–28°C, but NEW doesn't say the video differs. It should state plainly that the video's range is wider than the page's 16–28°C. The keeper claim also reads as a general rule for the species.",
+        "[waterConditions] \"từng để tép ngoài trời suốt một năm, trời lạnh mà chúng vẫn sống\": the video says it survived \"bei niedrigen Temperaturen\". The \"người nuôi lâu năm\" framing is invented, since the speaker only says he once kept them outside for a year.",
+        "[reproduction] \"Loài này đẻ được cả trong nước bình thường, không có bí quyết gì đặc biệt\": the page already says they breed very easily. This is mostly redundant, and the video's mocking remark about \"secrets\" is turned into a flat claim.",
+        "[reproduction] \"những con cái mang cả trắng, đỏ và một ít cam có thể là gốc của một dòng mới\": this is supported by the video, but it sits under reproduction when it is about colour or line development. The heading is a poor fit.",
+        "[notes] \"do Skyfish, một người lai tạo có tiếng ở đó, cho ra\": it names a breeder. This is said in the video, but \"cho ra\" states it more firmly than the speaker's \"ich weiß\".",
+        "[beforeYouBuy] \"Ở Đức, tép Sunburst chỉ có một nơi phân phối\": the video says exclusive in Germany, and the speaker believes worldwide. This is fine, but the claim is stated without the hedge about whether it is exclusive worldwide.",
+        "[notes] \"Màu của nó chắc là chọn lọc từ tép cam\": the video says \"wahrscheinlich\", so the hedge is kept. The wording \"chắc là\" and \"cho ra\" reads a bit like a translation."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/oliotius-oligolepis#7WuDB1RXfKY": [
+    {
+      "at": "2026-11-10T06:33:13Z",
+      "model": "sonnet",
+      "score": 0.86,
+      "notes": [
+        "[maintenance] \"Với người nuôi này, đây là loài hợp cho cả người mới lẫn người chơi lâu năm\" repeats \"người nuôi này\" and reads a bit stiff. It is attributed to one keeper, so the facts are fine.",
+        "[behaviour] \"cá đực có thể bớt dữ với nhau khi giữ khu vực riêng\" is slightly muddled. The video says the ratio reduces territorial aggression among males. Rewording would be cleaner.",
+        "[behaviour] \"cả đàn cũng yên ổn hơn\" is a loose rendering of \"more harmonious setup\". It is acceptable but a little vague."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-10T06:33:13Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "[dimorphism] Description of males as more colorful and females as rounder is partly redundant with the page's 'nhiều màu hơn cá cái'; the page already says males are more colorful, so the colour difference overlaps.",
+        "[maintenance] 'Một người nuôi loài này vài năm' is acceptable, but 'Theo kinh nghiệm của người nuôi đó' repeats the attribution awkwardly and reads like a translation.",
+        "[maintenance] 'Bể nhiều cây với thật nhiều chỗ trốn là hợp nhất' is stated as a rule, while the video frames it as the keepers' experience that the fish can be shy.",
+        "[maintenance] 'lánh vào' is a typo/awkward wording (should be 'lẩn/ẩn vào'); 'thỉnh thoảng lánh vào một lúc' reads like a literal translation of 'nip off for a timeout'.",
+        "[behaviour] 'cá hiếu động và ham đùa nghịch' is fine, but 'giành chỗ' is not in the video; the video says territorial aggression, not competition for spots.",
+        "[behaviour] 'gườm nhau để phân hơn thua' is an embellishment; the video only says males may display dominance against one another.",
+        "[habitat] 'vũng nhỏ' and the water description are fine, but the page's distribution already covers the habitat region, and the video's 'small pools, streams, lakes, rivers, drainage ditches' list is not in conflict, just thin.",
+        "[behaviour] Ratio advice 'nên để số con cái nhiều hơn' is stated as a rule, while the video says 'it is advisable', which is acceptable; the group-of-six advice is omitted, and the page already has 6–10."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/otocinclus-vittatus#6C3cORsXseY": [
+    {
+      "at": "2026-11-09T17:54:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "[diet] \"tảo nâu\": the video says diatoms, which is usually \"tảo silic\"; \"tảo nâu\" is a loose rendering but acceptable.",
+        "[diet] \"thế là cây yếu dần rồi chết\" is stated as a general fact; the video says it about algae film in general, and this is fine, but it's phrased as a rule.",
+        "[maintenance] \"Đó là chuyện của một bể, chưa chắc bể nào cũng nhanh như vậy\" is a hedge the video doesn't make, but it's reasonable caution. The video also says algae cleared 'in just a few days' elsewhere.",
+        "[maintenance] \"Một người nuôi có bể...\" and \"lá crypt\" are fine, but the video says 'golden anubias nana' and 'cryptocorynes', so this is faithful.",
+        "[behaviour] \"Ban ngày, thỉnh thoảng có con tách ra ở một mình\" matches the video. \"hay tụ lại\" is fine.",
+        "[notes] \"đỡ được phần nào trước những con cá săn mồi lớn hơn\" is a slight extension of 'larger inhabitants constantly lurking' but acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T17:54:19Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"tảo nâu\" for diatoms is acceptable, but \"rêu đốm xanh\"/\"rêu bụi xanh\" fine; mixing \"tảo\" and \"rêu\" is inconsistent and reads slightly off.",
+        "\"cá otto\" is an unnatural/misspelled name (page uses \"oto\"/\"otocinclus\"); reads as a transcription error.",
+        "\"Loài này dễ chăm, và người trồng cây thủy sinh rất quý nó\" is a generic claim stated as fact; it echoes the video's \"easy to care for\" but is a vague, translation-like statement.",
+        "\"Một người nuôi thả 15 con...\" is fine as one keeper's experience, but \"lá đã sạch rêu\" drops the video's detail that the algae was 'completely destroyed' and the result is presented without noting it's one tank; OK but borderline.",
+        "\"Ban ngày, thỉnh thoảng có con tách ra ở một mình\" is supported, but \"bơi đồng loạt khắp bể\" and group behavior are stated as a rule for the species though it's the video makers' observation.",
+        "\"che chắn được phần nào trước cá săn mồi\" and \"gai rất nhỏ\" are supported, but the video says these are on the body as an evolutionary adaptation; the note is okay.",
+        "The text doesn't note where the video differs from the page; e.g. the page says to feed the fish pellets and vegetables beyond algae, while the video says nothing about this. The ' Chỉ sau 48 giờ ' result also could mislead as a rule."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/panaque-cochliodon#_F_qdXPeQSM": [
+    {
+      "at": "2026-11-08T03:03:38Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Có tin về một con nuôi trong bể dài khoảng 45 cm\" misreads the video. The video says a specimen of about 45 cm was reported in captivity. It does not say the tank was 45 cm long.",
+        "\"Bể vẫn phải có lũa, nhưng bạn đừng coi lũa là thức ăn chính\" is not said in the video. The video only says the fish gnaws wood and gets algae, fungi etc. from it.",
+        "\"nhỏ hơn mức hơn 40 cm\" is awkward and reads like a translation. It compares to the page's figure without clearly saying the video differs.",
+        "\"Ngoài tự nhiên loài này sống ở sông nước chảy tại Colombia\" mostly repeats the page's distribution (Colombia).",
+        "\"dòng chảy mạnh\" overstates the video, which says good circulation and sufficient dissolved oxygen.",
+        "\"Nhiều loài cá lau kính màu mè trốn sau đá gần như cả ngày\" softens the video's \"95% of the time\" and generalises it to many species. The video says \"some showy plecos\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T03:03:38Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "aquariumSize: \"thường được ghi khoảng 30 cm\" differs from the page card (sizeCm 40), but the text never says it differs from the page. The brief asked for that to be stated plainly.",
+        "aquariumSize: \"Một người nuôi loài này không dùng bể dưới 340 lít\" credits the speaker with long-term experience keeping the species. The video only says \"personally, I wouldn't\", so this is a small overreach. \"Theo người này\" also reads stiffly.",
+        "maintenance: \"với lượng phân lớn như vậy\" repeats the page's aquariumSize claim that the fish produces a lot of waste. It is not new information.",
+        "diet: \"rau tươi như bí ngòi, bí đỏ\" overlaps the page's vegetable-heavy diet line. Only the specific vegetables are new.",
+        "notes: \"mỗi lần bơi ra là cả bể đều thấy\" slightly embellishes the video's \"when it comes out, you notice it\".",
+        "diet: \"Cá gặm lũa rất nhiều nhờ bộ răng chuyên cạo gỗ ngập nước. Có điều, chúng không sống nhờ chất xơ...\" is a bit stiff and translated in tone."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/poecilia-reticulata#-Ws7RudcQ4U": [
+    {
+      "at": "2026-11-08T13:44:19Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Một người cho bảy màu đẻ lâu năm không khuyên người mới...\" invents a long-time keeper; the video's narrator just says he wouldn't recommend albino for beginners, so this misattributes and embellishes.",
+        "\"Dòng này hiền, bơi nhiều, hợp với bể nhỏ hoặc nuôi chung với cá hiền\": the video says 'activity, peaceful nature... smaller aquariums or community tanks'; 'nuôi chung với cá hiền' narrows it, and the page already covers peaceful community behaviour.",
+        "\"Cá bạch tạng yếu hơn và khó giữ dòng hơn hẳn cá thường\": the video says albino strains are weaker and harder to maintain, but 'hẳn' overstates it.",
+        "\"Lúc chọn cá đực, nên lấy con khỏe và hoạt bát\" is placed in beforeYouBuy, but the video frames it as a judging criterion, not buying advice.",
+        "\"blond (vàng rất nhạt)\" is a gloss the video doesn't give, and the English word \"blond\" left in reads like translation.",
+        "\"Người Nhật gọi kiểu đốm này là kuchi beni... cá chép koi có hoa văn tương tự cũng mang tên đó\": the video says the red nose is a female trait and that koi fish with this pattern share the name. This matches, but the 'cá cái các dòng koi' framing is fine.",
+        "\"Chuẩn chấm cho cá đuôi ngắn\" and the show-judging list sit under [reproduction], which doesn't fit the heading.",
+        "\"Dòng này gần với dòng bảy màu full red\" is fine, but \"chỉ biết nhiều khả năng dòng này được lai ở Nhật\" is slightly stronger than the video's 'we can assume... most likely'."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T13:44:19Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Cá phải khỏe, bơi nhanh nhẹn\" - video says vital and active; \"bơi nhanh nhẹn\" slightly embellished but acceptable.",
+        "\"Con đực dài 1,8 cm\" - video says 18 mm; fine, but it presents a show-standard figure as the pair's rule without saying it is a judging standard for short-tail fish; mostly OK.",
+        "\"Người mới tập cho cá đẻ thì không nên bắt đầu bằng dòng này\" - video says it is not recommended for beginning breeders; fine, but it is written as a general rule rather than the presenter's advice.",
+        "\"thân lại ngả vàng nhạt\" - video says \"blond\"; \"vàng nhạt\" is a reasonable but interpretive rendering, and it is used repeatedly.",
+        "\"Con đực đẹp nhất thì gần như cả thân vàng nhạt\" - video says ideal male has \"most of the body blond\"; \"gần như cả thân\" is slightly stronger.",
+        "\"Theo chuẩn thi cho dòng kohaku koi đuôi ngắn\" - the video's \"short tail fish\" refers to the male; acceptable.",
+        "\"Bảy màu koi ... Đây là dòng khá mới\" - fine; \"Tiệm cá cũng hay bán\" is fine.",
+        "The female description \"thường chỉ có màu ở vây đuôi\" is accurate, but the \"Dòng koi giờ có mặt ở hầu hết các cuộc thi\" statement is a slight generalization of \"majority of guppy or live bearer show\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/poecilia-wingei#-OXAqK-7E74": [
+    {
+      "at": "2026-11-08T13:35:20Z",
+      "model": "sonnet",
+      "score": 0.45,
+      "notes": [
+        "\"Toàn bộ Blue Star đang nuôi khắp thế giới đều sinh ra từ cặp cá đó\" - video says the strain spread from the single pair, but \"toàn bộ ... đang nuôi\" is a stronger claim.",
+        "\"Không chỉ ở Laguna de Patos, cả vùng sống tự nhiên ... đang hẹp dần qua từng năm\" - the video only says the native range is shrinking; the Laguna de Patos link is added and is already on the page.",
+        "\"muộn hơn nhiều so với lần John Endler tìm thấy ... năm 1975\" - comparison is not in the video; the 1975 fact is already on the page.",
+        "\"các trại và bể nuôi tại châu Âu\" - the video says only bred mostly in Europe, America and Asia; \"trại\" is added.",
+        "\"Một người nuôi Endler tin rằng ... Người này còn hy vọng\" - the video's narrator opinions are fine as one keeper's view, but \"nhờ các đàn cá trong bể ... sẽ không bị mất đi\" is stated as a near-certain claim and is the narrator's own view.",
+        "\"Cá Endler phản ứng nhanh với ánh sáng\" and the lights-off sinking behaviour are generalised to all Endlers; the video says it about this Blue Star strain.",
+        "\"Cá nhạy với ánh sáng, nên giữ ... sáng và tối thay nhau đều đặn\" - repeats the behaviour fact in a second section.",
+        "\"Ở dòng Blue Star, nước càng ấm thì cá lớn càng nhanh\" - the video says warm and hard water preference and faster growth, but the hard-water point is left out; the page already has warm water ranges."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T13:35:20Z",
+      "model": "sonnet",
+      "score": 0.62,
+      "notes": [
+        "[beforeYouBuy] \"Chúng được cho đẻ chủ yếu ở châu Âu, châu Mỹ và châu Á\" - the video says the strain is bred mostly there, but this is not buying advice and sits oddly under this heading; the wording \"được cho đẻ\" is also awkward.",
+        "[habitat] \"Người ta ngày càng lo vùng sống tự nhiên của cá Endler đang thu hẹp\" - the page already says the species is thought extinct at Laguna de Patos and may still exist in the wild; the new text doesn't say how the video differs from that.",
+        "[habitat] \"những đàn cá trong bể của người chơi có thể giúp giữ lại loài này\" - the video's call to buy Blue Star to help the species survive is presented as a general fact. It is one person's view and is not attributed to a keeper.",
+        "[habitat] \"Có người còn hy vọng một ngày nào đó nơi sống của chúng được làm sạch\" - the video says this as the maker's own hope (\"who knows\"). Writing it as \"có người\" is vague.",
+        "[waterConditions] \"Cá Endler thích nước cứng và ấm\" - the page already says they prefer medium-hard water and the table gives 24–30°C. This repeats the page, and the video says it about the Blue Star strain.",
+        "[waterConditions] \"Nước càng ấm thì cá càng lớn nhanh\" - stated as a general rule for the species, but the video says it about Blue Star only.",
+        "[maintenance] \"Cần giữ cho bể sáng tối đều đặn theo giờ cố định\" - \"theo giờ cố định\" (fixed hours) is not in the video, which only says regular changing of light and darkness. \"Cần\" turns that into a rule.",
+        "[notes] \"Năm 2011... Toàn bộ Blue Star đang nuôi khắp thế giới\" - this is accurate. The notes section does not say it differs from the page, which says the Endler was found in 1975 at Laguna de Patos, while Campoma is a different, later discovery."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/puntius-titteya#541vhQjR9fI": [
+    {
+      "at": "2026-11-09T05:54:12Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "[habitat] 'sông suối uốn khúc, nước chảy nhẹ' and 'tán cây... lọc bớt nắng' repeat the page, which already has shaded streams and gentle current; mostly redundant.",
+        "[diet] 'Thức ăn dạng viên nén chúng cũng chịu ăn' — the video says 'tablets' (viên nén), but the page already says they accept pellets (thức ăn viên); it adds nothing new. The wording is also stilted.",
+        "[behaviour] 'góc khuất riêng ở phần dưới của bể' — the video says males set up territories at the lower level, which is partly new. 'Bể cần đủ rộng để con đực nào cũng có góc của mình' is a reasonable restatement, but the page already covers tank space for the group and says males get better colour when rivals are present.",
+        "[dimorphism] 'Con cái thường mang màu cam nhạt, trầm, chứ không hẳn là đỏ ngả nâu' — the video says females are a muted orange, but the page already says females are paler and reddish-brown. The 'chứ không hẳn' phrasing contradicts the page without explaining that the video differs.",
+        "[dimorphism] The NEW text leaves out that males are red and slimmer, but the page already covers this, so little is new overall.",
+        "Overall the NEW text is very thin and largely duplicates the page; it contains little new video-sourced content."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T05:54:12Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "[dimorphism] \"Một người nuôi loài này thấy con cái thường có màu cam nhạt\" makes the video's general statement (females have a muted orange hue) look like one keeper's own observation. The video doesn't present it that way.",
+        "[dimorphism] The page already says females are \"đỏ ngả nâu, nhạt hơn\". The sentence doesn't say plainly that the video differs (muted orange, not brownish red).",
+        "[diet] \"Ngoài cám vảy và cám hạt\" repeats what the page already has (flakes, granules, pellets). Only the tablets are new, and the sentence adds almost nothing.",
+        "[diet] \"cá cũng ăn ngay cả thức ăn dạng viên nén\" is awkward, translated-sounding Vietnamese. \"ăn ngay cả\" is unnatural.",
+        "[behaviour] \"Chúng lên màu đẹp nhất lúc tán con cái ... hoặc lúc đọ sức với con đực khác\" overlaps the page, which already says males colour up best with females to show off and with rival males.",
+        "[behaviour] The territory point (\"giữ một góc khuất riêng ở tầng dưới\") is the only new fact, and it sits next to the page's \"tầng giữa đến tầng đáy\" line. It is a mild, unflagged overlap."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/sawbwa-resplendens#8D2Wn53DSsg": [
+    {
+      "at": "2026-11-06T16:41:58Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "[notes] 'cá không hẳn trụi vảy. Chúng vẫn có một lớp vảy' – the video says only a very weak scaly covering; 'không hẳn trụi vảy' is framed as a correction, and 'Vì vậy người ta mới đặt tên' is roughly said, but the page already says 'không có vảy', so this contradicts the page without clearly saying it is the video's difference.",
+        "[notes] Etymology of Sawbwa/resplendens is fine, but 'rất hợp với những con đực lên màu đẹp' is ok; the contradiction with page on scales is not flagged as video vs page.",
+        "[aquariumSize] 'rộng hơn hẳn mức tối thiểu hay được khuyên' – video does not say it compares with other recommendations; the page's 60 cm tank (54 L) vs 80 L difference is not stated plainly as video differing from page.",
+        "[aquariumSize] 'Một người đã nuôi loài này một thời gian' is acceptable as one keeper, but 'bể nano quá chật' and 'bể nên có' lean toward a rule.",
+        "[diet] 'Ngoài Daphnia và Artemia' – Daphnia and Artemia are already on the page; cyclops, mosquito larvae and small frozen foods are fine, but 'frozen very small' partly overlaps page's 'thức ăn sống và đông lạnh cỡ nhỏ'.",
+        "[diet] 'cyclops (một loại giáp xác nhỏ)' – the explanation is not from the video; 'lăng quăng' is a translation-ish choice for mosquito larvae.",
+        "[habitat] UNESCO figures (43 species, 16 endemic) conflict with the page's 'chín loài cá' endemic, but the difference is not flagged as the video's differing claim.",
+        "Missing: the video's 18–22°C/pH 6–8 matches the page (not repeated, good), but the video's 'không giữ bể quá ấm' is not used; no major omissions penalised."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T16:41:58Z",
+      "model": "sonnet",
+      "score": 0.35,
+      "notes": [
+        "\"thấy cá vẫn có vảy\" – the video never says the keeper saw scales; it says the scale covering is very weak and gives the names 'naked minnow'. The claim is invented and contradicts the page, which says the fish has no scales.",
+        "\"Lớp vảy chỉ rất mỏng và yếu\" – the video says 'very weak scaly covering', but this is attributed to the keeper's observation. It is the video's general statement, not the keeper's experience.",
+        "\"thường chỉ dài 3–3,5 cm\" – the page already says sizeCm 3.5 and gives a different maximum of 4–5 cm. The video's 3–3.5 cm is an agreement with other sources, not a keeper's own observation. The NEW text does not say plainly that it differs from the page's 4–5 cm.",
+        "\"nhiều hơn con số chín loài thường được nêu\" – the video never mentions nine species. This is a comparison with the page that the video does not make. The 16 endemic species figure also covers all endemics, not just fish, so the comparison is shaky.",
+        "\"Một người đã nuôi loài này một thời gian khuyên dùng bể từ 80 lít trở lên\" – the 80 L is a recommendation from the video. It differs from the page's 60 cm (54 L) minimum, but NEW does not say so. The wording is vague and reads like a translation.",
+        "[notes] \"thân ánh xanh kim loại pha bạc … Mũi chúng đỏ rực, còn chóp vây đuôi đỏ hoặc đỏ cam\" – the red head and red tail-fin spots are already on the page under dimorphism. The video's 'red snout' is a slight variation, but it mostly repeats the page.",
+        "[diet] \"Ngoài Daphnia và Artemia\" – the page already lists Daphnia and Artemia, but the added cyclops, mosquito larvae and tiny frozen foods are supported. This part is fine.",
+        "Missing: the video's temperature advice of 18–22 °C and pH 6–8 is already on the page, so omitting it is correct. The video's 'tank not too warm' point is also already on the page."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T16:40:03Z",
+      "model": "sonnet",
+      "score": 0.62,
+      "notes": [
+        "[notes] \"Sawbwa barb\" and \"naked rasbora\" are said in the video, but the page already lists similar names, so this is partly repeated.",
+        "[notes] \"Chuyện vảy thì có người mô tả khác. Ở trên ghi cá không có vảy\" - the comparison with the page is fine, but \"có người mô tả\" is vague and reads awkwardly; it is not written as one keeper's own view.",
+        "[notes] \"Những cái tên có chữ 'naked' bắt nguồn từ đặc điểm này\" - the video says this, but the page already links 'naked' to the missing scales, so it adds little.",
+        "[habitat] \"Con số này khác với con số chín loài cá đặc hữu ghi ở trên\" - the page says nine endemic fish; the video's 16 comes from UNESCO. The contrast is stated, but 'ghi ở trên' phrasing is meta and translation-like.",
+        "[aquariumSize] \"Một người đã nuôi loài này một thời gian\" - the video says 'at least 80 litres' as the speaker's recommendation; 'phải từ 80 lít trở lên' turns it into a firm rule, and 'chứ không phải khoảng 54 lít' is added by the writer.",
+        "[aquariumSize] The 80 L advice is reported as 'theo người này' once, but 'cần bể lớn hơn mức ghi ở trên' stays stiff and translation-like.",
+        "[diet] \"cyclops và lăng quăng\" - the video does list cyclops and small mosquito larvae, so this is OK. The page already lists Daphnia and Artemia, and 'lăng quăng' is a regional word.",
+        "Missing: the video's 3–3.5 cm size differs from the page's 4–5 cm maximum, and the writer didn't note it."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T16:40:03Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "\"Thật ra cá không hẳn trần trụi. Thân cá vẫn có vảy\" contradicts the page, which says the fish has no scales; the video only says the scale covering is very weak. The difference from the page is not stated plainly.",
+        "\"naked minnow\" and \"Asian rummynose\" overlap with names already on the page. \"naked rasbora\" is not on the page, so that one is fine.",
+        "\"Ngoài các tên đã kể\" refers to names listed elsewhere; this is awkward and presents the video's list as new information.",
+        "\"Một người nuôi loài này đã lâu khuyên… bể nên có thể tích từ 80 lít trở lên\" differs from the page (60 cm tank, about 54 L) but never says so. The video says 80 L minimum; the writer should have stated the difference plainly.",
+        "\"Con cái có màu bạc ánh ô liu\" is close to the video's \"silver-olive\", but the page already says the female is olive to light brown. This is partly redundant.",
+        "\"Chóp vây đuôi con đực có màu đỏ tươi hoặc đỏ cam\" largely repeats the page's red caudal spots and red lobes. It adds little that is new.",
+        "\"cyclops, ấu trùng muỗi cỡ nhỏ\" is supported by the video. \"Ngoài Daphnia và Artemia\" is fine, but the page already lists small frozen foods.",
+        "The 43 species and 16 endemic figures come from the video. The page says nine endemic fish, so the conflict is not flagged. \"Hiện có… theo số liệu của UNESCO\" is attributed correctly."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T16:37:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "[notes] \"Trang này ghi loài không có vảy. Có người nuôi lại mô tả khác...\" refers to the page itself and sets up a contradiction; awkward meta-commentary, not a hobbyist's natural writing.",
+        "[distribution] \"Con số này cao hơn mức chín loài cá đặc hữu mà trang đang ghi\" is a comparison with the page, not a video statement. The video also doesn't give nine, and 16 endemic species is all species, not only fish on the page's count.",
+        "[notes] \"Có người nuôi lại mô tả khác\" presents the video keeper as 'some keeper'; it hedges and is an odd framing of a single keeper's view.",
+        "[notes] Common names 'naked rasbora', 'naked minnow' and 'Sawbwa barb' are in the video, but 'Ngoài các tên thương mại quen thuộc' is vague. The page already has 'naked microrasbora' and the 'naked' meaning.",
+        "[dimorphism] \"Có người nuôi tả thân con đực ánh kim xanh lam pha bạc\" duplicates what the page already says (male blue sheen, female olive/beige). It adds little that is new.",
+        "[diet] The cyclops gloss \"giáp xác chân chèo cỡ nhỏ\" is not in the video. \"ấu trùng muỗi cỡ nhỏ\" is fine.",
+        "[dimorphism] \"con cái màu bạc ánh ô liu\" is OK (silver-olive), but 'Có người nuôi tả' is unneeded attribution of a shared observation."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T16:37:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "[aquariumSize] \"Một người nuôi loài này khá lâu\" / \"người này khuyên\" / \"Theo họ\" – refers to the video's keeper as a person; talks about the video's maker and presents one keeper's advice",
+        "[aquariumSize] \"ít nhất 80 lít\" is one keeper's recommendation; framing as comparison against page figure (54 L) is a contrast with the page, not a neutral fact",
+        "[aquariumSize] \"đừng nuôi trong bể nano quá chật\" is one keeper's opinion given as advice",
+        "[notes] Meaning of genus name (Burmese title prince/chief) and resplendens Latin 'shining' — fine in video, but 'hoàng thân hay thủ lĩnh' is OK; no problem except stylistic",
+        "[diet] \"Ngoài Daphnia và Artemia\" – cyclops and mosquito larvae are in video, but 'lăng quăng (bọ gậy)' is a loose rendering of 'small mosquito larvae'",
+        "[dimorphism] \"xanh lam pha bạc\" ok; but \"Đực và cái khác nhau rõ đến mức... hai loài\" repeats page's already stated strong dimorphism (page says male and female look very different)",
+        "[dimorphism] \"Mút vây đuôi ... đỏ tươi hoặc đỏ cam\" largely duplicates page's red caudal spots on males, little new"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/sphaerichthys-vaillanti#2RrQVvB-jG0": [
+    {
+      "at": "2026-11-08T23:57:04Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "[notes] '6–7 cm, tức là to hơn cỡ ghi trong bảng dữ liệu' is fine as a difference (page says 5.5), but framed as 'một người nuôi thấy cá trong bể của mình lớn tới' - video states 6-7 cm as the species' size, not one keeper's tank observation.",
+        "[diet] 'như vài loài sặc khác' - video says 'some other gourami species'; wording okay but 'sặc' is looser than gourami.",
+        "[diet] 'Loài này ăn chậm... ' stated as a rule; video presents it as 'we've noticed', one keeper's experience, not attributed as such.",
+        "[behaviour] 'Những con yếu thế bị đuổi có thể nhạt màu hẳn đi vì stress, như để tránh bị chú ý' - video says harassed individuals may turn pale from stress to avoid attention; the 'như để' phrasing is slightly interpretive.",
+        "[behaviour] 'Chúng giành chỗ với nhau khá gắt nhưng không gây sự với các loài khác' stated as a species rule; video gives it as 'we've observed' from one keeper.",
+        "[behaviour] 'Con cái đầu đàn cũng hay lấn át cả con đực đầu đàn' stated as a general rule, but video says 'often' from the keeper's observation; not framed as one keeper's.",
+        "[behaviour] 'cá chì' is an odd rendering of Pencilfish; the claim that tetras were kept 'mà không gặp chuyện gì' and the contrast with the page's tetra warning is added by the writer; video only says calm tankmates like Pencilfish and Tetras are easy to house.",
+        "[behaviour] The 'pair vs 6+ group' contrast is stated plainly, which is OK, but the video's reason is harmony from territorial harassment, not simply 'bể yên ổn hơn' by one person's experience."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T23:57:04Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "[behaviour] 'chỉ nuôi một cặp chứ không nuôi theo nhóm' contradicts the page, which says to keep at least 6 in a group. NEW never says plainly that the video differs from the page.",
+        "[behaviour] 'nuôi chung dễ với ... cá chì và tetra' contradicts the page, which says to avoid fast tetras and rasbora. The conflict isn't flagged. 'cá chì' is also an odd name for pencilfish.",
+        "[behaviour] 'Một cặp đực cái đầu đàn sẽ đuổi những con yếu thế hơn' repeats the page's existing point that dominant fish chase rivals and form a hierarchy.",
+        "[behaviour] The advice to keep a pair is written as a firm recommendation ('khuyên chỉ nuôi một cặp') after a general claim, and could read as a rule instead of one keeper's experience.",
+        "[notes] 'lớn tới 6–7 cm' differs from the page's sizeCm of 5.5. NEW doesn't say it differs or how.",
+        "[notes] 'bể nano cỡ lớn là vừa với chúng' conflicts with the page's minimum of 75 L (about 54 L for a 60×30 base). The difference isn't flagged. The sentence is also placed under [notes], where it doesn't fit.",
+        "[diet] 'Cá hơi kén' repeats the page's existing statement that the fish are somewhat picky."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/steatocranus-casuarius": [
+    {
+      "at": "2026-11-09T18:00:07Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"Điểm đáng chú ý nhất nằm bên trong\" is an editorial emphasis. The facts don't rank the swim bladder as the most notable feature.",
+        "\"cỡ tối thiểu cho một cặp có thể chênh tới gấp đôi\" is the page's own inference from the 20-gallon and 40-gallon figures. The facts don't state it.",
+        "The gallon figures are converted to litres (about 75, 150, 190 and 285 L). The conversions are approximate but acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T18:00:07Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"một hồ sơ khác cho đực khoảng 15 cm và cái khoảng 10 cm\" – facts say 6 inches (~15 cm) and 4 inches (~10 cm); this is a conversion, so supported (not an error).",
+        "\"có nguồn nói bể khoảng 75 lít là vừa\" – facts say a 20-gallon tank suits a pair; 20 gallons is about 75 litres, so this is a conversion and supported.",
+        "\"150 lít\" and \"190 lít\" and \"285 lít\" – these are conversions of 40, 50 and 75 gallons, so they are supported.",
+        "\"cichlid nhỏ 8–10 cm\" – this is 3–4 inches converted, so it is supported.",
+        "\"Nhà của nó là những ghềnh đá ... nơi đáy đầy đá tảng\" – supported by the facts, so it is fine.",
+        "\"nhiều nguồn trong giới nuôi cá gọi nó là cá cực dữ\" – the facts only say 'hobby sources often call it', so this is roughly supported.",
+        "\"Một nguồn khác cho rằng nước ổn định quan trọng hơn con số chính xác\" – supported.",
+        "\"Đực đạt khoảng 12 cm\" and \"độ khó\" – no difficulty claim is made in the page, so there is no issue.",
+        "\"Con đực ... dài hơn, màu sẫm hơn\" – supported.",
+        "Overall the page is mostly faithful; the main risk is the unit conversions, which are allowed. No clear invented claims were found, but some details are slightly embellished, such as \"đàn cá bơi ngoài để cặp cá bớt nhát\" (the explanation of dither fish is not in the facts) and \"set bể\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/sundadanio-axelrodi#0jDtVBHz9WU": [
+    {
+      "at": "2026-11-08T18:05:57Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "[notes] 'Nửa thân trên ... ánh xanh lam óng ánh, ... phần giữa và phần dưới thân có màu đỏ sẫm' - the video says this, but it is not flagged as differing from the page; page lists color forms (red/green/blue) and the video describes only one.",
+        "[behaviour] 'thấy đàn từ sáu con trở lên là đủ' - the video says the recommended amount is at least six, as a general recommendation, not one keeper's experience; framing it as a keeper's finding misattributes it.",
+        "[behaviour] 'ít hơn hẳn mức 20–30 con' - the video differs from the page (at least 6 vs 20–30), which is fine to note, but the phrasing is clumsy and blurs whose advice it is.",
+        "[waterConditions] 'cá trại cho đẻ ngay trong vùng mình ở' - the video only says locally bred fish accept harder water; 'ngay trong vùng mình ở' adds a detail not said, and 'hơi cứng' is vague.",
+        "[waterConditions] 'Cá thích nước mềm và có tính axit' - already on the page (pH 4–6.5, gh 0–5), so it repeats existing content.",
+        "[diet] 'Khâu cho ăn là lý do chính khiến loài này không hợp người mới chơi' - the video says this, but it omits the specifics (prefers live food, slow to take dry food), so it is vague; the page also covers the fussy-eating point.",
+        "[beforeYouBuy] 'Loài này không phổ biến lắm' and the neon comparison are in the video, but the sentence is stiff and translation-like."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T18:05:57Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "[notes] \"Dạng xanh lam có nửa thân trên ánh xanh óng ánh...\": the video describes the species in general, not a 'blue form'; it is attributed to a specific colour form wrongly.",
+        "[beforeYouBuy] \"cá neon vua\": the video says neon or cardinal tetras; 'cá neon vua' is a questionable rendering of cardinal.",
+        "[beforeYouBuy] \"lúc đầu cá thường chỉ chịu ăn đồ tươi sống\": the video says they prefer live foods and may be harder to get onto dry food, not that they only eat live food at first. This is overstated, and the page's diet section already covers it.",
+        "[beforeYouBuy] \"Loài này ít gặp hơn\" / \"Đây là lựa chọn hợp cho người làm bố cục\": the video says 'not so common' and good for aquascapers, so this is fine. But \"Nó không dành cho người mới chơi, nhưng cũng không quá khó nuôi\" overlaps the page's difficulty rating.",
+        "[waterConditions] \"Cá trại cho đẻ tại chỗ có thể chịu được nước cứng hơn\": the video says locally bred fish accept harder water. The wording 'cho đẻ tại chỗ' is awkward and reads as a translation.",
+        "[diet] \"có thể tập cho ăn cám viên cỡ nhỏ hoặc thức ăn dạng mảnh\": the video does say micro pellets or flakes. But the page already says fish may get used to dry food, so this is partly redundant.",
+        "[behaviour] \"Cá bơi rất năng động\": the video says this, but the page lacks it. \"thấy đàn từ sáu con trở lên là được\" contradicts the page's 20-30 fish and turns the video's 'at least six' into one keeper's view without saying how it differs from the page.",
+        "[behaviour] \"Người này thả chúng chung với tép trong bể nano\": this is the video maker's own experience, and it is given in a stilted third-person way ('Người này') that reads as a translation."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/yasuhikotakia-splendida#_cxoAr6O5AQ": [
+    {
+      "at": "2026-11-08T03:01:03Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "[notes] \"cá heo sọc lưng (skunk botia, Y. morleti)\": the video only says \"skunk botia\" and doesn't name Y. morleti. It also doesn't say \"sọc lưng\". The page's Y. morleti entry says the species has a transverse dark stripe across the back, which doesn't match the video's skunk botia comparison.",
+        "[notes] \"màu xanh bạc... ánh vàng ngả xanh lục\": the page doesn't give this body colour. The video does say silvery-blue with a greenish-gold sheen, so it is supported. But \"lớn con hơn và màu sắc sặc sỡ hơn hẳn\" is the video's comparison with the skunk botia, and it is not flagged as one source's view.",
+        "[behaviour] \"Một người nuôi loài này lại thấy cá khá hiếu động và hay gây sự\": the video presents this as a general statement, not as one keeper's experience. The wording attributes it to a keeper who isn't in the video.",
+        "[behaviour] The keeper attribution contradicts the page, which says keepers find it milder than some congeners. The text doesn't plainly say where the video differs from the page. It says \"hơi nhút nhát hơn\" than other botias, but the video says \"somewhat shy\" for hiding places, so that is a loose paraphrase.",
+        "[behaviour] \"Có vẻ âm thanh là một cách để chúng giao tiếp\": this is supported. The sentence \"Người ta cho rằng...\" is also fine. But the behaviour section doesn't mention group size or the aggression spread in larger groups, and that is not a problem here.",
+        "[diet] \"Thức ăn khô... viên chìm, hạt nhỏ hoặc viên tảo dẹt\": the page already gives dry food and varied diet, and the video's list adds little. \"hạt nhỏ\" for granules is a loose translation, and the \"(algae wafer)\" parenthetical reads as translated."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T03:01:03Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "\"Có một mô tả khác về tính khí của loài này\" – video differs from page (page says hiền hơn), but this wording doesn't state the contrast plainly; it reads as a translated framing.",
+        "\"So với các loài botia khác, splendida hơi nhút nhát\" – the video says this, but the page's claim that the species is gentler is not clearly contrasted; also \"Vì vậy bể cần nhiều chỗ che chắn và chỗ trốn\" repeats the page's maintenance advice about hiding places/structure.",
+        "\"Nuôi đàn đông thì sự hung hăng được chia đều\" – the video's group-size point (5+ and larger groups) is already on the page (hierarchy, group size); only partially new and the hierarchy is on page.",
+        "\"Bạn cũng có thể nuôi chung với các loài cá heo hiếu động khác\" – tank mate advice (other rowdy loaches) overlaps the page's tank-mate list; the page says Botia/Syncrossus are fine.",
+        "\"Thân cá màu xanh bạc, dọc lưng ánh lên sắc vàng xanh\" – fine, but \"lớn hơn và màu sắc rực rỡ hơn nhiều\" omits that this compares with the skunk botia only in the video's terms; \"nhiều\" overstates (\"far more colorful\" ok) — minor.",
+        "\"Thức ăn khô dùng được ở dạng viên chìm, cám hạt hoặc viên tảo dạng bánh\" – page already lists dry food; the specific forms are new but \"cám hạt\" and \"dạng bánh\" read as translation (granules/wafers).",
+        "\"nghiến gai dưới ổ mắt hoặc răng hầu\" – fine factually, but \"tập tính này gần như chưa ai nghiên cứu\" is stated as a general fact; wording is stiff and translated-sounding.",
+        "The video's assertive aggression claim (\"hung hăng\") directly contradicts the page's \"hiền hơn\", yet NEW does not say it contradicts the page."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ]
+}

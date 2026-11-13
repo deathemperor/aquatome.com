@@ -6,8 +6,7 @@
   "File:Oniria - Poisson 42.jpg"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/d4c468b999b6a872.webp": "9f27ab25b35613ae",
-  "https://media.aquatome.com/commons/e54573426b01c23f.webp": "1b4f0f0f0f072733"
+  "https://media.aquatome.com/commons/d4c468b999b6a872.webp": "9f27ab25b35613ae"
  },
  "inat": {
   "taxon": 623750,
@@ -17,5 +16,9 @@
    "agree": 106334896
   }
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "gbif": {
+  "key": 9285139,
+  "next": null
+ }
 }

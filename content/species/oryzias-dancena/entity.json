@@ -20,6 +20,239 @@
     "malaysia",
     "penang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "LK",
+        "BD",
+        "MM",
+        "TH",
+        "MY"
+      ],
+      "regions": [
+        "Hooghly River",
+        "Malay Peninsula"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Indian ricefish, Oryzias dancena, is widely distributed through eastern and southern India, Sri Lanka, Bangladesh and Myanmar.",
+          "countries": [
+            "IN",
+            "LK",
+            "BD",
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There also exist records from the western slope of the Malay Peninsula including Ranong province in southern (Peninsular) Thailand and Penang state, northern Peninsular Malaysia.",
+          "countries": [
+            "TH",
+            "MY"
+          ],
+          "regions": [
+            "Malay Peninsula"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from 'the estuary below Calcutta', which presumably refers to the mouth of the Hooghly River south of Kolkata, West Bengal state, eastern India.",
+          "countries": [],
+          "regions": [
+            "Hooghly River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368418,
+      "total": 58,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "IN",
+          26
+        ],
+        [
+          "LK",
+          9
+        ],
+        [
+          "TH",
+          9
+        ],
+        [
+          "MM",
+          6
+        ],
+        [
+          "JP",
+          4
+        ],
+        [
+          "BD",
+          3
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          71.71875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          73.125,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          11.25,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          78.75,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          78.75,
+          8.4375,
+          5,
+          5
+        ],
+        [
+          78.75,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          78.75,
+          11.25,
+          1,
+          1
+        ],
+        [
+          78.75,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          81.5625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          16.875,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          21.09375,
+          4,
+          4
+        ],
+        [
+          88.59375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          9,
+          9
+        ],
+        [
+          91.40625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          95.625,
+          15.46875,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          12.65625,
+          9,
+          9
+        ],
+        [
+          136.40625,
+          36.5625,
+          4,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -83,12 +316,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-dancena",
       "html": "<p>The Indian ricefish, Oryzias dancena, is widely distributed through eastern and southern India, Sri Lanka, Bangladesh and Myanmar. Mostly coastal but adaptable, it has been collected from strongly brackish mangrove swamps to acidic freshwater forest streams. It continues to be misidentified as O. melastigma, a name most recent workers consider invalid, or as O. javanicus, a valid but distinct taxon.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_dancena_en/",
-      "html": "<p>Our O. dancena originate from the area around Calcutta in India, where they live along with such popular fish species as the zebra fish (Danio rerio) and the dwarf gourami (Colisa lalia).</p>"
     },
     {
       "key": "distribution",
@@ -163,7 +390,23 @@
       "html": "<ul><li>Herder, F. and S. Chapuis (2010). Oryzias hadiatyae, a new species of ricefish (Atherinomorpha: Belonifornes: Adrianichthyidae) endemic to Lake Masapi, Central Sulawesi, Indonesia. The Raffles Bulletin of Zoology 58(2), 269-280</li><li>Magtoon, W. (2010). Oryzias songkhramensis, a new species of ricefish (Beloniformes; Adrianichthyidae) from northeast Thailand and central Laos. Tropical Natural History 10(1), 107-129</li><li>Magtoon, W. and A. Termvidchakorn (2009). A Revised Taxonomic Account of Ricefish Oryzias (Beloniformes; Adrianichthyidae), in Thailand, Indonesia and Japan. The Natural History Journal of Chulalongkorn University 9(1), 35-68</li><li>Parenti, L. R. (2008). A phylogenetic analysis and taxonomic revision of ricefishes, Oryzias and relatives (Beloniformes, Adrianichthyidae). Zoological Journal of the Linnean Society 154(3), 494-610</li><li>Parenti, L. R. and B. Soeroto (2004). Adrianichthys roseni and Oryzias nebulosus, two new ricefishes (Atherinomorpha: Beloniformes: Adrianichthyidae) from Lake Poso, Sulawesi, Indonesia. Ichthyological Research 51(1), 10-19</li><li>Parenti, L. R. and R. K. Hadiaty (2010). A new, remarkably colorful, small ricefish of the genus Oryzias (Beloniformes, Adrianichthyidae) from Sulawesi, Indonesia. Copeia 2010 (2), 268-273</li><li>Roberts, T. R. (1998). Systematic observations on tropical Asian medakas or ricefishes of the genus Oryzias, with descriptions of four new species. Ichthyological Research 45(3), 213-224</li><li>Rosen, D. E. and L. R. Parenti (1981). Relationships of Oryzias, and the groups of atherinomorph fishes. American Museum Novitates 2719, 1–25</li><li>Takehana, Y., K. Naruse K and M. Sakaizumi (2005). Molecular phylogeny of the medaka fishes genus Oryzias (Beloniformes: Adrianichthyidae) based on nuclear and mitochondrial DNA sequences. Molecular Phylogenetics and Evolution 36(2), 417–428</li><li>Uwa, H. and L. Parenti (1988). Morphometric and meristic variation in ricefishes, genus Oryzias: a comparison with cytogenetic data. Japanese Journal of Ichthyology 35(2), 159-166</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/304682978.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/304682978-480.webp",
+      "width": 1024,
+      "height": 1023,
+      "licence": "CC BY",
+      "author": "Paulmathi Vinod",
+      "sourceUrl": "https://www.inaturalist.org/photos/304682978",
+      "caption": "Nhóm cá lúa Ấn Độ bơi trong bể thủy sinh",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/304682978-large.webp",
+        "width": 1201,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "rthTmPSc7CM",
@@ -194,8 +437,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 40cm",
-        "bể cá mini"
+        "bể cá 50cm"
       ]
     },
     {

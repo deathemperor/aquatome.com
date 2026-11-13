@@ -12,6 +12,104 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Borneo, where it is known from the Malaysian states of Sarawak and Sabah, plus the Indonesian provinces East Kalimantan (Kalimantan Timur) and North Kalimantan (Kalimantan Utara).",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367362,
+      "total": 67,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MY",
+          66
+        ],
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          112.5,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          112.5,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          113.90625,
+          2.8125,
+          15,
+          15
+        ],
+        [
+          115.3125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          116.71875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          4.21875,
+          17,
+          17
+        ],
+        [
+          116.71875,
+          5.625,
+          9,
+          9
+        ],
+        [
+          118.125,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          118.125,
+          5.625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -22,7 +120,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 4
       }
     ]
   },
@@ -76,19 +174,7 @@
       "html": "<ul><li>Boulenger, G. A. (1894). Descriptions of new freshwater fishes from Borneo. Annals and Magazine of Natural History (Series 6) v. 13 (no. 75), 245-251</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Martin-Smith, K. M. and H. H. Tan (1998). Diversity of freshwater fishes from eastern Sabah: annotated checklist for Danum Valley and a consideration of inter- and intra-catchment variability. Raffles Bulletin of Zoology 46(2), 573-604</li><li>Riehl, R. and H.A. Baensch (1997). Aquarium Atlas. Volume 1, 6th Edition. Microcosm, 1-992</li><li>Inger, R. F. and P. K. Chin (1962). The fresh-water fishes of North Borneo. Fieldiana Zoology v.45, 1-268</li></ul>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/9847b2f145e542ff.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/9847b2f145e542ff-480.webp",
-      "width": 800,
-      "height": 533,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-everetti",
-      "caption": "The Brantian River in eastern Sabah state, Malaysian Borneo, is a natural habitat of this species.",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

@@ -11,12 +11,17 @@ import WebKit
 struct PageView: View {
   let item: HandbookIndex.Item
   let url: URL
+  /// A part to open the page at (NativePage.at).
+  var at: String?
   @Environment(TanksModel.self) private var tanks
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
+  @Environment(ChatStore.self) private var chat
   @State private var offline = false
   @State private var failed = false
   @State private var putting = false
+  /// The tank to open once the put sheet has closed.
+  @State private var openAfter: String?
   /// The page as the app draws it, once looked for (`tried`); the web page when there's none or the reader asks for it.
   @State private var pieces: [NativePage.Piece]?
   @State private var tried = false
@@ -29,16 +34,30 @@ struct PageView: View {
   }()
 
   var body: some View {
+    // A taxon or origin page: the app's shelf of the fish it lists (HandbookShelves.page(at:)); the web page if the
+    // index no longer has it.
+    if item.kind == .taxon || item.kind == .origin, let shelf = handbook.shelves.page(at: item.path) {
+      TaxaShelf(page: shelf)
+    } else {
+      page
+    }
+  }
+
+  @ViewBuilder private var page: some View {
     let native = handbook.drawsItself(item) && !onWeb
     Group {
       if native, let pieces {
-        NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, web: { onWeb = true },
-                   nameInView: { nameInView = $0 })
+        NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, ask: chat.on ? ChatRoute(about: item) : nil,
+                   web: { onWeb = true }, nameInView: { nameInView = $0 }, path: item.path, at: at, stillPhoto: item.img)
       } else if native && !tried {
-        ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
+        // Its photo and name while the page is read: a card zoomed into a screen with only a spinner on it, black in dark mode.
+        NativePage(pieces: NativePage.head(item), web: {})
+          .overlay(alignment: .bottom) { LateSpinner().padding(.bottom, 64) }
+          // Not the page's own id, which says the page has come: an outer id wins.
+          .accessibilityIdentifier("page-head")
       } else {
         // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
-        WebPage(url: url, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
+        WebPage(url: url, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
           // On the page alone: on the whole screen, it would take the place of the facts' own (an outer id wins).
           .accessibilityIdentifier("page")
           .ignoresSafeArea(edges: .bottom)
@@ -51,6 +70,7 @@ struct PageView: View {
         pieces = await handbook.doc(item).map { NativePage.pieces($0, traits: traits) }
         tried = true
       }
+      .modifier(ClearUnderTopBar(shown: true))
       .navigationTitle(item.name)
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
@@ -72,7 +92,7 @@ struct PageView: View {
               .disabled(!tanks.canEdit).accessibilityIdentifier("put-on-tank")
           }
           // Saved to read later, on this phone (the Tìm tab lists them).
-          let saved = handbook.reading.isSaved(item.path)
+          let saved = handbook.isSaved(item)
           Button { handbook.toggleSaved(item) } label: {
             Label(saved ? "Bỏ lưu" : "Lưu để đọc sau", systemImage: saved ? "bookmark.fill" : "bookmark")
           }
@@ -95,7 +115,12 @@ struct PageView: View {
         .background(.bar)
       }
       .onAppear { handbook.read(item) }
-      .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
+      .ownerShows(item.path, as: "\(item.kind.rawValue) page")
+      .sheet(isPresented: $putting, onDismiss: {
+        if let id = openAfter { openAfter = nil; openScreen(.tanks(id)) }
+      }) {
+        if let life = Life(item) { NavigationStack { PutOnTank(life: life, open: { openAfter = $0; putting = false }) } }
+      }
   }
 
   /// The page the app draws has a place for putting the fish or plant on a tank, under its name (`.facts`).
@@ -118,13 +143,14 @@ struct PageView: View {
 /// as a tool set to a fish): the web page, kept for offline as any is.
 struct WebScreen: View {
   let url: URL
+  @Environment(HandbookModel.self) private var handbook
   @Environment(TanksModel.self) private var tanks
   @Environment(\.openScreen) private var openScreen
   @State private var offline = false
   @State private var failed = false
 
   var body: some View {
-    WebPage(url: url, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
+    WebPage(url: url, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
       .accessibilityIdentifier("page")
       .ignoresSafeArea(edges: .bottom)
       .navigationBarTitleDisplayMode(.inline)
@@ -139,11 +165,14 @@ struct WebScreen: View {
             .accessibilityIdentifier("page-status")
         }
       }
+    .ownerScreen("web page", path: url.host == handbook.site.host ? url.path : nil)
   }
 }
 
 private struct WebPage: UIViewRepresentable {
   let url: URL
+  /// The index's language, for a link to a tool whose state names its pages (AppScreen.of).
+  let lang: String
   @Binding var offline: Bool
   @Binding var failed: Bool
   /// The app's tanks as JSON for the pages (nil: none to hand them), and what to do with a page's.
@@ -164,6 +193,8 @@ private struct WebPage: UIViewRepresentable {
     config.userContentController.add(WeakHandler(context.coordinator), name: PageBridge.handler)
     context.coordinator.bridge(config.userContentController)
     let web = WKWebView(frame: .zero, configuration: config)
+    // The app's own band stands behind the title (ClearUnderTopBar on the page), as on its other screens.
+    if #available(iOS 26.0, *) { web.scrollView.topEdgeEffect.isHidden = true }
     web.navigationDelegate = context.coordinator
     web.allowsBackForwardNavigationGestures = true
     // Ads stay out of the app: AdSense isn't allowed in an app's web view that isn't registered with Google.
@@ -236,7 +267,7 @@ private struct WebPage: UIViewRepresentable {
       case .app:
         // A tapped link to "Bể của tôi" (the tools' "Xem trong Bể của tôi →" after a save) or the Chihiros page: the app's
         // own tab. Only a tap: the page's first load, back and reload stay as they are.
-        if action.targetFrame?.isMainFrame == true, action.navigationType == .linkActivated, let screen = AppScreen.of(u, site: page.url) {
+        if action.targetFrame?.isMainFrame == true, action.navigationType == .linkActivated, let screen = AppScreen.of(u, site: page.url, lang: page.lang) {
           page.open(screen)
           return .cancel
         }
@@ -263,8 +294,9 @@ private struct WebPage: UIViewRepresentable {
       // The stand-in isn't the page: not kept as its offline copy, which would outlast the test run.
       if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") { return }
       #endif
+      let file = PageStore.file(for: u, site: page.url)
       web.createWebArchiveData { result in
-        if case .success(let data) = result { try? data.write(to: PageStore.file(for: u), options: .atomic) }
+        if case .success(let data) = result { try? data.write(to: file, options: .atomic) }
       }
     }
 
@@ -272,7 +304,7 @@ private struct WebPage: UIViewRepresentable {
       // Another load took its place (the reader tapped on, or went back): nothing failed.
       if isInterruption(error) { return }
       let u = (error as NSError).userInfo[NSURLErrorFailingURLErrorKey] as? URL ?? page.url
-      if let data = try? Data(contentsOf: PageStore.file(for: u)) {
+      if let data = try? Data(contentsOf: PageStore.file(for: u, site: page.url)) {
         page.offline = true
         archive = web.load(data, mimeType: "application/x-webarchive", characterEncodingName: "utf-8", baseURL: u)
       } else {
@@ -284,10 +316,13 @@ private struct WebPage: UIViewRepresentable {
 
 /// Pages kept for offline reading, one web archive per address, in the caches folder (the system may clear it).
 enum PageStore {
-  static func file(for url: URL) -> URL {
+  /// A Vietnamese page's archive is named by its address under "/vi/" whichever form it's opened in (PathForm), as the
+  /// archives kept before the site moved those pages are: a page opened at one, or sent from one to the other, finds
+  /// its archive at the other.
+  static func file(for url: URL, site: URL) -> URL {
     let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("pages", isDirectory: true)
     try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
-    let key = SHA256.hash(data: Data(url.absoluteString.utf8)).map { String(format: "%02x", $0) }.joined()
+    let key = SHA256.hash(data: Data(PathForm.underVi.url(url, site: site).absoluteString.utf8)).map { String(format: "%02x", $0) }.joined()
     return dir.appendingPathComponent("\(key).webarchive")
   }
 }
@@ -298,6 +333,18 @@ private final class WeakHandler: NSObject, WKScriptMessageHandler {
   init(_ target: WKScriptMessageHandler) { self.target = target }
   func userContentController(_ content: WKUserContentController, didReceive message: WKScriptMessage) {
     target?.userContentController(content, didReceive: message)
+  }
+}
+
+/// A spinner for a wait long enough to need one: most pages come sooner, and one shown for a moment only flickers.
+private struct LateSpinner: View {
+  @State private var shown = false
+  var body: some View {
+    ProgressView().opacity(shown ? 1 : 0)
+      .task {
+        try? await Task.sleep(for: .milliseconds(700))
+        shown = true
+      }
   }
 }
 

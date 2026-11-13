@@ -10,6 +10,72 @@
     "taiwan",
     "china"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW",
+        "CN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Taiwan, Southern China.",
+          "countries": [
+            "TW",
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2360854,
+      "total": 2194,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "TW",
+          2194
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          21.09375,
+          15,
+          15
+        ],
+        [
+          119.53125,
+          22.5,
+          938,
+          938
+        ],
+        [
+          119.53125,
+          23.90625,
+          376,
+          376
+        ],
+        [
+          120.9375,
+          22.5,
+          189,
+          189
+        ],
+        [
+          120.9375,
+          23.90625,
+          676,
+          676
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {
@@ -19,7 +85,23 @@
       "html": "<p>Origin: Taiwan, Southern China.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/9599a86bdaa59fb3.webp",
+      "thumb": "https://media.aquatome.com/commons/9599a86bdaa59fb3-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "如此甚好",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Candidia_barbata_-_%E5%A6%82%E6%AD%A4%E7%94%9A%E5%A5%BD_-_591233315.jpeg",
+      "caption": "Cá Candidia barbata đực mõm đỏ trong bể chụp ảnh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/9599a86bdaa59fb3-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

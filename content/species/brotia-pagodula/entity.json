@@ -1,0 +1,328 @@
+{
+  "id": "brotia-pagodula",
+  "scientificName": "Brotia pagodula",
+  "order": "",
+  "family": "Pachychilidae",
+  "genus": "Brotia",
+  "group": "snails",
+  "places": [
+    "asia",
+    "thailand",
+    "thoungyin-river",
+    "myanmar",
+    "moei"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MM"
+      ],
+      "regions": [
+        "Thoungyin River",
+        "Moei",
+        "Salween River"
+      ],
+      "sources": [
+        "aquariumbreeder",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Brotia pagodula is restricted to the Thoungyin River in Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Thoungyin River"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "It is 327 kilometres long and forms a portion of the border between Thailand and Myanmar (Burma).",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Brotia pagodula is endemic to the Moei, a border river between Myanmar and Thailand.",
+          "countries": [],
+          "regions": [
+            "Moei"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "This river is a tributary of the Salween River.",
+          "countries": [],
+          "regions": [
+            "Salween River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7365087,
+      "total": 10,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "TH",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          16.875,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          12.65625,
+          8,
+          8
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 7.5,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 5
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5,
+          "max": 5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brotia-pagodula-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Common names: Pagoda snail, Horned Armor Snail, Porcupine Snail</li><li>Minimum tank size: about 40 litres</li><li>Breeding: difficult, slow</li><li>Optimal KH: 5–15</li><li>TDS (optimal): 100–250</li><li>Nitrate: less than 20 ppm</li><li>Diet: herbivorous / algae eater</li><li>Temperament: peaceful, solitary</li><li>Colour: brown to yellow</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brotia-pagodula-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These snails are not for beginners and have specific requirements. Shell deterioration is common in captivity. They need careful acclimation, like all invertebrates.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brotia-pagodula-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Brotia pagodula is restricted to the Thoungyin River in Thailand. This river is a tributary of the Salween River. It is 327 kilometres long and forms a portion of the border between Thailand and Myanmar (Burma).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/brotia-pagodula-2/",
+      "html": "<p>Brotia pagodula is endemic to the Moei, a border river between Myanmar and Thailand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brotia-pagodula-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>It inhabits rivers, streams and other shallow water bodies. In the wild these snails live attached to rocks as well as on sandy bottoms, in a river with fast water flow.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brotia-pagodula-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Brotia pagodula needs an established tank of sufficient size and water volume, at least a medium-sized aquarium 60–80 cm long. 40 litres is the absolute minimum; anything smaller causes problems.</p><p>These snails come from a fast-flowing river, so a well-oxygenated tank is vital. Use a suitably sized pump to move the water around; larger tanks are preferred if you want them to thrive and live longer than a few months. If the filter flow is not strong enough, add a small extra flow pump that keeps a current running around the tank all the time.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brotia-pagodula-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Keep this species in well-filtered water of soft to moderate hardness. Make sure the water is not acidic, to prevent shell damage (usually tiny holes). pH should be around 7.0–7.5 with high GH and KH. Preferred temperature is 22–28°C, ideally 24–25°C. Reportedly they tolerate 20°C but become slow and lethargic.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/brotia-pagodula-2/",
+      "html": "<p>It is very important for the care of the animals that a pH value below 7 is not tolerated in the long term. The pH should therefore be around 7.5-8.5. The water temperature can be between 18 and 26°C, whereby sudden drastic temperature changes should be avoided.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brotia-pagodula-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In the wild they live on rocks and sandy bottoms, so provide a sandy or fine substrate where the snails can rest and sift for food particles. They dislike light, especially in a new environment, and do better in a dark or very low-light tank. Clear out crevices or branches, as the shell can get stuck and the snail may die from stress.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brotia-pagodula-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Brotia pagodula feeds on algae and detritus but is mostly herbivorous. As it is a fairly big snail, its diet may need supplementing. Algae wafers, tablets, pellets or fish/shrimp flakes are good options, as they sit on the bottom until the snails find them. Add green vegetables such as carrot, sprouts, spinach, cucumber and zucchini, fresh or frozen.</p><p>Do not overfeed, as this spoils the water and harms the snails and other inhabitants.</p><p>Shell deterioration is common, so a balanced diet and calcium supplements help keep the large thick shells strong and healthy.</p><p>Like other invertebrates, it is sensitive to copper and copper compounds. Make sure fertilisers and food do not contain copper or copper sulfate.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/brotia-pagodula-2/",
+      "html": "<p>As algae growth is usually only available to a limited extent in the aquarium, herbs such as dandelion, chickweed, unsprayed (!) lettuce etc. should always be fed. When completely fresh, these plants are often too hard for the snails, which is why some enthusiasts scald the plants with boiling water before feeding them. Under water, however, these land plants also wither over time and thus become tender and edible, it just takes longer than with scalded specimens.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brotia-pagodula-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Pagoda snails are non-aggressive, solitary and docile, and prefer a calm environment. They coexist peacefully with tank mates and have only the operculum and shell for protection. They are shy and quiet, especially when newly introduced.</p><p>They are nocturnal and easily frightened, often staying hidden in the shell for long hours. When they come out, they dig at the substrate and pick up tiny food particles. They are not true burrowers.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brotia-pagodula-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>It is hard to identify the sex of the snails. The brood pouch in the neck of females is visible, but can be hard to see, especially in smaller individuals.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brotia-pagodula-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>After a short courtship, the male mounts the female's shell, holding it firmly, and transfers sperm to her. Because sexes are hard to identify, keep at least 4–5 snails to ensure both sexes are present.</p><p>Brotia pagodula is viviparous (gives birth to live young) and can produce 10–20 young a year. Reproduction is very slow, usually no more than 1–3 baby snails at a time.</p><p>Females retain shelled juveniles in a brood pouch located dorsally in the neck region, occupying almost the entire visceral cavity of the head-foot. Juveniles within the brood pouch are all the same size, about 4 mm in height, with fully calcified shells of about 3.5 whorls. The juvenile shell is turreted with flattened whorls, smooth, sculptured only by faint spiral lines and regular growth lines. The embryonic shell is asymmetrically and irregularly wrinkled.</p><p>Young snails should be fed finely powdered food at least once a day.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/brotia-pagodula-2/",
+      "html": "<p>Brotia pagodula is a viviparous snail. The species is sexually separate, but the sexes are not externally distinguishable.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brotia-pagodula-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Knowledge of these snails is still scanty and little is known about their ecology and reproduction. Due to the lack of detailed systematic studies of Brotia, there is confusion over the limits of the genus and its generic and familial affinities.</p><h3>Description</h3><ul><li>Light brownish to grey colour with tints of amber and mahogany.</li><li>Thick, broadly conical shell with numerous small conspicuous spikes protruding in a spiral form.</li><li>Spire decollated, consisting of up to five flattened whorls with a spiral row of long, pointed spines.</li><li>Whorls separated by a narrow suture.</li><li>Round, multispiral operculum (trapdoor).</li><li>Fine lines on the shell.</li><li>Fleshy inner body ranging from plain dark grey to light yellow.</li><li>Large, bulky appearance with a broad, furrowed snout.</li><li>Cephalic tentacles moderately long.</li></ul><p>The average size is 3–5 cm. In the wild they can live 3–5 years (according to shell analyses), but in captivity lifespan can barely reach 1–2 years at most, due to a lack of care knowledge.</p><p>Plant safety: Brotia pagodula likes vegetables and green matter and is known to feed on plants in the tank. When food is not readily available, it may eat aquarium plants. Feeding the snails daily helps keep this under control.</p><p>Tank mates: it can be kept with small freshwater shrimp (vampire shrimp, bamboo shrimp, Amano shrimp, ghost shrimp, cherry shrimp, blue tiger shrimp, snowball shrimp, Caridina cf. babaulti, blue velvet shrimp) and with other snails (Japanese trapdoor snails, white wizard snails, chopstick snails, black devil snails, rabbit snails, nerite snails, mystery snails, ramshorn snails, Malaysian trumpet snails, hairy snails). Assassin snails can harass them, and Marisa cornuarietis will eat all the plants. Keeping them with crayfish or crabs (except Thai micro crab) is not advised; even dwarf Mexican crayfish can nip off the antennae of larger snails.</p><p>Availability: a rare freshwater snail, not common in the hobby, but available from online aquarium stores. It helps keep the tank clean of waste. It is not easy to keep and not recommended for beginners.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/56e21862539ee107.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/56e21862539ee107-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/brotia-pagodula-snail-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "jSO4tmDIrEU",
+      "title": "The Ultimate Pagoda Snail Care Guide: Keep Brotia pagodula Alive & Thriving!",
+      "durationSec": 332,
+      "lang": "hi"
+    },
+    {
+      "youtubeId": "XuRyZxbvv14",
+      "title": "Улитка Пагода Содержание в аквариуме совместимость и разведение улиток Brotia pagodula",
+      "durationSec": 491,
+      "lang": "ru"
+    },
+    {
+      "youtubeId": "SQmWr96H50o",
+      "title": "Pagoda Snail Care Secrets: Keep Your Brotia pagodula Healthy!",
+      "durationSec": 144,
+      "lang": "hi"
+    },
+    {
+      "youtubeId": "_gC-9UCxWDQ",
+      "title": "Sulawesi Elephant Snails & Brotia pagodula",
+      "durationSec": 238,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh 60 cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho ốc",
+        "canxi cho ốc tép"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "nền cát bể ốc"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

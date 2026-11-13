@@ -1,0 +1,118 @@
+{
+  "id": "geophagus-megasema",
+  "native": {
+    "input": "9448ef59b2a0b397",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Guaporé, Mato Grosso, Brazil', and this species appears endemic to the upper rio Madeira basin.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Río Mamoré and Río Guaporé drainages in Bolivia (where the Guaporé is known as the Iténez) and Brazil.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Río Mamoré and Río Guaporé drainages in Bolivia (where the Guaporé is known as the Iténez) and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Guaporé, Mato Grosso, Brazil', and this species appears endemic to the upper rio Madeira basin.",
+        "ok": true
+      },
+      {
+        "name": "Río Guaporé",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Río Mamoré and Río Guaporé drainages in Bolivia (where the Guaporé is known as the Iténez) and Brazil.",
+        "country": "BO",
+        "ok": true
+      },
+      {
+        "name": "Río Mamoré",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Río Mamoré and Río Guaporé drainages in Bolivia (where the Guaporé is known as the Iténez) and Brazil.",
+        "country": "BO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus megasema",
+    "status": "ACCEPTED",
+    "taxonKey": 5208425,
+    "datasets": [
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        34
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        30
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        11
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        9
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        8
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "BO"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

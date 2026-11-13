@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "dWX5azsrKSk",
     "title": "9 triệu đồng cho món đồ chơi thủy sinh này????",
@@ -30,13 +30,19 @@
       {
         "category": "den",
         "type": "thuy-sinh",
-        "brand": "Flat One",
-        "t": 154
+        "brand": "Fluval",
+        "model": "Flat One",
+        "t": 120
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 486
       }
     ],
     "figures": [
       {
-        "heading": "Flat One cho ánh sáng màu gì",
+        "heading": "Ánh sáng của đèn trông thế nào",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/dWX5azsrKSk/p0-1bV9MaWdodC5qcGc.webp",
@@ -46,11 +52,11 @@
           "licence": "CC BY-SA 3.0",
           "author": "Lime Huang",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh có đèn LED gắn phía trên, ánh sáng trắng tự nhiên."
+          "caption": "Bể thủy sinh có đèn LED trắng phía trên, ánh sáng gần giống nắng tự nhiên."
         }
       },
       {
-        "heading": "Công suất và kích thước bể",
+        "heading": "Đèn chiếu được bể dài bao nhiêu",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/dWX5azsrKSk/p1-hcmFzX2xlZC5qcGc.webp",
@@ -60,56 +66,22 @@
           "licence": "CC BY-SA 4.0",
           "author": "Gustavo Sivila",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acuario_iluminado_con_l%C3%A1mparas_led.jpg",
-          "caption": "Bể thủy sinh dài với ba cây đèn LED treo phía trên chiếu sáng."
+          "caption": "Bể thủy sinh dài có ba đèn LED treo phía trên chiếu xuống."
         }
       },
       {
-        "heading": "Bố cục bể thử đèn: cao bên trái, thấp dần sang phải",
-        "moments": [
-          {
-            "t": 401,
-            "url": "https://media.aquatome.com/video/dWX5azsrKSk/t401.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thử đèn với lũa dựng cao bên trái, thấp dần sang phải."
-          },
-          {
-            "t": 421,
-            "url": "https://media.aquatome.com/video/dWX5azsrKSk/t421.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Người chơi chỉ tay minh họa hướng bố cục cao trái, thấp phải."
-          }
-        ],
+        "heading": "Đèn đơn màu và đèn RGB khác nhau ở đâu",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/dWX5azsrKSk/p4-cXVhc2NhcGUucG5n.webp",
-          "thumb": "https://media.aquatome.com/video/dWX5azsrKSk/p4-cXVhc2NhcGUucG5n-480.webp",
+          "url": "https://media.aquatome.com/video/dWX5azsrKSk/p2-X1JHQl9MRUQucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/dWX5azsrKSk/p2-X1JHQl9MRUQucG5n-480.webp",
           "width": 960,
-          "height": 447,
+          "height": 647,
           "licence": "CC BY-SA 4.0",
-          "author": "Duc Viet Bui",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_style_aquascape.png",
-          "caption": "Bể thủy sinh có lũa và cây cao bên trái, thấp dần sang phải."
+          "author": "Mister rf",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:5050_SMD_RGB_LED.png",
+          "caption": "Cận cảnh bóng LED RGB với ba chip đỏ, xanh lá, xanh dương."
         }
-      },
-      {
-        "heading": "Xử lý lũa đỗ quyên bị nổi",
-        "moments": [
-          {
-            "t": 480,
-            "url": "https://media.aquatome.com/video/dWX5azsrKSk/t480.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cầm viên đá đặt đè lên lũa để giữ lũa chìm."
-          },
-          {
-            "t": 495,
-            "url": "https://media.aquatome.com/video/dWX5azsrKSk/t495.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bố cục lũa đỗ quyên đã ghép xong trong bể trống."
-          }
-        ]
       }
     ]
   }

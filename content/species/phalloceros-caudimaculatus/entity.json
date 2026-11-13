@@ -1,0 +1,790 @@
+{
+  "id": "phalloceros-caudimaculatus",
+  "scientificName": "Phalloceros caudimaculatus",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Phalloceros",
+  "group": "livebearers",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-grande-do-sul",
+    "paraguay",
+    "uruguay",
+    "argentina"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PY",
+        "UY",
+        "AR"
+      ],
+      "regions": [
+        "Lagoa dos Patos",
+        "Rio Uruguai",
+        "Rio Tramandaí",
+        "Rio Mampituba"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs naturally in Brazil, Paraguay, Uruguay and Argentina with feral populations in Australia, New Zealand, Ethiopia and Malawi which were purportedly introduced for purposes of mosquito control but are now considered invasive.",
+          "countries": [
+            "BR",
+            "PY",
+            "UY",
+            "AR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Following Lucinda (2008) its natural range comprises the Lagoa dos Patos system, lower rio Uruguai, rio Tramandaí, and rio Mampituba in Rio Grande do Sul state, Brazil, plus coastal systems of Uruguay and Argentina.",
+          "countries": [],
+          "regions": [
+            "Lagoa dos Patos",
+            "Rio Uruguai",
+            "Rio Tramandaí",
+            "Rio Mampituba"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350105,
+      "total": 1526,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BR",
+          1279
+        ],
+        [
+          "PY",
+          137
+        ],
+        [
+          "AU",
+          59
+        ],
+        [
+          "UY",
+          26
+        ],
+        [
+          "AR",
+          22
+        ],
+        [
+          "MW",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          -33.75,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          -33.75,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -35.15625,
+          14,
+          14
+        ],
+        [
+          -59.0625,
+          -32.34375,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -32.34375,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -32.34375,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -30.9375,
+          9,
+          9
+        ],
+        [
+          -56.25,
+          -29.53125,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -26.71875,
+          7,
+          7
+        ],
+        [
+          -56.25,
+          -23.90625,
+          8,
+          8
+        ],
+        [
+          -54.84375,
+          -35.15625,
+          8,
+          8
+        ],
+        [
+          -54.84375,
+          -33.75,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          -32.34375,
+          18,
+          18
+        ],
+        [
+          -54.84375,
+          -30.9375,
+          9,
+          9
+        ],
+        [
+          -54.84375,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -28.125,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -26.71875,
+          9,
+          9
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          122,
+          122
+        ],
+        [
+          -54.84375,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -33.75,
+          9,
+          9
+        ],
+        [
+          -53.4375,
+          -32.34375,
+          70,
+          70
+        ],
+        [
+          -53.4375,
+          -30.9375,
+          29,
+          29
+        ],
+        [
+          -53.4375,
+          -29.53125,
+          13,
+          13
+        ],
+        [
+          -53.4375,
+          -28.125,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -26.71875,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -23.90625,
+          20,
+          20
+        ],
+        [
+          -53.4375,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -32.34375,
+          13,
+          13
+        ],
+        [
+          -52.03125,
+          -30.9375,
+          83,
+          83
+        ],
+        [
+          -52.03125,
+          -29.53125,
+          21,
+          21
+        ],
+        [
+          -52.03125,
+          -28.125,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -26.71875,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -25.3125,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -23.90625,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -21.09375,
+          5,
+          5
+        ],
+        [
+          -50.625,
+          -30.9375,
+          165,
+          165
+        ],
+        [
+          -50.625,
+          -29.53125,
+          52,
+          52
+        ],
+        [
+          -50.625,
+          -28.125,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -26.71875,
+          7,
+          7
+        ],
+        [
+          -50.625,
+          -25.3125,
+          12,
+          12
+        ],
+        [
+          -50.625,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -22.5,
+          9,
+          9
+        ],
+        [
+          -50.625,
+          -21.09375,
+          10,
+          10
+        ],
+        [
+          -49.21875,
+          -29.53125,
+          5,
+          5
+        ],
+        [
+          -49.21875,
+          -28.125,
+          33,
+          33
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          62,
+          62
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          107,
+          107
+        ],
+        [
+          -49.21875,
+          -23.90625,
+          29,
+          29
+        ],
+        [
+          -49.21875,
+          -22.5,
+          10,
+          10
+        ],
+        [
+          -49.21875,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -19.6875,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          78,
+          78
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          91,
+          91
+        ],
+        [
+          -47.8125,
+          -22.5,
+          15,
+          15
+        ],
+        [
+          -47.8125,
+          -21.09375,
+          11,
+          11
+        ],
+        [
+          -47.8125,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          124,
+          124
+        ],
+        [
+          -46.40625,
+          -22.5,
+          10,
+          10
+        ],
+        [
+          -46.40625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -45,
+          -23.90625,
+          37,
+          37
+        ],
+        [
+          -45,
+          -22.5,
+          6,
+          6
+        ],
+        [
+          -45,
+          -21.09375,
+          3,
+          3
+        ],
+        [
+          -45,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          11,
+          11
+        ],
+        [
+          -43.59375,
+          -22.5,
+          6,
+          6
+        ],
+        [
+          -43.59375,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -19.6875,
+          3,
+          3
+        ],
+        [
+          -42.1875,
+          -22.5,
+          15,
+          15
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          4,
+          4
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          33.75,
+          -16.875,
+          3,
+          0
+        ],
+        [
+          115.3125,
+          -32.34375,
+          5,
+          0
+        ],
+        [
+          129.375,
+          -33.75,
+          1,
+          0
+        ],
+        [
+          133.59375,
+          -23.90625,
+          2,
+          0
+        ],
+        [
+          137.8125,
+          -36.5625,
+          39,
+          0
+        ],
+        [
+          150.46875,
+          -33.75,
+          12,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 16,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalloceros-caudimaculatus",
+      "html": "<p>The dusky millions fish, Phalloceros caudimaculatus, is a small livebearer native to Brazil, Paraguay, Uruguay and Argentina. Feral populations in Australia, New Zealand, Ethiopia and Malawi were purportedly introduced for mosquito control and are now considered invasive. Highly variable in colour pattern, it is known in the hobby in spotted and golden ornamental forms. P. caudimaculatus is the type species of a genus that was monotypic until 21 new species were described in 2008.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalloceros-caudimaculatus",
+      "html": "<p>Occurs naturally in Brazil, Paraguay, Uruguay and Argentina with feral populations in Australia, New Zealand, Ethiopia and Malawi which were purportedly introduced for purposes of mosquito control but are now considered invasive.</p><p>Following Lucinda (2008) its natural range comprises the Lagoa dos Patos system, lower rio Uruguai, rio Tramandaí, and rio Mampituba in Rio Grande do Sul state, Brazil, plus coastal systems of Uruguay and Argentina.</p><p>Type locality is 'at the Costa da Serra at São Leopoldo in pounds and ditches', referring to the city of São Leopoldo in Rio Grande do Sul state, southern Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalloceros-caudimaculatus",
+      "html": "<p>Inhabits sluggish rivers and streams as well as ponds, often with dense vegetation.</p><p>Some populations are found in slightly brackish water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalloceros-caudimaculatus",
+      "html": "<p>A trio of these can be kept in a 50 litre tank.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalloceros-caudimaculatus",
+      "html": "<p>A gently filtered, heavily planted set-up suits it best, and it seems to be sensitive to fresh water. Consequently, water changes should be small but frequent.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalloceros-caudimaculatus",
+      "html": "<ul><li>Temperature: 16–22°C is best in an aquarium, though it will survive for short periods in temperatures down to 10°C and up to 30°C. Lower temperatures are handled better than higher.</li><li>pH: 7.0–8.0</li><li>Hardness: 5–25 dGH; populations from brackish habitats are less tolerant of soft water.</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalloceros-caudimaculatus",
+      "html": "<p>Unfussy and omnivorous, it will accept most foods offered. In the wild it grazes algae and eats small insects, insect larvae and crustaceans. Frozen and dry foods are readily accepted in the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalloceros-caudimaculatus",
+      "html": "<p>Should ideally be maintained in a species tank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalloceros-caudimaculatus",
+      "html": "<p>Males are much smaller than females and possess a prominent gonopodium.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalloceros-caudimaculatus",
+      "html": "<p>Being a livebearer, it is quite easy to breed. If the parents are well fed and there are densely planted areas in the tank, the fry should be safe with the adult fish.</p><p>As the males can be rather persistent in their pursuit of females, having more females than males in the tank is advisable.</p><p>The gestation period is 4-6 weeks depending on temperature. The fry will eat microworms and freshly hatched Artemia as soon as they are born.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalloceros-caudimaculatus",
+      "html": "<p>This species is highly variable in terms of colour pattern.</p><p>Three ornamental forms are well known in the aquarium hobby and have been given unofficial 'scientific' names which are not italicised here:</p><ol><li>A spotted form often referred to as Phalloceros caudimaculatus 'reticulatus'.</li><li>A golden form often referred to as Phalloceros caudimaculatus 'auratus'.</li><li>A spotted golden form often referred to as Phalloceros caudimaculatus 'reticulatus auratus'.</li></ol><p>Both of the golden forms appear to have a poor survival rate under natural conditions.</p><p>P. caudimaculatus is the type species of the genus which was monotypic prior to a major review published in 2008 in which 21 new species were described. Among these, it is told apart from P. anisophallos, P. megapolos, P. spiloura, P. reisi, P. buckupi, P. alessandrae, P. lucenorum, P. uai, P. pellos, and P. malabarbai by the female urogenital papilla being located between the anus and base of the first anal-fin ray, along the midline of the body (vs. curved to the right, located laterally; anus in contact with the first anal-fin ray).</p><p>It is distinguished from P. tupinamba, P. leptokeras, and P. aspilos by: female urogenital papilla straight along midline (vs. slightly left orientated); absence of a lateral ramus of the female urogenital papilla (vs. presence); absence of a hook in the gonopodial appendix (vs. presence).</p><p>It can be told apart from P. enneaktinos, P. titthos, P. elachistos, and P. harpagos by the absence of hooks in both halves of the gonopodial appendix (vs. hook present in both halves), and is distinguished from P. heptaktinos by males possessing 8 dorsal-fin rays (very exceptionally seven) and females seven rays (very exceptionally 8).</p><p>It is distinguished from P. ocellatus, P. mikrommatos, and P. leticiae by possessing a non-ocellated, elliptical and vertically elongate lateral spot which is occasionally absent (vs. lateral spot roundish to rounded, well-defined and ocellated).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalloceros-caudimaculatus",
+      "html": "<ul><li>Lucinda, P. H. F. (2008). Systematics and biogeography of the genus Phalloceros Eigenmann, 1907 (Cyprinodontiformes: Poeciliidae: Poeciliinae), with the description of twenty-one new species. Neotropical Ichthyology 6(2), 113-158</li><li>Wischnath, L. (1993). Atlas of livebearers of the world. T.F.H. Publications, Inc., United States of America, 1-336</li><li>Gärtner, G. (1981). Zahnkarpfen - Die lebendgebärenden Im Aquarium. Verlag Eugen Ulmer, 1-152</li><li>Dawes, J. (1985). Livebearing fishes - A guide to their aquarium care, biology and classification. Blandford, 1-240</li><li>Hensel, R. (1868). Beiträge zur Kenntniss der Wirbelthiere Südbrasiliens. (Fortsetzung). Archiv für Naturgeschichte 34(1), 323-375</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/4dfd15c4742d60e4.webp",
+      "thumb": "https://media.aquatome.com/commons/4dfd15c4742d60e4-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Livebearerguy",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phalloceros_caudimaculatus_wild.jpg",
+      "caption": "Hai cá bảy màu đốm đuôi bơi trong bể thủy sinh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/4dfd15c4742d60e4-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 50 lít",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác nhỏ cho bể 50 lít",
+        "lọc bọt khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá bảy màu",
+        "artemia ấp nở"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh dễ trồng",
+        "rong đuôi chó"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

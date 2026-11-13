@@ -11,6 +11,58 @@
     "johor",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Eirmotus octozona is a small cyprinid with eight dark body bars, known from Johor state in Peninsular Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359308,
+      "total": 4,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          109.6875,
+          0,
+          2,
+          0
+        ],
+        [
+          111.09375,
+          -4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -54,7 +106,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -161,8 +213,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể thủy sinh mini"
+        "bể cá 60cm"
       ]
     },
     {

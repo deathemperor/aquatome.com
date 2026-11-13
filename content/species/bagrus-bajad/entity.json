@@ -21,6 +21,380 @@
     "kenya",
     "lake-turkana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EG"
+      ],
+      "regions": [
+        "Nile River",
+        "Lake Chad",
+        "Sénégal River",
+        "Lake Albert"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Nile River, Egypt.",
+          "countries": [
+            "EG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Nile River, Lake Chad, Niger and Sénégal River, Lakes Mobutu (Lake Albert) and Turkana.",
+          "countries": [],
+          "regions": [
+            "Nile River",
+            "Lake Chad",
+            "Sénégal River",
+            "Lake Albert"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5201752,
+      "total": 214,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "UG",
+          58
+        ],
+        [
+          "BJ",
+          46
+        ],
+        [
+          "EG",
+          29
+        ],
+        [
+          "TD",
+          20
+        ],
+        [
+          "NG",
+          15
+        ],
+        [
+          "CM",
+          9
+        ],
+        [
+          "BF",
+          6
+        ],
+        [
+          "ML",
+          5
+        ],
+        [
+          "SD",
+          5
+        ],
+        [
+          "CD",
+          4
+        ],
+        [
+          "GH",
+          4
+        ],
+        [
+          "NE",
+          4
+        ],
+        [
+          "SN",
+          3
+        ],
+        [
+          "TG",
+          3
+        ],
+        [
+          "SS",
+          2
+        ],
+        [
+          "ET",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -16.875,
+          15.46875,
+          3,
+          0
+        ],
+        [
+          -5.625,
+          12.65625,
+          2,
+          0
+        ],
+        [
+          -4.21875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -4.21875,
+          14.0625,
+          5,
+          0
+        ],
+        [
+          -2.8125,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -2.8125,
+          11.25,
+          3,
+          0
+        ],
+        [
+          -1.40625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -1.40625,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          0,
+          9.84375,
+          11,
+          0
+        ],
+        [
+          0,
+          11.25,
+          5,
+          0
+        ],
+        [
+          1.40625,
+          5.625,
+          16,
+          0
+        ],
+        [
+          1.40625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          1.40625,
+          11.25,
+          7,
+          0
+        ],
+        [
+          1.40625,
+          12.65625,
+          3,
+          0
+        ],
+        [
+          2.8125,
+          11.25,
+          8,
+          0
+        ],
+        [
+          4.21875,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          4.21875,
+          12.65625,
+          3,
+          0
+        ],
+        [
+          5.625,
+          4.21875,
+          7,
+          0
+        ],
+        [
+          8.4375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          8.4375,
+          11.25,
+          1,
+          0
+        ],
+        [
+          11.25,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          12.65625,
+          8.4375,
+          6,
+          0
+        ],
+        [
+          14.0625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          14.0625,
+          9.84375,
+          6,
+          0
+        ],
+        [
+          16.875,
+          8.4375,
+          9,
+          0
+        ],
+        [
+          18.28125,
+          8.4375,
+          6,
+          0
+        ],
+        [
+          19.6875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          29.53125,
+          0,
+          22,
+          0
+        ],
+        [
+          29.53125,
+          1.40625,
+          6,
+          0
+        ],
+        [
+          29.53125,
+          25.3125,
+          6,
+          6
+        ],
+        [
+          29.53125,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          30.9375,
+          2,
+          2
+        ],
+        [
+          30.9375,
+          1.40625,
+          31,
+          0
+        ],
+        [
+          30.9375,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          30.9375,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          30.9375,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          30.9375,
+          29.53125,
+          10,
+          10
+        ],
+        [
+          30.9375,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          32.34375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          32.34375,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          32.34375,
+          15.46875,
+          5,
+          0
+        ],
+        [
+          32.34375,
+          25.3125,
+          5,
+          5
+        ],
+        [
+          33.75,
+          7.03125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -111,16 +485,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/866740861469e3f1.webp",
-      "width": 960,
-      "height": 540,
-      "licence": "Public domain",
-      "author": "Boulenger, George Albert; Loat, L.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_fishes_of_the_Nile_(Pl._LVII)_(6961618931).jpg",
-      "caption": "Bagrus bajad",
-      "thumb": "https://media.aquatome.com/commons/866740861469e3f1-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/8c49fe2f94f784ce.webp",
       "width": 960,
       "height": 540,
@@ -128,17 +492,12 @@
       "author": "Zoologie. Poissons du Nil. 1.2. Le Bayad fitilé (Porcus bayad); 3.4. Le Bayad docmac (Porcus docmac).",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bagrus_bajad.jpg",
       "caption": "Bagrus bajad",
-      "thumb": "https://media.aquatome.com/commons/8c49fe2f94f784ce-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/19544996cba95a9e.webp",
-      "width": 960,
-      "height": 1173,
-      "licence": "Public domain",
-      "author": "Impr. impériale",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zoologie._Poissons_du_Nil._1.2._Le_Bayad_fitil%C3%A9_(Porcus_bayad);_3.4._Le_Bayad_docmac_(Porcus_docmac)_(NYPL_b14212718-1268514).jpg",
-      "caption": "Zoologie. Poissons du Nil. 1.2. Le Bayad fitilé (Porcus bayad); 3.4. Le Bayad docmac (Porcus docmac).",
-      "thumb": "https://media.aquatome.com/commons/19544996cba95a9e-480.webp"
+      "thumb": "https://media.aquatome.com/commons/8c49fe2f94f784ce-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/8c49fe2f94f784ce-large.webp",
+        "width": 2133,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

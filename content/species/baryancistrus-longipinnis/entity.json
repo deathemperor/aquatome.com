@@ -1,0 +1,138 @@
+{
+  "id": "baryancistrus-longipinnis",
+  "scientificName": "Baryancistrus longipinnis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Baryancistrus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "tocantins"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tocantins"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Troceira on Rio Tocantins, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tocantins"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339917,
+      "total": 22,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          22
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -7.03125,
+          13,
+          13
+        ],
+        [
+          -50.625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1310",
+      "html": "<ul><li>Scientific name: Baryancistrus longipinnis (Kindle, 1895)</li><li>Synonyms: Hemiancistrus longipinnis, Parancistrus longipinnis</li><li>Type locality: Troceira on Rio Tocantins, Brazil.</li><li>Etymology: Greek, barys = heavy + Greek, agkistron = hook - essentially \"Heavy Ancistrus\". The specific epithet means \"long fins\".</li><li>IUCN Red List category: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1310",
+      "html": "<p>South America: Tocantins River basin, Brazil.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1310",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1310",
+      "html": "<p>Annals of the New York Academy of Sciences v. 8 (art. 9) [for 1894], pp 255.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

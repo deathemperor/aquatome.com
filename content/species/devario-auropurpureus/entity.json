@@ -10,17 +10,118 @@
     "myanmar",
     "inle-lake"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Lake Inle",
+        "Inlé"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Lake Inle in Burma has a high proportion of endemic fish species, i.e. those that are found exclusively there.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Lake Inle"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the isolated lake of Inlé and surrounding watershed in Shan state, eastern Myanmar.",
+          "countries": [],
+          "regions": [
+            "Inlé"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361523,
+      "total": 36,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MM",
+          36
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          19.6875,
+          16,
+          16
+        ],
+        [
+          97.03125,
+          19.6875,
+          20,
+          20
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 10
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 8
       }
     ],
     "difficulty": [
       {
         "source": "glaser",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
       }
     ]
   },
@@ -32,10 +133,22 @@
       "html": "<p>Inlecypris auropurpureus is a Danio with vertical stripes on a golden band. The number and shape of the stripes are slightly different in each individual. The genus is closely related to the malabar danio (Devario) and has at times been declared a synonym of Devario; however, most scientists do not currently agree with this. The maximum length of the species is 8-10 cm, but animals over 5 cm in length are rarely found in the wild.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/inlecypris-auropurpurea",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Water movement does not need to be particularly strong, and the tank must have a tightly-fitting cover as it is a particularly accomplished jumper.</p><p>Inlecypris auropurpurea is a cyprinid known only from Lake Inlé and its surrounding watershed in Shan state, eastern Myanmar. It is listed as 'Endangered' on the IUCN Red List after a significant decline, as farming around the lake has increased sedimentation, eutrophication and pollution. A peaceful schooling fish, it suits a densely planted tank with a tightly fitting cover, since it is a particularly accomplished jumper.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
       "html": "<p>Lake Inle in Burma has a high proportion of endemic fish species, i.e. those that are found exclusively there. Inlecypris auropurpureus is one of them.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/inlecypris-auropurpurea",
+      "html": "<p>Known only from the isolated lake of Inlé and surrounding watershed in Shan state, eastern Myanmar. Type locality is given as 'Inlé Lake basin, South Shan States, Myanmar'.</p><p>The species is currently listed as 'Endangered' on the IUCN Red List due to a significant decline in the wild population. Unsustainable agricultural practices in and around the lake have caused increases in sedimentation, eutrophication, and pollution along with a reduction in surface area of more than 30% between the years 1935-2000. Non-native, predatory Parambassis and Tilapia species have been introduced for farming, while collection for the aquarium trade may also be exerting a negative effect.</p>"
     },
     {
       "key": "habitat",
@@ -44,10 +157,28 @@
       "html": "<p>The water in Inle Lake is hard and the pH value is slightly alkaline (central part of the lake: pH 7.6 – 8.8, tributary of the lake: pH 7.1 – 7.2). The water temperature during the day is in the range of 21.3 – 28.8°C, the air temperature can fluctuate between 5°C (minimum) and 38°C (maximum) (all data according to: Khaung et al., 2021).</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/inlecypris-auropurpurea",
+      "html": "<p>Lake Inlé lies in a karstic valley almost 900m above sea level in the Shan Plateau region and is home to many endemic animals including nine species of fish and numerous gastropods. The water is clear, shallow (2-3 metres deep in most places) and has a very fertile, loamy substrate, although it can be muddy and turbid around the margins.</p><p>It is famed for its stilted villages and local fishermen known as Intha who row their boats using only one leg. These people, thought to have migrated from the south of Myanmar in the late 1300s, use naturally-occurring floating 'islands' consisting of tangles of various plant species as gardens.</p><p>These islands form a wide raft around the lake margins, rising and falling with the water level, and have come to form the habitats of many fishes which take shelter among the tangle of roots and plant stems at their base. Macrophytes also grow densely in places.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/inlecypris-auropurpurea",
+      "html": "<p>Standard length: 80 mm SL. Aquarium base: 90 × 30 cm, volume about 81 litres. An aquarium with a base measuring 90 × 30 cm or equivalent should be the minimum considered.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
       "html": "<p>Inlecypris auropurpureus is very undemanding in terms of aquarium care. It is a very peaceful schooling fish that should be kept in aquaria that are not too small so that its swimming abilities can be fully appreciated.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/inlecypris-auropurpurea",
+      "html": "<p>Best maintained in a densely-planted tank and an excellent choice for the carefully-aquascaped set-up. The addition of some floating plants to diffuse the light entering also seems to be appreciated.</p><p>Water movement does not need to be particularly strong, and the tank must have a tightly-fitting cover as it is a particularly accomplished jumper.</p>"
     },
     {
       "key": "waterConditions",
@@ -56,10 +187,28 @@
       "html": "<p>Inlecypris can and should therefore be kept in normal tap water. For many species from Inle Lake it has also proven to be a good idea not to heat the aquarium at times, i.e. to keep the animals at room temperature (18-22°C). This has a positive effect on the immune system.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/inlecypris-auropurpurea",
+      "html": "<ul><li>Temperature: 20–24°C</li><li>pH: 6.0–8.0</li><li>Hardness: 3–15 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
       "html": "<p>A good flake food serves as a basic diet; the animals go wild for approach food (e.g. Drosophila) and black mosquito larvae. Such food should be given whenever possible. The animals will thank you with bright colors and liveliness.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/inlecypris-auropurpurea",
+      "html": "<p>Preys chiefly on insects and aquatic invertebrates in nature. Annandale (1918) observed it feeding on trichopterids (caddis flies) and ephemeropterids (may flies) from the surface in the evenings, whereas during daylight hours insect larvae and worms were taken from the substrate.</p><p>In the aquarium it is a largely unfussy feeder and will accept most foods. A good quality dried product can be used as the staple diet, but this should be supplemented with regular meals of small live and frozen fare such as chironomid larvae (bloodworm), Daphnia, Artemia, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/inlecypris-auropurpurea",
+      "html": "<p>This species is peaceful but will not compete well with larger or more boisterous tankmates.</p><p>It can be skittish, but this behaviour can be minimised by the addition of floating plants or maintaining it alongside other pelagic species.</p><p>It is a schooling species so ideally a group of at least 8-10 specimens should be purchased.</p>"
     },
     {
       "key": "dimorphism",
@@ -68,16 +217,40 @@
       "html": "<p>The sexes differ mainly in terms of body shape; females are somewhat paler in color and rounder in the abdominal area.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/inlecypris-auropurpurea",
+      "html": "<p>Sexually mature females are more robust, less colourful, and a little larger than males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
       "html": "<p>They are prolific spawners; spawning takes place on or near fine plants. Inlecypris do not practice brood care.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/inlecypris-auropurpurea",
+      "html": "<p>Like many small cyprinids this species scatters eggs randomly, typically among aquatic vegetation, and does not exhibit parental care. If the fish are in good condition they will spawn often and in a mature planted aquarium it is possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to increase the yield a slightly more controlled approach is required. The adult group can still be conditioned together but one or more smaller containers should also be set up and filled with aged water. Fill much of the available space with fine wool mops, Taxiphyllum or other fine-leaved plant, or cover the base with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced. Spawning should occur within 24 hours with the fish left in place for a maximum of 48 hours.</p><p>Incubation is temperature-dependant to an extent but typically lasts 50-60 hours with the young free-swimming a few days later. Initial food should be Paramecium or similar, introducing Artemia nauplii, microworm, powdered dry foods, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/inlecypris-auropurpurea",
+      "html": "<p>Originally described as a member of Barilius (Annandale, 1918) but Howes (1980a) considered it more closely related to cheline cyprinids (Chela and Laubuca spp.) based on morphological characters and erected the genus Inlecypris for it (Howes, 1980b).</p><p>Fang (2003) supported Howes' conclusions in her 2003 phylogenetic study of the genus Danio, hypothesising that Inlecypris and Chela together form a sister group to Devario. In a more recent phylogenetic work (Fang et al., 2009) I. auropurpurea was found to be most closely-related to the similarly-patterned Devario maetaengensis and D. shanensis, thus rendering Devario paraphyletic.</p><p>Inlecypris was therefore synonymised with Devario, a decision ratified by Tang et al. (2010), but this was reversed by Kottelat (2013) on the basis that Inlecypris species are very distinct in terms of appearance. In doing so, he noted that phylogenetic evidence suggest the existence of two genetic lineages within Devario. The first contains the species with prominent lateral stripes, which leaves the remaining members of uncertain taxonomic placement. Two of the latter grouping are currently referred to as 'Inlecypris' maetaengensis and 'I.' shanensis, respectively, in order to retain monophyly of Inlecypris, but will probably be moved into a separate genus at a later date, where they may be joined by Devario apogon and D. chrysotaeniatus.</p>"
+    },
+    {
       "key": "references",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/inlecypris-auropurpureus-4/",
       "html": "<p>Khaung, T., Iwai, C. B. &amp; T. Chuasavathi (2021): Water Quality Monitoring in Inle Lake, Myanmar from the floating Garden Activity. Malaysian Journal of Fundamental and Applied Sciences, Vol. 17: 593-608</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/inlecypris-auropurpurea",
+      "html": "<ul><li>Fang, F. (2003). Phylogenetic Analysis of the Asian Cyprinid Genus Danio (Teleostei, Cyprinidae). Copeia 2003(4), 714-728</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Pramod, P. K., F. Fang, K. Rema Devi, T.-Y. Liao, T. J. Indra, K. S. Jameela Beevi and S. O. Kullander (2010). Betadevario ramachandrani a new danionine genus and species from the Western Ghats of India (Teleostei: Cyprinidae: Danioninae). Zootaxa 2519, 31-47</li><li>Sanger, T. J. and A. R. McCune (2002). Comparative osteology of the Danio (Cyprinidae: Ostariophysi) axial skeleton with comments on Danio relationships based on molecules and morphology. Zoological Journal of the Linnean Society 135, 529-546</li><li>Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li><li>Annandale, N. (1918). Fish and fisheries of the Inlé Lake. Records of the Indian Museum (Calcutta) 14, 33-64</li><li>Howes, G. J. (1980). The anatomy, phylogeny and classification of bariliine cyprinid 2006 fishes. Bulletin of the British Museum (Natural History) Zoology series 37, 129-198</li><li>Howes, G. J. (1980). A new genus of cheline cyprinid fishes. Bulletin of the British Museum (Natural History) Zoology series 38, 171-173</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
   "photos": [
@@ -97,8 +270,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá danio"
+        "bể cá 90cm"
       ]
     },
     {
@@ -116,5 +288,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-08"
 }

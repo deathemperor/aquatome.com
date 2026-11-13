@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "HQ_J1hv2Tyg",
     "title": "03 VẤN ĐỀ thường gặp khi chăm RÁY NANA PETITE | Cây Biết Nói | 8m2",
@@ -62,111 +62,50 @@
       "height": 720
     },
     "lang": "vi",
-    "taxa": [
-      "Nerita sp."
-    ],
+    "taxa": [],
     "gear": [
       {
-        "category": "den",
-        "type": "thuy-sinh",
-        "t": 467
+        "category": "cay-thuy-sinh",
+        "type": "gan-lua",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 90
       },
       {
         "category": "co2",
-        "t": 436
+        "t": 416
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 437
+      },
+      {
+        "category": "loc",
+        "t": 498
       }
     ],
     "figures": [
       {
-        "heading": "Ráy thiếu sắt hay thiếu kali, nhìn lá là biết",
-        "moments": [
-          {
-            "t": 119,
-            "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/t119.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tấm ráy trồng trên giá thể, lá non xanh nhạt được cầm lên xem."
-          },
-          {
-            "t": 178,
-            "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/t178.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bụi ráy xanh mọc trên lũa trong hồ thủy sinh."
-          }
-        ],
+        "heading": "Vì sao ráy hay thiếu sắt và kali",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/p0-YV9QZXRpdGUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/HQ_J1hv2Tyg/p0-YV9QZXRpdGUuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/p0-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/HQ_J1hv2Tyg/p0-ydS1JbmRpYS5qcGc-480.webp",
           "width": 960,
-          "height": 616,
+          "height": 480,
           "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_Nana_Petite.jpg",
-          "caption": "Một cụm ráy lá xanh khỏe, đặt trên nền trắng để nhìn rõ màu lá."
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cryptocoryne_wendtii_Tropica-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Lá ráy chuyển vàng nâu, dấu hiệu cây thiếu dinh dưỡng trong hồ."
         }
       },
       {
-        "heading": "Đọc nguyên nhân qua từng loại rêu hại",
-        "moments": [
-          {
-            "t": 381,
-            "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/t381.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh khúc lũa có lớp rêu bám cạnh cây thủy sinh và nền sỏi."
-          },
-          {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/t400.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hồ cây thủy sinh um tùm với khúc lũa phủ rêu."
-          }
-        ]
-      },
-      {
-        "heading": "Rêu đốm xanh: giảm sáng là chính",
-        "moments": [
-          {
-            "t": 302,
-            "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/t302.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây thủy sinh và lá trong hồ, chỗ dễ bị rêu hại bám."
-          }
-        ]
-      },
-      {
-        "heading": "Rêu nâu: hồ mới hoặc hồ bẩn",
-        "moments": [
-          {
-            "t": 341,
-            "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/t341.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hồ thủy sinh có rêu nâu phủ trên nền và lũa."
-          }
-        ]
-      },
-      {
-        "heading": "Rêu chùm đen: cân lại CO2, ánh sáng, dinh dưỡng",
-        "moments": [
-          {
-            "t": 415,
-            "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/t415.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Rêu chùm đen bám trên khúc lũa giữa các bụi cây thủy sinh."
-          },
-          {
-            "t": 430,
-            "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/t430.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Van chỉnh CO2 với đồng hồ áp suất trên bình CO2 của hồ."
-          }
-        ],
+        "heading": "Xử lý rêu chùm đen",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/p4-JkX2FsZ2FlLnBuZw.webp",
           "thumb": "https://media.aquatome.com/video/HQ_J1hv2Tyg/p4-JkX2FsZ2FlLnBuZw-480.webp",
@@ -176,47 +115,6 @@
           "author": "Emboli",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_beard_algae.png",
           "caption": "Rêu chùm đen bám dày trên lá cây thủy sinh trong hồ."
-        }
-      },
-      {
-        "heading": "Lá và rễ bị rữa: vì sao và cứu thế nào",
-        "moments": [
-          {
-            "t": 593,
-            "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/t593.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh cụm cây có rễ vàng úa đang được cắt tỉa bằng kéo."
-          },
-          {
-            "t": 638,
-            "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/t638.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Những cây con xanh khỏe mọc dày trên nền đá sau khi hồi phục."
-          }
-        ]
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 193,
-            "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/t193.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Chai phân nước dưới tay, sau lưng là hồ cây thủy sinh xanh tốt."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/HQ_J1hv2Tyg/p6-cnUtSW5kaWEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/HQ_J1hv2Tyg/p6-cnUtSW5kaWEuanBn-480.webp",
-          "width": 960,
-          "height": 917,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_bateri_var_nana-3-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Cây lá ráy có lá non nhạt màu, các lá già xanh đậm hơn."
         }
       }
     ]

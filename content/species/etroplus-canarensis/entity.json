@@ -10,6 +10,67 @@
     "india",
     "netravati"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Kumaradhara-Netravati river system",
+        "Kumaradhara",
+        "Netravati"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Canara pearlspot cichlid, Etroplus canarensis, appears to be endemic to the Kumaradhara-Netravati river system in southern Karnataka, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears locally endemic to southern Karnataka state, southwestern India where it's known only from the Kumaradhara-Netravati river system.",
+          "countries": [],
+          "regions": [
+            "Kumaradhara-Netravati river system"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It can be found in both the Kumaradhara and Netravati although it was thought to be restricted to the former for a number of years.",
+          "countries": [],
+          "regions": [
+            "Kumaradhara",
+            "Netravati"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372830,
+      "total": 3,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          12.65625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +114,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -63,6 +124,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/etroplus-canarensis",
       "html": "<p>The Canara pearlspot cichlid, Etroplus canarensis, appears to be endemic to the Kumaradhara-Netravati river system in southern Karnataka, India. Also known as the banded chromide or 'roman numeral' cichlid, it lives only in oxygen-rich fresh water, unlike its euryhaline relatives. Unmanaged collection raised concerns over its status, and commercial breeding in Southeast Asia has since reduced the pressure on wild stocks. Sexual maturity takes around 24 months.</p><ul><li>Max size: 110 mm SL (4 in)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 22–32°C (72–90°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/etroplus_canarensis_en/",
+      "html": "<p>The Indian Wasp Cichlid (Etroplus canarensis) is extremely rare and extraordinarily beautiful. In contrast to its relatives, this species is an inhabitant of pure freshwater only and never enters brackish water zones.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/etroplus_canarensis_en/",
+      "html": "<p>Available in limited numbers only.</p>"
     },
     {
       "key": "distribution",
@@ -166,13 +239,37 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "fuf_8cy8oWg",
+      "title": "Canara Pearlspot (Etroplus canarensis) | Basics on How to Keep Rare Indian Cichlids",
+      "durationSec": 160,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "RuuRI7gw-QM",
+      "title": "Indian Cichlid Etroplus canarensis / Pearl Spot Chromide",
+      "durationSec": 22,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PgPbQP6WUEk",
+      "title": "The Indian Jewel: Etroplus canarensis / Canara Pearl Spot",
+      "durationSec": 33,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Z_1fows3iX4",
+      "title": "Etroplus canarensis / Canara Pearlspot / Roman Numeral cichlid",
+      "durationSec": 35,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 240 lít"
+        "bể cá 120cm"
       ]
     },
     {
@@ -198,5 +295,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-10"
 }

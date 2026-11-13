@@ -1,0 +1,46 @@
+{
+  "id": "neolamprologus-marunguensis",
+  "native": {
+    "input": "f93e639c3f2fe3a5",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika, around the southwestern shore of the lake.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neolamprologus marunguensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2371738,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        5
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

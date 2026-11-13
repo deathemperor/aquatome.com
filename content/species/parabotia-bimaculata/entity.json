@@ -1,0 +1,219 @@
+{
+  "id": "parabotia-bimaculata",
+  "scientificName": "Parabotia bimaculata",
+  "order": "Cypriniformes",
+  "family": "Cobitidae",
+  "genus": "Parabotia",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "china",
+    "yangtze"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Yangtze",
+        "Laixi River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is the town of Luxian, located north of Luzhou city, Sichuan province, southwest China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Luxian lies on the Laixi River, one of several tributaries converging with the main Yangtze river channel near Luzhou and forming part of the latter's upper drainage basin.",
+          "countries": [],
+          "regions": [
+            "Yangtze",
+            "Laixi River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367862,
+      "total": 0,
+      "fetched": "2026-11-11",
+      "countries": [],
+      "cells": []
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 14
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parabotia-bimaculatus",
+      "html": "<p>Parabotia bimaculatus is a riverine botiid loach from the upper Yangtze basin in Sichuan, southwest China, described from the Laixi River at Luxian. It looks similar to P. fasciatus but has two dark markings at the caudal-fin base (vs. one) and 12-15 dark bars on the body. Like other Parabotia it favours clear, well-oxygenated running water over rocks and gravel, and needs spotless water in the aquarium.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parabotia-bimaculatus",
+      "html": "<p>Type locality is the town of Luxian, located north of Luzhou city, Sichuan province, southwest China. Luxian lies on the Laixi River, one of several tributaries converging with the main Yangtze river channel near Luzhou and forming part of the latter's upper drainage basin.</p><p>The full extent of its distribution remains unclear, however, with records in English close to non-existent and those in Chinese difficult to obtain.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parabotia-bimaculatus",
+      "html": "<p>A riverine loach favouring clear, well-oxygenated, running water with substrates of rocks and/or gravel.</p><p>Other members of the genus are present in bedrock and boulder-filled headwater streams as well as larger, turbid river channels depending on the time of year.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parabotia-bimaculatus",
+      "html": "<p>An aquarium with a base measuring 120 × 45 cm or similar should be the minimum considered (volume about 243 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parabotia-bimaculatus",
+      "html": "<p>Best maintained in a set-up designed to resemble a flowing stream with a substrate of variably-sized rocks, gravel and some water-worn boulders.</p><p>This can be further furnished with driftwood roots and branches arranged to form some shaded spots while lengths of PVC piping or similar can be used to provide additional cover. Hardy plants such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor.</p><p>Like many fishes that naturally inhabit running waters it's intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive.</p><p>It also does best if there is a high level of dissolved oxygen and a decent level of water movement in the tank so external filters, powerheads, etc., should be employed in order to obtain the desired effect.</p><p>As stable water conditions are obligatory for its well-being this fish should never be added to biologically-immature aquaria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parabotia-bimaculatus",
+      "html": "<ul><li>Temperature: 20–24°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–20 dGH</li></ul><p>It can tolerate higher temperatures provided its oxygen requirements are maintained, but for general aquarium care 20–24°C is recommended.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parabotia-bimaculatus",
+      "html": "<p>Likely to be an opportunistic, benthic predator feeding on insects, crustaceans and perhaps fish fry in nature.</p><p>Captive specimens aren't fussy but should be offered a varied diet comprising live or frozen bloodworm, Tubifex, chopped shellfish, earthworms and good quality, sinking dried foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parabotia-bimaculatus",
+      "html": "<p>Not especially aggressive but much smaller fishes might be intimidated by its size and sometimes very active behaviour. Slow-moving, long-finned species such as fancy bettas or guppies and many cichlids should also be avoided as trailing fins may be nipped at.</p><p>More-suitable tankmates include peaceful, open water-dwelling cyprinids, and it can also be maintained alongside other Chinese botiids including Leptobotia and Sinibotia spp., as well as Botia spp. from India and Myanmar.</p><p>Some cobitid and nemacheilid loaches are also possibilities as are members of Epalzeorhynchos, Crossocheilus, and Garra plus many catfishes. As always, thorough research prior to selecting a community of fishes is the best way to avoid problems.</p><p>Parabotia spp. are generally quite peaceful with conspecifics and as with other botiids seem to appreciate being maintained in a group, meaning that 3-4 specimens should ideally be the minimum purchase.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parabotia-bimaculatus",
+      "html": "<p>Sexually-mature females should be heavier-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parabotia-bimaculatus",
+      "html": "<p>Unrecorded in aquaria, but presumably a seasonal, perhaps migratory, spawner in nature.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parabotia-bimaculatus",
+      "html": "<p>It's unlikely that this species has been traded to date though a handful of specimens have been maintained by private collectors.</p><p>It looks similar to the congener P. fasciatus but can be told apart by possession of two (vs. one) dark markings at the base of the caudal-fin, 12-15 dark vertical bars on the body, 2-4 rows of dark spots on the dorsal-fin, and 3-5 rows of irregular spots on the caudal-fin.</p><p>Parabotia spp. also possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g., if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and those of larger specimens can break human skin.</p><p>Botiids are also susceptible to a condition commonly referred to as 'skinny disease' and characterised by a loss of weight. This is especially common in newly-imported specimens and is thought to be caused by a species of the flagellate genus Spironucleus.</p><p>It's treatable although the recommended medication varies depending on country. Hobbyists in the UK tend to use the antibiotic Levamisole and those in the United States Fenbendazole (aka Panacur).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/987198d388c6c4cf.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/987198d388c6c4cf-480.webp",
+      "width": 986,
+      "height": 395,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parabotia-bimaculatus",
+      "caption": "Subadult specimen exported to the United States in 2010.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "-liRBS0QpBU",
+      "title": "【微泩记83】环纹奇形：双斑副沙鳅",
+      "durationSec": 63,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể cá",
+        "đá cuội bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

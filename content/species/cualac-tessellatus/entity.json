@@ -1,0 +1,259 @@
+{
+  "id": "cualac-tessellatus",
+  "scientificName": "Cualac tessellatus",
+  "order": "Cyprinodontiformes",
+  "family": "Cyprinodontidae",
+  "genus": "Cualac",
+  "group": "killifish",
+  "places": [
+    "north-america",
+    "mexico",
+    "rio-verde"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Río Verde",
+        "Río Pánuco",
+        "Media Luna"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The checkered pupfish, Cualac tessellatus, is a cyprinodontid endemic to a handful of springs in the Río Verde valley, San Luis Potosí, Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Río Verde"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The valley is believed to have once been filled by a large lake and the relict springs are part of the elevated Río (river) Verde basin which later drains into the much larger Río Pánuco system.",
+          "countries": [],
+          "regions": [
+            "Río Pánuco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "C. tessellatus can be found in the Media Luna lagoon system, a popular spot with recreational scuba divers, as well as a few smaller lagoons including 'El aguaje', 'Los anteojitos', 'Laguna de San Bartolo' and probably others.",
+          "countries": [],
+          "regions": [
+            "Media Luna"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348154,
+      "total": 59,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MX",
+          59
+        ]
+      ],
+      "cells": [
+        [
+          -101.25,
+          21.09375,
+          58,
+          58
+        ],
+        [
+          -99.84375,
+          22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "html": "<p>The checkered pupfish, Cualac tessellatus, is a cyprinodontid endemic to a handful of springs in the Río Verde valley, San Luis Potosí, Mexico. Listed as Endangered by the IUCN, it lives in the shallow margins of crystal-clear, very hard spring-fed pools, including the Media Luna lagoon system. It is rarely available in the hobby, and captive breeding depends on very hard water, with the best results where chunks of gypsum rock are left to dissolve.</p><ul><li>Hardness: 45–53 dGH</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "html": "<p>Endemic to a handful of natural springs in the Río Verde valley, San Luis Potosí state, Central Mexico and currently listed as 'Endangered' by the IUCN.</p><p>The valley is believed to have once been filled by a large lake and the relict springs are part of the elevated Río (river) Verde basin which later drains into the much larger Río Pánuco system.</p><p>Much of the aquatic fauna found in the valley is endemic to the area but in many cases threatened by introduced species.</p><p>C. tessellatus can be found in the Media Luna lagoon system, a popular spot with recreational scuba divers, as well as a few smaller lagoons including 'El aguaje', 'Los anteojitos', 'Laguna de San Bartolo' and probably others.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "html": "<p>The Río Verde valley is largely composed of Calcium sulphate (gypsum) and all this species' habitats are fed by groundwater springs, some of which are thermal and maintain a constant temperature year-round.</p><p>La Media Luna is the largest of the latter and consists of a deep pool of around 100 m diameter where the spring water enters, a natural drainage channel which extends eastwards from the main pool for around a kilometre and three man-made irrigation channels, two of which extend from the main pool and one from the natural channel.</p><p>The water is crystal clear, very hard and holds a temperature between 26–30 °C.</p><p>Aquatic vegetation consists mostly of Nymphaea spp. water lilies, and at certain times of year filamentous algae proliferates. Substrate is mostly detritus and mud with large chunks of submerged wood in some areas.</p><p>C. tessellatus is apparently not found in large numbers and mostly inhabits shallow, marginal zones of the main pool and natural channel.</p><p>Other locally endemic species to be found here include Ataeniobius toweri, Herichthys bartoni, Ictalurus mexicanus, Dionda dichroma and D. mandibularis.</p><p>Naturally-occuring but non-endemic species include Poecilia mexicana and Astyanax fasciatus. There's also an endemic yellow form of Herichthys labridens which is now hybridising with introduced H. carpintis, and other introduced species include Poecilia latipunctata, a Gambusia species which has been identified as either G. atrora or G. panuco, and the African cichlid Oreochromis aureus which is farmed in the area and has become feral in the lagoon.</p><p>The surrounding area has also been degraded by tourism, agriculture and aquaculture.</p><p>Los anteojitos is a much smaller habitat consisting of two small lagoons connected by a small channel with conditions and water parameters similar to those of La Media Luna.</p><p>It ran almost dry for several years as the spring which feeds it was diverted, presumably for agricultural purposes, but water levels and fauna have now been restored (Artigas Azas, pers. comm.).</p><p>Other than Ataeniobius toweri no information is currently available as to which other species are found there, but satellite images show a number of artificial pools in the vicinity so the presence of Oreochromis is possible.</p><p>El Aguaje is smaller still and represents the most northerly extreme of this species' distribution.</p><p>It consists of a small pool and natural creek with some surrounding marshland with water temperature varying between 20–25 °C and conditions generally more turbid than at other localities.</p><p>Other species found here include Ataeniobius toweri, Poecilia mexicana, Herichthys bartoni, H. labridens (yellow form), Astyanax fasciatus, Ictalurus mexicanus and the ubiquitous Oreochromis aureus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm or equivalent (about 54 litres) is just about acceptable for a single pair but like most members of the family Cyprinodontidae this species does best when maintained as a group in a larger tank or container.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "html": "<p>Need not be too complicated so long as there are plenty of broken lines-of-sight.</p><p>Provide plenty of cover in the form of aquatic plants, wool mops, etc., and if using filtration air-powered, sponge-type units are best as these will not harm eggs or fry.</p><p>Lighting is unimportant but can be used if you wish, and growth of filamentous algae should be encouraged if possible.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "html": "<ul><li>Temperature: 20–30 °C</li><li>pH: 7.5–8.5</li><li>Hardness: Probably the most important factor in breeding success with this species; the gH at La Media Luna has been recorded to range between 45–53 dGH. While adults may survive in soft conditions egg development is most certainly impaired.</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "html": "<p>Chiefly a micropredator feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton although algae and other plant material is taken as well.</p><p>In the aquarium dried foods are accepted in most cases but regular meals of small live or frozen fare such as Artemia, Daphnia or bloodworm should also be offered.</p><p>If the aquarium or container doesn't contain filamentous algae introduce a good quality dried product with added vegetable, ideally algal, content to the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "html": "<p>This species is rarely available in the aquarium hobby and all efforts at captive breeding are to be encouraged so ideally it should be maintained alone.</p><p>However it should also be said that it's relatively non-aggressive and can be maintained alongside other hard water fishes such as many goodeids, Xiphophorus or Poecilia spp. and even some small rainbowfishes.</p><p>It can be maintained in a group without problems and even when breeding male territorial behaviour appears restricted to chasing rather than biting.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "html": "<p>Males have strongly-marked flanks with highly variable vermiculated markings, yellow to orange pelvic and anal fins, bluish dorsal fin peppered with fine dark spots and a dark caudal-fin whereas females are much plainer, possessing less-intense flank markings and a little dark pigmentation in the dorsal-fin only.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "html": "<p>Captive reproduction is not difficult if the tank or container is properly arranged and maintained.</p><p>The most important aspect is the provision of very hard water and the presence of sulphur also seems important in proper egg development, with the best results having been obtained when chunks of pure gypsum rock are added to the water and allowed to dissolve slowly over time.</p><p>It's a fractional spawner with females depositing eggs on a more-or-less continuous basis if a warm temperature is maintained though ideally it should be permitted to breed on a seasonal basis in spring and late summer as it would in nature.</p><p>Males form temporary territories which they defend against rivals while attempting to entice females to spawn, with dominant individuals showing more intense colouration.</p><p>Eggs are released singly or in small batches and are attached to algae or other surfaces by means of small filaments.</p><p>While some may be eaten if left in situ this species isn't especially voracious and if plenty of cover is present fry will typically appear in with the adults (M. Ford, pers. obv.) although the most productive method is to remove the eggs and hatch them in a separate tank containing water of the same chemistry and temperature as that of the adults.</p><p>The incubation period is influenced by temperature but usually 7–14 days with the fry large enough to accept Artemia nauplii, microworm etc. as soon as they become free-swimming.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "html": "<p>This species' local vernacular name is 'cachorrito de Media Luna', which literally translates as 'puppy of Media Luna'.</p><p>You're unlikely to find it on sale in aquarium stores although it may be available via specialist breeders or associations from time-to-time.</p><p>The genus Cualac is monotypic and distinguished from related assemblages such as Cyprinodon, Jordanella, Garmanella, Floridichthys and Megupsilon by possession of closely-packed, villiform inferior pharyngeal teeth and possession of 17 rakers on the first gill arch.</p><p>Etymology: Cualac is derived from a Mexican place name of Indian (Nahuatl) origin which means \"where there is good water\", in reference to the species' type locality at Media Luna. tessellatus is from the Latin tessella, meaning 'a small cube', in reference to the mosaic-like or checkered pattern in the dorsal fin of males in the original description.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "html": "<ul><li>Miller, R. R. (1956). A new genus and species of cyprinodontid fish from San Luis Potosi, Mexico, with remarks on the subfamily Cyprinodontinae. Occasional Papers of the Museum of Zoology University of Michigan 581, 1-17</li><li>Parenti, L. R. (1981). A phylogenetic and biogeographic analysis of cyprinodontiform fishes (Teleostei, Atherinomorpha). Bulletin of the American Museum of Natural History 168(4), 335-557</li><li>Park, A., and I. Kornfield (1995). Molecular Perspective on Evolution and Zoogeography of Cyprinodontid Killifishes (Teleostei; Atherinomorpha). Copeia 1995(1), 8-21</li><li>Hertwig, S. T. (2008). Phylogeny of the Cyprinodontiformes (Teleostei, Atherinomorpha): the contribution of cranial soft tissue characters. Zoologica Scripta 37(2), 141-174</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/902c83f8c588070d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/902c83f8c588070d-480.webp",
+      "width": 879,
+      "height": 494,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "caption": "Adult female; San Bartolo population.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1c0d91802f8a2cee.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1c0d91802f8a2cee-480.webp",
+      "width": 901,
+      "height": 676,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "caption": "Another view of the natural channel at La Media Luna.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/89bdd6870a270ffb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/89bdd6870a270ffb-480.webp",
+      "width": 884,
+      "height": 466,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cualac-tessellatus",
+      "caption": "Another adult male from San Bartolo.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi bọt xốp",
+        "lọc xốp cho cá bột"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "thức ăn khô cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH GH KH",
+        "dụng cụ đo độ cứng nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

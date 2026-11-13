@@ -15,6 +15,314 @@
     "myanmar",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "PK",
+        "NP",
+        "BD",
+        "BT",
+        "MM",
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Day's mystus, Mystus bleekeri, is a bagrid catfish from India, Pakistan, Nepal, Bangladesh, Bhutan, Myanmar and Indonesia.",
+          "countries": [
+            "IN",
+            "PK",
+            "NP",
+            "BD",
+            "BT",
+            "MM",
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5201913,
+      "total": 162,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "IN",
+          116
+        ],
+        [
+          "BD",
+          28
+        ],
+        [
+          "NP",
+          10
+        ],
+        [
+          "PK",
+          5
+        ],
+        [
+          "MM",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          66.09375,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          67.5,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          73.125,
+          16.875,
+          2,
+          2
+        ],
+        [
+          73.125,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          73.125,
+          30.9375,
+          3,
+          3
+        ],
+        [
+          74.53125,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          74.53125,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          74.53125,
+          32.34375,
+          2,
+          2
+        ],
+        [
+          75.9375,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          75.9375,
+          21.09375,
+          4,
+          4
+        ],
+        [
+          77.34375,
+          11.25,
+          3,
+          3
+        ],
+        [
+          77.34375,
+          15.46875,
+          3,
+          3
+        ],
+        [
+          77.34375,
+          22.5,
+          12,
+          12
+        ],
+        [
+          78.75,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          78.75,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          78.75,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          78.75,
+          28.125,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          15.46875,
+          8,
+          8
+        ],
+        [
+          80.15625,
+          22.5,
+          2,
+          2
+        ],
+        [
+          81.5625,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          81.5625,
+          16.875,
+          5,
+          5
+        ],
+        [
+          82.96875,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          82.96875,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          84.375,
+          19.6875,
+          6,
+          6
+        ],
+        [
+          85.78125,
+          19.6875,
+          4,
+          4
+        ],
+        [
+          85.78125,
+          22.5,
+          2,
+          2
+        ],
+        [
+          85.78125,
+          25.3125,
+          6,
+          6
+        ],
+        [
+          87.1875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          88.59375,
+          25.3125,
+          13,
+          13
+        ],
+        [
+          88.59375,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          90,
+          22.5,
+          10,
+          10
+        ],
+        [
+          90,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          91.40625,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          22.5,
+          4,
+          4
+        ],
+        [
+          91.40625,
+          23.90625,
+          21,
+          21
+        ],
+        [
+          92.8125,
+          23.90625,
+          12,
+          12
+        ],
+        [
+          94.21875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          95.625,
+          16.875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -58,7 +366,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 4
+        "value": 2
       }
     ]
   },
@@ -152,38 +460,6 @@
       "sourceUrl": "https://www.scotcat.com/bagridae/mystus_bleekeri.htm",
       "caption": "Mystus bleekeri",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/90d37c7654ef9381.webp",
-      "thumb": "https://media.aquatome.com/scotcat/90d37c7654ef9381-480.webp",
-      "width": 500,
-      "height": 234,
-      "licence": "dùng với sự cho phép",
-      "author": "Andrew Rao / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_bleekeri.htm",
-      "caption": "Mystus bleekeri",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/70a17d47febc0d43.webp",
-      "thumb": "https://media.aquatome.com/scotcat/70a17d47febc0d43-480.webp",
-      "width": 500,
-      "height": 176,
-      "licence": "dùng với sự cho phép",
-      "author": "Andrew Rao / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_bleekeri.htm",
-      "caption": "Mystus bleekeri",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/8b7dfa6e90301107.webp",
-      "width": 960,
-      "height": 341,
-      "licence": "Public domain",
-      "author": "Robert Mintern",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macrones_bleekeri_Mintern_101.jpg",
-      "caption": "Mystus bleekeri syn. Macrones bleekeriThe species names / identity need verification. The original plates showed the fishes facing right and have been flipped here. Macrones bleekeri",
-      "thumb": "https://media.aquatome.com/commons/8b7dfa6e90301107-480.webp"
     }
   ],
   "videos": [],
@@ -191,8 +467,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 108 lít"
+        "bể cá 120cm"
       ]
     },
     {

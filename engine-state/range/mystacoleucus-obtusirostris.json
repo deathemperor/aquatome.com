@@ -1,0 +1,172 @@
+{
+  "id": "mystacoleucus-obtusirostris",
+  "native": {
+    "input": "d45f2b0a7bfffbbb",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystacoleucus obtusirostris is a riverine cyprinid found from Myanmar and southwestern China to Vietnam, Borneo, Sumatra and Java.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystacoleucus obtusirostris is a riverine cyprinid found from Myanmar and southwestern China to Vietnam, Borneo, Sumatra and Java.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystacoleucus obtusirostris is a riverine cyprinid found from Myanmar and southwestern China to Vietnam, Borneo, Sumatra and Java.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "M. obtusirostris is the most widely-distributed member of the genus with a range extending eastwards from Myanmar through southwestern China, Thailand, Laos, Cambodia, and Vietnam, and to the south through Peninsular Malaysia to the Greater Sunda Islands of Borneo, Sumatra and Java.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "M. obtusirostris is the most widely-distributed member of the genus with a range extending eastwards from Myanmar through southwestern China, Thailand, Laos, Cambodia, and Vietnam, and to the south through Peninsular Malaysia to the Greater Sunda Islands of Borneo, Sumatra and Java.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "M. obtusirostris is the most widely-distributed member of the genus with a range extending eastwards from Myanmar through southwestern China, Thailand, Laos, Cambodia, and Vietnam, and to the south through Peninsular Malaysia to the Greater Sunda Islands of Borneo, Sumatra and Java.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "M. obtusirostris is the most widely-distributed member of the genus with a range extending eastwards from Myanmar through southwestern China, Thailand, Laos, Cambodia, and Vietnam, and to the south through Peninsular Malaysia to the Greater Sunda Islands of Borneo, Sumatra and Java.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "M. obtusirostris is the most widely-distributed member of the genus with a range extending eastwards from Myanmar through southwestern China, Thailand, Laos, Cambodia, and Vietnam, and to the south through Peninsular Malaysia to the Greater Sunda Islands of Borneo, Sumatra and Java.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "M. obtusirostris is the most widely-distributed member of the genus with a range extending eastwards from Myanmar through southwestern China, Thailand, Laos, Cambodia, and Vietnam, and to the south through Peninsular Malaysia to the Greater Sunda Islands of Borneo, Sumatra and Java.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "M. obtusirostris is the most widely-distributed member of the genus with a range extending eastwards from Myanmar through southwestern China, Thailand, Laos, Cambodia, and Vietnam, and to the south through Peninsular Malaysia to the Greater Sunda Islands of Borneo, Sumatra and Java.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Indonesia: Java: Buitenzorg [Bogor]'.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "It occurs in several major river systems including the Mekong, Chao Phraya, Mae Klong, Batang Hari, and Kapuas, with populations varying somewhat in terms of colour pattern.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "It occurs in several major river systems including the Mekong, Chao Phraya, Mae Klong, Batang Hari, and Kapuas, with populations varying somewhat in terms of colour pattern.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "M. obtusirostris is the most widely-distributed member of the genus with a range extending eastwards from Myanmar through southwestern China, Thailand, Laos, Cambodia, and Vietnam, and to the south through Peninsular Malaysia to the Greater Sunda Islands of Borneo, Sumatra and Java.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "M. obtusirostris is the most widely-distributed member of the genus with a range extending eastwards from Myanmar through southwestern China, Thailand, Laos, Cambodia, and Vietnam, and to the south through Peninsular Malaysia to the Greater Sunda Islands of Borneo, Sumatra and Java.",
+        "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "seriouslyfish",
+        "quote": "M. obtusirostris is the most widely-distributed member of the genus with a range extending eastwards from Myanmar through southwestern China, Thailand, Laos, Cambodia, and Vietnam, and to the south through Peninsular Malaysia to the Greater Sunda Islands of Borneo, Sumatra and Java.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "It occurs in several major river systems including the Mekong, Chao Phraya, Mae Klong, Batang Hari, and Kapuas, with populations varying somewhat in terms of colour pattern.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mystacoleucus obtusirostris",
+    "status": "ACCEPTED",
+    "taxonKey": 10308490,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "CN",
+      "VN",
+      "TH",
+      "LA",
+      "KH",
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

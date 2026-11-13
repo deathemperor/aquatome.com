@@ -1,0 +1,276 @@
+{
+  "id": "devario-chrysotaeniatus",
+  "scientificName": "Devario chrysotaeniatus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Devario",
+  "group": "danios",
+  "places": [
+    "asia",
+    "china",
+    "mekong",
+    "laos",
+    "nam-youan",
+    "thailand",
+    "chiang-mai"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "LA",
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Nam Youan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from waters close to Manzhuo and Jinghong, Xishuangbanna Dai autonomous prefecture, Yunnan Province, southwestern China, and subsequently recorded from the Nam Youan River basin in Louang Namtha province, northern Laos.",
+          "countries": [
+            "CN",
+            "LA"
+          ],
+          "regions": [
+            "Nam Youan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Nam Youan drains into Yunnan, and all known localities for this species fall within the upper Mekong watershed with populations also having been discovered in Chiang Mai province, northern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361506,
+      "total": 16,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CN",
+          9
+        ],
+        [
+          "LA",
+          6
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          21.09375,
+          4,
+          4
+        ],
+        [
+          101.25,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          21.09375,
+          8,
+          8
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-chrysotaeniatus",
+      "html": "<ul><li>Temperament: peaceful; needs to be kept in a group</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-chrysotaeniatus",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. Weekly water changes of 30-50% volume should be considered routine.</li></ul><p>Devario chrysotaeniatus is a devario from the upper Mekong watershed in Yunnan, southwestern China, northern Laos and northern Thailand. It first appeared in the hobby in 2005 and is rarely seen, probably because its natural waters lie outside the range of most commercial collectors. Its flank pattern is indistinct: a few short, thin horizontal stripes, a dark stripe along the back and a spot behind the gill opening.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-chrysotaeniatus",
+      "html": "<p>Described from waters close to Manzhuo and Jinghong, Xishuangbanna Dai autonomous prefecture, Yunnan Province, southwestern China, and subsequently recorded from the Nam Youan River basin in Louang Namtha province, northern Laos.</p><p>The Nam Youan drains into Yunnan, and all known localities for this species fall within the upper Mekong watershed with populations also having been discovered in Chiang Mai province, northern Thailand.</p><p>Type locality is given as 'Manzhuo, Mengla County, Yunnan Province, China'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-chrysotaeniatus",
+      "html": "<p>This species' habitats are situated at relatively high altitude and receive a great deal of rainfall between the months of May and October.</p><p>It's likely to be restricted to hill streams and small rivers with substrates of gravel and variably-sized rocks and some marginal or over-hanging vegetation. Water flow is almost certainly variable depending on time of year.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-chrysotaeniatus",
+      "html": "<p>Standard length: 75 mm SL. Aquarium base: 120 × 30 cm. Volume: ~108 litres.</p><p>An aquarium with a base measuring 120 × 30 cm or equivalent should be the minimum considered for this active species.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-chrysotaeniatus",
+      "html": "<p>Not difficult to keep in a well-maintained set-up, though we recommend aquascaping the tank to resemble a flowing stream or river with a substrate of variably-sized, water-worn rocks, sand, fine gravel and perhaps some small boulders.</p><p>This can be further furnished with driftwood roots or branches, and while the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor.</p><p>Since it naturally occurs in pristine habitats it's intolerant to accumulation of organic pollutants and requires more-or-less spotless water in order to thrive.</p><p>Though torrent-like conditions are unnecessary it also does best if there is a high proportion of dissolved oxygen and moderate water movement.</p><p>Weekly water changes of 30-50% volume should be considered routine, and the tank must have a very tightly-fitting cover as all Devario spp. are accomplished jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-chrysotaeniatus",
+      "html": "<ul><li>Temperature: 23–26°C</li><li>pH: 6.0–7.0</li><li>Hardness: 1–8 dGH</li></ul><p>Temperature: Air temperatures across its native range are relatively stable with monthly averages varying from approximately 17°C in December and January to 38°C in April. A value within the range 23–26°C should therefore be acceptable for general aquarium care.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-chrysotaeniatus",
+      "html": "<p>Almost certain to prey chiefly on insects and their larvae in nature although in the aquarium it's a largely unfussy feeder and will accept most foods.</p><p>A good quality dried product can be used as the staple diet but this should be supplemented with regular meals of small live and frozen fare such as bloodworm, Daphnia, Artemia, etc., for the best colouration and conditioning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-chrysotaeniatus",
+      "html": "<p>Not an aggressive fish but may upset slow-moving or timid tankmates with its constant activity and vigorous feeding behaviour, and is most appropriate for larger aquaria containing robust, similarly-sized fishes.</p><p>There are plenty of suitable choices including many cyprinids, loaches, cichlids, catfishes and characins, although as always when selecting a compatible community of fish proper research is essential.</p><p>It's a schooling species by nature and ideally should be kept in a group of at least 8-10 specimens which will not only make the fish less nervous but will result in a more effective, natural looking display.</p><p>Any aggression will also be contained as the fish concentrate on maintaining their hierarchical position within the group, and males tend to display better colours in the presence of rivals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-chrysotaeniatus",
+      "html": "<p>Sexually mature females should be rounder-bellied, less colourful and a little larger than males.</p><p>In nuptial males the lower, posterior portion of the body and central caudal-fin rays become suffused with bright orange pigmentation.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-chrysotaeniatus",
+      "html": "<p>Like most small cyprinids Devario spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often and in a well-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller tank with a base measuring around 45 cm x 30 cm should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or wool mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced.</p><p>If ready spawning usually taking place within 24 hours, with the female tending to appear noticeably slimmer after the event, and after 48 hours the adults should be removed whether this is observed or not.</p><p>Incubation is temperature-dependant to an extent but typically lasts 24-36 hours with the young free-swimming a few days later.</p><p>Initial food should be Paramecium or similar, introducing Artemia nauplii, microworm, powdered dry foods, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-chrysotaeniatus",
+      "html": "<p>This species is not well known having first appeared in the aquarium hobby during 2005 but rarely seen since, probably because its natural waters lie outside the range of most commercial collectors.</p><p>It can be distinguished by a combination of characters including: lateral line complete; infraorbital process absent; two pairs of short barbels; 8-9 branched dorsal-fin rays; 12-13 branched anal-fin rays; P stripe originating above pelvic-fin and extending to end of median caudal-fin rays; presence of faint P +1 stripe fading above base of anal-fin; presence of cleithral spot posterior to gill opening; dark stripe running along dorsal surface of body from nape to base of caudal-fin; presence of faint submarginal stripe in dorsal and anal fins; indistinct striped patterning on flanks consisting of few, relatively short and thin horizontal stripes on a slightly darker base.</p><p>The current genus name has only been in general use since 2003 prior to which members were considered to belong to the genus Danio. In 2003 Fang Fang conducted a detailed study based on morphological characters suggesting that the genus Danio as previously considered represents a polyphyletic grouping. The genus name Devario was suggested for the larger species with Danio being applied only to the smaller fish, although Kottelat (2013) later restricted Danio to its type species, D. dangila, and placed most former members in the revalidated genera Brachydanio and Celestichthys. Kullander (2015), the Catalog of Fishes and FishBase do not follow that split and keep those species in Danio.</p><p>Kottelat (2013) revalidated the genus Inlecypris whilst noting that phylogenetic evidence suggests the existence of two genetic lineages within Devario. The first contains the species with prominent lateral stripes, which leaves the remaining members (D. apogon and D. chrysotaeniatus) of uncertain taxonomic placement.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-chrysotaeniatus",
+      "html": "<ul><li>Chu, X.-L. (1981). A preliminary revision of fishes of the genus Danio from China. Zoological Research 2(2), 145-156</li><li>Fang, F. (2003). Phylogenetic Analysis of the Asian Cyprinid Genus Danio (Teleostei, Cyprinidae). Copeia 2003(4), 714-728</li><li>Fang, F. and M. Kottelat (1999). Danio species from northern Laos, with descriptions of three new species (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 10(3), 281-295</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 120cm",
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể 120cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn khô cho cá danio",
+        "trùng huyết đông lạnh",
+        "artemia",
+        "thức ăn cho cá danio"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi cuội nền bể cá",
+        "cát mịn bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy làm mát bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

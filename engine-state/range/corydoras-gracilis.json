@@ -1,0 +1,78 @@
+{
+  "id": "corydoras-gracilis",
+  "native": {
+    "input": "8b22fc1cd3f28202",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Gastrodermus gracilis, long known as Corydoras gracilis, is a small armoured catfish from the central Amazon basin in Brazil, known from the rio Juriti in Pará to the rio Juma in Amazonas.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the central Amazon basin in Brazil, where its known range extends from the rio Juriti in Pará state to the rio Juma, a tributary of the rio Aripuanã within the rio Madeira watershed in Amazonas state.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Native to the central Amazon basin in Brazil, where its known range extends from the rio Juriti in Pará state to the rio Juma, a tributary of the rio Aripuanã within the rio Madeira watershed in Amazonas state.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Madeira",
+        "source": "seriouslyfish",
+        "quote": "Native to the central Amazon basin in Brazil, where its known range extends from the rio Juriti in Pará state to the rio Juma, a tributary of the rio Aripuanã within the rio Madeira watershed in Amazonas state.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Juriti",
+        "source": "seriouslyfish",
+        "quote": "Native to the central Amazon basin in Brazil, where its known range extends from the rio Juriti in Pará state to the rio Juma, a tributary of the rio Aripuanã within the rio Madeira watershed in Amazonas state.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras gracilis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342764,
+    "datasets": [
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

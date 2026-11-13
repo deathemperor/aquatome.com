@@ -660,7 +660,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 7
+        "value": 6
       }
     ]
   },
@@ -669,7 +669,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/osteoglossum-bicirrhosum",
-      "html": "<ul><li>Max size: 800 mm SL (31 in)</li><li>Temperature: 20–30°C (68–86°F)</li><li>pH: 5.0–7.5</li><li>Hardness: 2–15 dGH</li><li>Difficulty: Difficult (7 of 8); rated difficult because it needs a tank at least 2 m long.</li></ul>"
+      "html": "<ul><li>Max size: 800 mm SL (31 in)</li><li>Temperature: 20–30°C (68–86°F)</li><li>pH: 5.0–7.5</li><li>Hardness: 2–15 dGH</li><li>Difficulty: Difficult (6 of 8); rated difficult because it needs a tank at least 2 m long.</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -747,7 +747,12 @@
       "author": "User:Qwertzy2",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osteoglossum_bicirrhosum.JPG",
       "caption": "Image of Osteoglossum bicirrhosum (Silver Arowana). They are native to the Amazon River system, and are know to have grown as long as 1 meter long in captivity and 1.2 meter in the wild. When kept in ",
-      "thumb": "https://media.aquatome.com/commons/84f557378f0c3b1d-480.webp"
+      "thumb": "https://media.aquatome.com/commons/84f557378f0c3b1d-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/84f557378f0c3b1d-large.webp",
+        "width": 1934,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/01e5c545c6cd2645.webp",
@@ -757,7 +762,12 @@
       "author": "Michael Barera",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Milwaukee_County_Zoo_August_2022_098_(silver_arowana).jpg",
       "caption": "A silver arowana at the Milwaukee County Zoo in Milwaukee, Wisconsin (United States).",
-      "thumb": "https://media.aquatome.com/commons/01e5c545c6cd2645-480.webp"
+      "thumb": "https://media.aquatome.com/commons/01e5c545c6cd2645-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/01e5c545c6cd2645-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/abc7f85db0d600c0.webp",
@@ -775,8 +785,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 2m",
-        "bể cá kính cường lực cỡ lớn"
+        "bể cá 200cm"
       ]
     },
     {

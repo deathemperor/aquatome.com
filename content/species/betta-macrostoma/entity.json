@@ -13,6 +13,68 @@
     "mendarem",
     "sarawak"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BN",
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Mendarem River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Brunei beauty, Betta macrostoma, is a large paternal mouthbrooding labyrinth fish endemic to Brunei and the northern tip of Sarawak, Borneo.",
+          "countries": [
+            "BN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Borneo where it's known only from Brunei Darussalam and the northern tip of the Malaysian state of Sarawak.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Brunei there exist a number of known localities along the Mendarem River and in Labi rainforest, all in the administrative area of Labi which borders Sarawak to the south.",
+          "countries": [],
+          "regions": [
+            "Mendarem River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394042,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BN",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          4.21875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -63,7 +125,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ],
     "gh": [
@@ -94,12 +156,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
       "html": "<p>The Brunei beauty, Betta macrostoma, is a large paternal mouthbrooding labyrinth fish endemic to Brunei and the northern tip of Sarawak, Borneo. It grows to 100 mm SL, and males are red with a red patch on the opercle and an ocellus in the dorsal fin. It lives in still, shady pools at the top of rainforest waterfalls. Listed as Vulnerable by the IUCN, it has been banned from export by the Sultan of Brunei.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
-      "html": "<p>This is one of the largest bettas and is highly sought after for its size and beauty. It turns red on the body and has a nice pattern on the dorsal fin. Betta macrostoma has been known to be more sensitive to water conditions and more susceptible to velvet than other large bettas. Its beauty, rarity and difficulty contribute to its higher cost. Be sure to have the habitat ready before purchase.</p>"
     },
     {
       "key": "distribution",
@@ -234,17 +290,6 @@
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-macrostomas-brunei-wild-betta-fish",
       "source": "bwaquatics"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/081a24acda117a64.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/081a24acda117a64-480.webp",
-      "width": 608,
-      "height": 429,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/betta-macrostoma",
-      "caption": "One of the localities close to Marudi where B. macrostoma can be found.",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -252,8 +297,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể nuôi betta"
+        "bể cá 80cm"
       ]
     },
     {

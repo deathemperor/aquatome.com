@@ -8,14 +8,19 @@
     "diet:planetcatfish": "<p>Cá thuộc chi này ăn được cả thức ăn sống lẫn đông lạnh, và cũng chịu ăn thức ăn khô bán sẵn. Bạn cần để ý đừng cho ăn quá tay. Ngoài tự nhiên, chúng ăn các loài động vật không xương sống nhỏ sống ở đáy.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận nào về việc loài này sinh sản trong bể nuôi. Hiện cũng chưa ai báo cáo cho sinh sản thành công.</p>",
     "notes:planetcatfish": "<p>Nguồn gốc tên gọi: Trichomycterus ghép từ hai chữ Hy Lạp, trichos nghĩa là sợi tóc và mykter nghĩa là mũi. Cái tên này ám chỉ các sợi râu của cá.</p>",
-    "references:planetcatfish": "<p>Arquivos do Museu Nacional de Rio de Janeiro v. 13, pp p.? [15], Pl. 1 (figs. a-c).</p>"
+    "references:planetcatfish": "<p>Arquivos do Museu Nacional de Rio de Janeiro v. 13, pp p.? [15], Pl. 1 (figs. a-c).</p>",
+    "quickFacts:scotcat": "<ul><li>Tên đồng nghĩa: Trichomycterus brasiliensis itatiayae</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: các con sông ở dãy núi Itatiaia, vùng thượng nguồn lưu vực sông Paraíba do Sul, Brazil. Nơi thu mẫu chuẩn: do Itatiaya, ...em afluente do Parahyba, bang Rio de Janeiro, Brazil.</p>",
+    "habitat:scotcat": "<p>Trichomycterus itatiayae là loài đặc hữu, chỉ có ở các lưu vực ven biển thuộc tây nam Rio de Janeiro và đông nam São Paulo, trên sông Paraíba do Sul. Ở những nơi có nó thì số lượng khá nhiều, nhưng vùng phân bố lại hẹp. Loài này có mặt ở cả khu bảo tồn lẫn khu sử dụng bền vững.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên loài: itatiayae lấy theo tên dãy núi Itatiaia ở bang Rio de Janeiro, Brazil, nơi thu mẫu chuẩn.</p><p>Sách đỏ IUCN: chưa thấy mối đe dọa đáng kể nào với quần thể, vì vậy loài này được xếp vào nhóm Ít quan tâm (LC) (IUCN 2022).</p><p>Họ Trichomycteridae là một nhóm đơn ngành, gồm tám phân họ, 41 chi và khoảng 207 loài (Ferraris 2007). Bảy phân họ đã chứng minh được là đơn ngành. Riêng Trichomycterinae là phân họ lớn nhất và rõ ràng là một nhóm đa ngành (Wosiacki 2002). Chi Trichomycterus nhiều loài nhất và phân bố rộng nhất trong họ, với 113 loài hợp lệ trải khắp Nam Mỹ và Trung Mỹ, ở cả hai bên dãy Andes (de Pinna và Wosiacki 2003, Ferraris 2007). De Pinna (1989) cho rằng chi này không phải nhóm đơn ngành. Các lưu vực sông ở nam và đông nam Brazil có rất nhiều loài Trichomycterus, riêng ở đây đã có 34 loài được mô tả (Bockman và cs. 2004).</p>",
+    "references:scotcat": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, (01/2024).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Trichomycterus itatiayae. The IUCN Red List of Threatened Species 2022.</p>"
   },
   "quality": {
     "score": 0.82,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.82
-    },
-    "reason": "thin"
+      "planetcatfish": 0.82,
+      "scotcat": 0.9
+    }
   }
 }

@@ -253,7 +253,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -333,15 +333,19 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/0600fc25d1246f2a.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/0600fc25d1246f2a-480.webp",
-      "width": 800,
-      "height": 600,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/thorichthys-meeki",
-      "caption": "Laguna de Las Ilusiones at Villahermosa, Tabasco state is home to a population of T. meeki.",
-      "source": "seriouslyfish"
+      "url": "https://media.aquatome.com/commons/384ebc03e62438cd.webp",
+      "thumb": "https://media.aquatome.com/commons/384ebc03e62438cd-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thorichthys_meeki_-_Feuermaulbuntbarsch.jpg",
+      "caption": "Cá cichlid miệng lửa đực họng đỏ, đuôi xanh trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/384ebc03e62438cd-large.webp",
+        "width": 1801,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
@@ -349,8 +353,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 120x30"
+        "bể cá 120cm"
       ]
     },
     {

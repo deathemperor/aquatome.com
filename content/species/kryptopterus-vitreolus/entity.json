@@ -15,9 +15,12 @@
       "countries": [
         "TH"
       ],
-      "regions": [],
+      "regions": [
+        "Cardamom (Khao Banthat) Mountains"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -27,6 +30,14 @@
             "TH"
           ],
           "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from a series of coastal river basins of Peninsular Thailand draining into the Gulf of Thailand south of the Isthmus of Kra, plus a handful of rivers draining the Cardamom (Khao Banthat) Mountains in southeastern Thailand.",
+          "countries": [],
+          "regions": [
+            "Cardamom (Khao Banthat) Mountains"
+          ]
         }
       ]
     },
@@ -82,6 +93,10 @@
       {
         "source": "seriouslyfish",
         "value": 6.5
+      },
+      {
+        "source": "glaser",
+        "value": 7
       }
     ],
     "tankCm": [
@@ -109,6 +124,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-vitreolus",
       "html": "<p>Known only from a series of coastal river basins of Peninsular Thailand draining into the Gulf of Thailand south of the Isthmus of Kra, plus a handful of rivers draining the Cardamom (Khao Banthat) Mountains in southeastern Thailand.</p><p>Type locality is 'Thailand: Trat Province, Amphoe Khao Saming'.</p><p>Ng and Kottelat (2013) state that its status in the wild requires investigation since it's collected intensively for the aquarium trade, has a relatively restricted range and appears never to have been bred on a commercial basis.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/a_new_name_for_the_ghost_glass_catfish_kryptopterus_vitreolus_en/",
+      "html": "<p>Kryptopterus vitreolus originates from Thailand only.</p>"
     },
     {
       "key": "habitat",
@@ -160,15 +181,15 @@
     },
     {
       "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/kryptopterus-vitreolus-2/",
-      "html": "<p>The common glass or ghost catfish, Kryptopterus vitreolus, has been kept in numerous aquariums around the world for decades, albeit mostly under the misnomer K. bicirrhis.</p><p>A routine measure in the everyday care of the fish is to examine it regularly in the beam of a strong flashlight for possible disease. In this context, a keeper with a degree in biology discovered that under certain light incidence, the glass catfish shows a distinctly colourful iridescence. This is basically the same effect of light refraction that leads to the formation of rainbows. It is not easy to capture photographically, because the interaction of light and movement of the fish must fit exactly.</p>"
-    },
-    {
-      "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-vitreolus",
       "html": "<p>This species has been available in the trade for decades during which time it's been widely misidentified as the congeners K. bicirrhis or, more recently, K. minor.</p><p>Its identity was not resolved until early 2013 at which point it was described as a new species by Ng and Kottelat, meaning you will see it under one of these two names in the majority of literature published prior to that date.</p><p>Unusually, the authors were required to publish a short communication just after the description since the words 'new species' did not feature in the first paper meaning that technically the name K. vitreolus remained unavailable as per Art. 16.1 of the ICZN code.</p><p>Alternative trade names include 'Asian glass catfish', 'ghost catfish' and 'phantom catfish', while it's sometimes confused with the 'African glass catfish', Parailia pellucida.</p><p>Among other Kryptopterus spp. only K. minor and K. piperatus also possess a transparent body in life with the remaining species translucent or opaque, and these three are hypothesised to form a sub-clade within the K. bicirrhis species group (Ng &amp; Kottelat, 2013).</p><p>K. vitreolus can be told apart from K. minor, K. piperatus and all other K. bicirrhis group members by the following combination of characters: snout length 29–35 % HL; eye diameter 28–34 % HL; body depth at anus 16–20 % SL; depth of caudal peduncle 4–7 % SL; maxillary barbels extending beyond base of first anal-fin ray; dorsal profile with pronounced nuchal concavity; 14–18 rakers on the first gill arch; 48–55 anal-fin rays.</p><p>Kryptopterus species are found only in Southeast Asia and the genus has been considered polyphyletic since Bornbusch (1995) with some former species already moved to the genera Phalacronotus and Micronema.</p><p>Those still contained within the genus are assigned to a number of putative species groups as follows:</p><ul><li>K. bicirrhis group: K. bicirrhis, K. lais, K. palembangensis, K. macrocephalus, K. minor, K. piperatus, K. vitreolus</li><li>K. cryptopterus group: K. cryptopterus, K. geminus</li><li>K. limpok group: K. limpok, K. mononema, K. dissitus, K. baramensis, K. hesperius</li><li>K. schilbeides group: K. schilbeides, K. paraschilbeides</li></ul><p>Bombusch (1995) identified the K. bicirrhis group as a distinct clade although he didn't propose any synapomorphy to diagnose it.</p><p>Ng and Kottelat (2013) later noted that members normally have fewer anal-fin rays (46–67 vs. 64–85) than other congeners and placed K. piperatus and K. vitreolus within the group based on this character.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/a_new_name_for_the_ghost_glass_catfish_kryptopterus_vitreolus_en/",
+      "html": "<p>This extraordinary catfish has been a popular aquarium inhabitant for more than 80 years. The scientists Heok Hee Ng and Maurice Kottelat found out that it had been mis-identified for over eight decades as Kryptopterus bicirrhis or K. minor, and that the Ghost glass catfish is a so far undescribed species. They have now named it Kryptopterus vitreolus.</p><p>Kryptopterus bicirrhis looks very different and is not as translucent. K. bicirrhis grows to about 15 cm, much larger than K. vitreolus (about 7 cm). K. minor originates from the island of Borneo and has in all probability never been imported as an ornamental fish.</p><p><strong>Meaning of the names:</strong></p><ul><li>Kryptopterus: ancient Greek, means \"with hidden fin\".</li><li>bicirrhis: Latin, means \"with two filaments\".</li><li>minor: Latin, means \"small\".</li><li>vitreolus: Latin, means \"small glass\".</li></ul>"
     },
     {
       "key": "references",
@@ -180,43 +201,53 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/fca62a828bf26357.webp",
+      "thumb": "https://media.aquatome.com/commons/fca62a828bf26357-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 2.0",
       "author": "Martin Fisch",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glaswelse.jpg",
       "caption": "aquarium im frankfurter Zoo",
-      "thumb": "https://media.aquatome.com/commons/fca62a828bf26357-480.webp"
+      "large": {
+        "url": "https://media.aquatome.com/commons/fca62a828bf26357-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/d1d39658f950ea46.webp",
+      "thumb": "https://media.aquatome.com/commons/d1d39658f950ea46-480.webp",
       "width": 960,
       "height": 960,
       "licence": "CC BY-SA 2.5",
       "author": "Daiju Azuma",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kryptopterus_species.jpg",
       "caption": "ja:トランスルーセントグラスキャットフィッシュ Kryptopterus bicirrhis Kryptopterus vitreolus. Source http://opencage.info/pics/large_3622.asp Location 姫路水族館 Himeji City Aquarium, Japan Copyright OpenCage",
-      "thumb": "https://media.aquatome.com/commons/d1d39658f950ea46-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/7eef359a2aa802d9.webp",
-      "width": 960,
-      "height": 539,
-      "licence": "CC BY-SA 4.0",
-      "author": "serwacy01-",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kryptopterus_vitreolus.jpg",
-      "caption": "Kryptopterus vitreolus",
-      "thumb": "https://media.aquatome.com/commons/7eef359a2aa802d9-480.webp"
+      "large": {
+        "url": "https://media.aquatome.com/commons/d1d39658f950ea46-large.webp",
+        "width": 1000,
+        "height": 1000
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/968f2b55139a4022.webp",
+      "thumb": "https://media.aquatome.com/commons/968f2b55139a4022-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 3.0",
       "author": "Pouzin Olivier",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kryptopterus_vitreolus_(July_2007).jpg",
-      "caption": "Kryptopterus vitreolus in the 756 tank of my friend Christophe cagé",
-      "thumb": "https://media.aquatome.com/commons/968f2b55139a4022-480.webp"
+      "caption": "Kryptopterus vitreolus in the 756 tank of my friend Christophe cagé"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7eef359a2aa802d9.webp",
+      "thumb": "https://media.aquatome.com/commons/7eef359a2aa802d9-480.webp",
+      "width": 960,
+      "height": 539,
+      "licence": "CC BY-SA 4.0",
+      "author": "serwacy01-",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kryptopterus_vitreolus.jpg",
+      "caption": "Kryptopterus vitreolus"
     }
   ],
   "videos": [
@@ -249,8 +280,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể thủy sinh nuôi cá thủy tinh"
+        "bể cá 90cm"
       ]
     },
     {
@@ -268,5 +298,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-06"
 }

@@ -10,6 +10,95 @@
     "brazil",
     "rio-tiete"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tietê",
+        "Rio Paraná",
+        "Rio Piracicaba"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hoplisoma flaveolum, long known as Corydoras flaveolus, is an armoured catfish from tributaries of the rio Tietê in the upper rio Paraná basin, São Paulo state, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tietê",
+            "Rio Paraná"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Tributaries to Rio Piracicaba above Salto, 23°10'S, 47°16'W, Estado de São Paulo, Brazil'.",
+          "countries": [],
+          "regions": [
+            "Rio Piracicaba"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342690,
+      "total": 30,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          29
+        ],
+        [
+          "PY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -25.3125,
+          1,
+          0
+        ],
+        [
+          -52.03125,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -23.90625,
+          18,
+          18
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          7,
+          7
+        ],
+        [
+          -47.8125,
+          -22.5,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -47,7 +136,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -95,19 +184,7 @@
       "html": "<ul><li>Ihering, R. von (1911). Algumas especies novas de peixes d'agua doce (Nematognatha) (Corydoras, Plecostomus, Hemipsilichthys). Revista do Museo São Paulo 8, 380-404</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Tencatt, L. F. C., M. R. Brtto and C. S. Pavanelli (2014). A new species of Corydoras Lacépède, 1803 (Siluriformes: Callichthyidae) from the upper rio Paraná basin, Brazil. Neotropical Ichthyology 12(1), 89-96</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li></ul>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/72cb7296cf2e991e.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/72cb7296cf2e991e-480.webp",
-      "width": 800,
-      "height": 341,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-flaveolum",
-      "caption": "Specimen LBP 14596, 31.6 mm SL.",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

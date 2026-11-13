@@ -1,8 +1,8 @@
 {
   "id": "hyphessobrycon-amandae",
   "native": {
-    "input": "ec239f9bc86b54ad",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "00184de0d0598e52",
+    "at": "2026-11-09T20:43:02.940Z",
     "claims": [
       {
         "code": "BR",
@@ -11,18 +11,19 @@
         "quote": "The ember tetra, Hyphessobrycon amandae, is a tiny characid from the rio das Mortes, a tributary of the Araguaia in Mato Grosso, Brazil.",
         "words": "Brazil",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Hyphessobrycon amandae is a common tetra found in Brazil.",
+        "words": "Brazil",
+        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Araguaia",
-        "source": "seriouslyfish",
-        "quote": "The das Mortes is a principal tributary of the Araguaia, itself the major affluent of the rio Tocantins in central Brazil, although the full range of H. amandae within the Araguaia system is unclear.",
-        "country": "BR",
-        "ok": true
-      },
-      {
-        "name": "Rio das Mortes",
         "source": "seriouslyfish",
         "quote": "The ember tetra, Hyphessobrycon amandae, is a tiny characid from the rio das Mortes, a tributary of the Araguaia in Mato Grosso, Brazil.",
         "country": "BR",
@@ -33,6 +34,12 @@
         "source": "seriouslyfish",
         "quote": "The das Mortes is a principal tributary of the Araguaia, itself the major affluent of the rio Tocantins in central Brazil, although the full range of H. amandae within the Araguaia system is unclear.",
         "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Araguaia",
+        "source": "sprucepets",
+        "quote": "The Ember Tetra originates from the Araguaia River Basin in South America.",
         "ok": true
       }
     ],

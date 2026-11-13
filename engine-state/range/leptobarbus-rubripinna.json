@@ -1,0 +1,108 @@
+{
+  "id": "leptobarbus-rubripinna",
+  "native": {
+    "input": "763cf3693cd870ea",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed in the middle and lower Mekong River system in Laos, Thailand, Cambodia, and Vietnam, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed in the middle and lower Mekong River system in Laos, Thailand, Cambodia, and Vietnam, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed in the middle and lower Mekong River system in Laos, Thailand, Cambodia, and Vietnam, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed in the middle and lower Mekong River system in Laos, Thailand, Cambodia, and Vietnam, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kemarat, Mekong drainage, Thailand'.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "A pelagic species primarily inhabiting rivers and larger streams but also some man-made lakes such as Bueng Boraphet reservoir in central-western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed in the middle and lower Mekong River system in Laos, Thailand, Cambodia, and Vietnam, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed in the middle and lower Mekong River system in Laos, Thailand, Cambodia, and Vietnam, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed in the middle and lower Mekong River system in Laos, Thailand, Cambodia, and Vietnam, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leptobarbus rubripinna",
+    "status": "ACCEPTED",
+    "taxonKey": 2365651,
+    "datasets": [
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "TH",
+      "KH",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "ca-apisto-velifera",
+  "name": "Cá Apisto velifera",
+  "altNames": [
+    "Cá Apisto vây buồm",
+    "Cá Apisto bốn sọc",
+    "Sailfin Apistogramma",
+    "Four stripes Apistogramma"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cá đực Apistogramma velifera lớn tới khoảng 7 cm, cá cái chỉ 4 cm. Cỡ cá bán: (4) - 7 cm. Nguồn gốc: cá cho đẻ trong bể.</p><p>Tên thường gọi: cá Apisto vây buồm, cá Apisto bốn sọc.</p>",
+    "beforeYouBuy:glaser": "<p>Loài cichlid lùn xinh xắn này trước khi được mô tả khoa học từng mang các tên Apistogramma sp. “Segelflossen” (= vây buồm), A. sp. “Puerto Ayacucho” và A. sp. “Vierstreifen” (= bốn sọc). Nó chưa bao giờ được nhập về đều đặn, và hiện giờ thì không còn lô nhập nào.</p>",
+    "waterConditions:glaser": "<p>Loài này không khó tính lắm, dù ngoài tự nhiên chúng sống trong nước khá khắc nghiệt: độ cứng dưới 1° dH, pH khoảng 5.</p>",
+    "habitat:glaser": "<p>Ngoài tự nhiên, người ta hay gặp chúng sống cùng chỗ với cá ông tiên Altum.</p>",
+    "behaviour:glaser": "<p>Xem cá đực khoe vây rất thú vị. Con đực khá hay gây gổ với các con đực khác. Lúc bắt đầu khoe, nó bơi nghiêng mình bên cạnh con cái và chỉ xòe phần đầu của vây lưng. Sau đó nó chúi đầu xuống mỗi lúc một nhiều, rồi cuối cùng xòe hết cả vây lưng. Thỉnh thoảng con đực còn dựng đứng người trong nước.</p>",
+    "dimorphism:glaser": "<p>Cá đực Apistogramma velifera dài khoảng 7 cm, còn cá cái chỉ dài 4 cm.</p>",
+    "reproduction:glaser": "<p>Ở loài này, đôi khi cá đực cũng phụ trông đàn con.</p>",
+    "notes:glaser": "<p>Nguồn gốc tên: Apistogramma: tiếng Hy Lạp cổ, nghĩa là “có đường kẻ không đáng tin”. Không rõ chữ này nói về đường bên hay về hoa văn trên thân. velifera: tiếng Latin, nghĩa là “mang cánh buồm”.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

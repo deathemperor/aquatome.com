@@ -1,0 +1,271 @@
+{
+  "id": "gnathochromis-permaxillaris",
+  "scientificName": "Gnathochromis permaxillaris",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Gnathochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "tanzania",
+    "zambia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania, Zambia).",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ",
+            "ZM"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373885,
+      "total": 21,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ZM",
+          7
+        ],
+        [
+          "CD",
+          5
+        ],
+        [
+          "TZ",
+          5
+        ],
+        [
+          "BI",
+          3
+        ],
+        [
+          "UG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          29.53125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          29.53125,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          29.53125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          30.9375,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          32.34375,
+          -1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gnathochromis-permaxillaris",
+      "html": "<p>Gnathochromis permaxillaris is a deep-water cichlid endemic to Lake Tanganyika, recorded foraging at depths of up to 200 metres. The upper lip of adults is extended to extraordinary proportions, so the mouth faces downwards when opened, and the fish uses it to sift invertebrates from the sand. It is rare in the trade because it is difficult to collect in numbers, it is sensitive to deteriorating water quality, and the colour morphs should not be mixed as they may hybridise.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gnathochromis-permaxillaris",
+      "html": "<p>Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania, Zambia).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gnathochromis-permaxillaris",
+      "html": "<p>It's widespread but rarely seen in the lake as it inhabits deeper water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gnathochromis-permaxillaris",
+      "html": "<p>Standard length: 15 cm SL. Aquarium base: 120 × 30 cm. Volume: ~108 litres (120 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gnathochromis-permaxillaris",
+      "html": "<p>Set up the aquarium with large piles of rocks arranged to form caves, large areas of open water for swimming and a sandy substrate. Dim lighting is recommended.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gnathochromis-permaxillaris",
+      "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 7.5–9.0</li><li>Hardness: 8–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gnathochromis-permaxillaris",
+      "html": "<p>Live and frozen foods should comprise a large proportion of the diet. Dried foods can be fed, but less often.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gnathochromis-permaxillaris",
+      "html": "<p>Not a particularly aggressive fish and should not be housed with rowdy species such as Mbuna. It will mix well with similarly-sized peaceful Tanganyikan species such as Cyprichromis, Paracyprichromis, Altolamprologus, Julidochromis and Tanganyikan Synodontis species. It can be maintained in a group in a suitably sized tank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gnathochromis-permaxillaris",
+      "html": "<p>Difficult to sex. There is no apparent sexual dimorphism.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gnathochromis-permaxillaris",
+      "html": "<p>Not often bred in aquaria and details are scarce. It is a bi-parental cave-spawning mouthbrooder. Apparently, it will excavate the sand from underneath a rock or inside a cave and use this to barricade the entrance. Spawning occurs inside the cave and both parents share the mouthbrooding duties. The free swimming fry are released after around 2 weeks and grow very slowly. In fact, it can take 3 years for an individual to reach sexual maturity.</p><p>If you want to breed this species, we suggest a tank arranged as suggested above, with lots of choice of caves and dim lighting. If possible, it would be better (and more cost effective, as this is not usually a cheap fish) to start with a group of juveniles and allow them to pair off naturally.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gnathochromis-permaxillaris",
+      "html": "<p>This species was originally classified in the genus Limnochromis. There are a couple of colour morphs available and these should not be mixed in aquaria, as they may hybridise. In nature, this fish feeds in a similar way to Geophagus species, in that it will sift sand through its gills to extract invertebrates hidden in the substrate. It is a deep water fish and has been recorded foraging at depths of up to 200 metres. These movements seem to be related to the presence of the plankton on which the fish feed. Its upper lip is extended to extraordinary proportions, in a way that, when the mouth is opened, it faces downwards. It uses this like a vacuum in its sand-sifting activities. The lip extension is not present in juvenile fish, developing only when they mature.</p><p>G. permaxillaris is a rare fish in the trade, as it is difficult to collect in numbers. Not only does it inhabit deep water, but it is never found in large numbers, occurring only in small shoals or as solitary specimens. It is not a beginner's fish, being sensitive to deteriorating water quality.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ Tanganyika",
+        "cát mịn cho cá cảnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120 cm",
+        "máy sục khí cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá cảnh",
+        "thức ăn cá rô phi Tanganyika"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

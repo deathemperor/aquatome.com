@@ -1,0 +1,137 @@
+{
+  "id": "clarias-pachynema",
+  "native": {
+    "input": "9a7a5dfbea3499ce",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Clarias pachynema Boulenger, 1903. Type locality: Ja River, southern Cameroon. Maximum size: 356 mm (14 in) SL. IUCN Red List: Least Concern (last assessed 2019).",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: coastal rivers of south Cameroon (up to the Sanaga River); in the Ogowe system in Gabon and the Middle Congo system (including the Sangha and Dja/Ngoko).",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western-central Africa: coastal rivers of Cameroon and Gabon, to the central Congo River system (Democratic Republic of Congo).",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western-central Africa: coastal rivers of Cameroon and Gabon, to the central Congo River system (Democratic Republic of Congo).",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western-central Africa: coastal rivers of Cameroon and Gabon, to the central Congo River system (Democratic Republic of Congo).",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ogowe",
+        "source": "planetcatfish",
+        "quote": "Africa: coastal rivers of south Cameroon (up to the Sanaga River); in the Ogowe system in Gabon and the Middle Congo system (including the Sangha and Dja/Ngoko).",
+        "country": "GA",
+        "ok": true
+      },
+      {
+        "name": "Congo",
+        "source": "planetcatfish",
+        "quote": "Africa: coastal rivers of south Cameroon (up to the Sanaga River); in the Ogowe system in Gabon and the Middle Congo system (including the Sangha and Dja/Ngoko).",
+        "ok": true
+      },
+      {
+        "name": "Sanaga River",
+        "source": "scotcat",
+        "quote": "Found in the River Sanaga in Cameroon.",
+        "country": "CM",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Ja River",
+        "source": "scotcat",
+        "quote": "Type locality: Ja River, southern Cameroon.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Clarias pachynema",
+    "status": "ACCEPTED",
+    "taxonKey": 5202718,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        223
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        12
+      ],
+      [
+        "6f1d3840-55dc-49d5-a4be-263e6299cc79",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "CM",
+      "GA",
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

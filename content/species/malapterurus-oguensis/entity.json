@@ -1,0 +1,254 @@
+{
+  "id": "malapterurus-oguensis",
+  "scientificName": "Malapterurus oguensis",
+  "order": "Siluriformes",
+  "family": "Malapteruridae",
+  "genus": "Malapterurus",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "gabon",
+    "ogooue",
+    "cameroon"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "GA"
+      ],
+      "regions": [
+        "Ogôoué",
+        "Nyanga",
+        "Kouilou-Niari"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: known from the Ogôoué basin, Nyanga River and Kouilou-Niari system (Cameroon to Gabon).",
+          "countries": [
+            "CM",
+            "GA"
+          ],
+          "regions": [
+            "Ogôoué",
+            "Nyanga",
+            "Kouilou-Niari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342040,
+      "total": 28,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "GA",
+          21
+        ],
+        [
+          "CG",
+          4
+        ],
+        [
+          "CM",
+          2
+        ],
+        [
+          "CD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          11.25,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          11.25,
+          -2.8125,
+          2,
+          1
+        ],
+        [
+          11.25,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          12.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          12.65625,
+          0,
+          13,
+          13
+        ],
+        [
+          12.65625,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          14.0625,
+          -5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 21.5
+      },
+      {
+        "source": "scotcat",
+        "value": 21.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1261",
+      "html": "<p>Malapterurus oguensis Sauvage, 1879. Type locality: Ogôoué River at Duomé, Congo [should be Gabon]. Size: 215 mm SL. IUCN Red List: Least Concern (last assessed 2009).</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/malapteruridae/malapterurus_oguensis.htm",
+      "html": "<ul><li>Common name: none</li><li>IUCN Red List: Least Concern</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1261",
+      "html": "<p>Africa: known from the Ogôoué basin, Nyanga River and Kouilou-Niari system (Cameroon to Gabon).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/malapteruridae/malapterurus_oguensis.htm",
+      "html": "<p>Africa: known from the Ogôoué basin, Nyanga River and Kouilou-Niari system (Cameroon to Gabon).</p><p>The species is widespread within the Central Africa assessment region and is assessed as Least Concern, but it does need to be updated (IUCN 2010).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1261",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1261",
+      "html": "<p>Etymology: Malapterurus comes from the Greek malakos, meaning soft, pteron, meaning fin and oura, meaning tail; presumably in reference to the adipose fin, which appears all the more prominent in the absence of the rayed dorsal fin.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/malapteruridae/malapterurus_oguensis.htm",
+      "html": "<p>Description: Anal spines: 0; anal soft rays: 8-10; vertebrae: 38-40.</p><p>Diagnosis: tooth patches narrow; vertically based pectoral fin positioned near body mid-depth; 6-7 branched caudal-fin rays; 8 (rarely 7 or 9) pectoral-fin rays; 3 ventral unbranched caudal-fin rays; dorsum, flank and head unspotted; caudal saddle and bar pattern intensely expressed with wide, dark and well defined saddle that extends onto the anal fin, with no interruption between saddle and anal-fin pigment fields (in all other species with a caudal saddle there is a clear break in pigment between the saddle and the anal fin pigmentation); venter unpigmented; 4-14 gill-rakers; 38-40 vertebrae.</p><p>Etymology: The specific epithet is geographic, referring to the Ogowe (Ogôoué) River where the types originated.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1261",
+      "html": "<p>Bulletin de la Société philomathique de Paris (7th Série) v. 3, pp99 [10].</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/malapteruridae/malapterurus_oguensis.htm",
+      "html": "<p>Moelants, T. 2010. Malapterurus oguensis. The IUCN Red List of Threatened Species 2010.</p><p>Norris, S.M., 2002. A revision of the African electric catfishes, family Malapteruridae (Teleostei, Siluriformes), with erection of a new genus and descriptions of fourteen new species, and an annotated bibliography. Ann. Mus. R. Afr. Centr., Sci. Zool., 289:155 p.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a3fbe24dc4e38b86.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a3fbe24dc4e38b86-480.webp",
+      "width": 500,
+      "height": 335,
+      "licence": "dùng với sự cho phép",
+      "author": "Joe Cutler / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/malapteruridae/malapterurus_oguensis.htm",
+      "caption": "Malapterurus oguensis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "máy lọc bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

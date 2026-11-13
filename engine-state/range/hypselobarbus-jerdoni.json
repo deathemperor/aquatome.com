@@ -1,0 +1,69 @@
+{
+  "id": "hypselobarbus-jerdoni",
+  "native": {
+    "input": "a4022b5c926edf31",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is an endemic species of southern India, where it is found in the states of Karnataka and Kerala.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southern and western parts of India it has been recorded from the states of Maharashtra, Karnataka, Kerala and Tamil Nadu.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bharathapuzha",
+        "source": "seriouslyfish",
+        "quote": "The only specific locality information available states that it was collected from Canara in Karnataka and the Bharathapuzha and Chandragiri rivers in Kerala.",
+        "ok": true
+      },
+      {
+        "name": "Chandragiri",
+        "source": "seriouslyfish",
+        "quote": "The only specific locality information available states that it was collected from Canara in Karnataka and the Bharathapuzha and Chandragiri rivers in Kerala.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypselobarbus jerdoni",
+    "status": "ACCEPTED",
+    "taxonKey": 2366513,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        20
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

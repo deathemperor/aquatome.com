@@ -1,0 +1,18 @@
+{
+  "slug": "ca-noc-sphoeroides-annulatus",
+  "name": "Cá nóc Sphoeroides annulatus",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Sphoeroides annulatus là một loài cá nóc sống chủ yếu ở biển, nhưng cá con hay gặp cả ở nước ngọt hoàn toàn. Nên nuôi loài này trong nước lợ. Nó dài tối đa 40 cm.</p>",
+    "distribution:glaser": "<p>Nguồn gốc: Colombia.</p>",
+    "behaviour:glaser": "<p>Thường thì con nào cũng hiền, nhưng cá nóc mỗi con một tính nên lúc nào cũng phải để ý. Ngay cả ở những loài hiền, thỉnh thoảng vẫn có con thích cắn vây cá nuôi chung.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  }
+}

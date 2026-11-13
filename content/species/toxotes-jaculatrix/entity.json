@@ -701,6 +701,11 @@
       ]
     }
   },
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "There are reports that juvenile archers can be kept in fresh water but it is recommended that a brackish setup is always used."
+  },
   "dataCard": {
     "tempC": [
       {
@@ -744,7 +749,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -818,15 +823,19 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/094c8dbffb2d550c.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/094c8dbffb2d550c-480.webp",
-      "width": 601,
-      "height": 300,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/toxotes-jaculatrix",
-      "caption": "Toxotes chatareus adult",
-      "source": "seriouslyfish"
+      "url": "https://media.aquatome.com/inaturalist/436160058.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/436160058-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Justin Philbois",
+      "sourceUrl": "https://www.inaturalist.org/photos/436160058",
+      "caption": "Cá bắn cung bơi trong nước xanh, nhìn nghiêng rõ nét",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/436160058-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
@@ -834,8 +843,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá nước lợ lớn"
+        "bể cá 120cm"
       ]
     },
     {

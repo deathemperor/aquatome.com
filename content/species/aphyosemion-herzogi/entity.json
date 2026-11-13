@@ -15,6 +15,111 @@
     "cameroon",
     "ntem"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA",
+        "GQ",
+        "CM"
+      ],
+      "regions": [
+        "Ogooué",
+        "Ivindo",
+        "Okano",
+        "Benito River",
+        "Ntem River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Herzog's lyretail, Aphyosemion herzogi, is a killifish described from northern Gabon and also found in Equatorial Guinea and southern Cameroon.",
+          "countries": [
+            "GA",
+            "GQ",
+            "CM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Gabon it occurs in the Ivindo and Okano drainages, both tributaries of the Ogooué system.",
+          "countries": [],
+          "regions": [
+            "Ogooué",
+            "Ivindo",
+            "Okano"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is also known from the upper parts of some Benito River tributaries in Equatorial Guinea and from the Ntem River in Cameroon.",
+          "countries": [],
+          "regions": [
+            "Benito River",
+            "Ntem River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348388,
+      "total": 6,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "DE",
+          2
+        ],
+        [
+          "GA",
+          2
+        ],
+        [
+          "CM",
+          1
+        ],
+        [
+          "GQ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          0,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          50.625,
+          2,
+          0
+        ],
+        [
+          11.25,
+          0,
+          1,
+          1
+        ],
+        [
+          11.25,
+          1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -52,7 +157,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 4
       }
     ]
   },

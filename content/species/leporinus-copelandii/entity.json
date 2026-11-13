@@ -1,0 +1,341 @@
+{
+  "id": "leporinus-copelandii",
+  "scientificName": "Leporinus copelandii",
+  "order": "Characiformes",
+  "family": "Anostomidae",
+  "genus": "Leporinus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraiba-do-sul"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraíba do Sul",
+        "Doce",
+        "São Mateus",
+        "Jequitinhonha"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "These include localities in the São Mateus and Jequitinhonha river systems as well as the Paraíba do Sul and Doce river systems in Minas Gerais, Espírito Santo, Rio de Janeiro and São Paulo states, southeastern Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Paraíba do Sul",
+            "Doce",
+            "São Mateus",
+            "Jequitinhonha"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355408,
+      "total": 384,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          384
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          23,
+          23
+        ],
+        [
+          -45,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -45,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          8,
+          8
+        ],
+        [
+          -43.59375,
+          -22.5,
+          19,
+          19
+        ],
+        [
+          -43.59375,
+          -21.09375,
+          7,
+          7
+        ],
+        [
+          -43.59375,
+          -19.6875,
+          32,
+          32
+        ],
+        [
+          -43.59375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -22.5,
+          28,
+          28
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          72,
+          72
+        ],
+        [
+          -42.1875,
+          -19.6875,
+          10,
+          10
+        ],
+        [
+          -42.1875,
+          -18.28125,
+          28,
+          28
+        ],
+        [
+          -42.1875,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          45,
+          45
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          39,
+          39
+        ],
+        [
+          -40.78125,
+          -18.28125,
+          39,
+          39
+        ],
+        [
+          -40.78125,
+          -16.875,
+          19,
+          19
+        ],
+        [
+          -40.78125,
+          -15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 20
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypomasticus-copelandii",
+      "html": "<ul><li>Space: very large tank</li><li>Social: needs to be in a group</li><li>Compatibility: choose tankmates carefully</li><li>Hardiness: needs a well-established tank</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypomasticus-copelandii",
+      "html": "<ul><li>Needs a tight-fitting lid, as this species is known to jump. A well-fitting cover is also essential as anostomids are prodigious jumpers.</li></ul><p>Leporinus copelandii is an anostomid from the Paraíba do Sul and Doce river systems of southeastern Brazil. It reaches at least 200 mm, and an aquarium with base dimensions of 180 by 60 cm should be the smallest considered.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypomasticus-copelandii",
+      "html": "<p>Type locality is given as 'Rio Parahyba and tributaries at Mendez; Juiz de Fora; River Doce; River São Matheos; Rio Jequitinhonha; Rio Quenda at Santa Cruz'. These include localities in the São Mateus and Jequitinhonha river systems as well as the Paraíba do Sul and Doce river systems in Minas Gerais, Espírito Santo, Rio de Janeiro and São Paulo states, southeastern Brazil.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypomasticus-copelandii",
+      "html": "<ul><li>Standard length: 200 mm SL (20 cm)</li><li>Aquarium base: 180 × 60 cm</li><li>Volume: ~648 litres</li></ul><p>An aquarium with base dimensions of 180 × 60 cm or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypomasticus-copelandii",
+      "html": "<p>Décor is relatively unimportant and maintenance simple provided sufficient space is available and oxygenation adequate.</p><p>A natural-style arrangement could consist of a sandy substrate with some leaf litter plus large driftwood branches and twisted roots and perhaps some floating vegetation.</p><p>Water quality is of the utmost importance and this species should never be introduced to a biologically immature aquarium.</p><p>A well-fitting cover is also essential as anostomids are prodigious jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypomasticus-copelandii",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypomasticus-copelandii",
+      "html": "<p>Leporinus spp. tend to be predominantly benthic omnivores feeding on algae, invertebrates and organic detritus in nature.</p><p>They're quite unfussy in the aquarium and will accept most things offered, although foods containing high levels of protein are best avoided.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypomasticus-copelandii",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypomasticus-copelandii",
+      "html": "<p>Etymology: Leporinus comes from the Latin lepus, meaning 'hare', and the suffix -inus, meaning 'of or pertaining to', in reference to the enlarged pair of symphyseal teeth possessed by certain members of the genus. copelandii is named for Professor Herbert E. Copeland.</p><p>Leporinus is among the more diverse genera in the order Characiformes with around 90 valid species, and a phylogenetic study by Sidlauskas and Vari (2008) demonstrated it to represent a polyphyletic lineage.</p><p>Four species (H. despaxi, H. megalepis, H. mormyrops and H. pachycheilus) were thus placed into the revalidated genus Hypomasticus which had originally been proposed by Borodin (1929).</p><p>The remaining species of Leporinus, except for L. gomesi, formed a clade alongside Abramites, and this grouping was itself placed in a large polytomy alongside the genera Anostomoides, Anostomus, Gnathodolus, Laemolyta, Petulanos, Pseudanos, Rhytiodus, Sartor, Schizodon and Synaptolaemus.</p><p>In particular there was an overall lack of a resolution of relationships within Leporinus, and the authors suggested that molecular analysis is likely to be needed to fully resolve the relationships between them.</p><p>The family Anostomidae is distributed throughout much of tropical and subtropical South America from northwestern Colombia to central Argentina.</p><p>The majority of species are moderately elongate and somewhat rounded in shape although there are some exceptions, e.g., the relatively deep-bodied Abramites.</p><p>Greater diversity is apparent in the range of oral morphology, however, and members exhibit a wide range of adaptations in dentition and jaw structure.</p><p>A number of anostomids tend to swim at an oblique 'head-down' angle which has given rise to them being referred to by the generalised vernacular term 'headstanders'.</p><p>Name change: moved from Leporinus copelandii to Hypomasticus copelandii (2020).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypomasticus-copelandii",
+      "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Sidlauskas, B. L. and R. P. Vari (2008). Phylogenetic relationships within the South American fish family Anostomidae (Teleostei, Ostariophysi, Characiformes). Zoological Journal of the Linnean Society 154, 70–210</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ăn tạp",
+        "thức ăn viên cho cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

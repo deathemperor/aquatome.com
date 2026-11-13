@@ -5,6 +5,8 @@
  * @aq/schema only the language table's type.
  */
 import type { Lang } from '@aq/schema/langs'
+import { isGenerated, isOwnerCrop } from '@aq/schema/image-policy'
+import { LOOK_SHORT, lookOf, type Section } from './look'
 
 export type { Lang }
 export type CatalogEntry = {
@@ -23,11 +25,13 @@ export type CatalogEntry = {
   url: Partial<Record<Lang, string>> & { vi: string }
   /** One photo from the page (about 480 px wide). */
   img?: string
+  /** A species' or plant's marks, short (look.ts): what a genus's listing gives the agent to read against the photo. */
+  look?: string
 }
 /** `shards`: how many facts shards the build wrote for the agent (facts.ts); the script's own catalog has none. */
 export type Catalog = { version: 1; entries: CatalogEntry[]; shards?: number }
 
-type Page<P> = { id: string; scientificName?: string; synonyms?: string[]; basedOn?: string; photos: P[]; t: { name: string; altNames: string[]; slug: string } }
+type Page<P> = { id: string; scientificName?: string; synonyms?: string[]; basedOn?: string; photos: P[]; sections?: Section[]; t: { name: string; altNames: string[]; slug: string } }
 type Pages<P> = { species: Page<P>[]; breeds: Page<P>[]; plants: Page<P>[] }
 /** One language's pages; `at` gives this language's address of a Vietnamese path, or undefined where it has none. */
 export type LangPages<P = { url: string }> = { lang: Lang; pages: Pages<P>; at: (viPath: string) => string | undefined }
@@ -48,7 +52,10 @@ export function buildCatalog<P>(langs: LangPages<P>[], thumb: (photo: P) => stri
       if (p.synonyms?.length) e.syn = p.synonyms
       if (p.basedOn) e.basedOn = p.basedOn
       if (key === 'breeds' && p.t.altNames.length) e.alt = p.t.altNames
-      if (p.photos[0]) e.img = thumb(p.photos[0])
+      const real = p.photos.find(p => !isGenerated(p) && !isOwnerCrop(p))
+      if (real) e.img = thumb(real)
+      const look = key === 'breeds' ? undefined : lookOf(p.sections, LOOK_SHORT, key === 'plants')
+      if (look) e.look = look
       for (const other of byId) {
         if (other.lang === 'vi') continue
         const o = other.ids.get(p.id)

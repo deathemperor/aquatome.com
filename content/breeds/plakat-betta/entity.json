@@ -44,6 +44,43 @@
           "max": 7.6
         }
       }
+    ],
+    "difficulty": [
+      {
+        "source": 3,
+        "value": 2
+      },
+      {
+        "source": 11,
+        "value": 4
+      },
+      {
+        "source": 12,
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 11,
+        "value": {
+          "min": 3,
+          "max": 3
+        }
+      },
+      {
+        "source": 13,
+        "value": {
+          "min": 3,
+          "max": 5
+        }
+      },
+      {
+        "source": 12,
+        "value": {
+          "min": 3,
+          "max": 5
+        }
+      }
     ]
   },
   "photos": [
@@ -55,7 +92,12 @@
       "licence": "CC BY 2.0",
       "author": "Daniella Vereeken",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:DVJ_Betta_splendens_003.jpg",
-      "caption": "Cá betta plakat đực màu xanh ngọc trong bể kính"
+      "caption": "Cá betta plakat đực màu xanh ngọc trong bể kính",
+      "large": {
+        "url": "https://media.aquatome.com/commons/2f06e503b293c8ae-large.webp",
+        "width": 1805,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/bfed6430f239c7f2.webp",
@@ -144,6 +186,24 @@
       "title": "Thailand to resume cockfights and other animal sports, gambling allowed - The Thaiger",
       "kind": "article",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/plakat-betta",
+      "title": "Plakat Betta Care Guide & Species Profile - FishKeepingWorld",
+      "kind": "article",
+      "at": "2026-11-06"
+    },
+    {
+      "url": "https://www.aquariumsource.com/plakat-betta/",
+      "title": "Plakat Betta - Aquarium Source",
+      "kind": "article",
+      "at": "2026-11-06"
+    },
+    {
+      "url": "https://www.bettacarefishguide.com/plakat-betta-guide-care-breeding-tank-mates-diet/",
+      "title": "Plakat Betta Guide (Care, Breeding, Tank Mates, Diet)",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

@@ -23,6 +23,357 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Araguaia"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widely-distributed throughout most of the Amazon and Orinoco river drainages plus other important fluvial systems in the Guianas and northeastern Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Sexually-mature adults of B. flamentosum have been observed in the upper rio Araguaia basin, some 2000 km from the estuary.",
+          "countries": [],
+          "regions": [
+            "Araguaia"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338822,
+      "total": 221,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          179
+        ],
+        [
+          "GF",
+          19
+        ],
+        [
+          "PE",
+          14
+        ],
+        [
+          "CO",
+          6
+        ],
+        [
+          "VE",
+          2
+        ],
+        [
+          "GY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          8,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          6,
+          0
+        ],
+        [
+          -71.71875,
+          4.21875,
+          3,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          63,
+          63
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          16,
+          16
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          8,
+          8
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          2.8125,
+          17,
+          0
+        ],
+        [
+          -53.4375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -52.03125,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -14.0625,
+          10,
+          10
+        ],
+        [
+          -52.03125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          0,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -50.625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -2.8125,
+          7,
+          7
+        ],
+        [
+          -50.625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          0,
+          8,
+          8
+        ],
+        [
+          -49.21875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          11,
+          11
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -67,7 +418,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -76,7 +427,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-filamentosum",
-      "html": "<p>The piraíba, Brachyplatystoma filamentosum, is the largest catfish of the Amazon basin, also found in the Orinoco and river systems of the Guianas. Adults typically measure 2 to 2.5 m and weigh over 150 kg. In the Amazon only fish over around 160 cm are called 'Piraíba', and smaller ones 'filhote'. It is suitable only for public aquaria and a very small minority of private aquarists.</p><ul><li>Max size: 2500 mm SL (98 in)</li><li>Temperature: 22–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 1–20 dGH</li><li>Difficulty: 5 of 8 (difficult, because it needs a tank at least 2 m long)</li></ul>"
+      "html": "<p>The piraíba, Brachyplatystoma filamentosum, is the largest catfish of the Amazon basin, also found in the Orinoco and river systems of the Guianas. Adults typically measure 2 to 2.5 m and weigh over 150 kg. In the Amazon only fish over around 160 cm are called 'Piraíba', and smaller ones 'filhote'. It is suitable only for public aquaria and a very small minority of private aquarists.</p><ul><li>Max size: 2500 mm SL (98 in)</li><li>Temperature: 22–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 1–20 dGH</li><li>Difficulty: 6 of 8 (difficult, because it needs a tank at least 2 m long)</li></ul>"
     },
     {
       "key": "distribution",
@@ -146,17 +497,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/c39ff79d8a7eafd4.webp",
-      "width": 840,
-      "height": 420,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-filamentosum",
-      "caption": "Mouth detail of a subadult captured in the rio Tocantins basin, Brazil.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/c39ff79d8a7eafd4-480.webp"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/42ea459b223a256f.webp",
       "thumb": "https://media.aquatome.com/scotcat/42ea459b223a256f-480.webp",

@@ -1,0 +1,121 @@
+{
+  "id": "macrognathus-aral",
+  "native": {
+    "input": "a674803fa6d0f1d7",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This spiny eel originates from South East Asia, i.e. Pakistan, India, Sri Lanka, Bangladesh, Nepal up to Myanmar in their most southern distribution area.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This spiny eel originates from South East Asia, i.e. Pakistan, India, Sri Lanka, Bangladesh, Nepal up to Myanmar in their most southern distribution area.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This spiny eel originates from South East Asia, i.e. Pakistan, India, Sri Lanka, Bangladesh, Nepal up to Myanmar in their most southern distribution area.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This spiny eel originates from South East Asia, i.e. Pakistan, India, Sri Lanka, Bangladesh, Nepal up to Myanmar in their most southern distribution area.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This spiny eel originates from South East Asia, i.e. Pakistan, India, Sri Lanka, Bangladesh, Nepal up to Myanmar in their most southern distribution area.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This spiny eel originates from South East Asia, i.e. Pakistan, India, Sri Lanka, Bangladesh, Nepal up to Myanmar in their most southern distribution area.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Macrognathus aral",
+    "status": "ACCEPTED",
+    "taxonKey": 5204051,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        35
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        30
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        15
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "7b88be3f-ae5e-497d-bf56-0d549300d916",
+        1
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "PK",
+      "IN",
+      "LK",
+      "BD",
+      "NP",
+      "MM"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

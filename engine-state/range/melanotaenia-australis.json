@@ -1,0 +1,124 @@
+{
+  "id": "melanotaenia-australis",
+  "native": {
+    "input": "bbf6ebb9303ed475",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "glaser",
+        "quote": "M. australis is distributed in northern Australia.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The western rainbowfish, Melanotaenia australis, is a rainbowfish from Australia and probably the commonest rainbowfish species there.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sale River",
+        "source": "glaser",
+        "quote": "The variety with pretty red fins that is common in the hobby currently looks most similar to the form from the Sale River in the Kimberley region, state of Western Australia.",
+        "country": "AU",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Melanotaenia australis",
+    "status": "ACCEPTED",
+    "taxonKey": 2411671,
+    "datasets": [
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        466
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        408
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        193
+      ],
+      [
+        "4c313e80-c48b-4fc8-bd19-d8226b0a6921",
+        136
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        122
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        108
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        50
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        46
+      ],
+      [
+        "358fbd61-739f-4102-afc9-9d468f571e4d",
+        26
+      ],
+      [
+        "19729f12-88c3-4e56-a84f-b42a5cf052ad",
+        17
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        4
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "52ff7a75-4354-464c-9765-eca68cf90859",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "84dbaec2-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

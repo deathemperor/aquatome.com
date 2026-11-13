@@ -1,0 +1,43 @@
+{
+  "id": "julidochromis-dickfeldi",
+  "native": {
+    "input": "740241464a7d623b",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD",
+        "ZM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Julidochromis dickfeldi",
+    "status": "ACCEPTED",
+    "taxonKey": 2372481,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        15
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        7
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

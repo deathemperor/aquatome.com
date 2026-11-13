@@ -1,0 +1,383 @@
+{
+  "id": "melanotaenia-rubrostriata",
+  "scientificName": "Melanotaenia rubrostriata",
+  "order": "Atheriniformes",
+  "family": "Melanotaeniidae",
+  "genus": "Melanotaenia",
+  "group": "rainbowfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "oceania",
+    "papua-new-guinea",
+    "yahukimo"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "PG"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The red-striped rainbowfish, Melanotaenia rubrostriata, is a rainbowfish from Indonesia and Papua New Guinea.",
+          "countries": [
+            "ID",
+            "PG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4837080,
+      "total": 101,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "PG",
+          65
+        ],
+        [
+          "AU",
+          22
+        ],
+        [
+          "ID",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          129.375,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          129.375,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          130.78125,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          130.78125,
+          -14.0625,
+          4,
+          0
+        ],
+        [
+          130.78125,
+          -12.65625,
+          4,
+          0
+        ],
+        [
+          132.1875,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          133.59375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          135,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          136.40625,
+          -5.625,
+          8,
+          8
+        ],
+        [
+          139.21875,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          139.21875,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          140.625,
+          -9.84375,
+          13,
+          13
+        ],
+        [
+          140.625,
+          -8.4375,
+          7,
+          7
+        ],
+        [
+          140.625,
+          -7.03125,
+          13,
+          13
+        ],
+        [
+          140.625,
+          -5.625,
+          7,
+          7
+        ],
+        [
+          142.03125,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          142.03125,
+          -11.25,
+          3,
+          0
+        ],
+        [
+          142.03125,
+          -9.84375,
+          8,
+          6
+        ],
+        [
+          142.03125,
+          -8.4375,
+          6,
+          6
+        ],
+        [
+          142.03125,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          143.4375,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          143.4375,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          146.25,
+          -8.4375,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 18
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
+      "html": "<p>The red-striped rainbowfish, Melanotaenia rubrostriata, is a rainbowfish from Indonesia and Papua New Guinea. Long treated as a subspecies of M. splendida and one of the most colourful of its former subspecies, it lives among vegetation and debris in the tributaries and swamps of coastal plain rivers. The different forms should not be mixed with each other or with M. splendida in the aquarium because they may hybridise, and the drab juveniles can take over 12 months to colour up.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
+      "html": "<p>Indonesia, Papua New Guinea.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia_rubrostriata_dekai_village__en/",
+      "html": "<p>The village named Dekai is located in West Papua (formerly Irian Jaya) in the district of Yahukimo. It seems to be a real hotspot for extremely beautiful species of rainbowfish. Many species and local varieties have been collected there in the past years and brought to the tanks of enthusiasts. This also applies to this variety of M. rubrostriata.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
+      "html": "<p>Typically found under cover of aquatic vegetation or other debris in the tributaries and swamps of coastal plain rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
+      "html": "<p>An active species, requiring an aquarium measuring at least 120 × 30 × 30 cm, about 108 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
+      "html": "<p>This species, like most rainbows, looks most at home in a planted aquarium. Provide areas of dense vegetation, along with some open areas for swimming. Water movement should be quite gentle.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia_rubrostriata_dekai_village__en/",
+      "html": "<p>Water quality is of great importance for this fish. The water should be changed as often as possible.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
+      "html": "<ul><li>Temperature: 24–30°C</li><li>pH: An adaptable species in terms of pH. The values recorded across its native range vary between 5.6 and 7.4. Unless you know the collection locality it's probably best to aim for somewhere around neutral in the aquarium.</li><li>Hardness: 5–18 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
+      "html": "<p>Unfussy and will accept most dried, frozen and live foods. Regular feedings of the latter will ensure the best colouration.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
+      "html": "<p>Very peaceful, but can disturb smaller or slow-moving fish with its rapid movements and relatively large size. Good tankmates include other similarly-sized rainbowfish, characins, danios, barbs, freshwater gobies and catfish such as Corydoras. This rainbowfish can be quite skittish and does far better when kept in a shoal of at least 6-8, preferably more. The males will also be encouraged to display their best colours in the company of conspecifics. Obviously, a suitably-sized aquarium would be required for a very large group.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia_rubrostriata_dekai_village__en/",
+      "html": "<p>Different species of Melanotaenia or other rainbowfishes should never be kept together, because in the aquarium this would lead to unwanted hybrids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
+      "html": "<p>Mature males are larger and exhibit brighter colouration than females. They also develop a much deeper body than females as they grow, and develop longer dorsal and anal fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
+      "html": "<p>As with other members of the genus, this is not a difficult species to breed, being an egg scatterer, although the fry can prove somewhat tricky to raise. The breeding aquarium should be at least 76 cm long, and contain slightly hard, alkaline water with a pH of around 7.5 and a temperature of 26.5–29°C. A small air-powered filter will provide sufficient oxygenation and flow. The tank should be filled with fine-leaved plants such as java moss, or nylon spawning mops. No substrate is necessary. The adult fish are best conditioned in a group in a separate aquarium, with plenty of live and frozen foods. As the fish come into condition, the females will appear noticeably plumper, and males will display to each other almost constantly. Select the fattest, best-coloured pair for spawning and introduce them to the spawning tank. A small raise in temperature can often induce spawning. The pair will spawn for a period of several weeks, laying batches of eggs each day. These are attached to surfaces by a small thread. Although the adults tend not to eat the spawn, it's easier to raise the fry in a separate aquarium, so checking the plants or mops regularly and removing any eggs found to a raising tank containing water from the spawning tank is recommended. The eggs hatch in 7-12 days, depending on temperature, and the tiny fry initially require infusoria-type food, before graduating onto free swimming foods, such as brine shrimp nauplii, after a week or so. Sinking foods are unsuitable as the fry tend to stay very close to the water surface.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia_rubrostriata_dekai_village__en/",
+      "html": "<p>At temperatures of 24–28°C, medium hard water and a pH around 7 the fish will readily spawn. For spawning, fine plant material such as Myriophyllum or Java moss is needed, where the eggs are deposited.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-rubrostriata",
+      "html": "<p>This species was long treated as a subspecies of Melanotaenia splendida, and it is one of the most colourful of the former subspecies. The different forms should not be mixed with each other or with M. splendida in the aquarium, as they may hybridise. Adult specimens are rarely seen for sale, and it's the much drabber juvenile fish that are almost always offered in dealers tanks. However, exercise some patience (even on a good diet, full colour development can take over 12 months), and you will be rewarded with a truly gorgeous adult fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia_rubrostriata_dekai_village__en/",
+      "html": "<p>It really doesn't matter from a hobbyist's point of view whether one prefers to see M. rubrostriata (Ramsay &amp; Ogilby, 1886) as a full species or only as a subspecies of M. splendida. In the latter case it has to be named M. splendida rubrostriata.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "71fo8CAdTp8",
+      "title": "Cá cầu vồng, Rainbowfish Melanotaenia Rubrostriata Remauke and Timika",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "EG3TDk95YoU",
+      "title": "Melanotaenia rubrostriata - The billabong rainbowfish from New Guinea",
+      "durationSec": 59,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "26_isNK4UKg",
+      "title": "Melanotaenia rubrostriata (Video aufgenommen bei Hubert Selig)",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "er-ODM0YXWs",
+      "title": "紅線美人魚(Melanotaenia rubrostriata)",
+      "durationSec": 19,
+      "lang": "zh-Hant"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cầu vồng",
+        "thức ăn cá nhỏ dạng hạt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

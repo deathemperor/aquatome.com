@@ -18,8 +18,6 @@
   "File:Peixes da planície de inundação do alto rio Paraná (3678411).png"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/f78a05b4d9f93843.webp": "9d8d0d2f470d4c0f",
-  "https://media.aquatome.com/commons/c574fc4659730771.webp": "8e8e8c4d67064c13",
   "https://media.aquatome.com/commons/0aae87b0e641671f.webp": "23a33366333111c4",
   "https://media.aquatome.com/commons/ab013443c9e94b13.webp": "ccc3a38fcdcb4f0c",
   "https://media.aquatome.com/commons/bc1f2fa4bd64c1b1.webp": "72b09c2723276131",
@@ -43,5 +41,9 @@
  "gbif": {
   "key": 2352615,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-09"
 }

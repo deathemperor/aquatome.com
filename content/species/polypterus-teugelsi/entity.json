@@ -1,0 +1,227 @@
+{
+  "id": "polypterus-teugelsi",
+  "scientificName": "Polypterus teugelsi",
+  "order": "Polypteriformes",
+  "family": "Polypteridae",
+  "genus": "Polypterus",
+  "group": "other",
+  "places": [
+    "africa",
+    "cameroon",
+    "cross-river"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [
+        "River Cross"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Probably endemic to the River Cross drainage in Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": [
+            "River Cross"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2346592,
+      "total": 12,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "CM",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          5.625,
+          11,
+          11
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 40
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
+      "html": "<ul><li>Needs a very large tank, soft water kept steady and a steady temperature; hardy.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. The aquarium should have a tight-fitting cover as bichirs are excellent escape artists.</li></ul><p>Polypterus teugelsi is a bichir probably endemic to the River Cross drainage in Cameroon, where it lives in shady, slow-moving rainforest streams. Its colour pattern differs from every other member of the genus: a network of black marks over the upper half of the body, an orange belly and jet black pectoral fins. It is also more slender than other Polypterus. Discovered in 1988 and described in 2004, it stands apart from every other known bichir, all described before 1911.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
+      "html": "<p>Probably endemic to the River Cross drainage in Cameroon.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
+      "html": "<p>Most commonly found in shady, slow-moving rainforest streams with lush growths of overhanging marginal vegetation.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
+      "html": "<ul><li>Standard length: 40 cm SL</li><li>Aquarium base: 150 × 60 cm</li><li>Volume: ~540 litres</li></ul><p>150 × 60 × 60 cm – ~540 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
+      "html": "<p>Assume tank setup as for other bichir species. Therefore floor space is more important than depth. A soft substrate with pieces of driftwood and smooth rocks arranged to form hiding places is ideal. Some floating vegetation should also be provided. Plants are not essential but are appreciated. The aquarium should have a tight-fitting cover as bichirs are excellent escape artists.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
+      "html": "<ul><li>Temperature: 25–28°C</li><li>pH: 7.0–7.5</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
+      "html": "<p>P. teugelsi is carnivorous by nature and feeding should be as for other species in the genus. This means that dried foods are unlikely to be accepted and instead the fish should be offered meaty live or frozen foods such as prawns, earthworms, mussel, lancefish etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
+      "html": "<p>Not to be trusted with tankmates it can fit in its mouth but is probably relatively peaceful otherwise as with other bichirs. Suitable tankmates should therefore include other Polypterus species, Synodontis, Datnoides, Knife Fish, larger Ctenopoma species, medium to large characins and African Butterfly Fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
+      "html": "<p>Has not been bred in aquaria. Little to nothing is known of its breeding behaviour.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
+      "html": "<p>An incredibly hardy, nocturnal species with very poor vision, P. teugelsi relies on its excellent sense of smell to locate food. This species along with others of its genus are some of the last surviving relatives of very ancient species. Fossils of earlier relatives have been found that date back to the Triassic Period, which occurred during the early development of the dinosaurs more than 200 million years ago. They have several interesting adaptations. The swim bladder is divided into 2 parts, of which the right hand section is considerably larger. This functions as an accessory breathing organ and means the fish can survive out of water for some time provided it is kept moist. Like Anabantoid species, this fish may actually drown if it is denied access to atmospheric air. Young bichirs have amphibian-like external gills which are lost as the fish matures. This, coupled with their nocturnal mode of hunting, in which they emerge from their daytime refuges to hunt invertebrates and small fish in shallow water, clearly exhibits the link these species form between fish and amphibians.</p><p>The colouration and pattern exhibited by P. teugelsi is unique to the genus, consisting of a network pattern of black marks on the top half of the body, contrasting with the orange belly and jet black pectoral fins. It is also more elongate and proportionately more slender than other Polypterus species. This species was only discovered in 1988 and was described to science in 2004. This in itself also sets P. teugelsi apart as all other known species of bichir were described to science prior to the year 1911. P. teugelsi is one of the \"upper-jawed\" tribe of polypterids, so named on account of the upper jaw being longer than or equal in length to the lower jaw.</p><p>It is incredibly rare in the hobby and no specimens are known to be currently in captivity. Expect the fish to be very expensive if one is found. It should be noted that most Polypterus offered for sale are wild caught and as such may come in carrying infections or parasites. New fish should be watched closely for the first few weeks after purchase.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/f6e50dc7b4f50f22.webp",
+      "width": 960,
+      "height": 589,
+      "licence": "CC BY-SA 4.0",
+      "author": "RatioTile",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Teugelsi_bichir.jpg",
+      "caption": "A Teugelsi bichir at Las Vegas Exotic Fish, an aquarium store.",
+      "thumb": "https://media.aquatome.com/commons/f6e50dc7b4f50f22-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W",
+        "máy sưởi nhiệt độ ổn định"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá khủng long",
+        "tôm đông lạnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

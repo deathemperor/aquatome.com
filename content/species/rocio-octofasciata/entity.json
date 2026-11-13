@@ -434,7 +434,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -500,6 +500,12 @@
       "html": "<p>Jack Dempsey (1895-1983) was an American heavyweight boxer, world champion for much of the 1920s and a cultural icon of the time, thus his name was apparently used for R. octofasciata due to its 'strong facial features' and pugnacious nature.</p><p>A bright blue variant normally referred to as 'electric blue Jack Dempsey' or simply 'EBJD' is of unclear origin but it appears to be an ornamental strain fixed from a natural mutation. Care is as per the natural form although the blue fish tend to remain smaller and some reports suggest them to be less aggressive.</p><p>R. octofasciata has a confusing taxonomic history and its generic placement is still questioned by some authors. It's been referred to Heros, Archocentrus, Cichlasoma, Nandopsis and 'Cichlasoma' in the past before eventually being placed in the new genus Rocio in 2007.</p><p>Rocio currently contain three species with R. ocotal endemic to Laguna Ocotal, an isolated, highland water body in the Lacantún-Usumacinta drainage, Chiapas state, Mexico, and R. gemmata known only from a handful of cenotes and small inland lakes in northern Quintana Roo state, eastern Yucatán Peninsula, Mexico.</p><p>R. octofasciata is told apart from these congeners by the following combination of characters: pelvic fins almost always reaching anal-fin origin; distally one scale row between longest dorsal-fin rays; dentary pores always 4; total gill-rakers on first arch 9–12; lateral blotch squarish; no pored scales on caudal-fin, other than one or two on extended lateral line; abdomen not reddish in life; maxilla reaching only a horizontal line from inferiormost rim of orbit, rather than a vertical line from anteriormost rim of orbit; orbital diameter 21–25% of head length and less than 80% of snout length; cheek-scale rows modally 6 (4-7); scales from vent to interpelvic scale 10–13; dorsal and anal fins usually bearing filaments; spots on side of body smaller than scales and aligned in ca. 15 regular series.</p><p>The genus Rocio is diagnosed by the following combination of characters: caudal-fin rounded or (sub)truncate; outer teeth on upper jaw gradually increasing in size anteriorly with symphysial teeth abruptly larger; frenum present in lower lip or absent; total gill-rakers on first arch 7–15; pharyngeal plate about as wide as long, or wider; lateral stripe extending from snout to a blotch on mid-body; eight bars on sides; ocellated spot on caudal-fin, dorsal to lateral line; lower jaw usually extending beyond upper jaw.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/rocio_octofasciata_chiapas_en/",
+      "html": "<p>German-bred F1-generation specimens of wild-collected Jack Dempsey cichlids with collecting data (Chiapas) have been received. The fish is also known in older literature under the names Cichlasoma octofasciatum or C. biocellatum. They are available for the first time; usually only old aquarium strains of unknown origin are traded.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rocio-octofasciata",
@@ -507,6 +513,21 @@
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/ba2194af56ba9989.webp",
+      "thumb": "https://media.aquatome.com/commons/ba2194af56ba9989-480.webp",
+      "width": 1200,
+      "height": 900,
+      "large": {
+        "url": "https://media.aquatome.com/commons/ba2194af56ba9989-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "mramorn",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%B7%D0%BE%D0%BE%D0%BF%D0%B0%D1%80%D0%BA._%D0%90%D0%BA%D0%B2%D0%B0%D1%80%D0%B8%D1%83%D0%BC.3_-_panoramio.jpg",
+      "caption": "Cá Jack Dempsey trưởng thành với đốm ánh kim trong bể"
+    },
     {
       "url": "https://media.aquatome.com/seriouslyfish/363884a2cb6d3626.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/363884a2cb6d3626-480.webp",
@@ -524,8 +545,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 240 lít"
+        "bể cá 120cm"
       ]
     },
     {
@@ -548,5 +568,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-09"
 }

@@ -1,0 +1,70 @@
+{
+  "id": "barilius-ardens",
+  "native": {
+    "input": "318042b5dc631dcc",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "B. ardens comes from the Indian state of Karnataka.",
+        "words": "Indian",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is '13°20’02”N, 74°54’46”E, Swarna River, Karnataka, India'.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Currently known from the Sita and Swarna rivers systems which drain the western slopes of the Western Ghats mountains in Karnataka state, southwestern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Swarna",
+        "source": "seriouslyfish",
+        "quote": "Currently known from the Sita and Swarna rivers systems which drain the western slopes of the Western Ghats mountains in Karnataka state, southwestern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Sita",
+        "source": "seriouslyfish",
+        "quote": "Currently known from the Sita and Swarna rivers systems which drain the western slopes of the Western Ghats mountains in Karnataka state, southwestern India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barilius ardens",
+    "status": "ACCEPTED",
+    "taxonKey": 8626121,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

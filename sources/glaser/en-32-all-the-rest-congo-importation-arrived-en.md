@@ -1,0 +1,13 @@
+---
+url: https://www.aquariumglaser.de/en/32-all-the-rest/congo_importation_arrived__en/
+title: Congo-importation arrived! - Aquarium Glaser GmbH
+fetchedAt: 2026-11-10T16:24:08.770Z
+hash: cc8a11b02ffdb7a0f78a36da9d335eac0d01c6da4824578acc71e5e2457d7e26
+---
+
+Once more we were able to organize a wonderful, large importation from the Congo. Our proofed supplier sent us among others beautiful butterfly barbs (Barbus hulstaerti, http://www.aquariumglaser.de/en/fish-archive/barbs-asboras-danios-en/Barbus_hulstaerti_Lompole_en/), large Upside-Down-Cats (Synodontis nigriventris, http://www.aquariumglaser.de/en/news/Synodontis_nigriventris_finally_available_again__en/), also the “Zebra-nigriventris” (http://www.aquariumglaser.de/en/fish-archive/catfish-en/mochokidae-en/Synodontis_sp_aff_nigriventris_ZEBRA_en/), gorgeous Orange Bushfish (Microctenopoma ansorgii, http://www.aquariumglaser.de/en/fish-archive/labyrinthfish-en/Microctenopoma_ansorgii_en/, http://www.aquariumglaser.de/en/fish-archive/labyrinthfish-en/Microctenopoma_ansorgii_en/), healthy Hydrocynus goliath (http://www.aquariumglaser.de/en/fish-archive/tetras-en/predatory-tetras-en/Hydrocynus_goliath_en/), the beautiful and rare Congo-Barb (Clypeobarbus congicus, http://www.aquariumglaser.de/en/news/Clypeobarbus_congicus_en/), banded bushfish (Microctenopoma fasciolatum, http://www.aquariumglaser.de/en/fish-archive/labyrinthfish-en/Microctenopoma_fasciolatum_en/), and so on, and so on…
+One of the most beautiful fish of the World, the six-striped Distichodus (Distichodus sexfasciatus) is also represented by a good number of specimens. We have no doubts that this species would be among the most wanted aquarium fish at all, were there not some characters that make the animals suitable only for the very long-suffering and extremly patient hobbyist: they grow (even in smaller tanks) to a length of more than 30 cm, are extremely quarrelsome and will – for sure! – eat any plant in the aquarium.
+Usually this species has six stripes on the flanks. In our current shipment are also several specimens with other numbers of bars, most often seven. But do not think that these fish would represent other species; most often seven bars occur only on one side of the body while the other one has a regular number of stripes.
+Seven is a lucky number: in any case it brought luck for our Congo importation, for all fish are healthy, stable and feel very well in their new environment!
+For our customers: D. sexfasciatus has code 128001 (3-5 cm) and 128002 (5-7 cm) on our stocklist. Please note that we exclusively supply the wholesale trade.
+Text & photos: Frank Schäfer

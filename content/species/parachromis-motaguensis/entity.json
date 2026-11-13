@@ -1,0 +1,393 @@
+{
+  "id": "parachromis-motaguensis",
+  "scientificName": "Parachromis motaguensis",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Parachromis",
+  "group": "cichlids",
+  "places": [
+    "north-america",
+    "guatemala",
+    "motagua",
+    "el-salvador",
+    "honduras",
+    "choluteca"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GT",
+        "SV",
+        "HN"
+      ],
+      "regions": [
+        "River Motagua",
+        "River Naranjo",
+        "River Choluteca"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The false yellowjacket cichlid, Parachromis motaguensis, is a large predatory cichlid from Guatemala, El Salvador and Honduras.",
+          "countries": [
+            "GT",
+            "SV",
+            "HN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded from the River Motagua basin in eastern Guatemala and Honduras.",
+          "countries": [],
+          "regions": [
+            "River Motagua"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "To the west its range begins around the River Naranjo in Guatemala, extending southwards through El Salvador and into Honduras as far as the River Choluteca.",
+          "countries": [],
+          "regions": [
+            "River Naranjo",
+            "River Choluteca"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208200,
+      "total": 167,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "GT",
+          57
+        ],
+        [
+          "HN",
+          56
+        ],
+        [
+          "SV",
+          37
+        ],
+        [
+          "MX",
+          11
+        ],
+        [
+          "PA",
+          3
+        ],
+        [
+          "BZ",
+          1
+        ],
+        [
+          "CR",
+          1
+        ],
+        [
+          "NI",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -94.21875,
+          16.875,
+          4,
+          0
+        ],
+        [
+          -92.8125,
+          16.875,
+          2,
+          0
+        ],
+        [
+          -92.8125,
+          18.28125,
+          3,
+          0
+        ],
+        [
+          -91.40625,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          -91.40625,
+          14.0625,
+          15,
+          15
+        ],
+        [
+          -91.40625,
+          18.28125,
+          2,
+          0
+        ],
+        [
+          -90,
+          12.65625,
+          19,
+          19
+        ],
+        [
+          -90,
+          14.0625,
+          50,
+          50
+        ],
+        [
+          -90,
+          15.46875,
+          7,
+          7
+        ],
+        [
+          -88.59375,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          -88.59375,
+          14.0625,
+          28,
+          28
+        ],
+        [
+          -88.59375,
+          15.46875,
+          6,
+          6
+        ],
+        [
+          -88.59375,
+          16.875,
+          1,
+          0
+        ],
+        [
+          -87.1875,
+          12.65625,
+          14,
+          14
+        ],
+        [
+          -87.1875,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          -84.375,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -84.375,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          -82.96875,
+          8.4375,
+          3,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 16
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-motaguensis",
+      "html": "<p>The false yellowjacket cichlid, Parachromis motaguensis, is a large predatory cichlid from Guatemala, El Salvador and Honduras. It occurs in lakes and larger streams, most often in the central flowing parts of rivers. Aggressive towards its own and other species, it treats anything that fits in its mouth as food, and a breeding pair will hurt any other fish in the tank, even significantly bigger ones.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-motaguensis",
+      "html": "<p>Recorded from the River Motagua basin in eastern Guatemala and Honduras. To the west its range begins around the River Naranjo in Guatemala, extending southwards through El Salvador and into Honduras as far as the River Choluteca.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-motaguensis",
+      "html": "<p>Can be found in a variety of biotopes including lakes and larger streams. It's most often found in the central flowing parts of rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-motaguensis",
+      "html": "<p>Standard length: 30.5 cm SL</p><p>Aquarium base: 120 × 38 cm</p><p>Volume: ~205 litres</p><p>120 cm × 45 cm × 37.5 cm (L × H × W) - 212 litres</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-motaguensis",
+      "html": "<p>A riverine species, the false yellowjacket cichlid prefers areas with fallen trees (use bogwood and driftwood to replicate this) and rocks.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-motaguensis",
+      "html": "<ul><li>Temperature: 20–30°C</li><li>pH: 6.0 to 8.0, with 6.8 being optimal</li><li>Hardness: 6 to 16 dH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-motaguensis",
+      "html": "<p>Almost exclusively carnivorous in nature, preying on smaller fish and aquatic invertebrates.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-motaguensis",
+      "html": "<p>Aggressive. Will see anything that it can fit in its mouth as food. Will be aggressive against conspecifics and nonspecifics, so choose tankmates carefully. Will handle itself well against other large, aggressive cichlids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-motaguensis",
+      "html": "<p>Male has lighter colouration, and comes across as being slightly more greeny in colour.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-motaguensis",
+      "html": "<p>A pair will go through the courtship ritual which can include gill flaring, and the female lunging towards the male - but stopping short before making contact. Up to 2000 eggs can be laid by fully grown parents, though size plays an important factor in clutch size. Fry will hatch around a week later, and at this point parents become downright vicious towards any living thing within a 120 cm radius. If parents are bigger than 15 cm, it is highly recommended that cleaning the tank is avoided as they will happily bite chunks out of your hands. Parents will often crash into the glass of the tank in defensive displays and lose a couple of their teeth, though this isn't a great worry as they will grow back within a couple of weeks.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-motaguensis",
+      "html": "<p>The false yellowjacket cichlid is a truly stunning fish. They exhibit gorgeous colours, but can be a nightmare to keep. Do not even consider housing any other fish with them when they are breeding, as the other fish will be hurt - even if significantly bigger than the pair of false yellowjacket cichlids. They make a nice addition to a big central/north American cichlid tank, with similarly aggressive fish - but be careful that you don't choose a compatible pair or you will have some serious issues on your hands.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/21771980c4a2c819.webp",
+      "width": 960,
+      "height": 1280,
+      "licence": "CC BY-SA 4.0",
+      "author": "(c) Olvin Wilfredo Oyuela, some rights reserved (CC BY-SA)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mota,_Soledad,_Honduras_imported_from_iNaturalist_photo_250467586.jpg",
+      "caption": "Photo of Mota (Parachromis motaguensis) uploaded from iNaturalist.",
+      "thumb": "https://media.aquatome.com/commons/21771980c4a2c819-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "RbC1NiKc6y0",
+      "title": "Parachromis motaguensis aka red tiger motaguensis #parachromis #RTM #rtm #cichlid #aquarium",
+      "durationSec": 9,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "PEmLm9yBwRg",
+      "title": "CICHLID FISH BREEDING | AMERICAN CICHLID PARACHROMIS MOTAGUENSIS",
+      "durationSec": 130,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "abCiTOxrGr8",
+      "title": "Parachromis motaguensis (Display Aquarium)",
+      "durationSec": 173,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "BsKKIq-r8I0",
+      "title": "Parachromis motaguensis and Amphilophus trimaculatus cichlid updates",
+      "durationSec": 880,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc cho bể 200 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid lớn",
+        "thức ăn cá ăn thịt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

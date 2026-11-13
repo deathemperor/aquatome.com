@@ -2,14 +2,16 @@ import { existsSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import type { APIRequestContext } from '@playwright/test'
 import { DIST, LIVE, recheckPages, samplePages, sourcePages } from './pages'
-import { VIETNAMESE, VIETNAMESE_ALLOWED, expect, test } from './fixtures'
+import { VIETNAMESE, VIETNAMESE_ALLOWED, columnSpill, expect, photosMissing, shownWhole, sideways, test } from './fixtures'
 import { checkPage, loadFacts } from '../scripts/page-check'
 import { isViPage } from '../worker/paths'
 import { prefixedLang } from '@aq/schema/langs'
 
 // The page checks read the content the build was made from: the fixture's for a local build, the checkout's (the live
-// version's commit, in watch.yml) for a live site; CONTENT_ROOT for another build (E2E_DIST).
-const facts = loadFacts(resolve(process.env.CONTENT_ROOT ?? (LIVE ? '../../content' : 'test/fixture-content')))
+// version's commit, in watch.yml) for a live site; CONTENT_ROOT for another build (E2E_DIST). Read once a worker, by its
+// first page check: every language's content, over 20 s with the live site's, so a worker with none doesn't read it.
+let facts: ReturnType<typeof loadFacts> | undefined
+const factsOnce = () => (facts ??= loadFacts(resolve(process.env.CONTENT_ROOT ?? (LIVE ? '../../content' : 'test/fixture-content'))))
 
 // What every page must do, on a phone and a computer, checked on a sample of each kind of page (pages.ts).
 const known = new Set(sourcePages())
@@ -40,18 +42,19 @@ for (const path of pages) {
     expect(box.y + box.height, 'h1 on the first screen').toBeLessThanOrEqual(page.viewportSize()!.height)
 
     // Nothing wider than the screen: a sideways scroll on a phone means something broke out of the layout.
-    const overflow = await page.evaluate(() => {
-      const w = document.documentElement.clientWidth
-      if (document.documentElement.scrollWidth <= w + 1) return null
-      const wide = [...document.querySelectorAll<HTMLElement>('body *')].find(el => { const r = el.getBoundingClientRect(); return r.right > w + 1 && getComputedStyle(el).position !== 'fixed' })
-      return `${document.documentElement.scrollWidth}px > ${w}px: ${wide ? `<${wide.tagName.toLowerCase()} class="${wide.className}">` : '?'}`
-    })
-    expect(overflow, 'sideways scroll').toBeNull()
+    expect(await sideways(page), 'sideways scroll').toBeNull()
 
     // Pictures keep their space while loading (width and height), and carry alt text (empty when decorative). An empty
     // <img> a script fills later (the gallery's viewer) is not a picture yet.
     const badImgs = await page.$$eval('img[src]', imgs => imgs.filter(i => !i.getAttribute('width') || !i.getAttribute('height') || !i.hasAttribute('alt')).map(i => i.outerHTML.slice(0, 120)))
     expect(badImgs, 'img without width/height/alt').toEqual([])
+
+    // A head marked to show whole (`headFit: "contain"`) is never cut to the page's frame (head-fit.spec.ts), nor one the
+    // fish's box shows whole at this screen's frame (PhotoGallery.astro: 4:3, a species page's 16:9 on a phone), nor a
+    // whole fish tile (SpeciesCard.astro, fish-frames.spec.ts).
+    const phone = await page.evaluate(() => matchMedia('(max-width: 860px)').matches)
+    const framed = phone ? '.plate:not(.phone) > img[data-wide="whole"], .plate.phone > img[data-phone="whole"]' : '.plate > img[data-wide="whole"]'
+    for (const head of await page.locator(`img[data-fit="contain"], ${framed}, .whole > img:not(.ground)`).all()) expect(await shownWhole(head), 'a whole-photo head or tile is cut').toBe(true)
 
     // Links to this site's pages lead to pages that exist: Vietnamese ones at the root, and any old /vi/ one (none is built).
     const hrefs = await page.$$eval('a[href^="/"]', as => [...new Set(as.map(a => a.getAttribute('href')!))])
@@ -73,6 +76,18 @@ for (const path of pages) {
     }
 
     expect(errors, 'script errors').toEqual([])
+
+    // A fish's photo column on a computer, pinned beside the facts, never drawn past the page's top onto what follows: the
+    // owner's fault of 13 November, a tall photo's two rows of thumbnails over the jump chips (photo-column.spec.ts). After
+    // the errors, as it scrolls the page.
+    expect(await columnSpill(page), 'the photo column outside the page top').toBeNull()
+
+    // Nor when its photos don't load: each shows its alt text in its place, which mustn't widen the page either. Checked on
+    // the live site, which loads no photo here (the media host is another origin, fixtures.ts), the Malay Bucephalandra
+    // page's strip of three thumbnails took 418 px of a 412 px phone (13 November, GalleryStrip.astro); a build's own
+    // photos load, so they're made to fail. Last, as it changes the page.
+    await photosMissing(page)
+    expect(await sideways(page), 'sideways scroll with the photos missing').toBeNull()
     info.annotations.push({ type: 'checked', description: path })
   })
 }
@@ -83,8 +98,11 @@ for (const path of pages) {
 for (const path of pages) {
   test(`page checks ${path}`, { tag: '@page-checks' }, async ({ request }, info) => {
     test.skip(info.project.name !== 'phone', 'the HTML is the same on every screen')
+    // The worker's first page check reads the content first, and a failed test starts a new worker that reads it again:
+    // on 8 November a page check after each failure ran out of the 30 s waiting for it.
+    test.setTimeout(120_000)
     const res = await request.get(path, { headers: { accept: 'text/html' } })
     expect(res.status(), 'status').toBe(200)
-    expect(checkPage(path, await res.text(), await facts)).toEqual([])
+    expect(checkPage(path, await res.text(), await factsOnce())).toEqual([])
   })
 }

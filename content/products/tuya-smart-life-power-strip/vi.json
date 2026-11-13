@@ -1,0 +1,250 @@
+{
+  "slug": "tuya-smart-life-power-strip",
+  "name": "Ổ cắm thông minh Wi-Fi Tuya Smart Life power strip",
+  "altNames": [
+    "Tuya Smart Life power strip"
+  ],
+  "sections": {},
+  "body": "<h3>Hợp với bể nào</h3>\n<p>Một shop trong nước giới thiệu ổ này để cắm đèn bể cá và máy sủi. Với bể thủy sinh, có một hướng dẫn dùng ổ thông minh chia các ổ hẹn giờ thế này:</p>\n<ul>\n<li>một ổ cho đèn</li>\n<li>một ổ cho van điện CO2</li>\n<li>một ổ cho máy sủi</li>\n<li>sưởi thì tùy, có cắm cũng được</li>\n</ul>\n<p>Ổ cắm sưởi chỉ để dự phòng. Việc giữ nhiệt vẫn do bộ điều nhiệt có sẵn trong sưởi lo.</p>\n<p>Tổng tải của cả 4 ổ phải nằm trong 2200W/10A. Sưởi công suất lớn hay máy làm lạnh thì cộng công suất lại và so với mức này trước khi cắm. Không nguồn nào ghi ổ chống nước được tới đâu, nên phải đặt nó xa chỗ nước bắn. Shop bán ổ này là shop đồ nhà thông minh chứ không phải tiệm thủy sinh.</p>\n<h3>Chọn cỡ nào</h3>\n<p>Hai phiên bản đều có 4 ổ điện điều khiển riêng. Chỗ khác nhau là số cổng USB, một bản có 4 cổng và một bản có 2 cổng. Ở bản 4 USB, shop ghi rõ là cổng USB cũng bật tắt từ xa được. Bản 2 USB thì không thấy shop nào nói chuyện này. Thời hạn bảo hành 3 hoặc 6 tháng là tùy chọn lúc mua.</p>\n<h3>Lắp và dùng</h3>\n<ol>\n<li>Kết nối ổ với mạng Wi-Fi 2.4GHz. Router ở nhà hay phát 5GHz, mà ổ không bắt được sóng này. Muốn ổ chạy ổn định thì nên tách riêng một mạng 2.4GHz cho đồ nhà thông minh.</li>\n<li>Đặt tên từng ổ theo việc nó làm (đèn, CO2, sưởi, máy sủi) trong app Tuya/Smart Life.</li>\n<li>Ở phần cài trạng thái khi có điện lại, chọn \"Last State\" (giữ trạng thái trước khi mất điện) chứ đừng chọn \"Always On\". Để \"Always On\" thì chỉ cần cúp điện một lúc là CO2 có thể chạy suốt đêm.</li>\n<li>Cài lịch. Một lịch để tham khảo: đèn bật từ 13:00 đến 21:00, CO2 bật trước khi đèn sáng một tiếng và tắt trước khi đèn tắt một tiếng, máy sủi chỉ chạy ban đêm.</li>\n<li>Gom các ổ vào chung một ngữ cảnh (scene) để thiết bị bật tắt cùng lúc. Đặt hẹn giờ riêng cho từng ổ thì lâu ngày giờ dễ bị lệch nhau.</li>\n</ol>\n<p>Khi rớt Wi-Fi, ổ vẫn giữ lịch đã lưu trong vài ngày. Muốn nó kết nối lại thì thường chỉ cần rút ra rồi cắm lại. App cũng cho chia quyền điều khiển cho người nhà, tiện khi đi xa.</p>\n<h3>Lỗi hay gặp</h3>\n<p>Một người chơi bể biển kể là ổ Tuya của họ có điện lại sau khi cúp thì tất cả các ổ đều tắt. Lúc đó không có ai ở nhà thì thiết bị nằm im không điện. Phải tự cúp điện thử một lần để xem ổ của mình có giữ đúng cài đặt \"Last State\" không.</p>\n<p>Cũng người chơi đó kể là trong khoảng 30 thiết bị Tuya họ dùng thì có chừng 5 cái hỏng trong vòng hai năm. Đồ Tuya chạy qua cloud và app nên phụ thuộc vào hai thứ này.</p>\n<p>Có loại ổ thông minh giá rẻ tự ngắt điện khi rớt Wi-Fi. Gặp loại này thì lọc hay CO2 có thể tắt giữa chừng. Trước khi giao lọc cho ổ, hãy ngắt Wi-Fi thử xem ổ của mình phản ứng ra sao.</p>\n<p>Thông tin giữa các shop không giống nhau. Số cổng USB là 2 hoặc 4, cân nặng ghi 200 g hoặc 300 g, bảo hành 3 hoặc 6 tháng. Hỏi rõ shop mình mua đang bán phiên bản nào.</p>\n<h3>Nếu không chọn cái này</h3>\n<ul>\n<li><strong>TP-Link Tapo P300</strong>: hãng này hỗ trợ tốt hơn. Ổ có 3 ổ thông minh, tải 2300W/10A, dây 1.5 m, chạy được với Apple Home, và một shop trong nước bảo hành 24 tháng. Đổi lại giá cao hơn, còn cổng USB thì luôn có điện, không điều khiển bằng app được.</li>\n<li><strong>Ổ cắm Wi-Fi Tuya đơn 10A</strong>: nếu chỉ cần hẹn giờ một hai thiết bị như đèn và CO2 thì mua vài ổ đơn này rẻ hơn.</li>\n<li><strong>Ổ 4 ổ Tuya Zigbee ZTC4</strong>: bản Zigbee của cùng kiểu ổ 4 ổ, hợp với nhà đã có hub Zigbee. Giá có người báo trên tuya.vn, nhưng không mở được trang đó để kiểm tra.</li>\n</ul>",
+  "summary": [
+    "Ổ cắm này có 4 ổ điện bật tắt riêng từng ổ qua app Tuya/Smart Life. Nó hợp với bể thủy sinh cần hẹn giờ đèn, van điện CO2 và máy sủi, tổng tải giữ dưới 2200W/10A.",
+    "Máy chỉ bắt Wi-Fi 2.4GHz và không có thông số chống nước. Một người chơi bể biển kể ổ Tuya sau khi cúp điện bật lại thì mọi ổ đều tắt, nên phải thử kỹ trước khi cắm lọc vào.",
+    "Bảo hành chỉ 3 hoặc 6 tháng, và thông tin giữa các shop cũng không khớp nhau ở số cổng USB, cân nặng và thời gian bảo hành."
+  ],
+  "faq": [
+    {
+      "q": "Ổ này có bắt Wi-Fi 5GHz không?",
+      "a": "Không. Ổ chỉ bắt 2.4GHz và kết nối thẳng vào router, không cần hub. Router nhà bạn phát 5GHz thì phải bật thêm mạng 2.4GHz."
+    },
+    {
+      "q": "Cúp điện xong thì ổ có tự bật lại không?",
+      "a": "Nên cài trạng thái khi có điện lại là \"Last State\" để tránh CO2 chạy cả đêm. Nhưng một người chơi kể ổ Tuya của họ có điện lại thì mọi ổ đều tắt, nên phải tự cúp điện thử để xem ổ của mình làm gì."
+    },
+    {
+      "q": "Rớt Wi-Fi thì lịch hẹn giờ còn chạy không?",
+      "a": "Ổ giữ lịch đã lưu trong vài ngày. Rút ra cắm lại thì nó thường kết nối lại. Có điều vài loại ổ giá rẻ sẽ tắt luôn khi mất Wi-Fi, nên hãy thử trước khi cắm lọc vào."
+    },
+    {
+      "q": "Cắm sưởi và máy làm lạnh chung được không?",
+      "a": "Tổng tải cả 4 ổ chỉ được tới 2200W/10A. Cộng công suất sưởi lớn hay máy làm lạnh lại rồi so với mức này trước khi cắm."
+    },
+    {
+      "q": "Bản 4 USB với bản 2 USB khác gì nhau?",
+      "a": "Cả hai bản đều có 4 ổ điện điều khiển riêng. Bản 4 USB được ghi là cổng USB cũng bật tắt từ xa được, còn bản 2 USB thì không thấy shop nào ghi chuyện này."
+    }
+  ],
+  "labels": {
+    "Input voltage": "Điện áp vào",
+    "Maximum load": "Tải tối đa",
+    "2200W, 10A (total across outlets)": "2200W, 10A (tổng các ổ)",
+    "AC outlets": "Ổ điện AC",
+    "4, each switched separately, 50 mm apart": "4, bật tắt riêng từng ổ, cách nhau 50 mm",
+    "USB ports": "Cổng USB",
+    "4 × 5V (rated 5V/2A on one listing)": "4 × 5V (một shop ghi 5V/2A)",
+    "2.4GHz only, connects directly to the router with no hub; 5GHz not supported": "Chỉ 2.4GHz, kết nối thẳng router, không cần hub, không hỗ trợ 5GHz",
+    "Tuya Smart / Smart Life (iOS, Android), Vietnamese interface": "Tuya Smart / Smart Life (iOS, Android), giao diện tiếng Việt",
+    "Voice control": "Điều khiển giọng nói",
+    "Amazon Alexa, Google Assistant": "Amazon Alexa, Google Assistant",
+    "Materials": "Chất liệu",
+    "Flame-retardant PC plastic, tempered glass top, metal trim": "Nhựa PC chống cháy, mặt kính cường lực, viền kim loại",
+    "Weight": "Cân nặng",
+    "200 g (one listing); 300 g (another listing)": "200 g (một shop ghi), 300 g (shop khác ghi)",
+    "Warranty": "Bảo hành",
+    "3 or 6 months, chosen as an option at purchase": "3 hoặc 6 tháng, chọn khi mua",
+    "4 × 5V; USB can also be switched remotely": "4 × 5V, USB cũng bật tắt từ xa được",
+    "Outlets": "Ổ cắm",
+    "4 independently controlled AC outlets + 2 USB": "4 ổ AC điều khiển riêng + 2 USB",
+    "4 outlets + 4 USB (4P+4U)": "4 ổ + 4 USB (4P+4U)",
+    "4 outlets + 2 USB (4P+2U)": "4 ổ + 2 USB (4P+2U)",
+    "4 outlets + 4 USB": "4 ổ + 4 USB",
+    "4 outlets + USB (4P+2U / 4P+4U)": "4 ổ + USB (4P+2U / 4P+4U)"
+  },
+  "reviews": {
+    "agree": [
+      {
+        "text": "Cả hai bài review đều thấy đo điện là tính năng đáng tiền nhất. Ổ cắm hiện được công suất và lượng điện đã dùng, nên biết ngay thiết bị nào đang ngốn điện.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=XbNaCFHfnW0",
+            "t": 315
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=uSf7cM7PRyY",
+            "t": 715
+          }
+        ]
+      },
+      {
+        "text": "Ổ cắm chỉ có chân tròn. Thiết bị phích dẹt hay phích ba chân thì phải mua thêm cục chuyển.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=XbNaCFHfnW0",
+            "t": 502
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=uSf7cM7PRyY",
+            "t": 93
+          }
+        ]
+      },
+      {
+        "text": "Ghép ổ với app dễ. Sau khi reset, app tự tìm thấy ổ, một bài review thêm được ổ vào app trong khoảng một phút.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=XbNaCFHfnW0",
+            "t": 285
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=uSf7cM7PRyY",
+            "t": 310
+          }
+        ]
+      },
+      {
+        "text": "Bật tắt qua app chạy khá mượt, ở xa chỉ cần có internet là điều khiển được.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=XbNaCFHfnW0",
+            "t": 347
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=uSf7cM7PRyY",
+            "t": 621
+          }
+        ]
+      }
+    ],
+    "differ": [
+      {
+        "topic": "Nên dùng app nào",
+        "sides": [
+          {
+            "text": "Một bài review cài bằng app Tuya Smart và thấy rất đơn giản, chỉ cần đăng nhập wifi rồi đặt lại tên.",
+            "cites": [
+              {
+                "url": "https://www.youtube.com/watch?v=XbNaCFHfnW0",
+                "t": 285
+              }
+            ]
+          },
+          {
+            "text": "Bài còn lại khuyên thêm ổ vào Smart Life (máy chủ quốc tế), vì Tuya Smart có thể chậm hơn.",
+            "cites": [
+              {
+                "url": "https://www.youtube.com/watch?v=uSf7cM7PRyY",
+                "t": 217
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "single": [
+      {
+        "text": "Một bài review lưu ý ổ chỉ bắt wifi 2.4. Sóng yếu thì khó cài, dùng cũng chập chờn.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=uSf7cM7PRyY",
+            "t": 155
+          }
+        ]
+      },
+      {
+        "text": "Một bài review dùng số đo công suất để tự ngắt điện sau khi đếm ngược, lúc công suất tụt dưới mức đã đặt, và cách này chạy được với TV. TV tắt rồi vẫn ăn vài watt, nên phải nâng ngưỡng từ 2 W lên 9 W thì ổ mới ngắt.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=uSf7cM7PRyY",
+            "t": 966
+          }
+        ]
+      },
+      {
+        "text": "Một bài review thấy ổ có báo mất kết nối: rớt mạng 30 phút thì điện thoại nhận thông báo.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=uSf7cM7PRyY",
+            "t": 404
+          }
+        ]
+      },
+      {
+        "text": "Một bài review dùng hẹn giờ để bật tắt các thiết bị dùng giờ cố định như sạc điện thoại, ấm đun nước hay nồi cơm. Ổ còn lưu lại lúc nào bật, lúc nào tắt để xem lại.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=XbNaCFHfnW0",
+            "t": 347
+          }
+        ]
+      }
+    ],
+    "measured": [
+      {
+        "what": "Công suất lò nướng bánh mì khi cắm vào",
+        "value": "930 W",
+        "how": "phần điện năng trong app Tuya Smart",
+        "cite": {
+          "url": "https://www.youtube.com/watch?v=XbNaCFHfnW0",
+          "t": 471
+        }
+      },
+      {
+        "what": "Điện năng tiêu thụ trong một ngày",
+        "value": "3.86 kWh",
+        "how": "phần điện năng trong app Tuya Smart sau một ngày dùng",
+        "cite": {
+          "url": "https://www.youtube.com/watch?v=XbNaCFHfnW0",
+          "t": 471
+        }
+      },
+      {
+        "what": "Điện năng tiêu thụ trong hai ngày",
+        "value": "6.63 kWh",
+        "how": "phần điện năng trong app Tuya Smart",
+        "cite": {
+          "url": "https://www.youtube.com/watch?v=XbNaCFHfnW0",
+          "t": 471
+        }
+      },
+      {
+        "what": "Dòng điện TV kéo khi bật",
+        "value": "trên 200 mA",
+        "how": "số đo điện của ổ hiện trong app",
+        "cite": {
+          "url": "https://www.youtube.com/watch?v=uSf7cM7PRyY",
+          "t": 685
+        }
+      },
+      {
+        "what": "Công suất TV khi bật",
+        "value": "25.5 W",
+        "how": "số đo điện của ổ hiện trong app",
+        "cite": {
+          "url": "https://www.youtube.com/watch?v=uSf7cM7PRyY",
+          "t": 685
+        }
+      },
+      {
+        "what": "Công suất TV khi đã tắt",
+        "value": "khoảng 7.5 W",
+        "how": "số đo điện của ổ hiện trong app",
+        "cite": {
+          "url": "https://www.youtube.com/watch?v=uSf7cM7PRyY",
+          "t": 873
+        }
+      },
+      {
+        "what": "Công suất khi chạy cả TV và máy xay đá",
+        "value": "41 W",
+        "how": "số đo điện của ổ hiện trong app",
+        "cite": {
+          "url": "https://www.youtube.com/watch?v=uSf7cM7PRyY",
+          "t": 935
+        }
+      }
+    ]
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true
+  }
+}

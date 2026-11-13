@@ -2,30 +2,6 @@
   "id": "synodontis-eupterus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/233486434.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/233486434-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Jenny Saito",
-      "sourceUrl": "https://www.inaturalist.org/photos/233486434",
-      "caption": "Cá nheo lông vũ trưởng thành bơi trong bể cá",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/233486443.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/233486443-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Jenny Saito",
-      "sourceUrl": "https://www.inaturalist.org/photos/233486443",
-      "caption": "Cá nheo lông vũ có đốm đen trên thân trong bể",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/246581693eccf859.webp",
       "thumb": "https://media.aquatome.com/commons/246581693eccf859-480.webp",
       "width": 1200,
@@ -33,7 +9,12 @@
       "licence": "Public domain",
       "author": "Silex6",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_Eupterus_3.JPG",
-      "caption": "Cá nheo lông vũ trưởng thành trong bể có sỏi và cây thủy sinh"
+      "caption": "Cá nheo lông vũ trưởng thành trong bể có sỏi và cây thủy sinh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/246581693eccf859-large.webp",
+        "width": 1775,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/9a37e31a3fd5dc78.webp",
@@ -76,16 +57,6 @@
       "caption": "Cá nheo lông vũ đốm đen nhìn nghiêng trong bể nền xám"
     },
     {
-      "url": "https://media.aquatome.com/commons/82b28ac86538c14c.webp",
-      "thumb": "https://media.aquatome.com/commons/82b28ac86538c14c-480.webp",
-      "width": 1200,
-      "height": 984,
-      "licence": "CC BY-SA 3.0",
-      "author": "Gourami Watcher",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Featherfun_Syno4.jpg",
-      "caption": "Cá nheo lông vũ màu nâu đốm đen bơi cạnh cây lá xanh"
-    },
-    {
       "url": "https://media.aquatome.com/commons/13467be48d8d738b.webp",
       "thumb": "https://media.aquatome.com/commons/13467be48d8d738b-480.webp",
       "width": 1200,
@@ -114,6 +85,40 @@
       "author": "Gourami Watcher",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Featherfin_squeaker_9.jpg",
       "caption": "Cá nheo lông vũ nâu đốm trong bể có cây và san hô"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/233486434.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/233486434-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Jenny Saito",
+      "sourceUrl": "https://www.inaturalist.org/photos/233486434",
+      "caption": "Cá nheo lông vũ trưởng thành bơi trong bể cá",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/233486443.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/233486443-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Jenny Saito",
+      "sourceUrl": "https://www.inaturalist.org/photos/233486443",
+      "caption": "Cá nheo lông vũ có đốm đen trên thân trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/82b28ac86538c14c.webp",
+      "thumb": "https://media.aquatome.com/commons/82b28ac86538c14c-480.webp",
+      "width": 1200,
+      "height": 984,
+      "licence": "CC BY-SA 3.0",
+      "author": "Gourami Watcher",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Featherfun_Syno4.jpg",
+      "caption": "Cá nheo lông vũ màu nâu đốm đen bơi cạnh cây lá xanh"
     }
   ],
   "seen": 30,

@@ -1,0 +1,47 @@
+{
+  "id": "cambarellus-diminutus",
+  "native": {
+    "input": "7651569e8010dfcf",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Gulf Coastal Plain",
+        "source": "aquariumbreeder",
+        "quote": "Cambarellus diminutus has a very restricted range (water bodies within an approximate 3260 km2 area) along the Gulf Coastal Plain of southeastern Mississippi and southwestern Alabama.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "US",
+        "MX"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cambarellus diminutus",
+    "status": "ACCEPTED",
+    "taxonKey": 2227427,
+    "datasets": [
+      [
+        "1ad3c2b1-04dd-4be2-992b-f74027068713",
+        10
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "4655f1f3-60a5-4346-a343-84f5836a4585",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

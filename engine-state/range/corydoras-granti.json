@@ -1,0 +1,68 @@
+{
+  "id": "corydoras-granti",
+  "native": {
+    "input": "3a406d2fe95c18f0",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Igarapé Ya-Mirim (= Iazinho), a tributary of the Rio Cauaburi, itself a tributary of the Rio Negro, São Gabriel da Cachoeira, Amazonas, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "planetcatfish",
+        "quote": "Type locality: Igarapé Ya-Mirim (= Iazinho), a tributary of the Rio Cauaburi, itself a tributary of the Rio Negro, São Gabriel da Cachoeira, Amazonas, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras granti",
+    "status": "ACCEPTED",
+    "taxonKey": 11211361,
+    "datasets": [
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "a75b2ed4-f805-42ba-a965-dca3541aee24",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

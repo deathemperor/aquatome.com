@@ -103,6 +103,7 @@ test('refused: cross-origin, wrong entity, no consent, not an image, too big, ba
   expect(await status({ ...ok, e: 'guide:x' })).toBe(400)
   expect(await status({ ...ok, consent: '' })).toBe(400)
   expect(await status({ ...ok, name: 'xem casino.com' })).toBe(400)
+  expect(await status({ ...ok, name: 'Lan bangang' })).toBe(400)
   expect(await status({ ...ok, file: new File([new TextEncoder().encode('<html>')], 'a.jpg') })).toBe(415)
   const big = new Request(upload(ok), { headers: { origin: 'https://x.test', 'content-length': String(9 * 1024 * 1024) } })
   expect((await handle(big, e)).status).toBe(413)
@@ -114,6 +115,44 @@ test('without the buckets or secrets the API answers 503 and the section stays h
   const { e } = env()
   const r = await handle(new Request('https://x.test/_p?e=species:x'), { ...e, UPLOADS: undefined } as Env)
   expect(r.status).toBe(503)
+})
+
+// A fish's gallery page and its own page list its readers' photos 60 at a time ("Xem thêm" asks for the older ones),
+// and only its own: never a photo another page shows, nor one sent with a comment (`comment:<id>`).
+test('a fish\'s photos list 60 at a time, newest first, then the older ones by `next`; never a comment\'s or another page\'s', async () => {
+  const { e, db } = env()
+  const FISH = 'species:paracheirodon-innesi'
+  const id = (n: number) => `00000000-0000-4000-8000-${String(n).padStart(12, '0')}`
+  const at = (min: number) => new Date(Date.UTC(2026, 9, 1) + min * 60_000).toISOString()
+  const add = (n: number, entity: string, time: string, status = 'approved') => db.prepare(
+    `INSERT INTO photos (id, entity_ref, name, status, url, thumb, width, height, delete_hash, created_at) VALUES (?, ?, 'Lộc', ?, 'u', 't', 1200, 900, 'h', ?)`,
+  ).bind(id(n), entity, status, time).run()
+  // 64 of the fish's, one a minute; the 60th and 61st newest (photos 5 and 4) sent in the same millisecond, where the
+  // first answer stops.
+  for (let n = 1; n <= 64; n++) await add(n, FISH, at(n === 4 ? 5 : n))
+  // Newer than all of them: a comment's photos, another fish's, a breed's, and the fish's own still waiting.
+  await add(101, 'comment:c1', at(100))
+  await add(102, 'comment:c2', at(101))
+  await add(103, 'species:betta-splendens', at(102))
+  await add(104, 'breed:betta-halfmoon', at(103))
+  await add(105, FISH, at(104), 'pending')
+  type Listed = { photos: { id: string }[]; next?: string }
+  const list = async (q = '') => {
+    const r = await handle(new Request(`https://x.test/_p?e=${FISH}${q}`), e)
+    return { status: r.status, body: (await r.json()) as Listed }
+  }
+  const newest = Array.from({ length: 64 }, (_, i) => id(64 - i)) // ids order the two of one time: photo 5, then 4
+  const first = await list()
+  expect(first.body.photos.map(p => p.id)).toEqual(newest.slice(0, 60))
+  expect(first.body.next).toBe(`${at(5)}~${id(5)}`)
+  const rest = await list(`&before=${encodeURIComponent(first.body.next!)}`)
+  expect(rest.body.photos.map(p => p.id)).toEqual(newest.slice(60))
+  expect(rest.body).not.toHaveProperty('next')
+  // Exactly 60 left: no `next`, so no "Xem thêm" that would find nothing.
+  const sixty = await list(`&before=${encodeURIComponent(`${at(61)}~${id(61)}`)}`)
+  expect(sixty.body.photos.map(p => p.id)).toEqual(newest.slice(4))
+  expect(sixty.body).not.toHaveProperty('next')
+  for (const bad of ['', 'x', at(5), `${at(5)}~`, `${at(5)}~${id(5)}' OR 1=1`]) expect((await list(`&before=${encodeURIComponent(bad)}`)).status, bad).toBe(400)
 })
 
 const PNG = new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 1, 2, 3])
@@ -160,7 +199,7 @@ test('/_ab/anh/<id> serves a waiting photo\'s upload to the owner alone (the pag
   expect((await get({ cookie: owner }, `/_ab/anh/${gone}`)).status).toBe(404)
 })
 
-test('Gỡ on a waiting photo deletes its upload at once and marks it removed', async () => {
+test('Remove on a waiting photo deletes its upload at once and marks it removed', async () => {
   const { e, db, uploads } = env()
   const { owner, reader } = await signedIn(db)
   const id = await sent(e)
@@ -177,7 +216,7 @@ test('Gỡ on a waiting photo deletes its upload at once and marks it removed', 
 
 // The owner's approval is a flag the next moderation pass reads (the files are made on the Mac, as every published photo's
 // are): the queue says so, the page shows it approved, and publishing it clears the flag, so a later report is judged.
-test('Duyệt flags a waiting photo as the owner\'s (owner only, 30 days); the queue and the page show it; publishing clears it', async () => {
+test('Approve flags a waiting photo as the owner\'s (owner only, 30 days); the queue and the page show it; publishing clears it', async () => {
   const { e, db, kv, ttl } = env()
   const { owner, reader } = await signedIn(db)
   const [id, other] = [await sent(e), await sent(e)]
@@ -202,33 +241,33 @@ test('Duyệt flags a waiting photo as the owner\'s (owner only, 30 days); the q
   expect(kv.has(`photo-ok:${other}`)).toBe(false)
 })
 
-test('the page shows each waiting photo, tap to enlarge, with Duyệt and Gỡ; one the owner approved says so, without Duyệt', async () => {
-  expect(photosPage([], [])).not.toContain('Chờ duyệt')
+test('the page shows each waiting photo, tap to enlarge, with Approve and Remove; one the owner approved says so, without Approve', async () => {
+  expect(photosPage([], [])).not.toContain('Waiting (')
   const [a, b] = [crypto.randomUUID(), crypto.randomUUID()]
   const html = photosPage([], [
     { id: a, entity_ref: 'species:paracheirodon-innesi', name: '<b>x</b>', created_at: '2026-11-04T08:12:00Z', ownerOk: false },
     { id: b, entity_ref: 'species:betta-splendens', name: 'Lộc', created_at: '2026-11-04T07:00:00Z', ownerOk: true },
   ])
-  expect(html).toContain('Chờ duyệt (2)')
+  expect(html).toContain('Waiting (2)')
   const row = (id: string) => html.split('<tr').find(r => r.includes(`value="${id}"`))!
   for (const id of [a, b]) {
     expect(row(id)).toContain(`<a href="/_ab/anh/${id}"`)
     expect(row(id)).toContain(`src="/_ab/anh/${id}"`)
-    expect(row(id)).toMatch(/<button[^>]*name="action" value="remove"[^>]*>Gỡ<\/button>/)
+    expect(row(id)).toMatch(/<button[^>]*name="action" value="remove"[^>]*>Remove<\/button>/)
   }
-  expect(row(a)).toMatch(/<button[^>]*name="action" value="approve"[^>]*>Duyệt<\/button>/)
+  expect(row(a)).toMatch(/<button[^>]*name="action" value="approve"[^>]*>Approve<\/button>/)
   expect(row(a)).toContain('species:paracheirodon-innesi')
   expect(row(a)).toContain('&lt;b&gt;x&lt;/b&gt;')
   expect(html).not.toContain('<b>x</b>')
-  expect(row(a)).not.toContain('Đã duyệt')
+  expect(row(a)).not.toContain('Approved')
   expect(row(b)).not.toContain('value="approve"')
-  expect(row(b)).toMatch(/Đã duyệt<\/span> <span class="muted">đăng trong lượt duyệt tới/)
-  // A published photo keeps its Gỡ, beside its public thumbnail, and nothing else.
+  expect(row(b)).toMatch(/Approved<\/span> <span class="muted">goes up at the next pass/)
+  // A published photo keeps its Remove, beside its public thumbnail, and nothing else.
   const c = crypto.randomUUID()
   const shown = photosPage([{ id: c, entity_ref: 'species:betta-splendens', name: '<i>y</i>', thumb: `https://media.aquatome.com/readers/${c}-480.webp`, created_at: '2026-11-04T02:40:00Z' }], [])
   const published = shown.split('<tr').find(r => r.includes(`value="${c}"`))!
   expect(published).toContain(`src="https://media.aquatome.com/readers/${c}-480.webp"`)
-  expect(published).toMatch(/<button[^>]*name="action" value="remove"[^>]*>Gỡ<\/button>/)
+  expect(published).toMatch(/<button[^>]*name="action" value="remove"[^>]*>Remove<\/button>/)
   expect(published).not.toContain('value="approve"')
   expect(published).toContain('&lt;i&gt;y&lt;/i&gt;')
 })
@@ -240,8 +279,8 @@ test('a photo moderation moved says, under the page it shows on, the page it was
     { id: b, entity_ref: 'species:betta-splendens', moved_from: null, name: 'Lộc', thumb: `https://media.aquatome.com/readers/${b}-480.webp`, created_at: '2026-11-04T02:30:00Z' },
   ], [{ id: c, entity_ref: 'species:carassius-auratus', moved_from: 'species:paracheirodon-innesi', name: 'Lộc', created_at: '2026-11-04T03:00:00Z', ownerOk: false }])
   const row = (id: string) => html.split('<tr').find(r => r.includes(`value="${id}"`))!
-  expect(row(a)).toContain('species:carassius-auratus<br><span class="muted">Kiểm duyệt chuyển từ species:&lt;x&gt;</span>')
+  expect(row(a)).toContain('species:carassius-auratus<br><span class="muted">Moved by moderation from species:&lt;x&gt;</span>')
   expect(html).not.toContain('species:<x>')
-  expect(row(b)).not.toContain('chuyển từ')
-  expect(row(c)).toContain('Kiểm duyệt chuyển từ species:paracheirodon-innesi')
+  expect(row(b)).not.toContain('Moved by moderation')
+  expect(row(c)).toContain('Moved by moderation from species:paracheirodon-innesi')
 })

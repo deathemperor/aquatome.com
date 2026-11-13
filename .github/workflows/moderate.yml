@@ -2,6 +2,7 @@ name: Comment and photo moderation
 # Comments and reader photos, every hour, so a reader's photo shows within the hour instead of the next night. The
 # moderation itself runs on macOS (Apple Vision's face screen), which the iOS jobs queue for too: a small Linux job asks
 # the site whether anything waits, and macOS starts only when something does (or when it's run by hand).
+# CLAUDE_ON_CI does not pause this: a comment or a photo waiting is still moderated.
 on:
   schedule:
     - cron: '17 * * * *'
@@ -49,3 +50,16 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # The owner's other Claude accounts, one token a line: the next when one is out (claude-accounts.ts).
           CLAUDE_CODE_OAUTH_TOKENS: ${{ secrets.CLAUDE_CODE_OAUTH_TOKENS }}
+          # Where the cloud starts in that list (claude-accounts.ts startAt): unset, the first.
+          CLAUDE_FIRST_ACCOUNT: ${{ vars.CLAUDE_FIRST_ACCOUNT }}
+          # A line a model call (claude.ts). Moderation has no ceiling (ceiling.ts), and its spend is on the record.
+          ENGINE_COST_LOG: ${{ runner.temp }}/aquatome-cost-moderate.jsonl
+      # Kept with the run: the rewrite brings these lines beside its own log at the start of a cycle (engine.yml), so
+      # the day's total its backstop counts has moderation's spend in it.
+      - name: Keep the cost log (a line a model call, with its account)
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: moderate-cost-log
+          path: ${{ runner.temp }}/aquatome-cost-moderate.jsonl
+          if-no-files-found: ignore

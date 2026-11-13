@@ -1,0 +1,420 @@
+{
+  "id": "charax-condei",
+  "scientificName": "Charax condei",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Charax",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.4
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/charax-condei",
+      "html": "<p>The small-scale glass tetra, Charax condei, is a characin known only from the Rio Negro basin, Brazil, where it inhabits blackwater streams. Rarely seen, it occasionally shows up in the trade as a contaminant among shipments of more popular species, and older literature sometimes calls it Asiphonichthys condei. A micropredator, it threatens much smaller tankmates and should be kept in a group of at least six.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/charax-condei",
+      "html": "<p>Known only from the Rio Negro basin, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/charax-condei",
+      "html": "<p>Inhabits slow-moving blackwater streams, creeks and tributaries, as well as smaller rivers. The water these contain is typically stained dark brown with humic acids and other chemicals released by decaying organic material. This results in a negligible dissolved mineral content, and the pH can drop as low as 4.0 or 5.0. The dense rainforest canopy above means that very little light penetrates the water surface, and the substrate is normally littered with fallen tree branches and rotting leaves.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/charax-condei",
+      "html": "<p>A 60 × 38 × 30 cm tank (~68 litres) should be ok for a small group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/charax-condei",
+      "html": "<p>A biotope setup would be very simple to arrange. Use a substrate of river sand and add a few driftwood branches (if you can't find driftwood of the desired shape, common beech is safe to use if thoroughly dried and stripped of bark) and twisted roots. A few handfuls of dried leaves (again beech can be used, or oak leaves are also suitable) would complete the natural feel. Aquatic plants are not a feature of this species' natural waters so can be omitted. Allow the wood and leaves to stain the water the colour of weak tea, removing old leaves and replacing them every few weeks so they don't rot and foul the water. A small net bag filled with aquarium-safe peat can be added to the filter to aid in the simulation of black water conditions. Use fairly dim lighting. Alternatively, it also does well in a well maintained, heavily planted tank. As any of these seen for sale will almost certainly be wild caught a more general setup is not really suitable.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/charax-condei",
+      "html": "<ul><li>Temperature: 23–25°C</li><li>pH: 6.0–7.4</li><li>Hardness: 0–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/charax-condei",
+      "html": "<p>A micropredatory species, wild specimens are known to consume a variety of aquatic invertebrates and smaller fish. It's not a fussy eater in the aquarium though, and will accept most foods once settled.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/charax-condei",
+      "html": "<p>Not an aggressive fish, but much smaller tankmates would certainly be at risk of predation. Try keeping it in a mixed shoal with other characins, perhaps alongside Corydoras catfish, small Loricariids and peaceful cichlids. Always buy a group of at least 6 of these, preferably 10 or more. It is a shoaling species by nature, and will fare much better when in the company of its own kind. It actually looks far more effective when maintained like this anyway.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/charax-condei",
+      "html": "<p>Unreported, although as with most Characins sexually mature females are likely to be fuller-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/charax-condei",
+      "html": "<p>Possibly not yet achieved in captivity, although it should be possible. Expect it to follow a similar pattern of breeding to other similarly-sized Characins.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/charax-condei",
+      "html": "<p>This rarely seen Characin occasionally shows up in the trade, usually as a contaminant among shipments of more popular species. It's sometimes referred to as Asiphonichthys condei in older literature.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/bc2ca0babee9eeed.webp",
+      "width": 960,
+      "height": 480,
+      "licence": "CC BY 4.0",
+      "author": "Menezes, Naércio A.; de Lucena, Carlos Alberto S.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Charax_condei_(MZUSP_95229).png",
+      "caption": "Charax condei, MZUSP 95229, female, 49 mm SL, Amazonas, Santa Isabel do Rio Negro, pond on bank of rio Negro.",
+      "thumb": "https://media.aquatome.com/commons/bc2ca0babee9eeed-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "EYZebCSKsgk",
+      "title": "Charax condei (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 67,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Tx3fF_xU8Ek",
+      "title": "Charax condei 103.mp4",
+      "durationSec": 68,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sEcRHmGuxGg",
+      "title": "Charax condei",
+      "durationSec": 88,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "X8NUVPhm63E",
+      "title": "Cyphocharax multilineatus, Charax condei, Pterophyllum sp. Jatapu, Pterophyllum altum",
+      "durationSec": 155,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc hộp bể 60cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông bể cá",
+        "lá bàng khô"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Rio Negro basin, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204529,
+      "total": 130,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          63
+        ],
+        [
+          "VE",
+          54
+        ],
+        [
+          "CO",
+          12
+        ],
+        [
+          "GY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -71.71875,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          -71.71875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          5.625,
+          12,
+          0
+        ],
+        [
+          -68.90625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          9,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          16,
+          0
+        ],
+        [
+          -67.5,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          5.625,
+          8,
+          0
+        ],
+        [
+          -67.5,
+          7.03125,
+          4,
+          0
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          10,
+          10
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          14,
+          14
+        ],
+        [
+          -63.28125,
+          0,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          0,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -2.8125,
+          14,
+          14
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          4,
+          4
+        ]
+      ]
+    }
+  }
+}

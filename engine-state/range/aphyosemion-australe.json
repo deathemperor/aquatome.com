@@ -1,0 +1,71 @@
+{
+  "id": "aphyosemion-australe",
+  "native": {
+    "input": "24ca3ab0ead9684f",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Cap Gentil', now known as Cape Lopez, close to the mouth of the Ogooué River, Gabon and is distributed in lowland areas along much of the country's coastline plus that of Congo which borders Gabon to the south.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Cap Gentil', now known as Cape Lopez, close to the mouth of the Ogooué River, Gabon and is distributed in lowland areas along much of the country's coastline plus that of Congo which borders Gabon to the south.",
+        "words": "Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ogooué",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Cap Gentil', now known as Cape Lopez, close to the mouth of the Ogooué River, Gabon and is distributed in lowland areas along much of the country's coastline plus that of Congo which borders Gabon to the south.",
+        "country": "GA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "AO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion australe",
+    "status": "ACCEPTED",
+    "taxonKey": 2348299,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        12
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ]
+    ],
+    "native": [
+      "GA",
+      "CG"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

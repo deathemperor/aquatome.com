@@ -16,13 +16,30 @@
       "html": "<ul><li><strong>Type:</strong> Carpeting</li><li><strong>Origin:</strong> South America</li><li><strong>Growth rate:</strong> Medium</li><li><strong>Height:</strong> 3 - 5+ cm (average height after two months in the tank)</li><li><strong>Light demand:</strong> Medium</li><li><strong>CO2:</strong> Medium (6-14 mg/L)</li></ul>"
     },
     {
+      "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Monte Carlo là cây trải thảm, nên chỗ của nó là <strong>tiền cảnh</strong>, sát mặt nền.</p><ul><li><strong>Chia khóm:</strong> Monte Carlo không cắm từng cọng như cây thân. Bạn lấy cả khối ra khỏi cốc rồi cắt thành khoảng 8–12 khóm, một cốc chia chừng 10 khóm là vừa. Khóm to cắm dễ hơn, còn khóm quá nhỏ rất hay nổi.</li><li><strong>Cắm thật sâu:</strong> Bạn ấn từng khóm sâu xuống nền, lấp mất nửa cây cũng không sao. Đất dính trên lá thì sau này phủi đi được, hoặc cây sẽ tự mọc trồi lên. Khóm nào cứ nổi lên thì đặt vài viên sỏi nhỏ đè cho nó nằm sát nền.</li><li><strong>Mấy tuần đầu thì để yên:</strong> Đây là giai đoạn cây dễ hỏng nhất. Khi hút đáy, bạn đưa ống tránh xa chỗ vừa trồng, vì ống rất dễ hút bật khóm lên. Monte Carlo cũng không thích bị nhổ lên cắm lại nhiều lần, nên bạn hạn chế tỉa hay sửa lại vị trí khóm.</li><li><strong>Đừng sốt ruột:</strong> Phải khoảng ba tuần cây mới bắt đầu bám rễ và bò runner. Lá cũ ngả vàng là phần cây ban đầu. Nếu bên dưới đang ra nhiều chồi xanh mới thì cây không chết. Lúc đầu thảm chỉ là từng mảng rời rạc, chuyện này hoàn toàn bình thường.</li></ul>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Micranthemumtweediei'MonteCarlo'(025TC)/4442",
       "html": "<p>Micranthemum tweediei 'Monte Carlo' originates from Argentina. It has compact, round and fresh light green leaves on creeping stalks and creates a fast-growing carpet in the front of the aquarium. The plant can grow in light shadow, but requires good light conditions, as well as CO2 additive, in order to develop optimally and become really compact.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/tropica/50445fc88a870df8.webp",
+      "thumb": "https://media.aquatome.com/tropica/50445fc88a870df8-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Micranthemumtweediei'MonteCarlo'(025TC)/4442",
+      "source": "tropica"
+    }
+  ],
   "productSlots": [
     {
       "category": "cay-thuy-sinh",
@@ -53,5 +70,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-07"
 }

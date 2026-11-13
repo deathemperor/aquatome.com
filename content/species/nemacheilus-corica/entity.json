@@ -14,6 +14,220 @@
     "koshi",
     "ganges"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "NP",
+        "BD"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra",
+        "Kosi",
+        "Padma",
+        "Himalayas"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It is native to the hilly landscapes at the foot of the Himalayas in Nepal, India, Pakistan and Bangladesh.",
+          "countries": [
+            "IN",
+            "NP",
+            "BD"
+          ],
+          "regions": [
+            "Himalayas"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Nemacheilus corica is a loach from Himalayan foothill rivers of the Ganges and Brahmaputra systems in Nepal, northern India and Bangladesh.",
+          "countries": [],
+          "regions": [
+            "Ganges",
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Kosi/Koshi river, one of the largest tributary systems of the Ganges River which flows down from the Himalayas and through Nepal before joining the Ganges just before it enters Bangladesh.",
+          "countries": [],
+          "regions": [
+            "Kosi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's since been recorded from many rivers draining the Himalayan foothills in Nepal and northern India (Gangetic tributaries in Uttar Pradesh, Uttarakhand, Bihar and West Bengal states plus tributaries of the Brahmaputra River in West Bengal state), and is also known from the lower Ganges in Bangladesh, where the river is known as the Padma.",
+          "countries": [],
+          "regions": [
+            "Padma"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205046,
+      "total": 106,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "NP",
+          61
+        ],
+        [
+          "IN",
+          35
+        ],
+        [
+          "BD",
+          7
+        ],
+        [
+          "MM",
+          2
+        ],
+        [
+          "PK",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          67.5,
+          26.71875,
+          1,
+          0
+        ],
+        [
+          75.9375,
+          29.53125,
+          2,
+          2
+        ],
+        [
+          75.9375,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          78.75,
+          28.125,
+          29,
+          29
+        ],
+        [
+          80.15625,
+          28.125,
+          14,
+          14
+        ],
+        [
+          81.5625,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          81.5625,
+          28.125,
+          3,
+          3
+        ],
+        [
+          82.96875,
+          26.71875,
+          13,
+          13
+        ],
+        [
+          82.96875,
+          28.125,
+          1,
+          1
+        ],
+        [
+          84.375,
+          26.71875,
+          5,
+          5
+        ],
+        [
+          85.78125,
+          25.3125,
+          6,
+          6
+        ],
+        [
+          85.78125,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          87.1875,
+          25.3125,
+          9,
+          9
+        ],
+        [
+          87.1875,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          88.59375,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          23.90625,
+          4,
+          4
+        ],
+        [
+          92.8125,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          94.21875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          16.875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -68,7 +282,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -165,12 +379,6 @@
     },
     {
       "key": "reproduction",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nemacheilus-corica-2/",
-      "html": "<p>N. corica has probably not yet been bred in the aquarium, but breeding should not be a real problem. Nemacheilus species are usually free spawners without brood care, the eggs developing in the gap system of gravel. The spawning season is in the rainy monsoon months, i.e. our summer through to October, when there is heavy rainfall along the Himalayas.</p>"
-    },
-    {
-      "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
       "html": "<p>Unreported.</p>"
@@ -234,8 +442,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá thủy sinh nhỏ"
+        "bể cá 60cm"
       ]
     },
     {

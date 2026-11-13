@@ -10,6 +10,56 @@
     "peru",
     "maranon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Marañón",
+        "Rio Morona",
+        "Rio Santiago"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The natural range is in Peru, Dep. Loreto.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The purple pencilfish, Nannostomus rubrocaudatus, is reportedly collected along the Marañón in Peru, between the Morona and Santiago rivers.",
+          "countries": [],
+          "regions": [
+            "Marañón"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Here, the species is collected for export near the village of Saramirisa on the Maranon (the upper Amazon) between the tributaries Rio Morona and Rio Santiago.",
+          "countries": [],
+          "regions": [
+            "Rio Morona",
+            "Rio Santiago"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355626,
+      "total": 0,
+      "fetched": "2026-11-10",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -28,7 +78,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ],
     "tempC": [
@@ -77,12 +127,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-rubrocaudatus",
       "html": "<p>The purple pencilfish, Nannostomus rubrocaudatus, is reportedly collected along the Marañón in Peru, between the Morona and Santiago rivers. Before description it was traded as Nannostomus sp. 'purple' or N. sp. 'coral red II'. Males have red-purple pigmentation between all three dark lateral stripes, and it is more aggressive than most congeners, so it needs a spacious tank with plenty of broken lines of sight.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nannostomus-rubrocaudatus-4/",
-      "html": "<p>The relatively high price of the fish is explained by the fact that the animals live among dense branches in the wild and have to be laboriously picked out individually. Mass catches, as with other Nannostomus species, where thousands of specimens can easily be caught with a net, are not possible with N. rubrocaudatus.</p>"
     },
     {
       "key": "distribution",
@@ -204,8 +248,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá thủy sinh mini"
+        "bể cá 90cm"
       ]
     },
     {

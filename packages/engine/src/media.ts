@@ -1,20 +1,25 @@
 import sharp from 'sharp'
+import { setTimeout as delay } from 'node:timers/promises'
 import { THUMB_WIDTH } from '@aq/schema'
 import type { Media } from './source-photos'
 
 const thumbKey = (key: string) => key.replace(/\.webp$/, `-${THUMB_WIDTH}.webp`)
 const thumb = (bytes: Uint8Array) => sharp(bytes).rotate().resize({ width: THUMB_WIDTH, withoutEnlargement: true }).webp({ quality: 75 }).toBuffer()
 
+/** A picture as `put` stores it: WebP, at most 1200 px across. */
+export const asStored = (bytes: Uint8Array) => sharp(bytes).rotate().resize({ width: 1200, withoutEnlargement: true }).webp({ quality: 80 })
+
 /** Cloudflare R2 bucket behind a public custom domain; images are normalised to ≤1200px WebP plus a 480px card thumb, cached a year (a key is never reused for other content). */
-export function r2Media(opts: { accountId: string; token: string; bucket: string; publicBase: string }): Media & { putThumb: (key: string, bytes: Uint8Array) => Promise<void>; putRaw: (key: string, bytes: Uint8Array, contentType: string) => Promise<string> } {
+export function r2Media(opts: { accountId: string; token: string; bucket: string; publicBase: string }): Media & { putThumb: (key: string, bytes: Uint8Array) => Promise<void>; putRaw: (key: string, bytes: Uint8Array, contentType: string, signal?: AbortSignal) => Promise<string>; putLarge: (key: string, bytes: Uint8Array, width: number) => Promise<{ url: string; width: number; height: number }> } {
   const urlFor = (key: string) => `${opts.publicBase}/${key}`
-  async function upload(key: string, data: Uint8Array, contentType = 'image/webp') {
+  async function upload(key: string, data: Uint8Array, contentType = 'image/webp', signal?: AbortSignal) {
     const put = () => fetch(`https://api.cloudflare.com/client/v4/accounts/${opts.accountId}/r2/buckets/${opts.bucket}/objects/${key}`, {
+      ...(signal ? { signal: AbortSignal.any([signal, AbortSignal.timeout(30_000)]) } : {}),
       method: 'PUT', headers: { authorization: `Bearer ${opts.token}`, 'content-type': contentType, 'cache-control': 'public, max-age=31536000, immutable' }, body: new Uint8Array(data),
     })
     let r = await put()
     for (let i = 1; i <= 3 && r.status >= 500; i++) { // Cloudflare API hiccups (e.g. 10500) are transient
-      await new Promise(res => setTimeout(res, 2000 * i))
+      await delay(2000 * i, undefined, { signal })
       r = await put()
     }
     if (!r.ok) throw new Error(`R2 upload ${r.status}: ${(await r.text()).slice(0, 200)}`)
@@ -22,14 +27,20 @@ export function r2Media(opts: { accountId: string; token: string; bucket: string
   return {
     urlFor,
     async put(key, bytes) {
-      const { data, info } = await sharp(bytes).rotate().resize({ width: 1200, withoutEnlargement: true }).webp({ quality: 80 }).toBuffer({ resolveWithObject: true })
+      const { data, info } = await asStored(bytes).toBuffer({ resolveWithObject: true })
       await upload(key, data)
       await upload(thumbKey(key), await thumb(bytes))
       return { url: urlFor(key), thumb: urlFor(thumbKey(key)), width: info.width, height: info.height }
     },
+    /** The app's large copy, `width` across (large-photos.ts largeSize), with no thumb. */
+    async putLarge(key, bytes, width) {
+      const { data, info } = await sharp(bytes).rotate().resize({ width, withoutEnlargement: true }).webp({ quality: 80 }).toBuffer({ resolveWithObject: true })
+      await upload(key, data)
+      return { url: urlFor(key), width: info.width, height: info.height }
+    },
     /** Backfill: the thumb for an already-stored photo. */
     putThumb: async (key, bytes) => upload(thumbKey(key), await thumb(bytes)),
     /** An original as it came (Facebook originals for later rewriting): no resize, no thumb. */
-    putRaw: async (key, bytes, contentType) => { await upload(key, bytes, contentType); return urlFor(key) },
+    putRaw: async (key, bytes, contentType, signal) => { await upload(key, bytes, contentType, signal); return urlFor(key) },
   }
 }

@@ -1,0 +1,110 @@
+{
+  "id": "geophagus-pellegrini",
+  "native": {
+    "input": "5362719b13ea5a63",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is the Río San Juan at Tado, Chocó Department, northwestern Colombia, and this species is endemic to that region plus the neighbouring Department of Antioquia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This mouthbrooding cichlid comes from Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río San Juan",
+        "source": "seriouslyfish",
+        "quote": "Type locality is the Río San Juan at Tado, Chocó Department, northwestern Colombia, and this species is endemic to that region plus the neighbouring Department of Antioquia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Atrato",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded from the Río Atrato and Río Baudó drainages.",
+        "ok": true
+      },
+      {
+        "name": "Río Baudó",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded from the Río Atrato and Río Baudó drainages.",
+        "ok": true
+      },
+      {
+        "name": "Rio Atrato",
+        "source": "glaser",
+        "quote": "The main river of the Chocó region is the Rio Atrato.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus pellegrini",
+    "status": "ACCEPTED",
+    "taxonKey": 5208424,
+    "datasets": [
+      [
+        "13b4fdb0-92a0-4497-bc0a-16d2fdf806fd",
+        22
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        10
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        8
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

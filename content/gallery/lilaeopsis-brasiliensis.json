@@ -2,30 +2,6 @@
   "id": "lilaeopsis-brasiliensis",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/7571435.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/7571435-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC0",
-      "author": "Peter de Lange",
-      "sourceUrl": "https://www.inaturalist.org/photos/7571435",
-      "caption": "Thảm Cỏ lilaeopsis Brazil mọc ngoài tự nhiên ven nước",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/257979017.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/257979017-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "vinicius_s_domingues",
-      "sourceUrl": "https://www.inaturalist.org/photos/257979017",
-      "caption": "Cỏ lilaeopsis Brazil mọc thành thảm dày, cận cảnh lá",
-      "best": true,
-      "kind": "emersed"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/7571359.webp",
       "thumb": "https://media.aquatome.com/inaturalist/7571359-480.webp",
       "width": 1024,
@@ -38,16 +14,33 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/312876772.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/312876772-480.webp",
-      "width": 1024,
-      "height": 770,
-      "licence": "CC BY",
-      "author": "vinicius_s_domingues",
-      "sourceUrl": "https://www.inaturalist.org/photos/312876772",
-      "caption": "Cỏ lilaeopsis Brazil mọc nhô lên khỏi mặt nước",
-      "best": false,
-      "kind": "habitat"
+      "url": "https://media.aquatome.com/tropica/afb68e56768bc97c.webp",
+      "thumb": "https://media.aquatome.com/tropica/afb68e56768bc97c-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Lilaeopsisbrasiliensis(040PCS)/18808",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/0be63e5a425d76df.webp",
+      "thumb": "https://media.aquatome.com/tropica/0be63e5a425d76df-480.webp",
+      "width": 1200,
+      "height": 805,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/0be63e5a425d76df-large.webp",
+        "width": 1789,
+        "height": 1200
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Lilaeopsisbrasiliensis(040PCS)/18808",
+      "source": "tropica",
+      "kind": "submersed",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/7571092.webp",
@@ -58,6 +51,54 @@
       "author": "Peter de Lange",
       "sourceUrl": "https://www.inaturalist.org/photos/7571092",
       "caption": "Thảm Cỏ lilaeopsis Brazil mọc trên bờ đất ẩm",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/a9888bc9b441337a.webp",
+      "thumb": "https://media.aquatome.com/tropica/a9888bc9b441337a-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Lilaeopsisbrasiliensis(040PCS)/18808",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/1f4b5cbffabe5e67.webp",
+      "thumb": "https://media.aquatome.com/tropica/1f4b5cbffabe5e67-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Lilaeopsisbrasiliensis(040PCS)/18808",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/7571435.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/7571435-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Peter de Lange",
+      "sourceUrl": "https://www.inaturalist.org/photos/7571435",
+      "caption": "Thảm Cỏ lilaeopsis Brazil mọc ngoài tự nhiên ven nước",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/312876772.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/312876772-480.webp",
+      "width": 1024,
+      "height": 770,
+      "licence": "CC BY",
+      "author": "vinicius_s_domingues",
+      "sourceUrl": "https://www.inaturalist.org/photos/312876772",
+      "caption": "Cỏ lilaeopsis Brazil mọc nhô lên khỏi mặt nước",
       "best": false,
       "kind": "habitat"
     },
@@ -75,6 +116,6 @@
     }
   ],
   "seen": 10,
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-10-31"
 }

@@ -23,7 +23,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_in_Tropicarium-Oceanarium_Budapest_123.jpg",
       "caption": "Cá khủng bố xanh thân đốm xanh lấp lánh với chấm đen",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/commons/91bf3bf7be340302-large.webp",
+        "width": 1792,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/df6167478511727f.webp",
@@ -35,7 +40,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aequidens_Rivulatus_(88380109).jpeg",
       "caption": "Cá khủng bố xanh đực màu xanh ngọc, vây cam rực rỡ",
       "best": true,
-      "kind": "male"
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/commons/df6167478511727f-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/5d6f4b08c069244b.webp",
@@ -47,7 +57,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_-_20061112.jpg",
       "caption": "Cá khủng bố xanh trưởng thành trong bể nuôi, thân lốm đốm",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/commons/5d6f4b08c069244b-large.webp",
+        "width": 999,
+        "height": 675
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/e4286ab1b51cff69.webp",
@@ -59,7 +74,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_%E2%99%82_-_Goldsaumbuntbarsch_-_portrait.jpg",
       "caption": "Cá khủng bố xanh đực trên nền cát và gỗ lũa",
       "best": true,
-      "kind": "male"
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/commons/e4286ab1b51cff69-large.webp",
+        "width": 1912,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/b59bccdb31262abc.webp",
@@ -71,7 +91,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_%E2%99%82_-_Goldsaumbuntbarsch,_lateral.jpg",
       "caption": "Cá khủng bố xanh đực với vảy chấm xanh óng ánh",
       "best": true,
-      "kind": "male"
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/commons/b59bccdb31262abc-large.webp",
+        "width": 2058,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/518720329.webp",
@@ -81,17 +106,12 @@
       "licence": "CC BY-SA",
       "author": "Nick T.",
       "sourceUrl": "https://www.inaturalist.org/photos/518720329",
-      "caption": "Cá khủng bố xanh có chấm xanh ánh trên thân trong bể"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/540996701.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/540996701-480.webp",
-      "width": 1024,
-      "height": 894,
-      "licence": "CC BY",
-      "author": "Laurimar Sepulveda",
-      "sourceUrl": "https://www.inaturalist.org/photos/540996701",
-      "caption": "Cá khủng bố xanh trưởng thành bơi gần gốc cây trong nước"
+      "caption": "Cá khủng bố xanh có chấm xanh ánh trên thân trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/518720329-large.webp",
+        "width": 2048,
+        "height": 1112
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/d37d153d155c0867.webp",
@@ -111,7 +131,12 @@
       "licence": "CC0",
       "author": "5snake5",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_-_Goldsaumbuntbarsche_mit_Jungen.jpg",
-      "caption": "Cá khủng bố xanh đuôi viền cam bơi gần gỗ lũa trong bể"
+      "caption": "Cá khủng bố xanh đuôi viền cam bơi gần gỗ lũa trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/894420aee3b52e47-large.webp",
+        "width": 1690,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/88e1dbc2fd921422.webp",
@@ -147,7 +172,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aequidens_pulcher.jpg",
       "caption": "Cá khủng bố xanh màu xanh lam trong bể thủy sinh có cây",
       "best": false,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/commons/d50f3ea5630ff569-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/fd1d98d1a4836393.webp",
@@ -219,7 +249,22 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_%E2%99%82_-_Goldsaumbuntbarsch.jpg",
       "caption": "Cá khủng bố xanh với hàng chấm xanh và đốm đen bên thân",
       "best": false,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/commons/6a67ba90f863fd30-large.webp",
+        "width": 2340,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/540996701.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/540996701-480.webp",
+      "width": 1024,
+      "height": 894,
+      "licence": "CC BY",
+      "author": "Laurimar Sepulveda",
+      "sourceUrl": "https://www.inaturalist.org/photos/540996701",
+      "caption": "Cá khủng bố xanh trưởng thành bơi gần gốc cây trong nước"
     }
   ],
   "seen": 40,

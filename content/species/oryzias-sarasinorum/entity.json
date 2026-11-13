@@ -10,6 +10,68 @@
     "indonesia",
     "lake-lindu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Lake Lindu",
+        "Sulawesi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Sarasin's buntingi, Oryzias sarasinorum, is a ricefish endemic to Lake Lindu in Lore Lindu National Park, Central Sulawesi, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Lindu in Lore Lindu National Park, Sulawesi Tengah (Central Sulawesi) province, Sulawesi, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Lake Lindu",
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961083,
+      "total": 2,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "ID",
+          1
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +115,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -149,8 +211,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 100cm",
-        "bể thủy sinh 90 lít"
+        "bể cá 100cm"
       ]
     },
     {

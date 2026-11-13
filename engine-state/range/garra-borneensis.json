@@ -1,0 +1,106 @@
+{
+  "id": "garra-borneensis",
+  "native": {
+    "input": "08ab1d5dd1e9df35",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Garra borneensis is a member of the family Cyprinidae endemic to northern and western Borneo, in Kalimantan, Brunei, Sabah and Sarawak.",
+        "words": "Brunei",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern and western Borneo, where it has been recorded from numerous river basins in Kalimantan, the Indonesian portion of the island, with additional records from Brunei Darussalam and the Malaysian provinces of Sabah and Sarawak.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern and western Borneo, where it has been recorded from numerous river basins in Kalimantan, the Indonesian portion of the island, with additional records from Brunei Darussalam and the Malaysian provinces of Sabah and Sarawak.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern and western Borneo, where it has been recorded from numerous river basins in Kalimantan, the Indonesian portion of the island, with additional records from Brunei Darussalam and the Malaysian provinces of Sabah and Sarawak.",
+        "ok": true
+      },
+      {
+        "name": "Kalimantan",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern and western Borneo, where it has been recorded from numerous river basins in Kalimantan, the Indonesian portion of the island, with additional records from Brunei Darussalam and the Malaysian provinces of Sabah and Sarawak.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Mendawai",
+        "source": "seriouslyfish",
+        "quote": "At a habitat in the Mendawai river basin in central Kalimantan, H. borneensis was collected from a foothill stream running swiftly over a rock and gravel substrate with clear water of pH 6.4.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra borneensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2366939,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "BN",
+      "ID",
+      "MY"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "betta-unimaculata",
+  "native": {
+    "input": "b1e8535539faf29f",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta unimaculata is a large mouthbrooding labyrinth fish from the upper Kayan and Mahakam river drainages in East Kalimantan, Borneo, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to parts of the Kajan (upper River Kayan basin) and Howong (River Mahakam basin) river drainages in the Indonesian province of Kalimantan Timur (East Kalimantan), Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kayan",
+        "source": "seriouslyfish",
+        "quote": "Betta unimaculata is a large mouthbrooding labyrinth fish from the upper Kayan and Mahakam river drainages in East Kalimantan, Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Mahakam",
+        "source": "seriouslyfish",
+        "quote": "Betta unimaculata is a large mouthbrooding labyrinth fish from the upper Kayan and Mahakam river drainages in East Kalimantan, Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Betta unimaculata is a large mouthbrooding labyrinth fish from the upper Kayan and Mahakam river drainages in East Kalimantan, Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Tarakan",
+        "source": "bwaquatics",
+        "quote": "Wild-caught Betta unimaculata from the island of Tarakan.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta unimaculata",
+    "status": "ACCEPTED",
+    "taxonKey": 2393992,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

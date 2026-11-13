@@ -88,6 +88,7 @@ private func json(_ b: PageDoc.Block) -> [String: Any] {
     o["rows"] = rows.map { r in
       var j: [String: Any] = ["field": r.field, "label": r.label, "items": r.items]
       if r.conflict { j["conflict"] = true }
+      if r.marked { j["marked"] = true }
       j["note"] = r.note
       return j
     }
@@ -446,4 +447,68 @@ private func pieces(_ c: PageDoc.Image.Credit, photo: Bool = true) -> [String] {
   #expect(KeepPlan.of(online: true, expensive: true, constrained: false, freeBytes: 100 << 20) == .noRoom, "no room: not even asked")
   #expect(KeepPlan.of(online: true, expensive: false, constrained: false, freeBytes: nil) == .go, "room unknown")
   #expect(KeepPlan.of(online: false, expensive: false, constrained: false, freeBytes: room) == .offline)
+}
+
+@Test func onlyAVideoIdAsYouTubeGivesThemPlaysInThePage() {
+  #expect(PageDoc.isYouTubeId("oHh1FU_k1jo"))
+  #expect(PageDoc.isYouTubeId("abc123XYZ_-"))
+  #expect(!PageDoc.isYouTubeId("neonVid_01"), "10 characters")
+  #expect(!PageDoc.isYouTubeId("oHh1FU_k1jo1"), "12 characters")
+  #expect(!PageDoc.isYouTubeId("//h1FU_k1jo"), "no link can be made of it")
+  #expect(!PageDoc.isYouTubeId("<!--<script"), "markup in the player's page")
+  #expect(!PageDoc.isYouTubeId("oHh1FU k1jo"), "a space")
+  #expect(!PageDoc.isYouTubeId("oHh1FU_k1j\u{00F3}"), "a letter outside A–Z")
+  #expect(!PageDoc.isYouTubeId(""))
+}
+
+@Test func aListOfPagesShowsWholeUpToThirtyAndTwelveBeyond() {
+  #expect([0, 12, 30, 31, 1387].map(PageList.inPlace) == [0, 12, 30, 12, 12])
+}
+
+// v2's page draws every block of a page, each once, in one of its parts, or offers v1's page where it is: over every
+// page the site's tests write, which hold every kind of block between them (`carousel`, one no app reads, among them).
+@Test func v2sPageDrawsEveryBlockOnceOrOffersTheFullPageThere() throws {
+  let docs = try (cases("docs") + cases("added")).map { try doc($0["doc"]!) }
+  var kinds = Set<String>()
+  for d in docs {
+    let parts = PagePart.of(d)
+    #expect(parts.flatMap(\.blocks).sorted() == Array(d.blocks.indices), "\(d.path): \(parts)")
+    for (i, b) in d.blocks.enumerated() {
+      kinds.insert(b.t)
+      guard case .web = b else { continue }
+      #expect(parts.contains { if case let .section(_, under) = $0 { under.contains(i) } else { false } }, "\(d.path): block \(i) isn't in its section")
+    }
+  }
+  #expect(kinds == ["h", "p", "list", "table", "figure", "moments", "summary", "faq", "refs", "pages", "web", "gallery", "trust", "mates", "climate",
+                    "cards", "videos"])
+}
+
+// A fish's page in v2's order: its photos, its answer, a winter, its tank-mates and the section on them, its sections as
+// written (a section keeps its own figures and the part no app reads, a source's note on a figure last), then its breeds,
+// guides, videos, the literature it cites and its sources.
+@Test func v2sPageGoesInTheOrderAReaderAsks() throws {
+  let d = try doc(["v": 1, "kind": "fish", "path": "/vi/ca/x/", "title": "Cá", "blocks": [
+    ["t": "trust", "title": "Nguồn", "rows": []] as [String: Any],
+    ["t": "gallery", "title": "Ảnh", "note": "", "photos": [], "strip": []],
+    ["t": "p", "c": [["text": "Kiểm tra nuôi chung →", "href": "/vi/cong-cu/nuoi-chung/?ca=x"]]],
+    ["t": "summary", "title": "Tóm tắt", "items": [], "text": "Cá nhỏ."],
+    ["t": "climate", "title": "Nuôi ở Việt Nam", "items": [], "note": ""],
+    ["t": "h", "text": "Nước", "id": "muc-waterConditions"],
+    ["t": "p", "c": ["Nước mềm."]],
+    ["t": "carousel"],
+    ["t": "h", "text": "Thức ăn", "id": "muc-diet"],
+    ["t": "p", "c": [["text": "Nguồn A ghi khác bảng dữ liệu: nhiệt độ 24–30°C (bảng: 22–30°C).", "note": true]]],
+    ["t": "p", "c": ["Viên nhỏ."]],
+    ["t": "refs", "title": "Nguồn", "items": []],
+    ["t": "cards", "title": "Các dòng", "items": []],
+    ["t": "pages", "title": "Bài viết", "paths": []],
+    ["t": "videos", "title": "Video", "items": []],
+    ["t": "h", "text": "Tài liệu tham khảo", "id": "muc-references"],
+    ["t": "list", "items": [[["t": "p", "c": ["Tan (2005)."]]]]],
+    ["t": "h", "text": "Nuôi chung", "id": "muc-behaviour"],
+    ["t": "p", "c": ["Hiền."]],
+  ]])
+  #expect(PagePart.of(d) == [.photos([1]), .summary(3), .climate(4), .toolLink(2), .section(heading: 17, blocks: [18]),
+                             .section(heading: 5, blocks: [6, 7]), .section(heading: 8, blocks: [10, 9]),
+                             .cards(12), .pages(13), .videos(14), .section(heading: 15, blocks: [16]), .trust(0), .refs(11)])
 }

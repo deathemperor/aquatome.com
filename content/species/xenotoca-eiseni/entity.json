@@ -1,0 +1,229 @@
+{
+  "id": "xenotoca-eiseni",
+  "scientificName": "Xenotoca eiseni",
+  "order": "Cyprinodontiformes",
+  "family": "Goodeidae",
+  "genus": "Xenotoca",
+  "group": "livebearers",
+  "places": [
+    "north-america",
+    "mexico"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2347678,
+      "total": 105,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MX",
+          105
+        ]
+      ],
+      "cells": [
+        [
+          -105.46875,
+          19.6875,
+          27
+        ],
+        [
+          -105.46875,
+          21.09375,
+          42
+        ],
+        [
+          -104.0625,
+          14.0625,
+          1
+        ],
+        [
+          -104.0625,
+          18.28125,
+          12
+        ],
+        [
+          -104.0625,
+          19.6875,
+          23
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenotoca-eiseni",
+      "html": "<p>The redtail goodeid, Xenotoca eiseni, is a livebearer from Mexico, found in habitats from clear mountain streams to polluted roadside ditches. Very hardy and adaptable, it is less popular in the hobby than it once was, probably because of its often aggressive nature. Some specimens attack and kill other fish, catfish in particular, so a species tank is best. As in other goodeids, the developing young are nourished by a structure known as the trophotaenia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenotoca-eiseni",
+      "html": "<p>Mexico. Found in a variety of habitats from clear mountain streams to polluted roadside ditches.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenotoca-eiseni",
+      "html": "<p>Mexico. Found in a variety of habitats from clear mountain streams to polluted roadside ditches.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenotoca-eiseni",
+      "html": "<p>Standard length: 6 cm SL. Aquarium base: 60 × 30 cm. Volume: ~54 litres (60 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenotoca-eiseni",
+      "html": "<p>A densely planted aquarium with a dark substrate will allow these fish to exhibit their colours to the best effect.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenotoca-eiseni",
+      "html": "<ul><li>Temperature: 15–30°C</li><li>pH: 6.0–8.0</li><li>Hardness: 10–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenotoca-eiseni",
+      "html": "<p>Unfussy. Will accept most foods offered.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenotoca-eiseni",
+      "html": "<p>Unpredictable. Some specimens prove good community tank inhabitants, while others may nip fins or simply attack and kill any other species present. It seems particularly averse to catfish and has been known to strip the fins and eat the eyes of species such as Corydoras. Best kept in a species tank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenotoca-eiseni",
+      "html": "<p>The male is far more colourful and develops a higher back as it matures. Male fish also possess an andropodium (a notched anal fin used for reproduction).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenotoca-eiseni",
+      "html": "<p>Easy. Livebearer. Should be mated in a species aquarium and can be bred using a single pair or a group (flock spawning). The breeding tank should contain lots of plants.</p><p>Goodeids breed in a slightly different way to other livebearers. Females do not store sperm as in many other livebearing species and must be mated separately for each brood of young. They also display no gravid spot. Gestation takes between 7-8 weeks after which 5-50 large fry are produced. Sometimes these may have what appears to be an umbilical cord attached. This is quite normal and will disappear in 2-3 days.</p><p>The fry are large enough to accept the same foods as the adults from birth and will be bold and outgoing from the outset, competing for food with any other fish in the aquarium. The parents rarely predate on the fry.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenotoca-eiseni",
+      "html": "<p>An incredibly hardy and adaptable species that is not so popular in the hobby as it once was, probably due to its often aggressive nature. As with other goodeids, there is less of a size difference between the sexes than in many other livebearers. This is thought to be related to the relatively primitive structure of the andropodium, as the fish tend to choose mates of similar size so that the sex organs are synchronised.</p><p>Goodeids are unique among livebearers in that the developing young are nourished by a specialised structure known as the trophotaenia. This performs a similar function to the placenta in mammals and remnants of it can often be seen attached to the young fish at birth. Male fish also possess an internal muscular structure known as a pseudophallus, which connects the sperm ducts to the genital opening and is said to forcibly eject sperm.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/07219751cf7b04c6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/07219751cf7b04c6-480.webp",
+      "width": 1200,
+      "height": 752,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenotoca-eiseni",
+      "caption": "Pair, european breeding",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "-s3FLSgrAPw",
+      "title": "Xenotoca eiseni, a livebearer from the central plateau of Mexico.",
+      "durationSec": 127,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ONxUEdt57qA",
+      "title": "Xenotoca Eiseni - Livebearer fish tank aquarium",
+      "durationSec": 48,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2xJUpnHOXqA",
+      "title": "Xenotoca eiseni - Redtail splitfin",
+      "durationSec": 56,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DUB69cD4sW8",
+      "title": "Xenotoca eiseni - New Male Being Introduced Into a Species Tank",
+      "durationSec": 128,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá bảy màu",
+        "thức ăn cá đẻ con"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

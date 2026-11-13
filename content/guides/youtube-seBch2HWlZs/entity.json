@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "seBch2HWlZs",
     "title": "TRIPLE aquarium FISH BRIDGE!! (How to build it!)",
@@ -34,38 +34,36 @@
     ],
     "figures": [
       {
-        "heading": "Chuẩn bị vật liệu và tính toán cắt tấm",
+        "heading": "Vật liệu và kích thước",
         "moments": [
           {
-            "t": 104,
-            "url": "https://media.aquatome.com/video/seBch2HWlZs/t104.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Sơ đồ cắt (cut sheet) xếp các tấm mica trên một tấm khổ lớn."
+            "t": 105,
+            "url": "https://media.aquatome.com/video/seBch2HWlZs/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Sơ đồ cắt xếp các tấm mica vừa trong một tấm khổ lớn.",
+            "sharpness": 2757.9
           }
         ]
       },
       {
-        "heading": "Ráp cây cầu trước",
+        "heading": "Dán cây cầu",
         "moments": [
           {
-            "t": 183,
-            "url": "https://media.aquatome.com/video/seBch2HWlZs/t183.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tấm mặt cầu đặt lên các vách vòm acrylic đã dán."
-          }
-        ]
-      },
-      {
-        "heading": "Ráp ba bể và làm mép cho đẹp",
-        "moments": [
+            "t": 150,
+            "url": "https://media.aquatome.com/video/seBch2HWlZs/at150-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh dán mối nối các tấm kính acrylic bằng keo.",
+            "sharpness": 104.2
+          },
           {
-            "t": 228,
-            "url": "https://media.aquatome.com/video/seBch2HWlZs/t228.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ráp khung các bể acrylic trên tấm đáy, dán keo từng mép."
+            "t": 185,
+            "url": "https://media.aquatome.com/video/seBch2HWlZs/at185-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm nóc cầu được đặt lên khung kính đã dựng sẵn.",
+            "sharpness": 15.7
           }
         ]
       },
@@ -73,30 +71,46 @@
         "heading": "Vì sao cầu phải kín khí tuyệt đối",
         "moments": [
           {
-            "t": 317,
-            "url": "https://media.aquatome.com/video/seBch2HWlZs/t317.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây cầu acrylic dán keo đặt trên các bể, thấy rõ các đường dán."
+            "t": 320,
+            "url": "https://media.aquatome.com/video/seBch2HWlZs/at320-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các mảnh acrylic của cầu nối giữa các bể đang được cắt gọt.",
+            "sharpness": 1650.2
           }
         ]
       },
       {
-        "heading": "Cho nước vào cầu và lắp lọc",
+        "heading": "Làm ba bể và hoàn thiện mép",
         "moments": [
           {
-            "t": 465,
-            "url": "https://media.aquatome.com/video/seBch2HWlZs/t465.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh nước dâng qua lỗ thông của cầu nối giữa các bể."
-          },
+            "t": 225,
+            "url": "https://media.aquatome.com/video/seBch2HWlZs/at225-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khung bể mica đã dán, đang được đặt lên tấm đáy.",
+            "sharpness": 708.8
+          }
+        ]
+      },
+      {
+        "heading": "Cho nước lên cầu và lọc cả hệ",
+        "moments": [
           {
             "t": 470,
-            "url": "https://media.aquatome.com/video/seBch2HWlZs/t470.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cầu kính gác trên miệng bể, nước dâng dần vào lòng cầu."
+            "url": "https://media.aquatome.com/video/seBch2HWlZs/at470-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh cầu nối giữa các bể, nước đang dâng lên trong cầu.",
+            "sharpness": 96.5
+          },
+          {
+            "t": 475,
+            "url": "https://media.aquatome.com/video/seBch2HWlZs/at475-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cầu nối trong suốt gắn giữa hai bể, nhìn rõ cửa thông nước.",
+            "sharpness": 69.7
           }
         ]
       }

@@ -1,0 +1,64 @@
+{
+  "id": "etroplus-canarensis",
+  "native": {
+    "input": "11e71254bc04f6a9",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Canara pearlspot cichlid, Etroplus canarensis, appears to be endemic to the Kumaradhara-Netravati river system in southern Karnataka, India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kumaradhara-Netravati river system",
+        "source": "seriouslyfish",
+        "quote": "Appears locally endemic to southern Karnataka state, southwestern India where it's known only from the Kumaradhara-Netravati river system.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Kumaradhara",
+        "source": "seriouslyfish",
+        "quote": "It can be found in both the Kumaradhara and Netravati although it was thought to be restricted to the former for a number of years.",
+        "ok": true
+      },
+      {
+        "name": "Netravati",
+        "source": "seriouslyfish",
+        "quote": "It can be found in both the Kumaradhara and Netravati although it was thought to be restricted to the former for a number of years.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Etroplus canarensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2372830,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

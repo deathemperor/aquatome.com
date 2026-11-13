@@ -1,0 +1,258 @@
+{
+  "id": "nannostomus-unifasciatus",
+  "native": {
+    "input": "5ded3645e9d75473",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The one-lined pencilfish, Nannostomus unifasciatus, occurs in the upper Amazon and upper Orinoco basins in Brazil, Bolivia, Colombia and Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The one-lined pencilfish, Nannostomus unifasciatus, occurs in the upper Amazon and upper Orinoco basins in Brazil, Bolivia, Colombia and Venezuela.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The one-lined pencilfish, Nannostomus unifasciatus, occurs in the upper Amazon and upper Orinoco basins in Brazil, Bolivia, Colombia and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The one-lined pencilfish, Nannostomus unifasciatus, occurs in the upper Amazon and upper Orinoco basins in Brazil, Bolivia, Colombia and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'near mouth of Rio Negro, Brazil', but this species is currently accepted to range throughout much of the upper Amazon basin in Brazil, Bolivia, and probably Colombia, plus the upper Orinoco system in Colombia and Venezuela, Essequibo and Demerera rivers in Guyana.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'near mouth of Rio Negro, Brazil', but this species is currently accepted to range throughout much of the upper Amazon basin in Brazil, Bolivia, and probably Colombia, plus the upper Orinoco system in Colombia and Venezuela, Essequibo and Demerera rivers in Guyana.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'near mouth of Rio Negro, Brazil', but this species is currently accepted to range throughout much of the upper Amazon basin in Brazil, Bolivia, and probably Colombia, plus the upper Orinoco system in Colombia and Venezuela, Essequibo and Demerera rivers in Guyana.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'near mouth of Rio Negro, Brazil', but this species is currently accepted to range throughout much of the upper Amazon basin in Brazil, Bolivia, and probably Colombia, plus the upper Orinoco system in Colombia and Venezuela, Essequibo and Demerera rivers in Guyana.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'near mouth of Rio Negro, Brazil', but this species is currently accepted to range throughout much of the upper Amazon basin in Brazil, Bolivia, and probably Colombia, plus the upper Orinoco system in Colombia and Venezuela, Essequibo and Demerera rivers in Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "TT",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "An introduced population exists in Trinidad and Tobago.",
+        "words": "Trinidad and Tobago",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Caño La Guardia is a blackwater, floodplain morichal stream in the llanos of Apure state, southwestern Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The one-lined pencilfish, Nannostomus unifasciatus, occurs in the upper Amazon and upper Orinoco basins in Brazil, Bolivia, Colombia and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "The one-lined pencilfish, Nannostomus unifasciatus, occurs in the upper Amazon and upper Orinoco basins in Brazil, Bolivia, Colombia and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'near mouth of Rio Negro, Brazil', but this species is currently accepted to range throughout much of the upper Amazon basin in Brazil, Bolivia, and probably Colombia, plus the upper Orinoco system in Colombia and Venezuela, Essequibo and Demerera rivers in Guyana.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'near mouth of Rio Negro, Brazil', but this species is currently accepted to range throughout much of the upper Amazon basin in Brazil, Bolivia, and probably Colombia, plus the upper Orinoco system in Colombia and Venezuela, Essequibo and Demerera rivers in Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Demerera",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'near mouth of Rio Negro, Brazil', but this species is currently accepted to range throughout much of the upper Amazon basin in Brazil, Bolivia, and probably Colombia, plus the upper Orinoco system in Colombia and Venezuela, Essequibo and Demerera rivers in Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare",
+        "source": "seriouslyfish",
+        "quote": "Records exist from various tributary drainages including the rios Negro, Jutaí, in the Amazon, and the Casiquiare, Guaviare, Inírida, and Vita in the Orinoco basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TT"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nannostomus unifasciatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2355651,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        109
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        80
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        74
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        64
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        57
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        33
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        30
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        27
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        23
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        22
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        17
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        15
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        15
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        14
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        8
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        6
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        4
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        4
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "BO",
+      "CO",
+      "VE",
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

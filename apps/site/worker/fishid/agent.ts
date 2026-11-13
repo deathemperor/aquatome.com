@@ -1,7 +1,9 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import { runAgent, type Limits, LIMITS, type Spent, type Stopped } from '../agent/loop'
-import { fishIdTools, type Step, type ToolDeps } from './agent-tools'
-import { AGENT_SCHEMA, AGENT_SYSTEM, askClaude, clientFor, MAX_TOKENS, question, type Lang, type Photo } from './claude'
+import { fishIdTools, genusMarks, type Step, type ToolDeps } from './agent-tools'
+import type { Catalog } from './catalog'
+import { AGENT_SCHEMA, AGENT_SYSTEM, askClaude, clientFor, MAX_TOKENS, question, readAnswer, type Lang, type Photo } from './claude'
+import { sciKey } from './match'
 import { failed, healthyKeys, isApiError, rotate, type Attempt, type HealthStore, type KeyEntry } from './keys'
 
 /**
@@ -9,17 +11,53 @@ import { failed, healthyKeys, isApiError, rotate, type Attempt, type HealthStore
  * their reference photos with the reader's before it answers (agent-tools.ts), on the agent loop (../agent/loop.ts).
  *
  * Keys: the first call rotates over the healthy keys as today's single call does (there is no history yet). From the
- * second, the run keeps that key: its thinking blocks belong to it, and keys can be in different organisations. A
- * later call that fails marks its key as the rotation would, and the run falls back to today's single call
- * (askClaude) on the next healthy key when 10 s or more are left; else it is unavailable. A later call the API refuses
- * as our request (a 400: a reference photo it couldn't fetch, say) is `later400`, its message for the log; the key is
- * fine, so the fallback may use it too, and with no fallback the run failed (502), not unavailable.
+ * second, the run keeps that key. A later call that fails for its key or the moment (out of credit, rate-limited,
+ * overloaded, no answer) marks its key as the rotation would, and the same call goes to the next healthy keys, each at
+ * most once, when 10 s or more are left: the key that answers carries the rest of the run, with what it has read. Its
+ * thinking blocks go too; a key in another organisation may not read them (the API drops what it can't, and answers).
+ * When no key takes the call, the run falls back to today's single call (askClaude) on the keys left, with 10 s or more;
+ * else it is unavailable. A later call the API refuses as our request (a 400: a reference photo it couldn't fetch, say)
+ * is `later400`, its message for the log; the key is fine, so the fallback may use it too, and with no fallback the run
+ * failed (502), not unavailable.
  *
  * `onUsage` hears each call's usage as it lands, so the caller can record the spend before the run ends.
  *
  * No Cloudflare types: the accuracy script runs this in Node.
  */
 export const FALLBACK_MIN_MS = 10_000
+/**
+ * An answer it chose whose top guess is less sure than this is sent back once, with the handbook's species of its
+ * guesses' genera (two at most) and their marks: the look-alike it never thought of may be among them. The owner's
+ * Betta macrostoma came back as a coccina-group betta or a licorice gourami at 0.3 to 0.45, the handbook's page for it
+ * never opened; its marks ("red patch on opercle and dorsal-fin ocellus") are what tell it.
+ */
+export const RECHECK_BELOW = 0.6
+
+/**
+ * What `recheck` sends back, or undefined when the answer stands (sure enough, no fish or plant, no genus the handbook
+ * has). A genus already listed in this run (`listed`, shared with the tools) is named, not sent again.
+ */
+export function recheckOf(catalog: Catalog, m: Anthropic.Message, listed = new Set<string>()): Anthropic.ContentBlockParam[] | undefined {
+  let answer
+  try { answer = readAnswer(m) } catch { return undefined }
+  if (answer.refused || (answer.id.verdict !== 'fish' && answer.id.verdict !== 'plant')) return undefined
+  const top = answer.id.guesses[0]
+  if (!top || top.confidence >= RECHECK_BELOW) return undefined
+  const genera = [...new Set(answer.id.guesses.map(g => sciKey(g.scientificName).genus).filter(Boolean))].slice(0, 2)
+  const lists = genera.flatMap(g => {
+    const name = `${g[0]!.toUpperCase()}${g.slice(1)}`
+    if (listed.has(g)) return [`${name}: listed above, in this identification.`]
+    const marks = genusMarks(catalog, g)
+    if (!marks) return []
+    listed.add(g)
+    return [`${name}: ${marks}`]
+  })
+  if (!lists.length) return undefined
+  return [{
+    type: 'text',
+    text: `Your top guess is only ${top.confidence.toFixed(2)} sure. Before you answer for good, read the marks of every species of these genera in the handbook against the photo (what each one's sources say tells it apart):\n\n${lists.join('\n\n')}\n\nIf one fits the photo better than your guesses, open its page with get_entry if you can, then answer again. If none does, give your answer again.`,
+  }]
+}
 /** The first call's rotation over the keys, as today's call's (keys.ts). */
 const FIRST_BUDGET_MS = 25_000
 
@@ -28,11 +66,15 @@ export type AgentOutcome = {
   tools: number
   photos: number
   steps: Step[]
+  /** Its first answer, too unsure, was sent back with its genera's marks (`recheckOf`). */
+  rechecked?: boolean
   spent: Spent
   attempts: Attempt[]
   stopped: Stopped | 'fallback'
   /** A later call the API refused as our request: its message, cut short. */
   later400?: string
+  /** What the agent sent and was answered, its first message (with the photo) included, for the run's transcript. */
+  history: Anthropic.MessageParam[]
 } & ({ ok: true; message: Anthropic.Message; hash: string } | { ok: false; reason: 'resting' | 'unavailable' | 'request' })
 
 export type AgentOptions = {
@@ -46,6 +88,8 @@ export type AgentOptions = {
   random?: () => number
   clock?: () => number
   limits?: Partial<Limits>
+  /** How hard Claude thinks each turn: the Worker's is low. */
+  effort?: 'low' | 'medium' | 'high'
   onStep?: (step: Step) => void
   onUsage?: (u: Anthropic.Usage) => void
 }
@@ -62,6 +106,8 @@ export async function identifyWithAgent(o: AgentOptions): Promise<AgentOutcome> 
   let key: KeyEntry | undefined
   let client: Anthropic | undefined
   let later400: string | undefined
+  /** The genera this run has listed, by its tools or its second look: each sent once. */
+  const listed = new Set<string>()
   const run = await runAgent<Step>({
     send: async (body, { timeoutMs, call }) => {
       if (call === 1) {
@@ -83,12 +129,27 @@ export async function identifyWithAgent(o: AgentOptions): Promise<AgentOutcome> 
         const f = await failed(key!, e, o.store, clock() - t, clock)
         attempts.push(f.attempt)
         if (isApiError(e) && !f.verdict.next) later400 = String((e as Error).message ?? '').slice(0, 160)
-        throw e
+        const left = deadline - clock()
+        if (!f.verdict.next || left < FALLBACK_MIN_MS) throw e
+        // The same call to the next key, which carries the run from here.
+        const rest = await healthyKeys(o.healthy.filter(k => k.hash !== key!.hash), o.store, clock())
+        if (!rest.length) throw e
+        const out = await rotate(rest, o.store, async (k, l) => (await clientFor(k, o.fetch)).messages.create(body, { timeout: Math.min(l, timeoutMs) }), { random: o.random, clock, budgetMs: left })
+        attempts.push(...out.attempts)
+        if (!out.ok) {
+          // The next key refused the call as a request (the history it was sent): the fallback's single call may go to any key.
+          if (out.reason === 'request') later400 = 'the next key refused the run'
+          throw e
+        }
+        key = rest.find(k => k.hash === out.hash)!
+        client = await clientFor(key, o.fetch)
+        o.onUsage?.(out.value.usage)
+        return out.value
       }
     },
     model: o.model,
     system: AGENT_SYSTEM,
-    tools: fishIdTools({ ...o.tools, lang: o.lang }),
+    tools: fishIdTools({ ...o.tools, lang: o.lang, listed }),
     first: {
       role: 'user',
       content: [
@@ -98,13 +159,16 @@ export async function identifyWithAgent(o: AgentOptions): Promise<AgentOutcome> 
       ],
     },
     schema: AGENT_SCHEMA as unknown as Record<string, unknown>,
-    effort: 'low',
+    effort: o.effort ?? 'low',
+    // Its thinking as a readable summary (billed as before), for the run's transcript (fishid/transcript.ts).
+    thinking: { type: 'adaptive', display: 'summarized' },
     maxTokens: MAX_TOKENS,
     limits: o.limits,
     onStep: o.onStep,
+    recheck: m => recheckOf(o.tools.catalog, m, listed),
     clock,
   })
-  const base = { calls: run.calls, tools: run.tools, photos: run.photos, steps: run.steps, spent: run.spent, attempts, ...(later400 !== undefined ? { later400 } : {}) }
+  const base = { calls: run.calls, tools: run.tools, photos: run.photos, steps: run.steps, spent: run.spent, attempts, history: run.history, ...(run.rechecked ? { rechecked: true } : {}), ...(later400 !== undefined ? { later400 } : {}) }
   if (run.message) return { ...base, ok: true, message: run.message, hash: key!.hash, stopped: run.stopped }
   if (run.error instanceof FirstCall) return { ...base, ok: false, reason: run.error.reason, stopped: 'error' }
   // A bug of ours, not an answer from the API nor the clock.

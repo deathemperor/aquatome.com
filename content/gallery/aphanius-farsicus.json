@@ -1,0 +1,71 @@
+{
+  "id": "aphanius-farsicus",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/82a221342d42f5039ad072c0b0d725fa.webp",
+      "thumb": "https://media.aquatome.com/processed/82a221342d42f5039ad072c0b0d725fa-480.webp",
+      "width": 850,
+      "height": 412,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphanius_farsicus_en/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-aphanius-farsicus",
+        "pixelHash": "b4064593e421bd4202c5fcb5876373196f6b0e6eb963c721dbcf6dcec0847d6a"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T07:29:55.554Z",
+          "originalHash": "2da722262c4aafa5354c78d8def0e1070fe496177640878c07539653a70d7728",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 567,
+            "window": {
+              "x0": 0,
+              "y0": 155,
+              "x1": 850,
+              "y1": 567
+            },
+            "subject": {
+              "x0": 177,
+              "y0": 215,
+              "x1": 710,
+              "y1": 445
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 27,
+              "y0": 33,
+              "x1": 832,
+              "y1": 149
+            }
+          ],
+          "checks": {
+            "species": [
+              "f24e4c0146b959fb0f53f0aa774ecedaebdb816a9057a99a0f206e8f86c97497",
+              "edbdba33891a6788c5d517f3c95caa504b4c908af96a7a2622717c708867c2ad"
+            ],
+            "ownership": [
+              "4956cb846a63a04dd79c501e4957ae16d4a514223920f3358ef9d22ed4b12bf3",
+              "4ce49677fde94d59bf702d2842d8a350dd36a0795fe331bc65567470fb976ebf"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/c6b04f0df65c3b46.webp",
+        "width": 850,
+        "height": 567,
+        "thumb": "https://media.aquatome.com/glaser/c6b04f0df65c3b46-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

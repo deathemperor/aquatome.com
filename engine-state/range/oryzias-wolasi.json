@@ -1,0 +1,70 @@
+{
+  "id": "oryzias-wolasi",
+  "native": {
+    "input": "c41718fae7b382a5",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Wolasi ricefish, Oryzias wolasi, is known from four localities south of Kendari in Southeast Sulawesi, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from four localities in the Regency of South Konawe (Konawe Selatan), south of Kendari, the capital of South East Sulawesi (Sulawesi Tenggara) province, Sulawesi, Indonesia including the rivers Wolasi and Andambao, the waterfalls at Sumbersari in Moramo District, and a spring-fed coastal stream in Laeya district.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sulawesi",
+        "source": "seriouslyfish",
+        "quote": "Known from four localities in the Regency of South Konawe (Konawe Selatan), south of Kendari, the capital of South East Sulawesi (Sulawesi Tenggara) province, Sulawesi, Indonesia including the rivers Wolasi and Andambao, the waterfalls at Sumbersari in Moramo District, and a spring-fed coastal stream in Laeya district.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Wolasi",
+        "source": "seriouslyfish",
+        "quote": "Known from four localities in the Regency of South Konawe (Konawe Selatan), south of Kendari, the capital of South East Sulawesi (Sulawesi Tenggara) province, Sulawesi, Indonesia including the rivers Wolasi and Andambao, the waterfalls at Sumbersari in Moramo District, and a spring-fed coastal stream in Laeya district.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Andambao",
+        "source": "seriouslyfish",
+        "quote": "Known from four localities in the Regency of South Konawe (Konawe Selatan), south of Kendari, the capital of South East Sulawesi (Sulawesi Tenggara) province, Sulawesi, Indonesia including the rivers Wolasi and Andambao, the waterfalls at Sumbersari in Moramo District, and a spring-fed coastal stream in Laeya district.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oryzias wolasi",
+    "status": "ACCEPTED",
+    "taxonKey": 7969678,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        4
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

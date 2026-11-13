@@ -1,0 +1,74 @@
+{
+  "id": "betta-gladiator",
+  "native": {
+    "input": "266e50b5fa25a693",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta gladiator is a large paternal mouthbrooding labyrinth fish presumed endemic to the isolated Maliau basin in Sabah, Malaysian Borneo.",
+        "words": "Malaysian",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Presumed endemic to the geographically-isolated Maliau basin, a roughly circular plateau enclosed by hills in Sabah state, Malaysia, Borneo.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Maliau basin",
+        "source": "seriouslyfish",
+        "quote": "Presumed endemic to the geographically-isolated Maliau basin, a roughly circular plateau enclosed by hills in Sabah state, Malaysia, Borneo.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Presumed endemic to the geographically-isolated Maliau basin, a roughly circular plateau enclosed by hills in Sabah state, Malaysia, Borneo.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Kinabantangan",
+        "source": "seriouslyfish",
+        "quote": "The Maliau River is part of the much larger Kinabantangan watershed, Malaysia's second longest river.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta gladiator",
+    "status": "ACCEPTED",
+    "taxonKey": 2393997,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

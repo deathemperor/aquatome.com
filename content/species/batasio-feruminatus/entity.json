@@ -12,6 +12,68 @@
     "thailand",
     "salween"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Ataran",
+        "Salween"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Batasio feruminatus is a small bagrid catfish from the Ataran River system in southern Myanmar, to which it is possibly endemic.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Ataran"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Some Ataran tributaries extend across the border into Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Ataran forms the headwaters of part of the larger Salween drainage, and some of its tributaries extend across the nearby border into Thailand, where it's known as the Kasat.",
+          "countries": [],
+          "regions": [
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338630,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +117,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -151,8 +213,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 90x30"
+        "bể cá 90cm"
       ]
     },
     {

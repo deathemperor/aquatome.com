@@ -17,6 +17,146 @@
     "bolivia",
     "rio-madeira"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO",
+        "PE",
+        "EC",
+        "BO"
+      ],
+      "regions": [
+        "Amazon",
+        "Madeira",
+        "Caquetá",
+        "Putumayo",
+        "Ucayali",
+        "Marañón"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The zebra shovelnose, Brachyplatystoma tigrinum, is a pimelodid catfish from the upper Amazon basin in Brazil, Colombia and Peru.",
+          "countries": [
+            "BR",
+            "CO",
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "It is widely distributed in Amazonia (Ecuador, Peru, Colombia, Bolivia, Brazil) and was only discovered in 1981.",
+          "countries": [
+            "EC",
+            "BO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is the falls of Cachoeira do Teotônio, situated on the rio Madeira in Rondônia state, northwestern Brazil, a whitewater cataract through which water flows at an enormous volume and rate.",
+          "countries": [],
+          "regions": [
+            "Madeira"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has also been recorded in the Caquetá and Putumayo basins in Colombia, plus the Ucayali and Marañón watersheds in Peru.",
+          "countries": [],
+          "regions": [
+            "Caquetá",
+            "Putumayo",
+            "Ucayali",
+            "Marañón"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338835,
+      "total": 86,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          81
+        ],
+        [
+          "PE",
+          4
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          73,
+          73
+        ],
+        [
+          -61.875,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -64,7 +204,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -249,10 +389,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá kính cỡ lớn",
-        "bể cá đặt làm theo kích thước",
-        "bể cá lớn",
-        "bể cá 500 lít"
+        "bể cá 1000cm"
       ]
     },
     {

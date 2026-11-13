@@ -2,18 +2,6 @@
   "id": "helanthium-tenellum",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/223377639.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/223377639-480.webp",
-      "width": 1024,
-      "height": 769,
-      "licence": "CC BY",
-      "author": "vinicius_s_domingues",
-      "sourceUrl": "https://www.inaturalist.org/photos/223377639",
-      "caption": "Thảm Cỏ nhật bản xanh nở hoa trắng dày đặc ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/790af3bdaba6c07c.webp",
       "thumb": "https://media.aquatome.com/commons/790af3bdaba6c07c-480.webp",
       "width": 1200,
@@ -50,18 +38,6 @@
       "kind": "submersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/430158356.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/430158356-480.webp",
-      "width": 1024,
-      "height": 770,
-      "licence": "CC BY",
-      "author": "vinicius_s_domingues",
-      "sourceUrl": "https://www.inaturalist.org/photos/430158356",
-      "caption": "Hoa trắng ba cánh của Cỏ nhật bản xanh nhìn cận cảnh",
-      "best": true,
-      "kind": "flower"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/223377668.webp",
       "thumb": "https://media.aquatome.com/inaturalist/223377668-480.webp",
       "width": 1024,
@@ -86,16 +62,16 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/a9c83ca8fbc22efe.webp",
-      "thumb": "https://media.aquatome.com/commons/a9c83ca8fbc22efe-480.webp",
+      "url": "https://media.aquatome.com/tropica/10dc0e2107f4cdbe.webp",
+      "thumb": "https://media.aquatome.com/tropica/10dc0e2107f4cdbe-480.webp",
       "width": 1200,
-      "height": 797,
-      "licence": "CC BY 4.0",
-      "author": "Uccio D'Agostino",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neocaridina_heteropoda,_Echinodorus_tenellus_a.jpg",
-      "caption": "Thảm Cỏ nhật bản xanh trong bể thủy sinh có tép đỏ",
-      "best": false,
-      "kind": "submersed"
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Helanthiumtenellum'Green'(067ATC)/4757",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/f85fb66fdea848ab.webp",
@@ -134,16 +110,16 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/521ab444de801e77.webp",
-      "thumb": "https://media.aquatome.com/commons/521ab444de801e77-480.webp",
+      "url": "https://media.aquatome.com/tropica/10e7e821457911bd.webp",
+      "thumb": "https://media.aquatome.com/tropica/10e7e821457911bd-480.webp",
       "width": 1200,
-      "height": 797,
-      "licence": "CC BY 4.0",
-      "author": "Uccio D'Agostino",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neocaridina_heteropoda,_Echinodorus_tenellus,_Danio_margaritatus_(Microrasbora_Galaxy,_Galaxy_Rasbora).jpg",
-      "caption": "Thảm Cỏ nhật bản xanh với cá nhỏ và tép",
-      "best": false,
-      "kind": "submersed"
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Helanthiumtenellum'Green'(067ATC)/4757",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/441848937.webp",
@@ -252,9 +228,45 @@
       "caption": "Cỏ nhật bản xanh mọc trên bùn ẩm ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/223377639.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/223377639-480.webp",
+      "width": 1024,
+      "height": 769,
+      "licence": "CC BY",
+      "author": "vinicius_s_domingues",
+      "sourceUrl": "https://www.inaturalist.org/photos/223377639",
+      "caption": "Thảm Cỏ nhật bản xanh nở hoa trắng dày đặc ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/430158356.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/430158356-480.webp",
+      "width": 1024,
+      "height": 770,
+      "licence": "CC BY",
+      "author": "vinicius_s_domingues",
+      "sourceUrl": "https://www.inaturalist.org/photos/430158356",
+      "caption": "Hoa trắng ba cánh của Cỏ nhật bản xanh nhìn cận cảnh",
+      "best": true,
+      "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/16929491034.webp",
+      "thumb": "https://media.aquatome.com/flickr/16929491034-480.webp",
+      "width": 681,
+      "height": 1024,
+      "licence": "CC BY-SA 2.0",
+      "author": "umehlig",
+      "sourceUrl": "https://www.flickr.com/photos/29479962@N02/16929491034",
+      "caption": "Cỏ nhật bản xanh ra hoa trắng nhỏ ngoài tự nhiên bên khúc gỗ",
+      "best": false,
+      "kind": "habitat"
     }
   ],
-  "seen": 37,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 39,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-06"
 }

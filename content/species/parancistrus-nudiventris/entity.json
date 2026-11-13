@@ -9,12 +9,70 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-xingu"
+    "rio-xingu",
+    "xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Xingu"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Parancistrus nudiventris is endemic to Brazil and is distributed along the Xingu River, mainly in the Volta Grande region, in the state of Pará.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Xingu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340138,
+      "total": 26,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "BR",
+          26
+        ]
+      ],
+      "cells": [
+        [
+          -53.4375,
+          -4.21875,
+          15,
+          15
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
         "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      },
+      {
+        "source": "scotcat",
         "value": {
           "min": 26,
           "max": 30
@@ -25,12 +83,25 @@
       {
         "source": "glaser",
         "value": 25
+      },
+      {
+        "source": "scotcat",
+        "value": 25
       }
     ],
     "difficulty": [
       {
         "source": "glaser",
         "value": 4
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -42,10 +113,34 @@
       "html": "<p>This pleco from the Rio Xingu is an old friend, however, it received a scientific name only in 2005. It received the L-number 31 already in 1989.</p><p>The genus Parancistrus is closely related to the genus Spectracanthicus; the formerly often used genus Oligancistrus is invalid and declared synonymous with Spectracanthicus. The only difference between Parancistrus and Spectracanthicus is the size of the gill opening, which is significantly smaller in Spectracanthicus than in Parancistrus. Unfortunately, this is not visible in living animals.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_nudiventris.htm",
+      "html": "<p>Parancistrus nudiventris Rapp Py-Daniel &amp; Zuanon, 2005. Family: Loricariidae. L-numbers: L031, L176, LDA04, L300.</p><p>It can be distinguished from P. aurantiacus by having a naked abdomen (plated in P. aurantiacus), the presence of bluish dots in living specimens or spotted in preserved specimens (uniformly dark or clear brown or mottled, never spotted in P. aurantiacus), larger interbranchial distance (39-56% in HL vs. 24.9-39.5% in P. aurantiacus), narrower interorbital distance (26.8-38% in HL vs. 38.5-43.1% in P. aurantiacus). Parancistrus nudiventris also has buccal teeth more conspicuous than in P. aurantiacus. Main skeletal differences include the presence of a strong condyle on the lateral ethmoid for articulation with the metapterygoid in P. nudiventris (not seen in P. aurantiacus); anguloarticular processes short in P. nudiventris (long in P. aurantiacus); opercle with odontodes, partly exposed in P. nudiventris (completely embedded in skin in P. aurantiacus).</p><p>This genus has a broad and flattened body with large scutes. The dorsal and adipose fin are connected with a membrane and they have very large gill openings.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_nudiventris.htm",
+      "html": "<p>Brazil: Rio Xingu. Type locality: Brazil; Pará State; rio Xingu, bedrock at ilha do Bacabal, 3º23'19\" S, 51º43'24\".</p><p>Parancistrus nudiventris is endemic to Brazil and is distributed along the Xingu River, mainly in the Volta Grande region, in the state of Pará.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_nudiventris.htm",
+      "html": "<p>It is a relatively abundant and frequent species, associated with rocky and rapid environments.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parancistrus-nudiventris-l31-lda4-peppermint-pleco-2/",
       "html": "<p>The Peppermint Pleco reaches a respectable size of almost 25 cm; however, in nature the animals usually remain smaller by a third; in an aquarium, where the fish live much longer than in nature, a more significant size can be reached, therefore P. nudiventris can only be recommended to owners of large aquariums. There it is a peaceful and beautiful inhabitant.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_nudiventris.htm",
+      "html": "<p>Only fairly territorial. Youngsters prefer to rest under pieces of wood and on rockwork. Adults rest on the substrate in hiding places.</p>"
     },
     {
       "key": "waterConditions",
@@ -54,10 +149,40 @@
       "html": "<p>Like all species from the Rio Xingu, it requires comparatively high temperatures of 26-30°C.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_nudiventris.htm",
+      "html": "<p>Temperature: 26-30°C. pH: 6.0-7.2.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/parancistrus-nudiventris-l31-lda4-peppermint-pleco-2/",
       "html": "<p>L31 feeds on Aufwuchs and accepts almost every common fish food in the aquarium, as long as it is lying on the bottom.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_nudiventris.htm",
+      "html": "<p>Omnivore. A varied diet with both vegetable and other foods such as tablet, live and frozen.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_nudiventris.htm",
+      "html": "<p>Males possess a broader head and more strongly bristled pectoral spines. The bristles on the posterior of the males' scutes are elongated when sexually mature.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_nudiventris.htm",
+      "html": "<p>Etymology: the specific name nudiventris: nudus (L.), bare or naked; ventris, genitive of venter (L.), belly, referring to the naked (non-plated) abdomen, compared with the plated abdomen of Parancistrus aurantiacus.</p><p>IUCN Red List: Specimens are collected for the aquarium market, but this apparently does not represent a significant impact on the subpopulations of P. nudiventris. The main threat to its subpopulations is related to the construction of the Belo Monte hydroelectric dam and other dams planned for the Xingu River basin. Considering the area of the stretches where the species has confirmed records, it was inferred that approximately 34% will be impacted by the Belo Monte hydroelectric dam, which will represent a considerable loss of habitat and a decrease in the area occupied by P. nudiventris. Thus, it is suspected that this would lead to a population reduction of over 30% in 25 years or three generational periods, categorising Parancistrus nudiventris as Vulnerable (VU) under criterion A3c (IUCN 2022).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/parancistrus_nudiventris.htm",
+      "html": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Parancistrus nudiventris. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Rapp Py-Daniel, L.H. and J. Zuanon 2005 Description of a new species of Parancistrus (Siluriformes: Loricariidae) from the rio Xingu, Brazil. Neotrop. Ichthyol.3(4):571577.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
     }
   ],
   "photos": [
@@ -118,5 +243,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-09"
 }

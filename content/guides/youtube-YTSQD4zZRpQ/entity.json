@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "YTSQD4zZRpQ",
     "title": "How to filter MASSIVE FISH ROOM!",
@@ -32,54 +32,54 @@
       {
         "category": "loc",
         "type": "bot-bien",
-        "t": 76
+        "t": 106
       },
       {
         "category": "loc",
         "type": "suc-khi",
-        "t": 76
+        "t": 116
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "noi",
+        "t": 136
+      },
+      {
+        "category": "den",
+        "t": 160
+      },
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 170
       },
       {
         "category": "loc",
         "type": "thung",
         "brand": "Fluval",
         "model": "FX6",
-        "t": 470
+        "t": 473
       },
       {
         "category": "loc",
         "type": "thung",
         "brand": "Fluval",
         "model": "FX5",
-        "t": 470
-      },
-      {
-        "category": "loc",
-        "type": "sump",
-        "t": 510
-      },
-      {
-        "category": "den",
-        "t": 170
+        "t": 473
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao dùng lọc tổng mà mỗi bể vẫn có lọc riêng",
+        "heading": "Một hệ lọc chung, nhưng bể nào cũng có lọc riêng",
         "moments": [
           {
-            "t": 481,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/t481.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ống nước của hệ lọc tổng gắn trên thành bể lớn trong phòng."
-          },
-          {
-            "t": 510,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/t510.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Khoang kỹ thuật dưới bể, nơi đặt thiết bị lọc."
+            "t": 105,
+            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá cichlid sọc trong bể nước trong, nền sỏi sạch.",
+            "sharpness": 31.1,
+            "person": false
           }
         ],
         "photo": {
@@ -90,113 +90,95 @@
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng Fluval FX đặt trong tủ dưới bể, ống nối gọn gàng."
+          "caption": "Lọc thùng riêng đặt trong tủ dưới bể, ống nối gọn gàng."
         }
       },
       {
-        "heading": "Nước đi qua lọc tổng theo thứ tự nào",
+        "heading": "Nước đi qua những tầng lọc nào",
         "moments": [
           {
-            "t": 178,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/t178.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây nổi mọc dày phía trên hệ thống lọc tổng."
-          },
-          {
-            "t": 213,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/t213.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hộp lọc lớn chứa nước lắng, trên mặt thả cây nổi."
+            "t": 255,
+            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/at255-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp lọc có thả cây nổi, nước chảy vào từ các ống.",
+            "sharpness": 856.4,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Khoang chứa nước sạch phải để trống cá",
+        "heading": "Khoang nước sạch không được có cá",
         "moments": [
           {
-            "t": 228,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/t228.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hệ thống nhiều bể nối chung nước, có bể thủy sinh và bể lớn bên cạnh."
-          },
-          {
-            "t": 505,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/t505.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Mở tủ dưới bể để lộ khoang chứa nước sạch (sump) của hệ thống lọc."
+            "t": 240,
+            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/at240-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các bể trồng cây xếp cạnh khoang nước, được cấp nước từ bể chứa.",
+            "sharpness": 462.4,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/p2-FxdWFyaXVtLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/YTSQD4zZRpQ/p2-FxdWFyaXVtLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/p2-4NjgyMTIyKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/YTSQD4zZRpQ/p2-4NjgyMTIyKS5qcGc-480.webp",
           "width": 960,
-          "height": 960,
-          "licence": "CC BY 4.0",
-          "author": "ไอคิว",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stingray_at_Bangsaen_Aquarium.jpg",
-          "caption": "Cá đuối nằm trong bể nuôi, sát tấm lưới che khoang chứa nước."
+          "height": 636,
+          "licence": "CC BY 2.0",
+          "author": "shankar s. from Dubai, United Arab Emirates",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_American_Freshwater_Stingray-_that%27s_the_one_at_the_far_end_(27798682122).jpg",
+          "caption": "Cá đuối nước ngọt nằm trên nền cát trong bể, ảnh rõ nét."
         }
       },
       {
-        "heading": "Các bể nối về lọc và nhận nước lại ra sao",
+        "heading": "Không thay nước nhờ hệ nhỏ giọt",
         "moments": [
           {
-            "t": 272,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/t272.webp",
+            "t": 405,
+            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/at405.webp",
             "width": 160,
             "height": 90,
-            "caption": "Nước đẩy lên tháp vi sinh có cây xanh, ống dẫn nước chảy mạnh."
-          },
+            "caption": "Cận cảnh đàn cá trong bể lớn của hệ nước chung."
+          }
+        ]
+      },
+      {
+        "heading": "Bể nào vẫn phải lọc riêng",
+        "moments": [
           {
-            "t": 332,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/t332.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dãy bể lớn trong phòng nối chung hệ thống lọc."
+            "t": 515,
+            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/at515-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nhìn vào trong sump to dưới chân bể, có ống nước đi vào.",
+            "sharpness": 93.4,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/p3-TmV3X1N1bXAuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/YTSQD4zZRpQ/p3-TmV3X1N1bXAuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/p5-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/YTSQD4zZRpQ/p5-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
           "height": 720,
-          "licence": "Public domain",
-          "author": "Gtstricky",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Các bể kính nối liền nhau, có máy bơm đặt trên bể chứa phía sau."
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng FX đặt trong tủ dưới bể, ống nối gọn bên cạnh."
         }
       },
       {
-        "heading": "Dãy bể cách ly lọc thế nào",
-        "moments": [
-          {
-            "t": 104,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/t104.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá cichlid sọc trong bể nền cát trắng, không thấy lọc tổng."
-          },
-          {
-            "t": 129,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/t129.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể có cục lọc bông đen đặt cạnh lũa, chạy bằng khí."
-          }
-        ],
+        "heading": "Dãy bể cách ly chạy lọc mút",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/p5-JfZm9hbV8xLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/YTSQD4zZRpQ/p5-JfZm9hbV8xLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/p6-JfZm9hbV8xLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/YTSQD4zZRpQ/p6-JfZm9hbV8xLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Khối bông lọc xốp màu đen, nhìn rõ các lỗ xốp cho vi sinh bám."
+          "caption": "Cận cảnh khối mút lọc đen với các lỗ xốp dùng cho lọc mút."
         }
       }
     ]

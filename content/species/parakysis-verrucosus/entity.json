@@ -12,6 +12,76 @@
     "indonesia",
     "riau-archipelago"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY"
+      ],
+      "regions": [
+        "Malay Peninsula",
+        "Borneo",
+        "Sumatra",
+        "Terengganu River",
+        "Sedili River",
+        "Riau Archipelago"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Malay Peninsula, through to the Greater Sunda Isles of Borneo, Indonesia and Sumatra.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Malay Peninsula",
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Mawai District, Johore, Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species is known from blackwater habitats from the Terengganu River drainage southwards to the Sedili River drainage in Peninsular Malaysia, and Pulau Batam and Pulau Lingga in the Riau Archipelago.",
+          "countries": [],
+          "regions": [
+            "Terengganu River",
+            "Sedili River",
+            "Riau Archipelago"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340929,
+      "total": 7,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "MY",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          1.40625,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -77,17 +147,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/adeb87c13afde53a.webp",
-      "thumb": "https://media.aquatome.com/scotcat/adeb87c13afde53a-480.webp",
-      "width": 500,
-      "height": 247,
-      "licence": "dùng với sự cho phép",
-      "author": "Adrian Taylor / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/akysidae/parakysis_verrucosus.htm",
-      "caption": "Parakysis verrucosus",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/c60181ebc563cf5a.webp",
       "thumb": "https://media.aquatome.com/scotcat/c60181ebc563cf5a-480.webp",

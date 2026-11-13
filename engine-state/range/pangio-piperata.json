@@ -1,0 +1,84 @@
+{
+  "id": "pangio-piperata",
+  "native": {
+    "input": "11d465a12b28c522",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the states of Terengganu, Penang and Johor in Peninsular Malaysia, southern (peninsular) Thailand, Riau Province in Sumatra and the Rajang river drainage in Sarawak state, Malaysia (Borneo).",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the states of Terengganu, Penang and Johor in Peninsular Malaysia, southern (peninsular) Thailand, Riau Province in Sumatra and the Rajang river drainage in Sarawak state, Malaysia (Borneo).",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rajang",
+        "source": "seriouslyfish",
+        "quote": "Known from the states of Terengganu, Penang and Johor in Peninsular Malaysia, southern (peninsular) Thailand, Riau Province in Sumatra and the Rajang river drainage in Sarawak state, Malaysia (Borneo).",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Known from the states of Terengganu, Penang and Johor in Peninsular Malaysia, southern (peninsular) Thailand, Riau Province in Sumatra and the Rajang river drainage in Sarawak state, Malaysia (Borneo).",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known from the states of Terengganu, Penang and Johor in Peninsular Malaysia, southern (peninsular) Thailand, Riau Province in Sumatra and the Rajang river drainage in Sarawak state, Malaysia (Borneo).",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pangio piperata",
+    "status": "ACCEPTED",
+    "taxonKey": 2368008,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

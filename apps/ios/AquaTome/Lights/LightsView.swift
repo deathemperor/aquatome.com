@@ -35,7 +35,9 @@ struct LightsView: View {
         .padding()
       }
       .background(Color(.systemGroupedBackground))
+      .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle("Đèn Chihiros")
+      .profileButton()
       .navigationDestination(isPresented: $weekAqua.isOpen) { WeekAquaView() }
       // What just happened, and writing what is set, stay in view wherever the screen is scrolled (the site's write bar
       // is fixed to the bottom on a phone too).
@@ -264,11 +266,14 @@ private struct ReadyCard: View {
         ScheduleFact()
       }
 
-      HStack(spacing: 8) {
-        quick("Tắt đèn", id: "quick-off") { await lights.quick(off: true) }
-        quick("Sáng hết", id: "quick-full") { await lights.quick(off: false) }
-        quick("Theo lịch", id: "quick-auto") { await lights.backToSchedule() }
-          .disabled(!lights.canGoBackToSchedule)
+      VStack(spacing: 8) {
+        HStack(spacing: 8) {
+          quick("Tắt đèn", id: "quick-off") { await lights.quick(off: true) }
+          quick("Sáng hết", id: "quick-full") { await lights.quick(off: false) }
+          quick("Theo lịch", id: "quick-auto") { await lights.backToSchedule() }
+            .disabled(!lights.canGoBackToSchedule)
+        }
+        ScheduleColoursButton()
       }
       .disabled(lights.isBusy)
       .accessibilityElement(children: .contain)
@@ -291,6 +296,57 @@ private struct ReadyCard: View {
       .tint(.primary)
       .accessibilityIdentifier(id)
   }
+}
+
+/// "Bật với màu của lịch": the light on now with its schedule's colours, today only, then on its schedule again by itself.
+/// Before the schedule's on, until its off, asked once with how long that is; after its off, an hour or two. Looked at
+/// again every minute: not there while the schedule has the light on.
+private struct ScheduleColoursButton: View {
+  @Environment(LightsModel.self) private var lights
+  /// The ends to choose from, planned when tapped.
+  @State private var plans: [TodayPlan] = []
+  @State private var confirming = false
+  @State private var choosing = false
+
+  var body: some View {
+    SwiftUI.TimelineView(.everyMinute) { ctx in
+      if !lights.todayEnds(at: shownNow(ctx.date)).isEmpty {
+        Button { ask() } label: { Text("Bật với màu của lịch").frame(maxWidth: .infinity) }
+          .buttonStyle(.bordered)
+          .controlSize(.large)
+          .tint(.primary)
+          .accessibilityIdentifier("quick-as-scheduled")
+      }
+    }
+    .alert(question, isPresented: $confirming) {
+      Button("Bật với màu của lịch") { perform(.nextPoint) }
+      Button("Hủy", role: .cancel) {}
+    }
+    .confirmationDialog("Bật với màu của lịch", isPresented: $choosing, titleVisibility: .visible) {
+      ForEach(plans, id: \.end) { p in
+        Button { perform(p.end) } label: {
+          p.end == .oneHour ? Text("1 giờ, tới \(p.ends.description)") : Text("2 giờ, tới \(p.ends.description)")
+        }
+      }
+      Button("Hủy", role: .cancel) {}
+    }
+  }
+
+  /// "Đèn sáng từ bây giờ tới 20:00 (giờ tắt của lịch), 12 giờ."
+  private var question: Text {
+    guard let p = plans.first else { return Text(verbatim: "") }
+    let hours = (Double(p.minutesOn) / 60).formatted(.number.locale(.app).precision(.fractionLength(0...1)))
+    return Text("Đèn sáng từ bây giờ tới \(p.ends.description) (giờ tắt của lịch), \(hours) giờ.")
+  }
+
+  private func ask() {
+    plans = TodayEnd.allCases.compactMap { try? lights.plan($0).get() }
+    // Two hours that end when one does (23:59) are the same choice.
+    if plans.count == 2, plans[0].ends == plans[1].ends { plans.removeLast() }
+    if plans.first?.end == .nextPoint { confirming = true } else if !plans.isEmpty { choosing = true }
+  }
+
+  private func perform(_ end: TodayEnd) { Task { await lights.perform(.onWithScheduleColours(until: end)) } }
 }
 
 /// A new light (nothing written to it from AquaTome yet): the four steps to set it up.
@@ -496,7 +552,7 @@ private struct WriteBar: View {
 
   /// "12:00–20:00 · 70% · 8 tiếng", as the site's.
   private func summary(_ s: Schedule) -> String {
-    label(s) + " · " + String(localized: "\(s.hoursOn.formatted(.number.precision(.fractionLength(0...1)))) tiếng")
+    label(s) + " · " + String(localized: "\(s.hoursOn.formatted(.number.locale(.app).precision(.fractionLength(0...1)))) tiếng")
   }
 }
 
@@ -608,7 +664,7 @@ func label(_ s: Schedule) -> String { "\(s.on)–\(s.off) · \(s.top)%" }
 /// A day as the reader's language writes it (1/11/2026).
 private func day(_ timestamp: String) -> String {
   guard let ms = Timestamp.millis(timestamp) else { return "" }
-  return Date(timeIntervalSince1970: Double(ms) / 1000).formatted(.dateTime.day().month(.defaultDigits).year())
+  return Date(timeIntervalSince1970: Double(ms) / 1000).formatted(.dateTime.day().month(.defaultDigits).year().locale(.app))
 }
 
 /// "40 phút", "7 tiếng", "1,5 tiếng".

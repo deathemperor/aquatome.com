@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "YCvm1zTtY9c",
     "title": "Why Your Maintenance Routine is Destroying Your Aquarium",
@@ -29,36 +29,35 @@
       {
         "category": "loc",
         "type": "suc-khi",
-        "t": 105
+        "t": 97
       },
       {
         "category": "loc",
         "type": "bot-bien",
         "t": 384
-      },
-      {
-        "category": "co2",
-        "type": "binh",
-        "t": 160
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao thay nước lại có thể làm hại bể",
+        "heading": "1. Thay nước bằng nước RO mà không xử lý trước",
         "moments": [
           {
-            "t": 39,
-            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/t39.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bộ lọc nước RO với các cốc lọc gắn trên tường."
+            "t": 40,
+            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ lọc nước RO với các cột lọc gắn trên tường.",
+            "sharpness": 1564.6,
+            "person": false
           },
           {
-            "t": 69,
-            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/t69.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh có ống dẫn nước dùng để thay nước."
+            "t": 105,
+            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thùng chứa nước RO màu trắng dùng để trữ nước thay.",
+            "sharpness": 1223.8,
+            "person": false
           }
         ],
         "photo": {
@@ -69,44 +68,43 @@
           "licence": "Public domain",
           "author": "Andy king50",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Auqa_osmosis.jpeg",
-          "caption": "Bộ lọc nước RO Dennerle dùng cho hồ cá, cho ra nước gần như không còn khoáng."
+          "caption": "Bộ lọc nước RO nhỏ gọn dùng để tạo nước tinh khiết cho bể cá."
         }
       },
       {
-        "heading": "Tỉa cây bao nhiêu là vừa",
+        "heading": "2. Tỉa cây quá nhiều trong một lần",
         "moments": [
           {
-            "t": 157,
-            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/t157.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cây thân đỏ mọc dày, cần tỉa vừa phải để giữ bể ổn định."
-          },
-          {
-            "t": 202,
-            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/t202.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bụi cây thân đỏ rậm rạp, khỏe mạnh trong bể thủy sinh."
+            "t": 215,
+            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/at215-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bụi cây thân có lá đỏ hồng xum xuê, chưa bị tỉa.",
+            "sharpness": 1257.8,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Có nên cho cá ăn ngay sau khi thay nước",
+        "heading": "3. Cho cá ăn ngay sau khi thay nước",
         "moments": [
           {
-            "t": 251,
-            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/t251.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá nhỏ màu đỏ bơi gần chiếc bẫy chai trong bể."
+            "t": 250,
+            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/at250-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá nhỏ bơi quanh phễu cho ăn giữa bể thủy sinh.",
+            "sharpness": 637.6,
+            "person": false
           },
           {
-            "t": 266,
-            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/t266.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá ram bơi giữa bể thủy sinh nhiều cây xanh và đá."
+            "t": 255,
+            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/at255-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá nhỏ màu đỏ cam bơi gần chiếc phễu cho ăn trong bể.",
+            "sharpness": 39.9,
+            "person": false
           }
         ],
         "photo": {
@@ -117,25 +115,20 @@
           "licence": "CC BY-SA 3.0",
           "author": "Taken by User:Pinpin - fr:Utilisateur:Pinpin",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_-_dried_food2.jpg",
-          "caption": "Các loại thức ăn cho cá như vảy, viên và trùn khô."
+          "caption": "Các loại thức ăn cho cá: cá viên, bánh nén, sâu khô và vảy."
         }
       },
       {
-        "heading": "Rửa lọc thế nào cho đúng",
+        "heading": "4. Rửa lọc quá sạch",
         "moments": [
           {
-            "t": 374,
-            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/t374.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Vật liệu lọc dạng sỏi nằm trong ngăn lọc, còn ngâm nước bể."
-          },
-          {
-            "t": 384,
-            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/t384.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Miếng bông lọc đã ngả nâu vì lớp vi sinh bám đầy."
+            "t": 380,
+            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/at380-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vật liệu lọc dạng sỏi trong thùng lọc, có lớp vi sinh bám.",
+            "sharpness": 206.4,
+            "person": false
           }
         ],
         "photo": {
@@ -150,18 +143,18 @@
         }
       },
       {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/YCvm1zTtY9c/p5-uZF9zdG9uZS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/YCvm1zTtY9c/p5-uZF9zdG9uZS5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
-          "caption": "Máy sủi khí mini kèm dây dẫn và đá sủi, sẵn sàng dùng cho bể."
-        }
+        "heading": "5. Hở chút là đổ hóa chất",
+        "moments": [
+          {
+            "t": 475,
+            "url": "https://media.aquatome.com/video/YCvm1zTtY9c/at475-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh rêu phủ đá, cây xanh tốt, nước trong.",
+            "sharpness": 3442.9,
+            "person": false
+          }
+        ]
       }
     ]
   }

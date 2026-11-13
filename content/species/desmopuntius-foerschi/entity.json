@@ -1,0 +1,250 @@
+{
+  "id": "desmopuntius-foerschi",
+  "scientificName": "Desmopuntius foerschi",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Desmopuntius",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "indonesia",
+    "kalimantan"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Sampit",
+        "Mahakam"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears to be native to the Indonesian provinces of Kalimantan Timur (East Kalimantan) and Kalimantan Tengah (Central Kalimantan) on the island of Borneo although information is quite scarce.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'About 50 to 100 kilometers north of Sampit, Kalimantan, Indonesia', which presumably refers to the Sampit (aka Mentaya) River basin while the only other details available suggest that it's also been collected from the Mahakam drainage.",
+          "countries": [],
+          "regions": [
+            "Sampit",
+            "Mahakam"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7466061,
+      "total": 9,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          112.5,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          112.5,
+          0,
+          6,
+          6
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-foerschi",
+      "html": "<p>Sometimes traded as the 'boomerang barb' or 'Foersch's fire barb', Desmopuntius foerschi is a cyprinid from East and Central Kalimantan, Borneo. Extra dark blotches between the second, third and fourth vertical bars, and a mark at the rear of the dorsal-fin base, set it apart from other vertically-striped congeners. It probably inhabits peat swamps and associated blackwater streams, and information on its range is scarce.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-foerschi",
+      "html": "<p>Appears to be native to the Indonesian provinces of Kalimantan Timur (East Kalimantan) and Kalimantan Tengah (Central Kalimantan) on the island of Borneo although information is quite scarce.</p><p>Type locality is 'About 50 to 100 kilometers north of Sampit, Kalimantan, Indonesia', which presumably refers to the Sampit (aka Mentaya) River basin while the only other details available suggest that it's also been collected from the Mahakam drainage.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-foerschi",
+      "html": "<p>Probably inhabits peat swamps and associated blackwater streams as with related members of the genus.</p><p>Such habitats are typically shaded from the sun by marginal vegetation and the dense tree canopy above.</p><p>The water generally has a negligible dissolved mineral content, is poorly buffered and pH can be as low as 3.0 or 4.0 due to the gradual release of tannins and organic acids from decaying plant material.</p><p>Depending on locality the substrate may be composed of peat, mud or sand littered with submerged woody structures and leaf litter.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-foerschi",
+      "html": "<p>Base dimensions of at least 80 × 30 cm or equivalent are required (about 72 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-foerschi",
+      "html": "<p>Can be kept in a planted aquarium and is an excellent choice for the carefully-aquascaped set-up.</p><p>The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated.</p><p>To see it at its best a biotope-style set-up can also make an interesting project.</p><p>A soft, sandy substrate is probably the best choice to which can be added a few driftwood roots and branches, placed in such a way that plenty of shady spots are formed.</p><p>The addition of dried leaf litter would further emphasise the natural feel and fairly dim lighting should be used to simulate the conditions the fish would encounter in the wild.</p><p>You could also add some aquatic plants able to survive under such conditions such as Microsorum, Taxiphyllum, or Cryptocoryne spp.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-foerschi",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-foerschi",
+      "html": "<p>Wild fish are probably foragers feeding on diatoms, algae, organic detritus, small insects, worms, crustaceans, and other zooplankton.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-foerschi",
+      "html": "<p>Should prove an ideal addition to a peaceful community of Southeast Asian fishes such as similarly sized cyprinids, nemacheild or cobitid loaches, and certain anabantoids.</p><p>Avoid boisterous or very vigorous tankmates as they may outcompete it for food.</p><p>It's a schooling species by nature, and really should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less skittish but result in a more effective, natural-looking display, and males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-foerschi",
+      "html": "<p>Adult males tend to be slightly smaller, are noticeably slimmer, and exhibit more intense colouration than females of a similar age.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-foerschi",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-foerschi",
+      "html": "<p>D. foerschi is sometimes traded as 'boomerang barb' or 'Foersch's fire barb' and is included in a group of closely-related, similar-looking fishes which were moved into the new genus Desmopuntius by Kottelat (2013).</p><p>It can be told apart from other vertically-striped congeners by possession of additional dark blotches between the second, third and fourth vertical bars and a further marking at the posterior base of the dorsal-fin.</p><p>This species was formerly included in the genus Puntius which was for a number of years viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia (subsequently amended to Haludaria), and Pethia erected to accommodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there could no longer be considered members.</p><p>Kottelat (2013) published a comprehensive nomenclatural update for Southeast Asian fishes in which the genus Desmopuntius was raised and diagnosed as follows: unique colour pattern made of 4–6 bars at least in juveniles, anterior bar across eye, 2nd bar behind gill opening, 3rd bar at dorsal-fin origin, 4th bar at anal-fin origin, 5th bar at middle of caudal peduncle, and 6th at caudal-fin base; often a black spot at posterior extremity of dorsal-fin base. In D. gemellus, D. johorensis and D. trifasciatus the barred pattern is present only in juveniles and with increasing size transforms into a striped pattern.</p><p>In addition, the following characters are useful in identification of Desmopuntius spp.: last simple dorsal-fin ray serrated posteriorly; rostral and maxillary barbels present; lips smooth and thin, postlabial groove interrupted medially; lateral line complete, with 25–27 pored scales on body; ½4/1/4½ scale rows between dorsal-fin origin and ventral midline in front of pelvic-fin base; 12 circumpeduncular scale rows; 7–11 gill rakers on first gill arch.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-foerschi",
+      "html": "<ul><li>Kottelat, M. (1992). The identity of Barbus johorensis Duncker, 1904 (Teleostei: Cyprinidae). Raffles Bulletin of Zoology 40(2), 187-192</li><li>Kottelat, M. and H-H Tan (2011). Systomus xouthos, a new cyprinid fish from Borneo, and revalidation of Puntius pulcher (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 22(3), 209-214</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li><li>Kottelat, M. (1982). A small collection of fresh-water fishes from Kalimantan, Borneo, with descriptions of one new genus and three new species of Cyprinidae. Revue Suisse de Zoologie 89(2), 419-437</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0b32c8c05751400f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0b32c8c05751400f-480.webp",
+      "width": 672,
+      "height": 423,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-foerschi",
+      "caption": "Adult male.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4d10a4aad1d9ede9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4d10a4aad1d9ede9-480.webp",
+      "width": 640,
+      "height": 403,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-foerschi",
+      "caption": "Specimen from the aquarium trade...",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 80cm",
+        "máy lọc nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ dạng hạt",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

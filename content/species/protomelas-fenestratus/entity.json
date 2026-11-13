@@ -1,0 +1,253 @@
+{
+  "id": "protomelas-fenestratus",
+  "scientificName": "Protomelas fenestratus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Protomelas",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "malawi",
+    "lake-malawi",
+    "tanzania"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371509,
+      "total": 34,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "MW",
+          29
+        ],
+        [
+          "MZ",
+          3
+        ],
+        [
+          "TZ",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -15.46875,
+          4
+        ],
+        [
+          33.75,
+          -14.0625,
+          15
+        ],
+        [
+          33.75,
+          -12.65625,
+          13
+        ],
+        [
+          33.75,
+          -9.84375,
+          1
+        ],
+        [
+          35.15625,
+          -15.46875,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.6,
+          "max": 8.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 14
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-fenestratus",
+      "html": "<p>Known as the fenestratus, Protomelas fenestratus is a cichlid endemic to Lake Malawi, found in the northern and southwestern parts of the lake. It inhabits rocky shorelines and the sandy zones beyond them, feeding by blowing sediment from rocks and taking what it uncovers. A gentle species unsuited to the boisterous mbuna community, it should not be kept with P. taeniolatus or Protomelas sp. 'steveni taiwan reef', as they may hybridise.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-fenestratus",
+      "html": "<p>Endemic to Lake Malawi. It is found in the northern and southwestern parts of the lake.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-fenestratus",
+      "html": "<p>It inhabits rocky parts of the shoreline and the intermediate sandy zones beyond these.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-fenestratus",
+      "html": "<p>Standard length: 14 cm SL. Aquarium base: 120 × 45 cm. Volume: ~205 litres (120 × 45 × 38 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-fenestratus",
+      "html": "<p>Much of the aquarium should contain piles of rocks arranged to form caves with small areas of open water between. A sandy substrate is best.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-fenestratus",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 7.6–8.8</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-fenestratus",
+      "html": "<p>It will accept most foods offered but live and frozen varieties should form the bulk of the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-fenestratus",
+      "html": "<p>A gentle species which is not suited to the boisterous mbuna community, although it does become territorial when breeding. Suitable tankmates include Aulonocara, Copadichromis and other peaceful Malawi species. Males are very territorial and a very large tank would be required to keep more than one. It is also better to keep several females per male.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-fenestratus",
+      "html": "<p>The male is larger and much more colourful than the female and has extended dorsal, anal and pelvic fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-fenestratus",
+      "html": "<p>Possible. Maternal mouthbrooder. For the best results, it should be spawned in a species tank. Adult fish tend to be quite expensive, so a more feasible option is to start with a group of 6-8 young fish. A 120 × 38 cm aquarium is an adequate size and this should be furnished as suggested above. Be sure to provide some areas of open sand and flat rock surfaces to act as potential spawning sites. The pH should be around 8.0-8.5 and the temperature 25–26.5°C. Condition the fish on a good diet of live, frozen and dried foods.</p><p>When in condition, the male will form a territory containing either a flat rock surface or simply an area of the substrate in which he excavates a pit. He will display around this, showing intense colour and will attempt to entice females to mate with him. He can be quite aggressive in his pursuits and it is in order to dissipate this aggression that this species should be spawned in a harem. If there are other species in the tank, they will not be permitted to enter the male's territory.</p><p>When a female is willing, she will approach the spawning site and lay her eggs there, allowing the male to fertilise them before taking them into her mouth. The female carries the eggs for around 3 weeks before releasing the free swimming fry. She will not eat during this period and can be easily spotted by her distended mouth. If a female is overly stressed, she may spit out the brood prematurely or eat them, so care must be taken if you decide to move the fish in order to avoid fry predation.</p><p>Some breeders artificially strip the fry from the mother's mouth at the 2 week stage and raise them from that point, as this usually results in a larger number of fry. However it must be said, that this method is only for the expert. The fry will accept newly hatched brine shrimp or microworm immediately after they become free swimming.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-fenestratus",
+      "html": "<p>This species has an interesting method of feeding in nature. It will 'blow' sediment from the surface of rocks and feed on morsels that are uncovered. Protomelas sp. \"steveni taiwan reef\" is often sold as a subspecies of P. fenestratus but is actually thought not to be synonymous. P. taeniolatus is also very similar to fenestratus, and several colour forms of both these species exist. It is likely that some of these may be reclassified as distinct species in the future. None of these related species or morphs should be kept together in aquaria as they may hybridise.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "8aEZouniENo",
+      "title": "Chihuahuas, Great Danes, and Protomelas fenestratus",
+      "durationSec": 703,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Dhoe0DaVFTY",
+      "title": "🔥 Protomelas Fenestratus Tiger Fish 🐠 | Stunning Aquarium Beauty! #fish #shorts",
+      "durationSec": 14,
+      "lang": "hi"
+    },
+    {
+      "youtubeId": "tl8Y_I_YxAc",
+      "title": "Fenestratus - Protomelas Fenestratus African Cichlid",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wX1_WrA-_W4",
+      "title": "Cichlids - Selecting Breeders - Protomelas fenestratus 'Tiger'",
+      "durationSec": 704,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200W",
+        "máy sưởi có điều chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát san hô nâng pH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

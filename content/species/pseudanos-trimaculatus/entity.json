@@ -12,6 +12,426 @@
     "brazil",
     "guyana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "BR",
+        "GY"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Pseudanos trimaculatus from Peru are very beautiful animals that can reach a length of about 12 cm.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The three-spot headstander, Pseudanos trimaculatus, is an anostomid from Peru, Brazil and Guyana, found in small shoals in deeper water.",
+          "countries": [
+            "BR",
+            "GY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "P. irinae comes from the upper and middle Orinoco and the Essequibo River in Guyana, P. trimaculatus is found throughout the Amazon region.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355476,
+      "total": 191,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "PE",
+          76
+        ],
+        [
+          "BR",
+          64
+        ],
+        [
+          "BO",
+          15
+        ],
+        [
+          "GY",
+          14
+        ],
+        [
+          "EC",
+          10
+        ],
+        [
+          "VE",
+          8
+        ],
+        [
+          "CO",
+          3
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          0,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          9,
+          0
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          51,
+          51
+        ],
+        [
+          -74.53125,
+          0,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -8.4375,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          -4.21875,
+          18,
+          18
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          12,
+          12
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -15.46875,
+          3,
+          0
+        ],
+        [
+          -67.5,
+          -14.0625,
+          3,
+          0
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -14.0625,
+          4,
+          0
+        ],
+        [
+          -63.28125,
+          -11.25,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -9.84375,
+          5,
+          5
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          0,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          8.4375,
+          4,
+          0
+        ],
+        [
+          -60.46875,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          2.8125,
+          5,
+          5
+        ],
+        [
+          -59.0625,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -59,7 +479,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -161,38 +581,7 @@
       "html": "<p>This species was formerly known as Anostomus trimaculatus and this name is still used in much of the available literature. It is now invalid, however. The genus Pseudanos contains 3 other known species, P. gracilis, P. irinae and the recently described P. winterbottomi. Care for these species is as for P. trimaculatus.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/159217261e9b469f.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "Michael Bakker Paiva",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudanos_trimaculatus.jpg",
-      "caption": "Pseudanos trimaculatus Maynas Province, Peru",
-      "thumb": "https://media.aquatome.com/commons/159217261e9b469f-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/142f95deba968e4a.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "Michael Bakker Paiva",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudanos_trimaculatus_18551555.jpg",
-      "caption": "Pseudanos trimaculatus in Peru",
-      "thumb": "https://media.aquatome.com/commons/142f95deba968e4a-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/5ced42c715c86cd2.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "Gabriel Lelis Togni",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudanos_trimaculatus_Brazil.jpg",
-      "caption": "Pseudanos trimaculatus, Rio Xingu, Para, Brazil",
-      "thumb": "https://media.aquatome.com/commons/5ced42c715c86cd2-480.webp"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "JPlgPta_UMs",
@@ -223,8 +612,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 100 cm",
-        "bể cá cộng đồng 200 lít"
+        "bể cá 90cm"
       ]
     },
     {

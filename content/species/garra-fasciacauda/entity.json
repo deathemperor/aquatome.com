@@ -1,0 +1,295 @@
+{
+  "id": "garra-fasciacauda",
+  "scientificName": "Garra fasciacauda",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Garra",
+  "group": "other",
+  "places": [
+    "asia",
+    "thailand",
+    "mekong",
+    "laos",
+    "vietnam",
+    "cambodia",
+    "tonle-sap"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "VN",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Tonlé Sap",
+        "Khone Falls"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Mekong river system in Thailand, Laos, Vietnam, and Cambodia, including the Tonlé Sap basin.",
+          "countries": [
+            "TH",
+            "LA",
+            "VN",
+            "KH"
+          ],
+          "regions": [
+            "Mekong",
+            "Tonlé Sap"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is migratory on a seasonal basis, with many individuals moving from the Tonlé Sap system to the Khone Falls in southern Laos during the dry season.",
+          "countries": [],
+          "regions": [
+            "Khone Falls"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366857,
+      "total": 19,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "TH",
+          6
+        ],
+        [
+          "KH",
+          5
+        ],
+        [
+          "LA",
+          4
+        ],
+        [
+          "US",
+          3
+        ],
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -82.96875,
+          23.90625,
+          3,
+          0
+        ],
+        [
+          98.4375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          19.6875,
+          4,
+          4
+        ],
+        [
+          101.25,
+          16.875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 11
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ceratogarra-fasciacauda",
+      "html": "<ul><li>Difficulty: moderate (4 of 8); it needs a well-established tank and stable water.</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ceratogarra-fasciacauda",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Since it needs stable water conditions and grazes biofilm, this species should never be added to a biologically immature set-up, and a tightly-fitting cover is necessary since it can literally climb glass.</p><p>Garra fasciacauda is a cyprinid native to the Mekong river system in Thailand, Laos, Vietnam and Cambodia, including the Tonlé Sap basin. It has a black submarginal stripe on both caudal lobes and a plain dorsal fin. It inhabits swiftly-flowing water and migrates seasonally, with many fish moving from the Tonlé Sap system to the Khone Falls in the dry season.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ceratogarra-fasciacauda",
+      "html": "<p>Native to the Mekong river system in Thailand, Laos, Vietnam, and Cambodia, including the Tonlé Sap basin.</p><p>Type locality is 'Kemarat, Thailand', which corresponds to the Mekong River in Khemmarat district, Ubon Ratchathani province, northeastern Thailand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ceratogarra-fasciacauda",
+      "html": "<p>Tends to inhabit swiftly-flowing sections of headwaters, tributaries, and larger river channels. The most favourable habitats contain clear, oxygen-saturated water which, allied with the sun, facilitates the development of a rich biofilm carpeting submerged surfaces.</p><p>It is migratory on a seasonal basis, with many individuals moving from the Tonlé Sap system to the Khone Falls in southern Laos during the dry season.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ceratogarra-fasciacauda",
+      "html": "<p>Standard length: 11 cm SL. Aquarium base: 120 × 45 cm. Volume: ~243 litres.</p><p>An aquarium with base measurements of 120 × 45 cm should be the minimum size considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ceratogarra-fasciacauda",
+      "html": "<p>Not difficult to keep in a well-maintained set-up, but a display arranged to resemble a flowing stream or river, with a substrate of variably-sized, water-worn rocks, sand, fine gravel and perhaps some small boulders, is highly recommended. This can be further furnished with driftwood roots or branches, and hardy aquatic plants such as Microsorum, Bolbitis, or Anubias spp., which can be grown attached to items of décor.</p><p>Most importantly, the water must be clean and well-oxygenated with turnover preferably in excess of 10 times per hour; additional powerheads and airstones can be employed to achieve the desired flow and oxygenation if necessary. Bright lighting will promote development of biofilm on solid surfaces, upon which the fish will graze.</p><p>Since it needs stable water conditions and grazes biofilm this species should never be added to a biologically immature set-up, and a tightly-fitting cover is necessary since it can literally climb glass.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ceratogarra-fasciacauda",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–8.0</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ceratogarra-fasciacauda",
+      "html": "<p>Although it will graze algae if available this species is not an exclusive herbivore. Offer meaty foods such as live or frozen chironomid larvae (bloodworm), Tubifex, Artemia, chopped prawn, etc., along with good quality, sinking dried products, at least some of which should contain a significant proportion of vegetable matter such as Spirulina or similar.</p><p>Fresh fruit and vegetables such as cucumber, melon, blanched spinach or courgette can be offered occasionally and home-made, gelatine-bound recipes containing a mixture of dried fish food, puréed shellfish, fresh fruit and vegetables, are also proven to work well.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ceratogarra-fasciacauda",
+      "html": "<p>Relatively peaceful and makes a good subject for the well-chosen, larger community of stream-dwelling Indochinese species.</p><p>It isn't particularly tolerant of conspecifics but apparently exists in loose aggregations in the wild. If kept singly it tends to behave more aggressively with similarly-shaped fishes, so keeping 3–4 or more is recommended should space permit. Such a group will develop a noticeable pecking order between themselves but tankmates are more likely to be left alone. What appear to be hierarchical disputes will sometimes occur and involve charging, flaring of fins, an overall paling of the body colouration, and, in males, extension of the rostral process.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ceratogarra-fasciacauda",
+      "html": "<p>Diagnostic characters given for this species in Kottelat (2001) include: black submarginal stripe on both upper and lower caudal lobes; dark lateral stripe relatively narrow, about 1–1.5 scale rows in depth; dorsal fin plain.</p><p>The genus Garra is a particularly enigmatic grouping with new taxa described on a regular basis, while many of the existing ones may represent cases of misidentification or synonyms of other species. Some of the revisions have also been called into question, which has added further confusion. A full generic review would be ideal but is unlikely to materialise given the extensive distribution of its members, which range from southern China across much of southeast Asia, India and the Middle East as far as north/central Africa.</p><p>Instead a number of less-extensive works published in recent years have resulted in a gradual, but continuing, improvement in knowledge, and it remains possible that the genus will be broken up into smaller taxa since the current assemblage is almost certainly polyphyletic.</p><p>Garra species are usually included in the subfamily Labeoninae/Cyprininae or tribe Labeonini (name varies with author) which by recent thinking is further divided into four subtribes: Labeoina, Garraina, Osteochilina, and Semilabeoina (Yang et al., 2012). The putatively monophyletic Garraina comprises a number of genetic lineages including Garra sensu stricto (which also includes Horalabiosa, Phreatichthys and possibly other genera), a small clade comprising Garra cambodgiensis and G. fascicauda (thus rendering Garra polyphyletic), Paracrossocheilus, and Gonorhynchus (which includes Akrokolioplax).</p><p>Two species, G. micropulvinus and Ageneiogarra imberba, are placed in the Semilabeoina assemblage. The generic name Ageneiogarra Garman, 1912 was suggested for both, and the Catalog of Fishes and FishBase now use it for A. imberba. In addition, some genera which were previously considered to be close relatives of Garra species such as Discogobio, Discocheilus and Placocheilus, are now also placed in this subtribe.</p><p>All genera currently included in Garraina possess a lower lip modified to form a mental adhesive disc, allowing the fish to cling to surfaces in turbulent conditions. In most species the upper lip is almost entirely reduced and both the upper and lower jaw margins are keratinised, i.e., horny, and used to scrape food items from the substrate.</p><p>Garra species are distinguished from other Garraina members by the first two pectoral-fin rays usually being thickened, fleshy and unbranched, possession of 10–11 dorsal-fin rays, and a combination of internal characters. Some species have evolved particular environmental specialisms such as highly reduced eyes in hypogean forms or the ability to survive in thermal springs.</p><p>Name change: moved from Garra fasciacauda to Ceratogarra fasciacauda (2020).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ceratogarra-fasciacauda",
+      "html": "<ul><li>Fowler, H. W. (1937). Zoological results of the third De Schauensee Siamese Expedition. Part VIII - Fishes obtained in 1936. Proceedings of the Academy of Natural Sciences of Philadelphia v. 89, 125-264</li><li>Zhang, E. (2005). Phylogenetic relationships of labeonine cyprinids of the disc-bearing group (Pisces: Teleostei). Zoological Studies 44(1), 130-143</li><li>Stiassny, M. L. J. and A. Getahun (2007). An overview of labeonin relationships and the phylogenetic placement of the Afro-Asian genus Garra Hamilton, 1922 (Teleostei: Cyprinidae), with the description of five new species of Garra from Ethiopia, and a key to all African species. Zoological Journal of the Linnean Society 150(1), 41-83</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (1998). Fishes of the Nam Theun and Xe Bangfai basins, Laos, with diagnoses of twenty-two new species (Teleostei: Cyprinidae, Balitoridae, Cobitidae, Coiidae and Odontobutidae). Ichthyological Exploration of Freshwaters 9(1), 1-128</li><li>Yang, L., M. Arunachalam, T. Sado, B. A. Levin, A. S. Golubtsov, J. Freyhof, J. P. Friel, W-J. Chen, M. V. Hirt, R. Manickam, M. K. Agnew, A. M. Simons, K. Saitoh, M. Miya, R. L. Mayden, and S. He (2012). Molecular phylogeny of the cyprinid tribe Labeonini (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 65(2), 362-379</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "lọc thùng dòng mạnh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm spirulina",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông",
+        "cát sông thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

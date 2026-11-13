@@ -11,7 +11,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/216739809",
       "caption": "Cá barb sọc Đài Loan non với sọc đen rõ trong hộp quan sát",
       "best": true,
-      "kind": "juvenile"
+      "kind": "juvenile",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/216739809-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/40863764.webp",
@@ -23,7 +28,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/40863764",
       "caption": "Cá barb sọc Đài Loan trong suối nước đục",
       "best": true,
-      "kind": "habitat"
+      "kind": "habitat",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/40863764-large.webp",
+        "width": 1802,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/216739813.webp",
@@ -35,19 +45,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/216739813",
       "caption": "Cá barb sọc Đài Loan non bơi trong hộp nhựa trong",
       "best": true,
-      "kind": "juvenile"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/18967334.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/18967334-480.webp",
-      "width": 1024,
-      "height": 528,
-      "licence": "CC BY",
-      "author": "Lin Scott",
-      "sourceUrl": "https://www.inaturalist.org/photos/18967334",
-      "caption": "Cá barb sọc Đài Loan bơi trong suối tự nhiên",
-      "best": true,
-      "kind": "habitat"
+      "kind": "juvenile",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/216739813-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/216633353.webp",
@@ -69,7 +72,12 @@
       "licence": "CC BY 4.0",
       "author": "Yung-Lun Lin",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acrossocheilus_paradoxus_298291731.jpg",
-      "caption": "Cá barb sọc Đài Loan với các sọc đen rõ, trong bể kính nhỏ"
+      "caption": "Cá barb sọc Đài Loan với các sọc đen rõ, trong bể kính nhỏ",
+      "large": {
+        "url": "https://media.aquatome.com/commons/7dbd4d2c0f9ce923-large.webp",
+        "width": 1798,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/cda7a23bd35d58fe.webp",
@@ -79,7 +87,12 @@
       "licence": "CC BY 4.0",
       "author": "Yung-Lun Lin",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acrossocheilus_paradoxus_418335789.jpg",
-      "caption": "Cá barb sọc Đài Loan thân vàng có sọc đen, cạnh thước đo"
+      "caption": "Cá barb sọc Đài Loan thân vàng có sọc đen, cạnh thước đo",
+      "large": {
+        "url": "https://media.aquatome.com/commons/cda7a23bd35d58fe-large.webp",
+        "width": 1798,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/738b90ada1cad6b7.webp",
@@ -99,7 +112,12 @@
       "licence": "CC BY",
       "author": "Yung-Lun Lin",
       "sourceUrl": "https://www.inaturalist.org/photos/418373199",
-      "caption": "Cá barb sọc Đài Loan trưởng thành với các sọc đứng đen, chụp trong hộp trong suốt"
+      "caption": "Cá barb sọc Đài Loan trưởng thành với các sọc đứng đen, chụp trong hộp trong suốt",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/418373199-large.webp",
+        "width": 1798,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/418336102.webp",
@@ -109,7 +127,12 @@
       "licence": "CC BY",
       "author": "Yung-Lun Lin",
       "sourceUrl": "https://www.inaturalist.org/photos/418336102",
-      "caption": "Cá barb sọc Đài Loan trưởng thành với sọc đen, trong bể chụp ảnh"
+      "caption": "Cá barb sọc Đài Loan trưởng thành với sọc đen, trong bể chụp ảnh",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/418336102-large.webp",
+        "width": 1798,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/463975478.webp",
@@ -342,6 +365,18 @@
       "caption": "Cá con sọc ngang trong hộp nước, bên cạnh thước",
       "best": false,
       "kind": "juvenile"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/18967334.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/18967334-480.webp",
+      "width": 1024,
+      "height": 528,
+      "licence": "CC BY",
+      "author": "Lin Scott",
+      "sourceUrl": "https://www.inaturalist.org/photos/18967334",
+      "caption": "Cá barb sọc Đài Loan bơi trong suối tự nhiên",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 182,

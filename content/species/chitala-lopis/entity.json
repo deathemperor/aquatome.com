@@ -1,0 +1,279 @@
+{
+  "id": "chitala-lopis",
+  "scientificName": "Chitala lopis",
+  "order": "Osteoglossiformes",
+  "family": "Notopteridae",
+  "genus": "Chitala",
+  "group": "other",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "cambodia",
+    "thailand",
+    "chao-phraya",
+    "malaysia",
+    "endau",
+    "indonesia",
+    "java"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200,
+        "hidden": "shorter than twice the fish (150 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-lopis",
+      "html": "<p>The giant featherback, Chitala lopis, is a notopterid accepted to range from the Mekong basin to Peninsular Malaysia, Sumatra, Borneo and Java. That range appears to require confirmation: it may already be extinct on Java, and the species may comprise several closely-related taxa. Older juveniles and adults lack the dark body markings of other Chitala and have a more pronounced jaw, and at up to 150 cm SL it is suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-lopis",
+      "html": "<p>Currently accepted to occur in the Mekong basin in Laos, Cambodia, and Thailand, the Chao Phraya and Mae Klong drainages in Thailand, plus Peninsular Malaysia and the islands of Sumatra, Borneo, and Java, but this appears to require confirmation (see 'Notes').</p><p>Type locality is 'Jakarta, Java, Indonesia'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-lopis",
+      "html": "<p>Occurs primarily in the lower basins of main river channels and forested tributaries with complex substrates of rocks and submerged wood. Has also been recorded in some man-made dams.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-lopis",
+      "html": "<p>Suitable only for public installations or the very largest, highly-specialised private aquaria.</p><p>Standard length: 150 cm SL.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-lopis",
+      "html": "<p>Prefers dim lighting and access to refuges in the form of driftwood, large rocks or lengths of plastic piping.</p><p>A large, mature filter system, rigorous maintenance regime comprising weekly water changes of 50-70% tank volume, and provision of highly-oxygenated water with a degree of movement should be considered mandatory.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-lopis",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-lopis",
+      "html": "<p>An obligate, typically nocturnal, predator feeding on smaller fishes, crustaceans and other invertebrates in nature but in most cases adapting well to dead alternatives in captivity.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc., as well as dried pellets although the latter should not form the staple diet.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-lopis",
+      "html": "<p>Chitala spp. tend to be relatively peaceful with fishes too large to be considered prey but can be territorial with conspecifics and other similarly-shaped species, especially if space is at a premium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-lopis",
+      "html": "<p>This species is not collected for the aquarium trade at time of writing. In contrast to other members of the genus older juvenile and adult individuals lack dark markings on the body while the jaw is more pronounced.</p><p>It may already be extinct on Java, and the remainder of its distribution seems questionable due to its large extent. It is possible that the species comprises a number of closely-related, but distinct, taxa and this remains a matter for further study.</p><p>Notopterids are distributed in Africa and Southeast Asia and all possess an elongated anal-fin which is continuous with the caudal-fin, a 'humped' appearance, very small scales, plus the ability to breathe atmospheric air.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chitala-lopis",
+      "html": "<ul><li>Bleeker, P. (1851). Over eenige nieuwe soorten van Megalops, Dussumieria, Notopterus en Astronesthes. Natuurkundig Tijdschrift voor Nederlandsch Indië v. 1, 417-424</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366</li><li>Roberts, T. R. (1993). The freshwater fishes of Java, as observed by Kuhl and van Hasselt in 1820-23. Zoologische Verhandelingen (Leiden) 285, 1-94</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá kính cỡ lớn",
+        "bể cá dài 2m"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "hệ lọc thùng lớn",
+        "lọc ngoài cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá săn mồi",
+        "tôm đông lạnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "KH",
+        "TH",
+        "ID"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong",
+        "Sumatra",
+        "Borneo",
+        "Java"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently accepted to occur in the Mekong basin in Laos, Cambodia, and Thailand, the Chao Phraya and Mae Klong drainages in Thailand, plus Peninsular Malaysia and the islands of Sumatra, Borneo, and Java, but this appears to require confirmation (see 'Notes').",
+          "countries": [
+            "LA",
+            "KH",
+            "TH"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong",
+            "Sumatra",
+            "Borneo",
+            "Java"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Jakarta, Java, Indonesia'.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2402271,
+      "total": 15,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          13
+        ],
+        [
+          "KH",
+          1
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          101.25,
+          0,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          105.46875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,978 @@
+{
+  "id": "cyprinodon-variegatus",
+  "scientificName": "Cyprinodon variegatus",
+  "order": "Cyprinodontiformes",
+  "family": "Cyprinodontidae",
+  "genus": "Cyprinodon",
+  "group": "killifish",
+  "places": [
+    "north-america",
+    "united-states",
+    "mexico",
+    "bahamas",
+    "san-salvador-island",
+    "south-america",
+    "venezuela"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "US",
+        "MX",
+        "BS",
+        "VE"
+      ],
+      "regions": [
+        "San Salvador Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given as 'Carolinas, U.S.A.', but this species has a huge distribution extending southwards from Massachusetts state, northeastern U.S.A. along the Atlantic coast as far as northeastern Mexico, the Bahamas and Antilles, with a handful of records from northeastern South America (Venezuela).",
+          "countries": [
+            "US",
+            "MX",
+            "BS",
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On San Salvador Island, Bahamas, it appears to be the parent of a species group occurring in sympatry and exploiting diverse but specific resources with some spectacular morphological adaptations.",
+          "countries": [],
+          "regions": [
+            "San Salvador Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4284440,
+      "total": 17505,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "US",
+          16914
+        ],
+        [
+          "MX",
+          375
+        ],
+        [
+          "BS",
+          170
+        ],
+        [
+          "CU",
+          8
+        ],
+        [
+          "JM",
+          7
+        ],
+        [
+          "GF",
+          6
+        ],
+        [
+          "GP",
+          6
+        ],
+        [
+          "MQ",
+          6
+        ],
+        [
+          "KY",
+          4
+        ],
+        [
+          "TC",
+          4
+        ],
+        [
+          "BZ",
+          1
+        ],
+        [
+          "CW",
+          1
+        ],
+        [
+          "DE",
+          1
+        ],
+        [
+          "DO",
+          1
+        ],
+        [
+          "HT",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -123.75,
+          47.8125,
+          1,
+          1
+        ],
+        [
+          -119.53125,
+          33.75,
+          1,
+          1
+        ],
+        [
+          -116.71875,
+          35.15625,
+          1,
+          1
+        ],
+        [
+          -113.90625,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          -105.46875,
+          32.34375,
+          11,
+          11
+        ],
+        [
+          -104.0625,
+          30.9375,
+          125,
+          125
+        ],
+        [
+          -102.65625,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          -102.65625,
+          29.53125,
+          92,
+          92
+        ],
+        [
+          -102.65625,
+          30.9375,
+          13,
+          13
+        ],
+        [
+          -101.25,
+          26.71875,
+          24,
+          24
+        ],
+        [
+          -101.25,
+          28.125,
+          13,
+          13
+        ],
+        [
+          -101.25,
+          29.53125,
+          9,
+          9
+        ],
+        [
+          -101.25,
+          30.9375,
+          15,
+          15
+        ],
+        [
+          -99.84375,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          -99.84375,
+          23.90625,
+          18,
+          18
+        ],
+        [
+          -99.84375,
+          25.3125,
+          188,
+          188
+        ],
+        [
+          -99.84375,
+          26.71875,
+          31,
+          31
+        ],
+        [
+          -99.84375,
+          29.53125,
+          2,
+          2
+        ],
+        [
+          -99.84375,
+          30.9375,
+          12,
+          12
+        ],
+        [
+          -99.84375,
+          32.34375,
+          5,
+          5
+        ],
+        [
+          -98.4375,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          -98.4375,
+          21.09375,
+          15,
+          15
+        ],
+        [
+          -98.4375,
+          22.5,
+          5,
+          5
+        ],
+        [
+          -98.4375,
+          23.90625,
+          38,
+          38
+        ],
+        [
+          -98.4375,
+          25.3125,
+          2126,
+          2126
+        ],
+        [
+          -98.4375,
+          26.71875,
+          6256,
+          6256
+        ],
+        [
+          -98.4375,
+          28.125,
+          123,
+          123
+        ],
+        [
+          -98.4375,
+          29.53125,
+          9,
+          9
+        ],
+        [
+          -98.4375,
+          30.9375,
+          12,
+          12
+        ],
+        [
+          -98.4375,
+          32.34375,
+          28,
+          28
+        ],
+        [
+          -97.03125,
+          16.875,
+          2,
+          2
+        ],
+        [
+          -97.03125,
+          26.71875,
+          450,
+          450
+        ],
+        [
+          -97.03125,
+          28.125,
+          4136,
+          4136
+        ],
+        [
+          -97.03125,
+          29.53125,
+          15,
+          15
+        ],
+        [
+          -97.03125,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          -95.625,
+          28.125,
+          192,
+          192
+        ],
+        [
+          -95.625,
+          29.53125,
+          303,
+          303
+        ],
+        [
+          -94.21875,
+          28.125,
+          1,
+          1
+        ],
+        [
+          -94.21875,
+          29.53125,
+          269,
+          269
+        ],
+        [
+          -94.21875,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          -94.21875,
+          32.34375,
+          2,
+          2
+        ],
+        [
+          -92.8125,
+          29.53125,
+          30,
+          30
+        ],
+        [
+          -92.8125,
+          30.9375,
+          6,
+          6
+        ],
+        [
+          -91.40625,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          -91.40625,
+          19.6875,
+          4,
+          4
+        ],
+        [
+          -91.40625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          -91.40625,
+          28.125,
+          108,
+          108
+        ],
+        [
+          -91.40625,
+          29.53125,
+          104,
+          104
+        ],
+        [
+          -90,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          -90,
+          21.09375,
+          5,
+          5
+        ],
+        [
+          -90,
+          28.125,
+          78,
+          78
+        ],
+        [
+          -90,
+          29.53125,
+          169,
+          169
+        ],
+        [
+          -88.59375,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          -88.59375,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          -88.59375,
+          21.09375,
+          66,
+          66
+        ],
+        [
+          -88.59375,
+          29.53125,
+          175,
+          175
+        ],
+        [
+          -87.1875,
+          29.53125,
+          55,
+          55
+        ],
+        [
+          -85.78125,
+          29.53125,
+          26,
+          26
+        ],
+        [
+          -85.78125,
+          32.34375,
+          1,
+          1
+        ],
+        [
+          -84.375,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          -84.375,
+          28.125,
+          26,
+          26
+        ],
+        [
+          -84.375,
+          29.53125,
+          23,
+          23
+        ],
+        [
+          -84.375,
+          39.375,
+          1,
+          1
+        ],
+        [
+          -82.96875,
+          22.5,
+          1,
+          0
+        ],
+        [
+          -82.96875,
+          23.90625,
+          30,
+          30
+        ],
+        [
+          -82.96875,
+          25.3125,
+          25,
+          25
+        ],
+        [
+          -82.96875,
+          26.71875,
+          107,
+          107
+        ],
+        [
+          -82.96875,
+          28.125,
+          18,
+          18
+        ],
+        [
+          -82.96875,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          -82.96875,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          -82.96875,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          18.28125,
+          4,
+          0
+        ],
+        [
+          -81.5625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          -81.5625,
+          23.90625,
+          221,
+          221
+        ],
+        [
+          -81.5625,
+          25.3125,
+          26,
+          26
+        ],
+        [
+          -81.5625,
+          26.71875,
+          110,
+          110
+        ],
+        [
+          -81.5625,
+          28.125,
+          693,
+          693
+        ],
+        [
+          -81.5625,
+          29.53125,
+          14,
+          14
+        ],
+        [
+          -81.5625,
+          30.9375,
+          17,
+          17
+        ],
+        [
+          -81.5625,
+          32.34375,
+          5,
+          5
+        ],
+        [
+          -80.15625,
+          22.5,
+          3,
+          0
+        ],
+        [
+          -80.15625,
+          25.3125,
+          6,
+          6
+        ],
+        [
+          -80.15625,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          -80.15625,
+          32.34375,
+          22,
+          22
+        ],
+        [
+          -80.15625,
+          35.15625,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          16.875,
+          2,
+          0
+        ],
+        [
+          -78.75,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          -78.75,
+          23.90625,
+          12,
+          12
+        ],
+        [
+          -78.75,
+          25.3125,
+          9,
+          9
+        ],
+        [
+          -78.75,
+          33.75,
+          13,
+          13
+        ],
+        [
+          -77.34375,
+          16.875,
+          5,
+          0
+        ],
+        [
+          -77.34375,
+          22.5,
+          3,
+          3
+        ],
+        [
+          -77.34375,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          33.75,
+          26,
+          26
+        ],
+        [
+          -77.34375,
+          35.15625,
+          3,
+          3
+        ],
+        [
+          -77.34375,
+          36.5625,
+          38,
+          38
+        ],
+        [
+          -77.34375,
+          37.96875,
+          144,
+          144
+        ],
+        [
+          -75.9375,
+          22.5,
+          9,
+          9
+        ],
+        [
+          -75.9375,
+          23.90625,
+          13,
+          13
+        ],
+        [
+          -75.9375,
+          35.15625,
+          41,
+          41
+        ],
+        [
+          -75.9375,
+          36.5625,
+          10,
+          10
+        ],
+        [
+          -75.9375,
+          37.96875,
+          86,
+          86
+        ],
+        [
+          -75.9375,
+          39.375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          19.6875,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          21.09375,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          23.90625,
+          106,
+          106
+        ],
+        [
+          -74.53125,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          39.375,
+          58,
+          58
+        ],
+        [
+          -74.53125,
+          40.78125,
+          8,
+          8
+        ],
+        [
+          -73.125,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          21.09375,
+          10,
+          7
+        ],
+        [
+          -73.125,
+          39.375,
+          9,
+          9
+        ],
+        [
+          -73.125,
+          40.78125,
+          55,
+          55
+        ],
+        [
+          -71.71875,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          40.78125,
+          47,
+          47
+        ],
+        [
+          -71.71875,
+          42.1875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          11.25,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          40.78125,
+          10,
+          10
+        ],
+        [
+          -70.3125,
+          43.59375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          14.0625,
+          6,
+          0
+        ],
+        [
+          -61.875,
+          15.46875,
+          6,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          6,
+          0
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "html": "<p>Type locality is given as 'Carolinas, U.S.A.', but this species has a huge distribution extending southwards from Massachusetts state, northeastern U.S.A. along the Atlantic coast as far as northeastern Mexico, the Bahamas and Antilles, with a handful of records from northeastern South America (Venezuela).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "html": "<p>Tends to be most common in brackish to hypersaline environments such as coastal salt marshes, lagoons and estuaries.</p><p>On San Salvador Island, Bahamas, it appears to be the parent of a species group occurring in sympatry and exploiting diverse but specific resources with some spectacular morphological adaptations.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm or equivalent (about 54 litres) is just about acceptable for a single pair but like most members of the family Cyprinodontidae this species does best when maintained as a group in a larger tank or container.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "html": "<p>Need not be too complicated so long as there are plenty of broken lines-of-sight.</p><p>Provide plenty of cover in the form of aquatic plants, wool mops, etc., and if using filtration air-powered, sponge-type units are best as these will not harm eggs or fry.</p><p>Lighting is unimportant but can be used if you wish, and growth of filamentous algae should be encouraged if possible.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "html": "<ul><li>Martin, C. H. and P. C. Wainwright (2013). Remarkable Species Flock of Cyprinodon Pupfishes Endemic to San Salvador Island, Bahamas. Bulletin of the Peabody Museum of Natural History 54(2), 231-240</li><li>Martin, C. H. and P. C. Wainwright (2013). Multiple Fitness Peaks on the Adaptive Landscape Drive Adaptive Radiation in the Wild. Science 339(6116), 208-211</li><li>Martin, C. H. and P. C. Wainwright (2011). Trophic novelty is linked to extremes rates of morphological diversification in two adaptive radiations of Cyprinodon pupfishes. Evolution 65(8), 2197-2212</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ebef183116bb8656.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ebef183116bb8656-480.webp",
+      "width": 700,
+      "height": 594,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "caption": "Nuptial male individual photographed on San Salvador Island, The Bahamas.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ff2669662b3621df.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ff2669662b3621df-480.webp",
+      "width": 800,
+      "height": 468,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "caption": "In its natural habitat, Crescent Pond, The Bahamas; female above, nuptial male below.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0a716468aa2ca26f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0a716468aa2ca26f-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
+      "caption": "Little Lake on San Salvador Island, the Bahamas is a natural habitat of this species.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt khí",
+        "lọc mút xốp"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh rậm",
+        "rêu java"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

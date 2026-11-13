@@ -1,7 +1,7 @@
 /**
  * Which way of writing video cover labels reads most like a Vietnamese creator's thumbnail? Every video guide with a
  * cover: the current label (A) against the new prompt on Sonnet (B) and Opus (C), judged blind and pairwise (Opus, both
- * orders) on natural + catchy + true to the video. Output: /tmp/aqeval-covers/report.md (never touches content/).
+ * orders) on natural + catchy + true to the video. Output: ~/.cache/aquatome/eval-covers/report.md (never touches content/).
  *
  *   pnpm --filter @aq/engine exec tsx scripts/eval-covers.ts
  */
@@ -10,9 +10,9 @@ import { join } from 'node:path'
 import type { GuideEntity, Translation } from '@aq/schema'
 import { claudeCli, claudeVision } from '../src/claude'
 import { COVER_SCHEMA, coverPrompt } from '../src/video-covers'
-import { cachedIn, mean, pairs, pool, retry, tally, verdictSchema, type Verdict } from './eval-lib'
+import { cachedIn, evalDir, mean, pairs, pool, retry, tally, verdictSchema, type Verdict } from './eval-lib'
 
-const OUT = '/tmp/aqeval-covers'
+const OUT = evalDir('eval-covers')
 const CONTENT = join(import.meta.dirname, '../../../content')
 const MODELS: Record<string, string | null> = { A: null, B: 'sonnet', C: 'opus' } // A = the label on the site now
 const JUDGE = `You are a Vietnamese YouTube editor for aquarium-hobby channels. Two Vietnamese headlines (X and Y) are candidates for the big text over the thumbnail of the video below.

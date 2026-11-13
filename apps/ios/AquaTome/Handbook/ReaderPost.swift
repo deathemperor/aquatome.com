@@ -1,6 +1,6 @@
 import Handbook
-import PhotosUI
 import SwiftUI
+import Telemetry
 
 /// A reader's comment, or photo of the page's species, posted from the app as their aquatome.com account
 /// (protocols/talk.openapi.json), in place of the site's form and its Turnstile check; signed out, the sign-in first.
@@ -16,6 +16,7 @@ struct ReaderPost: View {
   let shown: (Readers.Comment) -> Void
   @Environment(AccountModel.self) private var account
   @Environment(HandbookModel.self) private var handbook
+  @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.dismiss) private var dismiss
   /// The name the reader last posted under, kept on this phone for the next post (the account keeps no name).
   @AppStorage("readers.name") private var who = ""
@@ -24,7 +25,8 @@ struct ReaderPost: View {
   /// The name's field shown: no name kept yet, "Đổi", or a name the site refused. A kept name is a line saying so.
   @State private var naming = false
   @State private var text = ""
-  @State private var picked: PhotosPickerItem?
+  @State private var picked: PickedPhoto?
+  @State private var library = false
   @State private var jpeg: Data?
   /// The photo as sent, decoded once for its preview.
   @State private var preview: UIImage?
@@ -70,6 +72,7 @@ struct ReaderPost: View {
           form
         }
       }
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle(kind == .comment ? "Thảo luận" : "Ảnh bạn đọc")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { Button("Đóng") { dismiss() }.disabled(sending) }
@@ -93,7 +96,7 @@ struct ReaderPost: View {
       #endif
       guard let picked else { return }
       if said == .unreadable { said = nil }
-      let data = try? await picked.loadTransferable(type: Data.self)
+      let data = picked.data
       // Shrunk off the main thread: a phone's photo is tens of megapixels.
       let small = await Task.detached(priority: .userInitiated) { data.flatMap { Readers.shrink($0) } }.value
       // Another photo picked meanwhile: that one's.
@@ -103,7 +106,10 @@ struct ReaderPost: View {
       jpeg = small
       preview = small.flatMap(UIImage.init(data:))
       if small == nil { said = .unreadable }
+      // The photo as picked goes, now it's shrunk: a phone's is tens of megabytes. Last, as a change ends this task.
+      self.picked = nil
     }
+    .ownerScreen("sheet reader-post")
   }
 
   private var form: some View {
@@ -126,7 +132,15 @@ struct ReaderPost: View {
               TextField("Bình luận", text: $text, axis: .vertical).lineLimit(4...12)
                 .focused($typing, equals: .body).accessibilityIdentifier("post-body")
             } else {
-              PhotosPicker(selection: $picked, matching: .images) { Label("Ảnh", systemImage: "photo") }.accessibilityIdentifier("post-pick")
+              Button { library = true } label: { Label("Ảnh", systemImage: "photo") }.accessibilityIdentifier("post-pick")
+                .sheet(isPresented: $library) {
+                  ImagePicker(source: .photoLibrary, picked: { data in
+                    library = false
+                    picked = PickedPhoto(data: data)
+                  }, cancelled: { library = false })
+                  .ignoresSafeArea()
+                  .ownerScreen("sheet photo-library")
+                }
               if reading {
                 HStack(spacing: 8) { ProgressView(); Text("Đang chuẩn bị ảnh…") }.foregroundStyle(.secondary)
               } else if said == .unreadable {
@@ -237,6 +251,14 @@ struct ReaderPost: View {
         : Readers.post(photo: key, name: draft, consent: consent, jpeg: jpeg ?? Data(), site: handbook.site, token: token, version: version)
     }.map { Readers.answer($0.0, status: $0.1) }
     sending = false
+    // How it went, for the app's anonymous telemetry: the server's answer alone (here, where it's known), never the text.
+    let action: Action = kind == .comment ? .postComment : .postPhoto
+    switch answer {
+    case .shown?, .held?, .received?: telemetry.telemetry.record(.action(action, ok: true))
+    case let .refused(code)?: telemetry.telemetry.record(.action(action, refused: code))
+    case .signedOut?: telemetry.telemetry.record(.action(action, ok: false, kind: .signedOut))
+    case nil: telemetry.telemetry.record(.action(action, ok: false, kind: .noAnswer))
+    }
     switch answer {
     case let .shown(c)?:
       shown(c)

@@ -8,7 +8,7 @@
   "mentions": [
     "osteoglossum-bicirrhosum"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "4o4QdaCguWQ",
     "title": "Moving my MONSTER FISH!!!",
@@ -27,81 +27,116 @@
       "height": 480
     },
     "transcribed": true,
-    "taxa": [
-      "Osteoglossum bicirrhosum"
-    ],
+    "taxa": [],
     "gear": [
       {
         "category": "loc",
         "type": "thung",
-        "t": 2745
-      },
-      {
-        "category": "loc",
-        "type": "suc-khi",
-        "t": 1812
+        "t": 1493
       },
       {
         "category": "suoi",
         "type": "chinh-nhiet",
-        "t": 1555
+        "t": 1525
       },
       {
-        "category": "den",
-        "t": 1711
-      },
-      {
-        "category": "be-ca",
-        "type": "lon",
-        "t": 0
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 1780
       }
     ],
     "figures": [
       {
-        "heading": "Dời hệ lọc sang bể mới ra sao",
+        "heading": "Tháo và chuyển lọc ra sao",
         "moments": [
           {
-            "t": 1488,
-            "url": "https://media.aquatome.com/video/4o4QdaCguWQ/t1488.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Thùng lọc xanh chứa đầy vật liệu lọc vi sinh ngập trong nước."
-          },
-          {
-            "t": 1498,
-            "url": "https://media.aquatome.com/video/4o4QdaCguWQ/t1498.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bàn tay cầm vật liệu lọc đã ngả màu, lấy từ thùng lọc."
+            "t": 520,
+            "url": "https://media.aquatome.com/video/4o4QdaCguWQ/at520-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bên trong thùng lọc sau khi xả nước, thấy cặn bẩn ở đáy.",
+            "sharpness": 3.9
           }
-        ]
-      },
-      {
-        "heading": "Vớt và thả cá rồng thế nào",
-        "moments": [],
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/4o4QdaCguWQ/p3-ZV8yMDEyXzMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/4o4QdaCguWQ/p3-ZV8yMDEyXzMuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/4o4QdaCguWQ/p1-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/4o4QdaCguWQ/p1-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
-          "height": 509,
-          "licence": "CC BY-SA 3.0",
-          "author": "Karelj",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_Prague_2012_3.jpg",
-          "caption": "Cá rồng bơi trong bể, thân dài và vảy lớn, dễ bật khỏi mặt nước."
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Thùng lọc ngoài dưới tủ bể, có ống xả nước vào xô."
         }
       },
       {
-        "heading": "Vớt cá đuối mà không bị đâm, không làm cá sốc",
+        "heading": "Vì sao nên vớt cá đuối bằng vợt cao su",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/4o4QdaCguWQ/p4-4NjgyMTIyKS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/4o4QdaCguWQ/p4-4NjgyMTIyKS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/4o4QdaCguWQ/p3-My4zNzktNikuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/4o4QdaCguWQ/p3-My4zNzktNikuanBn-480.webp",
           "width": 960,
-          "height": 636,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barb,_worked_(AM_1933.379-6).jpg",
+          "caption": "Ngòi cá đuối với hàng răng cưa nhỏ dọc hai bên, dễ mắc vào lưới."
+        }
+      },
+      {
+        "heading": "Vớt cá rồng thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4o4QdaCguWQ/p4-dsb25neXUzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/4o4QdaCguWQ/p4-dsb25neXUzLmpwZw-480.webp",
+          "width": 960,
+          "height": 496,
+          "licence": "CC BY-SA 3.0",
+          "author": "Photo taken by Fanghong",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Honglongyu3.jpg",
+          "caption": "Cá rồng bơi trong bể, thân dài với vảy lớn, cần vớt nhẹ tay."
+        }
+      },
+      {
+        "heading": "Vớt cá đuối thế nào cho an toàn",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4o4QdaCguWQ/p5-c0MjYwMDUpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/4o4QdaCguWQ/p5-c0MjYwMDUpLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
           "licence": "CC BY 2.0",
-          "author": "shankar s. from Dubai, United Arab Emirates",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_American_Freshwater_Stingray-_that%27s_the_one_at_the_far_end_(27798682122).jpg",
-          "caption": "Cặp cá đuối nằm sát đáy cát trong bể, đuôi có ngòi độc."
+          "author": "shankar s. from Dubai, united arab emirates",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_Stingray_(7987426005).jpg",
+          "caption": "Cá đuối hoa trong bể, đuôi cong lên để lộ ngòi độc."
+        }
+      },
+      {
+        "heading": "Dấu hiệu cá đuối bị stress",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4o4QdaCguWQ/p6-LF9NZXhpY28uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/4o4QdaCguWQ/p6-LF9NZXhpY28uanBn-480.webp",
+          "width": 960,
+          "height": 611,
+          "licence": "CC BY-SA 4.0",
+          "author": "Matthew T Rader",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stingray_(Myliobatoidei)_in_Cozumel,_Mexico.jpg",
+          "caption": "Cá đuối bơi trên nền cát đáy, đĩa thân phẳng và mép đĩa không cong."
+        }
+      },
+      {
+        "heading": "Nuôi cá lớn cần biết trước những gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4o4QdaCguWQ/p7-8yMDEyX0cxLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/4o4QdaCguWQ/p7-8yMDEyX0cxLmpwZw-480.webp",
+          "width": 960,
+          "height": 466,
+          "licence": "CC BY-SA 4.0",
+          "author": "George Chernilevsky",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phractocephalus_hemioliopterus_2012_G1.jpg",
+          "caption": "Cá trê đuôi đỏ trưởng thành bơi sát đáy bể, thân dài và to."
         }
       }
     ]

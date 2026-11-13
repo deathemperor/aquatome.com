@@ -1,0 +1,317 @@
+{
+  "id": "gymnallabes-typus",
+  "scientificName": "Gymnallabes typus",
+  "order": "Siluriformes",
+  "family": "Clariidae",
+  "genus": "Gymnallabes",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "nigeria",
+    "niger",
+    "cameroon"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG",
+        "CM"
+      ],
+      "regions": [
+        "Niger River",
+        "Cross River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "West Africa: lower course and delta of the Niger River and Cross River basin in Nigeria.",
+          "countries": [
+            "NG"
+          ],
+          "regions": [
+            "Niger River",
+            "Cross River"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Also known from Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342200,
+      "total": 46,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BJ",
+          26
+        ],
+        [
+          "NG",
+          13
+        ],
+        [
+          "CM",
+          3
+        ],
+        [
+          "GA",
+          3
+        ],
+        [
+          "CG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          0,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          5.625,
+          15,
+          0
+        ],
+        [
+          1.40625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          2.8125,
+          11.25,
+          7,
+          0
+        ],
+        [
+          5.625,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          5.625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          7.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          11.25,
+          1.40625,
+          4,
+          3
+        ],
+        [
+          12.65625,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          12.65625,
+          0,
+          1,
+          0
+        ],
+        [
+          14.0625,
+          -5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.8,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 23
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=129",
+      "html": "<p>Gymnallabes typus Günther, 1867. Size: 23 cm SL. Distinguished by the extremely elongate body, reduced cranial shield, confluent median fins, small eyes and presence of pelvic fins. Unpaired fins continuous, paired fins reduced or absent.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=129",
+      "html": "<p>West Africa: lower course and delta of the Niger River and Cross River basin in Nigeria. Also known from Cameroon. Type locality: West Africa, probably Old Calabar. IUCN Red List category: Least Concern (last assessed 2019).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=129",
+      "html": "<p>pH 5.8–7.0. Temperature 22–27°C. Sensitive to bad water.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=129",
+      "html": "<p>Provide plenty of driftwood for the fish to hide. Ensure that the tank cover is tight-fitting or weighed down, as they are capable of climbing out.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=129",
+      "html": "<p>Will take all manner of pelleted food, as well as frozen and live food (the latter being preferred).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=129",
+      "html": "<p>A peaceful fish that is best suited for the West African biotope tank. Ideal tankmates include mid-sized African barbs, tetras, and cichlids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=129",
+      "html": "<p>In ventral view especially, females are much broader in the body than males of equal age and rearing practices.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=129",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=129",
+      "html": "<p>Annals and Magazine of Natural History (Series 3) v. 20 (no. 116) (art. 15), pp 111 [3], Pl. 2 (fig. A).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/3137a4e41642b721.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3137a4e41642b721-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/gymnallabes_typus.htm",
+      "caption": "Gymnallabes typus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/7f0f181778075d87.webp",
+      "thumb": "https://media.aquatome.com/scotcat/7f0f181778075d87-480.webp",
+      "width": 500,
+      "height": 200,
+      "licence": "dùng với sự cho phép",
+      "author": "Claudio Marullo / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/gymnallabes_typus.htm",
+      "caption": "Gymnallabes typus: 3 years old-32 cm TL",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/495d2b35094d6b90.webp",
+      "thumb": "https://media.aquatome.com/scotcat/495d2b35094d6b90-480.webp",
+      "width": 500,
+      "height": 249,
+      "licence": "dùng với sự cho phép",
+      "author": "Claudio Marullo / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/gymnallabes_typus.htm",
+      "caption": "Gymnallabes typus: 3 years old-32 cm TL",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "zFObQ_ytlsA",
+      "title": "Gymnallabes typus swimming",
+      "durationSec": 14,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Dqe12Apthgk",
+      "title": "イールキャット　ニョロニョロ系ナマズ　【学名：Gymnallabes typus】",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Zxbw8JROtWg",
+      "title": "Gymnallabes typus active",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2zKYaA8yL8s",
+      "title": "アフリカン・イールキャット　世界淡水魚園水族館 アクア・トト ぎふ Gymnallabes typus World FreshWater Aquarium Aquatotto Gifu",
+      "durationSec": 30,
+      "lang": "ja"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

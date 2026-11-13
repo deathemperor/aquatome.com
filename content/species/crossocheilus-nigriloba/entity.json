@@ -10,6 +10,77 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Kapuas",
+        "Mahakam",
+        "Belayan",
+        "Danau Sentarum"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Crossocheilus nigriloba is a cyprinid endemic to Borneo, known from the Kapuas, Belayan and Mahakam rivers in Indonesian Kalimantan.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo",
+            "Kapuas",
+            "Mahakam",
+            "Belayan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It occurs throughout the Kapuas basin in the western province of Kalimantan Barat, including the Danau Sentarum lake system, and the Belayan and Mahakam Rivers in eastern Kalimantan Timur province.",
+          "countries": [],
+          "regions": [
+            "Danau Sentarum"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361967,
+      "total": 4,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          115.3125,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -160,8 +231,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá 300 lít"
+        "bể cá 150cm"
       ]
     },
     {

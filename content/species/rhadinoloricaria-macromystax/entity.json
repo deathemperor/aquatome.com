@@ -8,13 +8,36 @@
   "places": [
     "south-america",
     "peru",
-    "venezuela"
+    "venezuela",
+    "amazon"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 14
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -26,30 +49,67 @@
       "html": "<p>Even keepers specialized in whiptail catfish will hardly know this fish. Until now only preserved specimens or pictures of animals photographed in the field were known. Now some specimens could be imported alive from Venezuela for the first time ever. The species was described in 1869 from Peru.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhadinoloricaria_macromystax.htm",
+      "html": "<ul><li>IUCN Red List: Data Deficient, because of a lack of information on its exact range, population status and the threats affecting it (IUCN 2016).</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/first-import-of-rhadinoloricaria-macromystax/",
       "html": "<p>These fish are extremely sensitive. The supplier reports big difficulties during the acclimatization of the fish. The reasons for these difficulties are unknown. The way the fish hold their pectoral and ventral fins (like spoilers) may be a hint that these whiptail cats are adapted to strong current (a so-called rheophilic species).</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhadinoloricaria_macromystax.htm",
+      "html": "<p>South America: Upper Amazon River basin.</p><p>The type species of the genus is Loricaria macromystax Günther, 1869, from Peru, Amazon River. The genus is distributed in the upper Amazon and Orinoco River basins, Essequibo, and Tocantins drainages.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhadinoloricaria_macromystax.htm",
+      "html": "<p>Occurs in the main river and major tributaries, always over sandy beaches. Although poorly known and uncommon in collections, Rhadinoloricaria is known to occur over sandy substrates. Ecological and behavioral data are unavailable.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhadinoloricaria_macromystax.htm",
+      "html": "<p>Likes to bury itself in a deep sandy bottom substrate with only the eyes being visible, so this needs to be provided in the aquarium. A good water current and partial water changes are needed to keep this species/genus in good condition. As this genus is smaller than the larger lip brooders of the Pseudohemiodon genus, Rhadinoloricaria would be a better bet for aquarium husbandry.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhadinoloricaria_macromystax.htm",
+      "html": "<p>Feed with tablet foods, frozen mosquito larvae, daphnia etc.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhadinoloricaria_macromystax.htm",
+      "html": "<p>These taxa are abdomino-lip brooders. Eggs are laid in a single layered mass, and are attached to the surface of the lower lip and abdomen of the male.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/first-import-of-rhadinoloricaria-macromystax/",
       "html": "<p>The species is said to attain a length of about 15 cm. This means that the imported specimens are fully grown or at least sexually mature. Whether they represent the \"real\" Rh. macromystax or a close, still undescribed relative cannot be decided. The genus is only insufficiently researched.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhadinoloricaria_macromystax.htm",
+      "html": "<p>Most studies of Rhadinoloricaria are based on the holotype, which is in a poor state of preservation. The holotype is an adult with complete abdominal plate cover; smaller specimens have incomplete abdominal plate cover forming a double median row of platelets (Covain et al. 2015).</p><p>Etymology: macromystax: macro-, from makrós, long or large; mýstax, moustache, referring to the long barbel on the upper lip, which extends beyond the axil of the pectoral fin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rhadinoloricaria_macromystax.htm",
+      "html": "<p>Covain, R., S. Fisch-Muller, C. Oliveira, J. H. A. Mol, J. I. Montoya-Burgos and S. Dray 2015. Molecular phylogeny of the highly diversified catfish subfamily Loricariinae (Siluriformes, Loricariidae) reveals incongruences with morphological classification. Molecular Phylogenetics and Evolution v. 94 (Pt. B): 492-517.</p><p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ferraris, C.J. Jr., 2003. Loricariidae - Loricariinae (Armored catfishes). p. 330-350. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org.</p><p>Hidalgo del Aguila, M. &amp; Chocano, L. 2016. Rhadinoloricaria macromystax. The IUCN Red List of Threatened Species 2016.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/d64db790c7d30208.webp",
-      "thumb": "https://media.aquatome.com/scotcat/d64db790c7d30208-480.webp",
-      "width": 500,
-      "height": 316,
-      "licence": "dùng với sự cho phép",
-      "author": "Mark Henry Sabaj / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/rhadinoloricaria_macromystax.htm",
-      "caption": "Rhadinoloricaria macromystax",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/39a30c454bd7f543.webp",
       "thumb": "https://media.aquatome.com/scotcat/39a30c454bd7f543-480.webp",
@@ -109,5 +169,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-09"
 }

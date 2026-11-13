@@ -1,0 +1,344 @@
+{
+  "id": "lepidocephalichthys-micropogon",
+  "scientificName": "Lepidocephalichthys micropogon",
+  "order": "Cypriniformes",
+  "family": "Cobitidae",
+  "genus": "Lepidocephalichthys",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "myanmar",
+    "salween",
+    "thailand",
+    "bangladesh",
+    "brahmaputra",
+    "india"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH",
+        "BD",
+        "IN"
+      ],
+      "regions": [
+        "Salween",
+        "Sittaung",
+        "Irrawaddy",
+        "Brahmaputra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Salween basin in Myanmar and western Thailand, the Sittaung and Irrawaddy drainages in Myanmar and the Brahmaputra system in Bangladesh and Assam, India.",
+          "countries": [
+            "MM",
+            "TH",
+            "BD",
+            "IN"
+          ],
+          "regions": [
+            "Salween",
+            "Sittaung",
+            "Irrawaddy",
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368055,
+      "total": 73,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "MM",
+          66
+        ],
+        [
+          "MY",
+          3
+        ],
+        [
+          "TH",
+          3
+        ],
+        [
+          "BD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          91.40625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          22.5,
+          3,
+          3
+        ],
+        [
+          94.21875,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          21.09375,
+          4,
+          4
+        ],
+        [
+          94.21875,
+          23.90625,
+          6,
+          6
+        ],
+        [
+          95.625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          16.875,
+          18,
+          18
+        ],
+        [
+          95.625,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          95.625,
+          21.09375,
+          4,
+          4
+        ],
+        [
+          97.03125,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          15.46875,
+          4,
+          4
+        ],
+        [
+          97.03125,
+          16.875,
+          6,
+          6
+        ],
+        [
+          97.03125,
+          25.3125,
+          15,
+          15
+        ],
+        [
+          101.25,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-micropogon",
+      "html": "<ul><li>Hardness: not recorded</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-micropogon",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when first introduced.</li><li>Needs a soft, sandy substrate. Should not prove difficult to keep but must be provided with a soft, sandy substrate since some of its time will probably be spent completely buried, or with only eyes protruding.</li></ul><p>Lepidocephalichthys micropogon is a cobitid loach from Myanmar, western Thailand, Bangladesh and Assam, India. Known from the Salween, Sittaung, Irrawaddy and Brahmaputra drainages and occasionally exported as bycatch, it grows to 55 mm SL and has a strongly forked caudal fin with broad, dark V-shaped bars. Kottelat (2012) treats L. manipurensis as a synonym, though Havird and Page (2010) list the two separately.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-micropogon",
+      "html": "<p>Known from the Salween basin in Myanmar and western Thailand, the Sittaung and Irrawaddy drainages in Myanmar and the Brahmaputra system in Bangladesh and Assam, India.</p><p>Type locality is 'Tenasserim provinces, Myanmar', and probably corresponds to the Sittaung River basin in modern-day Bago Division.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-micropogon",
+      "html": "<p>Unconfirmed but similar congeners tend to inhabit shallow, slow-moving sections of streams or calm habitats such as swamps, oxbows, backwaters and paddy fields.</p><p>These are often heavily-vegetated or littered with submerged roots, branches and leaf litter, with substrates composed of soft mud or silt.</p><p>Water clarity and depth vary on a seasonal basis across much of its range, and at certain times of year it probably enters temporarily-flooded zones. Conversely during dry periods some habitats may become stagnant with blooms of macrophytic algae and resultant hypoxia (oxygen depletion).</p><p>Under such conditions members of this genus are able to use the intestine as a supplementary breathing organ and have been observed darting to the surface to gulp atmospheric air, and some have even been recorded to survive dry periods in moist sand or mud.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-micropogon",
+      "html": "<p>Standard length: 55 mm SL (5.5 cm). Aquarium base: 60 × 30 cm. Volume: ~54 litres.</p><p>Base dimensions of 60 × 30 cm or more are required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-micropogon",
+      "html": "<p>Should not prove difficult to keep but must be provided with a soft, sandy substrate since some of its time will probably be spent completely buried, or with only eyes protruding. When coarser gravel is used it may become stressed or damage itself trying to dig, and feeding behaviour can be inhibited.</p><p>Other décor can include water-worn rocks and driftwood branches and tree roots arranged to form plenty of hiding places and shaded spots - add these prior to the substrate to prevent them being toppled by digging activity.</p><p>Lighting can be quite dim unless you intend to grow plants and a few handfuls of leaf litter would complement the natural effect.</p><p>As this species hails from sluggish waters high flow rates are best avoided although a degree of oxygenation is recommended.</p><p>Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when first introduced.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-micropogon",
+      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 6.0–7.5</li><li>Hardness: not recorded</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-micropogon",
+      "html": "<p>Probably a micropredator sifting mouthfuls of substrate through the gills from which insect larvae, small crustaceans and suchlike are extracted.</p><p>In the aquarium it should accept sinking dried foods but should also be offered regular meals of small live and frozen fare such as Daphnia, Artemia, bloodworm, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-micropogon",
+      "html": "<p>Lepidocephalichthys spp. are peaceful both with one another and other fishes and there exist no reports of them harming tankmates though they may prey on eggs or fry.</p><p>They fare best in the presence of conspecifics and should ideally be kept in a group of 4 or more specimens.</p><p>L. micropogon should do well alongside fishes from similar environments that occupy the upper part of the water column such as Trichopodus, Trichogaster, Trichopsis or certain Danio species.</p><p>The presence of these should also make it less timid as the absence of fishes in the upper water column is often used as a signifier for approaching danger in nature.</p><p>Sand-dwelling loaches from the families Botiidae, Cobitidae and Nemacheilidae are also suitable but proper research is essential as some can be excessively territorial or otherwise aggressive.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-micropogon",
+      "html": "<p>In mature males the pectoral fins are enlarged with fused, thickened innermost (7th and 8th) rays forming a structure known as the lamina circularis.</p><p>This generally varies in form depending on species and is present in some other cobitid genera though formed by different rays.</p><p>Adult females are typically heavier-bodied and a little larger then males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-micropogon",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-micropogon",
+      "html": "<p>This species is not traded often but may occasionally be exported as bycatch among shipments of other species.</p><p>It can be distinguished from congeners by the following combination of characters: caudal-fin strongly forked; barbels small (first pair never extending to anterior nostril, others rarely reaching orbit); caudal-fin usually with four broad, dark, irregular V-shaped bars, with first one at base of fin, second and third alternating between upper and lower parts of fin and last one only on tips of fin lobes; dorsal-fin origin usually posterior to pelvic-fin origin; lamina circularis in males comprising a large, dorsally concave flange, sometimes serrated; relatively large size (maximum SL 55 mm).</p><p>According to Kottelat (2012) L. manipurensis Arunkumar, 2000, which was described from Moreh, Manipur state, northeastern India, close to the border with Myanmar, is a synonym of L. micropogon.</p><p>Havird and Page (2010) list them separately and differentiate the two based on caudal-fin patterning, predorsal length and vertebral count, although they did not examine specimens of L. manipurensis.</p><p>The family Cobitidae, often referred to as 'true' loaches, is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.</p><p>Phylogenetic analyses by Tang et al. (2006), Šlechtová et al. (2007) and Šlechtová et al. (2008) revealed that the group constitutes a separate genetic lineage to the family Botiidae (the two were previously grouped together under Cobitidae as subfamilies Cobitinae and Botiinae).</p><p>In the most recent study Lepidocephalichthys was not found to be as closely-related to Pangio, Lepidocephalus or Kottelatlimia as previously hypothesised though unfortunately the authors stop short of proposing an alternative theory.</p><p>All cobitids possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g. if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and with larger species even break human skin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-micropogon",
+      "html": "<ul><li>Arunkumar, L. (2000). Loaches of the genus Lepidocephalicthys (Lepidocephalichthys) from Manipur, with description of a new species. Journal of Fish Biology 57(5), 1093-1104</li><li>Havird, J. C. and L. M. Page (2010). A revision of Lepidocephalichthys (Teleostei: Cobitidae) with descriptions of two new species from Thailand, Laos, Vietnam, and Myanmar. Copeia 2010(1), 137-159</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Šlechtová, V., J. Bohlen and A. Perdices (2008). Molecular phylogeny of the freshwater fish family Cobitidae (Cypriniformes: Teleostei): delimitation of genera, mitochondrial introgression and evolution of sexual dimorphism. Molecular Phylogenetics and Evolution 47(2), 812-831</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Blyth, E. (1860). Report on some fishes received chiefly from the Sitang River and its tributary streams, Tenasserim Provinces. Journal of the Asiatic Society of Bengal 29(2), 138-174</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chạch",
+        "nền cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chạch",
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thủy sinh dòng chảy nhẹ",
+        "máy sục khí mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

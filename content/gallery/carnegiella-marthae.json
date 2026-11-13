@@ -1,0 +1,70 @@
+{
+  "id": "carnegiella-marthae",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/7da4dbba5597a36ed98d5438eb4a23ac.webp",
+      "thumb": "https://media.aquatome.com/processed/7da4dbba5597a36ed98d5438eb4a23ac-480.webp",
+      "width": 714,
+      "height": 536,
+      "licence": "dùng với sự cho phép",
+      "author": "Hristo Hristov / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-marthae",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261112-carnegiella-marthae-sf-1",
+        "pixelHash": "eab8afd2e27d39cb50c77fa527a845de0eb79fe0c2d3b15221562e331f38e249"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-12T11:09:53.288Z",
+          "originalHash": "b0e1d567c3db363e530c934b2c6d722e89f937439163f1343cf0080991ccd9ac",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 780,
+            "originalHeight": 579,
+            "window": {
+              "x0": 66,
+              "y0": 0,
+              "x1": 780,
+              "y1": 536
+            },
+            "subject": {
+              "x0": 101,
+              "y0": 167,
+              "x1": 757,
+              "y1": 442
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 569,
+              "y0": 542,
+              "x1": 777,
+              "y1": 573
+            }
+          ],
+          "checks": {
+            "species": [
+              "5edeec733c965c8c645154cede05cfeb04c53fce53d97f2cdaa5967b9eb725f0",
+              "75c3ed5879498a1649c32095ea0e8f891e7d22f03bf6b258394e4073b3799d8a"
+            ],
+            "ownership": [
+              "b0da24db2e9a3f8c10a4c5dec663cf8be1b8f81caa3ea58edbea3e6e39f003ed",
+              "81b74ecaac318f2674e70938e6d4df422db4bf0d381a6670be52c00eeb41cd76"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://www.seriouslyfish.com/images/2015/01/Carnegiella-marthae-HH.jpg",
+        "width": 780,
+        "height": 579
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-12"
+}

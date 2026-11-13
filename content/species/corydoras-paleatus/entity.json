@@ -518,7 +518,12 @@
       "author": "Nate Wessel",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_pair_with_eggs.jpg",
       "caption": "A pair of spawning Corydoras catfish. The larger fish holds eggs between her pelvic fins as she looks for a place to deposit them.",
-      "thumb": "https://media.aquatome.com/commons/ca2a8705dff4e31e-480.webp"
+      "thumb": "https://media.aquatome.com/commons/ca2a8705dff4e31e-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/ca2a8705dff4e31e-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/a5b6e56f0b64eb1b.webp",
@@ -528,7 +533,12 @@
       "author": "Marrabbio2",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_paleatus_matt.jpg",
       "caption": "Corydoras paleatus",
-      "thumb": "https://media.aquatome.com/commons/a5b6e56f0b64eb1b-480.webp"
+      "thumb": "https://media.aquatome.com/commons/a5b6e56f0b64eb1b-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/a5b6e56f0b64eb1b-large.webp",
+        "width": 1371,
+        "height": 1044
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/52e28f524a1e37fb.webp",
@@ -581,8 +591,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá thủy sinh"
+        "bể cá 70cm"
       ]
     },
     {

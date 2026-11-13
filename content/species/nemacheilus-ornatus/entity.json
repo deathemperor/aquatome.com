@@ -10,6 +10,56 @@
     "thailand",
     "tapi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Tapi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Tapi river drainage in Surat Thani province, southern Thailand with type locality 'Lake Sonkphan, Khlong Sok at Ban Khlong Sok, 8°49'N, 98°35'E, Tapi River basin, Surat Thani Province, Thailand'.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Tapi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205297,
+      "total": 5,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TH",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          4,
+          4
+        ],
+        [
+          99.84375,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +103,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -164,17 +214,6 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-ornatus",
       "caption": "Well-conditioned individual in the aquarium.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/9f4774f536188ec7.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/9f4774f536188ec7-480.webp",
-      "width": 700,
-      "height": 467,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-ornatus",
-      "caption": "Habitat in Surathani province, southern Thailand.",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -182,8 +221,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể cá 54 lít"
+        "bể cá 60cm"
       ]
     },
     {

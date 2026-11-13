@@ -10,6 +10,56 @@
     "indonesia",
     "kalimantan-barat"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Parosphromenus anjunganensis is a liquorice gourami known only from a handful of localities near Anjungan in Kalimantan Barat, Indonesian Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394189,
+      "total": 9,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "ID",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          108.28125,
+          0,
+          3,
+          3
+        ],
+        [
+          111.09375,
+          -4.21875,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -74,7 +124,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -207,8 +257,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 20 lít",
-        "bể thủy sinh mini"
+        "bể cá 40cm"
       ]
     },
     {

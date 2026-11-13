@@ -7,9 +7,10 @@
   "photos": [],
   "mentions": [
     "caridina-multidentata",
-    "poecilia-reticulata"
+    "poecilia-reticulata",
+    "poecilia-sphenops"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "-bQ0WmRct84",
     "title": "[Vlog Thuỷ sinh] Đại chiến rêu hại - Hồi kết #Greenhappiness",
@@ -31,63 +32,73 @@
     "lang": "vi",
     "taxa": [
       "Otocinclus sp.",
-      "Nannostomus sp.",
       "Poecilia reticulata",
+      "Poecilia sphenops",
       "Nerita sp.",
-      "Caridina multidentata"
+      "Caridina multidentata",
+      "Caridina sp."
     ],
-    "gear": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 180
+      }
+    ],
     "figures": [
       {
-        "heading": "Nên nuôi cá gì để ăn rêu",
+        "heading": "Nên chọn cá ăn rêu nào",
         "moments": [
           {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/-bQ0WmRct84/t59.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá ô tô bám trên nền cát trong bể thủy sinh."
+            "t": 60,
+            "url": "https://media.aquatome.com/video/-bQ0WmRct84/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá ô tô bám trên nền cát trong bể thủy sinh.",
+            "sharpness": 196.5,
+            "person": false
           },
           {
-            "t": 69,
-            "url": "https://media.aquatome.com/video/-bQ0WmRct84/t69.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá nhỏ bơi giữa đám cây thủy sinh xanh trong bể."
+            "t": 70,
+            "url": "https://media.aquatome.com/video/-bQ0WmRct84/at70-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá bút chì bơi giữa đám cây thủy sinh xanh tốt.",
+            "sharpness": 412.5,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/-bQ0WmRct84/p0-mdHdvb2RfMy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/-bQ0WmRct84/p0-mdHdvb2RfMy5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/-bQ0WmRct84/p0-dmVzdGl0dXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/-bQ0WmRct84/p0-dmVzdGl0dXMuanBn-480.webp",
           "width": 960,
           "height": 540,
-          "licence": "CC BY 4.0",
-          "author": "Evan Baldonado",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_Catfish_(Otocinclus_sp.)_on_Malaysian_driftwood_3.jpg",
-          "caption": "Một con cá ô tô nhỏ bám trên lũa trong bể có rêu và cây thủy sinh."
+          "licence": "CC BY-SA 4.0",
+          "author": "Fremen",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_vestitus.jpg",
+          "caption": "Cá ô tô với sọc đen dọc thân, loài ăn rêu quen thuộc trong bể."
         }
       },
       {
-        "heading": "Ốc Nerita: chuyên gia ăn tảo silic",
+        "heading": "Tép Amano và các loại tép khác",
         "moments": [
           {
-            "t": 147,
-            "url": "https://media.aquatome.com/video/-bQ0WmRct84/t147.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Con ốc bám trên lá khô, dọn lớp nâu bám trên bề mặt."
-          }
-        ]
-      },
-      {
-        "heading": "Chọn tép ăn rêu: Amano hay tép nội",
-        "moments": [
+            "t": 150,
+            "url": "https://media.aquatome.com/video/-bQ0WmRct84/at150-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh một con tép bám trên lá trong bể.",
+            "sharpness": 527.7,
+            "person": false
+          },
           {
-            "t": 162,
-            "url": "https://media.aquatome.com/video/-bQ0WmRct84/t162.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Một nhóm tép nhỏ đang được thả trong chiếc phễu nhựa để làm quen nước."
+            "t": 165,
+            "url": "https://media.aquatome.com/video/-bQ0WmRct84/at165-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Một cốc đầy tép nhỏ mới mua về, chuẩn bị thả vào bể.",
+            "sharpness": 322.5,
+            "person": false
           }
         ],
         "photo": {
@@ -98,44 +109,52 @@
           "licence": "CC BY-SA 3.0",
           "author": "Seotaro",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caridina_multidentata(Hamamatsu,Shizuoka,Japan,2007).jpg",
-          "caption": "Tép Amano bò trên nền cát trong bể thủy sinh, thân có các đốm nhỏ."
+          "caption": "Tép Amano nhìn nghiêng rõ nét, bò trên nền sỏi trong bể."
         }
       },
       {
-        "heading": "Thả cá, tép thế nào để chúng không chết",
+        "heading": "Cho cá, ốc, tép quen nước trước khi thả",
         "moments": [
           {
-            "t": 186,
-            "url": "https://media.aquatome.com/video/-bQ0WmRct84/t186.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ngâm nguyên bịch cá tép trong bể để cân bằng nhiệt độ."
+            "t": 195,
+            "url": "https://media.aquatome.com/video/-bQ0WmRct84/at195-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bịch tép được ngâm trong bể khoảng 10 phút cho quen nước.",
+            "sharpness": 665.8,
+            "person": false
           },
           {
-            "t": 201,
-            "url": "https://media.aquatome.com/video/-bQ0WmRct84/t201.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng dây sủi khí nhỏ cho nước bể chảy từ từ vào xô."
+            "t": 205,
+            "url": "https://media.aquatome.com/video/-bQ0WmRct84/at205-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dây sủi khí nhỏ dẫn nước từ bể sang xô đựng tép.",
+            "sharpness": 580.5,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Thả tép rồi mà không thấy đâu",
+        "heading": "Vì sao thả tép rồi mà không thấy đâu",
         "moments": [
           {
-            "t": 221,
-            "url": "https://media.aquatome.com/video/-bQ0WmRct84/t221.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Góc bể rậm cây và rêu, nơi tép ẩn nấp ban ngày."
+            "t": 220,
+            "url": "https://media.aquatome.com/video/-bQ0WmRct84/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Một con tép ẩn mình giữa đám rêu và cây thủy sinh.",
+            "sharpness": 355.3,
+            "person": false
           },
           {
             "t": 225,
-            "url": "https://media.aquatome.com/video/-bQ0WmRct84/t225.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây thủy sinh lá xanh um tùm trong bể, chỗ tép có thể trốn."
+            "url": "https://media.aquatome.com/video/-bQ0WmRct84/at225-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tép nhỏ núp trong bụi cây rậm rạp của bể.",
+            "sharpness": 120.7,
+            "person": false
           }
         ],
         "photo": {
@@ -146,43 +165,54 @@
           "licence": "CC BY-SA 4.0",
           "author": "Hamid.Moghadam",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cherry_shrimps_in_freshwater_aquarium.png",
-          "caption": "Đàn tép cảnh đỏ và vàng bò kiếm ăn trên nền sỏi đen."
+          "caption": "Đàn tép cảnh đỏ và vàng đang bò kiếm ăn trên nền sỏi đen."
         }
       },
       {
-        "heading": "Đội ăn rêu không phải là đủ",
+        "heading": "Thả đội ăn rêu lúc nào",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/-bQ0WmRct84/p5-bV9maXNoZXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/-bQ0WmRct84/p5-bV9maXNoZXMuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/-bQ0WmRct84/p5-MDY5ODI0OSkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/-bQ0WmRct84/p5-MDY5ODI0OSkuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 2.0",
+          "author": "Bernard DUPONT from FRANCE",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sea_Snail_(Nerita_balteata)_(8220698249).jpg",
+          "caption": "Ốc Nerita vằn bám trên đá phủ rêu, loại ốc ăn rêu quen thuộc."
+        }
+      },
+      {
+        "heading": "Kết hợp với vớt rêu và thay nước",
+        "moments": [
+          {
+            "t": 315,
+            "url": "https://media.aquatome.com/video/-bQ0WmRct84/at315-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nhiều rêu và cây xanh dưới đèn, cần vớt rêu hại.",
+            "sharpness": 1058,
+            "person": false
+          },
+          {
+            "t": 325,
+            "url": "https://media.aquatome.com/video/-bQ0WmRct84/at325-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh sạch rêu hại, cây xanh tươi sau khi chăm sóc.",
+            "sharpness": 1285.6,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/-bQ0WmRct84/p6-bV9GaXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/-bQ0WmRct84/p6-bV9GaXNoZXMuanBn-480.webp",
           "width": 960,
           "height": 640,
           "licence": "CC BY-SA 4.0",
           "author": "KannanVM",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
-          "caption": "Bể cá nền sỏi sạch, có cây và lũa, cá vàng bơi gần đáy."
-        }
-      },
-      {
-        "heading": "Bài học sau một trận đánh rêu",
-        "moments": [
-          {
-            "t": 319,
-            "url": "https://media.aquatome.com/video/-bQ0WmRct84/t319.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh với rêu và cây cảnh xanh um sau khi xử lý rêu hại."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/-bQ0WmRct84/p6-uYV9ydWJyYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/-bQ0WmRct84/p6-uYV9ydWJyYS5qcGc-480.webp",
-          "width": 960,
-          "height": 727,
-          "licence": "CC BY 2.0",
-          "author": "Carnat Joel",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brackish_water_tank_for_Halocaridina_rubra.jpg",
-          "caption": "Bể thủy sinh bị rêu sợi xanh mọc um tùm phủ lên đá và cây."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_Fishes.jpg",
+          "caption": "Bể cá sạch, nền sỏi gọn gàng và gần như không có rêu hại."
         }
       }
     ]

@@ -88,6 +88,28 @@
         "source": 4,
         "value": 100
       }
+    ],
+    "difficulty": [
+      {
+        "source": 4,
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 4,
+        "value": {
+          "min": 10,
+          "max": 10
+        }
+      },
+      {
+        "source": 5,
+        "value": {
+          "min": 8,
+          "max": 10
+        }
+      }
     ]
   },
   "photos": [
@@ -99,7 +121,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Visa Kopu, Roxeteer",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_angelfish.jpg",
-      "caption": "Cá thần tiên Koi thân trắng đầu cam trong bể thủy sinh"
+      "caption": "Cá thần tiên Koi thân trắng đầu cam trong bể thủy sinh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/50679b905eef1e79-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     }
   ],
   "sources": [

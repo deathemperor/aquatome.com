@@ -24,7 +24,8 @@
         "ID",
         "VN",
         "KH",
-        "TH"
+        "TH",
+        "MY"
       ],
       "regions": [
         "Mekong",
@@ -45,7 +46,8 @@
             "ID",
             "VN",
             "KH",
-            "TH"
+            "TH",
+            "MY"
           ],
           "regions": [
             "Mekong",
@@ -61,7 +63,7 @@
     "records": {
       "taxonKey": 2392012,
       "total": 41,
-      "fetched": "2026-11-05",
+      "fetched": "2026-11-09",
       "countries": [
         [
           "ID",
@@ -117,7 +119,7 @@
           101.25,
           2.8125,
           1,
-          0
+          1
         ],
         [
           102.65625,
@@ -129,13 +131,13 @@
           102.65625,
           1.40625,
           3,
-          0
+          3
         ],
         [
           102.65625,
           5.625,
           9,
-          0
+          9
         ],
         [
           104.0625,
@@ -189,7 +191,7 @@
           113.90625,
           2.8125,
           3,
-          0
+          3
         ],
         [
           115.3125,
@@ -261,7 +263,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -270,7 +272,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/helostoma-temminckii",
-      "html": "<p>The kissing gourami, Helostoma temminckii, is an anabantoid from southern Indochina and the Malay Archipelago, and the sole member of its family. The widely traded pinkish-white form is a leucistic variant bred for ornamental purposes, and the 'balloon' variety is intentionally disfigured and much shorter-lived. Its often belligerent behaviour, adult size and life span of over 20 years make it unsuitable for most home aquaria. The 'kissing' appears at least in part related to establishing social dominance.</p><ul><li>Max size: 250 mm SL (10 in SL)</li><li>Aquarium size: 150 × 45 cm (60 × 18 in)</li><li>Temperature: 22–30°C (72–86°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 1–20 dGH</li><li>Difficulty: 5 of 8, moderate</li></ul>"
+      "html": "<p>The kissing gourami, Helostoma temminckii, is an anabantoid from southern Indochina and the Malay Archipelago, and the sole member of its family. The widely traded pinkish-white form is a leucistic variant bred for ornamental purposes, and the 'balloon' variety is intentionally disfigured and much shorter-lived. Its often belligerent behaviour, adult size and life span of over 20 years make it unsuitable for most home aquaria. The 'kissing' appears at least in part related to establishing social dominance.</p><ul><li>Max size: 250 mm SL (10 in SL)</li><li>Aquarium size: 150 × 45 cm (60 × 18 in)</li><li>Temperature: 22–30°C (72–86°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 1–20 dGH</li><li>Difficulty: 4 of 8, moderate</li></ul>"
     },
     {
       "key": "distribution",
@@ -357,8 +359,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá lớn 300 lít"
+        "bể cá 150cm"
       ]
     },
     {

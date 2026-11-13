@@ -1,0 +1,53 @@
+{
+  "id": "lepidiolamprologus-meeli",
+  "native": {
+    "input": "02a97266c600fa2a",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Neolamprologus meeli was described in 1948 by Max Poll from a place near Katibili, which belongs to the Congolese part of Lake Tanganyika.",
+        "words": "Congolese",
+        "ok": false,
+        "why": "\"Congolese\" is not CD"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "glaser",
+        "quote": "Neolamprologus meeli was described in 1948 by Max Poll from a place near Katibili, which belongs to the Congolese part of Lake Tanganyika.",
+        "country": "CD",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lepidiolamprologus meeli",
+    "status": "ACCEPTED",
+    "taxonKey": 9621840,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        5
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        3
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

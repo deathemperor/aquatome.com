@@ -78,6 +78,29 @@
         "source": 0,
         "value": 21
       }
+    ],
+    "difficulty": [
+      {
+        "source": 4,
+        "value": 4
+      },
+      {
+        "source": 3,
+        "value": 2
+      },
+      {
+        "source": 2,
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 4,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      }
     ]
   },
   "photos": [
@@ -99,7 +122,12 @@
       "licence": "CC BY-SA 4.0",
       "author": "Lawrencekhoo",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:OrangeWhite_Ryukin.jpg",
-      "caption": "Cá vàng Lưu kim hai màu trắng cam trong bể nuôi"
+      "caption": "Cá vàng Lưu kim hai màu trắng cam trong bể nuôi",
+      "large": {
+        "url": "https://media.aquatome.com/commons/73fc737cbf8735cd-large.webp",
+        "width": 1493,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/7bbd97c4e3a162c6.webp",

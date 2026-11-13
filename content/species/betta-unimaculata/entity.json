@@ -11,6 +11,74 @@
     "mahakam",
     "tarakan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kayan",
+        "Mahakam",
+        "Borneo",
+        "Tarakan"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta unimaculata is a large mouthbrooding labyrinth fish from the upper Kayan and Mahakam river drainages in East Kalimantan, Borneo, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kayan",
+            "Mahakam",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Wild-caught Betta unimaculata from the island of Tarakan.",
+          "countries": [],
+          "regions": [
+            "Tarakan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393992,
+      "total": 14,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          8
+        ],
+        [
+          "MY",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          1.40625,
+          8,
+          8
+        ],
+        [
+          116.71875,
+          4.21875,
+          6,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -52,6 +120,10 @@
       {
         "source": "seriouslyfish",
         "value": 11.5
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "difficulty": [
@@ -61,7 +133,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ],
     "gh": [
@@ -94,6 +166,12 @@
       "html": "<p>Betta unimaculata is a large mouthbrooding labyrinth fish from the upper Kayan and Mahakam river drainages in East Kalimantan, Borneo, Indonesia. Growing to around 115 mm SL, it has been collected from clear, flowing streams, elevated headwater pools and more turbid forest streams. Populations differ in colour and pattern and will hybridise, so they are labelled by locality and should never be kept together. Fish from 'Tawau' once thought to be this species have been described as B. ocellata.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_unimaculata_en/",
+      "html": "<p>Fully grown, German-bred specimens about 8 cm long. A peaceful, mouthbrooding Betta.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
@@ -122,6 +200,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-unimaculata",
       "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance. Driftwood roots and branches can be used and placed such a way that a few shady spots are formed.</p><p>If you can't find driftwood of the desired shape common beech or oak is safe to use if thoroughly dried and stripped of bark. Clay plant pots or lengths of piping can also be included to provide further shelter.</p><p>The addition of dried leaf litter, with beech, oak or Ketapang almond leaves all suitable, can further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial.</p><p>Like others in the genus this species seems to do best under fairly dim lighting. You could add aquatic plant species that can survive under such conditions such as Microsorum pteropus, Taxiphyllum barbieri or perhaps some potted Cryptocoryne spp., and a few patches of floating vegetation would be useful to diffuse the light entering the tank.</p><p>Filtration need not be too strong, with an air-powered sponge filter set to turn over gently adequate. Keep the tank well-covered and do not fill it to the top as like all Betta spp. it requires occasional access to the layer of humid air that will form above the water surface, and is an excellent jumper.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_unimaculata_en/",
+      "html": "<p>Keeping these fish is problem free, but Betta unimaculata is an excellent jumper, as it lives in brooks in the wild. The tank must therefore be covered carefully.</p>"
     },
     {
       "key": "waterConditions",
@@ -184,6 +268,12 @@
       "html": "<p>Paternal mouthbrooder. Ideally organise a separate tank for breeding purposes, unless the fish are already being maintained alone, setting this up as suggested above.</p><p>The tank should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>Though not always possible, the ideal way to obtain a compatible pair for breeding purposes is to allow one to form naturally from a group. If a male and female are selected randomly they do not always coexist peacefully and the weaker individual may even be killed. Once a pair has formed they do not usually display any aggression unless space is restricted.</p><p>Courtship is normally a protracted affair during which the intensely-coloured male approaches the female with mouth gaping and fins erect. The female usually orientates her body so that the male is facing one of her flanks and may gape and flare in response.</p><p>Eggs and milt are released in small batches during an 'embrace' typical of osphronemids in which the male wraps his body around that of the female, and there may be several 'dummy' attempts before spawning commences. Both adults have been observed to collect fertilised eggs, with those picked up by the female spat into the mouth of the male. Once the male has all the eggs in his mouth the cycle is repeated until the female is spent of eggs, a process which can take some time.</p><p>Post-spawning it is very important to give the male as much peace and quiet as possible. Males are notorious for swallowing broods of eggs after a few days and the chances of this happening increase if the male is unduly disturbed.</p><p>For this reason many breeders leave the female in situ rather than risk unsettling the male by removing her though in smaller aquaria, in particular, she may harass the male excessively or eat fry and require removal regardless.</p><p>The incubation period is 10-14 days at the end of which the male will begin to release fully-formed, free-swimming fry. Success in raising them has been had when removed, left alongside the male or both adults.</p><p>The fry are big enough (5 mm+) to accept motile foods such as microworm and Artemia nauplii (see above notes on the feeding of Artemia to young Betta) immediately. Feed them small amounts of different foods several times per day for the best rate of growth but be very careful not to overfeed as young of this species can develop intestinal problems very easily if overfed. Small (5 - 10% of tank volume) daily water changes should also be introduced to prevent organic wastes accumulating.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_unimaculata_en/",
+      "html": "<p>This Betta is a mouthbrooder.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
@@ -202,14 +292,103 @@
       "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Witte, K.-E. and J. Schmidt (1992). Betta brownorum, a new species of anabantoids (Teleostei: Belontiidae) from northwestern Borneo, with a key to the genus. Ichthyological Exploration of Freshwaters 2(4), 305-330</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/78589f44af889a965023df1404ad0adf.webp",
+      "thumb": "https://media.aquatome.com/processed/78589f44af889a965023df1404ad0adf-480.webp",
+      "width": 1000,
+      "height": 691,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/6qkuko5edszpeouygearvg6ca9e5y1-a8xlw",
+      "source": "bwaquatics",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-betta-unimaculata",
+        "pixelHash": "0445cd5bb7f246c1f204ced65a535ea83ffb2f1eccb6377413f805b6ec672574"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:14:45.690Z",
+          "originalHash": "11b9038ae440d04fae4864e8fb2b2f60b70082cca397ad9571c6960dd6b9e591",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 1000,
+            "originalHeight": 800,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 1000,
+              "y1": 691
+            },
+            "subject": {
+              "x0": 104,
+              "y0": 298,
+              "x1": 810,
+              "y1": 599
+            },
+            "margin": 20
+          },
+          "excludedMarks": [
+            {
+              "x0": 351,
+              "y0": 699,
+              "x1": 650,
+              "y1": 726
+            }
+          ],
+          "checks": {
+            "species": [
+              "1d48a9ec1c8be1b7759a24581193de5ec6f2130c83e1ff40e86f7e0b236c1f94",
+              "b6ff5a6117d6b4ab083da0fa01f9dfdd393f1eb9543c0c2939312daf7cb39075"
+            ],
+            "ownership": [
+              "2aae1c2fa73ce34b5e7e2d80739c7a94a79b1485e2693adf9491e34f14ec9fd7",
+              "8c4bfc71a674175e3363a5287f7f6e7ce256fc6fac74247ed37fe4ffe0ef1970"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/bwaquatics/570b57974b4f9f1a.webp",
+        "width": 1000,
+        "height": 800,
+        "thumb": "https://media.aquatome.com/bwaquatics/570b57974b4f9f1a-480.webp"
+      }
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "OrW6PZgqKSM",
+      "title": "Recreating a Jungle Stream for My Giant Dragon Bettas",
+      "durationSec": 534,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "azQ2lUUCBs4",
+      "title": "Betta unimaculata from Maliau Basin",
+      "durationSec": 36,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "d3eBkLydaoI",
+      "title": "Breeding Wild Betta Unimaculata sp. Mini Mahakam in Natural Aquarium",
+      "durationSec": 241,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0A2g1fF3bAo",
+      "title": "The Betta unimaculata complex",
+      "durationSec": 440,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá betta"
+        "bể cá 80cm"
       ]
     },
     {
@@ -235,5 +414,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

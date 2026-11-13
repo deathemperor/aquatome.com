@@ -5,7 +5,19 @@
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/266bcd7279232b35.webp": "19b9090721431212",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Aphyosemion_elberti_red_T.jpg/1280px-Aphyosemion_elberti_red_T.jpg": "8666733f1f8d25a4"
+  "https://media.aquatome.com/commons/debcef84eaa72230.webp": "a6a6731f170d25a4"
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "inat": {
+  "taxon": 94312,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2348341,
+  "next": null
+ }
 }

@@ -13,6 +13,219 @@
     "ecuador",
     "bolivia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE",
+        "EC",
+        "BO"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Jurua"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the central and western Amazon basins in Brazil, Peru, Ecuador and Bolivia.",
+          "countries": [
+            "BR",
+            "PE",
+            "EC",
+            "BO"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'vicinity of the mouth of Rio Embira, a tributary of Rio Tarauaca, which, in turn, is a tributary of Rio Jurua (700 15' W., 70 30' S.)'.",
+          "countries": [],
+          "regions": [
+            "Rio Jurua"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340128,
+      "total": 57,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "PE",
+          36
+        ],
+        [
+          "BR",
+          12
+        ],
+        [
+          "BO",
+          5
+        ],
+        [
+          "EC",
+          3
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          -78.75,
+          -5.625,
+          11,
+          11
+        ],
+        [
+          -78.75,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -77.34375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          -71.71875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -60,7 +273,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -138,41 +351,7 @@
       "html": "<ul><li>La Monte, F. R. (1935). Fishes from Rio Jurua and Rio Purus, Brazilian Amazonas. American Museum Novitates No. 784, 1-8</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>de Carvalho Paixão, A. and M. Toledo-Piza (2009). Systematics of Lamontichthys Miranda-Ribeiro (Siluriformes: Loricariidae), with the description of two new species. Neotropical Ichthyology 7(4), 519-568</li></ul>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/dd11c848409b1b73.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/dd11c848409b1b73-480.webp",
-      "width": 800,
-      "height": 432,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus",
-      "caption": "Adult male specimen.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/586390915d5dbc52.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/586390915d5dbc52-480.webp",
-      "width": 627,
-      "height": 630,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus",
-      "caption": "Female specimen.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/39234eb0f3d9a438.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/39234eb0f3d9a438-480.webp",
-      "width": 720,
-      "height": 616,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/lamontichthys-filamentosus",
-      "caption": "Dorsal view of adult male.",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "b5r4NCklCBg",
@@ -203,8 +382,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá nuôi riêng"
+        "bể cá 120cm"
       ]
     },
     {

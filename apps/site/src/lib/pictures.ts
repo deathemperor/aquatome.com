@@ -10,6 +10,7 @@ export const pagePictures = (c: Content) => new PictureSet(c.pictureHashes)
 
 /** A fish's or plant's photos in the order its card tries them: the first without a dealer's mark, then the rest. */
 export function photosOf(photos: Photo[]): Photo[] {
+  photos = photos.filter(p => !p.generated)
   const first = cleanPhoto(photos)
   return first ? [first, ...photos.filter(p => p !== first)] : []
 }

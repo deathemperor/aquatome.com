@@ -955,7 +955,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 4
+        "value": 2
       }
     ]
   },
@@ -1029,16 +1029,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/bf71c7e751807fff.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY-SA 4.0",
-      "author": "fishesoftexas",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poecilia_latipinna_243516391.jpg",
-      "caption": "Sailfin Molly (Poecilia latipinna)",
-      "thumb": "https://media.aquatome.com/commons/bf71c7e751807fff-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/115a23b2b151bcce.webp",
       "width": 960,
       "height": 532,
@@ -1046,27 +1036,12 @@
       "author": "Tia Offner",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poecilia_latipinna_170400954.jpg",
       "caption": "Sailfin Molly (Poecilia latipinna)",
-      "thumb": "https://media.aquatome.com/commons/115a23b2b151bcce-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/81f08b1ad835e8ec.webp",
-      "width": 960,
-      "height": 577,
-      "licence": "CC0",
-      "author": "Nick Loveland",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poecilia_latipinna_316789286.jpg",
-      "caption": "Sailfin Molly (Poecilia latipinna)",
-      "thumb": "https://media.aquatome.com/commons/81f08b1ad835e8ec-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/dca7170c20b3170e.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "averagewalrus",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poecilia_latipinna_225054218.jpg",
-      "caption": "Sailfin Molly (Poecilia latipinna)",
-      "thumb": "https://media.aquatome.com/commons/dca7170c20b3170e-480.webp"
+      "thumb": "https://media.aquatome.com/commons/115a23b2b151bcce-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/115a23b2b151bcce-large.webp",
+        "width": 2048,
+        "height": 1136
+      }
     }
   ],
   "videos": [
@@ -1099,8 +1074,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 100 lít"
+        "bể cá 80cm"
       ]
     },
     {

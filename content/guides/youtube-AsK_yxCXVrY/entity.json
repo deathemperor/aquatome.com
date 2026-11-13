@@ -7,9 +7,15 @@
   "photos": [],
   "mentions": [
     "hyphessobrycon-amandae",
-    "neocaridina-davidi"
+    "neocaridina-davidi",
+    "paracheirodon-simulans",
+    "helanthium-tenellum",
+    "pogostemon-helferi",
+    "hygrophila-pinnatifida",
+    "rotala-rotundifolia",
+    "vesicularia-montagnei"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "AsK_yxCXVrY",
     "title": "Aquascape Update & Maintenance Session sera Scaper Cube 80",
@@ -28,6 +34,9 @@
       "height": 720
     },
     "taxa": [
+      "Hyphessobrycon amandae",
+      "Paracheirodon simulans",
+      "Neocaridina davidi",
       "Helanthium tenellum",
       "Pogostemon helferi",
       "Cryptocoryne petchii",
@@ -35,9 +44,7 @@
       "Ludwigia sp.",
       "Hygrophila pinnatifida",
       "Rotala rotundifolia",
-      "Vesicularia sp.",
-      "Hyphessobrycon amandae",
-      "Neocaridina davidi"
+      "Vesicularia montagnei"
     ],
     "gear": [
       {
@@ -51,15 +58,15 @@
         "category": "loc",
         "type": "thung",
         "brand": "JBL",
-        "model": "greenline e902",
-        "t": 66
+        "model": "Greenline e902",
+        "t": 90
       },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "sera",
-        "model": "x-change led",
-        "t": 33
+        "model": "X-Change LED",
+        "t": 40
       },
       {
         "category": "phan-nen",
@@ -71,142 +78,182 @@
       {
         "category": "co2",
         "type": "mini",
-        "t": 102
+        "t": 120
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 0
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao bể mới ba tuần đã cần bảo trì",
+        "heading": "Bể đang chạy với những gì",
         "moments": [
           {
-            "t": 0,
-            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/t0.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cube thủy sinh với lũa, cây thân đứng và thảm cỏ xanh."
+            "t": 60,
+            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể với thảm cây xanh và cây đỏ lên tốt.",
+            "sharpness": 786.4,
+            "person": false
           },
           {
-            "t": 109,
-            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/t109.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh cây thân đứng mọc um tùm quanh khúc lũa trong bể."
+            "t": 70,
+            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/at70-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đèn LED dạng ống của Sera gắn phía trên bể.",
+            "sharpness": 749,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Cây lên tốt nhờ những gì",
+        "heading": "Tỉa thảm tiền cảnh",
         "moments": [
           {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/t59.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cây lên tươi tốt trên lớp phân nền đen."
+            "t": 165,
+            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/at165-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn bộ bể với thảm Helanthium tenellum ở tiền cảnh chưa ưng ý.",
+            "sharpness": 743.3,
+            "person": false
           },
           {
-            "t": 69,
-            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/t69.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đèn LED dạng ống đặt phía trên bể thủy sinh."
-          }
-        ]
-      },
-      {
-        "heading": "Các bước một buổi bảo trì",
-        "moments": [
-          {
-            "t": 297,
-            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/t297.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm tiền cảnh được cắt sát sau khi tỉa."
-          },
-          {
-            "t": 307,
-            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/t307.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây thân đứng đỏ đã tỉa nằm trên khay."
-          }
-        ]
-      },
-      {
-        "heading": "Ngọn tỉa ra thì làm gì",
-        "moments": [
-          {
-            "t": 371,
-            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/t371.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ngọn tỉa cùng loài được xếp đều trên khay, cắt cùng độ dài."
-          },
-          {
-            "t": 386,
-            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/t386.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cắm lại các ngọn đỏ xuống nền trong bể sau khi tỉa."
-          }
-        ]
-      },
-      {
-        "heading": "Thảm tiền cảnh trồng lại không ưng thì xử lý sao",
-        "moments": [
-          {
-            "t": 163,
-            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/t163.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn bể với thảm tiền cảnh xanh phía trước, nhìn chưa thật ổn."
-          },
-          {
-            "t": 426,
-            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/t426.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm tiền cảnh trồng lại nhìn còn thưa và chưa đều."
+            "t": 195,
+            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/at195-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh thảm Helanthium tenellum xanh ở tiền cảnh trước khi cắt.",
+            "sharpness": 644.9,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/AsK_yxCXVrY/p5-ydS1JbmRpYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/AsK_yxCXVrY/p5-ydS1JbmRpYS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/AsK_yxCXVrY/p1-sdW1fa3owMi5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/AsK_yxCXVrY/p1-sdW1fa3owMi5qcGc-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staurgyne_repens-1-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Thảm cỏ tiền cảnh mọc dày sát nền, xen đá và cây lá rộng."
+          "height": 686,
+          "licence": "CC BY-SA 4.0",
+          "author": "Krzysztof Ziarnek, Kenraiz",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Helanthium_tenellum_kz02.jpg",
+          "caption": "Thảm Helanthium tenellum mọc dày ở tiền cảnh bể thủy sinh."
         }
       },
       {
-        "heading": "Bể trông thế nào sau khi tỉa",
+        "heading": "Tỉa cây cắt cắm",
         "moments": [
           {
-            "t": 416,
-            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/t416.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể sau khi tỉa, cây thấp và còn khá trống quanh lũa và đá."
-          },
-          {
-            "t": 436,
-            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/t436.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Nhìn gần bể vừa tỉa, thảm cây còn thưa và chưa phủ kín."
+            "t": 300,
+            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/at300-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thảm cây cắt cắm xanh um trong bể trước khi tỉa.",
+            "sharpness": 444.5,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/AsK_yxCXVrY/p6-NfUGxhbnRzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/AsK_yxCXVrY/p6-NfUGxhbnRzLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/AsK_yxCXVrY/p2-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/AsK_yxCXVrY/p2-J1LUluZGlhLmpwZw-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_pink-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Cụm Rotala đỏ mọc cao, rậm trong bể, đến lúc cần tỉa."
+        }
+      },
+      {
+        "heading": "Lau kính và thay nước",
+        "moments": [
+          {
+            "t": 295,
+            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/at295-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể đã rút cạn nước còn thấp, lộ rõ lũa và lớp cây dưới nền.",
+            "sharpness": 683.6,
+            "person": false
+          },
+          {
+            "t": 340,
+            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/at340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể sau khi châm nước mới lại, kính sạch và nước trong.",
+            "sharpness": 1157.4,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/AsK_yxCXVrY/p3-yaXR0ZXJzIS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/AsK_yxCXVrY/p3-yaXR0ZXJzIS5qcGc-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 2.0",
+          "author": "kerinin",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Critters!.jpg",
+          "caption": "Cận cảnh mặt kính bể và lớp nền cát sau khi lau kính."
+        }
+      },
+      {
+        "heading": "Cắm lại ngọn tỉa cho bụi cây dày",
+        "moments": [
+          {
+            "t": 375,
+            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/at375-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ngọn tỉa đỏ được gom lại trên khay, sẵn sàng cắm lại.",
+            "sharpness": 1075.8,
+            "person": false
+          },
+          {
+            "t": 395,
+            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/at395-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ngọn cây đỏ đã được cắm lại xuống nền trong bể.",
+            "sharpness": 1150.6,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Bể sau khi tỉa trông thế nào",
+        "moments": [
+          {
+            "t": 420,
+            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/at420-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể sau khi tỉa, cây còn thưa và lũa nổi rõ.",
+            "sharpness": 1196.5,
+            "person": false
+          },
+          {
+            "t": 430,
+            "url": "https://media.aquatome.com/video/AsK_yxCXVrY/at430-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh thảm Helanthium tenellum sau khi tỉa, còn khá thưa.",
+            "sharpness": 654.9,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/AsK_yxCXVrY/p5-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/AsK_yxCXVrY/p5-NfUGxhbnRzLmpwZw-480.webp",
           "width": 960,
           "height": 638,
           "licence": "CC BY 4.0",
           "author": "Abhik.Mazumdar.73",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Bể thủy sinh còn thưa cây, chỉ có lũa và vài bụi lá xanh."
+          "caption": "Bể thủy sinh sau khi tỉa, cây còn thưa, nền cát trắng và lũa."
         }
       }
     ]

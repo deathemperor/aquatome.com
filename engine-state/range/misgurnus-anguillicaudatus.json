@@ -1,0 +1,726 @@
+{
+  "id": "misgurnus-anguillicaudatus",
+  "native": {
+    "input": "5275582977cdcb7b",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "loachesonline",
+        "quote": "Native to Myanmar, much of North-eastern Asia, and down towards central China.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "loachesonline",
+        "quote": "Native to Myanmar, much of North-eastern Asia, and down towards central China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "introduced",
+        "source": "loachesonline",
+        "quote": "At least one country, Australia, reports adverse ecological impact following introduction during the 1980s.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "IT",
+        "status": "introduced",
+        "source": "loachesonline",
+        "quote": "The species has also been released in Italy, the Philippines, parts of the USA including Hawaii, and Germany, where breeding populations are now well established.",
+        "words": "Italy",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "introduced",
+        "source": "loachesonline",
+        "quote": "The species has also been released in Italy, the Philippines, parts of the USA including Hawaii, and Germany, where breeding populations are now well established.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "loachesonline",
+        "quote": "The species has also been released in Italy, the Philippines, parts of the USA including Hawaii, and Germany, where breeding populations are now well established.",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "DE",
+        "status": "introduced",
+        "source": "loachesonline",
+        "quote": "The species has also been released in Italy, the Philippines, parts of the USA including Hawaii, and Germany, where breeding populations are now well established.",
+        "words": "Germany",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Origin: China, Korea, Japan, Northern Vietnam, Siberia, Sakhalin",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Origin: China, Korea, Japan, Northern Vietnam, Siberia, Sakhalin",
+        "words": "Korea",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Origin: China, Korea, Japan, Northern Vietnam, Siberia, Sakhalin",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Origin: China, Korea, Japan, Northern Vietnam, Siberia, Sakhalin",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Weather loaches are native to Australia, Canada, China, Japan, Korea, Northern Vietnam, Sakhalin Island, and Siberia.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "CA",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Weather loaches are native to Australia, Canada, China, Japan, Korea, Northern Vietnam, Sakhalin Island, and Siberia.",
+        "words": "Canada",
+        "ok": true
+      },
+      {
+        "code": "DE",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "However, they have been introduced into locations across the world, and wild populations can now be found in Germany, Italy, Kazakhstan, the Philippines, Spain, Turkmenistan, the U.S., and Uzbekistan.",
+        "words": "Germany",
+        "ok": true
+      },
+      {
+        "code": "IT",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "However, they have been introduced into locations across the world, and wild populations can now be found in Germany, Italy, Kazakhstan, the Philippines, Spain, Turkmenistan, the U.S., and Uzbekistan.",
+        "words": "Italy",
+        "ok": true
+      },
+      {
+        "code": "KZ",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "However, they have been introduced into locations across the world, and wild populations can now be found in Germany, Italy, Kazakhstan, the Philippines, Spain, Turkmenistan, the U.S., and Uzbekistan.",
+        "words": "Kazakhstan",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "However, they have been introduced into locations across the world, and wild populations can now be found in Germany, Italy, Kazakhstan, the Philippines, Spain, Turkmenistan, the U.S., and Uzbekistan.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "ES",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "However, they have been introduced into locations across the world, and wild populations can now be found in Germany, Italy, Kazakhstan, the Philippines, Spain, Turkmenistan, the U.S., and Uzbekistan.",
+        "words": "Spain",
+        "ok": true
+      },
+      {
+        "code": "TM",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "However, they have been introduced into locations across the world, and wild populations can now be found in Germany, Italy, Kazakhstan, the Philippines, Spain, Turkmenistan, the U.S., and Uzbekistan.",
+        "words": "Turkmenistan",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "However, they have been introduced into locations across the world, and wild populations can now be found in Germany, Italy, Kazakhstan, the Philippines, Spain, Turkmenistan, the U.S., and Uzbekistan.",
+        "words": "U.S.",
+        "ok": true
+      },
+      {
+        "code": "UZ",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "However, they have been introduced into locations across the world, and wild populations can now be found in Germany, Italy, Kazakhstan, the Philippines, Spain, Turkmenistan, the U.S., and Uzbekistan.",
+        "words": "Uzbekistan",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "Korea",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "DE",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "Germany",
+        "ok": true
+      },
+      {
+        "code": "ES",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "Spain",
+        "ok": true
+      },
+      {
+        "code": "IT",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "Italy",
+        "ok": true
+      },
+      {
+        "code": "KZ",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "Kazakhstan",
+        "ok": true
+      },
+      {
+        "code": "UZ",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "Uzbekistan",
+        "ok": true
+      },
+      {
+        "code": "TM",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "Turkmenistan",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "U.S.A.",
+        "ok": true
+      },
+      {
+        "code": "CA",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "Canada",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Siberia",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "ok": true
+      },
+      {
+        "name": "Sakhalin",
+        "source": "seriouslyfish",
+        "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
+        "ok": true
+      },
+      {
+        "name": "Siberia",
+        "source": "sprucepets",
+        "quote": "Weather loaches are native to Australia, Canada, China, Japan, Korea, Northern Vietnam, Sakhalin Island, and Siberia.",
+        "ok": true
+      },
+      {
+        "name": "Sakhalin Island",
+        "source": "sprucepets",
+        "quote": "Weather loaches are native to Australia, Canada, China, Japan, Korea, Northern Vietnam, Sakhalin Island, and Siberia.",
+        "ok": true
+      }
+    ],
+    "disputed": [
+      "AU",
+      "CA"
+    ],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "RU"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Misgurnus anguillicaudatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2367919,
+    "datasets": [
+      [
+        "37beb6ea-e591-41e3-b781-e384250dc42c",
+        1181
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        955
+      ],
+      [
+        "40c0f670-ee87-4576-be9d-2725e0b47035",
+        286
+      ],
+      [
+        "6c827cf4-5d22-454e-98b1-4acbf0cb5aca",
+        268
+      ],
+      [
+        "e3fa679e-4b19-441f-bdbb-f292416e5d34",
+        268
+      ],
+      [
+        "1e09d985-8f58-4a34-ab86-17e55f203c8a",
+        241
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        241
+      ],
+      [
+        "f1fc52ac-895e-47f2-9361-d033c6479f7c",
+        183
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        123
+      ],
+      [
+        "8a10929f-9729-408b-ad1a-2a86d56fa9e0",
+        118
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        111
+      ],
+      [
+        "869e4288-f762-11e1-a439-00145eb45e9a",
+        100
+      ],
+      [
+        "a332915e-9950-4747-ab3b-b7eeafaf46d8",
+        100
+      ],
+      [
+        "685a47f1-95b5-4bc0-b105-3ed0128defbf",
+        68
+      ],
+      [
+        "0645ccdb-e001-4ab0-9729-51f1755e007e",
+        67
+      ],
+      [
+        "d74d1313-04f6-4e91-8732-b6d5282416dc",
+        66
+      ],
+      [
+        "59f905d4-fd46-4e45-a80d-ea519e91114d",
+        65
+      ],
+      [
+        "b1a45d42-f677-473b-93d1-f93b117efe1e",
+        51
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        44
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        42
+      ],
+      [
+        "84899ff6-f762-11e1-a439-00145eb45e9a",
+        42
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        41
+      ],
+      [
+        "f38cc07c-49a8-4ca4-8882-5cdde1733c12",
+        39
+      ],
+      [
+        "f2069019-06c4-40fc-97a4-6672134a1f1f",
+        38
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        33
+      ],
+      [
+        "bee4a65e-e1cb-4b60-89e8-0c1c9d9f36ee",
+        29
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        28
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        28
+      ],
+      [
+        "c6859214-65a4-4563-8d17-d464541af191",
+        27
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        25
+      ],
+      [
+        "fd799ab3-7c13-4fc6-aa85-08df09364385",
+        24
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        18
+      ],
+      [
+        "58a115ae-a7f9-4657-b54d-5611437083c0",
+        17
+      ],
+      [
+        "7ebef267-9d72-4c21-a276-cc84281a8590",
+        17
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        17
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        16
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        15
+      ],
+      [
+        "03297f62-389d-4c67-8f3a-2ab8df14159f",
+        14
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        14
+      ],
+      [
+        "8498cbf2-f762-11e1-a439-00145eb45e9a",
+        12
+      ],
+      [
+        "07527ec0-e9e5-4994-8f8c-09c55323ce8d",
+        10
+      ],
+      [
+        "11ddb63e-cdd8-4ba4-b0f8-953166ddc075",
+        9
+      ],
+      [
+        "bfff7519-92f1-4ed2-afa3-5655e91fc2a2",
+        9
+      ],
+      [
+        "f5c13912-4f12-4fd0-b1c2-0d74564a5374",
+        9
+      ],
+      [
+        "07b5664c-4dda-49e1-9f3a-c8273a7c12fb",
+        7
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        7
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        7
+      ],
+      [
+        "80f9cd7a-f762-11e1-a439-00145eb45e9a",
+        6
+      ],
+      [
+        "831234b2-f762-11e1-a439-00145eb45e9a",
+        6
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        6
+      ],
+      [
+        "edc4e7a9-0970-4113-8ab5-fcaca780ee2e",
+        6
+      ],
+      [
+        "5f8cfa10-8dcc-470a-a9a0-5800bfe6e5b7",
+        5
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        5
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        5
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        5
+      ],
+      [
+        "116e8fa0-9c0f-43e3-9765-d0a2b040d9c5",
+        4
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        4
+      ],
+      [
+        "f3278405-0943-41a0-9f04-3a7733ec344d",
+        4
+      ],
+      [
+        "084cd772-e50b-47b5-b5a5-e46bd58f3ed1",
+        3
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        3
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        3
+      ],
+      [
+        "95f9b1b8-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        3
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        3
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        3
+      ],
+      [
+        "e0a02fc9-41ea-44ff-8a4c-a179f2e8d276",
+        3
+      ],
+      [
+        "e90a588b-0eed-4077-8a4f-7e61da35b3f8",
+        3
+      ],
+      [
+        "18896efa-22df-4fbd-9782-42f47257e753",
+        2
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        2
+      ],
+      [
+        "721ec3cb-78b5-42b9-9ad1-57fe90b75e6f",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "85bc2470-98a1-11de-b4da-b8a03c50a862",
+        2
+      ],
+      [
+        "ca22abc0-98a1-11de-b4da-b8a03c50a862",
+        2
+      ],
+      [
+        "e0ae862b-d456-4cb2-900b-c4928b75a1f8",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "1179f3c2-4501-4d27-b5f7-1e3440de12e7",
+        1
+      ],
+      [
+        "22a4285d-5bfe-47da-9b9c-e4177ed9b707",
+        1
+      ],
+      [
+        "345d18b0-86e1-4417-a06b-e972ec6b72ec",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "38b4c89f-584c-41bb-bd8f-cd1def33e92f",
+        1
+      ],
+      [
+        "505f6b2f-67d7-4934-8746-2ec1f1cfbb97",
+        1
+      ],
+      [
+        "5a7d0063-39f5-4c96-9306-b8bd74ecbce7",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "813b435e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "84f3b06c-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "93c707dc-4708-47fc-93d8-424702116442",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "e0908eee-ad49-4e91-b4d0-1f05dd17b291",
+        1
+      ],
+      [
+        "f1d263a0-98a0-11de-b4d9-b8a03c50a862",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "CN",
+      "KR",
+      "JP",
+      "VN"
+    ],
+    "requests": 16,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

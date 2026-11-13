@@ -1,0 +1,103 @@
+{
+  "id": "hyphessobrycon-wadai",
+  "scientificName": "Hyphessobrycon wadai",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "tapajos"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Rio Tapajós"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The natural distribution is the upper basin of the Rio Tapajós.",
+          "countries": [],
+          "regions": [
+            "Rio Tapajós"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9655807,
+      "total": 4,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -14.0625,
+          3
+        ],
+        [
+          -57.65625,
+          -14.0625,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-wadai-2/",
+      "html": "<p>The natural distribution is the upper basin of the Rio Tapajós.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-wadai-2/",
+      "html": "<p>Peter and Martin Hoffmann were able to obtain some imported specimens and were already successful in breeding them. They reported on this in the Datz magazine 11/2017. Aquarium-bred fish of German origin all derive from this stock.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-wadai-2/",
+      "html": "<p>The species was described only in 2016. The scientists who described it honour the Brazilian aquarium enthusiast and breeder Luiz Wada. This tetra has been a popular aquarium fish in São Paulo (Brazil) for several years. The common name is \"blueberry tetra\" (\"blackberry tetra\" in German).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cảnh nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá tetra",
+        "thức ăn cá nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

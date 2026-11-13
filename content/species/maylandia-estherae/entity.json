@@ -120,7 +120,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -201,17 +201,12 @@
       "author": "Dynen",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Female_Red_Zebra_Cichlid.jpg",
       "caption": "Adult female red zebra cichlid in an aquarium.",
-      "thumb": "https://media.aquatome.com/commons/0bde0aea3f9c15e8-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/736eadce41b0b51a.webp",
-      "width": 960,
-      "height": 689,
-      "licence": "CC BY 3.0",
-      "author": "Gourami Watcher",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Male_Red_Zebra.JPG",
-      "caption": "Male cichlid, most likely a Red Zebra.",
-      "thumb": "https://media.aquatome.com/commons/736eadce41b0b51a-480.webp"
+      "thumb": "https://media.aquatome.com/commons/0bde0aea3f9c15e8-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/0bde0aea3f9c15e8-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/1f046c287b79d404.webp",
@@ -221,7 +216,27 @@
       "author": "Maha Dinesh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Male_Red_Zebra_Cichlid.JPG",
       "caption": "Picture of Male Red Zebra Cichlid taken after feeding",
-      "thumb": "https://media.aquatome.com/commons/1f046c287b79d404-480.webp"
+      "thumb": "https://media.aquatome.com/commons/1f046c287b79d404-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1f046c287b79d404-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/736eadce41b0b51a.webp",
+      "width": 960,
+      "height": 689,
+      "licence": "CC BY 3.0",
+      "author": "Gourami Watcher",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Male_Red_Zebra.JPG",
+      "caption": "Male cichlid, most likely a Red Zebra.",
+      "thumb": "https://media.aquatome.com/commons/736eadce41b0b51a-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/736eadce41b0b51a-large.webp",
+        "width": 1201,
+        "height": 862
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/1d6bc088d6ebd455.webp",
@@ -231,7 +246,12 @@
       "author": "Grzegorz Polak",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pyszczak.jpg",
       "caption": "Mouthbrooder fish. Probably Maylandia estherae",
-      "thumb": "https://media.aquatome.com/commons/1d6bc088d6ebd455-480.webp"
+      "thumb": "https://media.aquatome.com/commons/1d6bc088d6ebd455-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1d6bc088d6ebd455-large.webp",
+        "width": 1000,
+        "height": 748
+      }
     }
   ],
   "videos": [],
@@ -239,8 +259,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá cichlid Malawi"
+        "bể cá 120cm"
       ]
     },
     {

@@ -1,0 +1,73 @@
+{
+  "id": "brachyrhamdia-imitator",
+  "native": {
+    "input": "7a29317e8e0ad342",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Orinoco, Lower Orinoco and Caura. Type locality: Caño de Quiribana near Caicara, Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Orinoco, Lower Orinoco and Caura. Type locality: Caño de Quiribana near Caicara, Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Caura",
+        "source": "planetcatfish",
+        "quote": "South America: Orinoco, Lower Orinoco and Caura. Type locality: Caño de Quiribana near Caicara, Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Caura River basin in the Orinoco River drainage.",
+        "ok": true
+      },
+      {
+        "name": "Caura",
+        "source": "scotcat",
+        "quote": "South America: Caura River basin in the Orinoco River drainage.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brachyrhamdia imitator",
+    "status": "ACCEPTED",
+    "taxonKey": 2343646,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

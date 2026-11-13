@@ -1,17 +1,19 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { QUALITY_THRESHOLD, judgeQuality, metricPage } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
-import { reviewRewrite, reviewTranslation } from './quality'
+import { reviewRewrite, reviewTranslation, steadyRead } from './quality'
+import { lastKept, logReviews, TEXT_KINDS, type PageRef, type Review } from './review-log'
 import { METRIC_KINDS } from './metric'
+import { errorKind } from './state'
 import { rewriteVi, type Part, type RewriteOpts } from './vi-rewrite'
 
 /** Kinds in the order they are rewritten: guides are read most, glossary least. */
 export const REWRITE_KINDS = ['guides', 'species', 'plants', 'glossary'] as const
 type Kind = (typeof REWRITE_KINDS)[number]
 type Group = { source?: string; parts: Part[] }
-type Job = { id: string; kind: Kind; slug: string; groups: Group[] }
-type Vi = { sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[]; quality?: { score: number; indexable: boolean; bySource?: Record<string, number>; reason?: 'thin' | 'score' } }
+type Job = { id: string; kind: Kind; slug: string; groups: Group[]; /** Out of search for its score: a kept rewrite can bring it back. A thin page stays out whatever its words. */ low: boolean }
+type Vi = { sections?: Record<string, string>; body?: string; bodyFixed?: boolean; definition?: string; summary?: string[]; faq?: { q: string; a: string }[]; quality?: { score: number; indexable: boolean; bySource?: Record<string, number>; reason?: 'thin' | 'score' } }
 export type RewriteState = Record<string, { at: string; rewritten: number; of: number; scores: number[]; error?: string; v?: number }>
 /** Bump when the rewrite or its checks change: pages not fully rewritten under an older version get another try. */
 export const REWRITE_V = 2
@@ -30,11 +32,14 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
       const dir = join(contentRoot, kind, slug)
       const vi = await json<Vi>(join(dir, 'vi.json')).catch(() => null)
       if (!vi || (match && !match.test(JSON.stringify([vi.body, vi.sections, vi.definition, vi.summary, vi.faq])))) continue
-      const e = await json<{ source?: string; sections?: { key: string; source: string; html: string }[] }>(join(dir, 'entity.json')).catch(() => ({}) as { source?: string; sections?: undefined })
+      const e = await json<{ source?: string; sections?: { key: string; source: string; html: string; fixed?: boolean }[] }>(join(dir, 'entity.json')).catch(() => ({}) as { source?: string; sections?: undefined })
       const groups: Group[] = []
       if (kind === 'guides') {
-        if ((match || e.source !== 'youtube') && vi.body && (!match || match.test(vi.body))) groups.push({ ...(e.source !== 'youtube' ? { source: e.source } : {}), parts: [{ id: 'body', vi: vi.body }] })
-        const lines = !match ? [] : [
+        // A translated guide's English article is kept (sources/<source>/<slug>.md): the rewrite is checked against it, as a
+        // species page's is against its sections, so a recast can't drift from what the article says.
+        const en = e.source && e.source !== 'youtube' ? await readFile(join(dirname(contentRoot), 'sources', e.source, `${slug.slice(e.source.length + 1)}.md`), 'utf8').then(t => t.replace(/^---\n[\s\S]*?\n---\n/, '').trim()).catch(() => '') : ''
+        if (!vi.bodyFixed && (match || e.source !== 'youtube') && vi.body && (!match || match.test(vi.body))) groups.push({ ...(e.source !== 'youtube' ? { source: e.source } : {}), parts: [{ id: 'body', vi: vi.body, ...(en ? { en } : {}) }] })
+        const lines = !match || vi.bodyFixed ? [] : [
           ...(vi.summary ?? []).map((s, i) => ({ id: `summary:${i}`, vi: s })),
           ...(vi.faq ?? []).flatMap((f, i) => [{ id: `faq:${i}:q`, vi: f.q }, { id: `faq:${i}:a`, vi: f.a }]),
         ].filter(p => match.test(p.vi))
@@ -44,7 +49,8 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
       else {
         for (const source of [...new Set((e.sections ?? []).map(s => s.source))]) {
           let g: Group = { source, parts: [] }
-          for (const s of (e.sections ?? []).filter(x => x.source === source && x.key !== 'references')) {
+          // A part a person fixed is theirs (schemas.ts Section.fixed).
+          for (const s of (e.sections ?? []).filter(x => x.source === source && x.key !== 'references' && !x.fixed)) {
             const id = `${s.key}:${s.source}`
             if (!vi.sections?.[id]) continue
             if (g.parts.length && g.parts.reduce((n, p) => n + (p.en?.length ?? 0), 0) + s.html.length > CHUNK) { groups.push(g); g = { source, parts: [] } }
@@ -53,7 +59,7 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
           if (g.parts.length) groups.push(g)
         }
       }
-      if (groups.length) out.push({ id: `${kind}/${slug}`, kind, slug, groups })
+      if (groups.length) out.push({ id: `${kind}/${slug}`, kind, slug, groups, low: vi.quality?.indexable === false && vi.quality.reason !== 'thin' })
     }
   }
   return out
@@ -64,14 +70,19 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
  * reviewer passes it: against the English (≥ threshold, or better than before), or, with no English, as keeping the
  * old Vietnamese's meaning (≥ threshold). Names, slugs and data never change. Stops on a model failure (usage limit).
  */
-export async function rewriteExisting(contentRoot: string, stateFile: string, d: { llm: Llm; opts: RewriteOpts; now: () => Date }, o: { limit: number; kinds?: readonly Kind[]; match?: RegExp }) {
+export async function rewriteExisting(contentRoot: string, stateFile: string, d: { llm: Llm; opts: RewriteOpts; now: () => Date }, o: { limit: number; kinds?: readonly Kind[]; match?: RegExp; /** List the pages and how many parts each would send; call no model, write nothing. */ dry?: boolean; /** Pages ("species/<id>") that go first, in this order, when due. */ first?: readonly string[] }) {
+  const root = dirname(contentRoot)
   const state = await json<RewriteState>(stateFile).catch(() => ({}) as RewriteState)
   const report = { done: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '' }
   const names = await json<Record<string, { name: string }>>(join(contentRoot, 'sources.json')).catch(() => ({}) as Record<string, { name: string }>)
   const due = (s: RewriteState[string] | undefined) => !s || (s.rewritten < s.of && (s.v ?? 1) < REWRITE_V)
   // `match` re-edits the pages that contain it (after a style rule changes), whether or not they were rewritten before.
-  for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS, o.match)).filter(j => o.match || due(state[j.id]))) {
+  // Pages named first go first, then pages out of search for their score, each group in the kinds' and folders' order
+  // (the sort is stable).
+  const rank = (j: Job) => { const i = o.first?.indexOf(j.id) ?? -1; return i >= 0 ? i - o.first!.length - 1 : -Number(j.low) }
+  for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS, o.match)).filter(j => o.match || due(state[j.id])).sort((a, b) => rank(a) - rank(b))) {
     if (report.done.length + report.kept.length + report.failed.length >= o.limit) break
+    if (o.dry) { report.done.push(`${job.id} (${job.groups.length} part${job.groups.length > 1 ? 's' : ''})`); continue }
     const file = join(contentRoot, job.kind, job.slug, 'vi.json')
     const vi = await json<Vi>(file)
     const scores: number[] = []
@@ -79,26 +90,38 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
     // Per source: its score before this run, and the scores of the chunks kept (a long source is several chunks).
     const orig = (src?: string) => (src ? vi.quality?.bySource?.[src] : undefined) ?? vi.quality?.score ?? 0
     const kept = new Map<string, { scores: number[]; all: boolean }>()
+    // Each group's reviews, kept once the page is written (a failed page keeps none of its rewrites).
+    const reviewed: { page: PageRef; tries: Review[]; kept?: Review }[] = []
+    const log = (written: boolean) => Promise.all(reviewed.map(r => logReviews(root, 'vi-rewrite', r.page, r.tries, written ? r.kept : undefined, { now: d.now() })))
     try {
       for (const g of job.groups) {
         const opts = { ...d.opts, ...(g.source && names[g.source] ? { source: names[g.source]!.name } : {}) }
         const hasEn = g.parts.every(p => p.en)
-        const review = (m: Map<string, string>) => hasEn
+        // Near the bar, read three times and the median read counts (steadyRead).
+        const review = (m: Map<string, string>) => steadyRead(() => hasEn
           ? reviewTranslation(d.llm, g.parts.map(p => ({ en: p.en!, vi: m.get(p.id)! })))
-          : reviewRewrite(d.llm, g.parts.map(p => ({ before: p.vi, after: m.get(p.id)! })))
-        let next = await rewriteVi(d.llm, g.parts, opts)
+          : reviewRewrite(d.llm, g.parts.map(p => ({ before: p.vi, after: m.get(p.id)! }))))
+        // What the last review of this text on the site found, when it was under the bar, goes to the writer.
+        const page = { id: job.id, lang: 'vi', ...(g.source ? { part: g.source } : {}) }
+        const before = await lastKept(root, page, TEXT_KINDS)
+        let next = await rewriteVi(d.llm, g.parts, { ...opts, ...(before && before.score < QUALITY_THRESHOLD && before.notes.length ? { notes: before.notes } : {}) })
         const first = await review(next)
-        let score = first.score
+        let best = first
         // Below the bar: one more try with the reviewer's notes (as for video guides); the better of the two counts.
-        if (score < QUALITY_THRESHOLD) {
+        const tries = [first]
+        if (first.score < QUALITY_THRESHOLD) {
           const again = await rewriteVi(d.llm, g.parts, { ...opts, notes: first.notes })
           const r = await review(again)
-          if (r.score > score) { next = again; score = r.score }
+          tries.push(r)
+          if (r.score > first.score) { next = again; best = r }
         }
+        const score = best.score
         scores.push(score)
         const k = kept.get(g.source ?? '') ?? { scores: [], all: true }
         kept.set(g.source ?? '', k)
-        if (!(score >= QUALITY_THRESHOLD || (hasEn && score > orig(g.source)))) { k.all = false; continue }
+        const keep = score >= QUALITY_THRESHOLD || (hasEn && score > orig(g.source))
+        reviewed.push({ page, tries, kept: keep ? best : undefined })
+        if (!keep) { k.all = false; continue }
         if (hasEn) k.scores.push(score)
         rewritten++
         for (const p of g.parts) {
@@ -118,20 +141,24 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
         if (Object.keys(bySource).length) {
           const min = Math.min(...Object.values(bySource))
           // The depth verdict stays (a rewrite changes no section): a thin page stays out of search (@aq/schema depth.ts).
-          vi.quality = judgeQuality({ score: min, indexable: min >= QUALITY_THRESHOLD, bySource }, min >= QUALITY_THRESHOLD, vi.quality.reason !== 'thin')
+          // The rest of it stays too: a video guide held out of the chat (video-hold.ts) is still held.
+          vi.quality = judgeQuality({ ...vi.quality, score: min, indexable: min >= QUALITY_THRESHOLD, bySource }, min >= QUALITY_THRESHOLD, vi.quality.reason !== 'thin')
         }
       }
     } catch (e) {
+      // A usage limit, or the step's ceiling (ceiling.ts), stops a page part way: nothing written, so no review logged.
+      if (!(e instanceof LlmError && errorKind(e.message) === 'usage')) await log(false)
       if (e instanceof LlmError) { report.stopped = `${job.id}: ${e.message}`; break }
       state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten: 0, of: job.groups.length, scores, error: (e as Error).message.slice(0, 200), v: REWRITE_V }
       report.failed.push(`${job.id}: ${(e as Error).message}`)
       continue
     }
     if (rewritten) await writeFile(file, `${JSON.stringify(METRIC_KINDS.includes(job.kind) ? metricPage(vi, 'vi') : vi, null, 2)}\n`)
+    await log(true)
     state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten, of: job.groups.length, scores, v: REWRITE_V }
     ;(rewritten ? report.done : report.kept).push(`${job.id} (${rewritten}/${job.groups.length}, ${scores.map(s => s.toFixed(2)).join(' ')})`)
     await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
   }
-  await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
+  if (!o.dry) await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
   return report
 }

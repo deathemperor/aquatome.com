@@ -11,12 +11,187 @@
     "amazon",
     "ecuador",
     "peru",
-    "morona"
+    "morona",
+    "napo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Río Morona",
+        "Amazon",
+        "Nanay",
+        "Maranon"
+      ],
+      "sources": [
+        "planetcatfish",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Morona, upper Amazon River basin, Dpto Loreto, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Morona"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Upper Amazon Basin of Colombia, Ecuador and Peru.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Several sources also include the Nanay and Maranon basins, and Colombia (Amazon, Japura and Caqueta basins) and Ecuador (Napo basin).",
+          "countries": [],
+          "regions": [
+            "Nanay",
+            "Maranon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340471,
+      "total": 44,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "BR",
+          16
+        ],
+        [
+          "PE",
+          16
+        ],
+        [
+          "EC",
+          8
+        ],
+        [
+          "CO",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -77.34375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          4,
+          0
+        ],
+        [
+          -77.34375,
+          0,
+          2,
+          0
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          -8.4375,
+          6,
+          0
+        ],
+        [
+          -73.125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          9,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -7.03125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 21,
+          "max": 26
+        }
+      },
+      {
+        "source": "seriouslyfish",
         "value": {
           "min": 21,
           "max": 26
@@ -30,12 +205,44 @@
           "min": 5.5,
           "max": 7.5
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 3.4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -47,10 +254,46 @@
       "html": "<ul><li>Scientific name: Otocinclus macrospilus Eigenmann &amp; Allen, 1942</li><li>Size: 34 mm (1.3\") SL</li><li>Type locality: Río Morona, upper Amazon River basin, Dpto Loreto, Peru.</li><li>Temperature: 21.0–26.0°C</li><li>pH: 5.5–7.5</li><li>Compatibility: peaceful</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-macrospilus",
+      "html": "<p>Otocinclus macrospilus, one of the commoner otos in the hobby, is a small loricariid endemic to parts of the Upper Amazon in Peru. It is frequently mislabelled as O. affinis or O. vittatus, and a large round black blotch at the base of the caudal fin separates it from O. vestitus. Imported fish can be delicate, usually through starvation in transit, and do best added to mature, planted tanks.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=105",
       "html": "<p>Upper Amazon Basin of Colombia, Ecuador and Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-macrospilus",
+      "html": "<p>Endemic to parts of the Upper Amazon in Peru. Several sources also include the Nanay and Maranon basins, and Colombia (Amazon, Japura and Caqueta basins) and Ecuador (Napo basin).</p><p>Type locality: Río Morona, upper Amazon River basin, Departamento Loreto, Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-macrospilus",
+      "html": "<p>Inhabits dense patches of marginal vegetation in streams, creeks and river. It's also found in large numbers on the floating mats of vegetation commonly known as \"floating meadows\", which provide a haven for many fish species.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-macrospilus",
+      "html": "<p>Standard length: 35 mm SL.</p><p>Aquarium base: 45 × 30 cm. Volume: ~41 litres.</p><p>Base dimensions of 45 × 30 cm or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-macrospilus",
+      "html": "<p>Ideally keep it in a heavily planted setup with broad-leaved plants, driftwood branches and, if you wish vertical rock surfaces. The choice of substrate is not hugely important as the species spends most of its time away from the bottom of the tank but a sand substrate seems appreciated when the fish descends to browse.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-macrospilus",
+      "html": "<ul><li>Temperature: 21–26 °C</li><li>pH: 5.5–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -65,10 +308,22 @@
       "html": "<p>Initially algae: add a shoal to an \"algaefied\" tank and then supplement the diet with sinking tablets and the usual cucumber, lettuce or courgette (zucchini).</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-macrospilus",
+      "html": "<p>It feeds primarily on algae and other microrganisms in nature. In captivity the bulk of the diet should be composed of vegetable matter in both fresh (courgette and cucumber slices, blanched spinach etc.) and dried (algae wafers, spirulina tablets etc.) forms. Although it will also accept small live and frozen foods such as bloodworm or daphnia, take care not to feed these too often, as it doesn't require a great deal of protein in the diet.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=105",
       "html": "<p>Peaceful. Keep in groups (preferably at least six) with any small to mid-sized community fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-macrospilus",
+      "html": "<p>Very shy and retiring, to the point that it will be out-competed for food by more vigorous species. It's best kept with small, peaceful characins, dwarf cichlids such as Apistogramma and smaller Corydoras. Like others in the genus, it prefers the company of conspecifics and you should aim for a group of at least 6.</p>"
     },
     {
       "key": "dimorphism",
@@ -77,10 +332,22 @@
       "html": "<p>Females are larger and broader, especially when viewed from above.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-macrospilus",
+      "html": "<p>Most easily sexed by looking at the fish from above. When viewed like this, mature females appear broader in the body.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=105",
       "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-macrospilus",
+      "html": "<p>Has been achieved, but unfortunately very few details are available. Spawning occurs in a similar style to Corydoras species, with the fish forming the classic 'T' position, in which the male grasps the female between his pectoral fin and body and eggs and sperm are deposited. Unlike in cories the eggs are scattered randomly around the tank, usually among plants in the upper areas, or on the tank glass. Various factors appear to be involved in triggering a spawn. Large weekly water changes with cool water seem to be important. It's also been suggested that the presence of another breeding species in the tank (Corydoras are usually cited) may also play a part in stimulating spawning activity. The fry are very tiny and will require access to copious amounts of algae and other greenstuffs.</p>"
     },
     {
       "key": "notes",
@@ -89,10 +356,22 @@
       "html": "<p>Identification: similar in overall colouration to O. vestitus. The caudal fin marking is key to separating this species from other Otocinclus. In O. macrospilus the lateral black stripe stops or becomes pale before the tail blotch, which can look like a fat spindle or diamond as it crosses into the tail proper.</p>"
     },
     {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-macrospilus",
+      "html": "<p>This is one of the commoner \"otos\" seen in the hobby, and is likely the one most frequently offered as an \"oto.\" It is an ideal species for the planted aquarium. Unfortunately it can be quite delicate when first imported, and losses are not uncommon. This is usually down to lack of food, as it's a small fish and needs to feed almost constantly, so it's easily starved during transportation. As almost all otos are wild caught, they can be quite sensitive to water quality, too. Many hobbyists report fewer problems if the fish are added to mature, planted tanks, where water quality is stable and there is a plentiful supply of microorganisms and algae for the otos to feed on. Once the fish are past the initial stage and are feeding well, maintenance becomes much easier.</p><p>You may observe otos suddenly dart to the surface for a gulp of air, very similar to the catfish in the Callichthyidae (corys, etc) family. Otos possess a modification of the esophageal wall that may function in aerial respiration and assist in providing additional buoyancy that aids these fish in remaining close to the water surface in their habitats (Schaefer, 1997).</p><p>This species is frequently mislabelled in stores, usually as O. affinis or O. vittatus. Isbrucker et.al. (2001) proposed the genus Macrotocinclus for O. affinis and this has been accepted (Eschmeyer, 2015). The similarity between O. macrospilus, O. vittatus and O. vestitus has frequently confused hobbyists. O. macrospilus can be distinguished from O. vestitus by the markings on the caudal fin. O. macrospilus has a dinstinctive large round black blotch at the base of the caudal fin; on O. vestitus the horizontal black band extends onto the caudal fin with no significant enlargement into a blotch. O. vittatus is another near-identical species, but the upper edge of the black horizontal band along the sides of the fish is bordered by a distinct white clear band separating the black band from the mottled pattern; on O. macrospilus the white band is less distinct in places and on O. vestitus the mottled pattern adjoins the black band with no definable white band.</p><p>Otocinclus is a basal member of the tribe Hypoptopomatini and is believed to be monophyletic (Schaefer, 1997). The species of Otocinclus are widely distributed in cis-Andean South America, from northern Venezuela to northern Argentina, usually inhabiting small to medium sized water bodies, often associated with marginal vegetation (Reis, 2004).</p><p>The genus Otocinclus was erected by Cope in 1871. In 1997, Scott A. Schaefer revised the genus, recognizing only 13 of the then 65 species; the others he re-assigned to various genera. Since then, new species have been described as Otocinclus, bringing the genus total to 18 valid species at the time of writing (Eschmeyer, 2015). The phylogenetic biogeography of Otocinclus led Schaefer (1997) to suggest that much of the generic and species-level diversification of the Otocinclus and perhaps other loricariid catfishes occurred prior to the formation of the Amazon basin. The phylogenetic relationships among the fish in the subfamily Hypoptopomatinae are currently under study, and the genus Otocinclus may eventually be relocated (Lehmann, 2006).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=105",
       "html": "<p>Fishes of western South America, pp 201, Pl. 13 (fig. 1).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-macrospilus",
+      "html": "<ul><li>Eigenmann, C.H. and W.R. Allen (1942). Fishes of Western South America, I. The Intercordilleran and Amazonian Lowlands of Peru University of Kentucky, 1-494</li><li>Schaefer, Scott A. (1997). The Neotropical cascudinhos: Systematics and biogeography of the Otocinclus catfishes (Siluriformes: Loricariidae) Proceedings of the Academy of Natural Sciences of Philadelphia, 148, 1-120</li><li>Lehmann, Pablo A. (2006). Otocinclus batmani, a new species of hypoptopomatine catfish (Siluriformes: Loricariidae) from Colombia and Peru Neotropical ichthyology, volume4, number4, 379-383</li><li>Isbrucker, I.J.H., I. Seidel, J.P. Michels, E. Schraml &amp; A. Werner (2001). Diagnose vierzehn neuer Gattungen der Familie Loricariidae Rafinesque, 1815 (Teleosti, Ostariophysi) DATZ, Sonderheft Harnischwelse 2, 17-24</li><li>Reis, Roberto E. (2004). Otocinclus cocama, a new uniquely colored loricariid catfish from Peru (Teleostei: Siluriformes), with comments on the impact of taxonomic revisions to the discovery of new taxa Neotropical Ichthyology, Volume 2, No. 3, 109-115</li></ul>"
     }
   ],
   "photos": [
@@ -109,13 +388,13 @@
     },
     {
       "url": "https://media.aquatome.com/commons/75a4180f2e60f3cc.webp",
+      "thumb": "https://media.aquatome.com/commons/75a4180f2e60f3cc-480.webp",
       "width": 800,
       "height": 361,
       "licence": "CC BY-SA 3.0",
       "author": "Rainer Schmitt, 2004",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_macrospilus_2.jpg",
-      "caption": "Otocinclus macrospilus",
-      "thumb": "https://media.aquatome.com/commons/75a4180f2e60f3cc-480.webp"
+      "caption": "Otocinclus macrospilus"
     }
   ],
   "videos": [],
@@ -137,9 +416,9 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá thủy sinh 60cm"
+        "bể cá 50cm"
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-06"
 }

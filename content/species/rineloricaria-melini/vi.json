@@ -1,21 +1,31 @@
 {
   "slug": "ca-than-lan-rineloricaria-melini",
   "name": "Cá thằn lằn Rineloricaria melini",
-  "altNames": [],
+  "altNames": [
+    "Cá whiptail Apache",
+    "Apache whiptail catfish"
+  ],
   "sections": {
     "quickFacts:glaser": "<p>Rineloricaria melini có lẽ là loài đẹp nhất trong chi Rineloricaria. Cá trưởng thành dài tối đa 9–12 cm. Cá đực sinh sản trong hang.</p>",
     "distribution:glaser": "<p>Nguồn gốc: Brazil, sông Rio Negro.</p>",
     "habitat:glaser": "<p>Ngoài tự nhiên, chúng sống ở các vùng nước đen thuộc khu vực Rio Negro.</p>",
     "equipment:glaser": "<p>Bể nuôi Rineloricaria nên có vài khu trồng cây dày. Bên cạnh đó, bạn chừa thêm những khoảng trống thoáng và đặt vài cái hang cho cá.</p>",
     "diet:glaser": "<p>Đây là loài ăn tạp. Chúng cần được cho ăn cả thức ăn thực vật lẫn thức ăn động vật.</p>",
-    "reproduction:glaser": "<p>Cũng như mọi loài Rineloricaria khác, cá đực sinh sản trong hang.</p>"
+    "reproduction:glaser": "<p>Cũng như mọi loài Rineloricaria khác, cá đực sinh sản trong hang.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Apache whiptail catfish</li><li>Tên đồng nghĩa: Hemiloricaria melini</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Amazon, Brazil. Nơi mô tả loài là sông Rio Solimoes gần Manacapuru, gần cửa sông Rio Negro, Brazil. Người ta mới chỉ bắt gặp loài này đúng một lần, ngay tại nơi mô tả loài, trên sông Solimões gần Manacapuru, bang Amazonas, Brazil. Hiện chưa có thông tin về tình trạng bảo tồn của loài, nhưng cũng chưa thấy mối đe dọa trực tiếp nào có thể khiến nó tuyệt chủng. IUCN (2022) xếp loài này vào nhóm Ít quan tâm (Least Concern).</p>",
+    "waterConditions:scotcat": "<p>Đây là loài sống ở vùng nước đen. Muốn cá đẻ thì phải có nước mềm và có tính axit.</p>",
+    "diet:scotcat": "<p>Loài này ăn tạp. Thức ăn gồm rau như dưa chuột, cùng thức ăn viên chìm, thức ăn mảnh và đồ đông lạnh.</p>",
+    "reproduction:scotcat": "<p>Các loài Rineloricaria thường đẻ trong hang. Cá đực dọn sạch bên trong hang trước, rồi cá cái mới vào đẻ trứng. Sau đó con đực ở lại canh và quạt trứng cho tới khi nở. Trứng nở sau 4–5 ngày, lúc này có thể vớt cá đực ra.</p>",
+    "notes:scotcat": "<p>Tên loài được đặt để vinh danh Douglas Melin (1895-1946), nhà bò sát học người Thụy Điển. Ông là người đã thu mẫu chuẩn của loài này. Khi tìm trên mạng, đôi khi loài này hiện ra dưới tên cũ là Hemiloricaria melini.</p>",
+    "references:scotcat": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Rineloricaria melini. IUCN Red List of Threatened Species 2022. Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p>"
   },
   "quality": {
-    "score": 0.85,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "scotcat": 0.8
+    }
   }
 }

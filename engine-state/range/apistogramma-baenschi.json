@@ -1,0 +1,94 @@
+{
+  "id": "apistogramma-baenschi",
+  "native": {
+    "input": "18f2b1b4c2a088ec",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Inca dwarf cichlid, Apistogramma baenschi, is from tributaries of the lower Río Huallaga in the Amazonian portion of northern Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Apistogramma baenschi from Peru is for sure among the most beautiful species of dwarf cichlid.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tributary of Rio Shanushi, lower Rio Huallaga System, Peru, near 6°03'S, 77°53'W' with additional records from between the towns of Tarapoto and Yurimaguas in the Shanushi and Paranapura drainages, both left-bank tributaries of the Huallaga.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Huallaga",
+        "source": "seriouslyfish",
+        "quote": "The Inca dwarf cichlid, Apistogramma baenschi, is from tributaries of the lower Río Huallaga in the Amazonian portion of northern Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Shanushi",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tributary of Rio Shanushi, lower Rio Huallaga System, Peru, near 6°03'S, 77°53'W' with additional records from between the towns of Tarapoto and Yurimaguas in the Shanushi and Paranapura drainages, both left-bank tributaries of the Huallaga.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Paranapura",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tributary of Rio Shanushi, lower Rio Huallaga System, Peru, near 6°03'S, 77°53'W' with additional records from between the towns of Tarapoto and Yurimaguas in the Shanushi and Paranapura drainages, both left-bank tributaries of the Huallaga.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma baenschi",
+    "status": "ACCEPTED",
+    "taxonKey": 2371233,
+    "datasets": [
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        15
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        12
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

@@ -8,7 +8,7 @@
   "mentions": [
     "bucephalandra-sp"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "dTkvCEn1xHA",
     "title": "AQUARIUM ALGAE GUIDE Ep #1 Black Beard Algae - How to KILL BBA",
@@ -27,28 +27,27 @@
       "height": 720
     },
     "taxa": [
-      "Anubias sp.",
-      "Bucephalandra sp.",
-      "Crossocheilus oblongus",
-      "Clithon sp."
+      "Crossocheilus siamensis",
+      "Clithon sp.",
+      "Bucephalandra sp."
     ],
     "gear": [
       {
         "category": "khac",
         "brand": "Easy Life",
-        "model": "EasyCarbo",
-        "t": 160
+        "model": "Easycarbo",
+        "t": 165
       },
       {
         "category": "khac",
         "brand": "Seachem",
         "model": "Excel",
-        "t": 160
+        "t": 165
       },
       {
         "category": "co2",
         "type": "binh",
-        "t": 372
+        "t": 360
       }
     ],
     "figures": [
@@ -67,107 +66,55 @@
         }
       },
       {
-        "heading": "Diệt rêu râu đen bằng carbon nước",
-        "moments": [
-          {
-            "t": 213,
-            "url": "https://media.aquatome.com/video/dTkvCEn1xHA/t213.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hút carbon nước vào xi lanh để xịt trực tiếp trong hồ."
-          },
-          {
-            "t": 233,
-            "url": "https://media.aquatome.com/video/dTkvCEn1xHA/t233.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh lũa trong hồ, chỗ hay bị rêu hại bám."
-          }
-        ]
-      },
-      {
-        "heading": "Diệt bằng oxy già 3%",
-        "moments": [
-          {
-            "t": 253,
-            "url": "https://media.aquatome.com/video/dTkvCEn1xHA/t253.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh với lũa và thảm cỏ, mực nước đã hạ xuống."
-          }
-        ],
+        "heading": "Diệt BBA bằng oxy già",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/dTkvCEn1xHA/p2-Blcm94aWRlLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/dTkvCEn1xHA/p2-Blcm94aWRlLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/dTkvCEn1xHA/p3-Blcm94aWRlLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/dTkvCEn1xHA/p3-Blcm94aWRlLmpwZw-480.webp",
           "width": 960,
           "height": 1548,
           "licence": "Public domain",
           "author": "User:Yanachka",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrogen_peroxide.jpg",
-          "caption": "Chai oxy già 3% màu nâu, loại dùng để quét diệt rêu."
+          "caption": "Chai oxy già 3% màu nâu, loại loãng dùng để quét rêu BBA."
         }
       },
       {
         "heading": "Không muốn dùng hóa chất thì sao",
         "moments": [
           {
-            "t": 327,
-            "url": "https://media.aquatome.com/video/dTkvCEn1xHA/t327.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh búi rêu râu đen màu sẫm bám trong bể."
+            "t": 15,
+            "url": "https://media.aquatome.com/video/dTkvCEn1xHA/at15-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dãy bể thủy sinh trồng nhiều cây, nơi rêu hại có thể xuất hiện.",
+            "sharpness": 559,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/dTkvCEn1xHA/p3-b3JfYWxnYWUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/dTkvCEn1xHA/p3-b3JfYWxnYWUuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/dTkvCEn1xHA/p4-b3JfYWxnYWUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/dTkvCEn1xHA/p4-b3JfYWxnYWUuanBn-480.webp",
           "width": 960,
           "height": 640,
           "licence": "CC BY-SA 4.0",
           "author": "aleander2137",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siamese_algae-eater_(Crossocheilus_oblongus)_searching_for_algae.jpg",
-          "caption": "Cá bống đá Xiêm bơi trong bể trồng cây, bên cạnh một con ốc."
+          "caption": "Cá Siamese algae eater bơi cạnh một con ốc trong bể thủy sinh."
         }
       },
       {
-        "heading": "Giữ CO2 đủ và ổn định",
-        "moments": [
-          {
-            "t": 367,
-            "url": "https://media.aquatome.com/video/dTkvCEn1xHA/t367.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Drop checker màu xanh lá cho thấy CO2 trong hồ đã đủ."
-          },
-          {
-            "t": 377,
-            "url": "https://media.aquatome.com/video/dTkvCEn1xHA/t377.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Van điều áp CO2 có đồng hồ để chỉnh số bọt đều và ổn định."
-          }
-        ]
-      },
-      {
-        "heading": "Xem lại vệ sinh, phân và độ tuổi của bể",
-        "moments": [
-          {
-            "t": 521,
-            "url": "https://media.aquatome.com/video/dTkvCEn1xHA/t521.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh cây thủy sinh lá đỏ và thảm cỏ xanh khỏe mạnh."
-          }
-        ],
+        "heading": "Khi nguyên nhân không nằm ở CO2",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/dTkvCEn1xHA/p6-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/dTkvCEn1xHA/p6-JfRmlsdGVyLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/dTkvCEn1xHA/p7-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/dTkvCEn1xHA/p7-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Bể có lọc thùng đang xả nước thải ra xô khi vệ sinh lọc."
+          "caption": "Lọc thùng đặt dưới tủ bể và xô cùng ống siphon để thay nước."
         }
       }
     ]

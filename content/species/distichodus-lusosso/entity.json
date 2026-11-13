@@ -1,0 +1,560 @@
+{
+  "id": "distichodus-lusosso",
+  "scientificName": "Distichodus lusosso",
+  "order": "Characiformes",
+  "family": "Distichodontidae",
+  "genus": "Distichodus",
+  "group": "other",
+  "places": [
+    "africa",
+    "cameroon",
+    "republic-of-the-congo",
+    "democratic-republic-of-the-congo",
+    "angola",
+    "central-african-republic"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "CG",
+        "CD",
+        "AO",
+        "CF"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The long-nosed distichodus, Distichodus lusosso, is a citharinid from rivers in Cameroon, the Republic of Congo and Democratic Republic of Congo.",
+          "countries": [
+            "CM",
+            "CG",
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Cameroon, Republic of Congo, Democratic Republic of Congo, Angola, Central African Republic.",
+          "countries": [
+            "AO",
+            "CF"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355923,
+      "total": 194,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CD",
+          169
+        ],
+        [
+          "CG",
+          14
+        ],
+        [
+          "AO",
+          4
+        ],
+        [
+          "CF",
+          4
+        ],
+        [
+          "MZ",
+          2
+        ],
+        [
+          "ZM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          14.0625,
+          -5.625,
+          30,
+          30
+        ],
+        [
+          14.0625,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          15.46875,
+          -5.625,
+          6,
+          6
+        ],
+        [
+          15.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          15.46875,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          16.875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          16.875,
+          0,
+          2,
+          2
+        ],
+        [
+          18.28125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          18.28125,
+          0,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          19.6875,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          19.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          5.625,
+          3,
+          3
+        ],
+        [
+          21.09375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          21.09375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          21.09375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          21.09375,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          22.5,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          22.5,
+          -4.21875,
+          15,
+          15
+        ],
+        [
+          22.5,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          23.90625,
+          0,
+          38,
+          38
+        ],
+        [
+          23.90625,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          25.3125,
+          -9.84375,
+          8,
+          8
+        ],
+        [
+          25.3125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          25.3125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          25.3125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          25.3125,
+          0,
+          4,
+          4
+        ],
+        [
+          25.3125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          26.71875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          26.71875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          0,
+          4,
+          4
+        ],
+        [
+          26.71875,
+          1.40625,
+          6,
+          6
+        ],
+        [
+          26.71875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          28.125,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          28.125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          29.53125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          35.15625,
+          -19.6875,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 37.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>The long-nosed distichodus, Distichodus lusosso, is a citharinid from rivers in Cameroon, the Republic of Congo and Democratic Republic of Congo. One of only a handful of Distichodus seen with any regularity in the hobby, it loses much of its juvenile colour and patterning as it matures. It resembles D. sexfasciatus but has a narrow, pointed head, and some specimens become very spiteful with age.</p><ul><li>Needs a very large tank</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>Cameroon, Republic of Congo, Democratic Republic of Congo, Angola, Central African Republic.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>Inhabits large rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>A single specimen would need a tank measuring at least 150 cm x 45 cm x 45 cm - 275 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>Not a good choice for the planted tank, as it will munch most greenery. Furnish the tank with smooth rocks and driftwood branches instead. Sand or gravel can be used as substrate. If you want to try some plants, use species such as Anubias or Bolbitis, as most fish leave these alone. A little water flow is appreciated. It's an excellent jumper, so the tank must have a tightly-fitting, heavy cover.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.5–7.5</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>Omnivorous and will accept most foods offered. It should be fed a decent proportion of vegetable matter to keep it in the best of health. A diet of live and frozen foods such as earthworms, prawn and mussel, along with frozen peas (remove the shells), Spirulina flake and blanched spinach would provide the desired balance.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>Somewhat unpredictable. While some specimens remain peaceful with similarly-sized tankmates, others can become very spiteful as they mature. Certainly don't attempt to keep one of these with much smaller or shy species. Some of this potential aggression can be removed by keeping it in a group, provided enough space is available. Other tankmates in a big tank could include bichirs, large characins, cyprinids, catfish and Loricariids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>Unrecorded in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>One of only a handful of Distichodus seen with any regularity in the hobby. This species is undeniably attractive when juvenile, but unfortunately loses much of its colour and patterning as it matures. It is superficially similar to the more commonly seen D. sexfasciatus but has a much smaller adult size and a narrow, pointed head.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/634b498d0653b326.webp",
+      "width": 960,
+      "height": 466,
+      "licence": "CC BY-SA 4.0",
+      "author": "The Great Mule of Eupatoria",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Distichodus_with_a_long_nose.jpg",
+      "caption": "Distichodus lusosso",
+      "thumb": "https://media.aquatome.com/commons/634b498d0653b326-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ZxdX8gXm0A4",
+      "title": "Lusy the Distichodus lusosso 2.5ft/75cm 8yo sucking pellets & destroying herring with tank mates",
+      "durationSec": 1105,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kqBkFavkX2U",
+      "title": "Two Distichodus lusosso, ~15\", ~2 years old, in 4500 gal, Dec 2016",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ba8CrhvtFsg",
+      "title": "Predator penghuni -+6000 liter WITH tankmate Distichodus Lusosso 41 cm",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "uIDdVLnzbYo",
+      "title": "Distichodus lusosso, the champion jerk of our collection, 1.5', 3 years old, 240 gal, 12-21-2017",
+      "durationSec": 115,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước bể cá lớn",
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina cho cá",
+        "thức ăn viên cá lớn",
+        "thức ăn cá ăn tạp",
+        "thức ăn spirulina dạng vảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "sỏi nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

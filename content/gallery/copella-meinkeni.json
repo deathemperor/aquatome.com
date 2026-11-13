@@ -1,0 +1,72 @@
+{
+  "id": "copella-meinkeni",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/15e2dfb5ff8a4dcf33e1beff60a0c9b6.webp",
+      "thumb": "https://media.aquatome.com/processed/15e2dfb5ff8a4dcf33e1beff60a0c9b6-480.webp",
+      "width": 799,
+      "height": 566,
+      "licence": "dùng với sự cho phép",
+      "author": "Enrico Richter",
+      "sourceUrl": "https://www.seriouslyfish.com/species/copella-meinkeni",
+      "caption": "Newly-imported adult male with some fin damage evident.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-copella-meinkeni",
+        "pixelHash": "3a79c21dd59b3fcebf8bc65f15c17baaa57d392142858f019e23356c5826d013"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:27:45.882Z",
+          "originalHash": "ccbbec68c23ba0c0dc8c02c12a22fcd50a056ac8402a55a92100c3390c72c468",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 799,
+            "originalHeight": 599,
+            "window": {
+              "x0": 0,
+              "y0": 33,
+              "x1": 799,
+              "y1": 599
+            },
+            "subject": {
+              "x0": 108,
+              "y0": 282,
+              "x1": 744,
+              "y1": 430
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 10,
+              "y0": 10,
+              "x1": 191,
+              "y1": 27
+            }
+          ],
+          "checks": {
+            "species": [
+              "7e453494ab9f12285ae7f9a62472d5c8507870cd014a2a346c6996ac3c22f98a",
+              "5afdde3716c529060f0f279db30cf9100ac68fb87ed416d0efaece2174c12e7a"
+            ],
+            "ownership": [
+              "959c1814f90df77648cc8a4955560833ef73ff64f55861cfccc26b86646dc55f",
+              "7bcb60a08eef9b67f4a56cd4d7cb1b895341d0e0570d628941b815587e275e18"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/98357fbb77bd68c5.webp",
+        "width": 799,
+        "height": 599,
+        "thumb": "https://media.aquatome.com/seriouslyfish/98357fbb77bd68c5-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

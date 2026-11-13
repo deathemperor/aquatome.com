@@ -123,7 +123,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -228,7 +228,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Hectonichus",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaeniidae_-_Glossolepis_incisus.JPG",
-      "caption": "Male of Glossolepis incisus"
+      "caption": "Male of Glossolepis incisus",
+      "large": {
+        "url": "https://media.aquatome.com/commons/2af08c53b1ba5176-large.webp",
+        "width": 1841,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/254bcb32d4ce6754.webp",
@@ -291,8 +296,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá cầu vồng"
+        "bể cá 120cm"
       ]
     },
     {

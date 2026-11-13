@@ -34,3 +34,21 @@ import Testing
                                ("/gv/", HandbookIndex.Item(kind: .guide, name: "gv", path: "/gv/", video: 60))]) { a, _ in a }
   #expect(ReadingList.items(["/g1/", "/gv/", "/v/"], in: videos, kind: .video).map(\.path) == ["/gv/", "/v/"])
 }
+
+@Test func aListKeptUnderViMovesToTheRootAndBack() {
+  var r = ReadingList()
+  r.toggleSaved("/vi/huong-dan/nuoi-ca-neon/"); r.toggleSaved("/id/panduan/neon/"); r.toggleSaved("/vi/ca/ca-neon/")
+  r.read("/vi/ca/ca-dia/"); r.read("/ca/ca-dia/"); r.read("/vi/cay/rotala-do/")
+  r.move(to: .atRoot)
+  #expect(r.saved == ["/ca/ca-neon/", "/id/panduan/neon/", "/huong-dan/nuoi-ca-neon/"])
+  // A page read in both forms (a link from before the change, then from after) is listed once, where it came first.
+  #expect(r.recent == ["/cay/rotala-do/", "/ca/ca-dia/"])
+  // Again in the same form: as it was.
+  let moved = r
+  r.move(to: .atRoot)
+  #expect(r == moved)
+  // Back, should the site put "/vi" back.
+  r.move(to: .underVi)
+  #expect(r.saved == ["/vi/ca/ca-neon/", "/id/panduan/neon/", "/vi/huong-dan/nuoi-ca-neon/"])
+  #expect(r.recent == ["/vi/cay/rotala-do/", "/vi/ca/ca-dia/"])
+}

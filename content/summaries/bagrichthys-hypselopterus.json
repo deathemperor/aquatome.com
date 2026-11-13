@@ -1,10 +1,15 @@
 {
   "id": "bagrichthys-hypselopterus",
-  "summary": "Loài cá da trơn lớn, trưởng thành khoảng 40 cm, sống ở sông lớn nhiều bùn, nước pH 6–7. Hồ sơ không ghi bể tối thiểu, nhiệt độ hay độ khó, và nhiều khả năng loài này chưa từng có trên thị trường cá cảnh. Khó nhất là gần như không có tài liệu nuôi hay sinh sản, nên chỉ hợp người chấp nhận thiếu thông tin.",
+  "summary": "Bagrichthys hypselopterus nhiều khả năng chưa từng xuất hiện trên thị trường cá cảnh, nên khó mà kiếm được để nuôi. Cá lớn tới 40 cm, cần nước 24–27 °C, pH 6–7, sống ngoài tự nhiên ở sông lớn, nền bùn, dòng chảy xiết. Khó nhất là cá đực hung hăng giữ lãnh thổ và hay đi lùng sục ban đêm; hồ sơ cũng chưa có tài liệu nào ghi lại chuyện sinh sản.",
   "mistakes": [
-    "Đừng để pH lệch khỏi khoảng 6–7, vì đây là mức nước duy nhất hồ sơ ghi cho loài này."
+    "Nuôi nhiều con đực chung một bể thì chúng giữ lãnh thổ rất hung; mỗi bể chỉ nên một con đực, số còn lại là cá cái.",
+    "Nuôi chung với cá thật nhỏ thì đêm đến chúng có thể bị ăn mất; đừng ghép với cá thật nhỏ."
   ],
-  "speciesUpdatedAt": "2026-10-30",
-  "generatedAt": "2026-10-31T16:40:24.792Z",
-  "review": "approved"
+  "speciesUpdatedAt": "2026-10-31",
+  "generatedAt": "2026-11-09T02:14:54.538Z",
+  "review": "pending",
+  "problems": [
+    "The page says male black lancers \"có thể rất hung hăng giữ lãnh thổ\" (can be very aggressive). The summary drops the hedge: \"cá đực hung hăng giữ lãnh thổ\".",
+    "The first mistake says \"chúng giữ lãnh thổ rất hung\" as a certainty. The page only says this may happen (\"có thể\")."
+  ]
 }

@@ -1,8 +1,8 @@
 {
   "id": "yasuhikotakia-modesta",
   "native": {
-    "input": "bdc958423fd67d16",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "8dbe4a8131688499",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "TH",
@@ -72,24 +72,6 @@
     "regions": [
       {
         "name": "Mekong",
-        "source": "seriouslyfish",
-        "quote": "It's since been collected throughout much of the middle and lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam plus the Chao Phraya and Mae Klong drainages in western and central Thailand.",
-        "ok": true
-      },
-      {
-        "name": "Chao Phraya",
-        "source": "seriouslyfish",
-        "quote": "It's since been collected throughout much of the middle and lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam plus the Chao Phraya and Mae Klong drainages in western and central Thailand.",
-        "ok": true
-      },
-      {
-        "name": "Mae Klong",
-        "source": "seriouslyfish",
-        "quote": "It's since been collected throughout much of the middle and lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam plus the Chao Phraya and Mae Klong drainages in western and central Thailand.",
-        "ok": true
-      },
-      {
-        "name": "Mekong",
         "source": "glaser",
         "quote": "The species is distributed in the drainages of the big rivers Mekong, Chao Phraya and Mae Klong, the distribution area includes the countries Thailand, Cambodia, Laos and Vietnam.",
         "ok": true
@@ -104,6 +86,13 @@
         "name": "Mae Klong",
         "source": "glaser",
         "quote": "The species is distributed in the drainages of the big rivers Mekong, Chao Phraya and Mae Klong, the distribution area includes the countries Thailand, Cambodia, Laos and Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Songkhram River",
+        "source": "seriouslyfish",
+        "quote": "Of the wild fish collected for the aquarium trade, many are thought to originate from the Songkhram River, a Mekong tributary in northeastern Thailand.",
+        "country": "TH",
         "ok": true
       }
     ],

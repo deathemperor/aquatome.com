@@ -1,32 +1,227 @@
 import { EventEmitter } from 'node:events'
-import { mkdtemp, readFile } from 'node:fs/promises'
+import { readFileSync, writeFileSync } from 'node:fs'
+import { mkdtemp, readdir, readFile, realpath } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { PassThrough } from 'node:stream'
-import { afterEach, expect, test, vi } from 'vitest'
+import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 
 // A `claude` that answers at once with what the CLI prints: the structured output, its cost and tokens.
+const spawned = vi.hoisted(() => [] as { cwd: string; env?: NodeJS.ProcessEnv; args?:string[] }[])
+// What the next `claude` prints instead, as the pipe hands it over: in these chunks.
+const printed = vi.hoisted(() => ({ chunks: undefined as Buffer[] | undefined }))
 vi.mock('node:child_process', () => ({
-  spawn: () => {
+  spawn: (_cmd: string, _args: string[], opts: { cwd: string; env?: NodeJS.ProcessEnv }) => {
+    spawned.push({...opts,args:_args})
     const child = Object.assign(new EventEmitter(), { stdout: new PassThrough(), stderr: new PassThrough(), stdin: new PassThrough(), kill: () => true })
     child.stdin.on('finish', () => {
-      child.stdout.end(JSON.stringify({ structured_output: { ok: true }, total_cost_usd: 0.12, usage: { input_tokens: 3, output_tokens: 40 } }))
+      const chunks = printed.chunks
+      printed.chunks = undefined
+      if (chunks) { for (const c of chunks) child.stdout.write(c); child.stdout.end() }
+      else child.stdout.end(JSON.stringify({ structured_output: { ok: true }, total_cost_usd: 0.12, usage: { input_tokens: 3, output_tokens: 40 } }))
       setImmediate(() => child.emit('close', 0))
     })
     return child
   },
 }))
-const { claudeCli } = await import('../src/claude')
+const { LlmError, claudeCli, claudeResearch, claudeVision } = await import('../src/claude')
+const { accountReport, resetAccounts, tokenHash } = await import('../src/claude-accounts')
+const { errorKind } = await import('../src/state')
 const call = () => claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {}, model: 'opus' })
 
-afterEach(() => { delete process.env.ENGINE_COST_LOG })
+// No account but a test's own: the engine's runs have theirs in the environment (on 8 November GitHub's
+// CLAUDE_CODE_OAUTH_TOKEN made a line name it, and the rewrite part's cycle didn't publish).
+const noAccounts = () => { delete process.env.CLAUDE_CODE_OAUTH_TOKEN; delete process.env.CLAUDE_CODE_OAUTH_TOKENS; resetAccounts() }
+// A stand-in call must not be written to a real cost log (vitest.config.ts): `off` is no log.
+// These calls are made as the gate, the step with no ceiling (ceiling.ts), so a test that names a cost log doesn't go by
+// the day it is run on. The ceiling's own test names its step.
+const ARGV = [...process.argv]
+const asStep = (step: string) => process.argv.splice(1, process.argv.length - 1, '/repo/packages/engine/src/cli.ts', step)
+beforeEach(() => { process.env.ENGINE_COST_LOG = 'off'; asStep('gate'); noAccounts() })
+afterEach(() => { process.argv.splice(0, process.argv.length, ...ARGV) })
+afterEach(() => { process.env.ENGINE_COST_LOG = 'off'; noAccounts() })
 
-test('ENGINE_COST_LOG gets a line a call; a log it cannot write never fails the call', async () => {
+test('a call that reads no files runs from an empty folder, not /tmp, whose every checkout the CLI would list', async () => {
+  spawned.length = 0
+  await call()
+  await claudeResearch<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
+  expect(spawned).toHaveLength(2)
+  for (const { cwd } of spawned) {
+    expect(await realpath(cwd)).not.toBe(await realpath('/tmp'))
+    expect(await readdir(cwd)).toEqual([])
+  }
+})
+
+test('a call that reads no files runs from an empty folder, not /tmp, whose every checkout the CLI would list', async () => {
+  spawned.length = 0
+  await call()
+  await claudeResearch<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
+  expect(spawned).toHaveLength(2)
+  for (const { cwd } of spawned) {
+    expect(await realpath(cwd)).not.toBe(await realpath('/tmp'))
+    expect(await readdir(cwd)).toEqual([])
+  }
+})
+
+// The pipe hands a long answer over in chunks, cut at any byte. Each chunk decoded by itself turned a character cut in two
+// into "\uFFFD\uFFFD": 40 pages had one on 2026-11-10, 38 of them Thai, whose every letter is three bytes ("ที่\uFFFD\uFFFDพาะ"
+// for "ที่เพาะ" on the guppy's page), and the translation reviewer marked each page down for it.
+test('a character the pipe cuts in two between chunks of the answer is read whole', async () => {
+  const text = 'มีสายพันธุ์ที่เพาะในตู้ปลา, cá bảy màu'
+  const bytes = Buffer.from(JSON.stringify({ structured_output: { text }, total_cost_usd: 0, usage: {} }))
+  // Cut inside "เ" (three bytes), and inside "ả" further on.
+  const thai = bytes.indexOf(Buffer.from('เ')) + 1, viet = bytes.indexOf(Buffer.from('ả')) + 1
+  printed.chunks = [bytes.subarray(0, thai), bytes.subarray(thai, viet), bytes.subarray(viet)]
+  expect(await claudeCli<{ text: string }>({ system: 's', prompt: 'p', schema: {} })).toEqual({ text })
+})
+
+test('ENGINE_COST_LOG gets a line a call; a log it cannot write never fails the gate\'s call', async () => {
   const log = join(await mkdtemp(join(tmpdir(), 'cost-')), 'cost.jsonl')
   process.env.ENGINE_COST_LOG = log
   expect(await call()).toEqual({ ok: true })
-  expect(JSON.parse(await readFile(log, 'utf8'))).toMatchObject({ model: 'opus', usd: 0.12, in: 3, out: 40, error: false })
+  expect(JSON.parse(await readFile(log, 'utf8'))).toMatchObject({ step: 'gate', model: 'opus', usd: 0.12, in: 3, out: 40, error: false, account: 'login' })
+  // The gate is never stopped. A step with a ceiling is, by a log it can't write (ceiling.test.ts).
   process.env.ENGINE_COST_LOG = join(log, 'not-a-folder', 'cost.jsonl')
   vi.spyOn(console, 'warn').mockImplementation(() => {})
   expect(await call()).toEqual({ ok: true })
+})
+
+test('a call made for a piece names it in its cost line, so a piece\'s cost is its own calls\' (pieces.ts)', async () => {
+  const { inPiece } = await import('../src/ceiling')
+  const log = join(await mkdtemp(join(tmpdir(), 'cost-')), 'cost.jsonl')
+  process.env.ENGINE_COST_LOG = log
+  await inPiece.run('guide-a 2026-11-13T05:00:00.000Z', call)
+  await call()
+  const [inside, outside] = (await readFile(log, 'utf8')).trim().split('\n').map(l => JSON.parse(l))
+  expect(inside).toMatchObject({ step: 'gate', piece: 'guide-a 2026-11-13T05:00:00.000Z', usd: 0.12 })
+  expect(outside).not.toHaveProperty('piece')
+})
+
+// The chief of staff, 2026-11-11: scores on file and today's differed by up to 0.35 on 8 of 14 pages, and nothing said
+// which model or which version of the command each came from. The engine asks for an alias, which moves with the version.
+test('the cost log and each review name the full model the alias answered with, and the command\'s version', async () => {
+  const { logReviews, readReviews } = await import('../src/review-log')
+  const log = join(await mkdtemp(join(tmpdir(), 'cost-')), 'cost.jsonl')
+  process.env.ENGINE_COST_LOG = log
+  process.env.ENGINE_CLI_VERSION = '2.1.322'
+  printed.chunks = [Buffer.from(JSON.stringify({ structured_output: { ok: true }, total_cost_usd: 0.1, usage: {}, modelUsage: { 'claude-haiku-5-5': { outputTokens: 12 }, 'claude-opus-5-5': { outputTokens: 400 } } }))]
+  try {
+    await call()
+    expect(JSON.parse(await readFile(log, 'utf8'))).toMatchObject({ model: 'opus', ran: 'claude-opus-5-5', cli: '2.1.322' })
+    const root = await mkdtemp(join(tmpdir(), 'rev-'))
+    await logReviews(root, 'translation', { id: 'species/x', lang: 'vi' }, [{ score: 0.8, notes: [] }], undefined, { model: 'opus', now: new Date('2026-11-12T00:00:00Z') })
+    expect(Object.values(await readReviews(root, 'translation'))[0]![0]).toMatchObject({ model: 'opus', ran: 'claude-opus-5-5', cli: '2.1.322' })
+  } finally {
+    delete process.env.ENGINE_CLI_VERSION
+    process.env.ENGINE_CLI_VERSION = ''
+  }
+})
+
+// 2026-11-08: a week's use couldn't be split by job or account, as the log didn't say which account a call went to.
+test('each line names the account the call went to, by its token\'s hash, never the token', async () => {
+  const log = join(await mkdtemp(join(tmpdir(), 'cost-')), 'cost.jsonl')
+  process.env.ENGINE_COST_LOG = log
+  process.env.CLAUDE_CODE_OAUTH_TOKENS = 'tok-first\ntok-second'
+  resetAccounts()
+  await call()
+  const text = await readFile(log, 'utf8')
+  expect(JSON.parse(text)).toMatchObject({ account: tokenHash('tok-first'), model: 'opus' })
+  expect(text).not.toContain('tok-first')
+})
+
+// A hand run from inside a session carried these into the child; a scheduled run has none of them. Both must call the
+// model the same way (2026-11-11).
+const SESSION = ['CLAUDE_EFFORT', 'CLAUDECODE', 'CLAUDE_AGENT_SDK_VERSION', 'CLAUDE_CODE_CHILD_SESSION', 'CLAUDE_CODE_ENTRYPOINT', 'CLAUDE_CODE_EXECPATH', 'CLAUDE_CODE_MESSAGING_SOCKET', 'CLAUDE_CODE_MESSAGING_TOKEN', 'CLAUDE_CODE_SESSION_ATTENDED', 'CLAUDE_CODE_SESSION_ID', 'CLAUDE_PID', 'ANTHROPIC_MODEL', 'MAX_THINKING_TOKENS']
+const setSession = () => { for (const name of SESSION) process.env[name] = 'from-session'; process.env.AQ_TEST_KEEP = 'keep' }
+const clearSession = () => { for (const name of SESSION) delete process.env[name]; delete process.env.AQ_TEST_KEEP }
+const dropped = (env: NodeJS.ProcessEnv) => { for (const name of SESSION) expect(env[name]).toBeUndefined() }
+
+test('a call with an account drops the session variables and keeps only that account\'s token', async () => {
+  setSession()
+  // The list is set so the child must not see it; the account the call uses is tok-a.
+  process.env.CLAUDE_CODE_OAUTH_TOKENS = 'tok-a'
+  process.env.CLAUDE_CODE_OAUTH_TOKEN = 'tok-a'
+  resetAccounts()
+  spawned.length = 0
+  try {
+    await call()
+    const env = spawned[0]?.env
+    expect(env).toBeDefined()
+    dropped(env!)
+    expect(env!.CLAUDE_CODE_OAUTH_TOKENS).toBeUndefined()
+    expect(env!.CLAUDE_CODE_OAUTH_TOKEN).toBe('tok-a')
+    expect(env!.AQ_TEST_KEEP).toBe('keep')
+    expect(env!.PATH).toBe(process.env.PATH)
+  } finally {
+    clearSession()
+  }
+})
+
+test('a call with no account still gets a cleaned env, and so does claudeResearch', async () => {
+  setSession()
+  spawned.length = 0
+  try {
+    await call()
+    const env = spawned[0]?.env
+    expect(env).toBeDefined()
+    dropped(env!)
+    expect(env!.CLAUDE_CODE_OAUTH_TOKEN).toBeUndefined()
+    expect(env!.CLAUDE_CODE_OAUTH_TOKENS).toBeUndefined()
+    expect(env!.AQ_TEST_KEEP).toBe('keep')
+    expect(env!.PATH).toBe(process.env.PATH)
+    spawned.length = 0
+    await claudeResearch<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
+    const research = spawned[0]?.env
+    expect(research).toBeDefined()
+    dropped(research!)
+    expect(research!.AQ_TEST_KEEP).toBe('keep')
+  } finally {
+    clearSession()
+  }
+})
+
+// The ceiling is the engine's own limit (ceiling.ts). At it, the call fails the way a usage limit does, before any
+// account is tried, so the account stays in use.
+test('under its ceiling the call is made; at the ceiling no claude is spawned and no account is set aside', async () => {
+  const log = join(await mkdtemp(join(tmpdir(), 'cost-')), 'aquatome-cost-test.jsonl')
+  const github = process.env.GITHUB_ACTIONS
+  process.env.ENGINE_COST_LOG = log
+  delete process.env.GITHUB_ACTIONS // the Mac's share, on GitHub's test run too
+  asStep('run')
+  vi.useFakeTimers({ toFake: ['Date'] })
+  vi.setSystemTime(new Date('2026-11-12T08:00:00Z')) // 15:00 in Vietnam on 12 Nov, one sign-in's day: `run` has $30 on the Mac
+  process.env.CLAUDE_CODE_OAUTH_TOKENS = 'tok-ceiling'
+  resetAccounts()
+  spawned.length = 0
+  try {
+    expect(await call()).toEqual({ ok: true })
+    expect(spawned).toHaveLength(1)
+    // The call's own line names the step it is counted under.
+    expect(JSON.parse(readFileSync(log, 'utf8').trim().split('\n').at(-1)!).step).toBe('run')
+    writeFileSync(log, `${JSON.stringify({ at: new Date().toISOString(), step: 'run', usd: 30 })}\n`)
+    spawned.length = 0
+    const e = await call().catch((err: unknown) => err)
+    expect(spawned).toHaveLength(0)
+    expect(e).toBeInstanceOf(LlmError)
+    expect((e as Error).message).toBe('claude failed: the engine\'s daily limit reached for run ($30.00 of $30 today)')
+    expect(errorKind((e as Error).message)).toBe('usage')
+    expect(accountReport()).toEqual([`token 1 (${tokenHash('tok-ceiling')}): 1 answered`])
+    // Another step is not stopped by it.
+    process.argv[2] = 'summaries'
+    expect(await call()).toEqual({ ok: true })
+  } finally {
+    vi.useRealTimers()
+    if (github === undefined) delete process.env.GITHUB_ACTIONS
+    else process.env.GITHUB_ACTIONS = github
+    process.env.ENGINE_COST_LOG = 'off'
+    delete process.env.CLAUDE_CODE_OAUTH_TOKENS
+    resetAccounts()
+  }
+})
+
+
+test('image judgments use the native ephemeral flag; ordinary text calls keep their prior command',async()=>{
+ await claudeVision({system:'s',prompt:'p',schema:{},file:join(tmpdir(),'fixture.png')})
+ expect(spawned.at(-1)?.args).toContain('--no-session-persistence')
+ await call();expect(spawned.at(-1)?.args).not.toContain('--no-session-persistence')
 })

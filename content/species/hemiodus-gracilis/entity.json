@@ -1,0 +1,560 @@
+{
+  "id": "hemiodus-gracilis",
+  "scientificName": "Hemiodus gracilis",
+  "order": "Characiformes",
+  "family": "Hemiodontidae",
+  "genus": "Hemiodus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "venezuela",
+    "brazil"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The slender hemiodus, Hemiodus gracilis, is a shoaling characin from Venezuela and Brazil, found in floodplain rivers and lakes.",
+          "countries": [
+            "VE",
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354911,
+      "total": 246,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "VE",
+          125
+        ],
+        [
+          "BR",
+          101
+        ],
+        [
+          "CO",
+          10
+        ],
+        [
+          "PE",
+          9
+        ],
+        [
+          "FR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          5,
+          0
+        ],
+        [
+          -73.125,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          -73.125,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          0,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          5.625,
+          4,
+          0
+        ],
+        [
+          -68.90625,
+          0,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          2.8125,
+          5,
+          5
+        ],
+        [
+          -68.90625,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          5.625,
+          9,
+          8
+        ],
+        [
+          -67.5,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          -67.5,
+          2.8125,
+          10,
+          10
+        ],
+        [
+          -67.5,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          5.625,
+          63,
+          63
+        ],
+        [
+          -67.5,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -66.09375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -11.25,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          7,
+          7
+        ],
+        [
+          -63.28125,
+          0,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          7.03125,
+          16,
+          16
+        ],
+        [
+          -61.875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -11.25,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -59.0625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -2.8125,
+          13,
+          13
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          0,
+          14,
+          14
+        ],
+        [
+          -47.8125,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -39.375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -4.21875,
+          47.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.8,
+          "max": 7.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 16
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-gracilis",
+      "html": "<p>The slender hemiodus, Hemiodus gracilis, is a shoaling characin from Venezuela and Brazil, found in floodplain rivers and lakes. Probably the most often seen member of the genus in the hobby, it is sometimes sold as the red or red-tailed hemiodus. Very active and nervous when first introduced, it settles best in a large group in a spacious tank with a well-fitting cover.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-gracilis",
+      "html": "<p>Venezuela and Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-gracilis",
+      "html": "<p>Inhabits floodplain rivers and lakes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-gracilis",
+      "html": "<p>Very active and needs a tank measuring at least 120 × 45 × 45 cm (about 243 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-gracilis",
+      "html": "<p>A biotope aquarium for this species can be very simple: a layer of inert sand about 5 cm deep as substrate, with perhaps some driftwood branches and twisted roots scattered around. Some floating vegetation will help to make this flighty species less skittish. It's also equally at home in a fully planted tank. Whichever layout is used, the water should be very well-oxygenated and the tank must have a well-fitting cover, as the fish can leap surprising distances. The species is sensitive to poor water conditions, so tank maintenance must be stringent.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-gracilis",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 5.8–7.2</li><li>Hardness: 4–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-gracilis",
+      "html": "<p>Unfussy, and will accept most live, frozen and dried foods. Try to make sure it receives some greenstuffs in its diet, as it is reported to feed quite heavily on plant matter in nature.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-gracilis",
+      "html": "<p>Very peaceful but it can intimidate much smaller or more quiet species with its activity and size. It makes an ideal shoaling species for the larger Amazon biotope aquarium, where it can be combined with similarly-sized characins, cichlids such as Geophagus, Satanoperca and Heros, catfish and Loricariids. It is a shoaling species by nature and should always be kept in a group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-gracilis",
+      "html": "<p>Unknown. Mature females are likely to be rounder-bellied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-gracilis",
+      "html": "<p>Not thought to have been bred in the hobby. It's probably an egg scatterer.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-gracilis",
+      "html": "<p>Hemiodus species can be very nervous when first introduced to the aquarium but usually settle down over time, especially if a large number are kept together. All of them look superficially similar, but can be distinguished by differences in patterning. None are particularly common in the hobby, but H. gracilis is probably the most often seen. It is sometimes sold as the red or red-tailed hemiodus and was previously considered a member of the now defunct genus Hemiodopsis.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/baa6f945cdbed569.webp",
+      "width": 960,
+      "height": 542,
+      "licence": "CC BY 2.0",
+      "author": "Clinton & Charles Robertson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemiodopsis_cf_gracilis.jpg",
+      "caption": "Hemiodus cf gracilis",
+      "thumb": "https://media.aquatome.com/commons/baa6f945cdbed569-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "pnlXSJCgY-A",
+      "title": "Hemiodus gracilis maybe...",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "a8Zy5tIsf8I",
+      "title": "Redtail Hemiodus “Hemi” Tetra",
+      "durationSec": 18,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sWIhyImF2U8",
+      "title": "Arrival of 32 red tail hemiodus tetras 2 inches",
+      "durationSec": 284,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 240 lít",
+        "máy sục khí bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W",
+        "máy sưởi điều chỉnh nhiệt độ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra cỡ lớn",
+        "thức ăn cá thực vật dạng viên"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -7,9 +7,10 @@
   "photos": [],
   "mentions": [
     "paracheirodon-innesi",
-    "paracheirodon-simulans"
+    "paracheirodon-simulans",
+    "paracheirodon-axelrodi"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "jvEJpkByqJ0",
     "title": "Bí quyết nuôi cá neon hiệu quả cho người mới!",
@@ -55,28 +56,28 @@
     "lang": "vi",
     "taxa": [
       "Paracheirodon innesi",
-      "Paracheirodon simulans"
+      "Paracheirodon axelrodi"
     ],
     "gear": [
       {
         "category": "phan-nen",
         "type": "la",
-        "t": 160
+        "t": 157
       },
       {
         "category": "cay-thuy-sinh",
         "type": "noi",
-        "t": 160
+        "t": 157
       },
       {
         "category": "khac",
         "brand": "OBO",
-        "t": 176
+        "t": 168
       },
       {
         "category": "khac",
         "brand": "N1",
-        "t": 176
+        "t": 168
       },
       {
         "category": "loc",
@@ -86,47 +87,87 @@
     ],
     "figures": [
       {
+        "heading": "Các dòng cá neon hay gặp",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/jvEJpkByqJ0/p0-lb25UZXRyYS5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/jvEJpkByqJ0/p0-lb25UZXRyYS5KUEc-480.webp",
+          "width": 960,
+          "height": 729,
+          "licence": "CC BY-SA 3.0",
+          "author": "Corpse89",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:NeonTetra.JPG",
+          "caption": "Cá neon với vệt xanh dạ quang sáng rực và thân đỏ nổi bật."
+        }
+      },
+      {
         "heading": "Vì sao cá neon dễ chết cả đàn",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/jvEJpkByqJ0/p0-Z3JhZF96b28uanBn.webp",
-          "thumb": "https://media.aquatome.com/video/jvEJpkByqJ0/p0-Z3JhZF96b28uanBn-480.webp",
+          "url": "https://media.aquatome.com/video/jvEJpkByqJ0/p1-Z2VuQ3ljbGUucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/jvEJpkByqJ0/p1-Z2VuQ3ljbGUucG5n-480.webp",
           "width": 960,
-          "height": 641,
-          "licence": "CC BY-SA 4.0",
-          "author": "Горбунова М.С.",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neon_tetra_in_the_Leningrad_zoo.jpg",
-          "caption": "Cá neon bơi trong bể thủy sinh có rêu và lũa."
+          "height": 619,
+          "licence": "CC BY 2.5",
+          "author": "w:pl:Wikipedysta:Lukas3",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium-NitrogenCycle.png",
+          "caption": "Sơ đồ chu trình nitơ trong bể: NH3 thành NO2 rồi NO3 nhờ vi sinh."
         }
       },
       {
-        "heading": "Neon sống ở môi trường nào ngoài tự nhiên",
+        "heading": "Neon sống ở đâu ngoài tự nhiên",
         "moments": [
           {
-            "t": 153,
-            "url": "https://media.aquatome.com/video/jvEJpkByqJ0/t153.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể blackwater nước nâu đỏ, nhiều rễ cây và lá, rất hợp với neon."
+            "t": 155,
+            "url": "https://media.aquatome.com/video/jvEJpkByqJ0/at155-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể blackwater nước đỏ nâu, rễ cây dày và đàn cá nhỏ bơi.",
+            "sharpness": 661.3,
+            "person": false
           }
-        ]
-      },
-      {
-        "heading": "Chọn cá khỏe ngay từ lúc mua",
-        "moments": [],
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/jvEJpkByqJ0/p3-5faW5uZXNpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/jvEJpkByqJ0/p3-5faW5uZXNpLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/jvEJpkByqJ0/p2-6b24tTkFTQS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/jvEJpkByqJ0/p2-6b24tTkFTQS5qcGc-480.webp",
           "width": 960,
-          "height": 636,
-          "licence": "CC BY 3.0",
-          "author": "Holger Krisp",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neonsalmler_Paracheirodon_innesi.jpg",
-          "caption": "Cá neon khỏe, màu sáng rõ, vảy mượt và đuôi nguyên vẹn."
+          "height": 960,
+          "licence": "Public domain",
+          "author": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Manaus-Amazon-NASA.jpg",
+          "caption": "Ảnh vệ tinh sông Negro nước đen gặp sông Amazon nước đục ở Nam Mỹ."
         }
       },
       {
-        "heading": "Bắt đầu từ đâu",
+        "heading": "Chọn cá neon khỏe ở tiệm",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/jvEJpkByqJ0/p4-b25fdGV0cmEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/jvEJpkByqJ0/p4-b25fdGV0cmEuanBn-480.webp",
+          "width": 960,
+          "height": 500,
+          "licence": "CC BY-SA 4.0",
+          "author": "SOK",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paracheirodon_innesi_neon_tetra.jpg",
+          "caption": "Cá neon khỏe, màu sáng rõ, vảy mướt, đuôi nguyên vẹn, không đốm trắng."
+        }
+      },
+      {
+        "heading": "Chăm sóc mấy tuần đầu sau khi thả",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/jvEJpkByqJ0/p6-bV9maXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/jvEJpkByqJ0/p6-bV9maXNoZXMuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "KannanVM",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
+          "caption": "Cá vàng bơi trong bể nuôi có sỏi, gỗ lũa và cây thủy sinh."
+        }
+      },
+      {
+        "heading": "Nuôi theo đàn và kiên nhẫn với bể",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/jvEJpkByqJ0/p7-lfc2Nob29sLmpwZw.webp",
@@ -136,7 +177,7 @@
           "licence": "Public domain",
           "author": "Tkinias at English Wikipedia",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paracheirodon_axelrodi_school.jpg",
-          "caption": "Đàn cá neon bơi giữa bể trồng nhiều cây thủy sinh, ánh đèn dịu."
+          "caption": "Đàn cá neon đông đúc bơi cùng nhau trong bể thủy sinh nhiều cây."
         }
       }
     ]

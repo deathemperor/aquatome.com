@@ -1,14 +1,16 @@
 {
   "id": "youtube-iFDXqeBOxQk",
-  "kind": "setup",
+  "kind": "aquascaping",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=iFDXqeBOxQk",
   "html": "",
   "photos": [],
   "mentions": [
-    "microsorum-pteropus"
+    "microsorum-pteropus",
+    "bucephalandra-sp",
+    "caridina-multidentata"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "iFDXqeBOxQk",
     "title": "TOP 10 AQUASCAPING TIPS FOR BEGINNERS (in order of importance)",
@@ -73,78 +75,101 @@
     },
     "taxa": [
       "Microsorum pteropus",
+      "Anubias sp.",
+      "Cryptocoryne sp.",
+      "Bucephalandra sp.",
       "Otocinclus sp.",
       "Caridina multidentata"
     ],
     "gear": [
       {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 260
+      },
+      {
         "category": "cay-thuy-sinh",
-        "type": "noi",
-        "t": 560
+        "type": "gan-lua",
+        "t": 400
       },
       {
         "category": "co2",
         "type": "binh",
-        "t": 95
+        "t": 75
       },
       {
         "category": "den",
         "type": "thuy-sinh",
-        "t": 65
+        "t": 60
       },
       {
-        "category": "khac",
-        "brand": "Flux Aqua",
-        "model": "light screens",
-        "t": 996
+        "category": "loc",
+        "type": "thung",
+        "t": 800
       }
     ],
     "figures": [
       {
-        "heading": "Làm sao để bể chạy ổn định mỗi ngày",
+        "heading": "Giữ bể chạy đều đặn như thế nào",
         "moments": [
           {
             "t": 30,
-            "url": "https://media.aquatome.com/video/iFDXqeBOxQk/t30.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh chạy ổn định với đá phủ rêu và thảm cỏ xanh."
+            "url": "https://media.aquatome.com/video/iFDXqeBOxQk/at30-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Góc nhìn bể thủy sinh với thiết bị CO2 và cây xanh tốt.",
+            "sharpness": 2572.1,
+            "person": false
           },
           {
-            "t": 39,
-            "url": "https://media.aquatome.com/video/iFDXqeBOxQk/t39.webp",
+            "t": 40,
+            "url": "https://media.aquatome.com/video/iFDXqeBOxQk/at40.webp",
             "width": 320,
             "height": 180,
-            "caption": "Cận cảnh bể thủy sinh, cây mọc đều và ống CO2 ở góc bể."
+            "caption": "Bể thủy sinh đá và cây phủ xanh, chạy ổn định đều đặn."
           }
         ]
       },
       {
-        "heading": "Đèn là chân ga: cân bằng đèn, CO2 và phân",
+        "heading": "Cây mọc nhanh và chuyện đèn là chân ga",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/iFDXqeBOxQk/p6-J1LUluZGlhLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/iFDXqeBOxQk/p6-J1LUluZGlhLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/iFDXqeBOxQk/p3-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/iFDXqeBOxQk/p3-J1LUluZGlhLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY 4.0",
           "author": "Yercaud-elango",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Riccia_fluitans-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Bể nông dưới đèn LED, rêu và cây thủy sinh lên xanh tốt."
+          "caption": "Bể thủy sinh có đèn LED chiếu sáng, cây mọc nhanh xanh um phủ lên lũa."
         }
       },
       {
-        "heading": "Gặp rêu hại thì làm gì",
+        "heading": "Bể mới lên rêu hại thì làm gì",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/iFDXqeBOxQk/p7-mdHdvb2RfMy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/iFDXqeBOxQk/p7-mdHdvb2RfMy5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/iFDXqeBOxQk/p5-mdHdvb2RfMy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/iFDXqeBOxQk/p5-mdHdvb2RfMy5qcGc-480.webp",
           "width": 960,
           "height": 540,
           "licence": "CC BY 4.0",
           "author": "Evan Baldonado",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_Catfish_(Otocinclus_sp.)_on_Malaysian_driftwood_3.jpg",
-          "caption": "Cá otocinclus bám trên khúc lũa, giúp dọn rêu hại trong bể thủy sinh."
+          "caption": "Cá otocinclus bám trên lũa trong bể trồng cây, chuyên dọn rêu hại."
+        }
+      },
+      {
+        "heading": "Lên kế hoạch trước khi mua",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/iFDXqeBOxQk/p6-ha3Zhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/iFDXqeBOxQk/p6-ha3Zhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 737,
+          "licence": "Public domain",
+          "author": "User Aleš Tošovský",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amaterske_akvarium.jpg",
+          "caption": "Bể thủy sinh cây xanh um với lũa, đá và đàn cá nhỏ."
         }
       }
     ]

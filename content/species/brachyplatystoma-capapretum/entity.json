@@ -11,6 +11,194 @@
     "amazon",
     "peru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Madeira",
+        "Negro",
+        "Purus",
+        "Putumayo",
+        "Juruá"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Brachyplatystoma capapretum is a large, piscivorous pimelodid catfish found throughout much of the Amazon basin, from near Belém to Iquitos in Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Rio Tefé sand beach, Lago Mucura, Supiã-Pucu, Tefé' in Amazonas state, northwestern Brazil, but this species is widely-distributed throughout much of the Amazon basin from Belém near the river's mouth at least as far as Iquitos in Loreto region, northern Peru.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It also occurs in most major Amazon tributaries including the Trombetas, Madeira, Purus, Negro, Manacapuru, Purus, Tefé, Putumayo, Juruá, Jutaí, and Içá.",
+          "countries": [],
+          "regions": [
+            "Madeira",
+            "Negro",
+            "Purus",
+            "Putumayo",
+            "Juruá"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338830,
+      "total": 47,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          37
+        ],
+        [
+          "PE",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -54,7 +242,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -63,7 +251,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-capapretum",
-      "html": "<p><em>Brachyplatystoma capapretum</em> is a large, piscivorous pimelodid catfish found throughout much of the Amazon basin, from near Belém to Iquitos in Peru. The largest recorded specimen measured 880 mm, and it is suitable only for public aquaria and a very small minority of private aquarists. It is very similar to B. filamentosum but smaller, with shorter maxillary barbels, a moderately forked caudal-fin with lobes of equal size, and adults very dark above.</p><ul><li>Max size: 880 mm SL (35 in SL)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 1–20 dGH</li><li>Difficulty: 5 of 8 (difficult) because it needs a tank at least 2 m long</li></ul>"
+      "html": "<p><em>Brachyplatystoma capapretum</em> is a large, piscivorous pimelodid catfish found throughout much of the Amazon basin, from near Belém to Iquitos in Peru. The largest recorded specimen measured 880 mm, and it is suitable only for public aquaria and a very small minority of private aquarists. It is very similar to B. filamentosum but smaller, with shorter maxillary barbels, a moderately forked caudal-fin with lobes of equal size, and adults very dark above.</p><ul><li>Max size: 880 mm SL (35 in SL)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 1–20 dGH</li><li>Difficulty: 6 of 8 (difficult) because it needs a tank at least 2 m long</li></ul>"
     },
     {
       "key": "distribution",

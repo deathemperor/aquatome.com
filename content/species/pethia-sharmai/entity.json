@@ -1,0 +1,250 @@
+{
+  "id": "pethia-sharmai",
+  "scientificName": "Pethia sharmai",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Pethia",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "india",
+    "tamil-nadu"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Chembarambakkam Lake"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Pethia sharmai is a small cyprinid known only from a handful of localities around Chennai in Tamil Nadu, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from 'Mogappair, West Annanagar, Madras, Tamil Nadu, India' and currently known only from a handful of localities in the vicinity of Chennai (formerly Madras), including Kunrathur, Chengalpet, and Chembarambakkam Lake.",
+          "countries": [],
+          "regions": [
+            "Chembarambakkam Lake"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8080492,
+      "total": 0,
+      "fetched": "2026-11-12",
+      "countries": [],
+      "cells": []
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "html": "<ul><li>Difficulty: Moderate. Rated moderate because it needs a well-established tank and stable water.</li></ul><p>Pethia sharmai is a small cyprinid known only from a handful of localities around Chennai in Tamil Nadu, India. It mostly inhabits ponds and lakes, many of them in urban areas under pressure from urbanisation. Very peaceful but small and timid, it does best alone or with other diminutive species, and it is almost unheard of in the hobby outside India.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "html": "<p>Described from 'Mogappair, West Annanagar, Madras, Tamil Nadu, India' and currently known only from a handful of localities in the vicinity of Chennai (formerly Madras), including Kunrathur, Chengalpet, and Chembarambakkam Lake.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "html": "<p>Mostly inhabits freshwater ponds and lakes, many of which are in urban areas and under pressure from urbanisation and other anthropogenic influences.</p><p>At Chembarambakkam Lake P. sharmai has been recorded alongside numerous other fish species including Mystus cf. bleekeri, Osteobrama cotio, Dawkinsia filamentosa, Pethia ticto, P.gelius, Puntius sophore, P. sarana, P.vittatus, Rasbora daniconius, R. caverii, Salmostoma sp., Lepidocephalichthys thermalis, L. guntea, Ehirava fluviatilis, Pseudetroplus maculatus, Notopterus notopterus, Esomus danricus, Badis badis, Chanda nama, Aplocheilus parvus, Oryzias dancena, Anabas testudineus, a non-native jewel cichlid and Pterygoplichthys sp. plus the shrimp Caridina sp. and Neocaridina gracilirostris.</p><p>Chembarambakkam is a rain-fed lake located in Chengalpattu district, about 40 km from Chennai and is one of two main sources of drinking water for the city.</p><p>It's also the source of the Adyar River and is under threat from pollution and invasion by a non-native plant of the genus Eichhornia, which are known collectively as water hyacinths.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "html": "<p>Standard length: 40 mm SL (4 cm).</p><p>Aquarium base: 60 × 30 cm. Volume: ~54 litres.</p><p>Base dimensions of at least 60 × 30 cm or equivalent are required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "html": "<p>Best kept in a densely-planted tank and is an excellent choice for the carefully-aquascaped set-up.</p><p>The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong as it is likely to hail from sluggish waters and may struggle if there is a fast current.</p><p>Do not add this fish to a biologically immature tank as it can be susceptible to swings in water chemistry.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 5.5–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "html": "<p>Probably a micropredator feeding on small insects, worms, crustaceans and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should not be fed these exclusively.</p><p>Daily meals of small live and frozen fare such as Daphnia, Artemia, Moina, etc., along with good quality flakes and granules will result in the best colouration and encourage the fish to come into breeding condition.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "html": "<p>Very peaceful but does not make an ideal community fish due to its small size and rather timid nature.</p><p>It will do best when maintained alone or with other diminutive species such as Pethia gelius, Horadandia atukorali, Microdevario, Oreichthys, Boraras, Trigonostigma, smaller Danio, and freshwater shrimp of the genera Caridina and Neocaridina.</p><p>It's a schooling species by nature and really should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less nervous but result in a more effective, natural-looking display, plus males will also display their best colours and some interesting behaviour as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "html": "<p>Mature females are noticeably rounder-bellied, often a little larger and less-intensively coloured than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "html": "<p>This species is almost unheard of in the aquarium hobby outside of India but is maintained by some private collectors.</p><p>It's distinguished from similar species by the following combination of characters: possession of a single pair of maxillary barbels; a relatively elongate body with 42 or more longitudinal scales; relatively elongate pectoral and anal fins; a dark lateral stripe ending in a blotch on the caudal peduncle; a distinctive black spot above the anterior anal-fin base.</p><p>The genus Puntius was viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid for a number of years until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia, and Pethia erected to accomodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there are no longer members.</p><p>It subsequently became clear that the name Dravidia was preoccupied by a genus of flesh fly, therefore the replacement name Haludaria was made available by Pethiyagoda (2013).</p><p>P. sharmai was retained in Puntius sensu stricto (but see below), of which members are defined by the following combination of characters: adult size usually less than 120 mm SL; maxillary barbels absent or present; rostral barbels absent; 3-4 unbranched and 8 branched dorsal-fin rays; 3 unbranched and 5 branched anal-fin rays; last unbranched dorsal-fin ray weak or strong and unserrated; lateral line complete with 22-28 pored body scales; free uroneural present; gill rakers simple and acuminate (not branched or laminate); no antrorse predorsal spinous ray; post-epiphysial fontanelle usually present; 4 supraneurals; infraorbital 3 slender; 5th ceratobranchial narrow; pharyngeal teeth 5 + 3 + 2; 12-14 abdominal and 14-16 caudal vertebrae; colour pattern including a (sometimes faint) blackish spot on the caudal peduncle.</p><p>However, P. sharmai was only retained in this grouping due to a lack of material, and it differs from the combination above in having a stiff, strongly-serrated last dorsal-fin ray, and 42-47 lateral line scales. In addition, the lateral line is incomplete with only 7 pored scales according to the original description. The Catalog of Fishes and FishBase now place it in Pethia.</p><p>No species from Indochina, China, or Indonesia were included in the study meaning a significant number of former Puntius are currently classed as incertae sedis, i.e., of uncertain taxonomic placement, and this also applies to a number of South Asian species of unresolved status.</p><p>They're perhaps best referred to as 'Puntius' for the time being whereby the genus name is surrounded by quotation marks to denote its questionable usage, and that is the convention used here on SF at the moment.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "html": "<ul><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Menon, A. G. K., K. Rema Devi, and W. Vishwanath (2000). A new species of Puntius (Cyprinidae: Cyprininae) from Manipur, India. Journal of the Bombay Natural History Society 97(2), 263-268</li><li>Menon, A. G. K. and K. Rema Devi (1993). Puntius sharmai, a new cyprinid fish from Madras. Journal of the Bombay Natural History Society 89(3), 353-354</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e195d7b9ef705207.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e195d7b9ef705207-480.webp",
+      "width": 763,
+      "height": 472,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "caption": "The specimens in our images were collected from Chembarambakkam Lake, Tamil Nadu state, India.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/517cdf5145159e4b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/517cdf5145159e4b-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "caption": "Adult male individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/12600e6e9f057a66.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/12600e6e9f057a66-480.webp",
+      "width": 774,
+      "height": 478,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "caption": "This species possesses a distinctive black spot above the anterior anal-fin base....",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b96ed855f97bd792.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b96ed855f97bd792-480.webp",
+      "width": 786,
+      "height": 492,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-sharmai",
+      "caption": "...and is best maintained with similarly-sized, peaceful fishes.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ dòng chảy nhẹ",
+        "lọc sponge cho bể thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn vụn cho cá nhỏ",
+        "artemia đông lạnh",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh thả nổi",
+        "lũa thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

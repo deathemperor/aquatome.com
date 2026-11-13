@@ -1,0 +1,19 @@
+{
+  "slug": "tep-ong-dom-trang",
+  "name": "Tép ong đốm trắng",
+  "altNames": [
+    "White Spot Bee Shrimp"
+  ],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Khoảng 10 năm trước, khi tép ong đốm trắng lần đầu về nhiều trên thị trường, người chơi đón nó rất hào hứng. Tiếc là chẳng bao lâu sau người ta thấy loài tép nhỏ xíu này chịu sốc rất kém, kể cả sốc ngắn như bị lạnh trong lúc vận chuyển. Chỉ cần điều kiện nuôi lệch một chút so với nhu cầu của chúng là tép chết rất nhanh. Hào hứng ban đầu thành thất vọng, và loài tép này bị coi là chỉ dành cho người chơi lâu năm.</p><p>Giờ đã có tép trại cho đẻ ở Đức. Trại nói loại tép này không khó nuôi chút nào. Nhưng kể cả với tép trại, nước cũng không nên xuống dưới 25°C trong thời gian dài. Về lâu dài chúng khỏe đến đâu thì hiện vẫn chưa biết.</p>",
+    "waterConditions:glaser": "<p>Nuôi và cho đẻ tốt nhất ở 27–30°C.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

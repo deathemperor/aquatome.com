@@ -9,6 +9,93 @@
     "africa",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species of the genus Lepidiolamprologus belong with about 15 cm final length to the largest representatives of the Lamprologus relationship in Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370750,
+      "total": 70,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ZM",
+          34
+        ],
+        [
+          "TZ",
+          19
+        ],
+        [
+          "CD",
+          17
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          1
+        ],
+        [
+          28.125,
+          -5.625,
+          3
+        ],
+        [
+          28.125,
+          -4.21875,
+          6
+        ],
+        [
+          29.53125,
+          -9.84375,
+          10
+        ],
+        [
+          29.53125,
+          -8.4375,
+          17
+        ],
+        [
+          29.53125,
+          -7.03125,
+          5
+        ],
+        [
+          29.53125,
+          -5.625,
+          6
+        ],
+        [
+          30.9375,
+          -9.84375,
+          21
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -29,12 +116,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/lepidiolamprologus-attenuatus-2/",
       "html": "<p>In the lake, Lepidiolamprologus attenuatus inhabits areas with sandy bottoms; it builds craters in which it spawns. However, the species does not spawn in the sand itself, but on small stones or shells found in the crater, because all Lamprologus relatives are adhesive spawners that must attach their eggs somewhere. Both parents guard the fry together. At breeding time they get black pelvic fins, as can be seen well in the animals on the pictures, which came in breeding mood in the photo tank.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/lepidiolamprologus-attenuatus-2/",
-      "html": "<p>By the way, L. attenuatus can easily be confused with a snail cichlid, Neolamprologus meeli, which has a very similarly marked caudal fin. However, the head profile of both species is very different. During our photo session, an N. meeli had accidentally snuck in with them, because when caught out – that is, in fright coloration – the two species look extraordinarily similar, and the N. meeli must have jumped in from the neighboring tank to join its cousins. In fact, Ad Konings argues that N. meeli should be placed with Lepidiolamprologus at the genus level.</p>"
     }
   ],
   "photos": [],

@@ -1,0 +1,143 @@
+{
+  "id": "desmopuntius-johorensis",
+  "native": {
+    "input": "67cff99289d36be6",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand, Penisular Malaysia, Singapore, and the islands of Sumatra (Indonesia) and Borneo (Malaysia, Indonesia and Brunei Darussalam) with type locality 'Muar River, Tebing Tinggi, Johore, Malaysia'.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand, Penisular Malaysia, Singapore, and the islands of Sumatra (Indonesia) and Borneo (Malaysia, Indonesia and Brunei Darussalam) with type locality 'Muar River, Tebing Tinggi, Johore, Malaysia'.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand, Penisular Malaysia, Singapore, and the islands of Sumatra (Indonesia) and Borneo (Malaysia, Indonesia and Brunei Darussalam) with type locality 'Muar River, Tebing Tinggi, Johore, Malaysia'.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand, Penisular Malaysia, Singapore, and the islands of Sumatra (Indonesia) and Borneo (Malaysia, Indonesia and Brunei Darussalam) with type locality 'Muar River, Tebing Tinggi, Johore, Malaysia'.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand, Penisular Malaysia, Singapore, and the islands of Sumatra (Indonesia) and Borneo (Malaysia, Indonesia and Brunei Darussalam) with type locality 'Muar River, Tebing Tinggi, Johore, Malaysia'.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand, Penisular Malaysia, Singapore, and the islands of Sumatra (Indonesia) and Borneo (Malaysia, Indonesia and Brunei Darussalam) with type locality 'Muar River, Tebing Tinggi, Johore, Malaysia'.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand, Penisular Malaysia, Singapore, and the islands of Sumatra (Indonesia) and Borneo (Malaysia, Indonesia and Brunei Darussalam) with type locality 'Muar River, Tebing Tinggi, Johore, Malaysia'.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Muar River",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand, Penisular Malaysia, Singapore, and the islands of Sumatra (Indonesia) and Borneo (Malaysia, Indonesia and Brunei Darussalam) with type locality 'Muar River, Tebing Tinggi, Johore, Malaysia'.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "On Sumatra it's known from the provinces of Jambi (Batang Hari River) and Riau (Siak and Indragiri basins) and on Borneo in the Malaysian state of Sarawak and Indonesian provinces of Central Kalimantan (Mentaya River, Kalimantan Tengah) and East Kalimantan (Mahakam River, Kalimantan Timur).",
+        "ok": true
+      },
+      {
+        "name": "Mahakam",
+        "source": "seriouslyfish",
+        "quote": "On Sumatra it's known from the provinces of Jambi (Batang Hari River) and Riau (Siak and Indragiri basins) and on Borneo in the Malaysian state of Sarawak and Indonesian provinces of Central Kalimantan (Mentaya River, Kalimantan Tengah) and East Kalimantan (Mahakam River, Kalimantan Timur).",
+        "ok": true
+      },
+      {
+        "name": "Mentaya",
+        "source": "seriouslyfish",
+        "quote": "On Sumatra it's known from the provinces of Jambi (Batang Hari River) and Riau (Siak and Indragiri basins) and on Borneo in the Malaysian state of Sarawak and Indonesian provinces of Central Kalimantan (Mentaya River, Kalimantan Tengah) and East Kalimantan (Mahakam River, Kalimantan Timur).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Desmopuntius johorensis",
+    "status": "ACCEPTED",
+    "taxonKey": 8239511,
+    "datasets": [
+      [
+        "90cbc357-530d-40f2-8000-331f6b575dd4",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY",
+      "SG",
+      "ID",
+      "BN"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

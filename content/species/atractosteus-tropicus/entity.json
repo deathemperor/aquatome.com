@@ -15,6 +15,163 @@
     "nicaragua",
     "costa-rica"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX",
+        "CR",
+        "BZ",
+        "GT",
+        "HN",
+        "NI"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The tropical gar, Atractosteus tropicus, is a gar from Caribbean and Pacific-slope drainages of Central America, from southern Mexico to Costa Rica.",
+          "countries": [
+            "MX",
+            "CR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Found in both Caribbean and Pacific-slope drainage basins in Central America, from southern Mexico through Belize, Guatemala, Honduras and Nicaragua, and into Costa Rica.",
+          "countries": [
+            "BZ",
+            "GT",
+            "HN",
+            "NI"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2346751,
+      "total": 200,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MX",
+          142
+        ],
+        [
+          "GT",
+          46
+        ],
+        [
+          "NI",
+          7
+        ],
+        [
+          "CR",
+          4
+        ],
+        [
+          "SV",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -97.03125,
+          16.875,
+          1,
+          1
+        ],
+        [
+          -95.625,
+          16.875,
+          7,
+          7
+        ],
+        [
+          -94.21875,
+          15.46875,
+          5,
+          5
+        ],
+        [
+          -94.21875,
+          16.875,
+          8,
+          8
+        ],
+        [
+          -94.21875,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          -92.8125,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          -92.8125,
+          16.875,
+          12,
+          12
+        ],
+        [
+          -92.8125,
+          18.28125,
+          38,
+          38
+        ],
+        [
+          -91.40625,
+          12.65625,
+          3,
+          2
+        ],
+        [
+          -91.40625,
+          15.46875,
+          75,
+          75
+        ],
+        [
+          -91.40625,
+          16.875,
+          31,
+          31
+        ],
+        [
+          -90,
+          15.46875,
+          5,
+          5
+        ],
+        [
+          -87.1875,
+          11.25,
+          7,
+          7
+        ],
+        [
+          -85.78125,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -84.375,
+          9.84375,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -59,7 +216,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -68,7 +225,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/atractosteus-tropicus",
-      "html": "<p>The tropical gar, Atractosteus tropicus, is a gar from Caribbean and Pacific-slope drainages of Central America, from southern Mexico to Costa Rica. It grows to 1250 mm SL (49 in SL) and can live for several decades, so it should not be considered a home aquarium subject, though juveniles are occasionally offered in the trade. Like other gars it can breathe atmospheric air to a certain extent through a modified, vascularised swim bladder.</p><p>Difficulty: 5 of 8 (difficult). Rated difficult because it needs a tank at least 2 m long.</p>"
+      "html": "<p>The tropical gar, Atractosteus tropicus, is a gar from Caribbean and Pacific-slope drainages of Central America, from southern Mexico to Costa Rica. It grows to 1250 mm SL (49 in SL) and can live for several decades, so it should not be considered a home aquarium subject, though juveniles are occasionally offered in the trade. Like other gars it can breathe atmospheric air to a certain extent through a modified, vascularised swim bladder.</p><p>Difficulty: 6 of 8 (difficult). Rated difficult because it needs a tank at least 2 m long.</p>"
     },
     {
       "key": "distribution",

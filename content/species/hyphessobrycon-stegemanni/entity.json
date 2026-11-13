@@ -1,0 +1,307 @@
+{
+  "id": "hyphessobrycon-stegemanni",
+  "scientificName": "Hyphessobrycon stegemanni",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "tocantins"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Tocantins",
+        "Araguaia",
+        "Ilha do Bananal",
+        "rio das Mortes"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The savanna tetra, Hyphessobrycon stegemanni, is a characid from the middle rio Tocantins and rio Araguaia basins in central Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the middle rio Tocantins basin in the states of Maranhão and Tocantins, central Brazil, plus its principal affluent the rio Araguaia in Pará, Tocantins and Mato Grosso states.",
+          "countries": [],
+          "regions": [
+            "Tocantins",
+            "Araguaia"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Specimens from the Araguaia basin appear to be more scarce, but there is at least one account from the Ilha do Bananal area and another from the upper rio das Mortes, near the municipality of Primavera do Leste in Mato Grosso.",
+          "countries": [],
+          "regions": [
+            "Ilha do Bananal",
+            "rio das Mortes"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354609,
+      "total": 42,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          42
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -11.25,
+          10,
+          10
+        ],
+        [
+          -47.8125,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -12.65625,
+          11,
+          11
+        ],
+        [
+          -47.8125,
+          -11.25,
+          5,
+          5
+        ],
+        [
+          -47.8125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -15.46875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-stegemanni",
+      "html": "<p>The savanna tetra, Hyphessobrycon stegemanni, is a characid from the middle rio Tocantins and rio Araguaia basins in central Brazil. In the hobby its name has often been misapplied to Hemigrammus ataktos, since both occur in the Tocantins and have a dark lateral stripe. Its range lies almost entirely in the cerrado, the tropical wooded grassland of central Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-stegemanni",
+      "html": "<p>Native to the middle rio Tocantins basin in the states of Maranhão and Tocantins, central Brazil, plus its principal affluent the rio Araguaia in Pará, Tocantins and Mato Grosso states.</p><p>The majority of records pertain to the region east of the Tocantins main channel between Imperatriz and Palmas, upstream of both the river's confluence with the Araguaia and enormous Tucuruí Dam. Specimens from the Araguaia basin appear to be more scarce, but there is at least one account from the Ilha do Bananal area and another from the upper rio das Mortes, near the municipality of Primavera do Leste in Mato Grosso.</p><p>Type locality is 'Between the rio Manoel Alves Pequeno and rio Vermelho, rio Tocantins basin, about 8°19'S, 47°25'W, municipality de Itacajá, Estado do Tocantins, Brazil or Ilha do Bananal, about 11°S, 51°W, rio Javaés, estado do Tocantins, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-stegemanni",
+      "html": "<p>This species' known range is located almost entirely in the cerrado ecoregion of Brazil, a vast area of tropical wooded grassland which is considered the most biodiverse savanna environment in the world with high numbers of endemic fauna and flora. It consists of forest savanna, wooded savanna, park savanna, gramineous-woody savanna, savanna wetlands and gallery forests (closed canopy tall forest), the latter of which grow along the multitude of small streams which drain towards the Tocantins and Araguaia rivers.</p><p>These tributaries are subject to fluctuations in discharge, with pronounced annual wet and dry seasons, and typically consist of a solid bedrock channel with additional substrate comprising variably-sized rocks, submerged tree roots, fallen branches, and leaf litter.</p><p>The increasing impact of dam construction and land clearing for cultivation of soy bean, cotton, corn, sugar cane and pasture have drawn heavy international criticism and identified as severe threats to river systems in the region with habitat degradation already widespread and more than half of the original cerrado vegetation destroyed.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-stegemanni",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm or equivalent (about 54 litres) should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-stegemanni",
+      "html": "<p>Perhaps looks best in an arrangement comprising a sandy substrate plus some driftwood roots and branches, or a heavily-planted set-up.</p><p>The addition of dried leaf litter would further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>The latter are useful since they provide an additional food source for both adults and fry while the humic substances released by decaying leaves are also considered beneficial.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-stegemanni",
+      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 5.5–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-stegemanni",
+      "html": "<p>Likely to be omnivorous feeding on small invertebrates, crustacea, filamentous algae, fallen fruit and suchlike in nature.</p><p>In aquaria it may survive on a diet of dried foods but like most fishes does best when offered a varied menu which in this case should also contain live and frozen chironomid larvae (bloodworm), mosquito larvae, Daphnia, Moina, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-stegemanni",
+      "html": "<p>Very peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It is best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, small-to-medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-stegemanni",
+      "html": "<p>Sexually mature females are noticeably deeper-bodied and a little larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-stegemanni",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-stegemanni",
+      "html": "<p>In the aquarium hobby the name Hyphessobrycon stegemanni has frequently been misapplied to a species that has been described as Hemigrammus ataktos Marinho, Dagosta, &amp; Birindelli 2014. The reasons for this confusion are presumably that the two occur sympatrically in the rio Tocantins system and both possess a dark lateral stripe on the body.</p><p>H. stegemanni is distinguished from Hemigrammus ataktos by the following combination of characters: dorsal and anal fins not elongate in adult males (vs. elongate in Hemigrammus ataktos); inner premaxillary teeth with 7-9 cusps (vs. 3-5); dentary teeth smaller with 7-9 cusps (vs. larger with 3-5 cusps); scales on caudal-fin restricted to base (vs. caudal-fin lobes mostly scaled); 16-18 branched anal-fin rays (vs. 16-18).</p><p>It is a member of the putative 'H. heterorhabdus-group' of closely-related species within the genus as proposed by Géry (1977). This originally comprised around 15 members characterised by a 'longitudinal pattern' consisting of a thin, usually dark, lateral body stripe, but has since been modified on a number of occasions.</p><p>Most recently, Lima et al. (2014) proposed a putatively monophyletic H. heterorhabdus-group containing only three species; Hyphessobrycon heterorhabdus, H. amapaensis, and H. eschwartzae. These all possess: a well-defined, elongate humeral blotch which is continuous with a dark, well-defined midlateral stripe that becomes blurred towards the caudal peduncle; a longitudinal red stripe extending along the body above the midlateral line; upper half of the eye red.</p><p>This pattern is different to that presented by several members of Géry's H. heterorhabdus group, such as H. vilmae, H. cachimbensis, and H. stegemanni, which possess a continuous, solid dark lateral stripe on the body and no obvious humeral blotch, but is similar to that of Géry's H. agulha group. The latter contained species with a colour pattern comprising \"lower half of the body dark, especially above anal fin; usually a horizontally elongate humeral spot, more or less united with the assymetrical, broad band\", and included H. agulha, H. loretoensis, H. peruvianus, H. metae, and H. herbertaxelrodi.</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal-fin.</p><p>The grouping was revised by Eigenmann (1918, 1921) while Géry (1977) created artificial groups of species based on colour pattern, and these definitions are still widely used today, e.g., the H. agulha group, the H. heterorhabdus group, etc. These cannot be considered to represent monophyletic assemblages, however, and their concepts continue to be redefined.</p><p>Weitzman &amp; Palmer (1997) hypothesised the existence of a monophyletic assemblage within the genus based on colour pattern and male fin morphology that they termed the 'rosy tetra clade', with one of the characters supporting its monophyly being presence of a prominent dark marking on the dorsal-fin. This assemblage, plus other morphologically similar species, is considered to represent Hyphessobrycon sensu stricto by some authors, with the remaining species included in a much-expanded H. heterorhabdus group.</p><p>Others have proposed conflicting, typically more restricted, views of both the genus and/or its constituent species groups, and significant confusion remains. What is clear is that, as currently recognised, Hyphessobrycon is a polyphyletic lineage containing several genera.</p><p>The process of splitting it up has already started, and Malabarba et al. (2012) revalidated the genus Ectrepopterus Fowler, previously considered a synonym of Hyphessobrycon. They also analysed its relationships within the Characidae in the context of Mirande's (2010) previous work, but included the type species, H. compressus, for the first time in such a study. The results demonstrated that H. compressus is more closely-related to 'rosy tetra' representatives such as H. eques, H. pulchripinnis, and H. socolofi than other species then placed in the genus, including Psalidodon anisitsi, H. bifasciatus, H. elachys, H. herbertaxelrodi, and H. luetkeni.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-stegemanni",
+      "html": "<ul><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>Weitzman, S. H. and L. Palmer (1997). A new species of Hyphessobrycon (Teleostei: Characidae) from the Neblina region of Venezuela and Brazil, with comments on the putative `rosy tetra clade'. Ichthyological Exploration of Freshwaters 7(3), 209-242</li><li>Mirande, J. M. (2010). Phylogeny of the family Characidae (Teleostei: Characiformes): from characters to taxonomy. Neotropical Ichthyology 8(3), 385-568</li><li>Malabarba, L. R., V. A. Bertaco, F. R. Carvalho &amp; T. O. Litz. (2012). Revalidation of the genus Ectrepopterus Fowler (Teleostei: Characiformes), with the redescription of its type species, E. uruguayensis. Zootaxa 3204, 47-60</li><li>Zarske, A. (2014). Zur Systematik einiger Blutsalmler oder \"Rosy Tetras\" (Teleostei: Ostariophysi: Characidae). Vertebrate Zoology 64(2), 139-167</li><li>Géry, J. (1961). The Savannah tetra: Hyphessobrycon stegemanni sp. nov. Tropical Fish Hobbyist 9(9), 7-13</li><li>Marinho, M. M. F., F. C. P. Dagosta and J. L. O. Birindelli (2014). Hemigrammus ataktos: a new species from the rio Tocantins basin, central Brazil (Characiformes: Characidae). Neotropical Ichthyology 12(2), 257-264</li><li>Lima, F. C. T., D. P. Coutinho and W. B. Wosiacki (2014). A new Hyphessobrycon (Ostariophysi: Characiformes: Characidae) from the middle Amazon basin, Brazil. Zootaxa 3872(2), 167-179</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f860bcbed34c00ca.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f860bcbed34c00ca-480.webp",
+      "width": 820,
+      "height": 440,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-stegemanni",
+      "caption": "Specimen collected from the rio Tocantins basin close to Imperatriz, Maranhão state, Brazil.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể 60cm",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá tetra",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

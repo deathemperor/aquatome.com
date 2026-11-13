@@ -12,6 +12,88 @@
     "uruguay",
     "brazil"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AR",
+        "PY",
+        "UY",
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "They originate from the south of South America (Argentina, Paraguay, Uruguay and southern Brazil), but are exclusively traded as offspring.",
+          "countries": [
+            "AR",
+            "PY",
+            "UY",
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2349007,
+      "total": 16,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          6
+        ],
+        [
+          "PY",
+          4
+        ],
+        [
+          "AR",
+          3
+        ],
+        [
+          "UY",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -35.15625,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -30.9375,
+          6,
+          6
+        ],
+        [
+          -57.65625,
+          -28.125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -67,7 +149,23 @@
       "html": "<p>For spawning, both partners dive deep into the bottom. The eggs laid there can remain alive in the dried out soil for up to 3 years. Fully developed, the larvae wait for the next rain. Once the puddle is filled, they hatch and the game begins again.</p><p>The eggs require special treatment. Without a dry period for the eggs it is not possible to breed this species successfully.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/171374225.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/171374225-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "facundo cortondo",
+      "sourceUrl": "https://www.inaturalist.org/photos/171374225",
+      "caption": "Cá killi vây đen đực ánh xanh lam ngoài tự nhiên",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/171374225-large.webp",
+        "width": 1200,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

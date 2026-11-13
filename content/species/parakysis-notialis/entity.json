@@ -10,6 +10,47 @@
     "indonesia",
     "barito"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Barito River",
+        "Borneo"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Known only from the Barito River drainage, southern Borneo.",
+          "countries": [],
+          "regions": [
+            "Barito River",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340932,
+      "total": 1,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          -2.8125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

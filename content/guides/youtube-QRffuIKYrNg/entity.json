@@ -9,9 +9,10 @@
     "hemigrammus-erythrozonus",
     "paracheirodon-innesi",
     "microsorum-pteropus",
-    "betta-splendens"
+    "betta-splendens",
+    "nematobrycon-palmeri"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "QRffuIKYrNg",
     "title": "BEGINNER FISH: Cochus Blue Tetra  (Boehlkea Fredcochui)",
@@ -31,39 +32,33 @@
     },
     "taxa": [
       "Boehlkea fredcochui",
-      "Hemigrammus erythrozonus",
       "Paracheirodon innesi",
-      "Petitella georgiae",
+      "Hemigrammus erythrozonus",
+      "Nematobrycon palmeri",
       "Anubias sp.",
-      "Microsorum pteropus",
-      "Betta splendens"
+      "Microsorum pteropus"
     ],
     "gear": [
       {
-        "category": "be-ca",
-        "type": "chuan",
-        "t": 330
+        "category": "cay-thuy-sinh",
+        "type": "gan-lua",
+        "t": 468
+      },
+      {
+        "category": "loc",
+        "type": "tao-dong",
+        "t": 566
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "t": 596
       }
     ],
     "figures": [
       {
-        "heading": "Nhận dạng tetra xanh Cochu",
-        "moments": [
-          {
-            "t": 89,
-            "url": "https://media.aquatome.com/video/QRffuIKYrNg/t89.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tetra xanh Cochu bơi giữa cây thủy sinh, thân xanh nhạt ở phần đầu."
-          },
-          {
-            "t": 124,
-            "url": "https://media.aquatome.com/video/QRffuIKYrNg/t124.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hai con tetra xanh Cochu xanh óng hiện rõ trên màn hình điện thoại."
-          }
-        ],
+        "heading": "Nhận dạng cá và phân biệt đực cái",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/QRffuIKYrNg/p0-lfKGxpdmUpLnBuZw.webp",
           "thumb": "https://media.aquatome.com/video/QRffuIKYrNg/p0-lfKGxpdmUpLnBuZw-480.webp",
@@ -72,47 +67,48 @@
           "licence": "CC BY 4.0",
           "author": "Axel Zarske & D. Bork",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boehlkea_fredcochui_(live).png",
-          "caption": "Cá tetra xanh ánh kim óng ánh ở thân và đuôi, nền cây xanh."
+          "caption": "Cá tetra xanh ánh kim toàn thân, nhìn rõ màu xanh đặc trưng."
         }
       },
       {
-        "heading": "Nuôi bao nhiêu con thì đàn đẹp",
-        "moments": [
-          {
-            "t": 218,
-            "url": "https://media.aquatome.com/video/QRffuIKYrNg/t218.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn cá nhỏ bơi lửng lơ trong bể có hòn non bộ đá."
-          }
-        ],
+        "heading": "Cá đến từ đâu",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/QRffuIKYrNg/p1-lfc2Nob29sLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/QRffuIKYrNg/p1-lfc2Nob29sLmpwZw-480.webp",
-          "width": 801,
-          "height": 686,
-          "licence": "Public domain",
-          "author": "Tkinias at English Wikipedia",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paracheirodon_axelrodi_school.jpg",
-          "caption": "Đàn cá neon đông bơi chặt trong bể thủy sinh nhiều cây."
+          "url": "https://media.aquatome.com/video/QRffuIKYrNg/p1-DSUFUXygyKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/QRffuIKYrNg/p1-DSUFUXygyKS5qcGc-480.webp",
+          "width": 960,
+          "height": 613,
+          "licence": "CC BY-SA 2.0",
+          "author": "Neil Palmer/CIAT",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amazon_CIAT_(2).jpg",
+          "caption": "Sông Amazon rộng lớn chảy giữa rừng nhiệt đới Nam Mỹ."
         }
       },
       {
-        "heading": "Chọn bể thế nào",
+        "heading": "Nuôi bao nhiêu con",
         "moments": [
           {
-            "t": 332,
-            "url": "https://media.aquatome.com/video/QRffuIKYrNg/t332.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cong khá rộng với đá bố trí thấp, cá có nhiều chỗ bơi."
-          },
+            "t": 220,
+            "url": "https://media.aquatome.com/video/QRffuIKYrNg/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn tetra nhỏ bơi trong bể có đá và cát.",
+            "sharpness": 559.3,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Chọn bể cỡ nào",
+        "moments": [
           {
-            "t": 367,
-            "url": "https://media.aquatome.com/video/QRffuIKYrNg/t367.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể đàn cá bơi trong khoảng nước thoáng phía trên đá."
+            "t": 330,
+            "url": "https://media.aquatome.com/video/QRffuIKYrNg/at330-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cong đặt trên tủ, có đá bố trí phía dưới và cá bơi bên trên.",
+            "sharpness": 570.9,
+            "person": false
           }
         ]
       },
@@ -120,35 +116,51 @@
         "heading": "Nuôi chung với cá nào",
         "moments": [
           {
-            "t": 243,
-            "url": "https://media.aquatome.com/video/QRffuIKYrNg/t243.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể cộng đồng với đàn cá nhỏ bơi lượn giữa đá."
+            "t": 255,
+            "url": "https://media.aquatome.com/video/QRffuIKYrNg/at255-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cong có đá nền, đàn cá nhỏ bơi lượn ở giữa bể.",
+            "sharpness": 525.3,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Làm sao cho cá lên màu xanh",
+        "heading": "Nước, nhiệt độ và cách giữ màu",
         "moments": [
           {
-            "t": 565,
-            "url": "https://media.aquatome.com/video/QRffuIKYrNg/t565.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cá có đá, nước trong và cá bơi trong dòng chảy."
+            "t": 420,
+            "url": "https://media.aquatome.com/video/QRffuIKYrNg/at420-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể không sưởi đặt trong nhà, có đá nền và cá bơi trong nước.",
+            "sharpness": 527.1,
+            "person": false
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/QRffuIKYrNg/p5-ha3dhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/QRffuIKYrNg/p5-ha3dhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Ewkaa",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
+          "caption": "Cây sưởi bể cá có giác hút, dùng giữ nhiệt độ nước ổn định."
+        }
       },
       {
-        "heading": "Phân biệt đực cái và cho cá đẻ",
+        "heading": "Cho cá đẻ",
         "moments": [
           {
-            "t": 461,
-            "url": "https://media.aquatome.com/video/QRffuIKYrNg/t461.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cá có đá trang trí và đàn cá nhỏ bơi lội."
+            "t": 465,
+            "url": "https://media.aquatome.com/video/QRffuIKYrNg/at465-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá có đá và cá bơi lội, nhìn toàn cảnh.",
+            "sharpness": 498.2,
+            "person": false
           }
         ],
         "photo": {
@@ -159,7 +171,7 @@
           "licence": "CC BY 4.0",
           "author": "Abhik.Mazumdar.73",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Cây ráy (Anubias) lá to bám trên lũa trong bể, hợp làm chỗ cá đẻ."
+          "caption": "Bụi ráy Anubias lá to gắn trên lũa trong bể, chỗ tốt cho cá đẻ trứng."
         }
       }
     ]

@@ -1,0 +1,109 @@
+{
+  "id": "labeo-pierrei",
+  "native": {
+    "input": "92a2c16e9654d212",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Labeo pierrei is a large cyprinid from the Mekong river system in southern China, Laos, Thailand, Cambodia and Vietnam, and the Dong Nai in Vietnam.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Labeo pierrei is a large cyprinid from the Mekong river system in southern China, Laos, Thailand, Cambodia and Vietnam, and the Dong Nai in Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Labeo pierrei is a large cyprinid from the Mekong river system in southern China, Laos, Thailand, Cambodia and Vietnam, and the Dong Nai in Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Labeo pierrei is a large cyprinid from the Mekong river system in southern China, Laos, Thailand, Cambodia and Vietnam, and the Dong Nai in Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Labeo pierrei is a large cyprinid from the Mekong river system in southern China, Laos, Thailand, Cambodia and Vietnam, and the Dong Nai in Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Known from throughout the Mekong river system in southern China, Laos, Thailand, Cambodia, and Vietnam, the Dong Nai river system in Vietnam and possibly the Chao Phraya basin in Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Dong Nai",
+        "source": "seriouslyfish",
+        "quote": "Known from throughout the Mekong river system in southern China, Laos, Thailand, Cambodia, and Vietnam, the Dong Nai river system in Vietnam and possibly the Chao Phraya basin in Thailand.",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Known from throughout the Mekong river system in southern China, Laos, Thailand, Cambodia, and Vietnam, the Dong Nai river system in Vietnam and possibly the Chao Phraya basin in Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Labeo pierrei",
+    "status": "ACCEPTED",
+    "taxonKey": 5206015,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        15
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ]
+    ],
+    "native": [
+      "CN",
+      "LA",
+      "TH",
+      "KH",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

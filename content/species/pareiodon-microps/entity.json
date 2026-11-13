@@ -1,0 +1,316 @@
+{
+  "id": "pareiodon-microps",
+  "scientificName": "Pareiodon microps",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Pareiodon",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "peru",
+    "amazon"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Madeira"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species is monotypic (the only member of its genus) and is endemic to the Amazon river basin in Peru and Brazil.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Borba, Rio Madeira, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Madeira"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343306,
+      "total": 29,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BR",
+          23
+        ],
+        [
+          "PE",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -81.5625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 13
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/pareiodon_cf_microps_en/",
+      "html": "<p>This pencil catfish is a relative of the parasitic catfishes and is very rarely traded. Its affiliation to the genus Pareiodon is fairly clear, but the species identification has not yet been clarified.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "html": "<ul><li>Common name: none</li><li>Size: 13 cm total length</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/pareiodon_cf_microps_en/",
+      "html": "<p>As predators, they should not be kept with small fishes. Due to their rarity, no reports about their maintenance in the aquarium are available. For collectors of rarities: there is one albino.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/pareiodon_cf_microps_en/",
+      "html": "<p>Origin: Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "html": "<p>This species is monotypic (the only member of its genus) and is endemic to the Amazon river basin in Peru and Brazil. South America: Amazon river basin. Type locality: Borba, Rio Madeira, Brazil.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "html": "<p>A well planted tank with a fine grained substrate and a few hiding places.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "html": "<p>Live, frozen, flake and tablet foods. Not a fussy eater.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "html": "<p>Known to bite the fins and scales of other fish in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "html": "<p>Etymology: the specific name microps means a small appearance.</p><p>IUCN Red List: despite the little information available on this species, it is assessed as Least Concern due to its wide range (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "html": "<p>Brejão, G.L. 2023. Pareiodon microps. The IUCN Red List of Threatened Species 2023. Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2014. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 11/2014 ). iNaturalist. 2021.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/b35aa71dea599ceb.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b35aa71dea599ceb-480.webp",
+      "width": 500,
+      "height": 150,
+      "licence": "dùng với sự cho phép",
+      "author": "Anthony Giardenelli / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "caption": "Pareiodon microps: Maynas, Peru",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "JLY3y-sKiaA",
+      "title": "Pareiodon microps carrion-feeders catfish",
+      "durationSec": 138,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bd_avCBanCI",
+      "title": "칸디루에게 60만원짜리 야생 아로와나 먹이는 영상 (혐오주의)",
+      "durationSec": 498,
+      "lang": "ko"
+    },
+    {
+      "youtubeId": "lbRwvMuG01c",
+      "title": "ピラニア VS カンディル肉食魚同士を混泳させた結果・・・",
+      "durationSec": 67,
+      "lang": "ja"
+    },
+    {
+      "youtubeId": "-f6i7P_jqyI",
+      "title": "황쏘가리를 파먹는 칸디루영상 (혐오주의)",
+      "durationSec": 625,
+      "lang": "ko"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

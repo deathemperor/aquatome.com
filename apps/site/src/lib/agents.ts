@@ -12,6 +12,7 @@ const SECTIONS = [
   ['/cong-cu/', 'Công cụ', 'tools: an index of every tool, and the substrate, heater wattage and fertiliser dose calculators'],
   ['/cong-cu/nuoi-chung/', 'Nuôi chung được không? Thả bao nhiêu con?', 'tank-mates and stocking checker: up to 6 species, whether they can share a tank, and how full the tank would be; ?ca=<slug>:<count>,…&l=&w=&h= in cm'],
   ['/cong-cu/the-tich-be/', 'Bể bao nhiêu lít?', 'tank volume for 12 tank shapes (litres, US gallons), real water volume, weight and front glass thickness; ?hinh=<shape>&l=&w=&h= in cm'],
+  ['/cong-cu/du-toan-be/', 'Set một bể hết bao nhiêu tiền?', 'whole-setup budget: each part (tank, stand, filter, heater or fan, light, substrate, CO2, test kits, smart plugs) as a VND price range from Vietnamese shops\' list prices, by tank size and tier, and a month\'s electricity (Vietnam, Indonesia, Thailand tariffs), CO2, fertiliser and food; ?co=<l>x<w>x<h>&muc=tiet-kiem|tam-trung|cao-cap&co2=1&tm=1&nuoc=vn|id|th'],
   ['/cong-cu/den-chihiros/', 'Đèn Chihiros', 'control a Chihiros LED light from the browser over Web Bluetooth (Chrome or Edge on Android and computers): daily on/off schedule with sunrise and sunset ramp, brightness per colour channel, clock sync; planted-tank presets'],
   ['/thuat-ngu/', 'Thuật ngữ', 'glossary of aquarium terms'],
   ...(APP_STATE === 'on' ? [['/ung-dung/', 'Ứng dụng AquaTome', 'the free iPhone and iPad app (iOS 17+): the handbook readable offline, saved tanks, Chihiros lights over Bluetooth, Smart Life (Tuya) power strips with the reader\'s own Tuya keys']] as const : []),
@@ -24,7 +25,7 @@ export function llmsTxt(site: string): string {
 > Cẩm nang cá cảnh & thủy sinh — a Vietnamese-language aquarium handbook: species care profiles translated and
 > summarised from specialist sources (each page credits its source), with notes for keeping fish in Vietnam's climate.
 
-Every page is also available as Markdown: send \`Accept: text/markdown\` to the page URL. All page URLs are in ${u('/sitemap.xml')}.
+Every page is also available as Markdown: send \`Accept: text/markdown\` to the page URL. All page URLs are in the sitemaps listed at ${u('/sitemap.xml')}.
 
 ## Sections
 
@@ -56,7 +57,7 @@ AquaTome (${u('/')}) is a Vietnamese aquarium handbook. Content is in Vietnamese
 
 - Species list: ${u('/ca/')} (plants: ${u('/cay/')}). Each profile is \`/ca/<slug>/\`; slugs are the Vietnamese common name
   without diacritics (for example \`ca-neon-xanh\` for cá neon xanh, the green neon tetra Paracheirodon simulans).
-- Every page URL is listed in ${u('/sitemap.xml')}; search the sitemap or the species list for a common or scientific name.
+- Every page URL is in the sitemaps listed at ${u('/sitemap.xml')}, one per kind of page; search them or the species list for a common or scientific name.
 
 ## Read a page
 
@@ -96,7 +97,7 @@ export const openApi = (site: string) => ({
         responses: { 200: { description: 'The page', content: { 'text/markdown': {}, 'text/html': {} } } },
       },
     },
-    '/sitemap.xml': { get: { summary: 'Every page URL', responses: { 200: { description: 'Sitemap', content: { 'application/xml': {} } } } } },
+    '/sitemap.xml': { get: { summary: 'The index of the sitemaps, one per kind of page, that list every page URL', responses: { 200: { description: 'Sitemap index', content: { 'application/xml': {} } } } } },
     '/llms.txt': { get: { summary: 'Site overview for language models', responses: { 200: { description: 'llms.txt', content: { 'text/plain': {} } } } } },
   },
 })

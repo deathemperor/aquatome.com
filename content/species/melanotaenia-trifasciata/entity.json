@@ -200,7 +200,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -274,34 +274,19 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/4c5f71f7e648da35.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "coenobita",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_trifasciata_17630539.jpg",
-      "caption": "Banded Rainbowfish (Melanotaenia trifasciata)",
-      "thumb": "https://media.aquatome.com/commons/4c5f71f7e648da35-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/3a9484d28e2a0825.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "coenobita",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_trifasciata_17630677.jpg",
-      "caption": "Banded Rainbowfish (Melanotaenia trifasciata)",
-      "thumb": "https://media.aquatome.com/commons/3a9484d28e2a0825-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/775a35e666de9805.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "coenobita",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_trifasciata_17573960.jpg",
-      "caption": "Banded Rainbowfish (Melanotaenia trifasciata)",
-      "thumb": "https://media.aquatome.com/commons/775a35e666de9805-480.webp"
+      "url": "https://media.aquatome.com/inaturalist/326117587.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/326117587-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Jesse de Vries",
+      "sourceUrl": "https://www.inaturalist.org/photos/326117587",
+      "caption": "Cá cầu vồng sọc có sọc đen dọc thân trong nước tự nhiên",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/326117587-large.webp",
+        "width": 2048,
+        "height": 1152
+      }
     }
   ],
   "videos": [],
@@ -309,8 +294,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá thủy sinh 120x30"
+        "bể cá 120cm"
       ]
     },
     {

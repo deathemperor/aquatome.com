@@ -1,0 +1,167 @@
+{
+  "id": "systomus-endecanalis",
+  "scientificName": "Systomus endecanalis",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Systomus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "indonesia",
+    "kapuas"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 19,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-endecanalis",
+      "html": "<p>Desmopuntius endecanalis is a cyprinid apparently endemic to the Kapuas River basin in West Kalimantan, Borneo, including the Danau Sentarum lakes. A whitish base body colour and 8 (rarely 7) branched anal-fin rays distinguish it from congeners, and its placement in Desmopuntius was only tentative. Its habitat is unconfirmed, but related species are associated with peat swamps and black water streams.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-endecanalis",
+      "html": "<p>Records are not extensive but D. endecanalis is apparently endemic to the Kapuas River basin in the Indonesian province of Kalimantan Barat (West Kalimantan), Borneo, including the Danau Sentarum lake system.</p><p>Type locality is given as 'small forest stream where it flows into Sungai Mandai 2-3 km upstream from its confluence with Kapuas mainstream'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-endecanalis",
+      "html": "<p>Unconfirmed, but related members of the genus are typically associated with peat swamps and associated black water streams as well as other still waters, often in areas with submerged grasses or aquatic plants and dense riparian vegetation.</p><p>The water itself is typically stained brown with humic acids and other chemicals released by decaying organic material, dissolved mineral content is generally negligible and pH as low as 3.0 or 4.0.</p><p>Substrates are usually littered with fallen leaves, branches and submerged tree roots though in some places aquatic plants from genera such as Cryptocoryne or Barcalaya can be found.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-endecanalis",
+      "html": "<p>Standard length: 50 mm SL. Aquarium base: 75 × 30 cm. Volume: ~68 litres.</p><p>Base dimensions of at least 75 × 30 cm or equivalent are required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-endecanalis",
+      "html": "<p>Should thrive in a heavily-planted or forest stream-type set-up, the latter perhaps comprising a soft substrate, dim lighting, roots, branches and leaf litter.</p><p>You could also add aquatic plants that can survive under such conditions such as Microsorum, Taxiphyllum, or Cryptocoryne spp.</p><p>Filtration does not need to be particularly strong as it mostly hails from sluggish waters.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-endecanalis",
+      "html": "<ul><li>Temperature: 19–26°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–8 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-endecanalis",
+      "html": "<p>Probably a micropredator feeding on small insects, worms, crustaceans and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should not be fed these exclusively.</p><p>Daily meals of small live and frozen fare such as Daphnia, Artemia, and suchlike will result in the best colouration and encourage the fish to come into breeding condition.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-endecanalis",
+      "html": "<p>Should prove an ideal addition to a peaceful community of Southeast Asian fishes such as similarly sized cyprinids, nemacheild or cobitid loaches, and certain anabantoids.</p><p>Avoid boisterous or very vigorous tankmates as they may outcompete it for food.</p><p>It's a schooling species by nature, and really should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less skittish but result in a more effective, natural-looking display, and males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-endecanalis",
+      "html": "<p>Unconfirmed, though sexually mature females are likely to be a little larger than males and noticeably rounder-bodied, especially when gravid.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-endecanalis",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-endecanalis",
+      "html": "<p>This species is included in a group of closely-related, similar-looking fishes which were moved into the new genus Desmopuntius by Kottelat (2013), although in the case of D. endecanalis this was only a tentative decision.</p><p>It is distinguished from congeners its whitish base body colour and possession of 8 (rarely 7) branched anal-fin rays, versus 5-6 branched anal-fin rays in other members of the genus.</p><p>This species was formerly included in the genus Puntius which was for a number of years viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia (subsequently amended to Haludaria), and Pethia erected to accommodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there could no longer be considered members.</p><p>Kottelat (2013) published a comprehensive nomenclatural update for Southeast Asian fishes in which the genus Desmopuntius was raised and diagnosed as follows: unique colour pattern made of 4–6 bars at least in juveniles, anterior bar across eye, 2nd bar behind gill opening, 3rd bar at dorsal-fin origin, 4th bar at anal-fin origin, 5th bar at middle of caudal peduncle, and 6th at caudal-fin base; often a black spot at posterior extremity of dorsal-fin base. In D. gemellus, D. johorensis and D. trifasciatus the barred pattern is present only in juveniles and with increasing size transforms into a striped pattern.</p><p>In addition, the following characters are useful in identification of Desmopuntius spp.: last simple dorsal-fin ray serrated posteriorly; rostral and maxillary barbels present; lips smooth and thin, postlabial groove interrupted medially; lateral line complete, with 25–27 pored scales on body; ½4/1/4½ scale rows between dorsal-fin origin and ventral midline in front of pelvic-fin base; 12 circumpeduncular scale rows; 7–11 gill rakers on first gill arch.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-endecanalis",
+      "html": "<ul><li>Kottelat, M. (1992). The identity of Barbus johorensis Duncker, 1904 (Teleostei: Cyprinidae). Raffles Bulletin of Zoology 40(2), 187-192</li><li>Kottelat, M. and H-H Tan (2011). Systomus xouthos, a new cyprinid fish from Borneo, and revalidation of Puntius pulcher (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 22(3), 209-214</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc dòng chảy nhẹ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "bo bo đông lạnh",
+        "thức ăn khô cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "nền mềm cho bể nước đen",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

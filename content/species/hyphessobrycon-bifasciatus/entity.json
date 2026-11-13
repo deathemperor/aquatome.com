@@ -12,6 +12,322 @@
     "argentina",
     "uruguay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraná",
+        "Rio Parahyba"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Yellow Tetra is a peaceful schooling characin from coastal rivers in southeast Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to coastal river systems of southeastern Brazil between the states of Espírito Santo and Rio Grande do Sul, plus parts of the upper Paraná basin.",
+          "countries": [],
+          "regions": [
+            "Paraná"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Rio Parahyba at Campos, Brazil'.",
+          "countries": [],
+          "regions": [
+            "Rio Parahyba"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354661,
+      "total": 713,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          709
+        ],
+        [
+          "PY",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -30.9375,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -25.3125,
+          3,
+          0
+        ],
+        [
+          -54.84375,
+          -30.9375,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -33.75,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -32.34375,
+          16,
+          16
+        ],
+        [
+          -53.4375,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -30.9375,
+          11,
+          11
+        ],
+        [
+          -50.625,
+          -30.9375,
+          14,
+          14
+        ],
+        [
+          -50.625,
+          -29.53125,
+          4,
+          4
+        ],
+        [
+          -50.625,
+          -26.71875,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -29.53125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          20,
+          20
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          17,
+          17
+        ],
+        [
+          -49.21875,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          -22.5,
+          6,
+          6
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          21,
+          21
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          100,
+          100
+        ],
+        [
+          -47.8125,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -21.09375,
+          5,
+          5
+        ],
+        [
+          -46.40625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          41,
+          41
+        ],
+        [
+          -46.40625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -45,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          -45,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          -45,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          13,
+          13
+        ],
+        [
+          -43.59375,
+          -22.5,
+          5,
+          5
+        ],
+        [
+          -43.59375,
+          -21.09375,
+          4,
+          4
+        ],
+        [
+          -42.1875,
+          -22.5,
+          86,
+          86
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          49,
+          49
+        ],
+        [
+          -42.1875,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          35,
+          35
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          170,
+          170
+        ],
+        [
+          -40.78125,
+          -18.28125,
+          39,
+          39
+        ],
+        [
+          -40.78125,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -39.375,
+          -18.28125,
+          13,
+          13
+        ],
+        [
+          -39.375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -49,7 +365,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 2
       }
     ]
   },
@@ -148,7 +464,12 @@
       "licence": "CC BY 4.0",
       "author": "D. Bork and A. Zarske",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_bifasciatus_(standard)_(31134).png",
-      "caption": "Hyphessobrycon bifasciatus Ellis, 1911, live photo, side view, normal colouring, not catalogued. Photo: A. Zarske."
+      "caption": "Hyphessobrycon bifasciatus Ellis, 1911, live photo, side view, normal colouring, not catalogued. Photo: A. Zarske.",
+      "large": {
+        "url": "https://media.aquatome.com/commons/840c8a5fcdaf9864-large.webp",
+        "width": 979,
+        "height": 546
+      }
     }
   ],
   "videos": [

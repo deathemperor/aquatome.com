@@ -2,8 +2,7 @@
  "queue": [],
  "judged": [],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/cc89581e610fbd21.webp": "186c7c7425f4efbb",
-  "https://media.aquatome.com/seriouslyfish/2b680afc97297e27.webp": "070707070717042b"
+  "https://media.aquatome.com/seriouslyfish/cc89581e610fbd21.webp": "186c7c7425f4efbb"
  },
  "commons": "2026-11-03",
  "inat": {
@@ -13,5 +12,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2356564,
+  "next": null
  }
 }

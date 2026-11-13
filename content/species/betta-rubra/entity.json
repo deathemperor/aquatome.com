@@ -11,6 +11,69 @@
     "aceh",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Betta rubra is a charismatic and increasingly rare wild betta originating from northern Sumatra, specifically the Aceh region of Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from northwestern Sumatra, Indonesia with definitive records existing from the Singkil area in Aceh province and around Sibolga in North Sumatra (Sumatera Utara) province.",
+          "countries": [],
+          "regions": [
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394010,
+      "total": 9,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          2.8125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -77,7 +140,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ],
     "tankCm": [
@@ -307,8 +370,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 30cm",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {

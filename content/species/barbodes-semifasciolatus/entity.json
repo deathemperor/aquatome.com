@@ -16,12 +16,315 @@
     "hainan",
     "nam-ou"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN",
+        "TW",
+        "CN",
+        "LA"
+      ],
+      "regions": [
+        "Red River",
+        "Hainan",
+        "Nam Ou"
+      ],
+      "sources": [
+        "sprucepets",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs throughout Vietnam, Taiwan, and southwestern China and northern Laos, and has also been recorded in Russia though it's unclear whether the latter population is naturally-occurring or not.",
+          "countries": [
+            "VN",
+            "TW",
+            "CN",
+            "LA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "sprucepets",
+          "quote": "Originating from China, Laos, Vietnam, and Thailand (Red River Basin; also Taiwan), this fish is known worldwide as the Chinese barb, but the species is naturally green in color.",
+          "countries": [],
+          "regions": [
+            "Red River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given as 'China' but the type specimens appear to have been collected from the Red River drainage (probably the northern Vietnam section although the river originates in Yunnan province, China), and occurence records show that it's also been collected from numerous other localities in northern Vietnam, the Chinese provinces of Guangxi and Guangdong and the islands of Hainan, Hong Kong, and Taiwan.",
+          "countries": [],
+          "regions": [
+            "Hainan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Information pertaining to Laos is scant but the species certainly occurs in the Nam Ou river watershed, Phôngsali Province.",
+          "countries": [],
+          "regions": [
+            "Nam Ou"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9515715,
+      "total": 224,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TW",
+          142
+        ],
+        [
+          "CN",
+          39
+        ],
+        [
+          "VN",
+          31
+        ],
+        [
+          "HK",
+          4
+        ],
+        [
+          "BR",
+          3
+        ],
+        [
+          "KH",
+          3
+        ],
+        [
+          "US",
+          1
+        ],
+        [
+          "ZA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -158.90625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          -43.59375,
+          -21.09375,
+          3,
+          0
+        ],
+        [
+          30.9375,
+          -28.125,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          12.65625,
+          3,
+          0
+        ],
+        [
+          102.65625,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          22.5,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          37.96875,
+          4,
+          4
+        ],
+        [
+          105.46875,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          22.5,
+          2,
+          2
+        ],
+        [
+          106.875,
+          14.0625,
+          14,
+          14
+        ],
+        [
+          106.875,
+          15.46875,
+          4,
+          4
+        ],
+        [
+          106.875,
+          16.875,
+          1,
+          1
+        ],
+        [
+          106.875,
+          21.09375,
+          6,
+          6
+        ],
+        [
+          106.875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          108.28125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          22.5,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          23.90625,
+          5,
+          5
+        ],
+        [
+          112.5,
+          22.5,
+          5,
+          5
+        ],
+        [
+          113.90625,
+          21.09375,
+          4,
+          0
+        ],
+        [
+          115.3125,
+          22.5,
+          4,
+          4
+        ],
+        [
+          115.3125,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          119.53125,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          119.53125,
+          22.5,
+          26,
+          26
+        ],
+        [
+          119.53125,
+          23.90625,
+          4,
+          4
+        ],
+        [
+          120.9375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          23.90625,
+          109,
+          109
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "difficulty": [
-      {
-        "source": "glaser",
-        "value": 1
-      },
       {
         "source": "sprucepets",
         "value": 2
@@ -112,21 +415,9 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/golden_barb_koi_en-2/",
-      "html": "<p>The Golden barb is an artificial sport that is said to have derived from the half-banded barb (Barbus semifasciolatus). However, nobody can say this for sure. It is an absolutely peaceful fish.</p>"
-    },
-    {
-      "key": "quickFacts",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
       "html": "<ul><li>Life expectancy: 5 years</li><li>Social: peaceful schooling fish</li><li>Tank level: bottom, mid-dweller</li><li>Minimum tank size: 20 gallons (about 75 litres)</li><li>Diet: omnivore</li><li>Breeding: egg scatterer</li></ul>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/golden_barb_koi_en-2/",
-      "html": "<p>Origin: bred. Available size: 3-4 cm.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -145,18 +436,6 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
       "html": "<p>Gold barbs are quite hardy and undemanding of water conditions or habitat essentials. They originate in free-flowing streams and rivers, so use a powerhead to provide a decent current.</p><p>They should be provided with a good-sized open space for swimming, along with plants, driftwood, or other decors for use as hiding spots. Use a fine-grade substrate, preferably of a darker color to showcase the colors of the fish.</p>"
-    },
-    {
-      "key": "waterConditions",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/golden_barb_koi_en-2/",
-      "html": "<p>It thrives very well both at room temperature and at 28°C. Hardness and pH are of no meaning for the fish. As long as the water is drinkable for humans, the Golden barb will like it.</p>"
-    },
-    {
-      "key": "diet",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/golden_barb_koi_en-2/",
-      "html": "<p>The species feeds virtually on any type of food that is produced for ornamental fish.</p>"
     },
     {
       "key": "diet",
@@ -181,12 +460,6 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
       "html": "<p>Gold barbs are relatively easy to breed, but as with breeding most fish species, a separate breeding tank is recommended. The tank should be well-planted with fine-leafed plants such as java moss. Spawning mops can also be used. Place a mesh cover over the bottom of the tank to allow the eggs to fall through safely.</p><p>Regardless of which medium is used for spawning, make sure there are plenty of hiding spots for the female, as the male can be quite aggressive during the spawning process. Lighting should be dim, and the water should be soft at about 8 dGH, with a pH between 6 and 7. Use a sponge filter with a very gentle flow.</p><p>Spawning can be attempted with pairs or by using the group method. When spawning in a group, use a half-dozen of each sex. If spawning in pairs, maintain separate tanks of males and females. Select the plumpest female and most brightly colored male, and introduce them to the spawning tank late in the day. Prior to spawning with either method, condition the breeders for several days with live foods.</p><p>Typically, spawning occurs in the early morning around dawn. Males will begin to circle the female, nudging her in order to position her near the area he has selected for spawning. The female will release up to 300 eggs, which will then be fertilized by the male. Adults will readily eat the eggs, so as soon as the eggs have been fertilized, the adults should be removed from the tank.</p><p>The pale yellow eggs will hatch in about 48 hours, and the fry will be free swimming in a few days. Feed the fry on infusoria, fine fry food, and freshly hatched brine shrimp. Both the eggs and fry are rather sensitive to light, so keep the tank as dark as possible until the fry are several weeks old.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/golden_barb_koi_en-2/",
-      "html": "<p>The fish appeared in the 1960s in the aquarium trade and is said to have been bred by an aquarist named Thomas Schubert of Camden, New Jersey, US. That is the reason why the fish is often referred to as \"Barbus (or Puntius, both is wrong) schuberti\".</p><p>The Golden barb never disappeared again and is always available in pet shops all over the world. In more recent times other sports have been developed, among them animals that have two or three colours on the body. These fish are called \"Koi Golden barb\" in the trade.</p>"
     },
     {
       "key": "notes",
@@ -276,7 +549,12 @@
       "licence": "CC BY-SA 2.5",
       "author": "Photo by and (c)2004 Derek Ramsey (Ram-Man)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gold_Barb_700.jpg",
-      "caption": "A photograph of the Gold Barb (Puntius semifasciolatus)."
+      "caption": "A photograph of the Gold Barb (Puntius semifasciolatus).",
+      "large": {
+        "url": "https://media.aquatome.com/commons/e1b2263441dee11d-large.webp",
+        "width": 1800,
+        "height": 867
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/3e141ae373bb0030.webp",
@@ -286,7 +564,12 @@
       "licence": "CC BY-SA 2.5",
       "author": "André Karwath aka Aka",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_semifasciolatus_(aka).jpg",
-      "caption": "This image shows a Gold barb (Puntius semifasciolatus)."
+      "caption": "This image shows a Gold barb (Puntius semifasciolatus).",
+      "large": {
+        "url": "https://media.aquatome.com/commons/3e141ae373bb0030-large.webp",
+        "width": 2000,
+        "height": 1007
+      }
     },
     {
       "url": "https://media.aquatome.com/sprucepets/3e5cfc03b5d982b4.webp",
@@ -297,17 +580,6 @@
       "author": "The Spruce Pets",
       "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
       "caption": "Gold Barb - Puntius semifasciolatus",
-      "source": "sprucepets"
-    },
-    {
-      "url": "https://media.aquatome.com/sprucepets/3213eda1134f0646.webp",
-      "thumb": "https://media.aquatome.com/sprucepets/3213eda1134f0646-480.webp",
-      "width": 600,
-      "height": 395,
-      "licence": "dùng với sự cho phép",
-      "author": "The Spruce Pets",
-      "sourceUrl": "https://www.thesprucepets.com/gold-barb-1378460",
-      "caption": "Cherry barb in an aquarium",
       "source": "sprucepets"
     },
     {
@@ -347,8 +619,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá cảnh 80cm"
+        "bể cá 90cm"
       ]
     },
     {

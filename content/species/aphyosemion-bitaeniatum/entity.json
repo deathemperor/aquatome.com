@@ -12,6 +12,116 @@
     "nigeria",
     "cross-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TG",
+        "BJ",
+        "NG"
+      ],
+      "regions": [
+        "Cross River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is widely-distributed in lowland, coastal regions of Togo, Benin and Nigeria as far as the Cross River delta, and occurs at some inland localities along the lower Niger River.",
+          "countries": [
+            "TG",
+            "BJ",
+            "NG"
+          ],
+          "regions": [
+            "Cross River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348297,
+      "total": 58,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BJ",
+          32
+        ],
+        [
+          "NG",
+          21
+        ],
+        [
+          "DE",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          0,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          1.40625,
+          5.625,
+          20,
+          20
+        ],
+        [
+          1.40625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          1.40625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          2.8125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          2.8125,
+          11.25,
+          7,
+          7
+        ],
+        [
+          5.625,
+          4.21875,
+          14,
+          14
+        ],
+        [
+          7.03125,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          8.4375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          50.625,
+          5,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -49,7 +159,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -58,7 +168,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bitaeniatum",
-      "html": "<ul><li><strong>Max size:</strong> 45 mm SL (1.8 in)</li><li><strong>Temperature:</strong> 24–30°C (75–86°F)</li><li><strong>pH:</strong> 5.0–6.5</li><li><strong>Hardness:</strong> 0–10 dGH</li><li><strong>Difficulty:</strong> 3 of 8 (beginner); small tank, needs acidic water</li></ul><p>The two-striped lyretail, Aphyosemion bitaeniatum, is a killifish from lowland coastal regions of Togo, Benin and Nigeria. Its range reaches the Cross River delta and some inland localities along the lower Niger River. Populations in Cameroon, Equatorial Guinea and Gabon are now considered to represent other species.</p>"
+      "html": "<ul><li><strong>Max size:</strong> 45 mm SL (1.8 in)</li><li><strong>Temperature:</strong> 24–30°C (75–86°F)</li><li><strong>pH:</strong> 5.0–6.5</li><li><strong>Hardness:</strong> 0–10 dGH</li><li><strong>Difficulty:</strong> 2 of 8 (beginner); small tank, needs acidic water</li></ul><p>The two-striped lyretail, Aphyosemion bitaeniatum, is a killifish from lowland coastal regions of Togo, Benin and Nigeria. Its range reaches the Cross River delta and some inland localities along the lower Niger River. Populations in Cameroon, Equatorial Guinea and Gabon are now considered to represent other species.</p>"
     },
     {
       "key": "distribution",
@@ -79,7 +189,18 @@
       "html": "<p><strong>Etymology</strong></p><p>Aphyosemion: from the Greek aphúe, meaning 'a small fish', and semeion, meaning 'banner, flag', in reference to the \"ornamented, often lyre-shaped\" caudal fin in male individuals of genus members.</p><p>bitaeniatum: from the Latin bi-, a prefix meaning 'having two parts', and taeniatus, meaning 'beribboned', in reference to the colour pattern of the preserved holotype, which comprised two dark longitudinal stripes on the body. In life, individuals from different subpopulations exhibit various colour patterns.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/5e19d31c0c91347a.webp",
+      "thumb": "https://media.aquatome.com/commons/5e19d31c0c91347a-480.webp",
+      "width": 818,
+      "height": 611,
+      "licence": "CC BY-SA 3.0",
+      "author": "Violaine2, France",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chromaphyosemion_bivittatum.png",
+      "caption": "Cá killi Aphyosemion bitaeniatum đực bơi trong bể thủy sinh có cây xanh"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

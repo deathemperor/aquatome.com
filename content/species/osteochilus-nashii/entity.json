@@ -11,6 +11,68 @@
     "karnataka",
     "kerala"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Tunga"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to India where it appears to be restricted to the southwesterly states of Karnataka and Kerala.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the former it has been collected from close to the city of Dandeli, Uttara Kannada (North Canara) district, the Fraserpett River, Coorg district and Korkanhalla stream, a tributary of the Tunga river at an altitude of 652 m above sea level, whereas in the latter the only information available is that it occurs in Wayanad district.",
+          "countries": [],
+          "regions": [
+            "Tunga"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364294,
+      "total": 4,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "IN",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          73.125,
+          16.875,
+          2,
+          2
+        ],
+        [
+          74.53125,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          75.9375,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -54,7 +116,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -132,26 +194,13 @@
       "html": "<ul><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Arunachalam, M. and M. Muralidharam (2008). Descriptions of a new species of the genus Psilorhynchus (Teleostei: Psilorhynchidae) from a Western Ghat stream in Southern India. Raffles Bull. Of Zool. 53(2), 405-414.</li></ul>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/1153317809d447c3.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/1153317809d447c3-480.webp",
-      "width": 640,
-      "height": 426,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/osteochilichthys-nashii",
-      "caption": "Osteochilus nashii.",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x45x45",
-        "bể cá 240 lít"
+        "bể cá 120cm"
       ]
     },
     {

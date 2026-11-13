@@ -1,0 +1,43 @@
+{
+  "id": "annamia-thuathienensis",
+  "native": {
+    "input": "ccd718300aec814c",
+    "at": "2026-11-09T23:57:44.132Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Bô River, Thua Thien-Hue Province, central Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bô River",
+        "source": "seriouslyfish",
+        "quote": "Described from the Bô River, Thua Thien-Hue Province, central Vietnam.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Annamia thuathienensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5962837,
+    "datasets": [],
+    "native": [
+      "VN"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

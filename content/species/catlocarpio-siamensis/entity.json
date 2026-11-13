@@ -9,6 +9,69 @@
     "asia",
     "mekong"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2359467,
+      "total": 11,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "VN",
+          5
+        ],
+        [
+          "KH",
+          3
+        ],
+        [
+          "TH",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          2
+        ],
+        [
+          104.0625,
+          11.25,
+          2
+        ],
+        [
+          104.0625,
+          15.46875,
+          2
+        ],
+        [
+          105.46875,
+          9.84375,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          1
+        ],
+        [
+          106.875,
+          9.84375,
+          1
+        ],
+        [
+          112.5,
+          11.25,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -43,7 +106,23 @@
       "html": "<p>In nature the Mekong giant carp is probably extinct or at least very, very rare. Fortunately, the species can be bred in aquaculture, so that at least complete extinction is not to be feared. The causes for the extinction in nature are, as usual, the destruction of the biotopes and habitats by humans, whereby the large migratory fish hardly ever get old enough to reproduce naturally. The massive fishing for food purposes certainly also has an influence on the stocks, but how strong it is, has not been scientifically researched yet.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/251152073.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/251152073-480.webp",
+      "width": 1200,
+      "height": 935,
+      "licence": "CC BY",
+      "author": "Татьяна Максимова",
+      "sourceUrl": "https://www.inaturalist.org/photos/251152073",
+      "caption": "Cá hô bơi trong bể kính lớn của thủy cung",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/251152073-large.webp",
+        "width": 1540,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

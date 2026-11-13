@@ -1,4 +1,23 @@
 import { THUMB_WIDTH } from './thumb'
+import type { Photo } from './types'
+import { realPhotosFirst } from './image-policy'
+import { photoFitsCard } from './image-geometry'
+
+/** A photo a card can crop to its shape and keep the fish whole: not a strip wider than about 2:1. */
+export const fitsCard = (p: Pick<Photo, 'width' | 'height'> & Partial<Pick<Photo,'altered'>>) => p.width <= p.height * 2.2 && photoFitsCard(p)
+
+/**
+ * A photo without a source's watermark banner (Glaser stamps its name across the top) that a card can crop whole, else
+ * one without the banner, else the first. The site's cards take this; the engine's ranking of a fish's head photo reads
+ * the same order, so a card and the page it opens show one picture.
+ */
+export const cleanPhoto = (photos: Photo[]) => {
+  const ordered = realPhotosFirst(photos), real = ordered.filter(p => !p.generated)
+  // Incidental cards have no AI-label slot in older apps. Generation first ships on the page and in its album only.
+  const pool = real.filter(photoFitsCard)
+  const unmarked = (p: Photo) => p.source !== 'glaser' || p.altered?.some(a => a.method === 'mark-crop' || a.method === 'mark-removal' && a.noTrace === 'pass')
+  return pool.find(p => unmarked(p) && fitsCard(p)) ?? pool.find(unmarked) ?? pool[0]
+}
 
 /**
  * One picture, whatever file it is in: the same photo stored twice (two articles of one source each had a copy),

@@ -10,6 +10,104 @@
     "brazil",
     "rio-de-janeiro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: vicinity of Rio de Janeiro, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339312,
+      "total": 49,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          48
+        ],
+        [
+          "BO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          18,
+          18
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          15,
+          15
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          -42.1875,
+          -22.5,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -116,7 +214,12 @@
       "author": "Cisamarc",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macrotocinclus_affinis_resting.jpg",
       "caption": "Macrotocinclus affinis",
-      "thumb": "https://media.aquatome.com/commons/0e2e8e770f67551a-480.webp"
+      "thumb": "https://media.aquatome.com/commons/0e2e8e770f67551a-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/0e2e8e770f67551a-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/9b4371c8cc7d51a5.webp",

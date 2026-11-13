@@ -1,0 +1,270 @@
+{
+  "id": "nimbochromis-venustus",
+  "scientificName": "Nimbochromis venustus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Nimbochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "malawi",
+    "lake-malawi",
+    "mozambique",
+    "tanzania"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371145,
+      "total": 15,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MW",
+          14
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -115.3125,
+          39.375,
+          1
+        ],
+        [
+          33.75,
+          -16.875,
+          1
+        ],
+        [
+          33.75,
+          -15.46875,
+          1
+        ],
+        [
+          33.75,
+          -14.0625,
+          6
+        ],
+        [
+          33.75,
+          -11.25,
+          1
+        ],
+        [
+          35.15625,
+          -15.46875,
+          5
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.6,
+          "max": 8.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 25
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-venustus",
+      "html": "<p>The venustus, Nimbochromis venustus, is a predatory cichlid endemic to Lake Malawi, where it is fairly widespread. Also sold as 'giraffe hap' or 'giraffe cichlid' after its pattern of irregular dark markings, it is an ambush predator that lies motionless on the substrate to take smaller fish. It is not a fish for the general Malawi cichlid community.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-venustus",
+      "html": "<p>Endemic to Lake Malawi. It is fairly widespread throughout the lake.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-venustus",
+      "html": "<p>It is found in relatively shallow (15 metres deep or less) water around the shoreline in both rocky habitats and areas with soft substrates of mud or sand.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-venustus",
+      "html": "<p>Standard length: 25 cm SL. Aquarium base: 120 × 45 cm. Volume: ~205 litres (120 × 45 × 38 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-venustus",
+      "html": "<p>Set up the aquarium with piles of rocks arranged to form caves, large areas of open water for swimming and preferably a sandy substrate.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-venustus",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 7.6–8.8</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-venustus",
+      "html": "<p>It is an exclusive piscivore in nature but there is no need to feed live fish in aquaria as it accepts dead foods readily. Feed a meaty diet of prawns, lancefish, whitebait etc. Do not feed animal meat of any kind.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-venustus",
+      "html": "<p>Predatory but is generally peaceful with species too big to be considered food (it will eat smaller mbuna and young fish). Suitable tankmates include Frontosa, Dimidiochromis compressiceps, larger mbuna and other large Rift Lake species. It is a loner in nature and males can be quite aggressive towards one another. It should therefore be kept as a solitary specimen in the aquarium or, if breeding is to be attempted, as a harem with several females and a single male.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-venustus",
+      "html": "<p>Males tend to grow larger and exhibit gaudier colouration than females, showing beautiful blue and yellow pigmentation on the body. These colours intensify greatly when the male is in breeding condition.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-venustus",
+      "html": "<p>Not easy. Polygamous maternal mouthbrooder. The breeding aquarium should be at least 120 cm in length and furnished as suggested above, with the addition of some large, flat rocks to provide potential spawning sites. A pH of 8.0-8.5 and a temperature between 25–27 °C are ideal. A breeding group of one male and 3-6 females is recommended and these should be kept alone and conditioned on a high quality, meat-based diet. Adult fish can be hard to find so you may have to start with a group of 6-8 juvenile fish and grow them on.</p><p>When ready to spawn, the male takes on intense colouration and will choose a spawning site, either on a flat rock surface or by digging a depression in the substrate. Spawning occurs in a similar fashion to many other cichlids, with the female laying a line of eggs before moving away, allowing the male to take her place and fertilise them. She then returns to the site, picking up the fertilised eggs in her mouth before laying another batch.</p><p>She will carry the brood of up to 120 eggs for around 3 weeks before releasing the free swimming fry. She will not eat during this period and can be easily spotted by her distended mouth and brooding colouration of dark patterning. Female venustus are notorious for spitting out the brood early when stressed, so extreme care must be taken if you decide to move the fish. It is also worth noting that if a female is away from the colony for too long she may lose her position in the pecking order of the group. It is recommended to wait as long as possible before moving a female unless she is being harassed.</p><p>Some breeders artificially strip the fry from the mother's mouth at the 2 week stage and raise them from that point as this usually results in a larger number of fry. The fry are large enough to accept brine shrimp nauplii from the day they are released. Brood care by the female continues for another 10 days or so, with the fry seeking refuge in the mother's mouth if they are disturbed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-venustus",
+      "html": "<p>Not a fish for the general Malawi cichlid community, N. venustus is an ambush predator in nature. It may also be seen for sale as \"Giraffe Hap\" or \"Giraffe Cichlid\", in reference to its base pattern of irregular dark markings.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/1d4033304f370e3a.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Photograph by Mike Peel (www.mikepeel.net).",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frankfurt_Zoo_-_Giraffenmaulbruter_2.jpg",
+      "caption": "Giraffenmaulbruter. Haplochromis venustus. At Frankfurt Zoo.",
+      "thumb": "https://media.aquatome.com/commons/1d4033304f370e3a-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/3be49518e9b3eeb5.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Photograph by Mike Peel (www.mikepeel.net).",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frankfurt_Zoo_-_Giraffenmaulbruter_3.jpg",
+      "caption": "Giraffenmaulbruter. Haplochromis venustus. At Frankfurt Zoo.",
+      "thumb": "https://media.aquatome.com/commons/3be49518e9b3eeb5-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b10f0fd458c378ef.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 3.0",
+      "author": "Jutta234",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nimbochromis_venustus_-_Zoo_Frankfurt_2.jpg",
+      "caption": "Pfauenmaulbrüter im Zoo Frankfurt",
+      "thumb": "https://media.aquatome.com/commons/b10f0fd458c378ef-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/942172a58a61d5bd.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Photograph by Mike Peel (www.mikepeel.net).",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frankfurt_Zoo_-_Giraffenmaulbruter_1.jpg",
+      "caption": "Giraffenmaulbruter. Haplochromis venustus. At Frankfurt Zoo.",
+      "thumb": "https://media.aquatome.com/commons/942172a58a61d5bd-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy lọc cho cá cichlid"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300w"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid ăn thịt",
+        "thức ăn cho cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

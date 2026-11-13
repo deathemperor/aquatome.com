@@ -11,31 +11,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enteromius_jae.jpg",
       "caption": "Cá barb jae đực màu đỏ rực trên nền cát",
       "best": true,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/b5d713f97ec0d242.webp",
-      "thumb": "https://media.aquatome.com/commons/b5d713f97ec0d242-480.webp",
-      "width": 1024,
-      "height": 672,
-      "licence": "CC BY 2.0",
-      "author": "Jonathan (Jon) Armbruster",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cameroon2011_9_(2)_(7003778715).jpg",
-      "caption": "Cá barb jae trong bể kính, thân vàng ô liu có sọc đen",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/620f905df7559320.webp",
-      "thumb": "https://media.aquatome.com/commons/620f905df7559320-480.webp",
-      "width": 1200,
-      "height": 484,
-      "licence": "CC BY-SA 2.0",
-      "author": "Jonathan (Jon) Armbruster",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbus_jae_male.jpg",
-      "caption": "Cá barb jae thân vàng cam, vây lưng đỏ, nền đen",
-      "best": true,
-      "kind": "other"
+      "kind": "male",
+      "large": {
+        "url": "https://media.aquatome.com/commons/fe60f6eea3eed46a-large.webp",
+        "width": 2132,
+        "height": 1198
+      }
     }
   ],
   "seen": 4,

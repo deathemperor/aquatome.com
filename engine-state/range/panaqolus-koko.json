@@ -1,0 +1,99 @@
+{
+  "id": "panaqolus-koko",
+  "native": {
+    "input": "d4e2b56652365c76",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Antecume Pata in the upper Maroni River basin, French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Also recorded from Guyana waters, coastal rivers of the Guianas, Suriname coastal rivers, Marowijne and Upper Marowijne.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Also recorded from Guyana waters, coastal rivers of the Guianas, Suriname coastal rivers, Marowijne and Upper Marowijne.",
+        "words": "Suriname",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Maroni River",
+        "source": "planetcatfish",
+        "quote": "Antecume Pata in the upper Maroni River basin, French Guiana.",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Marouini River",
+        "source": "planetcatfish",
+        "quote": "Type locality: Marouini River, vicinity of Antecume Pata, French Guiana.",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Marowijne",
+        "source": "planetcatfish",
+        "quote": "Also recorded from Guyana waters, coastal rivers of the Guianas, Suriname coastal rivers, Marowijne and Upper Marowijne.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Panaqolus koko",
+    "status": "ACCEPTED",
+    "taxonKey": 7192993,
+    "datasets": [
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "GF",
+      "GY",
+      "SR"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

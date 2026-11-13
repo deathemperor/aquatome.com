@@ -1,10 +1,13 @@
 {
   "slug": "lake-burdur",
-  "name": "Lake Burdur",
-  "altNames": [],
+  "name": "hồ Burdur",
+  "altNames": [
+    "Lake Burdur"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

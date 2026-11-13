@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "qzPVpr89Ugo",
     "title": "Một số kênh thông tin về thủy sinh hữu ích #Greenhappiness",
@@ -25,29 +25,51 @@
       "height": 480
     },
     "lang": "vi",
-    "taxa": [],
+    "taxa": [
+      "Rotala sp."
+    ],
     "gear": [
       {
-        "category": "den",
-        "type": "thuy-sinh",
+        "category": "phan-nen",
+        "type": "soi",
         "brand": "ADA",
-        "model": "Maxpak",
-        "t": 406
+        "model": "Rio",
+        "t": 469
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "brand": "ADA",
+        "model": "La Plata Sand",
+        "t": 469
       }
     ],
     "figures": [
       {
-        "heading": "Trang cuộc thi AGA: học bố cục từ bể dự thi",
+        "heading": "Diễn đàn ABV: kho bài cũ vẫn còn giá trị",
+        "moments": [
+          {
+            "t": 40,
+            "url": "https://media.aquatome.com/video/qzPVpr89Ugo/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh set lũa và cây xanh tốt, kiểu bài set bể cũ.",
+            "sharpness": 5294.1
+          }
+        ]
+      },
+      {
+        "heading": "Xem bể dự thi AGA để học bố cục",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/qzPVpr89Ugo/p4-cXVhc2NhcGUucG5n.webp",
-          "thumb": "https://media.aquatome.com/video/qzPVpr89Ugo/p4-cXVhc2NhcGUucG5n-480.webp",
+          "url": "https://media.aquatome.com/video/qzPVpr89Ugo/p4-xBQ19SLjE0LmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/qzPVpr89Ugo/p4-xBQ19SLjE0LmpwZw-480.webp",
           "width": 960,
-          "height": 447,
-          "licence": "CC BY-SA 4.0",
-          "author": "Duc Viet Bui",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_style_aquascape.png",
-          "caption": "Bể thủy sinh bố cục lũa rêu rậm rạp, kiểu bể dự thi."
+          "height": 323,
+          "licence": "CC BY-SA 3.0",
+          "author": "조재선",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Positive_nihilism-2,_2021_IIAC_R.25,_RFLAC_R.14.jpg",
+          "caption": "Bể thủy sinh bố cục lũa, rêu và cây đỏ nổi bật, kiểu bể dự thi."
         }
       }
     ]

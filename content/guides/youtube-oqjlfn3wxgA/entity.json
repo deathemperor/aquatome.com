@@ -1,6 +1,6 @@
 {
   "id": "youtube-oqjlfn3wxgA",
-  "kind": "setup",
+  "kind": "discovery",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=oqjlfn3wxgA",
   "html": "",
@@ -10,7 +10,7 @@
     "scleropages-jardinii",
     "osteoglossum-bicirrhosum"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "oqjlfn3wxgA",
     "title": "Cá rồng kết hợp với thủy sinh - Nên hay Không? #Greenhappiness",
@@ -31,8 +31,8 @@
     "transcribed": true,
     "lang": "vi",
     "taxa": [
-      "Osteoglossum bicirrhosum",
-      "Scleropages sp."
+      "Scleropages formosus",
+      "Osteoglossum bicirrhosum"
     ],
     "gear": [
       {
@@ -51,33 +51,27 @@
         "heading": "Cá rồng có sống được trong bể thủy sinh không",
         "moments": [
           {
-            "t": 0,
-            "url": "https://media.aquatome.com/video/oqjlfn3wxgA/t0.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá rồng và các loài cá lớn khác bơi trong bể trơn."
-          },
-          {
             "t": 5,
-            "url": "https://media.aquatome.com/video/oqjlfn3wxgA/t5.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn cá cảnh nhiều màu bơi trong bể kính có đèn phía trên."
+            "url": "https://media.aquatome.com/video/oqjlfn3wxgA/at5-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể kính nuôi chung nhiều cá lớn màu cam, vàng và sọc.",
+            "sharpness": 510.1
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/oqjlfn3wxgA/p0-pcnJob3N1bS5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/oqjlfn3wxgA/p0-pcnJob3N1bS5KUEc-480.webp",
+          "url": "https://media.aquatome.com/video/oqjlfn3wxgA/p0-ZV8yMDEyXzMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/oqjlfn3wxgA/p0-ZV8yMDEyXzMuanBn-480.webp",
           "width": 960,
-          "height": 596,
+          "height": 509,
           "licence": "CC BY-SA 3.0",
-          "author": "User:Qwertzy2",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osteoglossum_bicirrhosum.JPG",
-          "caption": "Cá rồng bơi trong bể có đá và rêu, thân vảy ánh vàng rất rõ."
+          "author": "Karelj",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_Prague_2012_3.jpg",
+          "caption": "Cá rồng bơi trong bể có cây thủy sinh xanh phía sau."
         }
       },
       {
-        "heading": "Nhiệt độ: chỗ vướng lớn nhất",
+        "heading": "Nhiệt độ: cá chịu nóng, cây ưa mát",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/oqjlfn3wxgA/p1-ha3dhcml1bS5qcGc.webp",
@@ -87,11 +81,11 @@
           "licence": "CC BY-SA 3.0",
           "author": "Ewkaa",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
-          "caption": "Cây sưởi bể cá có giác hút, dùng để giữ ấm nước."
+          "caption": "Một cây sưởi bể cá có giác hút, dùng để giữ nhiệt độ nước ổn định."
         }
       },
       {
-        "heading": "Bể cần to cỡ nào",
+        "heading": "Bể phải lớn cỡ nào",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/oqjlfn3wxgA/p2-pcnJob3N1bS5KUEc.webp",
@@ -101,40 +95,66 @@
           "licence": "CC BY-SA 3.0",
           "author": "User:Qwertzy2",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osteoglossum_bicirrhosum.JPG",
-          "caption": "Một con cá rồng lớn bơi trong bể, thân dài gần chiếm hết chiều ngang."
+          "caption": "Cá rồng bạc to lớn bơi trong bể rộng, cần nhiều chỗ để bơi."
         }
       },
       {
-        "heading": "Bố trí cây và lũa sao cho cá không bị vướng",
+        "heading": "Bố trí lũa và cây cho hợp với cá rồng",
         "moments": [
           {
-            "t": 266,
-            "url": "https://media.aquatome.com/video/oqjlfn3wxgA/t266.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá bơi thoải mái ở khoảng trống phía trước, cây đặt gọn bên góc bể."
+            "t": 260,
+            "url": "https://media.aquatome.com/video/oqjlfn3wxgA/at260-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá lớn, cây được đặt gọn ở phía sau bên phải.",
+            "sharpness": 276.3
           },
           {
-            "t": 276,
-            "url": "https://media.aquatome.com/video/oqjlfn3wxgA/t276.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể bố trí lũa và cây dồn về phía sau, cá rồng bơi phía trước."
+            "t": 280,
+            "url": "https://media.aquatome.com/video/oqjlfn3wxgA/at280-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá rồng bơi trước nền đá, phía sau bố trí cây xanh.",
+            "sharpness": 291.7
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/oqjlfn3wxgA/p3-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/oqjlfn3wxgA/p3-NfUGxhbnRzLmpwZw-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Bể đặt lũa gỗ với ráy Anubias xanh tốt trên nền cát trắng."
+        }
       },
       {
-        "heading": "Đánh đèn lên màu và cây thủy sinh",
+        "heading": "Lọc nước và chuyện tiền",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/oqjlfn3wxgA/p5-ZV8yMDEyXzMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/oqjlfn3wxgA/p5-ZV8yMDEyXzMuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/oqjlfn3wxgA/p4-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/oqjlfn3wxgA/p4-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
-          "height": 509,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng đặt trong tủ bể, bên cạnh là xô và ống siphon thay nước."
+        }
+      },
+      {
+        "heading": "Nắp đậy và đèn: hai chỗ khó chiều nhất cho cây",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/oqjlfn3wxgA/p5-N1bV9ORUFRLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/oqjlfn3wxgA/p5-N1bV9ORUFRLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
           "licence": "CC BY-SA 3.0",
-          "author": "Karelj",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_Prague_2012_3.jpg",
-          "caption": "Cá kim long vảy sáng bơi trong bể có cây thủy sinh dưới ánh đèn."
+          "author": "ShajiA",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osteoglossum_bicirrhosum_NEAQ.jpg",
+          "caption": "Cá rồng bơi sát mặt nước, rất dễ phóng ra ngoài nếu bể không có nắp."
         }
       }
     ]

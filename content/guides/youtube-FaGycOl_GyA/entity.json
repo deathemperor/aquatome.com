@@ -1,6 +1,6 @@
 {
   "id": "youtube-FaGycOl_GyA",
-  "kind": "plantCare",
+  "kind": "care",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=FaGycOl_GyA",
   "html": "",
@@ -10,7 +10,7 @@
     "microsorum-pteropus",
     "bucephalandra-sp"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "FaGycOl_GyA",
     "title": "Tất Tần Tật Chế Độ Chăm Sóc Hồ FULL RÁY | LOST CORNER ANUBIAS | 8m2",
@@ -76,24 +76,32 @@
     "lang": "vi",
     "taxa": [
       "Anubias barteri",
+      "Bucephalandra sp.",
       "Bambusa sp.",
       "Epipremnum aureum",
-      "Spathiphyllum sp.",
-      "Centella asiatica",
-      "Microsorum pteropus",
-      "Bucephalandra sp."
+      "Scindapsus pictus",
+      "Hydrocotyle sp.",
+      "Hygrophila sp.",
+      "Cryptocoryne sp.",
+      "Microsorum pteropus"
     ],
     "gear": [
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 60
+      },
       {
         "category": "loc",
         "brand": "HPL",
         "model": "802",
-        "t": 107
+        "t": 99
       },
       {
         "category": "phan-nen",
         "type": "cat",
-        "t": 157
+        "brand": "Getzan",
+        "t": 150
       },
       {
         "category": "phan-nen",
@@ -107,66 +115,32 @@
         "type": "thuy-sinh",
         "brand": "Chihiros",
         "model": "A2",
-        "t": 186
+        "t": 174
       },
       {
         "category": "co2",
+        "type": "mini",
         "t": 632
-      },
-      {
-        "category": "be-ca",
-        "type": "nano",
-        "t": 95
       }
     ],
     "figures": [
       {
         "heading": "Phần cứng của hồ gồm những gì",
-        "moments": [
-          {
-            "t": 89,
-            "url": "https://media.aquatome.com/video/FaGycOl_GyA/t89.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh hồ thủy sinh nhỏ với thảm cây xanh và lũa."
-          },
-          {
-            "t": 139,
-            "url": "https://media.aquatome.com/video/FaGycOl_GyA/t139.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh nền cát xanh phủ cây và lũa trong hồ."
-          }
-        ],
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/FaGycOl_GyA/p0-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/FaGycOl_GyA/p0-FzY2FwaW5nLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/FaGycOl_GyA/p0-X3NocmltcHMuSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/FaGycOl_GyA/p0-X3NocmltcHMuSlBH-480.webp",
           "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Hồ thủy sinh nhiều cây, nền cát và cá nhỏ bơi giữa các bụi cây."
+          "height": 1434,
+          "licence": "CC BY-SA 3.0",
+          "author": "Michael Skiba",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_red_shrimps.JPG",
+          "caption": "Hồ thủy sinh nhỏ trồng nhiều cây, thấy rõ ống lọc trong hồ."
         }
       },
       {
         "heading": "Trong hồ trồng những cây gì",
-        "moments": [
-          {
-            "t": 257,
-            "url": "https://media.aquatome.com/video/FaGycOl_GyA/t257.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm ráy lá nhỏ mọc dày phủ kín nền hồ."
-          },
-          {
-            "t": 386,
-            "url": "https://media.aquatome.com/video/FaGycOl_GyA/t386.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cụm ráy lá hoa size nhỏ xanh tươi trong hồ."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/FaGycOl_GyA/p1-NfUGxhbnRzLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/FaGycOl_GyA/p1-NfUGxhbnRzLmpwZw-480.webp",
@@ -175,27 +149,12 @@
           "licence": "CC BY 4.0",
           "author": "Abhik.Mazumdar.73",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Cụm ráy lá xanh gắn trên lũa trong hồ cát trắng."
+          "caption": "Cụm ráy lá xanh mọc trên lũa trong hồ thủy sinh cát trắng."
         }
       },
       {
-        "heading": "Đèn mở bao lâu và mạnh cỡ nào",
-        "moments": [
-          {
-            "t": 544,
-            "url": "https://media.aquatome.com/video/FaGycOl_GyA/t544.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hồ thủy sinh có lũa, cỏ thảm xanh và cây mọc cao."
-          },
-          {
-            "t": 594,
-            "url": "https://media.aquatome.com/video/FaGycOl_GyA/t594.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đèn LED thanh treo phía trên hồ thủy sinh, chiếu sáng cây."
-          }
-        ],
+        "heading": "Bật đèn bao lâu và để công suất bao nhiêu",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/FaGycOl_GyA/p2-1bV9MaWdodC5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/FaGycOl_GyA/p2-1bV9MaWdodC5qcGc-480.webp",
@@ -204,27 +163,12 @@
           "licence": "CC BY-SA 3.0",
           "author": "Lime Huang",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Hồ thủy sinh có đèn LED gắn phía trên, cây xanh mọc dày."
+          "caption": "Hồ thủy sinh có đèn LED gắn phía trên, cây xanh phát triển tốt."
         }
       },
       {
-        "heading": "Đặt CO2 ở đâu để khí tỏa đều",
-        "moments": [
-          {
-            "t": 653,
-            "url": "https://media.aquatome.com/video/FaGycOl_GyA/t653.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Sủi sứ đặt cạnh ống hút của lọc, giữa đám cây thủy sinh."
-          },
-          {
-            "t": 673,
-            "url": "https://media.aquatome.com/video/FaGycOl_GyA/t673.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Sủi sứ nằm sát nền, gần đầu hút lọc trong hồ."
-          }
-        ],
+        "heading": "Đặt sủi CO2 ở đâu cho CO2 đi đều",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/FaGycOl_GyA/p3-FzY2FwaW5nLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/FaGycOl_GyA/p3-FzY2FwaW5nLmpwZw-480.webp",
@@ -233,20 +177,22 @@
           "licence": "CC BY 3.0",
           "author": "Ghostsword",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Hồ thủy sinh cây rậm rạp, xanh tốt nhờ CO2 phân bố đều."
+          "caption": "Hồ thủy sinh cây xanh tốt, nhờ CO2 lan đều khắp hồ."
         }
       },
       {
-        "heading": "Lịch châm phân nước hằng tuần",
-        "moments": [
-          {
-            "t": 841,
-            "url": "https://media.aquatome.com/video/FaGycOl_GyA/t841.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bảng lịch châm phân hằng tuần với ngày thay nước và các chỉ số."
-          }
-        ]
+        "heading": "Lịch châm phân nước hàng tuần",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/FaGycOl_GyA/p4-AxOF9hXzAyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/FaGycOl_GyA/p4-AxOF9hXzAyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Lamiot",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flore_subaquatique_d%27une_mare_citerne_en_vall%C3%A9e_de_l%27Esteron_fin_avril_2018_a_02.jpg",
+          "caption": "Hồ thủy sinh cây mọc rậm, xanh tốt nhờ châm phân đều đặn."
+        }
       }
     ]
   }

@@ -10,6 +10,106 @@
     "cuba",
     "isla-de-la-juventud"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CU"
+      ],
+      "regions": [
+        "Isla de la Juventud"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Cuban gar, Atractosteus tristoechus, known locally as 'manjuari', is a gar endemic to western Cuba and Isla de la Juventud.",
+          "countries": [
+            "CU"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Cuba where it's found throughout western parts of the island plus Isla de la Juventud (Isle of Youth, formerly known as the Isle of Pines).",
+          "countries": [],
+          "regions": [
+            "Isla de la Juventud"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2346762,
+      "total": 13,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "US",
+          8
+        ],
+        [
+          "CU",
+          4
+        ],
+        [
+          "MX",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -99.84375,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          -98.4375,
+          25.3125,
+          5,
+          0
+        ],
+        [
+          -98.4375,
+          26.71875,
+          2,
+          0
+        ],
+        [
+          -91.40625,
+          39.375,
+          1,
+          0
+        ],
+        [
+          -82.96875,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -47,12 +147,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus_tristoechus_en/",
       "html": "<p>Common name: Cuban gar.</p><p>Lexicon: Atractosteus means \"arrow-bone\". tristoechus refers to the teeth, which are arranged in three groups. Lepisosteus means \"bone-scale\".</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus_tristoechus_en/",
-      "html": "<p>Our specimens are currently about 5 cm long and have been bred in Indonesia. We believe the breeders regarding the identity of the species, as we have no opportunity to verify or falsify this.</p><p>For our customers: the fish have code 848131 on our stocklist. Please note that we exclusively supply the wholesale trade.</p>"
     },
     {
       "key": "distribution",
@@ -112,7 +206,7 @@
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus_tristoechus_en/",
-      "html": "<p>The Alligator gars are so-called living fossils. They developed about 100 million years ago in the upper Cretaceous and haven't changed much since then. Currently two genera live in the New World, namely Atractosteus (containing three species) and Lepisosteus (four species).</p><p>The members of Atractosteus can reach about 2 m in length (formerly they are said to have reached even 3 m, but formerly everything was better ;-)) and are thus the largest recent members of the gars. The three species are very similar to each other and differ only in details which are not observable from outside.</p><p>Among the ancient features of the fish are the very strange bony scalation and the remains of a \"tail\" in the upper half of the caudal fin, which is clearly visible in our baby fish. Gars do not breathe only via gills, but also via the swim bladder, which serves as a lung. So they can survive even in very oxygen-poor water.</p>"
+      "html": "<p>The Alligator gars are so-called living fossils. They developed about 100 million years ago in the upper Cretaceous and haven't changed much since then. Currently two genera live in the New World, namely Atractosteus (containing three species) and Lepisosteus (four species).</p><p>The members of Atractosteus can reach about 2 m in length (formerly they are said to have reached even 3 m, but formerly everything was better ;-)) and are thus the largest recent members of the gars. The three species are very similar to each other and differ only in details which are not observable from outside.</p>"
     },
     {
       "key": "references",
@@ -130,7 +224,12 @@
       "author": "Poleta33",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Atractosteus_tristoechus_01.jpg",
       "caption": "taken in Cuba in front of the crocodil farm in the tourist park",
-      "thumb": "https://media.aquatome.com/commons/9e2ea185bfd6713c-480.webp"
+      "thumb": "https://media.aquatome.com/commons/9e2ea185bfd6713c-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/9e2ea185bfd6713c-large.webp",
+        "width": 2133,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/618961beb219e7b2.webp",
@@ -151,16 +250,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Atractosteus_tristoechus_02.JPG",
       "caption": "taken in Cuba in front of the crocodil farm in the tourist park",
       "thumb": "https://media.aquatome.com/commons/e8d4fa52e1b9e183-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/c6f3e21ebfdba1ad.webp",
-      "width": 940,
-      "height": 237,
-      "licence": "Public domain",
-      "author": "David Starr Jordan",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_51734_Alligator-gar,_Lepisosteus_tristaechus_(Bluch)_Cuba.jpeg",
-      "caption": "Alligator-gar, Lepisosteus tristaechus (Bluch). Cuba Subject: Gars Tag: Fish",
-      "thumb": "https://media.aquatome.com/commons/c6f3e21ebfdba1ad-480.webp"
     }
   ],
   "videos": [],

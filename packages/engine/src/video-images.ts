@@ -3,20 +3,36 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { parse } from 'node-html-parser'
 import sharp from 'sharp'
+import { frameSharpness } from './still-sharpness'
 import { GuideSchema, type GuideEntity, type Photo, type Translation } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import type { Media } from './source-photos'
+import { WikimediaRefused } from './wikimedia-rest'
 import { throttled } from './youtube'
 
-/** YouTube's scrub-preview frames: sheets of rows × columns tiles, one tile every 1/fps seconds. */
-export type Storyboard = { fps: number; rows: number; columns: number; width: number; height: number; fragments: { url: string }[] }
+const SHARP = /-hd\.webp$/
+/** A still video-stills.ts won't change again: the video's own frame, or a tile it keeps for good (`kept`, by `t`). */
+export const stillDone = (m: { t: number; url: string }, kept: Record<string, string> = {}) => SHARP.test(m.url) || String(m.t) in kept
+
+/**
+ * YouTube's scrub-preview frames: sheets of rows × columns tiles. Tile k is the frame at k × `interval` seconds; `fps` is
+ * yt-dlp's tiles ÷ duration, so k ÷ fps is not a second: a still's `t` was worked out that way (rounded) until
+ * 2026-11-07, up to 16 s early on a long video (`tileTime`).
+ */
+export type Storyboard = { fps: number; interval: number; rows: number; columns: number; width: number; height: number; fragments: { url: string }[] }
+/** A direct video-only stream (at most 1280 px wide) to take frames from, with the user agent its address was issued to. */
+export type Stream = { url: string; userAgent?: string }
+/** What one yt-dlp call tells about a video's pictures. */
+export type VideoFrames = { storyboard: Storyboard | null; stream: Stream | null }
 export type ImageDeps = {
   llm: Llm
   /** Claude looking at one image file (a numbered contact sheet). */
   look: <T>(file: string, prompt: string, schema: object) => Promise<T>
   /** Faces per image file (macOS Vision). */
   faces: (files: string[]) => Promise<number[]>
-  storyboard: (youtubeId: string) => Promise<Storyboard | null>
+  frames: (youtubeId: string) => Promise<VideoFrames>
+  /** The stream's frame at that second, as an image (ffmpeg). */
+  grab: (stream: Stream, sec: number) => Promise<Uint8Array>
   transcript: (youtubeId: string, lang?: string) => Promise<string | null>
   commons: (search: string) => Promise<Photo[]>
   get: (url: string) => Promise<Uint8Array>
@@ -53,13 +69,34 @@ export async function contactSheet(tiles: Buffer[], w: number, h: number, cols: 
   return sharp({ create: { width: cols * (w + 6), height: rows * (h + 6), channels: 3, background: '#fff' } }).composite(parts.flat()).jpeg({ quality: 85 }).toBuffer()
 }
 
-/** One storyboard frame at second t (nearest tile), as JPEG. Sheets are fetched once each. */
+/** The second a still's tile shows, for a still whose `t` was k ÷ fps, rounded (its address `t<t>…`): k × interval. */
+export const tileTime = (sb: Storyboard, t: number) => Math.round(Math.round(t * sb.fps) * sb.interval)
+
+/**
+ * Whether a frame shows what a storyboard tile shows: both as 32×18 greys, a mean difference of at most 15 (of 255).
+ * Measured on 31 stills of 3 videos (2026-11-06): the frame at the tile's second 2–9, the video's other stills 28 and up.
+ */
+export async function sameMoment(a: Uint8Array, b: Uint8Array): Promise<boolean> {
+  const grey = (x: Uint8Array) => sharp(x).greyscale().resize(32, 18, { fit: 'fill' }).raw().toBuffer()
+  const [p, q] = await Promise.all([grey(a), grey(b)])
+  let d = 0
+  for (let i = 0; i < p.length; i++) d += Math.abs(p[i]! - q[i]!)
+  return d / p.length <= 15
+}
+
+/** The video's own frame for a tile at `at` seconds; null when it doesn't show the tile's moment. A failed grab throws. */
+export async function sharpFrame(grab: ImageDeps['grab'], stream: Stream, at: number, tile: Uint8Array): Promise<Uint8Array | null> {
+  const frame = await grab(stream, at)
+  return (await sameMoment(frame, tile)) ? frame : null
+}
+
+/** One storyboard frame at second t (nearest tile), as JPEG, with the second it shows (`at`, and `t` rounded). */
 function frames(sb: Storyboard, get: (url: string) => Promise<Uint8Array>) {
   const sheets = new Map<number, Promise<Uint8Array>>()
   const per = sb.rows * sb.columns
   const total = sb.fragments.length * per
   return async (t: number) => {
-    const k = Math.min(total - 1, Math.max(0, Math.round(t * sb.fps)))
+    const k = Math.min(total - 1, Math.max(0, Math.round(t / sb.interval)))
     const s = Math.floor(k / per)
     if (!sb.fragments[s]) return null
     if (!sheets.has(s)) sheets.set(s, get(sb.fragments[s]!.url))
@@ -69,7 +106,7 @@ function frames(sb: Storyboard, get: (url: string) => Promise<Uint8Array>) {
     const top = Math.floor(tile / sb.columns) * sb.height
     const meta = await sharp(sheet).metadata()
     if (left + sb.width > (meta.width ?? 0) || top + sb.height > (meta.height ?? 0)) return null // last sheet is partly empty
-    return { t: Math.round(k / sb.fps), jpg: await sharp(sheet).extract({ left, top, width: sb.width, height: sb.height }).jpeg({ quality: 90 }).toBuffer() }
+    return { t: Math.round(k * sb.interval), at: k * sb.interval, jpg: await sharp(sheet).extract({ left, top, width: sb.width, height: sb.height }).jpeg({ quality: 90 }).toBuffer() }
   }
 }
 
@@ -106,7 +143,7 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
   const transcript = await d.transcript(v.youtubeId, v.lang ?? 'en')
   if (!transcript) throw new Error('no transcript')
   const plan = (await d.llm<{ sections: { times: number[]; query: string }[] }>({ system: 'You plan pictures for a guide. Reply only with JSON.', prompt: planPrompt(v.title, secs, transcript), schema: PLAN_SCHEMA })).sections
-  const sb = await d.storyboard(v.youtubeId)
+  const { storyboard: sb, stream } = await d.frames(v.youtubeId)
   const frameAt = sb ? frames(sb, d.get) : null
   const out: Figure[] = []
   const seen = new Set<number>()
@@ -126,11 +163,13 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
       for (const pk of picks) {
         const c = uniq[pk.n - 1]
         if (!c || !pk.caption?.trim()) continue
-        const f = join(dir, `${v.youtubeId}-${c.t}.jpg`)
-        await writeFile(f, c.jpg)
+        // The video's own frame at the tile's second; else the tile, which `pnpm engine video-stills` tries again.
+        const hd = stream ? await sharpFrame(d.grab, stream, c.at, c.jpg).catch(err => { if (throttled(err)) throw err; return null }) : null
+        const f = join(dir, hd ? `${v.youtubeId}-${c.t}-hd.png` : `${v.youtubeId}-${c.t}.jpg`)
+        await writeFile(f, hd ?? c.jpg)
         if ((await d.faces([f]))[0]) continue // no people in our pictures
-        const m = await d.media.put(`video/${v.youtubeId}/t${c.t}.webp`, c.jpg)
-        fig.moments.push({ t: c.t, url: m.url, width: m.width, height: m.height, caption: pk.caption.trim() })
+        const m = await d.media.put(`video/${v.youtubeId}/at${c.t}${hd ? '-hd' : ''}.webp`, hd ?? c.jpg)
+        fig.moments.push({ t: c.t, url: m.url, width: m.width, height: m.height, caption: pk.caption.trim(), ...(hd ? { sharpness: await frameSharpness(hd) } : {}) })
         seen.add(c.t)
       }
       fig.moments.sort((a, b) => a.t - b.t)
@@ -138,8 +177,10 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
 
     // One open-licence photo of the section's subject.
     if (p.query?.trim()) {
-      const photos = (await d.commons(p.query.trim()).catch(() => [] as Photo[])).slice(0, 6)
-      const bytes = await Promise.all(photos.map(ph => d.get(ph.url).catch(() => null)))
+      // Wikimedia resting is no "nothing found": the guide waits for its pictures until the rest ends.
+      const resting = (err: unknown) => { if (err instanceof WikimediaRefused) throw err }
+      const photos = (await d.commons(p.query.trim()).catch(err => { resting(err); return [] as Photo[] })).slice(0, 6)
+      const bytes = await Promise.all(photos.map(ph => d.get(ph.url).catch(err => { resting(err); return null })))
       const ok = photos.flatMap((ph, j) => (bytes[j] ? [{ ph, b: bytes[j]! }] : []))
       if (ok.length) {
         const sheet = join(dir, `${v.youtubeId}-${i}-p.jpg`)
@@ -179,7 +220,7 @@ export async function videoImages(contentRoot: string, d: ImageDeps, opts: { lim
         await writeFile(file, `${JSON.stringify(GuideSchema.parse({ ...e, video: { ...e.video, figures } }), null, 2)}\n`)
         done.push(`${id}: ${figures.length} sections, ${figures.reduce((n, f) => n + f.moments.length, 0)} stills, ${figures.filter(f => f.photo).length} photos`)
       } catch (err) {
-        if (err instanceof LlmError || throttled(err)) { failed.push(`${id}: ${(err as Error).message}`); return { done, failed, stoppedEarly: true } }
+        if (err instanceof LlmError || throttled(err) || err instanceof WikimediaRefused) { failed.push(`${id}: ${(err as Error).message}`); return { done, failed, stoppedEarly: true } }
         failed.push(`${id}: ${(err as Error).message}`)
       }
     }

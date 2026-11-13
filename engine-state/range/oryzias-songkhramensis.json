@@ -1,0 +1,80 @@
+{
+  "id": "oryzias-songkhramensis",
+  "native": {
+    "input": "d07b5a679e6b9f9c",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Oryzias songkhramensis is a small ricefish known only from the Songkhram River basin in northeastern Thailand and the Mekong drainage in Laos.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Oryzias songkhramensis is a small ricefish known only from the Songkhram River basin in northeastern Thailand and the Mekong drainage in Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Songkhram River basin, a tributary of the Mekong system flowing through several provinces of northeastern Thailand, plus parts of the Mekong drainage in central Laos.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Songkhram River basin, a tributary of the Mekong system flowing through several provinces of northeastern Thailand, plus parts of the Mekong drainage in central Laos.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Songkhram River",
+        "source": "seriouslyfish",
+        "quote": "Oryzias songkhramensis is a small ricefish known only from the Songkhram River basin in northeastern Thailand and the Mekong drainage in Laos.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Oryzias songkhramensis is a small ricefish known only from the Songkhram River basin in northeastern Thailand and the Mekong drainage in Laos.",
+        "country": "LA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oryzias songkhramensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5961079,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

@@ -12,6 +12,185 @@
     "venezuela",
     "casiquiare"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "VE"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Casiquiare Canal"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela.",
+          "countries": [
+            "BR",
+            "VE"
+          ],
+          "regions": [
+            "Rio Negro",
+            "Casiquiare Canal"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343944,
+      "total": 50,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          32
+        ],
+        [
+          "VE",
+          11
+        ],
+        [
+          "PE",
+          5
+        ],
+        [
+          "CO",
+          1
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          -73.125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          1.40625,
+          9,
+          9
+        ],
+        [
+          -66.09375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -32.34375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -100,15 +279,69 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/scotcat/132bcbef4dc18fa8.webp",
-      "thumb": "https://media.aquatome.com/scotcat/132bcbef4dc18fa8-480.webp",
+      "url": "https://media.aquatome.com/processed/88bcc45ec27be917385272d913e0bbf9.webp",
+      "thumb": "https://media.aquatome.com/processed/88bcc45ec27be917385272d913e0bbf9-480.webp",
       "width": 500,
-      "height": 333,
+      "height": 325,
       "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
+      "author": "Enrico Richter / ScotCat",
       "sourceUrl": "https://www.scotcat.com/doradidae/leptodoras_cataniai.htm",
-      "caption": "Leptodoras cataniai",
-      "source": "scotcat"
+      "caption": "Leptodoras cf. cataniai 'Nanay Form'",
+      "source": "scotcat",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-leptodoras-cataniai",
+        "pixelHash": "826b0443bb63d7323e92e3c8c0dccd1f44fce430945e30bdf2f646f9d12845d7"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T07:37:10.365Z",
+          "originalHash": "9cd5c7b612f41c5adc4caa971fdf032124e5ccc4c7ec7df867185430297aecde",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 500,
+            "originalHeight": 362,
+            "window": {
+              "x0": 0,
+              "y0": 37,
+              "x1": 500,
+              "y1": 362
+            },
+            "subject": {
+              "x0": 96,
+              "y0": 114,
+              "x1": 439,
+              "y1": 297
+            },
+            "margin": 10
+          },
+          "excludedMarks": [
+            {
+              "x0": 17,
+              "y0": 7,
+              "x1": 200,
+              "y1": 33
+            }
+          ],
+          "checks": {
+            "species": [
+              "e67bfd91d52ff3d949e863be8b9034ab2c9754cc976d6c4e690475a36540a43a",
+              "4411426102f0f2def753b2219e818d471e2f1a682739d7867972a6c3adb03497"
+            ],
+            "ownership": [
+              "6581ff780131f1af91f1f8451b67a017d3ca9d21eb9d802928ce019570491beb",
+              "b999973422f4e3b41711c06182feb13e5792403228c96da75f5b36f4aa70223b"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/scotcat/7cdd8aff099d2e90.webp",
+        "width": 500,
+        "height": 362,
+        "thumb": "https://media.aquatome.com/scotcat/7cdd8aff099d2e90-480.webp"
+      }
     }
   ],
   "videos": [

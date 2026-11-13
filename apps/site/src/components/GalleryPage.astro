@@ -1,21 +1,29 @@
 ---
 import type { Lang, Photo } from '@aq/schema'
+import AiPhotoLabel from './AiPhotoLabel.astro'
 import Browse from '../layouts/Browse.astro'
 import { getContent } from '../lib/content'
 import { creditsFor } from '../lib/credits'
-import { galleryNote, licenceUrl } from '../lib/gallery'
+import { alterationNotice, galleryLine, licenceUrl, photoFrom } from '../lib/gallery'
 import { smallSrc } from '../lib/img'
-import { i18n, licenceLabel } from '../lib/i18n'
+import { i18n, isVietnamese, licenceLabel } from '../lib/i18n'
 import { isUnsplash } from '../lib/unsplash'
 /**
  * A species', breed's or plant's photo gallery page: every photo credited (author, licence, its source page), the photo
  * viewer (scripts/photo-viewer.ts), ImageGallery data. `page`: the fish or plant's own page; `back`: the link text to it.
+ * What it's given goes under the photos (a fish's readers' photos), out of their count and data; `readers`: it's given
+ * those, and the page has a link down to them once there are any (scripts/reader-photos.ts).
  * An Unsplash photo's credit in the viewer is its line (lib/unsplash.ts), then its own page.
  */
-interface Props { name: string; sci?: string; photos: Photo[]; page: string; back: string; crumbs: [string, string][]; indexable: boolean; alternates: Partial<Record<Lang, string>> }
-const { name, sci, photos, page, back, crumbs, indexable, alternates } = Astro.props
+interface Props { name: string; sci?: string; photos: Photo[]; page: string; back: string; crumbs: [string, string][]; indexable: boolean; alternates: Partial<Record<Lang, string>>; readers?: boolean }
+const { name, sci, photos, page, back, crumbs, indexable, alternates, readers } = Astro.props
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
+// A photo site's own Vietnamese name (Diễn Đàn Cá Cảnh) is a name, marked as Vietnamese on every other language's page,
+// as the about page marks it: the line split around each one, the names at the odd places.
+const viSites = lang === 'vi' ? [] : photoFrom(photos, c.sources).filter(s => isVietnamese(s))
+const note = galleryLine(t, photos, c.sources)
+const noteParts = viSites.length ? note.split(new RegExp(`(${viSites.map(s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`)) : [note]
 const jsonld = [{
   '@context': 'https://schema.org', '@type': 'ImageGallery', name: `${t('Ảnh {name}', { name })}${sci ? ` (${sci})` : ''}`,
   image: photos.slice(0, 60).map(p => ({
@@ -24,17 +32,19 @@ const jsonld = [{
   })),
 }]
 ---
-<Browse title={t('Ảnh {name}: {n} ảnh đẹp', { name, n: photos.length })} heading={t('Ảnh {name}', { name })} description={t('{n} ảnh {name}{sci}, ghi rõ tác giả và giấy phép.', { n: photos.length, name, sci: sci ? ` (${sci})` : '' })} crumbs={crumbs} noindex={!indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor(photos)} search={false}>
-  <p class="lead">{sci && <><span class="sci">{sci}</span> · </>}{galleryNote(t, photos, c.sources)} <a href={page}>{back}</a></p>
+<Browse title={t('Ảnh {name}: {n} ảnh đẹp', { name, n: photos.length })} heading={t('{n} ảnh', { n: photos.length })} description={t('{n} ảnh {name}{sci}, ghi rõ tác giả và giấy phép.', { n: photos.length, name, sci: sci ? ` (${sci})` : '' })} crumbs={crumbs} noindex={!indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor(photos)} search={false}>
+  <p class="lead">{sci && <><span class="sci">{sci}</span> · </>}{noteParts.map((x, i) => (i % 2 ? <span lang="vi">{x}</span> : x))} <a href={page}>{back}</a>{readers && <a class="to-readers" href="#rp-h" data-to-readers hidden></a>}</p>
   <ul class="grid" data-gallery>
     {photos.map((p, i) => (
       <li id={`a${i + 1}`}>
-        <a href={p.url} data-i={i} data-full={p.url} data-w={p.width} data-h={p.height} data-cap={p.caption ?? ''} data-author={p.author} data-lic={licenceLabel(p.licence)} data-src={p.sourceUrl} data-by={p.authorUrl} data-unsplash={isUnsplash(p.licence) ? '' : undefined}>
+        <a href={p.url} data-i={i} data-full={p.url} data-w={p.width} data-h={p.height} data-cap={p.caption ?? ''} data-author={p.author} data-lic={p.generated ? '' : licenceLabel(p.licence)} data-src={p.sourceUrl} data-by={p.authorUrl} data-ai={p.generated ? t('Ảnh do AI tạo') : undefined} data-altered={alterationNotice(p) ? t('Ảnh đã chỉnh sửa') : undefined} data-unsplash={isUnsplash(p.licence) ? '' : undefined}>
           <img src={smallSrc(p)} alt={p.caption ?? name} width={p.width} height={p.height} loading={i < 4 ? 'eager' : 'lazy'} decoding="async" />
+          <AiPhotoLabel photo={p} />
         </a>
       </li>
     ))}
   </ul>
+  <slot />
   <script>
     import { ct } from '../scripts/ct'
     import { photoOfHash } from '../scripts/photo-view'
@@ -51,7 +61,7 @@ const jsonld = [{
           const img = a.querySelector('img')!
           const link = (href: string, text: string) => { const l = document.createElement('a'); l.href = href; l.rel = 'noopener'; l.target = '_blank'; l.textContent = text; return l }
           // An Unsplash photo: "Ảnh: <name> trên Unsplash", the name the photographer's page once the engine has it, then the photo's own.
-          const credit = () => d.unsplash === undefined
+          const credit = () => d.ai ? [d.ai] : d.altered ? [`${ct('Ảnh:')} `, link(d.src!, d.author!), ` · ${d.altered}`, ...(d.lic ? [`, ${d.lic}`] : [])] : d.unsplash === undefined
             ? [`${ct('Ảnh:')} `, link(d.src!, d.author!), ...(d.lic ? [`, ${d.lic}`] : [])]
             : [...unsplashParts(ct('Ảnh: {author} trên {site}'), d.author!, d.by ? { authorUrl: d.by } : { photo: d.src! }).map(x => (x.href ? link(x.href, x.text) : x.text)), ...(d.by ? [' · ', link(d.src!, ct('Xem ảnh gốc ↗'))] : [])]
           return { src: d.full!, thumb: img.src, width: Number(d.w), height: Number(d.h), alt: img.alt, ...(d.cap ? { caption: d.cap } : {}), credit }
@@ -74,6 +84,9 @@ const jsonld = [{
 </Browse>
 <style>
   .lead { color: var(--c-ink-soft); margin: calc(-1 * var(--space-3)) 0 var(--space-5); }
+  .grid a { position: relative; }
+  /* On a line of its own; a finger's target without the extra height (not while `hidden`: a display of its own would show it). */
+  .to-readers:not([hidden]) { display: block; width: fit-content; margin-top: var(--space-1); padding-block: 10px; margin-block-end: -10px; }
   .grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: var(--space-2); }
   .grid a { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--c-plate); cursor: zoom-in; }
   .grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }

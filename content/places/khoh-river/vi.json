@@ -1,10 +1,13 @@
 {
   "slug": "khoh-river",
-  "name": "Khoh River",
-  "altNames": [],
+  "name": "sông Khoh",
+  "altNames": [
+    "Khoh River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

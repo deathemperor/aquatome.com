@@ -10,6 +10,93 @@
     "china",
     "xi-jiang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Xi Jiang",
+        "Zhu Jiang",
+        "Li Jiang",
+        "He Jiang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Xi Jiang (West River) system in southern China, the major tributary of the great Zhu Jiang (Pearl River) with type locality given as 'West River, Lonsheng Xian, Lipu Xian and Jinxiu Xian, Guangxi Province, China'.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Xi Jiang",
+            "Zhu Jiang"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Most officially-recorded occurrences relate to the Li Jiang/Gui Jiang drainage which empties into the Xi Jiang near the city of Wuzhou although it's also known from the He Jiang basin a little further east.",
+          "countries": [],
+          "regions": [
+            "Li Jiang",
+            "He Jiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358830,
+      "total": 12,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CN",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          108.28125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          23.90625,
+          4,
+          4
+        ],
+        [
+          108.28125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          23.90625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +140,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -188,7 +275,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 75x30 cm"
+        "bể cá 80cm"
       ]
     },
     {

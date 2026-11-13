@@ -1,0 +1,184 @@
+{
+  "id": "otocinclus-macrospilus",
+  "native": {
+    "input": "69315e6565572060",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Morona, upper Amazon River basin, Dpto Loreto, Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Upper Amazon Basin of Colombia, Ecuador and Peru.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Upper Amazon Basin of Colombia, Ecuador and Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Upper Amazon Basin of Colombia, Ecuador and Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to parts of the Upper Amazon in Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Several sources also include the Nanay and Maranon basins, and Colombia (Amazon, Japura and Caqueta basins) and Ecuador (Napo basin).",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Several sources also include the Nanay and Maranon basins, and Colombia (Amazon, Japura and Caqueta basins) and Ecuador (Napo basin).",
+        "words": "Ecuador",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Morona",
+        "source": "planetcatfish",
+        "quote": "Type locality: Río Morona, upper Amazon River basin, Dpto Loreto, Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "Upper Amazon Basin of Colombia, Ecuador and Peru.",
+        "ok": true
+      },
+      {
+        "name": "Nanay",
+        "source": "seriouslyfish",
+        "quote": "Several sources also include the Nanay and Maranon basins, and Colombia (Amazon, Japura and Caqueta basins) and Ecuador (Napo basin).",
+        "ok": true
+      },
+      {
+        "name": "Maranon",
+        "source": "seriouslyfish",
+        "quote": "Several sources also include the Nanay and Maranon basins, and Colombia (Amazon, Japura and Caqueta basins) and Ecuador (Napo basin).",
+        "ok": true
+      },
+      {
+        "name": "Napo",
+        "source": "seriouslyfish",
+        "quote": "Several sources also include the Nanay and Maranon basins, and Colombia (Amazon, Japura and Caqueta basins) and Ecuador (Napo basin).",
+        "country": "EC",
+        "ok": false,
+        "why": "in EC, which a source calls introduced or doubtful"
+      },
+      {
+        "name": "Japura",
+        "source": "seriouslyfish",
+        "quote": "Several sources also include the Nanay and Maranon basins, and Colombia (Amazon, Japura and Caqueta basins) and Ecuador (Napo basin).",
+        "country": "CO",
+        "ok": false,
+        "why": "in CO, which a source calls introduced or doubtful"
+      }
+    ],
+    "disputed": [
+      "CO",
+      "EC"
+    ],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CO",
+        "EC"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Otocinclus macrospilus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340471,
+    "datasets": [
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        11
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        10
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

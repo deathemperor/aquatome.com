@@ -14,6 +14,226 @@
     "indonesia",
     "java"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AF",
+        "PK",
+        "IN",
+        "CN"
+      ],
+      "regions": [
+        "Java",
+        "Sumatra",
+        "Borneo"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Originally, Barbronia weberi had a native range from Afghanistan and Pakistan to Java, Sumatra, Borneo, India and Southern China.",
+          "countries": [
+            "AF",
+            "PK",
+            "IN",
+            "CN"
+          ],
+          "regions": [
+            "Java",
+            "Sumatra",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2307447,
+      "total": 85,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TW",
+          43
+        ],
+        [
+          "FR",
+          12
+        ],
+        [
+          "NZ",
+          7
+        ],
+        [
+          "DE",
+          4
+        ],
+        [
+          "MX",
+          4
+        ],
+        [
+          "US",
+          4
+        ],
+        [
+          "NL",
+          3
+        ],
+        [
+          "RE",
+          3
+        ],
+        [
+          "BR",
+          2
+        ],
+        [
+          "MA",
+          2
+        ],
+        [
+          "CA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -158.90625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          -123.75,
+          47.8125,
+          1,
+          0
+        ],
+        [
+          -99.84375,
+          18.28125,
+          4,
+          0
+        ],
+        [
+          -88.59375,
+          32.34375,
+          3,
+          0
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          2,
+          0
+        ],
+        [
+          -2.8125,
+          33.75,
+          2,
+          0
+        ],
+        [
+          -2.8125,
+          47.8125,
+          2,
+          0
+        ],
+        [
+          1.40625,
+          47.8125,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          49.21875,
+          1,
+          0
+        ],
+        [
+          2.8125,
+          47.8125,
+          1,
+          0
+        ],
+        [
+          2.8125,
+          49.21875,
+          3,
+          0
+        ],
+        [
+          4.21875,
+          50.625,
+          1,
+          0
+        ],
+        [
+          5.625,
+          42.1875,
+          2,
+          0
+        ],
+        [
+          5.625,
+          50.625,
+          6,
+          0
+        ],
+        [
+          8.4375,
+          42.1875,
+          2,
+          0
+        ],
+        [
+          54.84375,
+          -22.5,
+          3,
+          0
+        ],
+        [
+          119.53125,
+          22.5,
+          20,
+          0
+        ],
+        [
+          119.53125,
+          23.90625,
+          7,
+          0
+        ],
+        [
+          120.9375,
+          22.5,
+          10,
+          0
+        ],
+        [
+          120.9375,
+          23.90625,
+          6,
+          0
+        ],
+        [
+          174.375,
+          -37.96875,
+          5,
+          0
+        ],
+        [
+          175.78125,
+          -40.78125,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -93,7 +313,12 @@
       "author": "S.E. Thorpe",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbronia_weberi.jpg",
       "caption": "live Barbronia weberi",
-      "thumb": "https://media.aquatome.com/commons/c85b9cf0c4cef85f-480.webp"
+      "thumb": "https://media.aquatome.com/commons/c85b9cf0c4cef85f-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/c85b9cf0c4cef85f-large.webp",
+        "width": 1318,
+        "height": 940
+      }
     },
     {
       "url": "https://media.aquatome.com/aquariumbreeder/7090ea1ee021b5ae.webp",

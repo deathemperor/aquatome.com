@@ -1,0 +1,247 @@
+{
+  "id": "osphronemus-exodon",
+  "scientificName": "Osphronemus exodon",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Osphronemus",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "thailand",
+    "laos",
+    "cambodia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "KH"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The elephant ear gourami, Osphronemus exodon, is a large gourami from Thailand, Laos and Cambodia.",
+          "countries": [
+            "TH",
+            "LA",
+            "KH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394167,
+      "total": 15,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "KH",
+          11
+        ],
+        [
+          "LA",
+          3
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          12.65625,
+          10,
+          10
+        ],
+        [
+          106.875,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          106.875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
+      "html": "<p>The elephant ear gourami, Osphronemus exodon, is a large gourami from Thailand, Laos and Cambodia. Its greatly enlarged teeth, with an extra set in concentric bands on the outer lips, stay visible when the mouth is closed and are used to pick fruit from overhanging branches. Reaching 60 cm, it inhabits still or slow-moving areas of large rivers and enters flooded forest in the rainy season.</p><ul><li>Needs a very large tank</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
+      "html": "<p>Thailand, Laos, Cambodia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
+      "html": "<p>Inhabits still or slow-moving areas of large rivers, and is known to enter flooded forests during the rainy season, returning to permanent bodies of water as the water levels recede.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
+      "html": "<p>Standard length: 60 cm SL. Aquarium base: 180 × 60 cm. Volume: ~648 litres.</p><p>180 × 60 × 60 cm, ~648 litres, is the absolute bare minimum for an adult fish, though the bigger the tank the better.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
+      "html": "<p>Provide shelter in the form of water-worn rocks and large pieces of bogwood. Floating plants are preferable, though these may be eaten, along with most other aquatic plants. Powerful and efficient filtration is essential as this is an exceptionally messy fish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
+      "html": "<ul><li>Temperature: 20–30°C. Somewhere around 24–27°C is best.</li><li>pH: 6.5–8.0</li><li>Hardness: 5–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
+      "html": "<p>Primarily herbivorous, food can consist of a decent dried vegetable pellet with the addition of vegetation such as spinach or lettuce, and fruits and vegetables including cucumber, tomato etc. It will also appreciate some frozen and live foods in its diet, but not too much of these.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
+      "html": "<p>Some adults may become very aggressive but this is often due to being kept in an aquarium that is too small. Given plenty of room this fish will usually coexist with tankmates such as knifefish, large barbs, catfish and Loricariids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
+      "html": "<p>Not yet reported in aquaria, but probably breeds in a similar fashion to its cousin O. goramy. In that species the male builds a large nest out of vegetation (including grasses and roots in nature). Spawning occurs in the vicinity of the nest and the eggs are then taken there by the male. The female is chased away at this point. The eggs hatch in 24-36 hours and the fry become free swimming 3-5 days later. The male continues to guard them for 2-3 weeks in the wild but can be removed from the aquarium once the young are free swimming. They are large enough to accept brine shrimp nauplii and powdered flake from the first day. Obviously an enormous aquarium, or perhaps a tropical pond, would be required for any serious breeding attempt.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
+      "html": "<p>A bizarre and very recent addition to the genus, O. exodon is infrequently imported to the hobby, but has been seen occasionally. It has specially adapted mouthparts whereby it has greatly enlarged teeth. An extra set of teeth can also be seen growing in concentric bands on the outer lips! These are used in nature to literally 'pick' fruit from overhanging branches, with the fish often leaping from the water to grab a particularly juicy fig or other fruit. When the mouth of the fish is closed these teeth remain external. It can be distinguished from other members of the genus by its very large gill covers and more obviously, its unique dentition. Juvenile specimens exhibit vertical barring and also possess a dark spot just in front of the caudal peduncle.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8ba8f98528394d36.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8ba8f98528394d36-480.webp",
+      "width": 887,
+      "height": 591,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/osphronemus-exodon",
+      "caption": "Young adult with characteristic external teeth clearly visible.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc cho bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên thực vật cho cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

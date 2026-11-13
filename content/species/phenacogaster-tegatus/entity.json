@@ -1,0 +1,355 @@
+{
+  "id": "phenacogaster-tegatus",
+  "scientificName": "Phenacogaster tegatus",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Phenacogaster",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraguay",
+    "argentina",
+    "parana"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PY",
+        "AR"
+      ],
+      "regions": [
+        "Río Paraná",
+        "Rio Jauru"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Phenacogaster tegatus is a small characid from the upper rio Paraguay basin in Brazil and Paraguay and the Río Paraná in northeastern Argentina.",
+          "countries": [
+            "BR",
+            "PY",
+            "AR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded from the upper rio Paraguay basin in southwestern Brazil and Paraguay and the Río Paraná in Corrientes province, northeastern Argentina.",
+          "countries": [],
+          "regions": [
+            "Río Paraná"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given as 'Rio Jauru, upper Rio Paraguay basin, Brazil'.",
+          "countries": [],
+          "regions": [
+            "Rio Jauru"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2353184,
+      "total": 85,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BR",
+          62
+        ],
+        [
+          "PY",
+          23
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -16.875,
+          7,
+          7
+        ],
+        [
+          -59.0625,
+          -15.46875,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -28.125,
+          9,
+          9
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          5,
+          5
+        ],
+        [
+          -57.65625,
+          -23.90625,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -22.5,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -19.6875,
+          7,
+          7
+        ],
+        [
+          -57.65625,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -16.875,
+          10,
+          10
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -25.3125,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -19.6875,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -18.28125,
+          12,
+          12
+        ],
+        [
+          -56.25,
+          -16.875,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -19.6875,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -18.28125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phenacogaster-tegatus",
+      "html": "<p>Phenacogaster tegatus is a small characid from the upper rio Paraguay basin in Brazil and Paraguay and the Río Paraná in northeastern Argentina. It has been traded as 'six-eyed tetra', in reference to the two dark spots on each flank plus the eye. Peaceful but somewhat unsuitable for the general community aquarium, it is best kept in a group of at least 8-10 alongside similarly-sized characids and other small, non-predatory fishes.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phenacogaster-tegatus",
+      "html": "<p>Recorded from the upper rio Paraguay basin in southwestern Brazil and Paraguay and the Río Paraná in Corrientes province, northeastern Argentina.</p><p>Type locality is given as 'Rio Jauru, upper Rio Paraguay basin, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phenacogaster-tegatus",
+      "html": "<p>Few details are available but images suggest this species to display a preference for relatively clear water with dense growth of submerged vegetation.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phenacogaster-tegatus",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm or more is recommended for a group (about 54 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phenacogaster-tegatus",
+      "html": "<p>Relatively unfussy provided some cover is available but best-maintained in a natural-style set-up comprising a sandy substrate plus some driftwood roots, branches and aquatic plants.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phenacogaster-tegatus",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phenacogaster-tegatus",
+      "html": "<p>Probably a micropredator feeding on tiny invertebrates and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should also be offered daily meals of small live and frozen fare such as Artemia nauplii, Moina, grindal worm, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phenacogaster-tegatus",
+      "html": "<p>Peaceful but somewhat unsuitable for the general community aquarium.</p><p>It's perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and diminutive, non-predatory cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phenacogaster-tegatus",
+      "html": "<p>This species has been traded as 'six-eyed tetra' in reference to its colour pattern comprising two dark spots on each flank plus the eye.</p><p>Based on the extensive review of the genus by Lucena and Malabarba (2010), in which nine new species were described, P. tegatus can be told apart from congeners by the following combination of characters: lateral line incomplete with 8-13 perforated scales; laterally elongate humeral spot present in both males and females and located on a vertical passing immediately anterior to the dorsal-fin origin, and thus distant from the pseudotympanum.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phenacogaster-tegatus",
+      "html": "<ul><li>Lucena, Z. M. S. de and L. R. Malabarba (2010). Descrição de nove espécies de Phenacogaster (Ostraiophysi: Characiiformes: Characidae) e comentários sobre as demais espécies do gênero. Zoologica 27(2), 263-604</li><li>Eigenmann, C. H. (1911). New characins in the collection of the Carnegie Museum. Annals of the Carnegie Museum v. 8 (no. 1), 164-181</li><li>Lucena, Z. M. S. de and C. de S. Gama (2007). Phenacogaster apletostigma, nova espécie de Peixe do Estado do Amapá, Brasil (Characiformes, Characidae). Revista Brasileira de Zoologia 24(1), 151-156</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/273507738f3bb2d0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/273507738f3bb2d0-480.webp",
+      "width": 850,
+      "height": 566,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phenacogaster-tegatus",
+      "caption": "Adult specimen.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 60cm",
+        "máy lọc nước bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia",
+        "thức ăn khô cho cá tetra"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

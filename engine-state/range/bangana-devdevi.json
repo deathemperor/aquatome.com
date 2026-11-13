@@ -1,0 +1,91 @@
+{
+  "id": "bangana-devdevi",
+  "native": {
+    "input": "ca34ded31cdc7c0e",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the Irrawaddy River system in Manipur state, India, and Myanmar, and the Salween watershed in eastern Myanmar and northwestern Thailand.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the Irrawaddy River system in Manipur state, India, and Myanmar, and the Salween watershed in eastern Myanmar and northwestern Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the Irrawaddy River system in Manipur state, India, and Myanmar, and the Salween watershed in eastern Myanmar and northwestern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from the Red River basin in Vietnam appear questionable.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the Irrawaddy River system in Manipur state, India, and Myanmar, and the Salween watershed in eastern Myanmar and northwestern Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the Irrawaddy River system in Manipur state, India, and Myanmar, and the Salween watershed in eastern Myanmar and northwestern Thailand.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bangana devdevi",
+    "status": "ACCEPTED",
+    "taxonKey": 2361289,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ]
+    ],
+    "native": [
+      "IN",
+      "MM",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

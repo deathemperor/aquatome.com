@@ -11,6 +11,180 @@
     "colombia",
     "magdalena"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Rio Magdalena"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Tributaries of the upper Rio Magdalena, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Rio Magdalena"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339202,
+      "total": 784,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CO",
+          737
+        ],
+        [
+          "PA",
+          47
+        ]
+      ],
+      "cells": [
+        [
+          -80.15625,
+          8.4375,
+          10,
+          0
+        ],
+        [
+          -78.75,
+          7.03125,
+          30,
+          1
+        ],
+        [
+          -78.75,
+          8.4375,
+          8,
+          0
+        ],
+        [
+          -77.34375,
+          2.8125,
+          19,
+          19
+        ],
+        [
+          -77.34375,
+          4.21875,
+          25,
+          25
+        ],
+        [
+          -77.34375,
+          5.625,
+          13,
+          13
+        ],
+        [
+          -77.34375,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          -75.9375,
+          1.40625,
+          58,
+          58
+        ],
+        [
+          -75.9375,
+          2.8125,
+          42,
+          42
+        ],
+        [
+          -75.9375,
+          4.21875,
+          201,
+          201
+        ],
+        [
+          -75.9375,
+          5.625,
+          155,
+          155
+        ],
+        [
+          -75.9375,
+          7.03125,
+          154,
+          154
+        ],
+        [
+          -75.9375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          5.625,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          7.03125,
+          16,
+          16
+        ],
+        [
+          -74.53125,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          9.84375,
+          11,
+          11
+        ],
+        [
+          -73.125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          5.625,
+          16,
+          16
+        ],
+        [
+          -73.125,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          9.84375,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -95,17 +269,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/scotcat/3096cc16d089ecb1.webp",
-      "thumb": "https://media.aquatome.com/scotcat/3096cc16d089ecb1-480.webp",
-      "width": 500,
-      "height": 201,
-      "licence": "dùng với sự cho phép",
-      "author": "Nathan Lujan / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_caucanus.htm",
-      "caption": "Lasiancistrus caucanus: female",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/7c9c63083e996415.webp",
       "thumb": "https://media.aquatome.com/scotcat/7c9c63083e996415-480.webp",
       "width": 500,
@@ -125,17 +288,6 @@
       "author": "Nathan Lujan / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_caucanus.htm",
       "caption": "Lasiancistrus caucanus: female - ventral view",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/d3433e34ad54b13a.webp",
-      "thumb": "https://media.aquatome.com/scotcat/d3433e34ad54b13a-480.webp",
-      "width": 500,
-      "height": 375,
-      "licence": "dùng với sự cho phép",
-      "author": "Andrés Camilo Montes-Correa / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_caucanus.htm",
-      "caption": "Lasiancistrus caucanus: Tucurinca, Zona Bananera, Magdalena, Colombia",
       "source": "scotcat"
     },
     {

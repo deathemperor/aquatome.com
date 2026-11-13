@@ -1,0 +1,110 @@
+{
+  "id": "labeo-angra",
+  "native": {
+    "input": "ae2be77e01b9e472",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Labeo angra is a benthic cyprinid from Pakistan, Nepal, northern India, Bangladesh and Myanmar, described from the Brahmaputra.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Labeo angra is a benthic cyprinid from Pakistan, Nepal, northern India, Bangladesh and Myanmar, described from the Brahmaputra.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Labeo angra is a benthic cyprinid from Pakistan, Nepal, northern India, Bangladesh and Myanmar, described from the Brahmaputra.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Labeo angra is a benthic cyprinid from Pakistan, Nepal, northern India, Bangladesh and Myanmar, described from the Brahmaputra.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Labeo angra is a benthic cyprinid from Pakistan, Nepal, northern India, Bangladesh and Myanmar, described from the Brahmaputra.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Brahmaputra River, India'.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Kosi",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed with records from Pakistan (North West Frontier Province and Punjab), Nepal (Kosi and Karnali rivers), northern India (states of Assam, West Bengal, Bihar, Uttar Pradesh, Punjab and Orissa), Bangladesh, and Myanmar.",
+        "country": "NP",
+        "ok": true
+      },
+      {
+        "name": "Karnali",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed with records from Pakistan (North West Frontier Province and Punjab), Nepal (Kosi and Karnali rivers), northern India (states of Assam, West Bengal, Bihar, Uttar Pradesh, Punjab and Orissa), Bangladesh, and Myanmar.",
+        "country": "NP",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Labeo angra",
+    "status": "ACCEPTED",
+    "taxonKey": 5206200,
+    "datasets": [
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "PK",
+      "NP",
+      "IN",
+      "BD",
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

@@ -7,5 +7,17 @@
   "https://media.aquatome.com/seriouslyfish/1bc079711165145c.webp": "84c4cd066f261687",
   "https://media.aquatome.com/seriouslyfish/5599ffc19a2cbedb.webp": "c4c4810d0f0f030d"
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "inat": {
+  "taxon": 611253,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 7579623,
+  "next": null
+ }
 }

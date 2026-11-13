@@ -14,14 +14,14 @@
       "kind": "form"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/552749101.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/552749101-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "olmagon",
-      "sourceUrl": "https://www.inaturalist.org/photos/552749101",
-      "caption": "Đàn cá tetra góa phụ đen màu tự nhiên trong bể thủy sinh",
+      "url": "https://media.aquatome.com/commons/3b31c5b97338b014.webp",
+      "thumb": "https://media.aquatome.com/commons/3b31c5b97338b014-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC0",
+      "author": "MartinThoma",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:082-Barcelona-Museum-CosmoCaixa.jpg",
+      "caption": "Đàn cá tetra góa phụ đen bơi trong bể thủy sinh có cỏ",
       "best": true,
       "kind": "group"
     },
@@ -36,6 +36,18 @@
       "caption": "Cá tetra góa phụ màu vàng nhạt bơi trong bể cây thủy sinh",
       "best": true,
       "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ea399c831c8673c2.webp",
+      "thumb": "https://media.aquatome.com/commons/ea399c831c8673c2-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC0",
+      "author": "MartinThoma",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:083-Barcelona-Museum-CosmoCaixa.jpg",
+      "caption": "Nhiều cá tetra góa phụ đen trong bể trồng cỏ và lũa",
+      "best": true,
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/532067249.webp",
@@ -494,9 +506,21 @@
       "caption": "Cá tetra góa phụ màu hồng nhạt bơi trong bể",
       "best": false,
       "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/552749101.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/552749101-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/552749101",
+      "caption": "Đàn cá tetra góa phụ đen màu tự nhiên trong bể thủy sinh",
+      "best": true,
+      "kind": "group"
     }
   ],
-  "seen": 131,
-  "updatedAt": "2026-11-03",
-  "builtAt": "2026-11-03"
+  "seen": 133,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

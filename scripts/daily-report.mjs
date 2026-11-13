@@ -3,13 +3,24 @@
 // JSON, POSTed to the site (apps/site/worker/daily), which adds the site's and the app's numbers, keeps the report and
 // mails it. The workflow's run id is its idempotency key: a retried POST never sends twice. Uses the gh CLI (GH_TOKEN) and
 // AB_DASH_TOKEN. DRY_RUN=1 prints the JSON instead of posting it (GITHUB_REPOSITORY=owner/name to try it locally).
+//
+// `node scripts/daily-report.mjs changes` (changelog.yml, on each push to main): only what merged lately, to the change log
+// the dashboard reads, so "Shipped in 24 hours" never waits for the report.
 import { execFileSync } from 'node:child_process'
-import { pathToFileURL } from 'node:url'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { fileURLToPath, pathToFileURL } from 'node:url'
+import { productChanges, sectionLines, titleQualifies } from './changelog.mjs'
 
 const REPORT_URL = 'https://aquatome.com/_ab/report'
+export const CHANGES_URL = 'https://aquatome.com/_ab/changelog'
 const DAY_MS = 86_400_000
+/** How far back each push looks: a merge whose push started nothing (the workflow token's), or a write KV lost, comes with the next. */
+const SWEEP_MS = 2 * DAY_MS
 const MAX_LIST = 50
 const MAX_TITLE = 200
+/** Product changes: a few lines a pull request, so more than MAX_LIST (github.ts reads the same bound). */
+const MAX_CHANGES = 100
 /** A conclusion that counts as failed. Cancelled and skipped runs say nothing either way. */
 const BAD = new Set(['failure', 'timed_out', 'startup_failure'])
 const NOT_RUN = new Set(['cancelled', 'skipped'])
@@ -73,6 +84,9 @@ function failing(raw, since) {
 /** What each `content:` commit is: "content: engine pages 2026-11-05" → "engine pages". */
 const commitPart = s => s.replace(/^content:\s*/, '').replace(/\s*\d{4}-\d{2}-\d{2}.*$/, '').slice(0, 60) || 'other'
 
+/** Pull requests merged since `since` (ms). */
+const merged = (closed, since) => closed.filter(p => p.merged_at && ms(p.merged_at) >= since)
+
 /** What GitHub gave, as the Worker reads it (apps/site/worker/daily/github.ts). `now`: a Date. */
 export function summarise(raw, { now, runId, runUrl }) {
   const since = now.getTime() - DAY_MS
@@ -96,7 +110,7 @@ export function summarise(raw, { now, runId, runUrl }) {
   return {
     runId, runUrl, since: new Date(since).toISOString(),
     missing: raw.missing.slice(0, MAX_LIST).map(clip),
-    merged: listed(raw.closed.filter(p => p.merged_at && ms(p.merged_at) >= since).sort((a, b) => ms(b.merged_at) - ms(a.merged_at))),
+    changes: productChanges(merged(raw.closed, since), raw.files).slice(0, MAX_CHANGES),
     deploys: { ...count('deploy.yml'), ...(live ? { live: { sha: live.head_sha.slice(0, 7), url: live.html_url, at: live.created_at } } : {}) },
     engine: count('engine.yml'),
     commits: { total: content.length, parts: [...parts].sort((a, b) => b[1] - a[1]).slice(0, MAX_LIST).map(([name, n]) => ({ name, n })) },
@@ -111,6 +125,79 @@ export function summarise(raw, { now, runId, runUrl }) {
   }
 }
 
+/** The app's next days, as the report prints them. */
+const CAL_DAYS = 7
+const VN_DATE = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Ho_Chi_Minh' })
+const plusDays = (date, n) => new Date(Date.parse(`${date}T00:00:00Z`) + n * DAY_MS).toISOString().slice(0, 10)
+/**
+ * What the app's Hôm nay and Khám phá show over the next CAL_DAYS days, from the editorial calendar in `root`, the
+ * repository (content/curation.json, docs/curation.md): the weeks they touch, with their Vietnamese theme and the
+ * curator's `why`, and each day's fish by its Vietnamese name with the day's `why` (a day with no fish shows the app's
+ * own pick). Each `why` is one plain sentence for the owner, never shown in the app. Undefined
+ * without a calendar. `now`: a Date; the days are Vietnam's.
+ */
+export function calendar(root, now) {
+  let cur
+  try { cur = JSON.parse(readFileSync(join(root, 'content/curation.json'), 'utf8')) } catch { return undefined }
+  const name = ref => {
+    try { return clip(JSON.parse(readFileSync(join(root, 'content', ref, 'vi.json'), 'utf8')).name ?? ref) } catch { return clip(ref) }
+  }
+  const from = VN_DATE.format(now)
+  const to = plusDays(from, CAL_DAYS - 1)
+  const days = Array.from({ length: CAL_DAYS }, (_, i) => {
+    const date = plusDays(from, i)
+    const d = cur.days?.find(d => d.date === date)
+    return d?.fish ? { date, fish: name(d.fish), ...(d.why ? { why: String(d.why).slice(0, 300) } : {}) } : { date }
+  })
+  const weeks = (cur.weeks ?? []).filter(w => w.to >= from && w.from <= to)
+    .map(w => ({ from: w.from, to: w.to, theme: clip(w.theme?.vi ?? ''), ...(w.why ? { why: String(w.why).slice(0, 300) } : {}) }))
+  return { weeks, days }
+}
+
+/**
+ * Fish and breed pages whose head has no animal in it and no "yes" from the photo check, as the engine's sweep lists them
+ * (engine-state/_photo-no-animal-heads.json): how many, and the newest first by the day each first led, each by its
+ * Vietnamese name. Undefined without the file.
+ */
+export function noAnimal(root) {
+  let heads
+  try { heads = JSON.parse(readFileSync(join(root, 'engine-state/_photo-no-animal-heads.json'), 'utf8')) } catch { return undefined }
+  const name = ref => {
+    try { return clip(JSON.parse(readFileSync(join(root, 'content', ref, 'vi.json'), 'utf8')).name ?? ref) } catch { return clip(ref) }
+  }
+  const items = Object.entries(heads).sort(([a, x], [b, y]) => String(y.since).localeCompare(String(x.since)) || a.localeCompare(b))
+  return { total: items.length, items: items.slice(0, MAX_LIST).map(([page, x]) => ({ page: clip(page), name: name(page), since: String(x.since) })) }
+}
+
+/** A list of up to five pages of 100, `one` giving each page. */
+function allPages(one, path) {
+  const all = []
+  for (let page = 1; page <= 5; page++) {
+    const got = one(`${path}&page=${page}`)
+    all.push(...got)
+    if (got.length < 100) break
+  }
+  return all
+}
+
+/** The lines of what merged in the last SWEEP_MS, in the report's words and times: the change log keeps each once (worker/daily/changelog.ts). */
+export function landedChanges(api, repo, now) {
+  const prs = merged(api(`repos/${repo}/pulls?state=closed&sort=updated&direction=desc&per_page=100`), now.getTime() - SWEEP_MS)
+  /** @type {Record<number, string[]>} */
+  const files = {}
+  for (const p of prs) {
+    if (!sectionLines(p.body) && titleQualifies(p.title)) files[p.number] = allPages(api, `repos/${repo}/pulls/${p.number}/files?per_page=100`).map(f => f.filename)
+  }
+  return productChanges(prs, files).slice(0, MAX_CHANGES)
+}
+
+/**
+ * Whether a started run (the Mac's at 06:58, install-daily-report-schedule.sh, or one by hand) made today's report, the
+ * day being Vietnam's. Only then does GitHub's schedule, the backstop, make none. Its own runs don't count: one may have
+ * skipped. `runs`: GitHub's, of daily-report.yml.
+ */
+export const reportedToday = (runs, now) => runs.some(r => r.event === 'workflow_dispatch' && r.conclusion === 'success' && VN_DATE.format(new Date(r.created_at)) === VN_DATE.format(now))
+
 /** Everything `summarise` needs, through `api` (a path → its JSON). A part GitHub won't give is named in `missing`, not counted as none. */
 export function read(api, repo, now) {
   const missing = []
@@ -118,15 +205,7 @@ export function read(api, repo, now) {
     try { return api(path) } catch { missing.push(what); return empty }
   }
   // Open issues and pull requests can pass one page (issues lists pull requests too).
-  const pages = (what, path) => {
-    const all = []
-    for (let page = 1; page <= 5; page++) {
-      const one = get(what, `${path}&page=${page}`, [])
-      all.push(...one)
-      if (one.length < 100) break
-    }
-    return all
-  }
+  const pages = (what, path) => allPages(p => get(what, p, []), path)
   const since = new Date(now.getTime() - DAY_MS).toISOString()
   const files = get('the workflow list', `repos/${repo}/actions/workflows?per_page=100`, { workflows: [] }).workflows
     .filter(w => w.state === 'active' && w.path.startsWith('.github/workflows/')).map(w => w.path.split('/').pop())
@@ -139,10 +218,16 @@ export function read(api, repo, now) {
   for (const r of runs['testflight.yml'] ?? []) {
     if (ms(r.created_at) >= ms(since)) jobs[r.id] = get(`the jobs of TestFlight run ${r.id}`, `repos/${repo}/actions/runs/${r.id}/jobs?per_page=100`, { jobs: [] }).jobs
   }
+  const closed = get('the merged pull requests', `repos/${repo}/pulls?state=closed&sort=updated&direction=desc&per_page=100`, [])
+  // A merged PR without a Changelog section falls back to its title, labelled by the files it touched (scripts/changelog.mjs).
+  /** @type {Record<number, string[]>} */
+  const prFiles = {}
+  for (const p of merged(closed, ms(since))) {
+    if (!sectionLines(p.body) && titleQualifies(p.title)) prFiles[p.number] = pages(`the files of pull request ${p.number}`, `repos/${repo}/pulls/${p.number}/files?per_page=100`).map(f => f.filename)
+  }
   return {
-    runs, jobs,
+    runs, jobs, closed, files: prFiles,
     commits: get('the commits', `repos/${repo}/commits?sha=main&since=${since}&per_page=100`, []),
-    closed: get('the merged pull requests', `repos/${repo}/pulls?state=closed&sort=updated&direction=desc&per_page=100`, []),
     open: pages('the open pull requests', `repos/${repo}/pulls?state=open&per_page=100`),
     issues: pages('the open issues', `repos/${repo}/issues?state=open&per_page=100`),
     missing,
@@ -154,14 +239,14 @@ const TRANSIENT = status => status === 408 || status === 409 || status === 425 |
  * POSTs the report, as deploy.sh retries its upload: three tries, 30 then 60 s apart, on what may pass (no answer, 5xx, 429,
  * 409 while another try is in progress). Any other refusal ends it at once. True once the Worker has taken it.
  * @param {unknown} payload
- * @param {{ token?: string, fetchFn?: (url: string, init: RequestInit) => Promise<Response>, sleep?: (t: number) => Promise<unknown>, log?: (line: string) => void }} [options]
+ * @param {{ token?: string, url?: string, fetchFn?: (url: string, init: RequestInit) => Promise<Response>, sleep?: (t: number) => Promise<unknown>, log?: (line: string) => void }} [options]
  */
-export async function post(payload, { token, fetchFn = fetch, sleep = t => new Promise(r => setTimeout(r, t)), log = console.log } = {}) {
+export async function post(payload, { token, url = REPORT_URL, fetchFn = fetch, sleep = t => new Promise(r => setTimeout(r, t)), log = console.log } = {}) {
   for (let i = 1; i <= 3; i++) {
     let status = 0
     let body = ''
     try {
-      const r = await fetchFn(REPORT_URL, {
+      const r = await fetchFn(url, {
         method: 'POST', body: JSON.stringify(payload), signal: AbortSignal.timeout(120_000),
         headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json', 'user-agent': 'aquatome-daily-report' },
       })
@@ -186,10 +271,23 @@ export async function post(payload, { token, fetchFn = fetch, sleep = t => new P
 
 // Run as a script it acts; imported (its test, apps/site/test/daily-report.test.ts) it only defines.
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
-  const { GITHUB_REPOSITORY: repo, GITHUB_RUN_ID: runId = '0', GITHUB_SERVER_URL: server = 'https://github.com', AB_DASH_TOKEN: token, DRY_RUN: dry } = process.env
+  const { GITHUB_REPOSITORY: repo, GITHUB_RUN_ID: runId = '0', GITHUB_SERVER_URL: server = 'https://github.com', GITHUB_EVENT_NAME: event, AB_DASH_TOKEN: token, DRY_RUN: dry } = process.env
   const now = new Date()
   const api = path => JSON.parse(execFileSync('gh', ['api', path], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'], maxBuffer: 64 * 1024 * 1024 }))
-  const payload = summarise(read(api, repo, now), { now, runId, runUrl: `${server}/${repo}/actions/runs/${runId}` })
+  if (process.argv[2] === 'changes') {
+    const changes = landedChanges(api, repo, now)
+    if (dry) console.log(JSON.stringify(changes, null, 2))
+    else if (!(await post({ changes }, { token, url: CHANGES_URL }))) process.exit(1)
+    process.exit(0)
+  }
+  const raw = read(api, repo, now)
+  if (event === 'schedule' && reportedToday(raw.runs['daily-report.yml'] ?? [], now)) {
+    console.log("Today's report has been made: GitHub's schedule is only the backstop.")
+    process.exit(0)
+  }
+  const cal = calendar(fileURLToPath(new URL('..', import.meta.url)), now)
+  const heads = noAnimal(fileURLToPath(new URL('..', import.meta.url)))
+  const payload = { ...summarise(raw, { now, runId, runUrl: `${server}/${repo}/actions/runs/${runId}` }), ...(cal ? { calendar: cal } : {}), ...(heads ? { noAnimal: heads } : {}) }
   if (dry) console.log(JSON.stringify(payload, null, 2))
   else if (!(await post(payload, { token }))) process.exit(1)
 }

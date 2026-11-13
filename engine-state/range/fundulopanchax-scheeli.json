@@ -1,0 +1,49 @@
+{
+  "id": "fundulopanchax-scheeli",
+  "native": {
+    "input": "e827281259998a64",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Cameroon, Nigeria.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Cameroon, Nigeria.",
+        "words": "Nigeria",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Fundulopanchax scheeli",
+    "status": "ACCEPTED",
+    "taxonKey": 2348442,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ]
+    ],
+    "native": [
+      "CM",
+      "NG"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

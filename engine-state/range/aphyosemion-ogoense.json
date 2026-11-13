@@ -1,0 +1,68 @@
+{
+  "id": "aphyosemion-ogoense",
+  "native": {
+    "input": "c26e658b1492b7d9",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the M'Passa River in the upper Ogooué drainage basin, southeastern Gabon.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its current known range extends from that region into northern and central Republic of the Congo.",
+        "words": "Republic of the Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ogooué",
+        "source": "seriouslyfish",
+        "quote": "Described from the M'Passa River in the upper Ogooué drainage basin, southeastern Gabon.",
+        "country": "GA",
+        "ok": true
+      },
+      {
+        "name": "M'Passa River",
+        "source": "seriouslyfish",
+        "quote": "Described from the M'Passa River in the upper Ogooué drainage basin, southeastern Gabon.",
+        "country": "GA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion ogoense",
+    "status": "ACCEPTED",
+    "taxonKey": 2348238,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        16
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ]
+    ],
+    "native": [
+      "GA",
+      "CG"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

@@ -13,6 +13,142 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Kapuas River",
+        "Muar River",
+        "Tasek Bera",
+        "Mentaya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to southern Thailand, Peninsular Malaysia and the Greater Sunda islands of Borneo and Sumatra.",
+          "countries": [
+            "TH",
+            "MY"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It was once thought restricted to southern (Indonesian) parts of the island and has been recorded from various rivers and streams within the lower Kapuas River basin and the Ketungau river in West Kalimantan (Kalimantan Barat) province as well as tributaries of the Sebangau and lower Mentaya rivers in Central Kalimantan (Kalimantan Tengah).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas River",
+            "Mentaya"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Muar River, Tebinh Tinggi, Johore, Malaysia'.",
+          "countries": [],
+          "regions": [
+            "Muar River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Peninsular Malaysia localities include the Selai and Muar rivers in Johor state and the blackwater swamp lake of Tasek Bera in Pahang state while in Sumatra the only report we've been able to find seems to refer to the Lalah River, Riau province in the east of the island.",
+          "countries": [],
+          "regions": [
+            "Tasek Bera"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962644,
+      "total": 26,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          17
+        ],
+        [
+          "MY",
+          8
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          101.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          -2.8125,
+          8,
+          8
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          109.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          4,
+          4
+        ],
+        [
+          115.3125,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -63,7 +199,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -72,7 +208,7 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/brevibora-dorsiocellata/",
-      "html": "<p>The Eyespot Rasbora, Brevibora dorsiocellata, is a well known, classical aquarium fish. Sadly the species became almost forgotten in the 1980ies. It was Mr. Takashi Amano from Japan who was responsible for the comeback of the species. Amano often used a large school of B. dorsiocellata for his stylish tanks – a real eyecatcher!</p><p>The genus Brevibora has been separated in 2010 from Rasbora. Currently four species are known, but sadly in recent new descriptions serious mistakes have been made, so the names will change in near future again. For that reason we use the name that is best known in the hobby – Brevibora dorsiocellata.</p>"
+      "html": "<p>The Eyespot Rasbora, Brevibora dorsiocellata, is a well known, classical aquarium fish. Sadly the species became almost forgotten in the 1980ies. It was Mr. Takashi Amano from Japan who was responsible for the comeback of the species. Amano often used a large school of B. dorsiocellata for his stylish tanks – a real eyecatcher!</p>"
     },
     {
       "key": "quickFacts",
@@ -85,18 +221,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
       "html": "<p>The eyespot rasbora, Brevibora dorsiocellata, is a small cyprinid from southern Thailand, Peninsular Malaysia, Borneo and Sumatra. It is also traded as the 'green-eyed', 'emerald-eyed' or 'hi-spot' rasbora. The common, commercially produced form is plain-coloured with a greenish-blue reflective patch in the eye, while a probably wild-caught form seen from time to time has russet red at the base of the tail. Some Bornean records may refer to B. cheeya.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/brevibora-dorsiocellata/",
-      "html": "<p>For our customers: the fish have code 451802 on our stocklist. Please note that we exclusively supply the wholesale trade.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/brevibora-dorsiocellata-emerald-eye-rasbora",
-      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
     },
     {
       "key": "distribution",
@@ -191,16 +315,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/774dddb37bbec0cf.webp",
-      "thumb": "https://media.aquatome.com/commons/774dddb37bbec0cf-480.webp",
-      "width": 960,
-      "height": 712,
-      "licence": "Public domain",
-      "author": "Pseudogastromyzon",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rasbora_dorsiocellata.jpg",
-      "caption": "Hi spot rasbora"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/af8777b43f80e5d1.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/af8777b43f80e5d1-480.webp",
       "width": 860,
@@ -210,6 +324,16 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/brevibora-dorsiocellata",
       "caption": "Adult specimen with slight caudal-fin damage.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/774dddb37bbec0cf.webp",
+      "thumb": "https://media.aquatome.com/commons/774dddb37bbec0cf-480.webp",
+      "width": 960,
+      "height": 712,
+      "licence": "Public domain",
+      "author": "Pseudogastromyzon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rasbora_dorsiocellata.jpg",
+      "caption": "Hi spot rasbora"
     }
   ],
   "videos": [
@@ -242,8 +366,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể thủy sinh 60cm"
+        "bể cá 50cm"
       ]
     },
     {

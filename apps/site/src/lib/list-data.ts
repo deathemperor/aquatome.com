@@ -1,13 +1,15 @@
-import type { Content, GuideEntity, Localized, Photo, PlantEntity, SpeciesEntity } from '@aq/schema'
+import { POPULAR, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PlantEntity, type SpeciesEntity, type Traits } from '@aq/schema'
 import type { PlantIndexItem, SpeciesIndexItem } from '../scripts/filter'
 import { typeUses } from './equipment'
-import { GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
-import { leadGuides, listOrder } from './home'
+import { GUIDE_KIND_LABELS } from './format'
+import { alterationNotice } from './gallery'
+import { cleanPhoto, leadGuides, listOrder } from './home'
 import { licenceLabel, type Lang, type T } from './i18n'
-import { smallSrc } from './img'
+import { smallSrc, tileFrame } from './img'
 import { guideImages } from './mentions'
 import { listPictures, pagePictures, photosOf, takeEach } from './pictures'
 import { PAGE } from '../scripts/filter-list'
+import type { MateItem } from '../scripts/tankmates'
 import { toIndexItem } from './species-index'
 import { clock, videoChannels } from './video'
 import { taxonKeys } from './taxa-places'
@@ -22,19 +24,21 @@ import { taxonKeys } from './taxa-places'
  */
 
 /** The photo a card shows: its small picture, and its credit (author, licence as shown, its page on the source; an Unsplash photographer's page). */
-export type CardPhoto = { src: string; w: number; h: number; author: string; authorUrl?: string; licence: string; url: string }
+export type CardPhoto = { src: string; w: number; h: number; author: string; authorUrl?: string; licence: string; url: string; altered?: true }
 /** Only what the filter reads (no gh, sizeCm), and the card's photo. */
-export type SpeciesListItem = Omit<SpeciesIndexItem, 'gh' | 'sizeCm'> & { photo?: CardPhoto }
+/** `water`: kept in brackish or sea water (the card says so under its name). */
+/** A fish card's photo also says how its tile frames it (tileFrame): `pos`, the crop moved onto the fish; `whole`, the photo whole; `mat`, on the mat, not blurred. */
+export type SpeciesListItem = Omit<SpeciesIndexItem, 'gh' | 'sizeCm'> & { photo?: CardPhoto & { pos?: string; whole?: true; mat?: true }; water?: 'brackish' | 'marine' }
 /** The filter's figures, and the card's name, line about light and CO₂ (in the page's language) and photo. */
 export type PlantListItem = PlantIndexItem & { name: string; scientificName: string; meta: string; photo?: CardPhoto }
 
-const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.width, h: p.height, author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), licence: licenceLabel(p.licence), url: p.sourceUrl })
+export const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.width, h: p.height, author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), licence: licenceLabel(p.licence), url: p.sourceUrl, ...(alterationNotice(p) ? { altered: true as const } : {}) })
 
 /** Species as a list's data file has them, with the photo each card shows (`photos`, the list's: lib/pictures.ts listPictures). */
 export const speciesItems = (species: Localized<SpeciesEntity>[], photos: (Photo | null)[]): SpeciesListItem[] => species.map((s, n) => {
   const { gh, sizeCm, ...i } = toIndexItem(s)
   const p = photos[n]
-  return p ? { ...i, photo: cardPhoto(p) } : i
+  return { ...i, ...(s.water ? { water: s.water.kind } : {}), ...(p ? { photo: { ...cardPhoto(p), ...tileFrame(p) } } : {}) }
 })
 
 /**
@@ -95,8 +99,10 @@ export function speciesLists(lang: Lang, c: Content): Map<string, Localized<Spec
 }
 
 /** A plant card's line: "Ánh sáng yếu, CO₂ không cần" (PlantCard). */
-export const plantMeta = (t: T, p: Localized<PlantEntity>) =>
-  t('Ánh sáng {light}, CO₂ {co2}', { light: t(PLANT_LABELS.light[p.light]!).toLowerCase(), co2: t(PLANT_LABELS.co2[p.co2]!).toLowerCase() })
+const LIGHT_WORDS: Record<string, string> = { low: 'Đèn yếu', medium: 'Đèn vừa', high: 'Đèn mạnh' }
+const CO2_WORDS: Record<string, string> = { none: 'không cần CO2', optional: 'có CO2 thì tốt hơn', required: 'cần CO2' }
+/** A plant card's line, as a keeper says it: "Đèn yếu, không cần CO2". */
+export const plantMeta = (t: T, p: Localized<PlantEntity>) => `${t(LIGHT_WORDS[p.light]!)}, ${t(CO2_WORDS[p.co2]!)}`
 
 /** The plant list's card pictures, in its order (lib/pictures.ts listPictures): two plants can share a photo. */
 export const plantPhotos = (c: Content) => listPictures(c, 'cay', c.plants, p => photosOf(p.photos))
@@ -116,20 +122,20 @@ export const listedGuides = (c: Content) => c.guides.filter(g => g.kind !== 'dis
 /** A guide card's subject and its line on where the guide comes from, in the page's language (GuideCard). */
 export const guideWords = (t: T, c: Content, g: Localized<GuideEntity>) => ({
   label: t(GUIDE_KIND_LABELS[g.kind]!),
-  src: g.video ? t('Theo video của {name}', { name: g.video.channel })
-    : g.source === 'aquatome' ? t('AquaTome tổng hợp, {n} nguồn', { n: (g.t.refs ?? g.refs)?.length ?? 0 })
+  // No channel on a card (PRODUCT.md): a video guide is AquaTome's, from its video and any other sources.
+  src: g.source === 'aquatome' || g.video ? t('AquaTome tổng hợp, {n} nguồn', { n: (g.video ? 1 : 0) + ((g.t.refs ?? g.refs)?.length ?? 0) })
     : t('Dịch từ {name}', { name: c.sources[g.source]?.name ?? g.source }),
 })
 
-/** A guide card's address, subject (to filter on), words and picture; a video's length and label. */
-export type GuideListItem = { slug: string; kind: string; name: string; label: string; src: string; photo?: CardPhoto; video?: { dur: string; cover?: string } }
+/** A guide card's address, subject (to filter on), words and picture; a video's length. */
+export type GuideListItem = { slug: string; kind: string; name: string; label: string; src: string; photo?: CardPhoto; video?: { dur: string } }
 
 /** Guides as a list's data file has them, with the picture each card shows (`photos`, the list's: lib/pictures.ts listPictures). */
 export const guideItems = (t: T, c: Content, guides: Localized<GuideEntity>[], photos: (Photo | null)[]): GuideListItem[] => guides.map((g, n) => {
   const p = photos[n]
   return {
     slug: g.t.slug, kind: g.kind, name: g.t.name, ...guideWords(t, c, g), ...(p ? { photo: cardPhoto(p) } : {}),
-    ...(g.video ? { video: { dur: clock(g.video.durationSec), ...(g.t.cover ? { cover: g.t.cover } : {}) } } : {}),
+    ...(g.video ? { video: { dur: clock(g.video.durationSec) } } : {}),
   }
 })
 
@@ -159,3 +165,17 @@ export const guideLists = (c: Content) => new Map<string, Localized<GuideEntity>
   ['kham-pha', c.guides.filter(g => g.kind === 'discovery')],
   ...videoChannels(c).map(ch => [`video/kenh/${ch.slug}`, ch.guides] as [string, Localized<GuideEntity>[]]),
 ])
+
+/**
+ * The tank-mates checker's species (/data/<lang>/tank-mates.json), by name: its figures and traits, a small photo for the
+ * suggestions, other names to match. A file of its own, fetched by the page's script: inlined, its 720 KB on aquatome.com
+ * held the page's first paint back past the phone's Lighthouse budget (the deploys of 8 November).
+ */
+export function mateList(lang: Lang, c: Content, traits: Map<string, Traits>): MateItem[] {
+  // Among equally good matches the fish readers keep most come first: the staples, then the popular list (as on the home page).
+  const known = [...STAPLE_SPECIES, ...POPULAR.map(slugify)]
+  return c.species.map(s => {
+    const p = cleanPhoto(s.photos), pop = known.indexOf(s.id)
+    return { ...toIndexItem(s, traits.get(s.id)), id: s.id, ...(p ? { img: smallSrc(p) } : {}), ...(s.t.altNames.length ? { aka: s.t.altNames } : {}), ...(pop >= 0 ? { pop } : {}) }
+  }).sort((a, b) => a.name.localeCompare(b.name, lang))
+}

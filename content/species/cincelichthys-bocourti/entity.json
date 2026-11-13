@@ -11,6 +11,62 @@
     "lake-izabal",
     "belize"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GT",
+        "BZ"
+      ],
+      "regions": [
+        "Lake Izabal"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is Lake Izabal, eastern Guatemala and this species has since been recorded from various Atlantic drainages of both Guatemala and neighbouring Belize.",
+          "countries": [
+            "GT",
+            "BZ"
+          ],
+          "regions": [
+            "Lake Izabal"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9574362,
+      "total": 21,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "GT",
+          19
+        ],
+        [
+          "BZ",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -90,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          -90,
+          15.46875,
+          19,
+          19
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -126,7 +182,12 @@
       "author": "NasserHalaweh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_Cichlasoma_bocourti_1.jpg",
       "caption": "Cichlasoma bocourti. CHISEL-TOOTH CICHLID. Wilhelma Zoological-Botanical Garden Stuttgart.",
-      "thumb": "https://media.aquatome.com/commons/9c183b6a79d6d1e7-480.webp"
+      "thumb": "https://media.aquatome.com/commons/9c183b6a79d6d1e7-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/9c183b6a79d6d1e7-large.webp",
+        "width": 1352,
+        "height": 1014
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/614663d8522e17dc.webp",
@@ -169,8 +230,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá lớn 540 lít"
+        "bể cá 150cm"
       ]
     },
     {

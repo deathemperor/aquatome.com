@@ -1,10 +1,13 @@
 {
   "slug": "paraguay-river",
-  "name": "Paraguay River",
-  "altNames": [],
+  "name": "sông Paraguay",
+  "altNames": [
+    "Paraguay River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

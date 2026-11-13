@@ -8,13 +8,96 @@
   "places": [
     "north-america",
     "united-states",
-    "french-broad"
+    "french-broad",
+    "french-broad-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "French Broad",
+        "Mississippi",
+        "Ohio",
+        "Tennessee",
+        "French Broad River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "North America: USA. Gulf Coast Drainages, Mississippi, Ohio, Tennessee, French Broad. Type locality: Little Chucky Creek at mouth of Jackson Branch, Greene County, Tennessee, U.S.A.",
+          "countries": [
+            "US"
+          ],
+          "regions": [
+            "French Broad",
+            "Mississippi",
+            "Ohio",
+            "Tennessee"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "USA: French Broad River basin, eastern Tennessee.",
+          "countries": [],
+          "regions": [
+            "French Broad River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341027,
+      "total": 4,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "US",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -84.375,
+          35.15625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 6.5
+      },
+      {
+        "source": "scotcat",
+        "value": 6.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 16,
+          "max": 23
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -26,10 +109,22 @@
       "html": "<ul><li>Scientific name: Noturus crypticus Burr, Eisenhour &amp; Grady, 2005</li><li>Common name: Chucky Madtom</li><li>IUCN Red List: Critically Endangered (last assessed 2012)</li><li>Breeding: unreported</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_crypticus.htm",
+      "html": "<ul><li>Dorsal soft rays (total): 6; anal soft rays: 15-17.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1222",
       "html": "<p>North America: USA. Gulf Coast Drainages, Mississippi, Ohio, Tennessee, French Broad. Type locality: Little Chucky Creek at mouth of Jackson Branch, Greene County, Tennessee, U.S.A.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_crypticus.htm",
+      "html": "<p>USA: French Broad River basin, eastern Tennessee. Type locality: Tennessee, Greene County, Little Chucky Creek at mouth of Jackson Branch, 36º07'11\"N, 83º02'04\"W.</p>"
     },
     {
       "key": "reproduction",
@@ -44,24 +139,25 @@
       "html": "<p>Etymology: from the Greek notos, meaning back, and oura, meaning tail, in reference to the confluent adipose and caudal fins. The epithet crypticus has two possible meanings: the first refers to its nocturnal ways, the second to this species keeping its identity a secret from researchers for so long.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_crypticus.htm",
+      "html": "<p>Distinguished from other members of the Noturus elegans species group by having: modally 16 anal rays (vs. 18 in Noturus fasciatus); modally 8 pelvic rays (vs. 9); 2-10 medium-large sized melanophores on the cheek (vs. large melanophores absent on cheek); adipose fin band extending only to base or half-way up fin (vs. extending half-way up to edge of fin in fasciatus); adipose and caudal fins distinctly joined at their juncture (vs. weakly connected in N. fasciatus); three evenly spaced pale and dark bands in caudal fin (vs. caudal fin bands usually two and unevenly spaced); robust body shape, with body width at pectoral fin origin 23% or more of SL and greater than anal fin base length (vs. slender body shape, with body width at pectoral fin origin 22% or less of SL and less than anal fin base length).</p><p>The Chucky Madtom was described in 2005 and despite extensive recent surveys, only three specimens have been collected over the past 10 years. It was most recently observed in Little Chucky Creek in east Tennessee. Two (male and female), collected in 2004, lived at Conservation Fisheries Inc. (CFI). The female died before any spawning could occur and the male lived at CFI until he died as well in 2008. Agriculture has impacted the creek and all surrounding streams. If additional specimens can be collected, CFI hopes to propagate more Chucky Madtoms to enhance the population in Little Chucky Creek. As of August 9, 2011, the Chucky Madtom was listed as endangered by the USFWS.</p><p>IUCN Red List: this species is listed as Critically Endangered in view of its very small extent of occurrence and area of occupancy (one location consisting of a few stream kilometers). The habitat is threatened by agricultural activities. Current trend is unknown, and the entire population may include fewer than 100 individuals.</p><p>Etymology: the specific name crypticus is derived from the transliterated Greek kryptos, meaning hidden or concealed, in reference to the close morphological and pigmentation similarities of this species to congeners and its previously unrecognised taxonomic distinctiveness.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1222",
       "html": "<p>Copeia 2005 (no. 4), pp 794, Fig. 2C.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_crypticus.htm",
+      "html": "<p>Burr, B.M., D.J. Eisenhour and J.M. Grady, 2005. Two new species of Noturus (Siluriformes: Ictaluridae) from the Tennessee River drainage: description, distribution, and conservation status. Copeia 2005(4):783-802. Conservation Fisheries Inc January 2021. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2020. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 12/2020 ). NatureServe. 2013. Noturus crypticus. The IUCN Red List of Threatened Species 2013.</p>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/0887020eee47bf21.webp",
-      "thumb": "https://media.aquatome.com/scotcat/0887020eee47bf21-480.webp",
-      "width": 500,
-      "height": 332,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_crypticus.htm",
-      "caption": "Noturus crypticus",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/f023328c990d8cc3.webp",
       "thumb": "https://media.aquatome.com/scotcat/f023328c990d8cc3-480.webp",
@@ -75,16 +171,16 @@
     },
     {
       "url": "https://media.aquatome.com/commons/e3d68bcd1d6f6b31.webp",
+      "thumb": "https://media.aquatome.com/commons/e3d68bcd1d6f6b31-480.webp",
       "width": 960,
       "height": 508,
       "licence": "Public domain",
       "author": "J.R. Shute/USFWS",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Noturus_crypticus_(Chucky_madtom)_FWS_13686.jpg",
-      "caption": "Noturus crypticus (Chucky madtom)",
-      "thumb": "https://media.aquatome.com/commons/e3d68bcd1d6f6b31-480.webp"
+      "caption": "Noturus crypticus (Chucky madtom)"
     }
   ],
   "videos": [],
   "productSlots": [],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-06"
 }

@@ -1,0 +1,43 @@
+{
+  "id": "channa-harcourtbutleri",
+  "native": {
+    "input": "100284d8eba75cc8",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa harcourtbutleri",
+    "status": "ACCEPTED",
+    "taxonKey": 2391487,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        90
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        38
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        4
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

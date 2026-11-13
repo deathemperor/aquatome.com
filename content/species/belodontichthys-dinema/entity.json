@@ -12,6 +12,121 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Malay Peninsula",
+        "Sumatra",
+        "Borneo",
+        "Kapuas"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Malay Peninsula, Sumatra and Borneo, in Malaysia and Indonesia.",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Malay Peninsula",
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Borneo it's recorded from the Kapuas basin in West Kalimantan, including the lakes of the upper Kapuas (Roberts, 1989; Kottelat and Widjanarti, 2005), and in Sumatra from the central part of the island (Tan and Ng, 2000).",
+          "countries": [],
+          "regions": [
+            "Kapuas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337806,
+      "total": 33,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          28
+        ],
+        [
+          "KH",
+          3
+        ],
+        [
+          "MY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          0,
+          6,
+          6
+        ],
+        [
+          101.25,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          -2.8125,
+          7,
+          7
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          105.46875,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          106.875,
+          12.65625,
+          2,
+          0
+        ],
+        [
+          109.6875,
+          0,
+          7,
+          7
+        ],
+        [
+          113.90625,
+          -4.21875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -56,7 +171,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },

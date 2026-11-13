@@ -14,8 +14,604 @@
     "bolivia",
     "mamore",
     "guyana",
-    "essequibo"
+    "essequibo",
+    "coari",
+    "iquitos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "BO",
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Essequibo",
+        "Ucayali",
+        "Tocantins",
+        "Río Mamoré",
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The cupid cichlid, Biotodoma cupido, is a geophagine cichlid from much of the Amazon basin, north to the Essequibo in Guyana and south to Bolivia.",
+          "countries": [
+            "GY",
+            "BO"
+          ],
+          "regions": [
+            "Amazon",
+            "Essequibo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded throughout much of the Amazon basin, with its range extending eastwards from the Ucayali system in Peru as far as the Tocantins drainage which flows into the Atlantic alongside the Amazon at its delta.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Ucayali",
+            "Tocantins"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Rio Negro and Rio Guaporé, Mato Grosso, Brazil', the former located in Amazonas state, northwestern Brazil, and the latter a tributary of the rio Madeira basin in Mato Grosso state much further south.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The southern extremity of its range appears to be the Río Mamoré in Bolivia, a tributary of the rio Guaporé, and the northern limit the Essequibo basin, Guyana.",
+          "countries": [],
+          "regions": [
+            "Río Mamoré"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372964,
+      "total": 386,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          161
+        ],
+        [
+          "PE",
+          105
+        ],
+        [
+          "GY",
+          92
+        ],
+        [
+          "BO",
+          18
+        ],
+        [
+          "CO",
+          4
+        ],
+        [
+          "VE",
+          4
+        ],
+        [
+          "UY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -5.625,
+          8,
+          8
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          55,
+          55
+        ],
+        [
+          -74.53125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -8.4375,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          -4.21875,
+          34,
+          34
+        ],
+        [
+          -71.71875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -1.40625,
+          3,
+          2
+        ],
+        [
+          -68.90625,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -11.25,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          10,
+          10
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          41,
+          41
+        ],
+        [
+          -60.46875,
+          5.625,
+          9,
+          9
+        ],
+        [
+          -59.0625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -59.0625,
+          4.21875,
+          22,
+          22
+        ],
+        [
+          -59.0625,
+          5.625,
+          14,
+          14
+        ],
+        [
+          -57.65625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          -33.75,
+          2,
+          0
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          9,
+          9
+        ],
+        [
+          -53.4375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          8,
+          8
+        ],
+        [
+          -52.03125,
+          -14.0625,
+          7,
+          7
+        ],
+        [
+          -52.03125,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -14.0625,
+          13,
+          13
+        ],
+        [
+          -50.625,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -48,6 +644,10 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "tankCm": [
@@ -71,16 +671,34 @@
       "html": "<p>The cupid cichlid, Biotodoma cupido, is a geophagine cichlid from much of the Amazon basin, north to the Essequibo in Guyana and south to Bolivia. Also traded as the 'green-streaked eartheater', it varies in colour pattern and shape by locality, and most traded fish come from around Santarém in Pará state. Unless breeding it is surprisingly peaceful. Its relatively compact body and a dark flank blotch above the upper lateral line separate it from B. wavrini.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/biotodoma-cupido-peru-en/",
+      "html": "<p>The small cichlid Biotodoma cupido can attain a maximum length of about 12-15 cm, but is sexually mature already at 6-8 cm total length. It is probably the species of cichlid with the widest distribution in Amazonia. However, experts are not in agreement whether all the different looking populations represent only varieties of the same species or represent different species on their own.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/biotodoma-cupido",
       "html": "<p>Recorded throughout much of the Amazon basin, with its range extending eastwards from the Ucayali system in Peru as far as the Tocantins drainage which flows into the Atlantic alongside the Amazon at its delta. The southern extremity of its range appears to be the Río Mamoré in Bolivia, a tributary of the rio Guaporé, and the northern limit the Essequibo basin, Guyana.</p><p>Type locality is 'Rio Negro and Rio Guaporé, Mato Grosso, Brazil', the former located in Amazonas state, northwestern Brazil, and the latter a tributary of the rio Madeira basin in Mato Grosso state much further south.</p><p>Certain elements of colour pattern and external morphology differ depending on locality, and the existence of additional species has been suggested for years though to date nothing has been confirmed on an official basis.</p><p>Most of the fish in the aquarium trade originate from around the Amazonian city of Santarém in Pará state, eastern Brazil.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/biotodoma-cupido-peru-en/",
+      "html": "<p>Specimens from the vicinity of Iquitos in Peru can be easily recognized by the large, bronze- or copper-coloured spot that is exhibited by the male and that makes the fish very attractive.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/biotodoma-cupido",
       "html": "<p>Given the extent of its natural range this species is likely to be something of a habitat generalist, though torrential conditions are probably avoided. Many of its habitats are subject to significant seasonal variations in water depth, turbidity and flow due to the annual cycle of flooding which takes place throughout the Amazon region.</p><p>To provide an example it was recorded to inhabit the igarapé Belmont, a tributary of the rio Madeira located close to Porto Velho city in Rondônia State, Brazil during a study conducted between May 2005 and April 2006. The water was clear but stained with tannins, the mean pH over the study period was 6.1, water temperature 27.6 °C (82 °F) and conductivity 39.4 µS cm-1.</p><p>Sympatric fish species in the stream included Acestrorhynchus microlepis, Laemolyta taeniata, Leporinus friderici, L. fasciatus, Triportheus angulatus, Serrasalmus rhombeus, Pygocentrus nattereri, Tetragonopterus argenteus, Catoprion mento, Mylossoma aureum, Hoplias malabaricus, Semaprochilodus taeniurus, Cichla monoculus, Aequidens tetramerus, Auchenipterus ambyiacus, Centromochlus heckelii, Ossancora punctata, Loricaria cataphracta, Hypoptopoma gulare, Peckoltichthys bachi, Aphanotorulus emarginatus, Sorubim lima and Hypophthalmus marginatus.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/biotodoma-cupido-peru-en/",
+      "html": "<p>These fish prefer flowing water in the wild. Otherwise they are very adaptive and can be found even in tidal zones.</p>"
     },
     {
       "key": "aquariumSize",
@@ -113,10 +731,22 @@
       "html": "<p>Unless breeding this species is surprisingly peaceful and will not predate on fishes larger than a few mm in length. Suitable tankmates are therefore too numerous to list but include most peaceful species enjoying similar environmental conditions.</p><p>Best avoided are territorial or otherwise aggressive fishes or those requiring harder water, however.</p><p>Biotodoma species are loosely gregarious and tends to live in groups unless spawning with juveniles in particular displaying a strong social response when threatened. A group of 5-8 individuals should therefore be the minimum purchase and these will form a noticeable dominance hierarchy which adds behavioural interest for the observer. When maintained in smaller numbers weaker specimens can become the target of excessive abuse by dominant individuals or the group may fail to settle and behave nervously.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/biotodoma-cupido-peru-en/",
+      "html": "<p>The fish are very peaceful – except when they start breeding. Then the openbrooding species becomes very aggressive against tankmates.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/biotodoma-cupido",
       "html": "<p>Several authors have suggested that the sexes are distinguishable by the pattern of laterally-orientated, iridescent blue markings which extend from beneath the anterior portion of the eye to the tip of the snout.</p><p>In males these markings have been said to form unbroken stripes, whereas in females they are supposed to form a series of variable blotches. It has been suggested that the reason for this is that females inhabit deeper water while males prefer the shallows and are thus more easily accessible to collectors, but this seems questionable given the number of juveniles exported.</p><p>A more plausible hypothesis may be that Biotodoma species require some time to become mature and are thus not immediately sexable, and this may also explain the apparent 'difficulty' in breeding them in aquaria (see 'Reproduction').</p><p>Based on observations from breeders both males and females can possess stripes on the head but males tend to grow a little larger, are deeper-bodied and develop longer filamentous extensions on the dorsal and caudal fins than females.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/biotodoma-cupido-peru-en/",
+      "html": "<p>Males exhibit a large, bronze- or copper-coloured spot. Females lack this spot and have also a differently-shaped dorsal spot.</p>"
     },
     {
       "key": "reproduction",
@@ -125,10 +755,22 @@
       "html": "<p>This species is a biparental substrate spawner preferring to lay its eggs on rocks which are partially-buried in the substrate.</p><p>Sexual maturity appears to be reached at 18-24 months of age, and simulation of the change between dry and wet seasons seems useful in terms of stimulating the fish to breed.</p><p>The latter can be achieved via a period of keeping the fish at a stable temperature with relatively few water changes and a lack of water movement, followed by daily water changes of 20-25 % tank volume, ideally using rain water or softened tap water, plus increased turbulence using a powerhead or similar (J. Mcelheron, pers. comm.).</p><p>It has been written that spawning occurs in a pit excavated from the substrate because digging behaviour has been observed prior to spawning, but it appears that the fish are attempting to uncover rocks buried in the substrate rather than create a spawning site from scratch.</p><p>For example, an account was published in the magazine 'Buntbarsche Bulletin' in 1991 in which an adult pair was removed to a separate tank and spawned several times in fairly typical fashion with the eggs deposited in the centre of a shallow pit excavated from the substrate by both parents. The eggs repeatedly disappeared until a flat stone was added to the spawning pit and removed once the spawning process was complete. The fry were free swimming after 5 days.</p><p>SF contributor Joe Mcelheron also found that the fish preferred to use the side of a rock for spawning purposes, and this solid base appears to be essential since the bright orange eggs are attached to it by short adhesive filaments which allow them to move to an extent and presumably permit a degree of water movement around them as well.</p><p>He observed that young adult fish in their first year went through the motions of digging pits in the substrate but did not spawn. Later it became clear that spawning and courtship was initiated by the females which began to dig pits, swim in a head-down position with darkened colouration, and engage in lip-locking displays to assert dominance. At this point the males were not involved although they remained in the vicinity, appearing to observe proceedings between the females.</p><p>This behaviour continued for 2-3 days after which a female began to prepare a rock for spawning by cleaning it with her mouth, moving away any sand and defending the area around it from intruders. Just prior to spawning the female darkened even more, although the ventral portion of the body remained pale, and her short but relatively wide ovipositor became visible.</p><p>Spawning itself did not proceed in the fashion typically-associated with substrate-spawning cichlids since the female deposited the entire batch of eggs before allowing the male to fertilise them (rather than doing so in smaller batches).</p><p>This process took a couple of hours during which the male remained close but was not permitted to approach the spawning site until the female was ready, at which point he fertilised the eggs with a single pass over one side of them. The female immediately moved in and began fanning the eggs rapidly with her fins, possibly in an attempt to spread the male's milt.</p><p>Post-spawning the female was responsible for tending to and protecting the eggs while the male patrolled the surrounding area up to around 60 – 90 cm (24 – 35 in) away from the spawning site. If the female left the eggs for any reason the male moved in to replace her until she returned.</p><p>Incubation was 3-4 days at 23 – 24 °C (73 – 75 °F) and as the eggs began to hatch they became detached from the spawning site. At this point the fry were moved into a prepared pit where they remained for a further 4 days or so while they absorbed the remainder of their yolk sacs, and the female was particularly aggressive during this period.</p><p>Once the fry were swimming freely both parents assumed equal responsibility for guarding their offspring for a further 6 weeks, after which they lost interest and spawned again. The free-swimming fry accepted powdered or crushed dried foods of a suitable grade, Artemia nauplii, etc. and grew relatively quickly.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/biotodoma-cupido-peru-en/",
+      "html": "<p>This is an open-brooding species, which becomes very aggressive towards tankmates when breeding.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/biotodoma-cupido",
       "html": "<p>In the aquarium trade this species is also known by the alternative name of 'green-streaked eartheater'.</p><p>The form from Santarém which is normally traded as B. cupido 'Santarém' has also been referred to as B. sp. 'red fin Santerém' or 'red fin Tocantins'. Other forms available include one exported from Belém and another from Peru that confusingly appears on trade lists as B. sp. 'Santarém'.</p><p>B. cupido and its congener B. wavrini can be separated by body shape and position of the dark blotch on the posterior portion of the flank. In B. cupido the body is relatively compact and the blotch located above the upper lateral line, whereas in B. wavrini the body is noticeably elongate and the blotch on or below the upper lateral line.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/biotodoma-cupido-peru-en/",
+      "html": "<p>Biotodoma means \"house of life\"; formerly scientists believed the species to be a mouthbrooder. cupido: after a Roman god of love.</p>"
     },
     {
       "key": "references",
@@ -155,8 +797,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá lớn 300 lít"
+        "bể cá 150cm"
       ]
     },
     {
@@ -181,5 +822,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-11"
 }

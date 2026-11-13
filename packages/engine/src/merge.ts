@@ -1,7 +1,10 @@
 import { dropCardRepeats, PLACE_ALIASES, SECTION_ORDER, nameKey, slugify, type GuideEntity, type PlaceEntity, type PlantEntity, type Section, type SourceId, type SpeciesEntity, type Translation } from '@aq/schema'
-import { cleanAltNames } from './alt-names'
+import { cleanAltNames, tidyName } from './alt-names'
 import type { Taxon } from './gbif'
+import { fixFirst } from './guide-sections'
 import type { ProcessedPage } from './process'
+import { isShop, withoutShopTalk } from './species-sources'
+import { cleanLRecord } from './l-numbers'
 
 // takenNames: other items' names as nameKey keys (two fish under one name can't be told apart, or picked by name in the tools).
 type Ctx = { source: SourceId; url: string; now: string; takenSlugs: Set<string>; takenNames?: Set<string>; quality?: Translation['quality'] }
@@ -34,13 +37,23 @@ export function pickSlug(name: string, suffix: string, taken: Set<string>): stri
 
 /** Replace this source's sections (entity: English, vi: translation); keep other sources'. */
 function mergeSections(prev: Section[], prevVi: Record<string, string>, page: ProcessedPage, ctx: Ctx) {
-  const kept = prev.filter(s => s.source !== ctx.source)
+  // A part a person fixed keeps its English and Vietnamese, whatever the source now says (schemas.ts Section.fixed).
+  const fixed = new Set<string>(prev.filter(s => s.source === ctx.source && s.fixed).map(s => s.key))
+  const kept = prev.filter(s => s.source !== ctx.source || s.fixed)
   // A page may give one part twice (two "quick facts" blocks): translations are keyed by part and source, so the two
   // become one section with both texts, or the second's translation would replace the first's.
   const parts = new Map<string, ProcessedPage['sections'][number]>()
   for (const s of page.sections) {
     const p = parts.get(s.key)
     parts.set(s.key, p ? { ...p, en: `${p.en}\n${s.en}`, vi: `${p.vi}\n${s.vi}` } : s)
+  }
+  // A shop's own talk ("we pick the best fish for our customers", "before purchase") stays off the page (species-sources.ts).
+  if (isShop(ctx.source)) {
+    for (const [k, p] of parts) {
+      const { en, tr } = withoutShopTalk(p.en, { vi: p.vi })
+      if (en) parts.set(k, { ...p, en, vi: tr.vi })
+      else parts.delete(k)
+    }
   }
   // Quick facts keep only what the data card doesn't: a figure this page gives the card is on the card (with each
   // source's own figure one tap away), and the page's header names the family. A list of nothing else goes.
@@ -51,22 +64,29 @@ function mergeSections(prev: Section[], prevVi: Record<string, string>, page: Pr
     if (en) parts.set('quickFacts', { ...q, en, vi: dropCardRepeats(q.en, q.vi, ctx.source, card) })
     else parts.delete('quickFacts')
   }
+  for (const k of fixed) parts.delete(k)
   const added: Section[] = [...parts.values()].map(s => ({ key: s.key, source: ctx.source, sourceUrl: ctx.url, html: s.en }))
-  const sections = [...kept, ...added].map((s, i) => [s, i] as const).sort((a, b) => order(a[0].key) - order(b[0].key) || a[1] - b[1]).map(([s]) => s)
-  const vi = Object.fromEntries(Object.entries(prevVi).filter(([k]) => !k.endsWith(`:${ctx.source}`)))
+  // A source read again keeps its part's place under the heading: a note of ours set after it stays after it, a planting
+  // how-to set first under care (planting.ts) stays first. A part the source didn't have before goes last.
+  const was = new Map(prev.map((s, i) => [s, i] as const))
+  const slot = new Map(prev.flatMap((s, i) => (s.source === ctx.source && !s.fixed ? [[s.key, i] as const] : [])))
+  const at = (s: Section, i: number) => was.get(s) ?? slot.get(s.key) ?? prev.length + i
+  const sections = [...kept, ...added].map((s, i) => [s, at(s, i)] as const).sort((a, b) => order(a[0].key) - order(b[0].key) || a[1] - b[1]).map(([s]) => s)
+  const vi = Object.fromEntries(Object.entries(prevVi).filter(([k]) => !k.endsWith(`:${ctx.source}`) || fixed.has(k.slice(0, -ctx.source.length - 1))))
   for (const s of parts.values()) vi[`${s.key}:${ctx.source}`] = s.vi
   return { sections, vi }
 }
 
-function translation(prev: Translation | undefined, page: ProcessedPage, ctx: Ctx, fallbackName: string, suffix: string, sections: Record<string, string>): Translation {
+function translation(prev: Translation | undefined, page: ProcessedPage, ctx: Ctx, fallbackName: string, suffix: string, sections: Record<string, string>, kind: 'species' | 'plants'): Translation {
   // Seriously Fish names the species itself, so it may replace a name an earlier source gave; an owner-fixed name stays,
   // and so does a name the new one would make ambiguous (another fish's name: "Cá đĩa nâu" became "Cá đĩa", #228).
   // A new item never starts under another's name either: it takes the fallback (its scientific name), the source's
-  // name staying findable as an alternative name.
+  // name staying findable as an alternative name. Each is written as hobbyists write it (tidyName), an owner-fixed name aside.
   const clash = !!page.viName && !!ctx.takenNames?.has(nameKey(page.viName))
-  const name = (prev ? (prev.nameFixed || clash || ctx.source !== 'seriouslyfish' ? prev.name : page.viName) : clash ? '' : page.viName) || prev?.name || fallbackName
+  const picked = (prev ? (prev.nameFixed || clash || ctx.source !== 'seriouslyfish' ? prev.name : page.viName) : clash ? '' : page.viName) || prev?.name || fallbackName
+  const name = prev?.nameFixed ? picked : tidyName(picked, kind)
   // A replaced name stays findable as an alternative name, unless a variety's (mergeSpecies, alt-names.ts).
-  const altNames = uniq([...(prev?.altNames ?? []), ...(prev?.name ? [prev.name] : []), ...(!prev && page.viName ? [page.viName] : []), ...page.viAltNames, ...page.enCommonNames]).filter(n => n !== name)
+  const altNames = uniq([...(prev?.altNames ?? []), ...(prev?.name ? [prev.name] : []), ...(!prev && page.viName ? [page.viName] : []), ...page.viAltNames, ...page.enCommonNames].map(n => tidyName(n, kind))).filter(n => n !== name)
   return {
     slug: prev?.slug ?? pickSlug(name, suffix, ctx.takenSlugs), name, altNames, sections, quality: ctx.quality ?? prev?.quality ?? DEFAULT_QUALITY,
     ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),
@@ -77,12 +97,18 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
   const { taxon } = ctx
   const prev = existing.entity
   const genus = taxon.genus ?? taxon.canonicalName.split(' ')[0] ?? ''
-  const lNumber = prev?.lNumber ?? page.lNumber
+  // The record on file first, written as keepers write it (l-numbers.ts).
+  const record = prev?.lNumber ?? page.lNumber
+  const lNumber = record ? cleanLRecord(record) : undefined
   const { sections, vi } = mergeSections(prev?.sections ?? [], existing.vi?.sections ?? {}, page, ctx)
   const dataCard: SpeciesEntity['dataCard'] = {}
   const fields = uniq([...Object.keys(prev?.dataCard ?? {}), ...Object.keys(page.dataCard)]) as (keyof SpeciesEntity['dataCard'])[]
   for (const f of fields) {
-    const values = [...(prev?.dataCard[f] ?? []).filter(v => v.source !== ctx.source), ...(page.dataCard[f] !== undefined ? [{ source: ctx.source, value: page.dataCard[f]! }] : [])]
+    const had = prev?.dataCard[f]?.find(v => v.source === ctx.source)
+    const value = page.dataCard[f]
+    // Overruled by two other sources (schemas.ts): so while this source gives the same figure; a new one is judged again.
+    const overruled = had?.overruled && JSON.stringify(had.value) === JSON.stringify(value) ? { overruled: had.overruled } : {}
+    const values = [...(prev?.dataCard[f] ?? []).filter(v => v.source !== ctx.source), ...(value !== undefined ? [{ source: ctx.source, value, ...overruled }] : [])]
     if (values.length) dataCard[f] = values
   }
   const entity: SpeciesEntity = {
@@ -91,11 +117,15 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
     places: uniq([...(prev?.places ?? []), ...page.places.flatMap(p => [p.continent, p.country, usableRegion(p.region) ? p.region : undefined].filter((x): x is string => !!x).map(placeId))]),
     // The range step's (range.ts): read again there when this source's text changes it.
     ...(prev?.range ? { range: prev.range } : {}),
+    // The water step's (water.ts), the same way.
+    ...(prev?.water ? { water: prev.water } : {}),
     dataCard, sections, photos: prev?.photos ?? [], videos: prev?.videos ?? [],
     productSlots: prev?.productSlots.length ? prev.productSlots : page.productSlots, updatedAt: ctx.now,
+    // What parts and figures of ours cite (a video, a paper): kept, or the page no longer parses.
+    ...(prev?.refs?.length ? { refs: prev.refs } : {}),
   }
   // Its other names are its own: a shop listing's variety ("Cá betta Green Alien") or one name twice never adds up.
-  const t = translation(existing.vi, page, ctx, `Cá ${taxon.canonicalName}`, genus, vi)
+  const t = translation(existing.vi, page, ctx, `Cá ${taxon.canonicalName}`, genus, vi, 'species')
   return { entity, vi: { ...t, altNames: cleanAltNames({ name: t.name, sci: taxon.canonicalName, altNames: t.altNames }).altNames } }
 }
 
@@ -106,8 +136,9 @@ export function mergePlant(existing: { entity?: PlantEntity; vi?: Translation },
   const entity: PlantEntity = {
     id: slugify(page.scientificName), scientificName: page.scientificName, ...(prev?.synonyms?.length ? { synonyms: prev.synonyms } : {}), ...page.plant,
     sections, photos: prev?.photos ?? [], productSlots: prev?.productSlots.length ? prev.productSlots : page.productSlots, updatedAt: ctx.now,
+    ...(prev?.refs?.length ? { refs: prev.refs } : {}),
   }
-  return { entity, vi: translation(existing.vi, page, ctx, page.scientificName, page.scientificName.split(' ')[0] ?? '', vi) }
+  return { entity, vi: translation(existing.vi, page, ctx, page.scientificName, page.scientificName.split(' ')[0] ?? '', vi, 'plants') }
 }
 
 /** Guides are single-source: the English text stays in the sources/ snapshot; the entity carries provenance. */
@@ -119,9 +150,19 @@ export function writeGuide(page: ProcessedPage, ctx: Ctx & { existing?: { entity
     id: guideId(ctx.source, ctx.url), kind: page.guide.kind, source: ctx.source, sourceUrl: `${u.origin}${u.pathname}`, html: '',
     photos: prev?.entity?.photos ?? [], mentions: prev?.entity?.mentions ?? [], updatedAt: ctx.now,
   }
-  const name = page.guide.viTitle.replace(/\s+\|\s+.*$/, '') // a page's <title> often ends in " | its section"
-  return { entity, vi: { slug: prev?.vi?.slug ?? pickSlug(name, ctx.source, ctx.takenSlugs), name, altNames: [], sections: {}, body: page.guide.viBody, quality: ctx.quality ?? DEFAULT_QUALITY } }
+  // A person's title and a renamed guide's old addresses stay when the source is read again.
+  const name = prev?.vi?.nameFixed ? prev.vi.name : page.guide.viTitle.replace(/\s+\|\s+.*$/, '') // a page's <title> often ends in " | its section"
+  // A guide that fixes a problem leads with the fix (guide-sections.ts).
+  // A body fixed by hand, the pages it cites and a note for local readers stay too.
+  const fixed = prev?.vi?.bodyFixed ? prev.vi.body : undefined
+  return { entity, vi: {
+    slug: prev?.vi?.slug ?? pickSlug(name, ctx.source, ctx.takenSlugs), name, altNames: [], sections: {}, body: fixed ?? fixFirst(name, page.guide.kind, page.guide.viBody), quality: ctx.quality ?? DEFAULT_QUALITY,
+    ...(prev?.vi?.nameFixed ? { nameFixed: true } : {}), ...(prev?.vi?.redirectFrom ? { redirectFrom: prev.vi.redirectFrom } : {}),
+    ...(prev?.vi?.bodyFixed ? { bodyFixed: true, ...(prev.vi.refs ? { refs: prev.vi.refs } : {}) } : {}), ...(prev?.vi?.localNote ? { localNote: prev.vi.localNote } : {}),
+  } }
 }
+
+const regionKind = (name: string): PlaceEntity['kind'] => /\b(rio|river|río)\b/i.test(name) ? 'river' : 'region'
 
 /** Places the page mentions that don't exist yet, parents first. Names stay English until a translator pass names them. */
 export function ensurePlaces(places: PagePlace[], known: Set<string>): Item<PlaceEntity>[] {
@@ -136,7 +177,13 @@ export function ensurePlaces(places: PagePlace[], known: Set<string>): Item<Plac
   for (const p of places) {
     let parent = add(p.continent, 'continent')
     if (p.country) parent = add(p.country, 'country', parent)
-    if (usableRegion(p.region)) add(p.region, /\b(rio|river|río)\b/i.test(p.region) ? 'river' : 'region', parent)
+    if (usableRegion(p.region)) add(p.region, regionKind(p.region), parent)
   }
   return out
+}
+
+/** A river or region only a species' range names, so the translator pass names it and the page shows it in each language. */
+export function rangePlace(name: string, countries: string[] = []): Item<PlaceEntity> {
+  const id = placeId(name)
+  return { entity: { id, kind: regionKind(name), ...(countries.length ? { countries } : {}) }, vi: { slug: id, name, altNames: [], sections: {}, quality: DEFAULT_QUALITY } }
 }

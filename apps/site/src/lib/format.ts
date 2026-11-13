@@ -20,9 +20,16 @@ export const FIELD_LABELS: Record<DataCardField, string> = {
 export const FIELD_ORDER: DataCardField[] = ['tempC', 'ph', 'gh', 'sizeCm', 'lifeYears', 'tankCm', 'difficulty']
 
 export const CATEGORY_LABELS: Record<string, string> = {
-  'be-ca': 'Bể cá', loc: 'Lọc', 'thuc-an': 'Thức ăn', suoi: 'Sưởi', 'cay-thuy-sinh': 'Cây thủy sinh', 'phan-nen': 'Nền và lá', den: 'Đèn', co2: 'CO2', 'test-nuoc': 'Bộ test nước', 'o-cam': 'Ổ cắm thông minh',
+  'be-ca': 'Bể cá', loc: 'Lọc, sủi khí và tạo dòng', 'thuc-an': 'Thức ăn', suoi: 'Sưởi và làm mát', 'cay-thuy-sinh': 'Cây thủy sinh', 'phan-nen': 'Nền và lá', den: 'Đèn', co2: 'CO2', 'test-nuoc': 'Bộ test nước', 'o-cam': 'Ổ cắm thông minh',
 }
 export const categoryLabel = (c: string) => CATEGORY_LABELS[c] ?? c
+/**
+ * The kinds of kit in the order a keeper sets up a tank: the tank, what keeps its water clean and warm, the light, what
+ * goes in it, then what it takes to run. The home page, the equipment index and the app's copy list them so.
+ */
+export const CATEGORY_ORDER = ['be-ca', 'loc', 'suoi', 'den', 'phan-nen', 'cay-thuy-sinh', 'co2', 'test-nuoc', 'thuc-an', 'o-cam']
+/** A kind of kit's place in `CATEGORY_ORDER`; one it doesn't name goes last. */
+export const categoryRank = (c: string) => { const i = CATEGORY_ORDER.indexOf(c); return i < 0 ? CATEGORY_ORDER.length : i }
 
 /** Tracked affiliate link; the Worker resolves it to a checked product or a marketplace search (see worker/affiliate). */
 /** The marketplaces a shop link can search, the first the one a page's links go to until the reader picks another (ShopPicker.astro). */
@@ -32,7 +39,7 @@ export const goLink = (network: (typeof SHOPS)[number], keyword: string, categor
   `/go/${network}/?${new URLSearchParams({ k: keyword, c: category, ...(entity ? { e: entity } : {}) })}`
 
 export const GROUP_LABELS: Record<string, string> = {
-  tetras: 'Cá tetra', cichlids: 'Cichlid', danios: 'Danio', rasboras: 'Rasbora', shrimp: 'Tép', loaches: 'Cá chạch', catfish: 'Cá da trơn', labyrinth: 'Cá mê cung',
+  tetras: 'Cá tetra', cichlids: 'Cá cichlid', danios: 'Cá danio', rasboras: 'Cá rasbora', shrimp: 'Tép', loaches: 'Cá chạch', catfish: 'Cá da trơn', labyrinth: 'Cá mê cung',
   barbs: 'Cá barb', killifish: 'Cá killi', gobies: 'Cá bống', livebearers: 'Cá đẻ con', rainbowfish: 'Cá cầu vồng', snails: 'Ốc', other: 'Loài khác',
 }
 export const groupLabel = (g: string) => GROUP_LABELS[g] ?? g
@@ -45,5 +52,8 @@ export const PLANT_LABELS = {
   placement: { foreground: 'Tiền cảnh', midground: 'Trung cảnh', background: 'Hậu cảnh', epiphyte: 'Bám đá, lũa', floating: 'Thả nổi' } as Record<string, string>,
 }
 export const GUIDE_KIND_LABELS: Record<string, string> = {
-  setup: 'Setup bể', care: 'Chăm sóc', breeding: 'Sinh sản', disease: 'Bệnh', aquascaping: 'Bố cục', plantCare: 'Chăm cây', discovery: 'Khám phá',
+  setup: 'Set bể', care: 'Chăm sóc', breeding: 'Sinh sản', disease: 'Bệnh', aquascaping: 'Bố cục', plantCare: 'Chăm cây', discovery: 'Khám phá',
 }
+
+/** A species' water when it isn't fresh (the engine's `water`), as its card and page say it. */
+export const WATER_WORDS = { brackish: 'Nước lợ', marine: 'Nước mặn' } as const

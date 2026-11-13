@@ -1,0 +1,551 @@
+{
+  "id": "polypterus-ornatipinnis",
+  "scientificName": "Polypterus ornatipinnis",
+  "order": "Polypteriformes",
+  "family": "Polypteridae",
+  "genus": "Polypterus",
+  "group": "other",
+  "places": [
+    "africa",
+    "cameroon",
+    "democratic-republic-of-the-congo",
+    "burundi",
+    "angola",
+    "tanzania",
+    "lake-tanganyika",
+    "republic-of-the-congo"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "CD",
+        "BI",
+        "AO",
+        "TZ",
+        "CG"
+      ],
+      "regions": [
+        "Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Cameroon, Democratic Republic of Congo, Burundi, Angola, Tanzania, Republic of the Congo.",
+          "countries": [
+            "CM",
+            "CD",
+            "BI",
+            "AO",
+            "TZ",
+            "CG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is found in rivers, ponds, marshes and lakes, including Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2346593,
+      "total": 127,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "CD",
+          97
+        ],
+        [
+          "CG",
+          10
+        ],
+        [
+          "AO",
+          8
+        ],
+        [
+          "TZ",
+          7
+        ],
+        [
+          "CF",
+          4
+        ],
+        [
+          "CM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          11.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          -5.625,
+          16,
+          16
+        ],
+        [
+          14.0625,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          15.46875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          16.875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          16.875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          18.28125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          19.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          19.6875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          21.09375,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          21.09375,
+          -8.4375,
+          7,
+          7
+        ],
+        [
+          21.09375,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          21.09375,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          21.09375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          21.09375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          22.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          22.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          5,
+          5
+        ],
+        [
+          23.90625,
+          1.40625,
+          9,
+          9
+        ],
+        [
+          23.90625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          25.3125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          0,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          26.71875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -9.84375,
+          8,
+          8
+        ],
+        [
+          26.71875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          26.71875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          0,
+          6,
+          6
+        ],
+        [
+          26.71875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          2.8125,
+          10,
+          10
+        ],
+        [
+          28.125,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          29.53125,
+          -5.625,
+          7,
+          7
+        ],
+        [
+          29.53125,
+          2.8125,
+          7,
+          7
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-ornatipinnis",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. The aquarium should have a tight-fitting cover as it is an excellent escape artist.</p><p>The ornate bichir, Polypterus ornatipinnis, is a nocturnal bichir from Cameroon, the Democratic Republic of Congo, Burundi, Angola and Tanzania. It is found in rivers, ponds, marshes and lakes, including Tanganyika. The largest of the 'upper-jawed' polypterids, it reaches 60 cm, though usually less in aquaria, and will eat any tankmate small enough to fit in its mouth.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-ornatipinnis",
+      "html": "<p>Cameroon, Democratic Republic of Congo, Burundi, Angola, Tanzania, Republic of the Congo. It is found in rivers, ponds, marshes and lakes, including Tanganyika.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-ornatipinnis",
+      "html": "<p>It is found in rivers, ponds, marshes and lakes, including Tanganyika.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-ornatipinnis",
+      "html": "<p>Standard length: 60 cm SL. Aquarium base: 180 × 60 cm. Volume: 180 × 60 × 60 cm, about 648 litres, for an adult fish.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-ornatipinnis",
+      "html": "<p>Floor space is more important than depth with this species. A soft substrate with pieces of driftwood and smooth rocks arranged to form hiding places is ideal. Plants are not essential. The aquarium should have a tight-fitting cover as it is an excellent escape artist.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-ornatipinnis",
+      "html": "<ul><li>Temperature: 25–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 5–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-ornatipinnis",
+      "html": "<p>P. ornatipinnis is carnivorous by nature and will not usually accept dried foods in aquaria, though some specimens have been known to take pelleted varieties. The most suitable options are meaty live or frozen foods such as prawns, earthworms, mussel, lancefish etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-ornatipinnis",
+      "html": "<p>Not to be trusted with tankmates it can fit in its mouth but is relatively peaceful otherwise. Suitable tankmates include other Polypterus species, Synodontis, Datnoides, Knife Fish, larger Ctenopoma species, medium to large characins, large Rift lake cichlids and African Butterfly Fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-ornatipinnis",
+      "html": "<p>The male has a thicker anal fin than the female.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-ornatipinnis",
+      "html": "<p>Has been achieved in aquaria but details are very scarce. As this species breeds during the rainy season in nature, changes in the temperature and chemistry of the water are likely to induce spawning behaviour. A large tank is required and should contain soft, slightly acidic water. It is an egg scatterer and therefore areas of dense planting and/or spawning mops should be provided. Courtship involves chasing and nudging of the female by the male. During spawning itself, the male receives the eggs from the female by cupping his anal and caudal fins around her genitals. He then fertilises the eggs before scattering them amongst vegetation. At this point, the adult fish should be removed as they may predate upon the eggs. The eggs hatch in 3-4 days, with the fry becoming free swimming around 3 days later. First foods should be brine shrimp nauplii or microworm. Apparently the fry are not particularly mobile, so care should be exercised to ensure they are well fed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-ornatipinnis",
+      "html": "<p>An incredibly hardy, nocturnal species with very poor vision, P. ornatipinnis relies on its excellent sense of smell to locate food. This species along with others of its genus are some of the last surviving relatives of very ancient species. Fossils of earlier relatives have been found that date back to the Triassic Period, which occured during the early development of the dinosaurs more than 200 million years ago. They have several interesting adaptations. The swim bladder is divided into 2 parts, of which the right hand section is considerably larger. This functions as an accessory breathing organ and means the fish can survive out of water for some time, provided it is kept moist. Like anabantoid species, this fish may actually drown if it is denied access to atmospheric air. Young bichirs have amphibian-like external gills which are lost as the fish matures. This, coupled with their nocturnal mode of hunting, in which they emerge from their daytime refuges to hunt invertebrates and small fish in shallow water, clearly exhibit the link these species form between fish and amphibians.</p><p>P. ornatipinnis is the largest of the \"upper-jawed\" tribe of polypterids so named on account of the upper jaw being longer than or equal in length to the lower jaw. It is arguably the most attractive species of bichir and makes a stunning specimen fish in the larger aquarium. It should be noted that most Polypterus offered for sale are wild caught and as such, may come in carrying infections or parasites. It is suggested to keep a close eye on new fish for the first few weeks after purchase.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/80e41349d6470edf.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "MusikAnimal",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ornate_Bichir_(Polypterus_ornatipinnis),_Bronx_Zoo.jpg",
+      "caption": "An ornate bichir (Polypterus ornatipinnis) in the Bronx Zoo, September 2016",
+      "thumb": "https://media.aquatome.com/commons/80e41349d6470edf-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7f265297af7b45c0.webp",
+      "width": 800,
+      "height": 587,
+      "licence": "CC BY 3.0",
+      "author": "Logan McGuire-Warden",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polypterus_ornatipinnis_2.png",
+      "caption": "Polypterus ornatipinnis",
+      "thumb": "https://media.aquatome.com/commons/7f265297af7b45c0-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/bc6ea87a72fbf789.webp",
+      "width": 960,
+      "height": 511,
+      "licence": "CC BY 3.0",
+      "author": "Polypterus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polypterus-ornatipinnis.jpg",
+      "caption": "Polypterus ornatipinnis",
+      "thumb": "https://media.aquatome.com/commons/bc6ea87a72fbf789-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f5f58f5369b08fdb.webp",
+      "width": 960,
+      "height": 719,
+      "licence": "CC BY-SA 4.0",
+      "author": "NasserHalaweh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polypteridae_Polypterus_ornatipinnis_2.jpg",
+      "caption": "Polypterus ornatipinnis ORNATE BICHIR. Wilhelma Zoological-Botanical Garden Stuttgart.",
+      "thumb": "https://media.aquatome.com/commons/f5f58f5369b08fdb-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "kCx6sTdpHhk",
+      "title": "Dwelling Dragon of Aquarium: ORNA BICHIR - 50cm Polypterus ornatipinnis",
+      "durationSec": 32,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dh61w6UD6YM",
+      "title": "Introducing the Ornate Bichir. #polypterusornatipinnis #fish",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "yCvBe5pjS94",
+      "title": "Ornate Bichir - 4 Years of Growth (Polypterus ornatipinnis)",
+      "durationSec": 63,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "B5Ema2qkUiw",
+      "title": "Ornate Bichir (Polypterus ornatipinnis)",
+      "durationSec": 22,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước bể 600 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W",
+        "máy sưởi có bộ điều nhiệt"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá khủng long",
+        "tôm đông lạnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

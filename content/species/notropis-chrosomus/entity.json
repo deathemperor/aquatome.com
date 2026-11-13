@@ -1,0 +1,263 @@
+{
+  "id": "notropis-chrosomus",
+  "scientificName": "Notropis chrosomus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Notropis",
+  "group": "other",
+  "places": [
+    "north-america",
+    "united-states",
+    "alabama"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The original origin of H. chrosomus is the SE of the USA.",
+          "countries": [
+            "US"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362339,
+      "total": 492,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "US",
+          491
+        ],
+        [
+          "CZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -97.03125,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          -88.59375,
+          30.9375,
+          15,
+          15
+        ],
+        [
+          -88.59375,
+          32.34375,
+          28,
+          28
+        ],
+        [
+          -87.1875,
+          30.9375,
+          3,
+          3
+        ],
+        [
+          -87.1875,
+          32.34375,
+          170,
+          170
+        ],
+        [
+          -87.1875,
+          33.75,
+          54,
+          54
+        ],
+        [
+          -87.1875,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          -85.78125,
+          32.34375,
+          19,
+          19
+        ],
+        [
+          -85.78125,
+          33.75,
+          177,
+          177
+        ],
+        [
+          -84.375,
+          33.75,
+          23,
+          23
+        ],
+        [
+          14.0625,
+          49.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hydrophlox-chrosomus-notropis-chrosomus-2/",
+      "html": "<ul><li>Maximum length around 8 cm; average length found in the wild around 5 cm, at which point the animals are already coloring.</li><li>Gravel spawner that deposits eggs in the substrate; no broodcare.</li><li>Absolutely peaceful; suitable for community aquaria with tankmates that have similar requirements.</li><li>Keep in shoals of 10 or more.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hydrophlox-chrosomus-notropis-chrosomus-2/",
+      "html": "<p>The original origin of H. chrosomus is the SE of the USA. It inhabits clear streams with gravelly bottoms in the states of Alabama, Georgia and south-eastern Tennessee.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hydrophlox-chrosomus-notropis-chrosomus-2/",
+      "html": "<p>The climate there is almost subtropical, with mild winters and hot summers; there can also be frost in winter, but this is rare. The course of the seasons and the seasonal temperature development roughly corresponds to the conditions in Central Europe.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hydrophlox-chrosomus-notropis-chrosomus-2/",
+      "html": "<p>The temperature requirements of rainbow minnows (only captive-bred fish are available in the trade) in the aquarium can be satisfied with room temperature (18-22°C), but their temperature tolerance is far greater. The range from 10°C to 25°C (temporarily 2-3 degrees higher and lower) is considered safe, although sudden temperature changes should be avoided at all costs.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hydrophlox-chrosomus-notropis-chrosomus-2/",
+      "html": "<p>The minnows, which are basically bottom-oriented, are completely problem-free eaters that will willingly accept any ornamental fish food of a suitable size.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hydrophlox-chrosomus-notropis-chrosomus-2/",
+      "html": "<p>They are absolutely peaceful and well suited to community aquaria, provided that the planned tankmates have similar requirements, i.e. clear, oxygen-rich and relatively cool water, a certain current and a gravely substrate. Plants are not damaged. They should always be kept in shoals, from 10 specimens upwards, otherwise these fish can be shy.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hydrophlox-chrosomus-notropis-chrosomus-2/",
+      "html": "<p>Males can be recognized by the higher proportion of blue in their colouring.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hydrophlox-chrosomus-notropis-chrosomus-2/",
+      "html": "<p>H. chrosomus are gravel spawners that deposit their eggs in the substrate. These fish do not practice broodcare. The sex ratio (males to females) is completely irrelevant for keeping them; for breeding – which is also most successful in shoals – both sexes are of course necessary.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hydrophlox-chrosomus-notropis-chrosomus-2/",
+      "html": "<p>The “rainbow shiner” (Hydrophlox chrosomus, formerly Notropis c.) was a sensational fish in the early 2000s. Strangely enough, only very few of the almost 325 species of North and Central American minnows and shiners have ever become established as aquarium fish. The fact that these animals are highly complex from a systematic-taxonomic point of view has certainly contributed to this. Many species have very conservative morphological characteristics, which – superficially speaking – make them very similar to each other and therefore difficult to identify. And so, at times, all species were placed in the collective genus Notropis. It was only a matter of time before this would change and it finally happened in 2022, when a working group led by Jonathan W. Armbruster presented the first major phylogeny for the species previously grouped under Notropis (Stout et al., 2022). Although not all species were (yet) included in this phylogeny, some kinds of regroupings were made. One of these concerns the rainbow shiner, which together with four other species (chiliticus, chlorocephalus, lutipinnis and rubricroceus) now form the genus Hydrophlox. Incidentally, this genus was already established in 1878, the type species being Hybopsis rubricroceus Cope, 1868. The genus name Hydrophlox roughly means “water flame” and refers to the bright colors of the mating males.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hydrophlox-chrosomus-notropis-chrosomus-2/",
+      "html": "<p>Stout, C., S. Schönhuth, R. Mayden, N. L. Garrison &amp; J. W. Armbruster (2022): Phylogenomics and classification of Notropis and related shiners (Cypriniformes: Leuciscidae) and the utility of exon capture on lower taxonomic groups. PeerJ v. 10 (art. e14072): 1-23.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/669262813.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/669262813-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Tayton Alvis",
+      "sourceUrl": "https://www.inaturalist.org/photos/669262813",
+      "caption": "Cá rainbow shiner đực ánh xanh tím trong bể kính",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/669262813-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "KB2MJX1E9Gs",
+      "title": "Kann man REGENBOGENELRITZEN (Rainbow Shiner, Notropis chrosomus) dauerhaft im Aquarium halten?",
+      "durationSec": 182,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "0NvlBGIC9LU",
+      "title": "Regenbogenelritze - Notropis chrosomus | Liquid Nature Fisch Vorstellung",
+      "durationSec": 399,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "jfRnegl5oLo",
+      "title": "Reproduzir o Rainbow Shiner (Notropis chrosomus) no Aquário!",
+      "durationSec": 142,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mRWSUixH0sQ",
+      "title": "Notropis: allevamento e riproduzione",
+      "durationSec": 347,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá nhỏ nuôi cá nước mát"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy sục khí bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cảnh tổng hợp",
+        "thức ăn cá nhỏ dạng mảnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

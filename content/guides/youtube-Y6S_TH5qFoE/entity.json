@@ -9,7 +9,7 @@
     "microsorum-pteropus",
     "bolbitis-heudelotii"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "Y6S_TH5qFoE",
     "title": "Bật Mí Bảng Châm Phân Nước 012 Của 8m2 - Bổ Sung Dinh Dưỡng Cho Hồ Ráy, Dương Xỉ, Rêu Thủy Sinh",
@@ -28,100 +28,55 @@
       "height": 720
     },
     "lang": "vi",
-    "taxa": [
-      "Microsorum pteropus",
-      "Bolbitis heudelotii"
-    ],
+    "taxa": [],
     "gear": [
       {
         "category": "khac",
         "brand": "Thủy Sinh AZ",
         "model": "NPK+",
-        "t": 184
+        "t": 183
       },
       {
         "category": "khac",
         "brand": "Thủy Sinh AZ",
         "model": "Trace",
-        "t": 184
+        "t": 183
       },
       {
         "category": "khac",
         "brand": "Thủy Sinh AZ",
         "model": "Kali",
-        "t": 184
-      },
-      {
-        "category": "cay-thuy-sinh",
-        "type": "reu",
-        "t": 30
-      },
-      {
-        "category": "cay-thuy-sinh",
-        "type": "gan-lua",
-        "t": 30
+        "t": 183
       }
     ],
     "figures": [
       {
-        "heading": "Ráy, dương xỉ và rêu ăn phân thế nào",
-        "moments": [
-          {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/Y6S_TH5qFoE/t30.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh cây xanh mướt với lũa lớn và thảm cây thấp."
-          },
-          {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/Y6S_TH5qFoE/t40.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Góc bể với cây lá rộng, thảm cây và lũa, cây phát triển đều."
-          }
-        ],
+        "heading": "Ráy, dương xỉ, rêu có đặc điểm gì cần biết trước khi châm phân",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/Y6S_TH5qFoE/p0-NfUGxhbnRzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/Y6S_TH5qFoE/p0-NfUGxhbnRzLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/Y6S_TH5qFoE/p0-cnUtSW5kaWEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/Y6S_TH5qFoE/p0-cnUtSW5kaWEuanBn-480.webp",
           "width": 960,
-          "height": 638,
+          "height": 1007,
           "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Bụi ráy xanh khỏe bám trên lũa trong bể cát trắng."
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_bateri_var_nana-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Cận cảnh cây ráy lá xanh bám trên đá trong hồ thủy sinh."
         }
       },
       {
-        "heading": "Bộ phân dùng để tính lịch",
-        "moments": [
-          {
-            "t": 213,
-            "url": "https://media.aquatome.com/video/Y6S_TH5qFoE/t213.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ba chai phân nước AZ và chai kali xếp cạnh nhau."
-          },
-          {
-            "t": 223,
-            "url": "https://media.aquatome.com/video/Y6S_TH5qFoE/t223.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh chai phân nước với bảng hàm lượng ghi rõ trên nhãn."
-          }
-        ]
-      },
-      {
-        "heading": "Giai đoạn cạn dưỡng: tăng gấp đôi đa lượng",
-        "moments": [
-          {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/Y6S_TH5qFoE/t470.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh cây mọc dày xanh tốt, có lũa lớn bên trên."
-          }
-        ]
+        "heading": "Hồ từ 6 tháng tuổi hoặc hồ nền nghèo dưỡng châm thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Y6S_TH5qFoE/p4-hcG9uaWNhKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Y6S_TH5qFoE/p4-hcG9uaWNhKS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Sky99",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crevette_caridina_multidentata_(amano,_japonica).jpg",
+          "caption": "Hồ thủy sinh rêu và cây xanh tốt, có tép đang bò trên rêu."
+        }
       }
     ]
   }

@@ -1,0 +1,339 @@
+{
+  "id": "oreochromis-tanganicae",
+  "scientificName": "Oreochromis tanganicae",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Oreochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "tanzania",
+    "zambia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ",
+            "ZM"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372301,
+      "total": 126,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TZ",
+          37
+        ],
+        [
+          "CD",
+          33
+        ],
+        [
+          "ZM",
+          27
+        ],
+        [
+          "ZA",
+          15
+        ],
+        [
+          "BI",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          26.71875,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -7.03125,
+          18,
+          18
+        ],
+        [
+          28.125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          28.125,
+          -4.21875,
+          20,
+          20
+        ],
+        [
+          29.53125,
+          -9.84375,
+          10,
+          10
+        ],
+        [
+          29.53125,
+          -8.4375,
+          11,
+          11
+        ],
+        [
+          29.53125,
+          -7.03125,
+          10,
+          10
+        ],
+        [
+          29.53125,
+          -5.625,
+          22,
+          22
+        ],
+        [
+          30.9375,
+          -9.84375,
+          15,
+          15
+        ],
+        [
+          30.9375,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          32.34375,
+          -29.53125,
+          3,
+          0
+        ],
+        [
+          32.34375,
+          -28.125,
+          12,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 42
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 210
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-tanganicae",
+      "html": "<p>The Tanganyikan tilapia, Oreochromis tanganicae, is a large cichlid endemic to Lake Tanganyika, where it inhabits river mouths and shorelines. It is often seen in shoals in nature and appears to feed primarily on phytoplankton. Reaching 42 cm, it is not seen very often in the hobby.</p><ul><li>Difficulty: Difficult, because it needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-tanganicae",
+      "html": "<p>Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-tanganicae",
+      "html": "<p>It inhabits the mouths of rivers and shorelines of the lake.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-tanganicae",
+      "html": "<p>Standard length: 42 cm SL.</p><p>Aquarium base: 210 × 60 cm.</p><p>210 × 60 × 60 cm, about 756 litres, for adult fish. Juveniles can be grown on in smaller aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-tanganicae",
+      "html": "<p>Not critical. A sandy substrate is best. Plants should not be used as they will be eaten and a large, efficient filtration system is essential as this species is very messy. Otherwise, decor is down to personal preference.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-tanganicae",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 7.5–9.0</li><li>Hardness: 8–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-tanganicae",
+      "html": "<p>Very unfussy and will eat most foods offered. Some vegetable matter should be included in the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-tanganicae",
+      "html": "<p>It is not particularly aggressive with anything too large to fit in its mouth but the choices are fairly limited. It is best kept alone, but tankmates could include Aristochomis, Boulengerochromis or large mbuna. Larger Central American cichlids are also a possibility as they like similar water conditions, but care must be taken when selecting species and a very large tank would be required. Most aquaria are not large enough to support more than one male of this species, as they are territorial, but several females can be kept with a single male.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-tanganicae",
+      "html": "<p>Males are larger and more colourful than females. They also develop longer dorsal and anal fins as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-tanganicae",
+      "html": "<p>Not known to have been achieved in aquaria. Maternal mouthbrooder. In nature the fish breed around sandy beaches, most likely in a similar fashion to some other large Oreochromis species such as O. mossambicus and O. niloticus. It is known that male fish play no part in broodcare but the female is a very good mother, defending the brood for several weeks after they become free swimming.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-tanganicae",
+      "html": "<p>This large Tanganyikan species is not seen very often in the hobby. It is often seen in shoals in nature, where it appears to feed primarily on phytoplankton. An adult male would make a truly stunning specimen fish.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/ce5e79ed115ec849.webp",
+      "width": 960,
+      "height": 593,
+      "licence": "CC BY-SA 4.0",
+      "author": "Michael K. Oliver, Ph.D.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oreochromis_tanganicae_(G%C3%BCnther).jpg",
+      "caption": "A cichlid from Lake Tanganyika, Oreochromis tanganicae (Günther), photographed at the Berlin Aquarium.",
+      "thumb": "https://media.aquatome.com/commons/ce5e79ed115ec849-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/da30a73cdccac374.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Syrio",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oreochromis_tanganicae_Muse.jpg",
+      "caption": "Oreochromis tanganicae at Muse (Trento, Italy)",
+      "thumb": "https://media.aquatome.com/commons/da30a73cdccac374-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "VEXxinlTEtg",
+      "title": "Breeding Oreochromis tanganicae , the Tanganyikan Tilapia - PISCES",
+      "durationSec": 147,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AMCj0rqmoic",
+      "title": "Oreochromis tanganicae F1 male constracting territory - PISCES",
+      "durationSec": 111,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mqKOYJpDr9E",
+      "title": "Oreochromis tanganicae F1 scarping algae - PISCES",
+      "durationSec": 71,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZO--SjSXZqI",
+      "title": "Oreochromis tanganicae Breeding First time.",
+      "durationSec": 400,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 210cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc ngoài cho bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

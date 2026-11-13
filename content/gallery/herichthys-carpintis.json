@@ -38,18 +38,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/142764458.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/142764458-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-SA",
-      "author": "José Francisco Colorado-Dapa",
-      "sourceUrl": "https://www.inaturalist.org/photos/142764458",
-      "caption": "Cá rô phi Mexico chấm xanh dưới hốc đá trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/6ac591361d759904.webp",
       "thumb": "https://media.aquatome.com/commons/6ac591361d759904-480.webp",
       "width": 1200,
@@ -60,18 +48,6 @@
       "caption": "Cá rô phi Mexico trưởng thành màu xanh vàng, nền đen",
       "best": true,
       "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/142984934.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/142984934-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-SA",
-      "author": "José Francisco Colorado-Dapa",
-      "sourceUrl": "https://www.inaturalist.org/photos/142984934",
-      "caption": "Cá Herichthys carpintis có đốm xanh nấp dưới mỏm đá",
-      "best": true,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/06a71da132d914cf.webp",
@@ -214,6 +190,30 @@
       "caption": "Cá rô phi Mexico thân xanh đốm sáng trong bể tối",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/142764458.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/142764458-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "José Francisco Colorado-Dapa",
+      "sourceUrl": "https://www.inaturalist.org/photos/142764458",
+      "caption": "Cá rô phi Mexico chấm xanh dưới hốc đá trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/142984934.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/142984934-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "José Francisco Colorado-Dapa",
+      "sourceUrl": "https://www.inaturalist.org/photos/142984934",
+      "caption": "Cá Herichthys carpintis có đốm xanh nấp dưới mỏm đá",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 78,

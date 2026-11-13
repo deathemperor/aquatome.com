@@ -1,9 +1,12 @@
-import { LANG, LANGS, type Lang } from '@aq/schema/langs'
-import { isReader, isSearch } from '../readers'
-import { aeSql, COUNTED, EVENTS, num, READERS_FROM } from './ae'
+import { LANGS, type Lang } from '@aq/schema/langs'
+import { automated, isOurs, isReader, isSearch } from '../readers'
+import { aeSql, EVENTS, num, READERS_FROM, SINCE_RESET, WHO_RANK } from './ae'
+import { VISITOR_STATS } from '../stats-switch'
 import { orNoTable } from './app'
-import { chipHtml, chipOf, dayChart, dayLabel, esc, fmt, rankTable, spark, tiles, type Tile } from './chart'
+import { chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Block, type Cell, type Section } from './blocks'
+import { chipHtml, chipOf, dayChart, dayLabel, esc, fmt, rankTable, spark, tiles, type DayChart, type Tile } from './chart'
 import { langOfPath, pagePathOf, type ContentStats, type Snapshot } from './content'
+import { LANG_NAME } from './content-page'
 import { dashboardUrl } from '../paths'
 import { failedBox, isFailed, page, SCOREBOARD_PATH, type Failed, type Soft } from './shell'
 import { dayStart, HOME_TZ, localDay, msOf } from './time'
@@ -71,38 +74,48 @@ function level(now: Date, points: { day: string; value: number | null | undefine
 
 // ——— The readers' beacon ———
 
-/** A session's rows: one per kind of event, page, referrer and country, with the kind's highest value and how many. */
-export type BeaconRow = { sid: string; t: string; p: string; ref: string; cc: string; first: string; v: number | string; n: number | string }
-export const BEACON_SQL = (from: string) => `SELECT blob4 AS sid, blob2 AS t, blob3 AS p, blob5 AS ref, blob6 AS cc, min(timestamp) AS first, max(double1) AS v, SUM(_sample_interval) AS n
-FROM ${EVENTS} WHERE blob2 IN ('view', 'time', 'scroll', 'aff') AND timestamp >= toDateTime('${from.slice(0, 19).replace('T', ' ')}') AND ${COUNTED} GROUP BY sid, t, p, ref, cc FORMAT JSON`
+/**
+ * A session's rows: one per kind of event, page, referrer and country, with the kind's highest value and how many, and
+ * the strongest mark among them (`who`, ae.ts WHO_RANK): visitsOf leaves out a tab any of whose rows is marked.
+ */
+export type BeaconRow = { sid: string; t: string; p: string; ref: string; cc: string; first: string; v: number | string; n: number | string; who?: number | string }
+export const BEACON_SQL = (from: string) => `SELECT blob4 AS sid, blob2 AS t, blob3 AS p, blob5 AS ref, blob6 AS cc, min(timestamp) AS first, max(double1) AS v, SUM(_sample_interval) AS n, ${WHO_RANK}
+FROM ${EVENTS} WHERE blob2 IN ('view', 'time', 'scroll', 'aff') AND timestamp >= toDateTime('${from.slice(0, 19).replace('T', ' ')}') AND ${SINCE_RESET} GROUP BY sid, t, p, ref, cc FORMAT JSON`
 export const queryBeacon = (accountId: string, token: string, from: string) => aeSql<BeaconRow>(accountId, token, BEACON_SQL(from))
 
 /** Each language's tool pages, under its word for /cong-cu/ (a test holds them to src/lib/i18n.ts). The list itself is not a tool. */
-export const TOOLS: Record<Lang, string> = { vi: '/cong-cu/', id: '/id/alat/', th: '/th/tools/' }
+export const TOOLS: Record<Lang, string> = { vi: '/cong-cu/', id: '/id/alat/', th: '/th/tools/', ms: '/ms/alat/' }
 const isTool = (path: string) => path.length > TOOLS[langOfPath(path)].length && path.startsWith(TOOLS[langOfPath(path)])
 
 /** A session as the scoreboard reads it: where it landed, from where, and what it did. */
 export type Visit = { at: number; land: string; ref: string; cc: string; pages: number; t: number; scroll: number; landT: number; landScroll: number; shop: number; tool: boolean }
 
-/** The beacon's rows as sessions, by each one's first view; a session with no view of its own (it began before the count) is left out. */
+/**
+ * The beacon's rows as sessions, by each one's first view, as the readers page counts them (readers.ts): a session with no
+ * view of its own (it began before the count), one of ours (any row marked) or a likely automated one is left out.
+ */
 export function visitsOf(rows: BeaconRow[]): Visit[] {
   const bySid = new Map<string, BeaconRow[]>()
   for (const r of rows) bySid.set(r.sid, [...(bySid.get(r.sid) ?? []), r])
-  const out: Visit[] = []
-  for (const xs of bySid.values()) {
+  const out: (Visit & { sid: string })[] = []
+  const tabs: Parameters<typeof automated>[0] = []
+  for (const [sid, xs] of bySid) {
+    if (xs.some(isOurs)) continue
     const views = xs.filter(r => r.t === 'view').sort((a, b) => msOf(a.first) - msOf(b.first))
     const first = views[0]
     if (!first) continue
+    tabs.push({ sid, first: first.first, land: first.p, ref: first.ref, cc: first.cc })
     const land = pagePathOf(first.p)
     const highest = (t: string, only?: string) => Math.max(0, ...xs.filter(r => r.t === t && (!only || pagePathOf(r.p) === only)).map(r => num(r.v)))
     const paths = new Set(views.map(r => pagePathOf(r.p)))
     out.push({
-      at: msOf(first.first), land, ref: first.ref, cc: first.cc, pages: paths.size,
+      sid, at: msOf(first.first), land, ref: first.ref, cc: first.cc, pages: paths.size,
       t: highest('time'), scroll: highest('scroll'), landT: highest('time', land), landScroll: highest('scroll', land),
       shop: xs.filter(r => r.t === 'aff').reduce((n, r) => n + num(r.n), 0), tool: [...paths].some(isTool),
     })
   }
-  return out
+  const auto = automated(tabs)
+  return out.filter(v => !auto.has(v.sid)).map(({ sid: _, ...v }) => v)
 }
 
 const readers = (xs: Visit[]) => xs.filter(isReader)
@@ -118,6 +131,32 @@ const countries = (xs: Visit[], n = 10) => {
   for (const v of readers(xs)) m.set(v.cc || '??', (m.get(v.cc || '??') ?? 0) + 1)
   return [...m].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, n).map(([cc, readers]) => ({ cc, readers }))
 }
+
+type Counts = { answered: number; readers: number; sessions: number; shop: number }
+const counts = (xs: Visit[]): Counts => ({ answered: xs.filter(isAnswered).length, readers: readers(xs).length, sessions: xs.length, shop: shopClicks(xs) })
+/** This week by day, Monday to Sunday in Vietnam, with `today` its place (the days after it null): the overview's chart. */
+export type WeekByDay = { days: string[]; today: number; answered: (number | null)[]; readers: (number | null)[]; shop: (number | null)[]; now: Counts; lastSoFar: Counts | null }
+/**
+ * The scoreboard's this week and same point last week (flow), and this week's days, from the beacon's rows since last
+ * week's Monday: the overview's "Found an answer" says what the scoreboard says. Days before the readers were counted are null.
+ */
+export function weekByDay(now: Date, rows: BeaconRow[], countingFrom = READERS_FROM): WeekByDay {
+  const visits = visitsOf(rows)
+  const monday = mondayOf(localDay(now, HOME_TZ))
+  const days = Array.from({ length: 7 }, (_, i) => plusDays(monday, i))
+  const today = days.indexOf(localDay(now, HOME_TZ))
+  const since = Date.parse(countingFrom)
+  const per = days.map((d, i) => (i > today || Date.parse(dayStart(plusDays(d, 1), HOME_TZ)) <= since ? null : counts(visits.filter(v => localDay(v.at, HOME_TZ) === d))))
+  const week = (m: string) => visits.filter(v => mondayOf(localDay(v.at, HOME_TZ)) === m)
+  const sameMoment = now.getTime() - 7 * DAY
+  return {
+    days, today, answered: per.map(c => c?.answered ?? null), readers: per.map(c => c?.readers ?? null), shop: per.map(c => c?.shop ?? null),
+    now: counts(week(monday)),
+    lastSoFar: Date.parse(dayStart(monday, HOME_TZ)) <= since ? null : counts(week(plusDays(monday, -7)).filter(v => v.at < sameMoment)),
+  }
+}
+/** Where the overview's beacon starts: last week's Monday, Vietnam's. */
+export const lastMondayStart = (now: Date) => dayStart(plusDays(mondayOf(localDay(now, HOME_TZ)), -7), HOME_TZ)
 
 // ——— D1, the app's telemetry, GitHub ———
 
@@ -165,7 +204,7 @@ export async function queryChecks(from: string): Promise<CheckIssue[]> {
 // ——— The metrics ———
 
 export const GROUPS = {
-  star: 'Chỉ số chính', reach: 'Tiếp cận', act: 'Hành động', back: 'Quay lại', community: 'Cộng đồng', app: 'Ứng dụng', supply: 'Nội dung', guard: 'Giữ chất lượng',
+  star: 'North star', reach: 'Reach', act: 'Action', back: 'Coming back', community: 'Community', app: 'App', supply: 'Content', guard: 'Quality guard',
 } as const
 export type Group = keyof typeof GROUPS
 export type Unit = 'count' | 'percent' | 'per1000'
@@ -205,11 +244,11 @@ export type Scoreboard = {
 }
 
 export const NOT_YET: Scoreboard['notYet'] = [
-  { name: 'Google Search Console: lượt hiển thị, lượt bấm, vị trí', needs: 'Chủ trang xác minh aquatome.com trong Search Console và cấp quyền đọc qua API.' },
-  { name: 'Doanh thu AdSense', needs: 'Chủ trang cấp quyền đọc báo cáo (AdSense Management API), hoặc gửi báo cáo xuất hằng tuần.' },
-  { name: 'Hoa hồng affiliate', needs: 'Chủ trang có tài khoản mạng affiliate và báo cáo đơn hàng của mạng đó.' },
-  { name: 'Lượt cài và người dùng ứng dụng mỗi tuần', needs: 'Sau khi ra mắt: quyền đọc App Store Connect. Telemetry của ứng dụng mỗi lần mở dùng một mã mới, nên không đếm được người.' },
-  { name: 'Người đọc quay lại', needs: 'Không đo, theo thiết kế: beacon không có mã khách, mỗi tab là một phiên.' },
+  { name: 'AdSense revenue', needs: 'The owner grants read access to the reports (AdSense Management API), or sends the export weekly.' },
+  { name: 'Affiliate commission', needs: 'The owner has an affiliate network account and its order reports.' },
+  { name: 'App installs and weekly users', needs: 'After launch: read access to App Store Connect. The app’s telemetry uses a new id each launch, so people can’t be counted.' },
+  // Measured with the visitor code (src/lib/beacon.ts), once its switch is on: the readers page's return visits.
+  ...(VISITOR_STATS ? [] : [{ name: 'Returning readers', needs: 'Not measured yet: the visitor code waits to be turned on (the Readers page will then have return visits).' }]),
 ]
 
 export type ScoreboardInput = {
@@ -240,49 +279,49 @@ export function summariseScoreboard(i: ScoreboardInput): Scoreboard {
     out.push({ key, name, group, unit, ...o, now: w.weeks[WEEKS - 1]!, last: w.weeks[WEEKS - 2]!, lastSoFar: w.lastSoFar, weeks: w.weeks })
   const read = (value: (xs: Visit[]) => number | null) => (beacon ? flow(now, visits, v => v.at, value, since) : nothing())
 
-  add('answered', 'Người đọc tìm được câu trả lời', 'star', 'count', read(xs => xs.filter(isAnswered).length), { good: 'up', note: 'Đến từ công cụ tìm kiếm, rồi ở lại trang đầu tiên từ 30 giây hoặc kéo qua nửa trang.' })
+  add('answered', 'Readers who found their answer', 'star', 'count', read(xs => xs.filter(isAnswered).length), { good: 'up', note: 'Came from a search engine, then stayed 30 s on the first page or scrolled past half of it.' })
 
-  add('readers', 'Người đọc', 'reach', 'count', read(xs => readers(xs).length), { good: 'up', note: 'Phiên ở lại từ 30 giây hoặc kéo qua nửa trang, ở bất kỳ trang nào.' })
-  add('sessions', 'Phiên', 'reach', 'count', read(xs => xs.length), { note: 'Mỗi tab một phiên. Không tính bot đã biết, các bài kiểm tra của trang và chủ trang.' })
-  add('searchShare', 'Người đọc đến từ tìm kiếm', 'reach', 'percent', read(xs => shareOf(readers(xs), v => isSearch(v.ref))))
-  for (const l of LANGS) add(`readers.${l}`, `Người đọc · ${LANG[l].name}`, 'reach', 'count', read(xs => readers(xs).filter(v => langOfPath(v.land) === l).length))
+  add('readers', 'Readers', 'reach', 'count', read(xs => readers(xs).length), { good: 'up', note: 'Tabs that stayed 30 s or scrolled past half a page, on any page.' })
+  add('sessions', 'Sessions', 'reach', 'count', read(xs => xs.length), { note: 'One a tab. Known bots, the site’s own checks and the owner left out.' })
+  add('searchShare', 'Readers from search', 'reach', 'percent', read(xs => shareOf(readers(xs), v => isSearch(v.ref))))
+  for (const l of LANGS) add(`readers.${l}`, `Readers · ${LANG_NAME[l]}`, 'reach', 'count', read(xs => readers(xs).filter(v => langOfPath(v.land) === l).length))
 
-  add('stepShare', 'Phiên có bước tiếp theo', 'act', 'percent', read(xs => shareOf(xs, tookStep)), { note: 'Bấm sang sàn, mở một công cụ hoặc đọc trang thứ hai.' })
-  add('shopShare', 'Phiên bấm sang sàn', 'act', 'percent', read(xs => shareOf(xs, v => v.shop > 0)))
-  add('toolShare', 'Phiên mở công cụ', 'act', 'percent', read(xs => shareOf(xs, v => v.tool)))
-  add('pageShare', 'Phiên đọc trang thứ hai', 'act', 'percent', read(xs => shareOf(xs, v => v.pages > 1)))
-  add('shopClicks', 'Lượt bấm sang sàn', 'act', 'count', read(shopClicks), { good: 'up', note: 'Beacon đếm khi người đọc bấm, cùng quy tắc với số người đọc.' })
-  add('shopPer1000', 'Lượt bấm sang sàn trên 1.000 người đọc', 'act', 'per1000', read(xs => { const r = readers(xs).length; return r ? (1000 * shopClicks(xs)) / r : null }))
+  add('stepShare', 'Sessions with a next step', 'act', 'percent', read(xs => shareOf(xs, tookStep)), { note: 'Clicked to a shop, opened a tool or read a second page.' })
+  add('shopShare', 'Sessions that clicked to a shop', 'act', 'percent', read(xs => shareOf(xs, v => v.shop > 0)))
+  add('toolShare', 'Sessions that opened a tool', 'act', 'percent', read(xs => shareOf(xs, v => v.tool)))
+  add('pageShare', 'Sessions that read a second page', 'act', 'percent', read(xs => shareOf(xs, v => v.pages > 1)))
+  add('shopClicks', 'Shop clicks', 'act', 'count', read(shopClicks), { good: 'up', note: 'Counted by the beacon when a reader clicks, by the same rules as readers.' })
+  add('shopPer1000', 'Shop clicks per 1,000 readers', 'act', 'per1000', read(xs => { const r = readers(xs).length; return r ? (1000 * shopClicks(xs)) / r : null }))
   const clicks = on(i.clicks)
-  add('redirects', 'Lượt chuyển sang sàn qua /go/', 'act', 'count',
+  add('redirects', 'Redirects to shops through /go/', 'act', 'count',
     clicks ? flow(now, clicks.days.map((d, k) => ({ at: Date.parse(dayStart(d, HOME_TZ)), n: clicks.clicks[k]! })), x => x.at, xs => sum(xs, x => x.n)) : nothing(),
-    { note: 'Máy chủ đếm, để đối chiếu với beacon. Trước bản sửa ngày 06/11 số này gồm cả crawler và chủ trang.' })
+    { note: 'Counted by the server, to check against the beacon. Before the fix of 6 Nov it took in crawlers and the owner.' })
 
   const community = on(i.community)
   const owners = new Set(i.owners)
-  add('keepers', 'Tài khoản có đổi bể trong tuần', 'back', 'count',
+  add('keepers', 'Accounts that changed a tank this week', 'back', 'count',
     community ? flow(now, community.tanks.filter(x => !owners.has(x.who)), x => msOf(x.at), xs => new Set(xs.map(x => x.who)).size) : nothing(),
-    { good: 'up', note: 'Trừ chủ trang. Tuần đã qua có thể thấp hơn thật: mỗi bản ghi chỉ giữ lần đổi mới nhất.' })
+    { good: 'up', note: 'The owner left out. Past weeks can read low: each record keeps only its newest change.' })
 
-  add('comments', 'Bình luận được duyệt', 'community', 'count', community ? flow(now, community.comments, x => msOf(x.at), xs => xs.length) : nothing(), { good: 'up', note: 'Theo ngày gửi.' })
-  add('photos', 'Ảnh bạn đọc được duyệt', 'community', 'count', community ? flow(now, community.photos, x => msOf(x.at), xs => xs.length) : nothing(), { good: 'up', note: 'Theo ngày gửi.' })
+  add('comments', 'Comments approved', 'community', 'count', community ? flow(now, community.comments, x => msOf(x.at), xs => xs.length) : nothing(), { good: 'up', note: 'By the day sent.' })
+  add('photos', 'Reader photos approved', 'community', 'count', community ? flow(now, community.photos, x => msOf(x.at), xs => xs.length) : nothing(), { good: 'up', note: 'By the day sent.' })
 
   const app = on(i.app)
   const rate = (prefix: string) => (app
     ? flow(now, app.actions.filter(a => a.act.startsWith(prefix)), a => msOf(a.at), xs => share(sum(xs, x => x.ok), sum(xs, x => x.n)))
     : nothing())
   const launches = app ? flow(now, app.sessions, x => msOf(x.at), xs => xs.length) : nothing()
-  add('appSessions', 'Lượt mở ứng dụng', 'app', 'count', launches, { good: 'up', note: 'Bản App Store, người dùng không tắt telemetry. Không phải số người.' })
-  add('lightOk', 'Kết nối và ghi đèn thành công', 'app', 'percent', rate('light.'))
-  add('plugOk', 'Bật, tắt ổ cắm thành công', 'app', 'percent', rate('plug.'))
+  add('appSessions', 'App launches', 'app', 'count', launches, { good: 'up', note: 'The App Store build, with telemetry left on. Not people.' })
+  add('lightOk', 'Light connects and writes that worked', 'app', 'percent', rate('light.'))
+  add('plugOk', 'Plug switches that worked', 'app', 'percent', rate('plug.'))
   const crashes = app ? flow(now, app.crashes, x => msOf(x.at), xs => sum(xs, x => x.n)) : nothing()
   const free = (c: number | null, n: number | null) => (c === null || !n ? null : Math.max(0, 100 * (1 - c / n)))
-  add('crashFree', 'Lượt mở không crash', 'app', 'percent', { weeks: crashes.weeks.map((c, k) => free(c, launches.weeks[k]!)), lastSoFar: free(crashes.lastSoFar, launches.lastSoFar) }, { note: 'Ước lượng: số báo cáo crash iOS gửi trên số lượt mở; iOS gửi chậm khoảng một ngày.' })
+  add('crashFree', 'Launches without a crash', 'app', 'percent', { weeks: crashes.weeks.map((c, k) => free(c, launches.weeks[k]!)), lastSoFar: free(crashes.lastSoFar, launches.lastSoFar) }, { note: 'An estimate: the crash reports iOS sends over launches; iOS sends them about a day late.' })
 
   const content = on(i.content)
   const snaps = on(i.snapshots) ?? []
-  for (const l of LANGS) add(`pages.${l}`, `Trang · ${LANG[l].name}`, 'supply', 'count', level(now, snaps.map(s => ({ day: s.day, value: s.totals.built?.[l] })), content?.totals.built?.[l]))
-  add('fullCards', 'Cá có thẻ số liệu đủ', 'supply', 'count', level(now, snaps.map(s => ({ day: s.day, value: s.totals.fullCards })), content?.totals.fullCards), { good: 'up', note: 'Có nhiệt độ, pH và cỡ cá.' })
+  for (const l of LANGS) add(`pages.${l}`, `Pages · ${LANG_NAME[l]}`, 'supply', 'count', level(now, snaps.map(s => ({ day: s.day, value: s.totals.built?.[l] })), content?.totals.built?.[l]))
+  add('fullCards', 'Fish with a full data card', 'supply', 'count', level(now, snaps.map(s => ({ day: s.day, value: s.totals.fullCards })), content?.totals.fullCards), { good: 'up', note: 'With temperature, pH and size.' })
 
   const checks = on(i.checks)
   const openAt = (test: (x: CheckIssue) => boolean): Weekly => {
@@ -298,9 +337,9 @@ export function summariseScoreboard(i: ScoreboardInput): Scoreboard {
   }
   const deploy = (x: CheckIssue) => x.title.startsWith('Deploy failed')
   const lighthouse = (x: CheckIssue) => x.title.startsWith('Site check failed: lighthouse ')
-  add('checksOpen', 'Lỗi kiểm tra trực tiếp đang mở', 'guard', 'count', openAt(x => !deploy(x) && !lighthouse(x)), { note: 'Cuối mỗi tuần: issue site-check chưa đóng.' })
-  add('lighthouseOpen', 'Trang chưa đạt Lighthouse', 'guard', 'count', openAt(lighthouse))
-  add('deployFails', 'Lần deploy lỗi', 'guard', 'count', checks ? flow(now, checks.filter(deploy), x => msOf(x.created_at), xs => xs.length) : nothing())
+  add('checksOpen', 'Live check failures open', 'guard', 'count', openAt(x => !deploy(x) && !lighthouse(x)), { note: 'At each week’s end: site-check issues not closed.' })
+  add('lighthouseOpen', 'Pages failing Lighthouse', 'guard', 'count', openAt(lighthouse))
+  add('deployFails', 'Failed deploys', 'guard', 'count', checks ? flow(now, checks.filter(deploy), x => msOf(x.created_at), xs => xs.length) : nothing())
 
   const mondays = weeksTo(now)
   const inWeek = (m: string) => visits.filter(v => mondayOf(localDay(v.at, HOME_TZ)) === m)
@@ -316,71 +355,114 @@ export function summariseScoreboard(i: ScoreboardInput): Scoreboard {
 
 // ——— Words ———
 
-const shown = (v: number | null, unit: Unit) => (v === null ? '—' : unit === 'percent' ? `${fmt(v, 1)}%` : unit === 'per1000' ? fmt(v, 1) : fmt(v))
+const shown = (v: number | null, unit: Unit, f = fmt) => (v === null ? '—' : unit === 'percent' ? `${f(v, 1)}%` : unit === 'per1000' ? f(v, 1) : f(v))
 const metric = (s: Scoreboard, key: string) => s.metrics.find(m => m.key === key)!
-const LAST_SO_FAR = 'cùng lúc tuần trước'
-const LAST_WEEK = 'tuần trước'
+const LAST_SO_FAR = 'same point last week'
+const LAST_WEEK = 'last week'
 /** What this week is compared with: last week at this same point when that's known, else last week. */
 const before = (m: Metric) => (m.lastSoFar !== null ? { v: m.lastSoFar, vs: LAST_SO_FAR } : m.last !== null ? { v: m.last, vs: LAST_WEEK } : undefined)
 
 /** The metrics the daily report leads with. */
-export const KEY_METRICS = ['answered', 'readers', 'searchShare', 'stepShare', 'shopPer1000']
+export const KEY_METRICS = ['answered', 'readers', 'searchShare', 'stepShare', 'shopPer1000'] as const
+/** Their names in English, which the daily report is in; docs/metrics.md defines each. */
+export const KEY_NAMES_EN: Record<(typeof KEY_METRICS)[number], string> = {
+  answered: 'Readers who found their answer',
+  readers: 'Readers',
+  searchShare: 'Readers from search',
+  stepShare: 'Sessions with a next step',
+  shopPer1000: 'Shop clicks per 1,000 readers',
+}
+/** The block's words and how it writes numbers: the dashboard's, or what the daily report gives (daily/compose.ts). */
+export type BlockWords = { title: string; names?: Record<(typeof KEY_METRICS)[number], string>; sameMoment: string; lastWeek: string; fmt: (n: number, d?: number) => string }
+const WORDS: BlockWords = { title: 'Scoreboard', sameMoment: LAST_SO_FAR, lastWeek: 'all of last week', fmt }
 /** A short block for the daily report: the north star and the key metrics, this week against last, and the page's address. */
-export function scoreboardBlock(s: Scoreboard): { title: string; lines: string[]; href: string } {
+export function scoreboardBlock(s: Scoreboard, w = WORDS): { title: string; lines: string[]; href: string } {
   const lines = KEY_METRICS.map(key => {
     const m = metric(s, key)
-    const was = m.lastSoFar !== null ? `${LAST_SO_FAR} ${shown(m.lastSoFar, m.unit)}, ` : ''
-    return `${m.name}: ${shown(m.now, m.unit)} (${was}cả tuần trước ${shown(m.last, m.unit)})`
+    const was = m.lastSoFar !== null ? `${w.sameMoment} ${shown(m.lastSoFar, m.unit, w.fmt)}, ` : ''
+    return `${w.names?.[key] ?? m.name}: ${shown(m.now, m.unit, w.fmt)} (${was}${w.lastWeek} ${shown(m.last, m.unit, w.fmt)})`
   })
-  return { title: 'Thành công', lines, href: s.page }
+  return { title: w.title, lines, href: s.page }
 }
 
 // ——— The page ———
 
 const PARTS: Record<Part, string> = {
-  beacon: 'số liệu người đọc (Analytics Engine)', community: 'tài khoản, bình luận và ảnh (D1)', clicks: 'lượt chuyển qua /go/ (D1)',
-  app: 'telemetry ứng dụng (Analytics Engine)', content: 'content.json của bản build', checks: 'issue kiểm tra trực tiếp (GitHub)',
+  beacon: 'the readers’ figures (Analytics Engine)', community: 'accounts, comments and photos (D1)', clicks: 'redirects through /go/ (D1)',
+  app: 'the app’s telemetry (Analytics Engine)', content: 'the build’s content.json', checks: 'live check issues (GitHub)',
 }
 const GROUP_PARTS: Partial<Record<Group, Part[]>> = { reach: ['beacon'], act: ['clicks'], back: ['community'], community: ['community'], app: ['app'], supply: ['content'], guard: ['checks'] }
 
-const row = (m: Metric) => {
+const row = (mondays: string[]) => (m: Metric) => {
   const was = before(m)
   const chip = m.unit === 'count' && m.now !== null && was ? chipHtml(chipOf(m.now, was.v, was.vs, m.good)) : ''
-  return `<tr><th scope="row">${esc(m.name)}${m.note ? `<small>${esc(m.note)}</small>` : ''}</th><td class="now" data-l="${COLUMNS[0]}"><b>${esc(shown(m.now, m.unit))}</b> ${chip}</td><td data-l="${COLUMNS[1]}">${esc(shown(m.lastSoFar, m.unit))}</td><td data-l="${COLUMNS[2]}">${esc(shown(m.last, m.unit))}</td><td class="trend" data-l="${COLUMNS[3]}">${spark(m.weeks, 1)}</td></tr>`
+  return `<tr><th scope="row">${esc(m.name)}${m.note ? ` <small>${esc(m.note)}</small>` : ''}</th><td class="now" data-l="${COLUMNS[0]}"><b>${esc(shown(m.now, m.unit))}</b> ${chip}</td><td data-l="${COLUMNS[1]}">${esc(shown(m.lastSoFar, m.unit))}</td><td data-l="${COLUMNS[2]}">${esc(shown(m.last, m.unit))}</td><td class="trend" data-l="${COLUMNS[3]}" aria-hidden="true">${spark(m.weeks, 1, { labels: mondays.map(d => `Week of ${dayLabel(d)}`), format: v => shown(v, m.unit) })}</td></tr>`
 }
-const COLUMNS = ['Tuần này', 'Cùng lúc tuần trước', 'Cả tuần trước', '12 tuần'] as const
-const HEAD = `<thead><tr><th>Chỉ số</th>${COLUMNS.map(c => `<th>${c}</th>`).join('')}</tr></thead>`
+const COLUMNS = ['This week', 'Same point last week', 'All of last week', '12 weeks'] as const
+// The 12 weeks are drawn only (the spark is for the eye; the charts and the JSON's own weeks carry the numbers).
+const HEAD = `<thead><tr><th>Measure</th>${COLUMNS.map((c, i) => `<th${i === 3 ? ' aria-hidden="true"' : ''}>${c}</th>`).join('')}</tr></thead>`
 const countryRows = (xs: { cc: string; readers: number }[]) => xs.map(x => ({ label: esc(x.cc), value: x.readers }))
 
-export function scoreboardPage(s: Scoreboard, tz = HOME_TZ): string {
-  const star = metric(s, s.northStar)
-  const mondays = s.weeks
-  const thisWeek = mondays.at(-1)!
-  const end = plusDays(thisWeek, 6)
-  const tile = (m: Metric): Tile => {
-    const was = before(m)
-    return { label: m.name, value: shown(m.now, m.unit), ...(m.unit === 'count' && m.now !== null && was ? { delta: { now: m.now, before: was.v, vs: was.vs, good: m.good } } : {}), ...(m.note && m === star ? { sub: m.note } : {}) }
-  }
-  const chart = (id: string, m: Metric, whole?: Metric) => dayChart({
-    id, title: m.name, days: mondays, period: 'week', partialLast: true, missing: 'chưa đếm', empty: 'Chưa có số liệu trong 12 tuần này.',
+const keyTile = (s: Scoreboard, m: Metric): Tile => {
+  const was = before(m)
+  return { label: m.name, value: shown(m.now, m.unit), ...(m.unit === 'count' && m.now !== null && was ? { delta: { now: m.now, before: was.v, vs: was.vs, good: m.good } } : {}), ...(m.note && m.key === s.northStar ? { sub: m.note } : {}) }
+}
+/** The star and the readers, 12 weeks each. */
+const weekCharts = (s: Scoreboard): DayChart[] => {
+  const c = (id: string, m: Metric, whole?: Metric): DayChart => ({
+    id, title: m.name, days: s.weeks, period: 'week', partialLast: true, missing: 'not counted', empty: 'No figures in these 12 weeks.',
     series: [{ label: m.name, values: m.weeks }], ...(whole ? { whole: { label: whole.name, values: whole.weeks } } : {}),
   })
-  const groups = (Object.keys(GROUPS) as Group[]).filter(g => g !== 'star').map(g => {
-    const boxes = (GROUP_PARTS[g] ?? []).flatMap(p => (s.failed[p] ? [failedBox(PARTS[p], { failed: s.failed[p]! } satisfies Failed)] : []))
-    const rows = s.metrics.filter(m => m.group === g).map(row).join('')
-    return `<section aria-labelledby="g-${g}"><h2 id="g-${g}">${GROUPS[g]}</h2>${boxes.join('')}<div class="scroll"><table class="score">${HEAD}<tbody>${rows}</tbody></table></div>${g === 'reach' ? countriesBlock(s) : ''}</section>`
+  return [c('w-star', metric(s, s.northStar)), c('w-readers', metric(s, 'readers'), metric(s, 'sessions'))]
+}
+const lede = (s: Scoreboard) => {
+  const thisWeek = s.weeks.at(-1)!
+  return `Weeks run Monday to Sunday, Vietnam time; this week is ${dayLabel(thisWeek)} to ${dayLabel(plusDays(thisWeek, 6))}. Readers are counted from ${dayLabel(localDay(s.countingFrom, HOME_TZ))}, and the weeks before are blank. <a href="${esc(s.docs)}">What each measure means</a>.`
+}
+const groupsOf = () => (Object.keys(GROUPS) as Group[]).filter(g => g !== 'star')
+const failedParts = (s: Scoreboard, g: Group) => (GROUP_PARTS[g] ?? []).flatMap(p => (s.failed[p] ? [[PARTS[p], { failed: s.failed[p]! }] as const] : []))
+
+export function scoreboardPage(s: Scoreboard, tz = HOME_TZ): string {
+  const groups = groupsOf().map(g => {
+    const rows = s.metrics.filter(m => m.group === g).map(row(s.weeks)).join('')
+    return `<section aria-labelledby="g-${g}"><h2 id="g-${g}">${GROUPS[g]}</h2>${failedParts(s, g).map(([what, f]) => failedBox(what, f)).join('')}<div class="scroll"><table class="score">${HEAD}<tbody>${rows}</tbody></table></div>${g === 'reach' ? countriesBlock(s) : ''}</section>`
   }).join('')
-  const later = `<section aria-labelledby="g-later"><h2 id="g-later">Chưa đo được</h2><ul class="gaps">${s.notYet.map(x => `<li><p><b>${esc(x.name)}.</b> ${esc(x.needs)}</p></li>`).join('')}</ul></section>`
-  const lede = `Tuần tính từ Thứ Hai đến Chủ nhật theo giờ Việt Nam, tuần này ${dayLabel(thisWeek)} đến ${dayLabel(end)}. Người đọc đếm từ ${dayLabel(localDay(s.countingFrom, HOME_TZ))}, những tuần trước đó để trống. <a href="${esc(s.docs)}">Định nghĩa từng chỉ số</a>.`
-  const body = `<h1>Thành công</h1><p class="lede">${lede}</p>
+  const later = `<section aria-labelledby="g-later"><h2 id="g-later">Not measured yet</h2><ul class="gaps">${s.notYet.map(x => `<li><p><b>${esc(x.name)}.</b> ${esc(x.needs)}</p></li>`).join('')}</ul></section>`
+  const [star, readers] = weekCharts(s).map(dayChart)
+  const body = `<h1>Scoreboard</h1><p class="lede">${lede(s)}</p>
 ${s.failed.beacon ? failedBox(PARTS.beacon, { failed: s.failed.beacon }) : ''}
-${tiles(KEY_METRICS.map(k => tile(metric(s, k))))}
-<div class="charts">${chart('w-star', star)}${chart('w-readers', metric(s, 'readers'), metric(s, 'sessions'))}</div>
+${tiles(KEY_METRICS.map(k => keyTile(s, metric(s, k))))}
+<div class="charts">${star}${readers}</div>
 ${groups}${later}`
-  return page(SCOREBOARD_PATH, 'Thành công', body, new Date(s.at), tz)
+  return page(SCOREBOARD_PATH, 'Scoreboard', body, new Date(s.at), tz)
+}
+
+/** The same as blocks, for the app: a metric's row is its name, this week (and its change), the same point last week and all of last week. */
+export function scoreboardSection(s: Scoreboard): Section {
+  const blocks: Block[] = [note(textOf(lede(s)))]
+  if (s.failed.beacon) blocks.push(failedNote(PARTS.beacon, { failed: s.failed.beacon }))
+  blocks.push(figures(KEY_METRICS.map(k => keyTile(s, metric(s, k)))), ...weekCharts(s).map(c => chart(c)))
+  for (const g of groupsOf()) {
+    blocks.push(heading(GROUPS[g], 2, `g-${g}`), ...failedParts(s, g).map(([what, f]) => failedNote(what, f)))
+    blocks.push(table(['Measure', ...COLUMNS.slice(0, 3)], s.metrics.filter(m => m.group === g).map((m): Cell[] => {
+      const was = before(m)
+      const chip = m.unit === 'count' && m.now !== null && was ? chipOf(m.now, was.v, was.vs, m.good) : undefined
+      return [
+        { text: m.name, ...(m.note ? { sub: m.note } : {}) },
+        { text: shown(m.now, m.unit), ...(chip ? { sub: chip.text, ...(chip.tone === 'plain' ? {} : { tone: chip.tone }) } : {}) },
+        { text: shown(m.lastSoFar, m.unit) }, { text: shown(m.last, m.unit) },
+      ]
+    })))
+    if (g === 'reach') {
+      const head = ['Country', 'Readers']
+      blocks.push(heading('Countries, this week', 3), rankBlock(countryRows(s.countries.now), head), heading('Countries, last week', 3), rankBlock(countryRows(s.countries.last), head))
+    }
+  }
+  blocks.push(heading('Not measured yet', 2, 'g-later'), ...s.notYet.map(x => note(`${x.name}. ${x.needs}`)))
+  return { title: 'Scoreboard', blocks }
 }
 
 function countriesBlock(s: Scoreboard): string {
-  const head = ['Quốc gia', 'Người đọc']
-  return `<div class="split"><section><h3 class="sub-h">Quốc gia, tuần này</h3>${rankTable(countryRows(s.countries.now), head)}</section><section><h3 class="sub-h">Quốc gia, tuần trước</h3>${rankTable(countryRows(s.countries.last), head)}</section></div>`
+  const head = ['Country', 'Readers']
+  return `<div class="split"><section><h3 class="sub-h">Countries, this week</h3>${rankTable(countryRows(s.countries.now), head)}</section><section><h3 class="sub-h">Countries, last week</h3>${rankTable(countryRows(s.countries.last), head)}</section></div>`
 }

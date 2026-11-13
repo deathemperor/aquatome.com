@@ -1,0 +1,84 @@
+{
+  "id": "chonerhinos-naritus",
+  "native": {
+    "input": "3239384911d0dfd7",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The golden puffer, Chonerhinos naritus, is a pufferfish from estuarine rivers in China, Myanmar, Thailand, Vietnam and Indonesia.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The golden puffer, Chonerhinos naritus, is a pufferfish from estuarine rivers in China, Myanmar, Thailand, Vietnam and Indonesia.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The golden puffer, Chonerhinos naritus, is a pufferfish from estuarine rivers in China, Myanmar, Thailand, Vietnam and Indonesia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The golden puffer, Chonerhinos naritus, is a pufferfish from estuarine rivers in China, Myanmar, Thailand, Vietnam and Indonesia.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The golden puffer, Chonerhinos naritus, is a pufferfish from estuarine rivers in China, Myanmar, Thailand, Vietnam and Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chonerhinos naritus",
+    "status": "ACCEPTED",
+    "taxonKey": 4284322,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "MM",
+      "TH",
+      "VN",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

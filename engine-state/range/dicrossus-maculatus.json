@@ -1,0 +1,114 @@
+{
+  "id": "dicrossus-maculatus",
+  "native": {
+    "input": "cca012ccbf458ea8",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The spadetailed checkerboard cichlid, Dicrossus maculatus, is a cichlid from the Rio Tapajós, Rio Maués and nearby areas of the Brazilian Amazon.",
+        "words": "Brazilian",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Rio Tapajós, Rio Maués, and surrounding areas of the Brazilian Amazon basin.",
+        "words": "Brazilian",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The animals currently available originate from the rio Tapajós basin in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tapajós",
+        "source": "seriouslyfish",
+        "quote": "Native to the Rio Tapajós, Rio Maués, and surrounding areas of the Brazilian Amazon basin.",
+        "ok": true
+      },
+      {
+        "name": "Rio Maués",
+        "source": "seriouslyfish",
+        "quote": "Native to the Rio Tapajós, Rio Maués, and surrounding areas of the Brazilian Amazon basin.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Native to the Rio Tapajós, Rio Maués, and surrounding areas of the Brazilian Amazon basin.",
+        "ok": true
+      },
+      {
+        "name": "rio Tapajós",
+        "source": "glaser",
+        "quote": "The animals currently available originate from the rio Tapajós basin in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dicrossus maculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 5208254,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        17
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        14
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        11
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        10
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T03:17:10.020Z"
+  }
+}

@@ -14,6 +14,176 @@
     "belize",
     "sarstoon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX",
+        "GT",
+        "BZ"
+      ],
+      "regions": [
+        "Río Papaloapam"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Mayan tetra, Hyphessobrycon compressus, is a characid from southern Mexico, Guatemala and Belize.",
+          "countries": [
+            "MX",
+            "GT",
+            "BZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Río Papaloapam basin at El Hule, Oaxaca, Mexico'.",
+          "countries": [],
+          "regions": [
+            "Río Papaloapam"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354655,
+      "total": 556,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "MX",
+          361
+        ],
+        [
+          "GT",
+          141
+        ],
+        [
+          "BZ",
+          54
+        ]
+      ],
+      "cells": [
+        [
+          -104.0625,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          -102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          -97.03125,
+          16.875,
+          16,
+          16
+        ],
+        [
+          -97.03125,
+          18.28125,
+          5,
+          5
+        ],
+        [
+          -95.625,
+          16.875,
+          12,
+          12
+        ],
+        [
+          -94.21875,
+          16.875,
+          23,
+          23
+        ],
+        [
+          -94.21875,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          -92.8125,
+          16.875,
+          47,
+          47
+        ],
+        [
+          -92.8125,
+          18.28125,
+          22,
+          22
+        ],
+        [
+          -91.40625,
+          15.46875,
+          234,
+          234
+        ],
+        [
+          -91.40625,
+          16.875,
+          32,
+          32
+        ],
+        [
+          -91.40625,
+          18.28125,
+          13,
+          13
+        ],
+        [
+          -90,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          -90,
+          15.46875,
+          28,
+          28
+        ],
+        [
+          -90,
+          16.875,
+          53,
+          53
+        ],
+        [
+          -90,
+          18.28125,
+          29,
+          29
+        ],
+        [
+          -88.59375,
+          15.46875,
+          8,
+          8
+        ],
+        [
+          -88.59375,
+          16.875,
+          18,
+          18
+        ],
+        [
+          -88.59375,
+          18.28125,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -42,7 +212,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },

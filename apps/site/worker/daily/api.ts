@@ -1,11 +1,12 @@
 import type { EmailBinding } from '../accounts/mailer'
 import { queryAppDay } from '../admin/app'
-import { soft, unset } from '../admin/shell'
+import { isFailed, soft, unset } from '../admin/shell'
 import { HOME_TZ } from '../admin/time'
 import { readCapped } from '../comments/api'
-import { ae, bearerOk, liveOwnerApps, loadOverview, type AdminEnv } from '../dashboard'
+import { ae, bearerOk, liveOwnerApps, loadOverview, loadQuality, loadScoreboard, type AdminEnv } from '../dashboard'
+import { addChanges } from './changelog'
 import { compose, type Composed } from './compose'
-import { parseGitHubSide, type GitHubSide } from './github'
+import { parseChanges, parseGitHubSide, type GitHubSide } from './github'
 import { getReport, putReport, type Report } from './log'
 import { pushReport, type PushOutcome } from './push'
 import { getSettings } from './settings'
@@ -14,7 +15,8 @@ import { getSettings } from './settings'
  * POST /_ab/report, from daily-report.yml with the dashboard token (anyone else: 404, as the other admin routes): GitHub's
  * half of the owner's daily report. The Worker adds the site's and the app's numbers from the dashboard's loaders,
  * composes it, sends it as the owner set (daily/settings.ts): mailed to the secret REPORT_TO, and a notification to the
- * owner's phones (daily/push.ts). It keeps it in the log (daily/log.ts) either way, with what went out. The address is
+ * owner's phones (daily/push.ts). It keeps it in the log (daily/log.ts) either way, with what went out, and adds the
+ * day's product changes to the change log (daily/changelog.ts) before anything goes out. The address is
  * never logged, stored or answered: a refused send is logged by its code, as accounts/mailer.ts does.
  *
  * The workflow's run id is the idempotency key. A mail or a push once sent is never sent again; one refused goes out on
@@ -62,11 +64,14 @@ async function deliver(env: DailyEnv, r: Composed): Promise<{ sent: boolean; why
 
 async function composeNow(env: DailyEnv, url: URL, now: Date, gh: GitHubSide): Promise<Composed> {
   const a = ae(env)
-  const [overview, app] = await Promise.all([
+  const [overview, app, scoreboard] = await Promise.all([
     loadOverview(env, url, now, HOME_TZ),
     a ? soft('app', queryAppDay(a.account, a.token)) : unset('Analytics Engine'),
+    // Its parts fail on their own, as on its page; a Scoreboard has a `failed` of its own, so a load that throws is undefined, not soft()'s.
+    loadScoreboard(env, url, now).catch((e: unknown) => { console.error('admin scoreboard:', e); return undefined }),
   ])
-  return compose({ now, overview, app, gh })
+  const quality = a && !isFailed(overview.content) ? await soft('quality', loadQuality(env, url.origin, a, overview.content)) : undefined
+  return compose({ now, overview, app, gh, scoreboard, quality })
 }
 
 /** Not sent, as asked or for want of somewhere to send it: a day's report kept, not a failure. */
@@ -75,8 +80,29 @@ const PUSH_SKIPPED = new Set(['push_off', 'no_device', 'no_apns_key'])
 /** What a report's answer and the job's log say of it: no address, no token. */
 const outcomeOf = (r: Pick<Report, 'sent' | 'why' | 'push'>) => ({ sent: r.sent, ...(r.why ? { why: r.why } : {}), ...(r.push ? { push: r.push } : {}) })
 
+const notFound = () => new Response('Not found', { status: 404, headers: { 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow' } })
+
+/**
+ * POST /_ab/changelog, from changelog.yml on each push to main with the dashboard token (anyone else: 404): what merged
+ * lately, into the change log the dashboard's "Shipped in 24 hours" reads, so that never waits for the report. The report
+ * adds the same lines, and addChanges keeps each once.
+ */
+export async function changesRoute(req: Request, env: DailyEnv, now = new Date()): Promise<Response> {
+  if (req.method !== 'POST' || !bearerOk(req, env.AB_DASH_TOKEN)) return notFound()
+  const body = await readCapped(req, MAX_BODY)
+  if (body === null) return reply(413, { error: 'too_large' })
+  const changes = parseChanges(body)
+  if (!changes) return reply(400, { error: 'bad_report' })
+  try {
+    return reply(200, { ok: true, added: await addChanges(env.AB, changes, now) })
+  } catch (e) {
+    console.error('change log not written:', (e as Error)?.message ?? 'unknown')
+    return reply(503, { error: 'unavailable' })
+  }
+}
+
 export async function dailyReportRoute(req: Request, url: URL, env: DailyEnv, now = new Date()): Promise<Response> {
-  if (req.method !== 'POST' || !bearerOk(req, env.AB_DASH_TOKEN)) return new Response('Not found', { status: 404, headers: { 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow' } })
+  if (req.method !== 'POST' || !bearerOk(req, env.AB_DASH_TOKEN)) return notFound()
   const body = await readCapped(req, MAX_BODY)
   if (body === null) return reply(413, { error: 'too_large' })
   const gh = parseGitHubSide(body)
@@ -98,6 +124,8 @@ export async function dailyReportRoute(req: Request, url: URL, env: DailyEnv, no
     const report = kept
       ? { when: kept.when, subject: kept.subject, text: kept.text, html: kept.html, care: kept.care, ...(kept.first ? { first: kept.first } : {}) }
       : { when: now.toISOString(), ...(await composeNow(env, url, now, gh)) }
+    // Before the send: should it fail, the claim is released and the job's next try writes it, then sends.
+    await addChanges(env.AB, gh.changes, now)
     const mail = kept?.sent ? { sent: true } : mailDue ? await deliver(env, report) : { sent: false, why: 'email_off' }
     mailed = mailDue && mail.sent
     const push: PushOutcome = pushedBefore ? kept!.push! : pushDue ? await pushReport(env, env.AB, report, id, now, ids => liveOwnerApps(env, ids, now)) : { sent: 0, why: 'push_off' }

@@ -1,10 +1,14 @@
 {
   "slug": "thu-bon",
-  "name": "Thu Bon",
-  "altNames": [],
+  "name": "sông Thu Bồn",
+  "altNames": [
+    "Thu Bon",
+    "Thu Bồn"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

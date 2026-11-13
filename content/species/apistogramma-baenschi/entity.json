@@ -11,6 +11,80 @@
     "peru",
     "huallaga"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Huallaga",
+        "Shanushi",
+        "Paranapura"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Inca dwarf cichlid, Apistogramma baenschi, is from tributaries of the lower Río Huallaga in the Amazonian portion of northern Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Huallaga"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Tributary of Rio Shanushi, lower Rio Huallaga System, Peru, near 6°03'S, 77°53'W' with additional records from between the towns of Tarapoto and Yurimaguas in the Shanushi and Paranapura drainages, both left-bank tributaries of the Huallaga.",
+          "countries": [],
+          "regions": [
+            "Shanushi",
+            "Paranapura"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371233,
+      "total": 36,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          36
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -7.03125,
+          27,
+          27
+        ],
+        [
+          -77.34375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          -4.21875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -54,7 +128,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -63,7 +137,19 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-baenschi",
-      "html": "<p>The Inca dwarf cichlid, Apistogramma baenschi, is from tributaries of the lower Río Huallaga in the Amazonian portion of northern Peru. Coded A188 under the DATZ system, it is produced on a commercial basis and is perhaps among the most suitable Apistogramma for those new to dwarf cichlids. Wild fish come from shallow forest tributaries with very soft, tea-stained water and a pH measured between 4.1 and 6.3.</p><ul><li>Max size: male 55 mm SL, female 40 mm SL (2.2 / 1.6 in)</li><li>Aquarium size: 80 × 30 cm (31 × 12 in)</li><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 4.0–6.5</li><li>Hardness: 1–5 dGH</li><li>Difficulty: 5 of 8, moderate</li></ul>"
+      "html": "<p>The Inca dwarf cichlid, Apistogramma baenschi, is from tributaries of the lower Río Huallaga in the Amazonian portion of northern Peru. Coded A188 under the DATZ system, it is produced on a commercial basis and is perhaps among the most suitable Apistogramma for those new to dwarf cichlids. Wild fish come from shallow forest tributaries with very soft, tea-stained water and a pH measured between 4.1 and 6.3.</p><ul><li>Max size: male 55 mm SL, female 40 mm SL (2.2 / 1.6 in)</li><li>Aquarium size: 80 × 30 cm (31 × 12 in)</li><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 4.0–6.5</li><li>Hardness: 1–5 dGH</li><li>Difficulty: 4 of 8, moderate</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_baenschi_inka_i__en/",
+      "html": "<p>Apistogramma baenschi from Peru is for sure among the most beautiful species of dwarf cichlid. The male combines splendid colours (especially the wonderful caudal fin) with a fantastic high dorsal fin and the female is also a real eyecatcher due to its unique tiger pattern.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_baenschi_inka_i__en/",
+      "html": "<p>Currently both wild collected and bred specimens are available (the photos are taken from bred specimens).</p>"
     },
     {
       "key": "distribution",
@@ -135,25 +221,25 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/837579ea46761b0b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/837579ea46761b0b-480.webp",
       "width": 1024,
       "height": 768,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-baenschi",
       "caption": "Adult female displaying broodcare colour pattern, with fry below.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/837579ea46761b0b-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/02cca1abb0782506.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/02cca1abb0782506-480.webp",
       "width": 640,
       "height": 480,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-baenschi",
       "caption": "Adult female with fry, displaying broodcare colour pattern.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/02cca1abb0782506-480.webp"
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -161,8 +247,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá 72 lít"
+        "bể cá 80cm"
       ]
     },
     {
@@ -189,5 +274,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-09"
 }

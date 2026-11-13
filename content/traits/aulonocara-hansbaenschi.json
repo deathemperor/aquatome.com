@@ -2,7 +2,12 @@
   "id": "aulonocara-hansbaenschi",
   "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": 5,
+  "schoolMin": null,
   "speciesUpdatedAt": "2026-10-31",
-  "generatedAt": "2026-11-01T02:26:18.628Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-07T12:48:03.804Z"
 }

@@ -11,6 +11,109 @@
     "rio-xingu",
     "xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Xingu",
+        "Rio Fresco"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Black Diamond is a variety of Potamotrygon leopoldi that originates from the upper Rio Xingu in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Rio Xingu basin and Rio Fresco in central Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Xingu",
+            "Rio Fresco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2419372,
+      "total": 187,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BR",
+          184
+        ],
+        [
+          "DE",
+          2
+        ],
+        [
+          "AT",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -53.4375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          21,
+          21
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          61,
+          61
+        ],
+        [
+          -52.03125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -7.03125,
+          17,
+          17
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          83,
+          83
+        ],
+        [
+          8.4375,
+          49.21875,
+          2,
+          0
+        ],
+        [
+          15.46875,
+          47.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -58,7 +161,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -74,12 +177,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/potamotrygon-leopoldi",
       "html": "<ul><li>Max size: 70 cm disc width</li></ul>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/01-rays/potamotrygon_leopoldi_black_diamond_german_bred_en/",
-      "html": "<p>German bred Black Diamonds are available, sorted by pair. The fish have code 282412 on the stocklist. Aquarium Glaser exclusively supplies the wholesale trade.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -169,17 +266,12 @@
       "licence": "CC BY-SA 2.5",
       "author": "Photo by and (C)2007 Derek Ramsey (Ram-Man)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:White-blotched_River_Stingray_Potamotrygon_leopoldi_2284px.jpg",
-      "caption": "A photograph of a White-blotched River Stingrayen (Potamotrygon leopoldi en ). Photo taken at the PPG Aquarium in the Pittsburgh Zoo. Camera and Exposure Details:Camera: Nikon D50Lens: Nikon Nikkor ED"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/d608d45bb6ec3e1c.webp",
-      "thumb": "https://media.aquatome.com/commons/d608d45bb6ec3e1c-480.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 2.0",
-      "author": "Ryan Phillips",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Potamotrygon_dallas.jpg",
-      "caption": "White-blotched river stingray (Potamotrygon leopoldi) at the Dallas World Aquarium"
+      "caption": "A photograph of a White-blotched River Stingrayen (Potamotrygon leopoldi en ). Photo taken at the PPG Aquarium in the Pittsburgh Zoo. Camera and Exposure Details:Camera: Nikon D50Lens: Nikon Nikkor ED",
+      "large": {
+        "url": "https://media.aquatome.com/commons/7e57ab8ddf4041b1-large.webp",
+        "width": 1958,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/10d25d3bca1b9f5f.webp",
@@ -200,6 +292,16 @@
       "author": "Karelj",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Potamotrygon_leopoldi_Prague_2011_2.jpg",
       "caption": "Fish Xingu River ray (Potamotrygon leopoldi) in Prague sea aquarium “Sea world”, Czech Republic"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d608d45bb6ec3e1c.webp",
+      "thumb": "https://media.aquatome.com/commons/d608d45bb6ec3e1c-480.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 2.0",
+      "author": "Ryan Phillips",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Potamotrygon_dallas.jpg",
+      "caption": "White-blotched river stingray (Potamotrygon leopoldi) at the Dallas World Aquarium"
     }
   ],
   "videos": [],
@@ -207,8 +309,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn nuôi cá đuối",
-        "bể kính 300cm"
+        "bể cá 240cm"
       ]
     },
     {

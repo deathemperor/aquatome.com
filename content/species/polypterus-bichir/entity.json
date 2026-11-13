@@ -1,0 +1,464 @@
+{
+  "id": "polypterus-bichir",
+  "scientificName": "Polypterus bichir",
+  "order": "Polypteriformes",
+  "family": "Polypteridae",
+  "genus": "Polypterus",
+  "group": "other",
+  "places": [
+    "africa",
+    "egypt",
+    "kenya",
+    "nigeria",
+    "cameroon",
+    "ethiopia",
+    "ivory-coast",
+    "chad",
+    "ghana",
+    "guinea-bissau",
+    "burkina-faso",
+    "mali",
+    "senegal",
+    "sudan",
+    "gambia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "EG",
+        "KE",
+        "NG",
+        "CM",
+        "ET",
+        "CI",
+        "TD",
+        "GH",
+        "GW",
+        "BF",
+        "ML",
+        "SN",
+        "SD",
+        "GM"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "A widespread species, it has been recorded in Egypt, Kenya, Nigeria, Cameroon, Ethiopia, Ivory Coast, Chad, Ghana, Guinea-Bissau, Burkina Faso, Mali, Senegal, Sudan and Gambia.",
+          "countries": [
+            "EG",
+            "KE",
+            "NG",
+            "CM",
+            "ET",
+            "CI",
+            "TD",
+            "GH",
+            "GW",
+            "BF",
+            "ML",
+            "SN",
+            "SD",
+            "GM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2346588,
+      "total": 92,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "GM",
+          26
+        ],
+        [
+          "BJ",
+          13
+        ],
+        [
+          "CM",
+          10
+        ],
+        [
+          "SD",
+          8
+        ],
+        [
+          "ML",
+          6
+        ],
+        [
+          "SN",
+          6
+        ],
+        [
+          "ET",
+          5
+        ],
+        [
+          "BF",
+          3
+        ],
+        [
+          "CF",
+          3
+        ],
+        [
+          "EG",
+          3
+        ],
+        [
+          "MR",
+          2
+        ],
+        [
+          "NG",
+          2
+        ],
+        [
+          "TD",
+          2
+        ],
+        [
+          "ZM",
+          2
+        ],
+        [
+          "GH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -16.875,
+          15.46875,
+          4,
+          3
+        ],
+        [
+          -15.46875,
+          12.65625,
+          27,
+          27
+        ],
+        [
+          -14.0625,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          -14.0625,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          -8.4375,
+          11.25,
+          2,
+          2
+        ],
+        [
+          -8.4375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          -5.625,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          -5.625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          -4.21875,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          0,
+          5.625,
+          1,
+          1
+        ],
+        [
+          0,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          5.625,
+          8,
+          0
+        ],
+        [
+          2.8125,
+          11.25,
+          4,
+          0
+        ],
+        [
+          5.625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          12.65625,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          14.0625,
+          9.84375,
+          6,
+          6
+        ],
+        [
+          14.0625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          16.875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          7.03125,
+          3,
+          0
+        ],
+        [
+          30.9375,
+          -15.46875,
+          2,
+          0
+        ],
+        [
+          30.9375,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          30.9375,
+          29.53125,
+          3,
+          3
+        ],
+        [
+          32.34375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          32.34375,
+          15.46875,
+          4,
+          4
+        ],
+        [
+          33.75,
+          7.03125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 72
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-bichir",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. The aquarium should have a tight-fitting cover as it is an excellent escape artist.</p><p>The Nile bichir, Polypterus bichir, is a large bichir recorded from Egypt, Kenya, Ethiopia and Chad west to Nigeria, Ghana and Guinea-Bissau. It grows to 72 cm, though rarely that large in aquaria, and belongs to the 'lower-jawed' group of Polypterus. It will eat any tankmate it can fit in its mouth, and needs a tight-fitting cover as an excellent escape artist.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-bichir",
+      "html": "<p>A widespread species, it has been recorded in Egypt, Kenya, Nigeria, Cameroon, Ethiopia, Ivory Coast, Chad, Ghana, Guinea-Bissau, Burkina Faso, Mali, Senegal, Sudan and Gambia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-bichir",
+      "html": "<p>It is usually found in shallow waters of lakes but is also found in rivers and marshes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-bichir",
+      "html": "<p>Standard length: 72 cm SL. Aquarium base: 180 × 60 cm. Volume: ~648 litres (180 × 60 × 60 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-bichir",
+      "html": "<p>Floor space is more important than depth with this species. A soft substrate with pieces of driftwood and smooth rocks arranged to form hiding places is ideal. Plants are not essential but are appreciated. The aquarium should have a tight-fitting cover as it is an excellent escape artist.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-bichir",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 5–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-bichir",
+      "html": "<p>P. bichir is carnivorous by nature and will not usually accept dried foods in aquaria, though some specimens have been known to take pelleted varieties. The most suitable options are meaty live or frozen foods such as prawns, earthworms, mussel, lancefish etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-bichir",
+      "html": "<p>Not to be trusted with tankmates it can fit in its mouth but is relatively peaceful otherwise. Suitable tankmates include other Polypterus species, Synodontis, Datnoides, Knife Fish, larger Ctenopoma species, medium to large characins and African Butterfly Fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-bichir",
+      "html": "<p>The male has a thicker anal fin than the female.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-bichir",
+      "html": "<p>Not recorded in captivity but is thought to breed in a similar way to other Polypterus species. This species breeds during the rainy season in nature. Changes in the temperature and chemistry of the water are likely to induce spawning behaviour. A large tank is required and should contain soft, slightly acidic water. It is an egg scatterer and therefore areas of dense planting and/or spawning mops should be provided. Courtship involves chasing and nudging of the female by the male. During spawning itself, the male receives the eggs from the female by cupping his anal and caudal fins around her genitals. He then fertilises the eggs before scattering them amongst vegetation. At this point, the adult fish should be removed as they may predate upon the eggs. The eggs hatch in 3-4 days, with the fry becoming free swimming around 3 days later. First foods should be brine shrimp nauplii or microworm. Apparently the fry are not particularly mobile, so care should be exercised to ensure they are well fed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-bichir",
+      "html": "<p>An incredibly hardy, nocturnal species with very poor vision, P. bichir relies on its excellent sense of smell to locate food. This species, along with others of its genus, is one of the last surviving relatives of very ancient species. Fossils of earlier relatives have been found that date back to the Triassic Period, which occurred during the early development of the dinosaurs more than 200 million years ago. They have several interesting adaptations. The swim bladder is divided into 2 parts, of which the right hand section is considerably larger. This functions as an accessory breathing organ and means the fish can survive out of water for some time, provided it is kept moist. Like anabantoid species, this fish may actually drown if it is denied access to atmospheric air. Young bichirs have amphibian-like external gills which are lost as the fish matures. This, coupled with their nocturnal mode of hunting, in which they emerge from their daytime refuges to hunt invertebrates and small fish in shallow water, clearly exhibits the link these species form between fish and amphibians.</p><p>This is one of the \"lower-jawed\" tribe of Polypterus, so called as the lower jaw protrudes in these species. P. bichir lapradei, once treated as a subspecies, is now a synonym of P. bichir.</p><p>It should be noted that most Polypterus offered for sale are wild caught and, as such, may come in carrying infections or parasites. Keeping a close eye on new fish for the first few weeks after purchase is suggested.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/8154828c6099b19d.webp",
+      "width": 960,
+      "height": 498,
+      "licence": "CC BY-SA 4.0",
+      "author": "Gunnar Creutz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polypterus_bichir_from_Sudan_at_G%C3%B6teborgs_Naturhistoriska_Museum_9033.jpg",
+      "caption": "Nilfengädda (Polypterus bichir) från Vita Nilen i Sudan i en glasburk på Göteborgs Naturhistoriska museum, Göteborg, Västra Götaland, Sverige. Bilden visar fengäddans huvud ovanifrån. Bilden är gjord ",
+      "thumb": "https://media.aquatome.com/commons/8154828c6099b19d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f1b7c239341cfb76.webp",
+      "width": 960,
+      "height": 1286,
+      "licence": "CC BY-SA 4.0",
+      "author": "Thejpmcd",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Statue_of_Polypterus_bichir_%22Turkana%22.jpg",
+      "caption": "Statue of a Polypterus bichir \"Turkana\" being lowered into position at Thailand's Nong Nooch Tropical Garden.",
+      "thumb": "https://media.aquatome.com/commons/f1b7c239341cfb76-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc bể cá 180cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá khủng long",
+        "tôm đông lạnh cho cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

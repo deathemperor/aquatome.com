@@ -1,22 +1,38 @@
 {
   "id": "oryzias-latipes",
   "native": {
-    "input": "4978fa4e263549b5",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "9586d19c871408fa",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
       {
         "code": "JP",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+        "quote": "The medaka, Oryzias latipes, is a ricefish from Japan, Korea, Taiwan, eastern China, Laos and Vietnam.",
         "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The medaka, Oryzias latipes, is a ricefish from Japan, Korea, Taiwan, eastern China, Laos and Vietnam.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The medaka, Oryzias latipes, is a ricefish from Japan, Korea, Taiwan, eastern China, Laos and Vietnam.",
+        "words": "China",
         "ok": true
       },
       {
         "code": "LA",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+        "quote": "The medaka, Oryzias latipes, is a ricefish from Japan, Korea, Taiwan, eastern China, Laos and Vietnam.",
         "words": "Laos",
         "ok": true
       },
@@ -24,32 +40,8 @@
         "code": "VN",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+        "quote": "The medaka, Oryzias latipes, is a ricefish from Japan, Korea, Taiwan, eastern China, Laos and Vietnam.",
         "words": "Vietnam",
-        "ok": true
-      },
-      {
-        "code": "CN",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
-        "words": "China",
-        "ok": true
-      },
-      {
-        "code": "TW",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
-        "words": "Taiwan",
-        "ok": true
-      },
-      {
-        "code": "KR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
-        "words": "Korea",
         "ok": true
       },
       {
@@ -99,14 +91,38 @@
         "quote": "It's been introduced to several countries including the United States, Cuba, Kazakhstan, Turkmenistan, Iran and Russia (from where it has invaded the Black Sea basin).",
         "words": "Russia",
         "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Japanese rice fish can be found all over Asia, in areas such as Japan, Korea, China and Vietnam.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Japanese rice fish can be found all over Asia, in areas such as Japan, Korea, China and Vietnam.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Japanese rice fish can be found all over Asia, in areas such as Japan, Korea, China and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Ryuku Islands",
+        "name": "Hainan",
         "source": "seriouslyfish",
         "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
-        "country": "JP",
+        "country": "CN",
         "ok": true
       },
       {
@@ -117,10 +133,10 @@
         "ok": true
       },
       {
-        "name": "Hainan",
+        "name": "Ryuku Islands",
         "source": "seriouslyfish",
         "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
-        "country": "CN",
+        "country": "JP",
         "ok": true
       }
     ],
@@ -128,6 +144,7 @@
     "outranked": [],
     "origin": {
       "pagesOnly": [
+        "KR",
         "HK"
       ],
       "sourcesOnly": []
@@ -301,13 +318,12 @@
     ],
     "native": [
       "JP",
-      "LA",
-      "VN",
-      "CN",
       "TW",
-      "KR"
+      "CN",
+      "LA",
+      "VN"
     ],
     "requests": 12,
-    "at": "2026-11-05T22:45:18.315Z"
+    "at": "2026-11-09T20:43:02.940Z"
   }
 }

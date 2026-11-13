@@ -2,6 +2,18 @@
   "id": "trichogaster-lalius",
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/cb58208be655b322.webp",
+      "thumb": "https://media.aquatome.com/commons/cb58208be655b322-480.webp",
+      "width": 769,
+      "height": 1024,
+      "licence": "CC BY-SA 4.0",
+      "author": "StefanoElli",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichogaster.jpg",
+      "caption": "Cá sặc lùn đực màu xanh đỏ bơi cạnh lũa trong bể",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/269339344.webp",
       "thumb": "https://media.aquatome.com/inaturalist/269339344-480.webp",
       "width": 768,
@@ -12,18 +24,6 @@
       "caption": "Cá sặc lùn đực màu xanh lam trong bể thủy sinh",
       "best": true,
       "kind": "form"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/545966972.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/545966972-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "olmagon",
-      "sourceUrl": "https://www.inaturalist.org/photos/545966972",
-      "caption": "Cá sặc lùn màu cam nhạt bơi trong bể cảnh",
-      "best": true,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/186507841.webp",
@@ -362,9 +362,21 @@
       "caption": "Cá sặc lùn đực màu đỏ sẫm trong bể",
       "best": false,
       "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/545966972.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/545966972-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/545966972",
+      "caption": "Cá sặc lùn màu cam nhạt bơi trong bể cảnh",
+      "best": true,
+      "kind": "other"
     }
   ],
-  "seen": 72,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 73,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

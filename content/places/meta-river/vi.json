@@ -1,10 +1,13 @@
 {
   "slug": "meta-river",
-  "name": "Meta River",
-  "altNames": [],
+  "name": "sông Meta",
+  "altNames": [
+    "Meta River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -9,6 +9,70 @@
     "asia",
     "sri-lanka"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Garra ceylonensis is endemic to Sri Lanka.",
+          "countries": [
+            "LK"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366889,
+      "total": 117,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "LK",
+          117
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          5.625,
+          4,
+          4
+        ],
+        [
+          78.75,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          80.15625,
+          5.625,
+          61,
+          61
+        ],
+        [
+          80.15625,
+          7.03125,
+          40,
+          40
+        ],
+        [
+          80.15625,
+          8.4375,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -82,7 +146,23 @@
       "html": "<p>Garra species are free spawners without brood care.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/198239493.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/198239493-480.webp",
+      "width": 1024,
+      "height": 896,
+      "licence": "CC BY",
+      "author": "desertnaturalist",
+      "sourceUrl": "https://www.inaturalist.org/photos/198239493",
+      "caption": "Cá hút rêu Sri Lanka trong suối đá tự nhiên",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/198239493-large.webp",
+        "width": 1372,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

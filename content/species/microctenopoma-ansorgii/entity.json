@@ -13,6 +13,188 @@
     "angola",
     "madagascar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CG",
+        "CD"
+      ],
+      "regions": [
+        "Congo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The ornate ctenopoma, Microctenopoma ansorgii, is an anabantoid from the Congo basin in the Republic of Congo and Democratic Republic of Congo.",
+          "countries": [
+            "CG",
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the River Congo basin in parts of both the Republic of Congo and Democratic Republic of Congo.",
+          "countries": [],
+          "regions": [
+            "Congo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391639,
+      "total": 112,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CD",
+          96
+        ],
+        [
+          "CG",
+          9
+        ],
+        [
+          "MG",
+          3
+        ],
+        [
+          "AO",
+          2
+        ],
+        [
+          "CM",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          11.25,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          11.25,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          14.0625,
+          -5.625,
+          12,
+          12
+        ],
+        [
+          14.0625,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          15.46875,
+          -5.625,
+          17,
+          17
+        ],
+        [
+          15.46875,
+          -2.8125,
+          38,
+          38
+        ],
+        [
+          18.28125,
+          -1.40625,
+          12,
+          12
+        ],
+        [
+          18.28125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          19.6875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          21.09375,
+          0,
+          1,
+          1
+        ],
+        [
+          21.09375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          22.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          22.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          1,
+          1
+        ],
+        [
+          28.125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          47.8125,
+          -19.6875,
+          1,
+          0
+        ],
+        [
+          49.21875,
+          -19.6875,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -60,7 +242,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -153,7 +335,12 @@
       "licence": "CC BY 3.0",
       "author": "Juan Carlos Palau Díaz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microctenopoma_ansorgii_2.jpg",
-      "caption": "Microctenopoma ansorgii"
+      "caption": "Microctenopoma ansorgii",
+      "large": {
+        "url": "https://media.aquatome.com/commons/abefbf6f22274ae4-large.webp",
+        "width": 1401,
+        "height": 934
+      }
     }
   ],
   "videos": [],
@@ -161,8 +348,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá thủy sinh nhỏ"
+        "bể cá 80cm"
       ]
     },
     {

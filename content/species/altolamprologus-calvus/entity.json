@@ -117,7 +117,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -126,7 +126,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/altolamprologus-calvus",
-      "html": "<p>The calvus cichlid, Altolamprologus calvus, is a laterally compressed predatory cichlid endemic to the rocky shores and islands of Lake Tanganyika. Its shape lets it enter crevices in the rockwork to prey on eggs, fry and small fish, and its thick scales have serrated edges. Several colour forms from different parts of the lake are regularly available and should be kept apart so they do not hybridise. Wild fish are sensitive to changes in water chemistry.</p><ul><li>Max size: 13.8 cm SL (5 in)</li><li>Aquarium size: 91 × 46 cm (36 × 18 in)</li><li>Temperature: 24–27°C</li><li>pH: 7.5–9.0</li><li>Hardness: 8–20 dGH</li><li>Difficulty: moderate (6 of 8)</li></ul>"
+      "html": "<p>The calvus cichlid, Altolamprologus calvus, is a laterally compressed predatory cichlid endemic to the rocky shores and islands of Lake Tanganyika. Its shape lets it enter crevices in the rockwork to prey on eggs, fry and small fish, and its thick scales have serrated edges. Several colour forms from different parts of the lake are regularly available and should be kept apart so they do not hybridise. Wild fish are sensitive to changes in water chemistry.</p><ul><li>Max size: 13.8 cm SL (5 in)</li><li>Aquarium size: 91 × 46 cm (36 × 18 in)</li><li>Temperature: 24–27°C</li><li>pH: 7.5–9.0</li><li>Hardness: 8–20 dGH</li><li>Difficulty: moderate (4 of 8)</li></ul>"
     },
     {
       "key": "distribution",
@@ -204,7 +204,12 @@
       "author": "5snake5",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altolamprologus_calvus_-_Perlhuhn-Buntbarsch.jpg",
       "caption": "Altolamprologus calvus, lateral view.",
-      "thumb": "https://media.aquatome.com/commons/a3c759fb1d47d73e-480.webp"
+      "thumb": "https://media.aquatome.com/commons/a3c759fb1d47d73e-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/a3c759fb1d47d73e-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
@@ -212,8 +217,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 150 lít"
+        "bể cá 100cm"
       ]
     },
     {

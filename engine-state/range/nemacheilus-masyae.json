@@ -1,0 +1,156 @@
+{
+  "id": "nemacheilus-masyae",
+  "native": {
+    "input": "4553a0aa48cf5ed6",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nemacheilus masyae is a nemacheilid loach from Thailand and Peninsular Malaysia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nemacheilus masyae is a nemacheilid loach from Thailand and Peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Tadi river, Nakhon Si Thammarat province, southern Thailand, and subsequently recorded from the Terengganu, Pahang and Endau drainages in Peninsular Malaysia plus parts of the Mae Klong and Chao Phraya basins in Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Tadi river, Nakhon Si Thammarat province, southern Thailand, and subsequently recorded from the Terengganu, Pahang and Endau drainages in Peninsular Malaysia plus parts of the Mae Klong and Chao Phraya basins in Thailand.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Roberts (1996) hypothesised it might range into the Mekong system in northwestern Cambodia via the Cardamom mountain range but this appears to remain unconfirmed.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "In the Sai Buri river, Pattani province, southern Thailand it was collected from a stretch less than 2 metres deep with a muddy bed and sandy margins alongside Tuberoschistura baenzigeri, Homaloptera zollingeri, Acantopsis sp., Labiobarbus lineatus, Cyclocheilichthys heteronema, Barilius bernatziki, Mystacoleucus chilopterus, Mystus nigriceps, Xenentodon cancila, Glossogobius giuris and Brachirus harmandi.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Described from the Tadi river, Nakhon Si Thammarat province, southern Thailand, and subsequently recorded from the Terengganu, Pahang and Endau drainages in Peninsular Malaysia plus parts of the Mae Klong and Chao Phraya basins in Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "Described from the Tadi river, Nakhon Si Thammarat province, southern Thailand, and subsequently recorded from the Terengganu, Pahang and Endau drainages in Peninsular Malaysia plus parts of the Mae Klong and Chao Phraya basins in Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Tadi",
+        "source": "seriouslyfish",
+        "quote": "Described from the Tadi river, Nakhon Si Thammarat province, southern Thailand, and subsequently recorded from the Terengganu, Pahang and Endau drainages in Peninsular Malaysia plus parts of the Mae Klong and Chao Phraya basins in Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Terengganu",
+        "source": "seriouslyfish",
+        "quote": "Described from the Tadi river, Nakhon Si Thammarat province, southern Thailand, and subsequently recorded from the Terengganu, Pahang and Endau drainages in Peninsular Malaysia plus parts of the Mae Klong and Chao Phraya basins in Thailand.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Pahang",
+        "source": "seriouslyfish",
+        "quote": "Described from the Tadi river, Nakhon Si Thammarat province, southern Thailand, and subsequently recorded from the Terengganu, Pahang and Endau drainages in Peninsular Malaysia plus parts of the Mae Klong and Chao Phraya basins in Thailand.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Endau",
+        "source": "seriouslyfish",
+        "quote": "Described from the Tadi river, Nakhon Si Thammarat province, southern Thailand, and subsequently recorded from the Terengganu, Pahang and Endau drainages in Peninsular Malaysia plus parts of the Mae Klong and Chao Phraya basins in Thailand.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nemacheilus masyae",
+    "status": "ACCEPTED",
+    "taxonKey": 5205231,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        29
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        21
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        8
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "id": "danio-rerio",
   "native": {
-    "input": "5093b7ecf7f1217e",
-    "at": "2026-11-04T21:41:08.860Z",
+    "input": "eab02a4a1fb94df1",
+    "at": "2026-11-09T12:58:06.259Z",
     "claims": [
       {
         "code": "IN",
@@ -16,32 +16,8 @@
         "code": "BD",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The zebra danio, Danio rerio, is a small cyprinid from India and Bangladesh, found mostly in slow or still pools and mature rice paddies.",
+        "quote": "At any rate it may be restricted to India (with the Eastern/Western Ghats mountain ranges representing its southern limit), Bangladesh and possibly Bhutan.",
         "words": "Bangladesh",
-        "ok": true
-      },
-      {
-        "code": "PK",
-        "status": "doubtful",
-        "source": "seriouslyfish",
-        "quote": "It was traditionally considered to range westwards from Pakistan though India (with Karnataka State representing the southern extent of its range) as far as Myanmar, thus also occurring in Nepal, Bhutan and Bangladesh, but current knowledge suggests a more restricted distribution.",
-        "words": "Pakistan",
-        "ok": true
-      },
-      {
-        "code": "MM",
-        "status": "doubtful",
-        "source": "seriouslyfish",
-        "quote": "It was traditionally considered to range westwards from Pakistan though India (with Karnataka State representing the southern extent of its range) as far as Myanmar, thus also occurring in Nepal, Bhutan and Bangladesh, but current knowledge suggests a more restricted distribution.",
-        "words": "Myanmar",
-        "ok": true
-      },
-      {
-        "code": "NP",
-        "status": "doubtful",
-        "source": "seriouslyfish",
-        "quote": "It was traditionally considered to range westwards from Pakistan though India (with Karnataka State representing the southern extent of its range) as far as Myanmar, thus also occurring in Nepal, Bhutan and Bangladesh, but current knowledge suggests a more restricted distribution.",
-        "words": "Nepal",
         "ok": true
       },
       {
@@ -53,10 +29,34 @@
         "ok": true
       },
       {
+        "code": "PK",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It was traditionally considered to range westwards from Pakistan though India (with Karnataka State representing the southern extent of its range) as far as Myanmar, thus also occurring in Nepal, Bhutan and Bangladesh, but current knowledge suggests a more restricted distribution.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It was traditionally considered to range westwards from Pakistan though India (with Karnataka State representing the southern extent of its range) as far as Myanmar, thus also occurring in Nepal, Bhutan and Bangladesh, but current knowledge suggests a more restricted distribution.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "In Myanmar, for example, the last record of D. rerio was in 1926, but in the years since several new, similar-looking fishes have been discovered and described to science, with others still to follow.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
         "code": "IN",
         "status": "native",
         "source": "sprucepets",
-        "quote": "Origin: Eastern India",
+        "quote": "Zebra danios were originally thought to have originated from a wider range that stretched from Myanmar in the east and Pakistan in the west; however, the current consensus is that this species originates from a much narrower range that is confined to parts of India and Bangladesh.",
         "words": "India",
         "ok": true
       },
@@ -123,9 +123,24 @@
         "quote": "northern Myanmar and Sri Lanka.",
         "words": "Sri Lanka",
         "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "This freshwater danio comes from northern India and surrounding countries.",
+        "words": "India",
+        "ok": true
       }
     ],
     "regions": [
+      {
+        "name": "Kosi River",
+        "source": "seriouslyfish",
+        "quote": "Described from the Kosi River, a tributary of the Ganges system in Uttar Pradesh state, northern India.",
+        "country": "IN",
+        "ok": true
+      },
       {
         "name": "Ganges",
         "source": "seriouslyfish",
@@ -265,9 +280,5 @@
     ],
     "requests": 15,
     "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
   }
 }

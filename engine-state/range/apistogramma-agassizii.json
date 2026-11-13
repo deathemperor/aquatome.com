@@ -1,0 +1,146 @@
+{
+  "id": "apistogramma-agassizii",
+  "native": {
+    "input": "311f1f25363eddfe",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma agassizii is a dwarf cichlid found through much of the Amazon/Solimões basin, from the Río Ucayali in Peru to the Capim River in Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma agassizii is a dwarf cichlid found through much of the Amazon/Solimões basin, from the Río Ucayali in Peru to the Capim River in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon/Solimões basin",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma agassizii is a dwarf cichlid found through much of the Amazon/Solimões basin, from the Río Ucayali in Peru to the Capim River in Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Río Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma agassizii is a dwarf cichlid found through much of the Amazon/Solimões basin, from the Río Ucayali in Peru to the Capim River in Brazil.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Capim River",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma agassizii is a dwarf cichlid found through much of the Amazon/Solimões basin, from the Río Ucayali in Peru to the Capim River in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma agassizii",
+    "status": "ACCEPTED",
+    "taxonKey": 2371326,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        109
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        64
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        49
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        24
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        22
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        20
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        20
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        17
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        7
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        6
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "ca-sternarchorhynchus-goeldii",
+  "name": "Cá Sternarchorhynchus goeldii",
+  "altNames": [
+    "Cá dao Sternarchorhynchus"
+  ],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Mấy năm gần đây, số loài Sternarchorhynchus được mô tả tăng lên rất nhanh. Tới năm 1994 người ta mới biết 4 loài. Năm 2006 con số này lên 10, và tới năm 2014 đã có 32 loài được công nhận. Thế nên Sternarchorhynchus giờ là chi đông loài nhất trong họ Apteronotidae. Các loài khác nhau chủ yếu ở hình dạng cái mõm.</p><p>Hồi lứa cá này mới về, người ta chỉ định danh được đại khái nên ghi là S. mormyrus. Xem kỹ ảnh thì chúng có lẽ là S. goeldii, loài mới được mô tả năm 2010. S. mormyrus lớn tới khoảng 50 cm, còn S. goeldii khoảng 30 cm.</p>",
+    "distribution:glaser": "<p>Peru.</p>",
+    "diet:glaser": "<p>Sternarchorhynchus dễ cho ăn trong bể. Đồ tươi sống hay đồ đông lạnh loại nào chúng cũng ăn ngay.</p>",
+    "behaviour:glaser": "<p>Mấy con cá này hơi hay gây sự với nhau nhưng không cắn bị thương con kia. Chúng lượn vòng quanh nhau rất nhanh, đẹp tới mức nín thở mà xem, và con nào bơi giỏi hơn thì thắng. Lúc đánh nhau, cái mõm có công dụng riêng: chúng dùng nó y như thanh kiếm của người đấu kiếm.</p>",
+    "notes:glaser": "<p>Sternarchorhynchus nghĩa là \"mõm có hậu môn ở ngực\". Cái tên này nói tới chiếc mõm dài, và tới chuyện hậu môn của Sternarchorhynchus nằm ngay sau đầu. Tên mormyrus nghĩa là \"giống cá mormyrid\", vì các loài trong chi cá châu Phi Mormyrus cũng có mõm dài như vậy. Tên goeldii đặt để tôn vinh Emilio (tên thật là Emil) Goeldi (1859-1917), người có công lớn trong việc tìm hiểu động vật vùng Amazon.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

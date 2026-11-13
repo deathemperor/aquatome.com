@@ -75,7 +75,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -192,17 +192,12 @@
       "author": "Earedien",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:TetraodonLineatus.JPG",
       "caption": "13 inch fahaka puffer fish.",
-      "thumb": "https://media.aquatome.com/commons/5cd4b312801c6791-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/6a713c7355815279.webp",
-      "width": 960,
-      "height": 564,
-      "licence": "Public domain",
-      "author": "Bloch, Marcus Elieser",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ichthyologie;_ou,_Histoire_naturelle_des_poissons_(Plate_141)_(6918399698).jpg",
-      "caption": "Tetraodon lineatus",
-      "thumb": "https://media.aquatome.com/commons/6a713c7355815279-480.webp"
+      "thumb": "https://media.aquatome.com/commons/5cd4b312801c6791-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/5cd4b312801c6791-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
@@ -210,8 +205,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 200 lít",
-        "bể cá lớn nuôi cá nóc"
+        "bể cá 120cm"
       ]
     },
     {

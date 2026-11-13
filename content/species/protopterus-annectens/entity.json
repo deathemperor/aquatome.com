@@ -1,0 +1,705 @@
+{
+  "id": "protopterus-annectens",
+  "scientificName": "Protopterus annectens",
+  "order": "Ceratodontiformes",
+  "family": "Protopteridae",
+  "genus": "Protopterus",
+  "group": "other",
+  "places": [
+    "africa",
+    "sierra-leone",
+    "guinea",
+    "togo",
+    "ivory-coast",
+    "cameroon",
+    "niger",
+    "nigeria",
+    "burkina-faso",
+    "gambia",
+    "ghana",
+    "central-african-republic",
+    "chad",
+    "benin",
+    "senegal",
+    "kenya",
+    "mali",
+    "sudan"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "SL",
+        "GN",
+        "TG",
+        "CI",
+        "CM",
+        "NE",
+        "NG",
+        "BF",
+        "GM",
+        "GH",
+        "CF",
+        "TD",
+        "BJ",
+        "SN",
+        "KE",
+        "ML",
+        "SD"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It is widespread, being found in Sierra Leone, Guinea, Togo, Ivory Coast, Cameroon, Niger, Nigeria, Burkina Faso, Gambia, Ghana, Central African Republic, Chad, Benin, Senegal, Kenya, Mali and Sudan.",
+          "countries": [
+            "SL",
+            "GN",
+            "TG",
+            "CI",
+            "CM",
+            "NE",
+            "NG",
+            "BF",
+            "GM",
+            "GH",
+            "CF",
+            "TD",
+            "BJ",
+            "SN",
+            "KE",
+            "ML",
+            "SD"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2441257,
+      "total": 617,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "GM",
+          465
+        ],
+        [
+          "BJ",
+          42
+        ],
+        [
+          "NG",
+          17
+        ],
+        [
+          "CD",
+          14
+        ],
+        [
+          "CM",
+          14
+        ],
+        [
+          "MZ",
+          13
+        ],
+        [
+          "KE",
+          6
+        ],
+        [
+          "CF",
+          5
+        ],
+        [
+          "GH",
+          5
+        ],
+        [
+          "ML",
+          5
+        ],
+        [
+          "CI",
+          4
+        ],
+        [
+          "MW",
+          4
+        ],
+        [
+          "ZM",
+          4
+        ],
+        [
+          "SN",
+          3
+        ],
+        [
+          "TD",
+          3
+        ],
+        [
+          "TG",
+          3
+        ],
+        [
+          "ZW",
+          3
+        ],
+        [
+          "BF",
+          2
+        ],
+        [
+          "ZA",
+          2
+        ],
+        [
+          "BI",
+          1
+        ],
+        [
+          "SD",
+          1
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -16.875,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          -16.875,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          -15.46875,
+          12.65625,
+          464,
+          464
+        ],
+        [
+          -15.46875,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          -8.4375,
+          11.25,
+          1,
+          1
+        ],
+        [
+          -5.625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -5.625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -5.625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          -4.21875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -4.21875,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          -2.8125,
+          11.25,
+          1,
+          1
+        ],
+        [
+          -1.40625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -1.40625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          0,
+          5.625,
+          5,
+          5
+        ],
+        [
+          0,
+          9.84375,
+          9,
+          9
+        ],
+        [
+          1.40625,
+          5.625,
+          22,
+          22
+        ],
+        [
+          1.40625,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          1.40625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          2.8125,
+          11.25,
+          7,
+          7
+        ],
+        [
+          4.21875,
+          11.25,
+          1,
+          1
+        ],
+        [
+          4.21875,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          5.625,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          5.625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          7.03125,
+          11.25,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          11.25,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          12.65625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          14.0625,
+          9.84375,
+          6,
+          6
+        ],
+        [
+          14.0625,
+          11.25,
+          5,
+          5
+        ],
+        [
+          16.875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          19.6875,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          25.3125,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          25.3125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          26.71875,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          26.71875,
+          -11.25,
+          3,
+          0
+        ],
+        [
+          26.71875,
+          -9.84375,
+          8,
+          0
+        ],
+        [
+          28.125,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          28.125,
+          -11.25,
+          3,
+          0
+        ],
+        [
+          28.125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          29.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          30.9375,
+          -25.3125,
+          2,
+          0
+        ],
+        [
+          30.9375,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          32.34375,
+          -23.90625,
+          5,
+          0
+        ],
+        [
+          32.34375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          33.75,
+          -21.09375,
+          2,
+          0
+        ],
+        [
+          33.75,
+          -15.46875,
+          3,
+          0
+        ],
+        [
+          33.75,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          33.75,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          35.15625,
+          -19.6875,
+          3,
+          0
+        ],
+        [
+          35.15625,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          36.5625,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          39.375,
+          -2.8125,
+          6,
+          6
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 100
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180,
+        "hidden": "shorter than twice the fish (100 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 20
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protopterus-annectens",
+      "html": "<ul><li>pH: not recorded</li><li>Space: very large tank; water: flexible; temperature: flexible; hardiness: hardy</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protopterus-annectens",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. These fish can and will escape given the slightest opportunity.</li></ul><p>The African lungfish, Protopterus annectens, is a lungfish found in 17 African countries, including Senegal, Nigeria, Kenya and Sudan. It inhabits temporary floodplains that dry out completely for part of the year and survives the dry season by aestivating in a mucus cocoon, for several years if need be. The most commonly seen lungfish in the hobby, it reaches 100 cm, bites hard and is best kept singly.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protopterus-annectens",
+      "html": "<p>It is widespread, being found in Sierra Leone, Guinea, Togo, Ivory Coast, Cameroon, Niger, Nigeria, Burkina Faso, Gambia, Ghana, Central African Republic, Chad, Benin, Senegal, Kenya, Mali and Sudan.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protopterus-annectens",
+      "html": "<p>It usually inhabits temporary floodplains that are completely dry for part of the year. It also occurs in swamps, marshes, and backwaters.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protopterus-annectens",
+      "html": "<p>Standard length: 100 cm SL. Aquarium base: 180 × 75 cm. Volume: ~1013 litres.</p><p>Although a large aquarium is obviously required for an adult fish, the fish are not terribly active. Therefore, you can probably get away with keeping one in a tank of around 180 × 75 × 75 cm (~1013 litres). This is an absolute minimum, however. We have seen fully grown specimens kept in smaller tanks, but really the fish should have room to move around.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protopterus-annectens",
+      "html": "<p>Water movement in the aquarium should be kept to a minimum. This species is unfussy with regards to decor. Some cover can be provided in the form of roots, branches or large, smooth rocks. Any artificial lighting should be very dim. A sandy or muddy substrate is beneficial but not essential. What is most important is that the cover of the tank cannot be moved by the fish and contains no gaps. These fish can and will escape given the slightest opportunity. A gap of around 15 cm should be left between the water surface and the cover to allow the fish access to the atmospheric air it needs to survive.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protopterus-annectens",
+      "html": "<ul><li>Temperature: 24–30°C</li><li>pH: not recorded</li><li>Hardness: 0–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protopterus-annectens",
+      "html": "<p>P. a. annectens is omnivorous in nature, feeding on fish, shellfish, amphibians and plant matter. It will adapt to a variety of foods in the aquarium. Offer prawn, mussel, lancefish, algae wafers and other vegetable matter. Larger specimens can be fed whole fish, such as trout or sprats. This fish does not require food on a daily basis and can in fact go without any food at all for over 3 years!</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protopterus-annectens",
+      "html": "<p>Best kept singly and alone. Some hobbyists do keep lungfish with other large species but this is very risky. Lungfish are unpredictable and can bite chunks out of other fish at will. Specimens that have been kept in a community situation for some time have been known to suddenly turn on their tankmates. It is also completely intolerant of congeners.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protopterus-annectens",
+      "html": "<p>Not known.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protopterus-annectens",
+      "html": "<p>Spawning has not yet been achieved in captivity. In nature, the fish construct nests into which the eggs are deposited. The nest is then protected by the male until they hatch.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protopterus-annectens",
+      "html": "<p>Lungfish are among the most intriguing of \"oddball\" aquarium subjects, being able to survive in the most extreme conditions. They are very ancient fish, having remained virtually unchanged for millions of years. The natural habitat of P. a. annectens is wet for only part of the year and the fish has developed several incredible adaptations in order to counteract this. When the waters begin to recede, the fish will find a suitable nesting site, usually amongst heavy vegetation. Here, it will dig down into the muddy substrate, forming a tunnel. When it reaches a certain depth (this varies depending on the fish, but is typically around 30 cm), it writhes around until it forms a bulb-shaped chamber, in which it will spend the dry season. It then positions itself in such a way that its head is pointing upwards, towards the entrance. The chamber is often filled with water initially and the fish has to rise to the entrance of the burrow to take in air. However, as the water level drops further, it becomes completely exposed to the air. At this point, it excretes copious amounts of a special mucous, which dries to form a \"cocoon\" around the fish. Its metabolic rate also decreases drastically. There it remains, completely motionless, until the rains return. This state is known as aestivation. Amazingly, a healthy individual can remain in aestivation for several years!</p><p>The fish possess both gills and a set of paired lungs. The gills do allow the fish to breathe underwater, but are rudimentary in structure and the fish has to rise to the surface periodically to obtain atmospheric air. The lungs are similar in structure to those of primitive amphibians and are formed from the heavily modified swim bladder. Young fish possess a set of external gills, which recede as the fish matures. The limb-like fins of the fish are long, thin and fleshy. They are used mainly for touch. However, they are supported by a strong set of muscles and allow the fish to \"crawl\" across patches of dry land if necessary. There are four of these, located in the same positions as tetrapod legs. Other similarities between lungfish and tetrapods include the possession of tooth enamel, the way in which the bones of the skull are arranged and the distinct separation between pulmonary and body blood flow. Unlike most other fish species, the heart has 4 distinct chambers, allowing for this final adaptation.</p><p>P. a. annectens is the most commonly seen lungfish in the hobby, being of a slightly more manageable size than the others. It is very hardy and easy to keep, but is still recommended only to enthusiasts. Not only does the fish require a very large tank, but it can inflict a nasty bite and should be handled with extreme care. It is also very long-lived, having a lifespan of over 20 years, so unless you are prepared to make a real commitment to one of these bizarre fish, do not waste your money!</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/8046ccad9f6ece26.webp",
+      "width": 823,
+      "height": 829,
+      "licence": "CC BY 2.5",
+      "author": "Gőtehal.jpg: Mathae derivative work: Bff",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:G%C5%91tehal-2.jpg",
+      "caption": "Protopterus annectens at Paris Aquarium",
+      "thumb": "https://media.aquatome.com/commons/8046ccad9f6ece26-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c843e38add5d33a3.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 2.5",
+      "author": "Mathae",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:G%C5%91tehal.jpg",
+      "caption": "Protopterus annectens at Paris Aquarium",
+      "thumb": "https://media.aquatome.com/commons/c843e38add5d33a3-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e29fa29d34c1844b.webp",
+      "width": 960,
+      "height": 541,
+      "licence": "CC BY-SA 4.0",
+      "author": "Cedricguppy - Loury Cédric",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Protopterus_annectens_-_dipneuste_africain_-_Aqua_Porte_Dor%C3%A9e_01.JPG",
+      "caption": "Protopterus annectens - dipneuste africain - Aquarium Tropical du Palais de la Porte Dorée Paris, Ile de France, France - 12/2014",
+      "thumb": "https://media.aquatome.com/commons/e29fa29d34c1844b-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/37992e3e0090b119.webp",
+      "width": 960,
+      "height": 638,
+      "licence": "CC BY-SA 3.0",
+      "author": "Takada@mex",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Annectens.jpg",
+      "caption": "Protopterus annectens",
+      "thumb": "https://media.aquatome.com/commons/37992e3e0090b119-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm",
+        "bể cá lớn 1000 lít",
+        "nắp bể cá kín"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá công suất lớn",
+        "máy sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "thức ăn cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

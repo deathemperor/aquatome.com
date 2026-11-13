@@ -144,7 +144,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ],
     "gh": [
@@ -288,17 +288,12 @@
       "author": "FakirNL",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_petricola_in_Ouwehands_Dierenpark_02.jpg",
       "caption": "Synodontis petricola (evenspotted catfish or pygmy leopard catfish) in Ouwehands Dierenpark",
-      "thumb": "https://media.aquatome.com/commons/0729c51cc067b013-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/90ff72588ee35b18.webp",
-      "width": 960,
-      "height": 1379,
-      "licence": "CC BY-SA 4.0",
-      "author": "FakirNL",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_petricola_in_Ouwehands_Dierenpark_01.jpg",
-      "caption": "Synodontis petricola (evenspotted catfish or pygmy leopard catfish) in Ouwehands Dierenpark",
-      "thumb": "https://media.aquatome.com/commons/90ff72588ee35b18-480.webp"
+      "thumb": "https://media.aquatome.com/commons/0729c51cc067b013-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/0729c51cc067b013-large.webp",
+        "width": 1558,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/70f0868406b91d56.webp",
@@ -309,6 +304,16 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frankfurt_Zoo_-_Synodontis_petricola.jpg",
       "caption": "Kuckuckswels. Spotted Synodontis. Synodontis petricola. Tananjikasse, Afrika. At Frankfurt Zoo.",
       "thumb": "https://media.aquatome.com/commons/70f0868406b91d56-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/90ff72588ee35b18.webp",
+      "width": 960,
+      "height": 1379,
+      "licence": "CC BY-SA 4.0",
+      "author": "FakirNL",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_petricola_in_Ouwehands_Dierenpark_01.jpg",
+      "caption": "Synodontis petricola (evenspotted catfish or pygmy leopard catfish) in Ouwehands Dierenpark",
+      "thumb": "https://media.aquatome.com/commons/90ff72588ee35b18-480.webp"
     }
   ],
   "videos": [
@@ -341,8 +346,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cichlid Tanganyika"
+        "bể cá 90cm"
       ]
     },
     {

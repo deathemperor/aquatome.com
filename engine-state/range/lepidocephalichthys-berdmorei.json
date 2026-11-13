@@ -1,0 +1,166 @@
+{
+  "id": "lepidocephalichthys-berdmorei",
+  "native": {
+    "input": "68b4eb983bc5612b",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Lepidocephalichthys berdmorei is a cobitid loach found across Myanmar, Thailand, Laos, north-eastern India and Bangladesh.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Lepidocephalichthys berdmorei is a cobitid loach found across Myanmar, Thailand, Laos, north-eastern India and Bangladesh.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Lepidocephalichthys berdmorei is a cobitid loach found across Myanmar, Thailand, Laos, north-eastern India and Bangladesh.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Lepidocephalichthys berdmorei is a cobitid loach found across Myanmar, Thailand, Laos, north-eastern India and Bangladesh.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Lepidocephalichthys berdmorei is a cobitid loach found across Myanmar, Thailand, Laos, north-eastern India and Bangladesh.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "The southern limit of its range is usually given as Trang Province, southern Thailand, and presence in China could not be confirmed although some reports state that it has been recorded there without providing specific details.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "Thought to have been described from the Sittaung River basin, Bago Division, Myanmar but currently accepted to have a wide distribution including the following river systems and countries: Brahmaputra in Bangladesh; Manipur in Manipur state, north-eastern India; Irrawaddy, Sittaung and Salween in Myanmar; Chao Phraya and Mae Klong in Thailand; Mekong in Thailand and Laos.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Thought to have been described from the Sittaung River basin, Bago Division, Myanmar but currently accepted to have a wide distribution including the following river systems and countries: Brahmaputra in Bangladesh; Manipur in Manipur state, north-eastern India; Irrawaddy, Sittaung and Salween in Myanmar; Chao Phraya and Mae Klong in Thailand; Mekong in Thailand and Laos.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Thought to have been described from the Sittaung River basin, Bago Division, Myanmar but currently accepted to have a wide distribution including the following river systems and countries: Brahmaputra in Bangladesh; Manipur in Manipur state, north-eastern India; Irrawaddy, Sittaung and Salween in Myanmar; Chao Phraya and Mae Klong in Thailand; Mekong in Thailand and Laos.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Thought to have been described from the Sittaung River basin, Bago Division, Myanmar but currently accepted to have a wide distribution including the following river systems and countries: Brahmaputra in Bangladesh; Manipur in Manipur state, north-eastern India; Irrawaddy, Sittaung and Salween in Myanmar; Chao Phraya and Mae Klong in Thailand; Mekong in Thailand and Laos.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Thought to have been described from the Sittaung River basin, Bago Division, Myanmar but currently accepted to have a wide distribution including the following river systems and countries: Brahmaputra in Bangladesh; Manipur in Manipur state, north-eastern India; Irrawaddy, Sittaung and Salween in Myanmar; Chao Phraya and Mae Klong in Thailand; Mekong in Thailand and Laos.",
+        "country": "BD",
+        "ok": true
+      },
+      {
+        "name": "Sittaung",
+        "source": "seriouslyfish",
+        "quote": "Thought to have been described from the Sittaung River basin, Bago Division, Myanmar but currently accepted to have a wide distribution including the following river systems and countries: Brahmaputra in Bangladesh; Manipur in Manipur state, north-eastern India; Irrawaddy, Sittaung and Salween in Myanmar; Chao Phraya and Mae Klong in Thailand; Mekong in Thailand and Laos.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lepidocephalichthys berdmorei",
+    "status": "ACCEPTED",
+    "taxonKey": 2368042,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        38
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        18
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        18
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        15
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        9
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "TH",
+      "LA",
+      "IN",
+      "BD"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

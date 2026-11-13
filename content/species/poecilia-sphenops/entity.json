@@ -25,6 +25,18 @@
       "regions": [],
       "sources": [
         "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The short-finned molly, Poecilia sphenops, is a livebearer whose native range runs north from Venezuela and Colombia to Mexico.",
+          "countries": [
+            "VE",
+            "CO",
+            "MX"
+          ],
+          "regions": []
+        }
       ]
     },
     "records": {
@@ -902,7 +914,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -977,17 +989,12 @@
       "author": "Dnoerholm",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:PoeciliaSphenops.jpg",
       "caption": "Poecilia sphenops wild form",
-      "thumb": "https://media.aquatome.com/commons/b3c484e83af5b774-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/bc6d7868f4a60995.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "Tereso Hernández Morales",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poecilia_sphenops_9844805.jpg",
-      "caption": "Common Molly (Poecilia sphenops)",
-      "thumb": "https://media.aquatome.com/commons/bc6d7868f4a60995-480.webp"
+      "thumb": "https://media.aquatome.com/commons/b3c484e83af5b774-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/b3c484e83af5b774-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/4044d2422650d7de.webp",
@@ -1030,8 +1037,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 90x30"
+        "bể cá 90cm"
       ]
     },
     {
@@ -1054,5 +1060,10 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-10-30",
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "All the morphs do better in slightly brackish conditions and are much more prone to disease in fresh water that is not hard and alkaline."
+  }
 }

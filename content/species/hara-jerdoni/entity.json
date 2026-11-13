@@ -12,6 +12,82 @@
     "thailand",
     "bangladesh"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "India, Bangladesh.",
+          "countries": [
+            "IN",
+            "BD"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341512,
+      "total": 9,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BD",
+          6
+        ],
+        [
+          "IN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          85.78125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          90,
+          22.5,
+          2,
+          2
+        ],
+        [
+          90,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          23.90625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -59,7 +135,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 2
       }
     ]
   },
@@ -161,7 +237,6 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá mini",
         "bể cá 30cm"
       ]
     },

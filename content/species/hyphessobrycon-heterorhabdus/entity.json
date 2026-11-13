@@ -11,6 +11,279 @@
     "para",
     "tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Tocantins",
+        "Xingu",
+        "Tapajós",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The flag tetra, Hyphessobrycon heterorhabdus, is a characid from Pará and Maranhão states in eastern Brazil, also known as 'Belgian flag tetra'.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The majority of records pertain to localities south and west of Belém, including the rios Guamá, Acará, Tocantins, and Xingu, plus some smaller river systems which drain directly into the Atlantic Ocean, such as the rios Marapanim, Caripi, Maracanã, Caeté, Gurupi, and Pindaré.",
+          "countries": [],
+          "regions": [
+            "Tocantins",
+            "Xingu"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has also been collected from various localities within the rio Tapajós, between its confluence with the Amazon and Jacareacanga in the middle part of the basin.",
+          "countries": [],
+          "regions": [
+            "Tapajós"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Has been considered to range throughout the lower and middle Amazon basins as far as southern Colombia, but may be restricted to tributaries and coastal drainages in the eastern states of Pará and Maranhão, with the rio Tapajós representing its upstream limit (see 'Notes').",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354628,
+      "total": 200,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          179
+        ],
+        [
+          "CO",
+          14
+        ],
+        [
+          "GF",
+          3
+        ],
+        [
+          "PE",
+          2
+        ],
+        [
+          "SR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          0,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          1.40625,
+          6,
+          0
+        ],
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          1.40625,
+          4,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -4.21875,
+          16,
+          16
+        ],
+        [
+          -56.25,
+          -2.8125,
+          12,
+          12
+        ],
+        [
+          -56.25,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          -54.84375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          32,
+          32
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -52.03125,
+          0,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -14.0625,
+          10,
+          10
+        ],
+        [
+          -49.21875,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          9,
+          9
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          22,
+          22
+        ],
+        [
+          -47.8125,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          21,
+          21
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          24,
+          24
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -54,7 +327,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -138,26 +411,13 @@
       "html": "<p>This species is also known as 'Belgian flag tetra' in the aquarium hobby.</p><p>Its name appears to have been misapplied to similar-looking fishes occurring throughout much of the middle and lower Amazon in Brazil and Colombia, the rio Orinoco drainage in Colombia and Venezuela, and coastal systems of the Guianas. Some of these populations have been described as distinct species (e.g. Hyphessobrycon amapaensis Zarske &amp; Géry 1998; H. eschwartzae García-Alzate, Román-Valencia &amp; Ortega 2013; H. montagi Lima, Couthino &amp; Woziacki 2014), whereas the identity of others remains unclear (e.g. H. sp. 'blackstripe' from Suriname, H. cf. heterorhabdus from Venezuela).</p><p>H. heterorhabdus differs from all of these in some aspects of meristics and morphology, but may be distinguished from the three described species by colour pattern. The dark lateral body stripe is continuous between humeral spot and caudal peduncle (vs. reduced or absent towards caudal peduncle in H. amapaensis), there are no yellow to orange markings in the fins (vs. such markings present in H. eschwartzae), and it possesses only a single humeral spot (vs. two distinct humeral spots in H. montagi).</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal-fin.</p><p>As currently recognised, Hyphessobrycon is a polyphyletic lineage containing several genera, and significant taxonomic confusion remains.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/af087a9caa0bcb3a.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/af087a9caa0bcb3a-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-heterorhabdus",
-      "caption": "A typical igarapé habitat in Maranhão state, eastern Brazil.",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá thủy sinh nhỏ"
+        "bể cá 80cm"
       ]
     },
     {

@@ -12,6 +12,67 @@
     "malaysia",
     "johor"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Johore River",
+        "Sumatra",
+        "Batang Hari"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Johore River, Segamat, Malaysia'.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Johore River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There appears to be a possibility that it is endemic to Sumatra, since a record from the Batang Hari river, in Jambi province (Tan & Kottelat, 2009) appears to represent the first official record since the description was published.",
+          "countries": [],
+          "regions": [
+            "Sumatra",
+            "Batang Hari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962766,
+      "total": 5,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ID",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          -2.8125,
+          4,
+          0
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +116,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -64,7 +125,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/kottelatia-brittani",
-      "html": "<ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 75 × 30 cm (30 × 12 in)</li><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–8 dGH</li><li>Difficulty: moderate (6 of 8), because it needs a well-established tank and stable water.</li></ul>"
+      "html": "<ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 75 × 30 cm (30 × 12 in)</li><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–8 dGH</li><li>Difficulty: moderate (4 of 8), because it needs a well-established tank and stable water.</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -168,8 +229,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 75cm",
-        "bể thủy sinh 75x30"
+        "bể cá 80cm"
       ]
     },
     {

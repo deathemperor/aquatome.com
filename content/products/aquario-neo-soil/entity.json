@@ -1,0 +1,165 @@
+{
+  "id": "aquario-neo-soil",
+  "brand": "Aquario",
+  "model": "Neo Soil",
+  "category": "phan-nen",
+  "type": "phan",
+  "specs": [
+    {
+      "key": "Origin",
+      "value": "South Korea",
+      "source": 1
+    },
+    {
+      "key": "Material",
+      "value": "Natural volcanic ash/volcanic soil",
+      "source": 0
+    },
+    {
+      "key": "Structure",
+      "value": "Two layers: brown core, black outer coat; lighter than typical soils",
+      "source": 0
+    },
+    {
+      "key": "Grain size (Compact Plants Normal)",
+      "value": "about 3 mm",
+      "source": 1
+    },
+    {
+      "key": "Effect on water",
+      "value": "Slightly lowers pH and hardness",
+      "source": 1
+    },
+    {
+      "key": "Bacteria",
+      "value": "Contains dormant beneficial bacteria plus their food; activate on contact with water",
+      "source": 0
+    },
+    {
+      "key": "Bag sizes",
+      "value": "3 L and 8 L",
+      "source": 2
+    },
+    {
+      "key": "Warranty",
+      "value": "None listed",
+      "source": 2
+    }
+  ],
+  "variants": [
+    {
+      "name": "Neo Soil Plants / Compact Plants (Normal)",
+      "specs": [
+        {
+          "key": "Sizes",
+          "value": "3 L, 8 L",
+          "source": 1
+        },
+        {
+          "key": "Grain size",
+          "value": "about 3 mm",
+          "source": 1
+        },
+        {
+          "key": "Intended use",
+          "value": "Planted tanks with CO2, adequate light and fertiliser",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Neo Soil No CO2",
+      "specs": [
+        {
+          "key": "Sizes",
+          "value": "3 L, 8 L",
+          "source": 3
+        },
+        {
+          "key": "Colour",
+          "value": "Natural black",
+          "source": 3
+        },
+        {
+          "key": "Intended use",
+          "value": "Low-tech tanks without CO2 injection, shrimp and nano tanks",
+          "source": 3
+        },
+        {
+          "key": "Recommended depth",
+          "value": "5–7 cm",
+          "source": 3
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://sunaquarium.vn/san-pham/neo-soil-plants/",
+      "title": "Neo Soil Plants (Đất nền Neo cho cây) - Sun Aquarium",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/neo-soil-compact-plants-cua-aquario-phan-nen-dat-nen-thuy-sinh",
+      "title": "NEO SOIL COMPACT PLANTS của AQUARIO - Thủy Sinh Bích Phương",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://www.greendeal.vn/aquario-neo-soil-compact-plants-normal",
+      "title": "AQUARIO - Neo Soil Compact Plants (Normal) - GreenDeal",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/aquario-neo-soil-no-co2-nen-thuy-sinh-cho-be-low-tech",
+      "title": "Phân nền Aquario Neo Soil No CO2 - Thủy Sinh Bích Phương",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://yeuthuysinh.vn/neo-soil-compact-plants-aquario-phan-nen-dat-nen",
+      "title": "NEO SOIL COMPACT PLANTS AQUARIO - Yêu Thủy Sinh",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://buceplant.com/products/aquario-neo-soil",
+      "title": "Aquario Neo Soil - Buce Plant",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://www.aquasabi.com/ADA-Aqua-Soil-Amazonia-Ver2",
+      "title": "ADA Aqua Soil Amazonia Ver.2 - Aquasabi",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://forum.aquariumcoop.com/topic/31576-neo-aquarium-soil-experiences-and-your-recommendations/",
+      "title": "Neo aquarium soil experiences and your recommendations - Aquarium Co-Op forum",
+      "kind": "forum",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=3D6p0wZuXik",
+      "title": "AQUARIO NEO Soil - First look and detailed review",
+      "kind": "video",
+      "at": "2026-11-09"
+    }
+  ],
+  "reviews": {
+    "checkedAt": "2026-11-09",
+    "videos": [
+      {
+        "youtubeId": "3D6p0wZuXik",
+        "title": "AQUARIO NEO Soil - First look and detailed review",
+        "durationSec": 613,
+        "lang": "en",
+        "channel": "Jagdeep Singh"
+      }
+    ]
+  },
+  "updatedAt": "2026-11-09"
+}

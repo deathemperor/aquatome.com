@@ -1,7 +1,8 @@
 import { readFileSync } from 'node:fs'
-import { SECTION_ORDER, tankIsVolume, type SourceId } from '@aq/schema'
+import { isOneEnded, SECTION_ORDER, sizeIsForSale, tankIsVolume, tempIsNotForKeeping, type SourceId } from '@aq/schema'
 import { z } from 'zod'
 import type { Llm } from './claude'
+import { withTanks } from './round'
 import { sanitizeHtml } from './sanitize'
 
 const Range = z.object({ min: z.number(), max: z.number() })
@@ -17,6 +18,7 @@ const base = {
   viAltNames: z.array(z.string()).default([]),
   group: z.string().optional(),
   lNumber: z.string().optional(),
+  variety: z.string().default(''),
   places: z.array(z.object({ continent: z.string(), country: z.string().optional(), region: z.string().optional() })).default([]),
   dataCard: z.object({ tempC: Range, ph: Range, gh: Range, sizeCm: z.number(), tankCm: z.number(), difficulty: z.number().int().min(1).max(8), lifeYears: Range }).partial().default({}),
   plant: z.object({ difficulty: z.union([z.literal(1), z.literal(2), z.literal(3)]), light: z.enum(['low', 'medium', 'high']), co2: z.enum(['none', 'optional', 'required']), growth: z.enum(['slow', 'medium', 'fast']), placement: z.array(z.enum(PLACEMENT)) }).optional(),
@@ -42,13 +44,29 @@ function saneCard(card: z.infer<typeof ProcessedPageSchema>['dataCard'], en: str
     const [lo, hi] = BOUNDS[k]
     const value = typeof v === 'number' ? v : { min: Math.min(v.min, v.max), max: Math.max(v.min, v.max) }
     const ok = typeof value === 'number' ? value >= lo && value <= hi : value.min >= lo && value.max <= hi
-    if (ok && !(k === 'tankCm' && typeof value === 'number' && tankIsVolume(en, value))) (out as Record<string, unknown>)[k] = value
+    if (ok && !(k === 'tankCm' && typeof value === 'number' && tankIsVolume(en, value))
+      && !(k === 'sizeCm' && typeof value === 'number' && sizeIsForSale(en, value))
+      && !(k === 'tempC' && tempIsNotForKeeping(en, value))
+      && !isOneEnded(en, k, value)) (out as Record<string, unknown>)[k] = value
   }
   return out
 }
 
+/** The breeds' scale for a source's words (breeds.ts DIFFICULTY). */
+const DIFFICULTY_WORDS: Record<string, number> = { 'very easy': 1, beginner: 2, easy: 2, 'easy to moderate': 3, moderate: 4, intermediate: 4, 'moderate to difficult': 5, difficult: 6, advanced: 6, 'very difficult': 7, expert: 8, 'expert only': 8 }
+/**
+ * Seriously Fish's difficulty, from its page: in "## Difficulty6 of 8 measures" the 6 counts the measures it could rate
+ * (space, water, diet…), and the rating is the word under it ("Moderate"). The model read the count as the rating (the
+ * climbing perch, "Moderate", showed as hard). undefined: no such block (the old layout), so the figure read from the page
+ * stands; null: the block rates nothing ("Not enough data to rate").
+ */
+export function sfDifficulty(page: string): number | null | undefined {
+  const word = page.match(/^##\s*Difficulty\s*\d+\s+of\s+\d+\s+measures\s*\n\s*(.+)/m)?.[1]
+  return word === undefined ? undefined : DIFFICULTY_WORDS[word.trim().toLowerCase()] ?? null
+}
+
 const SYSTEM = 'You are a meticulous aquarium-science editor and English→Vietnamese translator. Reply only with the requested JSON.'
-const TEMPLATE = readFileSync(new URL('./prompts/process.md', import.meta.url), 'utf8')
+const TEMPLATE = withTanks(readFileSync(new URL('./prompts/process.md', import.meta.url), 'utf8'))
 const KEYS = new Set<string>(SECTION_ORDER)
 
 export async function processPage(llm: Llm, input: { source: SourceId; url: string; title: string; outline: string; glossary: string[]; notes?: string[] }): Promise<ProcessedPage> {
@@ -63,9 +81,13 @@ export async function processPage(llm: Llm, input: { source: SourceId; url: stri
   }
   if (!parsed) throw new Error(`invalid processed page for ${input.url}: ${String(lastError).slice(0, 300)}`)
   if (parsed.kind === 'species' && !parsed.scientificName) return { ...parsed, kind: 'skip', sections: [] }
+  const dataCard = saneCard(parsed.dataCard, parsed.sections.map(s => s.en).join('\n'))
+  const sf = input.source === 'seriouslyfish' ? sfDifficulty(input.outline) : undefined
+  if (sf === null) delete dataCard.difficulty
+  else if (sf) dataCard.difficulty = sf
   return {
     ...parsed,
-    dataCard: saneCard(parsed.dataCard, parsed.sections.map(s => s.en).join('\n')),
+    dataCard,
     sections: parsed.sections.filter((s): s is ProcessedPage['sections'][number] => KEYS.has(s.key)).map(s => ({ ...s, en: sanitizeHtml(s.en), vi: sanitizeHtml(s.vi) })),
     guide: parsed.guide && { ...parsed.guide, viBody: sanitizeHtml(parsed.guide.viBody) },
   }

@@ -1,0 +1,42 @@
+{
+  "id": "pethia-narayani",
+  "native": {
+    "input": "9a27960f9d6b73ca",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This extraordinary barb originates from the South of India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chauvery",
+        "source": "glaser",
+        "quote": "narayani: dedication name for C. R. Narayan Rao, who donated the collection of fishes from the Chauvery river to the Zoological Survey of India that contained among others this species that was then new to science.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia narayani",
+    "status": "ACCEPTED",
+    "taxonKey": 8138038,
+    "datasets": [],
+    "native": [
+      "IN"
+    ],
+    "requests": 2,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

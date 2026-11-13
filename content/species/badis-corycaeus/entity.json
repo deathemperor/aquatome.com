@@ -10,6 +10,71 @@
     "myanmar",
     "ayeyarwady"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ayeyarwady",
+        "Lake Indawgyi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Badis corycaeus is a badid known only from the upper Ayeyarwady River basin in northern Myanmar, including nearby Lake Indawgyi.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Lake Indawgyi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "To date the species is known only from the upper Ayeyarwady River basin in northern Myanmar.",
+          "countries": [],
+          "regions": [
+            "Ayeyarwady"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2389458,
+      "total": 43,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          43
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          23.90625,
+          13,
+          13
+        ],
+        [
+          95.625,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          25.3125,
+          29,
+          29
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +118,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -142,28 +207,6 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/badis-corycaeus",
       "caption": "B. corycaeus specimen with stress patterning.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/9b6281b588b15ff5.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/9b6281b588b15ff5-480.webp",
-      "width": 899,
-      "height": 599,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/badis-corycaeus",
-      "caption": "There are settlements around some parts of Lake Indawgyi...",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/2b680afc97297e27.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/2b680afc97297e27-480.webp",
-      "width": 899,
-      "height": 599,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/badis-corycaeus",
-      "caption": "Lake Indawgyi, Myanmar is a natural habitat of this species.",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -171,8 +214,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30",
-        "bể cá mini 54 lít"
+        "bể cá 60cm"
       ]
     },
     {

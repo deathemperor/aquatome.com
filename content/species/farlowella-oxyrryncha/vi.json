@@ -6,14 +6,24 @@
     "Needle sucker"
   ],
   "sections": {
-    "notes:glaser": "<p>Đây là một loài cá mèo mũi kim (needle sucker) có mõm cực kỳ nhọn. Lần đầu tiên loài này về từ Peru, và số lượng nhập về rất ít.</p>"
+    "notes:glaser": "<p>Loài cá needle sucker có mõm cực kỳ nhọn này lần đầu tiên được nhập khẩu từ Peru với số lượng rất hạn chế.</p>",
+    "quickFacts:scotcat": "<ul><li>Tình trạng IUCN: Ít quan tâm (2023)</li></ul>",
+    "beforeYouBuy:scotcat": "<p>Đây không phải loài cá da trơn dễ nuôi. Đã có nhiều ca chết không rõ nguyên nhân ở loài này, và ở cả các loài Farlowella khác. Muốn nuôi được thì cần chăm chút kỹ, và người nuôi nên là người đã quen cá da trơn, từng nuôi chính loài này hoặc họ hàng gần của nó trong chi Sturisoma, vốn dễ nuôi hơn.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Amazon và sông Orinoco, cùng các con sông ven biển ở đông bắc Brazil. Nơi thu mẫu chuẩn: Rio Mamoré – Cachoeira da Bananeira [Brazil].</p>",
+    "maintenance:scotcat": "<p>Bể nuôi loài này phải giàu oxy. Thay nước đều đặn để nước lúc nào cũng thật sạch. Cá thích nền tối màu, cây trồng dày, có cây thả nổi và cây lá dài để nó bám vào.</p>",
+    "waterConditions:scotcat": "<p>Nhiệt độ: 22–26°C. pH: 6,0–7,0.</p>",
+    "diet:scotcat": "<p>Loài này chủ yếu ăn thực vật. Cả cá lớn lẫn cá con đều ăn rêu là chính, nên cho ăn thức ăn viên nhiều rau là đủ.</p>",
+    "behaviour:scotcat": "<p>Đây là loài rất nhát. Nếu nuôi chung thì tránh các loài cá hiếu động như một số loài cá barb (chẳng hạn cá tứ vân), và tuyệt đối không thả chung với cichlid. Hợp hơn là các loài cá chuột Corydoras hiền lành, hoặc các loài characin và rasbora cỡ nhỏ.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên loài oxyrryncha ghép từ hai chữ Hy Lạp, oxys nghĩa là 'sắc' hoặc 'nhọn', và rhynchos nghĩa là 'mõm'. Cái tên nói tới chiếc mõm dài của cá.</p><p>Sách Đỏ IUCN: thông tin về loài này còn rất ít. Nhưng nó phân bố rộng và chưa thấy mối đe dọa rõ ràng nào, nên IUCN xếp vào mức Ít quan tâm (IUCN 2023).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Ferraris, C.J. Jr., 2003. Loricariidae - Loricariinae (Armored catfishes). p. 330-350. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre EDIPUCRS, Brasil. Froese, R. and D. Pauly. Editors. 2022. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2022 ). Salvador, G.N. 2023. Farlowella oxyrryncha. The IUCN Red List of Threatened Species 2023.</p>"
   },
   "quality": {
-    "score": 0.6,
+    "score": 0.7,
     "indexable": false,
     "bySource": {
-      "glaser": 0.6
+      "glaser": 0.7,
+      "scotcat": 0.85
     },
-    "reason": "thin"
+    "reason": "score"
   }
 }

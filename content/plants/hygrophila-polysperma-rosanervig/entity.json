@@ -18,6 +18,12 @@
     },
     {
       "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Đại hồng hà trồng ở trung cảnh hoặc hậu cảnh đều hợp. Cây mua về thường là cây trồng cạn, lá to hơn hẳn lá mọc dưới nước, và đám lá đó sẽ nhũn khi xuống nước. Trước khi trồng, cắt bỏ phần ngọn, chỉ giữ đoạn dưới có rễ rồi cắm xuống nền như bình thường. Làm vậy hơi mạnh tay và mấy tuần đầu bể trông trống. Bù lại, cây ra lá nước ngay, chuyển đổi nhanh hơn, và trong bể không có lá thối sinh chất thải gây rêu hại. Về sau, thấy chồi nào mọc xanh trơn, mất hết vân hồng thì cắt bỏ để giữ kiểu lá vân của giống.</p>"
+    },
+    {
+      "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophilapolysperma'Rosanervig'(050B)/4484",
       "html": "<p>Hygrophila polysperma 'Rosanervig' is normally an undemanding plant. If you want deep-pink leaves, you must provide intensive light. Stems become 20-40 cm tall and 5-8 cm wide.</p>"
@@ -49,6 +55,21 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_polysperma_%27Rosanervig%27.jpg",
       "caption": "Hygrophila polysperma 'Rosanervig' in an aquarium. It gets more pink under better light.",
       "thumb": "https://media.aquatome.com/commons/bb02970ad2fe7c2a-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/64ff063216eddb23.webp",
+      "thumb": "https://media.aquatome.com/tropica/64ff063216eddb23-480.webp",
+      "width": 1200,
+      "height": 750,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/64ff063216eddb23-large.webp",
+        "width": 1920,
+        "height": 1200
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophilapolysperma'Rosanervig'(050B)/4484",
+      "source": "tropica"
     }
   ],
   "productSlots": [
@@ -73,5 +94,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-09"
 }

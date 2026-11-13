@@ -177,13 +177,12 @@ final class StoreShotsFlowTests: XCTestCase {
   private func launch(_ l: Lang, _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(\(l.code))", "-AppleLocale", l.locale, "-reset-defaults"] + args
-    app.launchForFlow()
+    app.launchForFlow(.old)
     return app
   }
 
   /// A tab by its name: in the tab bar on an iPhone, and at the top on an iPad.
   private func tab(_ app: XCUIApplication, _ name: String) {
-    app.showTabs()
     let bar = app.tabBars.buttons[name]
     if bar.waitForExistence(timeout: 5) { return bar.tap() }
     let top = app.buttons[name].firstMatch
@@ -247,8 +246,6 @@ final class StoreShotsFlowTests: XCTestCase {
   /// The screen as it is once pictures have drawn and scrolling has stopped, kept with the run: a PNG at the screen's
   /// own pixels with no alpha channel, which the App Store refuses.
   private func shoot(_ l: Lang, _ n: Int, _ name: String, settle: TimeInterval = 1.5) {
-    // The whole tab bar, even where scrolling down to the part shown shrank it.
-    XCUIApplication().showTabs()
     let until = Date().addingTimeInterval(settle)
     while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
     let png = Self.rgbPNG(XCUIScreen.main.screenshot().image)

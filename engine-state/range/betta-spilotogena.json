@@ -1,0 +1,72 @@
+{
+  "id": "betta-spilotogena",
+  "native": {
+    "input": "bee2d9eb6f87a9c1",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta spilotogena is a mouthbrooding labyrinth fish from Bintan and Singkep islands in the Riau Islands province of Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from a 'small stream' in the north of Bintan Island, Riau Archipelago, Indonesia and subsequently recorded from Singkep Island in the Lingga Islands Archipelago.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bintan",
+        "source": "seriouslyfish",
+        "quote": "Described from a 'small stream' in the north of Bintan Island, Riau Archipelago, Indonesia and subsequently recorded from Singkep Island in the Lingga Islands Archipelago.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Singkep",
+        "source": "seriouslyfish",
+        "quote": "Described from a 'small stream' in the north of Bintan Island, Riau Archipelago, Indonesia and subsequently recorded from Singkep Island in the Lingga Islands Archipelago.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Riau Archipelago",
+        "source": "seriouslyfish",
+        "quote": "Described from a 'small stream' in the north of Bintan Island, Riau Archipelago, Indonesia and subsequently recorded from Singkep Island in the Lingga Islands Archipelago.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Lingga Islands Archipelago",
+        "source": "seriouslyfish",
+        "quote": "Described from a 'small stream' in the north of Bintan Island, Riau Archipelago, Indonesia and subsequently recorded from Singkep Island in the Lingga Islands Archipelago.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta spilotogena",
+    "status": "ACCEPTED",
+    "taxonKey": 2393999,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

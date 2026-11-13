@@ -1,0 +1,50 @@
+{
+  "id": "gastromyzon-cornusaccus",
+  "native": {
+    "input": "9cb109cfad5923fc",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sungai (river) Kinarom which empties into Marudu Bay, Kudat Division, Sabah, Malaysian Borneo.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sungai Kinarom",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Sungai (river) Kinarom which empties into Marudu Bay, Kudat Division, Sabah, Malaysian Borneo.",
+        "country": "MY",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "All members of the genus are endemic to Borneo with over half restricted to just a single river basin or sub-basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gastromyzon cornusaccus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358876,
+    "datasets": [],
+    "native": [
+      "MY"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

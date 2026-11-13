@@ -3,9 +3,7 @@
  "judged": [
   "File:Hyphessobrycon heterorhabdus (humeral blotch and anterior portion).png"
  ],
- "hashes": {
-  "https://media.aquatome.com/seriouslyfish/af087a9caa0bcb3a.webp": "8e2f2f0f8e87cf8f"
- },
+ "hashes": {},
  "commons": "2026-11-03",
  "inat": {
   "taxon": 610665,
@@ -14,5 +12,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2354628,
+  "next": null
  }
 }

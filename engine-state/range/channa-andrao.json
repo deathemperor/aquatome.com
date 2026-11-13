@@ -1,14 +1,22 @@
 {
   "id": "channa-andrao",
   "native": {
-    "input": "9f635c5ffe2d25e9",
-    "at": "2026-11-05T16:38:28.515Z",
+    "input": "89e249e1577e215b",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
       {
         "code": "IN",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Endemic to the Brahmaputra River basin in northeastern India, and officially known only from a swamp in the vicinity of Barobisha town, although collections for the aquarium trade appear to suggest the existence of at least one additional population.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This species is known so far only from a swamp area in the north of India (West Bengal / Assam).",
         "words": "India",
         "ok": true
       }

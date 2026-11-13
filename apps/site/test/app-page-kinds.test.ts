@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import type { HTMLElement } from 'node-html-parser'
-import type { Content, Photo } from '@aq/schema'
+import { photoFitsCard, type Content, type Photo } from '@aq/schema'
 import { PageDoc, type Block, type Image, type Inline } from '@aq/schema/app-page'
 import { appBreeds, appGlossary, appPlants, appSpecies } from '../src/lib/app-index'
 import { appPages, breedDoc, fishDoc, glossaryDoc, listedPaths, plantDoc, sectionBlocks } from '../src/lib/app-page'
@@ -63,6 +63,10 @@ function pictured(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>, 
   // footer also credits a photo the text had no room for; the copy doesn't show that one either.)
   const ours = new Set(images(d).map(i => i.credit!.url))
   const shown = new Set(dom.querySelectorAll('img').map(i => i.getAttribute('src')))
+  // A site-only fitted/unsafe cropped head is deliberately withheld from both app banner inputs.
+  const siteHead=dom.querySelector('.photo img')?.getAttribute('src')
+  const headRecord=[...bySource.values()].flat().find(p=>p.url===siteHead)
+  if(headRecord && (headRecord.headFit==='contain'||!photoFitsCard(headRecord)))shown.delete(siteHead)
   for (const a of dom.querySelectorAll('#photo-credits li a')) {
     const href = a.getAttribute('href')!
     if (!(bySource.get(href) ?? []).some(p => shown.has(p.url) || shown.has(smallSrc(p)))) continue
@@ -81,7 +85,8 @@ function credited(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>) 
   expect(marks(d).length, d.path).toBe(dom.querySelectorAll('.body .prose a.cite, .body #muc-range a.cite').length)
   for (const m of marks(d)) expect(typeof m !== 'string' && m.tip?.text, d.path).toMatch(/dịch từ nguồn$/)
   // The sections under their questions, with the ids the page's jump row links.
-  expect(all(d, 'h').map(h => [h.id, h.text]), d.path).toEqual(dom.querySelectorAll('.body section[data-section]').map(s => [s.id, txt(s.querySelector('h2'))]))
+  // (The sources' reference lists are the source list's, closed, under an h3.)
+  expect(all(d, 'h').map(h => [h.id, h.text]), d.path).toEqual(dom.querySelectorAll('.body section[data-section]').map(s => [s.id, txt(s.querySelector('h2, h3'))]))
 }
 
 const isMap = (img: Image) => img.src.startsWith('https://aquatome.com/app/range/')
@@ -142,10 +147,12 @@ function gallery(d: PageDoc, dom: HTMLElement) {
   const all = appPage(g.href!).dom
   expect(g.photos.map(p => p.src), d.path).toEqual(all.querySelectorAll('[data-gallery] a').map(a => a.getAttribute('data-full')))
   expect(g.photos.map(p => p.credit!.url), d.path).toEqual(all.querySelectorAll('[data-gallery] a').map(a => a.getAttribute('data-src')))
-  // "6 ảnh từ Wikimedia Commons, giấy phép mở.": the gallery page's line, without the scientific name before it or the link after.
+  // "6 ảnh từ Wikimedia Commons, giấy phép mở.": the gallery page's line, with the count its title gives there, without the
+  // scientific name before it or the link after.
   const lead = all.querySelector('.lead')!
   lead.querySelectorAll('.sci, a').forEach(x => x.remove())
-  expect(g.note, d.path).toBe(clean(lead.textContent.replace(/^ ·/, '')))
+  expect(g.note, d.path).toContain(String(g.photos.length))
+  expect(g.note.toLowerCase(), d.path).toContain(clean(lead.textContent.replace(/^ ·/, '')).toLowerCase())
 }
 
 test('each fish\'s copy reads as its built page: header, credits, sources, card sources, tank mates, climate, gallery, breeds, videos', async () => {
@@ -168,7 +175,7 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     expect(d.where?.flatMap(r => (typeof r === 'string' || !r.href ? [] : [r.href])), d.path).toEqual(dom.querySelectorAll('.where a').map(a => appHref(a.getAttribute('href')!)))
     expect(d.aka, d.path).toBe(dom.querySelector('.alt') ? txt(dom.querySelector('.alt')) : undefined)
     expect(text(d.credit), d.path).toBe(txt(dom.querySelector('.facts > .srcline')).startsWith('Dịch') ? txt(dom.querySelector('.facts > .srcline')) : '')
-    expect(d.lead?.src, d.path).toBe(dom.querySelector('.photo img')?.getAttribute('src'))
+    expect(d.lead?.src, d.path).toBe(s.photos[0] && (s.photos[0].headFit==='contain'||!photoFitsCard(s.photos[0])) ? undefined : dom.querySelector('.photo img')?.getAttribute('src'))
     expect(d.talk, d.path).toEqual(talk(dom))
     expect(d.talk?.comments && d.talk.photos, d.path).toBeTruthy()
     if (d.lead) expect(d.lead.credit?.text, d.path).toBe(dom.querySelector('.photo a.cite.pic')!.getAttribute('data-term'))
@@ -176,8 +183,8 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     // "Nguồn và độ tin cậy": every field's sources, each source's own figure where they disagree, and no figure else.
     const trust = one(d, 'trust')
     const rows = dom.querySelectorAll('.datacard .by > div')
-    expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
-      r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
+    expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, !!r.marked, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
+      r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', !!r.querySelector('dt .mark'), r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
     ]))
     // Tank mates: who and why, as the page's chips, and the tool set to this fish.
     const mates = one(d, 'mates')
@@ -190,7 +197,7 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
       expect(mates.tool.href, d.path).toBe(appHref(box.querySelector('.how a')!.getAttribute('href')!))
       expect(mates.note, d.path).toBe(box.querySelector('.how span') ? txt(box.querySelector('.how span')) : undefined)
     } else {
-      const a = dom.querySelector('.facts > .srcline a')!
+      const a = dom.querySelector('#muc-behaviour .mates-tool a, .body .mates-tool a')!
       expect(d.blocks.some(b => b.t === 'p' && b.c.some(r => typeof r !== 'string' && r.href === appHref(a.getAttribute('href')!) && r.text === txt(a))), d.path).toBe(true)
     }
     // Vietnam's climate, on Vietnamese pages.
@@ -199,8 +206,10 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     if (vn) expect(vn.note, d.path).toBe(txt(dom.querySelector('.vn .assume')))
     gallery(d, dom)
     if (wild(d, dom)) withRange.push(s.id)
-    // A block that follows a source the card didn't says so above it, as on the page.
-    expect(d.blocks.filter(b => b.t === 'p' && text(b.c).includes(' ghi khác bảng dữ liệu:')).map(b => text((b as B<'p'>).c)), d.path).toEqual(dom.querySelectorAll('.body .off').map(txt))
+    // A block whose figure is far from the card's says so after it, as on the page: never the first thing under a heading.
+    const notes = d.blocks.flatMap((b, i) => (b.t === 'p' && text(b.c).includes(' ghi khác đoạn này:') ? [i] : []))
+    expect(notes.map(i => text((d.blocks[i] as B<'p'>).c)), d.path).toEqual(dom.querySelectorAll('.body .off').map(txt))
+    for (const i of notes) expect(d.blocks[i - 1]?.t, d.path).not.toBe('h')
     // Breeds as cards, each with its picture's credit; videos; the guides that name it.
     const cards = one(d, 'cards')
     expect(cards?.items.map(i => [i.path, i.name, i.sub, i.img?.src]) ?? [], d.path).toEqual(dom.querySelectorAll('.breeds li').map(l => [appHref(l.querySelector('a')!.getAttribute('href')!), txt(l.querySelector('h3')), txt(l.querySelector('.kind')), l.querySelector('img')?.getAttribute('src')]))
@@ -257,8 +266,8 @@ test('each breed\'s copy reads as its built page: header, parents, card sources,
       // "Nguồn và độ tin cậy", as the card's.
       const trust = one(d, 'trust')
       const rows = dom.querySelectorAll('.datacard .by > div')
-      expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
-        r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
+      expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, !!r.marked, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
+        r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', !!r.querySelector('dt .mark'), r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
       ]))
       // The gallery's strip; its gallery page's photos when it has one.
       const g = one(d, 'gallery')
@@ -364,7 +373,7 @@ test('a fish\'s copy: its blocks in page order, every one credited and sourced',
     lead: { alt: 'Cá neon vua, Paracheirodon axelrodi', credit: { text: 'Ảnh: CHUCAO', licence: 'CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Cardinal_Paracheirodon_axelrodi_(3).jpg' } },
   })
   // The card's figures are the index's: only who gives them here, and each source's own where they disagree.
-  expect(one(d, 'trust')!.rows[0]).toEqual({ field: 'tempC', label: 'Nhiệt độ', conflict: true, note: 'Mức mọi nguồn cùng khuyên', items: ['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'] })
+  expect(one(d, 'trust')!.rows[0]).toEqual({ field: 'tempC', label: 'Nhiệt độ', conflict: true, note: 'Mỗi nguồn ghi một mức', items: ['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'] })
   expect(one(d, 'gallery')).toMatchObject({ title: 'Ảnh Cá neon vua', note: '45 ảnh từ Wikimedia Commons, giấy phép mở.', href: '/vi/ca/ca-neon-vua/anh/' })
   expect(one(d, 'gallery')!.photos[0]).toMatchObject({ credit: { text: 'Ảnh: Tác giả 1', licence: 'CC BY 2.0', url: 'https://commons.wikimedia.org/wiki/File:Neon1.jpg' } })
   expect(one(d, 'summary')).toEqual({ t: 'summary', title: 'Tóm tắt nhanh', text: 'Hợp với bể cộng đồng từ 60 cm, nước mềm và ấm.', items: ['Hợp với bể cộng đồng từ 60 cm, nước mềm và ấm.'], mistakes: { title: 'Lỗi hay gặp', items: ['Thả vài con: nên nuôi đàn từ 8 con trở lên.'] }, by: 'AquaTome tóm tắt từ các nguồn bên dưới.' })
@@ -394,6 +403,7 @@ test('each plant\'s copy reads as its built page: header, credits, sources, gall
     const { dom } = appPage(d.path)
     expect(d.title, d.path).toBe(txt(dom.querySelector('h1')))
     expect(d.sub, d.path).toBe(txt(dom.querySelector('.binomial')))
+    expect(d.aka, d.path).toBe(dom.querySelector('.alt') ? txt(dom.querySelector('.alt')) : undefined)
     expect(d.lead?.src, d.path).toBe(dom.querySelector('header .gallery img')?.getAttribute('src'))
     expect(d.talk, d.path).toEqual(talk(dom))
     expect(d.talk?.comments, d.path).toBeTruthy()

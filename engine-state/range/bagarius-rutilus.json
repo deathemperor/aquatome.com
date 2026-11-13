@@ -1,0 +1,130 @@
+{
+  "id": "bagarius-rutilus",
+  "native": {
+    "input": "766f59135f4e4a35",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Bagarius rutilus is a sisorid catfish from the Red River and other drainages of northern Vietnam and Yunnan in southern China, possibly also Laos.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Bagarius rutilus is a sisorid catfish from the Red River and other drainages of northern Vietnam and Yunnan in southern China, possibly also Laos.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Bagarius rutilus is a sisorid catfish from the Red River and other drainages of northern Vietnam and Yunnan in southern China, possibly also Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Red River in northern Vietnam and Yunnan province, southern China, plus the Thái Bình, Sông Kỳ Cùng, Mã and Lam rivers in Vietnam and possibly the Nam Xam and Nam Ma drainages in Laos.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Red River in northern Vietnam and Yunnan province, southern China, plus the Thái Bình, Sông Kỳ Cùng, Mã and Lam rivers in Vietnam and possibly the Nam Xam and Nam Ma drainages in Laos.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Known from the Red River in northern Vietnam and Yunnan province, southern China, plus the Thái Bình, Sông Kỳ Cùng, Mã and Lam rivers in Vietnam and possibly the Nam Xam and Nam Ma drainages in Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Market in Hanoi, Vietnam'.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Red River",
+        "source": "seriouslyfish",
+        "quote": "Known from the Red River in northern Vietnam and Yunnan province, southern China, plus the Thái Bình, Sông Kỳ Cùng, Mã and Lam rivers in Vietnam and possibly the Nam Xam and Nam Ma drainages in Laos.",
+        "ok": true
+      },
+      {
+        "name": "Thái Bình",
+        "source": "seriouslyfish",
+        "quote": "Known from the Red River in northern Vietnam and Yunnan province, southern China, plus the Thái Bình, Sông Kỳ Cùng, Mã and Lam rivers in Vietnam and possibly the Nam Xam and Nam Ma drainages in Laos.",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Sông Kỳ Cùng",
+        "source": "seriouslyfish",
+        "quote": "Known from the Red River in northern Vietnam and Yunnan province, southern China, plus the Thái Bình, Sông Kỳ Cùng, Mã and Lam rivers in Vietnam and possibly the Nam Xam and Nam Ma drainages in Laos.",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Mã",
+        "source": "seriouslyfish",
+        "quote": "Known from the Red River in northern Vietnam and Yunnan province, southern China, plus the Thái Bình, Sông Kỳ Cùng, Mã and Lam rivers in Vietnam and possibly the Nam Xam and Nam Ma drainages in Laos.",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Lam",
+        "source": "seriouslyfish",
+        "quote": "Known from the Red River in northern Vietnam and Yunnan province, southern China, plus the Thái Bình, Sông Kỳ Cùng, Mã and Lam rivers in Vietnam and possibly the Nam Xam and Nam Ma drainages in Laos.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "LA"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bagarius rutilus",
+    "status": "ACCEPTED",
+    "taxonKey": 2341216,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "VN",
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

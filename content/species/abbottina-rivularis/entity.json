@@ -683,7 +683,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -764,17 +764,12 @@
       "author": "Totti",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abbottina_rivularis.jpg",
       "caption": "ja:ツチフキ。ja:井の頭自然文化園飼育展示個体。",
-      "thumb": "https://media.aquatome.com/commons/8b7c3bf72f866d67-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/733e9f790e1f030d.webp",
-      "width": 960,
-      "height": 638,
-      "licence": "CC BY 4.0",
-      "author": "Ffish.asia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E8%83%8C%E3%81%B3%E3%82%8C%E3%81%AE%E4%BC%B8%E9%95%B7%E3%81%97%E3%81%9F%E3%82%AA%E3%82%B9%E3%81%AE%E3%82%AB%E3%83%9E%E3%83%84%E3%82%AB.jpg",
-      "caption": "春の繁殖期、背びれの伸長したオスのカマツカ。筑後川水系。詳細",
-      "thumb": "https://media.aquatome.com/commons/733e9f790e1f030d-480.webp"
+      "thumb": "https://media.aquatome.com/commons/8b7c3bf72f866d67-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/8b7c3bf72f866d67-large.webp",
+        "width": 1823,
+        "height": 1017
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/dc5c273c1e5cf880.webp",
@@ -802,8 +797,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150 cm",
-        "bể cá dài 150x45"
+        "bể cá 150cm"
       ]
     },
     {

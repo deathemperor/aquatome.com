@@ -617,7 +617,7 @@
       ]
     },
     {
-      "note": "a video guide: the video with its chapters, a section's pictures, a part only the web page shows",
+      "note": "a video guide: the video with its chapters, its credit naming no channel and its sources the video first, a section's pictures, a part only the web page shows",
       "valid": true,
       "doc": {
         "v": 1,
@@ -626,11 +626,12 @@
         "title": "Cắt tỉa cây hậu cảnh",
         "meta": "Chăm cây · video 12:05 · đọc khoảng 3 phút",
         "credit": [
-          "Bài viết của AquaTome, dựa trên video của ",
+          "AquaTome tổng hợp từ ",
           {
-            "text": "Green Aqua",
-            "href": "https://www.youtube.com/@GreenAqua"
-          }
+            "text": "1 nguồn",
+            "href": "#nguon"
+          },
+          " rồi tự viết"
         ],
         "video": {
           "youtubeId": "abc123XYZ_-",
@@ -695,6 +696,17 @@
           },
           {
             "t": "web"
+          },
+          {
+            "t": "refs",
+            "title": "Nguồn tham khảo",
+            "id": "nguon",
+            "items": [
+              {
+                "title": "Video gốc: Trimming stem plants, kênh Green Aqua · 12:05",
+                "url": "https://www.youtube.com/watch?v=abc123XYZ_-"
+              }
+            ]
           }
         ]
       },
@@ -703,7 +715,8 @@
         "p",
         "figure",
         "moments",
-        "web"
+        "web",
+        "refs"
       ]
     },
     {
@@ -939,7 +952,7 @@
                 "field": "tempC",
                 "label": "Nhiệt độ",
                 "conflict": true,
-                "note": "Mức mọi nguồn cùng khuyên",
+                "note": "Mỗi nguồn ghi một mức",
                 "items": [
                   "Seriously Fish: 24–30°C",
                   "Aquarium Glaser: 23–27°C"
@@ -1022,6 +1035,21 @@
               "title": "Tránh",
               "items": [
                 {
+                  "path": "/vi/ca/ca-dia/",
+                  "name": "Cá đĩa",
+                  "img": {
+                    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Blue_Discus.jpg/500px-Blue_Discus.jpg",
+                    "w": 960,
+                    "h": 802,
+                    "credit": {
+                      "text": "Ảnh: Patrick Farrelly",
+                      "licence": "Public domain",
+                      "url": "https://commons.wikimedia.org/wiki/File:Blue_Discus.jpg"
+                    }
+                  },
+                  "why": "Lớn tới 15 cm, có thể ăn Cá neon vua"
+                },
+                {
                   "path": "/vi/ca/ca-apisto-cacatuoides/",
                   "name": "Cá apisto cacatuoides",
                   "img": {
@@ -1061,7 +1089,7 @@
               {
                 "label": "Mùa hè cả nước",
                 "ok": false,
-                "text": "Nước bể có thể lên 31°C, trên mức tối đa 27°C: đặt bể chỗ mát, dùng quạt hoặc máy làm lạnh."
+                "text": "Nước bể có thể lên 31°C, trên mức tối đa 30°C: đặt bể chỗ mát, dùng quạt hoặc máy làm lạnh."
               }
             ],
             "note": "Giả định nước bể trong nhà, không sưởi hay làm lạnh: miền Bắc mùa đông khoảng 16°C, miền Nam đêm mát tháng 12–1 khoảng 25°C, mùa hè tới 31°C. Đo nhiệt độ bể của bạn để chắc chắn."
@@ -1704,12 +1732,6 @@
           {
             "t": "p",
             "c": [
-              "Seriously Fish ghi khác bảng dữ liệu: nhiệt độ 24–30°C (bảng: 24–27°C)."
-            ]
-          },
-          {
-            "t": "p",
-            "c": [
               "Nhiệt độ 24–30 °C, ",
               {
                 "text": "pH",
@@ -1726,6 +1748,20 @@
                 "tip": {
                   "term": "Seriously Fish",
                   "text": "seriouslyfish.com · dịch từ nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "Nhiệt độ 23–27 °C, nước mềm.",
+              {
+                "text": "2",
+                "href": "https://www.aquariumglaser.de/en/fish-archives/paracheirodon-axelrodi/",
+                "tip": {
+                  "term": "Aquarium Glaser",
+                  "text": "aquariumglaser.de · dịch từ nguồn"
                 }
               }
             ]
@@ -2446,7 +2482,7 @@
                 "field": "tempC",
                 "label": "Nhiệt độ",
                 "conflict": true,
-                "note": "Mức mọi nguồn cùng khuyên",
+                "note": "Mỗi nguồn ghi một mức",
                 "items": [
                   "Trại cá đĩa A: 28–30°C",
                   "Diễn đàn B: 27–31°C"
@@ -2552,6 +2588,273 @@
         "faq",
         "pages",
         "refs"
+      ]
+    },
+    {
+      "note": "a fish whose sources' smallest tanks are more than a fifth apart: that row marked (the card's dot), where the overlapping temperatures of the first fish's are not",
+      "doc": {
+        "v": 1,
+        "kind": "fish",
+        "path": "/vi/ca/ca-galaxy/",
+        "title": "Cá galaxy",
+        "sub": "Danio margaritatus",
+        "where": [
+          "Danionidae, ",
+          {
+            "text": "Myanmar",
+            "href": "/vi/nguon-goc/asia/myanmar/"
+          }
+        ],
+        "aka": "Tên khác: Celestial pearl danio",
+        "credit": [
+          "Dịch và tổng hợp từ Seriously Fish, The Spruce Pets. Cập nhật 2026-10-28."
+        ],
+        "lead": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Danio_Margaritatus_malle_%28zoom%29.jpg/960px-Danio_Margaritatus_malle_%28zoom%29.jpg",
+          "w": 960,
+          "h": 720,
+          "alt": "Cá galaxy, Danio margaritatus",
+          "credit": {
+            "text": "Ảnh: Cisamarc",
+            "licence": "CC BY-SA 3.0",
+            "url": "https://commons.wikimedia.org/wiki/File:Danio_Margaritatus_malle_(zoom).jpg"
+          }
+        },
+        "talk": {
+          "comments": "species:danio-margaritatus",
+          "photos": "species:danio-margaritatus"
+        },
+        "blocks": [
+          {
+            "t": "trust",
+            "title": "Nguồn và độ tin cậy",
+            "legend": "Các nguồn ghi khác nhau",
+            "rows": [
+              {
+                "field": "tempC",
+                "label": "Nhiệt độ",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "ph",
+                "label": "pH",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "sizeCm",
+                "label": "Kích thước",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "tankCm",
+                "label": "Bể tối thiểu",
+                "conflict": true,
+                "marked": true,
+                "note": "Mỗi nguồn ghi một mức",
+                "items": [
+                  "Seriously Fish: 45 cm",
+                  "Aquarium Glaser: 30 cm"
+                ]
+              },
+              {
+                "field": "difficulty",
+                "label": "Độ khó",
+                "items": [
+                  "Seriously Fish"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "mates",
+            "title": "Nuôi chung",
+            "avoid": {
+              "title": "Tránh",
+              "items": [
+                {
+                  "path": "/vi/ca/ca-apisto-cacatuoides/",
+                  "name": "Cá apisto cacatuoides",
+                  "img": {
+                    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Cacatuoides.JPG/500px-Cacatuoides.JPG",
+                    "w": 960,
+                    "h": 720,
+                    "credit": {
+                      "text": "Ảnh: William Kreijkes",
+                      "licence": "CC BY-SA 3.0",
+                      "url": "https://commons.wikimedia.org/wiki/File:Cacatuoides.JPG"
+                    }
+                  },
+                  "why": "Lớn tới 9 cm, có thể ăn Cá galaxy"
+                }
+              ]
+            },
+            "note": "Gợi ý theo nhiệt độ, pH, kích thước và tính cách của từng loài.",
+            "tool": {
+              "text": "Kiểm tra nuôi chung với loài khác →",
+              "href": "/vi/cong-cu/nuoi-chung/?ca=ca-galaxy"
+            }
+          },
+          {
+            "t": "climate",
+            "title": "Nuôi ở Việt Nam",
+            "items": [
+              {
+                "label": "Mùa đông miền Bắc",
+                "ok": false,
+                "text": "Cần sưởi: nước bể không sưởi xuống khoảng 16°C, dưới mức tối thiểu 20°C."
+              },
+              {
+                "label": "Miền Nam",
+                "ok": false,
+                "text": "Không cần sưởi, nhưng mùa nóng cần làm mát (xem dòng dưới)."
+              },
+              {
+                "label": "Mùa hè cả nước",
+                "ok": false,
+                "text": "Nước bể có thể lên 31°C, trên mức tối đa 25°C: đặt bể chỗ mát, dùng quạt hoặc máy làm lạnh."
+              }
+            ],
+            "note": "Giả định nước bể trong nhà, không sưởi hay làm lạnh: miền Bắc mùa đông khoảng 16°C, miền Nam đêm mát tháng 12–1 khoảng 25°C, mùa hè tới 31°C. Đo nhiệt độ bể của bạn để chắc chắn."
+          },
+          {
+            "t": "h",
+            "text": "Thông tin nhanh",
+            "id": "muc-quickFacts"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Cá nano chấm sao, hợp bể nhỏ trồng nhiều cây.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/danio-margaritatus",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch từ nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "list",
+            "items": [
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    {
+                      "text": "Thức ăn",
+                      "href": "/vi/thiet-bi/thuc-an/"
+                    },
+                    ": ăn tạp",
+                    {
+                      "text": "2",
+                      "href": "https://www.thesprucepets.com/celestial-pearl-danio-1378321",
+                      "tip": {
+                        "term": "The Spruce Pets",
+                        "text": "thesprucepets.com · dịch từ nguồn"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Cần bể bao lớn?",
+            "id": "muc-aquariumSize"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Dung tích bể tối thiểu: 8 lít. Bể trồng nhiều cây hợp với cá.",
+              {
+                "text": "2",
+                "href": "https://www.thesprucepets.com/celestial-pearl-danio-1378321",
+                "tip": {
+                  "term": "The Spruce Pets",
+                  "text": "thesprucepets.com · dịch từ nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "Thông số ở đầu trang ghi khác đoạn này: bể tối thiểu 45 cm."
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Môi trường tự nhiên",
+            "id": "muc-habitat"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Ao cạn nhiều cỏ ở cao nguyên Shan, ",
+              {
+                "text": "Myanmar",
+                "href": "/vi/nguon-goc/asia/myanmar/"
+              },
+              ".",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/danio-margaritatus",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch từ nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "refs",
+            "title": "Nguồn",
+            "id": "nguon",
+            "items": [
+              {
+                "title": "Seriously Fish",
+                "url": "https://www.seriouslyfish.com/species/danio-margaritatus"
+              },
+              {
+                "title": "The Spruce Pets",
+                "url": "https://www.thesprucepets.com/celestial-pearl-danio-1378321"
+              }
+            ],
+            "note": "Các phần trên dịch từ những nguồn này. Mỗi đoạn ghi số nguồn của nó."
+          },
+          {
+            "t": "pages",
+            "title": "Bài viết nhắc đến loài này",
+            "paths": [
+              "/vi/huong-dan/ca-nano-cho-be-19-lit/",
+              "/vi/huong-dan/chon-loc-cho-be-nano/"
+            ]
+          }
+        ]
+      },
+      "older": [
+        "web",
+        "web",
+        "web",
+        "h",
+        "p",
+        "list",
+        "h",
+        "p",
+        "p",
+        "h",
+        "p",
+        "refs",
+        "pages"
       ]
     },
     {
@@ -2796,13 +3099,13 @@
                 "name": "Cách hạn chế rêu hại trong bể thủy sinh",
                 "sub": "Chăm cây · 3 đoạn · 29:15",
                 "img": {
-                  "src": "https://i.ytimg.com/vi/vl1Lx9iWDYU/hqdefault.jpg",
-                  "w": 1280,
-                  "h": 720,
+                  "src": "https://media.aquatome.com/video/vl1Lx9iWDYU/p0-x.webp",
+                  "w": 1200,
+                  "h": 800,
                   "credit": {
-                    "text": "Ảnh: MJ Aquascaping",
-                    "licence": "YouTube",
-                    "url": "https://www.youtube.com/watch?v=vl1Lx9iWDYU"
+                    "text": "Ảnh: Fremen",
+                    "licence": "CC BY-SA 4.0",
+                    "url": "https://commons.wikimedia.org/wiki/File:Oto.jpg"
                   }
                 }
               }

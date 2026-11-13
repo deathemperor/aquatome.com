@@ -7,9 +7,10 @@
   "photos": [],
   "mentions": [
     "lobelia-cardinalis",
-    "microsorum-pteropus"
+    "microsorum-pteropus",
+    "trichopodus-leerii"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "nFXsyqdY37s",
     "title": "INTERMEDIATE PLANT: Cardinal Plant",
@@ -30,86 +31,81 @@
     "taxa": [
       "Lobelia cardinalis",
       "Anubias sp.",
+      "Echinodorus sp.",
       "Microsorum pteropus",
-      "Trichogaster leerii",
-      "Echinodorus sp."
+      "Trichopodus leerii"
     ],
     "gear": [
       {
         "category": "den",
         "type": "thuy-sinh",
+        "brand": "Fluval",
+        "model": "AquaSky",
+        "t": 259
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
         "brand": "Kessil",
-        "t": 260
+        "t": 270
       },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Finnex",
         "model": "Planted Plus",
-        "t": 280
-      },
-      {
-        "category": "den",
-        "type": "thuy-sinh",
-        "brand": "Fluval",
-        "model": "2.0",
-        "t": 260
-      },
-      {
-        "category": "phan-nen",
-        "type": "phan",
-        "brand": "ADA",
-        "t": 384
+        "t": 287
       },
       {
         "category": "phan-nen",
         "type": "phan",
         "brand": "Fluval",
         "model": "Stratum",
-        "t": 384
+        "t": 389
       },
       {
         "category": "phan-nen",
         "type": "phan",
+        "brand": "ADA",
+        "t": 389
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
         "brand": "Seachem",
         "model": "Fluorite",
-        "t": 384
+        "t": 389
       },
       {
         "category": "phan-nen",
         "type": "phan",
-        "brand": "Eco-Complete",
+        "brand": "CaribSea",
+        "model": "Eco-Complete",
         "t": 419
       },
       {
         "category": "co2",
-        "type": "binh",
         "t": 452
       },
       {
         "category": "khac",
         "brand": "Aquarium Co-Op",
         "model": "liquid fertilizer",
-        "t": 482
+        "t": 490
       }
     ],
     "figures": [
       {
-        "heading": "Cardinal lobelia là cây gì",
+        "heading": "Cardinal lobelia trông thế nào",
         "moments": [
           {
-            "t": 168,
-            "url": "https://media.aquatome.com/video/nFXsyqdY37s/t168.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ảnh cây cardinal lobelia xanh, lá vươn thẳng lên, hiện trên màn hình điện thoại."
-          },
-          {
-            "t": 178,
-            "url": "https://media.aquatome.com/video/nFXsyqdY37s/t178.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể có hòn non bộ đá, cây xanh mọc thấp ở phía trước."
+            "t": 165,
+            "url": "https://media.aquatome.com/video/nFXsyqdY37s/at165-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ảnh cây thủy sinh xanh mọc thành bụi, mọc đứng, hiện trên màn hình điện thoại.",
+            "sharpness": 658,
+            "person": false
           }
         ],
         "photo": {
@@ -120,94 +116,124 @@
           "licence": "CC BY 4.0",
           "author": "Yercaud-elango",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lobelia_cordinalis-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Cardinal lobelia nhìn từ trên xuống, lá xanh mọc thành cụm trong bể."
+          "caption": "Cây mọc thành bụi, lá xanh tròn bầu xếp tỏa quanh thân đứng."
         }
       },
       {
-        "heading": "Đèn cần mạnh tới đâu",
+        "heading": "Trồng ở đâu trong bể",
         "moments": [
           {
-            "t": 253,
-            "url": "https://media.aquatome.com/video/nFXsyqdY37s/t253.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể cong với đá xếp thành vòm và thảm cây xanh phía trước."
+            "t": 355,
+            "url": "https://media.aquatome.com/video/nFXsyqdY37s/at355-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây xanh trồng ở nền cát gần góc bể, cạnh cụm đá.",
+            "sharpness": 85.2,
+            "person": false
           },
           {
-            "t": 322,
-            "url": "https://media.aquatome.com/video/nFXsyqdY37s/t322.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận hơn: cây thảm nhỏ mọc dưới đá, cá nhỏ bơi trong bể."
+            "t": 365,
+            "url": "https://media.aquatome.com/video/nFXsyqdY37s/at365-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh có đá tạo gò, cây xanh trồng sát chân đá.",
+            "sharpness": 66.7,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Nền, CO2 và phân nước",
+        "heading": "Đèn và độ cao của bể",
         "moments": [
           {
-            "t": 386,
-            "url": "https://media.aquatome.com/video/nFXsyqdY37s/t386.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Nền cát sáng với đá xếp và thảm cây xanh phía trước."
+            "t": 255,
+            "url": "https://media.aquatome.com/video/nFXsyqdY37s/at255-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cao với đá và cây thấp ở đáy, ánh sáng yếu dần xuống dưới.",
+            "sharpness": 54.3,
+            "person": false
           },
           {
-            "t": 426,
-            "url": "https://media.aquatome.com/video/nFXsyqdY37s/t426.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể có nền, đá và cây thủy sinh mới trồng."
-          }
-        ]
-      },
-      {
-        "heading": "Trồng ở vị trí nào trong bể",
-        "moments": [
-          {
-            "t": 352,
-            "url": "https://media.aquatome.com/video/nFXsyqdY37s/t352.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Góc bể có đá và cây nhỏ trồng ở nền, chỗ đủ sáng."
-          },
-          {
-            "t": 362,
-            "url": "https://media.aquatome.com/video/nFXsyqdY37s/t362.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bố cục đá với mảng cây xanh trồng thấp ở chân đá."
-          }
-        ]
-      },
-      {
-        "heading": "Mua cây và nhân giống",
-        "moments": [
-          {
-            "t": 203,
-            "url": "https://media.aquatome.com/video/nFXsyqdY37s/t203.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cây xanh mọc dày ở nền cát bên cạnh cụm đá."
-          },
-          {
-            "t": 233,
-            "url": "https://media.aquatome.com/video/nFXsyqdY37s/t233.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh cây trồng trên nền, mọc thành từng cụm nhỏ."
+            "t": 270,
+            "url": "https://media.aquatome.com/video/nFXsyqdY37s/at270-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể cao, cây trồng sát nền dưới đáy bể.",
+            "sharpness": 63.7,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/nFXsyqdY37s/p5-bF9GbG93ZXIuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/nFXsyqdY37s/p5-bF9GbG93ZXIuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/nFXsyqdY37s/p2-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/nFXsyqdY37s/p2-1bV9MaWdodC5qcGc-480.webp",
           "width": 960,
-          "height": 1280,
+          "height": 666,
           "licence": "CC BY-SA 3.0",
-          "author": "Fritzflohrreynolds",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lobelia_cardinalis_-_Red_Cardinal_Flower.jpg",
-          "caption": "Cây lobelia đỏ mọc thẳng bên mép nước, thân và lá còn nguyên."
+          "author": "Lime Huang",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+          "caption": "Bể thủy sinh trồng cây rậm rạp, có đèn LED gắn phía trên."
         }
+      },
+      {
+        "heading": "CO2 và phân bón",
+        "moments": [
+          {
+            "t": 390,
+            "url": "https://media.aquatome.com/video/nFXsyqdY37s/at390-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể có nền sáng, đá xếp thành cổng và thảm cây xanh phía trước.",
+            "sharpness": 83.9,
+            "person": false
+          },
+          {
+            "t": 415,
+            "url": "https://media.aquatome.com/video/nFXsyqdY37s/at415-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể thủy sinh với nền cát sáng, đá và cây thảm.",
+            "sharpness": 84.5,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Thông số nước",
+        "moments": [
+          {
+            "t": 315,
+            "url": "https://media.aquatome.com/video/nFXsyqdY37s/at315-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh với đá tạo cầu vòm và cây xanh nhỏ phía trước.",
+            "sharpness": 116.3,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Cắt nhánh nhân giống cho đúng",
+        "moments": [
+          {
+            "t": 205,
+            "url": "https://media.aquatome.com/video/nFXsyqdY37s/at205-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cụm cây xanh nhỏ trồng dưới chân đá trong hồ.",
+            "sharpness": 119.8,
+            "person": false
+          },
+          {
+            "t": 225,
+            "url": "https://media.aquatome.com/video/nFXsyqdY37s/at225-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ảnh cụm cây xanh mọc dày với nhiều nhánh tỏa ra từ thân.",
+            "sharpness": 116.3,
+            "person": false
+          }
+        ]
       }
     ]
   }

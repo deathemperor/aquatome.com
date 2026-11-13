@@ -2,7 +2,8 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { guideHeading, withSections } from '../src/guide-sections'
+import sharp from 'sharp'
+import { fixFirst, guideHeading, guideHeadings, withSections } from '../src/guide-sections'
 import { htmlToOutline } from '../src/outline'
 import { backfillPhotos } from '../src/photo-backfill'
 
@@ -34,13 +35,13 @@ test('each page image keeps the heading it sits under; a guide photo gets the se
 
 test('a published guide is read once more for every photo of its source, each in its section, with no cap of 6', async () => {
   const root = await mkdtemp(join(tmpdir(), 'gs-'))
-  const URL_ = 'https://www.thesprucepets.com/low-maintenance-freshwater-fish-4770223'
-  const dir = join(root, 'content', 'guides', 'sprucepets-low-maintenance-freshwater-fish-4770223')
+  const URL_ = 'https://www.aquariumcoop.com/blogs/aquarium/low-maintenance-freshwater-fish'
+  const dir = join(root, 'content', 'guides', 'aquariumcoop-low-maintenance-freshwater-fish')
   await mkdir(dir, { recursive: true })
   await mkdir(join(root, 'engine-state'), { recursive: true })
-  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ sprucepets: { name: 'The Spruce Pets' } }))
-  const old = (n: number) => ({ url: `https://m/old${n}.webp`, width: 1200, height: 800, licence: 'x', author: 'y', sourceUrl: URL_, source: 'sprucepets' })
-  await writeFile(join(dir, 'entity.json'), JSON.stringify({ source: 'sprucepets', sourceUrl: URL_, photos: [old(1), old(2), old(3)] }))
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ aquariumcoop: { name: 'Aquarium Co-op' } }))
+  const old = (n: number) => ({ url: `https://m/old${n}.webp`, width: 1200, height: 800, licence: 'x', author: 'y', sourceUrl: URL_, source: 'aquariumcoop' })
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ source: 'aquariumcoop', sourceUrl: URL_, photos: [old(1), old(2), old(3)] }))
   await writeFile(join(dir, 'vi.json'), JSON.stringify({ body: VI.map(h => `<h3>${h}</h3><p>…</p>`).join('') }))
   await writeFile(join(dir, 'ms.json'), JSON.stringify({ body: VI.map(h => `<h3>${h} (ms)</h3><p>…</p>`).join('') })) // a language the site doesn't serve yet
   // Read before the cap went: tried, but not since.
@@ -49,7 +50,7 @@ test('a published guide is read once more for every photo of its source, each in
   const html = `<main><h1>11 Easiest Fish</h1>${fish.map((h, i) => `<h2>${h}</h2><img src="/f${i}.jpg" alt="fish ${i}" width="1200" height="800"><p>${'text '.repeat(30)}</p>`).join('')}</main>`
   const deps = {
     get: async () => ({ status: 200, html }),
-    bytes: async (u: string) => new TextEncoder().encode(u),
+    bytes: async () => sharp({ create: { width: 1200, height: 800, channels: 3, background: 'gray' } }).jpeg().toBuffer(),
     media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 1200, height: 800 }) },
     now: () => new Date('2026-11-02T00:00:00Z'),
     sleep: async () => {},
@@ -68,4 +69,18 @@ test("a guide photo gets its section in a language the site doesn't serve yet", 
   const body = (hs: string[]) => hs.map(h => `<h3>${h}</h3><p>…</p>`).join('')
   const [out] = withSections([p], { vi: body(VI), ms: body(VI.map(h => `${h} (ms)`)) })
   expect(out && 'section' in out ? out.section : undefined).toEqual({ vi: VI[0], ms: `${VI[0]} (ms)` })
+})
+
+test('a guide that fixes a problem leads with the fix, then the causes; the text is the same', () => {
+  // The black beard algae guide (design critique 2026-11-06): "Cách xử lý" last of six.
+  const bba = '<p>Tảo râu đen rất khó trị.</p><h3>Vì sao BBA bám mép lá?</h3><p>a</p><h3>Nguyên nhân gây tảo râu đen</h3><p>b</p><h3>Cách xử lý tảo râu đen</h3><p>c</p><ul><li>d</li></ul>'
+  expect(fixFirst('Cách loại bỏ tảo râu đen (BBA)', 'disease', bba)).toBe('<p>Tảo râu đen rất khó trị.</p><h3>Cách xử lý tảo râu đen</h3><p>c</p><ul><li>d</li></ul><h3>Vì sao BBA bám mép lá?</h3><p>a</p><h3>Nguyên nhân gây tảo râu đen</h3><p>b</p>')
+  // The fix's own steps go with it, and a closing section stays last.
+  const steps = '<h3>Tảo lam là gì?</h3><p>a</p><h3>Cách diệt tảo lam</h3><p>b</p><h3>1. Gỡ bằng tay</h3><p>c</p><h3>2. Che tối bể</h3><p>d</p><h3>Kết luận</h3><p>e</p>'
+  expect(guideHeadings(fixFirst('Tảo lam: đặc điểm và cách loại bỏ', 'disease', steps))).toEqual(['Cách diệt tảo lam', '1. Gỡ bằng tay', '2. Che tối bể', 'Tảo lam là gì?', 'Kết luận'])
+  // Not a fix guide, a setup guide, the fix first already, or the fix one of a numbered run: as it was.
+  for (const [title, kind, body] of [
+    ['Nuôi cá neon', 'care', bba], ['Cách xử lý lũa trước khi cho vào bể', 'setup', bba], ['Cách loại bỏ tảo', 'disease', '<h3>Cách xử lý</h3><p>a</p><h3>Nguyên nhân</h3><p>b</p>'],
+    ['Cách loại bỏ tảo nâu', 'disease', '<h3>1. Tảo nâu là gì?</h3><p>a</p><h3>2. Cách diệt tảo nâu</h3><p>b</p>'],
+  ] as const) expect(fixFirst(title, kind, body)).toBe(body)
 })

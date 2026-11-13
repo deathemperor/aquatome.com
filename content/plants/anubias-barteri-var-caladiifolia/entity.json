@@ -17,6 +17,12 @@
       "html": "<ul><li><strong>Type:</strong> Rhizomatous</li><li><strong>Origin:</strong> Cultivar</li><li><strong>Growth rate:</strong> Slow</li><li><strong>Height:</strong> 10 - 15+ cm (average height after two months in the tank)</li><li><strong>Light demand:</strong> Low</li><li><strong>CO2:</strong> Low</li></ul>"
     },
     {
+      "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ráy lá tim caladiifolia hợp với trung cảnh và sống bám trên lũa hoặc đá. Cũng như các loại ráy khác, người ta thường gắn cây lên lũa chứ không trồng xuống nền. Mỗi lá sống được nhiều năm, nên dù cây lớn chậm, sau vài năm một cụm rộng hơn 50 cm cũng không có gì lạ.</p><ul><li>Bụi to thường có rễ rất dài. Bạn tỉa ngắn bớt rễ để cây ôm sát vào lũa. Nếu lũa lớn thì cắt bụi thành vài khúc để rải ra nhiều chỗ, thay vì dồn cả bụi vào một chỗ.</li><li>Trong lúc buộc, cây nằm ngoài nước khá lâu. Bạn để sẵn bình xịt và xịt lên cây mỗi khi thấy cây bắt đầu khô.</li><li>Bạn đặt thử cây lên lũa cho ưng rồi mới buộc. Quấn cước câu thật nhẹ tay, vì kéo mạnh dễ gãy lá. Nút buộc phải là nút kép, do nút đơn dễ tuột làm cây lỏng ra và đổ nghiêng.</li><li>Ở những khe hẹp không luồn được cước, bạn dùng keo dán dạng gel (superglue gel) để gắn cây.</li></ul>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Anubiasbarterivar.caladiifolia(101UXL)/4557",
@@ -43,6 +49,21 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_caladiifolia_kz02.jpg",
       "caption": "Anubias barteri var. caladiifolia in Wrocław University Botanical Garden",
       "thumb": "https://media.aquatome.com/commons/e0ebc052f8ef035c-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/e90fcc897a16cef3.webp",
+      "thumb": "https://media.aquatome.com/tropica/e90fcc897a16cef3-480.webp",
+      "width": 1200,
+      "height": 750,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/e90fcc897a16cef3-large.webp",
+        "width": 1920,
+        "height": 1200
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Anubiasbarterivar.caladiifolia(101UXL)/4557",
+      "source": "tropica"
     }
   ],
   "productSlots": [
@@ -61,5 +82,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-08"
 }

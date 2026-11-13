@@ -1,0 +1,241 @@
+{
+  "id": "cyprichromis-microlepidotus",
+  "scientificName": "Cyprichromis microlepidotus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Cyprichromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "tanzania"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372095,
+      "total": 12,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CD",
+          8
+        ],
+        [
+          "BI",
+          3
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          4
+        ],
+        [
+          28.125,
+          -4.21875,
+          6
+        ],
+        [
+          29.53125,
+          -8.4375,
+          1
+        ],
+        [
+          29.53125,
+          -7.03125,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.8,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 11
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprichromis-microlepidotus",
+      "html": "<p>The smallscale Cyprichromis, Cyprichromis microlepidotus, is an open-water cichlid endemic to Lake Tanganyika, mostly at the northern end of the lake. Quite a rarity in the hobby, it lives in huge mixed groups with other Cyprichromis species and the similar Paracyprichromis. Several geographical variants exist, each with a yellow and a blue-tailed form, and they should never be mixed in the aquarium because they will interbreed.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprichromis-microlepidotus",
+      "html": "<p>Endemic to Lake Tanganyika. It's usually found in the northern end of the lake, with sporadic collections along the eastern shoreline.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprichromis-microlepidotus",
+      "html": "<p>Occurs in open water in intermediate zones, characterised by scattered rocks and sandy substrates.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprichromis-microlepidotus",
+      "html": "<p>Standard length 110 mm SL. Aquarium base 120 × 45 cm. Volume ~243 litres (120 × 45 × 45 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprichromis-microlepidotus",
+      "html": "<p>Like the more commonly seen C. leptosoma, it's pelagic by nature and swims in the upper part of the water column. It thus requires plenty of room to swim. In a deep tank it can easily be provided for by simply leaving the upper half empty, restricting any rockwork to the lower half. It often jumps when excited so make sure the tank has a decent cover.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprichromis-microlepidotus",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 7.8–9.0</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprichromis-microlepidotus",
+      "html": "<p>It's an adapted zooplankton feeder, and has a small mouth. While it proves an unfussy feeder in captivity, make sure that any foods offered are of a suitable size. Small live and frozen stuff such as bloodworm, brine shrimp and daphnia are the best choices, although dried foods will also be taken. It's best to offer several feeds a day rather than one large meal, as in nature it grazes throughout the day.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprichromis-microlepidotus",
+      "html": "<p>It's a placid species and will not compete well with rowdy species, and certainly not Mbuna. Better tankmates are other peaceful Tanganyikan species that live in different areas in the tank. Rockdwellers such as the less aggressive Julidochromis or Altolamprologus species are particularly good choices, as are the various shelldwelling species. Cyprichromis thrive in the company of their own kind. Don't consider buying less than 8-10 fish, although the larger the group the better. When it's kept in larger numbers multiple males will often develop their full colouration, making for a stunning spectacle.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprichromis-microlepidotus",
+      "html": "<p>Males are more colourful than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprichromis-microlepidotus",
+      "html": "<p>It will often spawn in the community tank, but if you want to raise a good number of fry keep it in a species setup. This should be as deep as possible and at least 45 cm wide. A pH of 8.0-8.5 and a temperature of 24–26°C are ideal. Buy as big a group as the tank will support, with a few females to each male. Allow around 45 × 45 × 45 cm for a single male territory. Male fish form 3-dimensional breeding territories in the open water. Other species and females are allowed to pass through this territory at any time, while rival males are chased away. If a ripe female passes through he will chase and display at her. If interested she will follow him into the centre of his territory. Spawning then occurs in mid-water, with the female catching the eggs in her mouth as they are laid. The male has egg-shaped growths on the end of his ventral fins and the female is also attracted to these. When she tries to add them to the brood in her mouth she receives sperm from the male, which fertilises the eggs in her mouth.</p><p>The female carries the small brood of only 5-10 eggs for up to 4 weeks before the fry are released. She will not eat during this period and can be easily spotted by her distended mouth and characteristic 'chewing' action as she moves the eggs around. If a female is overly stressed she can spit out the brood prematurely or eat them, so care must be taken if you decide to move her. It's also worth noting that if a female is away from the colony for too long she may lose her position in the pecking order of the group. Unless a brooding female is being harassed it's best to leave her where she is.</p><p>Some breeders artificially strip the fry from the mother's mouth at the 2 week stage and raise them artificially. This usually results in a larger number of fry, but is not an approach for the beginner. If they are left to be released naturally, they are spat into crevices among rocks. In nature this serves to protect the fry in two ways. Not only do the rocks provide cover, but the fry find their way into broods of other species (such as Lepidiolamprologus profundicola), and are defended by the protective mother as if they were her own. The fry will take newly hatched brine shrimp from the day they are released. They can be left with the adult fish and will not usually be harmed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprichromis-microlepidotus",
+      "html": "<p>Quite a rarity in the hobby, but when available it is much sought after by enthusiasts. It can be found living in huge mixed species groups with other Cyprichromis species and the similar Paracyprichromis. There are a few geographical variants known, each of which has both a yellow and blue tailed form. Individual populations can also contain males with different colour and patterning, a phenomenon known as polychromatism. The different forms should never be mixed in the aquarium, as they will interbreed, producing worthless hybrid offspring.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprichromis-microlepidotus",
+      "html": "<ul><li>Ad Konings (2019). Tanganyika Cichlids in their natural habitat, 4th edition Cichlid Press, 211-212</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/a51d4abaf58816db.webp",
+      "width": 960,
+      "height": 630,
+      "licence": "CC BY-SA 3.0",
+      "author": "Rufus46",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kleinschuppiger_Kaerpflingsbuntbarsch_Cyprichromis_microlepidotus_Tierpark_Hellabrunn-1.jpg",
+      "caption": "Kleinschuppiger Kärpflingsbuntbarsch (Cyprichromis microlepidotus), Tierpark Hellabrunn, München",
+      "thumb": "https://media.aquatome.com/commons/a51d4abaf58816db-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 120cm",
+        "máy lọc bể cichlid"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid Tanganyika",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước",
+        "test GH KH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

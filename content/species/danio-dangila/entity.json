@@ -15,6 +15,141 @@
     "bhutan",
     "myanmar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NP",
+        "IN",
+        "BD",
+        "BT",
+        "MM"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra",
+        "Barak River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The moustached danio, Danio dangila, is a cyprinid from the Ganges and Brahmaputra drainages, with most records from Nepal, India and Bangladesh.",
+          "countries": [
+            "NP",
+            "IN",
+            "BD"
+          ],
+          "regions": [
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has also been reported from tributaries of the Brahmaputra in Bhutan, and, more recently, from Myanmar where it appears to be quite widely distributed as some collections occurred as far south as the state of Mon.",
+          "countries": [
+            "BT",
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Said to be found throughout the Ganges River basin although most records found correspond to Nepal and the Brahmaputra drainage in India and Bangladesh.",
+          "countries": [],
+          "regions": [
+            "Ganges"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Barak River drainage, which flows through the north-east Indian states of Nagaland and Assam before bifurcating at the Bangladesh border, symaptric species include Barilius barna, B. bendelisis, B. dogarsinghi, Laubuca laubuca, Esomus danricus, Devario aequipinnatus, D. annandalei, D. devario, Rasbora daniconius, R. rasbora, Tariqilabeo latius, Garra gotyla, G. lissorhynchus, G. nasuta, Balitora brucei, Acanthocobitis botia, Botia rostrata and Lepidocephalichthys guntea.",
+          "countries": [],
+          "regions": [
+            "Barak River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362715,
+      "total": 23,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          20
+        ],
+        [
+          "NP",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          28.125,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          85.78125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          26.71875,
+          12,
+          12
+        ],
+        [
+          90,
+          22.5,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          28.125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -62,7 +197,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -154,17 +289,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/a4f055307e42539b.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/a4f055307e42539b-480.webp",
-      "width": 819,
-      "height": 490,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-dangila",
-      "caption": "This fish was first collected in 2009 and appears to be a form of D. dangila.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/ec249daf9b64ccef.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/ec249daf9b64ccef-480.webp",
       "width": 800,
@@ -195,6 +319,17 @@
       "author": "Beta Mahatvaraj",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danio_dangila_(cropped).jpg",
       "caption": "Danio dangila (Moustachioed Danio)"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a4f055307e42539b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a4f055307e42539b-480.webp",
+      "width": 819,
+      "height": 490,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-dangila",
+      "caption": "This fish was first collected in 2009 and appears to be a form of D. dangila.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [
@@ -227,8 +362,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 100cm"
+        "bể cá 120cm"
       ]
     },
     {

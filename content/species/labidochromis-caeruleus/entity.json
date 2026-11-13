@@ -110,7 +110,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -184,6 +184,36 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/0eb6aa8510474bca.webp",
+      "thumb": "https://media.aquatome.com/commons/0eb6aa8510474bca-480.webp",
+      "width": 1200,
+      "height": 795,
+      "licence": "CC BY-SA 4.0",
+      "author": "Andrey Butko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023-08-20._%D0%90%D0%BD%D0%B0%D0%BF%D0%B0_DSC_5508.jpg",
+      "caption": "Cá hoàng hậu vàng trong bể có đá và cát",
+      "large": {
+        "url": "https://media.aquatome.com/commons/0eb6aa8510474bca-large.webp",
+        "width": 1812,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/556d7c9159783fd7.webp",
+      "thumb": "https://media.aquatome.com/commons/556d7c9159783fd7-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY 3.0",
+      "author": "lienyuan lee",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E9%9D%9E%E6%B4%B2%E7%8E%8B%E5%AD%90_Labidochromis_caeruleus_-_panoramio_(1).jpg",
+      "caption": "Cá hoàng hậu vàng tươi bơi nghiêng trong bể nền xanh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/556d7c9159783fd7-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    },
+    {
       "url": "https://media.aquatome.com/commons/b18f66183b93487b.webp",
       "width": 960,
       "height": 641,
@@ -191,7 +221,12 @@
       "author": "Jmatz at English Wikipedia (Original text: Julian Matz)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Labidochromis_caeruleus_(male).jpg",
       "caption": "A male Labidochromis caeruleus",
-      "thumb": "https://media.aquatome.com/commons/b18f66183b93487b-480.webp"
+      "thumb": "https://media.aquatome.com/commons/b18f66183b93487b-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/b18f66183b93487b-large.webp",
+        "width": 1024,
+        "height": 684
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/c8d13c629e973821.webp",
@@ -201,7 +236,12 @@
       "author": "The original uploader was Ged 02 at English Wikipedia.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Labidochromis_caeruleus_from_Lake_Malawi.jpg",
       "caption": "Labidochromis caeruleus en:Category:Cichlid images",
-      "thumb": "https://media.aquatome.com/commons/c8d13c629e973821-480.webp"
+      "thumb": "https://media.aquatome.com/commons/c8d13c629e973821-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/c8d13c629e973821-large.webp",
+        "width": 1444,
+        "height": 956
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/7e44e033fe2c96f6.webp",
@@ -211,7 +251,12 @@
       "author": "NasserHalaweh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_Labidochromis_caeruleus_2.jpg",
       "caption": "Labidochromis caeruleus ELECTRIC YELLOW CICHLID. Zoo Frankfurt.",
-      "thumb": "https://media.aquatome.com/commons/7e44e033fe2c96f6-480.webp"
+      "thumb": "https://media.aquatome.com/commons/7e44e033fe2c96f6-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/7e44e033fe2c96f6-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/fa4b14abacda5ecc.webp",
@@ -229,8 +274,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90x45 cm",
-        "bể cá 150 lít"
+        "bể cá 90cm"
       ]
     },
     {

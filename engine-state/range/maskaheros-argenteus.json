@@ -1,0 +1,76 @@
+{
+  "id": "maskaheros-argenteus",
+  "native": {
+    "input": "54dc1f9a03b36a0b",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to the River Usumacinta drainage in Mexico.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Usumacinta",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to the River Usumacinta drainage in Mexico.",
+        "country": "MX",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Maskaheros argenteus",
+    "status": "ACCEPTED",
+    "taxonKey": 9545912,
+    "datasets": [
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        106
+      ],
+      [
+        "4e328d6a-62e2-4b5a-b2f2-e8362c4ff0b7",
+        44
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        15
+      ],
+      [
+        "805bbcde-f762-11e1-a439-00145eb45e9a",
+        9
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        9
+      ],
+      [
+        "7c95ae39-b477-4863-8dda-2d74dc48b067",
+        4
+      ],
+      [
+        "7817af75-45c3-4050-a4f8-9a10c3da91c5",
+        3
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        3
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

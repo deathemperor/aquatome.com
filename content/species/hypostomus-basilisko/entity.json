@@ -1,0 +1,273 @@
+{
+  "id": "hypostomus-basilisko",
+  "scientificName": "Hypostomus basilisko",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "paraguay",
+    "rio-paraguay",
+    "brazil"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PY"
+      ],
+      "regions": [
+        "Rio Paraguay",
+        "Rio Salobra",
+        "Bodoquena Plateau"
+      ],
+      "sources": [
+        "scotcat",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It occurs in the Rio Paraguay, both in Brazil and Paraguay.",
+          "countries": [
+            "BR",
+            "PY"
+          ],
+          "regions": [
+            "Rio Paraguay"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Rio Salobra basin, Rio Paraguay basin.",
+          "countries": [],
+          "regions": [
+            "Rio Salobra"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Bodoquena Plateau in Mato Grosso do Sul, Brazil.",
+          "countries": [],
+          "regions": [
+            "Bodoquena Plateau"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9458802,
+      "total": 50,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "BR",
+          49
+        ],
+        [
+          "PY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -22.5,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -21.09375,
+          45,
+          45
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
+      "html": "<ul><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/cochliodon_sp__en/",
+      "html": "<p>The Violet Red Bruno is among the most popular fishes from Paraguay. The species has finally received a scientific name: Hypostomus basilisko. It occurs in the Rio Paraguay, both in Brazil and Paraguay.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
+      "html": "<p>South America: Rio Salobra basin, Rio Paraguay basin. Bodoquena Plateau in Mato Grosso do Sul, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
+      "html": "<p>Occurs in clear-water streams and rivers. Larger fish remain during the day lying on soft-bottom patches (mainly on sand, sometimes on leaf litter) at deeper sites and forage mainly during the night at shallower areas with rocky bottom. Grazing during the day was occasionally observed. Small fish forage during the day and night, always in shallower areas. Individuals feed mainly on periphyton from rocky substrates, but also explore from submerged logs and branches.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
+      "html": "<p>One of the smallest in this genus and would make a good aquarium inhabitant in a large aquarium. As this genus in the main are messy eaters, good water quality and filtration would need to be adhered to. A lower water temperature is advised for this species.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
+      "html": "<p>Will eat all manner of foods in the aquarium, vegetable, tablet, pellet foods and a good quality flake.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/cochliodon_sp__en/",
+      "html": "<p>In the Rio Paraguay it occurs together with two quite similar species of the Cochliodon-group of Hypostomus, namely Hypostomus cochliodon and Hypostomus khimaera. These two species are easily told apart from H. basilisko, because they always have black spots on the body and fins, which are always lacking in the Violet Red Bruno.</p><p>Lexicon: Hypostomus means \"with a mouth turned downwards\". Basilisko refers to the mythical Basilisk, which is often depicted wearing a crown; the three conspicuous ridges on the head of the fish reminded the authors of a crown. Cochliodon means \"with mussel-shaped teeth\". Khimaera refers to the mythical Chimaera, whose body is composed of different species; the name was chosen because the species has the teeth shape of a \"normal\" Hypostomus and the body of a member of the Cochliodon-group.</p><p>Common name: Violet Red Bruno or simply Bruno.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
+      "html": "<p>Description: Dorsal spines (total): 2; dorsal soft rays (total): 7; anal soft rays: 5. Hypostomus basilisko is distinguished from all congeners, except those belonging to the H. cochliodon group, by the following unique combination of characters: absence of notch between metapterygoid and hyomandibula (vs. presence of notch); and strongly angled dentaries, less than 80° (vs. shallow angle between dentaries, generally more than 80°). It differs from the other members of the H. cochliodon group, except H. pagei and H. soniae, by the absence of spots on body and fins (vs. presence of spots). It is distinguished from H. pagei by having highly developed keels on lateral series of plates (vs. keels weak, almost absent); from H. soniae by having teeth with a large spoon-shaped mesial cusp and a lateral cusp, if present, almost imperceptible (vs. teeth with mesial cusp conspicuously enlarged and rounded but not spoon shaped; distinct lateral cusp) and massive odontodes covering the dorsal region of head and trunk, forming well-developed keels (vs. less developed odontodes on head and trunk, keels absent or weakly developed). It can be distinguished from H. soniae by the possession of many well-developed papillae on the internal surface of anterior and posterior jaws (vs. few papillae); from H. cochliodon and H. khimaera by having 27 vertebrae (29 and 28, respectively); from H. hondae (Regan) and H. plecostomoides (Eigenmann) by the absence of platelets in the skin around dorsal-fin base (vs. presence); from H. levis by the presence of an adipose fin (vs. absence); from H. taphorni by having both caudal-fin lobes evenly coloured (vs. bicoloured caudal fin with ventral lobe darker).</p><p>Etymology: The specific name basilisko: The Basilisk (from the Greek basiliskos, diminutive of basileus, meaning \"little king\") is a mythical creature known as the king of snakes, which is often represented with a crown on his head. This crown alludes to the three strong ridges at the top of the head of the new species. A noun in apposition.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2014. FishBase. World Wide Web electronic publication. www.fishbase.org, (11/2014). Petersen P. amazonas.dk/ Tencatt, L.F.C., C.H. Zawadzki and O. Froehlich, 2014. Two new species of the Hypostomus cochliodon group (Siluriformes: Loricariidae) from the rio Paraguay basin, with a redescription of Hypostomus cochliodon Kner, 1854. Neotrop. Ichthyol. 12(3):585-602.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/4f1d236064e77bfd.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4f1d236064e77bfd-480.webp",
+      "width": 500,
+      "height": 321,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
+      "caption": "Hypostomus basilisko",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f0b38e42230af35a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f0b38e42230af35a-480.webp",
+      "width": 500,
+      "height": 328,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
+      "caption": "Hypostomus basilisko",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/057ff78886c759c3.webp",
+      "thumb": "https://media.aquatome.com/scotcat/057ff78886c759c3-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
+      "caption": "Hypostomus basilisko: mouth view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1e0fa0e2ad0b15c8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1e0fa0e2ad0b15c8-480.webp",
+      "width": 500,
+      "height": 324,
+      "licence": "dùng với sự cho phép",
+      "author": "Peter Petersen / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm",
+      "caption": "Hypostomus basilisko",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "F3IhRPjT1NI",
+      "title": "Hypostomus (Cochliodon) basilisko",
+      "durationSec": 72,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QC0lsjr1Eys",
+      "title": "Hypostomus basilisko",
+      "durationSec": 29,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fjfAVNNL9Cw",
+      "title": "Cochliodon basilisko",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Vz6BzXPgH5g",
+      "title": "L137, ( Panaque ) Cochliodon basilisko, Red Bruno Wels",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn nuôi cá lau kiếng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "thức ăn viên chìm rau củ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

@@ -1,0 +1,126 @@
+{
+  "id": "garra-mullya",
+  "native": {
+    "input": "a7db6d0626abf767",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Garra mullya is a cyprinid endemic to and widespread within peninsular India, in rivers including the Tapti, Narmada, Godavari, Krishna and Cauvery.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to and widespread within peninsular India, where it has been recorded from the states of Gujarat, Madhya Pradesh, Chhattisgarh, Orissa, Jharkhand, West Bengal, Maharashtra, Andhra Pradesh, Goa, Karnataka, Tamil Nadu and Kerala.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Godavari",
+        "source": "seriouslyfish",
+        "quote": "Garra mullya is a cyprinid endemic to and widespread within peninsular India, in rivers including the Tapti, Narmada, Godavari, Krishna and Cauvery.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Krishna",
+        "source": "seriouslyfish",
+        "quote": "Garra mullya is a cyprinid endemic to and widespread within peninsular India, in rivers including the Tapti, Narmada, Godavari, Krishna and Cauvery.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Cauvery",
+        "source": "seriouslyfish",
+        "quote": "Garra mullya is a cyprinid endemic to and widespread within peninsular India, in rivers including the Tapti, Narmada, Godavari, Krishna and Cauvery.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Narmada",
+        "source": "seriouslyfish",
+        "quote": "Garra mullya is a cyprinid endemic to and widespread within peninsular India, in rivers including the Tapti, Narmada, Godavari, Krishna and Cauvery.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Tapti",
+        "source": "seriouslyfish",
+        "quote": "Garra mullya is a cyprinid endemic to and widespread within peninsular India, in rivers including the Tapti, Narmada, Godavari, Krishna and Cauvery.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Mahanadi",
+        "source": "seriouslyfish",
+        "quote": "It is thus found in numerous river systems of which some of the most important include the Tapti, Narmada, Mahanadi, Godavari, Krishna, and Cauvery.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra mullya",
+    "status": "ACCEPTED",
+    "taxonKey": 2366755,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        72
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        31
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        2
+      ],
+      [
+        "50dc97cf-251f-471e-997d-2f9d7d39a1be",
+        1
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

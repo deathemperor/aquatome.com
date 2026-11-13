@@ -1,8 +1,8 @@
 {
   "id": "clarias-batrachus",
   "native": {
-    "input": "fdbe709869595c4a",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "8f031b1193398af1",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "ID",
@@ -18,6 +18,22 @@
         "source": "seriouslyfish",
         "quote": "The walking catfish was long thought to range from Pakistan to Indonesia, but Ng and Kottelat (2008) restricted the name C. batrachus to the Javan fish and found four species under it.",
         "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "The fish from north-eastern India and Bangladesh is C. magur, and those from mainland Southeast Asia and the rest of Sundaland are probably two undescribed species.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "The fish from north-eastern India and Bangladesh is C. magur, and those from mainland Southeast Asia and the rest of Sundaland are probably two undescribed species.",
+        "words": "Bangladesh",
         "ok": true
       },
       {

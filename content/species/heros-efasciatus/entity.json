@@ -1,0 +1,575 @@
+{
+  "id": "heros-efasciatus",
+  "scientificName": "Heros efasciatus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Heros",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "peru",
+    "rio-negro"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Solimoes",
+        "Rio Xingu",
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The fish were collected in the Rio Negro in the municipality of Japaueri, Brazil, according to the supplier.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Widespread throughout the Amazon main channel and rio Solimoes and also recorded from the rio Xingu.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Rio Solimoes",
+            "Rio Xingu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208365,
+      "total": 210,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "BR",
+          102
+        ],
+        [
+          "PE",
+          82
+        ],
+        [
+          "EC",
+          14
+        ],
+        [
+          "GF",
+          9
+        ],
+        [
+          "GY",
+          2
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          3,
+          0
+        ],
+        [
+          -77.34375,
+          0,
+          2,
+          0
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          13,
+          0
+        ],
+        [
+          -75.9375,
+          -7.03125,
+          5,
+          0
+        ],
+        [
+          -75.9375,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          13,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          8,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          34,
+          0
+        ],
+        [
+          -73.125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          12,
+          0
+        ],
+        [
+          -73.125,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -71.71875,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          4,
+          3
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          10,
+          10
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          10,
+          10
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -53.4375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          2.8125,
+          6,
+          3
+        ],
+        [
+          -53.4375,
+          4.21875,
+          6,
+          0
+        ],
+        [
+          -52.03125,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          0,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          14,
+          14
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-efasciatus",
+      "html": "<p>The severum, Heros efasciatus, is a cichlid from the Amazon main channel and the Rio Solimoes, also recorded from the Rio Xingu. One of the most popular and readily available cichlids in the hobby, it is sold in the standard green form and in gold. Many buyers do not realise it grows fairly large, often 20 to 25 cm in aquaria, and it needs a tank of at least 120 cm. Outside spawning it is fairly mild-mannered for its size.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_cf_efasciatus_japaueri_en/",
+      "html": "<p>Heros cf. efasciatus \"Japaueri\" is a wild-collected Heros from Brazil. Available size: 6–10 cm.</p><p>Suggested common name: Red spotted Heros.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-efasciatus",
+      "html": "<p>Widespread throughout the Amazon main channel and rio Solimoes and also recorded from the rio Xingu.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_cf_efasciatus_japaueri_en/",
+      "html": "<p>The fish were collected in the Rio Negro in the municipality of Japaueri, Brazil, according to the supplier.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-efasciatus",
+      "html": "<p>Slow moving rivers, tributaries and floodplain lakes. It's most abundant in deeper, calm waters with a lot of submerged tree roots and branches.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-efasciatus",
+      "html": "<p>It is not really suitable for tanks less than 120 × 45 × 45 cm, approximately 243 litres, in size.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-efasciatus",
+      "html": "<p>A biotope setup would be very simple to arrange. Use a substrate of river sand and add a few driftwood branches (if you can't find driftwood of the desired shape, common beech is safe to use if thoroughly dried and stripped of bark) and twisted roots. Aquatic plants are not a feature of its natural waters. Allow the wood and leaves to stain the water the colour of weak tea. A small net bag filled with aquarium-safe peat can be added to the filter to aid in the simulation of black water conditions. Use fairly dim lighting.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-efasciatus",
+      "html": "<ul><li>Temperature: 22–29°C</li><li>pH: 5.5–7.0</li><li>Hardness: 1–8 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-efasciatus",
+      "html": "<p>Omnivorous and unfussy. Feed good quality dried foods, along with meatier fare such as bloodworm, chopped earthworms and prawns. Some vegetable matter should also feature in the diet. Shelled frozen peas, blanched spinach and dried spirulina-based foods are all recommended.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-efasciatus",
+      "html": "<p>Except when spawning, it's fairly mild-mannered for a cichlid of this size. This makes it a good choice for a community of large, peaceful species. Ideally keep it with other South American species. Some specimens can develop a nasty streak as they mature when maintained singly. In general this behaviour can almost always be prevented by keeping it in the company of conspecifics. There's still a chance you may be unlucky and get a rogue individual, but the chances are much smaller when it's maintained like this.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-efasciatus",
+      "html": "<p>Male is bigger, has markings on gill covers and may develop nuchal hump and extensions to dorsal and anal fins.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_cf_efasciatus_japaueri_en/",
+      "html": "<p>The most obvious difference to other varieties of Heros is the red spots all over the body. The newly imported fish become sexually ripe quite early: the largest specimens are about 10 cm long and fully sexually differentiated.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-efasciatus",
+      "html": "<p>If you aim to breed severums, it is a good idea to buy a group of young fish and grow them on. From this group a pair should form naturally. Spawning occurs on a flat stone or similar area, which is then guarded by both parents until the eggs hatch. Both parents will mouthbrood the fry. The fry are fairly large and can be fed on brineshrimp and powdered food.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-efasciatus",
+      "html": "<p>The severum is one of the most popular and readily available cichlids in the hobby, however not everyone realises that these fish can attain a fairly large size and are therefore not suitable for every aquarium. The fish is normally sold in the standard green variety and also gold. Severums make good fish for a South American community setup, as long as there are no fish small enough for them to eat. They grow quite quickly, so should be housed in an adequately sized tank from the start.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_cf_efasciatus_japaueri_en/",
+      "html": "<p>Heros efasciatus has been reported to become more than twice as long as 10 cm, and the red spotted \"Japaueri\" is also expected to grow much larger under aquarium conditions.</p><p>Lexicon: Heros means \"hero\"; efasciatus means \"without stripes\".</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/23d90e425a9fcaad.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/23d90e425a9fcaad-480.webp",
+      "width": 715,
+      "height": 476,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-efasciatus",
+      "caption": "Wild form of H. efasciatus.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/01689e0b72318369.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/01689e0b72318369-480.webp",
+      "width": 640,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/heros-efasciatus",
+      "caption": "The ornamental 'gold' form is hugely popular in the hobby.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "PYgD4dAxA6A",
+      "title": "Heros efasciatus / Green Severum: A very special pair",
+      "durationSec": 53,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2wYu7KkYwD0",
+      "title": "Heros efasciatus / Green Severum",
+      "durationSec": 45,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XYYcH-nOo3Y",
+      "title": "Severum Cichlid | Care Guide & Species Profile (Heros Efasciatus)",
+      "durationSec": 475,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hpda36KNzBc",
+      "title": "Wild Severum Colony   Heros Efasciatus — Amazon Cichlid Army",
+      "durationSec": 9,
+      "lang": "en-US"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "lọc ngoài cho cá cichlid"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid",
+        "thức ăn cá size lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

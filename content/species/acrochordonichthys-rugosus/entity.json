@@ -195,7 +195,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -327,17 +327,6 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/a828d8caa7a06a27.webp",
-      "thumb": "https://media.aquatome.com/scotcat/a828d8caa7a06a27-480.webp",
-      "width": 500,
-      "height": 244,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
-      "caption": "Acrochordonichthys rugosus",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/4540729622fa7bf6.webp",
       "thumb": "https://media.aquatome.com/scotcat/4540729622fa7bf6-480.webp",
       "width": 500,
@@ -353,6 +342,17 @@
       "thumb": "https://media.aquatome.com/scotcat/d9f6cec2e0d67b8c-480.webp",
       "width": 500,
       "height": 325,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
+      "caption": "Acrochordonichthys rugosus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a828d8caa7a06a27.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a828d8caa7a06a27-480.webp",
+      "width": 500,
+      "height": 244,
       "licence": "dùng với sự cho phép",
       "author": "ScotCat",
       "sourceUrl": "https://www.scotcat.com/akysidae/acrochordonichthys_rugosus.htm",
@@ -412,7 +412,6 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90x30",
         "bể cá 90cm"
       ]
     },

@@ -8,7 +8,7 @@
   "mentions": [
     "scleropages-formosus"
   ],
-  "updatedAt": "2026-11-04",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "UhGWKDI8qn8",
     "title": "MY AQUARIUM HOBBY (UaruJoey) thekingofDIY.com",
@@ -28,8 +28,9 @@
     },
     "transcribed": true,
     "taxa": [
-      "Scleropages formosus",
-      "Symphysodon sp."
+      "Osteoglossum sp.",
+      "Symphysodon sp.",
+      "Potamotrygon sp."
     ],
     "gear": [
       {
@@ -37,19 +38,19 @@
         "type": "kho",
         "brand": "Hikari",
         "model": "Massivore",
-        "t": 660
+        "t": 681
       },
       {
         "category": "thuc-an",
         "type": "kho",
         "brand": "Hikari",
         "model": "Carnivore",
-        "t": 660
+        "t": 681
       },
       {
-        "category": "thuc-an",
-        "type": "dong-lanh",
-        "t": 814
+        "category": "be-ca",
+        "type": "lon",
+        "t": 150
       },
       {
         "category": "loc",
@@ -63,99 +64,211 @@
       },
       {
         "category": "be-ca",
-        "type": "lon",
-        "t": 120
-      },
-      {
-        "category": "den",
-        "type": "thuy-sinh",
-        "t": 948
+        "type": "chuan",
+        "t": 1010
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao cá đuối cần nước sạch hơn cá khác",
-        "moments": [],
+        "heading": "Vì sao hạ mực nước khi mới thả cá rồng nhỏ",
+        "moments": [
+          {
+            "t": 60,
+            "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá rồng châu Á nhỏ bơi cùng đàn cá dĩa trong bể.",
+            "sharpness": 48.3,
+            "person": false
+          },
+          {
+            "t": 120,
+            "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể lớn đã hạ thấp mực nước, cá bơi gần đáy.",
+            "sharpness": 272.2,
+            "person": false
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/UhGWKDI8qn8/p0-4NjgyMTIyKS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/UhGWKDI8qn8/p0-4NjgyMTIyKS5qcGc-480.webp",
-          "width": 960,
-          "height": 636,
-          "licence": "CC BY 2.0",
-          "author": "shankar s. from Dubai, United Arab Emirates",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_American_Freshwater_Stingray-_that%27s_the_one_at_the_far_end_(27798682122).jpg",
-          "caption": "Cá đuối nước ngọt nằm trên nền cát trong bể nuôi."
-        }
-      },
-      {
-        "heading": "Cá đuối có thật sự cần cát không",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/UhGWKDI8qn8/p2-SU1HUDIyNjEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/UhGWKDI8qn8/p2-SU1HUDIyNjEuanBn-480.webp",
-          "width": 960,
-          "height": 641,
-          "licence": "CC BY-SA 4.0",
-          "author": "John Robert McPherson",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_stingrays_(Peru)_New_Chinese_Seafood_Garden_Chermside_IMGP2261.jpg",
-          "caption": "Cặp cá đuối nằm nghỉ trong bể đáy trống, thấy rõ phần bụng."
-        }
-      },
-      {
-        "heading": "Vì sao không bỏ lũa, đá hay background",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/UhGWKDI8qn8/p3-dsb25neXUzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/UhGWKDI8qn8/p3-dsb25neXUzLmpwZw-480.webp",
-          "width": 960,
-          "height": 496,
-          "licence": "CC BY-SA 3.0",
-          "author": "Photo taken by Fanghong",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Honglongyu3.jpg",
-          "caption": "Cá rồng châu Á bơi trong bể trống, thân dài cần nhiều chỗ bơi."
-        }
-      },
-      {
-        "heading": "Hạ mực nước tạm thời cho cá rồng mới thả",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/UhGWKDI8qn8/p4-ZV8yMDEyXzMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/UhGWKDI8qn8/p4-ZV8yMDEyXzMuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/UhGWKDI8qn8/p0-ZV8yMDEyXzMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/UhGWKDI8qn8/p0-ZV8yMDEyXzMuanBn-480.webp",
           "width": 960,
           "height": 509,
           "licence": "CC BY-SA 3.0",
           "author": "Karelj",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_Prague_2012_3.jpg",
-          "caption": "Cá rồng nhỏ bơi trong bể có cây thủy sinh, thân hình cân đối."
+          "caption": "Cá rồng châu Á bơi trong bể, thân hình cân đối, vảy sáng rõ."
         }
       },
       {
-        "heading": "Cho ăn và lịch chăm hằng tuần",
-        "moments": [],
+        "heading": "Cá đuối nước ngọt khắt khe với nước cỡ nào",
+        "moments": [
+          {
+            "t": 220,
+            "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai con cá đuối nước ngọt nằm trên nền cát trong bể rộng.",
+            "sharpness": 133.6,
+            "person": false
+          },
+          {
+            "t": 270,
+            "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at270-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá đuối chấm trắng bơi sát đáy bể cùng một con cá dĩa.",
+            "sharpness": 136.1,
+            "person": false
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/UhGWKDI8qn8/p6-ZfcGFzdHJ5LmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/UhGWKDI8qn8/p6-ZfcGFzdHJ5LmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/UhGWKDI8qn8/p1-4NjgyMTIyKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/UhGWKDI8qn8/p1-4NjgyMTIyKS5qcGc-480.webp",
           "width": 960,
-          "height": 960,
+          "height": 636,
           "licence": "CC BY 2.0",
-          "author": "François Nguyen",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_puff_pastry.jpg",
-          "caption": "Tép khô nhỏ, loại thức ăn thường dùng cho cá rồng và cá ăn thịt."
+          "author": "shankar s. from Dubai, United Arab Emirates",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_American_Freshwater_Stingray-_that%27s_the_one_at_the_far_end_(27798682122).jpg",
+          "caption": "Hai con cá đuối nước ngọt nằm trên nền cát trong bể nuôi."
         }
       },
       {
-        "heading": "Cá đuối, cá rồng và cá đĩa sống chung có ổn không",
+        "heading": "Vì sao bể đuối này để đáy trống",
+        "moments": [
+          {
+            "t": 170,
+            "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at170-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể đáy trống với cá đuối và cá dĩa bơi phía trên.",
+            "sharpness": 264.9,
+            "person": false
+          },
+          {
+            "t": 290,
+            "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at290-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai con cá đuối chấm trắng nằm trên đáy bể trống, không có nền.",
+            "sharpness": 52,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Cá đuối có cần cát không",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/UhGWKDI8qn8/p7-lX1pvb18wNC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/UhGWKDI8qn8/p7-lX1pvb18wNC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/UhGWKDI8qn8/p3-4NjgyMTIyKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/UhGWKDI8qn8/p3-4NjgyMTIyKS5qcGc-480.webp",
+          "width": 960,
+          "height": 636,
+          "licence": "CC BY 2.0",
+          "author": "shankar s. from Dubai, United Arab Emirates",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_American_Freshwater_Stingray-_that%27s_the_one_at_the_far_end_(27798682122).jpg",
+          "caption": "Hai con cá đuối nằm sát đáy trong bể nuôi, bụng mềm tiếp xúc nền."
+        }
+      },
+      {
+        "heading": "Vì sao không đặt đồ trang trí",
+        "moments": [
+          {
+            "t": 720,
+            "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at720-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá rồng bơi phía trên, đuối và cá đĩa ở góc bể trống.",
+            "sharpness": 281.6,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/UhGWKDI8qn8/p4-dsb25neXUzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/UhGWKDI8qn8/p4-dsb25neXUzLmpwZw-480.webp",
+          "width": 960,
+          "height": 496,
+          "licence": "CC BY-SA 3.0",
+          "author": "Photo taken by Fanghong",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Honglongyu3.jpg",
+          "caption": "Cá rồng thân dài bơi thoáng trong bể, không có đồ trang trí."
+        }
+      },
+      {
+        "heading": "Cho ăn hằng ngày",
+        "moments": [
+          {
+            "t": 910,
+            "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at910-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đuối và cá rồng bơi gần đáy bể lúc đến giờ ăn.",
+            "sharpness": 146.3,
+            "person": false
+          },
+          {
+            "t": 920,
+            "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at920-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá đuối chấm trắng đang ăn thức ăn trên nền bể.",
+            "sharpness": 38.1,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Nuôi chung đuối, cá rồng và cá đĩa",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/UhGWKDI8qn8/p6-lX1pvb18wNC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/UhGWKDI8qn8/p6-lX1pvb18wNC5qcGc-480.webp",
           "width": 960,
           "height": 767,
           "licence": "CC BY-SA 3.0",
           "author": "H. Zell",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Symphysodon_aequifasciatus_-_Karlsruhe_Zoo_04.jpg",
-          "caption": "Cá đĩa màu cam đỏ bơi trong bể trồng cây, thân hình rõ nét."
+          "caption": "Cá đĩa màu cam đỏ bơi hiền lành trong bể trồng cây."
         }
+      },
+      {
+        "heading": "Lọc, ống tràn và nắp bể",
+        "moments": [
+          {
+            "t": 1070,
+            "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at1070-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ba ống tràn PVC đứng với đầu nối loe ở miệng ống.",
+            "sharpness": 53.2,
+            "person": false
+          },
+          {
+            "t": 1160,
+            "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at1160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bên trong thùng phuy lọc xanh, có ống PVC nối giữa hai thùng.",
+            "sharpness": 25.1,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Thay nước bằng hệ thống nhỏ giọt và lịch chăm bể",
+        "moments": [
+          {
+            "t": 1310,
+            "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at1310-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hệ thống ống và bơm dẫn nước ở sàn cạnh bể.",
+            "sharpness": 32.3,
+            "person": false
+          }
+        ]
       }
     ]
   }

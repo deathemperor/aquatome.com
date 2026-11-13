@@ -47,7 +47,8 @@ const still = () => matchMedia('(prefers-reduced-motion: reduce)').matches
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v))
 
 export function createViewer({ id, photos, tile, address }: ViewerOptions): Viewer {
-  const n = photos.length
+  // `photos` may grow while the viewer is closed (readers' photos' "Xem thêm"): it steps through them as they are.
+  const n = () => photos.length
   const hist = viewerHistory(history, id)
   let d: HTMLDialogElement | undefined
   let stage: HTMLElement, track: HTMLElement, cap: HTMLElement, by: HTMLElement, status: HTMLElement
@@ -79,7 +80,6 @@ export function createViewer({ id, photos, tile, address }: ViewerOptions): View
     d.querySelector('.share')?.setAttribute('aria-label', ct('Chia sẻ ảnh'))
     stage = $('.pv-stage'); track = $('.pv-track'); cap = $('.cap'); by = $('.by'); status = $('.pv-status')
     slides = [...track.children].map(el => ({ el: el as HTMLElement, pic: el.firstElementChild as HTMLElement, thumb: el.querySelector<HTMLImageElement>('.pv-thumb')!, full: el.querySelector<HTMLImageElement>('.pv-full')!, i: -1, box: { w: 0, h: 0 } }))
-    d.classList.toggle('pv-one', n < 2)
     document.body.append(d)
 
     $('.close').addEventListener('click', () => d!.close())
@@ -125,7 +125,7 @@ export function createViewer({ id, photos, tile, address }: ViewerOptions): View
     slides.forEach((s, k) => {
       s.el.style.transform = `translateX(${(k - 1) * (room.w + GAP)}px)`
       s.el.inert = k !== 1
-      s.el.hidden = k !== 1 && n < 2
+      s.el.hidden = k !== 1 && n() < 2
     })
   }
   function layout() {
@@ -139,14 +139,14 @@ export function createViewer({ id, photos, tile, address }: ViewerOptions): View
     const p = photos[at]!
     cap.textContent = p.caption ?? ''
     cap.hidden = !p.caption
-    by.replaceChildren(...p.credit(), ` · ${at + 1}/${n}`)
-    status.textContent = `${at + 1}/${n}`
+    by.replaceChildren(...p.credit(), ` · ${at + 1}/${n()}`)
+    status.textContent = `${at + 1}/${n()}`
   }
   function show(i: number) {
     finish()
     at = i
     fill(slides[1]!, at)
-    if (n > 1) { fill(slides[0]!, wrap(at - 1, n)); fill(slides[2]!, wrap(at + 1, n)) }
+    if (n() > 1) { fill(slides[0]!, wrap(at - 1, n())); fill(slides[2]!, wrap(at + 1, n())) }
     zoom(1, { x: 0, y: 0 }, false)
     words()
   }
@@ -165,15 +165,15 @@ export function createViewer({ id, photos, tile, address }: ViewerOptions): View
 
   /** To the next photo (1) or the one before (-1): the caption and address now, the slides once they've moved. */
   function go(dir: -1 | 1) {
-    if (n < 2 || !d?.open) return
+    if (n() < 2 || !d?.open) return
     finish()
     zoom(1, { x: 0, y: 0 }, false)
-    at = wrap(at + dir, n)
+    at = wrap(at + dir, n())
     words()
     hist.step(at, address?.(at))
     slide(-dir * (room.w + GAP), () => {
       slides = dir > 0 ? [slides[1]!, slides[2]!, slides[0]!] : [slides[2]!, slides[0]!, slides[1]!]
-      fill(slides[dir > 0 ? 2 : 0]!, wrap(at + dir, n))
+      fill(slides[dir > 0 ? 2 : 0]!, wrap(at + dir, n()))
       track.style.transform = ''
       place()
     })
@@ -227,7 +227,7 @@ export function createViewer({ id, photos, tile, address }: ViewerOptions): View
       const dx = e.clientX - g.from.x, dy = e.clientY - g.from.y
       g.trail = [...g.trail.filter(p => e.timeStamp - p.t < 100), { x: e.clientX, t: e.timeStamp }]
       if (g.kind === 'wait' && Math.hypot(dx, dy) > 8) g.kind = Math.abs(dx) > Math.abs(dy) ? 'swipe' : 'none'
-      if (g.kind === 'swipe') track.style.transform = `translateX(${n < 2 ? dx / 4 : dx}px)`
+      if (g.kind === 'swipe') track.style.transform = `translateX(${n() < 2 ? dx / 4 : dx}px)`
       if (g.kind === 'pan') zoom(scale, { x: g.pan.x + dx, y: g.pan.y + dy }, false)
     })
     const up = (e: PointerEvent) => {
@@ -242,7 +242,7 @@ export function createViewer({ id, photos, tile, address }: ViewerOptions): View
       const dx = e.clientX - g.from.x
       if (g.kind === 'swipe') {
         const first = g.trail[0]!
-        const step = e.type === 'pointercancel' ? 0 : swipeStep(dx, (e.clientX - first.x) / Math.max(1, e.timeStamp - first.t), room.w, n)
+        const step = e.type === 'pointercancel' ? 0 : swipeStep(dx, (e.clientX - first.x) / Math.max(1, e.timeStamp - first.t), room.w, n())
         if (step) go(step)
         else slide(0, () => { track.style.transform = '' })
       } else if (g.kind !== 'none' && e.type === 'pointerup' && Math.hypot(dx, e.clientY - g.from.y) < 10 && e.timeStamp - g.t < 300) {
@@ -297,6 +297,7 @@ export function createViewer({ id, photos, tile, address }: ViewerOptions): View
 
   function open(i: number, o: { from?: HTMLElement; under?: string } = {}) {
     if (!d) build()
+    d!.classList.toggle('pv-one', n() < 2)
     const first = !d!.open
     if (first) d!.showModal()
     layout()
@@ -307,14 +308,14 @@ export function createViewer({ id, photos, tile, address }: ViewerOptions): View
 
   addEventListener('popstate', () => {
     const i = hist.current()
-    if (i === null) { if (d?.open) d.close() } else if (i < n) open(i)
+    if (i === null) { if (d?.open) d.close() } else if (i < n()) open(i)
   })
 
   return {
     open,
     restore() {
       const i = hist.current()
-      if (i === null || i >= n) return false
+      if (i === null || i >= n()) return false
       open(i)
       return true
     },

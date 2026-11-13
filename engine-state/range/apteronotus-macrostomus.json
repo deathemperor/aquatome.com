@@ -1,0 +1,73 @@
+{
+  "id": "apteronotus-macrostomus",
+  "native": {
+    "input": "3cf02093f432ae4c",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The fish offered in the hobby originate from Colombia and belong with highest probability to Apteronotus macrostomus.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Meta",
+        "source": "glaser",
+        "quote": "This species comes from the surroundings of the city Villavicencio at the Rio Meta, where numerous ornamental fish catchers are active.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apteronotus macrostomus",
+    "status": "ACCEPTED",
+    "taxonKey": 2401872,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        24
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        7
+      ],
+      [
+        "bb1f4643-8a9a-4d72-b631-88a41c0528bc",
+        3
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        2
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

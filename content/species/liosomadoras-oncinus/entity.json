@@ -1,0 +1,308 @@
+{
+  "id": "liosomadoras-oncinus",
+  "scientificName": "Liosomadoras oncinus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Liosomadoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "negro"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Ucayali",
+        "Amazonas",
+        "Negro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Ucayali, Amazonas and Negro river basins, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Ucayali",
+            "Amazonas",
+            "Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344737,
+      "total": 38,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          21
+        ],
+        [
+          "BR",
+          13
+        ],
+        [
+          "CO",
+          3
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          1.40625,
+          3,
+          0
+        ],
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          9,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          10,
+          0
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          7,
+          7
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4.8,
+          "max": 7.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 25
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
+      "html": "<p>The jaguar catfish, Liosomadoras oncinus, is an auchenipterid catfish from the Ucayali, Amazonas and Negro river basins in South America. Often confused with L. morrowi, it has brighter patterning and grows larger, to around 250 mm SL. Formerly placed in the Doradidae because of its opercular spines, it is nocturnal and generally peaceful but eats small fish after dark. Its water requirements depend on where it was collected.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
+      "html": "<p>Ucayali, Amazonas and Negro river basins, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
+      "html": "<p>Large rivers, streams, lakes and flooded areas.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
+      "html": "<p>Adult size: 250 mm SL. Minimum aquarium base: 120 × 45 cm. Volume: about 243 litres (120 × 45 × 45 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
+      "html": "<p>This is a nocturnal fish, so dim lighting is required to make it feel secure. Plenty of cover should also be provided, particularly if you're keeping several together. Smooth rocks, driftwood, lengths of pvc piping and plants that can survive under low levels of light, such as Anubias sp., Java fern and Vallisneria can all be used.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
+      "html": "<ul><li>Temperature: 20–28 °C</li><li>pH: 4.8–7.2</li><li>Hardness: 0–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
+      "html": "<p>Unfussy. It relishes live and frozen foods such as bloodworm, earthworms etc., as well as sinking dried foods. Add food after lights out to ensure it receives its share.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
+      "html": "<p>Generally peaceful and shy, although it can sometimes be a little territorial with other benthic species. Small fish will be eaten during the hours of darkness. Ideally keep it in a South American biotope aquarium, with similarly-sized characins, cichlids and other peaceful catfish and Loricariids. It's quite gregarious and appears to be happier in the company of conspecifics, so keep a small group if space allows.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
+      "html": "<p>Males have a highly modified anal fin, which is used in a similar fashion to the gonopodium possessed by livebearers. When mature, they also develop thicker dorsal and pectoral fins than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
+      "html": "<p>Not thought to have been achieved in aquaria. Fertilisation occurs internally.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/liosomadoras-oncinus",
+      "html": "<p>Often confused with its congener, L. morrowi, the jaguar cat can be distinguished by its more attractive, brighter patterning and larger adult size. It's an ideal and good looking bottom dweller for the larger community. Previously considered a member of the Doradidae, due to the opercular spines, it has now been reclassified. It occurs over a wide range in nature, hence its apparent tolerance to wildly different water chemistry. In reality, its requirements are determined by collection locality, so it's best to ask your dealer what water conditions they are being kept in when buying.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/67b88bcd4a4b26a2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/67b88bcd4a4b26a2-480.webp",
+      "width": 500,
+      "height": 331,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/liosomadoras_oncinus.htm",
+      "caption": "Liosomadoras oncinus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/15c4fbe8f1ca4968.webp",
+      "thumb": "https://media.aquatome.com/scotcat/15c4fbe8f1ca4968-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/liosomadoras_oncinus.htm",
+      "caption": "Liosomadoras oncinus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/2386d281e8ab17a9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2386d281e8ab17a9-480.webp",
+      "width": 500,
+      "height": 474,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/liosomadoras_oncinus.htm",
+      "caption": "Liosomadoras oncinus: head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy lọc nước hồ cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây anubias",
+        "dương xỉ java"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

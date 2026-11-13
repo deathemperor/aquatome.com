@@ -13,6 +13,325 @@
     "indonesia",
     "bangka"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Java",
+        "Bangka"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Apparently adult Macrognathus (the females show clear spawning condition) were imported from Indonesia which, according to the exporter, were collected on the relatively small island of Bangka.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Bangka"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Therefore Kottelat and Widjanarti limited the origin to Java in 2005 and established a neotype from there as future reference.",
+          "countries": [],
+          "regions": [
+            "Java"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204062,
+      "total": 82,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ID",
+          21
+        ],
+        [
+          "IN",
+          17
+        ],
+        [
+          "TH",
+          15
+        ],
+        [
+          "CN",
+          14
+        ],
+        [
+          "BD",
+          9
+        ],
+        [
+          "MY",
+          2
+        ],
+        [
+          "PK",
+          2
+        ],
+        [
+          "KH",
+          1
+        ],
+        [
+          "LK",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          66.09375,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          67.5,
+          26.71875,
+          1,
+          0
+        ],
+        [
+          71.71875,
+          18.28125,
+          2,
+          0
+        ],
+        [
+          75.9375,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          77.34375,
+          16.875,
+          2,
+          0
+        ],
+        [
+          78.75,
+          11.25,
+          4,
+          0
+        ],
+        [
+          80.15625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          80.15625,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          81.5625,
+          16.875,
+          3,
+          0
+        ],
+        [
+          87.1875,
+          22.5,
+          1,
+          0
+        ],
+        [
+          88.59375,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          90,
+          22.5,
+          8,
+          0
+        ],
+        [
+          91.40625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          91.40625,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          98.4375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          14.0625,
+          3,
+          0
+        ],
+        [
+          99.84375,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          18.28125,
+          3,
+          0
+        ],
+        [
+          101.25,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          5.625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          14.0625,
+          2,
+          0
+        ],
+        [
+          102.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          109.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          111.09375,
+          0,
+          2,
+          2
+        ],
+        [
+          112.5,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          112.5,
+          0,
+          2,
+          2
+        ],
+        [
+          112.5,
+          29.53125,
+          14,
+          0
+        ],
+        [
+          115.3125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          115.3125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -88,44 +407,68 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/3202c296d0ba0e26.webp",
-      "width": 960,
-      "height": 273,
-      "licence": "Public domain",
-      "author": "George Henry Ford",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rhynchobdella_aculeata_Ford_72.jpg",
-      "caption": "Macrognathus aculeatus syn. Rhynchobdella aculeataThe species names / identity need verification. The original plates showed the fishes facing right and have been flipped here. Rhynchobdella aculeata",
-      "thumb": "https://media.aquatome.com/commons/3202c296d0ba0e26-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/8bc68196ea97ded0.webp",
-      "width": 960,
-      "height": 564,
-      "licence": "Public domain",
-      "author": "Bloch, Marcus Elieser",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ichthyologie;_ou,_Histoire_naturelle_des_poissons_(Plate_159)_(6918410876).jpg",
-      "caption": "Macrognathus aculeatus syn. Ophidium aculeatum, Ophidion barbatum syn. Ophidium barbatum",
-      "thumb": "https://media.aquatome.com/commons/8bc68196ea97ded0-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/a29456fa487f1714.webp",
-      "width": 960,
-      "height": 1688,
-      "licence": "Public domain",
-      "author": "La Cépède",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Histoire_naturelle_des_quadrup%C3%A8des-ovipares_(8314724372).jpg",
-      "caption": "1. The Lesser spiny eel 2. The Swordfish 3. The Atlantic wolffish",
-      "thumb": "https://media.aquatome.com/commons/a29456fa487f1714-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/b944e064502f27ae.webp",
-      "width": 960,
-      "height": 1224,
-      "licence": "Public domain",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rhynchobdella_aculeata_-_1700-1880_-_Print_-_Iconographia_Zoologica_-_Special_Collections_University_of_Amsterdam_-_UBA01_IZ13800139.tif",
-      "caption": "Macrognathus aculeatus syn. Rhynchobdella ocellata syn. Ophidium aculeatum",
-      "thumb": "https://media.aquatome.com/commons/b944e064502f27ae-480.webp"
+      "url": "https://media.aquatome.com/processed/f1f5cb3539e4509ee2fe744e03f75fa3.webp",
+      "thumb": "https://media.aquatome.com/processed/f1f5cb3539e4509ee2fe744e03f75fa3-480.webp",
+      "width": 850,
+      "height": 417,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/macrognathus-aculeatus-2/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-macrognathus-aculeatus",
+        "pixelHash": "00360209aa94b30bfb9a4e09f12fc6029beeec850de65d586c3679acefac62af"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T07:41:27.526Z",
+          "originalHash": "091b49d7f3f67fb9e4285276ad29fd08fd5f9e00778a705027be8d442fde344c",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 567,
+            "window": {
+              "x0": 0,
+              "y0": 150,
+              "x1": 850,
+              "y1": 567
+            },
+            "subject": {
+              "x0": 49,
+              "y0": 304,
+              "x1": 833,
+              "y1": 468
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 24,
+              "y0": 31,
+              "x1": 827,
+              "y1": 144
+            }
+          ],
+          "checks": {
+            "species": [
+              "d72ef69db82ae70d72297024e6ee5c6ced2d585ea3ecef6a469b7e21cc2d6161",
+              "3f0043d8bd476e2f3d84375a4b4306db894ddd643510b9ee2379d4ab6541ed56"
+            ],
+            "ownership": [
+              "8a137b6b9ae5eab99f3d8bdb7713336cbdbd3d24689f6304270876bc0f5d073f",
+              "8e52747adf8ee3eda5fe552b9ccff6571b36a14f897313afc58eebaa5b137af1"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/9374f3c3a8839250.webp",
+        "width": 850,
+        "height": 567,
+        "thumb": "https://media.aquatome.com/glaser/9374f3c3a8839250-480.webp"
+      }
     }
   ],
   "videos": [

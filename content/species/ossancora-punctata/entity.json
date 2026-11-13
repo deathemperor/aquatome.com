@@ -12,13 +12,371 @@
     "bolivia",
     "colombia",
     "peru",
-    "paraguay"
+    "paraguay",
+    "amazon",
+    "parana-paraguay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PY",
+        "AR",
+        "BR",
+        "BO",
+        "CO",
+        "PE"
+      ],
+      "regions": [
+        "Amazon River",
+        "Paraná-Paraguay River"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Paraguay",
+          "countries": [
+            "PY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It is reported from Argentina, Brazil, Bolivia, Colombia and Peru, where it is found both in white and black water.",
+          "countries": [
+            "AR",
+            "BR",
+            "BO",
+            "CO",
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon River and Paraná-Paraguay River drainages.",
+          "countries": [],
+          "regions": [
+            "Amazon River",
+            "Paraná-Paraguay River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8376933,
+      "total": 131,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "BR",
+          65
+        ],
+        [
+          "PE",
+          53
+        ],
+        [
+          "BO",
+          4
+        ],
+        [
+          "CO",
+          4
+        ],
+        [
+          "PY",
+          3
+        ],
+        [
+          "EC",
+          1
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          10,
+          10
+        ],
+        [
+          -75.9375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -5.625,
+          9,
+          9
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          10,
+          10
+        ],
+        [
+          -73.125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          14,
+          14
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -59.0625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -16.875,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -16.875,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          15,
+          15
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 12
+      },
+      {
+        "source": "scotcat",
+        "value": 11
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -30,10 +388,28 @@
       "html": "<ul><li>Maximum length about 10-12 cm</li><li>Origin: Paraguay</li><li>Available size: 4-6 cm</li><li>Scientifically known since 1855</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/ossancora_punctata.htm",
+      "html": "<ul><li>Common name: Feather Barbels Catfish</li><li>Synonyms: Doras punctatus</li><li>IUCN Red List: Least Concern (IUCN 2023)</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/ossancora_punctata.htm",
+      "html": "<p>Until recently (2011) this species was known as Doras punctatus, when a new paper by Birindelli and Sabaj Pérez (2011) assigned it to a new genus, Ossancora. Ossancora was proposed to include three previously named species, O. eigenmanni and O. fimbriata plus O. punctata, and one new species, O. asterophysa. The four species are distinguished from each other by the branching of the maxillary and mandibular barbels, the morphology of the swimbladder and of the bony plates in front of the dorsal fin, and the number of teeth on the upper and lower jaws.</p><p>It can sometimes be seen and sold as Opsodoras stuebelii. Opsodoras stuebelii has a longer snout, lacks the body spots and grows larger. It has been misidentified, especially in the mid 1980s in the hobby, when catfish were just beginning to get a fan base in the U.K.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ossancora_punctata_en/",
       "html": "<p>This thorny catfish has an enormous wide distribution in South America. It is reported from Argentina, Brazil, Bolivia, Colombia and Peru, where it is found both in white and black water. The imported fish came from Paraguay.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/ossancora_punctata.htm",
+      "html": "<p>South America: Amazon River and Paraná-Paraguay River drainages.</p>"
     },
     {
       "key": "waterConditions",
@@ -42,10 +418,22 @@
       "html": "<p>The fish are extremely undemanding regarding water chemistry.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/ossancora_punctata.htm",
+      "html": "<p>Good water quality is required.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ossancora_punctata_en/",
       "html": "<p>They feed readily on any usual type of aquarium fish food. Plants are ignored.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/ossancora_punctata.htm",
+      "html": "<p>Finely shredded shrimp and bloodworm.</p>"
     },
     {
       "key": "behaviour",
@@ -54,10 +442,28 @@
       "html": "<p>Ossancora punctata are most active at dawn, so their tank should contain some hiding places. Nevertheless the fish are often visible at daytime, especially when fed. These thorny catfish are absolutely peaceful towards tankmates, whether they belong to their own or to different species.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/ossancora_punctata.htm",
+      "html": "<p>A very peaceful addition to a community aquarium. This is another doradid that prefers safety in numbers, assuming you can purchase them. It is recommended to keep at least 4 specimens together.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ossancora_punctata_en/",
       "html": "<p>This pretty catfish is nice and hardy, yet it has always been a rarity in aquaria. The striped tailfin and the long \"beard\" are the most striking features. The body coloration is very variable: plain fish occur as well as finely spotted ones or animals with large spots on the flanks.</p><p>Etymology: Ossancora is Latin for \"anchor-shaped bone\", referring to a bone in the shoulder of the fish. punctata is Latin for \"spotted\".</p><p>Suggested common name: Emperor-Wilhelm-Catfish (referring to the \"beard\").</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/ossancora_punctata.htm",
+      "html": "<p>Etymology: the specific name punctata is Latin for spotted, presumably referring to the dark dots conspicuously evident on the head and body of the syntypes.</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/ossancora_punctata.htm",
+      "html": "<ul><li>Birindelli, JLO and MH Sabaj Pérez (2011) Ossancora, new genus of thorny catfish (Teleostei: Siluriformes: Doradidae) with description of one new species. Proceedings of the Academy of Natural Sciences of Philadelphia 161, pp. 117–152.</li><li>Conservación Internacional; seris de Guías Tropicales De Campo. Pecos del medio Amazonas Región de Leticia. 546 p.</li><li>Sabaj, M.H. and C.J. Ferraris, Jr. 2003 Doradidae (Thorny catfishes). p. 456-469. In: R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</li><li>Salvador, G.N. 2023. Ossancora punctata. The IUCN Red List of Threatened Species 2023.</li><li>Sands, David; Back to Nature Guide to Catfishes. 1996. p. 60-61. 128 p.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
     }
   ],
   "photos": [
@@ -125,5 +531,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-07"
 }

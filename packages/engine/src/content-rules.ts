@@ -1,11 +1,17 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { HTMLElement, parse } from 'node-html-parser'
-import { headingRoles, imperialLeft, LANGS, ownNumber, WRITTEN_LANGS, type DataCardField, type Lang } from '@aq/schema'
+import { headingRoles, imperialLeft, LANGS, ownNumber, WRITTEN_LANGS, type DataCardField, type Lang, type WrittenLang } from '@aq/schema'
+import { tidyName } from './alt-names'
+import { showsLNumber, withLNumber } from './l-numbers'
+import { onlyAName, titleKey } from './guide-titles'
 import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
-import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice } from './sanitize'
+import { dropEmptyBlocks, fishThaiLai, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice, viWording, wordingSlips } from './sanitize'
 import { LANG_NAME, pageUrl, type Page, type PageKind } from './pages'
+import { SWAPPED } from './names'
+import { PHRASES, phraseSlips } from './phrases'
+import { unfitCommons } from './photos'
 
 /**
  * Rules every published page is checked against, every cycle, in each language (`pnpm engine audit`). Each is a small
@@ -21,9 +27,15 @@ export type Rule = {
   /** What the rule looks for, for the report. */
   about: string
   check: (p: Page, ctx: Ctx) => string[]
+  /**
+   * The report counts each finding across pages instead of listing every page: a finding reads `"<words>" ×<n> → …`
+   * (×1 left out), and the report gives each one's pages and times, most pages first.
+   */
+  tally?: true
 }
 /** `genera`: every genus the site has a page in; `species`: every Latin name with a page, lower case. */
-export type Ctx = { genera: Set<string>; species: Set<string> }
+/** `titles`: how many guides in a language have each title (guide-titles.ts titleKey), keyed "<lang>\t<title>". */
+export type Ctx = { genera: Set<string>; species: Set<string>; titles?: Map<string, number> }
 export type Finding = { rule: string; page: Page; detail: string }
 
 const YEAR = /\b(1[789]\d\d|20[0-2]\d)\b/
@@ -455,6 +467,91 @@ export function wrongFish(caption: string, sci: string, others: string[], ctx: C
 }
 /** A caption saying the photo is a map. */
 export const isMap = (caption: string) => MAP.test(caption)
+/**
+ * What a Wikimedia Commons photo's own words say it is when it is no photo of the living fish or plant: a paper's plate,
+ * a microscope picture, a drawing, a map, a dish (photos.ts `unfitCommons`, the screen a new photo passes, on the file's
+ * name and the start of its description, which is a page photo's caption until a look writes another). The search for a
+ * fish's name finds the papers about its parasites and bones, and photos from before a word was screened for stay: found
+ * 2026-11-11 by the owner, on a page whose only photo was a parasite paper's plate. Not the screen's "other" (a
+ * description that says "misidentified"): "first misidentified as …" is said of a photo of the right fish too, and only a look tells.
+ */
+export const notAlive = (c: { caption: string; file?: string }) => {
+  const why = c.file ? unfitCommons({ title: c.file, description: c.caption }) : undefined
+  return why?.startsWith('other') ? undefined : why
+}
+/**
+ * What a source's own caption says is wrong with the fish in a photo, on a fish's or a breed's page (the chief of staff,
+ * 2026-11-11, after a sick betta and three unwell fish were found on pages by eye; no model reads a caption).
+ * - "unwell": dead, thin, wounded, sick or deformed, or damaged in a fight. The photo comes off a page that has another
+ *   photo of its own (`unwellOff`, sweep.ts). Where it is the page's only photo it stays, never on a card.
+ * - "blemish": a split or damaged fin said in passing of an ordinary specimen. The photo stays and counts as not
+ *   typical, so a typical photo leads (photo-check.ts) and it is never on a card (curation.ts `cardWorthy`).
+ * English only: a caption with Vietnamese letters is one we wrote, not the source's words. Not for plants, and not for
+ * guides, where a guide on a disease shows a sick fish. A first, wider list hit 21 of 14,615 captions, 7 of them wrongly:
+ * a shipwreck ornament, "dead corals", "physical damage is rare", breeding tubercules twice, an owner's story of a fish
+ * that died years after the photo, and a caption of ours.
+ * "Unwell" takes a photo off for good with nobody looking, so the lists lean to missing one (two readers' probes,
+ * 2026-11-11): damage or injuries said to be rare are none, and nothing a sentence denies ("no signs of infection");
+ * damage is weighed in its own sentence, so a later one on how the fish behaves doesn't make it a fight's; a fight or
+ * a degree counts only where it is said of the damage ("torn in a fight", "badly torn"), so a fighting fish's name or
+ * a heavily planted tank is none, and only another fish causes a fight's damage, not transport; a place named before the damage is what was damaged ("habitat
+ * heavily damaged"); an infection, fin rot or a fungus counts only where the caption says the fish has it; and on a
+ * breed's page a deformity or a growth is not asked, since it can be the breed's own shape (a balloon molly's spine, an
+ * oranda's cap). Kept on purpose: a fish "feeding on a dead fish" has a dead fish in the picture, which no page shows.
+ */
+const UNWELL = /\b(?:deceased|dead (?:specimens?|fish|individuals?|males?|females?|juveniles?|adults?)|skinny|emaciated|underweight|starv(?:ed|ing)|wounded|injured|missing an? (?:eye|fin)|diseased|infected|(?:with|has|have|having|shows?|showing|suffering from) (?:an? )?(?:[a-z-]+ ){0,2}(?:infections?|fin[- ]?rot|fungus)|fungus on (?:its|his|her)|tumou?rs?|ulcers?|lesions?|dropsy|deform(?:ed|ity|ities)|sick|moribund)\b/gi
+const BREED_SHAPE = /^(?:deform|tumou?r)/i
+const DAMAGE = /\b(?:damaged?|injur(?:y|ies)|torn|split (?:caudal|dorsal|anal|pectoral|pelvic|tail)?[- ]?fins?)\b(?! (?:is|are) rare)/i
+/**
+ * Damage with a fight behind it, or more than slight: not a blemish. Each is said of the damage, not found anywhere in
+ * the sentence: a "Siamese fighting fish", a "fighter", an "aggressive species" or a "heavily planted tank" is none.
+ */
+const FOUGHT = /\b(?:caused by (?:(?:an?other|an?|rival|dominant|conspecific) )?(?:males?|females?|fish|individuals?|conspecifics?|tank ?mates?|specimens?)|(?:in|during|after|from|by|due to|result of) (?:an? |the )?(?:[a-z-]+ ){0,2}(?:fights?|fighting(?! fish)|attacks?|aggression|bites?|biting|sparring)|fought|bitten|attacked)\b/i
+const SEVERE = /\b(?:badly|severely|heavily|seriously)[ -](?:damaged|torn|split|injured)\b|\b(?:severe|serious|heavy|bad) (?:[a-z-]+ ){0,2}(?:damage|injur(?:y|ies))\b/i
+const PLACE = /\b(?:habitats?|localit(?:y|ies)|rivers?|streams?|creeks?|lakes?|swamps?|forests?|reefs?|sites?)\b/i
+const DENIED = /\b(?:no|not|without|never|none|free (?:of|from)|lack(?:s|ing)?|absence of)\b/i
+/** What a sentence says before a word: the caption up to it, from the last full stop or semicolon. */
+const before = (text: string, at: number) => text.slice(0, at).split(/[.;]/).pop()!
+export function captionFlaw(caption: string | undefined, breed = false): { kind: 'unwell' | 'blemish'; word: string } | undefined {
+  if (!caption || VI_LETTER.test(caption)) return undefined
+  const unwell = [...caption.matchAll(UNWELL)].find(m => !(breed && BREED_SHAPE.test(m[0])) && !DENIED.test(before(caption, m.index)))
+  if (unwell) return { kind: 'unwell', word: unwell[0].toLowerCase() }
+  let blemish: { kind: 'blemish'; word: string } | undefined
+  for (const sentence of caption.split(/[.;]+/)) {
+    const damage = DAMAGE.exec(sentence)
+    // A place named before the damage is what was damaged, not a fish.
+    if (!damage || DENIED.test(sentence.slice(0, damage.index)) || PLACE.test(sentence.slice(0, damage.index))) continue
+    if (FOUGHT.test(sentence) || SEVERE.test(sentence)) return { kind: 'unwell', word: damage[0].toLowerCase() }
+    blemish ??= { kind: 'blemish', word: damage[0].toLowerCase() }
+  }
+  return blemish
+}
+/**
+ * The photos of a fish's or a breed's page that come off as unwell: every one, its gallery's too, but the first of the
+ * page's own where no other photo of its own would be left (`gone`: its own photos another rule takes off in the same run).
+ * A page with no photo of its own keeps none back: its gallery's photo is on no page until the head step picks it,
+ * and that step asks the caption too (curation.ts `cardWorthy`).
+ * A head a person picked is not taken off by a caption's words (the chief of staff, 2026-11-11): a pick is a person's
+ * look at the photo, a caption word a guess. It stays, off every card, and is listed until a person says it goes.
+ */
+export function unwellOff(p: Pick<Page, 'kind' | 'captions' | 'album' | 'own' | 'picked'>, gone: ReadonlySet<string> = new Set()): { off: { url: string; word: string }[]; kept?: { url: string; word: string }; picked?: { url: string; word: string } } {
+  if (p.kind !== 'species' && p.kind !== 'breeds') return { off: [] }
+  // Once a photo: one that is the page's own and in its gallery too (a head picked from the gallery keeps its copy
+  // there) is one photo, kept or taken off as one.
+  const seen = new Set<string>()
+  const unwell = [...p.captions, ...(p.album ?? [])].flatMap(c => {
+    const f = seen.has(c.url) ? undefined : captionFlaw(c.caption, p.kind === 'breeds')
+    if (f?.kind !== 'unwell') return []
+    seen.add(c.url)
+    return [{ url: c.url, word: f.word }]
+  })
+  const bad = new Set(unwell.map(x => x.url))
+  const own = (p.own ?? []).filter(u => !gone.has(u))
+  // A pick another rule takes off in this run shields nothing: the page's other photo is then the one to keep.
+  const picked = unwell.find(x => x.url === p.picked && !gone.has(x.url))
+  const kept = picked || own.some(u => !bad.has(u)) ? undefined : unwell.find(x => x.url === own.find(u => bad.has(u)))
+  return { off: unwell.filter(x => x !== kept && x !== picked), ...(kept ? { kept } : {}), ...(picked ? { picked } : {}) }
+}
 /** An ad video's title as a photo's caption ("video of: African Chop"): its poster, taken from an ad player in a source's article. */
 export const isAdPoster = (caption: string) => /^video of:/i.test(caption.trim())
 
@@ -482,8 +579,19 @@ export function cardSlips<V extends { field: DataCardField; value: Figure }>(car
   for (const v of card) if (v.field === 'tankCm' && typeof v.value === 'number' && v.value < 2 * fish && !out.some(o => o.v === v)) out.push({ v, why: `shorter than twice the fish (${fish} cm)` })
   return out
 }
+/**
+ * Seriously Fish heads its rating "Difficulty 7 of 8 measures": the 7 is how many measures it could rate, and the rating is
+ * the word under it (process.ts sfDifficulty). The card reads the word, but a quick-facts line written from that heading can
+ * keep the count, as "Độ khó: 7/8 (khó)" beside a card and summary of 6/8. How each language labels that line:
+ */
+const DIFFICULTY_LABEL: Record<WrittenLang | 'en', string> = { en: 'difficulty', vi: 'độ khó', id: '(?:tingkat )?kesulitan', ms: '(?:tahap )?(?:kesukaran|kesulitan)', th: '(?:ระดับ)?ความยาก(?:ในการเลี้ยง)?' }
+/** Seriously Fish quick-facts text with the card's difficulty where its count of measures stood. The word and the reason around it stay. */
+export const sfScoreFixed = (html: string, lang: WrittenLang | 'en', score: number) =>
+  html.replace(new RegExp(`((?:${DIFFICULTY_LABEL[lang]})(?:</strong>)?\\s*:?\\s*(?:</strong>)?[^.<]{0,40}?)(?<![\\d.,])\\d(\\s*(?:of|/|dari|daripada|จาก)\\s*8)(?![\\d.,]*\\d)(?:\\s*(?:measures|tiêu chí|ด้าน))?`, 'giu'), (_, a: string, b: string) => `${a}${score}${b}`)
 const firstFew = (xs: string[], n = 3) => [...xs.slice(0, n).map(s => `"${s}"`), ...(xs.length > n ? [`and ${xs.length - n} more`] : [])]
 
+/** The kinds of page named for what they are about: a species, a plant, a breed (the sweep's name fix, alt-names.ts tidyName). */
+export const NAMED_KINDS: readonly PageKind[] = ['species', 'plants', 'breeds']
 /** The kinds of page whose stored text the sweep fixes (sweep.ts): an equipment page is written whole by its own step. */
 export const SWEPT_KINDS: readonly PageKind[] = ['species', 'plants', 'guides', 'breeds', 'glossary', 'products']
 /**
@@ -495,7 +603,10 @@ export const RATCHETED: Readonly<Record<string, readonly PageKind[]>> = {
   furniture: SWEPT_KINDS, headings: SWEPT_KINDS, repeated: SWEPT_KINDS, labels: SWEPT_KINDS,
   // A guide's title is written; a breed's or product's is its name (a person may have fixed it: nameFixed), listed only.
   'title-count': ['guides'],
-  caption: ['species', 'plants'], card: ['species', 'breeds'], imperial: METRIC_KINDS as readonly PageKind[],
+  name: NAMED_KINDS,
+  wording: SWEPT_KINDS,
+  caption: ['species', 'plants'], unwell: ['species', 'breeds'], card: ['species', 'breeds'], imperial: METRIC_KINDS as readonly PageKind[],
+  'sf-count': ['species'], 'l-number': ['species'],
 }
 /** The findings the real-content test holds at zero. */
 export const ratcheted = (findings: Finding[]) => findings.filter(f => RATCHETED[f.rule]?.includes(f.page.kind))
@@ -515,6 +626,23 @@ export const RULES: Rule[] = [
     id: 'title-count', title: 'Title promises a count the text doesn\'t have',
     about: 'A title with a number ("10 loại cây…", "Top 5…") whose text has no run of numbered headings or labels, no list or bold leads of that many, and not enough headings for that many items. The sweep has the title rewritten (reviewer-gated), else drops the number from it; the address stays.',
     check: p => p.fields.filter(f => f.field === 'body').flatMap(f => countMismatch(p.title, f.html) ?? []),
+  },
+  {
+    id: 'guide-title', title: 'Two guides with one title, or a title that is only a name',
+    about: 'A guide whose title another guide in its language has, so a list of guides shows the same row twice, or whose title is only a name ("Dou Mok", four tanks by one aquascaper in a row: the owner, 2026-11-11). The sweep has the title written again (guide-titles.ts), the name kept as the credit.',
+    check: (p, ctx) => {
+      if (p.kind !== 'guides') return []
+      const n = ctx.titles?.get(`${p.lang}\t${titleKey(p.title)}`) ?? 1
+      return [...(n > 1 ? [`"${p.title}" is the title of ${n} guides`] : []), ...(onlyAName(p.title, p.lang) ? [`"${p.title}" is only a name`] : [])]
+    },
+  },
+  {
+    id: 'name', title: 'A name not as hobbyists write it',
+    about: 'A species\', plant\'s or breed\'s Vietnamese name with a place in lower case ("Rêu java" beside "Dương xỉ Java"), or a plant\'s name with "Cây thủy sinh" before it, which a list of plants says already ("Cây thủy sinh Vallisneria (cỏ lươn)"). The sweep writes it as hobbyists do (alt-names.ts tidyName) and keeps the address; a name a person fixed is left.',
+    check: p => {
+      const tidy = p.lang === 'vi' && !p.nameFixed && NAMED_KINDS.includes(p.kind) ? tidyName(p.title, p.kind) : p.title
+      return tidy === p.title ? [] : [`"${p.title}" → "${tidy}"`]
+    },
   },
   {
     id: 'headings', title: 'Empty headings and blocks',
@@ -581,6 +709,37 @@ export const RULES: Rule[] = [
     },
   },
   {
+    id: 'wording', title: 'Words Vietnamese readers write another way',
+    about: '"Phi châu" for "châu Phi" ("cá rô phi châu Phi", African tilapia, stays), "setup bể" for "set bể", "và/hoặc" for "hoặc", "trùn chỉ đỏ" or "trùng chỉ đỏ" for "trùng huyết", "nửa tá" for "6 con", "thủng lỗ đầu" or "lủng lỗ đầu" for "lủng đầu". The sweep writes each the readers\' way (sanitize.ts viWording) in a page\'s name, other names, text, summary and FAQ, in the fish summaries, and in a page\'s shop searches (real-content.test.ts holds those).',
+    check: p => [...new Set([p.title, ...p.fields.map(f => f.html), ...p.lines.filter(l => /^(summary|faq)\./.test(l.field)).map(l => l.text)].flatMap(wordingSlips))],
+  },
+  {
+    id: 'glued', title: 'Two Vietnamese words written as one',
+    about: 'A word on a Vietnamese page that reads as two syllables ("que thử đa chỉtiêu", "Sống bầy đàn: cóMức độ hoạt động"): two words a translation ran together, or a list whose items lost what separated them. Listed: a person adds the word to the sweep\'s wording fixes (sanitize.ts WORDING), or has the text written again. Loanwords written as one word ("nitơ") are left.',
+    check: p => (p.lang !== 'vi' ? [] : [...new Set([p.title, ...prose(p).map(f => f.html.replace(/<[^>]+>/g, ' ')), ...p.lines.map(l => l.text)].flatMap(gluedSyllables))].map(w => `"${w}"`)),
+  },
+  {
+    id: 'swapped-name', title: 'A fish called by the name it no longer has',
+    about: 'A sentence that gives a fish\'s old name beside its genus or its English name ("cá bút chì (Nannostomus)"). Since 2026-11-07 "cá bút chì" is the Siamese algae eater and the pencilfish "cá chì", the flat hillstream loaches "cá tỳ bà bướm", and Jordanella floridae has no "cá cờ" in its name. A sentence that also has the new name, or names the fish the old name is now ("cá bút chì (Crossocheilus)"), may be right and isn\'t listed. The sweep writes the name when the sentence says which fish it is (renameSwapped); what it leaves is listed, and the real-content test holds it at zero: the page is written again with the name in process.md\'s list.',
+    check: p => (p.lang !== 'vi' ? [] : [...new Set([p.title, ...prose(p).map(f => f.html.replace(/<[^>]+>/g, ' ')), ...p.lines.map(l => l.text)].flatMap(swappedNames))]),
+  },
+  {
+    id: 'fish-words', title: 'A fish called "thài lài"',
+    about: 'No Vietnamese keeper calls a fish "thài lài" (the owner, 2026-11-11: "Cá thài lài doesn\'t exist in Vietnamese"; the plant, the dayflower, keeps it). The sweep writes the fish the word named by their names, and a gourami otherwise "cá sặc" (sanitize.ts WORDING); what it leaves ("họ thài lài", "nuôi thài lài") is listed, and the real-content test holds every page and caption at zero: the page is written again. Plant pages aren\'t read.',
+    check: p => (p.lang !== 'vi' || p.kind === 'plants' ? [] : [...new Set([p.title, ...prose(p).map(f => lines(f.html)), ...p.lines.map(l => l.text), ...p.captions.map(c => c.caption)].flatMap(fishThaiLai))]),
+  },
+  {
+    id: 'l-number', title: 'A pleco without its L number in its name',
+    about: 'A Loricariidae fish with an L or LDA number on record whose name in a language gives none of them (the owner, 2026-11-11: "Pleco must always include L number on name"). The sweep puts the first on record after the name, written "L46" (l-numbers.ts withLNumber), on every language\'s page, so the cards, lists, search and the app read it too. A fish with no number on record is left as it is.',
+    check: p => (p.kind !== 'species' || showsLNumber(p.title, p.family, p.lNumber) ? [] : [`"${p.title}" → "${withLNumber(p.title, p.family, p.lNumber)}"`]),
+  },
+  {
+    id: 'phrasing', title: 'Words hobbyists rarely write',
+    about: 'Words and turns the engine writes far more often than the language\'s hobbyists do, each with what they write instead (packages/engine/src/phrases.ts; docs/review/phrases.md has the counts). The writers\' prompts carry the list, and the style rewrite takes the pages that have them up a batch a cycle. Counted, never held: only a model can mend one in its sentence.',
+    tally: true,
+    check: p => (!PHRASES[p.lang]?.length ? [] : phraseSlips([p.title, ...prose(p).map(f => lines(f.html)), ...p.lines.filter(l => /^(summary|faq)\./.test(l.field)).map(l => l.text)].join('\n'), p.lang)),
+  },
+  {
     id: 'english', title: 'Sentences left in English',
     about: 'A sentence with no word of the page\'s language and English\'s small words (the, and, of…), outside reference lists, citations and quotes.',
     check: p => [...new Set([...prose(p).map(f => f.html), ...p.lines.map(l => `<p>${l.text}</p>`)].flatMap(h => englishSentences(h, p.lang)))].map(s => `"${s}"`),
@@ -601,14 +760,20 @@ export const RULES: Rule[] = [
     },
   },
   {
+    id: 'unwell', title: 'A photo of a fish its source calls unwell, on a page with another photo',
+    about: 'A fish or breed photo whose own English caption says the fish is dead, thin, wounded, sick or deformed, or damaged in a fight, on a page that has another photo of its own. The sweep takes it off and it is never picked again. Where it is the page\'s only photo it stays, off every card, and is not counted here. A split or slightly damaged fin said in passing is no failure: that photo stays, as not typical.',
+    check: p => (p.lang !== 'vi' ? [] : unwellOff(p).off.map(x => `${x.word}: "${clip([...p.captions, ...(p.album ?? [])].find(c => c.url === x.url)!.caption, 80)}"`)),
+  },
+  {
     // The photos are the same in every language: checked on the Vietnamese page.
-    id: 'caption', title: "A photo caption naming another fish, a map or an ad video's poster",
-    about: 'A species or plant photo whose caption names another species the site has a page for, and not the page\'s, with nothing saying the fish is still the page\'s; or says it is a map, or is an ad video\'s title ("video of: …"). The sweep takes the photo off the page; a map or an ad\'s poster leaves every page (engine-state/_photo-rejected.json), a photo of another fish only this one, so it may still join that fish\'s page. Checked on the Vietnamese page; the photos are the same in every language.',
+    id: 'caption', title: "A photo caption naming another fish, a map, a paper's plate or an ad video's poster",
+    about: 'A species or plant photo whose caption names another species the site has a page for, and not the page\'s, with nothing saying the fish is still the page\'s; or says it is a map, or is an ad video\'s title ("video of: …"); or a Wikimedia Commons photo whose file name or description says it is a paper\'s plate, a microscope picture, a drawing, a map or a dish. The sweep takes the photo off the page; a map, a plate or an ad\'s poster leaves every page (engine-state/_photo-rejected.json), a photo of another fish only this one, so it may still join that fish\'s page. Checked on the Vietnamese page; the photos are the same in every language.',
     check: (p, ctx) => (!p.sci || p.lang !== 'vi' ? [] : [...new Set(p.captions.flatMap(c => {
       const other = wrongFish(c.caption, p.sci!, p.latinNames, ctx)
       // Found by the reader's eye (2026-11-01): "Pterophyllum scalare map" shown as a photo of the fish.
       return [...(other ? [`${other}: "${clip(c.caption, 80)}"`] : []), ...(isMap(c.caption) ? [`a map, not the fish: "${clip(c.caption, 80)}"`] : []),
-        ...(isAdPoster(c.caption) ? [`an ad video's poster, not the fish: "${clip(c.caption, 80)}"`] : [])]
+        ...(isAdPoster(c.caption) ? [`an ad video's poster, not the fish: "${clip(c.caption, 80)}"`] : []),
+        ...(notAlive(c) ? [`${notAlive(c)}, not the fish: "${clip(c.caption, 80)}"`] : [])]
     }))]),
   },
   {
@@ -633,12 +798,103 @@ export const RULES: Rule[] = [
       return out
     },
   },
+  {
+    id: 'sf-count', title: 'A count of measures written as a difficulty',
+    about: 'A Seriously Fish quick-facts line giving a difficulty other than the card\'s ("Độ khó: 7/8" over a card of 6/8): the 7 counts the measures Seriously Fish could rate. The sweep writes the card\'s figure there, in English and every language.',
+    check: p => {
+      const score = p.card.find(c => c.field === 'difficulty' && c.source === 'seriouslyfish')?.value
+      const f = p.fields.find(x => x.field === 'sections.quickFacts:seriouslyfish')
+      return typeof score === 'number' && f && sfScoreFixed(f.html, p.lang, score) !== f.html ? [`the line's count against the card's ${score}/8`] : []
+    },
+  },
 ]
+
+/** Loanwords Vietnamese writes as one word though they read as two syllables: not two words run together. */
+const ONE_WORD = new Set(['nitơ', 'nơron'])
+const TONE = /[\u0300\u0301\u0303\u0309\u0323]/gu
+const SYLLABLE = /^(?:ngh|ng|nh|ch|gh|gi|kh|ph|qu|th|tr|[bcdđghklmnprstvx])?[aăâeêioôơuưy]{1,3}(ch|ng|nh|[cmnpt])?$/u
+/** One Vietnamese syllable: an onset, one to three vowels, an ending, one tone at most; after -c, -ch, -p or -t, sắc or nặng. */
+function syllable(s: string) {
+  const d = s.toLowerCase().normalize('NFD')
+  const tones = d.match(TONE) ?? []
+  const m = d.replace(TONE, '').normalize('NFC').match(SYLLABLE)
+  if (!m || tones.length > 1) return false
+  return !['c', 'ch', 'p', 't'].includes(m[1] ?? '') || tones[0] === '\u0301' || tones[0] === '\u0323'
+}
+/** Marks only Vietnamese writes (đ, ă, ơ, ư, a hook or dot below, a tone on â ê ô, a tilde on i u y): the word is Vietnamese. */
+const VI_MARKS = /đ|\u0306|\u031b|\u0309|\u0323|\u0302[\u0300\u0301\u0303]|[iuy]\u0303/u
+/**
+ * Vietnamese words that read as two syllables, so two words run together ("chỉtiêu", "cóMức"): a word with marks only
+ * Vietnamese writes that isn't one syllable but splits into two. Other languages' words and loanwords (ONE_WORD) aside.
+ */
+export const gluedSyllables = (text: string) => [...new Set((text.normalize('NFC').match(/\p{L}+/gu) ?? []).filter(w => {
+  if (ONE_WORD.has(w.toLowerCase()) || !VI_MARKS.test(w.toLowerCase().normalize('NFD')) || syllable(w)) return false
+  for (let i = 1; i < w.length; i++) if (syllable(w.slice(0, i)) && syllable(w.slice(i))) return true
+  return false
+}))]
+
+export { SWAPPED, type SwappedName } from './names'
+const word = (w: string) => `(?<!\\p{L})${w}(?!\\p{L})`
+const TAG = /<[^>]+>/g
+const SENTENCE_END = /(?<=[.!?])\s+|\n/
+const SWAPS = SWAPPED.map(r => {
+  const fish = `(?:${r.fish.join('|')})`
+  // Tags may stand in the way: the sweep reads this in HTML, the rule in plain text.
+  const inBrackets = r.brackets ? `(?=(?:[^.,;:()<]|<[^>]+>){0,24}\\((?:\\s|<[^>]+>)*${fish}\\b)` : ''
+  // The new name's last word after the old name goes with it: "cá bám đá bướm" is "cá tỳ bà bướm", not "… bướm bướm".
+  const again = `(?:\\s+${word(r.now.split(' ').at(-1)!)})?`
+  return { ...r, old: new RegExp(word(r.was) + again + inBrackets, 'giu'), named: new RegExp(fish, 'iu'), nowSaid: new RegExp(word(r.now), 'iu'), stays: r.stillFor && new RegExp(r.stillFor.join('|'), 'iu') }
+})
+// A sentence that has the new name too, or names the fish the old name is now, may be right under the new names (the
+// Writing Lead, 2026-11-08: "a sentence that's right under the new names shouldn't stop a publish").
+const swapsIn = (sentence: string) => SWAPS.filter(r => sentence.search(r.old) >= 0 && r.named.test(sentence) && !r.nowSaid.test(sentence) && !r.stays?.test(sentence))
+/** Each sentence that gives a fish a name it no longer has, with the name it has now. */
+export const swappedNames = (text: string) => text.normalize('NFC').split(SENTENCE_END).flatMap(s =>
+  swapsIn(s).map(r => `should be "${r.now}": ${clip(s)}`))
+
+/**
+ * Text (plain or HTML) with a fish's old name written as its name, in each sentence that says which fish it is. Left for
+ * the swapped-name rule to list, when the sentence doesn't: one old name for two fish named, or a group.
+ */
+export function renameSwapped(text: string) {
+  const nfc = text.normalize('NFC')
+  const inSentence = (raw: string) => {
+    const s = raw.replace(TAG, ' ')
+    const swaps = swapsIn(s).filter(r => !r.group)
+    return swaps.reduce((out, r) => (swaps.some(o => o !== r && o.was === r.was) ? out
+      : out.replace(r.old, m => (m[0] === m[0]!.toLowerCase() ? r.now : r.now[0]!.toUpperCase() + r.now.slice(1)))), raw)
+  }
+  // Tags blanked, so the sentences end where the rule's do and at the same offsets as in the text.
+  let at = 0
+  const out = nfc.replace(TAG, tag => ' '.repeat(tag.length)).split(new RegExp(`(${SENTENCE_END.source})`)).map(part => inSentence(nfc.slice(at, at += part.length))).join('')
+  return out === nfc ? text : out
+}
+
+/** The same, on every string in a value. */
+export const renameSwappedIn = <V>(v: V): V => (typeof v === 'string' ? renameSwapped(v) as V
+  : Array.isArray(v) ? v.map(renameSwappedIn) as V
+    : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, renameSwappedIn(x)])) as V : v)
+
+/**
+ * A stored Vietnamese page with old names renamed in what its reader reads and the rule checks: its name (one a person
+ * fixed stays), text, summary, FAQ, and a product's reviews and tests. Its other names (searches find it by them) and the
+ * sources' references stay. The same object when nothing changes.
+ */
+export function renameStored<T extends { name?: string; nameFixed?: boolean; sections?: Record<string, string> }>(t: T): T {
+  const next = {
+    ...t,
+    ...(t.name !== undefined && !t.nameFixed ? { name: renameSwapped(t.name) } : {}),
+    ...(t.sections ? { sections: Object.fromEntries(Object.entries(t.sections).map(([k, v]) => [k, k.startsWith('references') ? v : renameSwapped(v)])) } : {}),
+    ...Object.fromEntries(['body', 'definition', 'summary', 'faq', 'reviews', 'tested'].flatMap(k => (k in t ? [[k, renameSwappedIn((t as Record<string, unknown>)[k])]] : []))),
+  }
+  return JSON.stringify(next) === JSON.stringify(t) ? t : next
+}
 
 /** The genera and species the site has pages for. */
 export const ctxOf = (pages: Page[]): Ctx => ({
   genera: new Set(pages.flatMap(p => (p.sci ? [p.sci.split(' ')[0]!] : []))),
   species: new Set(pages.flatMap(p => (p.sci ? [p.sci.split(/\s+/).slice(0, 2).join(' ').toLowerCase()] : []))),
+  titles: pages.filter(p => p.kind === 'guides').reduce((m, p) => m.set(`${p.lang}\t${titleKey(p.title)}`, (m.get(`${p.lang}\t${titleKey(p.title)}`) ?? 0) + 1), new Map<string, number>()),
 })
 
 /** Every rule on every page; a rule that throws on a page is reported as such and the others still run. */
@@ -655,6 +911,18 @@ export function checkPages(pages: Page[], rules: Rule[] = RULES): { findings: Fi
 
 const md = (s: string) => s.replace(/([[\]|*_`<>\\])/g, '\\$1')
 
+/** A tallied rule's findings, one line each, per language: on how many pages, how many times, most pages first. */
+function tallied(findings: Finding[]): string[] {
+  const by = new Map<string, { pages: number; times: number }>()
+  for (const f of findings) {
+    const m = /^(.*?) ×(\d+)( → .*)$/.exec(f.detail)
+    const key = `${f.page.lang} · ${m ? `${m[1]}${m[3]}` : f.detail}`
+    const e = by.get(key) ?? { pages: 0, times: 0 }
+    by.set(key, { pages: e.pages + 1, times: e.times + (m ? Number(m[2]) : 1) })
+  }
+  return [...by].sort((a, b) => b[1].pages - a[1].pages || a[0].localeCompare(b[0])).map(([k, n]) => `- ${md(k)}: ${n.pages} pages, ${n.times} times`)
+}
+
 /** docs/review/content-rules.md: one section per rule, each page once with what was found there, in a stable order. */
 export function rulesReport(pages: Page[], r: { findings: Finding[]; errors: string[] }, rules: Rule[] = RULES): string {
   const per = (lang: Lang) => pages.filter(p => p.lang === lang).length
@@ -667,14 +935,14 @@ export function rulesReport(pages: Page[], r: { findings: Finding[]; errors: str
       e.details.push(f.detail)
       byPage.set(f.page.path, e)
     }
-    const rows = [...byPage.values()].sort((a, b) => a.page.path.localeCompare(b.page.path))
+    const rows = rule.tally ? tallied(r.findings.filter(f => f.rule === rule.id)) : [...byPage.values()].sort((a, b) => a.page.path.localeCompare(b.page.path))
       .map(({ page, details }) => `- [${page.lang} · ${md(page.title)}](${pageUrl(page)}) — ${details.map(md).join('; ')}`)
-    return `## ${rule.title} (${rows.length})\n\n${rule.about}\n\n${rows.join('\n') || '- none'}\n`
+    return `## ${rule.title} (${byPage.size})\n\n${rule.about}\n\n${rows.join('\n') || '- none'}\n`
   })
   return `# Content rules
 
-Generated by \`pnpm engine audit\` every engine cycle: rules every published page is checked against, in Vietnamese,
-Indonesian and Thai (\`packages/engine/src/content-rules.ts\`, docs/governance.md). A rule never holds a page back. What
+Generated by \`pnpm engine audit\` every engine cycle: rules every published page is checked against, in every language
+the site serves (\`packages/engine/src/content-rules.ts\`, docs/governance.md). A rule never holds a page back. What
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (\`pnpm engine sweep\`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
@@ -685,17 +953,22 @@ ${sections.join('\n')}`
 }
 
 type Stored = { name?: string; altNames?: string[]; sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
-/** The fixes made on write, on one stored translation: tidyHtml on its HTML, unescapePlain on its plain text. */
+/**
+ * The fixes made on write (tidyHtml on its HTML, unescapePlain on its plain text) and, on both, the words Vietnamese
+ * readers write another way (viWording), on one stored translation.
+ */
 export function fixTranslation(t: Stored): Stored {
+  const plain = (s: string) => viWording(unescapePlain(s))
+  const html = (s: string) => viWording(tidyHtml(s))
   return {
     ...t,
-    ...(t.name !== undefined ? { name: unescapePlain(t.name) } : {}),
-    ...(t.altNames ? { altNames: t.altNames.map(unescapePlain) } : {}),
-    ...(t.sections ? { sections: Object.fromEntries(Object.entries(t.sections).map(([k, v]) => [k, tidyHtml(v)])) } : {}),
-    ...(t.body !== undefined ? { body: tidyHtml(t.body) } : {}),
-    ...(t.definition !== undefined ? { definition: tidyHtml(t.definition) } : {}),
-    ...(t.summary ? { summary: t.summary.map(unescapePlain) } : {}),
-    ...(t.faq ? { faq: t.faq.map(f => ({ q: unescapePlain(f.q), a: unescapePlain(f.a) })) } : {}),
+    ...(t.name !== undefined ? { name: plain(t.name) } : {}),
+    ...(t.altNames ? { altNames: t.altNames.map(plain) } : {}),
+    ...(t.sections ? { sections: Object.fromEntries(Object.entries(t.sections).map(([k, v]) => [k, html(v)])) } : {}),
+    ...(t.body !== undefined ? { body: html(t.body) } : {}),
+    ...(t.definition !== undefined ? { definition: html(t.definition) } : {}),
+    ...(t.summary ? { summary: t.summary.map(plain) } : {}),
+    ...(t.faq ? { faq: t.faq.map(f => ({ q: plain(f.q), a: plain(f.a) })) } : {}),
   }
 }
 

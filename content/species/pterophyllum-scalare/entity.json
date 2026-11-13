@@ -34,13 +34,62 @@
         "Amazon",
         "Essequibo",
         "Oyapock",
+        "Rio Negro",
         "Rio Ucayali",
-        "Rio Solimões",
-        "Rio Negro"
+        "Rio Solimões"
       ],
       "sources": [
         "glaser",
         "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil.",
+          "countries": [
+            "CO",
+            "GY",
+            "SR",
+            "GF",
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The angelfish, Pterophyllum scalare, is a cichlid from the Amazon, Essequibo, Oyapock and other rivers of northern South America.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Essequibo",
+            "Oyapock"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Wild-collected angelfish from the municipality of Santa Isabel on the Rio Negro, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's found in numerous river systems, including the Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões and the main Amazon drainage.",
+          "countries": [],
+          "regions": [
+            "Rio Ucayali",
+            "Rio Solimões"
+          ]
+        }
       ]
     },
     "records": {
@@ -636,6 +685,21 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/45fccde9d99b3154.webp",
+      "thumb": "https://media.aquatome.com/commons/45fccde9d99b3154-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY 2.0",
+      "author": "Tobias Niepel",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_at_Amsterdam_Zoo_-_Artis_(25673518534).jpg",
+      "caption": "Cá ông tiên sọc vằn bạc trên cành rêu trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/45fccde9d99b3154-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    },
+    {
       "url": "https://media.aquatome.com/commons/0c21cb038569ae13.webp",
       "thumb": "https://media.aquatome.com/commons/0c21cb038569ae13-480.webp",
       "width": 960,
@@ -696,8 +760,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá cao cho cá ông tiên",
-        "bể cá 200 lít"
+        "bể cá 100cm"
       ]
     },
     {

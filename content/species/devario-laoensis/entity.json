@@ -11,6 +11,123 @@
     "mekong",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Salween River",
+        "Nam Ou",
+        "Nam Mae Lao"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Ban Nam Khueng' which lies in northwestern Laos and it's since been recorded from various localities within the upper Mekong watershed in Laos and Thailand (Chiang Rai and possibly Chiang Mai provinces).",
+          "countries": [
+            "LA",
+            "TH"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Rainboth (1996) reported it to occur in the Salween River which borders western Thailand for a stretch but no other records from that drainage exist as far as is known.",
+          "countries": [],
+          "regions": [
+            "Salween River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A further collection locality was a small stream in Phôngsali Province, northern Laos located within the Nam Ou river watershed.",
+          "countries": [],
+          "regions": [
+            "Nam Ou"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the River Nam Mae Lao, Chiang Rai province, northern Thailand D. laoensis was collected alongside Danio roseus.",
+          "countries": [],
+          "regions": [
+            "Nam Mae Lao"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361550,
+      "total": 11,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "LA",
+          7
+        ],
+        [
+          "TH",
+          3
+        ],
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          101.25,
+          19.6875,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -54,7 +171,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -132,8 +249,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 90x30"
+        "bể cá 90cm"
       ]
     },
     {

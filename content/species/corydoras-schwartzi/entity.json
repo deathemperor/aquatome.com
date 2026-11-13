@@ -10,6 +10,69 @@
     "brazil",
     "rio-purus"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Purus"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species originates from the Rio Purus system in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Rio Purus drainage, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Purus"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342755,
+      "total": 5,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -57,7 +120,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -156,7 +219,12 @@
       "author": "Thomas Land",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_schwartzi_f.jpg",
       "caption": "Corydoras schwartzi macro",
-      "thumb": "https://media.aquatome.com/commons/f1e7a234d0cd9e4a-480.webp"
+      "thumb": "https://media.aquatome.com/commons/f1e7a234d0cd9e4a-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/f1e7a234d0cd9e4a-large.webp",
+        "width": 1024,
+        "height": 768
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/90ccf625ecd59619.webp",
@@ -184,8 +252,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá cộng đồng"
+        "bể cá 60cm"
       ]
     },
     {

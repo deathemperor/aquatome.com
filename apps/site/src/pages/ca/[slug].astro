@@ -17,6 +17,7 @@ import JumpChips from '../../components/JumpChips.astro'
 import { speciesParts } from '../../lib/species-page'
 import GuideLinks from '../../components/GuideLinks.astro'
 import RedirectNote from '../../components/RedirectNote.astro'
+import BackToTop from '../../components/BackToTop.astro'
 import VideoGuideGrid from '../../components/VideoGuideGrid.astro'
 import GalleryStrip from '../../components/GalleryStrip.astro'
 import BreedList from '../../components/BreedList.astro'
@@ -45,10 +46,8 @@ const jsonld = [
     { '@type': 'ListItem', position: served(lang, '/vi/phan-loai/x/') ? 3 : 2, name: s.t.name, item: url } ] },
 ]
 // What the page shows, chosen in page order (lib/species-page.ts, which the app's copy reads too).
-const { country, firstSource, summary, gallery, galleryPath, strip, more, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides } = await speciesParts(lang, c, s)
-// What to buy (Vietnam's shops: Vietnamese pages only), after the care text, with a chip in the jump row; the tank row
-// says the minimum tank the data card gives.
-const kit = vn && s.productSlots.length > 0
+const { country, firstSource, researched, card, sources, summary, gallery, galleryPath, strip, more, figures, vn, kit, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides, videoPhotos } = await speciesParts(lang, c, s)
+// The shop's tank row says the minimum tank the data card gives.
 const tank = resolveDataCard(s.dataCard.tankCm ?? [], 'tankCm')?.value
 const alternates = await alternatesOf('species', s.id)
 ---
@@ -57,82 +56,120 @@ const alternates = await alternatesOf('species', s.id)
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
     <a href="/vi/ca/">{t('Loài cá')}</a> / <a href={taxonHref(s, 2)}>{s.family}</a> / <a href={taxonHref(s, 3)} class="sci">{s.genus}</a>
   </nav>
+  {/* Answer first, in reading order (a screen reader's too): the name and the four facts a reader decides by, the full
+      card folded under them on a phone, the summary, the photo and a row of the gallery's thumbnails; then the care
+      text. A computer shows the photo column beside them, the card open. */}
   <header class:list={['wrap top', s.photos.length === 0 && 'bare']}>
     <div class="id">
       <p class="where">{s.family}{country && <>, <a href={`/vi/nguon-goc/${country.parent}/${country.id}/`}>{country.t.name}</a></>}</p>
       <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(s.t, s.scientificName)}>{s.t.name}</h1>
       <RedirectNote from={s.t.redirectFrom} />
       <p class="sci binomial">{s.scientificName}</p>
-      <KeyFacts card={s.dataCard} />
+      {s.water && <p class="water">{t(s.water.kind === 'marine' ? 'Cần nước mặn, nuôi trong bể nước biển.' : 'Cần nước lợ: nước ngọt có pha muối biển.')}</p>}
       {s.t.altNames.length > 0 && <p class="alt" data-pagefind-ignore>{t('Tên khác: {names}', { names: s.t.altNames.join(', ') })}</p>}
+      <KeyFacts card={s.dataCard} />
     </div>
+    <div class="facts">
+      <h2 id="card-h" class="visually-hidden">{t('Bảng dữ liệu')}</h2>
+      <details class="full" open>
+        <summary><span class="label">{t('Xem đủ bảng')}</span><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></summary>
+        <DataCard card={card} sources={sources} traits={mates.self} />
+      </details>
+      {/* Closed on a phone, where the key facts above it already answer; open on a computer (no toggle there). */}
+      <script is:inline>(function (d) { var m = matchMedia('(max-width: 860px)'); var set = function () { d.open = !m.matches }; set(); m.addEventListener('change', set) })(document.currentScript.previousElementSibling)</script>
+      {firstSource && (researched
+        ? <p class="srcline">{t('AquaTome tổng hợp từ')} <a href="#nguon">{t('{n} nguồn', { n: researched })}</a> {t('rồi tự viết')}.</p>
+        : <p class="srcline">{t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources: [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', '), date: s.updatedAt })}</p>)}
+    </div>
+    {vn && summary && <QuickSummary summary={summary} inside />}
     {s.photos.length > 0 && (
       <div class="side">
-        <div class="photo"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} /></div>
-        {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} more={more} href={galleryPath} name={s.t.name} column />}
+        <div class="photo" id="anh"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} fish phone /></div>
+        {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} more={more} href={galleryPath} name={s.t.name} column readers />}
       </div>
     )}
-    <div class="facts">
-      <DataCard card={s.dataCard} sources={c.sources} traits={mates.self} />
-      {firstSource && <p class="srcline">{t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources: [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', '), date: s.updatedAt })}</p>}
-      {showMates ? <Companions {...mates} tool={tool} /> : <p class="srcline"><a href={tool}>{t('Kiểm tra nuôi chung với loài khác →')}</a></p>}
-      {vn && <VnClimate card={s.dataCard} />}
-    </div>
   </header>
-  <JumpChips items={kit ? [...jumps, { href: '#mua-do', label: t('Mua đồ') }] : jumps} />
+  <JumpChips items={jumps} />
 
-  {/* A page with no photo of its own has a one-column top: its thumbnails stay below it, the page's width. */}
-  {s.photos.length === 0 && strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} />}
-  {vn && summary && <QuickSummary summary={summary} />}
-  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} range={{ id: s.id, name: s.t.name, range: s.range }} />
+  {/* "Thông tin nhanh" folds on a phone, where the key facts and the summary above already give most of it: the first
+      care question within three screens. */}
+  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} range={{ id: s.id, name: s.t.name, range: s.range }} refs={s.refs} fold={['quickFacts']}>
+    {vn && <VnClimate slot="waterConditions" card={s.dataCard} />}
+    {showMates ? <Companions slot="behaviour" {...mates} tool={tool} /> : <p slot="behaviour" class="srcline mates-tool"><a href={tool}>{t('Kiểm tra nuôi chung với loài khác →')}</a></p>}
+  </Sections>
   {kit && <div class="wrap"><ProductSlots slots={s.productSlots} heading={t('Chuẩn bị để nuôi {name}', { name: s.t.name })} entity={`species:${s.id}`} tankCm={typeof tank === 'number' ? tank : undefined} /></div>}
+  {/* The gallery's thumbnails, after the care text, on a page with no photo of its own. A page with one has them under
+      its photo, on a phone too (a single row: GalleryStrip.astro). */}
+  {s.photos.length === 0 && strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} readers />}
   <BreedList breeds={breeds} photos={breedPhotos} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến loài này')} />
-  <VideoGuideGrid guides={videoGuides} heading={t('Có trong video hướng dẫn')} />
+  <VideoGuideGrid guides={videoGuides} photos={videoPhotos} heading={t('Có trong video hướng dẫn')} />
 
   <VideoFacade videos={videos} />
   <ReaderPhotos entity={`species:${s.id}`} name={s.t.name} />
 
   <div class="wrap"><Comments entity={`species:${s.id}`} /></div>
+  <BackToTop />
 </Base>
 <style>
   .crumb { font-size: 0.85rem; color: var(--c-ink-faint); padding-top: var(--space-4); }
   .crumb a { color: var(--c-ink-soft); }
-  /* Computer: the photo column on the left (the photo, then the gallery's thumbnails), name then facts on the right.
-     Phone: name and key facts, the photo, the facts, then the thumbnails. */
-  .top { display: grid; grid-template-columns: 1.1fr 1fr; grid-template-rows: auto 1fr; grid-template-areas: 'photo id' 'photo facts'; column-gap: var(--space-6); padding-block: var(--space-4) var(--space-6); align-items: start; }
-  .top.bare { grid-template-columns: minmax(0, 40rem); grid-template-areas: 'id' 'facts'; }
+  /* Computer: the photo column on the left (the photo, then the gallery's thumbnails), name, card and summary on the right.
+     Phone: one column in reading order: name and key facts, the card folded, the summary, the photo and its thumbnails. */
+  .top { display: grid; grid-template-columns: 1.1fr 1fr; grid-template-rows: auto auto 1fr; grid-template-areas: 'photo id' 'photo facts' 'photo qs'; column-gap: var(--space-6); padding-block: var(--space-4) var(--space-6); align-items: start; }
+  .top.bare { grid-template-columns: minmax(0, 40rem); grid-template-areas: 'id' 'facts' 'qs'; }
   .id { grid-area: id; }
   .side { grid-area: photo; }
   .photo { grid-area: photo; }
   .facts { grid-area: facts; }
+  .top > :global(.qs) { grid-area: qs; margin-top: var(--space-5); padding-bottom: 0; }
   .where { font-size: 0.85rem; color: var(--c-ink-soft); margin: 0 0 var(--space-2); }
   h1 { font-size: var(--step-4); letter-spacing: -0.015em; }
   .binomial { font-size: var(--step-1); color: var(--c-ink-soft); margin: var(--space-1) 0 var(--space-2); }
   .alt { font-size: 0.85rem; color: var(--c-ink-faint); margin: var(--space-2) 0 0; }
+  /* Kept in brackish or sea water (the engine's `water`): said under the name, before a reader buys it for a fresh-water tank. */
+  .water { font-weight: 600; margin: 0 0 var(--space-2); }
   .facts { margin-top: var(--space-4); }
   .srcline { font-size: 0.85rem; color: var(--c-ink-soft); margin-top: var(--space-3); }
+  /* The full card: a computer has it open, with no toggle; a phone has it closed under the key facts, a row to open. */
+  .full > summary { position: relative; display: flex; align-items: center; min-height: 2.75rem; padding-right: 2.75rem; cursor: pointer; list-style: none; font: 500 0.875rem var(--f-body); color: var(--c-ink-soft); }
+  .full > summary .label { text-decoration: underline dotted var(--c-rule); text-underline-offset: 4px; }
+  .full > summary::-webkit-details-marker { display: none; }
+  .full > summary:hover { color: var(--c-ink); }
+  .full .chev { position: absolute; right: var(--space-2); top: calc(50% - 8px); transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); }
+  .full[open] > summary .chev { transform: rotate(180deg); }
+  .mates-tool { grid-column: 1; }
+  /* The jump row's lower rule is the text's first: no second line under it. (~, not +: the row's script comes between.) */
+  :global(nav.jump ~ .body > section:first-child) { border-top: 0; }
   /* The photo column stays in view while the facts beside it scroll by: all of it where the screen is tall enough to
      show it whole, else its last part (the thumbnails, or the photo alone). On a tall screen a column with thumbnails is
-     as tall as its room: the window under its pinned top, or its grid area (100%) when the facts beside it end first.
-     The thumbnails fill what the photo leaves (GalleryStrip.astro). */
+     at least as tall as its room: the window under its pinned top, or its grid area (100%) when the facts beside it end
+     first. The thumbnails fill what the photo leaves (GalleryStrip.astro). A tall photo and the strip's own rows can
+     need more than the window: the column is then as tall as they are, its last row under the window's edge until the
+     facts end. Held to the window's height instead, its box ended there and the rows ran on past it: pinned to the page's
+     top's end, they lay over the jump chips and the first section's heading (the owner, 13 November). */
   @media (min-width: 861px) {
+    .full > summary { display: none; }
     .side { align-self: stretch; }
     .side > :global(:last-child) { position: sticky; top: calc(var(--sticky-top, 0px) + var(--space-4)); }
   }
   @media (min-width: 861px) and (min-height: 50rem) {
     .side { align-self: start; position: sticky; top: calc(var(--sticky-top, 0px) + var(--space-4)); }
     .side > :global(:last-child) { position: static; }
-    .side:has(> :global(.strip)) { display: flex; flex-direction: column; height: min(100%, calc(100dvh - var(--sticky-top, 0px) - var(--space-4))); }
+    .side:has(> :global(.strip)) { display: flex; flex-direction: column; min-height: min(100%, calc(100dvh - var(--sticky-top, 0px) - var(--space-4))); }
     .side > :global(.strip) { flex: 1; }
   }
   @media (max-width: 860px) {
-    /* minmax(0, …): nothing in the column (the thumbnails' heading, a long word) can widen it past the screen. */
+    /* minmax(0, …): nothing in the column (a long word, the summary's list) can widen it past the screen. */
     .top { grid-template-columns: minmax(0, 1fr); }
-    .top { grid-template-rows: none; grid-template-areas: 'id' 'photo' 'facts' 'strip'; }
+    .top { grid-template-rows: none; grid-template-areas: 'id' 'facts' 'qs' 'photo' 'strip'; }
     .side { display: contents; }
     .side > :global(.strip) { grid-area: strip; }
-    .photo { margin-top: var(--space-4); }
-    .photo :global(.plate img) { aspect-ratio: 16 / 9; }
+    .facts { margin-top: 0; }
+    .full[open] > summary { margin-bottom: var(--space-2); }
+    /* The sources' line goes with the card: shown when it is. */
+    .facts:has(> .full:not([open])) > .srcline { display: none; }
+    .top > :global(.qs) { margin-top: var(--space-3); }
+    .photo { margin-top: var(--space-5); }
   }
 </style>

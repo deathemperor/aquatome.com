@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "YpQiCUFALSM",
     "title": "HOW TO: Build a micro fish tank",
@@ -41,202 +41,102 @@
       },
       {
         "category": "cay-thuy-sinh",
-        "type": "noi",
-        "t": 75
+        "t": 78
       }
     ],
     "figures": [
       {
         "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 25,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/t25.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Những hũ thủy tinh mason jar bày trên bàn để làm bể."
-          },
-          {
-            "t": 41,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/t41.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tấm ván gỗ khoét lỗ đang được sơn trắng làm mặt kệ."
-          }
-        ],
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/YpQiCUFALSM/p0-cl9mYW1pbHkuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/YpQiCUFALSM/p0-cl9mYW1pbHkuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/YpQiCUFALSM/p0-hcl9hcnJheS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/YpQiCUFALSM/p0-hcl9hcnJheS5qcGc-480.webp",
           "width": 960,
-          "height": 866,
-          "licence": "CC BY 4.0",
-          "author": "Dvortygirl",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mason_jar_family.jpg",
-          "caption": "Nhiều hũ thủy tinh mason jar đủ cỡ xếp cạnh nhau, sẵn sàng làm bể."
-        }
-      },
-      {
-        "heading": "Chọn hũ thế nào để gắn được lên kệ",
-        "moments": [
-          {
-            "t": 31,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/t31.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hũ thủy tinh có nắp kim loại, cổ hũ hẹp hơn nắp."
-          },
-          {
-            "t": 64,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/t64.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Những hũ treo lơ lửng dưới tấm ván qua lỗ khoan."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/YpQiCUFALSM/p1-E0OTI0LTYpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/YpQiCUFALSM/p1-E0OTI0LTYpLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY 4.0",
-          "author": "Wikimedia Commons",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jar_(AM_614924-6).jpg",
-          "caption": "Nắp hũ kim loại nhìn từ dưới, thấy rõ phần vành ren rộng."
-        }
-      },
-      {
-        "heading": "Các bước làm kệ",
-        "moments": [
-          {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/t45.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tấm ván sơn trắng đã khoan lỗ tròn, đang gắn bát đỡ."
-          },
-          {
-            "t": 54,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/t54.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Kệ trắng đã treo lên tường, hũ gắn dưới tấm ván."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/YpQiCUFALSM/p2-X3Nhd19iaXQuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/YpQiCUFALSM/p2-X3Nhd19iaXQuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC0",
-          "author": "Junkyardsparkle",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:One_and_one_quarter_inch_hole_saw_bit.jpg",
-          "caption": "Mũi khoét lỗ (hole saw) dùng để khoan lỗ trên tấm ván làm kệ."
-        }
-      },
-      {
-        "heading": "Kệ có chịu nổi không",
-        "moments": [
-          {
-            "t": 58,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/t58.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Kệ trắng gọn nhẹ với các giá đỡ bắt vào tường."
-          },
-          {
-            "t": 86,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/t86.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Kệ trắng treo tường chở ba hũ thủy tinh có cây thủy sinh."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/YpQiCUFALSM/p3-9mbG93ZXJzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/YpQiCUFALSM/p3-9mbG93ZXJzLmpwZw-480.webp",
-          "width": 960,
-          "height": 890,
+          "height": 576,
           "licence": "CC BY-SA 4.0",
-          "author": "AndeyWiki",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_metal_wall_shelf_with_potted_artificial_flowers.jpg",
-          "caption": "Kệ treo tường màu đen gắn chắc vào tường, đặt nhiều chậu cây nhỏ."
+          "author": "Grorp",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mason_jar_array.jpg",
+          "caption": "Nhiều hũ thủy tinh mason cùng nắp rời tháo được phần giữa."
         }
       },
       {
-        "heading": "Nuôi con gì trong hũ",
+        "heading": "Làm kệ và treo hũ thế nào",
         "moments": [
           {
-            "t": 76,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/t76.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ba hũ thủy tinh nhỏ để trống, sẵn sàng làm hũ nuôi."
+            "t": 68,
+            "url": "https://media.aquatome.com/video/YpQiCUFALSM/at68-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các hũ được luồn qua lỗ và treo lơ lửng dưới tấm ván kệ.",
+            "sharpness": 538.3,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/YpQiCUFALSM/p1-aG9sZV9zYXcuSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/YpQiCUFALSM/p1-aG9sZV9zYXcuSlBH-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 2.0 ca",
+          "author": "Luigi Zanasi",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adjustable_hole_saw.JPG",
+          "caption": "Bộ mũi khoét lỗ nhiều cỡ để khoan lỗ vừa cổ hũ trên tấm ván."
+        }
+      },
+      {
+        "heading": "Cho gì vào hũ để thành hệ sinh thái mini",
+        "moments": [
+          {
+            "t": 88,
+            "url": "https://media.aquatome.com/video/YpQiCUFALSM/at88-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ba hũ thả nhánh trầu bà treo trên kệ trắng.",
+            "sharpness": 535.6,
+            "person": false
           },
           {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/t80.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đổ nước vào các hũ thủy tinh nhỏ có cây thủy sinh."
+            "t": 100,
+            "url": "https://media.aquatome.com/video/YpQiCUFALSM/at100-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Kệ treo ba hũ có trầu bà, kèm khung ảnh cá cho hợp kệ.",
+            "sharpness": 524.3,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Trang trí thêm cho đẹp",
+        "heading": "Treo ở đâu và thả con gì",
         "moments": [
           {
-            "t": 105,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/t105.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Kệ treo tường có cây xanh, làm điểm nhấn trang trí trong nhà."
+            "t": 106,
+            "url": "https://media.aquatome.com/video/YpQiCUFALSM/at106-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Kệ treo tường có cây thủy sinh trong lọ thủy tinh, đặt chỗ sáng.",
+            "sharpness": 531.1,
+            "person": false
           },
           {
-            "t": 111,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/t111.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Khung ảnh trắng đặt cạnh kệ, cạnh chậu cây trang trí góc tường."
+            "t": 116,
+            "url": "https://media.aquatome.com/video/YpQiCUFALSM/at116-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh kệ trắng treo các lọ cây trồng thủy sinh trên tường.",
+            "sharpness": 519.5,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/YpQiCUFALSM/p6-X3NocmltcHMuSlBH.webp",
-          "thumb": "https://media.aquatome.com/video/YpQiCUFALSM/p6-X3NocmltcHMuSlBH-480.webp",
+          "url": "https://media.aquatome.com/video/YpQiCUFALSM/p4-l0aF9lZ2dzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/YpQiCUFALSM/p4-l0aF9lZ2dzLmpwZw-480.webp",
           "width": 960,
-          "height": 643,
-          "licence": "CC BY-SA 3.0",
-          "author": "Michael Skiba",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_yellow_shrimps.JPG",
-          "caption": "Bể thủy sinh gọn gàng với cây lá xanh và lũa, rất hợp để trang trí."
-        }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 84,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/t84.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hai hũ thủy tinh trồng cây thủy sinh trên nền cát."
-          },
-          {
-            "t": 97,
-            "url": "https://media.aquatome.com/video/YpQiCUFALSM/t97.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Kệ trắng treo tường với ba hũ thủy sinh gắn trầu bà."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/YpQiCUFALSM/p7-EyNTM1MTEpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/YpQiCUFALSM/p7-EyNTM1MTEpLmpwZw-480.webp",
-          "width": 853,
           "height": 1280,
-          "licence": "CC BY 2.0",
-          "author": "Personal Creations",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coffee_table_books_and_picture_frames_on_wall_shelves_with_potted_hydrangea_(18691253511).jpg",
-          "caption": "Kệ treo trên bức tường sáng, có bình hoa, hợp để treo hũ thủy sinh."
+          "licence": "CC BY-SA 3.0",
+          "author": "Pristigaster",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neocaridina_heteropoda_red_cherry_female_with_eggs.jpg",
+          "caption": "Tép cảnh và ốc nhỏ sống chung trên nền sỏi trong bể."
         }
       }
     ]

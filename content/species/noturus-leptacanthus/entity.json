@@ -1,0 +1,478 @@
+{
+  "id": "noturus-leptacanthus",
+  "scientificName": "Noturus leptacanthus",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Noturus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "florida"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "Etowah River",
+        "Edisto River",
+        "Amite-Comite River",
+        "St. John's River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Silver Creek, 1 mile above its junction with Etowah River, near Rome, Floyd County, Georgia, U.S.A.",
+          "countries": [
+            "US"
+          ],
+          "regions": [
+            "Etowah River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "North America: Atlantic and Gulf Slope drainages from Edisto River in South Carolina, USA to Amite-Comite River in Louisiana, USA; south in peninsular Florida to St. John's River drainage.",
+          "countries": [],
+          "regions": [
+            "Edisto River",
+            "Amite-Comite River",
+            "St. John's River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341035,
+      "total": 4147,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "US",
+          4147
+        ]
+      ],
+      "cells": [
+        [
+          -98.4375,
+          32.34375,
+          1,
+          1
+        ],
+        [
+          -94.21875,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          -94.21875,
+          32.34375,
+          1,
+          1
+        ],
+        [
+          -94.21875,
+          33.75,
+          2,
+          2
+        ],
+        [
+          -94.21875,
+          45,
+          3,
+          3
+        ],
+        [
+          -92.8125,
+          30.9375,
+          3,
+          3
+        ],
+        [
+          -91.40625,
+          29.53125,
+          92,
+          92
+        ],
+        [
+          -91.40625,
+          30.9375,
+          47,
+          47
+        ],
+        [
+          -90,
+          29.53125,
+          123,
+          123
+        ],
+        [
+          -90,
+          30.9375,
+          136,
+          136
+        ],
+        [
+          -90,
+          32.34375,
+          74,
+          74
+        ],
+        [
+          -90,
+          33.75,
+          2,
+          2
+        ],
+        [
+          -88.59375,
+          29.53125,
+          152,
+          152
+        ],
+        [
+          -88.59375,
+          30.9375,
+          480,
+          480
+        ],
+        [
+          -88.59375,
+          32.34375,
+          591,
+          591
+        ],
+        [
+          -88.59375,
+          33.75,
+          215,
+          215
+        ],
+        [
+          -87.1875,
+          29.53125,
+          517,
+          517
+        ],
+        [
+          -87.1875,
+          30.9375,
+          257,
+          257
+        ],
+        [
+          -87.1875,
+          32.34375,
+          239,
+          239
+        ],
+        [
+          -87.1875,
+          33.75,
+          13,
+          13
+        ],
+        [
+          -85.78125,
+          29.53125,
+          133,
+          133
+        ],
+        [
+          -85.78125,
+          30.9375,
+          142,
+          142
+        ],
+        [
+          -85.78125,
+          32.34375,
+          358,
+          358
+        ],
+        [
+          -85.78125,
+          33.75,
+          127,
+          127
+        ],
+        [
+          -84.375,
+          28.125,
+          3,
+          3
+        ],
+        [
+          -84.375,
+          29.53125,
+          42,
+          42
+        ],
+        [
+          -84.375,
+          30.9375,
+          22,
+          22
+        ],
+        [
+          -84.375,
+          32.34375,
+          53,
+          53
+        ],
+        [
+          -84.375,
+          33.75,
+          12,
+          12
+        ],
+        [
+          -82.96875,
+          28.125,
+          27,
+          27
+        ],
+        [
+          -82.96875,
+          29.53125,
+          98,
+          98
+        ],
+        [
+          -82.96875,
+          30.9375,
+          16,
+          16
+        ],
+        [
+          -82.96875,
+          32.34375,
+          81,
+          81
+        ],
+        [
+          -82.96875,
+          33.75,
+          8,
+          8
+        ],
+        [
+          -81.5625,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          -81.5625,
+          28.125,
+          8,
+          8
+        ],
+        [
+          -81.5625,
+          32.34375,
+          60,
+          60
+        ],
+        [
+          -81.5625,
+          33.75,
+          5,
+          5
+        ],
+        [
+          -80.15625,
+          36.5625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 9.4
+      },
+      {
+        "source": "scotcat",
+        "value": 8
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 15,
+          "max": 23
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1301",
+      "html": "<ul><li>Scientific name: Noturus leptacanthus Jordan, 1877</li><li>Common names: Speckled Madtom; Småplettet Giftmalle (Denmark)</li><li>Synonym: Schilbeodes leptacanthus</li><li>Etymology: From the Greek notos, meaning back, and oura, meaning tail, in reference to the confluent adipose and caudal fins.</li><li>IUCN Red List category: Least Concern (last assessed 2012)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "html": "<ul><li>Common name: Speckled madtom</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1301",
+      "html": "<p>North America: North American Atlantic drainages, Florida waters and Gulf Coast drainages.</p><p>Type locality: Silver Creek, 1 mile above its junction with Etowah River, near Rome, Floyd County, Georgia, U.S.A.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "html": "<p>North America: Atlantic and Gulf Slope drainages from Edisto River in South Carolina, USA to Amite-Comite River in Louisiana, USA; south in peninsular Florida to St. John's River drainage.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "html": "<p>Inhabits gravel-sand runs and rocky riffles of creeks and small to medium rivers, near vegetation.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "html": "<p>The Madtoms are well suited to aquarium life. Provide river gravel and smooth rounded stones for hiding places during the day. A power filter at one end of the tank will provide the conditions of a flowing stream for these catfish. Can be housed with other North American fishes such as minnows, darters and shiners.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "html": "<p>Feeds on midge larvae. They like most meaty food, such as cut-up earth worms, frozen blood worm and prawns. They will also take tablet and pellet foods. A varied diet will keep them in optimum health.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1301",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "html": "<p>Description: The head is narrow, the eyes small and the upper jaw overhangs the lower. 4 pairs barbels. Pectoral spine has poison glands at the base so with most of this genera, handle with care.</p><p>Colouration: This species is slender built with a dark brown to russet back; sides brownish yellow. The back, sides, median fins have scattered grey black blotches, belly whitish.</p><p>Etymology: The specific name leptacanthus: leptós, thin or slender; acanthus (L.), from ákantha, thorn or spine, referring to “small and slender dorsal and pectoral spines which are devoid of internal serratures”.</p><p>IUCN Red List: Least Concern in view of the large extent of occurrence, large number of subpopulations, large population size, and lack of major threats.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1301",
+      "html": "<p>Annals of the Lyceum of Natural History of New York v. 11 (nos 11-12) (art. 29), pp 352.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (05/2012). The Audubon Society Field guide to North American Fishes, Whales &amp; Dolphins. Alfred A. Knopf, New York. 848 p. Schleser David M.; North American Native Fishes for the Home Aquarium. Barron's Educational Series. Inc. 1998. 169 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e4e6e9c757d53479.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e4e6e9c757d53479-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "Tim Aldridge / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "caption": "Noturus leptacanthus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/77d3abce046040da.webp",
+      "thumb": "https://media.aquatome.com/scotcat/77d3abce046040da-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "nv_multispeciesfishing / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_leptacanthus.htm",
+      "caption": "Noturus leptacanthus: US-1, Ridge Spring, SC 29129, USA",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "uQ4IhRQlsdQ",
+      "title": "Speckled Madtom eating a snack #catfish #aquarium #cool #like #subscribe #share #watch",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OoX_I1UST78",
+      "title": "Fish Friday #84 - Speckled Madtom",
+      "durationSec": 796,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3zM3XZ4YtDk",
+      "title": "Speckled Madtom Eats Earthworm",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "v6EexCHDy0M",
+      "title": "Microfishing: Jaded Micros, Day 1, Part 2",
+      "durationSec": 1191,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác",
+        "máy lọc tạo dòng chảy cho bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông",
+        "đá cuội tròn trang trí bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn viên chìm cho cá trê"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm mát bể cá",
+        "quạt làm mát bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

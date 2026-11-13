@@ -1,0 +1,88 @@
+{
+  "id": "devario-laoensis",
+  "native": {
+    "input": "908934608fe7b4f4",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Ban Nam Khueng' which lies in northwestern Laos and it's since been recorded from various localities within the upper Mekong watershed in Laos and Thailand (Chiang Rai and possibly Chiang Mai provinces).",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Ban Nam Khueng' which lies in northwestern Laos and it's since been recorded from various localities within the upper Mekong watershed in Laos and Thailand (Chiang Rai and possibly Chiang Mai provinces).",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Ban Nam Khueng' which lies in northwestern Laos and it's since been recorded from various localities within the upper Mekong watershed in Laos and Thailand (Chiang Rai and possibly Chiang Mai provinces).",
+        "ok": true
+      },
+      {
+        "name": "Salween River",
+        "source": "seriouslyfish",
+        "quote": "Rainboth (1996) reported it to occur in the Salween River which borders western Thailand for a stretch but no other records from that drainage exist as far as is known.",
+        "ok": true
+      },
+      {
+        "name": "Nam Ou",
+        "source": "seriouslyfish",
+        "quote": "A further collection locality was a small stream in Phôngsali Province, northern Laos located within the Nam Ou river watershed.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Nam Mae Lao",
+        "source": "seriouslyfish",
+        "quote": "In the River Nam Mae Lao, Chiang Rai province, northern Thailand D. laoensis was collected alongside Danio roseus.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Devario laoensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2361550,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

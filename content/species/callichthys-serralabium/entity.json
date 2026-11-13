@@ -1,0 +1,181 @@
+{
+  "id": "callichthys-serralabium",
+  "scientificName": "Callichthys serralabium",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Callichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco",
+    "brazil",
+    "rio-negro"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BR"
+      ],
+      "regions": [
+        "Orinoco",
+        "Negro",
+        "Amazon"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Upper Orinoco River and lower Negro River basins of the Amazon River drainage in Venezuela and Brazil.",
+          "countries": [
+            "VE",
+            "BR"
+          ],
+          "regions": [
+            "Orinoco",
+            "Negro",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202880,
+      "total": 15,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          7
+        ],
+        [
+          "VE",
+          7
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          6,
+          6
+        ],
+        [
+          -68.90625,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          0,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 15.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1287",
+      "html": "<ul><li>Scientific name: Callichthys serralabium Lehmann A. &amp; Reis, 2004</li><li>Common names: Sawlipped Catfish, Armoured Catfish</li><li>Identification: viewed from underneath, the lower lip has a ragged, wavy profile. Young fish have a more striking vertically barred colouration.</li><li>IUCN Red List: Least Concern (last assessed 2020)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1287",
+      "html": "<p>South America: Upper Orinoco River and lower Negro River basins of the Amazon River drainage in Venezuela and Brazil.</p><p>Type locality: Laguna Tonina, 1 kilometre upstream from La Esmeralda, upper Río Orinoco, La Esmeralda, Estado Amazonas, Venezuela.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1287",
+      "html": "<p>Males develop a thickened bright orange first ray in the pectoral fin, whereas females have a thin first ray. Also, mature males have a thick adipose-fat body on the ventral surface of the pectoral fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1287",
+      "html": "<p>Bubble nest breeder. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1287",
+      "html": "<p>Etymology: Callichthys comes from the Greek kallos, meaning beautiful, and ichthys, meaning fish, in reference to the colour pattern. The specific epithet comes from the Latin serra, meaning saw, and labium, lip, in allusion to the serrated free margin of the lower lip.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1287",
+      "html": "<p>Copeia 2004 (no. 2), pp 339, Figs. 1, 2B, 3A.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm",
+        "bể cá cho cá chuột"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá chuột",
+        "cát mịn thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "viên thức ăn cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

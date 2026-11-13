@@ -53,18 +53,7 @@
       "html": "<p>Many species of snakehead look very attractive as juveniles. Juvenile Channa are usually schooling fish. Depending on the species they swim in close schools up to a length of 3 cm or even 15 cm. The contrasting juvenile coloration has two basic reasons: first, it helps conspecifics to identify other fish as members of the same species, and second it confuses predators, as the silhouette of a single specimen is hard to detect in a school.</p><p>Later on snakeheads become more and more solitary fish and the coloration becomes dull. Now camouflage is needed, as larger snakeheads are usually predators that feed on other small fish.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/a79876642e6084fd.webp",
-      "width": 863,
-      "height": 282,
-      "licence": "Public domain",
-      "author": "USGS",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Channa_bankanensis_after_Bleeker_1878.jpg",
-      "caption": "Channa bankanensis after Bleeker, 1878",
-      "thumb": "https://media.aquatome.com/commons/a79876642e6084fd-480.webp"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {
@@ -88,5 +77,87 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-10-31",
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Channa bankanensis is distributed in Indonesia and Malaysia.",
+          "countries": [
+            "ID",
+            "MY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391452,
+      "total": 12,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          11
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          0,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          4,
+          4
+        ],
+        [
+          112.5,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  }
 }

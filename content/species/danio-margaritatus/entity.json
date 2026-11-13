@@ -151,7 +151,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -304,7 +304,7 @@
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/danio-margaritatus-celestial-pearl-danios",
-      "html": "<p>Appearance: Its body is a light blue-green color, with a series of iridescent pearl-like spots on its sides, and a bright red stripe running along its body. It has a small, pointed head, and a forked tail fin.</p><p>Be sure to have the habitat ready before purchase.</p>"
+      "html": "<p>Appearance: Its body is a light blue-green color, with a series of iridescent pearl-like spots on its sides, and a bright red stripe running along its body. It has a small, pointed head, and a forked tail fin.</p>"
     },
     {
       "key": "notes",
@@ -329,17 +329,6 @@
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
       "caption": "Some males display a greater proportion of red pigmentation on the body and fins than others, and this intensifies during bouts of sparring.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/18a3f658382997c5.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/18a3f658382997c5-480.webp",
-      "width": 641,
-      "height": 419,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
-      "caption": "Note the split caudal-fin of the fish to the left; minor injuries such as this are not uncommon.",
       "source": "seriouslyfish"
     },
     {
@@ -387,17 +376,6 @@
       "source": "aquariumcoop"
     },
     {
-      "url": "https://media.aquatome.com/aquariumcoop/8ad77e80e6798baf.webp",
-      "thumb": "https://media.aquatome.com/aquariumcoop/8ad77e80e6798baf-480.webp",
-      "width": 1000,
-      "height": 666,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Co-op",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/celestial-pearl-danio",
-      "caption": "celestial pearl danio (CPD)",
-      "source": "aquariumcoop"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/595450b04dc77e10.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/595450b04dc77e10-480.webp",
       "width": 900,
@@ -407,6 +385,28 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
       "caption": "Rival males spar often, especially when in spawning condition. These two have aberrant patterning in the anal-fin (see 'Notes').",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/18a3f658382997c5.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/18a3f658382997c5-480.webp",
+      "width": 641,
+      "height": 419,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",
+      "caption": "Note the split caudal-fin of the fish to the left; minor injuries such as this are not uncommon.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/8ad77e80e6798baf.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/8ad77e80e6798baf-480.webp",
+      "width": 1000,
+      "height": 666,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/celestial-pearl-danio",
+      "caption": "celestial pearl danio (CPD)",
+      "source": "aquariumcoop"
     }
   ],
   "videos": [
@@ -439,8 +439,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 30 lít",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {

@@ -1,0 +1,65 @@
+{
+  "id": "barilius-canarensis",
+  "native": {
+    "input": "37068940991571b6",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Probably restricted to southern parts of Karnataka state and northern Kerala state in southwestern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Netravathi",
+        "source": "seriouslyfish",
+        "quote": "Following its redescription in 2015 (see 'Notes') it is known with certainty only from the Netravathi and Tungabhadra river systems in Karnataka although it is thought to occur elsewhere.",
+        "ok": true
+      },
+      {
+        "name": "Tungabhadra",
+        "source": "seriouslyfish",
+        "quote": "Following its redescription in 2015 (see 'Notes') it is known with certainty only from the Netravathi and Tungabhadra river systems in Karnataka although it is thought to occur elsewhere.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barilius canarensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2363299,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

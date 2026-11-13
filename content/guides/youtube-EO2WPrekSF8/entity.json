@@ -1,0 +1,144 @@
+{
+  "id": "youtube-EO2WPrekSF8",
+  "kind": "disease",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=EO2WPrekSF8",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "carassius-auratus"
+  ],
+  "updatedAt": "2026-11-07",
+  "video": {
+    "youtubeId": "EO2WPrekSF8",
+    "title": "How To Treat Ich On Fish - Tested On 1,000s Of Fish.",
+    "channel": "Aquarium Co-Op",
+    "channelUrl": "https://www.youtube.com/channel/UCNJuJfXCKNWu4-VifYixs8A",
+    "durationSec": 915,
+    "publishedAt": "2018-08-28",
+    "chapters": [
+      {
+        "start": 0,
+        "title": "How I treat Ich on fish"
+      },
+      {
+        "start": 42,
+        "title": "How to identify Ich"
+      },
+      {
+        "start": 108,
+        "title": "What does Ich do?"
+      },
+      {
+        "start": 155,
+        "title": "How to change the life cycle of Ich"
+      },
+      {
+        "start": 238,
+        "title": "How to treat Ich on fish"
+      }
+    ],
+    "series": {
+      "id": "PLNM4mDAXGxWyWwI9j6NsO6swhmXLkwojx",
+      "position": 5
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/EO2WPrekSF8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Carassius auratus"
+    ],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Aquarium Solutions",
+        "model": "Ich X",
+        "t": 199
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Nhận biết Ich thế nào cho đúng",
+        "moments": [
+          {
+            "t": 70,
+            "url": "https://media.aquatome.com/video/EO2WPrekSF8/at70-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh vây đuôi và thân cá màu cam, nơi Ich thường bắt đầu bám.",
+            "sharpness": 151.3,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/EO2WPrekSF8/p0-oaXJpYXNpcy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/EO2WPrekSF8/p0-oaXJpYXNpcy5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Djpalme",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ichthyophthiriasis.jpg",
+          "caption": "Cá có những đốm trắng li ti như hạt muối trên vây và thân."
+        }
+      },
+      {
+        "heading": "Ich làm gì với cá",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/EO2WPrekSF8/p1-RpZmlsaWlzLnBuZw.webp",
+          "thumb": "https://media.aquatome.com/video/EO2WPrekSF8/p1-RpZmlsaWlzLnBuZw-480.webp",
+          "width": 939,
+          "height": 748,
+          "licence": "CC BY-SA 4.0",
+          "author": "AquaTT",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trophonts_of_Ichthyophthirius_multifiliis.png",
+          "caption": "Ảnh phóng đại hai bào nang Ich bám trên da cá."
+        }
+      },
+      {
+        "heading": "Tăng nhiệt độ có nên không",
+        "moments": [
+          {
+            "t": 180,
+            "url": "https://media.aquatome.com/video/EO2WPrekSF8/at180-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thanh sưởi đặt trong bể trồng cây, có cá thần tiên bơi bên cạnh.",
+            "sharpness": 270.2,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Phác đồ trị Ich bằng Ich-X",
+        "moments": [
+          {
+            "t": 230,
+            "url": "https://media.aquatome.com/video/EO2WPrekSF8/at230-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh các đốm trắng của bệnh Ich bám trên da cá.",
+            "sharpness": 208.5,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Có nên giảm nửa liều cho cá không vảy",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/EO2WPrekSF8/p5-BcXVhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/EO2WPrekSF8/p5-BcXVhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 639,
+          "licence": "CC BY-SA 3.0",
+          "author": "Steven G. Johnson",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Green_pufferfish,_Boston_Aquarium.jpg",
+          "caption": "Một con cá nóc đốm nâu bơi trong bể, là loài cá không vảy."
+        }
+      }
+    ]
+  }
+}

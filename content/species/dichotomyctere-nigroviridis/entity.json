@@ -309,6 +309,11 @@
       ]
     }
   },
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "Although it's often considered a true freshwater species, it tends to be more long-lived with the addition of marine salt to a sg of around 1.005 in aquaria."
+  },
   "dataCard": {
     "tempC": [
       {
@@ -352,7 +357,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -433,7 +438,12 @@
       "author": "Starseed",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetraodon_nigroviridis_1.jpg",
       "caption": "Tetraodon nigroviridis - The green puffer fish",
-      "thumb": "https://media.aquatome.com/commons/dc869ceba62259ce-480.webp"
+      "thumb": "https://media.aquatome.com/commons/dc869ceba62259ce-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/dc869ceba62259ce-large.webp",
+        "width": 1797,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/fe02ac9e8991f2ab.webp",
@@ -443,7 +453,12 @@
       "author": "Guérin Nicolas (messages)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetraodon_nigroviridis_(Wroclaw_zoo).JPG",
       "caption": "Picture taken in the zoo of Wrocław (Poland): Tetraodon nigroviridis (Marion de Procé, 1822)",
-      "thumb": "https://media.aquatome.com/commons/fe02ac9e8991f2ab-480.webp"
+      "thumb": "https://media.aquatome.com/commons/fe02ac9e8991f2ab-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/fe02ac9e8991f2ab-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/38861749ea40c49f.webp",
@@ -453,17 +468,12 @@
       "author": "Viktoria Schmuck",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gr%C3%BCner_Kugelfisch.png",
       "caption": "Grüner Kugelfisch: Jungtier",
-      "thumb": "https://media.aquatome.com/commons/38861749ea40c49f-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/1554e58fefb68ef0.webp",
-      "width": 960,
-      "height": 1707,
-      "licence": "CC BY 4.0",
-      "author": "(c) Павлик Лисицын, some rights reserved (CC BY)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Green_Spotted_Puffer_imported_from_iNaturalist_photo_353581640_on_3_December_2024.jpg",
-      "caption": "Photo of Green Spotted Puffer uploaded from iNaturalist.",
-      "thumb": "https://media.aquatome.com/commons/1554e58fefb68ef0-480.webp"
+      "thumb": "https://media.aquatome.com/commons/38861749ea40c49f-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/38861749ea40c49f-large.webp",
+        "width": 1553,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
@@ -471,8 +481,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 108 lít"
+        "bể cá 120cm"
       ]
     },
     {

@@ -1,0 +1,229 @@
+{
+  "id": "mastacembelus-plagiostomus",
+  "scientificName": "Mastacembelus plagiostomus",
+  "order": "Synbranchiformes",
+  "family": "Mastacembelidae",
+  "genus": "Mastacembelus",
+  "group": "other",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "zambia"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2351838,
+      "total": 18,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ZM",
+          12
+        ],
+        [
+          "CD",
+          5
+        ],
+        [
+          "BI",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          1
+        ],
+        [
+          28.125,
+          -5.625,
+          1
+        ],
+        [
+          28.125,
+          -4.21875,
+          4
+        ],
+        [
+          29.53125,
+          -9.84375,
+          1
+        ],
+        [
+          30.9375,
+          -9.84375,
+          11
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 9.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-plagiostomus",
+      "html": "<p>Mastacembelus plagiostomus is a spiny eel endemic to Lake Tanganyika, found in shallow water over rocky areas around the shoreline. Very rarely seen in the hobby, it suits a Tanganyikan community of species too large to be considered food and is somewhat territorial with conspecifics. It grows to 300 mm SL, and its stiffened dorsal rays call for care when handling it.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-plagiostomus",
+      "html": "<p>Endemic to Lake Tanganyika.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-plagiostomus",
+      "html": "<p>It inhabits rocky areas around the shoreline of the lake, usually in shallow water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-plagiostomus",
+      "html": "<p>A tank of 120 × 45 cm base (about 243 litres), i.e. 120 cm × 45 cm × 45 cm, although the width of the tank is far more important than the height.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-plagiostomus",
+      "html": "<p>Use piles of rocks to form sheltered areas. It is essential that the tank bottom is covered in sand as the fish spends much of its time burrowed into the substrate. Gravel is not recommended as its sharp edges can damage the eel's skin. There should be no strong currents in the aquarium.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-plagiostomus",
+      "html": "<ul><li>Temperature: 23–27 °C</li><li>pH: 8.0–9.5</li><li>Hardness: 8–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-plagiostomus",
+      "html": "<p>In nature, it preys on small fish but aquarium specimens readily accept dead alternatives. Prawn, cockle, mussel, earthworms and bloodworm can all be offered.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-plagiostomus",
+      "html": "<p>It is peaceful with species it cannot fit into its mouth but is not suitable for most freshwater tanks due to its hard, alkaline water requirements. It is best kept in a Tanganyikan community, where it can be combined with any species too large to be considered food. It tends to be somewhat territorial with conspecifics and a large tank is required if more than one is to be kept.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-plagiostomus",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-plagiostomus",
+      "html": "<p>Has been achieved in the aquarium but very few details are available. The eels should be bred in a species tank. Apparently, the eggs are laid in the substrate or on the underside of rocks and are adhesive. The fry are very small and require infusoria as first food. They look like normal fish fry initially, developing the elongated body as they grow. No parental care is exhibited in this species so if you do get a successful brood it is probably a good idea to remove the parents post-spawning.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-plagiostomus",
+      "html": "<p>Very rarely seen in the hobby, this species makes an interesting oddball addition to the Tanganyikan community tank. The species in the family Mastacembelidae are known as \"spiny\" eels because the dorsal rays are stiffened. Care must therefore be exercised when handling them to avoid injuries. Spiny eels also have no swim bladder, an adaptation to their benthic lifestyle.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ cá",
+        "cát mịn cho cá Tanganyika"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi 200w"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "tôm đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

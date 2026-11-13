@@ -1,0 +1,132 @@
+{
+  "id": "maccullochella-peelii",
+  "native": {
+    "input": "f9d93ac91e12d5fd",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "glaser",
+        "quote": "M. peelii is the largest freshwater fish of Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Maccullochella peelii",
+    "status": "ACCEPTED",
+    "taxonKey": 2380484,
+    "datasets": [
+      [
+        "37beb6ea-e591-41e3-b781-e384250dc42c",
+        22702
+      ],
+      [
+        "f38cc07c-49a8-4ca4-8882-5cdde1733c12",
+        896
+      ],
+      [
+        "0645ccdb-e001-4ab0-9729-51f1755e007e",
+        385
+      ],
+      [
+        "1f396a46-b83e-4255-a840-859985f73ded",
+        155
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        131
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        56
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        40
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        18
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        17
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        16
+      ],
+      [
+        "f2069019-06c4-40fc-97a4-6672134a1f1f",
+        15
+      ],
+      [
+        "7ebef267-9d72-4c21-a276-cc84281a8590",
+        12
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        5
+      ],
+      [
+        "c1fc2df7-223b-4472-8998-70afb3b749ab",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "40c0f670-ee87-4576-be9d-2725e0b47035",
+        4
+      ],
+      [
+        "84a649ce-ff81-420d-9c41-aa1de59e3766",
+        4
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        2
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "84149905-2fc7-4cc6-a9c8-f4186e0a62a8",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

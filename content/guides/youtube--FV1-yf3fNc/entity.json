@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "-FV1-yf3fNc",
     "title": "HOW TO: Crystal clear aquarium water changes",
@@ -25,28 +25,23 @@
       "height": 720
     },
     "taxa": [],
-    "gear": [
-      {
-        "category": "khac",
-        "brand": "Fluval",
-        "model": "Clear Max",
-        "t": 95
-      }
-    ],
+    "gear": [],
     "figures": [
       {
-        "heading": "Chọn vật liệu lọc hóa học nào",
+        "heading": "Dùng vật liệu lọc nào",
         "moments": [
           {
-            "t": 74,
-            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/t74.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Đống than hoạt tính dạng hạt đen dùng làm vật liệu lọc hóa học."
+            "t": 75,
+            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/at75-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đống than hoạt tính màu đen dùng làm vật liệu lọc hóa học.",
+            "sharpness": 528.1,
+            "person": false
           },
           {
-            "t": 94,
-            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/t94.webp",
+            "t": 95,
+            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/at95.webp",
             "width": 159,
             "height": 90,
             "caption": "Đống zeolite màu be dùng để hút amoniac trong nước."
@@ -54,52 +49,30 @@
         ]
       },
       {
-        "heading": "Chuẩn bị dụng cụ",
+        "heading": "Canh lưu lượng nước",
         "moments": [
           {
-            "t": 133,
-            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/t133.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Đoạn ống PVC đặt trên nền sáng, nhìn rõ lòng ống."
-          },
-          {
-            "t": 158,
-            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/t158.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Núm hít (giác hút) màu đen dùng để gắn vào ống."
+            "t": 275,
+            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/at275-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống lọc PVC có lỗ thoát, nước chảy qua miệng ống.",
+            "sharpness": 113.2,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Các bước làm ống lọc",
+        "heading": "Khi vòi không vừa ống",
         "moments": [
           {
-            "t": 163,
-            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/t163.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Cận cảnh núm hít màu đen có chốt để gắn vào ống lọc."
-          },
-          {
-            "t": 167,
-            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/t167.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Tay đang khoan lỗ trên thân ống nhựa trắng để lắp chốt núm hít."
-          }
-        ]
-      },
-      {
-        "heading": "Dùng ống lọc khi thay nước",
-        "moments": [
-          {
-            "t": 251,
-            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/t251.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Nhìn vào lòng ống, thấy chốt nhô vào bên trong."
+            "t": 280,
+            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/at280-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh ống cứng cắm trong bể, chỗ gắn vòi thay nước.",
+            "sharpness": 23.3,
+            "person": false
           }
         ]
       }

@@ -5,12 +5,101 @@
   "family": "Loricariidae",
   "genus": "Baryancistrus",
   "group": "catfish",
-  "lNumber": "L047",
+  "lNumber": "L47",
   "places": [
     "south-america",
     "brazil",
     "xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Xingu",
+        "Rio Curuá"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The mango pleco, Baryancistrus chrysolomus, traded as L047, is a loricariid endemic to the rio Xingu basin in Pará state, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the rio Xingu basin in Pará state, Brazil, where it inhabits a section of the river's main channel known as 'Volta Grande do rio Xingu' directly above Belo Monte falls.",
+          "countries": [],
+          "regions": [
+            "Rio Xingu"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also been collected in the upper rio Curuá, a tributary of the rio Iriri which is itself an affluent of the Xingu.",
+          "countries": [],
+          "regions": [
+            "Rio Curuá"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6167965,
+      "total": 45,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          45
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          -8.4375,
+          12,
+          12
+        ],
+        [
+          -54.84375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          11,
+          11
+        ],
+        [
+          -53.4375,
+          -5.625,
+          8,
+          8
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -54,7 +143,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -194,8 +283,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 120x45"
+        "bể cá 120cm"
       ]
     },
     {

@@ -1,0 +1,153 @@
+{
+  "id": "synaptolaemus-latofasciatus",
+  "scientificName": "Synaptolaemus latofasciatus",
+  "order": "Characiformes",
+  "family": "Anostomidae",
+  "genus": "Synaptolaemus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco",
+    "brazil",
+    "amazon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 11
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synaptolaemus-latofasciatus",
+      "html": "<p>Synaptolaemus latofasciatus is a headstander from the upper Orinoco, the Casiquiare Canal and the middle-to-lower Amazon in Venezuela and Brazil. Described from a single specimen and placed in Leporinus until 2011, it was then recognised as the fish described as Synaptolaemus cingulatus. Alternating transverse bands of orange or yellow and dark brown or black run along the entire body, and snout shape and colour pattern vary with locality.</p><ul><li>Social: needs to be in a group; choose tankmates carefully</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synaptolaemus-latofasciatus",
+      "html": "<p>Type locality is 'Orinoco River, Venezuela', but this species is widely distributed throughout the upper Orinoco, Casiquiare Canal and middle-to-lower Amazon region in Venezuela and Brazil, with records from the rios Negro, Madeira, Trombetas, Xingu and Tapajós.</p><p>There are certain differences in morphology, especially that of the snout, and colour pattern depending on locality.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synaptolaemus-latofasciatus",
+      "html": "<p>An aquarium with base dimensions of 120 × 45 cm or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synaptolaemus-latofasciatus",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 5.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synaptolaemus-latofasciatus",
+      "html": "<p>Likely to be a foraging omnivore browsing algae, invertebrates and organic detritus from submerged solid surfaces in nature.</p><p>Apparently it's quite unfussy in the aquarium and will accept most things offered, although foods containing high levels of protein are best avoided.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synaptolaemus-latofasciatus",
+      "html": "<p>This species was described from a single specimen and included in the genus Leporinus until 2011, at which point the holotype was examined and recognised as corresponding to the fish described as Synaptolaemus cingulatus (Myers &amp; Fernández-Yépez, 1950).</p><p>The latter was therefore concluded to be a synonym of L. latofasciatus, with Synaptolaemus latofasciatus the currently accepted name since the genus Synaptolaemus has been clearly diagnosed (Myers &amp; Fernández-Yépez, 1950; Winterbottom, 1980) and was recovered as a monophyletic lineage, most closely related to Gnathodolus and Sartor, in phylogenetic analyses (Sidlauskas and Vari, 2008).</p><p>In the latter study Synaptolaemus was placed in a large polytomy alongside the genera Anostomoides, Anostomus, Gnathodolus, Laemolyta, Petulanos, Pseudanos, Rhytiodus, Sartor, and Schizodon plus a clade formed by most species of Leporinus and the genus Abramites.</p><p>Synaptolaemus can be told apart from other anostomids in that the symphyseal teeth of the lower jaw are around twice as long as they are broad (vs. subequal or 5 times as long as broad), and the gill membranes are broadly united with the isthmus.</p><p>In addition the lower jaw is about twice as long as it is broad and appears vertical when the mouth is fully closed, and the colour pattern comprises alternating transverse bands of orange or yellow and dark brown or black extending along the entire body and below the lateral line.</p><p>The family Anostomidae is distributed throughout much of tropical and subtropical South America from northwestern Colombia to central Argentina.</p><p>The majority of species are moderately elongate and somewhat rounded in shape although there are some exceptions, e.g., the relatively deep-bodied Abramites.</p><p>Greater diversity is apparent in the range of oral morphology, however, and members exhibit a wide range of adaptations in dentition and jaw structure.</p><p>A number of anostomids tend to swim at an oblique 'head-down' angle, which has given rise to them being referred to by the generalised vernacular term 'headstanders'.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synaptolaemus-latofasciatus",
+      "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Sidlauskas, B. L. and R. P. Vari (2008). Phylogenetic relationships within the South American fish family Anostomidae (Teleostei, Ostariophysi, Characiformes). Zoological Journal of the Linnean Society 154, 70–210</li><li>Winterbottom, R. (1980). Systematics, osteology and the phylogenetic relationships of fishes of the Ostariophysan subfamily Anostominae (Characoidei, Anostominae). Life Sciences Contributions Royal Ontario Museum No. 123, 1-112</li><li>Britski, H. A., J. L. O. Birindelli and J. C. Garavello (2011). Synaptolaemus latofasciatus, a new combination for Leporinus latofasciatus Steindachner, 1910 and its junior synonym Synaptolaemus cingulatus Myers and Fernández-Yépez, 1950 (Characiformes: Anostomidae). Zootaxa 3018, 59-65</li><li>Sidlauskas, B. L. and G. M. dos Santos (2005). Pseudanos winterbottomi: a new anostomine species (Teleostei: Characiformes: Anostomidae) from Venezuela and Brazil, and comments on its phylogenetic relationships. Copeai 2005(1), 109-123</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/734b1c1ab6828acd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/734b1c1ab6828acd-480.webp",
+      "width": 900,
+      "height": 387,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synaptolaemus-latofasciatus",
+      "caption": "Individual collected from the rio Teles Pires drainage, rio Tapajós system, Brazil.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fb94bd2b9bb68507.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fb94bd2b9bb68507-480.webp",
+      "width": 900,
+      "height": 428,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synaptolaemus-latofasciatus",
+      "caption": "Specimen from the rio Culuene, rio Xingu system, Brazil.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 240 lít",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

@@ -111,7 +111,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       },
       {
         "source": "aquariumcoop",
@@ -237,16 +237,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17.webp",
-      "thumb": "https://media.aquatome.com/commons/17a5d013a3d9aa17-480.webp",
-      "width": 960,
-      "height": 745,
-      "licence": "CC BY-SA 4.0",
-      "author": "Raimond Spekking",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamant_Regenbogenfisch_(Melanotaenia_praecox).jpg",
-      "caption": "Dwarf rainbowfish (Melanotaenia praecox) at Zoo Duisburg"
-    },
-    {
       "url": "https://media.aquatome.com/commons/c815fb8a7fdb6337.webp",
       "thumb": "https://media.aquatome.com/commons/c815fb8a7fdb6337-480.webp",
       "width": 960,
@@ -254,7 +244,27 @@
       "licence": "CC BY-SA 3.0",
       "author": "Anandarajkumar at en.wikipedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_neon_rainbows.jpg",
-      "caption": "A pair of male dwarf neon rainbows in a home aquarium."
+      "caption": "A pair of male dwarf neon rainbows in a home aquarium.",
+      "large": {
+        "url": "https://media.aquatome.com/commons/c815fb8a7fdb6337-large.webp",
+        "width": 1885,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17.webp",
+      "thumb": "https://media.aquatome.com/commons/17a5d013a3d9aa17-480.webp",
+      "width": 960,
+      "height": 745,
+      "licence": "CC BY-SA 4.0",
+      "author": "Raimond Spekking",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamant_Regenbogenfisch_(Melanotaenia_praecox).jpg",
+      "caption": "Dwarf rainbowfish (Melanotaenia praecox) at Zoo Duisburg",
+      "large": {
+        "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17-large.webp",
+        "width": 1024,
+        "height": 795
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/0d0275362610aa62.webp",
@@ -264,7 +274,12 @@
       "licence": "Public domain",
       "author": "MELANOTAENIA_PRAECOX.JPG: Leo-nie-weh-oh derivative work: Der Regenbogenfisch",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:MELANOTAENIA_PRAECOX_cropped.JPG",
-      "caption": "Melanotaenia praecox"
+      "caption": "Melanotaenia praecox",
+      "large": {
+        "url": "https://media.aquatome.com/commons/0d0275362610aa62-large.webp",
+        "width": 1000,
+        "height": 667
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/22dbf5e2ea7aa017.webp",
@@ -274,7 +289,12 @@
       "licence": "CC BY-SA 4.0",
       "author": "7TP (Krzysztof Bartosik)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_praecox.jpg",
-      "caption": "Tęczanka neonowa (Melanotaenia praecox)"
+      "caption": "Tęczanka neonowa (Melanotaenia praecox)",
+      "large": {
+        "url": "https://media.aquatome.com/commons/22dbf5e2ea7aa017-large.webp",
+        "width": 1805,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/aquariumcoop/d14a75aafd9844d5.webp",
@@ -304,8 +324,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể cá 54 lít"
+        "bể cá 60cm"
       ]
     },
     {

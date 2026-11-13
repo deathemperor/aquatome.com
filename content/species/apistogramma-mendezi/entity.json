@@ -11,6 +11,62 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the lower rio Negro basin in northwestern Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371254,
+      "total": 15,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          15
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -1.40625,
+          11,
+          11
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          0,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -48,7 +104,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -57,7 +113,13 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-mendezi",
-      "html": "<p>Apistogramma mendezi is a dwarf cichlid from the lower rio Negro basin in northwestern Brazil, found in blackwater tributaries and flooded forest. Populations coded A220, A221 and A222 may be conspecific and differ in colour pattern, particularly the orientation of the caudal-fin markings. Most collections for the trade appear to come from further upstream, around Santa Isabel do Rio Negro or São Gabriel da Cachoeira.</p><ul><li>Max size: not recorded</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 23–29°C (73–84°F)</li><li>pH: 4.0–6.0</li><li>Hardness: 1–3 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+      "html": "<p>Apistogramma mendezi is a dwarf cichlid from the lower rio Negro basin in northwestern Brazil, found in blackwater tributaries and flooded forest. Populations coded A220, A221 and A222 may be conspecific and differ in colour pattern, particularly the orientation of the caudal-fin markings. Most collections for the trade appear to come from further upstream, around Santa Isabel do Rio Negro or São Gabriel da Cachoeira.</p><ul><li>Max size: not recorded</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 23–29°C (73–84°F)</li><li>pH: 4.0–6.0</li><li>Hardness: 1–3 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_paucisquamis_and_a_mendezi_en/",
+      "html": "<p>Although Apistogramma mendezi can be imported only occasionally and is also rarely bred, the beautiful species is known to develop a great number of local varieties. Additionally, males of the very same local population show a high degree of polychromatism, meaning that animals can show differing individual colour patterns, so differently coloured animals can be found together.</p><p>Available size: 4-6 cm.</p>"
     },
     {
       "key": "distribution",
@@ -66,10 +128,22 @@
       "html": "<p>Native to the lower rio Negro basin in northwestern Brazil.</p><p>Type locality is 'Rio Salgado, near Barcelos do Rio Negro, Dept. Amazonas, Brazil, about 0°01'S, 63°04'W', this referring to an igarapé (stream) sometimes referred to as the rio Salgádo near Barcelos municipality, Amazonas state.</p><p>Most collections for the trade appear to take place further upstream around the settlements of Santa Isabel do Rio Negro or São Gabriel da Cachoeira and are often labelled as such, i.e., 'Santa Isabel' or 'São Gabriel'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_paucisquamis_and_a_mendezi_en/",
+      "html": "<p>Brazil. A. mendezi and A. paucisquamis were suspected for a long time to live together in some regions east of Barcelos in the Rio Negro. The specimens described here were imported mixed, so they are thought to live together in the wild.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-mendezi",
       "html": "<p>Inhabits pristine blackwater tributaries and areas of flooded forest where the water is characteristically stained dark with organic chemicals and substrate composed of sand or mud, leaf litter and other woody debris.</p><p>In the rio Negro basin such habitats typically contain tea-coloured water with very little detectable hardness, low conductivity, and a pH of 4.0-6.0, with other fishes including small characids, lebiasinids, other dwarf cichlids and Corydoras catfishes.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_paucisquamis_and_a_mendezi_en/",
+      "html": "<p>This dwarf cichlid lives in the dead leaves along the shores of blackwater streams, as does A. paucisquamis. Usually these very similar Apistogramma species live in geographically distinct areas.</p>"
     },
     {
       "key": "aquariumSize",
@@ -90,10 +164,28 @@
       "html": "<ul><li>Temperature: 23–29°C (73–84°F)</li><li>pH: 4.0–6.0</li><li>Hardness: 1–3 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_paucisquamis_and_a_mendezi_en/",
+      "html": "<p>Like all Apistogramma species, these dwarf cichlids need clean, germ-poor water. Hardness and pH are of lesser interest as long as the fish are only kept, but for breeding attempts they need extremely soft and acidic water.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_paucisquamis_and_a_mendezi_en/",
+      "html": "<p>A bottom of fine sand is needed.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-mendezi",
       "html": "<p>Apistogramma spp. are chiefly carnivorous and feed mostly on benthic invertebrates in nature.</p><p>In the aquarium live and frozen foods such as Artemia, Daphnia and chironomid larvae (bloodworm) should be offered regularly although most species will also learn to accept dried alternatives with pelleted products generally preferred to flake.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_paucisquamis_and_a_mendezi_en/",
+      "html": "<p>Both species are undemanding and feed readily on any type of usual fish food, even dried ones.</p>"
     },
     {
       "key": "behaviour",
@@ -102,10 +194,22 @@
       "html": "<p>Best maintained alone or with small 'dither' fishes such as Nannostomus spp., and ideally should not be mixed with other Apistogramma.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_paucisquamis_and_a_mendezi_en/",
+      "html": "<p>Especially males of A. mendezi are quite gruff against the females.</p><p>As in most cichlids, the females of Apistogramma choose the males and not the other way round. If similar species occur together, the males usually have to have a very distinct coloration, otherwise the females cannot choose the correct males. The males of A. paucisquamis are characterized by a vertically striped caudal fin. The fish look very much alike when frightened or in a neutral mood.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-mendezi",
       "html": "<p>Males are larger, more colourful and develop more extended fins than females.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_paucisquamis_and_a_mendezi_en/",
+      "html": "<p>The caudal fin of this A. mendezi morph has broad, longitudinal stripes in the lower part and round spots in the upper. The so-called \"belly stripe\" below the lateral stripe is very distinctive in this population. It is very likely that this contrasting pattern results from the need of females to recognize the males of their own species, since this population lives together (syntopically) with the very similar A. paucisquamis, whose males have a vertically striped caudal fin.</p>"
     },
     {
       "key": "reproduction",
@@ -114,10 +218,22 @@
       "html": "<p>Substrate spawner which normally lays its eggs in crevices or cavities among the décor.</p><p>The female is mostly responsible for post-spawning care of eggs and fry and in smaller aquaria the male may need to be removed as she may become hyper-aggressive.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_paucisquamis_and_a_mendezi_en/",
+      "html": "<p>Males of A. mendezi are quite gruff against the females, so the breeding tank should be rather large.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-mendezi",
       "html": "<p>This species is assigned the codes A220, A221 and A222 under the DATZ 'A' number system with these referring to similar-looking, possibly conspecific, populations.</p><p>These differ in some aspects of colour pattern, particularly the orientation of the caudal-fin markings which may be horizontal, vertical, or somewhere inbetween.</p><p>One population displays an orange colouration on the belly and is sometimes referred to as A. mendezi 'orange' (A222) while another known as A. sp. 'fork-band' or 'gabelband' and collected in the rio Jaú may also be conspecific.</p><p>Apistogramma is among the most speciose of South American cichlid genera with around 70 species valid at present but many more awaiting description.</p><p>In addition many species exist in two or more geographical colour forms which may or may not turn out to be distinct in the future.</p><p>Hobbyists tend to label these with collection data if available in order to avoid mixing them and the potential of hybridisation.</p><p>Member species have also been organised into a series of species lineages, complexes and groups by authors in order to better separate them.</p><p>Such lists have been augmented by fish that have appeared in the aquarium trade and are in a state of near-constant flux.</p><p>For example the A. paucisquamis complex, of which A. mendezi is a member, is contained in the A. bitaeniata group, itself a subdivision of the A. agassizii sublineage within the larger A. trifasciata lineage.</p><p>Apistogramma and a number of related genera are often included in the putative subfamily Geophaginae.</p><p>Kullander (1998) conducted a morphology-based phylogenetic study in which the neotropical Cichlidae was divided into six subfamilies of which the Geophaginae contained 16 genera divided among three 'tribes':</p><ul><li>Acarichthyini - Acarichthys and Guianacara.</li><li>Crenicaratini - Biotoecus, Crenicara, Dicrossus and Mazarunia.</li><li>Geophagini - Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides and Taeniacara.</li></ul><p>Later molecular studies by Farias et al. (1999, 2000, 2001) resulted in the additions of Crenicichla and Teleocichla to the Geophaginae, a result supported by López-Fernández et al. (2005) who conducted the most detailed molecular analysis of the grouping to date including 16 of the 18 genera and 30 species.</p><p>However their conclusions regarding interrelationships between genera did vary somewhat from previous hypotheses and can be summarised by the following loosely-defined groups:</p><ul><li>a weakly-supported sister group relationship between Acarichthys and Guianacara.</li><li>a well-supported \"Satanoperca clade\" comprising Satanoperca, Apistogramma, Apistogrammoides and Taeniacara.</li><li>a \"big clade\" with Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Biotodoma, Crenicara and Dicrossus.</li><li>a \"crenicarine clade\" with Biotoecus and Crenicichla.</li></ul><p>No representatives of Teleocichla or Mazarunia were included in the study but the former is well-established as sister to Crenicichla while the latter has grouped closely with Dicrossus and Crenicara in earlier works.</p><p>The other main conclusions of the paper are confirmation that Geophaginae is a monophyletic group exhibiting strong signs of having undergone rapid adaptive radiation.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_paucisquamis_and_a_mendezi_en/",
+      "html": "<p>Apistogramma: ancient Greek, meaning \"with unreliable line\"; it is not known whether the lateral line organ or the pattern is meant. mendezi: dedication name for Chico Mendes, an eco-activist who fought against the destruction of the rainforest and was murdered by cattle barons in 1988. paucisquamis: Latin, meaning \"with only few scales\", referring to the low number of scales around the caudal peduncle.</p>"
     },
     {
       "key": "references",
@@ -132,8 +248,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45x30 cm",
-        "bể cá nhỏ 40 lít"
+        "bể cá 50cm"
       ]
     },
     {
@@ -160,5 +275,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-09"
 }

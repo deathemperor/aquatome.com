@@ -18,12 +18,32 @@
           "min": 20,
           "max": 24
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 18
+      },
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -41,16 +61,52 @@
       "html": "<p>South America: Upper Magdalena and Cauca River basins, Colombia Caribbean Rivers. Type locality: Honda, Colombia, elevation 300-400 feet.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_leightoni.htm",
+      "html": "<p>South America: Upper Magdalena and Cauca River basins, Colombia. Type locality: Honda, Colombia, 300–400 ft.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_leightoni.htm",
+      "html": "<p>Peaceful species which likes a spacious aquarium with cooler water temperatures of between 20–24°C and clean, soft and slightly acidic water.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_leightoni.htm",
+      "html": "<p>Spinach, peas, algae disks, tablet foods and sunken flake foods.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_leightoni.htm",
+      "html": "<p>The males develop pronounced tufts of odontodes on either side of the head and the first dorsal ray and the upper and lower caudal fin rays are elongated.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=104",
       "html": "<p>Breeding: unreported. There are 2 breeding reports on the site.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_leightoni.htm",
+      "html": "<p>This species sports a golden sheen on the sides of the head and is one of the smallest in the genus. The work carried out by Covain et al. 2016 confines the genus Sturisoma to east of the Andes (cis-Andean), and the genus Sturisomatichthys to the west of the Andes (trans-Andean).</p><p>Etymology: the specific name leightoni honours British soldier Bryan Leighton (1868–1919), who \"presented\" the holotype to the British Museum (Natural History).</p><p>IUCN Red List: the species has a relatively wide range. Although data are lacking on its population size and trend or the threats affecting it, it appears to be relatively common. It is listed as Least Concern.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=104",
       "html": "<p>Proceedings of the Zoological Society of London 1912 (pt 3) (art. 36), pp 669, Pl. 77 (fig. 2).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_leightoni.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1991 Aquarien atlas. Bd. 3. Melle: Mergus, Verlag für Natur- und Heimtierkunde, Germany. 1104 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Turley, Paul E; Keeping and Breeding Sturisomatichthys leightoni, the Dwarf Royal Farlowella.</p><p>Superina, M., Sanchez-Duarte, P., Mesa-Salazar, L., Lasso, C. &amp; Usma, S. 2016. Sturisomatichthys leightoni. The IUCN Red List of Threatened Species 2016.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -78,16 +134,41 @@
     },
     {
       "url": "https://media.aquatome.com/commons/600cf22ff8752850.webp",
+      "thumb": "https://media.aquatome.com/commons/600cf22ff8752850-480.webp",
       "width": 960,
       "height": 639,
       "licence": "CC BY-SA 4.0",
       "author": "Biodiego88 (via iNaturalist)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:INaturalist_Observation_188742000_Sturisomatichthys_leightoni.jpg",
-      "caption": "Registro de biodiversidad de la especie Sturisomatichthys leightoni (No disponible) detectado en el municipio de Caicedonia, Valle del Cauca, Colombia.",
-      "thumb": "https://media.aquatome.com/commons/600cf22ff8752850-480.webp"
+      "caption": "Registro de biodiversidad de la especie Sturisomatichthys leightoni (No disponible) detectado en el municipio de Caicedonia, Valle del Cauca, Colombia."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "kzioA-i3QN4",
+      "title": "Sturisomatichthys leightoni (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 55,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-UVI8FHrnLw",
+      "title": "Sturisomatichtys leightoni Tag 7 nach Aufbrauchen des Dottersacks",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6lft1yVMFOo",
+      "title": "sturisomatichthys leightoni  juveniles",
+      "durationSec": 134,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0MHC33DdVvs",
+      "title": "Sturisomatichthys sp. Colombia",
+      "durationSec": 98,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -109,5 +190,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-10"
 }

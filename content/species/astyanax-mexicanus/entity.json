@@ -782,7 +782,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -791,7 +791,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-mexicanus",
-      "html": "<ul><li>Max size: 95 mm SL (3.7 in)</li><li>Aquarium size: 80 × 30 cm (31 × 12 in)</li><li>Temperature: 20–25°C (68–77°F)</li><li>pH: 6.5–8.0</li><li>Hardness: 5–25 dGH</li><li>Difficulty: 5 of 8 (easy)</li></ul><p>The blind cave tetra, Astyanax mexicanus, is a characid found from Texas and New Mexico in the southern United States through Mexico into Guatemala. The eyeless, troglomorphic form lives only in underground caves in Mexico and is produced in huge numbers on Far Eastern farms, while the surface form is rarely seen in the hobby. The two may have diverged within the last 10,000 years, and the blind form finds its way with its lateral line.</p>"
+      "html": "<ul><li>Max size: 95 mm SL (3.7 in)</li><li>Aquarium size: 80 × 30 cm (31 × 12 in)</li><li>Temperature: 20–25°C (68–77°F)</li><li>pH: 6.5–8.0</li><li>Hardness: 5–25 dGH</li><li>Difficulty: 2 of 8 (easy)</li></ul><p>The blind cave tetra, Astyanax mexicanus, is a characid found from Texas and New Mexico in the southern United States through Mexico into Guatemala. The eyeless, troglomorphic form lives only in underground caves in Mexico and is produced in huge numbers on Far Eastern farms, while the surface form is rarely seen in the hobby. The two may have diverged within the last 10,000 years, and the blind form finds its way with its lateral line.</p>"
     },
     {
       "key": "distribution",
@@ -856,16 +856,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/af29feec4b25fa8a.webp",
-      "width": 960,
-      "height": 859,
-      "licence": "CC BY-SA 3.0",
-      "author": "User:Haplochromis",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astyanax_mexicanus.JPG",
-      "caption": "Astyanax mexicanus, normal Form and blind Cave-Form",
-      "thumb": "https://media.aquatome.com/commons/af29feec4b25fa8a-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/528d8e73e4cbf0de.webp",
       "width": 960,
       "height": 616,
@@ -873,7 +863,27 @@
       "author": "H. Zell",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astyanax_mexicanus_01.jpg",
       "caption": "Astyanax mexicanus, Characidae, Blind Cave Tetra; Staatliches Museum für Naturkunde Karlsruhe, Germany.",
-      "thumb": "https://media.aquatome.com/commons/528d8e73e4cbf0de-480.webp"
+      "thumb": "https://media.aquatome.com/commons/528d8e73e4cbf0de-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/528d8e73e4cbf0de-large.webp",
+        "width": 1869,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/af29feec4b25fa8a.webp",
+      "width": 960,
+      "height": 859,
+      "licence": "CC BY-SA 3.0",
+      "author": "User:Haplochromis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astyanax_mexicanus.JPG",
+      "caption": "Astyanax mexicanus, normal Form and blind Cave-Form",
+      "thumb": "https://media.aquatome.com/commons/af29feec4b25fa8a-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/af29feec4b25fa8a-large.webp",
+        "width": 1108,
+        "height": 992
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/45b717cab8081cac.webp",
@@ -883,17 +893,12 @@
       "author": "Syrio",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bosco_delle_fate_-_Astyanax_mexicanus_01.jpg",
       "caption": "A blind cave fish (Astyanax mexicanus) in the Fairy Wood of Butterfly Arc, Montegrotto Terme (Veneto, Italy)",
-      "thumb": "https://media.aquatome.com/commons/45b717cab8081cac-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/5daded6f6849c60d.webp",
-      "width": 960,
-      "height": 1280,
-      "licence": "CC BY 4.0",
-      "author": "Espinasa L, Collins E, Ornelas García CP, Rétaux S, Rohner N, Rutkowski J (2022)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astyanax_mexicanus_(10.3897-subtbiol.73.79318)_Figure_2.jpg",
-      "caption": "Figure 2. Eyeless Astyanax mexicanus Caballo Moro specimen used for aggression and territoriality studies A body B head. While the Caballo Moro cave is inhabited by both the eyed and the eyeless morph",
-      "thumb": "https://media.aquatome.com/commons/5daded6f6849c60d-480.webp"
+      "thumb": "https://media.aquatome.com/commons/45b717cab8081cac-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/45b717cab8081cac-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
@@ -901,8 +906,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá 72 lít"
+        "bể cá 80cm"
       ]
     },
     {

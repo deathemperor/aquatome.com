@@ -1,0 +1,63 @@
+{
+  "id": "niwaella-delicata",
+  "native": {
+    "input": "63e0f6c602878510",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears restricted to river drainages of central Honshu, Japan's largest island, where it's a prized food fish with the vernacular name 'Ajime dojo' translating as 'tasty loach'.",
+        "words": "Japan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Honshu",
+        "source": "seriouslyfish",
+        "quote": "Appears restricted to river drainages of central Honshu, Japan's largest island, where it's a prized food fish with the vernacular name 'Ajime dojo' translating as 'tasty loach'.",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Kiso River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Agi River, branch stream of Kiso River, central Japan'.",
+        "country": "JP",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Niwaella delicata",
+    "status": "ACCEPTED",
+    "taxonKey": 2368107,
+    "datasets": [
+      [
+        "869e4288-f762-11e1-a439-00145eb45e9a",
+        41
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "JP"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

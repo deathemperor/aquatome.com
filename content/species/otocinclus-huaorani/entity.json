@@ -10,10 +10,148 @@
     "ecuador",
     "napo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Río San Miguel",
+        "Rio Napo"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: tributary to Río San Miguel (kilometer 50, 4.5 kilometers south of Tipischca), about 0°10'N, 76°13'W, Río Amazonas/Napo basin, Napo, Ecuador.",
+          "countries": [
+            "EC"
+          ],
+          "regions": [
+            "Río San Miguel"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: western upper Amazon and Orinoco River basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Etymology: the specific name huaorani is named for the Huaorani indigenous people inhabiting the upper Rio Napo of Amazonian Ecuador, an area within the range of this species.",
+          "countries": [],
+          "regions": [
+            "Rio Napo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340476,
+      "total": 19,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CO",
+          11
+        ],
+        [
+          "PE",
+          4
+        ],
+        [
+          "EC",
+          3
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          0,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          -74.53125,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          5.625,
+          6,
+          0
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      },
+      {
+        "source": "scotcat",
         "value": {
           "min": 26,
           "max": 30
@@ -24,6 +162,19 @@
       {
         "source": "planetcatfish",
         "value": 3.2
+      },
+      {
+        "source": "scotcat",
+        "value": 3.5
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -35,10 +186,34 @@
       "html": "<ul><li><strong>Scientific name:</strong> Otocinclus huaorani Schaefer, 1997</li><li><strong>Common names:</strong> Ecuador Oto, Huarani Otocinclus</li><li><strong>Size:</strong> 32 mm (1.3\") SL</li><li><strong>Temperature:</strong> 26.0–30.0°C (78.8–86°F)</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2014)</li><li><strong>Etymology:</strong> Greek ous, oto = ear + Latin cinclus = latticework, in allusion to the holes of the head in the ears. The specific epithet is based on the Huaorani people who are native to the Upper Napo River area in Ecuador.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_huaorani.htm",
+      "html": "<p>Family: Loricariidae. Size: 3.5 cm. Temperature: 26-30°C. pH: 6.0-7.5. Usually imported as O. affinis or O. vittatus. The caudal fin design separates it from other Otocinclus species: the upper and lower caudal fin lobes have two rows of vertical semicircles. Some specimens have a small gap between the caudal spot and the band on the caudal peduncle.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1158",
       "html": "<p>South America: western upper Amazon and Orinoco River basins. Type locality: tributary to Río San Miguel (kilometer 50, 4.5 kilometers south of Tipischca), about 0°10'N, 76°13'W, Río Amazonas/Napo basin, Napo, Ecuador.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_huaorani.htm",
+      "html": "<p>South America: Western upper Amazon and Orinoco River basins. Type locality: tributary to Río San Miguel (km 50, 4.5 km S of Tipischca), ca. 0º10'N, 76º13'W, Río Amazonas/Napo drainage, Napo, Ecuador.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_huaorani.htm",
+      "html": "<p>This is a small group of Loricariids which do well in aquaria and will keep the algae down without harming the plants in the tank. Best kept in a group with more males for breeding purposes.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_huaorani.htm",
+      "html": "<p>Omnivore: algae, tablet foods, flake and small frozen foods.</p>"
     },
     {
       "key": "dimorphism",
@@ -53,10 +228,28 @@
       "html": "<p>Breeding: unreported.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_huaorani.htm",
+      "html": "<p>The females will lay eggs on the plants and tank glass after the females have been chased around the tank by the male. Like Corydoras they present a t-position breeding mode.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_huaorani.htm",
+      "html": "<p>Etymology: the specific name huaorani is named for the Huaorani indigenous people inhabiting the upper Rio Napo of Amazonian Ecuador, an area within the range of this species. The Huaorani were largely uncontacted until the mid-20th century, and are now best known for their attempts to resist encroachment and habitat destruction in the Yasuni National Park south of Coca by foreign national oil exploration activities, both through diplomatic means and by force.</p><p>IUCN Red List: the species is listed as Least Concern because it has a presumed wide range and the threats are localised but needs updating (IUCN 2016).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1158",
       "html": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 148, pp 74, Fig. 46.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_huaorani.htm",
+      "html": "<p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p><p>Velasquez, M., Chocano, L. &amp; Arguello, P. 2016. Otocinclus huaorani. The IUCN Red List of Threatened Species 2016.</p>"
     }
   ],
   "photos": [
@@ -120,5 +313,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-07"
 }

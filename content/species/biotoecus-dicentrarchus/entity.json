@@ -1,0 +1,126 @@
+{
+  "id": "biotoecus-dicentrarchus",
+  "scientificName": "Biotoecus dicentrarchus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Biotoecus",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "venezuela"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A rare dwarf cichlid from Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370393,
+      "total": 94,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "VE",
+          91
+        ],
+        [
+          "CO",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          5.625,
+          34,
+          33
+        ],
+        [
+          -67.5,
+          2.8125,
+          12,
+          12
+        ],
+        [
+          -67.5,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          5.625,
+          45,
+          43
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_dicentrarchus_en/",
+      "html": "<p>A rare dwarf cichlid from Venezuela. The male attains a maximum length of about 6 cm, the female about 4-5 cm. The fish are sandbottom dwellers.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_dicentrarchus_en/",
+      "html": "<p>For breeding the male builds a large sandhill where the pair is spawning.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá cichlid lùn"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

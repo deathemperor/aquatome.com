@@ -1,0 +1,72 @@
+{
+  "id": "apistogrammoides-pucallpaensis",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/e2042da7fcdf4342f55ebcb4b57883eb.webp",
+      "thumb": "https://media.aquatome.com/processed/e2042da7fcdf4342f55ebcb4b57883eb-480.webp",
+      "width": 850,
+      "height": 433,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogrammoides_pucallpaensis_en/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-apistogrammoides-pucallpaensis",
+        "pixelHash": "db90f0c1b0fe3237c705be09e38b9c016f986e75b769c4fddd6b52af52e61c37"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:44:54.955Z",
+          "originalHash": "2fa4faab29d3e2a900f0e853bc4cd319832778037cffa0ff9ac6d2ba6a5a5dad",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 567,
+            "window": {
+              "x0": 0,
+              "y0": 134,
+              "x1": 850,
+              "y1": 567
+            },
+            "subject": {
+              "x0": 85,
+              "y0": 150,
+              "x1": 802,
+              "y1": 521
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 18,
+              "y0": 16,
+              "x1": 824,
+              "y1": 128
+            }
+          ],
+          "checks": {
+            "species": [
+              "be5cfe50e7ece349ab7c3d041e412c0a32d1c3e8edf7221c751ffc0dd6aad295",
+              "541e62810bd8693552d76d96b9e285c1c509c79d42df5b3906e76eb7393bd57e"
+            ],
+            "ownership": [
+              "c89f2f87785317ea54621b9322221abd3905103742ffca04e3fa9343c30a9857",
+              "80c9bc56e1fcab61a0234d3bcd2d5efae5aea5997bc649b45dfff2192399bcd9"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/1ee6712ce772172a.webp",
+        "width": 850,
+        "height": 567,
+        "thumb": "https://media.aquatome.com/glaser/1ee6712ce772172a-480.webp"
+      }
+    }
+  ],
+  "seen": 1,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
+}

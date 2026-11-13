@@ -1,0 +1,312 @@
+{
+  "id": "bunocephalus-colombianus",
+  "scientificName": "Bunocephalus colombianus",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Bunocephalus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "magdalena"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Atrato",
+        "Magdalena",
+        "Cauca",
+        "San Jorge",
+        "Sinu",
+        "Patía"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Boca de Raspadura, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Atrato and Magdalena River basins, Colombia Caribbean Rivers.",
+          "countries": [],
+          "regions": [
+            "Atrato",
+            "Magdalena"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Atrato and Magdalena River basins, also Cauca, San Jorge, Sinu and Patía basins, Colombia.",
+          "countries": [],
+          "regions": [
+            "Cauca",
+            "San Jorge",
+            "Sinu",
+            "Patía"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340630,
+      "total": 76,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CO",
+          76
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          -77.34375,
+          5.625,
+          7,
+          7
+        ],
+        [
+          -77.34375,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          -75.9375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          7.03125,
+          18,
+          18
+        ],
+        [
+          -75.9375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          7.03125,
+          12,
+          12
+        ],
+        [
+          -74.53125,
+          8.4375,
+          16,
+          16
+        ],
+        [
+          -74.53125,
+          9.84375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 11.5
+      },
+      {
+        "source": "scotcat",
+        "value": 11.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1300",
+      "html": "<ul><li>Scientific name: Bunocephalus colombianus Eigenmann, 1912</li><li>Common name: Banjo Catfish</li><li>Type locality: Boca de Raspadura, Colombia.</li><li>Breeding: unreported.</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_colombianus.htm",
+      "html": "<ul><li>Common name: Banjo Cat</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1300",
+      "html": "<p>South America: Atrato and Magdalena River basins, Colombia Caribbean Rivers.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_colombianus.htm",
+      "html": "<p>South America: Atrato and Magdalena River basins, also Cauca, San Jorge, Sinu and Patía basins, Colombia. Type locality: Raspadura, Colombia.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_colombianus.htm",
+      "html": "<p>A sand substrate is best, where they can bury themselves for the best part of the daylight hours and only appear at night, when they can be seen scurrying across the bottom looking for food. They can propel themselves through the water by taking water into their mouths and then propelling it out of their gills, causing a burst of speed across the substrate.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_colombianus.htm",
+      "html": "<p>Adults, when settled in their tank, are not fussy feeders and can be fed a healthy diet of worm foods such as frozen bloodworm and tubifex, and also tablet food at lights out.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1300",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1300",
+      "html": "<p>Etymology: Bunocephalus comes from the Greek bounos, meaning hill, and kephale, meaning head, in reference to the bumps on the head of the fish, which is particularly marked in some species. IUCN Red List category: Data Deficient (last assessed 2014).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_colombianus.htm",
+      "html": "<p>The Banjo Cat is a rugged-looking individual with its lumps and bumps and cannot be classed as pretty in the sense of the word, but has a charm all of its own in the catfish world. Its head is very broad and flat with very small eyes, 3 pairs of barbels, with the maxillary barbels reaching to about a third of the length of the strong serrated pectoral spine.</p><p>Etymology: the genus name Bunocephalus: buno-, mound or knob; cephalus, head, referring to rounded cusps or bumps on the head. The specific name colombianus: from Colombia.</p><p>IUCN Red List: Bunocephalus colombianus is listed as Data Deficient as it is a cryptic species that is only very rarely caught. No information is therefore available on its population size or status, or the threats affecting it, but it needs updating (IUCN 2016).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1300",
+      "html": "<p>Indiana University Studies No. 16 [sic No. 8], pp 10.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_colombianus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Mesa-Salazar, L., Villa-Navarro, F. &amp; Sanchez-Duarte, P. 2016. Bunocephalus colombianus. The IUCN Red List of Threatened Species 2016.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/bd2dc8da2ed592e5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bd2dc8da2ed592e5-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_colombianus.htm",
+      "caption": "Bunocephalus colombianus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d627b88720875d44.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d627b88720875d44-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_colombianus.htm",
+      "caption": "Bunocephalus colombianus - head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "YWLoJxp8KJ4",
+      "title": "Cuidados del pez gato banjo (Bunocephalus coracoideus)",
+      "durationSec": 436,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZDwiNrpCLVo",
+      "title": "El pez banjo catalina (Bunocephalus coracoideus) Ficha Técnica",
+      "durationSec": 281,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá đáy",
+        "cát bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

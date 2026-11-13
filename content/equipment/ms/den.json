@@ -1,0 +1,85 @@
+{
+  "category": "den",
+  "name": "Lampu",
+  "lead": "Lampu membolehkan anda melihat ikan dan menumbuhkan tumbuhan. Ikan hanya perlukan cahaya lembut, manakala tumbuhan akuatik perlukan lampu spektrum penuh yang cukup kuat.",
+  "intro": "<p>Tangki yang hanya ada ikan perlukan lampu untuk melihat ikan dan mengekalkan kitaran siang-malam ikan, dan ia tidak perlu kuat. Banyak spesies dari hutan tebal seperti ikan loach, ikan betta dan rasbora suka cahaya lembut serta tempat teduh di bawah tumbuhan terapung.</p><p>Tangki aquascape pula berbeza: tumbuhan perlukan cahaya yang cukup untuk fotosintesis. Lampu lemah sudah cukup untuk lumut (moss), paku pakis dan anubias. Tumbuhan batang tegak berwarna merah dan tumbuhan karpet latar depan pula perlukan lampu kuat dan biasanya CO2 juga.</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/aquariumcoop/d852359c0db62ed5.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/d852359c0db62ed5-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/how-to-pick-the-best-planted-aquarium-light",
+    "caption": "How to Pick the Best Planted Aquarium Light - Aquarium Co-Op",
+    "source": "aquariumcoop"
+  },
+  "types": [
+    {
+      "id": "diu",
+      "name": "Lampu LED cahaya lembut",
+      "match": "dịu|yếu|mờ|thấp|betta|ban đêm|nano|nhỏ|mini",
+      "desc": "<p>Lampu LED padat dengan cahaya putih hangat atau putih neutral. Cukup untuk tangki ikan, lumut (moss), paku pakis, anubias dan tumbuhan mudah.</p>",
+      "pick": "Pilih lampu yang panjangnya kira-kira 80–100% daripada panjang tangki. Lampu yang ada butang pelaras kecerahan memang satu kelebihan besar.",
+      "buy": "đèn led bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/fa5062bbc62f8060.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/fa5062bbc62f8060-480.webp",
+        "width": 900,
+        "height": 600,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria",
+        "caption": "Our Favorite Easy & Low Light Plants: Cryptocoryne Lutea and Vallisneria - Aquarium Co-Op",
+        "source": "aquariumcoop"
+      }
+    },
+    {
+      "id": "thuy-sinh",
+      "name": "Lampu LED aquascape spektrum penuh",
+      "match": "thủy sinh|full spectrum|toàn phổ|6700k|mạnh|xanh đỏ|120cm|hồ",
+      "desc": "<p>Lampu berbilang saluran warna (putih, merah, biru) dengan cahaya kuat, biasanya ada pemasa dan kesan matahari terbit. Sesuai untuk tumbuhan batang tegak, tumbuhan berwarna merah dan tumbuhan karpet.</p>",
+      "pick": "Pilih suhu warna 6500–7000 K. Tangki yang lebih tinggi daripada 45 cm perlukan lampu yang lebih kuat kerana cahaya cepat menjadi lemah semakin dalam air.",
+      "buy": "đèn led thủy sinh",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/2f9698690d8f12aa.webp",
+        "thumb": "https://media.aquatome.com/commons/2f9698690d8f12aa-480.webp",
+        "width": 960,
+        "height": 666,
+        "licence": "CC BY-SA 3.0",
+        "author": "Lime Huang",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+        "caption": "water plant aquarium led light"
+      }
+    }
+  ],
+  "choose": [
+    "<p>Nyalakan lampu 6–8 jam sehari dan tetapkan waktunya dengan soket pemasa. Lebih daripada 10 jam sama seperti mengundang alga.</p>",
+    "<p>Tangki yang hanya ada ikan atau tumbuhan mudah: lampu lembut sudah cukup. Simpan wang untuk penapis yang baik.</p>",
+    "<p>Tangki aquascape: jika lampu ditambah kuat, baja cecair dan CO2 juga perlu ditambah. Jika tidak, alga akan merebak.</p>",
+    "<p>Ikan yang suka tempat teduh: tambah tumbuhan terapung untuk melembutkan cahaya, bukan dengan mengurangkan lampu.</p>"
+  ],
+  "mistakes": [
+    "<p>Meletakkan tangki di tepi tingkap yang terkena cahaya matahari terus: alga hijau akan menyelubungi kaca selepas beberapa minggu.</p>",
+    "<p>Menyalakan lampu kuat sejak hari pertama tangki aquascape baharu. Sebaiknya mulakan dengan 6 jam, kemudian tambah secara beransur-ansur.</p>",
+    "<p>Menyalakan lampu 24 jam sehari supaya ikan \"tidak bosan\": ikan juga perlukan gelap untuk berehat.</p>"
+  ],
+  "faq": [
+    {
+      "q": "Berapa jam sehari lampu akuarium perlu dinyalakan?",
+      "a": "<p>Kira-kira 6–8 jam. Jika tangki ada alga, kurangkan kepada 6 jam dan periksa jumlah baja.</p>"
+    },
+    {
+      "q": "Tumbuhan akuatik apakah yang boleh hidup dengan lampu lemah?",
+      "a": "<p>Java moss, java fern (paku pakis java), anubias, bucephalandra, vallisneria dan tumbuhan terapung.</p>"
+    },
+    {
+      "q": "Apakah kegunaan lampu merah pada waktu malam?",
+      "a": "<p>Lampu merah digunakan untuk melihat ikan yang aktif pada waktu malam seperti ikan catfish dan ikan loach tanpa banyak mengejutkan mereka. Ia tidak diperlukan untuk kesihatan ikan.</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.88,
+    "indexable": true
+  }
+}

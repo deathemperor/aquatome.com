@@ -39,19 +39,36 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(throws: (any Error).self) { try JSONDecoder().decode(HandbookIndex.self, from: Data(#"{"version":2,"lang":"vi","items":[]}"#.utf8)) }
 }
 
+/// The app sends its anonymous telemetry only once the site says it takes it: `telemetry: true`, nothing else.
+@Test func theSiteTakesTelemetryOnlyWhenItsIndexSaysTrue() throws {
+  func flag(_ field: String) throws -> Bool {
+    try JSONDecoder().decode(HandbookIndex.self, from: Data(#"{"version":1,"lang":"vi","items":[]\#(field)}"#.utf8)).telemetry
+  }
+  #expect(try flag(#","telemetry":true"#))
+  #expect(try !flag(""))
+  #expect(try !flag(#","telemetry":false"#))
+  #expect(try !flag(#","telemetry":"true""#))
+  #expect(try !flag(#","telemetry":1"#))
+  // The copy kept on the phone says the same.
+  let kept = try JSONDecoder().decode(HandbookIndex.self, from: JSONEncoder().encode(HandbookIndex(lang: "vi", items: [], telemetry: true)))
+  #expect(kept.telemetry)
+}
+
 @Test func readsAVideoSeriesAVideoGuidesLengthAndAToolsOwnWords() throws {
   let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
   {"version":1,"lang":"vi","items":[
    {"kind":"video","name":"Rêu hại từ A đến Z","sub":"MJ Aquascaping","path":"/vi/video/reu-hai-tu-a-den-z/","img":"https://i.ytimg.com/vi/x/hqdefault.jpg","parts":14},
    {"kind":"guide","name":"Cách hạn chế rêu hại","path":"/vi/huong-dan/cach-han-che-reu-hai/","section":"plantCare","video":1755},
-   {"kind":"tool","name":"Bể bao nhiêu lít?","path":"/vi/cong-cu/the-tich-be/","words":["Tính thể tích bể cá: lít, gallon, độ dày kính"]},
-   {"kind":"tool","name":"Công cụ","path":"/vi/cong-cu/","words":"not a list","video":"long","parts":-0.5}
+   {"kind":"tool","name":"Bể bao nhiêu lít?","path":"/vi/cong-cu/the-tich-be/","words":["Tính thể tích bể cá: lít, gallon, độ dày kính"],"short":"Thể tích bể"},
+   {"kind":"tool","name":"Công cụ","path":"/vi/cong-cu/","words":"not a list","video":"long","parts":-0.5,"short":7}
   ]}
   """#.utf8))
   #expect(ix.items.map(\.kind) == [.video, .guide, .tool, .tool])
   #expect(ix.items[0].sub == "MJ Aquascaping" && ix.items[0].parts == 14 && ix.items[0].video == nil)
   #expect(ix.items[1].video == 1755 && ix.items[1].words.isEmpty)
   #expect(ix.items[2].words == ["Tính thể tích bể cá: lít, gallon, độ dày kính"])
+  // Its short name, as Tìm's tiles say it; one this app can't read is left out, not the tool.
+  #expect(ix.items[2].short == "Thể tích bể" && ix.items[3].short == nil && ix.items[1].short == nil)
   // A value this app can't read is left out, never the item.
   #expect(ix.items[3].words.isEmpty && ix.items[3].video == nil && ix.items[3].parts == nil)
   #expect(try JSONDecoder().decode(HandbookIndex.self, from: JSONEncoder().encode(ix)) == ix, "kept on the phone and read back the same")
@@ -167,6 +184,27 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(route("about:blank", newWindow: true) == .none)
 }
 
+// The site's pages about itself open in the browser, not the app's web view (the owner's call): about, with its data
+// table, contact and privacy, in each language, the Vietnamese under "/vi/" or at the root.
+@Test func theSitesPagesAboutItselfOpenInTheBrowser() {
+  let site = URL(string: "https://aquatome.com")!
+  func route(_ s: String) -> PageRoute { PageRoute.of(URL(string: s)!, site: site, mainFrame: true, newWindow: false) }
+  for s in ["https://aquatome.com/vi/gioi-thieu/", "https://aquatome.com/vi/gioi-thieu/bang-du-lieu/",
+            "https://aquatome.com/vi/lien-he/", "https://www.aquatome.com/vi/chinh-sach-bao-mat/#tai-khoan",
+            "https://aquatome.com/lien-he/", "https://aquatome.com/gioi-thieu",
+            "https://aquatome.com/id/tentang/", "https://aquatome.com/id/tentang/tabel-data/", "https://aquatome.com/id/kontak/",
+            "https://aquatome.com/id/kebijakan-privasi/#tai-khoan", "https://aquatome.com/th/about/",
+            "https://aquatome.com/th/about/data-table/", "https://aquatome.com/th/contact/", "https://aquatome.com/th/privacy/"] {
+    #expect(route(s) == .outside, "\(s)")
+  }
+  // The handbook stays: the home page, a page whose slug starts as one does, one language's words in another's.
+  for s in ["https://aquatome.com/vi/", "https://aquatome.com/", "https://aquatome.com/vi/huong-dan/lien-he-nguon-nuoc/",
+            "https://aquatome.com/vi/gioi-thieu-ca-canh/", "https://aquatome.com/vi/about/", "https://aquatome.com/id/contact/",
+            "https://aquatome.com/about/"] {
+    #expect(route(s) == .app, "\(s)")
+  }
+}
+
 @Test func shopLinksAreTheSitesGoPaths() {
   let site = URL(string: "https://aquatome.com/vi/ca/ca-neon/")!
   #expect(ShopLink.is(URL(string: "https://aquatome.com/go/shopee/?k=ca-neon")!, site: site))
@@ -174,6 +212,16 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(!ShopLink.is(URL(string: "https://aquatome.com/gone/")!, site: site))
   #expect(!ShopLink.is(URL(string: "https://aquatome.com/vi/go/")!, site: site))
   #expect(!ShopLink.is(URL(string: "https://shopee.vn/go/x")!, site: site))
+}
+
+@Test("Our copies' links to the site's pages in the browser carry the mark; other sites' don't")
+func siteLinksForTheBrowserAreMarked() {
+  let site = URL(string: "https://aquatome.com")!
+  func marked(_ s: String) -> String { SiteMark.marked(URL(string: s)!, site: site).absoluteString }
+  #expect(marked("https://aquatome.com/gioi-thieu/") == "https://aquatome.com/gioi-thieu/?aqcheck=1")
+  #expect(marked("https://www.aquatome.com/vi/ca/ca-neon/?tab=2#nuoc") == "https://www.aquatome.com/vi/ca/ca-neon/?tab=2&aqcheck=1#nuoc")
+  #expect(marked("https://platform.tuya.com") == "https://platform.tuya.com")
+  #expect(marked("mailto:hi@example.com") == "mailto:hi@example.com")
 }
 
 // Our copies' taps: the site's redirect is read, not followed, under the mark it leaves out of its click counts.
@@ -331,4 +379,56 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   // Five at most, unless asked otherwise.
   let many = (1...7).map { g("Neon \($0)", "care", ["neon"]) }
   #expect(HandbookIndex.guides(about: ["neon"], in: many).map(\.name) == ["Neon 1", "Neon 2", "Neon 3", "Neon 4", "Neon 5"])
+}
+
+// A kind of kit as the site's index lists it: read, on its shelf, found by its name, its page drawn by the app.
+@Test func aKindOfKitIsReadShelvedAndFound() throws {
+  let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
+  {"version":1,"lang":"vi","items":[{"kind":"equipment","name":"Lọc","path":"/vi/thiet-bi/loc/","img":"https://media.aquatome.com/a/loc-480.webp"}],
+   "shards":{"equipment":{"n":1,"level":2}}}
+  """#.utf8))
+  #expect(ix.items.map(\.kind) == [.equipment])
+  #expect(ix.pages == ["equipment": 1])
+  #expect(HandbookShelves(ix).all(.equipment).map(\.name) == ["Lọc"])
+  #expect(HandbookSearch(ix.items).find("loc", limit: 5).map(\.path) == ["/vi/thiet-bi/loc/"])
+}
+
+@Test func theEditorsCalendarReadsDayByDay() throws {
+  let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
+  {"version":1,"lang":"vi","items":[
+   {"kind":"fish","name":"Cá neon","path":"/vi/ca/neon/"},
+   {"kind":"guide","name":"Nuôi cá neon","path":"/vi/huong-dan/neon/"},
+   {"kind":"guide","name":"Rêu hại","path":"/vi/huong-dan/reu/"}
+  ],
+  "home":{"fish":["/vi/ca/neon/"],"days":[
+   {"date":"2026-11-13","fish":"/vi/ca/neon/","img":"https://x/neon-large.webp","guide":"/vi/huong-dan/neon/","later":1,
+    "story":{"path":"/vi/huong-dan/reu/","eyebrow":"Cho người mới","title":"Hết rêu","dek":7}},
+   {"date":"2026-11-14","guide":"/vi/huong-dan/reu/","guideImg":"https://x/reu.webp"},
+   {"fish":"/vi/ca/neon/"},
+   {"date":"2026-11-15","fish":"/vi/ca/gone/","img":"https://x/gone.webp","story":{"title":"no path"}},
+   "a day from a newer site"
+  ]}}
+  """#.utf8))
+  // A day this app can't read (no date, not a day) is left out, not the rest; a field it can't read, only that field.
+  #expect(ix.home?.days.map(\.date) == ["2026-11-13", "2026-11-14", "2026-11-15"])
+  #expect(ix.home?.days[0] == .init(date: "2026-11-13", fish: "/vi/ca/neon/", img: "https://x/neon-large.webp", guide: "/vi/huong-dan/neon/",
+                                    story: .init(path: "/vi/huong-dan/reu/", eyebrow: "Cho người mới", title: "Hết rêu")))
+  #expect(ix.home?.days[2].story == nil && ix.home?.fish == ["/vi/ca/neon/"])
+  #expect(try JSONDecoder().decode(HandbookIndex.self, from: JSONEncoder().encode(ix)) == ix)
+
+  let plan = HandbookShelves(ix).plan
+  #expect(plan["2026-11-13"]?.fish?.name == "Cá neon" && plan["2026-11-13"]?.img == "https://x/neon-large.webp")
+  #expect(plan["2026-11-13"]?.story?.name == "Rêu hại" && plan["2026-11-13"]?.words?.title == "Hết rêu" && plan["2026-11-13"]?.guideImg == nil)
+  // A day without a fish has none; a date not listed is the app's own.
+  #expect(plan["2026-11-14"]?.fish == nil && plan["2026-11-14"]?.guide?.name == "Rêu hại" && plan["2026-11-14"]?.guideImg == "https://x/reu.webp")
+  #expect(plan["2026-11-16"] == nil)
+  // A page the index doesn't list leaves its slot empty, with its photo.
+  #expect(plan["2026-11-15"] != nil && plan["2026-11-15"]?.fish == nil && plan["2026-11-15"]?.img == nil)
+}
+
+@Test func aDaysKeyIsTheGregorianDateOnTheReadersClock() {
+  // 13 Nov 2026, 23:30 in Hà Nội is still the 13th there, and already the 14th in Tokyo.
+  let late = Date(timeIntervalSince1970: 1_794_587_400)
+  #expect(HandbookIndex.Home.Day.key(late, in: TimeZone(identifier: "Asia/Ho_Chi_Minh")!) == "2026-11-13")
+  #expect(HandbookIndex.Home.Day.key(late, in: TimeZone(identifier: "Asia/Tokyo")!) == "2026-11-14")
 }

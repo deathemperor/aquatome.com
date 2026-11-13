@@ -10,6 +10,83 @@
     "brazil",
     "amapa"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "rio Preto",
+        "rio Maraca"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from a small area within the rio Preto and rio Maraca drainages in Amapá state, northeastern Brazil.",
+          "countries": [],
+          "regions": [
+            "rio Preto",
+            "rio Maraca"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354578,
+      "total": 18,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -52.03125,
+          0,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -57,7 +134,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 2
       }
     ]
   },
@@ -155,17 +232,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/d983d0f1fe65e08a.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/d983d0f1fe65e08a-480.webp",
-      "width": 800,
-      "height": 534,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amapaensis",
-      "caption": "Mature specimen with the lower (black) lateral stripe reduced to a horizontally-orientated humeral spot.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/724df160a6123ec0.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/724df160a6123ec0-480.webp",
       "width": 638,
@@ -175,6 +241,17 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amapaensis",
       "caption": "This species is similar to H. heterohabdus but only the red lateral strip tends to extend to the caudal peduncle.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d983d0f1fe65e08a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d983d0f1fe65e08a-480.webp",
+      "width": 800,
+      "height": 534,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amapaensis",
+      "caption": "Mature specimen with the lower (black) lateral stripe reduced to a horizontally-orientated humeral spot.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -182,8 +259,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá cộng đồng"
+        "bể cá 60cm"
       ]
     },
     {

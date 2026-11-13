@@ -8,7 +8,7 @@
   "mentions": [
     "scleropages-formosus"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "-Rj-jBl65Mc",
     "title": "ARE STINGRAYS DANGEROUS TO KEEP IN THE AQUARIUM?",
@@ -28,12 +28,25 @@
     },
     "transcribed": true,
     "taxa": [
+      "Potamotrygon sp.",
       "Scleropages formosus"
     ],
     "gear": [
       {
+        "category": "loc",
+        "type": "tao-dong",
+        "brand": "EcoTech Marine",
+        "t": 0
+      },
+      {
+        "category": "den",
+        "brand": "EcoTech Marine",
+        "t": 0
+      },
+      {
         "category": "be-ca",
         "type": "lon",
+        "brand": "Custom Aquariums",
         "t": 0
       },
       {
@@ -44,78 +57,105 @@
     ],
     "figures": [
       {
-        "heading": "Gai cá đuối được cấu tạo thế nào",
-        "moments": [],
+        "heading": "Gai của cá đuối là gì",
+        "moments": [
+          {
+            "t": 100,
+            "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/at100-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chiếc gai cá đuối dài, mảnh, đặt trên mặt bàn.",
+            "sharpness": 66.9,
+            "person": false
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/p0-MTIzMzYzMikuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/-Rj-jBl65Mc/p0-MTIzMzYzMikuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/p0-My4zNzktMSkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/-Rj-jBl65Mc/p0-My4zNzktMSkuanBn-480.webp",
           "width": 960,
-          "height": 506,
-          "licence": "Public domain",
-          "author": "National Marine Sanctuaries",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:FKNMS_-_ray_(31361233632).jpg",
-          "caption": "Cá đuối nằm trên cát đáy, đuôi dài với gai sau thân hiện rõ."
+          "height": 640,
+          "licence": "CC BY 4.0",
+          "author": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barb,_worked_(AM_1933.379-1).jpg",
+          "caption": "Gai cá đuối với các răng cưa nhỏ dọc hai bên, chụp trên nền trắng."
         }
       },
       {
-        "heading": "Cá đuối dùng gai để tự vệ, không để tấn công",
-        "moments": [],
+        "heading": "Nọc độc nằm ở đâu",
+        "moments": [
+          {
+            "t": 205,
+            "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/at205-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh gai cá đuối với hàng răng cưa dọc hai bên.",
+            "sharpness": 23.2,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Gai để tự vệ, không phải để tấn công",
+        "moments": [
+          {
+            "t": 245,
+            "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/at245-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai con đuối đốm nằm trên nền cát trong bể, thấy rõ phần lưng và đuôi.",
+            "sharpness": 517.1,
+            "person": false
+          },
+          {
+            "t": 280,
+            "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/at280-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Một con đuối biển bơi sát đáy cát dưới nước.",
+            "sharpness": 2.9
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/p1-4NjgyMTIyKS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/-Rj-jBl65Mc/p1-4NjgyMTIyKS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/p2-LF9NZXhpY28uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/-Rj-jBl65Mc/p2-LF9NZXhpY28uanBn-480.webp",
           "width": 960,
-          "height": 636,
-          "licence": "CC BY 2.0",
-          "author": "shankar s. from Dubai, United Arab Emirates",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_American_Freshwater_Stingray-_that%27s_the_one_at_the_far_end_(27798682122).jpg",
-          "caption": "Cá đuối nhìn từ phía trên, đuôi dài mang gai hướng lên trên."
+          "height": 611,
+          "licence": "CC BY-SA 4.0",
+          "author": "Matthew T Rader",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stingray_(Myliobatoidei)_in_Cozumel,_Mexico.jpg",
+          "caption": "Một con đuối đang bơi trên nền cát, đuôi dài có gai ở phía trên."
         }
       },
       {
         "heading": "Bị đâm vào tay thì sao",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/p2-Mzc3Mzk0MSkuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/-Rj-jBl65Mc/p2-Mzc3Mzk0MSkuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/p3-LF9NZXhpY28uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/-Rj-jBl65Mc/p3-LF9NZXhpY28uanBn-480.webp",
           "width": 960,
-          "height": 640,
-          "licence": "CC BY 2.0",
-          "author": "Cliff from Arlington, Virginia, USA",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Southern_Stingrays_(Dasyatis_americana)_(2863773941).jpg",
-          "caption": "Cá đuối nằm trên nền cát, gai độc ở đuôi nhìn thấy rõ."
+          "height": 611,
+          "licence": "CC BY-SA 4.0",
+          "author": "Matthew T Rader",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stingray_(Myliobatoidei)_in_Cozumel,_Mexico.jpg",
+          "caption": "Một con đuối đang bơi trên nền cát, gai độc nằm ở phần đuôi."
         }
       },
       {
-        "heading": "Cá đuối đâm nhau hoặc đâm cá khác trong bể",
-        "moments": [
-          {
-            "t": 412,
-            "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/t412.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hai con cá đuối đốm trắng nằm gần nhau dưới đáy bể cát."
-          },
-          {
-            "t": 417,
-            "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/t417.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh đuôi và gai của cá đuối đốm khi hai con ở sát nhau."
-          }
-        ],
+        "heading": "Đuối đâm đuối, đuối đâm cá khác",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/p3-lNR183MTQ3LmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/-Rj-jBl65Mc/p3-lNR183MTQ3LmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/p4-4NjgyMTIyKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/-Rj-jBl65Mc/p4-4NjgyMTIyKS5qcGc-480.webp",
           "width": 960,
-          "height": 760,
-          "licence": "CC0",
-          "author": "Macdon",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stingray_IMG_7147.jpg",
-          "caption": "Cá đuối đang nằm trên nền cát, đuôi dựng lên để lộ gai độc."
+          "height": 636,
+          "licence": "CC BY 2.0",
+          "author": "shankar s. from Dubai, United Arab Emirates",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_American_Freshwater_Stingray-_that%27s_the_one_at_the_far_end_(27798682122).jpg",
+          "caption": "Hai loài đuối nước ngọt nằm trên nền cát trong bể, đuôi mang gai độc."
         }
       },
       {
-        "heading": "Ba việc giúp không bị đâm",
+        "heading": "Những cách không nên làm với gai",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/p5-My4zNzktMSkuanBn.webp",
@@ -125,36 +165,73 @@
           "licence": "CC BY 4.0",
           "author": "Wikimedia Commons",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barb,_worked_(AM_1933.379-1).jpg",
-          "caption": "Gai cá đuối đã luộc sạch, chà sạch lớp da, giữ làm kỷ niệm."
+          "caption": "Gai cá đuối đã rụng, có thể thấy rõ các răng cưa dọc hai bên."
         }
       },
       {
-        "heading": "Bể cần cao bao nhiêu",
+        "heading": "Làm sao để không bị đâm",
         "moments": [
           {
-            "t": 15,
-            "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/t15.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thấp và dài có lũa, cây thủy sinh và cá tầng trên."
+            "t": 655,
+            "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/at655-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá đuối đốm trắng nằm trên nền cát trong bể.",
+            "sharpness": 261.3,
+            "person": false
           },
           {
-            "t": 710,
-            "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/t710.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hai con đuối chấm trắng nằm trên nền cát cạnh lũa trong bể thấp."
+            "t": 670,
+            "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/at670-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá đuối nằm gần lũa trong bể cùng các loài cá khác.",
+            "sharpness": 133.4,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/p6-fUmV1bmlvbi5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/-Rj-jBl65Mc/p6-fUmV1bmlvbi5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/p6-My4zNzktMSkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/-Rj-jBl65Mc/p6-My4zNzktMSkuanBn-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Coughdrop12",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_Round_Reunion.jpg",
-          "caption": "Bể nước nông đáy cát rộng, nhiều con đuối nằm và bơi thoải mái."
+          "height": 640,
+          "licence": "CC BY 4.0",
+          "author": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barb,_worked_(AM_1933.379-1).jpg",
+          "caption": "Gai đuôi cá đuối đã khô, sạch, thấy rõ các răng cưa dọc hai bên."
+        }
+      },
+      {
+        "heading": "Bể cao bao nhiêu thì vừa",
+        "moments": [
+          {
+            "t": 715,
+            "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/at715-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai con cá đuối chấm trắng bơi trên nền cát, cạnh lũa trong bể.",
+            "sharpness": 415.8,
+            "person": false
+          },
+          {
+            "t": 725,
+            "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/at725-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể nuôi đuối có lũa lớn, cây thủy sinh và cá tầng trên.",
+            "sharpness": 243.1,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/p7-4NjgyMTIyKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/-Rj-jBl65Mc/p7-4NjgyMTIyKS5qcGc-480.webp",
+          "width": 960,
+          "height": 636,
+          "licence": "CC BY 2.0",
+          "author": "shankar s. from Dubai, United Arab Emirates",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_American_Freshwater_Stingray-_that%27s_the_one_at_the_far_end_(27798682122).jpg",
+          "caption": "Đuối nuôi trong bể kính nền cát, nằm sát đáy bể."
         }
       }
     ]

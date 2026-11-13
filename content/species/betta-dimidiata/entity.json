@@ -11,6 +11,82 @@
     "kalimantan",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Danau Sentarum",
+        "Borneo",
+        "Kalimantan"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Native to Kalimantan, Borneo (Indonesia).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kalimantan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Seriang is a tributary in the Kapuas River system, Kalimantan Barat (West Kalimantan) province, Borneo, Indonesia and the species appears to be endemic to the upper portion of the Kapuas drainage including the Danau Sentarum lakes region.",
+          "countries": [],
+          "regions": [
+            "Kapuas",
+            "Danau Sentarum",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394003,
+      "total": 8,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          0,
+          3,
+          3
+        ],
+        [
+          112.5,
+          0,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -61,7 +137,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ],
     "gh": [
@@ -99,12 +175,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-dimidiata",
       "html": "<p>Betta dimidiata is a small mouthbrooding labyrinth fish that appears endemic to the upper Kapuas drainage in West Kalimantan, Indonesian Borneo. It is often confused in the trade with B. krataios, formerly B. sp. 'Kapuas', but the caudal fin separates them: rounded in B. krataios, spade-shaped and more extended in adult B. dimidiata. It inhabits shaded forest swamp streams and pools, some only a few centimetres deep.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-dimidiata-wild-type-bettas",
-      "html": "<p>These fish are wild-caught; please proceed with caution. Be sure to have the habitat ready before purchase. Only aquarists with solid experience maintaining peat-swamp blackwater species should attempt to keep it.</p>"
     },
     {
       "key": "distribution",
@@ -233,8 +303,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 20 lít",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {

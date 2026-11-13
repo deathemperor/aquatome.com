@@ -17,6 +17,170 @@
     "orinoco",
     "trinidad-and-tobago"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR",
+        "GF",
+        "GY",
+        "VE"
+      ],
+      "regions": [
+        "Maroni",
+        "Orinoco",
+        "Trinidad"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "C. maronii is considered an endemic of the Maroni. This river is the border between Suriname and French Guiana and runs about 170 km west of Kourou.",
+          "countries": [
+            "SR",
+            "GF"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The keyhole cichlid, Cleithracara maronii, is a small cichlid from French Guiana, Guyana, Suriname, the Orinoco delta in Venezuela and Trinidad.",
+          "countries": [
+            "GY",
+            "VE"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "C. maronii is considered an endemic of the Maroni.",
+          "countries": [],
+          "regions": [
+            "Maroni"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Maroni in French Guiana and occurs in most river drainages of the country as well as Guyana, Suriname, the Orinoco delta region in Venezuela and island of Trinidad, though in the latter it may not have been recorded since the 1960s.",
+          "countries": [],
+          "regions": [
+            "Trinidad"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373115,
+      "total": 213,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "GF",
+          169
+        ],
+        [
+          "SR",
+          22
+        ],
+        [
+          "GY",
+          20
+        ],
+        [
+          "TT",
+          1
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          5.625,
+          16,
+          16
+        ],
+        [
+          -57.65625,
+          4.21875,
+          12,
+          12
+        ],
+        [
+          -56.25,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          -54.84375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          -53.4375,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -53.4375,
+          4.21875,
+          149,
+          149
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -200,8 +364,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá cichlid"
+        "bể cá 90cm"
       ]
     },
     {

@@ -16,6 +16,153 @@
     "brazil",
     "jurua"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "EC",
+        "BO",
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Yavarí",
+        "Juruá",
+        "Napo",
+        "Río Manuripi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The leopard cory, Brochis leopardus, long known as Corydoras leopardus, is a spotted armoured catfish from the western Amazon basin in Peru, Ecuador, Bolivia and Brazil.",
+          "countries": [
+            "PE",
+            "EC",
+            "BO",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Found in the western Amazon basin.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's listed from Loreto in Peru, from Ecuador and from Bolivia, and museum specimens come from the Yavarí and Juruá drainages in Brazil, the Napo drainage in Ecuador and the Río Manuripi in Pando, Bolivia.",
+          "countries": [],
+          "regions": [
+            "Yavarí",
+            "Juruá",
+            "Napo",
+            "Río Manuripi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342639,
+      "total": 29,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BO",
+          16
+        ],
+        [
+          "BR",
+          6
+        ],
+        [
+          "PE",
+          4
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          0,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          -11.25,
+          14,
+          14
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -59,7 +206,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -137,8 +284,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể thủy sinh 60x38"
+        "bể cá 60cm"
       ]
     },
     {

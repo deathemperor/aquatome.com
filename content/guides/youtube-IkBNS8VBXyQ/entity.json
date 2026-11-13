@@ -1,0 +1,136 @@
+{
+  "id": "youtube-IkBNS8VBXyQ",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=IkBNS8VBXyQ",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "microsorum-pteropus",
+    "lysimachia-nummularia"
+  ],
+  "updatedAt": "2026-11-11",
+  "video": {
+    "youtubeId": "IkBNS8VBXyQ",
+    "title": "I Transformed My BIGGEST Aquarium Into a JUNGLE! |EP22| Warehouse To Fish Studio",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 2875,
+    "publishedAt": "2026-11-10",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvIM5TufKaTkbfXyaw3dd8K",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/IkBNS8VBXyQ/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Microsorum pteropus",
+      "Ludwigia glandularis",
+      "Epipremnum aureum",
+      "Lysimachia nummularia"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Fluval",
+        "model": "FX6",
+        "t": 10
+      },
+      {
+        "category": "co2",
+        "type": "mini",
+        "t": 625
+      },
+      {
+        "category": "khac",
+        "brand": "Purigen",
+        "t": 990
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Chihiros",
+        "t": 2220
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "ADA",
+        "t": 2000
+      },
+      {
+        "category": "loc",
+        "type": "tao-dong",
+        "t": 2290
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 1180
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Chạy lọc thùng lần đầu thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/IkBNS8VBXyQ/p0-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/IkBNS8VBXyQ/p0-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng Fluval FX6 đặt trong tủ bể, ống nối với van đỏ và xô nước."
+        }
+      },
+      {
+        "heading": "Lắp ngược ống vào, ống ra thì sửa ra sao",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/IkBNS8VBXyQ/p1-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/IkBNS8VBXyQ/p1-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Thùng lọc ngoài đã tháo ống, xả nước vào xô khi sửa ống vào ống ra."
+        }
+      },
+      {
+        "heading": "Vì sao bể sủi nhiều bọt khi mới đổ nước",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/IkBNS8VBXyQ/p2-fc3VyZmFjZS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/IkBNS8VBXyQ/p2-fc3VyZmFjZS5qcGc-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "PattayaPatrol",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:DSCF0819_Close-up_of_bubbling_oxygenated_water_with_submerged_aquatic_plants_and_roots_just_beneath_the_surface.jpg",
+          "caption": "Bọt khí sủi đầy trên mặt nước và bám quanh cây thủy sinh mới đổ nước."
+        }
+      },
+      {
+        "heading": "Thêm lọc trong để làm trong nước và tạo dòng",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/IkBNS8VBXyQ/p6-LmZpbHRlcjEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/IkBNS8VBXyQ/p6-LmZpbHRlcjEuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suisaku.space.power.fit.internal.aqualium.filter1.jpg",
+          "caption": "Lọc trong màu đen có ngăn bông lọc, kèm ống nhựa và phụ kiện."
+        }
+      }
+    ]
+  }
+}

@@ -337,7 +337,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       },
       {
         "source": "sprucepets",
@@ -370,7 +370,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-lalius",
-      "html": "<p>The dwarf gourami, Trichogaster lalius, is a labyrinth fish from Pakistan, northern India and Bangladesh. All the fish in the trade are mass-produced, and several line-bred colour forms are sold, including 'Sunset' and 'Neon'. Stock quality has fallen badly, and mass-breeding may have spread dwarf gourami iridovirus (DGIV), which appears to be very infectious and can pass to other species sharing the water.</p><ul><li>Max size: 88 mm SL (3.5 in)</li><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–18 dGH</li><li>Difficulty: 5 of 8 (easy)</li></ul>"
+      "html": "<p>The dwarf gourami, Trichogaster lalius, is a labyrinth fish from Pakistan, northern India and Bangladesh. All the fish in the trade are mass-produced, and several line-bred colour forms are sold, including 'Sunset' and 'Neon'. Stock quality has fallen badly, and mass-breeding may have spread dwarf gourami iridovirus (DGIV), which appears to be very infectious and can pass to other species sharing the water.</p><ul><li>Max size: 88 mm SL (3.5 in)</li><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–18 dGH</li><li>Difficulty: 2 of 8 (easy)</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -460,7 +460,8 @@
       "key": "waterConditions",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/dwarf-gourami-detailed-guide-care-diet-and-breeding/",
-      "html": "<p>Temperature: 20–26°C. They can tolerate slightly cooler water if acclimated very slowly. In a 90-day experiment at 20, 25, 30 and 35°C, the optimal temperature for growth and weight gain was 25°C. Survival was higher at 20°C and 25°C (only 1% mortality), whereas at 28°C mortality was already 10%. The temperature lethal to 50% of the population was 39°C. Temperatures outside the optimal range significantly affect growth and development.</p><p>pH: in a study, the best growth, survival and culture conditions were seen at pH 7.0. The lethal concentration (50% mortality) was at pH 5.71 and 8.22. Below pH 6.5 or above 7.3, the fish risk skin problems and infections that can be hard to treat, and become more susceptible to oodiniosis (velvet disease). The recommended aquarium range is pH 6.5–7.5.</p><p>Hardness: medium to slightly hard water; anything in the range of 4–12 GH is acceptable.</p><p>Salinity: poorly tolerated. Experiments showed they can be safely exposed to up to 4 g/L without mortality, while 5.81 g/L was the maximum lethal salinity.</p><p>Nitrate: less than 60.</p>"
+      "html": "<p>Temperature: 20–26°C. They can tolerate slightly cooler water if acclimated very slowly. In a 90-day experiment at 20, 25, 30 and 35°C, the optimal temperature for growth and weight gain was 25°C. Survival was higher at 20°C and 25°C (only 1% mortality), whereas at 28°C mortality was already 10%. Temperatures outside the optimal range significantly affect growth and development.</p><p>pH: in a study, the best growth, survival and culture conditions were seen at pH 7.0. Below pH 6.5 or above 7.3, the fish risk skin problems and infections that can be hard to treat, and become more susceptible to oodiniosis (velvet disease). The recommended aquarium range is pH 6.5–7.5.</p><p>Hardness: medium to slightly hard water; anything in the range of 4–12 GH is acceptable.</p><p>Salinity: poorly tolerated. Experiments showed they can be safely exposed to up to 4 g/L without mortality, while 5.81 g/L was the maximum lethal salinity.</p><p>Nitrate: less than 60.</p>",
+      "fixed": true
     },
     {
       "key": "equipment",
@@ -618,8 +619,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá thủy sinh 56 lít"
+        "bể cá 60cm"
       ]
     },
     {

@@ -4,20 +4,30 @@
   "altNames": [
     "Cá L14",
     "Cá lau kính L14",
-    "Golden Nugget Pleco"
+    "Golden Nugget Pleco",
+    "Cá tỳ bà vàng",
+    "Goldie Pleco",
+    "Sunshine Pleco"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Một con Scobiancistrus aureatus đực dài khoảng 30 cm có thể đã đạt kích thước tối đa. Điểm đáng chú ý ở loài này là những chiếc gai khỏe trên nắp mang (gai odontode ở xương gian nắp mang) và trên vây ngực.</p>",
     "distribution:glaser": "<p>Brazil, sông Xingu.</p>",
     "waterConditions:glaser": "<p>Cũng như phần lớn cá L từ sông Xingu, loài này thích nước ấm. Bạn đừng để nhiệt độ nước xuống dưới 26°C trong thời gian dài.</p>",
-    "reproduction:glaser": "<p>Đến nay chưa thấy ghi nhận nào về việc cho loài này sinh sản thành công. Muốn cá đẻ thì chắc chắn phải nâng nhiệt độ lên cao hơn. Phần lớn cá L từ Xingu được cho đẻ ở nhiệt độ từ 28°C đến 30°C.</p>"
+    "reproduction:glaser": "<p>Đến nay chưa thấy ghi nhận nào về việc cho loài này sinh sản thành công. Muốn cá đẻ thì chắc chắn phải nâng nhiệt độ lên cao hơn. Phần lớn cá L từ Xingu được cho đẻ ở nhiệt độ từ 28°C đến 30°C.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên gọi khác: Goldie Pleco, Sunshine Pleco, L014</li></ul><p>Nguồn gốc tên: tên loài aureatus nghĩa là vàng óng, lấy từ màu vàng trên vây cá.</p>",
+    "distribution:scotcat": "<p>Brazil, cụ thể là sông Xingu và bang Pará. Nơi thu mẫu chuẩn là Ilha da Fazenda.</p><p>Danh sách Đỏ IUCN: Scobinancistrus aureatus là loài đặc hữu của Brazil. Cá sống dọc sông Xingu, chủ yếu ở vùng Volta Grande, và ở cửa sông Iriri thuộc bang Pará. Đây là loài nhiều và hay gặp, sống ở chỗ nhiều đá, nước chảy xiết. Cá có bị bắt để bán làm cá cảnh, nhưng chuyện này có vẻ không ảnh hưởng đáng kể đến loài. Mối đe dọa chính hiện nay là đập thủy điện Belo Monte đang xây. Trong đoạn sông đã xác nhận có S. aureatus, khoảng 34% sẽ bị công trình này ảnh hưởng. Nếu xây thêm các đập lớn khác trong vùng loài này sinh sống thì thiệt hại còn lớn hơn. Cá sẽ mất nhiều nơi sống, vùng phân bố bị thu hẹp, và người ta nghi số lượng cá sẽ giảm hơn 30% qua ba thế hệ (35 năm). Vì vậy, Scobinancistrus aureatus bị xếp vào nhóm Sắp nguy cấp (VU) theo tiêu chí A3c (IUCN 2022).</p>",
+    "notes:scotcat": "<p>Mô tả: thân cá dài và dẹt, phủ kín gai nhỏ. Miệng nằm ở mặt dưới, môi xòe thành hình đĩa, răng xếp thành hàng. Mống mắt có một thùy hình chốt, kiểu mắt thường thấy ở hầu hết các loài cá lau kiếng. Vây mỡ là một gai nhô lên đỡ lấy một lớp màng. S. aureatus có ống mũi rất riêng, dễ nhận ra.</p>",
+    "behaviour:scotcat": "<p>Scobinancistrus aureatus rất hợp để thả chung với cichlid Nam Mỹ, cá đĩa hay cá ông tiên. Điều kiện là cá nuôi chung không quá dữ và chịu được nước ấm hơn bình thường. Khi lớn, loài này bắt đầu hay giành chỗ.</p>",
+    "dimorphism:scotcat": "<p>Cá đực thường thon hơn và lớn hơn cá cái. Con đực cũng hay mọc lông cứng quanh má và đầu, còn gai (odontode) dọc mép trước tia vây ngực thì to hơn.</p>",
+    "diet:scotcat": "<p>Cá dễ ăn, nhận đủ loại thức ăn, trong đó có đồ chìm như viên chìm cho cá da trơn, trùng huyết đông lạnh và các loại thức ăn tốt khác chìm xuống nền. Chúng cũng thích đồ nhiều thịt như cá chết, trai và tôm.</p>",
+    "references:scotcat": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Scobinancistrus aureatus. The IUCN Red List of Threatened Species 2022. ScotCat Factsheet no. 122. August 2006.</p>"
   },
   "quality": {
     "score": 0.9,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.9
-    },
-    "reason": "thin"
+      "glaser": 0.9,
+      "scotcat": 0.9
+    }
   }
 }

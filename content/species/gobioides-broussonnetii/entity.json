@@ -1,0 +1,654 @@
+{
+  "id": "gobioides-broussonnetii",
+  "scientificName": "Gobioides broussonnetii",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Gobioides",
+  "group": "gobies",
+  "places": [
+    "north-america",
+    "united-states",
+    "mexico",
+    "belize",
+    "south-america",
+    "guyana",
+    "french-guiana",
+    "venezuela",
+    "colombia",
+    "brazil",
+    "cayman-islands",
+    "turks-and-caicos-islands",
+    "cuba",
+    "haiti",
+    "dominican-republic",
+    "jamaica",
+    "puerto-rico"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "US",
+        "MX",
+        "BZ",
+        "GY",
+        "VE",
+        "CO",
+        "BR",
+        "KY",
+        "CU",
+        "HT",
+        "DO",
+        "JM",
+        "PR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.",
+          "countries": [
+            "US",
+            "MX",
+            "BZ",
+            "GY",
+            "VE",
+            "CO",
+            "BR",
+            "KY",
+            "CU",
+            "HT",
+            "DO",
+            "JM",
+            "PR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2379131,
+      "total": 170,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "US",
+          76
+        ],
+        [
+          "GF",
+          41
+        ],
+        [
+          "BR",
+          24
+        ],
+        [
+          "MX",
+          13
+        ],
+        [
+          "CO",
+          5
+        ],
+        [
+          "SR",
+          4
+        ],
+        [
+          "VE",
+          3
+        ],
+        [
+          "GT",
+          1
+        ],
+        [
+          "MQ",
+          1
+        ],
+        [
+          "PA",
+          1
+        ],
+        [
+          "PR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -98.4375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          -98.4375,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          -98.4375,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          -98.4375,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          -97.03125,
+          18.28125,
+          4,
+          4
+        ],
+        [
+          -97.03125,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          -97.03125,
+          28.125,
+          1,
+          1
+        ],
+        [
+          -95.625,
+          18.28125,
+          5,
+          5
+        ],
+        [
+          -95.625,
+          28.125,
+          14,
+          14
+        ],
+        [
+          -95.625,
+          29.53125,
+          3,
+          3
+        ],
+        [
+          -94.21875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          -94.21875,
+          29.53125,
+          5,
+          5
+        ],
+        [
+          -92.8125,
+          29.53125,
+          5,
+          5
+        ],
+        [
+          -91.40625,
+          28.125,
+          9,
+          9
+        ],
+        [
+          -91.40625,
+          29.53125,
+          3,
+          3
+        ],
+        [
+          -90,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          -90,
+          28.125,
+          8,
+          8
+        ],
+        [
+          -90,
+          29.53125,
+          15,
+          15
+        ],
+        [
+          -88.59375,
+          28.125,
+          1,
+          1
+        ],
+        [
+          -88.59375,
+          29.53125,
+          6,
+          6
+        ],
+        [
+          -87.1875,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          -67.5,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          -54.84375,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -53.4375,
+          4.21875,
+          30,
+          0
+        ],
+        [
+          -52.03125,
+          4.21875,
+          5,
+          0
+        ],
+        [
+          -50.625,
+          -30.9375,
+          4,
+          4
+        ],
+        [
+          -50.625,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -45,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          3,
+          3
+        ],
+        [
+          -40.78125,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -36.5625,
+          -9.84375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "This species requires brackish water at least 1/4 the strength of marine water (preferably between 1.005-1.015 sg)."
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 62.5
+      },
+      {
+        "source": "glaser",
+        "value": 40
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120,
+        "hidden": "shorter than twice the fish (62.5 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gobioides-broussonnetii",
+      "html": "<p>The violet goby, Gobioides broussonnetii, is an estuarine goby from the southern USA, Central America, the Caribbean and northeastern South America. Also sold as the dragon or Peruvian goby, it grows very large (to 62.5 cm), has specialised feeding requirements and needs brackish water, as it does not survive for long in freshwater. The smaller, riverine G. peruanus is often imported under its name and is told apart by its smaller adult size and thicker, more purple body.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gobioides-broussonnetii",
+      "html": "<p>Widely distributed around the Southern USA, Central America, the Caribbean islands and north eastern South America. It's been recorded in the USA, Mexico, Belize, Guyana, French Guyana, Venezuela, Colombia, Brazil, Cayman Islands, Turks Caicos, Cuba, Haiti, Dominican Republic, Jamaica and Puerto Rico.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gobioides-broussonnetii",
+      "html": "<p>Inhabits estuarine areas, where it tends to congregate above muddy substrates. It is also often seen in freshwater and in open water off estuaries.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gobioides-broussonnetii",
+      "html": "<p>Standard length: 62.5 cm SL. Aquarium base: 120 × 60 cm. Volume: ~432 litres.</p><p>120 × 60 × 60 cm - ~432 litres, although even this may not be adequate should it reach its full potential. Juveniles can be grown on in smaller tanks.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gobioides-broussonnetii",
+      "html": "<p>This species requires brackish water at least 1/4 the strength of marine water (preferably between 1.005-1.015 sg). The substrate should consist of several centimetres of soft sand, as it likes to spend a lot of time at least partially buried. Other hiding places and decor can be in the form of bogwood, smooth rocks and lengths of plastic tubing for the fish to hide in.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gobioides-broussonnetii",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 7.5–9.0</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/violet_gobies_arrived__en/",
+      "html": "<p>Fine sand should be offered for this fish on the bottom of the tank.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gobioides-broussonnetii",
+      "html": "<p>Feeds mainly on filamentous algae and detritus in nature, filtering these small morsels out of its turbulent, nutrient-rich natural waters. Feeding newly-imported specimens can therefore be problematic. Most eventually learn to accept frozen and live foods such as bloodworm, brine shrimp, tubifex etc. and pieces of algae wafer, nori sheets or spirulina flakes. The provision of vegetable matter is absolutely essential for the long term well-being of the species.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/violet_gobies_arrived__en/",
+      "html": "<p>These gobies are absolutely peaceful plankton feeders.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gobioides-broussonnetii",
+      "html": "<p>Although it is often sold as such, the violet goby is completely unsuitable for the general community tank. It can however be kept with other peaceful brackish species, and although it is territorial will not eat even the smallest of tankmates. Do not keep it with very vigorous or aggressive species, as it will be easily out-competed at feeding time. It is somewhat belligerent towards its own kind, and a very large tank would be required to keep a group long term.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gobioides-broussonnetii",
+      "html": "<p>Difficult to sex by external means. The only reliable method known at present is to examine the genital papillae of the fish. That of the male is pointed and long, whilst of the female is short, blunt and yellow in colour.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gobioides-broussonnetii",
+      "html": "<p>Not thought to have been achieved in captivity.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gobioides-broussonnetii",
+      "html": "<p>This fish is also commonly sold as the dragon or Peruvian goby, or dragon fish, and its bizarre appearance has made it popular in the trade. This is unfortunate, as not only does it grow very large, but it has specialised feeding requirements and does not survive for very long in freshwater. When provided with the correct conditions, however, it makes a unique and fascinating captive subject. There is a smaller species in the genus, G. peruanus, that does survive in freshwater, being a riverine fish in nature. It is actually this species that is more commonly sold in the UK, despite usually being imported as broussonnetii. Conversely, the true broussonnetii is the species often sold in US stores as a freshwater species! Peruanus can be distinguished by its smaller adult size (maximum length of around 46 cm), and thicker, more purple coloured body.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/aa8afe9d489128a9.webp",
+      "thumb": "https://media.aquatome.com/commons/aa8afe9d489128a9-480.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "CC BY-SA 4.0",
+      "author": "Kitty Kat Katarina",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gobioides_broussonnetii.jpg",
+      "caption": "This is my own Violet Goby, roughly 6 inches long. Photo taken with my Galaxy S 5.",
+      "large": {
+        "url": "https://media.aquatome.com/commons/aa8afe9d489128a9-large.webp",
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/bc015b54e7d835fe.webp",
+      "thumb": "https://media.aquatome.com/commons/bc015b54e7d835fe-480.webp",
+      "width": 960,
+      "height": 723,
+      "licence": "CC0",
+      "author": "Joseph Stansbury Rosin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:20220619_violet_goby_joseph_stansbury_rosin.png",
+      "caption": "a violet goby, Gobioides broussonnetii, is depicted in a home aquarium"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1bbd7e8c95634545.webp",
+      "thumb": "https://media.aquatome.com/commons/1bbd7e8c95634545-480.webp",
+      "width": 960,
+      "height": 541,
+      "licence": "CC BY-SA 4.0",
+      "author": "Cedricguppy - Loury Cédric",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gobioides_broussonnetii_-_Gobie_violet_-_Aqua_Porte_Dor%C3%A9e_13.JPG",
+      "caption": "Gobioides broussonnetii - Gobie violet - Aquarium du Palias de la Porte Dorée Paris, Ile de France, France"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d19f517da301cb1a.webp",
+      "thumb": "https://media.aquatome.com/commons/d19f517da301cb1a-480.webp",
+      "width": 960,
+      "height": 541,
+      "licence": "CC BY-SA 4.0",
+      "author": "Cedricguppy - Loury Cédric",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gobioides_broussonnetii_-_Gobie_violet_-_Aqua_Porte_Dor%C3%A9e_16.JPG",
+      "caption": "Gobioides broussonnetii - Gobie violet - Aquarium du Palias de la Porte Dorée Paris, Ile de France, France"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "kuJyVXSNGWM",
+      "title": "Keeping a Dragon Goby in Freshwater: 3 Month Update",
+      "durationSec": 681,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "K-tDfL21xaw",
+      "title": "南美鰭龍 --- Gobioides broussonnetii ( Violet Goby )",
+      "durationSec": 146,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0w6e_BKcyeg",
+      "title": "“close up look” 👀 DRAGON FISH (gobioides broussonnetii)",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wRM869nUuqQ",
+      "title": "Lila Aalgrundel - Violet Goby - Dragon Goby - Gobioides broussonnetii",
+      "durationSec": 481,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá nước lợ lớn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể",
+        "cát nuôi cá bống"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tảo viên cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "tỷ trọng kế nước lợ",
+        "khúc xạ kế đo độ mặn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

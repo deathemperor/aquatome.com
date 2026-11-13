@@ -2,16 +2,6 @@
   "id": "misgurnus-anguillicaudatus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/fefe15d9d230de72.webp",
-      "thumb": "https://media.aquatome.com/commons/fefe15d9d230de72-480.webp",
-      "width": 850,
-      "height": 459,
-      "licence": "CC BY 3.0",
-      "author": "Gourami Watcher",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dojo_loach4.JPG",
-      "caption": "Cá chạch bùn màu kem đốm nâu bơi trên sỏi xanh trong bể"
-    },
-    {
       "url": "https://media.aquatome.com/commons/e4df35632b195a8e.webp",
       "thumb": "https://media.aquatome.com/commons/e4df35632b195a8e-480.webp",
       "width": 1200,
@@ -29,7 +19,12 @@
       "licence": "CC BY-SA 2.0",
       "author": "Manoel Jr.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Weather_loach_(cropped).jpg",
-      "caption": "Cá chạch bùn đốm nâu trên nền cát trong bể cá"
+      "caption": "Cá chạch bùn đốm nâu trên nền cát trong bể cá",
+      "large": {
+        "url": "https://media.aquatome.com/commons/c58b9359825a4664-large.webp",
+        "width": 1664,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/695915082.webp",
@@ -59,7 +54,12 @@
       "licence": "CC BY",
       "author": "WATANABE Hitoshi 渡辺仁",
       "sourceUrl": "https://www.inaturalist.org/photos/579712325",
-      "caption": "Cá chạch bùn nằm nghiêng bên thước đo trong bể trong suốt"
+      "caption": "Cá chạch bùn nằm nghiêng bên thước đo trong bể trong suốt",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/579712325-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/465145347.webp",
@@ -69,7 +69,12 @@
       "licence": "CC BY",
       "author": "Daniel S.",
       "sourceUrl": "https://www.inaturalist.org/photos/465145347",
-      "caption": "Cá chạch bùn bơi trên nền sỏi ngoài tự nhiên"
+      "caption": "Cá chạch bùn bơi trên nền sỏi ngoài tự nhiên",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/465145347-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/686252367.webp",
@@ -79,7 +84,12 @@
       "licence": "CC BY",
       "author": "Lee Cain",
       "sourceUrl": "https://www.inaturalist.org/photos/686252367",
-      "caption": "Cá chạch bùn màu nâu vàng đốm đen trong bể kính"
+      "caption": "Cá chạch bùn màu nâu vàng đốm đen trong bể kính",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/686252367-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/406508091.webp",
@@ -350,6 +360,16 @@
       "author": "moxostoma",
       "sourceUrl": "https://www.inaturalist.org/photos/746228519",
       "caption": "Cá chạch bùn màu vàng nâu nhìn nghiêng trong hộp nước"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/fefe15d9d230de72.webp",
+      "thumb": "https://media.aquatome.com/commons/fefe15d9d230de72-480.webp",
+      "width": 850,
+      "height": 459,
+      "licence": "CC BY 3.0",
+      "author": "Gourami Watcher",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dojo_loach4.JPG",
+      "caption": "Cá chạch bùn màu kem đốm nâu bơi trên sỏi xanh trong bể"
     }
   ],
   "seen": 205,

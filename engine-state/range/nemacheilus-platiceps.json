@@ -1,0 +1,93 @@
+{
+  "id": "nemacheilus-platiceps",
+  "native": {
+    "input": "ccd1784ad96a146e",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river basin in Laos, Thailand, Cambodia and Vietnam and also known from the Dong Nai system in southern Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river basin in Laos, Thailand, Cambodia and Vietnam and also known from the Dong Nai system in southern Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river basin in Laos, Thailand, Cambodia and Vietnam and also known from the Dong Nai system in southern Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river basin in Laos, Thailand, Cambodia and Vietnam and also known from the Dong Nai system in southern Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river basin in Laos, Thailand, Cambodia and Vietnam and also known from the Dong Nai system in southern Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Dong Nai",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river basin in Laos, Thailand, Cambodia and Vietnam and also known from the Dong Nai system in southern Vietnam.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nemacheilus platiceps",
+    "status": "ACCEPTED",
+    "taxonKey": 5205294,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        9
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "TH",
+      "KH",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

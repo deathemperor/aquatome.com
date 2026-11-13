@@ -1,0 +1,89 @@
+{
+  "id": "neocaridina-denticulata",
+  "native": {
+    "input": "6b736c37db614c65",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neocaridina denticulata",
+    "status": "ACCEPTED",
+    "taxonKey": 2223025,
+    "datasets": [
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        970
+      ],
+      [
+        "6c827cf4-5d22-454e-98b1-4acbf0cb5aca",
+        326
+      ],
+      [
+        "e3fa679e-4b19-441f-bdbb-f292416e5d34",
+        326
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        206
+      ],
+      [
+        "1e09d985-8f58-4a34-ab86-17e55f203c8a",
+        187
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        48
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        37
+      ],
+      [
+        "cf5e37a6-e657-4ee2-91c0-b1da03251a62",
+        30
+      ],
+      [
+        "869e4288-f762-11e1-a439-00145eb45e9a",
+        22
+      ],
+      [
+        "71dfecde-f762-11e1-a439-00145eb45e9a",
+        12
+      ],
+      [
+        "74141216-814a-443c-9b51-24dbb2a5883f",
+        9
+      ],
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        9
+      ],
+      [
+        "86939734-f762-11e1-a439-00145eb45e9a",
+        9
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "5221e970-757c-43cb-bdd4-2f085bf36ae4",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

@@ -12,6 +12,88 @@
     "myanmar",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Salween",
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Opsarius caudiocellatus is a cyprinid known only from the Salween in southern China, Myanmar and western Thailand, and the upper Mekong in Yunnan.",
+          "countries": [
+            "CN",
+            "MM",
+            "TH"
+          ],
+          "regions": [
+            "Salween",
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363325,
+      "total": 18,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CN",
+          14
+        ],
+        [
+          "MM",
+          3
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          16.875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          23.90625,
+          13,
+          13
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +137,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -145,8 +227,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá dài 150x45"
+        "bể cá 150cm"
       ]
     },
     {

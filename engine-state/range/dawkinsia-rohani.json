@@ -1,0 +1,72 @@
+{
+  "id": "dawkinsia-rohani",
+  "native": {
+    "input": "606d32d33c8a6769",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kodayar River drainage, near Mayilar, KWS, Kanyakumari District, Tamil Nadu, India, 8.5052°N, 77.3015°E, elevation 110 metres', and it has also been collected in the Paralayar and Pamburivaikal river systems.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kodayar River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kodayar River drainage, near Mayilar, KWS, Kanyakumari District, Tamil Nadu, India, 8.5052°N, 77.3015°E, elevation 110 metres', and it has also been collected in the Paralayar and Pamburivaikal river systems.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Paralayar",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kodayar River drainage, near Mayilar, KWS, Kanyakumari District, Tamil Nadu, India, 8.5052°N, 77.3015°E, elevation 110 metres', and it has also been collected in the Paralayar and Pamburivaikal river systems.",
+        "ok": true
+      },
+      {
+        "name": "Pamburivaikal",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kodayar River drainage, near Mayilar, KWS, Kanyakumari District, Tamil Nadu, India, 8.5052°N, 77.3015°E, elevation 110 metres', and it has also been collected in the Paralayar and Pamburivaikal river systems.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dawkinsia rohani",
+    "status": "ACCEPTED",
+    "taxonKey": 7861567,
+    "datasets": [
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

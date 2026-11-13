@@ -25,6 +25,8 @@
       ],
       "regions": [
         "Amazon",
+        "Marañon",
+        "Ucayali",
         "Río Pacaya"
       ],
       "sources": [
@@ -49,6 +51,8 @@
           "quote": "The whitewater Caño Yarina, a tributary of the Río Pacaya located close to the confluence of the ríos Marañon and Ucayali represents a typical biotope.",
           "countries": [],
           "regions": [
+            "Marañon",
+            "Ucayali",
             "Río Pacaya"
           ]
         }
@@ -289,7 +293,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -298,7 +302,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/agamyxis-pectinifrons",
-      "html": "<p>The spotted talking catfish, Agamyxis pectinifrons, is a doradid catfish from the Amazon basin in Bolivia, Brazil, Colombia and Peru. Very common in the trade, it is hardy and relatively long-lived, and recommended to beginners and experienced aquarists alike despite its adult size. It closely resembles A. albomaculatus, known only from the Río Orinoco drainage in Venezuela, and the two are probably sold under the same trade names.</p><ul><li>Max size: 150 mm SL (6 in)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–20 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+      "html": "<p>The spotted talking catfish, Agamyxis pectinifrons, is a doradid catfish from the Amazon basin in Bolivia, Brazil, Colombia and Peru. Very common in the trade, it is hardy and relatively long-lived, and recommended to beginners and experienced aquarists alike despite its adult size. It closely resembles A. albomaculatus, known only from the Río Orinoco drainage in Venezuela, and the two are probably sold under the same trade names.</p><ul><li>Max size: 150 mm SL (6 in)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–20 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
       "key": "distribution",
@@ -391,23 +395,23 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/67612b75b977d677.webp",
-      "thumb": "https://media.aquatome.com/scotcat/67612b75b977d677-480.webp",
-      "width": 500,
-      "height": 375,
-      "licence": "dùng với sự cho phép",
-      "author": "Jonas Hansel / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/doradidae/agamyxis_pectinifrons.htm",
-      "caption": "Agamyxis pectinifrons",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/d45bf879fc4a8662.webp",
       "thumb": "https://media.aquatome.com/scotcat/d45bf879fc4a8662-480.webp",
       "width": 500,
       "height": 294,
       "licence": "dùng với sự cho phép",
       "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/agamyxis_pectinifrons.htm",
+      "caption": "Agamyxis pectinifrons",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/67612b75b977d677.webp",
+      "thumb": "https://media.aquatome.com/scotcat/67612b75b977d677-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Jonas Hansel / ScotCat",
       "sourceUrl": "https://www.scotcat.com/doradidae/agamyxis_pectinifrons.htm",
       "caption": "Agamyxis pectinifrons",
       "source": "scotcat"
@@ -418,8 +422,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 108 lít"
+        "bể cá 120cm"
       ]
     },
     {

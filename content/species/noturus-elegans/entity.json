@@ -1,0 +1,304 @@
+{
+  "id": "noturus-elegans",
+  "scientificName": "Noturus elegans",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Noturus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "green-river"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "Green River",
+        "Tennessee River",
+        "Roaring River",
+        "Cumberland River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "North America: restricted to the Green River drainage in Kentucky and Tennessee, USA.",
+          "countries": [
+            "US"
+          ],
+          "regions": [
+            "Green River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "The elegant madtom is found primarily in Tennessee and northern Alabama, in the upper and lower portions of the Tennessee River, and also in the Roaring River, the Green River drainage, Dunn Creek, Tennessee, and in Piney Creek, Paint Rock River, and Flint River, Alabama.",
+          "countries": [],
+          "regions": [
+            "Tennessee River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "North America: Upper Green River drainage in Kentucky and Tennessee, USA; 1 record from Roaring River (Cumberland River drainage) in Tennessee.",
+          "countries": [],
+          "regions": [
+            "Roaring River",
+            "Cumberland River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341031,
+      "total": 221,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "US",
+          221
+        ]
+      ],
+      "cells": [
+        [
+          -88.59375,
+          33.75,
+          1,
+          1
+        ],
+        [
+          -88.59375,
+          35.15625,
+          25,
+          25
+        ],
+        [
+          -88.59375,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          -87.1875,
+          33.75,
+          1,
+          1
+        ],
+        [
+          -87.1875,
+          35.15625,
+          5,
+          5
+        ],
+        [
+          -87.1875,
+          36.5625,
+          75,
+          75
+        ],
+        [
+          -85.78125,
+          35.15625,
+          2,
+          2
+        ],
+        [
+          -85.78125,
+          36.5625,
+          108,
+          108
+        ],
+        [
+          -84.375,
+          35.15625,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          40.78125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 8.9
+      },
+      {
+        "source": "scotcat",
+        "value": 6.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 16,
+          "max": 23
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.2,
+          "max": 7
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1265",
+      "html": "<ul><li>Scientific name: Noturus elegans Taylor, 1969</li><li>Common name: Elegant Madtom</li><li>Type locality: Fallen Timber Creek, 13 km southeast of Glasgow, at state highway 90, Barren County, Kentucky, U.S.A.</li><li>IUCN Red List: Least Concern (last assessed 2012)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_elegans.htm",
+      "html": "<ul><li>Synonyms: none</li><li>IUCN Red List: Least Concern, in view of the large extent of occurrence, large number of subpopulations, large population size, and lack of major threats.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1265",
+      "html": "<p>North America: restricted to the Green River drainage in Kentucky and Tennessee, USA. Individuals from the Duck River originally allocated to N. elegans are N. fasciatus, the latter restricted to the Duck River system and two minor tributaries of the lower arm of the Tennessee River, Tennessee.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_elegans.htm",
+      "html": "<p>North America: Upper Green River drainage in Kentucky and Tennessee, USA; 1 record from Roaring River (Cumberland River drainage) in Tennessee. Individuals from the Duck River originally allocated to N. elegans are N. fasciatus, the latter restricted to the Duck River system and two minor tributaries of the lower arm of the Tennessee River, Tennessee.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_elegans.htm",
+      "html": "<p>The elegant madtom is found primarily in Tennessee and northern Alabama, in the upper and lower portions of the Tennessee River, and also in the Roaring River, the Green River drainage, Dunn Creek, Tennessee, and in Piney Creek, Paint Rock River, and Flint River, Alabama. It can be found in lower north-central Tennessee rivers, such as at Little Chucky Creek in Greene County. The elegant madtom was also found in central Kentucky, in the Green River drainage. Its status in Alabama is unknown. N. exilis was misidentified in 1996 at Bear Creek, Alabama, as N. elegans. This mis-identification could be a reason for a small decrease in the overall population size. According to surveys there are very low numbers of the elegant madtom in the middle and upper Tennessee River drainage. The survey reports that these low populations could be due to the lack of available nesting sites, as it prefers habitats with riffles and rocks to nest under. However, the elegant madtom is common in the Green River and lower rivers in Tennessee that are close to Alabama.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_elegans.htm",
+      "html": "<p>The Madtoms are well suited to aquarium life. Provide river gravel and smooth rounded stones for hiding places during the day. A power filter at one end of the tank will provide the conditions of a flowing stream for these catfish. Can be housed with other North American fishes such as minnows, darters and shiners.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_elegans.htm",
+      "html": "<p>The elegant madtom from immaturity to adulthood is an invertivore, which means it feeds on invertebrates. It is only common in a few places, and faces predation from larger fish such as the largemouth bass and catfish. However, the elegant madtom does have a defense in its venom delivery system, a venom delivery gland in its pectoral and dorsal spines to deter potential predators or competitors. In the Aquarium they will also take tablet and pellet foods. A varied diet will keep them in optimum health.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1265",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_elegans.htm",
+      "html": "<p>Approximately a year after emerging from its egg, the elegant madtom will reach sexual maturity. Then, after this year of growth, a member of Noturus elegans will find a mate and make a nest beneath a rock in a river or stream. Rocks are very important for the elegant madtom, because without this substrate to lay their eggs under, they will not have the ability to make an effective nest that they can protect.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1265",
+      "html": "<p>Etymology: from the Greek notos, meaning back, and oura, meaning tail, in reference to the confluent adipose and caudal fins. The specific epithet refers to its handsome or elegant colour pattern.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_elegans.htm",
+      "html": "<p>Etymology: The specific name elegans: Latin for fine or select, referring to its “neat or handsome colour pattern”.</p><p>Remarks: The elegant madtom is not listed on the endangered or threatened federal or state lists. Scientists who have done surveys on the fish have recommended that it should be listed as threatened.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1265",
+      "html": "<p>Bulletin of the United States National Museum No. 282, pp 150, Pls. 4 (figs. 5-6), 12.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_elegans.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2022. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2022 ). GBIF.org iNaturalist.org NatureServe. 2013. Noturus elegans. The IUCN Red List of Threatened Species 2013. Nicholas J. Lang, Steven L. Powers, and Richard L. Mayden \"Status of the Noturus elegans Species Complex in the Middle and Upper Tennessee River Drainage,\" Southeastern Naturalist 4(4), 585-596, (1 December 2005). Page, L.M. and B.M. Burr, 1991. A field guide to freshwater fishes of North America north of Mexico. Houghton Mifflin Company, Boston. 432 p.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/58e25849e193a901.webp",
+      "thumb": "https://media.aquatome.com/scotcat/58e25849e193a901-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "Daniel Folds / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_elegans.htm",
+      "caption": "Noturus elegans",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c13cad9cc9177916.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c13cad9cc9177916-480.webp",
+      "width": 500,
+      "height": 346,
+      "licence": "dùng với sự cho phép",
+      "author": "Daniel Folds / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_elegans.htm",
+      "caption": "Noturus elegans: dorsal view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "664dbMseqeg",
+      "title": "The Madtom (Micro Catfish) Species Of North America: A species identification guide with range maps",
+      "durationSec": 802,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc ngoài bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông",
+        "đá cuội tròn bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "thức ăn dạng viên nén cho cá đáy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

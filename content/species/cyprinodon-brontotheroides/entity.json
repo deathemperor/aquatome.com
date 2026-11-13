@@ -1,0 +1,202 @@
+{
+  "id": "cyprinodon-brontotheroides",
+  "scientificName": "Cyprinodon brontotheroides",
+  "order": "Cyprinodontiformes",
+  "family": "Cyprinodontidae",
+  "genus": "Cyprinodon",
+  "group": "killifish",
+  "places": [
+    "north-america",
+    "bahamas",
+    "san-salvador-island"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BS"
+      ],
+      "regions": [
+        "San Salvador Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to San Salvador Island in the Bahamas where it's known from six hypersaline lakes; Crescent Pond, Osprey Lake, Oyster Lake, Little Lake, Wild Dilly Pond and Moon Rock Pond.",
+          "countries": [
+            "BS"
+          ],
+          "regions": [
+            "San Salvador Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7527081,
+      "total": 85,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BS",
+          84
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          23.90625,
+          84,
+          84
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.6
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-brontotheroides",
+      "html": "<p>The durophage pupfish, Cyprinodon brontotheroides, is a pupfish endemic to six hypersaline lakes on San Salvador Island in the Bahamas. A specialised predator of hard-shelled invertebrates, particularly gastropods and ostracods, it has a shortened upper jaw and a protruding nasal region, and no other Cyprinodon species is adapted to hard-shelled prey. It occurs alongside C. variegatus in all six lakes and with C. desquamator in four of them.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-brontotheroides",
+      "html": "<p>Endemic to San Salvador Island in the Bahamas where it's known from six hypersaline lakes; Crescent Pond, Osprey Lake, Oyster Lake, Little Lake, Wild Dilly Pond and Moon Rock Pond.</p><p>Type locality is 'San Salvador Island, Bahamas: Crescent Pond, 1 km SE of the Gerace Research Centre, lat 24°06'45\"N, long 74°27'28\"W'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-brontotheroides",
+      "html": "<p>Sometimes common in wigeongrass (Ruppia maritima) patches but generally displays no particular habitat preferences beyond the typical littoral habitat preferences of this genus.</p><p>It occurs sympatrically alongside the congener C. variegatus in all six lakes, and with C. desquamator in four of them.</p><p>Although Cyprinodon spp. inhabit a diverse range of environments, from freshwater rivers and lakes to brackish estuarine waters, isolated springs and hypersaline lagoons, almost all of them have a diet composed of algae and organic detritus and present allopatric patterns of distribution.</p><p>However, those inhabiting San Salvador and Lake Chichancanab in Quintana Roo state, Mexico have evolved into groups of species occurring in sympatry and exploiting diverse but specific resources with some spectacular morphological adaptations (see 'Notes').</p><p>Unfortunately several of the Chichancanab species are now extinct in the wild due to introduction of Oreochromis spp. (tilapia) and Astyanax affinis during the 1990s, and Martin and Wainwright (2013b) warn of a similar situation on San Salvador since Oreochromis is already present in at least two water bodies.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-brontotheroides",
+      "html": "<p>This species is a specialised durophage, i.e., a predator of hard-shelled invertebrates, particularly gastropods and ostracods.</p><p>Physical adaptations to this behaviour include modified jaw morphology allowing it to close its mouth with greater force and crush shells.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-brontotheroides",
+      "html": "<p>Mature males possess metallic blue speckling on the anterodorsal region without darkened pigmentation on body or fins as in congeners and a black margin on the caudal- fin, while nuptial individuals sometimes display orange ventral colouration.</p><p>Females and juveniles have a black and white ocellus on the dorsal-fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-brontotheroides",
+      "html": "<p>Males guard breeding territories in midwater from 0.5 to 1 m depth, and although breeding has been observed year-round it seems to be most common in spring.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-brontotheroides",
+      "html": "<p>This species was referred to as C. sp. 'durophage' or C. sp. 'bozo' prior to description.</p><p>The anterior process of the maxillary head extends up to or beyond the most anterior point on the dentigerous arm of the premaxilla with the result that its upper jaw is shorter than those of C. variegatus and C. desquamator. This skeletal extension is visible as a fleshy protuberance nearly encasing the upper jaw when retracted.</p><p>The paired nasal bones are not enlarged, but form a more acute angle (approximately 120″) with the dorsal margin of the neurocranium when compared with C. variegatus and C. desquamator.</p><p>No other Cyprinodon species are adapted to feeding on hard-shelled prey so research has been conducted to establish whether unique mechanisms have driven the evolution of such ecological novelty.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-brontotheroides",
+      "html": "<ul><li>Martin, C. H. and P. C. Wainwright (2013). Remarkable Species Flock of Cyprinodon Pupfishes Endemic to San Salvador Island, Bahamas. Bulletin of the Peabody Museum of Natural History 54(2), 231-240</li><li>Martin, C. H. and P. C. Wainwright (2013). Multiple Fitness Peaks on the Adaptive Landscape Drive Adaptive Radiation in the Wild. Science 339(6116), 208-211</li><li>Martin, C. H. and P. C. Wainwright (2011). Trophic novelty is linked to extremes rates of morphological diversification in two adaptive radiations of Cyprinodon pupfishes. Evolution 65(8), 2197-2212</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/eb961e1df7b54d6a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/eb961e1df7b54d6a-480.webp",
+      "width": 800,
+      "height": 568,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-brontotheroides",
+      "caption": "Adult male individual in the aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3fd5571e519065f3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3fd5571e519065f3-480.webp",
+      "width": 800,
+      "height": 471,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-brontotheroides",
+      "caption": "Adult female.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c7e6195996665e92.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c7e6195996665e92-480.webp",
+      "width": 600,
+      "height": 450,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-brontotheroides",
+      "caption": "Specimen in its natural habitat; note the protruding nasal appendage.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0a716468aa2ca26f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0a716468aa2ca26f-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-brontotheroides",
+      "caption": "Little Lake on San Salvador Island, the Bahamas is a natural habitat of this species.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ",
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc cho bể nước lợ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh",
+        "ốc nhỏ cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

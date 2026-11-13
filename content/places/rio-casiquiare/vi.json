@@ -1,10 +1,13 @@
 {
   "slug": "rio-casiquiare",
-  "name": "Rio Casiquiare",
-  "altNames": [],
+  "name": "sông Casiquiare",
+  "altNames": [
+    "Rio Casiquiare"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

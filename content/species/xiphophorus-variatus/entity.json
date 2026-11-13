@@ -536,7 +536,12 @@
       "author": "Adrian Torres B.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_variatus_331363362.jpg",
       "caption": "Variable Platyfish (Xiphophorus variatus)",
-      "thumb": "https://media.aquatome.com/commons/ddcf2af852da1e4f-480.webp"
+      "thumb": "https://media.aquatome.com/commons/ddcf2af852da1e4f-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/ddcf2af852da1e4f-large.webp",
+        "width": 1200,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/ec136950b16b7b78.webp",
@@ -557,16 +562,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Papagaienplaty.jpg",
       "caption": "Papagaienplaty Zuchtform",
       "thumb": "https://media.aquatome.com/commons/874244fb6189d029-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/d2b5899a8a870087.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "Adam Cohen",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_variatus_16996626.jpg",
-      "caption": "Variable Platyfish (Xiphophorus variatus)",
-      "thumb": "https://media.aquatome.com/commons/d2b5899a8a870087-480.webp"
     }
   ],
   "videos": [
@@ -599,8 +594,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá cảnh mini"
+        "bể cá 60cm"
       ]
     },
     {

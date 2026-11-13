@@ -1,0 +1,255 @@
+{
+  "id": "fundulopanchax-marmoratus",
+  "scientificName": "Fundulopanchax marmoratus",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Fundulopanchax",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "cameroon"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348481,
+      "total": 7,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CM",
+          5
+        ],
+        [
+          "DE",
+          1
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-marmoratus",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. This species is an accomplished jumper, so the cover must be very tight fitting.</p><p>The marbled lyretail, Fundulopanchax marmoratus, is a rare killifish endemic to Cameroon, found in a single area of coastal rainforest. It inhabits small streams and ponds and occurs only in permanent water, so it is not an annual species. It needs cooler temperatures than most killifishes and is best kept in a species tank.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-marmoratus",
+      "html": "<p>Endemic to Cameroon.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-marmoratus",
+      "html": "<p>It inhabits small streams and ponds in a single area of coastal rainforest.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-marmoratus",
+      "html": "<p>Standard length: 6 cm SL. Aquarium base: 45 × 25 cm. Volume: ~28 litres.</p><p>45 × 25 × 25 cm, ~28 litres, although it can be spawned in smaller aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-marmoratus",
+      "html": "<p>A dark substrate should be used, ideally peat moss or the like and the tank should have dense areas of planting and pieces of wood to serve as cover. The use of floating plants to further diffuse the light is also recommended. This species is an accomplished jumper, so the cover must be very tight fitting. The water in the aquarium should be filtered through peat if possible.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-marmoratus",
+      "html": "<ul><li>Temperature: 21–24°C</li><li>pH: 6.0–7.0</li><li>Hardness: 5–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-marmoratus",
+      "html": "<p>Small live or frozen foods such as daphnia or bloodworm are preferred, although the fish will also accept good quality flake in most cases.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-marmoratus",
+      "html": "<p>Due to its limited natural range and requirement for cool water, we recommend F. marmoratus is kept in a species tank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-marmoratus",
+      "html": "<p>Males are more brightly coloured than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-marmoratus",
+      "html": "<p>Relatively easy. Egg scatterer. A spawning tank should be set up containing soft, slightly acidic water of pH 6.5, temperature 21–22°C. Slight deviation from these parameters is acceptable. The spawning aquarium should be dimly lit with floating plants for cover. Large amounts of spawning medium in the form of fine-leaved plants such as java moss or nylon spawning mops should be provided. Peat filtration is beneficial. No substrate is necessary and gentle filtration via a small air-driven sponge filter is sufficient. The fish should be conditioned in a separate aquarium with lots of live food before a trio, comprising 1 male and 2 females, is selected and placed in the spawning tank. Spawning should occur the following morning if all is well. The group will spawn daily, depositing eggs every 24 hours for around 2 weeks and these should be removed gently as they are noticed. Each trio should only be allowed to spawn for a week or so before being returned to the conditioning tanks. The spawning process is hard on the fish (particularly the females) and they can become fatigued and weak if left for too long. The eggs should be transferred daily to a small aquarium or dish containing water from the spawning tank to a depth of 2–5 cm to which has been added 1–3 drops of methylene blue depending on volume. This container should be checked daily for fungussed eggs, which should be removed with a pipette. The eggs will hatch in 15–17 days depending on temperature. The fry are tiny and require infusoria as first food. They can be offered microworm or brine shrimp nauplii from the third or fourth day.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/fundulopanchax-marmoratus",
+      "html": "<p>Note the cooler temperatures required by this rare species. It is not an annual fish, occurring only in permanent bodies of water.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c2b8ba410b684f26.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Alexander Prokoshev",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marmoratus.jpg",
+      "caption": "Fundulopanchax marmoratus, two juvenile adult males",
+      "thumb": "https://media.aquatome.com/commons/c2b8ba410b684f26-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "g3oDTU1t-ok",
+      "title": "Fundulopanchax  marmoratus Bakossi Camp ADL 13-37",
+      "durationSec": 45,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "CuwzNBMcHCA",
+      "title": "Fundulopanchax marmoratus - Marbled Lyretail killifish",
+      "durationSec": 665,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "aehIa2WZ7u4",
+      "title": "Fundulopanchax marmoratus (external aquarium)",
+      "durationSec": 39,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "j9IdiyCGhiE",
+      "title": "Fundulopanchax marmoratus Bakossi Camp ADL 13-37-La nouvelle génération",
+      "durationSec": 23,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 50cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi bọt xốp",
+        "lọc bio mút"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "than bùn cho bể cá",
+        "nền tối cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "bo bo đông lạnh",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -1,0 +1,76 @@
+{
+  "id": "chaca-bankanensis",
+  "native": {
+    "input": "6ecd25975e7f0541",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The chocolate frogmouth catfish, Chaca bankanensis, is an ambush predator from rainforest waters in Malaysia, Indonesia and Brunei.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The chocolate frogmouth catfish, Chaca bankanensis, is an ambush predator from rainforest waters in Malaysia, Indonesia and Brunei.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The chocolate frogmouth catfish, Chaca bankanensis, is an ambush predator from rainforest waters in Malaysia, Indonesia and Brunei.",
+        "words": "Brunei",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "SG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chaca bankanensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2337565,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID",
+      "BN"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

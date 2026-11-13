@@ -10,8 +10,532 @@
     "brazil",
     "trombetas",
     "amazon",
-    "rio-trombetas"
+    "rio-trombetas",
+    "colombia",
+    "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Capim",
+        "Rio Trombetas"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Igarapé Saracazinho, tributary of Rio Trombetas, near Porto Trombetas, Pará State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Trombetas"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "A single specimen was also obtained as an accidental bycatch with other fish from the Orinoco in Colombia in 2006.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon, Capim and Orinoco River basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco",
+            "Capim"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343625,
+      "total": 250,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BR",
+          183
+        ],
+        [
+          "VE",
+          31
+        ],
+        [
+          "GY",
+          23
+        ],
+        [
+          "CO",
+          12
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          0,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          0,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          0,
+          8,
+          8
+        ],
+        [
+          -70.3125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          1.40625,
+          6,
+          6
+        ],
+        [
+          -68.90625,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          4,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          7,
+          0
+        ],
+        [
+          -67.5,
+          4.21875,
+          5,
+          0
+        ],
+        [
+          -67.5,
+          5.625,
+          4,
+          0
+        ],
+        [
+          -66.09375,
+          -11.25,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          -66.09375,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -9.84375,
+          6,
+          6
+        ],
+        [
+          -61.875,
+          -8.4375,
+          8,
+          8
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          0,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          -60.46875,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -60.46875,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          5.625,
+          15,
+          0
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          -15.46875,
+          5,
+          5
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          17,
+          17
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          26,
+          26
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -21,6 +545,10 @@
       {
         "source": "scotcat",
         "value": 6.5
+      },
+      {
+        "source": "glaser",
+        "value": 7
       }
     ],
     "tempC": [
@@ -56,6 +584,12 @@
       "html": "<ul><li>IUCN Red List: Least Concern (2023). Despite the little information available, the species has a wide range and no apparent threats.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/mastiglanis_asopos_en/",
+      "html": "<p>This dwarf catfish was described only in 1994, in a new genus. The maximum length is about 6-7 cm without the caudal fin. The body is very elongate. The extremely long pectoral fin rays are most obvious when seen from above. The eyes are placed very high in the head and have slit-shaped pupils.</p><p>The generic name \"Mastiglanis\" means \"Whip-Catfish\" because of the long first fin rays of the dorsal and pectoral fins.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1091",
@@ -66,6 +600,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/heptapteridae/mastiglanis_asopos.htm",
       "html": "<p>South America: Amazon, Capim and Orinoco River basins. Type locality: Brazil, Pará, Igarapé Saracazinho, tributary of Rio Trombetas, near Porto Trombetas.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/mastiglanis_asopos_en/",
+      "html": "<p>The species is not rare in the wild: it has an enormous range in the Amazon river. A single specimen was also obtained as an accidental bycatch with other fish from the Orinoco in Colombia in 2006. The imported fish came from Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -84,6 +624,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/heptapteridae/mastiglanis_asopos.htm",
       "html": "<p>Small trichopteran larvae (ingested with the sand cases) and ephemeropterans constituted a considerable portion of the gut contents in a study of Mastiglanis asopos, but their foraging behavior allows a varied diet which includes large chironomid larvae and small adult beetles that would not be consumed by other sand-dwelling animals.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/mastiglanis_asopos_en/",
+      "html": "<p>Against each other these catfish are very peaceful.</p><p>Some specimens are darker and others lighter, but all are rather sand-coloured. This and the high-set eyes suggested that the fish might live burrowed in fine sand, but despite the harassment during their stay in the photo tank they made no attempt to bury themselves in the sand.</p>"
     },
     {
       "key": "reproduction",
@@ -183,5 +729,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-10"
 }

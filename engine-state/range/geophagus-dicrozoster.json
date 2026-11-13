@@ -1,0 +1,134 @@
+{
+  "id": "geophagus-dicrozoster",
+  "native": {
+    "input": "cf46502fff791329",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Laguna Larga, 6.5339°N, 67.4150°W, Río Cinaruco, Apure, Venezuela' and this species has been collected from various localities in the states of Apure and Bolívar, Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Its current known range includes all major tributaries of the río Orinoco including the ríos Cataniapo, Ventuari, Atabapo, Ocamo and Mavaca, plus the Casiquiare and headwaters of the Negro, although it hasn't yet been recorded in Brazil as far as is known.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Its current known range includes all major tributaries of the río Orinoco including the ríos Cataniapo, Ventuari, Atabapo, Ocamo and Mavaca, plus the Casiquiare and headwaters of the Negro, although it hasn't yet been recorded in Brazil as far as is known.",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare",
+        "source": "seriouslyfish",
+        "quote": "Its current known range includes all major tributaries of the río Orinoco including the ríos Cataniapo, Ventuari, Atabapo, Ocamo and Mavaca, plus the Casiquiare and headwaters of the Negro, although it hasn't yet been recorded in Brazil as far as is known.",
+        "ok": true
+      },
+      {
+        "name": "Negro",
+        "source": "seriouslyfish",
+        "quote": "Its current known range includes all major tributaries of the río Orinoco including the ríos Cataniapo, Ventuari, Atabapo, Ocamo and Mavaca, plus the Casiquiare and headwaters of the Negro, although it hasn't yet been recorded in Brazil as far as is known.",
+        "ok": true
+      },
+      {
+        "name": "Caura",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Caura and Caroní river systems of the Guyana Shield and the blackwater río Cinaruco in the Venezuelan llanos.",
+        "ok": true
+      },
+      {
+        "name": "Caroní",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Caura and Caroní river systems of the Guyana Shield and the blackwater río Cinaruco in the Venezuelan llanos.",
+        "ok": true
+      },
+      {
+        "name": "Río Cinaruco",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Laguna Larga, 6.5339°N, 67.4150°W, Río Cinaruco, Apure, Venezuela' and this species has been collected from various localities in the states of Apure and Bolívar, Venezuela.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus dicrozoster",
+    "status": "ACCEPTED",
+    "taxonKey": 5208439,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        184
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        51
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        28
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        24
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

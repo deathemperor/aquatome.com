@@ -1,0 +1,121 @@
+{
+  "id": "apistogramma-macmasteri",
+  "native": {
+    "input": "0e4f2a38c01f66a2",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Río Guaytiquía and Río Metica basins, upper Río Meta system, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The city and municipality of Tame are located in Colombia in the Arauca Department at the Rio Arauca.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Meta",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Río Guaytiquía and Río Metica basins, upper Río Meta system, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Guaytiquía",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Río Guaytiquía and Río Metica basins, upper Río Meta system, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Metica",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Río Guaytiquía and Río Metica basins, upper Río Meta system, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Rio Arauca",
+        "source": "glaser",
+        "quote": "The city and municipality of Tame are located in Colombia in the Arauca Department at the Rio Arauca.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma macmasteri",
+    "status": "ACCEPTED",
+    "taxonKey": 2371262,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        2
+      ],
+      [
+        "3b8f8089-0261-4ec1-829c-1f17828fbd96",
+        1
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

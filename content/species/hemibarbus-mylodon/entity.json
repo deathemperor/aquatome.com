@@ -1,0 +1,221 @@
+{
+  "id": "hemibarbus-mylodon",
+  "scientificName": "Hemibarbus mylodon",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Hemibarbus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "north-korea",
+    "south-korea",
+    "keum"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "KP",
+        "KR"
+      ],
+      "regions": [
+        "Korean peninsula",
+        "Keumsan River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hemibarbus mylodon is a cyprinid endemic to the Korean peninsula, where it occurs throughout North Korea and South Korea.",
+          "countries": [
+            "KP",
+            "KR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Korean peninsula where it occurs throughout North Korea and South Korea.",
+          "countries": [],
+          "regions": [
+            "Korean peninsula"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Keumsan River, near Busan, South Korea.'",
+          "countries": [],
+          "regions": [
+            "Keumsan River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2365980,
+      "total": 219,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "KR",
+          216
+        ],
+        [
+          "JP",
+          2
+        ],
+        [
+          "KP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          126.5625,
+          36.5625,
+          5,
+          5
+        ],
+        [
+          126.5625,
+          37.96875,
+          16,
+          16
+        ],
+        [
+          127.96875,
+          35.15625,
+          2,
+          2
+        ],
+        [
+          127.96875,
+          36.5625,
+          139,
+          139
+        ],
+        [
+          127.96875,
+          37.96875,
+          55,
+          55
+        ],
+        [
+          135,
+          35.15625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 35
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-mylodon",
+      "html": "<p>Hemibarbus mylodon is a cyprinid endemic to the Korean peninsula, where it occurs throughout North Korea and South Korea. A predominantly riverine fish, it lives in clear, well-oxygenated running water over sand, gravel, rock or mud, and adults tend to form schools just above the substrate in faster-flowing sections.</p><ul><li>Needs a very large tank</li><li>Needs to be in a group</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-mylodon",
+      "html": "<p>Endemic to the Korean peninsula where it occurs throughout North Korea and South Korea.</p><p>Type locality is 'Keumsan River, near Busan, South Korea.'</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-mylodon",
+      "html": "<p>Predominantly a riverine fish preferring clear, well-oxygenated, running waters with substrates of sand, gravel, rock or mud, where adults tend to form schools just above the substrate in faster-flowing sections.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-mylodon",
+      "html": "<p>Wild fish feed primarily on benthic macroinvertebrates.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-mylodon",
+      "html": "<p>Hemibarbus: from the Ancient Greek ἡμι- (hēmi-), meaning 'half', and the generic name Barbus, to which members appear similar.</p><p>mylodon: from the Ancient Greek, meaning 'grinder', and ὀδών (odṓn), meaning 'toothed', in allusion to the large fourth pharyngeal tooth, which is molariform with a small, round excavation on the upper surface.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-mylodon",
+      "html": "<ul><li>Berg, L. S. (1907). Review of the freshwater fishes of Korea. Zoologicheskogo Muzeya Imperatorskoj Akademii Nauk v. 12, 1-12</li><li>Jang, M.-H., M. C. Lucas and G.-J. Joo (2003). The fish fauna of mountain streams in South Korean national parks and its significance to conservation of regional freshwater fish biodiversity. Biological Conservation 114, 115-126</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b18632d6d5f2cbf5.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b18632d6d5f2cbf5-480.webp",
+      "width": 700,
+      "height": 500,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-mylodon",
+      "caption": "Subadult individual.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "pOBnIZXlfkM",
+      "title": "어항 속에 어름치",
+      "durationSec": 27,
+      "lang": "ko"
+    },
+    {
+      "youtubeId": "GDFw9ZVL0Vk",
+      "title": "한탄강! 붕어와 피라미는 물론 천연기념물 어름치까지!!",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8rxIS78L8o4",
+      "title": "영월 수중촬영",
+      "durationSec": 200,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ujBt0KAYeKk",
+      "title": "2025 단양 다누리아쿠아리움 어름치",
+      "durationSec": 6,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc nước hồ cá lớn",
+        "máy tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

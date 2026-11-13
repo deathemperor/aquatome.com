@@ -11,6 +11,130 @@
     "salween",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Salween"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Esomus caudiocellatus is a cyprinid from Myanmar, collected from the Salween river system in the east of the country and in northwestern Thailand.",
+          "countries": [
+            "MM",
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has been collected from the Salween river system in eastern Myanmar and northwestern Thailand but may also occur elsewhere.",
+          "countries": [],
+          "regions": [
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364608,
+      "total": 68,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MM",
+          68
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          95.625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          16.875,
+          30,
+          30
+        ],
+        [
+          95.625,
+          18.28125,
+          10,
+          10
+        ],
+        [
+          95.625,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          95.625,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          15.46875,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          16.875,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          19.6875,
+          5,
+          5
+        ],
+        [
+          97.03125,
+          25.3125,
+          4,
+          4
+        ],
+        [
+          98.4375,
+          21.09375,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -47,21 +171,9 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/esomus_caudiocellatus_en/",
-      "html": "<p>The Flying barbs of Southeast Asia represent the same type of fish as the Hatched fishes do in South America. For the first time ever we have the pretty Esomus caudiocellatus from Burma. The absolutely peaceful species attains a maximum length of about 5-6 cm.</p>"
-    },
-    {
-      "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/esomus-caudiocellatus",
       "html": "<p>Esomus caudiocellatus is a cyprinid from Myanmar, collected from the Salween river system in the east of the country and in northwestern Thailand. It lacks the dark lateral stripe of its congeners and has a prominent dark marking on the caudal peduncle. Like other Esomus it has greatly enlarged pectoral fins and very long maxillary barbels. Some hobbyists have recorded a wasting disease in Esomus spp. that usually kills within a couple of weeks.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/esomus_caudiocellatus_en/",
-      "html": "<p>For our customers: the fish have code 415592 on our stocklist. Please note that we exclusively supply the wholesale trade.</p>"
     },
     {
       "key": "distribution",
@@ -94,14 +206,78 @@
       "html": "<ul><li>Ahl, E. (1924). Eine Revision der Cypriniden-Gattung Esomus. In: Ichthyologische Mitteilungen, IV. Mitteilungen aus dem Zoologischen Museum in Berlin v. 11 (no. 1), 38-43</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Fang, F. (2003). Phylogenetic Analysis of the Asian Cyprinid Genus Danio (Teleostei, Cyprinidae). Copeia 2003(4), 714-728</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/5d0f4105f1aa6de15f6a03f8a0e38f40.webp",
+      "thumb": "https://media.aquatome.com/processed/5d0f4105f1aa6de15f6a03f8a0e38f40-480.webp",
+      "width": 850,
+      "height": 417,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/esomus_caudiocellatus_en/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-esomus-caudiocellatus",
+        "pixelHash": "14947292a4ad59396ffeda8228de5dd6d388e0279c59e740146cd59fdc3e231b"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:31:49.725Z",
+          "originalHash": "8085f4d565d46c93d2343e9709588041726d38ef6958987b6bf8ff6e7f4c01d5",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 567,
+            "window": {
+              "x0": 0,
+              "y0": 150,
+              "x1": 850,
+              "y1": 567
+            },
+            "subject": {
+              "x0": 22,
+              "y0": 200,
+              "x1": 807,
+              "y1": 537
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 25,
+              "y0": 28,
+              "x1": 829,
+              "y1": 144
+            }
+          ],
+          "checks": {
+            "species": [
+              "198241e6b33309f45fac3f25b3825d709033f6affb3db172274643fe9e922a81",
+              "58a8a292fc17bfe4ee2556394ca49b7fd82f4e69f13274d301b796ad62619b23"
+            ],
+            "ownership": [
+              "5f7749ea4c3a5c4a1478a044c859860661bfc72c719421b3c6e37d8837a2586a",
+              "d8989fef9dbc83f365fdfac6296469da658e1d3eaae8653aca766cfa627a26e9"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/4fca38f7fd599d17.webp",
+        "width": 850,
+        "height": 567,
+        "thumb": "https://media.aquatome.com/glaser/4fca38f7fd599d17-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá thủy sinh nhỏ"
+        "bể cá 120cm"
       ]
     },
     {

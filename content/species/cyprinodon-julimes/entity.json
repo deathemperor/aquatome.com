@@ -1,0 +1,204 @@
+{
+  "id": "cyprinodon-julimes",
+  "scientificName": "Cyprinodon julimes",
+  "order": "Cyprinodontiformes",
+  "family": "Cyprinodontidae",
+  "genus": "Cyprinodon",
+  "group": "killifish",
+  "places": [
+    "north-america",
+    "mexico",
+    "rio-conchos"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Río Conchos"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Julimes pupfish, Cyprinodon julimes, is known only from a geothermal spring in the middle Río Conchos basin, Chihuahua state, northern Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Río Conchos"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962355,
+      "total": 8,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MX",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -105.46875,
+          28.125,
+          7,
+          7
+        ],
+        [
+          -104.0625,
+          23.90625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-julimes",
+      "html": "<p>The Julimes pupfish, Cyprinodon julimes, is known only from a geothermal spring in the middle Río Conchos basin, Chihuahua state, northern Mexico. The water there fluctuates between 38 and 48 °C, and the spring is considered one of the hottest environments inhabited by fish in the world. Its closest relatives are C. eximius and C. pachycephalus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-julimes",
+      "html": "<p>Known only from a geothermal spring known as 'El Pandeño de los Pando' in the middle Río Conchos Basin, Julimes municipality, Chihuahua state, northern Mexico.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-julimes",
+      "html": "<p>El Pandeño de los Pando has a surface area of around 287 m² with depth ranging from 40–80 cm but there is an abandoned artificial channel which has an area of approximately 437 m².</p><p>Water temperature fluctuates between 38–48 °C and the spring is considered one of the hottest environments inhabited by fish in the world.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-julimes",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm or equivalent (about 54 litres) is just about acceptable for a single pair but like most members of the family Cyprinodontidae this species does best when maintained as a group in a larger tank or container.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-julimes",
+      "html": "<p>Need not be too complicated so long as there are plenty of broken lines-of-sight.</p><p>Provide plenty of cover in the form of aquatic plants, wool mops, etc., and if using filtration air-powered, sponge-type units are best as these will not harm eggs or fry.</p><p>Lighting is unimportant but can be used if you wish, and growth of filamentous algae should be encouraged if possible.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-julimes",
+      "html": "<p>Wild specimens have been observed to feed on diatoms, cyanobacteria and small invertebrates.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-julimes",
+      "html": "<p>This species differs from its closest relatives C. eximius and C. pachycephalus in the following combination of characters, given as proportions of standard length: head large, 2.4 to 2.7 (2.6) times; dorsal-fin base length 4.7 to 6.1 (5.3); distance from dorsal-fin origin to posterior of anal-fin base 2.6 to 3.1 (2.8); caudal peduncle short, 4.5 to 6.5 (5.4); distance between anal-fin origin and pelvic-fin origin, 6.1 to 8 (6.9).</p><p>It also differs in the following, given as proportions of head length: mouth wide, 2.1 to 2.9 (2.4); eye big, 3.3 to 4.6 (3.8); short post orbital distance 2.1 to 2.5 (2.3).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-julimes",
+      "html": "<ul><li>De la Maza-Benignos, M. and L. Vela-Valladores in: De la Maza Benignos, M. (ed.) (2009). Los Peces del Río Conchos. Chihuahua State, 185-187</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/49979bcd8bb9a4c1.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/49979bcd8bb9a4c1-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-julimes",
+      "caption": "Adult pair, male at front.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c22c774db780bbaa.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c22c774db780bbaa-480.webp",
+      "width": 800,
+      "height": 546,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-julimes",
+      "caption": "Adult female.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/71354dc56679e5fb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/71354dc56679e5fb-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-julimes",
+      "caption": "Freshly-collected individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/08249496097b632b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/08249496097b632b-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-julimes",
+      "caption": "Another adult female.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mút xốp sục khí",
+        "máy lọc bọt khí cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy sưởi bể cá",
+        "sưởi mini có chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu java",
+        "cây thủy sinh dễ trồng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

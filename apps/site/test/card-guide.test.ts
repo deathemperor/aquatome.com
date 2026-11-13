@@ -3,7 +3,7 @@ import { expect, test } from 'vitest'
 import { NEED_RULES } from '@aq/schema'
 import { CONFLICT_ANCHOR, FIELD_ANCHORS, FIELD_TIPS, LEVEL_WORDS, NEED_LABELS, NEEDS_ANCHOR, TEMPERAMENT_WORDS, WHY_WORDS } from '../src/lib/card-guide'
 import { FIELD_LABELS, FIELD_ORDER } from '../src/lib/format'
-import { page } from './dist'
+import { page, sitemapText } from './dist'
 import { OTHER_LANGS } from '@aq/schema/langs'
 
 const GUIDE = { vi: '/gioi-thieu/bang-du-lieu/', id: '/id/tentang/tabel-data/', th: '/th/about/data-table/' }
@@ -20,7 +20,7 @@ test('the data card\'s explainer page is built in each language, with a section 
   }
   // It is linked from the about page and listed in the sitemap, in every language.
   expect(page('/gioi-thieu/').dom.querySelector(`a[href="${GUIDE.vi}"]`)).not.toBeNull()
-  const xml = readFileSync(new URL('../dist/sitemap.xml', import.meta.url), 'utf8')
+  const xml = sitemapText()
   for (const path of Object.values(GUIDE)) expect(xml).toContain(path)
 })
 
@@ -65,19 +65,19 @@ test('each data card label leads to its section of the explainer, with what the 
 })
 
 test('"Vì sao?" on the difficulty: each need with its level and the figure it comes from', () => {
-  // Cardinal tetra: 60 cm and 5 cm, pH 4–6 and 1–6 dGH, the sources' shared 24–27 °C, peaceful, a school of 8.
+  // Cardinal tetra: 60 cm and 5 cm, pH 4–6 and 1–6 dGH, Seriously Fish's 24–30 °C, peaceful, a school of 8.
   const { dom } = page('/ca/ca-neon-vua/')
   const why = dom.querySelector('.card [data-field="difficulty"] details.why')!
   expect(why.querySelector('summary')?.text).toContain('3/8')
   const needs = why.querySelectorAll('li')
   expect(needs.map(n => [n.getAttribute('data-need'), n.getAttribute('data-level'), n.querySelector('.lv')?.text])).toEqual([
-    ['space', 'easy', 'Dễ'], ['water', 'hard', 'Khó'], ['temperature', 'mid', 'Vừa'], ['temperament', 'easy', 'Dễ'], ['social', 'mid', 'Vừa'],
+    ['space', 'easy', 'Dễ'], ['water', 'hard', 'Khó'], ['temperature', 'easy', 'Dễ'], ['temperament', 'easy', 'Dễ'], ['social', 'mid', 'Vừa'],
   ])
   expect(needs.map(n => n.querySelector('.fx')?.text.replace(/\s+/g, ' ').trim())).toEqual([
-    'bể từ 60 cm, cá dài 5 cm', 'nước chua, nước mềm · pH 4–6, 1–6 dGH', 'khoảng nhiệt độ hẹp · 24–27°C', 'hiền', 'đàn từ 8 con',
+    'bể từ 60 cm, cá dài 5 cm', 'nước chua, nước mềm · pH 4–6, 1–6 dGH', '24–30°C', 'hiền', 'đàn từ 8 con',
   ])
   expect(needs[0]!.querySelectorAll('[data-cm]').map(s => s.getAttribute('data-cm'))).toEqual(['60,60', '5,5'])
-  expect(needs[2]!.querySelector('[data-c]')?.getAttribute('data-c')).toBe('24,27')
+  expect(needs[2]!.querySelector('[data-c]')?.getAttribute('data-c')).toBe('24,30')
   expect(why.querySelector('.note a')?.getAttribute('href')).toBe(`${GUIDE.vi}#${NEEDS_ANCHOR}`)
   // One sources toggle still: the panel is the difficulty cell's own.
   expect(dom.querySelectorAll('.datacard details.trust').length).toBe(1)

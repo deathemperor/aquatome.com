@@ -63,7 +63,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 4
+        "value": 2
       }
     ]
   },
@@ -186,7 +186,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Loïc Tremblay",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aequidens_pulcher.jpg",
-      "caption": "Andinoacara Pulcher"
+      "caption": "Andinoacara Pulcher",
+      "large": {
+        "url": "https://media.aquatome.com/commons/d50f3ea5630ff569-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/6fbe42ba7725fce6.webp",
@@ -214,8 +219,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 300 lít",
-        "bể cá cichlid lớn"
+        "bể cá 120cm"
       ]
     },
     {

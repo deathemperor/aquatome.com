@@ -1,6 +1,6 @@
 {
   "slug": "ca-an-dat-satanoperca-jurupari",
-  "name": "Cá Satanoperca jurupari",
+  "name": "Cá hải hồ jurupari",
   "altNames": [
     "Cá ăn đất jurupari",
     "Eartheater",
@@ -14,7 +14,7 @@
   "sections": {
     "quickFacts:glaser": "<p>Đây là một con Satanoperca jurupari từ Rio Tocantins ở Brazil, dài khoảng 15 cm. Dòng cá ăn đất này rất hiếm khi có hàng.</p>",
     "distribution:glaser": "<p>Rio Tocantins, Brazil.</p>",
-    "quickFacts:seriouslyfish": "<ul><li>Kích thước tối đa: 185 mm SL (chiều dài chuẩn)</li><li>Kích thước bể: 210 × 60 cm</li><li>Nhiệt độ: 20–28°C</li><li>pH: 5,5–7,5</li><li>Độ cứng: 2–12 dGH</li><li>Độ khó: 7/8 (khó), vì cá cần bể dài ít nhất 2 m.</li></ul>",
+    "quickFacts:seriouslyfish": "<ul><li>Kích thước tối đa: 185 mm SL (chiều dài chuẩn)</li><li>Kích thước bể: 210 × 60 cm</li><li>Nhiệt độ: 20–28°C</li><li>pH: 5,5–7,5</li><li>Độ cứng: 2–12 dGH</li><li>Độ khó: 6/8 (khó), vì cá cần bể dài ít nhất 2 m.</li></ul>",
     "beforeYouBuy:seriouslyfish": "<p>Cá cần nền cát mềm. Đây là thứ quan trọng nhất khi bố trí bể, vì cá phải được đào bới kiếm ăn theo đúng bản năng (xem mục 'Chế độ ăn').</p><p>Demon eartheater (Satanoperca jurupari) là một loài cichlid đã được ghi nhận ở phần lớn lưu vực Amazon, trải khắp Brazil, Bolivia, Peru, Ecuador và Colombia. Sách vở về cá cảnh hay nhầm loài này với S. leucosticta. Loài kia có đốm trắng nổi rõ hoặc vân ngoằn ngoèo hình giun ở hai bên đầu. Danh tính chính xác của S. jurupari đến nay vẫn còn rối. Các quần thể ở Tapajós, Xingu, Araguaia và Paraná khác biệt về di truyền và có thể là những loài riêng.</p>",
     "distribution:seriouslyfish": "<p>Loài này đã được ghi nhận ở phần lớn lưu vực sông Amazon, thuộc Brazil, Bolivia, Peru, Ecuador và Colombia. Có thể nó còn sống ở lưu vực Orinoco thuộc Colombia và Venezuela (xem mục 'Ghi chú'). Tuy vậy, nghiên cứu di truyền cho thấy từ rio Madeira trở xuống hạ lưu, loài này có thể chỉ sống ở dòng chính Amazon và đoạn cuối của các phụ lưu. Còn ở phía thượng nguồn, nó có mặt ở Amazon/Solimões và khắp các hệ phụ lưu khác, gồm rio Negro, Purus, Japurá, Juruá, Putomayo, Javary, Napo, Marañón, Huallaga và Ucayali.</p><p>Các quần thể ở rio Tapajós, Xingu, Araguaia và Paraná trước đây từng được xếp vào S. jurupari, nhưng có vẻ không cùng loài với nó. Quần thể ở Paraná có thể do con người thả vào.</p><p>Loài này cũng đã được ghi nhận ở một số hệ sông ven biển nhỏ hơn phía bắc cửa Amazon, như rio Araguari ở bang Amapá, đông bắc Brazil, và vài lưu vực ở Guiana thuộc Pháp. Tuy nhiên, cá ở những nơi này có một số khác biệt về hình thái so với cá Amazon và có thể là loài riêng (xem mục 'Ghi chú').</p><p>Địa điểm mẫu chuẩn là 'Cửa rio Negro đổ vào sông Amazon, Brazil'.</p>",
     "habitat:seriouslyfish": "<p>Ngoài tự nhiên, người ta đã gặp loài này ở dòng chính các con sông, ở những phụ lưu nhỏ hơn và trong hồ ngập lũ. Chúng thường sống trên nền cát hoặc bùn, có từng mảng lá mục và cành cây chìm.</p>",
@@ -35,5 +35,6 @@
       "glaser": 0.85,
       "seriouslyfish": 0.93
     }
-  }
+  },
+  "nameFixed": true
 }

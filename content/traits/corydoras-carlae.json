@@ -2,7 +2,12 @@
   "id": "corydoras-carlae",
   "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": null,
-  "speciesUpdatedAt": "2026-10-30",
-  "generatedAt": "2026-10-30T21:26:21.874Z"
+  "schoolMin": 4,
+  "speciesUpdatedAt": "2026-11-08",
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-08T19:44:52.472Z"
 }

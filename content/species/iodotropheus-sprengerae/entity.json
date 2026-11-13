@@ -10,6 +10,63 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi",
+        "Boadzulu",
+        "Chinyankwazi",
+        "Chinyamwezi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's found in the southern part of the lake around the islands of Boadzulu, Chinyankwazi and Chinyamwezi.",
+          "countries": [],
+          "regions": [
+            "Boadzulu",
+            "Chinyankwazi",
+            "Chinyamwezi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371552,
+      "total": 12,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "MW",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -15.46875,
+          8
+        ],
+        [
+          33.75,
+          -14.0625,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -156,8 +213,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 90x30"
+        "bể cá 90cm"
       ]
     },
     {

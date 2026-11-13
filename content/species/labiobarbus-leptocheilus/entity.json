@@ -1,0 +1,567 @@
+{
+  "id": "labiobarbus-leptocheilus",
+  "scientificName": "Labiobarbus leptocheilus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Labiobarbus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "china",
+    "mekong",
+    "laos",
+    "thailand",
+    "chao-phraya",
+    "cambodia",
+    "vietnam",
+    "dong-nai",
+    "myanmar",
+    "salween",
+    "malaysia",
+    "peninsular-malaysia",
+    "indonesia",
+    "kalimantan",
+    "java"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "LA",
+        "TH",
+        "KH",
+        "VN",
+        "MM",
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Mekong",
+        "Salween",
+        "Chao Phraya",
+        "Borneo",
+        "Sumatra",
+        "Java"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widespread in Southeast Asia, including the Mekong basin in southern China, Laos, Thailand, Cambodia, and Vietnam, the Salween River in Myanmar and Thailand, the Dong Nai drainage in Vietnam, the Chao Phraya and Mae Klong systems in Thailand, various smaller watersheds in southern Thailand and Peninsular Malaysia, plus the Greater Sunda Islands of Borneo, Sumatra, and Java.",
+          "countries": [
+            "CN",
+            "LA",
+            "TH",
+            "KH",
+            "VN",
+            "MM",
+            "MY"
+          ],
+          "regions": [
+            "Mekong",
+            "Salween",
+            "Chao Phraya",
+            "Borneo",
+            "Sumatra",
+            "Java"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Jakarta, Java, Indonesia'.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366259,
+      "total": 90,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TH",
+          38
+        ],
+        [
+          "KH",
+          30
+        ],
+        [
+          "ID",
+          12
+        ],
+        [
+          "MY",
+          7
+        ],
+        [
+          "LA",
+          1
+        ],
+        [
+          "MM",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          14.0625,
+          4,
+          4
+        ],
+        [
+          98.4375,
+          15.46875,
+          4,
+          4
+        ],
+        [
+          98.4375,
+          18.28125,
+          5,
+          5
+        ],
+        [
+          98.4375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          101.25,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          101.25,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          101.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          101.25,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          16.875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          18,
+          18
+        ],
+        [
+          104.0625,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          15.46875,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          16.875,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          106.875,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          106.875,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          0,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 26
+      },
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 240
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
+      "html": "<p>Labiobarbus leptocheilus is a large cyprinid widespread in Southeast Asia, from the Mekong and Salween to the Greater Sunda Islands. Different populations vary somewhat in appearance, and it may turn out to represent a group of closely-related species. The Cambodian Mekong population has been considered a distinct species, Labiobarbus lineatus, and that name is widely used in the ornamental trade although it is currently a synonym. It grows to 260 mm SL and needs spotless, well-oxygenated water.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li><li>Needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labiobarbus_leptocheila_en/",
+      "html": "<p>Labiobarbus leptocheila is a barb growing up to 30 cm long, originating from Southeast Asia. The genus Labiobarbus is typified by the protracted dorsal fin and by longitudinal stripes formed by black marks on the scales.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
+      "html": "<p>Widespread in Southeast Asia, including the Mekong basin in southern China, Laos, Thailand, Cambodia, and Vietnam, the Salween River in Myanmar and Thailand, the Dong Nai drainage in Vietnam, the Chao Phraya and Mae Klong systems in Thailand, various smaller watersheds in southern Thailand and Peninsular Malaysia, plus the Greater Sunda Islands of Borneo, Sumatra, and Java.</p><p>Type locality is 'Jakarta, Java, Indonesia'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labiobarbus_leptocheila_en/",
+      "html": "<p>Found from the Mekong area over the Malayan peninsula to Java, Sumatra and Borneo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labiobarbus_leptocheila_en/",
+      "html": "<p>In the wild they inhabit midwater depths and the bottom of larger rivers and streams, where they feed on plankton.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
+      "html": "<p>An aquarium with base measurements of 240 × 60 cm or equivalent will be required for long-term maintenance (about 864 litres).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labiobarbus_leptocheila_en/",
+      "html": "<p>Given their size they need large aquaria, which should have some shelters and hiding places.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
+      "html": "<p>This species will do well in most well-maintained larger aquaria but is best maintained in a set-up designed to resemble a flowing river or stream, with a substrate of variably-sized rocks, gravel and some large water-worn boulders.</p><p>This can be further furnished with driftwood branches, and while the majority of plant species will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor. In this kind of environment it will display more natural behaviour and can be kept alongside other species that enjoy similar conditions. Bright lighting will also promote the growth of aufwuchs upon which the fish will graze.</p><p>Like many fishes that naturally inhabit running waters it's intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive. It also does best if there is a high level of dissolved oxygen and a decent level of water movement in the tank so external filters, powerheads or similar should be employed in order to obtain the desired effect.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labiobarbus_leptocheila_en/",
+      "html": "<p>Since they like plants, the aquarium should be planted only with hardy species. A generously dimensioned filtering unit and frequent water changes are normal for animals of this size.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
+      "html": "<p>In nature it grazes the biofilm that covers submerged surfaces, feeding on algae, including diatoms, small crustaceans, insect larvae, etc. For it to develop its best colours and condition it should therefore be offered regular meals of small live and frozen foods such as chironomid larvae (bloodworm), Daphnia and Artemia along with good quality dried flakes, granules and plenty of vegetable matter.</p><p>Fresh fruit and vegetables such as cucumber, melon, blanched spinach or courgette can be offered occasionally and home-made, gelatine-bound recipes containing a mixture of dried fish food, puréed shellfish, fresh fruit and vegetables, for example, are also proven to work well.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
+      "html": "<p>Relatively peaceful and makes a good subject for the well-chosen, larger community of stream-dwelling Indochinese species.</p><p>It is gregarious by nature and ideally should be kept in a group of at least six. The fish show better colours in the presence of conspecifics, are less nervous and the display on the whole will appear more natural-looking. SF members who have kept it report that it can act skittishly in the absence of similarly-sized tankmates.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
+      "html": "<p>Unconfirmed but sexually mature females are likely to be deeper-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labiobarbus_leptocheila_en/",
+      "html": "<p>No information about successful breeding attempts is available.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
+      "html": "<p>L. leptocheilus can be distinguished from congeners by the following combination of characters: 33-44 (usually 33-38) scales in the lateral series; if present, shoulder spot not well-defined; body with longitudinal stripes formed by a spot on each scale, equally intense over entire flank; dorsal and caudal fins without marginal or submarginal stripes; 16-20 circumpeduncular scales; 21-28 branched dorsal-fin rays; maxillary barbels short, not reaching to posterior border of eye.</p><p>Different populations vary in appearance somewhat (see image of Salween specimen for example), and L. leptocheilus may turn out to represent a group of closely-related species rather than a single taxon. The population from the Cambodian Mekong has been considered to represent a distinct species, Labiobarbus lineatus, although that name is currently a synonym of L. leptocheilus following Kottelat (2013). It is widely used in the ornamental trade, however.</p><p>In recent studies the genus Labiobarbus is usually grouped within the cyprinid subfamily Labeoninae. Several authors including Roberts (1989) have argued that the generic name Dangila (Valenciennes, 1842), which was officially used for over 100 years, should continue to take precedence.</p><p>However according to rules set out in the modern-day International Code of Zoological Nomenclature Labiobarbus is the correct name on the basis of priority, having first been proposed by van Hasselt in 1823. Further doubts that van Hasselt and Valenciennes may have described two different fish were settled by Roberts (1993) who found that they were the same.</p><p>Members are most-easily distinguished from their close relatives by the possession of two pairs of well-developed barbels, an extremely long dorsal-fin with 4 simple and 18-30 branched rays and unique soft mouth parts which lack unculi (these form ridge-like rows on the lips of other Labeonins).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
+      "html": "<ul><li>Roberts, T. R. (1993). Systematic revision of the Southeast Asian cyprinid fish genus Labiobarbus (Teleostei: Cyprinidae). Raffles Bulletin of Zoology 41(2), 315-329</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Yang, L. and R. L. Mayden (2010). Phylogenetic relationships, subdivision, and biogeography of the cyprinid tribe Labeonini (sensu Rainboth, 1991) (Teleostei: Cypriniformes), with comments on the implications of lips and associated structures in the labeonin classification. Molecular Phylogenetics and Evolution 54(1), 254-265</li><li>Cuvier, G. and A. Valenciennes (1842). Livre dix-huitième. Les Cyprinoïdes. Histoire naturelle des poissons v. 16, i-xx + 1-472</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Parenti, L. R. and K. K. P. Lim (2005). Fishes of the Rajang Basin, Sarawak, Malaysia. Raffles Bulletin of Zoology Supplement 13, 175-208</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Freyhof, J., D. V. Serov and T. N. Nguyen (2000). A preliminary checklist of the freshwater fishes of the River Dong Nai, South Vietnam. Bonner Zoologische Beiträge 49(1-4), 93-99</li><li>Kottelat, M. (1998). Fishes of the Nam Theun and Xe Bangfai basins, Laos, with diagnoses of twenty-two new species (Teleostei: Cyprinidae, Balitoridae, Cobitidae, Coiidae and Odontobutidae). Ichthyological Exploration of Freshwaters 9(1), 1-128</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1a92b0a8880b2c75.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1a92b0a8880b2c75-480.webp",
+      "width": 820,
+      "height": 418,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
+      "caption": "Adult from the Mekong River basin.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e7761e46e64d27c3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e7761e46e64d27c3-480.webp",
+      "width": 820,
+      "height": 384,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
+      "caption": "Subadult from the Mekong.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f834a535438a174c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f834a535438a174c-480.webp",
+      "width": 800,
+      "height": 420,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labiobarbus-leptocheilus",
+      "caption": "Specimen measuring 105 mm SL from Kebumen, Central Java, Indonesia.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 240cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc ngoài bể lớn",
+        "máy tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cảnh dạng hạt",
+        "thức ăn thực vật cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

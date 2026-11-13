@@ -56,7 +56,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -136,34 +136,19 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/0ae1a3b0779c0630.webp",
-      "thumb": "https://media.aquatome.com/commons/0ae1a3b0779c0630-480.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "Rejoice Gassah",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichogaster_fasciata_68167544.jpg",
-      "caption": "Banded Gourami (Trichogaster fasciata)"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/c1a0a78c3a6b7718.webp",
-      "thumb": "https://media.aquatome.com/commons/c1a0a78c3a6b7718-480.webp",
-      "width": 960,
-      "height": 595,
-      "licence": "Public domain",
-      "author": "Marcus Elieser Bloch (1723–1799)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_fasciata_BLOCH.jpg",
-      "caption": "Colisa fsaciata (Perciformes: Osphronemidae)."
-    },
-    {
-      "url": "https://media.aquatome.com/commons/2c88ac55356184ce.webp",
-      "thumb": "https://media.aquatome.com/commons/2c88ac55356184ce-480.webp",
-      "width": 960,
-      "height": 578,
-      "licence": "Public domain",
-      "author": "Buffon, Georges Louis Leclerc; Cuvier, Georges; Valenciennes",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Histoire_naturelle_des_poissons_(10438609024).jpg",
-      "caption": "I rfj. M O"
+      "url": "https://media.aquatome.com/inaturalist/188281877.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/188281877-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Sandipan Das",
+      "sourceUrl": "https://www.inaturalist.org/photos/188281877",
+      "caption": "Cá gourami sọc trong bể thủy sinh nhiều cây xanh",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/188281877-large.webp",
+        "width": 1440,
+        "height": 1080
+      }
     }
   ],
   "videos": [
@@ -203,7 +188,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá cộng đồng 60cm"
+        "bể cá 80cm"
       ]
     }
   ],

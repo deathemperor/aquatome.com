@@ -1,0 +1,27 @@
+{
+  "slug": "ca-nheo-synodontis-sorex",
+  "name": "Cá nheo Synodontis sorex",
+  "altNames": [
+    "Scissortail-Squeaker"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<ul><li>Nguồn gốc: Nigeria</li><li>Chiều dài tối đa: có tài liệu nói dài hơn 40 cm</li></ul>",
+    "distribution:glaser": "<p>Cá nhập về từ Nigeria.</p>",
+    "behaviour:glaser": "<p>Bảy con nhập về đợt đó bơi đàn nhiều hơn hẳn so với những gì thường thấy ở các loài Synodontis.</p>",
+    "diet:glaser": "<p>S. sorex có cái miệng rất lạ. Trông nó giống miệng hút của cá Ancistrus Nam Mỹ hơn là miệng thường thấy ở Synodontis. Loài này ăn rất giỏi trên các bề mặt phẳng như đá, rễ cây và lá cây.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

@@ -17,9 +17,9 @@
       ],
       "regions": [
         "Western Ghats",
+        "Lake Vembanad",
         "Periyar",
         "Pamba",
-        "Lake Vembanad",
         "Chalakkudy"
       ],
       "sources": [
@@ -29,17 +29,11 @@
       ],
       "quotes": [
         {
-          "source": "aquariumcoop",
-          "quote": "It comes from fully freshwater environments in the southwestern tip of India.",
+          "source": "aquariumbreeder",
+          "quote": "Carinotetraodon travancoricus is endemic to rivers of the Western Ghats in South India.",
           "countries": [
             "IN"
           ],
-          "regions": []
-        },
-        {
-          "source": "aquariumbreeder",
-          "quote": "Carinotetraodon travancoricus is endemic to rivers of the Western Ghats in South India.",
-          "countries": [],
           "regions": [
             "Western Ghats"
           ]
@@ -49,9 +43,9 @@
           "quote": "It is mainly distributed in the Chalakkudy, Pamba, Periyar, Kabani, Bharathapuzha, Vamanapuram and Muvattupuzha rivers, Lake Vembanad and the kole wetlands of Thrissur, Kallar stream and Neyyar wildlife sanctuary of south Kerala.",
           "countries": [],
           "regions": [
+            "Lake Vembanad",
             "Periyar",
             "Pamba",
-            "Lake Vembanad",
             "Chalakkudy"
           ]
         }
@@ -230,7 +224,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ],
     "lifeYears": [
@@ -273,7 +267,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-travancoricus",
-      "html": "<p>The dwarf puffer, Carinotetraodon travancoricus, is a tiny freshwater puffer endemic to the state of Kerala in southern India. Also known as the Malabar puffer and probably the smallest species of puffer, it usually inhabits sluggish, heavily vegetated inland waters. A popular import, it is often sold without the information needed for its long-term care, and tends to nip the fins of slow-moving or long-finned fish.</p><ul><li>Difficulty: 6 of 8 (moderate) – it needs a well-established tank and stable water.</li></ul>"
+      "html": "<p>The dwarf puffer, Carinotetraodon travancoricus, is a tiny freshwater puffer endemic to the state of Kerala in southern India. Also known as the Malabar puffer and probably the smallest species of puffer, it usually inhabits sluggish, heavily vegetated inland waters. A popular import, it is often sold without the information needed for its long-term care, and tends to nip the fins of slow-moving or long-finned fish.</p><ul><li>Difficulty: 4 of 8 (moderate) – it needs a well-established tank and stable water.</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -563,7 +557,22 @@
       "licence": "CC BY-SA 4.0",
       "author": "Beta Mahatvaraj",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carinotetraodon_travancoricus_hi_res.jpg",
-      "caption": "Carinotetraodon travancoricus (Pea Puffer)"
+      "caption": "Carinotetraodon travancoricus (Pea Puffer)",
+      "large": {
+        "url": "https://media.aquatome.com/commons/b78cb97609998398-large.webp",
+        "width": 1024,
+        "height": 617
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/9101db169a490610.webp",
+      "thumb": "https://media.aquatome.com/commons/9101db169a490610-480.webp",
+      "width": 960,
+      "height": 520,
+      "licence": "CC BY 3.0",
+      "author": "Parazelsus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carinotetraodon_travancoricus_by_Parazelsus_(cropped).jpg",
+      "caption": "Carinotetraodon travancoricus in an aquarium displaying its iridescent patches. The image has been cropped from its original dimensions."
     },
     {
       "url": "https://media.aquatome.com/aquariumcoop/98781a0d3fbbbbab.webp",
@@ -575,16 +584,6 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/pea-puffer",
       "caption": "pea puffer looking at a bloodworm",
       "source": "aquariumcoop"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/9101db169a490610.webp",
-      "thumb": "https://media.aquatome.com/commons/9101db169a490610-480.webp",
-      "width": 960,
-      "height": 520,
-      "licence": "CC BY 3.0",
-      "author": "Parazelsus",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carinotetraodon_travancoricus_by_Parazelsus_(cropped).jpg",
-      "caption": "Carinotetraodon travancoricus in an aquarium displaying its iridescent patches. The image has been cropped from its original dimensions."
     }
   ],
   "videos": [
@@ -617,8 +616,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 20 lít",
-        "bể cá mini thủy sinh"
+        "bể cá 30cm"
       ]
     },
     {

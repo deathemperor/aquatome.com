@@ -3,7 +3,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { loadAll } from '../src/index'
+import { cardShownIn, loadAll, type Section, type Translation } from '../src/index'
+import { oneVoice, withLocalNote } from '../src/load'
 
 const root = fileURLToPath(new URL('./fixtures/store', import.meta.url))
 const bad = fileURLToPath(new URL('./fixtures/bad', import.meta.url))
@@ -84,6 +85,22 @@ test('a breed\'s care figure the engine hid is left off its page', async () => {
   expect(b.care).toEqual({ sizeCm: [{ source: 0, value: 90 }] })
 })
 
+test('a gallery photo the photo check has not judged yet is on no page, and counts towards no album', async () => {
+  const { cp, mkdir, writeFile } = await import('node:fs/promises')
+  const dir = await mkdtemp(join(tmpdir(), 'aq-unchecked-'))
+  await cp(root, dir, { recursive: true })
+  const photo = (n: number) => ({ url: `https://x/${n}.jpg`, width: 4, height: 3, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/${n}` })
+  await mkdir(join(dir, 'gallery'))
+  await writeFile(join(dir, 'gallery/alpha.json'), JSON.stringify({ id: 'alpha', seen: 3, updatedAt: '2026-11-11', photos: [photo(1), { ...photo(2), unchecked: true }, { ...photo(3), best: true, kind: 'male' }] }))
+  // A gallery whose every photo waits is no gallery yet.
+  await writeFile(join(dir, 'gallery/beta.json'), JSON.stringify({ id: 'beta', seen: 1, updatedAt: '2026-11-11', photos: [{ ...photo(4), unchecked: true }] }))
+  for (const publicBuild of [true, false]) {
+    const c = await loadAll({ root: dir, lang: 'vi', publicBuild })
+    expect(c.galleries.alpha!.map(p => p.url)).toEqual(['https://x/1.jpg', 'https://x/3.jpg'])
+    expect(c.galleries.beta).toBeUndefined()
+  }
+})
+
 test('Vietnamese photo captions are shown translated in another language, or left off until they are', async () => {
   const { cp, mkdir, readFile, writeFile } = await import('node:fs/promises')
   const dir = await mkdtemp(join(tmpdir(), 'aq-captions-'))
@@ -130,6 +147,36 @@ test('another language has only the places one of its fish comes from; Vietnames
     for (const l of ['vi', 'id']) await writeFile(join(dir, 'places', id, `${l}.json`), JSON.stringify({ slug: id, name: id, altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }))
   }
   expect((await loadAll({ root: dir, lang: 'vi', publicBuild: false })).places.map(p => p.id).sort()).toEqual(['asia', 'europe'])
+  const id = await loadAll({ root: dir, lang: 'id', publicBuild: false })
+  expect(id.places.map(p => p.id)).toEqual(['asia'])
+  // A place with no page in a language still has its name there: a fish's range names rivers no fish lists (a Thai
+  // page named four Vietnamese rivers in Vietnamese while their Thai names went unread, 2026-11-08).
+  expect(id.placeNames).toEqual({ asia: 'asia', europe: 'europe' })
+})
+
+test('a page the reader-fit gate holds back in a language is no page there where the site asks, and the engine still reads it', async () => {
+  const { cp, mkdir, readFile, writeFile } = await import('node:fs/promises')
+  const dir = await mkdtemp(join(tmpdir(), 'aq-held-'))
+  await cp(root, dir, { recursive: true })
+  const held = { checks: ['kit'], at: '2026-11-08' }
+  const hold = async (file: string, from = file) => writeFile(join(dir, file), JSON.stringify({ ...JSON.parse(await readFile(join(dir, from), 'utf8')), held }))
+  await hold('species/beta/vi.json')
+  // alpha's Indonesian page is held, and asia is the only place it comes from.
+  const alpha = JSON.parse(await readFile(join(dir, 'species/alpha/entity.json'), 'utf8'))
+  await writeFile(join(dir, 'species/alpha/entity.json'), JSON.stringify({ ...alpha, places: ['asia'] }))
+  await hold('species/alpha/id.json', 'species/alpha/vi.json')
+  await mkdir(join(dir, 'places/asia'), { recursive: true })
+  await writeFile(join(dir, 'places/asia/entity.json'), JSON.stringify({ id: 'asia', kind: 'continent' }))
+  for (const l of ['vi', 'id']) await writeFile(join(dir, 'places/asia', `${l}.json`), JSON.stringify({ slug: 'asia', name: 'asia', altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }))
+
+  const site = (lang: 'vi' | 'id') => loadAll({ root: dir, lang, publicBuild: false, leaveOutHeld: true })
+  expect((await site('vi')).species.map(s => s.id)).toEqual(['alpha'])
+  const id = await site('id')
+  expect(id.species).toEqual([])
+  expect(id.places).toEqual([])
+  // The engine reads every page, the held ones too, to read them again and let them out.
+  const engine = await loadAll({ root: dir, lang: 'vi', publicBuild: false })
+  expect(engine.species.map(s => [s.id, s.t.held])).toEqual([['alpha', undefined], ['beta', held]])
   expect((await loadAll({ root: dir, lang: 'id', publicBuild: false })).places.map(p => p.id)).toEqual(['asia'])
 })
 
@@ -188,6 +235,106 @@ test('a public build shows no photo from a host that sets third-party cookies; a
   expect(await urls(false)).toContain('https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/A.jpg/960px-A.jpg')
 })
 
+test('a public build shows no photo the watermark screen still owes a look: it waits, and shows by itself once judged', async () => {
+  const { mkdir, rm, utimes } = await import('node:fs/promises')
+  const site = await mkdtemp(join(tmpdir(), 'aq-screen-'))
+  const store = join(site, 'content')
+  await cp(root, store, { recursive: true })
+  const photo = (name: string) => ({ url: `https://media.test/${name}.webp`, width: 960, height: 640, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/${name}` })
+  const file = join(store, 'species', 'alpha', 'entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  const own = ['commons/no-text', 'commons/text', 'commons/text-judged', 'scotcat/logo-source', 'commons/never-read']
+  e.photos = own.map(photo)
+  await writeFile(file, JSON.stringify(e))
+  await mkdir(join(store, 'gallery'))
+  await writeFile(join(store, 'gallery/alpha.json'), JSON.stringify({ id: 'alpha', seen: 2, updatedAt: '2026-11-11', photos: [photo('commons/album-text'), photo('commons/album-no-text')] }))
+  const text = [{ t: '© a credit', c: 0.9, at: 'bottom right' }]
+  const record: Record<string, unknown> = {
+    'https://media.test/commons/no-text.webp': { ocr: [] },
+    'https://media.test/commons/text.webp': { ocr: text },
+    'https://media.test/commons/text-judged.webp': { ocr: text, watermark: false, kind: 'none', what: '' },
+    'https://media.test/scotcat/logo-source.webp': { ocr: [] },
+    'https://media.test/commons/album-text.webp': { ocr: text },
+    'https://media.test/commons/album-no-text.webp': { ocr: [] },
+  }
+  const recordFile = join(site, 'engine-state', '_photo-watermarks.json')
+  await mkdir(join(site, 'engine-state'))
+  let written = 0
+  const write = async () => { await writeFile(recordFile, JSON.stringify(record)); written += 5; await utimes(recordFile, new Date(), new Date(Date.now() + written * 1000)) }
+  await write()
+  const shown = async (publicBuild: boolean) => {
+    const c = await loadAll({ root: store, lang: 'vi', publicBuild })
+    const short = (u: string) => u.replace('https://media.test/', '').replace('.webp', '')
+    return { own: c.species.find(s => s.id === 'alpha')!.photos.map(p => short(p.url)), album: (c.galleries.alpha ?? []).map(p => short(p.url)) }
+  }
+  // Text the model has not judged, a logo source's photo it has not judged, and a photo the reader never read all wait.
+  expect(await shown(true)).toEqual({ own: ['commons/no-text', 'commons/text-judged'], album: ['commons/album-no-text'] })
+  // The engine's own reads see every photo: the photo is still in content, waiting, not refused.
+  expect(await shown(false)).toEqual({ own, album: ['commons/album-text', 'commons/album-no-text'] })
+  // Judged clean, each shows by itself in the next build; the reader's read lets a photo with no text show.
+  for (const name of ['commons/text', 'scotcat/logo-source', 'commons/album-text']) record[`https://media.test/${name}.webp`] = { ocr: name.endsWith('text') ? text : [], watermark: false, kind: 'none', what: '' }
+  record['https://media.test/commons/never-read.webp'] = { ocr: [] }
+  await write()
+  expect(await shown(true)).toEqual({ own, album: ['commons/album-text', 'commons/album-no-text'] })
+  // The calendar names a picture by address alone, so the build answers for an address, a thumb's and a larger copy's
+  // too: nothing waits once judged.
+  const held = async (...names: string[]) => { const c = await loadAll({ root: store, lang: 'vi', publicBuild: true }); return names.filter(n => c.photoWaits!(`https://media.test/${n}.webp`)) }
+  expect(await held(...own, ...own.map(n => `${n}-480`), ...own.map(n => `${n}-large`))).toEqual([])
+
+  // A video guide's section photos and stills, and an equipment guide's head picture, wait the same way.
+  const waits = photo('commons/section-text'), clear = photo('commons/section-no-text')
+  const still = (name: string) => ({ t: 1, url: `https://media.test/${name}.webp`, width: 1280, height: 720, caption: 'c' })
+  const section = (await loadAll({ root: store, lang: 'vi', publicBuild: false })).species.find(x => x.id === 'alpha')!.sections[0]!
+  await mkdir(join(store, 'guides', 'g'), { recursive: true })
+  await writeFile(join(store, 'guides', 'g', 'entity.json'), JSON.stringify({
+    id: 'g', kind: 'care', source: section.source, sourceUrl: 'https://x/g', html: '<h2>One</h2><h2>Two</h2>', photos: [], mentions: [], updatedAt: '2026-11-11',
+    video: { youtubeId: 'abcdefghijk', title: 'T', channel: 'C', channelUrl: 'https://x/c', durationSec: 60, chapters: [], figures: [{ heading: 'One', moments: [still('stills/text'), still('stills/no-text')], photo: waits }, { heading: 'Two', moments: [], photo: clear }] },
+  }))
+  await writeFile(join(store, 'guides', 'g', 'vi.json'), await readFile(join(store, 'species', 'alpha', 'vi.json'), 'utf8'))
+  const equip = (category: string, hero: object, types: object[]) => ({ category, name: category, lead: '', intro: '', hero, types, choose: [], mistakes: [], faq: [] })
+  await mkdir(join(store, 'equipment'))
+  await writeFile(join(store, 'equipment/loc.json'), JSON.stringify(equip('loc', waits, [{ id: 'a', name: 'A', match: 'a', desc: '', pick: '', buy: 'a', photo: clear }])))
+  await writeFile(join(store, 'equipment/den.json'), JSON.stringify(equip('den', waits, [])))
+  Object.assign(record, {
+    [waits.url]: { ocr: text }, [clear.url]: { ocr: [] },
+    'https://media.test/stills/text.webp': { ocr: text }, 'https://media.test/stills/no-text.webp': { ocr: [] },
+  })
+  await write()
+  const c = await loadAll({ root: store, lang: 'vi', publicBuild: true })
+  const figures = c.guides.find(g => g.id === 'g')!.video!.figures!
+  expect(figures.map(f => [f.photo?.url, f.moments.map(m => m.url)])).toEqual([[undefined, ['https://media.test/stills/no-text.webp']], [clear.url, []]])
+  // A type's photo stands in for a head that waits; with none to stand in, the guide waits too.
+  expect(c.equipment.map(e => [e.category, e.hero.url])).toEqual([['loc', clear.url]])
+  expect(await held('commons/section-text', 'commons/section-text-large', 'commons/section-text-480', 'stills/text', 'commons/section-no-text', 'stills/no-text'))
+    .toEqual(['commons/section-text', 'commons/section-text-large', 'commons/section-text-480', 'stills/text'])
+  // A picture this build did not load (on a page this language lacks, or one the gate holds) is asked of the record:
+  // one it owes a look waits, one it judged clean shows, and one it does not know waits.
+  const elsewhere = 'https://media.test/commons/elsewhere-text.webp', clean = 'https://media.test/commons/elsewhere-clean.webp'
+  Object.assign(record, { [elsewhere]: { ocr: text }, [clean]: { ocr: text, watermark: false, kind: 'none', what: '' } })
+  await write()
+  const asked = ['commons/elsewhere-text', 'commons/elsewhere-text-large', 'commons/elsewhere-clean', 'commons/elsewhere-clean-large', 'commons/elsewhere-clean-480', 'commons/unknown']
+  expect(await held(...asked)).toEqual(['commons/elsewhere-text', 'commons/elsewhere-text-large', 'commons/unknown'])
+  // A build with no screen answers for none.
+  expect((await loadAll({ root: store, lang: 'vi', publicBuild: false })).photoWaits).toBeUndefined()
+  // The record is read again when it changes with its modified time put back: at another size, then at the same size.
+  const { stat } = await import('node:fs/promises')
+  const rewrite = async () => { const at = await stat(recordFile); await writeFile(recordFile, JSON.stringify(record)); await utimes(recordFile, at.atime, at.mtime); return at }
+  record['https://media.test/commons/unknown.webp'] = { ocr: [] }
+  const grown = await rewrite()
+  expect((await stat(recordFile)).mtimeMs).toBe(grown.mtimeMs)
+  expect(await held(...asked)).toEqual(['commons/elsewhere-text', 'commons/elsewhere-text-large'])
+  ;[record[elsewhere], record[clean]] = [record[clean], record[elsewhere]]
+  const same = await rewrite()
+  expect([(await stat(recordFile)).mtimeMs, (await stat(recordFile)).size]).toEqual([same.mtimeMs, same.size])
+  expect(await held(...asked)).toEqual(['commons/elsewhere-clean', 'commons/elsewhere-clean-large', 'commons/elsewhere-clean-480'])
+
+  // A build of the real content stops without the record: a missing one must not show every photo unscreened.
+  await rm(recordFile)
+  await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(/watermark screen's record is missing/)
+  // A root with no record beside it (the fixture build, a test's store) has no screen.
+  expect((await shown(true)).own).toEqual(own)
+})
+
 test('a photos-only source shows its photos in a public build, and nothing written from its text', async () => {
   const { mkdir } = await import('node:fs/promises')
   const store = await mkdtemp(join(tmpdir(), 'store-'))
@@ -229,4 +376,46 @@ test('Indonesian and Thai text marks the Vietnamese names in it as Vietnamese; V
   const alpha = async (lang: 'vi' | 'id') => (await loadAll({ root: dir, lang, publicBuild: false })).species.find(s => s.id === 'alpha')!.t.sections[key]
   expect(await alpha('id')).toBe('<p>Ditemukan di sungai <span lang="vi">Đồng Nai</span>, Vietnam.</p>')
   expect(await alpha('vi')).toBe('<p>Sống ở sông Đồng Nai.</p>')
+})
+
+test('a local note goes first in the text, as read everywhere; a guide without one is as stored', () => {
+  const t = { slug: 's', name: 'n', altNames: [], sections: {}, body: '<p>nguồn</p>', quality: { score: 1, indexable: true } }
+  const localNote = { html: '<h3>Ở Việt Nam</h3>', refs: [{ url: 'https://a.test/', title: 'A' }] }
+  expect(withLocalNote({ ...t, localNote }).body).toBe('<h3>Ở Việt Nam</h3><p>nguồn</p>')
+  expect(withLocalNote(t)).toEqual(t)
+})
+
+test("the app's cards: those the gate holds back in a language are left out there, and a photo the build may not show goes, not the card", async () => {
+  const vi = await loadAll({ root, lang: 'vi', publicBuild: true })
+  expect(vi.cards.map(c => c.id)).toEqual(['betta-tet', 'new-rasbora'])
+  expect(vi.cards[0]!.t.title).toBe('Hội thi cá betta')
+  expect(vi.cards[0]!.photo?.licence).toBe('CC BY-SA 4.0')
+  expect(vi.cards[1]!.photo).toBeUndefined()
+  expect(vi.cards[1]!.about).toEqual([])
+  // Thai: held there; Indonesian: not written.
+  expect((await loadAll({ root, lang: 'th', publicBuild: true })).cards).toEqual([])
+  expect((await loadAll({ root, lang: 'id', publicBuild: true })).cards).toEqual([])
+})
+
+test("an event card in one of the readers' countries shows only in its language: a fair in Bangkok is Thai only, its Vietnamese card the translators' source", async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'store-'))
+  await cp(root, dir, { recursive: true })
+  const file = join(dir, 'cards/betta-tet/entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(file, JSON.stringify({ ...e, event: { ...e.event, place: 'Bangkok', country: 'TH' } }))
+  await writeFile(join(dir, 'cards/betta-tet/th.json'), JSON.stringify({ eyebrow: 'งานประกวด', title: 'งานประกวดปลากัด', body: '<p>ที่กรุงเทพฯ</p>' }))
+  expect((await loadAll({ root: dir, lang: 'vi', publicBuild: true })).cards.map(c => c.id)).toEqual(['new-rasbora'])
+  expect((await loadAll({ root: dir, lang: 'th', publicBuild: true })).cards.map(c => c.id)).toEqual(['betta-tet'])
+  expect(cardShownIn({ event: { country: 'BN' } }, 'ms')).toBe(true)
+  expect(cardShownIn({ event: { country: 'JP' } }, 'vi')).toBe(true)
+  expect(cardShownIn({}, 'id')).toBe(true)
+})
+
+test('a heading with one voice shows that source alone, and only once this language has its text', () => {
+  const block = (key: string, source: string) => ({ key, source, sourceUrl: `https://x/${source}`, html: 'x' }) as Section
+  const sections = [block('waterConditions', 'glaser'), block('waterConditions', 'seriouslyfish'), block('diet', 'glaser')]
+  const shown = (t: Record<string, string>) => oneVoice({ sections, t: { sections: t } as unknown as Translation }, { waterConditions: 'seriouslyfish' }).sections.map(s => `${s.key}:${s.source}`)
+  expect(shown({ 'waterConditions:glaser': 'a', 'waterConditions:seriouslyfish': 'b', 'diet:glaser': 'c' })).toEqual(['waterConditions:seriouslyfish', 'diet:glaser'])
+  expect(shown({ 'waterConditions:glaser': 'a', 'diet:glaser': 'c' })).toEqual(['waterConditions:glaser', 'waterConditions:seriouslyfish', 'diet:glaser'])
+  expect(oneVoice({ sections, t: { sections: {} } as unknown as Translation }, undefined).sections).toEqual(sections)
 })

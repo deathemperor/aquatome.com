@@ -1,0 +1,407 @@
+{
+  "id": "hemigrammus-ulreyi",
+  "scientificName": "Hemigrammus ulreyi",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hemigrammus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-paraguay"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Paraguay"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The broken-line tetra, Hemigrammus ulreyi, is a small characin known only from the Brazilian part of the Rio Paraguay basin.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Brazilian part of the Rio Paraguay basin.",
+          "countries": [],
+          "regions": [
+            "Rio Paraguay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354349,
+      "total": 106,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          92
+        ],
+        [
+          "PY",
+          10
+        ],
+        [
+          "AR",
+          2
+        ],
+        [
+          "BO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -64.6875,
+          -32.34375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -28.125,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -16.875,
+          22,
+          21
+        ],
+        [
+          -59.0625,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -28.125,
+          5,
+          0
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -23.90625,
+          3,
+          0
+        ],
+        [
+          -57.65625,
+          -19.6875,
+          17,
+          17
+        ],
+        [
+          -57.65625,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -16.875,
+          18,
+          18
+        ],
+        [
+          -56.25,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -19.6875,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -18.28125,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -16.875,
+          9,
+          9
+        ],
+        [
+          -56.25,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -18.28125,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemigrammus-ulreyi",
+      "html": "<p>The broken-line tetra, Hemigrammus ulreyi, is a small characin known only from the Brazilian part of the Rio Paraguay basin. Other species are frequently misidentified as H. ulreyi, and the true fish is quite scarce in the hobby. It inhabits slow-moving rivers and tributaries. Like all Hemigrammus, its taxonomic status is Incertae Sedis, and most experts agree the genus needs a full revision.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemigrammus-ulreyi",
+      "html": "<p>Known only from the Brazilian part of the Rio Paraguay basin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemigrammus-ulreyi",
+      "html": "<p>Slow moving rivers and tributaries.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemigrammus-ulreyi",
+      "html": "<p>Standard length: 5 cm SL. Aquarium base: 60 × 38 cm. A small group would need a tank around 60 × 38 × 30 cm, about 68 litres in size.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemigrammus-ulreyi",
+      "html": "<p>A biotope setup would be very simple to arrange. Use a substrate of river sand and add a few driftwood branches (if you can't find driftwood of the desired shape, common beech is safe to use if thoroughly dried and stripped of bark) and twisted roots. A few handfuls of dried leaves (again beech can be used, or oak leaves are also suitable) would complete the natural feel. Aquatic plants are not a feature of this species' natural waters. Allow the wood and leaves to stain the water the colour of weak tea, removing old leaves and replacing them every few weeks so they don't rot and foul the water. A small net bag filled with aquarium-safe peat can be added to the filter to aid in the simulation of black water conditions. Use fairly dim lighting. Alternatively, it also does well in a well maintained, heavily planted tank or peaceful community setup.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemigrammus-ulreyi",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 6.0–7.0</li><li>Hardness: 5–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemigrammus-ulreyi",
+      "html": "<p>Easy to feed. It will readily accept just about anything offered. For the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia and brine shrimp, along with dried flakes and granules.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemigrammus-ulreyi",
+      "html": "<p>It's a very peaceful species that won't compete well with very boisterous or much larger tankmates. Ideally, keep it with other South American species, such as other Hemigrammus or Hyphessobrycon species, pencil fish, Apistogramma dwarf cichlids, Corydoras and small Loricariids. In a more general community it can be combined with smaller rasboras, barbs, Anabantoids and West African dwarf cichlids such as Pelvicachromis species. Due to its shape, it's safe to be kept with larger cichlids such as angel fish or discus as well. Always buy a group of at least 6 of these, preferably 10 or more. It is a shoaling species by nature, and will fare much better when in the company of its own kind. Like most tetras it actually looks far more effective when maintained like this anyway.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemigrammus-ulreyi",
+      "html": "<p>Adult females are larger and more rounded in the belly than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemigrammus-ulreyi",
+      "html": "<p>Can be bred in a similar way to other species in the genus. You'll need to set up a separate tank if you want to raise decent numbers of fry. Something around 46 × 25 × 25 cm in size is fine. This should be very dimly lit and contain clumps of fine-leaved plants such as java moss or spawning mops, to give the fish somewhere to deposit their eggs. Alternatively, you could cover the base of the tank with some kind of mesh. This should be of a large enough grade so that the eggs can fall through it, but small enough so that the adults cannot reach them. The water should be soft and acidic in the range pH 5.5-6.5, gH 1-5, with a temperature of around 26.5 – 29 °C. Filtering the water through peat is useful, as is the use of RO water. A small air-powered sponge filter bubbling away very gently is all that is needed in terms of filtration. It can be spawned in a group, with half a dozen specimens of each sex being a good number. Condition these with plenty of small live foods and spawning should not present too many problems. Alternatively, it can be spawned in pairs. Under this technique, the fish are conditioned in male and female groups in separate tanks. When the females are noticeably full of eggs and the males are displaying their best colours, select the fattest female and best-coloured male and transfer them to the spawning tank in the evening. They should spawn the following morning. In either situation, the adults will eat the eggs given the chance and should be removed as soon as eggs are noticed. These will hatch in 24-36 hours, with the fry becoming free swimming a 3-4 days later. They should be fed on an infusoria-type food for the first few days, until they are large enough to accept microworm or brine shrimp nauplii. The eggs and fry are light sensitive in the early stages of life and the tank should be kept in darkness if possible.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemigrammus-ulreyi",
+      "html": "<p>Other species are frequently misidentified as H. ulreyi. The true fish is quite scarce in the hobby, but makes a very attractive addition to most tanks if you can find it. Hemigrammus has long been used as something of a catch-all for small characins, and recent studies have moved several of its former species to other genera. Most experts agree that a full revision is required, with the likely outcome that many species will be placed into new or different genera.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/b26e9b14941403f8.webp",
+      "width": 960,
+      "height": 641,
+      "licence": "CC BY-SA 3.0",
+      "author": "Haplochromis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemigrammus_ulreyi.JPG",
+      "caption": "Flaggensalmler (Hemigrammus ulreyi) o. Hyphessobrycon sp. \"paraguay\"",
+      "thumb": "https://media.aquatome.com/commons/b26e9b14941403f8-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "JHT8KO87-7U",
+      "title": "Hemigrammus ulreyi",
+      "durationSec": 27,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "aSWblJbPFyI",
+      "title": "[4K]UHD  Hemigrammus ulreyi｜公主灯",
+      "durationSec": 75,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Qh8GpzXctXg",
+      "title": "Hemigrammus ulreyi (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OKBuo_BN-Zk",
+      "title": "Corydoras oiapoquensis & Hemigrammus ulreyi",
+      "durationSec": 107,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sponge bể nhỏ",
+        "máy sục khí mini"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra nhỏ",
+        "thức ăn dạng vảy cho cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

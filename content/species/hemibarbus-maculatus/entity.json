@@ -1,0 +1,326 @@
+{
+  "id": "hemibarbus-maculatus",
+  "scientificName": "Hemibarbus maculatus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Hemibarbus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "china",
+    "yangtze",
+    "japan",
+    "mongolia",
+    "onon",
+    "north-korea",
+    "south-korea",
+    "russia",
+    "amur",
+    "vietnam",
+    "laos"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "KR",
+        "MN",
+        "RU",
+        "JP"
+      ],
+      "regions": [
+        "Yangtze",
+        "Amur",
+        "Hainan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China (mainland and the islands of Taiwan and Hainan), Korea, Mongolia, Russia and Japan.",
+          "countries": [
+            "CN",
+            "KR",
+            "MN",
+            "RU",
+            "JP"
+          ],
+          "regions": [
+            "Yangtze",
+            "Amur",
+            "Hainan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2365995,
+      "total": 51,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CN",
+          32
+        ],
+        [
+          "RU",
+          11
+        ],
+        [
+          "LA",
+          3
+        ],
+        [
+          "KP",
+          2
+        ],
+        [
+          "MN",
+          2
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          19.6875,
+          2,
+          0
+        ],
+        [
+          101.25,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          29.53125,
+          4,
+          4
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          106.875,
+          39.375,
+          17,
+          17
+        ],
+        [
+          111.09375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          112.5,
+          28.125,
+          1,
+          1
+        ],
+        [
+          112.5,
+          33.75,
+          1,
+          1
+        ],
+        [
+          112.5,
+          35.15625,
+          2,
+          2
+        ],
+        [
+          116.71875,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          47.8125,
+          1,
+          1
+        ],
+        [
+          118.125,
+          46.40625,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          125.15625,
+          37.96875,
+          2,
+          0
+        ],
+        [
+          130.78125,
+          43.59375,
+          5,
+          5
+        ],
+        [
+          132.1875,
+          43.59375,
+          5,
+          5
+        ],
+        [
+          135,
+          47.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 40
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-maculatus",
+      "html": "<p>Max size: 40 cm SL. The spotted steed, Hemibarbus maculatus, is a cyprinid widespread in eastern Asia between the Yangtze and Amur basins, including Taiwan and Hainan. It has 7–11 large blackish spots on each flank and a deep body with a clearly convex dorsal profile. A riverine fish of clear, well-oxygenated running water, it breeds in May and June, depositing its eggs among aquatic vegetation. It has probably been introduced to Vietnam and Laos, or records from there represent another species.</p><p>Needs a very large tank and should be kept in a group.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-maculatus",
+      "html": "<p>Widespread in eastern Asia between the Yangtze and Amur river basins, including China (mainland and the islands of Taiwan and Hainan), Korea, Mongolia, Russia and Japan. It has probably been introduced to Vietnam and Laos, or records from these countries represent another species.</p><p>Type locality is 'Chang Jiang [Yangtze River], China'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-maculatus",
+      "html": "<p>Predominantly a riverine fish preferring clear, well-oxygenated, running waters with substrates of sand, gravel, rock or mud.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-maculatus",
+      "html": "<p>Wild individuals are known to feed on benthic crustaceans, insects and molluscs.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-maculatus",
+      "html": "<p>In nature it breeds between May and June, with eggs deposited among aquatic vegetation.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-maculatus",
+      "html": "<p>This species can be distinguished from other members of the genus by the following combination of characters: 7–11 large blackish spots on each flank; body deep with clearly convex dorsal profile; head length shorter than body depth; snout length shorter than or equal to postorbital head length; lips not developed, lateral lobes of lower lip narrow, without folds, the median process large and marked; barbel length ½–⅔ of eye diameter; dorsal spine strong, equal to HL, last simple ray ossified and thicker than branched rays; origin of dorsal fin closer to tip of snout than caudal-fin base; 6½ branched anal-fin rays.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-maculatus",
+      "html": "<ul><li>Yue, P. Q. (1995). A revision of the cyprinid fishes of the genus Hemibarbus in China (Cypriniformes: Cyprinidae). Acta Zootaxonomica Sinica 20(1), 116-123</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (2006). Fishes of Mongolia. A check-list of the fishes known to occur in Mongolia with comments on systematics and nomenclature. The World Bank. Washington, DC., i-xi + 1-103</li><li>Bogutskaya, N. G., A. M. Naseka, S. V. Shedko, E. D. Vasil'eva and I. A. Chereshnev (2008). The fishes of the Amur River: updated check-list and zoogeography. Ichthyological Exploration of Freshwaters 19(4), 301-366</li><li>Kottelat, M. (2001). Freshwater fishes of northern Vietnam. A preliminary check-list of the fishes known or expected to occur in northern Vietnam with comments on systematics and nomenclature. Environment and Social Development Unit, East Asia and Pacific Region. The World Bank, i-iii + 1-123 + 1-18</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Bleeker, P. (1871). Mémoire sur les cyprinoïdes de Chine. Verhandelingen der Koninklijke Akademie van Wetenschappen (Amsterdam) v. 12 (art. 2), 1-91</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/700f7cdd628c90f3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/700f7cdd628c90f3-480.webp",
+      "width": 600,
+      "height": 399,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-maculatus",
+      "caption": "Juvenile specimens from the Chinese aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e48e267d3969dbdb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e48e267d3969dbdb-480.webp",
+      "width": 600,
+      "height": 399,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-maculatus",
+      "caption": "Detail of head and anterior portion of body; juvenile individual.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 300 lít",
+        "bể cá dài 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá chìm",
+        "thức ăn cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

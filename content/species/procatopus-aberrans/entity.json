@@ -1,0 +1,200 @@
+{
+  "id": "procatopus-aberrans",
+  "scientificName": "Procatopus aberrans",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Procatopus",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "nigeria"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The fish described here were obtained from Nigeria.",
+          "countries": [
+            "NG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5203874,
+      "total": 13,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "NG",
+          11
+        ],
+        [
+          "BJ",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          1.40625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          2.8125,
+          5.625,
+          3,
+          3
+        ],
+        [
+          2.8125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          4.21875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          5.625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          7.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          7.03125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          8.4375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          11.25,
+          7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/procatopus-aberrans-6/",
+      "html": "<p>Procatopus aberrans is a very peaceful schooling lampeye that lives near the water surface, or at least in the upper third of the water column. Males become considerably larger than females.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/procatopus-aberrans-6/",
+      "html": "<p>The fish described here were obtained from Nigeria.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/procatopus-aberrans-6/",
+      "html": "<p>It is recommended to keep lampeyes in general in a tank in which natural sunlight can shine in for at least a few hours per day. Under these conditions the brilliant turquoise flanks and the bright copper red eyes shine in a way that delights the heart of every real aquarist.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/procatopus-aberrans-6/",
+      "html": "<p>These are very peaceful schooling fish that live near the water surface or at least in the upper third of the water column.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/procatopus-aberrans-6/",
+      "html": "<p>Males become considerably larger than the females. Females also have a differently shaped, much shorter anal fin.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/procatopus-aberrans-6/",
+      "html": "<p>In contrast to most other lampeye species, which have an iridescent blue zone in the iris, in P. aberrans the iridescent zone in the eye is copper red. This is seen best when the light comes from above.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "2hhvPSl3-mc",
+      "title": "Ｐｒｏｃａｔｏｐｕｓ ａｂｅｒｒａｎｓ",
+      "durationSec": 9,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WSsITFPpEfg",
+      "title": "Procatopus aberrans 741.mp4",
+      "durationSec": 9,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SSJT-wNVwic",
+      "title": "Procatopus aberrans bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 68,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "363Wf3ZvMwE",
+      "title": "Procatopus aberrans 3-4 cm (réf 4801)",
+      "durationSec": 17,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá thủy sinh có nắp",
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc bọt khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

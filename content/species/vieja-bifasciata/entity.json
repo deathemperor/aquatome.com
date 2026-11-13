@@ -1,0 +1,153 @@
+{
+  "id": "vieja-bifasciata",
+  "scientificName": "Vieja bifasciata",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Vieja",
+  "group": "cichlids",
+  "places": [
+    "north-america",
+    "mexico",
+    "grijalva",
+    "guatemala",
+    "usumacinta"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 27,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/vieja-bifasciata",
+      "html": "<p>The red-spotted cichlid, Vieja bifasciata, is a large cichlid from the River Grijalva and Usumacinta basins of Mexico and Guatemala. It is often confused with V. synspila but has two prominent horizontal lines between the eyes. It is moderately to very aggressive depending on the individual, and some fishkeepers have to keep the fish, especially males, alone.</p><ul><li>Needs a very large tank and water of 27°C or warmer</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/vieja-bifasciata",
+      "html": "<p>Recorded from the River Grijalva and Usumacinta basins in Mexico and Guatemala.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/vieja-bifasciata",
+      "html": "<p>This species is most often found in those still or slow-moving environments which favour luxuriant growth of aquatic vegetation and algae such as lakes, coastal lagoons and slower-flowing sections of rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/vieja-bifasciata",
+      "html": "<p>The tank should be no smaller than 120 cm x 45 cm x 45 cm (243 litres) for a single specimen. Something considerably larger would be needed to house a pair or community containing this species.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/vieja-bifasciata",
+      "html": "<p>Like others in the genus, V. bifasciata loves to dig. Given that it also feeds mainly from the bottom and is herbivorous, most live plants are immediately ruled out. A layer of floating duckweed or Salvinia can be useful though, the fish appreciating the extra shade whilst also using it as an additional food source.</p><p>The best choice of substrate for benthic cichlids is almost always soft sand, as it allows the fish to forage in as natural a manner as possible without the risk of grains becoming trapped in the gills or throat. Gravel is also suitable, but carries with it these additional risks.</p><p>Some type of suitably-sized shelter should also be offered, the form of which is largely down to personal taste. Smooth, water-worn boulders, pieces of driftwood and tree branches can be combined to give a very effective look. Large flower pots and lengths of plastic piping are also suitable, although obviously the natural aesthetic would be compromised.</p><p>As with all large cichlids, filtration should be very efficient and ideally situated outside the tank for ease of maintenance. Heaters are also best located externally, either in a sump-style filter or as part of an all-in-one external unit with built-in heater element. Inline heaters are a modern development that are installed in place of a section of filter pipework, providing an excellent alternative to these more traditional options. If using a classic submersible heater, fit it with a sturdy guard to protect it from being buffeted by the fish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/vieja-bifasciata",
+      "html": "<ul><li>Temperature: 27–29°C</li><li>pH: 7.0–8.5. Like most Central American species it will not do so well in acidic conditions.</li><li>Hardness: General hardness values in its natural waters have been recorded to range from 8–33 dGH.</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/vieja-bifasciata",
+      "html": "<p>Most accurately described as a herbivorous detrivore. Wild fish graze on algae, detritus and vegetation both aquatic and terrestrial, although they are also likely to ingest some small benthic invertebrates as they forage. A diet high in vegetable content is therefore important to keep the species in the best degree of health. There are numerous good quality vegetable-based products available and any of these will suffice as the staple diet. This can be further supplemented with meals of lightly-blanched frozen peas, spinach leaves and other vegetables along with meatier fare such as bloodworm, small earthworms and chopped prawns.</p><p>Please note that this species should not be fed the meat of mammals such as beef heart or chicken. The fats contained in these meats cannot be properly metabolised by the fish, and can cause excess deposits of fat and even organ degeneration.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/vieja-bifasciata",
+      "html": "<p>This is a large and moderate to very aggressive cichlid, varying from individual to individual. Vieja bifasciata has been kept successfully in large cichlid communities. There is no guarantee of success. Even with a bonded pair, the female is still likely to take a beating if the male wants to breed and she does not. Caution is advised.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/vieja-bifasciata",
+      "html": "<p>Male is larger and much more colourful with red colouring round the face and throat and gold, yellow and blue on the flanks. The female is drab by comparison.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/vieja-bifasciata",
+      "html": "<p>All studied members of Vieja are bi-parental substrate-spawners and provided you have sufficient space are not too difficult to breed. An adult pair of V. bifasciata will require a tank with dimensions of at least 150 cm long x 60 cm wide. Height is far less important than floor space, but the tank should still be around 45 cm in depth. The size of the tank is crucial as some males can turn on their partners without warning, and it is important to have enough space and refuges for the female to escape and hide if necessary. It also helps to have a tank divider to hand should circumstances require that the fish be separated.</p><p>As with many cichlids, the easiest way to obtain a viable pair is to buy a group of six or more youngsters and grow them on together. Furnish the tank as suggested above and be sure to add several flattish rocks to give the fish a choice of potential spawning sites. Water conditions should be within the ranges suggested above.</p><p>Watch the young fish closely as they approach maturity. It should be quite obvious when a pair forms as two fish invariably separate themselves from the others and begin to defend a particular area of the tank against intruders. At this point it is a wise move to remove the other fish from the tank for their own safety. The fact that these will need rehoming is an important factor to consider when planning to breed this species.</p><p>Spawning begins with the selection and preparation of a suitable site. This will usually be a fairly flat surface such as a rock or piece of bogwood, although Vieja species have also been seen laying eggs directly onto the base of the tank after excavating the substrate to reach it. The pair might also dig some smallish pits into the substrate around the site. These are known as \"nursery\" pits. In nature the fry are moved between several of these pits during the early stages of life by way of reducing the likelihood of predation, and the same fascinating pattern of behaviour is followed in the aquarium.</p><p>Following courtship the female makes several \"passes\" over the spawning site, depositing eggs in a neat line each time. Each time the male moves in after her, releasing his milt as he passes over the eggs. This pattern is repeated until the female is spent of eggs, which can number two thousand or more with large, healthy fish.</p><p>A further warning here. The fry of large cichlids are never particularly easy to sell on or even give away, and you should be prepared to cull large numbers while they are in their infancy. As well as the difficulties associated with shifting them once they reach a suitable size, growing on a couple of thousand Vieja fry would require a huge amount of resources in order to account for differing growth rates and other factors. It is simply unrealistic.</p><p>During the broodcare period the male is responsible for defending the boundaries of the territory, whilst the female tends to the eggs, fanning them with her fins and removing any fungussed ones. They should hatch in around 72 hours, with the fry requiring up to a week to become free swimming. At this point begin to feed them two or three times a day with Artemia nauplii and/or microworm.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/vieja-bifasciata",
+      "html": "<p>Vieja bifasciata are often confused with V. melanurus but can be told apart as bifasciata have two prominent horizontal lines running between their eyes (hence the name). They are a very colourful fish and respond to their owner's presence, usually looking for food. Bifasciata are not particularly demanding in terms of water parameters and easy to keep, especially if suitable tankmates can be found.</p><p>It is sometimes the case that a pair of fish that will not live together in a tank on their own will tolerate each other (and even breed) in a large community setting. It is very much a case of experimentation when trying to house these fish. Some fishkeepers report no success at all and have to keep the fish (especially males) alone.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi nước có bảo vệ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cichlid thực vật",
+        "thức ăn cá ăn rau"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

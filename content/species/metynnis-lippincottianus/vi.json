@@ -17,7 +17,7 @@
     "distribution:glaser": "<p>M. lippincottianus phân bố rộng ở Nam Mỹ. Loài này có mặt ở Bolivia, Brazil, Ecuador, Colombia và Guyane thuộc Pháp.</p>",
     "quickFacts:seriouslyfish": "<p>Metynnis lippincottianus là một loài silver dollar có đốm, sống ở Brazil và Guiana thuộc Pháp. Trong tự nhiên, chúng có mặt ở hạ và trung lưu sông Amazon cùng hệ sông Oyapock. Thỉnh thoảng loài này có bán ngoài tiệm, đôi khi dưới cái tên chung 'silver dollar'. Nhờ bộ đốm trên thân, bạn có thể phân biệt nó với M. argenteus và M. hypsauchen. Đốm của nó mờ hơn đốm của M. maculatus, loài có cùng tên thường gọi với nó. Đến nay vẫn chưa rõ phạm vi phân bố chính xác của loài này.</p>",
     "distribution:seriouslyfish": "<p>Đến nay vẫn chưa rõ phạm vi phân bố chính xác của loài này. Chắc chắn chúng sống ở lưu vực hạ và trung Amazon, ngược lên ít nhất tới Manaus. Người ta cũng đã thu được mẫu ở hệ sông Oyapock, chỗ giáp biên giới Brazil và Guiana thuộc Pháp. Một số ghi nhận ở các lưu vực ven biển phía nam cửa sông Amazon, gồm lưu vực Piriá, Pericumã và Parnaíba, có vẻ cũng đáng tin.</p><p>Còn các ghi nhận ở những lưu vực lớn khác của Brazil như São Francisco, hay ở thượng nguồn Amazon thuộc Bolivia và Colombia, thì có thể là của loài khác.</p><p>Địa điểm mẫu chuẩn là 'Pará, Brazil'.</p>",
-    "aquariumSize:seriouslyfish": "<p>Một đàn cá trưởng thành cần bể ít nhất 150 × 38 × 38 cm, tức khoảng 217 lít. Chiều dài và chiều rộng bể quan trọng hơn chiều cao. Cá còn nhỏ thì nuôi tạm trong bể nhỏ hơn cũng được.</p>",
+    "aquariumSize:seriouslyfish": "<p>Một đàn cá trưởng thành cần bể ít nhất 150 × 40 × 40 cm, tức khoảng 217 lít. Chiều dài và chiều rộng bể quan trọng hơn chiều cao. Cá còn nhỏ thì nuôi tạm trong bể nhỏ hơn cũng được.</p>",
     "maintenance:seriouslyfish": "<p>Ngoài tự nhiên, loài này sống ở các nhánh sông mọc dày cây thủy sinh. Cái khó khi làm lại khung cảnh đó trong bể là chúng ăn cây rất dữ! Bạn nên chọn những loại cây cứng, nhưng dù vậy vẫn phải thay cây thường xuyên. Một cách khác là dùng cây giả, vì một số loại cây bằng vải và lụa bây giờ làm trông khá giống thật. Cá Metynnis có thể khá nhát. Ánh sáng dịu cùng vài chỗ ẩn nấp sẽ làm chúng mạnh dạn hơn. Ngoài tự nhiên chúng sống ở vùng nước chảy xiết, vì thế trong bể chúng sẽ thích dòng chảy khá mạnh.</p>",
     "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 23–27°C</li><li>pH: 6,0–7,0</li><li>Độ cứng: tối đa 10 dGH</li></ul>",
     "diet:seriouslyfish": "<p>Khẩu phần của chúng cần thật nhiều rau, như bí ngòi, dưa chuột, đậu Hà Lan, cải non và các loại rau xanh khác. Bạn cũng nên cho ăn thêm thức ăn công nghiệp như viên tảo, spirulina và thức ăn dạng mảnh gốc thực vật. Silver dollar chịu ăn hầu hết các loại thức ăn cho cá cảnh. Thỉnh thoảng cho ăn trùng huyết và Artemia là chúng rất khoái.</p>",
@@ -28,12 +28,11 @@
     "references:seriouslyfish": "<ul><li>Cope, E. D. (1870). Contribution to the ichthyology of the Marañon. Proceedings of the American Philosophical Society v. 11, 559-570</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.7,
+      "glaser": 0.8,
       "seriouslyfish": 0.88
-    },
-    "reason": "score"
+    }
   }
 }

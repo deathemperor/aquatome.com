@@ -36,25 +36,29 @@ export const MAX_ATTEMPTS = 3
 export const BROWSER_GONE = /Target page, context or browser has been closed|Browser has been closed|Target closed/i
 const NETWORK = /fetch failed|net::ERR_|ECONNRESET|ECONNREFUSED|ETIMEDOUT|EAI_AGAIN|ENOTFOUND|socket hang up|Timeout \d+ ?ms exceeded|Navigation timeout|\bHTTP (408|429|5\d\d)\b/i
 /** Claude's usage limit: a failure of the claude CLI (claude.ts LlmError) that says so. */
+/** The archive asking us to slow down, or no longer answering after it did. */
+const THROTTLED = /no archived (?:copy|image) \(HTTP 429\)|the archive isn't answering/i
 const USAGE = /^claude failed\b.*(hit your .*limit|usage limit|limit reached|rate.?limit)/i
 
 /**
- * Why a page failed, from its error: Claude's usage limit ('usage'), the browser or the network gone ('transient'),
- * or the page itself (a 404, a translation that wouldn't parse: 'other').
+ * Why a page failed, from its error: Claude's usage limit ('usage'), the archive slowing us down ('throttled'), the
+ * browser or the network gone ('transient'), or the page itself (a 404, a translation that wouldn't parse: 'other').
  */
-export function errorKind(error = ''): 'usage' | 'transient' | 'other' {
+export function errorKind(error = ''): 'usage' | 'throttled' | 'transient' | 'other' {
   if (USAGE.test(error)) return 'usage'
+  if (THROTTLED.test(error)) return 'throttled'
   if (BROWSER_GONE.test(error) || NETWORK.test(error)) return 'transient'
   return 'other'
 }
 /** A page that failed through no fault of its own: it goes first in its source's next run (run.ts). */
 export const retryFirst = (prev?: UrlState) => prev?.status === 'error' && errorKind(prev.error) !== 'other'
-/** The attempts a failure leaves: a usage limit uses none. */
-export const attemptsAfter = (prev: UrlState | undefined, error: string) => (prev?.status === 'error' ? prev.attempts : 0) + (errorKind(error) === 'usage' ? 0 : 1)
+const notThePage = (error?: string) => ['usage', 'throttled'].includes(errorKind(error))
+/** The attempts a failure leaves: a usage limit or the archive slowing us down uses none. */
+export const attemptsAfter = (prev: UrlState | undefined, error: string) => (prev?.status === 'error' ? prev.attempts : 0) + (notThePage(error) ? 0 : 1)
 
 /**
  * New URL, newer lastmod, stale without lastmod, blocked retry after 7 days. Errors (a newer lastmod resets them): a usage
- * limit always runs again; a transient fault at the next run, up to MAX_ATTEMPTS; anything else after 6 h × attempts, up to
+ * limit or the archive slowing us down always runs again; a transient fault at the next run, up to MAX_ATTEMPTS; anything else after 6 h × attempts, up to
  * MAX_ATTEMPTS.
  */
 export function needsFetch(prev: UrlState | undefined, lastmod: string | undefined, now: Date, refreshDays = 30): boolean {
@@ -63,8 +67,8 @@ export function needsFetch(prev: UrlState | undefined, lastmod: string | undefin
   if (prev.status === 'blocked') return age > 7 * DAY
   if (prev.status === 'error') {
     if (lastmod && (!prev.lastmod || lastmod > prev.lastmod)) return true
+    if (notThePage(prev.error)) return true
     const kind = errorKind(prev.error)
-    if (kind === 'usage') return true
     return prev.attempts < MAX_ATTEMPTS && (kind === 'transient' || age > prev.attempts * 6 * HOUR)
   }
   if (lastmod && (!prev.lastmod || lastmod > prev.lastmod)) return true
@@ -72,10 +76,19 @@ export function needsFetch(prev: UrlState | undefined, lastmod: string | undefin
   return false
 }
 
-/** Sources that hit a browser check a person must pass: skipped by scheduled runs until cleared (or a day passes). */
+/**
+ * Sources that hit a browser check: skipped by scheduled runs until cleared (or a day passes). `blocks`: when runs met
+ * one lately. `archive`: when the source moved to the Internet Archive's copies, for good (run.ts).
+ */
 const blocksFile = (root: string) => join(root, 'engine-state', '_sources.json')
-async function readBlocks(root: string): Promise<Partial<Record<SourceId, { blockedAt: string }>>> {
+type SourceEntry = { blockedAt?: string; blocks?: string[]; archive?: string }
+type Blocks = Partial<Record<SourceId, SourceEntry>>
+async function readBlocks(root: string): Promise<Blocks> {
   return JSON.parse(await readFile(blocksFile(root), 'utf8').catch(() => '{}'))
+}
+async function writeBlocks(root: string, all: Blocks) {
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(blocksFile(root), `${JSON.stringify(Object.fromEntries(Object.entries(all).sort()), null, 2)}\n`)
 }
 export async function sourceBlockedSince(root: string, source: SourceId): Promise<string | undefined> {
   return (await readBlocks(root))[source]?.blockedAt
@@ -83,8 +96,26 @@ export async function sourceBlockedSince(root: string, source: SourceId): Promis
 export async function setSourceBlock(root: string, source: SourceId, blockedAt: string | undefined): Promise<void> {
   const all = await readBlocks(root)
   if ((all[source]?.blockedAt) === blockedAt) return
-  if (blockedAt) all[source] = { blockedAt }
+  const { blockedAt: _was, ...rest } = all[source] ?? {}
+  const next = { ...rest, ...(blockedAt ? { blockedAt } : {}) }
+  if (Object.keys(next).length) all[source] = next
   else delete all[source]
-  await mkdir(join(root, 'engine-state'), { recursive: true })
-  await writeFile(blocksFile(root), `${JSON.stringify(Object.fromEntries(Object.entries(all).sort()), null, 2)}\n`)
+  await writeBlocks(root, all)
+}
+/** A run met a browser check: how many runs have within `windowMs` of this one, this one included. */
+export async function noteBlock(root: string, source: SourceId, at: string, windowMs: number): Promise<number> {
+  const all = await readBlocks(root)
+  const blocks = [...(all[source]?.blocks ?? []).filter(b => Date.parse(at) - Date.parse(b) < windowMs), at]
+  all[source] = { ...all[source], blocks }
+  await writeBlocks(root, all)
+  return blocks.length
+}
+/** The sources that moved to the archive by themselves. */
+export async function sourcesOnArchive(root: string): Promise<Set<string>> {
+  return new Set(Object.entries(await readBlocks(root)).flatMap(([id, e]) => (e?.archive ? [id] : [])))
+}
+export async function moveToArchive(root: string, source: SourceId, at: string): Promise<void> {
+  const all = await readBlocks(root)
+  all[source] = { archive: at }
+  await writeBlocks(root, all)
 }

@@ -7,9 +7,10 @@
   "photos": [],
   "mentions": [
     "pygocentrus-nattereri",
-    "hemigrammus-erythrozonus"
+    "hemigrammus-erythrozonus",
+    "moenkhausia-sanctaefilomenae"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "HoMUpt_DdfU",
     "title": "The LAST piranha fish added to monster PLANTED AQUARIUM!",
@@ -29,61 +30,82 @@
     },
     "taxa": [
       "Pygocentrus nattereri",
-      "Hemigrammus erythrozonus"
+      "Moenkhausia sanctaefilomenae"
     ],
     "gear": [
       {
         "category": "be-ca",
         "type": "lon",
         "t": 0
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "t": 71
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 231
+      },
+      {
+        "category": "thuc-an",
+        "t": 97
       }
     ],
     "figures": [
       {
-        "heading": "Khi nào có thể gộp hai đàn piranha",
+        "heading": "Vì sao gộp piranha khác cỡ lại khó",
         "moments": [
           {
             "t": 55,
-            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/t55.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn piranha trong bể rộng trồng cây, bố trí nhiều lũa."
+            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/at55-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn piranha bơi trong bể có lũa và cây thủy sinh.",
+            "sharpness": 610.3,
+            "person": false
           },
           {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/t59.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Mấy con piranha bơi gần đá trong bể nền sỏi."
+            "t": 60,
+            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mấy con piranha bụng đỏ bơi gần đá trong bể sỏi.",
+            "sharpness": 642.2,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/HoMUpt_DdfU/p0-c0MjczNjcpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/HoMUpt_DdfU/p0-c0MjczNjcpLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/HoMUpt_DdfU/p0-bmhhXyhieSkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/HoMUpt_DdfU/p0-bmhhXyhieSkuanBn-480.webp",
           "width": 960,
-          "height": 720,
+          "height": 638,
           "licence": "CC BY 2.0",
-          "author": "shankar s. from Dubai, united arab emirates",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piranha_(7987427367).jpg",
-          "caption": "Đàn piranha bơi cùng nhau trong bể trồng cây có lũa."
+          "author": "Gregory Moine from Niantic, USA",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gregory_Moine_-_Red_bellied_Piranha_(by).jpg",
+          "caption": "Một con piranha bụng đỏ cỡ lớn trong bể, thấy thêm cá khác phía sau."
         }
       },
       {
-        "heading": "Vì sao phải cho cá ăn no trước khi thả",
+        "heading": "Những điều kiện giúp ca gộp dễ hơn",
         "moments": [
           {
-            "t": 144,
-            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/t144.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn piranha bơi gần nhau trong bể có lũa và cây thủy sinh."
+            "t": 95,
+            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/at95-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn piranha trong bể có cây thật và lũa rễ cao.",
+            "sharpness": 464.2,
+            "person": false
           },
           {
-            "t": 223,
-            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/t223.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Vài con cá nhỏ bơi trong bể nền cát với đá lớn."
+            "t": 105,
+            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể rộng trồng nhiều cây thật, có lũa tạo nhiều chỗ trốn cho cá.",
+            "sharpness": 544.7,
+            "person": false
           }
         ],
         "photo": {
@@ -94,25 +116,29 @@
           "licence": "CC BY 4.0",
           "author": "Retro Lenses",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_photo_of_a_piranha_fish_in_an_aquarium.jpg",
-          "caption": "Một con piranha bụng đỏ bơi trong bể trồng cây có lũa và sỏi."
+          "caption": "Cá piranha bơi giữa lũa và sỏi trong bể trồng cây, có nhiều chỗ ẩn nấp."
         }
       },
       {
-        "heading": "Các bước gộp đàn",
+        "heading": "Cho ăn và thả cá thế nào",
         "moments": [
           {
-            "t": 134,
-            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/t134.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể có lũa, cây thủy sinh và đàn cá."
+            "t": 90,
+            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/at90-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá đang bơi gần đá và cây thủy sinh trong bể cũ.",
+            "sharpness": 91.1,
+            "person": false
           },
           {
-            "t": 149,
-            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/t149.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn cá lớn tụ tập bơi quanh lũa trong bể trồng cây."
+            "t": 160,
+            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/at160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cả đàn cá tụ lại ăn trong bể có lũa và cây xanh.",
+            "sharpness": 605.7,
+            "person": false
           }
         ],
         "photo": {
@@ -123,102 +149,52 @@
           "licence": "CC BY 4.0",
           "author": "Retro Lenses",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_photo_of_a_piranha_fish_in_an_aquarium.jpg",
-          "caption": "Cá piranha bụng đỏ bơi trong bể trồng cây có lũa và sỏi."
+          "caption": "Cá piranha bụng đỏ bơi trong bể trồng cây có lũa, đá và sỏi."
         }
       },
       {
-        "heading": "Thả cá vào bể thế nào",
+        "heading": "Cá tetra nuôi chung có bị ăn không",
         "moments": [
           {
-            "t": 411,
-            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/t411.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Xô thả cá đặt sát mép bể, cạnh cụm cây xanh."
+            "t": 175,
+            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/at175-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh bể thủy sinh có lũa và cây, đàn cá nhỏ lẩn trong đó.",
+            "sharpness": 799.9,
+            "person": false
           },
           {
-            "t": 426,
-            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/t426.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bên trong bể với lũa, cây thủy sinh và nền cát sáng."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/HoMUpt_DdfU/p3-hbGF5X0JheS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/HoMUpt_DdfU/p3-hbGF5X0JheS5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 2.0",
-          "author": "daryl_mitchell",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piranha_-_Shark_Reef_Aquarium_at_Mandalay_Bay.jpg",
-          "caption": "Cá nhỏ bơi trong bể, bên dưới túi nhựa trong còn nổi trên mặt nước."
-        }
-      },
-      {
-        "heading": "Theo dõi gì sau khi gộp",
-        "moments": [
-          {
-            "t": 486,
-            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/t486.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể với lũa, cây thủy sinh và nền cát."
-          },
-          {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/t580.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể nước hơi đục, cá nhỏ bơi lẫn giữa cành lũa và cây."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/HoMUpt_DdfU/p4-Y0ODg5MDcpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/HoMUpt_DdfU/p4-Y0ODg5MDcpLmpwZw-480.webp",
-          "width": 960,
-          "height": 640,
-          "licence": "CC BY 2.0",
-          "author": "Cliff from Arlington, Virginia, USA",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red-bellied_Piranha_(Pygocentrus_nattereri)_(3366488907).jpg",
-          "caption": "Đàn cá piranha bụng đỏ bơi chung trong bể, con lớn con nhỏ lẫn nhau."
-        }
-      },
-      {
-        "heading": "Vì sao đàn vẫn có thể hao hụt",
-        "moments": [
-          {
-            "t": 159,
-            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/t159.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn piranha bơi trong bể có lũa và cây thủy sinh."
-          },
-          {
-            "t": 466,
-            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/t466.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn cá nhỏ bơi giữa các cành lũa trong bể."
+            "t": 585,
+            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/at585-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể dài với nhiều lũa, cá tetra tản khắp bể nên khó thấy hết.",
+            "sharpness": 264,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Bắt đầu từ đâu",
+        "heading": "Bể ra sao vài ngày sau khi gộp",
         "moments": [
           {
-            "t": 644,
-            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/t644.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể dài trồng cây, xếp lũa chằng chịt."
+            "t": 470,
+            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/at470-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá bơi lẫn trong bể, nước hơi đục, cây xanh phía dưới.",
+            "sharpness": 96.8,
+            "person": false
           },
           {
-            "t": 654,
-            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/t654.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể lớn có lũa và cây thủy sinh tạo chỗ trốn cho cá nhỏ."
+            "t": 540,
+            "url": "https://media.aquatome.com/video/HoMUpt_DdfU/at540-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá bơi gần mặt nước trong bể có lũa và cây thủy sinh.",
+            "sharpness": 256.3,
+            "person": false
           }
         ]
       }

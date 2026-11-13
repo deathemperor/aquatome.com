@@ -11,6 +11,11 @@ on:
     # days). Main itself moves every few hours with content, so the check compares the app's paths, not commits.
     - cron: '0 2 * * 1'
   workflow_dispatch:
+    inputs:
+      github_mac:
+        description: "On GitHub's Macs, not the own Mac (an upload that failed there asks for this)"
+        type: boolean
+        default: false
   pull_request:
     paths: ['.github/workflows/testflight.yml', 'apps/ios/AquaTome.xcodeproj/**', 'apps/ios/Config/**',
             'apps/ios/scripts/asc-build-state.mjs', 'apps/ios/scripts/testflight-notes.py']
@@ -28,6 +33,7 @@ jobs:
     outputs:
       upload: ${{ steps.decide.outputs.upload }}
       whats_new: ${{ steps.notes.outputs.whats_new }}
+      runner: ${{ steps.where.outputs.runner }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -62,6 +68,24 @@ jobs:
           else
             echo upload=yes >> "$GITHUB_OUTPUT"
           fi
+      # Where the upload runs: the own Mac's upload runner (apps/ios/README.md, "CI's own Mac") for main's own runs while
+      # TESTFLIGHT_OWN_MAC is on, GitHub's Macs otherwise. That runner runs as AquaTome CI, a macOS user of CI's own, so
+      # signing there changes only that user's keychain list, never the owner's (it once took the owner's keychains off
+      # their list for a few minutes, gh's and git's sign-in among them). It's a runner of its own (label
+      # `aquatome-upload`), so an upload doesn't wait behind main's flows: on 2026-11-08 v2's upload waited 2 h 50 min
+      # behind about 30 iOS jobs on GitHub's Macs. Its job-started hook refuses anything but this workflow on main. Turn
+      # TESTFLIGHT_OWN_MAC off while that runner is down, or the upload waits for it.
+      - id: where
+        env:
+          OWN_MAC: ${{ vars.TESTFLIGHT_OWN_MAC }}
+          OWN: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && inputs.github_mac != true }}
+        run: |
+          if [ "$OWN_MAC" = on ] && [ "$OWN" = true ]; then
+            echo "this upload runs on the own Mac, as AquaTome CI"
+            echo 'runner=["self-hosted","macOS","aquatome-upload"]' >> "$GITHUB_OUTPUT"
+          else
+            echo 'runner="macos-26"' >> "$GITHUB_OUTPUT"
+          fi
       # TestFlight's "What to Test" for this build: the pull requests merged into the app since the last upload, in
       # English as their titles are (apps/ios/scripts/testflight-notes.py). A pull request checks the script only.
       # Never stops an upload: a note that can't be written is a warning, and the build goes up without one.
@@ -93,8 +117,13 @@ jobs:
     if: >-
       needs.check.outputs.upload == 'yes' &&
       (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
-    runs-on: macos-26
-    timeout-minutes: 100
+    runs-on: ${{ fromJSON(needs.check.outputs.runner) }}
+    # The own Mac's upload can wait for cooler cores and its turn first (Archive).
+    timeout-minutes: ${{ contains(needs.check.outputs.runner, 'aquatome-upload') && 160 || 100 }}
+    permissions:
+      contents: read
+      # The own Mac's failed upload asks for one on GitHub's Macs (the last step).
+      actions: write
     env:
       KEY_ID: ${{ vars.APP_STORE_CONNECT_KEY_ID }}
       ISSUER_ID: ${{ vars.APP_STORE_CONNECT_ISSUER_ID }}
@@ -115,13 +144,40 @@ jobs:
       # runner has none, so automatic signing made a new Apple Development certificate on every run until Apple's cap
       # stopped the archive (2026-10-31). The export below signs for the App Store with Apple's cloud-managed
       # certificate. The app's entitlements go with it in an ad-hoc signature, which the export reads and keeps.
+      # On the own Mac, as all heavy work there (AGENTS.md, "This Mac"): the build waits while macOS has taken cores away,
+      # up to 30 min (`cool`, scripts/cycle-checks.sh), then takes the checks queue. So it can run beside one simulator
+      # run, which has its own queue, but never beside another build or test suite.
       - name: Archive
         run: |
-          xcodebuild archive -project apps/ios/AquaTome.xcodeproj -scheme AquaTome -configuration Release \
+          queue=
+          if [ "$RUNNER_ENVIRONMENT" = self-hosted ]; then
+            log() { echo "$*"; }
+            source scripts/cycle-checks.sh
+            COOL_TRIES=60 cool
+            queue="lockf -k $HOME/.cache/aquatome/checks.lock nice -n 10"
+          fi
+          # Empty on GitHub's Macs, a command and its arguments on the own Mac: split on purpose.
+          # shellcheck disable=SC2086
+          $queue xcodebuild archive -project apps/ios/AquaTome.xcodeproj -scheme AquaTome -configuration Release \
             -destination 'generic/platform=iOS' -archivePath "$RUNNER_TEMP/AquaTome.xcarchive" \
             CURRENT_PROJECT_VERSION=${{ github.run_number }} CODE_SIGNING_ALLOWED=NO
           codesign --force --sign - --entitlements apps/ios/Config/AquaTome.entitlements --generate-entitlement-der \
             "$RUNNER_TEMP/AquaTome.xcarchive/Products/Applications/AquaTome.app"
+      # The own Mac's runner has a security session of its own (SessionCreate), where Xcode would look for a certificate
+      # in the user's keychains and fail (errSecInternalComponent, run 42422975491). For the export and the upload, the
+      # list is a new keychain of the job's alone, so Xcode signs with Apple's cloud-managed certificate as on GitHub's
+      # Macs. The list is AquaTome CI's, whose keychains hold nothing else; the keychain goes after the job (below, and
+      # in the runner's job-completed hook, should the job die first).
+      - name: A keychain of the job's own
+        if: runner.environment == 'self-hosted'
+        run: |
+          kc="$RUNNER_TEMP/signing.keychain-db"
+          pw=$(openssl rand -hex 24)
+          security create-keychain -p "$pw" "$kc"
+          security set-keychain-settings -lut 3600 "$kc"
+          security unlock-keychain -p "$pw" "$kc"
+          security list-keychains -d user -s "$kc"
+          security default-keychain -d user -s "$kc"
       # Signed for the App Store into a local .ipa first, every time: only a local export writes the summary the
       # entitlement check reads (run 41221088161 uploaded, then found no summary).
       - name: Sign
@@ -137,12 +193,14 @@ jobs:
             -exportPath "$RUNNER_TEMP/export" -allowProvisioningUpdates -authenticationKeyPath "$RUNNER_TEMP/asc.p8" \
             -authenticationKeyID "$KEY_ID" -authenticationKeyIssuerID "$ISSUER_ID"
       # The signed app has every entitlement the project asks for (Sign in with Apple): an export that dropped one
-      # would ship an app whose sign-in fails. Checked before anything is uploaded.
+      # would ship an app whose sign-in fails. Checked before anything is uploaded. Notifications' APNs is the
+      # project's `development` (Xcode's builds) and the App Store's `production`.
       - name: Entitlements kept
         run: |
           python3 - "$RUNNER_TEMP/export/DistributionSummary.plist" apps/ios/Config/AquaTome.entitlements <<'EOF'
           import plistlib, sys
           summary, wanted = (plistlib.load(open(p, 'rb')) for p in sys.argv[1:])
+          if 'aps-environment' in wanted: wanted['aps-environment'] = 'production'
           signed = [i.get('entitlements', {}) for items in summary.values() for i in items]
           missing = sorted({k for e in signed for k, v in wanted.items() if e.get(k) != v}) if signed else ['(no app in the summary)']
           if missing: sys.exit(f'entitlements missing from the signed app: {missing}')
@@ -157,6 +215,9 @@ jobs:
           xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/AquaTome.xcarchive" -exportOptionsPlist "$options" \
             -exportPath "$RUNNER_TEMP/upload" -allowProvisioningUpdates -authenticationKeyPath "$RUNNER_TEMP/asc.p8" \
             -authenticationKeyID "$KEY_ID" -authenticationKeyIssuerID "$ISSUER_ID"
+      - name: The job's keychain removed
+        if: always() && runner.environment == 'self-hosted'
+        run: security delete-keychain "$RUNNER_TEMP/signing.keychain-db" 2>/dev/null || true
       - name: Summary
         run: echo "Build ${{ github.run_number }} ($DESTINATION) done" >> "$GITHUB_STEP_SUMMARY"
       # Apple processes an upload before testers get it, and refuses some only then (by email): wait for its answer.
@@ -170,3 +231,9 @@ jobs:
       - name: Remove the key
         if: always()
         run: rm -f "$RUNNER_TEMP/asc.p8"
+      # An upload that failed on the own Mac goes again on GitHub's Macs by itself, rather than waiting for someone.
+      - name: Again on GitHub's Macs
+        if: failure() && runner.environment == 'self-hosted'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run testflight.yml --repo "$GITHUB_REPOSITORY" --ref main -f github_mac=true

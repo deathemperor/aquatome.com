@@ -1,0 +1,108 @@
+{
+  "id": "adontosternarchus-nebulosus",
+  "scientificName": "Adontosternarchus nebulosus",
+  "order": "Gymnotiformes",
+  "family": "Apteronotidae",
+  "genus": "Adontosternarchus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "peru"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2401905,
+      "total": 35,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          35
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -4.21875,
+          3
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          3
+        ],
+        [
+          -63.28125,
+          -5.625,
+          3
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          6
+        ],
+        [
+          -61.875,
+          -4.21875,
+          4
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          2
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          11
+        ],
+        [
+          -56.25,
+          -2.8125,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/adontosternarchus_nebulosus_en/",
+      "html": "<p>A very nice and comparatively small knifefish species, reaching around 20 cm. The species was scientifically described only in 2007.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/adontosternarchus_nebulosus_en/",
+      "html": "<p>Specimens available in the trade originate from Peru.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn nuôi cá dao"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng",
+        "máy lọc bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

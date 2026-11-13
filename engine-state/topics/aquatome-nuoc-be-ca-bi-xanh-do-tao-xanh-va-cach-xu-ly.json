@@ -1,0 +1,251 @@
+{
+  "found": true,
+  "species": [
+    "Salvinia natans",
+    "Ceratopteris siliquosa"
+  ],
+  "sources": [
+    {
+      "url": "https://buceplant.com/blogs/aquascaping-guides-and-tips/how-to-get-rid-of-green-water-in-aquariums",
+      "title": "How to Get Rid of Green Water in Aquariums",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquariumcoop.com/blogs/faqs/green-water",
+      "title": "Green Water",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/uv-sterilizer",
+      "title": "What are UV sterilizers in aquariums used for?",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thefishsite.com/articles/oxygen-depletion-and-other-types-of-fish-kills",
+      "title": "Oxygen Depletion and Other Types of Fish Kills",
+      "kind": "farm"
+    },
+    {
+      "url": "https://aquahouse.vn/ho-ca-bi-tao-xanh/",
+      "title": "Hồ cá bị tảo xanh: Nguyên nhân và cách xử lý hiệu quả",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cacanhtailoc.com/blogs/tin-tuc/nuoc-trong-be-ca-co-mau-xanh-reu-nguyen-nhan-va-cach-xu-ly",
+      "title": "Nước trong bể cá có màu xanh rêu? Nguyên nhân và cách xử lý",
+      "kind": "shop"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Green water is a bloom of tiny free-floating algae (phytoplankton) that stay suspended in the water and turn it cloudy green, sometimes called 'pea soup'.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Green water is caused by single-celled phytoplankton that multiply very quickly.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Green water is not directly harmful to fish or shrimp.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Green water can be food for fry and invertebrates, and some breeders grow it on purpose.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Green water is useful for raising baby fish, but it hides the view and can block light from plants.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "At night the algae use up oxygen, so a heavy bloom combined with weak aeration can stress or kill fish and shrimp.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Algae make oxygen by day but use oxygen at night, and a dense bloom can drive dissolved oxygen close to zero overnight.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "When a large bloom dies back, bacteria break down the dead algae and oxygen production stops, which can cause oxygen depletion and fish kills.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "The water itself looks cloudy green (the algae float in the water rather than growing on glass or decor).",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "After an algae die-off the water usually changes from deep green to black, gray, brown or clear.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "With low oxygen, fish hang at the surface in the early morning. In severe cases they gulp air and ignore disturbances.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Too much light causes green water, especially direct sunlight on the tank.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Excess nutrients, for example accidentally double-dosing fertilizer, can trigger green water.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "An ammonia spike can trigger green water. It may come from a new, uncycled tank or from overfeeding, for example by a pet sitter.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Other causes are sunlight from a window, leaving lights on too long, overfeeding, overstocking, liquid fertilizer, and infrequent maintenance that lets waste and nitrate build up.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Keep aeration and equipment running and watch the fish for oxygen stress, since the algae use oxygen at night.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Running out of trace minerals or nutrients is probably the most common reason a large bloom dies back, and the die-off can then deplete oxygen.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Blackout: cover the tank completely for at least a week. It works, but it is hard on plants.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Blackout: turn the lights off, keep equipment running, and cover the tank fully for no more than 7 days. Move livestock to a temporary tank if possible.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "After a blackout, do a large water change, because the dying algae can spike ammonia.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "A UV sterilizer kills green-water algae, typically within two to three days.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "In a UV sterilizer, water flows slowly past a UV bulb that damages the DNA of the algae so they cannot reproduce. Regular water changes then clear the water.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Green water is fairly easy to treat with UV, so a small sterilizer is usually enough.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "UV sterilizers barely affect beneficial bacteria, because those bacteria live mostly on the filter and on surfaces rather than floating in the water.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Fine filter floss, polishing pads or filter socks can trap the small suspended particles.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "UV also causes algae die-off, so watch for an ammonia spike.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Step 1: find and cut the cause (shorten the light period, move the tank out of sunlight, feed less, check nitrate and phosphate).",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Step 2: clear the water with a blackout of up to 7 days or with a UV sterilizer, while keeping the filter and aeration running.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Step 3: do a large water change after the treatment to remove dead algae and ammonia.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Step 4: keep up weekly water changes of at least 20%. Combined methods may take a couple of weeks to show results.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep the aquarium light on for no more than 6–8 hours a day, and use a dimmer if the light is strong.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Add fast-growing plants that compete with the algae for nutrients and light, such as Salvinia natans, water sprite (Ceratopteris siliquosa), hornwort, and other stem or floating plants.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Replace at least 20% of the water weekly, and clean a correctly sized filter every 1–2 months.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Avoid overfeeding and overstocking, and test regularly for nitrate and phosphate.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Relying on large water changes alone does not work, because the algae reproduce rapidly.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Dosing liquid fertilizer into a tank that already gets too much light is a mistake.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Running a blackout without moving the livestock or preparing for an ammonia spike is a mistake.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "Buce Plant says the idea that a big water change cures green water is wrong, because the algae regrow quickly.",
+      "source": 0
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese names include 'tảo xanh' (green algae) and 'nước hồ xanh đục' (murky green water).",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese names include 'tảo phù du' (phytoplankton), 'tảo nở hoa' (algae bloom) and 'nước xanh rêu' (moss-green water).",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops sell UV lamps ('đèn UV') and air pumps ('máy sủi oxy') for green water, and link green water to strong sun on uncovered outdoor and koi ponds.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Warmer water holds less dissolved oxygen, which makes night-time oxygen loss from a dense bloom more dangerous (relevant to Vietnam's hot season).",
+      "source": 3
+    }
+  ]
+}

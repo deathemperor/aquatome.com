@@ -23,7 +23,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/642201352",
       "caption": "Cá thát lát cườm bơi trong bể kính có đá và cây",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/642201352-large.webp",
+        "width": 1807,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/130041777.webp",
@@ -45,7 +50,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Mistvan",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chitala_ornata_(Zoo_Brno,_Czech_Republic).jpg",
-      "caption": "Cá thát lát cườm trưởng thành với các đốm vòng sau thân, trong bể"
+      "caption": "Cá thát lát cườm trưởng thành với các đốm vòng sau thân, trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/e2aacd9755454d8b-large.webp",
+        "width": 2367,
+        "height": 1163
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/31c602b01a1dcfdf.webp",
@@ -55,17 +65,12 @@
       "licence": "CC BY 2.0",
       "author": "lwolfartist",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cleveland_aquarium_3.2018_DSC_0146.jpg",
-      "caption": "Cá thát lát cườm bơi gần đá và gỗ trong bể lớn"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/3888c566b68bbca8.webp",
-      "thumb": "https://media.aquatome.com/commons/3888c566b68bbca8-480.webp",
-      "width": 1200,
-      "height": 713,
-      "licence": "CC BY-SA 4.0",
-      "author": "Vyacheslav Bukharov",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chitala_ornata_in_Primorskiy_Oceanarium_(October_2024).jpg",
-      "caption": "Cá thát lát cườm thân xám bạc trong bể nền xanh"
+      "caption": "Cá thát lát cườm bơi gần đá và gỗ trong bể lớn",
+      "large": {
+        "url": "https://media.aquatome.com/commons/31c602b01a1dcfdf-large.webp",
+        "width": 1799,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/307179719.webp",
@@ -75,7 +80,12 @@
       "licence": "CC BY",
       "author": "Kaden Slone",
       "sourceUrl": "https://www.inaturalist.org/photos/307179719",
-      "caption": "Cá thát lát cườm trưởng thành bơi cạnh kính bể nuôi"
+      "caption": "Cá thát lát cườm trưởng thành bơi cạnh kính bể nuôi",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/307179719-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/642201350.webp",
@@ -85,7 +95,12 @@
       "licence": "CC BY",
       "author": "Matthew Inabinett",
       "sourceUrl": "https://www.inaturalist.org/photos/642201350",
-      "caption": "Cá thát lát cườm lớn trong bể thủy sinh có cây và lũa"
+      "caption": "Cá thát lát cườm lớn trong bể thủy sinh có cây và lũa",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/642201350-large.webp",
+        "width": 1807,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/51693885.webp",
@@ -106,6 +121,16 @@
       "author": "Jesaya Li",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adult_Clown_featherback_in_aquarium.jpg",
       "caption": "Cá thát lát cườm nâu bơi trong bể nước xanh"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/3888c566b68bbca8.webp",
+      "thumb": "https://media.aquatome.com/commons/3888c566b68bbca8-480.webp",
+      "width": 1200,
+      "height": 713,
+      "licence": "CC BY-SA 4.0",
+      "author": "Vyacheslav Bukharov",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chitala_ornata_in_Primorskiy_Oceanarium_(October_2024).jpg",
+      "caption": "Cá thát lát cườm thân xám bạc trong bể nền xanh"
     }
   ],
   "seen": 55,

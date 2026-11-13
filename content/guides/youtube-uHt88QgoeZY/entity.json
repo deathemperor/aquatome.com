@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "uHt88QgoeZY",
     "title": "Chuyện không của riêng ai",
@@ -29,23 +29,48 @@
     "gear": [],
     "figures": [
       {
-        "heading": "Làm sao biết cá, tép đang nhảy ra ngoài",
+        "heading": "Dấu hiệu cá, tép nhảy ra ngoài",
         "moments": [
           {
-            "t": 25,
-            "url": "https://media.aquatome.com/video/uHt88QgoeZY/t25.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Bể thủy sinh có đàn tép đỏ bơi giữa rêu và cây."
-          },
-          {
-            "t": 41,
-            "url": "https://media.aquatome.com/video/uHt88QgoeZY/t41.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Tép đỏ bám quanh đá và cây trong bể dưới đèn LED."
+            "t": 44,
+            "url": "https://media.aquatome.com/video/uHt88QgoeZY/at44-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn tép đỏ bò quanh đám rêu xanh và đá trong bể.",
+            "sharpness": 355.6
           }
         ]
+      },
+      {
+        "heading": "Bể nào cũng có thể gặp",
+        "moments": [
+          {
+            "t": 0,
+            "url": "https://media.aquatome.com/video/uHt88QgoeZY/at0-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá đỏ bơi giữa các cụm rêu xanh trong bể nước trong.",
+            "sharpness": 178.4
+          },
+          {
+            "t": 20,
+            "url": "https://media.aquatome.com/video/uHt88QgoeZY/at20-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nhiều cây, cá đỏ bơi lơ lửng phía trên.",
+            "sharpness": 592.3
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/uHt88QgoeZY/p1-ha3Zhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/uHt88QgoeZY/p1-ha3Zhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 737,
+          "licence": "Public domain",
+          "author": "User Aleš Tošovský",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amaterske_akvarium.jpg",
+          "caption": "Bể thủy sinh nước trong, cây xanh tốt, cá bơi yên mà vẫn có thể nhảy."
+        }
       }
     ]
   }

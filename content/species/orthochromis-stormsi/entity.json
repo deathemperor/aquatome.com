@@ -1,0 +1,322 @@
+{
+  "id": "orthochromis-stormsi",
+  "scientificName": "Orthochromis stormsi",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Orthochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "congo",
+    "congo-river"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Congo River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Orthochromis stormsi is a cichlid from fast-moving, well-oxygenated stretches of the Congo River in the Democratic Republic of Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Congo River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369739,
+      "total": 37,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CD",
+          36
+        ],
+        [
+          "CG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          14.0625,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          14.0625,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          22.5,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          21,
+          21
+        ],
+        [
+          25.3125,
+          0,
+          3,
+          3
+        ],
+        [
+          26.71875,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          26.71875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          28.125,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      },
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
+      "html": "<ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul><p>Orthochromis stormsi is a cichlid from fast-moving, well-oxygenated stretches of the Congo River in the Democratic Republic of Congo. Its swimbladder is much reduced, so it is less likely to be swept away by the current, and in the aquarium it spends most of its time on the substrate, moving in a characteristic 'hopping' fashion. It was previously classified as Schwetzochromis stormsi and is still named as such by many sources.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
+      "html": "<p>Democratic Republic of Congo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/orthochromis_stormsi_en/",
+      "html": "<p>Central Africa, where it inhabits the cataracts of the Congo River.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
+      "html": "<p>It inhabits fast-moving areas of the river. The water in these habitats has a high oxygen content.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
+      "html": "<p>Standard length: 120 mm SL (12 cm). Aquarium base: 120 × 30 cm. Volume: ~162 litres.</p><p>120 × 30 × 45 cm - ~162 litres. The width of the tank is far more important than the height.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
+      "html": "<p>As mentioned above, the aquarium should have as large a 'footprint' as possible. A sandy substrate is preferable and hiding places should be provided in the form of smooth rocks arranged to form caves. Driftwood branches can also be used. Relatively strong water flow is also preferred by this species and we suggest the use of a small powerhead or internal pump. The water should be well oxygenated.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
+      "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 6.5–7.5</li><li>Hardness: 5–15 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/orthochromis_stormsi_en/",
+      "html": "<p>Owing to their origin in fast-flowing waters they need clean, oxygen-rich water.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
+      "html": "<p>O. stormsi will accept most foods offered but live and frozen varieties should form the bulk of the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
+      "html": "<p>A territorial species that is generally peaceful towards heterospecifics. Good tankmates include Alestiid tetras and other non-aggressive species that can tolerate flowing water. It should be kept with other cichlids only in a large aquarium. Amongst themselves O. stormsi are very territorial and an individual will not permit another to enter its territory except for when spawning. It can be kept in groups in large enough aquaria, however, as the territories formed tend to be quite small, but only one male should be kept (with several females).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/orthochromis_stormsi_en/",
+      "html": "<p>Their social behaviour is very interesting, but because of their rather high aggression potential they should be kept in a not too small group. In a 200 l tank about 10 animals can be accommodated. In such a group there is constant movement: apart from its favourite activity, feeding, it hunts conspecifics through the tank, rests on a stone and then begins hunting the neighbours again.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
+      "html": "<p>Difficult to sex when young. Dominant male fish become far more colourful than females as adults and tend to grow slightly larger.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/orthochromis_stormsi_en/",
+      "html": "<p>The differences between sexes are only weakly pronounced: males appear more multicoloured, females have a darker basic colour.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
+      "html": "<p>Possible but not easy. Maternal mouthbrooder. This species is rarely bred in captivity and little information is available. It is best bred in a harem situation with one male and several females. If a sexable group is not available, purchase a group of young fish and grow them on. It is likely that subdominant males will be eliminated by the alpha male so keep a close eye on proceedings and remove fish if necessary. The tank should be set up as above with a temperature around 25.5 °C and a pH of 7.0-7.5. Dither fish in the form of African tetras are recommended.</p><p>When the male is in spawning condition, his colours will intensify and he will begin displaying to the females. When a female is willing, she will lie next to the male on the substrate in such a fashion that her head is next to the caudal fin of the male, and vice versa. She then releases a few eggs at a time and the male produces a small amount of sperm, which the female takes into her mouth. The fish then quickly spin 180° and the female picks up the eggs before releasing the next batch. This continues until the female is carrying around 20-25 eggs. The male then plays no further part in broodcare and can go on to mate with other females immediately.</p><p>The female may carry the eggs for up to 4 weeks before releasing the free swimming fry. She will not eat during this period and can be easily spotted by her distended mouth. If a female is overly stressed, she may spit out the brood prematurely or eat them, so care must be taken if you decide to move the fish in order to avoid fry predation. Some breeders artificially strip the fry from the mother's mouth at the 3 week stage and raise them from that point as this usually results in a larger number of fry. The fry are quite large and can be fed newly hatched brine shrimp, microworm, and even powdered dry foods from the day they are released by the mother.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/orthochromis_stormsi_en/",
+      "html": "<p>Otherwise they are rather undemanding. With good care, you will with high probability eventually discover a \"chewing\" female (mouthbrooding) and can look forward to the new generation.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
+      "html": "<p>O. stormsi was previously classified as Schwetzochromis stormsi and is still named as such by many sources. Its swimbladder is modified, being much reduced in size. This makes the fish less buoyant and therefore less likely to be swept away by the strong currents in its natural habitat. In the aquarium it spends most of its time on the substrate, where it swims in a characteristic 'hopping' fashion. Unfortunately, it is rather rare in the hobby.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "qdP_a2f6ORc",
+      "title": "First feeding of Orthochromis Stormsi Fry",
+      "durationSec": 268,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Pe4g59Y2EWw",
+      "title": "Orthochromis Stormsi",
+      "durationSec": 143,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "69zo-kf_yXM",
+      "title": "Orthochromis Stormsi HOLDING!!",
+      "durationSec": 192,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HXUyzC799RY",
+      "title": "Striped the female Orthochromis Stormsi",
+      "durationSec": 290,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo dòng nhỏ",
+        "bơm tạo dòng cho bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cichlid"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

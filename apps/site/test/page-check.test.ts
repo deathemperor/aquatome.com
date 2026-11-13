@@ -50,13 +50,16 @@ describe('each check, on a page made to fail it', () => {
     byPath: new Map([['/ca/a/', 'species:a'], ['/ca/b/', 'species:b']]),
     living: new Map([['species:a', { names: new Set(['aus bus', 'cá a']), photos: new Set(['https://m/a.webp']) }], ['species:b', { names: new Set(['aus cus', 'cá b']), photos: new Set(['https://m/b.webp', 'https://m/b2.webp']) }]]),
     owner: new Map([['https://m/a.webp', 'species:a'], ['https://m/b.webp', 'species:b']]),
-    targets: { vi: [T, U], id: [T, U], th: [T, U] },
+    targets: { vi: [T, U], id: [T, U], th: [T, U], ms: [T, U] },
     genera: new Set(['Aus']),
   }
   const fig = (src: string, href?: string) => `<figure class="inl"><img src="${src}" width="1" height="1" alt=""><figcaption>${href ? `<a href="${href}">x</a>` : ''}</figcaption></figure>`
   const checks = (html: string) => checkPage('/huong-dan/x/', html, f).map(p => p.check)
   test('one picture in two files, a card\'s thumb of it, a video\'s two thumbnails', () => {
     expect(checks(`<img src="https://m/1.webp"><img src="https://m/2-480.webp"><img src="https://i.ytimg.com/vi/v/hq.jpg"><img src="https://i.ytimg.com/vi_webp/v/mq.webp"><template><img src="https://m/1.webp"></template>`)).toEqual(['repeat', 'repeat'])
+  })
+  test('a whole tile\'s blurred ground is a backdrop, not the picture twice', () => {
+    expect(checks(`<span class="whole"><img class="ground" src="https://m/1-480.webp" alt="" aria-hidden="true"><img src="https://m/1-480.webp" alt=""></span>`)).toEqual([])
   })
   test('a figure of another fish under a fish\'s heading; a fish\'s section with no photo', () => {
     expect(checks(`<div class="prose"><h3>1. Cá a (Aus bus)</h3><p>…</p>${fig('https://m/b.webp')}<h3>2. Cá b (Aus cus)</h3><p>…</p></div>`)).toEqual(['wrong-fish', 'missing-photo'])

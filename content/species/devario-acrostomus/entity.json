@@ -1,0 +1,248 @@
+{
+  "id": "devario-acrostomus",
+  "scientificName": "Devario acrostomus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Devario",
+  "group": "danios",
+  "places": [
+    "asia",
+    "laos",
+    "nam-leuk",
+    "thailand",
+    "nong-bua-lamphu"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH"
+      ],
+      "regions": [
+        "Nam Leuk",
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Nam Leuk river drainage both upstream and downstream of Tad Leuk waterfall, Phou Khao Khouay National Park, Vientiane Province, northwestern Laos, and subsequently recorded in Nong Bua Lamphu province, northeastern Thailand.",
+          "countries": [
+            "LA",
+            "TH"
+          ],
+          "regions": [
+            "Nam Leuk"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Nam Leuk is part of the much larger Mekong River system but has suffered serious degradation since the completion of the Nam Leuk Hydroelectric Project in 1999.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361538,
+      "total": 4,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "LA",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          18.28125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-acrostomus",
+      "html": "<ul><li>Needs a large tank, a steady pH and temperature, a well-established tank and a group of its own kind; peaceful and fine with other fish.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-acrostomus",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li><li>Weekly water changes of 30-50% volume should be considered routine.</li></ul><p>Devario acrostomus is a devario from the Nam Leuk drainage in Vientiane Province, Laos, and has also been recorded in northeastern Thailand. It first appeared in the hobby in early 2011. It looks like D. aequipinnatus and allies at first glance, but has a sharp, upwardly-pointing mouth, a snout longer than the eye diameter, long rostral barbels and strongly pigmented body patterning. Above Tad Leuk falls its habitats have clear water under forest cover.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-acrostomus",
+      "html": "<p>Described from the Nam Leuk river drainage both upstream and downstream of Tad Leuk waterfall, Phou Khao Khouay National Park, Vientiane Province, northwestern Laos, and subsequently recorded in Nong Bua Lamphu province, northeastern Thailand.</p><p>Type locality is 'Nam Leuk, about 500 meters upstream of Tad Leuk waterfall, 18°23'51\"N, 103°04'18\"E, Mekong basin, Vientiane, Laos'.</p><p>The Nam Leuk is part of the much larger Mekong River system but has suffered serious degradation since the completion of the Nam Leuk Hydroelectric Project in 1999. This involved construction of a dam diverting much of the Nam Leuk's flow into the nearby Nam Xan river. Water quality and fish stocks have been heavily affected meaning D. acrostomus may be under threat.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-acrostomus",
+      "html": "<p>The type series was collected during the dry season from localities with varying gradient both within the Nam Leuk mainstream and smaller tributaries.</p><p>In the tributaries the fish were found congregating in pools some of which were isolated on steep slopes.</p><p>All habitats above Tad Leuk falls were characterised by clear to very clear water under forest cover while below the falls they were dominated by exposed basalt slabs with some underground water channels.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-acrostomus",
+      "html": "<p>Standard length: 8 cm SL.</p><p>Aquarium base: 120 × 45 cm. Volume: ~243 litres.</p><p>An aquarium with base measuring at least 120 × 45 cm is suggested for long-term maintenance.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-acrostomus",
+      "html": "<p>Not difficult to keep in a well-maintained set-up, though we recommend aquascaping the tank to resemble a flowing stream or river with a substrate of variably-sized, water-worn rocks, sand, fine gravel and perhaps some small boulders.</p><p>This can be further furnished with driftwood roots or branches, and while the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor.</p><p>Since it naturally occurs in pristine habitats it's intolerant to accumulation of organic pollutants and requires more-or-less spotless water in order to thrive.</p><p>Though torrent-like conditions are unnecessary it should also prefer a high proportion of dissolved oxygen and moderate water movement.</p><p>Weekly water changes of 30-50% volume should be considered routine, and the tank must have a very tightly-fitting cover as all Devario spp. are accomplished jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-acrostomus",
+      "html": "<p>Temperature: 23–26°C</p><p>pH: 6.0–7.0</p><p>Hardness: 1–8 dGH</p><p>Air temperatures in Vientiane are relatively stable with monthly averages varying from 17.2°C in December and January to 33.9°C in April. At localities sampled in February 2007 the water was warm and estimated at 30°C. A value within the range 23–26°C should therefore be acceptable for general aquarium care.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-acrostomus",
+      "html": "<p>Almost certain to prey chiefly on insects and their larvae in nature although in the aquarium it's a largely unfussy feeder and will accept most foods.</p><p>A good quality dried product can be used as the staple diet but this should be supplemented with regular meals of small live and frozen fare such as bloodworm, Daphnia, Artemia, etc., for the best colouration and conditioning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-acrostomus",
+      "html": "<p>Not an aggressive fish but may upset slow-moving or timid tankmates with its constant activity and vigorous feeding behaviour, and is therefore most appropriate for larger aquaria containing robust, similarly-sized fishes.</p><p>There are plenty of suitable choices including many cyprinids, loaches, cichlids, catfishes and characins, although as always when selecting a compatible community of fish proper research is essential.</p><p>It's a schooling species by nature and ideally should be kept in a group of at least 8-10 specimens which will not only make the fish less nervous but will result in a more effective, natural looking display.</p><p>Any aggression will also be contained as the fish concentrate on maintaining their hierarchical position within the group, and males tend to display better colours in the presence of rivals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-acrostomus",
+      "html": "<p>Sexually mature females should be rounder-bellied, less colourful and a little larger than males.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-acrostomus",
+      "html": "<p><strong>Etymology</strong></p><p>Devario: appears to be derived from a local vernacular name for the type species of the genus Cyprinus (now Devario) devario Hamilton, 1822.</p><p>acrostomus: from the Ancient Greek άκρος (akros), meaning 'end, tip, top', and στόμα (stóma), meaning 'mouth', in allusion to this species' sharp, pointed mouth shape.</p><p><strong>Notes</strong></p><p>This species first appeared in the aquarium hobby in early 2011.</p><p>At first glance it appears similar to some other members of the genus, especially D. aequipinnatus and allies, but can be distinguished by its sharp, upwardly-pointing mouth, relatively long snout measuring greater than eye diameter, long rostral barbels and strongly pigmented body patterning.</p><p>Other defining characters include a complete lateral line, well-developed infraorbital process, four dark stripes on the body plus usually 9 branched dorsal-fin rays and 9-10 branched anal-fin rays.</p><p>In recent years it's become commonplace to refer to the stripes on the body and fins of danionins as follows:</p><ul><li>P stripe: or 'pigment stripe' is the central, dark, lateral stripe on the body which extends into the caudal-fin in some species. Stripes above it are numbered P+1, P+2, etc., and those beneath P-1, P-2, P-3.</li><li>A stripe: the central stripe on the anal-fin; the proximal stripe (above it) is A+1 and the distal stripe (beneath) A-1.</li><li>D stripe: the submarginal dorsal-fin stripe.</li></ul><p>Following Fang (2003) Devario spp. are characterised by: possession of a P stripe extending onto the median caudal-fin rays; a short maxillary barbel (absent in some species); absence of the A stripe (a less distinct, relatively wide stripe is present in some species, e.g., D. acrostomus, D. annandalei, D. xyrops); a short, wide premaxillary process (cleft in the upper jaw) with a tiny apophysis (bony tubercule) touching the kinethmoid bone; infraorbital 5 not or slightly reduced.</p><p>The current genus name has only been in general use since 2003 prior to which members were considered to belong to the genus Danio. Older, molecular, phylogenies tended to agree that the latter represented a monophyletic group consisting of two major clades; the 'Danio devario' grouping containing the larger, deeper-bodied species and the 'D. rerio' assemblage comprising the smaller, slimmer fish.</p><p>However in 2003 Fang Fang conducted a more detailed study based on morphological characters which included members of other related genera, and the results suggested for the first time that the genus Danio as previously considered represents a polyphyletic grouping, i.e., not all members derived from a single common ancestor.</p><p>The genus name Devario was suggested for the larger species with Danio being applied only to the smaller fish, although Kottelat (2013) later restricted Danio to its type species, D. dangila, and placed most former members in the revalidated genera Brachydanio and Celestichthys. Kullander (2015), the Catalog of Fishes and FishBase do not follow that split and keep those species in Danio.</p><p>These results have largely been supported by subsequent phylogenetic analyses (e.g. Mayden et al., 2007), although Devario has still undergone a little reshuffling, particularly following Fang et al. (2009) and Kottelat (2013).</p><p>In the former study the two species previously comprising the genus Inlecypris were brought into synonymy with Devario and three species formerly included in Microrasbora were moved into the new genus Microdevario based on possession of shared synapomorphies with Devario. The existence of a monophyletic clade consisting of the genera Devario, Chela, Laubuca, Microdevario and Microrasbora was also hypothesised, a theory upheld in the more recent study by Tang et al. (2010). The genus Betadevario (Pramod et al., 2010) is also nested within this grouping and is sister to Devario and Microrasbora.</p><p>Kottelat (2013) revalidated the genus Inlecypris whilst noting that phylogenetic evidence suggests the existence of two genetic lineages within Devario. The first contains the species with prominent lateral stripes, which leaves the remaining members (D. apogon and D. chrysotaeniatus) of uncertain taxonomic placement. In addition, a number of the striped species share a colour pattern comprising a midlateral stripe on the posterior half of the body with a few bars in the anterior portion and golden patches between them. These may eventually be placed in a separate genus for which the name Parabarilius is available.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-acrostomus",
+      "html": "<ul><li>Fang, F. (2003). Phylogenetic Analysis of the Asian Cyprinid Genus Danio (Teleostei, Cyprinidae). Copeia 2003(4), 714-728</li><li>Fang, F. and M. Kottelat (1999). Danio species from northern Laos, with descriptions of three new species (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 10(3), 281-295</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Pramod, P. K., F. Fang, K. Rema Devi, T.-Y. Liao, T. J. Indra, K. S. Jameela Beevi and S. O. Kullander (2010). Betadevario ramachandrani a new danionine genus and species from the Western Ghats of India (Teleostei: Cyprinidae: Danioninae). Zootaxa 2519, 31-47</li><li>Sanger, T. J. and A. R. McCune (2002). Comparative osteology of the Danio (Cyprinidae: Ostariophysi) axial skeleton with comments on Danio relationships based on molecules and morphology. Zoological Journal of the Linnean Society 135, 529-546</li><li>Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6506e612fc4e8653.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6506e612fc4e8653-480.webp",
+      "width": 799,
+      "height": 355,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-acrostomus",
+      "caption": "This specimen is exhibiting slightly faded colouration due to being isolated for photographic purposes.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6a46d02b7ba4e5a7.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6a46d02b7ba4e5a7-480.webp",
+      "width": 870,
+      "height": 653,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/devario-acrostomus",
+      "caption": "This species is known from both above and below Tad Leuk waterfall on the Nam Leuk river, Laos. Image taken during dry season.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc ngoài bể 120cm",
+        "máy tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn khô cho cá danio",
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông",
+        "cát sông",
+        "đá cuội bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

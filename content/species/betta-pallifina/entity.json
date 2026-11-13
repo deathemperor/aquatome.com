@@ -12,6 +12,52 @@
     "barito",
     "mahakam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Barito",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "To date it has only been collected from a remote part of the upper Barito river basin in the Indonesian province of Kalimantan Tengah (Central Kalimantan), Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Barito",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393986,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          -1.40625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -67,7 +113,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -83,12 +129,6 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-palifina-red-wild-type-bettas",
       "html": "<p>From the Betta unimaculata complex. IUCN Red List: Data Deficient (not enough information at this time).</p><p>Wild-caught Betta pallifina from Mahakam. A mouthbrooding type of betta belonging to the unimaculata complex. Unlike the normal pallifina type, this type is particularly large and has red on its fins. Males and females both have colorful blue-teal fins with a metallic copper coating and red banding.</p><p>Maximum size: 3+ inches (about 8 cm).</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-palifina-red-wild-type-bettas",
-      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
     },
     {
       "key": "distribution",
@@ -196,7 +236,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Stacyh202",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Male_Betta_Pallifina.jpg",
-      "caption": "Photo of a male Betta pallifina"
+      "caption": "Photo of a male Betta pallifina",
+      "large": {
+        "url": "https://media.aquatome.com/commons/eae81e422682d5bd-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/bb4b9374c622f46a.webp",

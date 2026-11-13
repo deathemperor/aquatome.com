@@ -12,6 +12,141 @@
     "nigeria",
     "cross-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "NG"
+      ],
+      "regions": [
+        "Ndian River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Its range includes the Korup and Cross River National Parks, and the type locality is close to a waterfall on the Ndian River in southwestern Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is close to a waterfall on the Ndian River in southwestern Cameroon, and appears restricted to the coastal plains either side of the border between Cameroon and Nigeria, including the Korup and Cross River National Parks.",
+          "countries": [
+            "NG"
+          ],
+          "regions": [
+            "Ndian River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348284,
+      "total": 42,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CM",
+          34
+        ],
+        [
+          "NG",
+          4
+        ],
+        [
+          "DE",
+          2
+        ],
+        [
+          "BJ",
+          1
+        ],
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          0,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          2.8125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          5.625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          7.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          4.21875,
+          22,
+          22
+        ],
+        [
+          8.4375,
+          5.625,
+          3,
+          3
+        ],
+        [
+          9.84375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          2.8125,
+          5,
+          5
+        ],
+        [
+          9.84375,
+          50.625,
+          2,
+          0
+        ],
+        [
+          127.96875,
+          -4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -49,7 +184,12 @@
       "author": "Mattus1990",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaprozubka_dvojp%C3%A1sa_-_aphyosemion_bivittatum.jpg",
       "caption": "♂Aphyosemion bivittatum",
-      "thumb": "https://media.aquatome.com/commons/dbd01c207d8f66da-480.webp"
+      "thumb": "https://media.aquatome.com/commons/dbd01c207d8f66da-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/dbd01c207d8f66da-large.webp",
+        "width": 1734,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/5e19d31c0c91347a.webp",

@@ -1,0 +1,67 @@
+{
+  "id": "apistogramma-mendezi",
+  "native": {
+    "input": "3e63ab6b4eaa6f4e",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower rio Negro basin in northwestern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Brazil.",
+        "words": "Brazil",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower rio Negro basin in northwestern Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "A. mendezi and A. paucisquamis were suspected for a long time to live together in some regions east of Barcelos in the Rio Negro.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma mendezi",
+    "status": "ACCEPTED",
+    "taxonKey": 2371254,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        11
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

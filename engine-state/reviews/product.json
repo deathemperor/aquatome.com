@@ -1,0 +1,434 @@
+{
+  "vi/products/ada-aqua-soil": [
+    {
+      "at": "2026-11-10T22:45:03Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"cá khó chịu nổi\" is an embellishment; the facts only say it is not suited to cycling with fish because of the early ammonia spike.",
+        "\"Dark start (set bể, đổ nước, chạy lọc mà chưa thả con gì)\" is an explanation that is not in the facts. It is a plausible generalisation.",
+        "Steps 1–3 put the Supplement first and then the Power Sand \"beneath\". The facts do not give this order, so the sequence is slightly muddled."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-10T22:45:03Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"nền này hợp nhất với bể chỉ trồng cây hoặc bể chạy dark start\" - the facts say only that a retailer guide says it suits plant-only or dark-start tanks. \"Hợp nhất\" (best suited) is a stronger claim, and the attribution to the retailer is dropped in the intro.",
+        "\"Cỡ bao 9 L là cỡ có nhiều số liệu nhất\" - this is the page's own inference. The facts give coverage only for the 9 L bag but never say it has the most data.",
+        "\"Nền dùng được khoảng 2–3 năm\" is stated as a plain fact in the intro. In the facts it comes from a single retailer source."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/products/aquario-neo-soil": [
+    {
+      "at": "2026-11-09T10:46:42Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"an toàn cho cá, tép và ốc\": facts say safe for fish and invertebrates; \"ốc\" (snails) is specific and not stated.",
+        "\"Aquario Neo Soil No CO2: bản này rẻ hơn trong cùng dòng\": the facts call it a cheaper sibling, but the page does not give a price. This is a minor point and is supported.",
+        "\"Bản Plants và bản No CO2 đều có bao 3 L và 8 L. Hãng và shop không ghi mỗi bao đủ cho bể cỡ nào\": the claim that no coverage is listed is not in the facts. It is a mild generality.",
+        "\"hãng làm bản No CO2 dành cho cả bể tép\": the facts attribute this aim to a seller, not the manufacturer, so the attribution is a bit off.",
+        "\"dùng Neo CO2 hay bình CO2 đều được\": the facts say Neo CO2 or a pressurised system. This is roughly fine.",
+        "\"Bản Plants ... bể còn cần đèn tốt với phân đầy đủ\": the facts say adequate light and fertiliser. \"Đầy đủ\" fertiliser is a slight overstatement."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T10:46:42Z",
+      "model": "sonnet",
+      "score": 0.78,
+      "notes": [
+        "\"Cả hai bản đều có bao 3 L và 8 L\" is supported, but \"rồi dựa vào diện tích đáy bể để tính ra cần bao nhiêu lít\" is an unsupported instruction not in the facts.",
+        "\"Thấy thì nhặt ra\" (pick out impurities) is an unsupported recommendation.",
+        "\"Muốn biết chắc thì làm theo hướng dẫn ở trên: sau 5–6 tháng bổ sung phân nhét hoặc phân nước\" turns the 5–6 month life-extension tip into a resolution of the fertiliser contradiction. The facts do not support this.",
+        "\"Bản No CO2 ... hãng làm bản đó cho bể không CO2\" is fine, but \"loại nền cao cấp mà nhiều người lấy làm chuẩn để so\" generalises \"benchmark premium soil\" to many people.",
+        "\"Aquario Neo Soil No CO2: bản rẻ hơn trong cùng dòng\" is supported only as a cheaper sibling. The page leaves out the 280,000₫ price, which is fine.",
+        "\"Bao lâu thì phải thêm phân? Khoảng 5–6 tháng sau khi set bể\" presents the 5–6 months as a requirement. The facts only say to add fertiliser to extend the soil's life, and they don't say \"after setup\" explicitly.",
+        "\"Một shop chấm nền tốt cho bể tép\" in the FAQ, and \"hãng làm bản No CO2 cho cả bể tép\", are supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/products/chihiros-a2-series": [
+    {
+      "at": "2026-11-11T04:45:26Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Cỡ 35 cm và cỡ 40 cm có cùng công suất và độ sáng\" is true for the 15 W / 1700 lm figures, but \"chỉ khác nhau ở chiều dài đèn\" ignores the LED count, which is also the same, so it is acceptable; it is a minor inference.",
+        "\"Cần mạnh hơn nữa thì có WRGB2 Slim\" is acceptable, but \"Đèn thường ngắn hơn số cm ghi trên cỡ một chút để đặt vừa lên viền bể\" gives an invented reason. The facts give lengths but not why they are shorter.",
+        "\"Kính bể dày hơn 8 mm thì chân đèn không kẹp vừa\" is an inference. The facts only say the legs clip onto glass up to 8 mm.",
+        "\"Bể kính dày hơn 8 mm cũng nên xem mẫu này\" is a recommendation the facts don't make. The facts only say the A2 Max takes glass up to 12 mm.",
+        "\"Kính bể dày 10 mm thì kẹp được không? Không.\" is a definite claim that goes beyond the facts, which only give an 8 mm maximum.",
+        "\"Chân nghiêng được... Kẹp chân acrylic trong suốt lên viền bể\" is supported. However, \"Cắm hẳn dây nguồn và lắp chân vào đèn cho chắc\" is a loose paraphrase of fitting the cord and legs fully.",
+        "\"Đèn dài 58.5 cm, đặt vừa lên viền bể\" for the A2 601 is supported only for the length. That it fits on the rim is an unsupported assertion.",
+        "\"Chihiros A1: đời cũ, rẻ hơn\" is supported, but \"Bể có nắp kính đậy kín... Không nên\" is a firmer recommendation than the facts, which only say the light isn't designed for use under a closed lid.",
+        "\"Vỏ đèn chỉ đạt chuẩn IP43, tức là chịu được nước bắn\" is supported by the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-11T04:45:26Z",
+      "model": "sonnet",
+      "score": 0.62,
+      "notes": [
+        "\"Bảng phiên bản cho thấy cỡ 35 cm và cỡ 40 cm có cùng công suất và độ sáng\" is wrong: 35 cm is 15 W, 1700 lm and 40 cm is also 15 W, 1700 lm. They match, but the 35 and 40 cm models also differ in LED count? No, both have 40 LEDs. This is correct, but \"chỉ khác nhau ở chiều dài đèn\" is fine.",
+        "\"Cần mạnh hơn nữa thì có WRGB2 Slim\" is placed after A2 Max, and that is supported.",
+        "\"Số trong tên mẫu chính là chiều dài bể... Các cỡ còn lại cũng đặt tên theo cách đó\" is a generalisation. The facts say the 35 cm model is 351/361, 45 cm is 451 and 50 cm is 501. The naming rule does not hold for 361, and the shop confusion makes it unreliable.",
+        "\"Kẹp chân acrylic trong suốt lên viền bể\" is given as an install step for every unit. The facts only say clear acrylic legs clamp on the rim, which is acceptable.",
+        "\"Muốn treo đèn cao hơn thì phải mua chân nâng\" and \"treo cao hơn mặt bể\" go beyond the facts. The facts say riser legs are sold separately, but not that they are for hanging the light higher.",
+        "\"Bể có nắp đậy kín\" and \"Có hai kiểu bể không hợp với đèn này\" present the 8 mm glass limit as a hard exclusion. This is reasonable, but the page does not mention the IP43 splash-resistance spec.",
+        "\"A1... đời cũ, rẻ hơn\" is supported by the facts.",
+        "\"đủ để trồng cây trải nền như trân châu\" is stated as a causal claim. The facts only say a shop says it can grow carpeting plants.",
+        "\"Vài người dùng gặp lỗi này thỉnh thoảng\" slightly generalises the report from owners.",
+        "\"hộp có kèm chân nối dài\" for the A2 Max is supported as \"comes with extension legs\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/products/chihiros-c-ii": [
+    {
+      "at": "2026-11-07T03:38:14Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Thủy Sinh Tím báo bản RGB gần hết\": the facts only say Thủy Sinh Tím said it was nearly sold out. They don't say it was the RGB version.",
+        "\"Nhà sản xuất ghi bể dài khoảng 20–40 cm\" and similar: the facts source this to Aquasabi, a retailer, not the manufacturer.",
+        "\"trang nhà sản xuất tự mâu thuẫn\": the facts say the page contradicts itself but don't say it is the manufacturer's page.",
+        "\"Không. Nhà sản xuất ghi không nên dùng đèn dưới nắp\": the facts don't attribute this to the manufacturer.",
+        "\"Bản trắng rẻ hơn\" in the Q&A is supported, but the page gives no prices. The facts' price figures were left out.",
+        "\"bản RGB ... một shop ghi 20–40 cm, shop khác ghi 20–45 cm\": supported. \"GreenDeal ghi bản trắng\": the facts' variant data supports this."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T03:38:14Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Nhiều người kêu kẹp không chắc\" / \"Nhiều người đánh giá trên Aquasabi\": facts say 'reviewers' generally, with only 4 reviews in total; 'many' is a stretch.",
+        "\"Bể kính dày hơn thì đèn không kẹp vào được\": this is an inference; the facts only give 8 mm as the maximum.",
+        "\"Kiểu bể hợp nhất là bể mở, không nắp\": invented elaboration; the facts only say not to use it under a lid.",
+        "\"C II chỉ có một cỡ\": not in the facts; the facts list two versions with different dimensions.",
+        "\"Bản trắng rẻ hơn bản RGB khá nhiều\": the facts give about 1.3M vs 1.78–1.95M, which is cheaper but not necessarily 'khá nhiều'. Mildly overstated.",
+        "\"Bản RGB ... pha màu ánh sáng ngay trên app\" and \"chỉ cần đèn sáng và hẹn giờ được\": the white version's scheduling is supported, but the suggestion for the RGB buyer (colour for red plants and shrimp) draws on one shop's claim presented as general fit.",
+        "\"bạn nên kẹp vừa tay và kiểm tra kính sau khi lắp\": invented advice not in the facts.",
+        "\"Bạn nhớ cẩn thận lúc thao tác gần nước\": invented safety advice.",
+        "\"công suất cao hơn một chút\": 16 W vs 20 W is a 25% rise; the wording is a small characterisation not in the facts.",
+        "\"Trên diễn đàn UKAPS, một người dùng cả hai đèn\": supported. \"hay hết\" (often out of stock) in the intro generalises from one-time stock checks."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/products/chihiros-c-ii-rgb": [
+    {
+      "at": "2026-11-08T01:47:10Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Bản RGB có phổ màu để bạn tự chỉnh tỷ lệ... Nếu bạn cần chỉnh màu cho cây đỏ hoặc cho tép lên màu thì bạn cần bản RGB\" is a mild extrapolation; the facts only say sellers claim this.",
+        "\"Hai bản dùng chung thân đèn và chung app\" is supported only by the alternatives note (source 5), which is fine. The claim that White is \"giá rẻ hơn\" has no price figure in the page, but it is supported.",
+        "\"Nhà phân phối ở Việt Nam ghi bể 20–40 cm\" and \"Một nguồn ghi bể rộng khoảng 20–45 cm\" are supported. \"Các nguồn khác ghi mức thấp hơn: ... 30–50 cm (Shaquarium)\" is wrong, because 30–50 cm is not lower than 20–45 cm; it is a wider range. The page's own line saying Shaquarium is \"rộng hơn\" contradicts this.",
+        "\"Thân đèn nhỏ nên đặt được ở chỗ chật như góc bàn làm việc\" is supported only loosely (\"desk\").",
+        "\"Dòng C II có hai bản\" is an unsupported generalisation. The facts list only two variants, but they do not say the line has only two.",
+        "\"LedStar ... rẻ hơn C2 RGB một chút\" is supported. \"Shrimp Home có hàng sẵn\" is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T01:47:10Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"C II chỉ có một cỡ\" - the facts never say C II comes in only one size.",
+        "\"Bản White ra trước\" - facts only say RGB is an upgrade of the earlier white-only C II; this is roughly supported, so it is minor.",
+        "\"Ráp chân nhôm\" - the facts say \"alloy stand\"; aluminium is reasonable but slightly specific.",
+        "\"Đèn phải kẹp vào thành kính\" and \"Đèn chỉ có kẹp để gắn vào thành kính\" - roughly supported by the rim clamp bracket, but stated more absolutely than the facts.",
+        "\"giá rẻ hơn khá nhiều\" for C II White - the facts give about 500,000₫ less; this is vague but supported in direction.",
+        "\"Được, nhưng bạn phải mua thêm chân đế C II Light Base\" - the facts only say you need the Light Base for bowls, terrariums or wabi-kusa; \"bể tròn\" and \"bể không có thành kính\" are extrapolated to all round and rimless tanks.",
+        "\"Hãng ghi bể 20–45 cm\" in the 60 cm FAQ - the facts only say the 20–45 cm range comes from a source and don't attribute it to the manufacturer; \"Hãng làm đèn này cho bể nano...\" is also an attribution assumption.",
+        "\"Nhà phân phối ghi bể 20–40 cm\" - this is supported (VN distributor listing)."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/products/chihiros-commander-4": [
+    {
+      "at": "2026-11-09T01:45:24Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Bộ điều khiển chỉ có một cỡ\" – the facts do not state that there is only one size/version.",
+        "\"Hãng làm bộ này cho đèn Chihiros WRGB đời đầu\" – facts say made for original WRGB; fine, but \"Các shop thủy sinh ở Việt Nam chủ yếu bán Commander 4 làm đồ thay thế\" overstates \"mainly\" (facts: Vietnamese shops sell it as a replacement).",
+        "\"App cũng có sẵn các chế độ bình minh, nghỉ trưa, hoàng hôn\" – the facts list these as programming presets, but do not specify that the app has them (minor attribution).",
+        "\"Bảo hành bao lâu? Shrimp Home bảo hành 6 tháng\" – the facts say this is the policy for Chihiros spare parts, and the page extends it to the controller as \"phụ kiện\" (slight generalisation).",
+        "\"Chihiros Commander 1: rẻ hơn, dành cho các đèn A, C, Wabi-kusa\" – this is supported. \"Đèn WRGB II… hơn cặp WRGB đời cũ cộng Commander 4\" – supported.",
+        "\"Commander 4 chỉnh riêng từng kênh màu, dành cho dòng WRGB, Vivid và A Plus RGB\" – supported. \"chỉnh màu\" in the FAQ is fine."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T01:45:24Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"xem bảng phía trên\" refers to a table that isn't in the page/facts (minor).",
+        "\"nên hỏi kỹ shop trước khi mua\" is a mild recommendation not in the facts, but it is reasonable.",
+        "\"Commander 4 chỉ có một bản\" is not stated in the facts (only one variant listed).",
+        "\"nên hàng ở các đợt khác nhau có thể không giống nhau\" is an inference beyond the facts; the facts only say electronics were reportedly changed without announcement.",
+        "\"Commander 1 ... dành cho đèn một kênh như A, C, Wabi-kusa\" drops E, S, RGB, X100, X200 from the compatible list, and calling them single-channel is an interpretation (the facts say they dim together).",
+        "\"Home Assistant, một phần mềm mã nguồn mở\" is slightly paraphrased; the facts say open-source Home Assistant control."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/products/chihiros-universal-wrgb": [
+    {
+      "at": "2026-11-08T13:53:10Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Nó hợp với bể thủy sinh ít tiền và không có nắp\" – facts say budget planted tanks without a hood; roughly supported, fine.",
+        "\"dành cho bể layout chạy đủ đèn mạnh và CO2\" – facts only say high-tech aquascapes; CO2 detail is a mild extrapolation.",
+        "\"Mỗi bản ghi một khoảng chiều dài bể phù hợp\" – generic but supported.",
+        "\"Hãng bán riêng linh kiện thay thế\" – facts say spare parts are sold separately but don't say the manufacturer sells them.",
+        "\"Đèn gác lên viền bể bằng các chân thép\" – facts say steel brackets sit it on the rim; page says legs (extendable stainless-steel legs), a slight mix-up.",
+        "\"Có một trường hợp bể 130 × 60 cm\" – framed as an actual case; facts only say support suggested two 700s for such a tank.",
+        "\"Bể trồng cây khó có châm CO2 thì nên xem dòng kia\" and the FAQ – supported by the WRGB II alternative entry.",
+        "\"Con số lumen của hãng đo trong phòng thí nghiệm\" – facts say the lumen figures are lab measurements, not that the manufacturer measured them."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T13:53:10Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Đèn gác lên viền bể bằng chân thép đi kèm\" - facts say steel brackets are used, and legs are extendable stainless-steel; 'đi kèm' (included) is not clearly supported.",
+        "\"Các khoảng này chồng lên nhau... bể 60 cm nằm trong khoảng ghi cho cả bản 550 lẫn bản 600\" - the 550 range is 450–600 and 600 is 550–650, so this is derivable, but it is the page's own inference, not stated in the facts.",
+        "\"đối chiếu với bảng phiên bản ở trên\" - refers to a table that does not exist in the page.",
+        "\"Bể trồng cây khó có châm CO2 thì WRGB II hợp hơn\" - the facts say WRGB II is better for demanding plants with CO2; 'bể trồng cây khó' is a slight paraphrase, which is acceptable.",
+        "\"Nó hợp với bể thủy sinh ít tiền và không có nắp\" - the facts say budget planted tanks without a hood; this is supported.",
+        "\"Độ sáng ... ở mức vừa\" attributed generally; the facts attribute this to Vũ Aqua, but it is not a major distortion.",
+        "\"Aquasabi gợi ý hai đèn 700\" - the facts say 'support suggested', which is slightly attributed to Aquasabi support; this is acceptable since the source is Aquasabi.",
+        "\"Một số nơi ... từ chối đèn bị trầy, hỏng do nước hay bị cháy\" - the facts say some warranties exclude them, which is supported, but the FAQ's \"có nơi không bảo hành đèn bị hỏng do nước\" is a fair restatement."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/products/chihiros-wrgb-ii-pro": [
+    {
+      "at": "2026-11-06T21:03:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"màu cá và cây nhạt đi\": the facts say only that owners worried the white channel would wash out colours. Fish are not mentioned.",
+        "\"low-tech (bể không châm CO2)\": the CO2 explanation of low-tech is not in the facts. It is a small generality.",
+        "\"Nguyên nhân là driver đã mòn\": the facts say worn drivers can cause flicker in used lights. The page states it as the definite cause, which is slightly firmer than the source."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T21:03:59Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Bản 30 ... dài khoảng 35–45 cm\" is supported, but \"nhỏ nhất trong dòng này\" is a minor generality.",
+        "\"Bể có kính dày hơn mức này thì chân đèn không kẹp được\" is an inference not stated in the facts.",
+        "\"Đây là chuyện hay gặp nhất\" (algae is the most common problem) is not supported; the facts only say some forum users got algae.",
+        "\"chạy cao ngay thì rêu lên rất nhanh\" overstates the facts, which say only that algae can appear.",
+        "\"Màu cá và cây bị nhạt\" heading frames colour fading as a common issue, but the facts only say some owners worried about it and others found colours fine.",
+        "\"Chihiros WRGB II Slim mỏng hơn\": the facts say \"thinner\", so this is supported. \"Week Aqua ... Ở nước ngoài đèn này rẻ hơn nhiều\" is roughly supported.",
+        "\"Đèn làm cho bể mở nắp\" is supported by the facts. The 80 cm tank range \"80–100 cm\" is supported.",
+        "\"Bản 45 dành cho bể 45–60 cm\" and the other tank ranges are supported by the variants.",
+        "\"Các con số độ sáng nhà sản xuất công bố là số đo trong phòng thí nghiệm\" says the manufacturer published lab figures, but the facts only say \"rated output\" is lab figures, without naming the source."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/products/chihiros-wrgb-ii-slim": [
+    {
+      "at": "2026-11-06T13:48:03Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"đã ghi trong bảng phía trên\" refers to a table that is not in the page; minor unsupported reference.",
+        "\"Trong hộp chỉ có chân hợp kim để đặt đèn lên thành bể\" omits the adapter and Bluetooth controller that are included, so \"only\" is inaccurate.",
+        "\"Nếu bạn trồng cây khó tính hoặc bể sâu thì bản WRGB II thường hợp hơn\" is supported only by the alternatives entry; fine, but \"bể sâu\" in the Slim fit section is slightly extrapolated.",
+        "\"Thân đèn mỏng được làm ra cho bể cây...\" is supported. \"Kaokui ... dòng giá rẻ\" is supported.",
+        "\"Bể dài đúng 45 cm nằm ở ranh giới... một nguồn ghi Slim 30 dùng cho 30–45\" is supported by the facts, but the page adds an interpretation of the overlap that the facts do not state."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T13:48:03Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Đèn sẽ gọn hơn hẳn trên kệ thấp hay trong góc phòng\" - not in facts; invented benefit.",
+        "\"Đó là cái giá cho thân đèn mỏng và giá rẻ hơn\" - the facts do not say the lower output is a trade-off for the thin body.",
+        "\"Nếu muốn treo đèn lên trần hay giá ... vì hộp không có sẵn\" - 'ceiling or rack' is not in the facts; the facts say only that the hanging kit is sold separately.",
+        "\"Ít nhất một shop không bảo hành khi đèn vào nước hoặc bị rơi\" - roughly supported, but 'vỡ' in the FAQ is a small stretch.",
+        "\"Trường hợp này chưa rõ nguyên nhân\" - the facts do not say the cause is unknown; this is an added statement.",
+        "\"đèn sẽ sáng lên và tối dần thay vì bật tắt cái rụp\" - the description of the gradual change is elaboration beyond 'sunrise/sunset simulation'.",
+        "\"Điểm mạnh là thân đèn rất mỏng\" - the thin body is supported (15 mm), but the page leaves out the specs.",
+        "\"Kaokui ... giá mềm\" and \"Week Aqua ... bán ở chính các shop có Chihiros\" - mostly supported; 'giá mềm' is a loose paraphrase of 'budget'."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/products/chihiros-wrgb-vivid-iii": [
+    {
+      "at": "2026-11-08T08:43:51Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Quạt của Vivid III là loại tự bật ở 38 °C và tự tắt ở 33 °C\" is supported, but placing it under the previous generation's fan issues implies it resolves them. The facts don't say that.",
+        "\"xem bảng giá phía trên\" and \"bảng thông số trên trang này\" refer to a price table and spec table that aren't in the page text. The prices (8,200,000₫ and 7,585,000₫) are never stated.",
+        "\"Chọn cỡ nào\" section: the product has no size options, only colour variants. \"Bể dài hơn 90 cm ... dùng hai đèn ghép lại\" generalises the 180 cm example to any tank over 90 cm.",
+        "\"Đèn ... ánh sáng rất gắt\" (very harsh light): the facts only say the light is very intense. \"Gắt\" (harsh) is an embellishment.",
+        "\"Các shop ở Việt Nam bán chân đỡ riêng, không kèm trong hộp\": \"not included in the box\" is a slight extrapolation. The facts say only that the stand is sold separately.",
+        "\"Con số này khác với mức tối thiểu 60 mm ... đừng nhầm\" is added commentary. It is mild and consistent with the facts.",
+        "\"rẻ hơn nhiều\" and \"Đèn này hợp với bể cây low-tech hơn\" are supported. \"lựa chọn tiết kiệm\" is also supported."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T08:43:51Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Chihiros khuyên treo cách mặt nước 15–30 cm\": facts give 15–30 cm as a recommended distance with no attribution to Chihiros, and it is presented in the FAQ as if it is the same as the 60 mm minimum.",
+        "\"Từ tháng thứ hai trở đi, số tiền hoàn lại giảm dần\": facts say the refund value drops each month after the first, so this is roughly OK but slightly reworded.",
+        "\"Bản Black và bản White ... chỉ khác màu vỏ\": facts list the two variants with different prices (8,200,000₫ vs 7,585,000₫), not just a colour difference. The page says nothing about the price gap, and 'only the housing colour differs' is not stated.",
+        "\"Vivid III chỉ có một cỡ ... không có cỡ lớn hơn để chọn\": facts list only the 60–90 cm variants, but they don't say no larger size exists.",
+        "\"Đó là chuyện của đời cũ, dữ kiện chưa nói Vivid III có bị như vậy hay không\": this is a meta comment inside the page. It is not a product claim, but it reads awkwardly.",
+        "\"có người thấy khó chịu vì chuyện này\": facts only say it can bother people in living-room setups, so this is a mild overstatement.",
+        "\"Chihiros khuyên ... Bể đã ổn định thì chọn một chế độ cài sẵn\": the facts say Chihiros staff advise this, which is supported."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/products/dennerle-scapers-soil": [
+    {
+      "at": "2026-11-09T16:47:11Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Bể nuôi chung cá hiền hay bể tép Neocaridina cũng dùng được\" - facts only mention community/Neocaridina tanks in the lifespan context, not as a stated suitability claim (minor generalisation).",
+        "\"Lúc mới đổ nước, nước đục một chút là chuyện bình thường\" is presented as a usage step, but it is the retailer's reply to a complaint, not an instruction (minor).",
+        "\"Nếu trồng ráy (Cryptocoryne) và Echinodorus\" - facts say 'crypts and swords'; mapping swords to Echinodorus is an inference, though reasonable.",
+        "\"Một lớp nền đã giữ nguyên hạt suốt 14 tháng\" and the FAQ's \"Các nguồn nói khác nhau\" framing 14 vs 18 months as conflicting: the facts do not present these as contradictory (14 months is structure held, 18 months is replacement lifespan), a slight distortion.",
+        "\"Theo nhà phân phối... Đây là lời nhà phân phối nói, chưa có số đo nào kèm theo\" - the 'no measurement attached' remark is not in the facts (minor addition).",
+        "\"Nên hỏi shop trước khi định set bể\" - advice not in the facts, harmless generality."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T16:47:11Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Hãng khuyên trải lớp nền dày khoảng 4 cm\" - the facts list the 4 cm layer height as a spec (source 6) but don't say the manufacturer recommends it; attributing it to the brand is slightly unsupported.",
+        "\"Nhà phân phối nói lớp nền giữ được pH, nên châm CO2 nhiều hơn\" - the facts say the buffering is \"said to\" allow more CO2, which is reasonable, but the page presents it as a distributor claim without noting the shop/source uncertainty.",
+        "\"Người nuôi tép Caridina hay chọn loại này\" - the facts say breeders \"prefer it\" because of low ammonia; the page's \"Được\" (yes, it works) in the FAQ goes a little beyond the facts, which also say buffering fades and the soil may need partial replacement.",
+        "\"Trong bể thử, lớp nền vẫn giữ được hạt sau 14 tháng\" - the facts say the soil bed held its structure for 14 months, with no mention that this was in a test tank.",
+        "\"Nhưng ... tính theo lít thì đắt hơn\" - supported. \"hàng Việt Nam, rẻ hơn nhiều\" - supported. The page drops the 75,000 ₫ price but this is not a fault.",
+        "Page says \"Đổ thẳng ... Chạy vi sinh cho bể trước khi thả tép\" - supported; no major invented claims found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/products/fluval-stratum": [
+    {
+      "at": "2026-11-09T22:46:04Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "\"JBL Manado: ... rẻ hơn\" - the facts give the Manado price (about 265,000₫) but no Stratum price, so \"cheaper\" has nothing to compare against. This is a minor point.",
+        "\"Hạt nhỏ có thể làm tắc ống xi phông\" - the facts say \"small balls can clog siphons\". The page's wording is close but a little loose."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T22:46:04Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Cả hai đều khuyên lót thêm bông lọc mịn\" - facts say fine filter wool helps for both, roughly supported, but the claim of 'lót thêm' is minor.",
+        "\"Hãng khuyên dùng nó làm nền chính cho bể nhỏ, hoặc làm lớp phủ trên cho bể lớn\" - facts do not say the manufacturer recommends this; source is unattributed.",
+        "\"Muốn nước bớt đục thì đặt một cái hộp lên mặt nền rồi rót nước vào hộp\" - fine, but the page puts it as a step before filling slowly; ok.",
+        "\"Cây ăn rễ mạnh thì sau 2–3 tuần nhét thêm phân nhét\" - supported; but 'Sau khoảng 2 tuần thì bắt đầu châm phân nước' ok.",
+        "\"JBL Manado: Nền đất sét trơ, rẻ hơn\" - supported (cheaper than Stratum is implied but no Stratum price in facts).",
+        "\"Kotobuki ... giá tương đương\" - facts say 'similar price' but no Stratum price is given, so the comparison is unsupported.",
+        "\"Đợi 3–5 ngày rồi mới thả vài con cá khỏe\" - facts say 'hardy animals', not specifically fish; minor generalisation.",
+        "\"Nền giữ pH trung tính đến hơi axit\" in the intro and \"không làm đổi màu nước\" are supported; \"nền rất khó hút vệ sinh\" is slightly strengthened from 'harder'.",
+        "\"Hai nguồn khuyên xử lý khác nhau ... Cả hai đều khuyên lót thêm bông lọc mịn\" - plausible but the 'both' attribution is inferred.",
+        "Question 'Set bể xong bao lâu thì thả cá được' and the cichlid/catfish line 'Hạt nền nhẹ, mà nền bị xới lên là nước nổi mây đen' add a causal link not stated in the facts."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/products/tuya-smart-life-power-strip": [
+    {
+      "at": "2026-11-09T06:23:13Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Có hướng dẫn nói ổ này vẫn giữ lịch khi mất Wi-Fi\" / \"vẫn giữ lịch đã lưu trong vài ngày\": the facts say this, but the guide is generic, and the page presents it as certain for this strip while also saying some cheap plugs switch off. Mildly overstated.",
+        "\"Sưởi thì tùy, muốn cắm cũng được\": the facts only say the heater is optional and a backup. This is a mild extrapolation.",
+        "\"Nên chỉnh phần cài đặt khi có điện lại như ở mục trên\": the facts do not say that 'Last State' fixes the reef hobbyist's all-off problem. This is an implied link.",
+        "\"Ổ cũng phụ thuộc cloud và app\": the source says this about Tuya devices in general, not specifically this strip. It is a small generalization.",
+        "\"Ổ này dành cho người đã có sẵn hub Zigbee\" and \"giống ổ này\": fine, but the Zigbee price/page status is omitted. This is not an error.",
+        "\"Đổi lại thì giá cao hơn\": supported, but the page gives no price. This is fine.",
+        "\"4P+2U ... 2 cổng USB\": supported. \"Nếu bể chỉ dùng ổ điện ... số cổng USB không ảnh hưởng gì\" is an unsupported but harmless inference."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T06:23:13Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Bản 2 USB thì không thấy shop nào nói chuyện này\" is an inference; the facts only say the 4P+4U variant states remote USB switching, not that no shop mentions it for 4P+2U (minor).",
+        "\"Tổng tải của cả 4 ổ\" is fine, but \"Ổ cắm sưởi chỉ để dự phòng... bộ điều nhiệt có sẵn\" is supported only by a guide that says 'optionally'; the page's \"sưởi thì tùy, có cắm cũng được\" is slightly paraphrased and acceptable.",
+        "\"Router ở nhà hay phát 5GHz\" generalises 'many home routers use 5GHz' (minor).",
+        "\"Tapo P300... hãng này hỗ trợ tốt hơn\" matches the facts; \"Đổi lại giá cao hơn\" omits the figures but is supported.",
+        "\"Phải tự cúp điện thử một lần\" and \"hãy ngắt Wi-Fi thử\" are advice not in the facts, though they are reasonable extensions of 'check how yours behaves'.",
+        "\"Ổ cắm Wi-Fi Tuya đơn 10A ... mua vài ổ đơn này rẻ hơn\" is supported (cheaper option)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ]
+}

@@ -7,9 +7,11 @@
   "photos": [],
   "mentions": [
     "neolamprologus-multifasciatus",
-    "cyphotilapia-frontosa"
+    "cyphotilapia-frontosa",
+    "lamprologus-ocellatus",
+    "neolamprologus-similis"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "jFFbDTBUgIk",
     "title": "The worlds most interesting aquarium fish: The shell dweller is ALSO the worlds smallest cichlid!",
@@ -30,6 +32,7 @@
     "taxa": [
       "Lamprologus ocellatus",
       "Neolamprologus multifasciatus",
+      "Neolamprologus similis",
       "Cyphotilapia frontosa",
       "Anubias sp.",
       "Epipremnum aureum"
@@ -38,27 +41,31 @@
       {
         "category": "phan-nen",
         "type": "cat",
-        "t": 74
+        "t": 65
       },
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 420
-      },
-      {
-        "category": "cay-thuy-sinh",
-        "type": "gan-lua",
-        "t": 380
+        "t": 425
       },
       {
         "category": "be-ca",
-        "t": 0
+        "t": 4
       }
     ],
     "figures": [
       {
-        "heading": "Cá ốc là loài gì",
-        "moments": [],
+        "heading": "Cá ốc là cá gì",
+        "moments": [
+          {
+            "t": 60,
+            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nền cát trắng với vài con cá ốc nhỏ và vỏ ốc.",
+            "sharpness": 31.2
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/jFFbDTBUgIk/p0-Y2lhdHVzXzMuanBn.webp",
           "thumb": "https://media.aquatome.com/video/jFFbDTBUgIk/p0-Y2lhdHVzXzMuanBn-480.webp",
@@ -67,135 +74,121 @@
           "licence": "Public domain",
           "author": "Richard Andre Ingebrigtsen, Department of Aquatic Biosciences, University of Tromsø, Rex shock at en.wikipedia",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_multifasciatus_3.jpg",
-          "caption": "Cá ốc nhỏ bơi giữa bãi vỏ ốc trên nền cát."
+          "caption": "Cá ốc nhỏ bơi giữa những chiếc vỏ ốc trong bể."
         }
       },
       {
-        "heading": "Set bể cá ốc cần những gì",
+        "heading": "Ngoài tự nhiên cá ốc sống thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/jFFbDTBUgIk/p1-jYXRjaF9tZS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/jFFbDTBUgIk/p1-jYXRjaF9tZS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Charlotte E. T. Huyghe",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:If_they_can%27t_see_me,_they_can%27t_catch_me.jpg",
+          "caption": "Cá ốc nấp cạnh vỏ ốc giữa đá và bọt biển dưới đáy hồ Tanganyika."
+        }
+      },
+      {
+        "heading": "Set bể cho cá ốc",
         "moments": [
           {
-            "t": 1109,
-            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/t1109.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể nền cát trắng có lũa, Anubias và cây trồng cạn, cá bơi phía sau."
+            "t": 1150,
+            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/at1150-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cát trắng có vỏ ốc, cá cichlid bơi gần lũa.",
+            "sharpness": 215.5,
+            "person": false
           },
           {
-            "t": 1158,
-            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/t1158.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cát mịn với đá và cây xanh, bố cục tự nhiên."
+            "t": 1180,
+            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/at1180-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lớp cát mịn trắng với vài vỏ ốc nằm trên nền bể.",
+            "sharpness": 411.5,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Vì sao bể cá ốc nên để \"bẩn\"",
+        "heading": "Vì sao bể chín hợp với cá ốc",
         "moments": [
           {
             "t": 1010,
-            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/t1010.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể đã chín với rêu và cây phủ trên gỗ, đá, nền cát trắng."
+            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/at1010-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đáy bể phủ rêu và cặn, chỗ cá con kiếm ăn.",
+            "sharpness": 50.3
           },
           {
-            "t": 1346,
-            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/t1346.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Góc bể có rêu bám trên gỗ lũa, cá nhỏ bơi gần đó."
-          }
-        ]
-      },
-      {
-        "heading": "Cá ốc ăn gì",
-        "moments": [
-          {
-            "t": 525,
-            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/t525.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá ốc bơi gần đáy bể, giữa đá và rêu phủ."
+            "t": 1120,
+            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/at1120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể lâu năm với rêu và Anubias bám đá, cát phía trước.",
+            "sharpness": 170,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/jFFbDTBUgIk/p3-dHVzX21hbGUuSlBH.webp",
-          "thumb": "https://media.aquatome.com/video/jFFbDTBUgIk/p3-dHVzX21hbGUuSlBH-480.webp",
+          "url": "https://media.aquatome.com/video/jFFbDTBUgIk/p3-9ycGhhXzAxLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/jFFbDTBUgIk/p3-9ycGhhXzAxLmpwZw-480.webp",
           "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 3.0",
-          "author": "Richard A. Ingebrigtsen",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_multifasciatus_male.JPG",
-          "caption": "Cá ốc bố mẹ cùng đàn con đang kiếm ăn quanh đáy bể."
+          "height": 720,
+          "licence": "CC BY 2.5",
+          "author": "Tucsouffle",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:20061213210458_trigonostigma-heteromorpha_01.jpg",
+          "caption": "Bể trồng cây chạy lâu, nước hơi xanh, đàn cá nhỏ bơi giữa cây."
         }
       },
       {
-        "heading": "Cá ốc sinh sản và sống thành đàn thế nào",
+        "heading": "Cá ốc chăm con ra sao",
         "moments": [
           {
-            "t": 1208,
-            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/t1208.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cát với đá và cây thủy sinh, có cá nhỏ bơi phía sau."
-          },
-          {
-            "t": 1257,
-            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/t1257.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Một con cá nhỏ bơi sát nền cát cạnh bụi cây."
+            "t": 1250,
+            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/at1250-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vài vỏ ốc nằm trên nền cát trong bể, gần đá và cây.",
+            "sharpness": 73
           }
         ]
       },
       {
-        "heading": "Nuôi chung với cá săn mồi: frontosa",
+        "heading": "Nuôi chung với frontosa thì sao",
         "moments": [
           {
-            "t": 881,
-            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/t881.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá vằn sọc bơi trên đá trong bể cichlid Tanganyika, có cây phía dưới."
+            "t": 870,
+            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/at870-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá ốc nhỏ bơi lẩn giữa đá và cây trong hồ.",
+            "sharpness": 121.3
           },
           {
-            "t": 1000,
-            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/t1000.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Vỏ ốc trên nền cát, cạnh đá phủ rêu trong bể."
+            "t": 940,
+            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/at940-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mấy con frontosa sọc đen trắng bơi gần đá trong bể.",
+            "sharpness": 133.4
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/jFFbDTBUgIk/p5-d196b28pLTIuSlBH.webp",
-          "thumb": "https://media.aquatome.com/video/jFFbDTBUgIk/p5-d196b28pLTIuSlBH-480.webp",
+          "url": "https://media.aquatome.com/video/jFFbDTBUgIk/p6-d196b28pLTIuSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/jFFbDTBUgIk/p6-d196b28pLTIuSlBH-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 3.0",
           "author": "Guérin Nicolas (messages)",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyphotilapia_frontosa_(Wroclaw_zoo)-2.JPG",
-          "caption": "Cá frontosa sọc đen trắng bơi bên đá trong bể kiểu Tanganyika."
+          "caption": "Cá frontosa sọc đen trắng bơi gần đá trong bể Tanganyika."
         }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 1079,
-            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/t1079.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể trồng nhiều cây, lũa và đá phủ rêu, có cá sọc bơi phía sau."
-          },
-          {
-            "t": 1129,
-            "url": "https://media.aquatome.com/video/jFFbDTBUgIk/t1129.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể nền cát sáng với lũa phủ rêu và cây xanh, có cá frontosa."
-          }
-        ]
       }
     ]
   }

@@ -1,0 +1,48 @@
+{
+  "id": "apricaphanius-saourensis",
+  "native": {
+    "input": "baf6991f71e2f700",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [
+      {
+        "code": "DZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Sahara toothcarp, Apricaphanius saourensis, is endemic to the Oued Saoura, an endorheic river basin in Algeria that drains into the Sahara.",
+        "words": "Algeria",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Oued Saoura",
+        "source": "seriouslyfish",
+        "quote": "The Sahara toothcarp, Apricaphanius saourensis, is endemic to the Oued Saoura, an endorheic river basin in Algeria that drains into the Sahara.",
+        "country": "DZ",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apricaphanius saourensis",
+    "status": "ACCEPTED",
+    "taxonKey": 11379128,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ]
+    ],
+    "native": [
+      "DZ"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

@@ -1,0 +1,320 @@
+{
+  "id": "piabucus-dentatus",
+  "scientificName": "Piabucus dentatus",
+  "order": "Characiformes",
+  "family": "Iguanodectidae",
+  "genus": "Piabucus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "venezuela",
+    "guyana",
+    "suriname",
+    "french-guiana",
+    "brazil",
+    "amazon"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "GY",
+        "SR",
+        "GF",
+        "BR"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The piabuco tetra, Piabucus dentatus, is a large tetra from coastal waters of northern South America, from Venezuela to the mouth of the Amazon.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's been recorded from Venezuela, Guyana, Suriname, French Guiana and Brazil, where its range extends southwards to the mouth of the Amazon.",
+          "countries": [
+            "GY",
+            "SR",
+            "GF",
+            "BR"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352811,
+      "total": 95,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "GF",
+          62
+        ],
+        [
+          "GY",
+          23
+        ],
+        [
+          "SR",
+          4
+        ],
+        [
+          "VE",
+          4
+        ],
+        [
+          "BR",
+          1
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          7.03125,
+          21,
+          21
+        ],
+        [
+          -59.0625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          -54.84375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          2.8125,
+          25,
+          25
+        ],
+        [
+          -53.4375,
+          4.21875,
+          25,
+          25
+        ],
+        [
+          -52.03125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          4.21875,
+          5,
+          5
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 13
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/piabucus-dentatus",
+      "html": "<p>The piabuco tetra, Piabucus dentatus, is a large tetra from coastal waters of northern South America, from Venezuela to the mouth of the Amazon. A pelagic species of estuaries and floodplain streams, it is often found in turbid, silt-laden water and sometimes in brackish conditions, and reaches 13 cm SL. Oddly for a tetra it will also eat red, filamentous 'black brush' algae. All three species in the genus are rarely seen in the hobby.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/piabucus-dentatus",
+      "html": "<p>Widespread in coastal waters of northern South America. It's been recorded from Venezuela, Guyana, Suriname, French Guiana and Brazil, where its range extends southwards to the mouth of the Amazon.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/piabucus-dentatus",
+      "html": "<p>A pelagic species that inhabits low-lying coastal waters, including estuaries and floodplain streams. It's often found in turbid, silt-laden tributaries and at some localities occurs in brackish conditions.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/piabucus-dentatus",
+      "html": "<p>Given its potential size a 120 × 30 × 30 cm (~108 litres) tank should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/piabucus-dentatus",
+      "html": "<p>Will do well in a heavily-planted set-up, although soft-leaved species will probably be nibbled at. It's a predominantly surface-dwelling species so the addition of floating plants is recommended. Alternatively a tank designed to replicate the flowing streams that are the species' natural habitat could look very effective. A sandy substrate with some driftwood branches (if you can't find driftwood of the desired shape, common beech is safe to use if thoroughly dried and stripped of bark) and twisted roots is all that is required. A few handfuls of dried leaves (again beech is a good choice. Oak leaves are also suitable) would complete the natural feel. Aquatic plants are not a feature of this species' murky natural waters. The water should be well-oxygenated, ideally with moderate flow.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/piabucus-dentatus",
+      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/piabucus-dentatus",
+      "html": "<p>Gut analyses of wild fish have shown it to be a micropredator, feeding on a variety of small crustaceans, insects and other zoobenthos. It's not a fussy feeder in the aquarium, accepting both dried and small live or frozen foods. Bloodworm seems to be a particular favourite. Oddly for a tetra it will also eat Audouinella and other species of red, filamentous algae (these are often referred to as \"black brush\" or \"beard\" algae by aquarists).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/piabucus-dentatus",
+      "html": "<p>A peaceful enough species, but smaller tankmates may be threatened by its size and speed of movement. It's best kept with similarly-sized characins, peaceful cichlids and bottom dwellers such as Corydoras or Loricariids. If geography is not an issue many cyprinids, rainbowfish and loaches make suitable companions. It's a shoaling species by nature, so buy as many as you can comfortably house. It can look very attractive when maintained in a large group as it tends to swim in the upper parts of the tank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/piabucus-dentatus",
+      "html": "<p>No data is available, although as with most tetras mature females are likely to be heavier in build than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/piabucus-dentatus",
+      "html": "<p>Unreported in the hobby, although it should be possible. Given the behaviour and natural habitat of the species, it's likely to be an egg scatterer exhibiting zero parental care. You'll thus need to set up a separate tank if you want to raise decent numbers of fry. Something around 60 × 30 × 30 cm in size should be ok. Keep this dimly lit and add clumps of fine-leaved plants such as Java moss (Vesicularia dubyana) or spawning mops, to give the fish somewhere to deposit their eggs. Alternatively, you could cover the base of the tank with some kind of mesh. This should be of a large enough grade so that the eggs can fall through it, but small enough so that the adults cannot reach them. Unfortunately there is no information regarding water conditions as yet, so perhaps aim for a pH on the acidic side of neutral as a starting point. An air-powered sponge filter will provide the necessary oxygenation and won't suck up any loose eggs.</p><p>There are a couple of different techniques that can be used when spawning characins. The first of these is group or \"flock\" spawning, with half a dozen specimens of each sex being a good number. Condition them with plenty of small live foods and hopefully spawning should not present too many problems. Failing this, try spawning it in pairs. Here the fish are conditioned in male and female groups in separate tanks. When the females are noticeably full of eggs and the males are displaying their best colours, select the fattest female and best-coloured male and transfer them to the spawning tank in the evening. Many characins then spawn the following morning.</p><p>In either situation, the adults will probably eat the eggs given the chance and should be removed as soon as eggs are noticed. No data has been obtained regarding the incubation period of Piabucus eggs, but the fry will likely be very small and require infusoria-type food for the first few days, until they are large enough to accept microworm or Artemia nauplii. The eggs and fry of many related species are light sensitive in the early stages of life and it might be worth keeping the rearing tank in darkness as a precautionary measure.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/piabucus-dentatus",
+      "html": "<p>There are only three species in this little known genus, all of which are rarely seen in the hobby. In 2007 an apparently undescribed Piabucus was seen on sale in the UK under the name \"chin tetra\", in reference to the black marking on the lower jaw of the fish.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá tetra",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

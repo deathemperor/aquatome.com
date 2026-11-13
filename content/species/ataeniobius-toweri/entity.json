@@ -1,0 +1,177 @@
+{
+  "id": "ataeniobius-toweri",
+  "scientificName": "Ataeniobius toweri",
+  "order": "Cyprinodontiformes",
+  "family": "Goodeidae",
+  "genus": "Ataeniobius",
+  "group": "livebearers",
+  "places": [
+    "north-america",
+    "mexico",
+    "rio-verde"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Rio Verde"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It is a true livebearer of the family Goodeidae, native to Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Its native range is the state of San Luis Potosí, within the Rio Verde drainage.",
+          "countries": [],
+          "regions": [
+            "Rio Verde"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2347741,
+      "total": 54,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MX",
+          54
+        ]
+      ],
+      "cells": [
+        [
+          -101.25,
+          21.09375,
+          52,
+          52
+        ],
+        [
+          -99.84375,
+          21.09375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ataeniobius-toweri-lago-de-creda-2/",
+      "html": "<p>Ataeniobius toweri is the only species in its genus. Standard length reaches about 8 cm (excluding the caudal fin). It is a true livebearer of the family Goodeidae, native to Mexico.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ataeniobius-toweri-lago-de-creda-2/",
+      "html": "<p>There is only one Ataeniobius species; in the breeding programs of the \"Goodeid Working Group,\" which is dedicated to the conservation breeding of splitfins, five local forms are currently being bred, one of which is Lago de Creda (breeder code Atato1-VER-LCred). From a species conservation perspective, it is important to maintain and breed these genetically distinct populations separately; therefore, whenever possible, they should always be passed on with their population designation. Externally, the five locality forms currently in breeding do not differ.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ataeniobius-toweri-lago-de-creda-2/",
+      "html": "<p>Ataeniobius toweri is found exclusively in the headwaters of thermal streams. Its native range is the state of San Luis Potosí, within the Rio Verde drainage. Many splitfins are found only in tiny ranges. Water use for agriculture, water pollution, the introduction of non-native species, and other human activities have brought many species to the brink of extinction; some now exist only in human care.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ataeniobius-toweri-lago-de-creda-2/",
+      "html": "<p>Most Goodeinae thrive best when kept outdoors during the warm season (in Central Europe, approximately May through October) under weather-dependent, fluctuating conditions. This also applies to Ataeniobius toweri. However, this species seems to be somewhat less problematic for long-term indoor keeping due to its life in thermal springs.</p><p>Even when kept at room temperature, A. toweri can and should be given a few weeks of rest each year at around 18°C. This keeps the fish healthy and robust.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ataeniobius-toweri-lago-de-creda-2/",
+      "html": "<p>The water should be rather on the hard side, with a pH that is neutral to slightly alkaline. The minimum temperature for several months is around 18°C; 23–24°C is ideal for breeding. At around 28°C, the fish cease reproductive behaviour.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ataeniobius-toweri-lago-de-creda-2/",
+      "html": "<p>In the wild, A. toweri likely feeds mainly on algae; in the aquarium, they readily eat flake food and Artemia nauplii.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ataeniobius-toweri-lago-de-creda-2/",
+      "html": "<p>Males and females differ only slightly. Males in courtship develop a bluish caudal fin; during peak courtship, the blue sheen spreads across the entire body, obscuring the otherwise typical two longitudinal stripes. Otherwise, one must rely on the differently shaped anal fin to distinguish the sexes (this works for all Goodeinae). Additionally, male A. toweri have slightly larger fins overall.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/ataeniobius-toweri-lago-de-creda-2/",
+      "html": "<p>The live-bearing Goodeinae are \"true livebearers\": the young hatch from the eggs in the mother's womb and are supplied with nutrients by the mother until birth. Ataeniobius toweri differs from all other Goodeinae in that the fry, which are already quite large at birth, lack feeding cords (trophotaenia) on their abdomen; all other Goodeinae have these. The trophotaenia serve to nourish the fry in the womb during gestation.</p><p>In livebearing toothcarps (e.g., guppies, platies, mollies), the eggs develop in the mother's body until spawning to the point where the young hatch at the moment of spawning. This is why they are referred to as \"egg-livebearing fish.\"</p><p>23–24°C is ideal for breeding.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá 100cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá có chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn vảy cho cá",
+        "artemia"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc treo"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

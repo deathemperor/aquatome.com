@@ -9,9 +9,10 @@
     "pygocentrus-nattereri",
     "astronotus-ocellatus",
     "heros-severus",
-    "hypselecara-temporalis"
+    "hypselecara-temporalis",
+    "osteoglossum-bicirrhosum"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "YtbwYLCWjhA",
     "title": "My 2,000 gallon aquarium and FEEDING THE BIG FISH tanks!! The king of DIY",
@@ -34,11 +35,10 @@
       "Pygocentrus nattereri",
       "Astronotus ocellatus",
       "Heros severus",
-      "Hypselecara temporalis",
-      "Potamotrygon sp.",
-      "Hypostomus sp.",
+      "Osteoglossum bicirrhosum",
       "Symphysodon sp.",
-      "Arapaima gigas"
+      "Potamotrygon sp.",
+      "Hypancistrus sp."
     ],
     "gear": [
       {
@@ -47,23 +47,15 @@
         "t": 3
       },
       {
-        "category": "thuc-an",
-        "type": "dong-lanh",
-        "t": 0
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 12
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao bể không chứa đủ số lít ghi trên nhãn",
-        "moments": [
-          {
-            "t": 0,
-            "url": "https://media.aquatome.com/video/YtbwYLCWjhA/t0.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cá lớn có viền nẹp phía trên, mực nước thấp hơn mép bể."
-          }
-        ],
+        "heading": "Vì sao con số lít ghi trên bể không phải lượng nước thật",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/YtbwYLCWjhA/p0-Y2FnbyxfSUwuanBn.webp",
           "thumb": "https://media.aquatome.com/video/YtbwYLCWjhA/p0-Y2FnbyxfSUwuanBn-480.webp",
@@ -72,34 +64,22 @@
           "licence": "CC BY-SA 2.0",
           "author": "w_lemay",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Catfish,_Shedd_Aquarium,_Roosevelt_Road,_Chicago,_IL.jpg",
-          "caption": "Hai con cá trê trong bể kính có nền, lũa và viền nẹp phía trên."
+          "caption": "Hai con cá trê trong bể kính, thấy rõ mép kính và mực nước."
         }
       },
       {
-        "heading": "Chọn lưu lượng bơm theo số nào",
+        "heading": "Làm tương tự cho bể nhỏ hơn và chuyện lọc thùng cũ",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/YtbwYLCWjhA/p2-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/YtbwYLCWjhA/p2-JfRmlsdGVyLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/YtbwYLCWjhA/p7-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/YtbwYLCWjhA/p7-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Thùng lọc ngoài đặt trong tủ bể, bên cạnh là xô nước và ống siphon."
+          "caption": "Lọc thùng đặt trong tủ bể, có ống nước và xô bên cạnh."
         }
-      },
-      {
-        "heading": "Nước đục nhưng cá vẫn khỏe là thiếu lọc gì",
-        "moments": [
-          {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/YtbwYLCWjhA/t10.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Túi vật liệu lọc cũ lấy ra từ lọc thùng, đã xuống cấp."
-          }
-        ]
       }
     ]
   }

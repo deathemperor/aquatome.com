@@ -1,0 +1,29 @@
+{
+  "slug": "cobitis-macrostigma",
+  "name": "ปลาค็อบิทิส มาโครสติกมา",
+  "altNames": [
+    "Largespotted Spiny Loach",
+    "Spined Loach",
+    "ปลาหมูหนาม"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>ปลาหมูสวยงามจากประเทศจีนที่รักสงบอย่างแท้จริง เหมาะมากสำหรับเป็นปลาหน้าดินในตู้ปลารวมที่ไม่ใช้ฮีตเตอร์ ตัวเมียโตได้ประมาณ 10 ซม. ส่วนตัวผู้มีขนาดเล็กกว่ามาก</p>",
+    "waterConditions:glaser": "<p>อุณหภูมิที่เหมาะสมสำหรับปลาชนิดนี้อยู่ระหว่าง 10–24 °C</p>",
+    "diet:glaser": "<p>ปลากินอาหารปลาทั่วไปได้ทุกชนิดโดยไม่เลือก</p>",
+    "dimorphism:glaser": "<p>ตัวเมียยาวได้ประมาณ 10 ซม. ส่วนตัวผู้มีขนาดเล็กกว่ามาก</p>",
+    "notes:glaser": "<p>ปลาชนิดนี้อาจเรียกได้ว่า \"Largespotted Spiny Loach\"</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.75
+    }
+  },
+  "held": {
+    "checks": [
+      "elsewhere"
+    ],
+    "at": "2026-11-10"
+  }
+}

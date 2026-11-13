@@ -10,6 +10,52 @@
     "china",
     "xi-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Xi River",
+        "Tuoniang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from a handful of localities within the Xi River (Xi Jiang) drainage in Guangxi Zhuang Autonomous Region, southern China plus the Tuoniang river system in Funing County, southeastern Yunnan province.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Xi River",
+            "Tuoniang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205362,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          22.5,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +99,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -137,8 +183,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá 80x30"
+        "bể cá 80cm"
       ]
     },
     {

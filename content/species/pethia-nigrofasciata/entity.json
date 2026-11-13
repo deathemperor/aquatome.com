@@ -10,6 +10,74 @@
     "sri-lanka",
     "kelani"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [
+        "Kelani",
+        "Nilwala"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Sri Lanka where it's restricted to the Kelani and Nilwala river basins in the southwestern 'wet zone' of the island, plus smaller drainages in the area between them.",
+          "countries": [
+            "LK"
+          ],
+          "regions": [
+            "Kelani",
+            "Nilwala"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7417764,
+      "total": 48,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "LK",
+          47
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -43.59375,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          78.75,
+          5.625,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          5.625,
+          40,
+          40
+        ],
+        [
+          80.15625,
+          7.03125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +121,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -149,8 +217,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể thủy sinh 80x30"
+        "bể cá 80cm"
       ]
     },
     {

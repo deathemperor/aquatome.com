@@ -1,0 +1,236 @@
+{
+  "id": "parambassis-pulcinella",
+  "scientificName": "Parambassis pulcinella",
+  "order": "Perciformes",
+  "family": "Ambassidae",
+  "genus": "Parambassis",
+  "group": "other",
+  "places": [
+    "asia",
+    "myanmar"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The humphead perchlet, Chanda pulcinella, is a freshwater ambassid endemic to Myanmar, where it inhabits large, fast-flowing, clear streams.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2387211,
+      "total": 6,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "MM",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          14.0625,
+          6,
+          6
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
+      "html": "<p>The humphead perchlet, Chanda pulcinella, is a freshwater ambassid endemic to Myanmar, where it inhabits large, fast-flowing, clear streams. Described in 2003, it takes its name from the scaleless hump on its head, formed from an extension of the spine and apparently smaller in females. Artificially dyed specimens have reached the market and should be avoided, since the process is cruel and usually shortens the fish's life considerably.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
+      "html": "<p>Endemic to Myanmar.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
+      "html": "<p>It inhabits large freshwater streams, typified by fast flowing, well-oxygenated, clear water. The substrate in many of these biotopes is composed of smooth, water-worn rocks and boulders of varying sizes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
+      "html": "<p>This is quite an active species and needs a tank of at least 90 × 30 × 30 cm, about 81 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
+      "html": "<p>Decor is not critical. Plants, rocks, driftwood etc. can all be used to your own taste. This is a freshwater species and does not require the addition of salt to its tank.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 7.0–7.5</li><li>Hardness: 8–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
+      "html": "<p>It will accept dried pellets or flakes, but these should be supplemented with regular feedings of live and frozen foods such as bloodworm and brine shrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
+      "html": "<p>A peaceful species but it might intimidate small fish with its active nature and adult size. Good tankmates include rainbowfish, barbs and loaches. It can be maintained in groups although they may occasionally squabble amongst themselves. This will rarely involve anything more than a bit of chasing, however.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
+      "html": "<p>Apparently the hump is smaller in females than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
+      "html": "<p>Has not yet been achieved in aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
+      "html": "<p>A new species that was only described to science in 2003, little is known about the natural behaviour of C. pulcinella. It has started to be imported quite regularly over the last couple of years, although it is still quite expensive. Unfortunately this species has suffered the same fate as some of its close relatives, and artificially dyed specimens have been making their way onto the market. These should be avoided at all costs, as the processes involved are cruel and unnecessary, and usually shorten the life of the fish considerably. The characteristic hump on the head of the fish is formed from an extension of the spine, and is scaleless.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/1c88215ddd4f69cf.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Puchatech K.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parambassis_pulcinella_(01).jpg",
+      "caption": "Parambassis pulcinella",
+      "thumb": "https://media.aquatome.com/commons/1c88215ddd4f69cf-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "qR1OF0tGVns",
+      "title": "Humphead Glassfish (Parambassis Pulcinella)",
+      "durationSec": 41,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "LizcEQoaJfg",
+      "title": "高冠玻璃-Parambassis Pulcinella",
+      "durationSec": 109,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1nl__F9SVYw",
+      "title": "高冠玻璃魚(Parambassis pulcinella)",
+      "durationSec": 25,
+      "lang": "zh-Hant"
+    },
+    {
+      "youtubeId": "dXoVTkka-Ow",
+      "title": "Humphead Glassfish (Parambassis pulcinella)",
+      "durationSec": 32,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 90cm",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá nhỏ",
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi điều chỉnh nhiệt độ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

@@ -8,9 +8,10 @@
   "mentions": [
     "trichopodus-leerii",
     "paracheirodon-innesi",
-    "betta-splendens"
+    "betta-splendens",
+    "colomesus-asellus"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "cJLZq603RAY",
     "title": "BEGINNER FISH:  Pearl Gourami",
@@ -31,8 +32,8 @@
     "taxa": [
       "Trichopodus leerii",
       "Paracheirodon innesi",
-      "Colomesus asellus",
-      "Betta splendens"
+      "Betta splendens",
+      "Colomesus asellus"
     ],
     "gear": [
       {
@@ -40,48 +41,73 @@
         "type": "kho",
         "brand": "Fluval",
         "model": "Bug Bites",
-        "t": 244
+        "t": 246
       },
       {
         "category": "thuc-an",
-        "type": "song"
+        "type": "dong-lanh",
+        "t": 260
       },
       {
-        "category": "thuc-an",
-        "type": "dong-lanh"
+        "category": "be-ca",
+        "type": "chuan",
+        "t": 150
       }
     ],
     "figures": [
       {
-        "heading": "Cá sặc trân châu trông thế nào",
-        "moments": [],
+        "heading": "Cá sặc trân châu cần nước thế nào",
+        "moments": [
+          {
+            "t": 25,
+            "url": "https://media.aquatome.com/video/cJLZq603RAY/at25-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể cong nuôi cá, nước trong, bày đá và cát nền.",
+            "sharpness": 242.5,
+            "person": false
+          },
+          {
+            "t": 65,
+            "url": "https://media.aquatome.com/video/cJLZq603RAY/at65-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá có hòn non bộ đá và cát, đàn cá nhỏ bơi trong nước.",
+            "sharpness": 417.4,
+            "person": false
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/cJLZq603RAY/p0-JpaV9oMDgwLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/cJLZq603RAY/p0-JpaV9oMDgwLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/cJLZq603RAY/p0-Nyb3BwZWQpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/cJLZq603RAY/p0-Nyb3BwZWQpLmpwZw-480.webp",
           "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 2.0",
-          "author": "h080",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichopodus_leerii_h080.jpg",
-          "caption": "Cá sặc trân châu với chấm trắng, sọc đen ngang mắt và hai vây bụng dài."
+          "height": 657,
+          "licence": "CC BY-SA 4.0",
+          "author": "פעיל למען זכויות אדם",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pearl_gourami_(cropped).jpg",
+          "caption": "Cá sặc trân châu bơi trong bể trồng nhiều cây thủy sinh xanh tốt."
         }
       },
       {
         "heading": "Cá lớn cỡ nào và cần bể bao nhiêu lít",
         "moments": [
           {
-            "t": 15,
-            "url": "https://media.aquatome.com/video/cJLZq603RAY/t15.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể thả cá với đá nền và đàn cá nhỏ."
+            "t": 180,
+            "url": "https://media.aquatome.com/video/cJLZq603RAY/at180-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể trên tủ, giúp hình dung kích thước bể nuôi.",
+            "sharpness": 782.1,
+            "person": false
           },
           {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/cJLZq603RAY/t60.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cong có đá xếp thành hang, đàn cá nhỏ bơi phía trên."
+            "t": 185,
+            "url": "https://media.aquatome.com/video/cJLZq603RAY/at185-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cong cỡ vừa bày đá, có vài con cá bơi bên trong.",
+            "sharpness": 563,
+            "person": false
           }
         ],
         "photo": {
@@ -92,93 +118,162 @@
           "licence": "CC BY-SA 4.0",
           "author": "Kalabin.dmitriy",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%96%D1%83%D0%BC%D1%87%D1%83%D0%B6%D0%BD%D1%8B%D0%B9_%D0%B3%D1%83%D1%80%D0%B0%D0%BC%D0%B8.jpg",
-          "caption": "Sặc trân châu trưởng thành bơi giữa bể trồng cây, thấy rõ cỡ thân."
+          "caption": "Cá sặc trân châu trưởng thành bơi giữa bể trồng nhiều cây thủy sinh."
         }
       },
       {
-        "heading": "Nước nuôi có cần chỉnh cầu kỳ không",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/cJLZq603RAY/p2-uYV9ydWJyYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/cJLZq603RAY/p2-uYV9ydWJyYS5qcGc-480.webp",
-          "width": 960,
-          "height": 727,
-          "licence": "CC BY 2.0",
-          "author": "Carnat Joel",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brackish_water_tank_for_Halocaridina_rubra.jpg",
-          "caption": "Bể thủy sinh nhỏ có đá, rêu và cá nhỏ, nước ổn định."
-        }
-      },
-      {
-        "heading": "Nuôi chung với cá nào",
+        "heading": "Cho cá ăn gì",
         "moments": [
           {
-            "t": 20,
-            "url": "https://media.aquatome.com/video/cJLZq603RAY/t20.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cong có đá xếp làm hang trốn, cá bơi lăn tăn phía trên."
+            "t": 240,
+            "url": "https://media.aquatome.com/video/cJLZq603RAY/at240-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá có đá, cá sặc trân châu nhỏ bơi lơ lửng giữa nước.",
+            "sharpness": 232.4,
+            "person": false
           },
           {
-            "t": 35,
-            "url": "https://media.aquatome.com/video/cJLZq603RAY/t35.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Góc nhìn khác của bể đá với vài con cá nhỏ bơi trong nước."
+            "t": 245,
+            "url": "https://media.aquatome.com/video/cJLZq603RAY/at245-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá nhỏ bơi trong bể cong có hòn non bộ bằng đá.",
+            "sharpness": 901.4,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Vì sao cá hay bơi gần mặt nước",
+        "heading": "Tính nết và cá nuôi chung",
         "moments": [
           {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/cJLZq603RAY/t10.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cá có đá, đàn cá nhỏ bơi lửng ở tầng giữa và tầng trên."
+            "t": 380,
+            "url": "https://media.aquatome.com/video/cJLZq603RAY/at380-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vài con cá bơi lững lờ trong bể nuôi chung có đá bố cục.",
+            "sharpness": 183.9,
+            "person": false
+          },
+          {
+            "t": 600,
+            "url": "https://media.aquatome.com/video/cJLZq603RAY/at600-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá bơi ở tầng giữa và tầng trên gần mặt nước trong bể.",
+            "sharpness": 211.6,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Phân biệt trống mái và nên nuôi mấy con",
-        "moments": [],
+        "heading": "Nuôi mấy con và phân biệt đực cái",
+        "moments": [
+          {
+            "t": 305,
+            "url": "https://media.aquatome.com/video/cJLZq603RAY/at305-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Một con cá bơi gần đá trong bể.",
+            "sharpness": 15.2
+          },
+          {
+            "t": 310,
+            "url": "https://media.aquatome.com/video/cJLZq603RAY/at310-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mấy con cá nhỏ bơi chung trong bể có đá nền.",
+            "sharpness": 41.2
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/cJLZq603RAY/p6-QTRubmxpY2guanBn.webp",
-          "thumb": "https://media.aquatome.com/video/cJLZq603RAY/p6-QTRubmxpY2guanBn-480.webp",
+          "url": "https://media.aquatome.com/video/cJLZq603RAY/p4-QTRubmxpY2guanBn.webp",
+          "thumb": "https://media.aquatome.com/video/cJLZq603RAY/p4-QTRubmxpY2guanBn-480.webp",
           "width": 960,
           "height": 718,
           "licence": "CC BY-SA 3.0",
           "author": "Alexander Siering",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fadenfisch_mosaik_m%C3%A4nnlich.jpg",
-          "caption": "Cá đực với phần bụng và vây chuyển đỏ cam rõ rệt trong mùa sinh sản."
+          "caption": "Cá thòi đòi đực lên màu đỏ cam ở bụng và vây trong mùa sinh sản."
         }
       },
       {
-        "heading": "Sinh sản ra sao",
+        "heading": "Cho cá sinh sản",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/cJLZq603RAY/p7-JibGVuZXN0LmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/cJLZq603RAY/p7-JibGVuZXN0LmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/cJLZq603RAY/p5-JibGVuZXN0LmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/cJLZq603RAY/p5-JibGVuZXN0LmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC0",
           "author": "Gourami Watcher",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_splendens_bubblenest.jpg",
-          "caption": "Tổ bọt do cá betta đực làm nổi trên mặt nước trong bể."
+          "caption": "Tổ bọt do cá đực làm nổi trên mặt nước trong bể có rong."
         }
       },
       {
-        "heading": "Bắt đầu từ đâu",
+        "heading": "Nhận biết cá qua ngoại hình",
         "moments": [
           {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/cJLZq603RAY/t30.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cong bày đá, chạy ổn định, chưa trồng cây hay thả cá."
+            "t": 470,
+            "url": "https://media.aquatome.com/video/cJLZq603RAY/at470-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai con cá nhỏ bơi trong bể, thân có sọc và đốm sáng.",
+            "sharpness": 17.3
+          },
+          {
+            "t": 510,
+            "url": "https://media.aquatome.com/video/cJLZq603RAY/at510-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá nhỏ bơi trong bể trồng, thân ánh trắng lấp lánh.",
+            "sharpness": 44.8
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/cJLZq603RAY/p6-JpaV9oMDgwLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/cJLZq603RAY/p6-JpaV9oMDgwLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 2.0",
+          "author": "h080",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichopodus_leerii_h080.jpg",
+          "caption": "Cá trân châu với thân đốm trắng lấp lánh, sọc đen qua mắt và vây rủ dài."
+        }
+      },
+      {
+        "heading": "Những lưu ý khi chăm",
+        "moments": [
+          {
+            "t": 540,
+            "url": "https://media.aquatome.com/video/cJLZq603RAY/at540-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể cong với hòn non bộ đá và vài con cá.",
+            "sharpness": 135
+          },
+          {
+            "t": 585,
+            "url": "https://media.aquatome.com/video/cJLZq603RAY/at585-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá nhỏ bơi trong bể có lũa đá và ống lọc.",
+            "sharpness": 207.4,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/cJLZq603RAY/p7-JpaV9oMDgwLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/cJLZq603RAY/p7-JpaV9oMDgwLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 2.0",
+          "author": "h080",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichopodus_leerii_h080.jpg",
+          "caption": "Cá sặc trân châu với đôi vây bụng dài mảnh rủ xuống rất rõ."
+        }
       }
     ]
   }

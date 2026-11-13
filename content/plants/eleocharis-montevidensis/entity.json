@@ -30,7 +30,23 @@
       "html": "<p>The plant spreads through runners, which occasionally have to be trimmed and may be planted elsewhere.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/tropica/6d3836312fff6334.webp",
+      "thumb": "https://media.aquatome.com/tropica/6d3836312fff6334-480.webp",
+      "width": 1200,
+      "height": 750,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/6d3836312fff6334-large.webp",
+        "width": 1920,
+        "height": 1200
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Eleocharismontevidensis(132D)/4573",
+      "source": "tropica"
+    }
+  ],
   "productSlots": [
     {
       "category": "cay-thuy-sinh",

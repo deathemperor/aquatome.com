@@ -1,0 +1,101 @@
+{
+  "id": "bagrus-filamentosus",
+  "scientificName": "Bagrus filamentosus",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Bagrus",
+  "group": "catfish",
+  "places": [],
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/bagrus_filamentosus_en/",
+      "html": "<p>The African genus Bagrus contains large, predatory catfish. The maximum size of the different species is between 30 cm and more than one meter! Sadly the determination of the species is rather difficult, because most of the 11 species that are regarded as valid currently have been described before WW2. A modern revision does not exist.</p><p>Bagrus filamentosus is an exciting exception of this rule. The all in all comparatively slender species belongs to the smaller members of the genus.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/bagrus_filamentosus_en/",
+      "html": "<p>Towards conspecifics and other fish Bagrus are usually peaceful, but one should never underestimate the size of the mouth. Every fish that fits that mouth will be eaten!</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06",
+  "range": {
+    "records": {
+      "taxonKey": 5201757,
+      "total": 9,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BF",
+          7
+        ],
+        [
+          "GH",
+          1
+        ],
+        [
+          "ML",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -8.4375,
+          11.25,
+          1
+        ],
+        [
+          -5.625,
+          9.84375,
+          2
+        ],
+        [
+          -5.625,
+          12.65625,
+          2
+        ],
+        [
+          -4.21875,
+          9.84375,
+          1
+        ],
+        [
+          -2.8125,
+          11.25,
+          1
+        ],
+        [
+          -1.40625,
+          8.4375,
+          1
+        ],
+        [
+          -1.40625,
+          11.25,
+          1
+        ]
+      ]
+    }
+  }
+}

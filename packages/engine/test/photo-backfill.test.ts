@@ -1,5 +1,8 @@
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, readdir, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
+import { spawnSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
+import sharp from 'sharp'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { backfillPhotos } from '../src/photo-backfill'
@@ -21,7 +24,7 @@ test('re-reads the source page of a photo-less species once, adds the photos, th
   const gets: string[] = []
   const deps = {
     get: async (u: string) => { gets.push(u); return { status: 200, html: page } },
-    bytes: async (u: string) => new TextEncoder().encode(u),
+    bytes: async (u: string) => sharp({ create: { width: u.includes('robertsi-2') ? 550 : 600, height: 233, channels: 3, background: 'gray' } }).jpeg().toBuffer(),
     media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 600, height: 233 }) },
     now: () => new Date('2026-10-29T12:00:00Z'),
     sleep: async () => {},
@@ -48,9 +51,9 @@ test('archive-read sources are left out; ScotCat photos come from their own page
   const r = await backfillPhotos(root, {
     get: async (u: string) => {
       gets.push(u)
-      return { status: 200, html: u === SC ? '<div class="top-padding-10">Hoplisoma sterbai</div><a href="hoplisoma_sterbai1.htm"><img src="../Thumbnails/c_sterbai.jpg" width="100"></a>' : '<img src="../images/c_sterbai.jpg" alt="Hoplisoma sterbai" width="500" height="316"> &copy; <strong>Helen Burns</strong>' }
+      return { status: 200, html: u === SC ? '<div class="top-padding-10">Hoplisoma sterbai</div><a href="hoplisoma_sterbai1.htm"><img src="../Thumbnails/c_sterbai.jpg" width="100"></a>' : '<img src="../images/c_sterbai.jpg" alt="Hoplisoma sterbai" width="500" height="316"> &copy; <strong>Photographer A</strong>' }
     },
-    bytes: async (u: string) => new TextEncoder().encode(u),
+    bytes: async () => sharp({ create: { width: 600, height: 233, channels: 3, background: 'gray' } }).jpeg().toBuffer(),
     media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 500, height: 316 }) },
     now: () => new Date('2026-10-29T12:00:00Z'),
     sleep: async () => {},
@@ -58,7 +61,7 @@ test('archive-read sources are left out; ScotCat photos come from their own page
   expect(gets).toEqual([SC, 'https://www.scotcat.com/callichthyidae/hoplisoma_sterbai1.htm'])
   expect(r).toMatchObject({ pages: 1, added: 1, errors: [] })
   const e = JSON.parse(await readFile(join(root, 'content', 'species', 'hoplisoma-sterbai', 'entity.json'), 'utf8'))
-  expect(e.photos[0]).toMatchObject({ author: 'Helen Burns / ScotCat', source: 'scotcat' })
+  expect(e.photos[0]).toMatchObject({ author: 'Photographer A / ScotCat', source: 'scotcat' })
 })
 
 test('catfish from other sources get ScotCat photos at its guessed factsheet address; a 404 waits a month; 10 s between ScotCat requests', async () => {
@@ -78,10 +81,10 @@ test('catfish from other sources get ScotCat photos at its guessed factsheet add
       gets.push([u, clock])
       if (u === SF) return { status: 200, html: '<main><h1>x</h1></main>' }
       if (u === SC) return { status: 200, html: '<div class="top-padding-10">Hoplisoma sterbai</div><a href="hoplisoma_sterbai1.htm"><img src="../Thumbnails/c_sterbai.jpg" width="100"></a>' }
-      if (u.endsWith('hoplisoma_sterbai1.htm')) return { status: 200, html: '<img src="../images/c_sterbai.jpg" alt="Hoplisoma sterbai" width="500" height="316"> &copy; <strong>Helen Burns</strong>' }
+      if (u.endsWith('hoplisoma_sterbai1.htm')) return { status: 200, html: '<img src="../images/c_sterbai.jpg" alt="Hoplisoma sterbai" width="500" height="316"> &copy; <strong>Photographer A</strong>' }
       return { status: 404, html: 'Not found' }
     },
-    bytes: async (u: string) => new TextEncoder().encode(u),
+    bytes: async () => sharp({ create: { width: 600, height: 233, channels: 3, background: 'gray' } }).jpeg().toBuffer(),
     media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 500, height: 316 }) },
     now: () => new Date(clock),
     sleep: async (ms: number) => { clock += ms },
@@ -92,9 +95,159 @@ test('catfish from other sources get ScotCat photos at its guessed factsheet add
   for (let i = 1; i < scotcat.length; i++) expect(scotcat[i]![1] - scotcat[i - 1]![1]).toBeGreaterThanOrEqual(10_000)
   expect(r.errors).toEqual([])
   const e = JSON.parse(await readFile(join(root, 'content', 'species', 'hoplisoma-sterbai', 'entity.json'), 'utf8'))
-  expect(e.photos[0]).toMatchObject({ author: 'Helen Burns / ScotCat', source: 'scotcat', sourceUrl: SC })
+  expect(e.photos[0]).toMatchObject({ author: 'Photographer A / ScotCat', source: 'scotcat', sourceUrl: SC })
   expect(e.sections).toEqual([{ source: 'seriouslyfish', sourceUrl: SF }]) // a photo, not a ScotCat section
   gets.length = 0
   await backfillPhotos(root, deps)
   expect(gets.filter(([u]) => u.includes('scotcat'))).toEqual([]) // the 404 is not asked again this month
+})
+
+
+test('recently tried empty source pages get one intake retry, paced by the existing page limit', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'pb-retry-'))
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  const urls = ['https://www.aquariumglaser.de/en/fish/a/', 'https://www.aquariumglaser.de/en/fish/b/', 'https://www.seriouslyfish.com/species/c/']
+  for (const [i, url] of urls.entries()) {
+    const dir = join(root, 'content/species', String(i))
+    await mkdir(dir, { recursive: true })
+    await writeFile(join(dir, 'entity.json'), JSON.stringify({ photos: [], sections: [{ source: i < 2 ? 'glaser' : 'seriouslyfish', sourceUrl: url }] }))
+  }
+  await writeFile(join(root, 'engine-state/_photo-backfill.json'), JSON.stringify(Object.fromEntries(urls.map(u => [u, '2026-11-11T00:00:00.000Z']))))
+  const gets: string[] = []
+  const deps = {
+    get: async (u: string) => { gets.push(u); return { status: 200, html: '<main><p>No images.</p></main>' } },
+    bytes: async () => { throw new Error('no image requests') },
+    media: { urlFor: (k: string) => k, put: async () => { throw new Error('no uploads') } },
+    now: () => new Date('2026-11-11T12:00:00.000Z'), sleep: async () => {},
+  }
+  expect(await backfillPhotos(root, deps, { limit: 1 })).toMatchObject({ pages: 1, errors: [] })
+  expect(gets).toEqual([urls[0]])
+  expect(await backfillPhotos(root, deps, { limit: 1 })).toMatchObject({ pages: 1, errors: [] })
+  expect(gets).toEqual(urls.slice(0, 2))
+  expect(await backfillPhotos(root, deps, { limit: 1 })).toMatchObject({ pages: 0, errors: [] })
+  expect(gets).toEqual(urls.slice(0, 2))
+})
+
+
+test('a recent failed bypass keeps its cooldown; a guide keeps normal photos plus four extra requests', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'pb-retry-'))
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  const url = 'https://www.aquariumglaser.de/en/fish/guide/'
+  const dir = join(root, 'content/guides/fish')
+  await mkdir(dir, { recursive: true })
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ photos: [], source: 'glaser', sourceUrl: url }))
+  await writeFile(join(root, 'engine-state/_photo-backfill.json'), JSON.stringify({ [url]: '2026-11-11T00:00:00.000Z' }))
+  let status = 404
+  let fetches = 0
+  const imageFetches: string[] = []
+  const deps = {
+    get: async () => { fetches++; return { status, html: `<main>${Array.from({ length: 4 }, (_, n) => `<img src="/new-${n}.jpg" width="350" height="233">`).join('')}${Array.from({ length: 10 }, (_, n) => `<img src="/fish-${n}.jpg" width="800" height="600">`).join('')}</main>` } },
+    bytes: async (u: string) => { imageFetches.push(u); return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
+    media: { urlFor: (k: string) => k, put: async (k: string) => ({ url: k, width: 800, height: 600 }) },
+    now: () => new Date('2026-11-11T12:00:00.000Z'), sleep: async () => {},
+  }
+  expect(await backfillPhotos(root, deps)).toMatchObject({ pages: 1, added: 0, errors: [expect.stringContaining('HTTP 404')] })
+  expect(await backfillPhotos(root, deps)).toMatchObject({ pages: 0 })
+  expect(fetches).toBe(1)
+  // A separate source address has its own single attempt.
+  const next = `${url}other/`
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ photos: [], source: 'glaser', sourceUrl: next }))
+  await writeFile(join(root, 'engine-state/_photo-backfill.json'), JSON.stringify({ [next]: '2026-11-11T00:00:00.000Z' }))
+  status = 200
+  expect(await backfillPhotos(root, deps)).toMatchObject({ pages: 1, added: 14, errors: [] })
+  expect(imageFetches).toEqual([...Array.from({ length: 10 }, (_, n) => `https://www.aquariumglaser.de/fish-${n}.jpg`), ...Array.from({ length: 4 }, (_, n) => `https://www.aquariumglaser.de/new-${n}.jpg`)])
+})
+
+
+test('backfill fixtures work in a clean home without a pre-existing private cache', async () => {
+  const home = await mkdtemp(join(tmpdir(), 'pb-home-'))
+  const result = spawnSync(process.execPath, [fileURLToPath(new URL('../node_modules/vitest/vitest.mjs', import.meta.url)), 'run', 'test/photo-backfill.test.ts', '--maxWorkers=1', '-t', '^re-reads the source page'], {
+    cwd: fileURLToPath(new URL('../', import.meta.url)), env: { ...process.env, HOME: home }, encoding: 'utf8',
+  })
+  expect(result.status, result.stdout + result.stderr).toBe(0)
+  await expect(readdir(join(home, '.cache/aquatome/photo-intake-real-size'))).rejects.toMatchObject({ code: 'ENOENT' })
+})
+
+test.each([200, 404])('the one-time attempt survives a later malformed entity after HTTP %i', async status => {
+  const root = await mkdtemp(join(tmpdir(), 'pb-durable-'))
+  const url = 'https://www.aquariumglaser.de/en/fish/example/'
+  const now = '2026-11-11T12:00:00.000Z'
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(join(root, 'content/species/a'), { recursive: true })
+  await mkdir(join(root, 'content/species/z'), { recursive: true })
+  await writeFile(join(root, 'content/species/a/entity.json'), JSON.stringify({ photos: [], sections: [{ source: 'glaser', sourceUrl: url }] }))
+  await writeFile(join(root, 'content/species/z/entity.json'), '{')
+  await writeFile(join(root, 'engine-state/_photo-backfill.json'), JSON.stringify({ [url]: '2026-11-11T00:00:00.000Z' }))
+  let reads = 0
+  const deps = {
+    get: async () => { reads++; return { status, html: '<main>No photos.</main>' } },
+    bytes: async () => { throw new Error('no images') },
+    media: { urlFor: (k: string) => k, put: async () => { throw new Error('no uploads') } },
+    now: () => new Date(now), sleep: async () => {},
+  }
+  await expect(backfillPhotos(root, deps)).rejects.toThrow()
+  expect(JSON.parse(await readFile(join(root, 'engine-state/_photo-intake-retry.json'), 'utf8'))).toEqual({ [url]: now })
+  await writeFile(join(root, 'content/species/z/entity.json'), JSON.stringify({ photos: [], sections: [] }))
+  expect(await backfillPhotos(root, deps)).toMatchObject({ pages: 0 })
+  expect(reads).toBe(1)
+})
+
+test('an overdue guide keeps all seven ordinary photos during recovery', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'pb-guide-'))
+  const url = 'https://www.aquariumglaser.de/en/fish/guide/'
+  const dir = join(root, 'content/guides/a')
+  await mkdir(dir, { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ photos: [], source: 'glaser', sourceUrl: url }))
+  await writeFile(join(root, 'engine-state/_photo-backfill.json'), JSON.stringify({ [url]: '2026-10-01T00:00:00.000Z' }))
+  const fetched: string[] = []
+  const result = await backfillPhotos(root, {
+    get: async () => ({ status: 200, html: `<main>${Array.from({ length: 7 }, (_, n) => `<img src="/ordinary-${n}.jpg" width="800" height="600">`).join('')}</main>` }),
+    bytes: async u => { fetched.push(u); return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
+    media: { urlFor: k => k, put: async k => ({ url: k, width: 800, height: 600 }) },
+    now: () => new Date('2026-11-11T12:00:00.000Z'), sleep: async () => {},
+  })
+  expect(result).toMatchObject({ pages: 1, added: 7, errors: [] })
+  expect(fetched).toHaveLength(7)
+})
+
+test('failed overdue monthly reads remain due each cycle after the one-time record is kept', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'pb-monthly-'))
+  const url = 'https://www.aquariumglaser.de/en/fish/example/'
+  await mkdir(join(root, 'content/species/a'), { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'content/species/a/entity.json'), JSON.stringify({ photos: [], sections: [{ source: 'glaser', sourceUrl: url }] }))
+  await writeFile(join(root, 'engine-state/_photo-backfill.json'), JSON.stringify({ [url]: '2026-10-01T00:00:00.000Z' }))
+  let reads = 0
+  const deps = {
+    get: async () => { reads++; return { status: 404, html: '' } },
+    bytes: async () => { throw new Error('no images') },
+    media: { urlFor: (k: string) => k, put: async () => { throw new Error('no uploads') } },
+    now: () => new Date('2026-11-11T12:00:00.000Z'), sleep: async () => {},
+  }
+  expect(await backfillPhotos(root, deps)).toMatchObject({ pages: 1, errors: [expect.stringContaining('HTTP 404')] })
+  expect(await backfillPhotos(root, deps)).toMatchObject({ pages: 1, errors: [expect.stringContaining('HTTP 404')] })
+  expect(reads).toBe(2)
+})
+
+test("a re-read doesn't take a photo whose credit the source's permission record refuses", async () => {
+  const url = 'https://www.seriouslyfish.com/species/imaginichthys-testi/'
+  const root = await mkdtemp(join(tmpdir(), 'pb-'))
+  const dir = join(root, 'content', 'species', 'imaginichthys-testi')
+  await mkdir(dir, { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish', permission: { refusedCredits: ['Example Picture Agency'] } } }))
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ scientificName: 'Imaginichthys testi', photos: [], sections: [{ source: 'seriouslyfish', sourceUrl: url }] }))
+  const fig = (n: number, credit: string) => `<figure><a href="/images/testi-${n}.jpg"><img src="/images/testi-${n}.jpg" alt="Imaginichthys testi, view ${n}." width="800" height="600"></a><figcaption>Imaginichthys testi, view ${n}.<span class="_credit_x"><b>${credit}</b></span></figcaption></figure>`
+  const html = `<html><head><title>Imaginichthys testi</title></head><body><main><h1>Imaginichthys testi</h1><p>${'A made-up fish. '.repeat(20)}</p>${fig(1, 'Example Picture Agency')}${fig(2, 'Imaginary Person')}</main></body></html>`
+  const fetched: string[] = []
+  const r = await backfillPhotos(root, {
+    get: async () => ({ status: 200, html }),
+    bytes: async (u: string) => { fetched.push(u); return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
+    media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 800, height: 600 }) },
+    now: () => new Date('2026-11-13T12:00:00Z'),
+    sleep: async () => {},
+  })
+  expect(r).toMatchObject({ pages: 1, added: 1, errors: [] })
+  expect(fetched).toEqual(['https://www.seriouslyfish.com/images/testi-2.jpg'])
 })

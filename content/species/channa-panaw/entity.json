@@ -1,0 +1,195 @@
+{
+  "id": "channa-panaw",
+  "scientificName": "Channa panaw",
+  "order": "Perciformes",
+  "family": "Channidae",
+  "genus": "Channa",
+  "group": "other",
+  "places": [
+    "asia",
+    "myanmar",
+    "irrawaddy"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Sittang",
+        "Irrawaddy"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Channa panaw has a fairly wide distribution in Burma, where it inhabits the area around the large rivers Sittang and Irrawaddy.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Sittang",
+            "Irrawaddy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391520,
+      "total": 21,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "MM",
+          19
+        ],
+        [
+          "DK",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          54.84375,
+          2,
+          0
+        ],
+        [
+          92.8125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          16.875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          16.875,
+          10,
+          10
+        ],
+        [
+          95.625,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          95.625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          95.625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          19.6875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa-panaw/",
+      "html": "<p>It was only in 1998 that this comparatively small species of snakehead was described as a separate species. Before this the fish were thought to represent a geographical variety of the very widespread species Channa punctata.</p><p>Channa panaw attains a maximum length of less than 20 cm and is one of the smaller species of snakehead.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa-panaw/",
+      "html": "<p>Channa panaw has a fairly wide distribution in Burma, where it inhabits the area around the large rivers Sittang and Irrawaddy.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa-panaw/",
+      "html": "<p>Although the fish is not very colourful (though the golden shine on the body is quite attractive), it is one of the species that can be recommended for aquaria as it is comparatively peaceful. The photographed pair lived four days together in the small photo tank without doing the slightest harm to each other. This is unthinkable for most other snakeheads, which would seriously hurt or even kill each other under these conditions.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa-panaw/",
+      "html": "<p>Females seem to be a bit bigger, less colourful, and lack the white seam in the anal fin. However, the species has been kept in aquaria far too seldom to give proven information regarding external sexual differences.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "Yj4_FNiX87Y",
+      "title": "channa panaw tank setup",
+      "durationSec": 188,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jh8NAQ6Ey9o",
+      "title": "ikan channa panaw || ikan channa || ikan predator air tawar @TungguPancing #videoshorts #shorts",
+      "durationSec": 33,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "Z_R51hZOj4Y",
+      "title": "Channa panaw @ Blackspotted Snakehead (Myanmar)",
+      "durationSec": 93,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "MfF3hJOPBmI",
+      "title": "Channa panaw",
+      "durationSec": 95,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá lóc cảnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

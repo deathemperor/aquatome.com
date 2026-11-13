@@ -10,6 +10,38 @@
     "indonesia",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra"
+      ],
+      "sources": [
+        "bwaquatics"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Found only in the blackwater swamps near Kota Kerincikiri, on the Indonesian island of Sumatra.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8243786,
+      "total": 0,
+      "fetched": "2026-11-12",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -54,12 +86,6 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-phoenicurus",
       "html": "<ul><li>Family: Osphronemidae</li><li>Temperament: peaceful, but males can be territorial</li><li>Size: males up to 4 cm, females slightly smaller</li><li>TDS: 0-60</li><li>Temperature: 23-28 °C (74-82 °F)</li><li>pH: 4-6 (low pH water is recommended)</li><li>Difficulty: expert</li></ul>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-phoenicurus",
-      "html": "<p>Expert level: these fish are not for beginners as they only eat live food. Be sure to have the habitat ready before purchase.</p>"
     },
     {
       "key": "distribution",

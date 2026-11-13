@@ -9,7 +9,7 @@
     "betta-splendens",
     "neocaridina-davidi"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "IB6lV6eF2MY",
     "title": "Hướng dẫn setup bình thủy sinh 20x12_ dễ chăm sóc và rẻ , đẹp mà không cần quá nhiều vật liệu",
@@ -34,11 +34,6 @@
     ],
     "gear": [
       {
-        "category": "be-ca",
-        "type": "nano",
-        "t": 0
-      },
-      {
         "category": "phan-nen",
         "type": "phan",
         "brand": "Aqua",
@@ -59,61 +54,54 @@
       {
         "category": "den",
         "t": 955
+      },
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 0
       }
     ],
     "figures": [
       {
-        "heading": "Chuẩn bị những gì",
+        "heading": "Cần chuẩn bị những gì",
         "moments": [
           {
             "t": 0,
-            "url": "https://media.aquatome.com/video/IB6lV6eF2MY/t0.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bình thủy tinh nhỏ, vật liệu nền và đá đặt sẵn trên bàn."
+            "url": "https://media.aquatome.com/video/IB6lV6eF2MY/at0-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bình thủy tinh, đá, cây và cốt nền được bày sẵn trên bàn.",
+            "sharpness": 8415.6,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Trồng cây theo từng tầng",
+        "heading": "Trồng tiền cảnh, hậu cảnh và phần giữa",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/IB6lV6eF2MY/p4-ydS1JbmRpYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/IB6lV6eF2MY/p4-ydS1JbmRpYS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/IB6lV6eF2MY/p4-dWxhY2VhXzIuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/IB6lV6eF2MY/p4-dWxhY2VhXzIuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Coughdrop12",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangea_America_Halophila_stipulacea_2.jpg",
+          "caption": "Những bụi cây xanh cắm ở tiền cảnh trên nền sỏi trong bể."
+        }
+      },
+      {
+        "heading": "Bình này nuôi được gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/IB6lV6eF2MY/p6-Vfb3JhbmdlLkpQRw.webp",
+          "thumb": "https://media.aquatome.com/video/IB6lV6eF2MY/p6-Vfb3JhbmdlLkpQRw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staurgyne_repens-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Thảm cỏ tiền cảnh xanh mướt, xen cụm cây lá nhỏ bên các khối đá."
-        }
-      },
-      {
-        "heading": "Đèn, vi sinh và CO2",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/IB6lV6eF2MY/p5-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/IB6lV6eF2MY/p5-FzY2FwaW5nLmpwZw-480.webp",
-          "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây rậm rạp, xanh tốt dưới ánh đèn, có cá neon bơi giữa."
-        }
-      },
-      {
-        "heading": "Nuôi gì trong bình",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/IB6lV6eF2MY/p6-NoX2JldHRhLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/IB6lV6eF2MY/p6-NoX2JldHRhLmpwZw-480.webp",
-          "width": 960,
-          "height": 750,
-          "licence": "CC BY-SA 4.0",
-          "author": "Mikhaliov",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rainow_fish_betta.jpg",
-          "caption": "Một con cá betta bơi trong bình có cây thủy sinh, ốc và hang trú."
+          "author": "Bernard Ladenthin",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siamese_fighting_fish_(Betta_splendens)_female_orange.JPG",
+          "caption": "Một con betta bơi trong bình nền sỏi sáng, có cây thủy sinh."
         }
       }
     ]

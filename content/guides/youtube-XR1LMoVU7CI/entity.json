@@ -8,7 +8,7 @@
   "mentions": [
     "scleropages-formosus"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "XR1LMoVU7CI",
     "title": "MONSTER AQUARIUM setup",
@@ -39,8 +39,73 @@
     ],
     "figures": [
       {
-        "heading": "Chuyển lọc đã chạy vi sinh sang bể mới",
+        "heading": "Kích thước thật của hai bể",
         "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/XR1LMoVU7CI/p0-xNjA1NTg0KS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/XR1LMoVU7CI/p0-xNjA1NTg0KS5qcGc-480.webp",
+          "width": 960,
+          "height": 643,
+          "licence": "CC BY 2.0",
+          "author": "Daniel Ramirez from Honolulu, USA",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Large_Fish_Tank_@_Honolulu_Aquarium_(4671605584).jpg",
+          "caption": "Một bể kính lớn hình chữ nhật nuôi cá biển, nhìn rõ khung và thành bể."
+        }
+      },
+      {
+        "heading": "Hộp tràn và hai đầu xuyên vách cho tràn êm",
+        "moments": [
+          {
+            "t": 220,
+            "url": "https://media.aquatome.com/video/XR1LMoVU7CI/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đầu xuyên vách đen ở đáy hộp tràn với ống đứng trắng.",
+            "sharpness": 13
+          },
+          {
+            "t": 250,
+            "url": "https://media.aquatome.com/video/XR1LMoVU7CI/at250-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai đầu xuyên vách nối ống PVC ở đáy hộp tràn.",
+            "sharpness": 9.5
+          }
+        ]
+      },
+      {
+        "heading": "Nước chạy vòng qua hai bể thế nào",
+        "moments": [
+          {
+            "t": 300,
+            "url": "https://media.aquatome.com/video/XR1LMoVU7CI/at300-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh vách tràn bằng kính ở đầu bể.",
+            "sharpness": 82.6
+          }
+        ]
+      },
+      {
+        "heading": "Chuyển lọc cũ sang bằng khớp rắc co",
+        "moments": [
+          {
+            "t": 370,
+            "url": "https://media.aquatome.com/video/XR1LMoVU7CI/at370-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đường ống và khớp nối của hệ lọc cũ, có van đỏ cạnh máy bơm.",
+            "sharpness": 38.8
+          },
+          {
+            "t": 395,
+            "url": "https://media.aquatome.com/video/XR1LMoVU7CI/at395-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh khớp rắc co trắng nối hai đầu ống đen của máy bơm.",
+            "sharpness": 60.2
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/XR1LMoVU7CI/p4-9uXyhQU0YpLnBuZw.webp",
           "thumb": "https://media.aquatome.com/video/XR1LMoVU7CI/p4-9uXyhQU0YpLnBuZw-480.webp",
@@ -49,12 +114,31 @@
           "licence": "Public domain",
           "author": "Pearson Scott Foresman",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Union_(PSF).png",
-          "caption": "Hình minh họa đầu nối ống ren, giống kiểu khớp nối dùng cho đường ống lọc."
+          "caption": "Hình vẽ khớp nối ren vặn vào ống, tương tự khớp rắc co."
         }
       },
       {
-        "heading": "Thứ tự chuyển lọc và chuyển cá",
-        "moments": [],
+        "heading": "Thứ tự chuyển cá",
+        "moments": [
+          {
+            "t": 505,
+            "url": "https://media.aquatome.com/video/XR1LMoVU7CI/at505-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá rồng châu Á bơi gần mặt nước trong bể.",
+            "sharpness": 171.3,
+            "person": false
+          },
+          {
+            "t": 510,
+            "url": "https://media.aquatome.com/video/XR1LMoVU7CI/at510-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai con cá đuối đốm nằm trên nền cát đáy bể.",
+            "sharpness": 163.4,
+            "person": false
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/XR1LMoVU7CI/p5-ZV8yMDEyXzMuanBn.webp",
           "thumb": "https://media.aquatome.com/video/XR1LMoVU7CI/p5-ZV8yMDEyXzMuanBn-480.webp",
@@ -63,7 +147,7 @@
           "licence": "CC BY-SA 3.0",
           "author": "Karelj",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_Prague_2012_3.jpg",
-          "caption": "Cá rồng châu Á bơi trong bể, thân vảy ánh bạc rõ nét."
+          "caption": "Cá rồng châu Á bơi trong bể, thấy rõ toàn thân và vảy."
         }
       }
     ]

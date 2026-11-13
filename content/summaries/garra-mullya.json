@@ -1,10 +1,14 @@
 {
   "id": "garra-mullya",
-  "summary": "Garra mullya hợp người muốn nuôi cá ăn tảo, cỡ 17 cm, độ khó 3/8 nên thuộc nhóm dễ. Ngoài tự nhiên cá sống từ suối đầu nguồn đến sông vùng thấp, và có đĩa bám ở cằm để bám chặt nơi nước chảy xiết. Hồ sơ không nêu nhiệt độ, pH hay bể tối thiểu; điểm khó nhất là Garra hay bị nhận nhầm loài.",
+  "summary": "Garra mullya trưởng thành 17 cm, độ khó 4/8 (mức vừa), ngoài tự nhiên ăn tảo, tảo cát và mùn bã hữu cơ. Cá gặp từ suối đầu nguồn nước chảy đến sông vùng thấp, và có đĩa bám ở cằm để bám vào bề mặt nơi nước chảy xiết, nên bể cần có dòng chảy và bề mặt cứng cho cá bám. Hồ sơ không có số liệu về nhiệt độ, pH hay bể tối thiểu, nên điểm khó nhất là tự dò điều kiện nuôi cho đúng.",
   "mistakes": [
-    "Thấy cá giống Garra là gọi luôn tên loài thì dễ nhầm, vì giống này rối rắm và nhiều loài bị nhận dạng nhầm; hãy đối chiếu đặc điểm như không có vòi ở mõm và dưới 34 vảy đường bên trước khi gọi là G. mullya."
+    "Nuôi trong bể nước tù, không dòng chảy: cá có đĩa bám ở cằm để bám vào bề mặt nơi nước chảy xiết, nên tạo dòng chảy và có bề mặt cứng cho cá bám."
   ],
   "speciesUpdatedAt": "2026-10-31",
-  "generatedAt": "2026-10-31T16:31:42.229Z",
-  "review": "approved"
+  "generatedAt": "2026-11-08T20:10:05.828Z",
+  "review": "pending",
+  "problems": [
+    "\"nên bể cần có dòng chảy và bề mặt cứng cho cá bám\": the page gives no aquarium advice. It only says the chin disc lets the fish cling in fast water. A tank requirement for current and hard surfaces is invented.",
+    "Mistake \"Nuôi trong bể nước tù, không dòng chảy\" and its fix \"tạo dòng chảy và có bề mặt cứng cho cá bám\": the page never says still water is a mistake or that current is needed. It also says the species lives in lowland rivers, so a certain requirement for current is unsupported."
+  ]
 }

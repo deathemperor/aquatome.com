@@ -6,6 +6,55 @@
   "genus": "Cambarellus",
   "group": "other",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2227438,
+      "total": 28,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MX",
+          27
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -104.0625,
+          19.6875,
+          1
+        ],
+        [
+          -102.65625,
+          18.28125,
+          20
+        ],
+        [
+          -102.65625,
+          19.6875,
+          2
+        ],
+        [
+          -101.25,
+          18.28125,
+          1
+        ],
+        [
+          -101.25,
+          19.6875,
+          3
+        ],
+        [
+          -99.84375,
+          28.125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {
@@ -13,12 +62,6 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/cambarellus-patzcuarensis-orange",
       "html": "<p>Cambarellus patzcuarensis 'Orange' (CPO), also known as the dwarf orange crayfish or orange Mexican dwarf crayfish, is a small crustacean. It is a selectively bred variety with a vibrant orange colour.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/cambarellus-patzcuarensis-orange",
-      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
     },
     {
       "key": "behaviour",

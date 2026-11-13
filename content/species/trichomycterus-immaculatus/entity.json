@@ -15,6 +15,28 @@
       {
         "source": "planetcatfish",
         "value": 9.3
+      },
+      {
+        "source": "scotcat",
+        "value": 9.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -32,6 +54,12 @@
       "html": "<p>South America: Paraíbuna River, Paraíba do Sul River basin; Rio de Janeiro State rivers, Paraíba do Sul, Paraibuna (Minas Gerais).</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_immaculatus.htm",
+      "html": "<p>South America: Paraíbuna River, Paraíba do Sul River basin, Brazil. Type locality: Juiz de Fora, Rio Parahybuna, Sao Matheos, Goyaz [Brazil].</p><p>Trichomycterus immaculatus is endemic to coastal rivers from southern Bahia to southern São Paulo state. Due to its wide distribution, relatively high abundance, and the absence of significant identified threats to its population, it has been categorised as Least Concern (LC) (IUCN 2022).</p>"
+    },
+    {
       "key": "diet",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1233",
@@ -44,10 +72,22 @@
       "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_immaculatus.htm",
+      "html": "<p>Etymology: the specific name immaculatus is derived from the Latin adjective immaculatus, meaning unspotted or unstained, in allusion to the colouration pattern of the species, which lacks dots or spots.</p><p>T. immaculatus has ventral armatures (odontodes) along the opercles that help it cling to rocky surfaces (Sabaj, Mark Henry 2018).</p><p>Trichomycteridae is a monophyletic group composed of eight subfamilies, 41 genera and approximately 207 species (Ferraris 2007). The genus Trichomycterus, said to be not monophyletic (de Pinna 1989), is the richest and most widely distributed of the family, with 113 valid species throughout South and Central America, on both sides of the Andes (de Pinna and Wosiacki 2003, Ferraris 2007). In the hydrographic basins of south and southeast Brazil, 34 species have been described (Bockman et al. 2004).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1233",
       "html": "<p>Proceedings of the California Academy of Sciences (Series 2) v. 2, pp 52.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_immaculatus.htm",
+      "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, (01/2019).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Trichomycterus immaculatus. The IUCN Red List of Threatened Species 2022.</p><p>Sabaj, Mark Henry; FB page 2018.</p>"
     }
   ],
   "photos": [
@@ -101,5 +141,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-10"
 }

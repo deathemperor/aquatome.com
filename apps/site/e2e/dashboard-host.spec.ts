@@ -2,6 +2,7 @@ import type { Page } from '@playwright/test'
 import { exportJWK, generateKeyPair, SignJWT } from 'jose'
 import { dashboardHostRoute } from '../worker/dashboard-host'
 import type { AdminEnv } from '../worker/dashboard'
+import { hostPath, WEB_PAGES } from '../worker/admin/shell'
 import { DASHBOARD_HOST, SITE_HOST } from '../worker/paths'
 import { expect, test } from './fixtures'
 import { LIVE } from './pages'
@@ -12,7 +13,7 @@ import { LIVE } from './pages'
 const DASH = `https://${DASHBOARD_HOST}`
 const TEAM = 'e2e.cloudflareaccess.test'
 const AUD = 'e2e-aud'
-const IS_DASHBOARD = 'nav[aria-label="Các mục quản trị"]'
+const IS_DASHBOARD = 'nav[aria-label="Dashboard pages"]'
 
 const pair = generateKeyPair('RS256', { extractable: true })
 const token = async () => new SignJWT({ email: 'owner@aquatome.test' }).setProtectedHeader({ alg: 'RS256', kid: 'k' }).setAudience([AUD]).setIssuer(`https://${TEAM}`).setExpirationTime('1h').sign((await pair).privateKey)
@@ -31,7 +32,10 @@ async function host(page: Page, baseURL: string, access = true) {
     AB: { get: async (k: string, o?: unknown) => { const v = kv.get(k); return v === undefined ? null : o ? JSON.parse(v) : v }, put: async (k: string, v: string) => { kv.set(k, v) }, list: async () => ({ keys: [], list_complete: true }) } as unknown as AdminEnv['AB'],
     ASSETS: { fetch: (r: Request) => fetch(new URL(new URL(r.url).pathname, baseURL)) } as unknown as AdminEnv['ASSETS'],
   }
-  const seen: { path: string; site: string | undefined; origin: string | undefined; cookie: string | undefined }[] = []
+  const seen: { path: string; site: string | undefined; origin: string | undefined; cookie: string | undefined; redirect?: [number, string] }[] = []
+  // A request Chromium sent on its own, past the route.
+  const escaped: string[] = []
+  page.on('request', r => { if (r.redirectedFrom()) escaped.push(r.url()) })
   await page.route(url => url.hostname === DASHBOARD_HOST, async route => {
     const r = route.request()
     const url = new URL(r.url())
@@ -44,16 +48,23 @@ async function host(page: Page, baseURL: string, access = true) {
     const body = r.postData()
     const req = new Request(url, { method: r.method(), headers: { ...headers, ...(access ? { 'cf-access-jwt-assertion': await token() } : {}) }, ...(body ? { body } : {}) })
     const res = await dashboardHostRoute(req, url, env)
+    // Chromium follows a redirect a route fulfils past the route, to the real host, whose answer (Access's page, and what
+    // that page logs) has no place in a local check. So a redirect is noted, and the browser goes on through this stand-in.
+    const to = res.headers.get('location')
+    if (to && res.status >= 300 && res.status < 400) {
+      seen.at(-1)!.redirect = [res.status, to]
+      return route.fulfill({ contentType: 'text/html', body: `<!doctype html><meta http-equiv="refresh" content="0;url=${to}">` })
+    }
     await route.fulfill({ status: res.status, headers: Object.fromEntries(res.headers), body: Buffer.from(await res.arrayBuffer()) })
   })
-  return { seen, kv }
+  return { seen, kv, escaped }
 }
 
 test.describe('locally', () => {
   test.skip(LIVE, 'the live dashboard opens only to the owner')
 
   test('the owner moves around the dashboard on its host, and a page\'s form acts from the page', async ({ page, baseURL, errors }) => {
-    const { seen, kv } = await host(page, baseURL!)
+    const { seen, kv, escaped } = await host(page, baseURL!)
     const opened = await page.goto(`${DASH}/an-trang/`)
     expect([opened?.status(), opened?.headers()['x-robots-tag'], opened?.headers()['cache-control']]).toEqual([200, 'noindex, nofollow', 'no-store'])
     await expect(page.locator(`${IS_DASHBOARD} a[aria-current="page"]`)).toHaveAttribute('href', '/an-trang/')
@@ -61,18 +72,10 @@ test.describe('locally', () => {
     // The real browser's form. Its Origin is "null" under these pages' no-referrer, so only Sec-Fetch-Site can say it
     // came from the page.
     await page.locator('input[name=url]').fill('https://aquatome.com/ca/thu-an/')
-    const answered = page.waitForResponse(r => new URL(r.url()).pathname === '/_ab/hidden')
-    const navigated = page.waitForEvent('framenavigated', f => f === page.mainFrame())
     await page.locator('form.inline button').click()
-    const res = await answered
-    expect([res.status(), res.headers().location]).toEqual([303, '/an-trang/'])
-    // Chromium follows a redirect a route fulfilled past the route, to the real host, which answers for itself since it
-    // went live (403 without Access): open where it leads through the stand-in. (The redirects themselves are in
-    // worker/test/dashboard-host.test.ts.)
-    await navigated
-    await page.goto(`${DASH}${res.headers().location}`)
     await expect(page.locator('main table')).toContainText('/ca/thu-an/')
     const post = seen.find(s => s.path === '/_ab/hidden')
+    expect(post?.redirect).toEqual([303, '/an-trang/'])
     expect(post?.origin).toBe('null')
     expect(Object.keys(JSON.parse(kv.get('hidden')!))).toEqual(['/ca/thu-an/'])
     // A link to that public page leads to the site, this host having none.
@@ -88,6 +91,7 @@ test.describe('locally', () => {
     // The two faces load from this host.
     await page.evaluate(() => document.fonts.ready)
     expect(seen.some(s => s.path.startsWith('/_ab/fonts/'))).toBe(true)
+    expect(escaped).toEqual([])
     expect(errors).toEqual([])
   })
 
@@ -103,7 +107,7 @@ test.describe('locally', () => {
     await page.goto(`${DASH}/`)
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
     const out = page.locator('.masthead a.out')
-    await expect(out).toHaveText('Đăng xuất')
+    await expect(out).toHaveText('Sign out')
     expect((await out.boundingBox())!.height).toBeGreaterThanOrEqual(44)
     await out.click()
     await expect(page).toHaveURL(`${DASH}/cdn-cgi/access/logout`)
@@ -138,14 +142,43 @@ test('live: a stranger gets no dashboard from the host, and what the Worker does
   const home = await request.get(`${DASH}/`, { maxRedirects: 0 }).catch(() => null)
   if (!home) return
   expect(home.status()).not.toBe(200) // Access's way to its login, or the Worker's 403
-  expect(await home.text()).not.toContain('Các mục quản trị')
+  expect(await home.text()).not.toContain('Dashboard pages')
   const file = await request.get(`${DASH}/favicon.png`, { maxRedirects: 0 })
   if (file.status() === 200) expect(file.headers()['x-robots-tag']).toContain('noindex')
 })
 
-test('live: the site\'s /_ab/ is either the dashboard\'s sign-in or, with Access on, a redirect to the host', async ({ request }) => {
+test('live: every page in the dashboard\'s list redirects from the site to its host, none a 404', async ({ request }) => {
   test.skip(!LIVE, 'the real Worker\'s vars')
-  const r = await request.get('/_ab/doc-gia/', { maxRedirects: 0 })
-  expect([200, 301]).toContain(r.status())
-  if (r.status() === 301) expect(r.headers().location).toBe(`${DASH}/doc-gia/`)
+  const wrong: string[] = []
+  for (const p of WEB_PAGES) {
+    const r = await request.get(p, { maxRedirects: 0 })
+    if (r.status() !== 301 || r.headers().location !== `${DASH}${hostPath(p)}`) wrong.push(`${p}: ${r.status()} ${r.headers().location ?? ''}`)
+  }
+  expect(wrong).toEqual([])
+})
+
+// The owner found this one (2026-11-10): the sign-in is all that stands between them and the dashboard, and a stranger's
+// "no" says nothing about whether anyone can get through. This goes as far as a machine can without an owner's login.
+test('live: the dashboard\'s sign-in offers a way in, and each way leads to a form', async ({ browser }) => {
+  test.skip(!LIVE, 'the real host and Access')
+  // A context of its own: the fixtures' page keeps to the site's own address.
+  const context = await browser.newContext()
+  const page = await context.newPage()
+  await page.goto(`${DASH}/`)
+  await page.waitForURL(/\.cloudflareaccess\.com\/cdn-cgi\/access\/login\//)
+  const cloudflare = page.locator('a[href*="/oauth2/auth"]')
+  const emailed = page.locator('input[type="email"]') // the code by email, once it's offered, is a form on this page
+  expect(await cloudflare.count() + await emailed.count(), 'ways in on the sign-in page').toBeGreaterThan(0)
+  if (await emailed.count()) await expect(emailed.first()).toBeVisible()
+  if (await cloudflare.count()) {
+    await cloudflare.first().click()
+    await page.waitForURL(/dash\.cloudflare\.com\//)
+    // A runner's address can be asked to prove it's a person, on any step of the way: then this check goes no further.
+    const challenged = async () => /just a moment/i.test(await page.title())
+    const form = page.locator('input[type="email"]')
+    await expect.poll(async () => (await form.count()) > 0 || challenged(), { timeout: 20_000 }).toBe(true)
+    test.skip(await challenged(), 'Cloudflare asked this runner to prove it is a person')
+    await expect(form.first()).toBeVisible()
+  }
+  await context.close()
 })

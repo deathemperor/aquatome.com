@@ -1,10 +1,13 @@
 {
   "slug": "an-lao-river",
-  "name": "An Lao River",
-  "altNames": [],
+  "name": "sông An Lão",
+  "altNames": [
+    "An Lao River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

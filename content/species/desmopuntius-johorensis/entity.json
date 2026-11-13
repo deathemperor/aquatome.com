@@ -16,6 +16,127 @@
     "sumatra",
     "brunei"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "SG",
+        "ID",
+        "BN"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Muar River",
+        "Batang Hari",
+        "Mahakam",
+        "Mentaya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to southern Thailand, Penisular Malaysia, Singapore, and the islands of Sumatra (Indonesia) and Borneo (Malaysia, Indonesia and Brunei Darussalam) with type locality 'Muar River, Tebing Tinggi, Johore, Malaysia'.",
+          "countries": [
+            "TH",
+            "MY",
+            "SG",
+            "ID",
+            "BN"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra",
+            "Muar River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On Sumatra it's known from the provinces of Jambi (Batang Hari River) and Riau (Siak and Indragiri basins) and on Borneo in the Malaysian state of Sarawak and Indonesian provinces of Central Kalimantan (Mentaya River, Kalimantan Tengah) and East Kalimantan (Mahakam River, Kalimantan Timur).",
+          "countries": [],
+          "regions": [
+            "Batang Hari",
+            "Mahakam",
+            "Mentaya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8239511,
+      "total": 17,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MY",
+          12
+        ],
+        [
+          "ID",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          0,
+          2,
+          2
+        ],
+        [
+          101.25,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          102.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          5.625,
+          4,
+          4
+        ],
+        [
+          111.09375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -59,7 +180,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -68,7 +189,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-johorensis",
-      "html": "<p>Max size: 100 mm SL (3.9 in). Aquarium size: 120 × 45 cm (48 × 18 in). Temperature: 20–25°C (68–77°F). pH: 5.0–7.0. Hardness: 1–10 dGH. Difficulty: 5 of 8.</p><p>The striped barb, Desmopuntius johorensis, is a cyprinid from southern Thailand, Peninsular Malaysia, Singapore, Sumatra and Borneo. Juveniles have 4 dark vertical bars and develop 5 or 6 broad lateral stripes as they grow, a pattern change shared with D. gemellus and D. trifasciatus. Before Kottelat (1992) it was referred to as Puntius eugrammus, while the name 'Puntius johorensis' was misapplied to D. hexazona. It lives mainly in peat swamps and black water streams.</p>"
+      "html": "<p>Max size: 100 mm SL (3.9 in). Aquarium size: 120 × 45 cm (48 × 18 in). Temperature: 20–25°C (68–77°F). pH: 5.0–7.0. Hardness: 1–10 dGH. Difficulty: 2 of 8.</p><p>The striped barb, Desmopuntius johorensis, is a cyprinid from southern Thailand, Peninsular Malaysia, Singapore, Sumatra and Borneo. Juveniles have 4 dark vertical bars and develop 5 or 6 broad lateral stripes as they grow, a pattern change shared with D. gemellus and D. trifasciatus. Before Kottelat (1992) it was referred to as Puntius eugrammus, while the name 'Puntius johorensis' was misapplied to D. hexazona. It lives mainly in peat swamps and black water streams.</p>"
     },
     {
       "key": "distribution",
@@ -155,8 +276,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 120x45"
+        "bể cá 120cm"
       ]
     },
     {

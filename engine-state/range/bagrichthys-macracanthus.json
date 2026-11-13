@@ -1,0 +1,86 @@
+{
+  "id": "bagrichthys-macracanthus",
+  "native": {
+    "input": "5838888a0b83ff60",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from the confluence of the Lamatang and Enim rivers, Palambang Province, Sumatra, Indonesia and the species may be endemic to Sumatra though it is traditionally considered to range into Borneo, Java and Indochina.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "The fish found in the Chao Phraya and Mekong river basins in Thailand was described as B. majusuculus in 2002, while definitive records from any of the Sunda Islands with the exception of Sumatra could not be obtained.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from the confluence of the Lamatang and Enim rivers, Palambang Province, Sumatra, Indonesia and the species may be endemic to Sumatra though it is traditionally considered to range into Borneo, Java and Indochina.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "glaser",
+        "quote": "A very seldom imported, unusual catfish from Southeast Asia (eastern Sumatra).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bagrichthys macracanthus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338046,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        13
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

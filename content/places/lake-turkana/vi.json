@@ -1,10 +1,13 @@
 {
   "slug": "lake-turkana",
-  "name": "Lake Turkana",
-  "altNames": [],
+  "name": "hồ Turkana",
+  "altNames": [
+    "Lake Turkana"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

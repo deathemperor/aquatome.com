@@ -105,7 +105,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -183,14 +183,79 @@
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Ng, H. H. (1996). Akysis heterurus, a new species of catfish (Teleostei: Akysidae) from eastern Sumatra, with notes on Akysis hendricksoni Alfred. Raffles Bulletin of Zoology 44(1), 3-10</li><li>Ng, H. H. (1999). The Akysis of Myanmar: a review (Teleostei: Akysidae). Raffles Bulletin of Zoology 47(2), 541-548</li><li>Ng, H. H. (2006). Akysis longifilis, a new species of catfish (Teleostei: Akysidae) from Myanmar. Zootaxa 1150, 19-30</li><li>Ng, H. H. (2007). Akysis pulvinatus, a new species of catfish (Siluriformes: Akysidae) from southern Thailand. Zootaxa 1608, 51-58</li><li>Ng, H. H. (2008). Akysis vespertinus, a new species of catfish from Myanmar (Siluriformes: Akysidae). Ichthyological Exploration of Freshwaters 91(3), 255-262</li><li>Ng, H. H. (2009). Akysis portellus sp. nov., a new species of catfish (Teleostei: Akysidae) from the Sittang River drainage, Myanmar. Journal of Threatened Taxa 1(1), 2-8</li><li>Ng, H. H. and M. Kottelat (1998). The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. Journal of Natural History 32(7), 1057-1097</li><li>Ng, H. H. and D. J. Siebert (2004). A new species of the catfish genus Akysis (Siluriformes: Akysidae) from southern Borneo. Zootaxa 733, 1-8</li><li>Ng, H. H. and W. J. Rainboth (2005). Four new species of Akysis (Teleostei: Siluriformes: Akysidae) from mainland southeast Asia, with comments on A. similis. Raffles Bulletin of Zoology, Supplement 13, 33-42</li><li>Page, L. M., R. K. Hadiaty, J. A. López, I. Rachmatika and R. H. Robins (2007). Two new species of the Akysis variegatus species group (Siluriformes: Akysidae) from southern Sumatra and a redescription of Akysis variegatus Beeker, 1846. Copeia 2007 (2), 292-303</li><li>Sullivan, J. P., J. G. Lundberg and M. Hardman (2006). A phylogenetic analysis of the major groups of catfishes (Teleostei: Siluriformes) using rag1 and rag2 nuclear gene sequences. Molecular Phylogenetics and Evolution 41(3), 636–662</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/32e16ad74ccba901c4fa2db92465ff74.webp",
+      "thumb": "https://media.aquatome.com/processed/32e16ad74ccba901c4fa2db92465ff74-480.webp",
+      "width": 700,
+      "height": 341,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-pulvinatus",
+      "caption": "This species has entered the trade in limited numbers.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-akysis-pulvinatus",
+        "pixelHash": "c20ec1239d4c48de45e1d786199c6f2db07397d115aeb20e83c570e10ae591e5"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:23:19.432Z",
+          "originalHash": "dd70d61f8d2ef8116d93fe0b52b7f253da4c270ba688f1a3a4f5686331501132",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 700,
+            "originalHeight": 371,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 700,
+              "y1": 341
+            },
+            "subject": {
+              "x0": 76,
+              "y0": 138,
+              "x1": 575,
+              "y1": 325
+            },
+            "margin": 10
+          },
+          "excludedMarks": [
+            {
+              "x0": 17,
+              "y0": 345,
+              "x1": 128,
+              "y1": 361
+            }
+          ],
+          "checks": {
+            "species": [
+              "bd30717c2a9587f01db45de75a0791b7f03fa85e7716401f093ee77ebf0ac302",
+              "b19508b7e85f3718e307f3a7ce62fd4c6e758ffbcf858eb4c32464271eef826b"
+            ],
+            "ownership": [
+              "4c79280f67ec03bae2dfb193d24ca97af6b5923f42129620783e05419fb349be",
+              "f86842870317b487f6dbb464c6f5a2865c3b141cf29171102dc7efd6a8e79ee4"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/4827d88c756d8479.webp",
+        "width": 700,
+        "height": 371,
+        "thumb": "https://media.aquatome.com/seriouslyfish/4827d88c756d8479-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45x30 cm",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

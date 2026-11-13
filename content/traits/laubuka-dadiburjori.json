@@ -2,7 +2,12 @@
   "id": "laubuka-dadiburjori",
   "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": null,
-  "speciesUpdatedAt": "2026-11-02",
-  "generatedAt": "2026-11-03T00:03:28.363Z"
+  "schoolMin": 8,
+  "speciesUpdatedAt": "2026-11-09",
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-09T10:50:53.976Z"
 }

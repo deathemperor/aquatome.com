@@ -8,9 +8,10 @@
   "mentions": [
     "astronotus-ocellatus",
     "chromobotia-macracanthus",
-    "scleropages-formosus"
+    "scleropages-formosus",
+    "uaru-amphiacanthoides"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "KQPY_PVu6UM",
     "title": "The ONLY aquarium fish I would keep... “UARU\"",
@@ -32,15 +33,14 @@
     "taxa": [
       "Uaru amphiacanthoides",
       "Symphysodon sp.",
-      "Astronotus ocellatus",
-      "Chromobotia macracanthus",
-      "Scleropages formosus"
+      "Scleropages formosus",
+      "Chobotia macracanthus"
     ],
     "gear": [
       {
-        "category": "khac",
-        "brand": "EcoTech Marine",
-        "t": 0
+        "category": "loc",
+        "type": "tao-dong",
+        "t": 655
       },
       {
         "category": "phan-nen",
@@ -48,9 +48,9 @@
         "t": 420
       },
       {
-        "category": "thuc-an",
-        "type": "kho",
-        "t": 760
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 655
       },
       {
         "category": "thuc-an",
@@ -59,27 +59,18 @@
       },
       {
         "category": "thuc-an",
+        "type": "kho",
         "t": 760
       },
       {
         "category": "be-ca",
         "type": "lon",
         "t": 726
-      },
-      {
-        "category": "loc",
-        "type": "tao-dong",
-        "t": 655
-      },
-      {
-        "category": "phan-nen",
-        "type": "soi",
-        "t": 655
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao uaru được gọi là \"cá đĩa của người nghèo\"",
+        "heading": "Vì sao Uaru được gọi là \"cá đĩa của người nghèo\"",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/KQPY_PVu6UM/p0-aWxlOlVhcnUuanBn.webp",
@@ -89,25 +80,75 @@
           "licence": "CC BY-SA 3.0",
           "author": "Herbisius",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uaru.jpg",
-          "caption": "Cá uaru trưởng thành bơi trong bể, thân vàng ánh xanh, có đốm đặc trưng."
+          "caption": "Cá Uaru thân dẹt, cao bơi trong bể, nhìn rõ dáng giống cá đĩa."
         }
       },
       {
-        "heading": "Nhận biết uaru qua từng giai đoạn",
+        "heading": "Nhận biết Uaru qua màu sắc và hình dáng",
         "moments": [
           {
-            "t": 323,
-            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/t323.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh uaru trưởng thành với mảng đen rõ trên thân màu xám xanh."
+            "t": 260,
+            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/at260-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Uaru bơi cạnh thân gỗ, thân màu nâu sẫm với vệt đen.",
+            "sharpness": 49.5,
+            "person": false
           },
           {
-            "t": 338,
-            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/t338.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Uaru bơi gần gốc cây trong bể, thân màu nâu sẫm."
+            "t": 325,
+            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/at325-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh Uaru với mắt đỏ cam hơi lồi và thân mịn như da.",
+            "sharpness": 17.9,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Màu cá thay đổi thế nào khi lớn",
+        "moments": [
+          {
+            "t": 340,
+            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/at340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Uaru trưởng thành màu sẫm, bơi cạnh thân gỗ trong hồ.",
+            "sharpness": 1935.6,
+            "person": false
+          },
+          {
+            "t": 395,
+            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/at395-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Uaru lớn với thân màu nâu xám đậm, bơi gần gốc cây.",
+            "sharpness": 163.8,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Bể nuôi và cách bố trí",
+        "moments": [
+          {
+            "t": 685,
+            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/at685-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Góc bể bố trí đá tròn rải rác và lũa đứng phía sau.",
+            "sharpness": 1334,
+            "person": false
+          },
+          {
+            "t": 735,
+            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/at735-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai con Uaru bơi gần đáy bể, giữa đá tròn và lũa dựng đứng.",
+            "sharpness": 1131.2,
+            "person": false
           }
         ]
       },
@@ -115,61 +156,27 @@
         "heading": "Tính cách và cá nuôi chung",
         "moments": [
           {
-            "t": 467,
-            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/t467.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá uaru bơi sát kính, nhìn rõ thân và mắt trong bể."
+            "t": 455,
+            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/at455-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mấy con Uaru bơi chung trong bể lớn, sống hòa thuận.",
+            "sharpness": 249.1,
+            "person": false
           },
           {
-            "t": 472,
-            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/t472.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Uaru tò mò bơi gần đá, lục tìm dưới nền bể."
+            "t": 470,
+            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/at470-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá Uaru bơi sát về phía kính, tò mò lại gần.",
+            "sharpness": 174.8,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Không trồng cây trong bể uaru",
-        "moments": [
-          {
-            "t": 487,
-            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/t487.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể uaru bày đá và thân gỗ, nền không có cây thủy sinh."
-          },
-          {
-            "t": 492,
-            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/t492.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể uaru chỉ có gỗ và đá, không trồng cây."
-          }
-        ]
-      },
-      {
-        "heading": "Set bể cho uaru thế nào",
-        "moments": [
-          {
-            "t": 656,
-            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/t656.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đá tròn rải dưới nền cạnh những thân gỗ trong bể uaru."
-          },
-          {
-            "t": 701,
-            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/t701.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá uaru bơi giữa bể có đá tròn và thân cây lũa."
-          }
-        ]
-      },
-      {
-        "heading": "Cho uaru ăn gì",
+        "heading": "Thức ăn và nước",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/KQPY_PVu6UM/p5-fbGV0dHVjZS5qcGc.webp",
@@ -179,25 +186,29 @@
           "licence": "CC BY-SA 3.0",
           "author": "Rainer Zenz",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Romaine_lettuce.jpg",
-          "caption": "Lá xà lách romaine tươi, loại rau phù hợp để cho cá uaru ăn."
+          "caption": "Lá xà lách romaine tươi, loại rau cho Uaru ăn rất hợp."
         }
       },
       {
-        "heading": "Phân biệt trống mái và chọn cặp",
+        "heading": "Phân biệt trống mái và chọn số lượng",
         "moments": [
           {
-            "t": 621,
-            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/t621.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Mấy con uaru bơi gần nhau giữa các thân gỗ trong bể."
+            "t": 625,
+            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/at625-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mấy con Uaru bơi sát nhau trong bể, thấy rõ vệt đen trên thân.",
+            "sharpness": 1064.9,
+            "person": false
           },
           {
-            "t": 636,
-            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/t636.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh một con uaru với thân dẹp và vệt đen bên hông."
+            "t": 630,
+            "url": "https://media.aquatome.com/video/KQPY_PVu6UM/at630-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn Uaru bơi gần nhau trước thân lũa trong bể trồng.",
+            "sharpness": 1908.3,
+            "person": false
           }
         ]
       }

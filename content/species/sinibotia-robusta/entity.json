@@ -13,25 +13,21 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "glaser",
-        "value": {
-          "min": 18,
-          "max": 24
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 20,
           "max": 26
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
       }
     ],
     "sizeCm": [
-      {
-        "source": "glaser",
-        "value": 18
-      },
       {
         "source": "seriouslyfish",
         "value": 10
@@ -64,22 +60,22 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
   "sections": [
     {
       "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinibotia_robusta_en/",
-      "html": "<p>Sinibotia robusta is also known as the Kansu loach. This comparatively peaceful species is best kept at room temperature (18-24°C) without an additional heater. Maximum size reported for the species is about 18 cm, but in the wild most specimens become only 8-10 cm long.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sinibotia-robusta",
+      "html": "<p>The Kansu loach, Sinibotia robusta, is a botiid loach from the Zhu Jiang (Pearl River) system in Guangxi, southern China. Its deeper, stockier body separates it from other Sinibotia. With S. pulchra it is the most commonly traded member of the genus, and the two are often imported in mixed batches. Young fish have around 6 dark bars that usually bifurcate as they mature.</p><ul><li>Difficulty: moderate (4 of 8), because it needs a well-established tank and stable water</li></ul>"
     },
     {
       "key": "quickFacts",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/sinibotia-robusta",
-      "html": "<p>The Kansu loach, Sinibotia robusta, is a botiid loach from the Zhu Jiang (Pearl River) system in Guangxi, southern China. Its deeper, stockier body separates it from other Sinibotia. With S. pulchra it is the most commonly traded member of the genus, and the two are often imported in mixed batches. Young fish have around 6 dark bars that usually bifurcate as they mature.</p><ul><li>Difficulty: moderate (6 of 8), because it needs a well-established tank and stable water</li></ul>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinibotia-robusta-en/",
+      "html": "<p>Kansu loaches (Sinibotia robusta) in beautiful colouring were received from China. This comparatively peaceful species is best kept at room temperature (18-24°C) without an additional heater. Only very few specimens available.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -92,6 +88,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sinibotia-robusta",
       "html": "<p>Described from 'Li Kiang, southern China', which presumably refers to the place of the same name near Nanning city, Guangxi Autonomous Region.</p><p>Nanning is located at the confluence of the You and Zuo river systems, which combine to form the Yong Jiang (Yong River) as it flows through the city, after which it is known as the Yu Jiang. The Yu later joins the Xi Jiang, a major tributary of the famous Zhu Jiang (Pearl River).</p><p>S. robusta has been recorded from several other tributary drainages of the Zhu Jiang system including the Liu Jiang and Gui Jiang. The Zhu drains most of Guangxi plus Guangdong province, with parts of its upper reaches extending into parts of Yunnan, Guizhou, Hunan and Jiangxi provinces, plus northern Vietnam.</p><p>The area is one of the most populous and industrialised in China, so much of the main Zhu channel is now highly polluted, particularly in its lower reaches.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinibotia-robusta-en/",
+      "html": "<p>Origin: China.</p>"
     },
     {
       "key": "habitat",
@@ -143,12 +145,6 @@
     },
     {
       "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinibotia_robusta_en/",
-      "html": "<p>Every year in June is import season for Botia-like loaches from China. The genus Sinibotia currently contains six species. The genus Sinibotia differs from Botia by the presence of three pairs of barbels (two maxillary, one mandibulary), while in Botia a fourth pair of barbels is present on the lower lip.</p>"
-    },
-    {
-      "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sinibotia-robusta",
       "html": "<p>This species is also sold under the vernacular names 'golden Chinese loach' and '12-banded Chinese loach'. Along with S. pulchra it is the most commonly traded member of the genus, and the two are often imported in mixed batches, presumably because they occur and are thus collected together in nature.</p><p>Congeners possess flexible, sinuous bodies but this character is less pronounced in S. robusta, which has an overall deeper, stockier body shape.</p><p>It was previously considered to belong to the genus Botia, with the earliest reference regarding its inclusion in Sinibotia found being Nalbant (2002). However, no reasoning is given in that study so the move may have been proposed earlier.</p><p>No solid diagnostic information could be obtained, but at any rate it is easy to tell apart from other Sinibotia spp. since it has a relatively deeper, more compact body shape. Young specimens tend to have around 6 dark, vertical body bars but these usually bifurcate as the fish mature.</p><p>The genus Sinibotia currently contains six species, all of which are native to China plus, in at least one case, Laos. All were also previously considered to belong to Botia.</p><p>Not a great deal of information has been published since the turn of the century, but Yang and Chen (1992) stated that it can be separated from related genera by the following combination of characters: suborbital spine strong and bifurcate; top of cranium without fontanelle; possession of three pairs of barbels and one pair of mental 'buttons' (rounded mental lobes in lower lip); minute scales; cheeks scaleless; dorsal fin located closer to caudal-fin base than snout; caudal fin forked; anterior portion of swim bladder usually enclosed in a partial-to-completely ossified capsule, posterior portion of swim bladder not enclosed.</p><p>The family Botiidae has been widely considered a genetically distinct grouping since Nalbant (2002), having previously been considered a subfamily (Botiinae) of the family Cobitidae. Nalbant also moved some previous members of Botia into the new genus Yasuhikotakia based on a number of morphological characters.</p><p>Later Kottelat (2004) made further modifications to the taxonomy, raising Chromobotia for B. macracanthus and confirming that species previously included in the genus Hymenophysa should instead be referred to Syncrossus.</p><p>The former alteration was based on colour pattern plus some morphological characters and the latter because Hymenophysa not only represents a spelling mistake (McClelland's original spelling was Hymenphysa) but is a junior synonym of Botia.</p><p>More recently Kottelat (2012) erected the genus Ambastaia to accommodate A. nigrolineata and A. sidthimunki, two former members of both Botia and Yasuhikotakia.</p><p>As a result of these works the family Botiidae is thus divided into two tribes within which Botia appears to be the most basal lineage:</p><p>Tribe Leptobotiini - Leptobotia, Parabotia, Sinibotia. Tribe Botiini - Ambastaia, Botia, Chromobotia, Syncrossus, Yasuhikotakia.</p><p>Phylogenetic studies by Tang et al. (2005) and Šlechtová et al. (2006) have largely confirmed this system to be correct, although the latter disagreed with the placement of Sinibotia, finding it to be more closely related to the tribe Botiini.</p><p>Ambastaia nigrolineata and A. sidthimunki were found to be more closely related to both Sinibotia and Syncrossus than Yasuhikotakia, despite being considered members of the latter at the time. Šlechtová et al. also proposed the use of subfamily names under the following system:</p><p>Subfamily Leptobotiinae - Leptobotia, Parabotia. Subfamily Botiinae - Botia, Chromobotia, Sinibotia, Syncrossus, Yasuhikotakia.</p><p>Within these Botia appears to be the basal, i.e., most ancient, lineage and in a more detailed phylogenetic analysis Šlechtová et al. (2007) confirmed the validity of the family Botiidae with the genera listed above as members rather than being grouped into subfamilies. This more recent, simpler system is the one followed here.</p><p>Sinibotia spp. also possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g., if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and those of larger specimens can break human skin.</p><p>Botiids are also susceptible to a condition commonly referred to as 'skinny disease' and characterised by a loss of weight. This is especially common in newly-imported specimens and is thought to be caused by a species of the flagellate genus Spironucleus.</p><p>It is treatable although the recommended medication varies depending on country. Hobbyists in the UK tend to use the antibiotic Levamisole and those in the United States Fenbendazole (aka Panacur).</p>"
@@ -195,13 +191,37 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "_Bo5JH9lIf0",
+      "title": "Sinibotia robusta",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zC44quj1Dow",
+      "title": "Sinibotia robusta",
+      "durationSec": 37,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qn1udIxmK2U",
+      "title": "Kansu-Schmerle, Sinibotia robusta",
+      "durationSec": 112,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JEwx-fjML_A",
+      "title": "シニボティアロブスタ　Kansu Loach　Sinibotia robusta",
+      "durationSec": 34,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá cho cá chạch"
+        "bể cá 120cm"
       ]
     },
     {
@@ -226,5 +246,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-10"
 }

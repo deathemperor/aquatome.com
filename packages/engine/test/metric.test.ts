@@ -29,8 +29,8 @@ test('fish, plant, breed and guide pages in every language come out in metric; o
   expect((await read('species/a/vi.json')).sections).toEqual({ 'quickFacts:seriouslyfish': '<li>Nhiệt độ: 20–30°C</li>', 'references:seriouslyfish': '<p>Smith (1990) 12 in.</p>' })
   expect((await read('species/a/th.json')).sections['quickFacts:bwaquatics']).toBe('<li>ขนาดสูงสุด: ประมาณ 12.5 ซม.</li>')
   expect((await read('plants/b/vi.json')).sections['maintenance:aquariumcoop']).toBe('<p>Cây cao khoảng 25 đến 30 cm.</p>')
-  expect(await read('breeds/c/id.json')).toMatchObject({ body: '<p>Minimal 114 L.</p>', summary: ['Akuarium 38 liter.'], faq: [{ q: 'Suhu?', a: '24 °C.' }] })
-  expect(await read('guides/e/vi.json')).toMatchObject({ body: '<p>Bể khoảng 75 lít (76 × 30 × 30 cm).</p>', summary: ['Ống PVC phi 27.'] })
+  expect(await read('breeds/c/id.json')).toMatchObject({ body: '<p>Minimal 120 L.</p>', summary: ['Akuarium 40 liter.'], faq: [{ q: 'Suhu?', a: '24 °C.' }] })
+  expect(await read('guides/e/vi.json')).toMatchObject({ body: '<p>Bể khoảng 75 lít (75 × 30 × 30 cm).</p>', summary: ['Ống PVC phi 27.'] })
   expect((await read('guides/e/th.json')).body).toBe('<p>ลดลงราว 8°C ภายในหนึ่งชั่วโมง</p>') // a change of 15 °F, not a temperature
   expect((await read('guides/e/ms.json')).body).toBe('<p>Akuarium 3,800 liter, 6.5 cm.</p>') // a language the site doesn't serve yet, in its own number marks
   expect((await read('glossary/f/vi.json')).definition).toBe('Bể 10 gallon.') // not a page this pass writes
@@ -61,6 +61,24 @@ test("a guide's topic, already checked, stays checked when only its units change
   await writeFile(join(root, 'engine-state/_topic-check.json'), JSON.stringify({ a: sha(bodies.a), 'b:id': `held:${sha(bodies.b)}`, c: 'old' }))
   await metricPages(join(root, 'content'), root)
   expect(JSON.parse(await readFile(join(root, 'engine-state/_topic-check.json'), 'utf8'))).toEqual({
-    a: sha('<p>Bể 38 lít.</p>'), 'b:id': `held:${sha('<p>Nước 24 °C.</p>')}`, c: 'old',
+    a: sha('<p>Bể 40 lít.</p>'), 'b:id': `held:${sha('<p>Nước 24 °C.</p>')}`, c: 'old',
   })
+})
+
+test("a fish page's figure its English gives in metric stays as given; a breed's, with no English beside it, is rounded", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'metric-'))
+  const sections = [{ key: 'aquariumSize', source: 'seriouslyfish', sourceUrl: 'https://example.org', html: '<p>An aquarium measuring 60 × 38 × 30 cm (24 × 15 × 12 in) - approximately 68 litres.</p>' }]
+  const files: Record<string, object> = {
+    'species/g/entity.json': { id: 'g', sections },
+    'species/g/vi.json': page({ 'aquariumSize:seriouslyfish': '<p>Bể 60 × 38 × 30 cm (24 × 15 × 12 in), khoảng 68 lít.</p>', 'aquariumSize:aquatome': '<p>Bể 60 × 38 × 30 cm.</p>' }),
+    'breeds/h/vi.json': page({}, { body: '<p>Bể 60 × 38 × 30 cm.</p>' }),
+  }
+  for (const [f, v] of Object.entries(files)) {
+    await mkdir(join(root, f, '..'), { recursive: true })
+    await writeFile(join(root, f), `${JSON.stringify(v, null, 2)}\n`)
+  }
+  await metricPages(root)
+  const read = async (f: string) => JSON.parse(await readFile(join(root, f), 'utf8'))
+  expect((await read('species/g/vi.json')).sections).toEqual({ 'aquariumSize:seriouslyfish': '<p>Bể 60 × 38 × 30 cm, khoảng 68 lít.</p>', 'aquariumSize:aquatome': '<p>Bể 60 × 40 × 30 cm.</p>' })
+  expect((await read('breeds/h/vi.json')).body).toBe('<p>Bể 60 × 40 × 30 cm.</p>')
 })

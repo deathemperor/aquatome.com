@@ -12,6 +12,92 @@
     "peru",
     "colombia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE"
+      ],
+      "regions": [
+        "rio Javarí"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It thus seems likely that Osteogaster rabauti occurs in both Brazil and Peru, and possibly Colombia, but the full extent of its distribution is somewhat unclear.",
+          "countries": [
+            "BR",
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The majority of records pertain to the rio Javarí, an Amazonian tributary which forms the border between Brazil and Peru for much of its length and empties into the Amazon main channel in the Três Fronteiras area, where the borders of Brazil, Peru and Colombia meet.",
+          "countries": [],
+          "regions": [
+            "rio Javarí"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342617,
+      "total": 9,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          5
+        ],
+        [
+          "PE",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -11.25,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +141,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -139,8 +225,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 90x30"
+        "bể cá 90cm"
       ]
     },
     {

@@ -13,6 +13,109 @@
     "solimoes",
     "colombia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "río Ampiyacu",
+        "Napo",
+        "Nanay",
+        "Itaya",
+        "Río Amazonus"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Corydoras fowleri from Peru becomes 6-8 cm long and certainly belongs to the most beautiful Corydoras at all.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Amazon basin in Peru, with its range appearing to extend west from the río Ampiyacu at least as far as Iquitos, meaning it should also occur in the ríos Napo, Nanay, and Itaya.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "río Ampiyacu",
+            "Napo",
+            "Nanay",
+            "Itaya"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Peru; Loreto, Caño del Chancho near Pebas (03º10'S, 71º46'W), Río Amazonus system.",
+          "countries": [],
+          "regions": [
+            "Río Amazonus"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342656,
+      "total": 12,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PE",
+          11
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -78,7 +181,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -217,17 +320,6 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/cb95afdf78fce497.webp",
-      "thumb": "https://media.aquatome.com/scotcat/cb95afdf78fce497-480.webp",
-      "width": 500,
-      "height": 335,
-      "licence": "dùng với sự cho phép",
-      "author": "Allan James / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
-      "caption": "Corydoras fowleri",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/dc8332b333820dbe.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/dc8332b333820dbe-480.webp",
       "width": 700,
@@ -237,6 +329,17 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-fowleri",
       "caption": "Specimen from the U.S. aquarium trade.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/cb95afdf78fce497.webp",
+      "thumb": "https://media.aquatome.com/scotcat/cb95afdf78fce497-480.webp",
+      "width": 500,
+      "height": 335,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_fowleri.htm",
+      "caption": "Corydoras fowleri",
+      "source": "scotcat"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/4c1dd71e76a36186.webp",
@@ -262,8 +365,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá thủy sinh 60cm"
+        "bể cá 120cm"
       ]
     },
     {

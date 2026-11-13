@@ -25,6 +25,12 @@ public final class FakeAccounts {
   public var busy = 0
   /// Records (by id) the server refuses, as it does one that doesn't validate.
   public var refuse: Set<String> = []
+  /// Every record a sync sends is refused, as the Worker refuses ones that fail its checks.
+  public var refuseEvery = false
+  /// Syncs answer 422 too_many: the account would hold more than the Worker keeps.
+  public var full = false
+  /// Syncs answer with a store of a version this app doesn't know, as an account a newer app has synced holds.
+  public var newerStore = false
   /// The code every email sign-in is sent.
   public static let emailCode = "123456"
   /// The mails sent: the address each code went to (lowercased, as the server sends it).
@@ -41,6 +47,8 @@ public final class FakeAccounts {
   public var reportable: Set<String> = []
   /// The reports taken, in order: who sent each (an account, or nil from the page's way) and what they said.
   public private(set) var reports: [(account: String?, kind: String, id: String, reason: String?)] = []
+  /// The owner's dashboard, when this server has one (FakeOwner): its paths, and the photos it shows.
+  public var owner: FakeOwner?
   /// The fish-ID tool (`/api/fish-id`, protocols/fishid.openapi.json): on, every key resting, an account's identifications
   /// a day, how many each account had made today before these, and how many the site has left today (none: busy).
   public var fishIdOn = true
@@ -54,7 +62,7 @@ public final class FakeAccounts {
   /// The answer an identification gets, given the photo's width × height ("1024×768"): `fishIdGuesses` unless set.
   public var fishIdAnswer: (_ photo: String) -> [String: JSON] = FakeAccounts.fishIdGuesses(photo:)
 
-  struct Account { let id: String; var kind = "apple"; var store = TankStore() }
+  struct Account { let id: String; var kind = "apple"; var store = TankStore(); var picture: String? }
   private var accounts: [String: Account] = [:] // by Apple sub, `google:<sub>` or `email:<address>`
   private var tokens: [String: String] = [:] // token → its account's key
   private var nonces: Set<String> = []
@@ -73,7 +81,7 @@ public final class FakeAccounts {
   /// a second phone signs in to the account the first one made).
   public var snapshot: JSON {
     .object([
-      "accounts": .object(accounts.mapValues { .object(["id": .string($0.id), "kind": .string($0.kind), "store": $0.store.value]) }),
+      "accounts": .object(accounts.mapValues { .object(["id": .string($0.id), "kind": .string($0.kind), "store": $0.store.value, "picture": $0.picture.map(JSON.string) ?? .null]) }),
       "tokens": .object(tokens.mapValues(JSON.string)),
       "passkeys": .object(passkeys.mapValues(JSON.string)),
       "issued": .number(Double(issued)),
@@ -85,7 +93,7 @@ public final class FakeAccounts {
     let o = snapshot.object ?? [:]
     for (sub, a) in o["accounts"]?.object ?? [:] {
       guard let id = a.object?["id"]?.string, let store = a.object?["store"].flatMap({ try? TankStore($0) }) else { continue }
-      accounts[sub] = Account(id: id, kind: a.object?["kind"]?.string ?? "apple", store: store)
+      accounts[sub] = Account(id: id, kind: a.object?["kind"]?.string ?? "apple", store: store, picture: a.object?["picture"]?.string)
     }
     for (token, sub) in o["tokens"]?.object ?? [:] { if let sub = sub.string, accounts[sub] != nil { tokens[token] = sub } }
     for (id, sub) in o["passkeys"]?.object ?? [:] { if let sub = sub.string, accounts[sub] != nil { passkeys[id] = sub } }
@@ -121,6 +129,10 @@ public final class FakeAccounts {
 
   /// Ends every session of an account, as signing out elsewhere or deleting it there would.
   public func endSessions(of sub: String) { tokens = tokens.filter { $0.value != sub } }
+
+  /// The account a bearer token is a live session of, as another of the site's APIs (the chat's) checks one: none with
+  /// accounts off, or offline.
+  public func account(bearer: String) -> String? { accountsOn && !offline ? tokens[bearer] : nil }
 
   /// A multipart form's parts, by name: each one's bytes, and its filename when it's a file.
   static func parts(_ r: URLRequest) -> [String: (filename: String?, data: Data)] {
@@ -174,6 +186,9 @@ public final class FakeAccounts {
     let body = isJSON ? r.httpBody.flatMap { try? JSON.parse($0).object } : nil
     let bearer = r.value(forHTTPHeaderField: "Authorization").map { String($0.dropFirst("Bearer ".count)) }
     let sub = bearer.flatMap { tokens[$0] }
+    if let (status, data, type) = try owner?.answer(r, account: sub, endSessions: endSessions) {
+      return (data, HTTPURLResponse(url: r.url!, statusCode: status, httpVersion: nil, headerFields: ["Content-Type": type, "Cache-Control": "no-store"])!)
+    }
     func reply(_ status: Int, _ o: [String: JSON]? = nil) throws -> (Data, HTTPURLResponse) {
       (try o.map { try JSON.object($0).data() } ?? Data(), HTTPURLResponse(url: r.url!, statusCode: status, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!)
     }
@@ -361,6 +376,15 @@ public final class FakeAccounts {
       else { return try fail(401, "bad_passkey") }
       if let handle = r["userHandle"]?.string, handle != Base64URL.encode(Data(account.id.utf8)) { return try fail(401, "bad_passkey") }
       return try reply(200, signedIn(key, account.kind, bearer: bearer))
+    case ("POST", "/api/v1/account/picture"):
+      // As aquatome.com takes it: an id of the set (here any id shaped as one), or null for none.
+      guard let s = sub else { return try fail(401, "signed_out") }
+      switch body?["picture"] {
+      case .null?: accounts[s]!.picture = nil
+      case .string(let id)? where id.wholeMatch(of: #/[a-z0-9]+(-[a-z0-9]+)*/#) != nil: accounts[s]!.picture = id
+      default: return try fail(400, "bad_picture")
+      }
+      return try reply(200, ["user": user(accounts[s]!, s)])
     case ("POST", "/api/v1/account/passkey/options"), ("POST", "/api/v1/account/passkey"):
       guard let s = sub else { return try fail(401, "signed_out") }
       guard passkeysOn else { return try fail(503, "provider_off") }
@@ -390,13 +414,15 @@ public final class FakeAccounts {
     case ("POST", "/api/v1/tanks/sync"):
       guard let s = sub else { return try fail(401, "signed_out") }
       if busy > 0 { busy -= 1; return try fail(409, "busy") }
+      if full { return try fail(422, "too_many") }
+      if newerStore { return try reply(200, ["store": .object(["v": .number(2), "tanks": .array([]), "devices": .array([])]), "refused": .array([]), "serverTime": .string(Timestamp.string(now()))]) }
       guard let sent = body!["store"]?.object, case .number(1) = sent["v"], let tanks = sent["tanks"]?.array, let devices = sent["devices"]?.array else { return try fail(400, "bad_store") }
       let at = Timestamp.string(now())
       var refused: [JSON] = []
       func take(_ list: [JSON], _ kind: String) -> [JSON] {
         list.compactMap { v in
           guard var o = v.object else { return nil }
-          if let id = o["id"]?.string, refuse.contains(id) {
+          if let id = o["id"]?.string, refuseEvery || refuse.contains(id) {
             refused.append(.object(["kind": .string(kind), "id": .string(id), "issues": .array([])]))
             return nil
           }
@@ -444,7 +470,7 @@ public final class FakeAccounts {
 
   private func user(_ a: Account, _ key: String) -> JSON {
     .object([
-      "id": .string(a.id), "createdAt": .string("2026-11-01T00:00:00.000Z"),
+      "id": .string(a.id), "createdAt": .string("2026-11-01T00:00:00.000Z"), "picture": a.picture.map(JSON.string) ?? .null,
       "methods": .array([.object(["id": .string("m-\(key)"), "kind": .string(a.kind), "createdAt": .string("2026-11-01T00:00:00.000Z"), "lastUsedAt": .null])]
         + passkeys.filter { $0.value == key }.keys.sorted().map { .object(["id": .string("pk-\($0)"), "kind": .string("passkey"), "createdAt": .string("2026-11-01T00:00:00.000Z"), "lastUsedAt": .null]) }),
     ])

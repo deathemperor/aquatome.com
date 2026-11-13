@@ -1,0 +1,129 @@
+{
+  "id": "limia-perugiae",
+  "scientificName": "Limia perugiae",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Limia",
+  "group": "livebearers",
+  "places": [
+    "north-america",
+    "dominican-republic"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 5203839,
+      "total": 69,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "DO",
+          69
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          18.28125,
+          16
+        ],
+        [
+          -71.71875,
+          16.875,
+          13
+        ],
+        [
+          -71.71875,
+          18.28125,
+          38
+        ],
+        [
+          -70.3125,
+          18.28125,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_limia_perugiae_en/",
+      "html": "<p>This beautiful livebearer is available on a quite regular basis, but usually only a few specimens. The specimens are German bred ones. Available size: 4-5 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_limia_perugiae_en/",
+      "html": "<p>The Dominican Republic is the destination for millions of tourists each year. But it is only known by few people that also beautiful freshwater fish exist there. One of the prettiest of them is Poecilia perugiae.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/fc29b54dd8a7048a.webp",
+      "thumb": "https://media.aquatome.com/commons/fc29b54dd8a7048a-480.webp",
+      "width": 1200,
+      "height": 765,
+      "licence": "CC BY-SA 3.0",
+      "author": "Usien",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lima_Perugia_Paar_1.JPG",
+      "caption": "Cặp cá Limia perugiae bơi trong bể có rêu và cây thủy sinh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/fc29b54dd8a7048a-large.webp",
+        "width": 1883,
+        "height": 1200
+      }
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Zl2_of7p37s",
+      "title": "Limia Perugiae - Two Minute Tuesday",
+      "durationSec": 135,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Sxqdyf_c2n0",
+      "title": "Limia perugiae - Species Profile",
+      "durationSec": 656,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eWSxiI8KRjc",
+      "title": "Rare livebearer Limia Perugiae",
+      "durationSec": 9,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "2ft_tssUEDk",
+      "title": "limia Perugiae species profile",
+      "durationSec": 440,
+      "lang": "en-GB"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ",
+        "lọc treo"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá bảy màu",
+        "thức ăn cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

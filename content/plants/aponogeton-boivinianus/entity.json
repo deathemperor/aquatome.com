@@ -28,7 +28,23 @@
       "html": "<p>A bulb plant from Madagascar. In favourable conditions it can form very large leaves (up to 80 cm long and 8 cm wide, and from 30-50 cm wide). The oldest leaves are deep dark-green, while younger leaves are light-green and sometimes brownish until they are fully developed.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/tropica/bd5440bc6765c64f.webp",
+      "thumb": "https://media.aquatome.com/tropica/bd5440bc6765c64f-480.webp",
+      "width": 1200,
+      "height": 750,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/bd5440bc6765c64f-large.webp",
+        "width": 1920,
+        "height": 1200
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Aponogetonboivinianus(088KN)/4534",
+      "source": "tropica"
+    }
+  ],
   "productSlots": [
     {
       "category": "phan-nen",

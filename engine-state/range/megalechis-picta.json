@@ -1,0 +1,193 @@
+{
+  "id": "megalechis-picta",
+  "native": {
+    "input": "de937e4e5dd95179",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The bar-tailed hoplo, Megalechis picta, is a callichthyid catfish widely distributed east of the Andes in Brazil, Venezuela and Guyana.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The bar-tailed hoplo, Megalechis picta, is a callichthyid catfish widely distributed east of the Andes in Brazil, Venezuela and Guyana.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The bar-tailed hoplo, Megalechis picta, is a callichthyid catfish widely distributed east of the Andes in Brazil, Venezuela and Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed east of the Andes mountains in Brazil, Venezuela, and Guyana with records existing from the Amazon, Orinoco and upper Essequibo river systems plus some minor coastal rivers of northern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed east of the Andes mountains in Brazil, Venezuela, and Guyana with records existing from the Amazon, Orinoco and upper Essequibo river systems plus some minor coastal rivers of northern Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed east of the Andes mountains in Brazil, Venezuela, and Guyana with records existing from the Amazon, Orinoco and upper Essequibo river systems plus some minor coastal rivers of northern Brazil.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It's absent from Suriname and French Guiana.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It's absent from Suriname and French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Britisch-Guiana', corresponding to modern day Guyana.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "It is recorded from the Amazon, Orinoco and upper Essequibo systems.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "It is recorded from the Amazon, Orinoco and upper Essequibo systems.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "It is recorded from the Amazon, Orinoco and upper Essequibo systems.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Megalechis picta",
+    "status": "ACCEPTED",
+    "taxonKey": 2342535,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        38
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        26
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        8
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        8
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        4
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        3
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "79a5a2c0-dfde-4ae6-bc44-d809e8d166b7",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "VE",
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

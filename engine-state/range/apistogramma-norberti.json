@@ -1,0 +1,82 @@
+{
+  "id": "apistogramma-norberti",
+  "native": {
+    "input": "075edaa1d88af579",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma norberti is a dwarf cichlid from the Río Tahuayo and Río Tamshiyacu, minor Amazon tributaries south of Iquitos in northeastern Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from a brook in the Río Tahuayo basin but also occurs in the nearby Río Tamshiyacu drainage, both minor tributaries draining into the Amazon mainstream south of the city of Iquitos, Loreto Region, northeastern Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Tahuayo",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma norberti is a dwarf cichlid from the Río Tahuayo and Río Tamshiyacu, minor Amazon tributaries south of Iquitos in northeastern Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Río Tamshiyacu",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma norberti is a dwarf cichlid from the Río Tahuayo and Río Tamshiyacu, minor Amazon tributaries south of Iquitos in northeastern Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma norberti is a dwarf cichlid from the Río Tahuayo and Río Tamshiyacu, minor Amazon tributaries south of Iquitos in northeastern Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma norberti",
+    "status": "ACCEPTED",
+    "taxonKey": 2371307,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

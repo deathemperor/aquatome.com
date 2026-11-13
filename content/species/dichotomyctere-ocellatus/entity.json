@@ -11,6 +11,61 @@
     "malaysia",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "KH",
+        "MY",
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The figure eight puffer, Dichotomyctere ocellatus, is a small puffer from Cambodia, Malaysia and Indonesia.",
+          "countries": [
+            "KH",
+            "MY",
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9634430,
+      "total": 4,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IN",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          71.71875,
+          18.28125,
+          3,
+          0
+        ],
+        [
+          75.9375,
+          9.84375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "Although it's often considered a true freshwater species, it tends to be more long-lived with the addition of marine salt to a specific gravity of around 1.005 in aquaria."
+  },
   "dataCard": {
     "tempC": [
       {
@@ -191,10 +246,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 75cm",
-        "bể cá 70 lít",
-        "bể cá 60cm",
-        "bể cá nước lợ"
+        "bể cá 80cm"
       ]
     },
     {

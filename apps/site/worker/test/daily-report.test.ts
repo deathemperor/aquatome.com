@@ -1,7 +1,10 @@
-import { afterEach, expect, test, vi } from 'vitest'
+import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import { createSession, sha256 } from '../accounts/session'
 import { deleteUser } from '../accounts/users'
-import { ADMIN_PAGES, SECTIONS } from '../dashboard'
+import { NAV, WEB_PAGES } from '../admin/shell'
+import { todayPage } from '../admin/today'
+import { ADMIN_PAGES, loadToday, SECTIONS } from '../dashboard'
+import { addChanges, CHANGELOG_KEY } from '../daily/changelog'
 import { LOG_PREFIX, LOG_TTL, type Report } from '../daily/log'
 import { addDevice, TOKENS_KEY } from '../daily/push'
 import { SETTINGS_KEY } from '../daily/settings'
@@ -10,6 +13,10 @@ import { testD1 } from './d1'
 import * as S from './owner-sample'
 
 afterEach(() => { vi.restoreAllMocks() })
+/** The scoreboard's load asks GitHub for its live-check issues (admin/scoreboard.ts queryChecks): none here, and no other request leaves. */
+const GITHUB_API = 'https://api.github.com/'
+const offline = async (u: string | URL | Request) => (String(u).startsWith(GITHUB_API) ? Response.json([]) : new Response('offline', { status: 599 }))
+beforeEach(() => { vi.spyOn(globalThis, 'fetch').mockImplementation(offline) })
 
 const REPO = 'https://github.com/deathemperor/aquatome.com'
 const TOKEN = 'dashtoken-0123456789'
@@ -19,7 +26,7 @@ const OFF = { push: { sent: 0, why: 'push_off' } }
 const nothing = { total: 0, items: [] }
 const runs = { runs: 0, failed: 0 }
 const body = (runId = '1001', over: Record<string, unknown> = {}) => JSON.stringify({
-  runId, runUrl: `${REPO}/actions/runs/${runId}`, since: '2026-11-05T00:00:00Z', missing: [], merged: nothing, deploys: runs, engine: runs, commits: { total: 0, parts: [] },
+  runId, runUrl: `${REPO}/actions/runs/${runId}`, since: '2026-11-05T00:00:00Z', missing: [], changes: [], deploys: runs, engine: runs, commits: { total: 0, parts: [] },
   ios: runs, testflight: { uploads: [], failed: 0 }, appStore: runs, watch: runs, failing: [], issues: nothing, notes: 0, prs: { ready: nothing, draft: nothing }, ...over,
 })
 
@@ -83,13 +90,13 @@ test('a body of the wrong shape, or too large, is refused and nothing is stored 
 
 test('the send: from the report\'s own sender to REPORT_TO, text and HTML; the same report in the log for 90 days', async () => {
   const w = world()
-  expect((await post(w.e, body('1001', { merged: { total: 1, items: [{ number: 575, title: 'docs: x', url: `${REPO}/pull/575` }] } }))).status).toBe(200)
+  expect((await post(w.e, body('1001', { changes: [{ area: 'Site', text: 'Readers can attach one photo to a comment.', at: '2026-11-05T10:00:00Z' }] }))).status).toBe(200)
   const mail = w.send.mock.calls[0]![0]
   expect(mail.to).toBe(ADDRESS)
   expect(mail.from).toEqual({ email: 'bao-cao@aquatome.com', name: 'AquaTome' })
   expect(mail.subject).toMatch(/^AquaTome daily · \d+ \w+ · \d+ needs? care$/)
-  expect(mail.text).toContain('#575 docs: x')
-  expect(mail.html).toContain(`<a href="${REPO}/pull/575"`)
+  expect(mail.text).toContain('  Site:\n  - Readers can attach one photo to a comment.')
+  expect(mail.html).toContain('Readers can attach one photo to a comment.</li>')
   const put = w.ab.m.get(`${LOG_PREFIX}1001`)!
   expect(put.opts?.expirationTtl).toBe(90 * 86_400)
   expect(LOG_TTL).toBe(90 * 86_400)
@@ -217,13 +224,22 @@ test('the numbers come from the dashboard\'s loaders, in Vietnam\'s days; a part
   expect((await post(w.e)).status).toBe(200)
   expect(fetch).toHaveBeenCalled()
   const r = stored(w)
-  expect(r.text).toContain('Could not load readers')
+  expect(r.text).toContain('Readers didn’t load')
   expect(r.text).toContain('Could not load the app\'s telemetry')
+  expect(r.text).toContain('SUCCESS, THIS WEEK\nCould not load the scoreboard\'s numbers.')
+  expect(r.text).toContain('Could not load the week\'s success numbers')
   err.mockRestore()
-  // No Analytics Engine yet: the app's line says so too.
+  // No Analytics Engine yet: the app's line says so too, and the scoreboard's.
   const x = world()
   await post(x.e)
   expect(stored(x).text).toContain('Could not load the app\'s telemetry')
+  expect(stored(x).text).toContain('Could not load the scoreboard\'s numbers.')
+  // Analytics Engine up and nothing counted yet: the week's numbers, from the scoreboard's own loader.
+  const y = world({ AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc' })
+  fetch.mockImplementation(async u => (String(u).startsWith('https://api.cloudflare.com/') ? Response.json({ data: [] }) : offline(u)))
+  expect((await post(y.e)).status).toBe(200)
+  expect(stored(y).text).toMatch(/\nSUCCESS, THIS WEEK\n- Readers who found their answer: 0 \(/)
+  expect(stored(y).text).not.toContain('Could not load the week\'s success numbers')
 })
 
 // ——— As the owner set it: email, the phones' notification (daily/settings.ts, daily/push.ts) ———
@@ -247,7 +263,8 @@ async function pushing(answer: (url: string) => Response, email = true) {
   await w.db.prepare('INSERT OR IGNORE INTO users (id, created_at) VALUES (?, ?)').bind('owner-1', '2026-11-01T00:00:00Z').run()
   const app = await createSession(w.db, 'owner-1', 'app', new Date())
   for (const [token, environment] of [[PHONE_A, 'production'], [PHONE_B, 'sandbox']] as const) expect((await register(w.e, app, token, environment)).status).toBe(200)
-  const apns = vi.spyOn(globalThis, 'fetch').mockImplementation(async u => answer(String(u)))
+  const apns = vi.fn(async (u: string, _init?: RequestInit) => answer(u))
+  vi.spyOn(globalThis, 'fetch').mockImplementation(async (u, init) => (String(u).startsWith(GITHUB_API) ? offline(u) : apns(String(u), init)))
   return { ...w, apns, app }
 }
 
@@ -370,9 +387,9 @@ test('the log: nothing yet', async () => {
   expect(r.status).toBe(200)
   expect([r.headers.get('cache-control'), r.headers.get('x-robots-tag')]).toEqual(['no-store', 'noindex, nofollow'])
   const html = await r.text()
-  expect(html).toContain('<h1>Báo cáo hằng ngày</h1>')
-  expect(html).toContain('aria-current="page">Báo cáo hằng ngày<')
-  expect(html).toContain('Chưa có báo cáo nào.')
+  expect(html).toContain('<h1>Daily reports</h1>')
+  expect(html).toContain('aria-current="page">Daily reports<')
+  expect(html).toContain('No reports yet.')
 })
 
 test('the log: newest first, date and time, sent or why not, subject and how many need care; each opens the report as it was sent', async () => {
@@ -384,14 +401,14 @@ test('the log: newest first, date and time, sent or why not, subject and how man
   const list = await (await open(w.e, '/_ab/bao-cao', c)).text()
   const rows = list.split('<ul class="areas">')[1]!.split('</li>').slice(0, 3)
   expect(rows[0]).toContain('2 need care')
-  expect(rows[0]).toContain('Chưa gửi')
-  expect(rows[0]).toContain('chưa có người nhận')
+  expect(rows[0]).toContain('Email not sent')
+  expect(rows[0]).toContain('no recipient')
   expect(rows[0]).toContain('href="/_ab/bao-cao/1003/"')
-  expect(rows[0]).toContain('2 cần xử lý')
+  expect(rows[0]).toContain('2 to handle')
   expect(rows[0]).toContain('<time datetime="2026-11-06T00:00:00.000Z">')
   expect(rows[1]).toContain('<code>E_RECIPIENT_NOT_ALLOWED</code>')
   expect(rows[1]).toContain('5 Nov &lt;b&gt;')
-  expect(rows[2]).toContain('Đã gửi')
+  expect(rows[2]).toContain('Email sent')
   const one = await open(w.e, '/_ab/bao-cao/1003/', c)
   expect(one.status).toBe(200)
   const page = await one.text()
@@ -407,7 +424,7 @@ test('the log after a real report: the page shows what was sent', async () => {
   const { owner: c } = await owner(w)
   await post(w.e)
   const list = await (await open(w.e, '/_ab/bao-cao/', c)).text()
-  expect(list).toContain('Đã gửi')
+  expect(list).toContain('Email sent')
   expect(list).toContain('href="/_ab/bao-cao/1001/"')
   expect(await (await open(w.e, '/_ab/bao-cao/1001/', c)).text()).toContain(stored(w).html)
 })
@@ -421,20 +438,20 @@ test('the log says what went out: the mail, the phones notified, or neither and 
   keep(w, '2004', { when: '2026-11-03T00:00:00.000Z', sent: true, push: { sent: 1, why: 'TooManyRequests' } })
   keep(w, '2005', { when: '2026-11-02T00:00:00.000Z', sent: true, push: { sent: 1, dropped: 2 } })
   const rows = (await (await open(w.e, '/_ab/bao-cao/', c)).text()).split('<ul class="areas">')[1]!.split('</li>')
-  expect(rows[0]).toContain('<span class="chip good">Đã gửi email</span> · <span class="chip good">Đã gửi 2 thông báo</span>')
-  expect(rows[1]).toContain('<span class="chip bad">Chưa gửi thông báo</span>: chưa có khóa APNs')
-  expect(rows[1]).not.toContain('email')
-  expect(rows[2]).toContain('<span class="chip">Không gửi</span>: email và thông báo đều đang tắt')
-  expect(rows[3]).toContain('Đã gửi 1 thông báo</span>: <code>TooManyRequests</code>')
-  expect(rows[4]).toContain('Đã gửi 1 thông báo</span> · <span class="chip">Bỏ 2 điện thoại</span>: đã đăng xuất hoặc không còn nhận thông báo')
-  expect(await (await open(w.e, '/_ab/bao-cao/2002/', c)).text()).toContain('Chưa gửi thông báo</span>: chưa có khóa APNs')
+  expect(rows[0]).toContain('<span class="chip good">Email sent</span> · <span class="chip good">2 notifications sent</span>')
+  expect(rows[1]).toContain('<span class="chip bad">Notification not sent</span>: no APNs key')
+  expect(rows[1]).not.toContain('Email')
+  expect(rows[2]).toContain('<span class="chip">Not sent</span>: email and notifications are both off')
+  expect(rows[3]).toContain('1 notification sent</span>: <code>TooManyRequests</code>')
+  expect(rows[4]).toContain('1 notification sent</span> · <span class="chip">2 phones dropped</span>: signed out or no longer taking notifications')
+  expect(await (await open(w.e, '/_ab/bao-cao/2002/', c)).text()).toContain('Notification not sent</span>: no APNs key')
 })
 
 test('the delivery from the page: its state and a button for each switch, a form only the owner signed in on the web can post', async () => {
   const w = world()
   const { owner: c, reader } = await owner(w)
-  const page = async () => (await (await open(w.e, '/_ab/bao-cao/', c)).text()).split('<h2>Nhận báo cáo</h2>')[1]!.split('<h2>')[0]!
-  expect(await page()).toBe('<p>Email: đang bật. Thông báo trên điện thoại: đang tắt.</p><form class="inline" method="post" action="/_ab/bao-cao/cai-dat"><button name="email" value="0">Tắt email</button><button name="push" value="1">Bật thông báo</button></form>')
+  const page = async () => (await (await open(w.e, '/_ab/bao-cao/', c)).text()).split('<h2>How it reaches you</h2>')[1]!.split('<h2>')[0]!
+  expect(await page()).toBe('<p>Email: on. Phone notifications: off.</p><form class="inline" method="post" action="/_ab/bao-cao/cai-dat"><button name="email" value="0">Turn off email</button><button name="push" value="1">Turn on notifications</button></form>')
   const press = (fields: Record<string, string>, cookie?: string) => handle(new Request('https://x.test/_ab/bao-cao/cai-dat', { method: 'POST', headers: { ...browser, ...(cookie ? { cookie } : {}) }, body: new URLSearchParams(fields) }), w.e)
   // Nobody, another account: not found, nothing changes.
   for (const who of [undefined, reader]) expect((await press({ push: '1' }, who)).status).toBe(404)
@@ -442,8 +459,8 @@ test('the delivery from the page: its state and a button for each switch, a form
   const r = await press({ push: '1' }, c)
   expect([r.status, r.headers.get('location')]).toEqual([303, '/_ab/bao-cao/'])
   expect(JSON.parse(w.ab.m.get(SETTINGS_KEY)!.value)).toEqual({ email: true, push: true })
-  expect(await page()).toContain('<p class="failed" role="status">Email: đang bật. Thông báo trên điện thoại: đang bật, nhưng chưa có điện thoại nào đăng ký và chưa có khóa APNs nên chưa gửi được.')
-  expect(await page()).toContain('<button name="push" value="0">Tắt thông báo</button>')
+  expect(await page()).toContain('<p class="failed" role="status">Email: on. Phone notifications: on, but no phone has signed up and there is no APNs key, so none can go.')
+  expect(await page()).toContain('<button name="push" value="0">Turn off notifications</button>')
   for (const bad of [{}, { push: 'on' }, { email: '2' }] as Record<string, string>[]) expect((await press(bad, c)).status, JSON.stringify(bad)).toBe(400)
   expect((await open(w.e, '/_ab/bao-cao/cai-dat', c)).status).toBe(404)
   expect(JSON.parse(w.ab.m.get(SETTINGS_KEY)!.value)).toEqual({ email: true, push: true })
@@ -459,7 +476,7 @@ test('the log opens only to the owner\'s account signed in on the web', async ()
       const html = await r.text()
       expect(r.status, path).toBe(status)
       expect(html, path).not.toContain('secret')
-      expect(html, path).not.toContain('Các mục quản trị')
+      expect(html, path).not.toContain('Dashboard pages')
     }
     // A token opens no page.
     expect(await (await handle(new Request(`https://x.test${path}`, { headers: { ...browser, authorization: `Bearer ${TOKEN}` } }), w.e)).text(), path).not.toContain('secret')
@@ -474,9 +491,163 @@ test('the log is a section of the app too, reached on the web from its rail (onc
   const { owner: c } = await owner(w)
   for (const page of ['/_ab/', '/_ab/an-trang/']) {
     const html = await (await open(w.e, page, c)).text()
-    expect(html, page).toContain('<li><a href="/_ab/bao-cao/">Báo cáo hằng ngày</a></li>')
+    expect(html, page).toContain('<li><a href="/_ab/bao-cao/">Daily reports</a></li>')
     expect(html.split('<nav')[1]!.split('</nav>')[0]!.match(/href="\/_ab\/bao-cao\/"/g), page).toHaveLength(1)
   }
   // A phone's overview hides the rail: the page itself links it.
   expect((await (await open(w.e, '/_ab/', c)).text()).split('<main>')[1]).toContain('href="/_ab/bao-cao/"')
+})
+
+// ——— The product change log ———
+
+const change = (area: string, text: string, at: string) => ({ area, text, at })
+const changesKept = (w: ReturnType<typeof world>) => JSON.parse(w.ab.m.get(CHANGELOG_KEY)!.value) as unknown[]
+
+test('the change log: the report adds its changes to KV before it sends, each once, cut as the mail is', async () => {
+  const w = world()
+  const order: string[] = []
+  const put = w.ab.ns.put.bind(w.ab.ns)
+  Object.assign(w.ab.ns, { put: async (k: string, v: string, o?: Put['opts']) => { order.push(k); return put(k, v, o) } })
+  w.send.mockImplementation(async () => { order.push('send'); return { messageId: 'm1' } })
+  const a = change('Site', 'Readers can attach one photo to a comment.', '2026-11-05T10:00:00Z')
+  const b = change('App', `Write to ${ADDRESS} or see https://tracker.test/p`, '2026-11-05T09:00:00Z')
+  expect((await post(w.e, body('1001', { changes: [a, b] }))).status).toBe(200)
+  expect(order).toEqual([CHANGELOG_KEY, 'send', `${LOG_PREFIX}1001`])
+  const cutB = { ...b, text: 'Write to [address removed] or see [link removed]' }
+  expect(changesKept(w)).toEqual([a, cutB])
+  // No expiry on the key: a year is kept by the entries' own dates (below).
+  expect(w.ab.m.get(CHANGELOG_KEY)!.opts?.expirationTtl).toBeUndefined()
+  // The same run again, then a run by hand within the day with the same pull requests and a new one: each kept once.
+  await post(w.e, body('1001', { changes: [a, b] }))
+  const c = change('Engine', 'Guides keep their photos.', '2026-11-05T20:00:00Z')
+  await post(w.e, body('1002', { changes: [c, a, b] }))
+  expect(changesKept(w)).toEqual([c, a, cutB])
+  // A day with none writes nothing.
+  const quiet = world()
+  await post(quiet.e)
+  expect(quiet.ab.m.has(CHANGELOG_KEY)).toBe(false)
+})
+
+const land = (e: Env, b: string, headers: Record<string, string> = { authorization: `Bearer ${TOKEN}` }, method = 'POST') => handle(new Request('https://x.test/_ab/changelog', { method, headers, ...(method === 'POST' ? { body: b } : {}) }), e)
+
+test('POST /_ab/changelog: a merge\'s lines are on the card at once, and the report that follows doesn\'t double them', async () => {
+  const w = world()
+  const at = new Date(Date.now() - 3_600_000).toISOString()
+  const lines = [change('Site', 'A comment waits for review.', at), change('App', 'The tanks tab matches its design.', at)]
+  const r = await land(w.e, JSON.stringify({ changes: lines }))
+  expect(r.status).toBe(200)
+  expect(await r.json()).toEqual({ ok: true, added: 2 })
+  expect(changesKept(w)).toEqual(lines)
+  expect(todayPage(await loadToday(w.e as never, new URL('https://x.test/_ab/'), new Date(), 'Asia/Ho_Chi_Minh'))).toContain('Changelog · 2 in 24 h')
+
+  // The next push sends them again, and the report after it: kept once.
+  expect(await (await land(w.e, JSON.stringify({ changes: lines }))).json()).toEqual({ ok: true, added: 0 })
+  expect((await post(w.e, body('1002', { changes: lines }))).status).toBe(200)
+  expect(changesKept(w)).toEqual(lines)
+})
+
+test('POST /_ab/changelog: the dashboard token only; a body of any other shape is refused and nothing is kept', async () => {
+  const w = world()
+  const good = JSON.stringify({ changes: [change('Site', 'A.', '2026-11-05T00:00:00Z')] })
+  expect((await land(w.e, good, {})).status).toBe(404)
+  expect((await land(w.e, good, { authorization: 'Bearer wrong' })).status).toBe(404)
+  expect((await land(w.e, '', { authorization: `Bearer ${TOKEN}` }, 'GET')).status).toBe(404)
+  for (const bad of ['not json', '{}', '{"changes":"x"}', JSON.stringify({ changes: [change('Nope', 'A.', '2026-11-05T00:00:00Z')] }), JSON.stringify({ changes: Array(101).fill(change('Site', 'A.', '2026-11-05T00:00:00Z')) })])
+    expect((await land(w.e, bad)).status, bad.slice(0, 40)).toBe(400)
+  expect(w.ab.m.has(CHANGELOG_KEY)).toBe(false)
+})
+
+test('the change log keeps a year: what is older leaves on the next write; nothing new, nothing written', async () => {
+  const w = world()
+  const now = new Date('2026-11-06T00:00:00Z')
+  const old = change('Site', 'Old.', '2025-11-01T00:00:00Z')
+  const recent = change('Site', 'Recent.', '2025-11-07T00:00:00Z')
+  w.ab.m.set(CHANGELOG_KEY, { value: JSON.stringify([recent, old]) })
+  const put = vi.spyOn(w.ab.ns, 'put')
+  expect(await addChanges(w.ab.ns, [], now)).toBe(0)
+  expect(await addChanges(w.ab.ns, [recent as never], now)).toBe(0)
+  expect(put).not.toHaveBeenCalled()
+  const fresh = change('App', 'New.', '2026-11-05T00:00:00Z')
+  expect(await addChanges(w.ab.ns, [fresh as never], now)).toBe(1)
+  expect(changesKept(w)).toEqual([fresh, recent])
+})
+
+test('the change log: a write that fails sends nothing; the next try writes it, then sends', async () => {
+  const log = vi.spyOn(console, 'error').mockImplementation(() => {})
+  const w = world()
+  const down = { ...w.e, AB: Object.assign(Object.create(w.ab.ns), { put: vi.fn(async () => { throw new Error('KV 429') }) }) } as unknown as Env
+  const changes = [change('Site', 'One.', '2026-11-05T10:00:00Z')]
+  expect((await post(down, body('1001', { changes }))).status).toBe(503)
+  expect(w.send).not.toHaveBeenCalled()
+  expect((await post(w.e, body('1001', { changes }))).status).toBe(200)
+  expect(w.send).toHaveBeenCalledTimes(1)
+  expect(changesKept(w)).toEqual(changes)
+  log.mockRestore()
+})
+
+test('the change log page: nothing yet', async () => {
+  const w = world()
+  const { owner: c } = await owner(w)
+  const r = await open(w.e, '/_ab/thay-doi/', c)
+  expect(r.status).toBe(200)
+  expect([r.headers.get('cache-control'), r.headers.get('x-robots-tag')]).toEqual(['no-store', 'noindex, nofollow'])
+  const html = await r.text()
+  expect(html).toContain('<h1>Changelog</h1>')
+  expect(html).toContain('aria-current="page">Changelog<')
+  expect(html).toContain('No changes yet.')
+})
+
+const heads = (html: string) => html.split('<section><h3>').slice(1).map(d => d.split('</h3>')[0])
+
+test('the change log page: by the day each merged in the viewer\'s zone, newest first; the site, the app, the engine; each line once; escaped', async () => {
+  const w = world()
+  const { owner: c } = await owner(w)
+  w.ab.m.set(CHANGELOG_KEY, { value: JSON.stringify([
+    change('App', 'The app opens links.', '2026-11-05T10:00:00Z'),
+    change('Engine', 'Guides keep their photos.', '2026-11-05T20:00:00Z'), // 6 Nov, 3:00 in Vietnam
+    change('Site', 'Shop links fit <small> phones.', '2026-11-05T16:00:00Z'), // 5 Nov, 23:00
+    change('Site', 'Readers can search.', '2026-11-05T09:00:00Z'),
+    change('Site', 'Readers can search.', '2026-11-05T08:00:00Z'),
+  ]) })
+  const html = await (await open(w.e, '/_ab/thay-doi/', c)).text()
+  expect(heads(html)).toEqual(['Fri 6 Nov 2026', 'Thu 5 Nov 2026'])
+  const days = html.split('<section><h3>').slice(1)
+  expect(days[0]).toContain('<li><p>Guides keep their photos.</p><small>Content engine</small></li>')
+  expect([...days[1]!.matchAll(/<li><p>(.*?)<\/p><small>(.*?)<\/small>/g)].map(m => [m[1], m[2]])).toEqual([
+    ['Shop links fit &lt;small&gt; phones.', 'Site'], ['Readers can search.', 'Site'], ['The app opens links.', 'App'],
+  ])
+  // A viewer in New York: every one of them on the 5th.
+  const ny = await (await open(w.e, '/_ab/thay-doi/', `${c}; aq_tz=America%2FNew_York`)).text()
+  expect(heads(ny)).toEqual(['Thu 5 Nov 2026'])
+})
+
+test('the change log page: a key that can\'t be read says so in its place', async () => {
+  const log = vi.spyOn(console, 'error').mockImplementation(() => {})
+  const w = world()
+  const { owner: c } = await owner(w)
+  const down = { ...w.e, AB: Object.assign(Object.create(w.ab.ns), { get: async () => { throw new Error('KV down') } }) } as unknown as Env
+  const html = await (await open(down, '/_ab/thay-doi/', c)).text()
+  expect(html).toContain('Couldn’t load the changelog.<code>KV down</code>')
+  log.mockRestore()
+})
+
+test('the change log page: the owner\'s alone; on the web dashboard\'s rail, and one of the app\'s sections', async () => {
+  const w = world()
+  const { owner: c, reader } = await owner(w)
+  w.ab.m.set(CHANGELOG_KEY, { value: JSON.stringify([change('Site', 'secret change', '2026-11-05T10:00:00Z')]) })
+  for (const [cookie, status] of [[undefined, 200], [reader, 403]] as const) {
+    const r = await open(w.e, '/_ab/thay-doi/', cookie)
+    const html = await r.text()
+    expect(r.status).toBe(status)
+    expect(html).not.toContain('secret')
+    expect(html).not.toContain('Dashboard pages')
+  }
+  // The dashboard token opens no page.
+  expect(await (await handle(new Request('https://x.test/_ab/thay-doi/', { headers: { ...browser, authorization: `Bearer ${TOKEN}` } }), w.e)).text()).not.toContain('secret')
+  expect(await (await open(w.e, '/_ab/thay-doi/', c)).text()).toContain('secret change')
+  // NAV and SECTIONS are the iOS app's contract (protocols/owner-dashboard.openapi.json): the change log is in it (docs/design/dashboard.md).
+  expect(NAV.map(([p]) => p)).toContain('/_ab/thay-doi/')
+  expect(SECTIONS.map(s => s.key)).toContain('thay-doi')
+  expect(WEB_PAGES).toContain('/_ab/thay-doi/')
+  expect(await (await open(w.e, '/_ab/', c)).text()).toContain('<li><a href="/_ab/thay-doi/">Changelog</a></li>')
 })

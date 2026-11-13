@@ -10,6 +10,186 @@
     "brazil",
     "parnaiba"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Parnaíba",
+        "Guamá",
+        "Maracanã",
+        "Mearim",
+        "Turiaçu",
+        "Caeté"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to coastal river systems south of the Amazon delta in the states of Piauí, Maranhão, Pará, and Amapá, northeastern Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has been recorded from the rios Guamá (including tributaries such as the rio Ararandeua), Maracanã (rio Peixe-Boi), Morcego, Parnaíba, Piriá, Caeté, Turiaçu (rio Jamari), and Mearim (rio Pindaré).",
+          "countries": [],
+          "regions": [
+            "Parnaíba",
+            "Guamá",
+            "Maracanã",
+            "Mearim",
+            "Turiaçu",
+            "Caeté"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342734,
+      "total": 79,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          75
+        ],
+        [
+          "GF",
+          2
+        ],
+        [
+          "CO",
+          1
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -52.03125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -7.03125,
+          5,
+          5
+        ],
+        [
+          -50.625,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          14,
+          14
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          27,
+          27
+        ],
+        [
+          -46.40625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -45,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -39.375,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -154,8 +334,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90x30 cm",
-        "bể cá 80 lít"
+        "bể cá 90cm"
       ]
     },
     {

@@ -2,7 +2,12 @@
   "id": "sundadanio-axelrodi",
   "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": null,
-  "speciesUpdatedAt": "2026-10-29",
-  "generatedAt": "2026-10-29T15:33:49.839Z"
+  "schoolMin": 20,
+  "speciesUpdatedAt": "2026-11-06",
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-08T19:54:20.345Z"
 }

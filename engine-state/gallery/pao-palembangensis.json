@@ -10,10 +10,6 @@
   "File:Full inflated Pao palembangensis.jpg"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/2851b91bb01f5072.webp": "791dcadaf2637103",
-  "https://media.aquatome.com/commons/b4e30ced185ca67f.webp": "1323232fb5b5b023",
-  "https://media.aquatome.com/commons/4bbdfb38919cf929.webp": "467a7a8c6cda8003",
-  "https://media.aquatome.com/commons/a463f355b04d79e5.webp": "99ba8abb311b86e0",
   "https://media.aquatome.com/inaturalist/433951347.webp": "99938f3368f0f8f8",
   "https://media.aquatome.com/inaturalist/433952705.webp": "2732c21cc8f0c1c3"
  },
@@ -25,5 +21,9 @@
    "agree": 243375040
   }
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "gbif": {
+  "key": 8413659,
+  "next": null
+ }
 }

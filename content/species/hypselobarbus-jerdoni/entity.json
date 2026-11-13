@@ -11,6 +11,77 @@
     "karnataka",
     "kerala"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Bharathapuzha",
+        "Chandragiri"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It is an endemic species of southern India, where it is found in the states of Karnataka and Kerala.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The only specific locality information available states that it was collected from Canara in Karnataka and the Bharathapuzha and Chandragiri rivers in Kerala.",
+          "countries": [],
+          "regions": [
+            "Bharathapuzha",
+            "Chandragiri"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366513,
+      "total": 22,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "IN",
+          22
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          11.25,
+          13,
+          13
+        ],
+        [
+          74.53125,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          74.53125,
+          16.875,
+          4,
+          4
+        ],
+        [
+          77.34375,
+          15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -58,7 +129,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -189,8 +260,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn",
-        "bể cá 300cm"
+        "bể cá 240cm"
       ]
     },
     {

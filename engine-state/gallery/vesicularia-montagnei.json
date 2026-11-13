@@ -1,7 +1,11 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "flickr:14441185564"
+ ],
+ "hashes": {
+  "https://live.staticflickr.com/5077/14441185564_b69bac8a76_b.jpg": "4109141928323216"
+ },
  "inat": {
   "taxon": 818749,
   "pass": "done",
@@ -14,5 +18,9 @@
  "gbif": {
   "key": 5283694,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-08"
 }

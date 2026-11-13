@@ -4,12 +4,38 @@
   "File:Archocentrus sajica 2 (Piotr Kuczynski).jpg",
   "File:Archocentrus sajica 3 (Piotr Kuczynski).jpg",
   "File:Amatitlania sajica.jpg",
-  "File:Amatitlania sajica croped better.jpg"
+  "File:Amatitlania sajica croped better.jpg",
+  "inat:357143044",
+  "inat:368072783",
+  "inat:398224537",
+  "inat:398223176",
+  "inat:398223403",
+  "inat:398246040",
+  "inat:398246149",
+  "inat:398246261",
+  "inat:398247204",
+  "inat:398247330",
+  "inat:398247473",
+  "inat:458217364"
  ],
  "hashes": {
   "https://media.aquatome.com/glaser/91250ccece9ac688.webp": "765e0743434699b5",
   "https://media.aquatome.com/commons/ba9d7f89f9efca90.webp": "a293847630a9d9e4",
-  "https://media.aquatome.com/commons/377c13116b2ac7f8.webp": "80c1838124f8d972"
+  "https://media.aquatome.com/commons/377c13116b2ac7f8.webp": "80c1838124f8d972",
+  "https://media.aquatome.com/inaturalist/357143044.webp": "8181200000801004",
+  "https://media.aquatome.com/inaturalist/458217364.webp": "4d4e4d0e301b2399"
  },
- "commons": "2026-11-03"
+ "commons": "2026-11-03",
+ "inat": {
+  "taxon": 623712,
+  "pass": "done",
+  "after": {
+   "research": 255663363,
+   "agree": 271979694
+  }
+ },
+ "gbif": {
+  "key": 9485346,
+  "next": null
+ }
 }

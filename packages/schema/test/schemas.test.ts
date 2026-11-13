@@ -38,3 +38,57 @@ test("a guide photo keeps its section's heading in a language the site doesn't s
   const g = GuideSchema.parse({ id: 'g', kind: 'care', source: 'aquariumcoop', sourceUrl: 'https://x', html: '', photos: [photo], mentions: [], updatedAt: '2026-11-06' })
   expect(g.photos[0]!.section).toEqual({ vi: 'Lọc', id: 'Filter', ms: 'Penapis' })
 })
+
+test("a card: an event names its event, a product card its product, and no window ends before it starts; the gate's held is kept", async () => {
+  const { CardSchema, CardTextSchema } = await import('../src/index')
+  const base = { id: 'x', type: 'trivia', sources: [{ url: 'https://example.org/a', title: 'A', publisher: 'P', date: '2026-11-01', accessed: '2026-11-08' }], show: { from: '2026-11-10', until: '2026-11-20' }, updatedAt: '2026-11-08' }
+  expect(CardSchema.safeParse(base).success).toBe(true)
+  for (const bad of [{ type: 'event' }, { type: 'product' }, { show: { from: '2026-11-10', until: '2026-11-01' } }, { sources: [] }, { type: 'quiz' }, { about: ['places/hanoi'] }, { event: { start: '2026-11-16', end: '2026-11-15', place: 'x', country: 'VN', organiser: 'y' } }]) expect(CardSchema.safeParse({ ...base, ...bad }).success, JSON.stringify(bad)).toBe(false)
+  expect(CardSchema.safeParse({ ...base, type: 'product', product: 'products/a-heater' }).success).toBe(true)
+  // A source is dated as precisely as it is: a paper often only by its year.
+  for (const date of ['1998', '2024-06', '2025-07-23']) expect(CardSchema.safeParse({ ...base, sources: [{ ...base.sources[0], date }] }).success, date).toBe(true)
+  for (const date of ['98', '2024-6', 'n.d.']) expect(CardSchema.safeParse({ ...base, sources: [{ ...base.sources[0], date }] }).success, date).toBe(false)
+  const held = { checks: ['words'], at: '2026-11-08T00:00:00Z' }
+  expect(CardTextSchema.parse({ eyebrow: 'e', title: 't', body: '<p>b</p>', held }).held).toEqual(held)
+  // The eyebrow and title fit Hôm nay's card at the largest text size.
+  expect(CardTextSchema.safeParse({ eyebrow: 'e'.repeat(24), title: 't'.repeat(70), body: '<p>b</p>' }).success).toBe(true)
+  expect(CardTextSchema.safeParse({ eyebrow: 'e'.repeat(25), title: 't', body: '<p>b</p>' }).success).toBe(false)
+  expect(CardTextSchema.safeParse({ eyebrow: 'e', title: 't'.repeat(71), body: '<p>b</p>' }).success).toBe(false)
+})
+
+test("the calendar names a card for a day in the story's place, never both", async () => {
+  const { CurationSchema } = await import('../src/index')
+  const cal = (day: object) => CurationSchema.safeParse({ version: 1, weeks: [], days: [{ date: '2026-11-10', ...day }] }).success
+  expect(cal({ card: 'cards/trivia-betta' })).toBe(true)
+  expect(cal({ card: 'guides/x' })).toBe(false)
+  expect(cal({ card: 'cards/trivia-betta', story: { page: 'guides/x' } })).toBe(false)
+})
+
+test('a loop cut from YouTube is CC BY 3.0 and keeps its whole record: title, cut, the day the licence was read, a dated copy', async () => {
+  const { LoopSchema } = await import('../src/curation')
+  const yt = {
+    src: 'https://media.aquatome.com/loops/x-1.mp4', poster: 'https://media.aquatome.com/loops/x-1.webp', w: 1080, h: 1080, seconds: 8,
+    licence: 'CC BY 3.0', licenceUrl: 'https://creativecommons.org/licenses/by/3.0/', author: 'A channel', source: 'https://www.youtube.com/watch?v=XeeAEokdrR0',
+    title: 'A title', cut: { from: 266, to: 275 }, checkedAt: '2026-11-08', snapshot: 'https://web.archive.org/web/20261108154552/https://www.youtube.com/watch?v=XeeAEokdrR0',
+  }
+  expect(LoopSchema.safeParse(yt).success).toBe(true)
+  for (const k of ['title', 'cut', 'checkedAt', 'snapshot'] as const) expect(LoopSchema.safeParse({ ...yt, [k]: undefined }).success, k).toBe(false)
+  expect(LoopSchema.safeParse({ ...yt, licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/' }).success).toBe(false)
+  expect(LoopSchema.safeParse({ ...yt, source: 'https://youtu.be/XeeAEokdrR0' }).success).toBe(false)
+  expect(LoopSchema.safeParse({ ...yt, cut: { from: 274, to: 266 } }).success).toBe(false)
+  // The snapshot is a dated Internet Archive copy of this video's page, not another's or an undated one.
+  for (const snapshot of [
+    'https://web.archive.org/web/20261108154552/https://www.youtube.com/watch?v=ZgYIaxohVJM',
+    'https://web.archive.org/web/2026/https://www.youtube.com/watch?v=XeeAEokdrR0',
+    'https://archive.ph/20261108154552/https://www.youtube.com/watch?v=XeeAEokdrR0',
+    'https://web.archive.org/web/20261108154552/https://www.youtube.com/watch?v=XeeAEokdrR0&t=1',
+  ]) expect(LoopSchema.safeParse({ ...yt, snapshot }).success, snapshot).toBe(false)
+  // Its length fits its cut: the cut less a crossfade of up to a second (8 s from 9 s), or twice it played back and forth.
+  expect(LoopSchema.safeParse({ ...yt, cut: { from: 266, to: 274 } }).success).toBe(true)
+  expect(LoopSchema.safeParse({ ...yt, cut: { from: 266, to: 270 } }).success).toBe(true)
+  expect(LoopSchema.safeParse({ ...yt, cut: { from: 266, to: 280 } }).success).toBe(false)
+  expect(LoopSchema.safeParse({ ...yt, cut: { from: 266, to: 272 } }).success).toBe(false)
+  // A loop from elsewhere (Commons, Internet Archive) needs none of it.
+  const { title: _t, cut: _c, checkedAt: _d, snapshot: _s, ...bare } = yt
+  expect(LoopSchema.safeParse({ ...bare, licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/', source: 'https://commons.wikimedia.org/wiki/File:X.webm' }).success).toBe(true)
+})

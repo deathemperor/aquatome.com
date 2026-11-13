@@ -1,0 +1,188 @@
+{
+  "id": "hemibarbus-longirostris",
+  "native": {
+    "input": "c27bd5b4f96cb652",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemibarbus longirostris is a cyprinid native to far eastern Asia, including northeastern China, southeastern Russia, the Korean peninsula and Japan.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemibarbus longirostris is a cyprinid native to far eastern Asia, including northeastern China, southeastern Russia, the Korean peninsula and Japan.",
+        "words": "Russia",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemibarbus longirostris is a cyprinid native to far eastern Asia, including northeastern China, southeastern Russia, the Korean peninsula and Japan.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to far eastern Asia, including northeastern China, southeastern Russia, the Korean peninsula, and Japan.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to far eastern Asia, including northeastern China, southeastern Russia, the Korean peninsula, and Japan.",
+        "words": "Russia",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to far eastern Asia, including northeastern China, southeastern Russia, the Korean peninsula, and Japan.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Chong-ju, South Korea'.",
+        "words": "South Korea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Korean peninsula",
+        "source": "seriouslyfish",
+        "quote": "Native to far eastern Asia, including northeastern China, southeastern Russia, the Korean peninsula, and Japan.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "KP"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemibarbus longirostris",
+    "status": "ACCEPTED",
+    "taxonKey": 2365991,
+    "datasets": [
+      [
+        "1e09d985-8f58-4a34-ab86-17e55f203c8a",
+        2606
+      ],
+      [
+        "8129ab94-f762-11e1-a439-00145eb45e9a",
+        328
+      ],
+      [
+        "6c827cf4-5d22-454e-98b1-4acbf0cb5aca",
+        88
+      ],
+      [
+        "e3fa679e-4b19-441f-bdbb-f292416e5d34",
+        87
+      ],
+      [
+        "c6859214-65a4-4563-8d17-d464541af191",
+        84
+      ],
+      [
+        "d74d1313-04f6-4e91-8732-b6d5282416dc",
+        64
+      ],
+      [
+        "f1fc52ac-895e-47f2-9361-d033c6479f7c",
+        46
+      ],
+      [
+        "a332915e-9950-4747-ab3b-b7eeafaf46d8",
+        19
+      ],
+      [
+        "bee4a65e-e1cb-4b60-89e8-0c1c9d9f36ee",
+        19
+      ],
+      [
+        "58a115ae-a7f9-4657-b54d-5611437083c0",
+        14
+      ],
+      [
+        "07527ec0-e9e5-4994-8f8c-09c55323ce8d",
+        10
+      ],
+      [
+        "8a10929f-9729-408b-ad1a-2a86d56fa9e0",
+        9
+      ],
+      [
+        "116e8fa0-9c0f-43e3-9765-d0a2b040d9c5",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "03297f62-389d-4c67-8f3a-2ab8df14159f",
+        3
+      ],
+      [
+        "5f8cfa10-8dcc-470a-a9a0-5800bfe6e5b7",
+        3
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "84899ff6-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "11ddb63e-cdd8-4ba4-b0f8-953166ddc075",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "RU",
+      "JP",
+      "KR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

@@ -42,14 +42,20 @@ const bare = (ws: string[]) => {
 /**
  * Two names a reader can't tell apart: case, accents, punctuation and a leading classifier aside. Words stay words: a
  * search for "horse face loach" doesn't find "Horseface loach", so the two are both kept. Thai is written with or
- * without spaces, so it is compared without.
+ * without spaces, so it is compared without; a Thai classifier before a name in another script doesn't make it Thai.
  */
-export const altKey = (s: string) => bare(words(s)).map(nameKey).join(/\p{Script=Thai}/u.test(s) ? '' : ' ')
+export const altKey = (s: string) => {
+  // Thai by what is left once its classifier is off: "ปลา Chili rasbora" is "chili rasbora" (Astra, 2026-11-13).
+  const ws = bare(words(s))
+  return ws.map(nameKey).join(ws.some(w => /\p{Script=Thai}/u.test(w)) ? '' : ' ')
+}
 /** "Cá betta (cá xiêm)" → the whole, "Cá betta" and "cá xiêm". */
 const parts = (s: string) => {
   const m = s.match(/^(.+?)\s*\(([^()]+)\)\s*$/)
   return m ? [s, m[1]!, m[2]!] : [s]
 }
+/** Brackets that are a note on the name, not another name or a form: "(tên quen gọi, dù cá gốc Nam Mỹ)", "(tên chung của loài)". */
+const NAME_NOTE = /^tên\s/iu
 const colourless = (ws: string[]) => nameKey(bare(ws.filter(w => !COLOURS.has(w))).join(' '))
 /** Where a marker's words stand in a name's words. */
 const markerAt = (ws: string[], m: string[]) => ws.findIndex((_, i) => m.every((w, j) => ws[i + j] === w))
@@ -90,8 +96,36 @@ function better(a: string, b: string) {
 }
 
 /**
+ * Names a person found are another fish's, by the scientific name of the page that had them: kept off it in every
+ * language (the name with or without "Cá", "Ikan", "ปลา"), however a later read brings them back. `of`: the page whose
+ * name it is, or the fish's when the site has no page. A name the trade shares between look-alikes (the rummy-noses)
+ * isn't here: their pages tell them apart instead.
+ */
+const of = (page: string, ...names: string[]) => names.map(name => ({ name, of: page }))
+export const NOT_ITS: Readonly<Record<string, readonly { name: string; of: string }[]>> = {
+  // 2026-11-13: the model that read BWAquatics and Glaser on 29 Oct gave the phoenix rasbora the chili rasbora's name;
+  // neither source says it.
+  'Boraras merah': of('boraras-brigittae', 'Chili rasbora'),
+  // The chief of staff's ten of 2026-11-13, the most-kept fish first: each name is the other page's.
+  'Devario aequipinnatus': of('danio-rerio', 'Cá danio sọc'),
+  'Poecilia latipinna': of('poecilia-sphenops', 'Cá molly'),
+  'Glossolepis incisus': of('melanotaenia-affinis', 'Cá cầu vồng New Guinea', 'New Guinea rainbowfish', 'New Guinea rainbow'),
+  'Alestopetersius hilgendorfi': of('phenacogrammus-interruptus', 'Cá tetra Congo', 'Congo tetra'),
+  'Phenacogrammus aurantiacus': of('phenacogrammus-interruptus', 'Cá tetra Congo', 'Congo tetra'),
+  // "Cá hề" alone is the marine clownfish to readers here (Amphiprion; Vietnamese Wikipedia).
+  'Chitala ornata': of('the marine clownfish (Amphiprion)', 'Cá hề'),
+  'Chromobotia macracanthus': of('the marine clownfish (Amphiprion)', 'Cá hề'),
+  // The trade sells C. trilineatus as julii: each page keeps its own names.
+  'Corydoras julii': of('corydoras-trilineatus', 'Cá chuột ba sọc', 'Three-lined cory'),
+  'Corydoras trilineatus': of('corydoras-julii', 'Cá chuột julii', 'Julii cory', 'Julii corydoras'),
+  'Ambastaia sidthimunki': of('corydoras-pygmaeus', 'Cá chuột lùn'),
+  'Trichopsis pumila': of('trichogaster-lalius', 'Cá sặc lùn'),
+}
+
+/**
  * A species page's other names in one language, cleaned: each name off it with why. Keeps the names' order (one name
  * written several ways stands where its first form stood, in its best-written form).
+ * - a name a person found is another fish's (NOT_ITS): that fish's page has it.
  * - a name that is a breed page's name ("Bubble Eye Goldfish" for the Bubble eye goldfish page, "Cá GloFish"): that page
  *   is found by it. Only a breed's own name, never its other names: a name both list is the species' and leaves the
  *   breed (cleanBreedAltNames). A breed whose name is the species' own (the koi and Cyprinus rubrofuscus, "Cá koi") takes none.
@@ -100,6 +134,8 @@ function better(a: string, b: string) {
  *   its kinds, and keeps them.
  * - a name written twice ("Siamese Fighting Fish"), the page's own name again, its scientific name with "Cá" before
  *   it, or "X (Y)" where X and Y are both its names already.
+ * - a name the page also has with a note on it ("Cá tai tượng châu Phi (tên quen gọi, dù cá gốc Nam Mỹ)"): the noted
+ *   one stays.
  */
 export function cleanAltNames(page: { name: string; sci: string; altNames: string[] }, breeds: BreedName[] = []): { altNames: string[]; off: NameOff[] } {
   const off: NameOff[] = []
@@ -121,6 +157,8 @@ export function cleanAltNames(page: { name: string; sci: string; altNames: strin
     if (!key) continue
     const breed = breedOf.get(key)
     if (breed) { off.push({ name: raw, why: 'breed', of: breed }); continue }
+    const other = NOT_ITS[page.sci]?.find(x => altKey(x.name) === key)
+    if (other) { off.push({ name: raw, why: 'species', of: other.of }); continue }
     kept.push(name)
   }
   // The species' own names, colours left out: what a form's name must come down to ("Cá betta", "Betta", "Betta splendens"),
@@ -155,10 +193,19 @@ export function cleanAltNames(page: { name: string; sci: string; altNames: strin
   }
   // "X (Y)" whose X and Y are both names the page has.
   const have = new Set([...nameParts, sci, ...out.map(altKey)])
-  const altNames = out.filter(n => {
+  const distinct = out.filter(n => {
     const p = parts(n)
     if (p.length < 3 || !p.slice(1).every(x => have.has(altKey(x)))) return true
     off.push({ name: n, why: 'duplicate', of: `${p[1]} / ${p[2]}` })
+    return false
+  })
+  // A name with a note on the name ("Cá tai tượng châu Phi (tên quen gọi, dù cá gốc Nam Mỹ)"): the same name without it
+  // leaves, as a translation may bring it back, and the note says what the bare name can't.
+  const noted = new Map(distinct.flatMap(n => { const p = parts(n); return p.length === 3 && NAME_NOTE.test(p[2]!) ? [[altKey(p[1]!), n] as const] : [] }))
+  const altNames = distinct.filter(n => {
+    const by = noted.get(altKey(n))
+    if (!by) return true
+    off.push({ name: n, why: 'duplicate', of: by })
     return false
   })
   return { altNames, off }
@@ -242,4 +289,36 @@ export async function breedNames(content: string, lang: string): Promise<BreedNa
 export function keptOf(page: { name: string; sci: string; altNames: string[] }, breeds: BreedName[], add: string[]): string[] {
   const { altNames } = cleanAltNames({ ...page, altNames: [...page.altNames, ...add] }, breeds)
   return add.filter(n => altNames.includes(n))
+}
+
+/**
+ * Places hobby names carry, as they are written: "Rêu Java", "Cỏ Nhật Bản". A list, not every place the site has a page
+ * for: "anh đào" (cherry), "trang trí", "cá úc" and Latin epithets ("niger", "tigris") are words, not places. A continent
+ * is "châu Phi", "châu Á" (sanitize.ts WORDING), so none is here.
+ */
+export const NAME_PLACES = ['Java', 'Borneo', 'Sumatra', 'Sulawesi', 'Kalimantan', 'Bali', 'Nhật Bản', 'Thái Lan', 'Ấn Độ', 'Trung Quốc', 'Đài Loan',
+  'Hồng Kông', 'Việt Nam', 'Nam Mỹ', 'Amazon', 'Mekong', 'Malawi', 'Tanganyika', 'Congo', 'Madagascar', 'Sri Lanka']
+const PLACE = new RegExp(`(?<![\\p{L}\\p{M}])(?:${NAME_PLACES.join('|')})(?![\\p{L}\\p{M}])`, 'giu')
+/** "Cây thủy sinh" (aquatic plant) before a plant's name, when a name follows. */
+const AQUATIC_PLANT = /^cây th(?:ủy|uỷ) sinh\s+(?=\S)/iu
+
+/**
+ * A Vietnamese page name as hobbyists write it, on a species, plant or breed page: a place keeps its capital ("Rêu java"
+ * beside "Dương xỉ Java", NAME_PLACES), and a plant's name has no "Cây thủy sinh" before it, which says again what a list
+ * of plants already says ("Cây thủy sinh Vallisneria (cỏ lươn)" wrapped on the home page's plant row). Found in a design
+ * review of the home page, 2026-11-07.
+ */
+export function tidyName(name: string, kind: string): string {
+  const n = kind === 'plants' && AQUATIC_PLANT.test(name) ? name.replace(AQUATIC_PLANT, '').replace(/^\p{Ll}/u, c => c.toUpperCase()) : name
+  return n.replace(PLACE, w => NAME_PLACES.find(p => p.toLowerCase() === w.toLowerCase()) ?? w)
+}
+
+/**
+ * A page's names tidied (tidyName): its name, unless a person fixed it (`nameFixed`), and its other names, each once and
+ * never its name again ("Nymphoides hydrophylla 'Taiwan'" once "Cây thủy sinh" goes). The same object when nothing changes.
+ */
+export function tidyNames<T extends { name: string; altNames: string[]; nameFixed?: boolean }>(t: T, kind: string): T {
+  const name = t.nameFixed ? t.name : tidyName(t.name, kind)
+  const altNames = [...new Set(t.altNames.map(a => tidyName(a, kind)))].filter(a => a !== name)
+  return name === t.name && JSON.stringify(altNames) === JSON.stringify(t.altNames) ? t : { ...t, name, altNames }
 }

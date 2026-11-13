@@ -1,0 +1,91 @@
+{
+  "id": "lamontichthys-llanero",
+  "native": {
+    "input": "484edabf4e5a7e84",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Lamontichthys llanero is a suckermouth catfish from the Orinoco basin in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is named after the Llanos in Venezuela, where it occurs.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Lamontichthys llanero is a suckermouth catfish from the Orinoco basin in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Llanos",
+        "source": "glaser",
+        "quote": "The species is named after the Llanos in Venezuela, where it occurs.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lamontichthys llanero",
+    "status": "ACCEPTED",
+    "taxonKey": 2340126,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        51
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        13
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        8
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "bb1f4643-8a9a-4d72-b631-88a41c0528bc",
+        2
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

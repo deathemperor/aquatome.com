@@ -9,6 +9,119 @@
     "africa",
     "madagascar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MG"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Many of the endemic species of cichlid from the island of Madagascar are endangered of extinction.",
+          "countries": [
+            "MG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370007,
+      "total": 32,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "MG",
+          32
+        ]
+      ],
+      "cells": [
+        [
+          42.1875,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          43.59375,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          45,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          46.40625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          46.40625,
+          -23.90625,
+          6,
+          6
+        ],
+        [
+          46.40625,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          46.40625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          47.8125,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          47.8125,
+          -21.09375,
+          3,
+          3
+        ],
+        [
+          47.8125,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          47.8125,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          47.8125,
+          -14.0625,
+          7,
+          7
+        ],
+        [
+          49.21875,
+          -18.28125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -52,7 +165,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 4
+        "value": 2
       }
     ]
   },
@@ -139,7 +252,12 @@
       "author": "Michael K. Oliver, Ph.D.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paratilapia_polleni_Bleeker.jpg",
       "caption": "A primitive cichlid from Madagascar, Paratilapia polleni Bleeker, photographed at the Berlin Aquarium.",
-      "thumb": "https://media.aquatome.com/commons/bd5050796a74dc6d-480.webp"
+      "thumb": "https://media.aquatome.com/commons/bd5050796a74dc6d-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/bd5050796a74dc6d-large.webp",
+        "width": 1200,
+        "height": 749
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/0883006ba90220ad.webp",
@@ -150,16 +268,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_-_Paratilapia_polleni.JPG",
       "caption": "Adult of Paratilapia polleni, on display at the Museo di Storia Naturale e del Territorio, Calci (Province Pisa), Italy",
       "thumb": "https://media.aquatome.com/commons/0883006ba90220ad-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/d30b3d40b2adff2a.webp",
-      "width": 960,
-      "height": 1366,
-      "licence": "Public domain",
-      "author": "text: Alfred Grandidier (1836-1921) artists: various (Karmanski)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:GrandidierMadagascarFishes_0107.jpg",
-      "caption": "Paratilapia bleekeri Paratilapia polleni Ptychochromis grandidieri",
-      "thumb": "https://media.aquatome.com/commons/d30b3d40b2adff2a-480.webp"
     }
   ],
   "videos": [],
@@ -167,8 +275,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn",
-        "bể cá 150cm"
+        "bể cá 120cm"
       ]
     },
     {

@@ -10,6 +10,38 @@
     "vietnam",
     "bo-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [
+        "Bô River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Bô River, Thua Thien-Hue Province, central Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Bô River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962837,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +85,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -62,7 +94,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/annamia-thuathienensis",
-      "html": "<ul><li>Max size: 100 mm SL (3.9 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 16–22°C (61–72°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–10 dGH</li><li>Difficulty: moderate (7 of 8 measures)</li><li>Space: large tank; Water: flexible; Temperature: needs cool water; Diet: unknown; Temperament: peaceful; Social: needs to be in a group; Compatibility: choose tankmates carefully; Hardiness: needs a well-established tank</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul><p>Annamia cf. thuathienensis is a hillstream loach described from the Bô River in Thua Thien-Hue Province, central Vietnam. Its description was published in Vietnamese and very little is known about it: some major resources do not list it as valid, and Kottelat (2012) considers it a 'species inquirenda'. Its ecology should be similar to that of A. normani, which lives in riffles and rapids over rocky substrates.</p>"
+      "html": "<ul><li>Max size: 100 mm SL (3.9 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 16–22°C (61–72°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–10 dGH</li><li>Difficulty: moderate (4 of 8)</li><li>Space: large tank; Water: flexible; Temperature: needs cool water; Diet: unknown; Temperament: peaceful; Social: needs to be in a group; Compatibility: choose tankmates carefully; Hardiness: needs a well-established tank</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul><p>Annamia cf. thuathienensis is a hillstream loach described from the Bô River in Thua Thien-Hue Province, central Vietnam. Its description was published in Vietnamese and very little is known about it: some major resources do not list it as valid, and Kottelat (2012) considers it a 'species inquirenda'. Its ecology should be similar to that of A. normani, which lives in riffles and rapids over rocky substrates.</p>"
     },
     {
       "key": "distribution",
@@ -182,8 +214,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x30 cm",
-        "bể cá dài 120 cm"
+        "bể cá 120cm"
       ]
     },
     {
@@ -197,7 +228,7 @@
       "category": "thuc-an",
       "keywords": [
         "thức ăn spirulina cho cá",
-        "trùn chỉ đỏ đông lạnh"
+        "trùng huyết đông lạnh"
       ]
     },
     {

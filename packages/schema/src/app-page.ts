@@ -15,7 +15,9 @@ export const PAGE_VERSION = 1
 export const Tip = z.object({ term: z.string(), text: z.string() })
 /**
  * Styled or linked text. `href` is a site path, an absolute URL, or `#id` (the block with that id on this page). A path
- * the app index lists opens that page in the app; any other path opens on the web.
+ * the app index lists opens that page in the app; any other path opens on the web. `note`: a source's note on a figure
+ * the page's data table has otherwise ("… ghi khác bảng dữ liệu: …"), which a reader may show small, after its section's
+ * text.
  */
 export const Run = z.object({
   text: z.string(),
@@ -23,6 +25,7 @@ export const Run = z.object({
   i: z.literal(true).optional(),
   href: z.string().optional(),
   tip: Tip.optional(),
+  note: z.literal(true).optional(),
 })
 /** Text, plain (a string) or styled. A line break inside a paragraph is `\n`. */
 export const Inline = z.union([z.string(), Run])
@@ -36,12 +39,19 @@ export const Text = z.array(Inline)
  * the name as the line shows it (an Unsplash photo's), so a reader links that text without parsing each language's words.
  */
 export const Credit = z.object({ text: z.string(), licence: z.string(), url: z.string().optional(), authorUrl: z.string().optional(), author: z.string().optional() })
+/**
+ * Where the fish is in a photo: fractions of it from its top-left corner, right for every resized copy (the engine's box,
+ * from the Mac's Vision). A frame keeps the fish by it (protocols/photo-crop-vectors.json); none draws as today.
+ */
+export const Box = z.object({ x: z.number().min(0).max(1), y: z.number().min(0).max(1), w: z.number().gt(0).max(1), h: z.number().gt(0).max(1) })
+/** `box`: where the fish is, on a fish's or a breed's lead photo, once the site's switch for it is on (image-geometry.ts). */
 export const Image = z.object({
   src: z.string(),
   w: z.number().int().positive(),
   h: z.number().int().positive(),
   alt: z.string().optional(),
   credit: Credit.optional(),
+  box: Box.optional(),
 })
 
 export const Heading = z.object({ t: z.literal('h'), text: z.string(), id: z.string().optional() })
@@ -110,8 +120,9 @@ export const Gallery = z.object({
 /**
  * What each figure on a fish's data card rests on (the site's "Nguồn và độ tin cậy"), in the card's order. The figures
  * themselves are the app index's (`facts`), so they aren't repeated here. A row names the sources that give the figure
- * (`items`); where they disagree (`conflict`, the card's dot, explained by `legend`), each source's own figure and which
- * one the card shows (`note`).
+ * (`items`); where they disagree (`conflict`), each source's own figure and which one the card shows (`note`); where
+ * they disagree by enough to change how the fish is kept (`marked`, the card's dot, explained by `legend`; gapMatters in
+ * the site's lib/card-rows.ts). An app from before `marked` puts the dot on every `conflict`.
  */
 export const Trust = z.object({
   t: z.literal('trust'),
@@ -122,6 +133,7 @@ export const Trust = z.object({
     field: z.string(),
     label: z.string(),
     conflict: z.literal(true).optional(),
+    marked: z.literal(true).optional(),
     note: z.string().optional(),
     items: z.array(z.string()),
   })),
@@ -222,6 +234,7 @@ export const PageDoc = z.object({
 export type Inline = z.infer<typeof Inline>
 export type Run = z.infer<typeof Run>
 export type Image = z.infer<typeof Image>
+export type Box = z.infer<typeof Box>
 export type Block = BlockT
 export type PageDoc = z.infer<typeof PageDoc>
 

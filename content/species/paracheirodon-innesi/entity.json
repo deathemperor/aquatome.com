@@ -25,14 +25,61 @@
       "regions": [
         "Amazon",
         "Orinoco",
-        "Putumayo",
-        "Solimões",
-        "Purus",
-        "Napo"
+        "Rio Putumayo",
+        "Rio Purus",
+        "Río Ucayali"
       ],
       "sources": [
         "sprucepets",
         "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams.",
+          "countries": [
+            "CO",
+            "BR",
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "These records include occurrences in Jenaro Herrera District, Requena province (Río Ucayali drainage) and the Río Marañon in Peru, rio Japurá (known as the Río Caquetá in Colombia) in Colombia and Brazil, rio Javary (aka Yavarí) in Brazil, plus the ríos Curaray and Mazán (both tributary drainages of the Río Napo in Ecuador and Peru, respectively).",
+          "countries": [
+            "EC"
+          ],
+          "regions": [
+            "Río Ucayali"
+          ]
+        },
+        {
+          "source": "sprucepets",
+          "quote": "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Here P. innesi is known from the lower rio Putumayo (aka Içá) and some small streams flowing into the rio Solimões downstream of Leticia.",
+          "countries": [],
+          "regions": [
+            "Rio Putumayo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás.",
+          "countries": [],
+          "regions": [
+            "Rio Purus"
+          ]
+        }
       ]
     },
     "records": {
@@ -215,7 +262,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ],
     "lifeYears": [
@@ -353,7 +400,8 @@
       "key": "notes",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/neon-tetra-paracheirodon-1381835",
-      "html": "<p>The neon tetra has a slender torpedo-shaped body that reaches no more than an inch and a half in length. From the tip of the nose to the adipose fin, the neon tetra has a bright neon blue stripe. It is believed this bright stripe makes them more readily visible to each other in blackwater conditions. Below the blue stripe, the neon tetra sports a white-silver belly. Past the belly, a bright red stripe extends all the way to the tail. The fish is rivaled only by the cardinal tetra, for which they are often mistaken. The key difference between the two fish is the red stripe. In the neon tetra, it only extends from the middle of the body to the tail. In the cardinal tetra, the red stripe runs the entire length of the fish, from snout to tail.</p>"
+      "html": "<p>The neon tetra has a slender torpedo-shaped body that reaches no more than an inch and a half in length. It has a bright neon blue stripe that runs along the body to the adipose fin. It is believed this bright stripe makes them more readily visible to each other in blackwater conditions. Below the blue stripe, the neon tetra sports a white-silver belly. Past the belly, a bright red stripe extends all the way to the tail. The fish is rivaled only by the cardinal tetra, for which they are often mistaken. The key difference between the two fish is the red stripe. In the neon tetra, it only extends from the middle of the body to the tail. In the cardinal tetra, the red stripe runs the entire length of the fish, from snout to tail.</p>",
+      "fixed": true
     },
     {
       "key": "notes",
@@ -369,6 +417,21 @@
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/038fd41622de2f10.webp",
+      "thumb": "https://media.aquatome.com/commons/038fd41622de2f10-480.webp",
+      "width": 1200,
+      "height": 795,
+      "licence": "CC BY 3.0",
+      "author": "Holger Krisp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neonsalmler_Paracheirodon_innesi.jpg",
+      "caption": "Cá neon xanh nhìn nghiêng trong bể trồng cây, dải xanh sáng",
+      "large": {
+        "url": "https://media.aquatome.com/commons/038fd41622de2f10-large.webp",
+        "width": 1812,
+        "height": 1200
+      }
+    },
     {
       "url": "https://media.aquatome.com/seriouslyfish/4286e57cdc3e8b79.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/4286e57cdc3e8b79-480.webp",
@@ -433,8 +496,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 40 lít",
-        "bể cá thủy sinh mini"
+        "bể cá 60cm"
       ]
     },
     {

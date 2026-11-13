@@ -10,6 +10,81 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "rio Negro",
+        "Rio Ereré",
+        "Demeni",
+        "Aracá"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the rio Negro system in Amazonas state, Brazil, although the full extent of its range is unclear.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "rio Negro"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Rio Ereré, tributary to Rio Negro, Brazil', and local fishermen apparently consider it restricted to the Ereré plus the rios Demeni and Aracá, all minor tributaries close to the town of Barcelos in the middle Negro.",
+          "countries": [],
+          "regions": [
+            "Rio Ereré",
+            "Demeni",
+            "Aracá"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354524,
+      "total": 8,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -69,12 +144,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-pyrrhonotus",
       "html": "<p>The flame-back bleeding heart tetra, Hyphessobrycon pyrrhonotus, is a characid endemic to the rio Negro system in Amazonas state, Brazil. The smallest of the three 'bleeding heart' species, it alone has a red, wedge-shaped patch along the upper body from below the dorsal fin to the base of the caudal. It lives in shallow blackwater tributaries near Barcelos, among roots, branches and leaf litter.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-pyrrhonotus-2/",
-      "html": "<p>Wild-caught animals, which, as far as we know, come from the Rio Erere, a tributary of the Rio Negro (Brazil), have been regularly offered for more than 25 years now.</p>"
     },
     {
       "key": "distribution",
@@ -208,8 +277,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá cộng đồng"
+        "bể cá 80cm"
       ]
     },
     {

@@ -9,6 +9,96 @@
     "asia",
     "india"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Western Ghats",
+        "Kaveri",
+        "Periyar",
+        "Chalakudy",
+        "Tamiraparani",
+        "Bhadra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Bhavania australis is a balitorid loach endemic to the Western Ghats mountains of southern India, recorded from Kerala, Tamil Nadu and Karnataka.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Western Ghats mountains in southern India with records existing from the states of Kerala (Chalakudy/Chalakkudy, Periyar, Muvattapuzha, Achankovil, Pamba, Chandragiri, Bharathapuzha, Kallar, Uruttipuzha, Bhavani, Chinkannipuzha, and Chaliyar river systems), Tamil Nadu (Kaveri, Tamiraparani, Aliyar, Chittar, and Kothayar rivers) and Karnataka (Kaveri and Bhadra rivers).",
+          "countries": [],
+          "regions": [
+            "Western Ghats",
+            "Kaveri",
+            "Periyar",
+            "Chalakudy",
+            "Tamiraparani",
+            "Bhadra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358767,
+      "total": 83,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          83
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          11.25,
+          28,
+          28
+        ],
+        [
+          74.53125,
+          12.65625,
+          9,
+          9
+        ],
+        [
+          75.9375,
+          8.4375,
+          15,
+          15
+        ],
+        [
+          75.9375,
+          9.84375,
+          15,
+          15
+        ],
+        [
+          75.9375,
+          11.25,
+          12,
+          12
+        ],
+        [
+          80.15625,
+          22.5,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -52,7 +142,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -147,8 +237,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể kính 120x30"
+        "bể cá 120cm"
       ]
     },
     {

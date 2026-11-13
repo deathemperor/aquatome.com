@@ -5,11 +5,12 @@
   "family": "Loricariidae",
   "genus": "Scobinancistrus",
   "group": "catfish",
-  "lNumber": "L 14",
+  "lNumber": "L14",
   "places": [
     "south-america",
     "brazil",
-    "rio-xingu"
+    "rio-xingu",
+    "xingu"
   ],
   "dataCard": {
     "tempC": [
@@ -19,12 +20,32 @@
           "min": 26,
           "max": 30
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 30
+      },
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 5.8,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -36,10 +57,22 @@
       "html": "<p>A male Scobiancistrus aureatus of about 30 cm in length may have reached full growth. The strong spines on the gill cover (interopercular odontodes) and on the pectoral fins are remarkable.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/scobinancistrus_aureatus.htm",
+      "html": "<ul><li>Common names: Goldie Pleco, Sunshine Pleco, L014</li></ul><p>Etymology: the specific name aureatus means golden, referring to the golden coloured finnage.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/scobiancistrus_aureatus_l_14_en/",
       "html": "<p>Brazil, Rio Xingu.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/scobinancistrus_aureatus.htm",
+      "html": "<p>Brazil: namely the Rio Xingu and Pará in Brazil. The type locality is documented as Ilha da Fazenda.</p><p>IUCN Red List: Scobinancistrus aureatus is endemic to Brazil and is distributed along the Xingu River, mainly in the Volta Grande region, as well as at the mouth of the Iriri River in the state of Pará. It is an abundant and frequent species, associated with rocky and rapid environments. Specimens are collected for the aquarium market, but this apparently does not represent a significant impact on the species. Currently, the main threat is related to the construction of the Belo Monte hydroelectric dam. Of the stretch of river where S. aureatus has confirmed records, approximately 34% will be impacted by this project. This impact will be even greater if other large dams are built in the area where the species occurs. Therefore, there will be a considerable loss of habitat, with a decrease in the area occupied by S. aureatus, resulting in a suspected population reduction of more than 30% over three generational periods (35 years). For this reason, Scobinancistrus aureatus has been categorised as Vulnerable (VU) under criterion A3c (IUCN 2022).</p>"
     },
     {
       "key": "waterConditions",
@@ -48,10 +81,40 @@
       "html": "<p>Like most L-catfishes from the Rio Xingu, they prefer warm water. The water temperature should not fall durably below 26°C.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/scobinancistrus_aureatus.htm",
+      "html": "<p>Readily accepts a mixed and varied diet which includes sinking foods such as catfish pellets, frozen bloodworm and other good quality foods which sink to the substrate. These catfish also prefer meatier foods such as dead fish, mussels and prawns.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/scobinancistrus_aureatus.htm",
+      "html": "<p>Scobinancistrus aureatus is an ideal addition to an aquarium containing fish such as South American cichlids, discus and angelfish, as long as the other occupants are not too aggressive and can withstand the higher water temperatures. They become territorial as they mature.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/scobinancistrus_aureatus.htm",
+      "html": "<p>Males tend to be more slender and larger than females. Males tend to develop bristles around the cheeks and head, with larger spines or odontodes along the leading edge of the pectoral fin ray.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/scobiancistrus_aureatus_l_14_en/",
       "html": "<p>Breeding has not yet succeeded as far as is known. It will surely require higher temperatures; most L-catfishes from the Xingu are bred at temperatures between 28°C and 30°C.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/scobinancistrus_aureatus.htm",
+      "html": "<p>Description: the body shape is described as elongate and flattened, and the body is completely covered with small spines. The mouth is inferior with lips forming a disc-like shape, and the teeth are arranged in rows. The eyes have a peg-shaped iris lobe, which is typical of most Loricariid species. The adipose fin consists of a spiny projection which supports a membrane. S. aureatus has distinctive nasal flutes.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/scobinancistrus_aureatus.htm",
+      "html": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Scobinancistrus aureatus. The IUCN Red List of Threatened Species 2022. ScotCat Factsheet no. 122. August 2006.</p>"
     }
   ],
   "photos": [
@@ -145,5 +208,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-09"
 }

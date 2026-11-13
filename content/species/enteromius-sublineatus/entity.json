@@ -1,0 +1,607 @@
+{
+  "id": "enteromius-sublineatus",
+  "scientificName": "Enteromius sublineatus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Enteromius",
+  "group": "barbs",
+  "places": [
+    "africa",
+    "benin",
+    "oueme",
+    "burkina-faso",
+    "comoe",
+    "cameroon",
+    "cross",
+    "cote-d-ivoire",
+    "bandama",
+    "ghana",
+    "volta",
+    "guinea",
+    "cavalla",
+    "liberia",
+    "mali",
+    "niger",
+    "nigeria",
+    "benue",
+    "senegal",
+    "togo",
+    "mono",
+    "cross-river",
+    "niger-delta"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "SN",
+        "CM",
+        "GN",
+        "LR",
+        "CI",
+        "BF",
+        "GH",
+        "TG",
+        "BJ",
+        "NG",
+        "ML",
+        "NE"
+      ],
+      "regions": [
+        "Volta",
+        "Cavalla River",
+        "Comoé River",
+        "Bandama River",
+        "Cross River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Enteromius sublineatus is a widespread West African barb found in river basins from Senegal east to Cameroon, including the Niger and Volta.",
+          "countries": [
+            "SN",
+            "CM"
+          ],
+          "regions": [
+            "Volta"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurrences include the Cavalla River which runs through parts of Guinea, Liberia and the Ivory Coast; the Comoé River which originates in Burkina Faso and also runs through the Ivory Coast; the Bandama River which is the longest river in the Ivory Coast; the Volta River in Ghana; the Mono River in eastern Togo/Benin; the Ouémé River in Benin; the Benue River in Cameroon and Nigeria which is the major tributary of the Niger; the Niger Delta in Nigeria; the Cross River in Cameroon; the Mokoko River in Cameroon.",
+          "countries": [
+            "GN",
+            "LR",
+            "CI",
+            "BF",
+            "GH",
+            "TG",
+            "BJ",
+            "NG"
+          ],
+          "regions": [
+            "Cavalla River",
+            "Comoé River",
+            "Bandama River",
+            "Cross River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has also been recorded in Senegal, Mali and Niger.",
+          "countries": [
+            "ML",
+            "NE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9525368,
+      "total": 158,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "GH",
+          29
+        ],
+        [
+          "GN",
+          28
+        ],
+        [
+          "LR",
+          23
+        ],
+        [
+          "CI",
+          21
+        ],
+        [
+          "BJ",
+          17
+        ],
+        [
+          "BF",
+          10
+        ],
+        [
+          "TG",
+          10
+        ],
+        [
+          "NG",
+          8
+        ],
+        [
+          "CD",
+          7
+        ],
+        [
+          "CM",
+          4
+        ],
+        [
+          "CF",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -11.25,
+          8.4375,
+          12,
+          12
+        ],
+        [
+          -11.25,
+          9.84375,
+          7,
+          7
+        ],
+        [
+          -9.84375,
+          7.03125,
+          25,
+          25
+        ],
+        [
+          -9.84375,
+          8.4375,
+          6,
+          6
+        ],
+        [
+          -8.4375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -8.4375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -7.03125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -5.625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -5.625,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          -5.625,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -5.625,
+          9.84375,
+          15,
+          15
+        ],
+        [
+          -4.21875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -4.21875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -4.21875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -2.8125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -2.8125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -1.40625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -1.40625,
+          5.625,
+          5,
+          5
+        ],
+        [
+          -1.40625,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          0,
+          5.625,
+          18,
+          18
+        ],
+        [
+          0,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          0,
+          9.84375,
+          4,
+          4
+        ],
+        [
+          1.40625,
+          5.625,
+          8,
+          8
+        ],
+        [
+          1.40625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          1.40625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          2.8125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          2.8125,
+          11.25,
+          4,
+          4
+        ],
+        [
+          5.625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          7.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          7.03125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          8.4375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          12.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          16.875,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          18.28125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          18.28125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          21.09375,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          22.5,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          23.90625,
+          -1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-sublineatus",
+      "html": "<p>Enteromius sublineatus is a widespread West African barb found in river basins from Senegal east to Cameroon, including the Niger and Volta. It is very variable in patterning and can be difficult to identify: Upper Niger fish show three elongate midlateral markings, Middle Niger fish a continuous band and Volta fish four spots. It may prove to be a complex of closely-related species. Little is known of its captive care.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-sublineatus",
+      "html": "<p>A widespread species found throughout much of Western Africa in numerous river basins. Occurrences include the Cavalla River which runs through parts of Guinea, Liberia and the Ivory Coast; the Comoé River which originates in Burkina Faso and also runs through the Ivory Coast; the Bandama River which is the longest river in the Ivory Coast; the Volta River in Ghana; the Mono River in eastern Togo/Benin; the Ouémé River in Benin; the Benue River in Cameroon and Nigeria which is the major tributary of the Niger; the Niger Delta in Nigeria; the Cross River in Cameroon; the Mokoko River in Cameroon. It has also been recorded in Senegal, Mali and Niger.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-sublineatus",
+      "html": "<p>Given its massive distribution it is likely to be found in various biotopes but would appear to be primarily a river and stream-dwelling species.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-sublineatus",
+      "html": "<p>Standard length: 10 cm SL.</p><p>Aquarium base: 120 × 30 cm. Volume: ~108 litres.</p><p>Base dimensions of at least 120 × 30 cm are recommended.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-sublineatus",
+      "html": "<p>Fairly undemanding provided its tank is well-maintained. It can appear a little washed out in very sparsely decorated set-ups though. A combination of good lighting and a darkish substrate will encourage it to show its best colours. It does best in very clean, well-oxygenated water with a degree of flow and can look quite superb in a set-up decorated with smooth rocks, twisted roots and live plants.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-sublineatus",
+      "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 6.0–7.0</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-sublineatus",
+      "html": "<p>Stomach analyses of wild specimens have shown it to be something of a generalised omnivore feeding on various insects, invertebrates and plant material both terrestrial and aquatic. A varied diet containing plenty of live and frozen foods such as bloodworm, Daphnia and Artemia plus a good quality dried product with added vegetable content is therefore recommended.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-sublineatus",
+      "html": "<p>This species makes an ideal addition to a peaceful community of slightly bigger African species such as other similarly sized 'Barbus', Alestiid tetras, Mochokid catfish and even members of the genus Ctenopoma in the correct surroundings. If geography is not an issue it can actually be combined with most peaceful fish of a size too large to be considered food and that have a bold enough disposition to not be intimidated by its size and active nature.</p><p>It would probably also make a good dither/target species for cichlids like Hemichromis, Chromidotilapia, riverine Lamprologus and probably many South American species such as the various Geophagines.</p><p>It's a schooling species by nature and really should be kept in a group of at least 8-10 specimens. Maintaining it in decent numbers will not only make the fish less skittish but will result in a more effective, natural looking display. Any aggressive behaviour will normally also be contained as the fish concentrate on maintaining their hierarchical position within the group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-sublineatus",
+      "html": "<p>Males should be more intensely coloured, slimmer and slightly smaller than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-sublineatus",
+      "html": "<p>Unreported in the hobby as far as is known and if you are lucky enough to find it on sale in numbers it would make an excellent project. Adopting a strategy as for other similarly-sized cyprinids should be a good starting point.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-sublineatus",
+      "html": "<p>This is a rare barb in the hobby and unfortunately little information is available regarding its captive care. It's possible that it may turn out to represent a complex of closely-related species as it is very variable in patterning across its range and can be difficult to identify correctly.</p><p>For example specimens from the Upper Niger basin show a series of 3 elongate dark midlateral markings, those from the Middle Niger possess a continuous dark band whereas fish from the Volta basin in Ghana exhibit a series of 4 spots. There are also a number of similar-looking species such as B. baudoni and B. lineomaculatus.</p><p>The genus Barbus is in something of a confused state classification-wise. While there exist almost 340 putative species the vast majority of them do not appear to be closely-related to the genus Barbus sensu stricto.</p><p>Berrebi et al. (1996) proposed that only the European, Southwest Asian and North African representatives should be included in Barbus (around 20 species) and that 'all species of Barbus sensu lato which cannot be placed in a proper genus or allocated to an already existing genus be referred to as 'Barbus'' pending further study. This includes all sub-Saharan species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-sublineatus",
+      "html": "<ul><li>Hopson, A. J. and J. Hopson (1965). Barbus (Pisces, Cyprinidae) of the Volta region. Bulletin of the British Museum (Natural History) Zoology v. 13, 99-149</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/8755302533559a16.webp",
+      "width": 960,
+      "height": 314,
+      "licence": "CC BY-SA 2.0",
+      "author": "Jonathan (Jon) Armbruster",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbus_sublineatus_AUM59757_65.9L.jpg",
+      "caption": "Barbus sublineatus AUM59757 65.9L",
+      "thumb": "https://media.aquatome.com/commons/8755302533559a16-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "8KAtjcIPB_I",
+      "title": "Enteromius c.f sublineatus",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "d1TNaJFB7JU",
+      "title": "Enteromius c.f. sublineatus",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NnQ-UxwP8yg",
+      "title": "A rescape of the big Africa tank",
+      "durationSec": 56,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sBgU7QeBLk8",
+      "title": "Africa tank",
+      "durationSec": 129,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy lọc tạo dòng chảy",
+        "máy sục khí bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh",
+        "thức ăn cá nhỏ có rau",
+        "thức ăn cá nhỏ dạng khô"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "nền cát sẫm màu",
+        "sỏi nền bể cá",
+        "cát nền sẫm màu"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

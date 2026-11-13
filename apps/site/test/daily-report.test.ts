@@ -1,5 +1,8 @@
 import { expect, test, vi } from 'vitest'
-import { post, read, summarise } from '../../../scripts/daily-report.mjs'
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { calendar, CHANGES_URL, landedChanges, noAnimal, post, read, reportedToday, summarise } from '../../../scripts/daily-report.mjs'
 import { parseGitHubSide } from '../worker/daily/github'
 
 // The collector, on GitHub's JSON as its REST API gives it: no network.
@@ -18,12 +21,26 @@ const commit = (message: string, date = ago(1)) => ({ commit: { message, committ
 const bot = { login: 'github-actions[bot]' }
 const issue = (number: number, title: string, labels: string[] = ['site-check'], user = bot) => ({ number, title, html_url: `${URL_}/issues/${number}`, user, labels: labels.map(name => ({ name })) })
 
-const raw = (o: Record<string, unknown> = {}) => ({ runs: {}, jobs: {}, commits: [], closed: [], open: [], issues: [], missing: [], ...o })
+const raw = (o: Record<string, unknown> = {}) => ({ runs: {}, jobs: {}, commits: [], closed: [], files: {}, open: [], issues: [], missing: [], ...o })
 const sum = (o: Record<string, unknown> = {}) => summarise(raw(o), { now: NOW, runId: '777', runUrl: `${URL_}/actions/runs/777` })
 
-test('merged pull requests of the last 24 hours, newest first; closed unmerged and older ones left out', () => {
-  const s = sum({ closed: [pr(1, { merged_at: ago(3) }), pr(2, { merged_at: ago(1) }), pr(3), pr(4, { merged_at: ago(25) })] })
-  expect(s.merged).toEqual({ total: 2, items: [{ number: 2, title: 'PR 2', url: `${URL_}/pull/2` }, { number: 1, title: 'PR 1', url: `${URL_}/pull/1` }] })
+test('product changes of the last 24 hours\' merged pull requests, newest first: no number, title or link of theirs; closed unmerged and older ones left out', () => {
+  const section = (line: string) => `## Summary\nWhy.\n\n## Changelog\n- ${line}\n`
+  const s = sum({
+    closed: [
+      pr(1, { merged_at: ago(3), title: 'feat(comments): photos', body: section('Site: Readers can attach one photo to a comment.') }),
+      pr(2, { merged_at: ago(1), title: 'feat(ios): the Tìm home lists what\'s new', body: null }),
+      pr(3, { title: 'feat: never merged', body: section('Site: Not merged.') }),
+      pr(4, { merged_at: ago(25), title: 'feat: too old', body: section('Site: Too old.') }),
+      pr(5, { merged_at: ago(2), title: 'ci(ios): x', body: null }),
+    ],
+    files: { 2: ['apps/ios/AquaTome/Home.swift'] },
+  })
+  expect(s.changes).toEqual([
+    { area: 'App', text: 'The Tìm home lists what\'s new.', at: ago(1) },
+    { area: 'Site', text: 'Readers can attach one photo to a comment.', at: ago(3) },
+  ])
+  expect(s).not.toHaveProperty('merged')
 })
 
 test('deploys: runs and failures of the last 24 hours, the live version from the last that succeeded', () => {
@@ -107,10 +124,10 @@ test('live checks; open issues the workflows opened, problems apart from the rev
 })
 
 test('what the collector sends is what the Worker reads, long lists and long titles too', () => {
-  const many = Array.from({ length: 80 }, (_, i) => pr(i + 1, { title: 'x'.repeat(500), merged_at: ago(1) }))
+  const many = Array.from({ length: 80 }, (_, i) => pr(i + 1, { title: 'x'.repeat(500), merged_at: ago(1), body: `## Changelog\n- Site: ${i} ${'é'.repeat(400)}\n- App: ${i} ${'ạ'.repeat(400)}` }))
   const s = sum({ closed: many, open: many, issues: Array.from({ length: 80 }, (_, i) => issue(i + 1, 'y'.repeat(500))), runs: { 'deploy.yml': [run({ head_sha: 'abc1234ffff', created_at: ago(1) })], 'testflight.yml': [] }, commits: [commit('content: engine pages 2026-11-05')], missing: ['x'] })
-  expect(s.merged.total).toBe(80)
-  expect(s.merged.items).toHaveLength(50)
+  expect(s.changes).toHaveLength(100)
+  expect(s.changes[0].text).toHaveLength(300)
   expect(s.issues.total).toBe(80)
   const body = JSON.stringify(s)
   expect(new TextEncoder().encode(body).length).toBeLessThan(128 * 1024)
@@ -141,6 +158,32 @@ test('read: asks GitHub for main\'s runs, drops a pull request\'s, reads the job
   expect(summarise(r, { now: NOW, runId: '1', runUrl: `${URL_}/actions/runs/1` }).testflight.uploads).toEqual([{ build: 9, url: recent.html_url, at: recent.created_at }])
 })
 
+test('read: the files of a merged pull request only when its title falls back (no Changelog section, a feat or fix), every page', () => {
+  const asked: string[] = []
+  const closed = [
+    pr(1, { merged_at: ago(1), title: 'feat(ios): x', body: null }),
+    pr(2, { merged_at: ago(2), title: 'feat(ios): y', body: '## Changelog\n- App: Y.' }),
+    pr(3, { merged_at: ago(3), title: 'docs: z', body: null }),
+    pr(4, { merged_at: ago(30), title: 'fix: old', body: null }),
+    pr(5, { title: 'fix: closed unmerged', body: null }),
+  ]
+  const api = (path: string) => {
+    asked.push(path)
+    if (path.includes('/pulls?state=closed')) return closed
+    if (path.includes('/pulls/1/files')) return path.endsWith('page=1') ? Array.from({ length: 100 }, (_, i) => ({ filename: `apps/site/f${i}.ts` })) : [{ filename: 'apps/ios/A.swift' }]
+    if (path.includes('workflows?')) return { workflows: [] }
+    return []
+  }
+  const r = read(api, REPO, NOW)
+  expect(asked.filter(p => p.includes('/files'))).toEqual([`repos/${REPO}/pulls/1/files?per_page=100&page=1`, `repos/${REPO}/pulls/1/files?per_page=100&page=2`])
+  expect(r.files[1]).toHaveLength(101)
+  expect(summarise(r, { now: NOW, runId: '1', runUrl: `${URL_}/actions/runs/1` }).changes).toEqual([{ area: 'App', text: 'X.', at: ago(1) }, { area: 'App', text: 'Y.', at: ago(2) }])
+  // Files GitHub won't give: named, and the line still made from the title (the site's, for want of the files).
+  const down = read((path: string) => { if (path.includes('/files')) throw new Error('HTTP 502'); return api(path) }, REPO, NOW)
+  expect(down.missing).toEqual(['the files of pull request 1'])
+  expect(summarise(down, { now: NOW, runId: '1', runUrl: `${URL_}/actions/runs/1` }).changes[0]).toEqual({ area: 'Site', text: 'X.', at: ago(1) })
+})
+
 test('read: what GitHub won\'t give is named, never counted as none', () => {
   const api = (path: string) => {
     if (path.includes('/issues?')) throw new Error('HTTP 502')
@@ -155,6 +198,72 @@ test('read: what GitHub won\'t give is named, never counted as none', () => {
 
 const answer = (status: number, body = '{}') => new Response(body, { status })
 const quiet = () => ({ sleep: vi.fn(async () => {}), log: vi.fn() })
+
+// The change log the dashboard's "Shipped in 24 hours" reads: on 2026-11-10 it showed 4 of 39 lines, because only the
+// report wrote it and GitHub had started the report about 5 hours late.
+test('each push to main sends what merged in the last two days, in the same words and times as the report, so they are kept once', () => {
+  const section = (line: string) => `## Changelog\n- ${line}\n`
+  const closed = [
+    pr(1, { merged_at: ago(1), body: section('Site: Newest.') }),
+    pr(2, { merged_at: ago(30), body: section('App: From yesterday.') }),
+    pr(3, { merged_at: ago(49), body: section('Site: Too old for this sweep.') }),
+    pr(4, { closed_at: ago(1), body: section('Site: Closed, never merged.') }),
+    pr(5, { merged_at: ago(2), title: 'fix(engine): a line from the title', body: null }),
+    pr(6, { merged_at: ago(3), body: '## Changelog\n- none\n' }),
+  ]
+  const asked: string[] = []
+  const api = (path: string) => {
+    asked.push(path)
+    if (path.includes('/pulls?state=closed')) return closed
+    if (path.includes('/pulls/5/files')) return [{ filename: 'packages/engine/src/x.ts' }]
+    throw new Error(`not expected: ${path}`)
+  }
+  const lines = landedChanges(api, REPO, NOW)
+  expect(lines).toEqual([
+    { area: 'Site', text: 'Newest.', at: ago(1) },
+    { area: 'Engine', text: 'A line from the title.', at: ago(2) },
+    { area: 'App', text: 'From yesterday.', at: ago(30) },
+  ])
+  expect(asked.filter(q => q.includes('/files'))).toHaveLength(1)
+  expect(lines).toEqual(expect.arrayContaining(sum({ closed, files: { 5: ['packages/engine/src/x.ts'] } }).changes))
+})
+
+test('the merge\'s lines go to their own address, with the dashboard token', async () => {
+  const q = quiet()
+  const fetchFn = vi.fn(async () => answer(200, '{"ok":true,"added":1}'))
+  expect(await post({ changes: [] }, { token: 'tok', url: CHANGES_URL, fetchFn, ...q })).toBe(true)
+  const [url, init] = fetchFn.mock.calls[0]! as unknown as [string, RequestInit]
+  expect(url).toBe('https://aquatome.com/_ab/changelog')
+  expect((init.headers as Record<string, string>).authorization).toBe('Bearer tok')
+})
+
+test('changelog.yml runs on every push to main, whatever it touched, and on main\'s own code', () => {
+  const yml = readFileSync(new URL('../../../.github/workflows/changelog.yml', import.meta.url), 'utf8')
+  expect(yml).toMatch(/\bpush:\n\s+branches: \[main\]/)
+  expect(yml).not.toMatch(/paths(-ignore)?:/)
+  expect(yml).not.toMatch(/\bpull_request/)
+  expect(yml).toContain('node scripts/daily-report.mjs changes')
+})
+
+// GitHub started the 07:00 report at 05:15–05:48 UTC four days running. The Mac starts it (install-daily-report-schedule.sh),
+// and GitHub's schedule stays for a morning the Mac didn't.
+test('GitHub\'s schedule is only the backstop: it makes no report once a started one has succeeded today in Vietnam', () => {
+  const started = (o: Record<string, unknown>) => run({ event: 'workflow_dispatch', created_at: ago(0, 2), ...o })
+  expect(reportedToday([started({})], NOW)).toBe(true)
+  // Its own earlier runs don't count: one that skipped made no report.
+  expect(reportedToday([started({ event: 'schedule' })], NOW)).toBe(false)
+  expect(reportedToday([started({ conclusion: 'failure' })], NOW)).toBe(false)
+  expect(reportedToday([started({ status: 'in_progress', conclusion: null })], NOW)).toBe(false)
+  // 23:00 the evening before, in Vietnam.
+  expect(reportedToday([started({ created_at: ago(8) })], NOW)).toBe(false)
+  expect(reportedToday([], NOW)).toBe(false)
+})
+
+test('the backstop\'s cron comes after the Mac\'s start, away from the top of the hour', () => {
+  const yml = readFileSync(new URL('../../../.github/workflows/daily-report.yml', import.meta.url), 'utf8')
+  expect(yml).toContain("cron: '20 1 * * *'")
+  expect(yml).toContain('workflow_dispatch:')
+})
 
 test('post: once to the site with the dashboard token; retries what may pass, as deploy.sh does; fails if it still refuses', async () => {
   const q = quiet()
@@ -197,4 +306,44 @@ test('post: a refusal that won\'t change ends it at once', async () => {
     expect(fetchFn).toHaveBeenCalledTimes(1)
     expect(q.sleep).not.toHaveBeenCalled()
   }
+})
+
+test("the app's next 7 days from the calendar in the checkout: the weeks they touch, each day's fish by its Vietnamese name, a day without one left without", () => {
+  const root = mkdtempSync(join(tmpdir(), 'aq-cal-'))
+  const write = (path: string, o: unknown) => { mkdirSync(join(root, path, '..'), { recursive: true }); writeFileSync(join(root, path), JSON.stringify(o)) }
+  expect(calendar(root, NOW)).toBeUndefined()
+  write('content/species/pterophyllum-altum/vi.json', { name: 'Cá ông tiên altum' })
+  write('content/curation.json', {
+    version: 1, loops: {}, avoid: {},
+    weeks: [
+      { from: '2026-10-26', to: '2026-11-01', theme: { vi: 'Đã qua' } },
+      { from: '2026-11-02', to: '2026-11-08', theme: { vi: 'Trời trở lạnh', th: 'x' }, why: 'Gió mùa về.' },
+      { from: '2026-11-09', to: '2026-11-15', theme: { vi: 'Cá vàng' } },
+      { from: '2026-11-16', to: '2026-11-22', theme: { vi: 'Còn xa' } },
+    ],
+    days: [
+      { date: '2026-11-05', fish: 'species/pterophyllum-altum' },
+      // 07:00 in Vietnam: today is the 6th there.
+      { date: '2026-11-06', fish: 'species/pterophyllum-altum', why: 'Fish: Cá ông tiên altum, on this week\'s list.' },
+      { date: '2026-11-07', why: 'A note on a day with no fish.' },
+      { date: '2026-11-08', fish: 'breeds/no-such-page' },
+    ],
+  })
+  const c = calendar(root, NOW)!
+  expect(c.weeks).toEqual([{ from: '2026-11-02', to: '2026-11-08', theme: 'Trời trở lạnh', why: 'Gió mùa về.' }, { from: '2026-11-09', to: '2026-11-15', theme: 'Cá vàng' }])
+  expect(c.days.map(d => d.date)).toEqual(['2026-11-06', '2026-11-07', '2026-11-08', '2026-11-09', '2026-11-10', '2026-11-11', '2026-11-12'])
+  expect(c.days.slice(0, 3)).toEqual([{ date: '2026-11-06', fish: 'Cá ông tiên altum', why: 'Fish: Cá ông tiên altum, on this week\'s list.' }, { date: '2026-11-07' }, { date: '2026-11-08', fish: 'breeds/no-such-page' }])
+  // The Worker takes it with the rest.
+  expect(parseGitHubSide(JSON.stringify({ ...sum(), calendar: c }))?.calendar).toEqual(c)
+})
+
+test('heads with no animal in them, as the sweep lists them: how many, newest first, each by its Vietnamese name; the Worker takes them', () => {
+  const root = mkdtempSync(join(tmpdir(), 'aq-noanimal-'))
+  const write = (path: string, o: unknown) => { mkdirSync(join(root, path, '..'), { recursive: true }); writeFileSync(join(root, path), JSON.stringify(o)) }
+  expect(noAnimal(root)).toBeUndefined()
+  write('content/species/a/vi.json', { name: 'Cá a' })
+  write('engine-state/_photo-no-animal-heads.json', { 'species/a': { url: 'https://media.aquatome.com/x/a.webp', since: '2026-11-01' }, 'breeds/b': { url: 'https://media.aquatome.com/x/b.webp', since: '2026-11-06' } })
+  const heads = noAnimal(root)!
+  expect(heads).toEqual({ total: 2, items: [{ page: 'breeds/b', name: 'breeds/b', since: '2026-11-06' }, { page: 'species/a', name: 'Cá a', since: '2026-11-01' }] })
+  expect(parseGitHubSide(JSON.stringify({ ...sum(), noAnimal: heads }))?.noAnimal).toEqual(heads)
 })

@@ -12,6 +12,76 @@
     "brazil",
     "oyapock"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GF",
+        "BR"
+      ],
+      "regions": [
+        "Approuague",
+        "Oyapock"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Approuague and Oyapock river basins in French Guiana and northern Brazil.",
+          "countries": [
+            "GF",
+            "BR"
+          ],
+          "regions": [
+            "Approuague",
+            "Oyapock"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204254,
+      "total": 147,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "GF",
+          92
+        ],
+        [
+          "BR",
+          55
+        ]
+      ],
+      "cells": [
+        [
+          -53.4375,
+          1.40625,
+          28,
+          28
+        ],
+        [
+          -53.4375,
+          2.8125,
+          105,
+          105
+        ],
+        [
+          -53.4375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          2.8125,
+          13,
+          13
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +125,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -64,7 +134,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
-      "html": "<ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 23–27°C (73–81°F)</li><li>pH: 5.5–7.0</li><li>Hardness: 1–15 dGH</li><li>Difficulty: 6 of 8 (moderate), rated moderate because it needs strong current</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul><p>Leopold's tetra, Astyanax leopoldi, is a characid native to the Approuague and Oyapock river basins in French Guiana and Brazil. It is most common in fast-flowing waters, where it swims in large shoals in marginal or calmer areas. Like most Astyanax, it is rarely offered for sale.</p>"
+      "html": "<ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 23–27°C (73–81°F)</li><li>pH: 5.5–7.0</li><li>Hardness: 1–15 dGH</li><li>Difficulty: 4 of 8 (moderate), rated moderate because it needs strong current</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul><p>Leopold's tetra, Astyanax leopoldi, is a characid native to the Approuague and Oyapock river basins in French Guiana and Brazil. It is most common in fast-flowing waters, where it swims in large shoals in marginal or calmer areas. Like most Astyanax, it is rarely offered for sale.</p>"
     },
     {
       "key": "distribution",
@@ -127,26 +197,13 @@
       "html": "<p>Most Astyanax spp. are not popular in the aquarium hobby, though the genus is among the most speciose within the family Characidae. A. leopoldi is no exception in that you'll rarely see it offered for sale.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/494d1e9861daf51a.webp",
-      "width": 639,
-      "height": 300,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-leopoldi",
-      "caption": "Astyanax leopoldi",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/494d1e9861daf51a-480.webp"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30",
-        "bể cá thủy sinh 54 lít"
+        "bể cá 60cm"
       ]
     },
     {

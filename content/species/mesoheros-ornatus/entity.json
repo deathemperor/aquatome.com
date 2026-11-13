@@ -1,0 +1,130 @@
+{
+  "id": "mesoheros-ornatus",
+  "scientificName": "Mesoheros ornatus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Mesoheros",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "colombia",
+    "ecuador"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 9530025,
+      "total": 31,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CO",
+          15
+        ],
+        [
+          "EC",
+          15
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -80.15625,
+          -4.21875,
+          1
+        ],
+        [
+          -80.15625,
+          -1.40625,
+          14
+        ],
+        [
+          -80.15625,
+          0,
+          1
+        ],
+        [
+          -78.75,
+          1.40625,
+          11
+        ],
+        [
+          -78.75,
+          4.21875,
+          1
+        ],
+        [
+          -77.34375,
+          1.40625,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cichlasoma_ornatum_en/",
+      "html": "<p>The fish currently available are 6–10 cm long and should be just about mature. The maximum size the species can reach is reported in the literature as about 30 cm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cichlasoma_ornatum_en/",
+      "html": "<p>Does something like a mythical fish still exist? If so, Cichlasoma ornatum from Colombia and Ecuador certainly belongs in that category. Although the species has been known to science since 1905, only very few specimens have ever swum in the tanks of enthusiasts in Europe and the US. Most probably not even a dozen aquarists worldwide have ever seen the species alive. The reasons for this are not clear; the few descriptions by people who have seen this cichlid in breeding mood are simply enthusiastic about the fantastic colours the fish develop.</p><p>A small number of wild-collected specimens from Colombia have recently been imported. Perhaps hobbyists will now finally succeed in establishing a breeding stock with these animals.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cichlasoma_ornatum_en/",
+      "html": "<p>The fish have a pretty coloration, but far more interesting is their absolutely peaceful behaviour. In fact, no other species of the Cichlasoma relationship that is so peaceful can be recalled. All specimens swim together in the same tank without showing any aggression worth mentioning. Even in the small photography tank the pair behaved gently.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cichlasoma_ornatum_en/",
+      "html": "<p>There is no well-marked sexual dimorphism. The presumed females are a bit paler and have deeper bodies and shorter heads than the presumed males.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cichlasoma_ornatum_en/",
+      "html": "<p>Lexicon: Cichlasoma means \"with the body of a Cichla\"; Cichla is another genus of cichlid. ornatum means \"decorated\".</p><p>Suggested common name: Miracle Cichlid.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn cho cichlid",
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cichlid"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

@@ -10,6 +10,89 @@
     "india",
     "manimala"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Western Ghats",
+        "Manimala"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The zodiac loach, Mesonoemacheilus triangularis, is a loach from the Western Ghats of Kerala and Tamil Nadu in southern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Mundakayam lies within the Western Ghats mountains and M. triangularis has since been recorded to occur in river systems draining both sides of that range in the states of Kerala and Tamil Nadu, where it's said to be locally abundant.",
+          "countries": [],
+          "regions": [
+            "Western Ghats"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type locality is given by Day as 'the hills at Mundikyum' which appears to correspond to the small town now known as Mundakayam, in Kottayam District of Kerala state, South India, through which runs the river Manimala.",
+          "countries": [],
+          "regions": [
+            "Manimala"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205201,
+      "total": 46,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "IN",
+          46
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          75.9375,
+          8.4375,
+          21,
+          21
+        ],
+        [
+          75.9375,
+          9.84375,
+          19,
+          19
+        ],
+        [
+          77.34375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +136,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -149,8 +232,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 75cm",
-        "bể cá 80x30"
+        "bể cá 80cm"
       ]
     },
     {

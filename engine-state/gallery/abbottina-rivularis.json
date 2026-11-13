@@ -23,14 +23,13 @@
  ],
  "hashes": {
   "https://media.aquatome.com/commons/8b7c3bf72f866d67.webp": "d3f3534bd164701e",
-  "https://media.aquatome.com/commons/733e9f790e1f030d.webp": "251337239e261cd1",
   "https://media.aquatome.com/commons/dc5c273c1e5cf880.webp": "00084d1f3f6c1404",
   "https://media.aquatome.com/commons/4d64fdc0876bd773.webp": "8cc40418343c46c1",
   "https://media.aquatome.com/commons/7bcad46462ab6493.webp": "db0dbb3a392de632",
   "https://media.aquatome.com/inaturalist/32751885.webp": "db0dbb3a390de632",
   "https://media.aquatome.com/commons/a2ee97a27fb4b938.webp": "d9e1757c58de6c77",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/47681523/large.jpeg": "1898f010ac3400a0",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/502137765/large.jpeg": "773383ccccc1cc1e"
+  "https://media.aquatome.com/inaturalist/502137765.webp": "773383ccccc98d1e",
+  "https://media.aquatome.com/inaturalist/47681523.webp": "1818f010bc3400a0"
  },
  "commons": "2026-11-03",
  "inat": {
@@ -40,5 +39,9 @@
    "research": 353519496,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 5206304,
+  "next": null
  }
 }

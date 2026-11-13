@@ -8,12 +8,20 @@
   "places": [
     "south-america",
     "venezuela",
-    "orinoco"
+    "orinoco",
+    "colombia"
   ],
   "dataCard": {
     "tempC": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 29
+        }
+      },
+      {
+        "source": "seriouslyfish",
         "value": {
           "min": 24,
           "max": 29
@@ -27,12 +35,44 @@
           "min": 6,
           "max": 7.4
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.4
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 10.2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
       }
     ]
   },
@@ -44,10 +84,22 @@
       "html": "<ul><li><strong>Scientific name:</strong> Rineloricaria eigenmanni (Pellegrin, 1908)</li><li><strong>Common name:</strong> Common Whiptail Catfish</li><li><strong>Type locality:</strong> Sarare, Venezuela</li><li><strong>Size:</strong> 102 mm (4 in) SL</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2020)</li><li><strong>Etymology:</strong> Greek rhinos = nose + Latin lorica, loricare = cuirass or corslet of leather. Named in honour of Dr. Carl H. Eigenmann, Professor of Ichthyology in Indiana (1863-1927).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-eigenmanni",
+      "html": "<p>The common whiptail catfish, Rineloricaria eigenmanni, is a peaceful loricariid from Colombia and Venezuela, found among leaf litter over sand. One of the most common species sold as 'whiptail catfish', it breeds quite easily and suits a newcomer to catfish breeding. It is often mixed up with other species: in R. eigenmanni the black bars on the caudal peduncle continue right around the fish, and the fins are barred.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1064",
       "html": "<p>South America: Orinoco drainage basin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-eigenmanni",
+      "html": "<p>Colombia and Venezuela.</p>"
     },
     {
       "key": "habitat",
@@ -56,10 +108,34 @@
       "html": "<p>Habitat photo: Venezuelan llanos in the dry season.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-eigenmanni",
+      "html": "<p>It's almost always found living amongst leaf litter over sandy substrates, in both clear and whitewater habitats (whitewater meaning water containing a lot of dissolved sediment, as opposed to rapids).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-eigenmanni",
+      "html": "<p>Largely inactive and can be kept in a tank measuring 90 × 30 × 30 cm, about 81 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-eigenmanni",
+      "html": "<p>A biotope setup can consist, very simply, of a layer of sand over which is scattered a layer of dried leaves (oak and beech are non-toxic and work particularly well). Some twisted branches (again, beech is good) and the occasional rounded stone can also be added for effect. Provide some rock or wood caves and lengths of pvc piping to act as potential spawning sites. It's equally at home in a well-planted tank, although in either situation it won't appreciate very bright lighting.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1064",
       "html": "<ul><li>pH: 6.0 - 7.4</li><li>Temperature: 24.0-29.0°C (75.2-84.2°F)</li><li>Needs neutral, soft water to initiate spawning.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-eigenmanni",
+      "html": "<ul><li>Temperature: 24–29°C</li><li>pH: 6.0–7.4</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -74,10 +150,22 @@
       "html": "<p>Adaptable omnivores, these fish will eat most foods from cucumber or zucchini slices to frozen bloodworm or dry flake foods.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-eigenmanni",
+      "html": "<p>Feeds on aufwuchs and small aquatic crustaceans in nature. In the aquarium, it proves omnivorous and will accept sinking dried foods, vegetable matter (including blanched spinach, courgette, kale etc.) and live and frozen stuff, such as bloodworm or daphnia.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1064",
       "html": "<p>Peaceful and not territorial, will not harm even the smallest fry.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-eigenmanni",
+      "html": "<p>One of the most peaceful catfish around, these can be combined with many other species. In a biotope setup, good tankmates include small characins, Apistogramma, Corydoras and other quiet Loricariids, but it can be kept in most communities of peaceful fish. Don't keep it with anything too vigorous or aggressive, as it will become very retiring and will easily be out-competed for food. It's not territorial unless spawning and is best kept in a small group.</p>"
     },
     {
       "key": "dimorphism",
@@ -86,10 +174,28 @@
       "html": "<p>Males grow short spines on the top of their heads and on the pectoral fins.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-eigenmanni",
+      "html": "<p>Mature males develop odontodes on the head and pectoral rays, which are lacking in females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-eigenmanni",
+      "html": "<p>If kept in suitable conditions and fed well, the fish will breed quite easily. The fry can be a little tricky to raise. Try starting with a group of six or more juvenile fish to give yourself the best chance of obtaining a pair. Set up the tank as suggested above, using lengths of pvc piping of less than 5 cm diameter to provide spawning caves. The water should be just on the acidic side of neutral and soft. Condition the fish on a diet of nutrient-rich greenstuffs, such as kale, spinach etc. and live and frozen bloodworm or similar.</p><p>When in spawning condition, a male will select a particular cave and clean it carefully. A receptive female will visit this cave and deposit her eggs, which the male then fertilises. The female then plays no further part in broodcare, with responsibility for the guarding and tending of the eggs falling solely to the male. This he does diligently, guarding the cave against intruders whilst fanning the eggs with his fins. At this point, you may wish to remove the other fish, or indeed the tube itself to a separate tank, in order to avoid predation of the fry.</p><p>The eggs hatch in 4-5 days and are free swimming 2 or 3 days later. At this point, the male can also be removed. They will browse on cucumber slices, spinach and other greens straight away and will also take microworm and brine shrimp nauplii. The most important thing at this point is that the fry don't starve. They need constant access to a food source and any vegetable matter must be of a consistency soft enough for them to digest. Try pre-softened leaves of kale and spinach (it's better to soften these by soaking them in water for a couple of days, rather than blanching in boiling water, as this tends to strip many of the nutrients away). Algae grown on rocks in a sunlit tank can also be offered. They are also sensitive to water quality, so small daily water changes are recommended.</p><p>If you're having trouble spawning these fish, try conducting a large (50-70%) water change with cool water, simulating the influx of colder water that the rainy season brings in nature. Repeat every few days and the fish will often spawn.</p>"
+    },
+    {
       "key": "notes",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1064",
       "html": "<p>This is a very common species. Easily identified by the combination of barred fins and the dark lines on the ventral sides of the tail.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rineloricaria-eigenmanni",
+      "html": "<p>One of the most common of the numerous species sold as 'whiptail catfish', R. eigenmanni is an excellent species for the newcomer to Loricariids or catfish breeding. It's certainly not the most active species, but when settled and housed with the correct kind of tankmates, it is by no means shy either.</p><p>It does have a bit of a confusing taxonomic past. Whilst currently considered a member of Rineloricaria, it was first described as a species of Loricaria, before being moved to Rineloricaria in 1908. In 2002 it was briefly placed in the resurrected genus Hemiloricaria, but this lasted less than twelve months, when it was transferred back to Rineloricaria. Currently only Rineloricaria is valid, but you'll still see it being referred to as Hemiloricaria quite often.</p><p>It's also regularly mixed up with other species. The best way to identify it correctly is to look at the patterning on the fins and the underside of the extended caudal peduncle. If you're looking at a Rineloricaria eigenmanni, you'll see that the black bars running across the caudal peduncle continue right around the fish, forming bands, and that the fins are barred. No other member of the genus combines these features.</p>"
     },
     {
       "key": "references",
@@ -133,13 +239,37 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "IFnA4fL0e8U",
+      "title": "The Easiest Whiptail Catfish to Breed! (Rineloricaria eigenmanni)",
+      "durationSec": 806,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bwM9ffsXfHw",
+      "title": "Rineloricaria/Hemiloricaria eigenmanni fry 1/2",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IW39sGBew3w",
+      "title": "Rineloricaria/Hemiloricaria eigenmanni watching over eggs",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7biondnxXJ8",
+      "title": "Rineloricaria eigenmanni fry, 3 weeks old, 16 mm SL",
+      "durationSec": 98,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá thủy sinh 60cm"
+        "bể cá 90cm"
       ]
     },
     {
@@ -163,5 +293,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-06"
 }

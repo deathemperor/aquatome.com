@@ -1,0 +1,322 @@
+{
+  "id": "peckoltia-oligospila",
+  "scientificName": "Peckoltia oligospila",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Peckoltia",
+  "group": "catfish",
+  "lNumber": "L6",
+  "places": [
+    "south-america",
+    "brazil",
+    "tocantins"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The brown dot peckoltia (Peckoltia oligospila), also known as L006, is a suckermouth catfish from the rios Tocantins and Capim in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202100,
+      "total": 28,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BR",
+          28
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          0,
+          5,
+          5
+        ],
+        [
+          -50.625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          14,
+          14
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-oligospila",
+      "html": "<p>The brown dot peckoltia (Peckoltia oligospila), also known as L006, is a suckermouth catfish from the rios Tocantins and Capim in Brazil. Only faint spots and saddles mark its body, a pattern it shares among congeners with P. bachi and some specimens of P. furcata alone. Relatively peaceful but territorial with conspecifics, it is a cave-spawner and does best in a tank designed to simulate a flowing stream.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-oligospila",
+      "html": "<p>This species is known from the rios Tocantins and Capim in Tocantins and Pará states, Brazil including a number of their tributaries.</p><p>Type locality is given as 'Rio Capin, Pará State, Brazil', which appears to correspond to the rio Capim, a tributary of the rio Guamá, which in turn reaches the Pará estuary at Belém.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-oligospila",
+      "html": "<p>An aquarium with base dimensions of 120 × 30 cm or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-oligospila",
+      "html": "<p>Not difficult to maintain under the correct conditions; we strongly recommend keeping it in a tank designed to simulate a flowing stream with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches, terracotta pipes, plant pots, etc., arranged to form a network of nooks, crannies, and shaded spots, thus providing broken lines of sight.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-oligospila",
+      "html": "<ul><li>Temperature: 24–30°C</li><li>pH: 5.5–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-oligospila",
+      "html": "<p>Wild specimens are likely omnivorous but with a preference for aquatic invertebrates and suchlike.</p><p>In the aquarium it does best when offered a varied diet comprising sinking dried foods, frozen Daphnia, mosquito larvae, chironomid larvae (bloodworm), and prawn/shrimp, for, example, plus some fresh fruit, parboiled potato, etc.</p><p>Home-made foods using a mixture of natural ingredients bound with gelatin are very useful since they can be tailored to contain fresh vegetables, Spirulina and meatier ingredients.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-oligospila",
+      "html": "<p>Relatively peaceful but territorial with conspecifics and similarly-shaped species.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-oligospila",
+      "html": "<p>Adult males possess a series of odontodes on the caudal peduncle and opercle.</p><p>Sexually mature males are also more slender and less stocky than females, a difference which is easily observed when the fish are viewed from above.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-oligospila",
+      "html": "<p>Cave-spawner with the male responsible for brood care.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-oligospila",
+      "html": "<p>This species can be distinguished from all congeners except some specimens of P. furcata by possessing only faint spots and saddles on the body. Peckoltichthys bachi, formerly placed in Peckoltia, shares this character.</p><p>It can be told apart from Peckoltichthys bachi by possession of narrow (vs. wide) pelvic-fin spines, having the eyes positioned high (vs. low) on the head, and distinctly round (vs. appearing more as a mottling) spots on the body.</p><p>It differs from P. furcata by presence (vs. absence) of spots on the abdomen of larger juveniles and adults and by the spots in the caudal fin being separate from one another (vs. combining to form bands).</p><p>Peckoltia lineola also has spots on the head but differs from P. oligospila in possessing bands (vs. spots) in all fins and vermiculations on the head formed by combinations of spots (vs. spots always distinct).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-oligospila",
+      "html": "<ul><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Armbruster, J. W. (2008). The genus Peckoltia with the description of two new species and a reanalysis of the phylogeny of the genera of the Hypostominae (Siluriformes: Loricariidae). Zootaxa 1822, 1-76</li><li>Günther, A. (1864). Catalogue of the Physostomi, containing the families Siluridae, Characinidae, Haplochitonidae, Sternoptychidae, Scopelidae, Stomiatidae in the collection of the British Museum. Catalogue of the fishes in the British Museum v. 5, i-xxii + 1-455</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/47d8497f62b0b0fb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/47d8497f62b0b0fb-480.webp",
+      "width": 800,
+      "height": 502,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-oligospila",
+      "caption": "Freshly-collected wild specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f377c1faef722f82.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f377c1faef722f82-480.webp",
+      "width": 800,
+      "height": 477,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-oligospila",
+      "caption": "Subadult individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/2126b8aa735f61ca.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2126b8aa735f61ca-480.webp",
+      "width": 500,
+      "height": 411,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan Sim / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_oligospila.htm",
+      "caption": "Peckoltia oligospila",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/30aa67eeda8cab97.webp",
+      "thumb": "https://media.aquatome.com/scotcat/30aa67eeda8cab97-480.webp",
+      "width": 500,
+      "height": 286,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_oligospila.htm",
+      "caption": "Peckoltia oligospila",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/80c365b1b691941c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/80c365b1b691941c-480.webp",
+      "width": 500,
+      "height": 306,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_oligospila.htm",
+      "caption": "Peckoltia oligospila",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5840e1a6aec2cdc7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5840e1a6aec2cdc7-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Yann Fulliquet / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_oligospila.htm",
+      "caption": "Peckoltia oligospila",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "6Oi1cEcT1dE",
+      "title": "Peckoltia oligospila / Pleco thriving on his favorite food",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4RhFDMDAqos",
+      "title": "Peckoltia Oligospila - L006  / Fishforsale.cz /",
+      "durationSec": 53,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OATAoFa5sV0",
+      "title": "Peckoltia Oligospila L-006",
+      "durationSec": 17,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 150w"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá lau kiếng",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

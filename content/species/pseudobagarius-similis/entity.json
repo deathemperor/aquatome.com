@@ -10,6 +10,62 @@
     "vietnam",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Mekong basin in southern Viet Nam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340939,
+      "total": 20,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "VN",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          9.84375,
+          8,
+          8
+        ],
+        [
+          105.46875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          9.84375,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -62,19 +118,7 @@
       "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Kano Y, Adnan MSB, Grudpan C, Grudpan J, Magtoon W, Musikasinthorn P, Natori Y, Ottomanski S, Praxaysonbath B, Phongsa K, Rangsiruji A, Shibukawa K, Shimatani Y, So N, Suvarnaraksha A, Thach P, Thanh PN, Tran DD, Utsugi K, Yamashita T (2013) An online database on freshwater fish diversity and distribution in Mainland Southeast Asia. Ichthyological Research 60: 293-295.</li><li>Ng, H.H. and M. Kottelat, 1998. The catfish genus Akysis Bleeker (Teleostei: Akysidae) in Indochina, with descriptions of six new species. J. Nat. Hist. 32:1057-1097.</li><li>Ng, H.H. 2012. Pseudobagarius similis. The IUCN Red List of Threatened Species 2012.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/bf6de3ba8e4c141e.webp",
-      "thumb": "https://media.aquatome.com/scotcat/bf6de3ba8e4c141e-480.webp",
-      "width": 500,
-      "height": 145,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_similis.htm",
-      "caption": "Pseudobagarius similis",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

@@ -1,0 +1,73 @@
+{
+  "id": "neolamprologus-caudopunctatus",
+  "native": {
+    "input": "6d55f08b88b9dd3f",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "ZM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in southern Lake Tanganyika, in Zambian waters, with records from Tanzania and the Democratic Republic of the Congo.",
+        "words": "Zambian",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in southern Lake Tanganyika, in Zambian waters, with records from Tanzania and the Democratic Republic of the Congo.",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in southern Lake Tanganyika, in Zambian waters, with records from Tanzania and the Democratic Republic of the Congo.",
+        "words": "the Democratic Republic of the Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neolamprologus caudopunctatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2371825,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        18
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        10
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        8
+      ]
+    ],
+    "native": [
+      "ZM",
+      "TZ",
+      "CD"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "id": "eirmotus-insignis",
+  "scientificName": "Eirmotus insignis",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Eirmotus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "indonesia",
+    "kapuas"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Borneo",
+        "Belitung Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from parts of the Kapuas river basin in the Indonesian province of Kalimantan Barat (West Kalimantan), Borneo, plus Belitung Island off the east coast of Sumatra.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Borneo",
+            "Belitung Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359309,
+      "total": 1,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-insignis",
+      "html": "<p>Eirmotus insignis is a small cyprinid known only from the Kapuas basin in West Kalimantan, Borneo, and Belitung Island off Sumatra. It inhabits shady, slow-moving rainforest streams and swamps with dense vegetation. One of four similar species in the genus, it is traded alongside E. octozona as the 'false eight-banded barb' and is told apart mainly by the black markings on its dorsal fin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-insignis",
+      "html": "<p>Known only from parts of the Kapuas river basin in the Indonesian province of Kalimantan Barat (West Kalimantan), Borneo, plus Belitung Island off the east coast of Sumatra. In Kalimantan it's mostly been recorded from the middle Kapuas between the towns of Sanggau and Putussibau.</p><p>Type locality is 'Small forest streams flowing into Kapuas mainstream, within 10 kilometers upstrean from Sanggau, 0°06'07\"N, 110°35'38\"E, Kalimantan Barat, Borneo'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-insignis",
+      "html": "<p>Typically inhabits slow-moving, shallow, shady rainforest streams and swamps with dense submerged and marginal vegetation. The conditions are often rather turbid and the substrate composed of mud or fallen leaves, twigs and branches.</p><p>Such environments characteristically contain soft, weakly acidic water and are often dimly-lit due to the rainforest canopy above. The fish are found sheltering among overhanging tree roots and aquatic vegetation.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-insignis",
+      "html": "<p>An aquarium with a base measuring 60 × 30 cm or larger is recommended (about 54 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-insignis",
+      "html": "<p>Will thrive in a heavily-planted or forest stream-type set-up, the latter comprising a soft substrate, dim lighting, roots, branches and leaf litter as décor. You could also add aquatic plants that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp. Filtration does not need to be particularly strong as it mostly hails from sluggish waters.</p><p>Eirmotus species can be tricky to acclimatise to captive life as they often arrive in poor condition and seem sensitive to fluctuating water chemistry. Never introduce them to biologically-immature aquaria and perform small, regular water changes of around 10% tank volume.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-insignis",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–8 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-insignis",
+      "html": "<p>Likely to feed on small invertebrates, algae and other zooplankton in nature. In the aquarium it will accept dried foods of a suitable size but should not be fed these exclusively. Daily meals of small live and frozen fare such as Daphnia, Artemia and suchlike will result in optimal colouration and encourage the fish to come into breeding condition.</p><p>This species can be quite weak on import and small live foods are highly recommended as an initial diet, introducing the dry and frozen products as the fish become settled. It's also noted as something of a shy, even reluctant, feeder.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-insignis",
+      "html": "<p>Unsuitable for most community aquaria as it may be intimidated or out-competed for food by larger or more boisterous tankmates. Small, peaceful cyprinids such as Trigonostigma or Boraras species are suitable, however.</p><p>A biotope-style community based around species from the Kapuas basin would also make an interesting project with Brevibora dorsiocellata, Trigonopoma pauciperforatum, Desmopuntius rhomboocellatus, D. hexazona, Brachygobius xanthomelas, Pangio anguillaris, P. malayana, P. semicincta, and P. shelfordii among representatives available in the ornamental trade.</p><p>It's a shoaling species by nature and really should be kept in a group of at least 8-10 specimens. Maintaining it in such numbers will not only make the fish less nervous but result in a more effective, natural-looking display. Males also display more intense colours and some interesting behaviour as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-insignis",
+      "html": "<p>Expect sexually mature females to be noticeably rounder-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-insignis",
+      "html": "<p>Unrecorded as far as we know.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-insignis",
+      "html": "<p>Prior to revision in 2008 the genus Eirmotus was monotypic for almost 50 years, with E. octozona the sole representative. There currently exist four species, all of which are similar in appearance.</p><p>E. insignis can be told apart from congeners by the following combination of characters: black pigmentation on the simple dorsal-fin rays restricted to the anterior two rays and proximal half of the third, and fainter distally (vs. extending along entire length of rays); presence of a row of faint black spots in the branched dorsal-fin rays at around 2/3 fin length (extending on the membranes in some specimens); bar 1 present but faintly marked; 16-21 serrae on posterior edge of last simple dorsal-fin ray; width of bar 5 equal to 1-1 ½ lateral row scales; presence of a small black mark immediately in front of anus, visible in lateral view; head length 32.3-33.5% SL, 47.4-50.0% BL; predorsal length 76.4-78.8% BL; interorbital width 22-25% HL; snout slightly upturned, mouth terminal, lower jaw wide, rounded anteriorly.</p><p>The numbered bars mentioned here refer to the black body bars which are ordered from 1 to 8 beginning with the anteriormost one across the snout and ending with the small bar across the caudal peduncle. This patterning also gave rise to the english vernacular name of 'false eight-banded barb', under which both E. insignis and E. octozona appear to be offered for sale in the ornamental trade.</p><p>Members of this genus possess rows of sensory papillae on the snout, cheeks, throat, opercle and interorbital area that are lacking in most other cyprinids but present in a few other genera including Oreichthys, Cyclocheilichthys, Neobarynotus and a handful of other species. They are further characterised by a small adult size of less than 36 mm SL, body patterning consisting of eight dark bars on a red to yellowish background, relatively large scales, an incomplete lateral line with only 2-6 perforated scales, serrations on the last simple dorsal ray and a lack of barbels.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-insignis",
+      "html": "<ul><li>Tan, H-H. and M. Kottelat (2008). Revision of the cyprinid fish genus Eirmotus, with description of three new species from Sumatra and Borneo. Raffles Bulletin of Zoologhy 56(2), 423-433</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Schultz, L. P. (1959). A new cyprinid fish from Siam. Tropical Fish Hobbyist 7(9), 9-11, 36-37</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c5ddf5e739fdddf2.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c5ddf5e739fdddf2-480.webp",
+      "width": 640,
+      "height": 312,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-insignis",
+      "caption": "E. cf insignis from the ornamental trade.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc sủi cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá nhỏ",
+        "artemia đông lạnh",
+        "bo bo"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "nền mềm cho cá nhỏ",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

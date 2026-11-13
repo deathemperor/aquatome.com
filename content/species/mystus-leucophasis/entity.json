@@ -1,0 +1,315 @@
+{
+  "id": "mystus-leucophasis",
+  "scientificName": "Mystus leucophasis",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Mystus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "myanmar"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "But even experienced aquarists often don't know that an upside-down swimming species also occurs in Asia (in Burma): Mystus leucophasis, which can attain a maximum length of about 30 cm, but is commonly found 15-20 cm long.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5201901,
+      "total": 8,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MM",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          95.625,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          95.625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          95.625,
+          23.90625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_leucophasis_formerly_heterobagrus_leucophasis__en/",
+      "html": "<p>The Upside-Down-Cat from the Congo (Synodontis nigriventris) is known by any aquarist's child. But even experienced aquarists often don't know that an upside-down swimming species also occurs in Asia (in Burma): Mystus leucophasis, which can attain a maximum length of about 30 cm, but is commonly found 15-20 cm long.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-leucophasis",
+      "html": "<p>The Asian upside down catfish, Mystus leucophasis, is a bagrid catfish from rivers in Myanmar that spends most of its time swimming inverted. Often sold at only a couple of inches, it is confused with the much smaller Synodontis nigriventris but is a uniform black without countershading. It grows to around 30 cm, will eat smaller fish, is usually intolerant of its own kind and is unsuitable for the general community tank.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-leucophasis",
+      "html": "<p>Myanmar.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-leucophasis",
+      "html": "<p>It inhabits rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-leucophasis",
+      "html": "<p>Standard length: 30 cm SL. Aquarium base: 120 × 60 cm. Volume: ~432 litres (120 × 60 × 60 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-leucophasis",
+      "html": "<p>Decor is not critical but the fish should be provided with a refuge it can call home. A large flowerpot turned on its side or a length of PVC piping is ideal.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-leucophasis",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 6.0–8.0. Somewhere around neutral is probably best.</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-leucophasis",
+      "html": "<p>M. leucophasis is an unfussy feeder and will accept most live, frozen and dried foods. Feed a varied diet to keep the fish in good health and displaying its deepest colours.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_leucophasis_formerly_heterobagrus_leucophasis__en/",
+      "html": "<p>The schooling instinct in the bustling juveniles, which are currently 4-6 cm long and always quarreling, is that strong that it took a lot of patience to make a photo of a solitary swimming individual.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-leucophasis",
+      "html": "<p>A somewhat robust species that can also be territorial and aggressive, depending on the temperament of the specimen. It will also eat smaller fish and may bother slow-moving tankmates. However, it can be kept with more active fish including larger barbs, such as tinfoils or lemon-finned, Apollo sharks and large cichlids. It can even be kept in communities of African mbuna. It is usually intolerant of its own kind and only one should be kept unless the tank is very large.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-leucophasis",
+      "html": "<p>Males possess an obvious genital papilla located just in front of the anal fin. Fully grown females are larger and rounder-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-leucophasis",
+      "html": "<p>Not thought to have been achieved in aquaria although it is commercially bred on fish farms in the Far East.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_leucophasis_formerly_heterobagrus_leucophasis__en/",
+      "html": "<p>Currently the fish are mainly pitch-black; from a length of about 8-10 cm on they develop snow-white spots on the flanks.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-leucophasis",
+      "html": "<p>Like some members of the African catfish genus Synodontis, this species spends the vast majority of its time swimming in an inverted position. It is often seen for sale at only a couple of inches in length and may be confused with the popular (and much smaller) Synodontis nigriventris. It can easily be distinguished from this species by its patterning. It does not exhibit the countershading or brown colours of the Synodontis and is a uniform black colour all over. Larger specimens may have some lighter coloured flecking along the sides but retain the overall dark colouration. Care must be taken not to misidentify this fish as it is most certainly unsuitable for the general community tank.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/fbbb82eac83ccd38.webp",
+      "thumb": "https://media.aquatome.com/scotcat/fbbb82eac83ccd38-480.webp",
+      "width": 500,
+      "height": 335,
+      "licence": "dùng với sự cho phép",
+      "author": "Christian Hauzar / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_leucophasis.htm",
+      "caption": "Mystus leucophasis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/59a6941c1bcdd00c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/59a6941c1bcdd00c-480.webp",
+      "width": 500,
+      "height": 319,
+      "licence": "dùng với sự cho phép",
+      "author": "Christian Hauzar / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_leucophasis.htm",
+      "caption": "Mystus leucophasis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ff6138fe186585c5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ff6138fe186585c5-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Julian Haffegee / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_leucophasis.htm",
+      "caption": "Mystus leucophasis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c40579c44a007920.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c40579c44a007920-480.webp",
+      "width": 500,
+      "height": 276,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_leucophasis.htm",
+      "caption": "Mystus leucophasis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "f1tyM8v-M_8",
+      "title": "Mystus Leucophasis",
+      "durationSec": 302,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4-xqf0u_ZBs",
+      "title": "Mystus leucophasis - Asian Upside down catfish going nuts upside down",
+      "durationSec": 45,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YJbp9ozSBww",
+      "title": "Mystus Leucophasis",
+      "durationSec": 305,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5ggfq-hPiBU",
+      "title": "Рыба в аквариуме Чёрный Багрус Mystus leucophasis или Heterobagrus leucophasis сом перевёртыш👍🤘💪❤️‍🔥",
+      "durationSec": 11,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn",
+        "máy lọc ngoài"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá da trơn",
+        "thức ăn cá nheo"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

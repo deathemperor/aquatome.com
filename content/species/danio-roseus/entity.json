@@ -20,40 +20,29 @@
         "MM"
       ],
       "regions": [
-        "Mekong",
-        "Nam Khwe River",
-        "Nam Lawe River"
+        "Mekong"
       ],
       "sources": [
+        "glaser",
         "seriouslyfish"
       ],
       "quotes": [
         {
-          "source": "seriouslyfish",
-          "quote": "Described from the Mekong River basin in Nong Khai and Chiang Rai Provinces, northern Thailand, and Louangphabang Province, northern Laos but now known to occur further north having been recorded at several localities in northern Myanmar.",
+          "source": "glaser",
+          "quote": "Brachydanio roseus originates from northern Thailand, northern Laos and northern Burma. It becomes around 5-6 cm long.",
           "countries": [
             "TH",
             "LA",
             "MM"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Mekong River basin in Nong Khai and Chiang Rai Provinces, northern Thailand, and Louangphabang Province, northern Laos but now known to occur further north having been recorded at several localities in northern Myanmar.",
+          "countries": [],
           "regions": [
             "Mekong"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "In images the Nam Khwe River, Myanmar contains quite shallow, turbid, moderately fast-flowing water; the substrate is composed of variably-sized boulders with some relatively little streamside vegetation.",
-          "countries": [],
-          "regions": [
-            "Nam Khwe River"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Sympatric species include Danio albolineatus plus unidentified members of Barilius and Opsarius. In the larger Nam Lawe River, also Myanmar, it lives alongside Badis ruber, Colisa labiosa, Lepidocephalichthys berdmorei and an unidentified Danio species.",
-          "countries": [],
-          "regions": [
-            "Nam Lawe River"
           ]
         }
       ]
@@ -254,6 +243,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -271,6 +264,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_brachydanio_roseus_en/",
+      "html": "<p>Brachydanio roseus originates from northern Thailand, northern Laos and northern Burma. It becomes around 5-6 cm long.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-roseus",
@@ -281,6 +280,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-roseus",
       "html": "<p>Described from the Mekong River basin in Nong Khai and Chiang Rai Provinces, northern Thailand, and Louangphabang Province, northern Laos but now known to occur further north having been recorded at several localities in northern Myanmar.</p><p>Type locality is 'Nam Tok Than Thip, 3 kilometers off main road at Ban Tad Some, 13 kilometers west of Sam Kon on road Loei - Nong Khai'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_brachydanio_roseus_en/",
+      "html": "<p>Brachydanio roseus originates from northern Thailand, northern Laos, and northern Burma.</p>"
     },
     {
       "key": "habitat",
@@ -319,10 +324,22 @@
       "html": "<p>This species is very peaceful indeed making it an ideal resident of the well-furnished community tank.</p><p>Since it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, rainbowfish, anabantoids, catfish and loaches.</p><p>A community based around species from one of its native countries or river basins would also make an interesting project with numerous sympatric species available in the trade.</p><p>It's a schooling species by nature and should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less nervous but result in a more effective, natural-looking display while males will also exhibit their best colours as they compete with one other for female attention.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_brachydanio_roseus_en/",
+      "html": "<p>Like all Danios, B. roseus is a perfect community fish: lively, colourful, absolutely peaceful, and easy to maintain. One should keep Danios always in groups (10 specimens upwards), they feel better when kept along with conspecifics.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-roseus",
       "html": "<p>Females tend to grow larger than males and are generally deeper-bodied, more so when gravid.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_brachydanio_roseus_en/",
+      "html": "<p>Displaying males of B. roseus get a bright red shining belly.</p>"
     },
     {
       "key": "reproduction",
@@ -335,6 +352,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-roseus",
       "html": "<p>D. roseus is a relatively recent addition to the aquarium trade but has proved very popular since it's colourful, hardy and usually quite cheap making it ideal for beginners. It's sometimes sold as 'purple passion danio'.</p><p>It's very similar to D. albolineatus sensu stricto but differs in several characters, notably the relatively slimmer body, shorter rostral barbels and lack of dark stripes on the posterior half of the body.</p><p>Breeders in eastern Europe have successfully crossed D. albolineatus and D. roseus, and many of the fishes currently seen in the hobby are thought to be hybrids. If you want to avoid these beware of fish with a very cheap price tag that show a high proportion of both powdery-blue colouration on the body and red in the unpaired fins.</p><p>In recent years it's become commonplace to refer to the stripes on the body and fins of danionins as follows:</p><ul><li>P stripe: or \"pigment stripe\" is the central, dark, lateral stripe on the body which extends into the caudal-fin in some species. Stripes above it are numbered P+1, P+2, etc. and those beneath P-1, P-2, P-3.</li><li>A stripe: the central stripe on the anal-fin; the proximal stripe (above it) is A+1 and the distal stripe (beneath) A-1.</li><li>D stripe: The submarginal dorsal-fin stripe.</li></ul><p>Following Fang (2003) Danio spp. are characterised by the presence of an A stripe on the anal-fin and two or more P stripes on the caudal, plus some internal characteristics such as enlarged nasal lamellae.</p><p>The genus has undergone some significant taxonomic reshuffling in recent years following the publication of a series of phylogenetic studies.</p><p>Older, molecular, phylogenies tended to agree that it represented a monophyletic group consisting of two major clades; the 'Danio devario' group containing the larger, deeper-bodied species and the 'D. rerio' clade comprising the smaller, slimmer fish.</p><p>However in 2003 Fang conducted a more detailed study based on morphological characters which included members of other related genera, and the results suggested for the first time that the genus Danio as previously considered represents a polyphyletic grouping, i.e., not all members derived from a single common ancestor.</p><p>The genus name Devario was suggested for the larger species with Danio being applied only to the smaller fish (with the exception of the type species, D. dangila which can grow to around 89 mm SL). Recent molecular studies by Mayden et al. (2007) and Fang et al. (2009) resulted in further changes, with the latter study considering the genus Danio to be composed of three subclades. These were subsequently split into distinct genera by Kottelat (2013), as follows:</p><p>The former species D. erythromicron, D. margaritatus, D. choprae and D. flagrans were grouped together in the revalidated genus Celestichthys Roberts, 2007. These exhibit unique body patterning consisting of vertical bars (D. erythromicron, D. choprae, D. flagrans) or light spots (D. margaritatus) and possess either very short barbels or none at all.</p><p>Kottelat (2013) left only the type species, D. dangila, in Danio, separated on the basis of its larger size and the shape of the caudal-fin, which in adults is only slightly emarginate or even truncate in shape, a feature it shares only with Tinca tinca (the common tench) among other cyprinids.</p><p>The remaining species, of which D. rerio is thought to be the most ancient, were placed in the revalidated genus Brachydanio Weber &amp; de Beaufort, 1916. Kullander (2015) did not follow this split, because phylogenetic analyses strongly support a single Danio in the sense of Fang (2003), with Devario a separate genus. The Catalog of Fishes and FishBase both keep all of these species in Danio.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_brachydanio_roseus_en/",
+      "html": "<p>The pearl danio (Brachydanio albolineatus) is the type species of the (sub-)genus Brachydanio. It is among the most popular ornamental fish in the world and is almost always available in any petshop. The other Brachydanio in the closer sense are far less well known.</p><p>B. roseus is distinguished from B. albolineatus by the almost total lack of the rosy (white in preserved specimens) stripe on the caudal peduncle.</p><p>There is currently much discussion about whether the gender of Brachydanio is masculine (like Danio) or feminine. If it is regarded as feminine, specific names that are adjectives, like albolineatus (= with a white stripe) or roseus (= rose-coloured), would have to change to the feminine form, e.g. albolineata or rosea. However, the author does not follow this opinion: Danio was described in 1822 as a subgenus of Cyprinus, and a subgenus always has the same gender as the genus, so Danio is masculine. Brachydanio was described in 1916 as a subgenus of Danio, so it also has to be masculine.</p>"
     },
     {
       "key": "references",
@@ -356,13 +379,37 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "KjVSLrVQ3Yc",
+      "title": "Danio roseus (Danio rose)",
+      "durationSec": 104,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Cs2FG5iqMgk",
+      "title": "Danio Roseus",
+      "durationSec": 204,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Sd3T5eSeBSo",
+      "title": "Danio roseus",
+      "durationSec": 147,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "nffXigPaiZQ",
+      "title": "3 week old Danio roseus fry.",
+      "durationSec": 21,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 90x30"
+        "bể cá 90cm"
       ]
     },
     {
@@ -387,5 +434,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-10"
 }

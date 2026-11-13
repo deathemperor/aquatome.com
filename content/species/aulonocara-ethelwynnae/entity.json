@@ -10,6 +10,43 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi",
+        "Chitande Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi where it was described from and only occurs around 'Chitendi Island', now normally referred to as Chitande island plus a short stretch of coastline between Ngara and Chilumba along the lake's northwestern shoreline.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The northern aulonocara, Aulonocara ethelwynnae, is a cichlid endemic to Lake Malawi, known only from Chitande Island and the nearby northwest shore.",
+          "countries": [],
+          "regions": [
+            "Chitande Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370491,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +90,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -131,26 +168,13 @@
       "html": "<ul><li>Meyer, Riehl &amp; Zetzsche (1987). A revision of the cichlid fishes of the genus Aulonocara Regan, 1922 from Lake Malawi, with descriptions of six new species (Pisces, Perciformes, Cichlidae). Courier ForschungsInstitut Senckenberg 94, 7-53</li></ul>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/cf55ad790f3e3b8b.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/cf55ad790f3e3b8b-480.webp",
-      "width": 640,
-      "height": 414,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/aulonocara-ethelwynnae",
-      "caption": "Nuptial male specimen.",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 90x45"
+        "bể cá 90cm"
       ]
     },
     {

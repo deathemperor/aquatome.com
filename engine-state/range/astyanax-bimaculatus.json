@@ -1,0 +1,423 @@
+{
+  "id": "astyanax-bimaculatus",
+  "native": {
+    "input": "3a4421a459492000",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The two spot astyanax, Astyanax bimaculatus, is a characid ranging from Panama through most of the Amazon and Orinoco basins.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is unclear but this species is ubiquitous over a wide range with its distribution extending from Panama throughout the majority of the vast Amazon and Orinoco river basins.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "TT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's thus also been recorded in Trinidad and Tobago, Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, and Argentina.",
+        "words": "Trinidad and Tobago",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's thus also been recorded in Trinidad and Tobago, Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, and Argentina.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's thus also been recorded in Trinidad and Tobago, Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, and Argentina.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's thus also been recorded in Trinidad and Tobago, Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, and Argentina.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's thus also been recorded in Trinidad and Tobago, Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, and Argentina.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's thus also been recorded in Trinidad and Tobago, Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, and Argentina.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's thus also been recorded in Trinidad and Tobago, Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, and Argentina.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's thus also been recorded in Trinidad and Tobago, Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, and Argentina.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's thus also been recorded in Trinidad and Tobago, Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, and Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's thus also been recorded in Trinidad and Tobago, Colombia, Venezuela, Guyana, Suriname, French Guiana, Ecuador, Peru, Brazil, and Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The two spot astyanax, Astyanax bimaculatus, is a characid ranging from Panama through most of the Amazon and Orinoco basins.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "The two spot astyanax, Astyanax bimaculatus, is a characid ranging from Panama through most of the Amazon and Orinoco basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astyanax bimaculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 5204296,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1086
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        523
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        269
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        236
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        232
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        138
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        134
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        129
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        118
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        105
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        103
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        101
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        96
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        86
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        83
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        72
+      ],
+      [
+        "640ae8b7-14b9-4188-894a-a2bc3821c752",
+        58
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        57
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        56
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        55
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        41
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        40
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        20
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        20
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        20
+      ],
+      [
+        "cd31232e-57a9-4777-ab9d-406333c42769",
+        18
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        16
+      ],
+      [
+        "2d74ce7a-a3c9-4045-b98d-7bb6cd043894",
+        15
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        15
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        14
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        14
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        14
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        13
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        12
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        12
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        12
+      ],
+      [
+        "3b8f8089-0261-4ec1-829c-1f17828fbd96",
+        11
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        10
+      ],
+      [
+        "bb1f4643-8a9a-4d72-b631-88a41c0528bc",
+        10
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        8
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        7
+      ],
+      [
+        "5d1e5f0d-811c-4ab0-bb38-f141cc0174de",
+        7
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        7
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        5
+      ],
+      [
+        "bba95e72-e2df-420e-8de3-b7ca814037ae",
+        5
+      ],
+      [
+        "e42bf2ce-364f-444c-ba0e-c5947cc5f4b3",
+        5
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        4
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        4
+      ],
+      [
+        "13b4fdb0-92a0-4497-bc0a-16d2fdf806fd",
+        3
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        2
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        2
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "360d2362-4ab5-4440-986d-7e6676db6c75",
+        1
+      ],
+      [
+        "55985e77-9fca-4d51-aa4d-5840e544652a",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "7f9acd13-804d-4e26-af83-f92b869c841d",
+        1
+      ],
+      [
+        "84f3b06c-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "97c46b50-34bd-47e9-baa4-7a1709472af2",
+        1
+      ],
+      [
+        "c52a4cae-b9b4-44a2-bf07-15a7b6980ff6",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "PA",
+      "TT",
+      "CO",
+      "VE",
+      "GY",
+      "SR",
+      "GF",
+      "EC",
+      "PE",
+      "BR",
+      "AR"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

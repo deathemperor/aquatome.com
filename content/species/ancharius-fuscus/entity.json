@@ -10,6 +10,52 @@
     "madagascar",
     "fianarantsoa"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MG"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: widely distributed along eastern-draining rivers of Madagascar.",
+          "countries": [
+            "MG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338036,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MG",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          46.40625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          47.8125,
+          -22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -74,12 +120,6 @@
       "youtubeId": "9ZNHTVGOPsk",
       "title": "Ancharius fuscus",
       "durationSec": 62,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "AUEwyRvCwxU",
-      "title": "Chronicles of Catfishes 27 Malagasy Ancharids",
-      "durationSec": 354,
       "lang": "en"
     }
   ],

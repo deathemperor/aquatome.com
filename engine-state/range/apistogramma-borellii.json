@@ -1,0 +1,140 @@
+{
+  "id": "apistogramma-borellii",
+  "native": {
+    "input": "cdb73381ee564619",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Borelli's dwarf cichlid, Apistogramma borellii, is from southern Brazil, Paraguay, Argentina and Uruguay.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Borelli's dwarf cichlid, Apistogramma borellii, is from southern Brazil, Paraguay, Argentina and Uruguay.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Borelli's dwarf cichlid, Apistogramma borellii, is from southern Brazil, Paraguay, Argentina and Uruguay.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Borelli's dwarf cichlid, Apistogramma borellii, is from southern Brazil, Paraguay, Argentina and Uruguay.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Paraguay",
+        "source": "seriouslyfish",
+        "quote": "Also known as the umbrella or yellow dwarf cichlid, it occurs in creeks and tributaries of the rio Paraguay, lower rio Paraná and Uruguay systems.",
+        "ok": true
+      },
+      {
+        "name": "Rio Paraná",
+        "source": "seriouslyfish",
+        "quote": "It occurs in creeks and tributaries of both the Rio Paraguay and lower Rio Paraná basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma borellii",
+    "status": "ACCEPTED",
+    "taxonKey": 2371268,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        53
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        29
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        24
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        19
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        13
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        13
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        11
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        11
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        8
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PY",
+      "AR",
+      "UY"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

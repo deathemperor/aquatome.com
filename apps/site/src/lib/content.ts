@@ -5,7 +5,7 @@ import type { Lang } from './i18n'
 
 const cache = new Map<Lang, Promise<Content>>()
 
-/** Everything with a page in this language (an entity without <lang>.json has none). */
+/** Everything with a page in this language (an entity without <lang>.json has none, nor one the reader-fit gate holds back). */
 export function getContent(lang: Lang): Promise<Content> {
   let c = cache.get(lang)
   if (!c) {
@@ -13,6 +13,9 @@ export function getContent(lang: Lang): Promise<Content> {
       root: process.env.CONTENT_ROOT ?? resolve(process.cwd(), '../../content'),
       lang,
       publicBuild: process.env.PUBLIC_BUILD === '1',
+      leaveOutHeld: true,
+      // The real content (no CONTENT_ROOT) is built public only with the watermark screen's record beside it.
+      ...(process.env.CONTENT_ROOT ? {} : { photoScreen: 'required' as const }),
     }).then(c => dropHidden(c, readHidden(), lang))
     cache.set(lang, c)
   }

@@ -1,0 +1,128 @@
+{
+  "id": "glanidium-ribeiroi",
+  "scientificName": "Glanidium ribeiroi",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Glanidium",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "iguazu"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Iguaçú",
+        "La Plata"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Iguaçú, Porto União da Victoria, Paraná, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Iguaçú"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Iguassu River. La Plata, Paraná, Iguazu.",
+          "countries": [],
+          "regions": [
+            "La Plata"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344598,
+      "total": 64,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          64
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -26.71875,
+          11,
+          11
+        ],
+        [
+          -54.84375,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -26.71875,
+          46,
+          46
+        ],
+        [
+          -52.03125,
+          -26.71875,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -23.90625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 22
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1257",
+      "html": "<p>Glanidium ribeiroi Haseman, 1911. Family Auchenipteridae. Size: 220 mm SL. IUCN Red List: Not Evaluated.</p><p>Type locality: Rio Iguaçú, Porto União da Victoria, Paraná, Brazil.</p><p>Etymology: Glanidium is a diminutive of Greek glanis, meaning catfish, i.e. literally \"small catfish\".</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1257",
+      "html": "<p>South America: Iguassu River. La Plata, Paraná, Iguazu.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1257",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1257",
+      "html": "<p>Annals of the Carnegie Museum v. 7 (nos 3-4) (19), pp 381, Pl. 78.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-06"
+}

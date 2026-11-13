@@ -1,0 +1,223 @@
+{
+  "id": "noturus-hildebrandi",
+  "scientificName": "Noturus hildebrandi",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Noturus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "mississippi-river"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "Mississippi River",
+        "Homochitto River",
+        "North Fork Obion River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Brushy Creek, about 1.6 km above its mouth in Homochitto River, hamlet of Homochitto, Amite County, Mississippi, U.S.A.",
+          "countries": [
+            "US"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "North America: tributaries of the Mississippi River in the USA from North Fork Obion River in southwestern Kentucky to Homochitto River in southern Mississippi.",
+          "countries": [],
+          "regions": [
+            "Mississippi River",
+            "Homochitto River",
+            "North Fork Obion River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4286751,
+      "total": 257,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "US",
+          257
+        ]
+      ],
+      "cells": [
+        [
+          -95.625,
+          37.96875,
+          6,
+          6
+        ],
+        [
+          -91.40625,
+          30.9375,
+          82,
+          82
+        ],
+        [
+          -91.40625,
+          32.34375,
+          2,
+          2
+        ],
+        [
+          -90,
+          32.34375,
+          12,
+          12
+        ],
+        [
+          -90,
+          33.75,
+          50,
+          50
+        ],
+        [
+          -90,
+          35.15625,
+          23,
+          23
+        ],
+        [
+          -88.59375,
+          33.75,
+          2,
+          2
+        ],
+        [
+          -88.59375,
+          35.15625,
+          80,
+          80
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6.9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<ul><li>Scientific name: Noturus hildebrandi (Bailey &amp; Taylor, 1950)</li><li>Common name: Least Madtom</li><li>Type locality: Brushy Creek, about 1.6 km above its mouth in Homochitto River, hamlet of Homochitto, Amite County, Mississippi, U.S.A.</li><li>IUCN Red List: Least Concern (last assessed 2012)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<p>North America: tributaries of the Mississippi River in the USA from North Fork Obion River in southwestern Kentucky to Homochitto River in southern Mississippi.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<p>Inhabits mixed rock and sand riffles and runs of clear lowland creeks and small rivers. Often found near debris.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<p>In the wild feeds on midge and caddis larvae, together with mayfly and stonefly nymphs. In the aquarium readily feeds on live and frozen foods. Will also adapt to flake and prepared foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<p>Suitable for a coldwater community tank. Ideal tank mates include small to mid-sized North American native fishes such as darters and shiners.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<p>Etymology: from the Greek notos, meaning back, and oura, meaning tail, in reference to the confluent adipose and caudal fins. The species was named to honour Samuel F. Hildebrand.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<p>Copeia 1950 (no. 1), pp 32, Pls. 1, 2 (figs. E-F).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/642720434.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/642720434-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY",
+      "author": "Gojilynx",
+      "sourceUrl": "https://www.inaturalist.org/photos/642720434",
+      "caption": "Cá madtom nhỏ trong hộp chụp ảnh cạnh bãi cát ven suối",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/642720434-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "uiBhZnvrRH8",
+      "title": "Least Madtom (Noturus hildebrandi) In Situ!",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nước lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn cá đáy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể cá",
+        "sỏi nhỏ bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

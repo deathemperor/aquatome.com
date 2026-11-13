@@ -1,0 +1,84 @@
+{
+  "id": "nematabramis-steindachnerii",
+  "native": {
+    "input": "20b978756177ca46",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern and central Borneo, with records from the Malaysian states of Sarawak and Sabah, Brunei Darussalam, and the Indonesian provinces North Kalimantan (Kalimantan Utara) and East Kalimantan (Kalimantan Timur).",
+        "words": "Malaysian",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern and central Borneo, with records from the Malaysian states of Sarawak and Sabah, Brunei Darussalam, and the Indonesian provinces North Kalimantan (Kalimantan Utara) and East Kalimantan (Kalimantan Timur).",
+        "words": "Brunei Darussalam",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern and central Borneo, with records from the Malaysian states of Sarawak and Sabah, Brunei Darussalam, and the Indonesian provinces North Kalimantan (Kalimantan Utara) and East Kalimantan (Kalimantan Timur).",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Endemic to northern and central Borneo, with records from the Malaysian states of Sarawak and Sabah, Brunei Darussalam, and the Indonesian provinces North Kalimantan (Kalimantan Utara) and East Kalimantan (Kalimantan Timur).",
+        "ok": true
+      },
+      {
+        "name": "Kajan River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kajan River, eastern slope of central Kalimantan, Indonesia [Borneo]'.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nematabramis steindachnerii",
+    "status": "ACCEPTED",
+    "taxonKey": 2367368,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ]
+    ],
+    "native": [
+      "MY",
+      "BN",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

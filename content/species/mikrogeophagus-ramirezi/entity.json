@@ -22,6 +22,19 @@
       ],
       "sources": [
         "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The ram, Mikrogeophagus ramirezi, is a dwarf cichlid from the llanos of the Rio Orinoco drainage in Venezuela and Colombia.",
+          "countries": [
+            "VE",
+            "CO"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        }
       ]
     },
     "records": {
@@ -212,6 +225,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -223,7 +240,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -232,13 +249,31 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mikrogeophagus-ramirezi",
-      "html": "<p>The ram, Mikrogeophagus ramirezi, is a dwarf cichlid from the llanos of the Rio Orinoco drainage in Venezuela and Colombia. Among the more popular dwarf cichlids in the hobby, it is produced commercially in huge numbers, and ornamental strains such as 'gold', 'long-finned' and 'balloon' tend to be genetically weak and short-lived. Wild fish are of superior stock but more demanding, and it requires pristine water quality.</p><ul><li>Max size: 40 mm SL (1.6 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 27–30°C (81–86°F)</li><li>pH: 4.0–7.0</li><li>Hardness: 1–10 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+      "html": "<p>The ram, Mikrogeophagus ramirezi, is a dwarf cichlid from the llanos of the Rio Orinoco drainage in Venezuela and Colombia. Among the more popular dwarf cichlids in the hobby, it is produced commercially in huge numbers, and ornamental strains such as 'gold', 'long-finned' and 'balloon' tend to be genetically weak and short-lived. Wild fish are of superior stock but more demanding, and it requires pristine water quality.</p><ul><li>Max size: 40 mm SL (1.6 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 27–30°C (81–86°F)</li><li>pH: 4.0–7.0</li><li>Hardness: 1–10 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/wild_rams_en/",
+      "html": "<p>Wild collected Rams (Mikrogeophagus ramirezi) only reach about 5 cm in length (males); females stay even smaller, so this species is definitely a dwarf cichlid.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/wild_rams_en/",
+      "html": "<p>Due to the regularly offered, amazing bred sports of the Ram (Mikrogeophagus ramirezi) one tends to forget how breathtakingly beautiful the wild collected fish is already.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mikrogeophagus-ramirezi",
       "html": "<p>The majority of literature suggests that this species is restricted to the Venezuelan and Colombian llanos of the Río Orinoco drainage, although one of the specimens in the images is said to have been collected in the rio Purus, Brazil, an Amazon tributary located some distance from that watershed.</p><p>Type locality is 'Orinoco system, Venezuela'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/wild_rams_en/",
+      "html": "<p>Currently fully grown, wild collected Rams from Venezuela are on offer.</p>"
     },
     {
       "key": "habitat",
@@ -303,6 +338,21 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/77efa1b146855ade.webp",
+      "thumb": "https://media.aquatome.com/commons/77efa1b146855ade-480.webp",
+      "width": 1200,
+      "height": 1003,
+      "licence": "CC BY-SA 3.0",
+      "author": "Zaire",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microgeophagus_ramirezi_2011.jpg",
+      "caption": "Cận cảnh cá phượng hoàng đực màu sắc rực rỡ, vây lưng đen",
+      "large": {
+        "url": "https://media.aquatome.com/commons/77efa1b146855ade-large.webp",
+        "width": 1435,
+        "height": 1200
+      }
+    },
+    {
       "url": "https://media.aquatome.com/seriouslyfish/a5d2711d9349d433.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/a5d2711d9349d433-480.webp",
       "width": 624,
@@ -319,8 +369,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá mini 54 lít"
+        "bể cá 60cm"
       ]
     },
     {
@@ -346,5 +395,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-09"
 }

@@ -10,6 +10,89 @@
     "myanmar",
     "irrawaddy"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Lake Indawgyi",
+        "Irrawaddy"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Dario hysginon is a tiny badid endemic to Myanmar, known from streams near Myitkyina in Kachin State and from nearby Lake Indawgyi.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Myanmar where it has been recorded from small streams and tributaries close to the city of Myitkyina in Kachin State as well as in nearby Lake Indawgyi, the largest inland lake in Southeast Asia, with all known habitats within the Irrawaddy/Ayeyarwady river system.",
+          "countries": [],
+          "regions": [
+            "Lake Indawgyi",
+            "Irrawaddy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2389479,
+      "total": 51,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MM",
+          51
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          16.875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          95.625,
+          23.90625,
+          17,
+          17
+        ],
+        [
+          95.625,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          25.3125,
+          30,
+          30
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -17,6 +100,13 @@
         "value": {
           "min": 20,
           "max": 24
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 25
         }
       }
     ],
@@ -42,6 +132,10 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ],
     "tankCm": [
@@ -53,7 +147,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -65,10 +159,22 @@
       "html": "<p>Dario hysginon is a tiny badid endemic to Myanmar, known from streams near Myitkyina in Kachin State and from nearby Lake Indawgyi. Traded as 'red melon Dario' or 'flame red Dario', it reaches around 20 mm in males and 15 mm in females. The barred form sold as Dario sp. 'Myanmar' is officially a colour form of this species, but it grows larger and the two will not hybridise in aquaria.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/dario_hysginon_2__en/",
+      "html": "<p>Dario species, the Dwarf Badis, are Chameleon fish: depending on mood or light their colours change a lot and fast. Dario hysginon, the Flame Red Dario, becomes only 2 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dario-hysginon",
       "html": "<p>Endemic to Myanmar where it has been recorded from small streams and tributaries close to the city of Myitkyina in Kachin State as well as in nearby Lake Indawgyi, the largest inland lake in Southeast Asia, with all known habitats within the Irrawaddy/Ayeyarwady river system.</p><p>Other collections have occurred further south near Mandalay city, Mandalay Division and these populations have been shown to vary slightly in meristics compared with those from the north of the country (Kullander and Britz, 2002).</p><p>Type locality is 'Nan Kywe Chaung under bridge on road south to Mogaung, 25°20'20\"N, 97°16'57\"E, Irrawaddy River drainage, Myitkyina District, Kachin State, Myanmar'.</p><p>Lake Indawgyi and surrounding area were designated a protected zone by the Ministry of Ecotourism in 1999 and now form the Indawgyi Lake Wildlife Sanctuary.</p><p>Kachin State itself is one of the world's great biodiversity hotspots and contains many endemic species although large portions of the area have already been decimated due to illegal logging.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/dario_hysginon_2__en/",
+      "html": "<p>Burma (Myanmar).</p>"
     },
     {
       "key": "habitat",
@@ -83,6 +189,12 @@
       "html": "<p>A pair or single male with multiple females can be housed in an aquarium with base dimensions of 45 × 30 cm (18 × 12 in) or more. Volume: approximately 41 litres.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/dario_hysginon_2__en/",
+      "html": "<p>The aquarium can be small, but should be very well planted.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dario-hysginon",
@@ -95,10 +207,22 @@
       "html": "<ul><li>Temperature: 20–24°C</li><li>pH: 6.5–7.5</li><li>Hardness: 1–5 dGH</li></ul><p>Temperature: It is subject to seasonal temperature fluctuations in nature and is comfortable within the range 15–25°C with even greater extremes being tolerated for short periods. In many countries/well-insulated homes it can therefore be maintained without artificial heating year-round.</p><p>Higher temperatures are known to stimulate spawning activity meaning a heater will be required if you want to breed the fish outside of spring and summer months though. Set it to around 20–24°C for long-term care and breeding.</p><p>pH: Prefers neutral to alkaline water with a value between 6.5–7.5.</p><p>Hardness: The water in northern Myanmar is typically soft despite the relatively high pH so aim for somewhere within the range 1–5 dGH.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/dario_hysginon_2__en/",
+      "html": "<p>These tiny jewels can be kept in an unheated aquarium (if the tank is placed in a living room); temperatures in the range of 16–25°C are best.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dario-hysginon",
       "html": "<p>Dario species are micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton.</p><p>In captivity they should be offered small live or frozen fare such as Artemia nauplii, Daphnia, grindal, micro-, and banana worm.</p><p>They're noted as somewhat shy, deliberate feeders (see 'Behaviour and compatibility') and it's also important to note that all badids develop issues with obesity and become more susceptible to disease when fed chironomid larvae (bloodworm) and/or Tubifex so these should be omitted from the diet.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/dario_hysginon_2__en/",
+      "html": "<p>The fish feed on any type of small live or frozen food.</p>"
     },
     {
       "key": "behaviour",
@@ -123,6 +247,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dario-hysginon",
       "html": "<p>This species is traded under various names such as 'red melon Dario' or 'flame red Dario'.</p><p>Among congeners D. dayingensis is most similar since it differs only in a few meristic counts and by its slightly larger adult size.</p><p>D. hysginon can be told apart by possession of 22-24, usually 23, lateral scales (vs. 24-25 in D. dayingensis), 8½ (vs. 9½) scales in the transverse scale row, and absence (vs. presence) of palatine teeth in the upper jaw.</p><p>A beautiful, striped colour form which aquarists have referred to as Dario sp. 'Myanmar', D. sp. 'pyjamas', D. sp. 'black tiger' and 'fire red tiger badis' among other names is also available sporadically.</p><p>Little is known about this fish except that two male specimens were included in the type series of D. hysginon and collected to the north of Myitkyina in Kachin State.</p><p>Despite the striking differences in colour pattern it's officially recognised as a colour form of D. hysginon as per Kullander and Britz (2002) although D. sp. 'Myanmar' is now known to have an appreciably larger adult size (S. van der Voort, pers. comm.).</p><p>Females are also distinguishable from those of D. hysginon, plus the two will not hybridise with each other in aquaria, so they are included separately for the time being.</p><p>Dario currently contains five species, of which four are considered miniature species since they do not exceed 26 mm (1.0 in) in standard length (SL).</p><p>The fifth, D. urops, not only grows larger, to at least 28 mm (1.1 in) SL, but occurs in southwestern India whereas the others are native to the Brahmaputra, Meghna, and Ayeyarwaddy river systems in northern India, Myanmar, and southwestern China, and this raises interesting questions regarding their biogeography.</p><p>In addition, D. urops lacks some diagnostic characters of Dario and thus may represent the sister group to other members of the genus, though this hypothesis remains to be tested.</p><p>Prior to 2002 the family Badidae included just five species but an extensive revision paper published that year contained descriptions of ten new species along with the genus Dario of which the former Badis dario was designated type species.</p><p>Dario is most easily distinguished from Badis by the small adult size of member species, predominantly red colouration, more extended first few dorsal rays and pectoral fins in males, straight-edged (vs. rounded) caudal-fin, lack of visible lateral line and less-involved parental behaviour.</p><p>Badids have historically been considered members of the families Nandidae or Pristolepididae and it was not until 1968 that Barlow proposed a separate grouping for them.</p><p>They share some characteristics with anabantoids, nandids and channids, perhaps most notably the typical spawning embrace in which the male wraps his body around that of the female.</p><p>More recent studies have concluded that this procedure is an ancient trait inherited from a common ancestor to all these families.</p><p>All Badis, Dario and Nandus species were found to share a uniquely bifurcated (split) hemal spine on the penultimate vertebra and this may provide evidence that the group is monophyletic (Kullander and Britz, 2002).</p><p>The family Nandidae is currently restricted to include only Nandus species and it's separated from Badidae by differences in morphology and egg structure with their phylogenetic relationships yet to be studied in detail.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/dario_hysginon_2__en/",
+      "html": "<p>Dario: after the vernacular name of one of the members of the genus in Bengal. hysginon: the name of a red dye made of plants that was used in ancient times; the name refers to the red coloration of the fish.</p>"
     },
     {
       "key": "references",
@@ -164,17 +294,6 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/dario-hysginon",
       "caption": "Male of D. hysginon.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/9b6281b588b15ff5.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/9b6281b588b15ff5-480.webp",
-      "width": 899,
-      "height": 599,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/dario-hysginon",
-      "caption": "There are settlements around some parts of Lake Indawgyi...",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [
@@ -207,8 +326,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {
@@ -234,5 +352,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-11"
 }

@@ -10,6 +10,111 @@
     "colombia",
     "san-juan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "San Juan",
+        "Atrato"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The emperor tetra, Nematobrycon palmeri, is a characid endemic to the San Juan and Atrato basins in Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the San Juan and Atrato river basins in Colombia with type locality 'Condoto, Río Condoto and Novita, Río Tamana, southwestern Colombia'.",
+          "countries": [],
+          "regions": [
+            "San Juan",
+            "Atrato"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354003,
+      "total": 19,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CO",
+          14
+        ],
+        [
+          "AO",
+          2
+        ],
+        [
+          "DE",
+          1
+        ],
+        [
+          "US",
+          1
+        ],
+        [
+          "ZA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          -77.34375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          8.4375,
+          49.21875,
+          1,
+          0
+        ],
+        [
+          11.25,
+          -16.875,
+          2,
+          0
+        ],
+        [
+          26.71875,
+          -26.71875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -57,7 +162,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 4
       }
     ]
   },
@@ -159,8 +264,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá cộng đồng",
-        "bể thủy sinh 60cm"
+        "bể cá 90cm"
       ]
     },
     {

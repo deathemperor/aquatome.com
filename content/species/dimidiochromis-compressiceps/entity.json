@@ -12,6 +12,68 @@
     "mozambique",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi, where it's widely distributed.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369877,
+      "total": 15,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MW",
+          11
+        ],
+        [
+          "MZ",
+          2
+        ],
+        [
+          "TZ",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -15.46875,
+          3
+        ],
+        [
+          33.75,
+          -14.0625,
+          5
+        ],
+        [
+          33.75,
+          -12.65625,
+          5
+        ],
+        [
+          33.75,
+          -11.25,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -127,26 +189,13 @@
       "html": "<p>D. compressiceps is an ambush predator in nature, its laterally compressed shape and head-down hunting position allowing it to remain hidden among Vallisneria beds and making it tricky to spot in open water. It has a dark stripe running from the snout along the back to the tail which serves to provide further camouflage.</p><p>Despite its common name, it does not prey solely on the eyes of other species, preferring to hunt small fish (particularly juvenile Copadichromis sp.). It swallows these tail first, and few other fish do the same. Its common name is derived from its habit of eating the eyes of fish in nature. This happens infrequently and there are various theories surrounding it. Some suggest that it is blinding its prey, others think that it only occurs when food is scarce, whilst yet others suggest the eye may be a delicacy of some kind. In any respect, this will rarely, if ever, happen in aquaria with well-fed specimens.</p><p>An albino form is occasionally available in the hobby, and has become more popular in recent years.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/7d7f2e582c7af901.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/7d7f2e582c7af901-480.webp",
-      "width": 680,
-      "height": 300,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/dimidiochromis-compressiceps",
-      "caption": "Dimidiochromis compressiceps adult male",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá lớn 250 lít"
+        "bể cá 150cm"
       ]
     },
     {

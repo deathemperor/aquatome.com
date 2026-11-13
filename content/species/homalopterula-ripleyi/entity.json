@@ -1,0 +1,265 @@
+{
+  "id": "homalopterula-ripleyi",
+  "scientificName": "Homalopterula ripleyi",
+  "order": "Cypriniformes",
+  "family": "Balitoridae",
+  "genus": "Homalopterula",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "indonesia",
+    "sumatra"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Barisan",
+        "Bohorok"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Homalopterula ripleyi is a hillstream loach known only from a small area of northern Sumatra, Indonesia, on the eastern slopes of the Barisan range.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra",
+            "Barisan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The fish were collected from two new localities. The first, in February 2003, was an unnamed tributary of the Sungai (river) Bohorok measuring just 0.5–1.2 m wide and 10–30 cm deep, with the composition and structure of the riparian vegetation suggesting it rarely exceeds 1 m in depth.",
+          "countries": [],
+          "regions": [
+            "Bohorok"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358585,
+      "total": 8,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          2.8125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5.9
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopterula-ripleyi",
+      "html": "<ul><li>Needs soft water, strong current (filter turning the tank over 8–12 times an hour), a well-established tank, and a group.</li></ul><p>Homalopterula ripleyi is a hillstream loach known only from a small area of northern Sumatra, Indonesia, on the eastern slopes of the Barisan range. Fowler (1940) described it from a single specimen as the only member of his new genus Homalopterula. Gerhard Ott and Dirk Dettmers collected it in 2003 for the first time in over 60 years, from small, clear forest streams over bedrock, boulders, rocks and gravel.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopterula-ripleyi",
+      "html": "<p>Known only from a relatively restricted area, with recent collections from rivers draining the eastern slopes of the Barisan mountain range between the area north of Lake Toba, Sumatera Utara (northern Sumatra) province, Sumatra, Indonesia, and the border with the neighbouring province of Aceh.</p><p>The type locality lies just over the border in Aceh itself and is given by Fowler as 'Goempang River at Meloewak, Atjeh Province, Sumatra, Indonesia, elevation 1640 feet'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopterula-ripleyi",
+      "html": "<p>Detailed habitat information is provided by Gerhard Ott (2009), who in 2003 collected the species for the first time in over 60 years alongside Dirk Dettmers.</p><p>The fish were collected from two new localities. The first, in February 2003, was an unnamed tributary of the Sungai (river) Bohorok measuring just 0.5–1.2 m wide and 10–30 cm deep, with the composition and structure of the riparian vegetation suggesting it rarely exceeds 1 m in depth.</p><p>The water was clear and flowing slowly over a substrate of bedrock, boulders, rocks and gravel, with a complete absence of submerged vegetation. At 22:00 the water temperature was 26°C, conductivity 20 µS/cm, pH 6.8 and hardness, nitrate and nitrite were all negligible.</p><p>Other fish species recorded were Rasbora spilotaenia and 'Puntius' binotatus, with Homaloptera gymnogaster and unidentified Homaloptera spp. observed in the Bohorok mainstream.</p><p>The second locality was a small, shady, spring-fed stream less than 1 m wide and less than 10 cm deep, surrounded by bamboo and bush forest. It extended only around 400 m before flowing into the Sungai Basam, and the substrate was a thick layer of leaf litter.</p><p>At 13:30 the water temperature was 20°C, conductivity 20 µS/cm, pH 6.4, hardness and nitrite negligible and nitrate around 15 mg/litre, which the author attributed to local people washing and bathing nearby.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopterula-ripleyi",
+      "html": "<p>Standard length: 5.9 cm SL. Aquarium base: 80 × 30 cm. Volume: approximately 72 litres.</p><p>An aquarium with base dimensions of 80 × 30 cm or more ought to prove sufficient.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopterula-ripleyi",
+      "html": "<p>Most importantly, the water must be clean and well-oxygenated, so an over-sized filter is suggested as a minimum requirement.</p><p>Turnover should ideally be 10–15 times per hour, so additional powerheads, airstones, etc., should be employed to achieve the desired flow and oxygenation if necessary.</p><p>The base substrate can be gravel, sand or a mixture of both, to which should be added a layer of water-worn rocks and pebbles of varying sizes.</p><p>Driftwood roots and branches are also suitable, and although rarely a feature of the natural habitat, aquatic plants from genera such as Microsorum, Crinum and Anubias can be grown attached to the décor. The latter are particularly useful as Homaloptera spp. appear to enjoy resting on their leaves.</p><p>Since it needs stable water conditions, this species should never be added to a biologically immature set-up. While regular partial water changes are essential, aufwuchs can be allowed to grow on all surfaces except perhaps the viewing pane.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopterula-ripleyi",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopterula-ripleyi",
+      "html": "<p>Homaloptera spp. are specialised grazers feeding on biofilm, small crustaceans, insect larvae and other invertebrates.</p><p>In captivity some sinking dried foods may be accepted, but regular meals of live or frozen Daphnia, Artemia, bloodworm, etc., are essential for good health, and it is highly preferable if the tank contains rock and other solid surfaces with growths of algae and other aufwuchs.</p><p>Balitorids are often seen on sale in an emaciated state which can be difficult to correct. A good dealer will have done something about this prior to sale, but if you decide to take a chance with severely weakened specimens, they will initially require a continual, easily obtainable source of suitable foods in the absence of competitors if they are to recover.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopterula-ripleyi",
+      "html": "<p>Unconfirmed, but experience with congeners suggests it will not prove aggressive in a community arrangement. Species inhabiting similar environments include Barilius, Discherodontus, Garra, Devario, some Rasbora, gobies of the genera Rhinogobius, Sicyopterus and Stiphodon, plus Glyptothorax, Akysis and Oreoglanis catfishes.</p><p>Many loaches from the family Nemacheilidae and most from Balitoridae are also suitable, although harmless squabbles may occur with the latter group in particular. Research your choices before purchase to be sure.</p><p>It is found living in aggregations in nature, so buy six or more to see it at its best, as when kept singly, in pairs or trios it is less bold.</p><p>The interaction between individuals is also interesting to watch, and a group will typically arrange themselves close to one another facing directly into the water flow at certain times of day.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopterula-ripleyi",
+      "html": "<p>Sexually mature females are likely a little larger and fuller-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopterula-ripleyi",
+      "html": "<p>Presumably a seasonal spawner in nature, but nothing has been recorded in aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopterula-ripleyi",
+      "html": "<p>H. ripleyi can be diagnosed by the following combination of characters: presence of 8–10 saddle-like blotches on the dorsal surface, not reaching the lateral line; ventral surface totally scaleless; caudal fin obliquely truncate with upper lobe slightly longer than lower; jaws, especially the lower jaw, with a prominent curved shape; dorsal-fin origin slightly anterior to pelvic-fin origin; lateral line scales 72–78.</p><p>H. ripleyi can be further told apart from H. heterolepis by possession of a broad, dark vertical stripe in the posterior portion of the caudal fin (vs. three thinner stripes) and from H. vanderbilti by having 8–10 saddle-shaped dorsal markings (vs. 14–17 such markings).</p><p>Fowler (1940) described H. ripleyi as the unique member of his new genus Homalopterula on the basis of a single specimen, separated from related genera by the curved shape of the jaws, truncate caudal fin and scaleless ventral surface.</p><p>Silas (1953) treated Homalopterula as a junior synonym of Homaloptera based on the illustration provided in Fowler's type description and the variation that \"exists regarding the nature of the caudal and presence or absence of scales on the ventral surface of the abdomen in species of Homaloptera.\" Roberts (1989) followed this decision. Kottelat (1998) recognized four species (H. ripleyi, H. gymnogaster, H. heterolepis and H. vanderbilti) as possibly forming a clade (Homalopterula) based on \"a more cylindrical body, a relatively wide mouth, short paired fins, and a truncated or slightly emarginated caudal fin,\" and using this description, Tan &amp; Ng (2005) and Ott (2009) treated Homalopterula as a subgenus of Homaloptera.</p><p>Randall and Page (2012) considered Homalopterula a putative subgenus within Homaloptera also containing the four aforementioned species. All four are native to Sumatra and separated from congeners by their more cylindrical than compressed body shape, relatively wide mouth, short paired fins and truncate caudal-fin shape.</p><p>Randall &amp; Page (2015) raised Homalopterula to full generic status, and it currently contains H. gymnogaster (Bleeker 1853), H. modiglianii (Perugia 1893), H. amphisquamata (Weber &amp; Beaufort 1916), H. heterolepis (Weber &amp; de Beaufort 1916), H. ripleyi Fowler 1940 [the type species], and H. vanderbilti (Fowler 1940).</p><p>Homalopterula is distinguished by the following combination of characters: without reddish tints on fins in life; dorsal-fin origin posterior to pelvic-fin origin; 5½ and 7½, 7½ (M) branched dorsal-fin rays; 7 pelvic-fin rays; truncated or emarginated caudal fin; smooth scales, 57–75 total lateral-line scales, 28–56 predorsal scales; anus closer to anal-fin origin than to pelvic-fin base; adipose keel on caudal peduncle; small rostral cap; 2 thick and widely separated rostral barbels; thick crescentic upper lip; 2 fleshy lobes between lateral portions of lower lip; and presence of a central furrow at the isthmus.</p><p>The family Balitoridae as recognised by Kottelat (2012) is widely distributed across much of the Indian subcontinent, Southeast Asia and China. Like all balitorids, Homalopterula species possess morphology specialised for life in fast-flowing water; the paired fins are orientated and extended horizontally, and the head and body are flattened, with a depressed belly. These characters form a powerful sucking cup which allows the fish to cling tightly to solid surfaces. The ability to swim in open water is reduced, and they instead appear to 'crawl' and 'hop' over rocks and other surfaces.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopterula-ripleyi",
+      "html": "<ul><li>Fowler, H. W. (1940). Zoological results of the George Vanderbilt Sumatran Expedition, 1936-1939. Part II.-The Fishes. Proceedings of the Academy of Natural Sciences of Philadelphia 91(1939), 369-398</li><li>Kottelat, M. (1998). Homaloptera yuwonoi, a new species of hillstream loach from Borneo, with a new generic name for H. thamicola (Teleostei: Balitoridae). Ichthyological Exploration of Freshwaters 9(3), 267-272</li><li>Ott, G. (2009). Redescription of Homaloptera ripleyi (Fowler, 1940) from Sumatra, Indonesia (Teleostei: Balitoridae). Bulletin of Fish Biology 11(1/2), 73-86</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Tan, H. H. and P. K. L. Ng (2005). Homaloptera parclitella, a new species of torrent loach from the Malay Peninsula, with redescription of H. orthogoniata (Teleostei: Balitoridae). Ichthyological Exploration of Freshwaters 16(1), 1-12</li><li>Tan, H. H. (2009). A new species of hill stream loach (Teleostei: Balitoridae) from central Kalimantan, with redescriptions of Homaloptera tateregani Popta and Homaloptera stephensoni Hora. Zootaxa 2171, 48-64</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Randall, Z. S. and L. M. Page (2012). Resurrection of the genus Homalopteroides (Teleostei: Balitoridae) with a redescription of H. modestus (Vinciguerra 1890). Zootaxa 3586, 329-346</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Randall, Z. S. and L. M. Page (2015). On the paraphyly of Homaloptera (Teleostei: Balitoridae) and description of a new genus of hillstream loaches from the Western Ghats of India. Zootaxa 3926(1), 57-86</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2134e29991376554.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2134e29991376554-480.webp",
+      "width": 991,
+      "height": 382,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopterula-ripleyi",
+      "caption": "Specimen in the aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/04bba2d06fcab002.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/04bba2d06fcab002-480.webp",
+      "width": 925,
+      "height": 543,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/homalopterula-ripleyi",
+      "caption": "Freshly-collected specimens in the field, 2003.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể cá",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh",
+        "bo bo sống"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể cá",
+        "cát nền bể cá",
+        "đá cuội bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

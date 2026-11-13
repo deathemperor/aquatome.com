@@ -1,0 +1,112 @@
+{
+  "id": "mimagoniates-microlepis",
+  "native": {
+    "input": "67f589dca2f44be0",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blue tetra, Mimagoniates microlepis, is a characid from southeastern Brazil, found from southern Bahia to northern Rio Grande do Sul.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is native to the southeastern states of Brazil, occurring from southern Bahia to the northern tip of Rio Grande do Sul.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mimagoniates microlepis",
+    "status": "ACCEPTED",
+    "taxonKey": 2353883,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        354
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        177
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        119
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        68
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        40
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        36
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        34
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        26
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        23
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        19
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        12
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        9
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

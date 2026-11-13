@@ -12,6 +12,7 @@ const { kind, min, max } = Astro.props
   .rb { position: relative; display: block; height: 6px; background: var(--grad); }
   .rb::before { content: ''; position: absolute; inset: 0; background: var(--c-paper); opacity: 0.72; }
   .rb i { position: absolute; top: -1px; bottom: -1px; background-image: var(--grad); background-repeat: no-repeat; box-shadow: 0 0 0 1px var(--c-ink); }
-  .ph { --grad: linear-gradient(90deg, #d39a2c 0%, #c9b23a 35%, #7da043 55%, #3f8a7a 72%, #46609c 100%); }
+  /* pH 3 to 9: the colours sit at the same pH as on the old 4-to-9 scale, so pH 3 to 4 reads as 4's yellow. */
+  .ph { --grad: linear-gradient(90deg, #d39a2c 0%, #d39a2c 17%, #c9b23a 46%, #7da043 63%, #3f8a7a 77%, #46609c 100%); }
   .temp { --grad: linear-gradient(90deg, #4f7fa8 0%, #5f9a8a 35%, #8aa54a 55%, #d39a2c 75%, #b5532d 100%); }
 </style>

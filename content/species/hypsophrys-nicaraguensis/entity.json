@@ -10,6 +10,97 @@
     "nicaragua",
     "costa-rica"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NI",
+        "CR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Nicaragua cichlid is found not only in Nicaragua but also in Costa Rica.",
+          "countries": [
+            "NI",
+            "CR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370817,
+      "total": 82,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CR",
+          52
+        ],
+        [
+          "NI",
+          27
+        ],
+        [
+          "US",
+          2
+        ],
+        [
+          "GT",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -158.90625,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          -90,
+          16.875,
+          1,
+          0
+        ],
+        [
+          -87.1875,
+          11.25,
+          22,
+          22
+        ],
+        [
+          -85.78125,
+          9.84375,
+          4,
+          4
+        ],
+        [
+          -85.78125,
+          11.25,
+          2,
+          2
+        ],
+        [
+          -84.375,
+          9.84375,
+          50,
+          50
+        ],
+        [
+          -84.375,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -199,7 +290,12 @@
       "author": "NasserHalaweh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_Hypsophrys_nicaraguensis_1.jpg",
       "caption": "Moga cichlids (Hypsophrys nicaraguensis). Wilhelma Zoological-Botanical Garden Stuttgart.",
-      "thumb": "https://media.aquatome.com/commons/bb7ac2e634c413c0-480.webp"
+      "thumb": "https://media.aquatome.com/commons/bb7ac2e634c413c0-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/bb7ac2e634c413c0-large.webp",
+        "width": 1720,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
@@ -207,8 +303,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá cichlid lớn"
+        "bể cá 120cm"
       ]
     },
     {

@@ -13,6 +13,99 @@
     "indonesia",
     "bangka-island"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH",
+        "ID"
+      ],
+      "regions": [
+        "Bangka Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is '55 miles north of Singapore, freshwater ditches, Mawai District, Johore, Malaysia', and this species has been recorded throughout much of Peninsular Malaysia and southern Thailand.",
+          "countries": [
+            "MY",
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also been recorded on Bangka Island, Indonesia, but we've been unable to confirm if it occurs on neighbouring Sumatra.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Bangka Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377148,
+      "total": 12,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          7
+        ],
+        [
+          "ID",
+          4
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          0,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          1.40625,
+          7,
+          7
+        ],
+        [
+          106.875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          0,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -56,7 +149,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -65,7 +158,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
-      "html": "<p><em>Brachygobius xanthomelas</em> is a small bumblebee goby recorded throughout much of Peninsular Malaysia and southern Thailand. It lives in lowland freshwater swamps, streams and forest peat swamps and, unlike most congeners, does not appear to occur in brackish water. The name is widely misapplied to an unidentified member of the genus, the fish in most online images, which has a dark marking at the front of the first dorsal-fin base where B. xanthomelas is colourless.</p><ul><li>Max size: 20 mm SL</li><li>Aquarium size: 45 × 30 cm</li><li>Temperature: 22–28°C</li><li>pH: 7.0–8.5</li><li>Hardness: 8–20 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+      "html": "<p><em>Brachygobius xanthomelas</em> is a small bumblebee goby recorded throughout much of Peninsular Malaysia and southern Thailand. It lives in lowland freshwater swamps, streams and forest peat swamps and, unlike most congeners, does not appear to occur in brackish water. The name is widely misapplied to an unidentified member of the genus, the fish in most online images, which has a dark marking at the front of the first dorsal-fin base where B. xanthomelas is colourless.</p><ul><li>Max size: 20 mm SL</li><li>Aquarium size: 45 × 30 cm</li><li>Temperature: 22–28°C</li><li>pH: 7.0–8.5</li><li>Hardness: 8–20 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
       "key": "distribution",
@@ -128,14 +221,79 @@
       "html": "<ul><li>Larson, H. K., Z. Jaafar, and K. K. P. Lim (2008). An annotated checklist of the gobioid fishes of Singapore. Raffles Bulletin of Zoology 56(1), 135-155</li><li>Miller, P. J. (1989). The classification of bumble-bee gobies (Brachygobius and associated genera) (Teleostei: Gobiidae). Cybium 13(4), 375-383</li><li>Inger, R. F. (1958). Notes on the fishes of the genus Brachygobius. Fieldiana Zoology 39(14), 107-117</li><li>Herre, A. W. C. T. and G. S. Myers (1937). A contribution to the ichthyology of the Malay Peninsula. Bulletin of the Raffles Museum No. 13, 5-75</li><li>Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/38e3832cba0e447b8c00b75944d8e2f0.webp",
+      "thumb": "https://media.aquatome.com/processed/38e3832cba0e447b8c00b75944d8e2f0-480.webp",
+      "width": 600,
+      "height": 309,
+      "licence": "dùng với sự cho phép",
+      "author": "Michael Lo",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-xanthomelas",
+      "caption": "Specimen photographed in the field, Bangka Island, Indonesia, again with the anterior dorsal-fin base unpigmented.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-brachygobius-xanthomelas",
+        "pixelHash": "3cdae5acf655a4f51565334438b61f71735a0f25ef8de289459db57e3aaac1ad"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:17:46.850Z",
+          "originalHash": "1adfa63fb4cd02210b71c53aa3c690f5fae6533476d3001487ba633929b4cb0d",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 600,
+            "originalHeight": 397,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 600,
+              "y1": 309
+            },
+            "subject": {
+              "x0": 84,
+              "y0": 105,
+              "x1": 511,
+              "y1": 276
+            },
+            "margin": 10
+          },
+          "excludedMarks": [
+            {
+              "x0": 39,
+              "y0": 313,
+              "x1": 168,
+              "y1": 329
+            }
+          ],
+          "checks": {
+            "species": [
+              "6b75792254fc9e253629105880f7e3c37f757adb31cd6de58fce469a899a82fb",
+              "7108bd8494e0cc4dbdc6d757d1cfe9ee470ab39e245ce2c0f4b0e2a35efb171b"
+            ],
+            "ownership": [
+              "f70ad0fe9d9b9ff9bd81074d8b71d6d77538c4d2b7aac02aea24483a51260f14",
+              "13b8cb35c5c6d227c285d25326d1a09d48d1eccca9cdebf65afedcc6cb9fad56"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/1571543d480e8603.webp",
+        "width": 600,
+        "height": 397,
+        "thumb": "https://media.aquatome.com/seriouslyfish/1571543d480e8603-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

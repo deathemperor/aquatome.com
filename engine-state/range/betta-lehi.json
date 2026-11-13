@@ -1,0 +1,58 @@
+{
+  "id": "betta-lehi",
+  "native": {
+    "input": "1ac2543f5f7ea419",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to the island of Borneo where it occurs between the towns of Lundu and Bau in the southwest of the Malaysian state of Sarawak as well as from lower parts of the River Kapuas basin in Kalimantan Barat (West Kalimantan) province, Indonesia.",
+        "words": "Malaysian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to the island of Borneo where it occurs between the towns of Lundu and Bau in the southwest of the Malaysian state of Sarawak as well as from lower parts of the River Kapuas basin in Kalimantan Barat (West Kalimantan) province, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to the island of Borneo where it occurs between the towns of Lundu and Bau in the southwest of the Malaysian state of Sarawak as well as from lower parts of the River Kapuas basin in Kalimantan Barat (West Kalimantan) province, Indonesia.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to the island of Borneo where it occurs between the towns of Lundu and Bau in the southwest of the Malaysian state of Sarawak as well as from lower parts of the River Kapuas basin in Kalimantan Barat (West Kalimantan) province, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta lehi",
+    "status": "ACCEPTED",
+    "taxonKey": 2394023,
+    "datasets": [],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

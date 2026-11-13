@@ -3,20 +3,22 @@
   "name": "Water Sprite",
   "altNames": [
     "Pakis Air",
-    "Paku Air",
-    "Indian Fern",
-    "Water Fern"
+    "Ceratopteris thalictroides",
+    "Water Fern",
+    "Indian Fern"
   ],
   "sections": {
     "quickFacts:tropica": "<ul><li>Asal: Asia</li><li>Tinggi: 15–30+ cm</li><li>Lebar: 10–20 cm</li><li>Kebutuhan cahaya: Sedang</li><li>CO2: Rendah</li></ul>",
-    "maintenance:tropica": "<p>Ceratopteris thalictroides adalah tanaman pakis yang tersebar di seluruh daerah tropis, dengan tinggi 15–30 cm dan lebar 10–20 cm. Tanaman ini biasanya tumbuh cepat, tetapi penambahan CO2 mungkin diperlukan untuk memacu pertumbuhannya. Di akuarium kecil yang terbuka, tanaman ini bisa tumbuh keluar dari akuarium dan membentuk daun permukaan yang indah.</p>",
-    "notes:tropica": "<p>Daunnya yang bercabang halus sangat dekoratif dan memberi kontras yang bagus dengan bentuk daun tanaman lain. Dengan cahaya yang cukup, Ceratopteris thalictroides tumbuh cepat dan membantu mencegah alga karena menyerap nutrisi dalam jumlah besar. Karena itu, tanaman ini cocok sebagai tanaman awal di akuarium kecil.</p>"
+    "maintenance:aquatome": "<ul><li>Pakis air bisa ditanam di latar belakang atau latar tengah, atau dibiarkan mengapung. Daunnya bercabang halus, jadi kalau diletakkan di dekat tanaman dengan bentuk daun yang berbeda, kontrasnya terlihat jelas.</li><li>Pada akuarium yang punya bagian tanaman darat, pakis air ditanam di bagian belakang, tepat di peralihan dari bagian bawah air ke bagian di atas air. Jika tumbuh keluar dari permukaan air, bagus; jika tidak, juga tidak masalah.</li><li>Di akuarium kecil yang terbuka, tanaman ini bisa tumbuh keluar dari permukaan air dan membentuk daun emersed yang sangat cantik.</li><li>Tanaman ini tumbuh cepat, jadi perlu dipangkas secara rutin.</li></ul>",
+    "maintenance:tropica": "<p>Ceratopteris thalictroides adalah pakis air yang tersebar di seluruh daerah tropis, dengan tinggi 15–30 cm dan lebar 10–20 cm. Biasanya tanaman ini tumbuh cepat, tetapi penambahan CO2 mungkin diperlukan untuk memacu pertumbuhannya. Di akuarium kecil yang terbuka, tanaman ini bisa tumbuh keluar dari akuarium dan membentuk daun emersed yang cantik.</p>",
+    "notes:tropica": "<p>Daunnya yang bercabang halus sangat dekoratif dan memberi kontras yang bagus dengan bentuk daun lain. Dengan cahaya yang cukup, Ceratopteris thalictroides tumbuh cepat dan membantu mencegah alga karena menyerap banyak nutrisi. Karena itu, tanaman ini cocok sebagai tanaman pemula untuk akuarium kecil.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.9,
     "indexable": true,
     "bySource": {
-      "tropica": 0.85
+      "tropica": 0.9,
+      "aquatome": 0.9
     }
   }
 }

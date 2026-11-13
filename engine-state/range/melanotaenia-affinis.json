@@ -1,0 +1,75 @@
+{
+  "id": "melanotaenia-affinis",
+  "native": {
+    "input": "8724c60690a95668",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Papua New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The New Guinea rainbowfish, Melanotaenia affinis, is a rainbowfish from Papua New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sepik River",
+        "source": "seriouslyfish",
+        "quote": "The \"Pagwi\" form has a very limited distribution, being known only from a tributary of the Sepik River in New Guinea, while the \"Bluewater Creek\" form has only been collected from a single location close to Madang, in Papua New Guinea.",
+        "ok": true
+      },
+      {
+        "name": "New Guinea",
+        "source": "seriouslyfish",
+        "quote": "The \"Pagwi\" form has a very limited distribution, being known only from a tributary of the Sepik River in New Guinea, while the \"Bluewater Creek\" form has only been collected from a single location close to Madang, in Papua New Guinea.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Melanotaenia affinis",
+    "status": "ACCEPTED",
+    "taxonKey": 2411652,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        20
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        7
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ]
+    ],
+    "native": [
+      "PG"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

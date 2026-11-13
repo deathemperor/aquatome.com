@@ -4,7 +4,8 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { SpeciesSchema, type SpeciesEntity } from '@aq/schema'
 import { LlmError, type Llm } from '../src/claude'
-import { blocksOf, checkAnswer, sourceTier, speciesRanges, type Audit, type Block } from '../src/range'
+import { blocksOf, checkAnswer, sourceTier, speciesRanges, writeRangePlaces, type Audit, type Block } from '../src/range'
+import { atCeiling } from './at-ceiling'
 import { SOURCES } from '../src/sources'
 import { gbifClient, type Fetch } from '../src/range-records'
 import { mvt } from './mvt'
@@ -182,6 +183,21 @@ const gbifFetch = (fail = false): Fetch => async url => {
 }
 const deps = (llm: Llm, fetch: Fetch = gbifFetch(), now = '2026-11-04T10:00:00Z') => ({ llm, gbif: gbifClient({ fetch, sleep: async () => {}, ua: 'test' }), now: () => new Date(now), order: [] })
 
+test('every river and region a range names gets a place for the names step: its country only as a note, none replaced', async () => {
+  const native = { countries: ['VN', 'CN'], regions: ['Sông Kỳ Cùng', 'Red River', 'Western Ghats', 'Rio Negro'], sources: ['seriouslyfish' as const], quotes: [{ source: 'seriouslyfish' as const, quote: 'A sentence.', countries: ['CN'], regions: ['Rio Negro'] }, { source: 'seriouslyfish' as const, quote: 'Another.', countries: ['VN', 'CN'], regions: ['Sông Kỳ Cùng', 'Red River', 'Western Ghats'] }] }
+  const s = await site([entity({ places: [], sections: [], range: { native } }), entity({ id: 'betta-older', places: [], sections: [], range: { native: { countries: ['TH'], regions: ['Mã'], sources: ['seriouslyfish'] } } })])
+  const place = (id: string, file = 'entity') => readFile(join(s.root, 'content/places', id, `${file}.json`), 'utf8').then(t => JSON.parse(t))
+  await mkdir(join(s.root, 'content/places/red-river'), { recursive: true })
+  await writeFile(join(s.root, 'content/places/red-river/entity.json'), JSON.stringify({ id: 'red-river', kind: 'river', parent: 'vietnam' }))
+  await writeRangePlaces(s.root, ['betta-splendens', 'betta-older'])
+  expect(await place('song-ky-cung')).toEqual({ id: 'song-ky-cung', kind: 'region', countries: ['VN', 'CN'] })
+  expect(await place('song-ky-cung', 'vi')).toMatchObject({ slug: 'song-ky-cung', name: 'Sông Kỳ Cùng' })
+  expect(await place('western-ghats')).toEqual({ id: 'western-ghats', kind: 'region', countries: ['VN', 'CN'] })
+  expect(await place('rio-negro')).toEqual({ id: 'rio-negro', kind: 'river', countries: ['CN'] })
+  expect(await place('ma')).toEqual({ id: 'ma', kind: 'region', countries: ['TH'] })
+  expect(await place('red-river')).toEqual({ id: 'red-river', kind: 'river', parent: 'vietnam' })
+})
+
 test('the step writes each species\' range after its places, keeps the sentences in engine-state, and checks them against its origin pages', async () => {
   const s = await site([entity(), quiet])
   let calls = 0
@@ -193,6 +209,7 @@ test('the step writes each species\' range after its places, keeps the sentences
   expect(r.records.fetched).toEqual(['betta-quiet', 'betta-splendens'])
   const e = SpeciesSchema.parse(JSON.parse(await s.read('betta-splendens')))
   expect(Object.keys(e).slice(6, 8)).toEqual(['places', 'range'])
+  expect(JSON.parse(await readFile(join(s.root, 'content/places/chao-phraya/entity.json'), 'utf8'))).toEqual({ id: 'chao-phraya', kind: 'region', countries: ['TH'] })
   expect(e.range).toEqual({
     native: {
       countries: ['TH'], regions: ['Chao Phraya'], sources: ['seriouslyfish'],
@@ -222,6 +239,39 @@ test('the step writes each species\' range after its places, keeps the sentences
   expect(month.native.calls).toBe(0)
   expect(month.records.fetched).toHaveLength(2)
   expect(JSON.parse(await s.read('betta-splendens')).range.records.fetched).toBe('2026-12-05')
+})
+
+const WEEKLY = "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
+
+// Claude's own limit, and the step's ceiling for the day (ceiling.ts), which is to leave exactly the same: nothing.
+test.each([WEEKLY, atCeiling('range')])('a usage limit leaves nativeFailed unset and stops the step\'s model calls: %s', async limit => {
+  const s = await site([entity(), entity({ id: 'danio', scientificName: 'Danio rerio' })])
+  await mkdir(join(s.root, 'engine-state/range'), { recursive: true })
+  const prior = async (id: string) => {
+    const text = `${JSON.stringify({ id }, null, 2)}\n`
+    await writeFile(join(s.root, 'engine-state/range', `${id}.json`), text)
+    return text
+  }
+  const a = await prior('betta-splendens')
+  const b = await prior('danio')
+  let calls = 0
+  const r = await speciesRanges(s.root, deps(async () => { calls++; throw new LlmError(limit) }), { limit: 5, records: 5 })
+  expect(calls).toBe(1)
+  expect(r.native.failed).toEqual([])
+  expect(r.stopped).toBe(limit)
+  expect(await readFile(join(s.root, 'engine-state/range/betta-splendens.json'), 'utf8')).toBe(a)
+  expect(await readFile(join(s.root, 'engine-state/range/danio.json'), 'utf8')).toBe(b)
+})
+
+test('a failure that is not the usage limit still stamps nativeFailed and the step goes on', async () => {
+  const s = await site([entity(), entity({ id: 'danio', scientificName: 'Danio rerio' })])
+  let calls = 0
+  const r = await speciesRanges(s.root, deps(async () => { calls++; throw calls === 1 ? new Error('bad answer') : new LlmError('claude failed (1): no JSON in the reply') }), { limit: 5, records: 5 })
+  expect(calls).toBe(2)
+  expect(r.stopped).toBe('')
+  expect(r.native.failed).toEqual(['betta-splendens', 'danio'])
+  expect((await s.audit('betta-splendens')).nativeFailed?.error).toBe('bad answer')
+  expect((await s.audit('danio')).nativeFailed?.error).toMatch(/no JSON/)
 })
 
 test('a failed model call or GBIF request leaves the species as it was, tried again a day later', async () => {

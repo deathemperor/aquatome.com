@@ -5,7 +5,7 @@
   "family": "Loricariidae",
   "genus": "Pterygoplichthys",
   "group": "catfish",
-  "lNumber": "L021, L023",
+  "lNumber": "L21, L23",
   "places": [
     "south-america",
     "brazil",
@@ -850,6 +850,21 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/1f89ca62db0f0e31.webp",
+      "thumb": "https://media.aquatome.com/commons/1f89ca62db0f0e31-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Ildar Sagdejev (Specious)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2004-02-02_Pterygoplichthys_pardalis_on_blue_gravel.jpg",
+      "caption": "Cá tỳ bà leopard trong bể với sỏi xanh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1f89ca62db0f0e31-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    },
+    {
       "url": "https://media.aquatome.com/scotcat/612f2cb10781347c.webp",
       "thumb": "https://media.aquatome.com/scotcat/612f2cb10781347c-480.webp",
       "width": 500,
@@ -890,38 +905,12 @@
       "licence": "CC BY-SA 2.5",
       "author": "picture taken by Olaf Leillinger",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Unknown.Siluriformes.7435.jpg",
-      "caption": "Unknown Siluriformes Location: Dresden, Cafe Müllers (Saxony, Germany) Camera: Canon EOS 20D Lens: Canon EF 1.4/50 Focal Length: 50 mm Exposure: 1/50, f16 Film / Speed: ISO 200 Comment: Canon Flash 58"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/9a7490f69612d611.webp",
-      "thumb": "https://media.aquatome.com/scotcat/9a7490f69612d611-480.webp",
-      "width": 500,
-      "height": 375,
-      "licence": "dùng với sự cho phép",
-      "author": "Jonas Hansel / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_pardalis.htm",
-      "caption": "Pterygoplichthys pardalis",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/b81769d9074f3a6a.webp",
-      "thumb": "https://media.aquatome.com/commons/b81769d9074f3a6a-480.webp",
-      "width": 960,
-      "height": 480,
-      "licence": "Public domain",
-      "author": "Richwales at en.wikipedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liposarcus_pardalis.jpg",
-      "caption": "\"Sam\", one of my plecos (Liposarcus pardalis = Pterygoplichthys pardalis)."
-    },
-    {
-      "url": "https://media.aquatome.com/commons/80b38cf4cd7e9c78.webp",
-      "thumb": "https://media.aquatome.com/commons/80b38cf4cd7e9c78-480.webp",
-      "width": 839,
-      "height": 629,
-      "licence": "CC BY-SA 4.0",
-      "author": "NasserHalaweh",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Loricariidae_Pterygoplichthys_pardalis_1.jpg",
-      "caption": "Pterygoplichthys pardalis AMAZON SAILFIN CATFISH. Sea Life Bangkok Ocean World."
+      "caption": "Unknown Siluriformes Location: Dresden, Cafe Müllers (Saxony, Germany) Camera: Canon EOS 20D Lens: Canon EF 1.4/50 Focal Length: 50 mm Exposure: 1/50, f16 Film / Speed: ISO 200 Comment: Canon Flash 58",
+      "large": {
+        "url": "https://media.aquatome.com/commons/5ce52af41d91272a-large.webp",
+        "width": 2299,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
@@ -929,8 +918,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 200cm",
-        "bể cá 500 lít"
+        "bể cá 180cm"
       ]
     },
     {

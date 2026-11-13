@@ -9,6 +9,40 @@
     "asia",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Kalimantan"
+      ],
+      "sources": [
+        "bwaquatics"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Peat-swamp and forest-stream systems of West Kalimantan (Borneo), Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo",
+            "Kalimantan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8026320,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -56,12 +90,6 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/gymnochanda-ploegi-dwarf-glass-fish",
       "html": "<p>Gymnochanda ploegi is a tiny, transparent glass-perch species described in 2014. Adults reach only about 2.5–3 cm SL, making it one of the smallest members of its genus.</p><ul><li>Size: up to 3 cm standard length (rarely 3.5 cm)</li><li>Temperature: 24–28 °C</li><li>pH 5.0–6.5</li></ul>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/gymnochanda-ploegi-dwarf-glass-fish",
-      "html": "<p>These fish are wild caught. This is one of the most difficult fish to keep. Be sure to have the habitat ready before purchase.</p>"
     },
     {
       "key": "distribution",

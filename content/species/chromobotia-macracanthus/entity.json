@@ -26,7 +26,8 @@
         "Musi"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -191,6 +192,10 @@
       {
         "source": "seriouslyfish",
         "value": 40
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -237,6 +242,12 @@
       "html": "<ul><li>Difficulty: moderate; needs a very large tank, a group, careful choice of tankmates and a well-established tank</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/chromobotia_macracanthus_en-2/",
+      "html": "<p>The clown loach is one of the most popular species of loach at all. One should keep this species, which grows up to 20-30 cm long, always in a small school, for clown loaches are very social animals.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/clown-loach-1378616",
@@ -259,6 +270,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
       "html": "<p>Native to the Greater Sunda Islands of Borneo and Sumatra. In the former it's restricted to river systems of Kalimantan Barat (West Kalimantan), Kalimantan Tengah (Central Kalimantan) and Kalimantan Timur (East Kalimantan) provinces in the Indonesian portion including the Kapuas and Kayan.</p><p>In Sumatra it's found in eastern and southern drainages of Jambi, Sumatera Selatan (South Sumatra) and Lampung provinces including the Batang Hari, Musi and Tulang Bawang.</p><p>The type series was collected from 'Palembang' and 'Kwanten' on Sumatra, the former most likely referring to the Musi River and the latter to modern day Kuantan Singingi, Riau province meaning the Indragiri River basin was the probable collection locality.</p><p>Populations from the two islands are known to exhibit differences in genetic structure, patterning (see 'Notes') and adult size, and it's been suggested that these may turn out to be distinct species if a detailed study was conducted.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/chromobotia_macracanthus_en-2/",
+      "html": "<p>Origin: Indonesia</p>"
     },
     {
       "key": "habitat",
@@ -446,8 +463,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 400 lít",
-        "bể cá lớn nuôi cá chuột"
+        "bể cá 180cm"
       ]
     },
     {
@@ -472,5 +488,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-10"
 }

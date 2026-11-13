@@ -14,6 +14,18 @@
       "kind": "form"
     },
     {
+      "url": "https://media.aquatome.com/flickr/148174952.webp",
+      "thumb": "https://media.aquatome.com/flickr/148174952-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA 2.0",
+      "author": "Bernie Goldbach",
+      "sourceUrl": "https://www.flickr.com/photos/19994833@N00/148174952",
+      "caption": "Cá vàng mắt bong bóng màu cam trong bể kính",
+      "best": true,
+      "kind": "form"
+    },
+    {
       "url": "https://media.aquatome.com/commons/60dced638fdbe365.webp",
       "thumb": "https://media.aquatome.com/commons/60dced638fdbe365-480.webp",
       "width": 912,
@@ -31,7 +43,12 @@
       "licence": "CC BY 3.0",
       "author": "lienyuan lee",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E6%B0%B4%E6%B3%A1%E7%9C%BC_Bubble_Eye_-_panoramio.jpg",
-      "caption": "Cá vàng mắt bong bóng màu xanh bạc đốm đen gần lá sen"
+      "caption": "Cá vàng mắt bong bóng màu xanh bạc đốm đen gần lá sen",
+      "large": {
+        "url": "https://media.aquatome.com/commons/835bc651dcee732e-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/d83b02cde2f61bf3.webp",
@@ -41,7 +58,12 @@
       "licence": "CC BY 3.0",
       "author": "lienyuan lee",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E6%B0%B4%E6%B3%A1%E7%9C%BC_Bubble_Eye_Goldfish_-_panoramio.jpg",
-      "caption": "Cá vàng mắt bong bóng màu xanh bạc bơi gần lá sen"
+      "caption": "Cá vàng mắt bong bóng màu xanh bạc bơi gần lá sen",
+      "large": {
+        "url": "https://media.aquatome.com/commons/d83b02cde2f61bf3-large.webp",
+        "width": 1602,
+        "height": 1200
+      }
     },
     {
       "url": "https://images.unsplash.com/photo-1524448159763-43845a2003a1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8YnViYmxlJTIwZXllJTIwZ29sZGZpc2h8ZW58MXx8fHwxNzkzNDAwNDkzfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max",
@@ -52,10 +74,15 @@
       "author": "Catherine W",
       "authorUrl": "https://unsplash.com/@ccathywwww?utm_source=aquatome&utm_medium=referral",
       "sourceUrl": "https://unsplash.com/photos/shallow-focus-photography-of-white-and-red-fish-sTEombPa1_c?utm_source=aquatome&utm_medium=referral",
-      "caption": "Cá vàng mắt bong bóng đốm nhiều màu, bóng mắt lớn trong bể"
+      "caption": "Cá vàng mắt bong bóng đốm nhiều màu, bóng mắt lớn trong bể",
+      "large": {
+        "url": "https://images.unsplash.com/photo-1524448159763-43845a2003a1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8YnViYmxlJTIwZXllJTIwZ29sZGZpc2h8ZW58MXx8fHwxNzkzNDAwNDkzfDA&ixlib=rb-4.1.0&w=2133&q=80&fm=jpg&fit=max",
+        "width": 2133,
+        "height": 1200
+      }
     }
   ],
-  "seen": 48,
-  "updatedAt": "2026-11-04",
-  "builtAt": "2026-11-04"
+  "seen": 49,
+  "updatedAt": "2026-11-06",
+  "builtAt": "2026-11-06"
 }

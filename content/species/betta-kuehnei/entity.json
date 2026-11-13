@@ -12,6 +12,55 @@
     "thailand",
     "narathiwat"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta kuehnei is a paternal mouthbrooding labyrinth fish from Kelantan state, northeastern Peninsular Malaysia, and neighbouring Narathiwat, Thailand.",
+          "countries": [
+            "MY",
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393989,
+      "total": 9,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          101.25,
+          5.625,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -44,6 +93,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "tankCm": [
@@ -55,7 +108,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -65,6 +118,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-kuehnei",
       "html": "<p>Betta kuehnei is a paternal mouthbrooding labyrinth fish from Kelantan state, northeastern Peninsular Malaysia, and neighbouring Narathiwat, Thailand. A member of the B. pugnax complex, it has a rounded caudal fin in both sexes and adult males carry intense blue or bluish-green iridescence on the head and throat. It may be conspecific with B. sp. 'Satun'. The type locality is a shady, clear forest stream with beds of Cryptocoryne cordata.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_kuehnei_en/",
+      "html": "<p>The mouthbrooding fighting fishes of the Betta pugnax group are widely spread over Thailand, Malaysia and Indonesia. The most recently described species is Betta kuehnei from the northernmost province Kelantan of Malaysia and the southernmost parts of Thailand.</p><p>The species was discovered by the travelling aquarist Jens Kühne and introduced to the hobby as the “blue throat fighting fish”. It can be told apart from the other species of the group by its intense blue throat coloration.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_kuehnei_en/",
+      "html": "<p>Origin: bred. Available size: 6–8 cm.</p>"
     },
     {
       "key": "distribution",
@@ -97,6 +162,12 @@
       "html": "<ul><li>Temperature: 21–25°C (70–77°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 0–5 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_kuehnei_en/",
+      "html": "<p>Soft and acidic water is necessary for breeding, but keeping is possible in almost any water.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-kuehnei",
@@ -109,16 +180,34 @@
       "html": "<p>Not recommended for the standard community set-up for reasons already touched upon. Its requirements and disposition mean it's best kept alone or with very peaceful species since much bigger or more vigorous fishes are likely to intimidate and outcompete it. Some small cyprinids and loaches that inhabit similar environments in nature are compatible.</p><p>It can be maintained in a pair or group and will display some interesting behavioural interactions under the latter circumstances.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_kuehnei_en/",
+      "html": "<p>Like the other species of the Betta pugnax group, B. kuehnei (which can reach about 8 cm in length) is comparatively peaceful towards congeners, so more than one pair can be kept together. However, the tank should contain a good number of hiding places.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-kuehnei",
       "html": "<p>Males grow larger, possess a greater amount of iridescent scaling on the head, a broader head shape, and more extended fins than females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_kuehnei_en/",
+      "html": "<p>Males and females can be distinguished best by the different shape of their head.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-kuehnei",
       "html": "<p>Paternal mouthbrooder. Ideally organise a separate tank for breeding purposes, unless the fish are already being maintained alone, setting this up as suggested above.</p><p>The tank should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>Following a protracted courtship, eggs and milt are released during an 'embrace' typical of osphronemids in which the male wraps his body around that of the female. Several 'dummy' embraces may be required before spawning commences.</p><p>Fertilised eggs are caught on the anal fin of the male then picked up in the mouth of the female before being spat out into the water for the male to catch. Once the male has all the eggs in his mouth the cycle is repeated until the female is spent of eggs, a process which can take some time.</p><p>A brooding male may swallow or release the eggs prematurely if stressed or inexperienced, so it's preferable to leave the female and any other fishes in situ. The incubation period is 9-16 days at the end of which the male will begin to release fully-formed, free-swimming fry.</p><p>At this point they can be removed or left to grow alongside the parents, with some reports suggesting they actually grow more quickly under such circumstances.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter. Offer small amounts of different foods 2-3 times per day for optimal growth rate, and don't change too much water at once, with regular, small changes preferable to intermittent larger ones.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_kuehnei_en/",
+      "html": "<p>Breeding is similar to the other species of the group. Males keep the eggs in the mouth for about ten days.</p>"
     },
     {
       "key": "notes",
@@ -139,8 +228,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể cá mini có nắp"
+        "bể cá 60cm"
       ]
     },
     {
@@ -166,5 +254,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-09"
 }

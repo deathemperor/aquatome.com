@@ -10,7 +10,8 @@
     "bolivia",
     "guapore",
     "brazil",
-    "paraguay"
+    "paraguay",
+    "mato-grosso"
   ],
   "range": {
     "native": {
@@ -19,13 +20,15 @@
         "BR"
       ],
       "regions": [
-        "rio Madeira",
-        "rio Paraguai",
-        "rio Guaporé",
+        "Madeira",
+        "Paraguai",
+        "Guaporé",
+        "Mamoré",
         "Pantanal"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -36,8 +39,15 @@
             "BR"
           ],
           "regions": [
-            "rio Madeira",
-            "rio Paraguai"
+            "Paraguai"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the upper rio Madeira, a major branch of the western Amazon watershed in Bolivia and western Brazil, including its major tributaries the rios Beni and Mamoré, plus the upper rio Paraguai in Brazil.",
+          "countries": [],
+          "regions": [
+            "Madeira"
           ]
         },
         {
@@ -45,7 +55,7 @@
           "quote": "Most records are from the rio Guaporé (Río Iténez in Bolivia).",
           "countries": [],
           "regions": [
-            "rio Guaporé"
+            "Guaporé"
           ]
         },
         {
@@ -53,6 +63,7 @@
           "quote": "The majority of records pertain to the rio Guaporé (Río Iténez in Bolivia), the main affluent of the rio Mamoré, which drains the vast tropical wetland known as the Pantanal, and the upper rio Paraguai, which also has its headwaters in the Pantanal but flows in the opposite direction.",
           "countries": [],
           "regions": [
+            "Mamoré",
             "Pantanal"
           ]
         }
@@ -224,6 +235,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.6
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -235,7 +250,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -247,10 +262,22 @@
       "html": "<p>The black phantom tetra, Megalamphodus megalopterus, is a characid from the upper rio Madeira and upper rio Paraguai in Bolivia and Brazil. Most records are from the rio Guaporé (Río Iténez in Bolivia). Popular in the hobby and bred commercially in several countries, it is also available as a 'long-finned' strain. Adult males have black fins with the pelvic, dorsal and anal enlarged, while females are deeper-bodied with reddish pelvic, anal and adipose fins.</p><ul><li>Max size: 36 mm SL</li><li>Aquarium size: 80 × 30 cm</li><li>Temperature: 20–28°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_megalopterus_en/",
+      "html": "<p>The Black Phantom Tetra is one of the most common fish species in the aquarium trade. All fish in the hobby are captive-bred. It grows to around 4 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-megalopterus",
       "html": "<p>Native to the upper rio Madeira, a major branch of the western Amazon watershed in Bolivia and western Brazil, including its major tributaries the rios Beni and Mamoré, plus the upper rio Paraguai in Brazil.</p><p>The majority of records pertain to the rio Guaporé (Río Iténez in Bolivia), the main affluent of the rio Mamoré, which drains the vast tropical wetland known as the Pantanal, and the upper rio Paraguai, which also has its headwaters in the Pantanal but flows in the opposite direction. The Guaporé and Paraguai are connected due to rising water levels during the annual wet season.</p><p>Type locality is 'Cáceres, Mato Grosso, Brazil', which has been considered an error (e.g. Weitzman &amp; Palmer, 1997) but appears correct based on recent records (e.g. Britski et al., 2007; Polaz et al., 2014).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_megalopterus_en/",
+      "html": "<p>It originates from the Mato Grosso in Brazil, but all fish in the hobby are bred ones.</p>"
     },
     {
       "key": "habitat",
@@ -289,6 +316,12 @@
       "html": "<p>Very peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It is perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, small-to-medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens since this species forms temporary dominance hierarchies within which males compete for female attention, and therefore displays more interesting behaviour and better colouration when maintained in numbers.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_megalopterus_en/",
+      "html": "<p>Black Phantom Tetra are ideal tankmates for cardinal tetras and other, very colourful species of fish, because the rather dull colours of the Black Phantom Tetra make the other fish shine brighter. It is also fascinating to observe the males displaying with all fins spread. It looks as if the fish were sailing around each other.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-megalopterus",
@@ -305,37 +338,72 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-megalopterus",
       "html": "<p>This species is popular in the aquarium hobby and is bred on a commercial basis in several countries. An ornamental 'long-finned' strain is sometimes available.</p><p>Following the most recent diagnosis by Géry (1977), it can be distinguished from congeners by the following combination of characters: postorbital bones very weak or absent; 10-20 maxillary teeth; humeral spot large; dorsal and anal fins dark; enlarged pelvic, dorsal, and anal fins in adults.</p><p>H. megalopterus was originally described as type species of the genus Megalamphodus Eigenmann 1915, which was diagnosed by possession of only a single row of teeth. This was synonymised with Hyphessobrycon by Weitzman and Palmer (1997) who found that some individuals of M. megalopterus and the related M. micropterus possessed two rows of teeth as in some members of their 'rosy tetra' group. In addition, most of the species formerly included in Megalamphodus display other characters associated with this putative assemblage, most obviously a dark marking in the dorsal-fin and a dark humeral spot.</p><p>The species was moved from Hyphessobrycon megalopterus back to Megalamphodus megalopterus in 2024.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_megalopterus_en/",
+      "html": "<p>The Black Phantom Tetra is the type species of the genus Megalamphodus. That genus was for a while regarded as synonymous with Hyphessobrycon. Nowadays most specialists think that Megalamphodus is a valid genus. The fish can be found in literature under the names Megalamphodus megalopterus and Hyphessobrycon megalopterus. Both names stand for the same species.</p><p>Etymology: Megalamphodus means “with spacious ways”, referring to anatomical details. megalopterus means “with very large fins”. Hyphessobrycon means “small Brycon”. Brycon is another genus of tetra.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/871814a9af71d029.webp",
+      "thumb": "https://media.aquatome.com/commons/871814a9af71d029-480.webp",
       "width": 960,
       "height": 616,
+      "large": {
+        "url": "https://media.aquatome.com/commons/871814a9af71d029-large.webp",
+        "width": 1500,
+        "height": 963
+      },
       "licence": "CC BY-SA 3.0",
       "author": "This illustration was made by Citron You must credit this : Citron / CC-BY-SA-3.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_megalopterus_Porte_Doree.jpg",
-      "caption": "Hyphessobrycon megalopterus",
-      "thumb": "https://media.aquatome.com/commons/871814a9af71d029-480.webp"
+      "caption": "Hyphessobrycon megalopterus"
     },
     {
       "url": "https://media.aquatome.com/commons/436aff1857d876ce.webp",
+      "thumb": "https://media.aquatome.com/commons/436aff1857d876ce-480.webp",
       "width": 960,
       "height": 575,
       "licence": "CC BY 4.0",
       "author": "D. Bork, A. Zarske, and H.J. Richter",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_megalopterus_(31473-B).png",
-      "caption": "The Black Phantom Tetra, Hyphessobrycon melanopterus [sic] (Eigenmann 1915), side view, female, not cataloged. [=Hyphessobrycon megalopterus]",
-      "thumb": "https://media.aquatome.com/commons/436aff1857d876ce-480.webp"
+      "caption": "The Black Phantom Tetra, Hyphessobrycon melanopterus [sic] (Eigenmann 1915), side view, female, not cataloged. [=Hyphessobrycon megalopterus]"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "lWBx6MqFd-Q",
+      "title": "Black Phantom Tetra: Everything you need to know, Complete care guide",
+      "durationSec": 461,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "M3WelP5MZow",
+      "title": "New Fish | Black Phantom Tetra in 130 Gallons Planted Aquarium | Hyphessobrycon Megalopterus",
+      "durationSec": 255,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "33TCWGXszdQ",
+      "title": "Black Phantom Tetras: What I Learned",
+      "durationSec": 485,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-tFXvXW3JX8",
+      "title": "The Black Phantom Tetra. Their Discovery, Natural History & Care Info! Hyphessobrycon megalopterus",
+      "durationSec": 1318,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể thủy sinh 80x30"
+        "bể cá 80cm"
       ]
     },
     {
@@ -360,5 +428,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-11"
 }

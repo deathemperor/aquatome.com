@@ -1,0 +1,442 @@
+{
+  "id": "peckoltia-bachi",
+  "scientificName": "Peckoltia bachi",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Peckoltia",
+  "group": "catfish",
+  "lNumber": "L146, L232",
+  "places": [
+    "south-america",
+    "brazil",
+    "jurua",
+    "colombia",
+    "putumayo",
+    "ecuador",
+    "napo",
+    "peru",
+    "ucayali"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO",
+        "EC",
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Solimões",
+        "Purus",
+        "Juruá",
+        "Ucayali",
+        "Marañón"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The bola pleco, Peckoltichthys bachi, is a loricariid catfish from the upper Amazon region in Brazil, Colombia, Ecuador and Peru.",
+          "countries": [
+            "BR",
+            "CO",
+            "EC",
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species occurs throughout the upper Amazon region with records existing from various tributary drainages in Brazil, Colombia, Ecuador, and Peru including the Solimões, Purus, Japurá/Caquetá, Juruá, Putumayo/Içá, Napo, Itaya, Ampiyacu, Ucayali, Marañón and Huallaga.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Solimões",
+            "Purus",
+            "Ucayali",
+            "Marañón"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Rio Juruá, Brazil'.",
+          "countries": [],
+          "regions": [
+            "Juruá"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202091,
+      "total": 51,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BR",
+          25
+        ],
+        [
+          "PE",
+          21
+        ],
+        [
+          "BO",
+          2
+        ],
+        [
+          "EC",
+          2
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          -4.21875,
+          12,
+          12
+        ],
+        [
+          -77.34375,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 13
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltichthys-bachi",
+      "html": "<p>The bola pleco, Peckoltichthys bachi, is a loricariid catfish from the upper Amazon region in Brazil, Colombia, Ecuador and Peru. It has been assigned several L-numbers, including L146 from Colombia and L232 from the Río Putumayo/Içá, and has been exported under other generic names including Hemiancistrus and Sophiancistrus. Its mottled colour pattern separates it from most Peckoltia species, and it lives among submerged grasses and branches in flowing water along the margins of medium to large rivers.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltichthys-bachi",
+      "html": "<p>This species occurs throughout the upper Amazon region with records existing from various tributary drainages in Brazil, Colombia, Ecuador, and Peru including the Solimões, Purus, Japurá/Caquetá, Juruá, Putumayo/Içá, Napo, Itaya, Ampiyacu, Ucayali, Marañón and Huallaga.</p><p>A single record from the upper Río Meta in the vicinity of Villavicencio appears incongruous with the remainder of its distribution.</p><p>Type locality is 'Rio Juruá, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltichthys-bachi",
+      "html": "<p>Field observations suggest it to display a preference for marginal zones of medium to large river channels where it's typically found in flowing water among submerged grasses, twigs and branches.</p><p>It possesses hypertrophied pelvic muscles and widened pelvic-fin spines (see 'Notes') which may help it to grasp onto such structures (Armbruster, 2008).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltichthys-bachi",
+      "html": "<p>Standard length: 13 cm SL.</p><p>An aquarium with base dimensions of 120 × 45 cm should be the smallest considered (about 243 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltichthys-bachi",
+      "html": "<p>Not difficult to maintain under the correct conditions; we strongly recommend keeping it in a tank designed to simulate a flowing stream with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches, terracotta pipes, plant pots, etc., arranged to form a network of nooks, crannies, and shaded spots, thus providing broken lines of sight.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltichthys-bachi",
+      "html": "<ul><li>Temperature: 22–29°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltichthys-bachi",
+      "html": "<p>Wild specimens are likely omnivorous but with a preference for aquatic invertebrates and suchlike.</p><p>In the aquarium it does best when offered a varied diet comprising sinking dried foods, frozen Daphnia, mosquito larvae, chironomid larvae (bloodworm), and prawn/shrimp, for, example, plus some fresh fruit, parboiled potato, etc.</p><p>Home-made foods using a mixture of natural ingredients bound with gelatin are very useful since they can be tailored to contain fresh vegetables, Spirulina and meatier ingredients.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltichthys-bachi",
+      "html": "<p>Relatively peaceful but territorial with conspecifics and similarly-shaped species.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltichthys-bachi",
+      "html": "<p>Adult males possess a series of odontodes on the rear portion of the body and in some specimens the opercle.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltichthys-bachi",
+      "html": "<p>Cave-spawner with the male responsible for brood care.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltichthys-bachi",
+      "html": "<p>This species has had several L-numbers assigned to it, with L146 collected from an unspecified locality in Colombia and L232 from the Río Putumayo/Içá.</p><p>It's exported for the aquarium trade under a number of different generic names including Hemiancistrus, Sophiancistrus and Peckoltichthys.</p><p>Following Armbruster (2008) it can be told apart from Peckoltia species by the following combination of characters: presence of deep pockets on the ventral portion of the pelvic girdle for the insertion of hypertrophied pelvic adductor muscles, resulting in the ability to fold the pelvic fins ventrally such that the pelvic-fin spines run parallel with the ventral body surface; widened pelvic-fin spines; enlarged plates on the abdomen; eye positioned low on the head; opercle usually with a patch of odontodes at all ages (vs. opercle with a maximum single row of odontodes which disappear with age).</p><p>P. bachi can also be distinguished from all Peckoltia spp. except P. caenosa by having a mottled colour pattern (vs. presence of dorsal saddles or spots), and from P. caenosa by possessing large, diffuse spots on the head and no markings on the abdomen (vs. head and abdomen with vermiculations).</p><p>Although it displays certain unique morphological characters Armbruster (2008) retained the species in Peckoltia while stating that if it were to be reclassified the genus would be Peckoltichthys. Armbruster, Werneke and Tan (2015) later moved it to Peckoltichthys.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltichthys-bachi",
+      "html": "<ul><li>Boulenger, G. A. (1898). On a collection of fishes from the Rio Jurua, Brazil. Transactions of the Zoological Society of London 14 (pt 7, no. 2), 421-428</li><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Armbruster, J. W. (2008). The genus Peckoltia with the description of two new species and a reanalysis of the phylogeny of the genera of the Hypostominae (Siluriformes: Loricariidae). Zootaxa 1822, 1-76</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/aa1b069b454fa5d1.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/aa1b069b454fa5d1-480.webp",
+      "width": 800,
+      "height": 618,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltichthys-bachi",
+      "caption": "Ventral view of head and anterior portion of body.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c5cb75d23224b285.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c5cb75d23224b285-480.webp",
+      "width": 800,
+      "height": 507,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltichthys-bachi",
+      "caption": "Freshly-collected wild specimen.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "gLxylgqNCqI",
+      "title": "Peckoltia ucayalensis - Peckoltia bachi",
+      "durationSec": 64,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo dòng chảy",
+        "lọc thùng bể 120cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá lau kiếng",
+        "thức ăn viên chìm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông",
+        "sỏi nhỏ nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

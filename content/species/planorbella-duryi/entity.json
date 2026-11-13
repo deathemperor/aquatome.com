@@ -1,0 +1,527 @@
+{
+  "id": "planorbella-duryi",
+  "scientificName": "Planorbella duryi",
+  "order": "",
+  "family": "Planorbidae",
+  "genus": "Planorbella",
+  "group": "snails",
+  "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 5189745,
+      "total": 260,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "US",
+          167
+        ],
+        [
+          "ES",
+          16
+        ],
+        [
+          "RE",
+          14
+        ],
+        [
+          "GB",
+          12
+        ],
+        [
+          "SE",
+          11
+        ],
+        [
+          "UA",
+          8
+        ],
+        [
+          "BQ",
+          6
+        ],
+        [
+          "BR",
+          6
+        ],
+        [
+          "AG",
+          5
+        ],
+        [
+          "GP",
+          3
+        ],
+        [
+          "MQ",
+          3
+        ],
+        [
+          "PT",
+          3
+        ],
+        [
+          "FR",
+          1
+        ],
+        [
+          "MA",
+          1
+        ],
+        [
+          "MX",
+          1
+        ],
+        [
+          "NL",
+          1
+        ],
+        [
+          "NZ",
+          1
+        ],
+        [
+          "ZA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -160.3125,
+          21.09375,
+          1
+        ],
+        [
+          -120.9375,
+          39.375,
+          1
+        ],
+        [
+          -119.53125,
+          33.75,
+          2
+        ],
+        [
+          -119.53125,
+          36.5625,
+          1
+        ],
+        [
+          -116.71875,
+          35.15625,
+          4
+        ],
+        [
+          -115.3125,
+          35.15625,
+          2
+        ],
+        [
+          -115.3125,
+          36.5625,
+          4
+        ],
+        [
+          -112.5,
+          32.34375,
+          5
+        ],
+        [
+          -112.5,
+          40.78125,
+          1
+        ],
+        [
+          -111.09375,
+          30.9375,
+          1
+        ],
+        [
+          -109.6875,
+          30.9375,
+          1
+        ],
+        [
+          -109.6875,
+          36.5625,
+          1
+        ],
+        [
+          -108.28125,
+          33.75,
+          2
+        ],
+        [
+          -106.875,
+          35.15625,
+          2
+        ],
+        [
+          -98.4375,
+          29.53125,
+          1
+        ],
+        [
+          -92.8125,
+          18.28125,
+          1
+        ],
+        [
+          -90,
+          29.53125,
+          1
+        ],
+        [
+          -84.375,
+          29.53125,
+          2
+        ],
+        [
+          -84.375,
+          30.9375,
+          1
+        ],
+        [
+          -82.96875,
+          25.3125,
+          8
+        ],
+        [
+          -82.96875,
+          26.71875,
+          16
+        ],
+        [
+          -82.96875,
+          28.125,
+          25
+        ],
+        [
+          -82.96875,
+          29.53125,
+          8
+        ],
+        [
+          -81.5625,
+          23.90625,
+          6
+        ],
+        [
+          -81.5625,
+          25.3125,
+          36
+        ],
+        [
+          -81.5625,
+          26.71875,
+          9
+        ],
+        [
+          -81.5625,
+          28.125,
+          13
+        ],
+        [
+          -80.15625,
+          25.3125,
+          8
+        ],
+        [
+          -80.15625,
+          32.34375,
+          1
+        ],
+        [
+          -77.34375,
+          33.75,
+          1
+        ],
+        [
+          -77.34375,
+          35.15625,
+          2
+        ],
+        [
+          -75.9375,
+          39.375,
+          1
+        ],
+        [
+          -68.90625,
+          11.25,
+          6
+        ],
+        [
+          -61.875,
+          14.0625,
+          3
+        ],
+        [
+          -61.875,
+          15.46875,
+          3
+        ],
+        [
+          -61.875,
+          16.875,
+          5
+        ],
+        [
+          -50.625,
+          -16.875,
+          1
+        ],
+        [
+          -43.59375,
+          -4.21875,
+          1
+        ],
+        [
+          -39.375,
+          -14.0625,
+          1
+        ],
+        [
+          -37.96875,
+          -4.21875,
+          2
+        ],
+        [
+          -36.5625,
+          -7.03125,
+          1
+        ],
+        [
+          -9.84375,
+          40.78125,
+          2
+        ],
+        [
+          -8.4375,
+          36.5625,
+          1
+        ],
+        [
+          -5.625,
+          36.5625,
+          4
+        ],
+        [
+          -5.625,
+          54.84375,
+          3
+        ],
+        [
+          -2.8125,
+          33.75,
+          1
+        ],
+        [
+          -2.8125,
+          36.5625,
+          1
+        ],
+        [
+          -2.8125,
+          50.625,
+          1
+        ],
+        [
+          -1.40625,
+          37.96875,
+          1
+        ],
+        [
+          -1.40625,
+          49.21875,
+          1
+        ],
+        [
+          -1.40625,
+          50.625,
+          7
+        ],
+        [
+          1.40625,
+          37.96875,
+          1
+        ],
+        [
+          1.40625,
+          39.375,
+          4
+        ],
+        [
+          1.40625,
+          40.78125,
+          3
+        ],
+        [
+          2.8125,
+          42.1875,
+          2
+        ],
+        [
+          4.21875,
+          43.59375,
+          1
+        ],
+        [
+          4.21875,
+          52.03125,
+          1
+        ],
+        [
+          11.25,
+          57.65625,
+          1
+        ],
+        [
+          12.65625,
+          54.84375,
+          3
+        ],
+        [
+          16.875,
+          59.0625,
+          7
+        ],
+        [
+          25.3125,
+          49.21875,
+          2
+        ],
+        [
+          29.53125,
+          -30.9375,
+          1
+        ],
+        [
+          29.53125,
+          46.40625,
+          1
+        ],
+        [
+          35.15625,
+          49.21875,
+          2
+        ],
+        [
+          36.5625,
+          47.8125,
+          2
+        ],
+        [
+          36.5625,
+          49.21875,
+          1
+        ],
+        [
+          54.84375,
+          -22.5,
+          4
+        ],
+        [
+          54.84375,
+          -21.09375,
+          10
+        ],
+        [
+          172.96875,
+          -36.5625,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/",
+      "html": "<ul><li>Hermaphrodite that can fertilize itself.</li><li>Lays eggs in transparent disk-shaped clutches.</li><li>Shell diameter usually does not exceed 1 cm.</li><li>Bred in red, blue and brown (wild colour).</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/",
+      "html": "<p>Ramshorn snails have been popular since the beginning of aquaristics (around 1850), as they consume algae and eat leftovers, but usually leave the plants alone. In addition, as lung breathers, they are not additional oxygen consumers.</p><p>The Californian species differs from the native species Planorbarius corneus mainly in its small size. If you have lively reproducing ramshorn snails at home and they never get significantly larger than 1 cm in shell diameter, then it is most likely Planorbella duryi.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/",
+      "html": "<p>Planorbella duryi is a thermophilic species that only occurs here and there in artificially warmed waters. However, you should never release any aquarium snails!</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/",
+      "html": "<p>They consume algae and eat leftovers, but usually leave the plants alone.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/",
+      "html": "<p>They are hermaphrodites that can fertilize themselves if necessary, so anyone who acquires an animal already has a breeding pair. Reproduction takes place by laying eggs. The clutches are a transparent disk that can be attached to all kinds of objects. A clutch contains up to 15 eggs, which take around 10-12 days to hatch. The duration of development depends on the temperature and is somewhat shorter at temperatures above 25°C and somewhat longer at cooler temperatures.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/",
+      "html": "<p>In the past, the native species Planorbarius corneus was commonly kept in the tank, as it coped very well with the conditions at the time. Living rooms in the late 19th and early 20th century were only heated when necessary, so aquariums were correspondingly cool. The native ramshorn snail does not like consistently high water temperatures, especially in regularly heated tanks, and does not last long there. It has therefore gradually been replaced by the Californian species, often without aquarists being aware of it.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "BdQXg6os7Rg",
+      "title": "RAMSHORN SNAILS: A Quick Guide to These Aquatic Invertebrates (Planorbella duryi)",
+      "durationSec": 174,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Vj8t6WHNOkM",
+      "title": "Introduction to PINK RAMSHORN SNAIL: Care Guide & Tips! (Planorbella duryi)",
+      "durationSec": 159,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sSqdz5F92PY",
+      "title": "Introduction to BLUE LEOPARD RAMSHORN SNAIL: Care Guide & Tips! (Planorbella duryi)",
+      "durationSec": 151,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TGwdEr8UGsw",
+      "title": "Blaue Posthornschnecke Planorbella duryi frisst - Blue ramshorn snail",
+      "durationSec": 42,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho ốc",
+        "viên rau củ cho ốc"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể thủy sinh mini",
+        "bể cá 40cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

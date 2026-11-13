@@ -10,7 +10,7 @@
     "taxiphyllum-barbieri",
     "microsorum-pteropus"
   ],
-  "updatedAt": "2026-11-04",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "Z09QE4PpB9Q",
     "title": "HOW TO: Build a plywood aquarium | Part 6 | FINAL TUTORIAL",
@@ -39,100 +39,109 @@
       {
         "category": "be-ca",
         "type": "lon",
-        "t": 214
+        "t": 225
       },
       {
         "category": "den",
-        "t": 96
+        "t": 128
       },
       {
         "category": "loc",
         "type": "sump",
-        "t": 400
+        "t": 436
+      },
+      {
+        "category": "loc",
+        "t": 617
       },
       {
         "category": "suoi",
         "type": "chinh-nhiet",
         "brand": "Eheim",
-        "t": 687
+        "t": 692
       },
       {
         "category": "suoi",
         "type": "chinh-nhiet",
         "brand": "VIA Aqua",
-        "t": 687
-      },
-      {
-        "category": "khac",
-        "brand": "G-Cod",
-        "t": 590
+        "t": 692
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao cá rồng cần bể cao và chỗ đặt có người qua lại",
+        "heading": "Bể cao hơn có thể giúp cá rồng bớt hoảng",
         "moments": [
           {
-            "t": 49,
-            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/t49.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá rồng bơi gần mặt nước trong bể tối, thân ánh xanh rất rõ."
+            "t": 50,
+            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/at50-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá rồng châu Á blue base bơi sát mặt nước trong bể tối.",
+            "sharpness": 165.6,
+            "person": false
           },
           {
-            "t": 99,
-            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/t99.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá rồng bơi trong bể dài, thấy rõ khoảng nước còn hạn chế."
+            "t": 100,
+            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/at100-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá rồng bơi giữa bể thấp, khoảng trống phía trên rất hẹp.",
+            "sharpness": 183.9,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/p0-ZV8yMDEyXzMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/Z09QE4PpB9Q/p0-ZV8yMDEyXzMuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/p0-dsb25neXUzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/Z09QE4PpB9Q/p0-dsb25neXUzLmpwZw-480.webp",
           "width": 960,
-          "height": 509,
+          "height": 496,
           "licence": "CC BY-SA 3.0",
-          "author": "Karelj",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_Prague_2012_3.jpg",
-          "caption": "Cá rồng bơi thoải mái trong bể có cây thủy sinh."
+          "author": "Photo taken by Fanghong",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Honglongyu3.jpg",
+          "caption": "Cá rồng châu Á ánh xanh bơi trong bể, thấy rõ toàn thân."
         }
       },
       {
-        "heading": "Đèn và nắp: rẻ mà vẫn đẹp",
+        "heading": "Đèn và nắp: rẻ mà dùng tốt",
         "moments": [
           {
-            "t": 207,
-            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/t207.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tấm nhựa lượn sóng trong suốt làm nắp, đèn LED sáng bên dưới."
+            "t": 140,
+            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/at140-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Con cá rồng như lơ lửng trong bể nền đen, ánh đèn LED xanh.",
+            "sharpness": 124.9
           },
           {
-            "t": 237,
-            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/t237.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Con cá lơ lửng giữa bể nền tối, đèn LED đặt dịch về phía trước."
+            "t": 210,
+            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/at210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm nhựa sóng làm nắp bể, ánh đèn LED xanh chiếu sáng dọc mép.",
+            "sharpness": 84.6
           }
         ]
       },
       {
-        "heading": "Tính đúng lượng nước thật trong bể",
+        "heading": "Tính thể tích nước thật của bể thế nào",
         "moments": [
           {
-            "t": 246,
-            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/t246.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể lớn nhìn từ phía trước, mực nước thấp hơn miệng bể."
+            "t": 240,
+            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/at240-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể lớn trên tủ gỗ, mực nước thấp hơn miệng bể, có cá rồng bơi.",
+            "sharpness": 240.5,
+            "person": false
           },
           {
-            "t": 296,
-            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/t296.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh mặt nước nằm thấp hơn miệng bể vài phân."
+            "t": 290,
+            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/at290-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh mực nước thật thấp hơn miệng bể, cá rồng bơi bên dưới.",
+            "sharpness": 167.1,
+            "person": false
           }
         ],
         "photo": {
@@ -143,44 +152,86 @@
           "licence": "Public domain",
           "author": "Unknown authorUnknown author",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:PSM_V05_D712_Fresh_water_aquarium.jpg",
-          "caption": "Bể kính hình hộp chữ nhật với mực nước thấp hơn miệng bể."
+          "caption": "Bể kính hình hộp chữ nhật có mực nước thấp hơn miệng bể."
         }
       },
       {
-        "heading": "Chọn lọc nào cho bể to trong phòng ở",
+        "heading": "Đi ống xuyên hông bể",
         "moments": [
           {
-            "t": 818,
-            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/t818.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh vật liệu lọc bio màu tím dùng trong lọc nhỏ giọt."
+            "t": 790,
+            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/at790-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống loc-line hồi nước chia hai hướng bên trong bể.",
+            "sharpness": 99.6
           },
           {
-            "t": 828,
-            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/t828.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Khay lọc nhỏ giọt chứa vật liệu lọc đặt phía trên bể."
+            "t": 810,
+            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/at810-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đường ống trắng chạy dọc sát hông bể, nhìn từ bên cạnh.",
+            "sharpness": 106.8
           }
         ]
       },
       {
-        "heading": "Nước chạy trong hệ thống thế nào",
+        "heading": "Vì sao chọn lọc nhỏ giọt",
         "moments": [
           {
-            "t": 788,
-            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/t788.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hai ống tràn có co quay miệng lên trên, hút lớp váng mặt."
+            "t": 460,
+            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/at460-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể lọc nhỏ giọt dựng trong bể cũ, chứa đầy vật liệu lọc màu xanh.",
+            "sharpness": 559,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Nước đi qua lọc thế nào",
+        "moments": [
+          {
+            "t": 830,
+            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/at830-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh vật liệu lọc vi sinh màu xanh trong tháp lọc.",
+            "sharpness": 278,
+            "person": false
           },
           {
-            "t": 838,
-            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/t838.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tháp lọc với bông lọc đặt cạnh sump dưới bể."
+            "t": 840,
+            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/at840-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tháp lọc chứa vật liệu lọc xanh, kê cao khỏi đáy sump.",
+            "sharpness": 214.4,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Bơm, sưởi và tiền điện",
+        "moments": [
+          {
+            "t": 630,
+            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/at630-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh con bơm trong hộc kỹ thuật dưới bể, nối với ống nước.",
+            "sharpness": 65.4
+          },
+          {
+            "t": 700,
+            "url": "https://media.aquatome.com/video/Z09QE4PpB9Q/at700-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thanh sưởi và ống nước nằm trong ngăn lọc bên dưới bể.",
+            "sharpness": 389.5,
+            "person": false
           }
         ]
       }

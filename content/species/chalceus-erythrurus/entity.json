@@ -58,7 +58,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 4
       }
     ]
   },
@@ -162,6 +162,21 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/38a115b2433c65a4.webp",
+      "thumb": "https://media.aquatome.com/commons/38a115b2433c65a4-480.webp",
+      "width": 1200,
+      "height": 803,
+      "licence": "CC BY 3.0",
+      "author": "Boonchai C",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bueng_chawag_Aquarium_-_panoramio.jpg",
+      "caption": "Cá tucan đuôi đỏ bơi giữa cây thủy sinh trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/38a115b2433c65a4-large.webp",
+        "width": 1792,
+        "height": 1200
+      }
+    },
+    {
       "url": "https://media.aquatome.com/commons/5c8f476b67fe9c6a.webp",
       "width": 952,
       "height": 714,
@@ -177,8 +192,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn",
-        "bể cá 200cm"
+        "bể cá 120cm"
       ]
     },
     {
@@ -196,5 +210,219 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-04",
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Parts of the Amazon basin in Peru and Brazil.",
+          "countries": [
+            "PE",
+            "BR"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2353802,
+      "total": 117,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          72
+        ],
+        [
+          "PE",
+          39
+        ],
+        [
+          "CO",
+          5
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          8,
+          8
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          10,
+          10
+        ],
+        [
+          -73.125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          17,
+          17
+        ],
+        [
+          -73.125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          46,
+          46
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

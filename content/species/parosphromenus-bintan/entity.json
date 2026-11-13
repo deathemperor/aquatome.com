@@ -10,6 +10,61 @@
     "indonesia",
     "bintan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Bintan Island",
+        "Bangka",
+        "Riau Archipelago"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Parosphromenus bintan is a liquorice gourami from Indonesia, confirmed only from Bintan Island in the Riau Archipelago and from Bangka.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Riau Archipelago"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is Bintan Island, Riau Archipelago province, Indonesia, specifically 'just before km 45 on road from Tanjung Uban to Tanjung Pinang; 1°06'40.1\"N, 104°30'09.8\"E' and the only other confirmed localities are on the island of Bangka in Bangka-Belitung province.",
+          "countries": [],
+          "regions": [
+            "Bintan Island",
+            "Bangka"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394183,
+      "total": 1,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +108,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 7
+        "value": 4
       }
     ]
   },
@@ -137,8 +192,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá nhỏ 40cm",
-        "bể thủy sinh mini"
+        "bể cá 40cm"
       ]
     },
     {

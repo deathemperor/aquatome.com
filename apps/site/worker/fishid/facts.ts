@@ -1,5 +1,7 @@
 import { pageShard, shardCount } from '@aq/schema/app-page'
+import { isGenerated, isOwnerCrop } from '@aq/schema/image-policy'
 import type { Catalog, CatalogEntry } from './catalog'
+import { lookOf, plainText } from './look'
 
 /**
  * What the fish-ID agent's get_entry tool tells Claude about a page (agent-tools.ts): short facts and a few reference
@@ -21,6 +23,8 @@ export type Facts = {
   /** A breed: the species (or breed) it is a form of, and its other names. */
   basedOn?: string
   names?: string[]
+  /** What the sources say tells it from its look-alikes, its colours and pattern (look.ts), English as they give it. */
+  look?: string
   /** What the sources say about how it looks and how the sexes differ (English, as they give it); a breed's own summary. */
   text?: string
   /** Reference photos, about 480 px: the catalog's thumb first, then the page's next photos. */
@@ -40,7 +44,6 @@ export const TEXT_MAX = 600
 /** Reference photos per page: in the built shards, and the most get_entry shows of one (agent-tools.ts). */
 export const PHOTOS_PER_PAGE = 2
 
-const plainText = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ').trim()
 /** At most `max` characters, cut at a word. */
 export function cut(s: string, max: number): string {
   if (s.length <= max) return s
@@ -79,8 +82,10 @@ export function buildFacts<P>(catalog: Catalog, pages: FactPages<P>, thumb: (p: 
     const text = e.kind === 'breed'
       ? (p.t.summary ?? []).join(' ')
       : [...sections.filter(x => x.key === 'dimorphism'), ...sections.filter(x => x.key === 'notes')].map(x => plainText(x.html)).filter(Boolean).join(' ')
+    const look = e.kind === 'breed' ? undefined : lookOf(sections, undefined, e.kind === 'plant')
+    if (look) f.look = look
     if (text) f.text = cut(text, TEXT_MAX)
-    f.photos = [...new Set([...p.photos, ...(opts.gallery?.(e.id) ?? [])].map(thumb))].slice(0, count)
+    f.photos = [...new Set([...p.photos, ...(opts.gallery?.(e.id) ?? [])].filter(p => !isGenerated(p) && !isOwnerCrop(p)).map(thumb))].slice(0, count)
     return f
   })
 }

@@ -31,6 +31,37 @@
       "sources": [
         "glaser",
         "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: India",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from 'Ponds of northeastern Bengal; Kosi and Ami rivers, India' but according to current knowledge is extensively distributed from Pakistan throughout India, Nepal, and Bangladesh.",
+          "countries": [
+            "PK",
+            "NP",
+            "BD"
+          ],
+          "regions": [
+            "Kosi",
+            "Ami"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "For example, fish collected from the Darjeeling area in the Siwalik mountains, West Bengal are said to be particularly well-coloured with highly-reflective scales.",
+          "countries": [],
+          "regions": [
+            "Siwalik mountains"
+          ]
+        }
       ]
     },
     "records": {
@@ -439,7 +470,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ],
     "tempC": [
@@ -736,8 +767,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá cảnh 100cm"
+        "bể cá 100cm"
       ]
     },
     {

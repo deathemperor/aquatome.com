@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "X2BR1dbx4Sw",
     "title": "Hướng dẫn chăm sóc toàn diện 1 hồ thủy sinh chất lượng bằng combo dung dịch của Dymax",
@@ -66,14 +66,67 @@
     ],
     "figures": [
       {
-        "heading": "Vi lượng, sắt và carbon dùng để làm gì",
+        "heading": "Đổ nước lần đầu: khử nước mới trước tiên",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/X2BR1dbx4Sw/p0-UwMzc0MjApLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/X2BR1dbx4Sw/p0-UwMzc0MjApLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "Public domain",
+          "author": "USFWS/Southeast",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pipes_and_tubes_providing_water_to_dozens_of_aquariums_(41005037420).jpg",
+          "caption": "Hệ thống bể nuôi với ống dẫn nước đang cấp nước vào bể."
+        }
+      },
+      {
+        "heading": "Chặn rêu hại từ đầu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/X2BR1dbx4Sw/p3-0ZXJfRmlzaC5wbmc.webp",
+          "thumb": "https://media.aquatome.com/video/X2BR1dbx4Sw/p3-0ZXJfRmlzaC5wbmc-480.webp",
+          "width": 940,
+          "height": 788,
+          "licence": "CC BY-SA 4.0",
+          "author": "Chamika Ranaweera",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siamese_Algae_Eater_Fish.png",
+          "caption": "Bể thủy sinh sạch rêu hại với cá sọc và cây xanh um tùm."
+        }
+      },
+      {
+        "heading": "Vi lượng, sắt và carbon hữu cơ",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/X2BR1dbx4Sw/p5-cnUtSW5kaWEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/X2BR1dbx4Sw/p5-cnUtSW5kaWEuanBn-480.webp",
+          "width": 960,
+          "height": 779,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lagenandra_meeboldii_Red_Care-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Lá cây thủy sinh nhạt màu, vàng úa do thiếu sắt và vi lượng."
+        }
+      },
+      {
+        "heading": "Kết hợp ba nhóm để chăm bể",
         "moments": [
           {
-            "t": 254,
-            "url": "https://media.aquatome.com/video/X2BR1dbx4Sw/t254.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh nhiều cây đỏ và cây xanh um tùm."
+            "t": 286,
+            "url": "https://media.aquatome.com/video/X2BR1dbx4Sw/at286-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hàng chai phân nước và dinh dưỡng xếp trên kệ trước bể thủy sinh.",
+            "sharpness": 2492.5,
+            "person": false
+          },
+          {
+            "t": 290,
+            "url": "https://media.aquatome.com/video/X2BR1dbx4Sw/at290-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh các chai dinh dưỡng cho cây thủy sinh.",
+            "sharpness": 1518.8,
+            "person": false
           }
         ]
       }

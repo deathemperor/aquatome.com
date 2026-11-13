@@ -18,8 +18,7 @@
   "https://media.aquatome.com/inaturalist/90529678.webp": "82c6c6c2983e3fad",
   "https://media.aquatome.com/commons/17a5d013a3d9aa17.webp": "d2d67bd3c2e9317f",
   "https://media.aquatome.com/aquariumcoop/c61a37ab4bcae461.webp": "3158130db53db1e5",
-  "https://media.aquatome.com/aquariumcoop/d14a75aafd9844d5.webp": "81e1636dfbbbf82f",
-  "https://media.aquatome.com/aquariumcoop/433af64f26dd2c4e.webp": "f870606060606070"
+  "https://media.aquatome.com/aquariumcoop/d14a75aafd9844d5.webp": "81e1636dfbbbf82f"
  },
  "inat": {
   "taxon": 105552,
@@ -33,5 +32,9 @@
  "gbif": {
   "key": 2411715,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-07"
 }

@@ -6,6 +6,112 @@
   "genus": "Hymenochirus",
   "group": "other",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2423973,
+      "total": 43,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CM",
+          22
+        ],
+        [
+          "CD",
+          15
+        ],
+        [
+          "CG",
+          3
+        ],
+        [
+          "GA",
+          2
+        ],
+        [
+          "GQ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          4.21875,
+          2
+        ],
+        [
+          9.84375,
+          1.40625,
+          4
+        ],
+        [
+          9.84375,
+          2.8125,
+          14
+        ],
+        [
+          9.84375,
+          4.21875,
+          1
+        ],
+        [
+          11.25,
+          -2.8125,
+          1
+        ],
+        [
+          11.25,
+          2.8125,
+          1
+        ],
+        [
+          12.65625,
+          -5.625,
+          1
+        ],
+        [
+          12.65625,
+          -2.8125,
+          4
+        ],
+        [
+          14.0625,
+          -5.625,
+          1
+        ],
+        [
+          14.0625,
+          2.8125,
+          1
+        ],
+        [
+          16.875,
+          -1.40625,
+          1
+        ],
+        [
+          18.28125,
+          -1.40625,
+          3
+        ],
+        [
+          22.5,
+          -4.21875,
+          1
+        ],
+        [
+          28.125,
+          0,
+          7
+        ],
+        [
+          29.53125,
+          0,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {
@@ -15,7 +121,23 @@
       "html": "<p>The most popular of all underwater frogs is the Dwarf Clawed Frog Hymenochirus boettgeri. It has been bred as an ornamental animal for years, so it was only a matter of time before albinos appeared on the market. The gold-albino form is now available.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/1306a73e1f5eb0e1.webp",
+      "thumb": "https://media.aquatome.com/commons/1306a73e1f5eb0e1-480.webp",
+      "width": 1200,
+      "height": 841,
+      "licence": "Public domain",
+      "author": "James Gathany",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:African_dwarf_frog.jpg",
+      "caption": "Ếch móng vuốt lùn bám trên thân cây trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1306a73e1f5eb0e1-large.webp",
+        "width": 1712,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "QN9_KsVD-BQ",

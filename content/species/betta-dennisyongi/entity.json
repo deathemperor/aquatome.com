@@ -10,6 +10,38 @@
     "indonesia",
     "aceh"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently known only from the western coast of central Aceh province, northwestern Sumatra, Indonesia, between the city of Meulaboh and lowland hill streams north of the town of Singkil.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8183613,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -60,7 +92,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ],
     "gh": [
@@ -96,7 +128,7 @@
       "key": "beforeYouBuy",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k-banh7-hp7x2",
-      "html": "<p>Be sure to have the habitat ready before purchase.</p><p>Betta dennisyongi and Betta rubra are some of the easiest wild bettas to start out on, as males show a lower level of aggression and they can do well in community tanks.</p>"
+      "html": "<p>Betta dennisyongi and Betta rubra are some of the easiest wild bettas to start out on, as males show a lower level of aggression and they can do well in community tanks.</p>"
     },
     {
       "key": "distribution",
@@ -109,12 +141,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
       "html": "<p>Has been collected from lowland hillstreams and acidic freshwater swamps containing clear to brownish water.</p><p>One hill stream habitat contained relatively fast flowing clear water with a pH of 7.0, a sandy substrate and steep clay banks, with the fish collected among submerged leaf litter.</p><p>The type series was collected from submerged leaf litter and marginal vegetation in slowly-moving brown water with a pH of 6.0 and a substrate of mud and clay.</p><p>Syntopic fish species include Osteochilus jeruk, Rasbora jacobsoni, R. kluetensis, Nemacheilus tuberigum, Mystus punctifer, Ompok brevirictus and Kryptopterus piperatus (Tan, 2013).</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k-banh7-hp7x2",
-      "html": "<p>We recommend a pair per 5 gallons (about 19 litres) of water.</p>"
     },
     {
       "key": "aquariumSize",
@@ -139,12 +165,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-dennisyongi",
       "html": "<ul><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 5.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
-    },
-    {
-      "key": "diet",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/l1zembgzqrwnnxakykyldrkhullifh-aynay-nxm6k-banh7-hp7x2",
-      "html": "<p>Carnivorous. Currently feeding on live foods but can be trained to eat frozen and dried foods. The seller currently feeds blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -247,8 +267,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 20 lít",
-        "bể cá nhỏ nuôi betta"
+        "bể cá 50cm"
       ]
     },
     {

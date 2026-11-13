@@ -80,6 +80,32 @@
           "max": 60
         }
       }
+    ],
+    "difficulty": [
+      {
+        "source": 4,
+        "value": 2
+      },
+      {
+        "source": 8,
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 4,
+        "value": {
+          "min": 5,
+          "max": 5
+        }
+      },
+      {
+        "source": 8,
+        "value": {
+          "min": 3,
+          "max": 5
+        }
+      }
     ]
   },
   "photos": [
@@ -91,7 +117,12 @@
       "licence": "CC BY-SA 2.0",
       "author": "Bernat Arlandis",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Balloon_Molly.jpg",
-      "caption": "Cá bình tích balloon màu xám bạc bơi trong bể cây thủy sinh"
+      "caption": "Cá bình tích balloon màu xám bạc bơi trong bể cây thủy sinh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/024b8422ed804c9e-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/1e680554b39cfd22.webp",
@@ -101,17 +132,12 @@
       "licence": "CC BY-SA 2.0",
       "author": "Bernat Arlandis",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Molly_Balloon.jpg",
-      "caption": "Cá bình tích balloon màu trắng bạc vây lưng có vân trong bể"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/2cf1ed06e3421dee.webp",
-      "thumb": "https://media.aquatome.com/commons/2cf1ed06e3421dee-480.webp",
-      "width": 1046,
-      "height": 784,
-      "licence": "CC BY-SA 3.0",
-      "author": "Gourami Watcher",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Balloon_Molly_female.jpg",
-      "caption": "Cá bình tích balloon đốm đen trên nền bạc trong bể thủy sinh"
+      "caption": "Cá bình tích balloon màu trắng bạc vây lưng có vân trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1e680554b39cfd22-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     }
   ],
   "sources": [
@@ -162,6 +188,12 @@
       "title": "Cá Molly Giá Bao Nhiêu? - SG AQUA",
       "kind": "shop",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.ouraquariumlife.com/fish/balloon-molly-fish",
+      "title": "Balloon Molly Fish: Appearance, Types & Care",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

@@ -38,30 +38,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/443340993.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/443340993-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Noland Aull",
-      "sourceUrl": "https://www.inaturalist.org/photos/443340993",
-      "caption": "Cá gourami sọc màu xanh ánh kim bơi trong bể",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/151525248.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/151525248-480.webp",
-      "width": 1024,
-      "height": 484,
-      "licence": "CC BY",
-      "author": "Sandipan Das",
-      "sourceUrl": "https://www.inaturalist.org/photos/151525248",
-      "caption": "Cá gourami sọc trưởng thành bơi sát kính trong bể",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/186507798.webp",
       "thumb": "https://media.aquatome.com/inaturalist/186507798-480.webp",
       "width": 1024,
@@ -72,9 +48,21 @@
       "caption": "Cá gourami sọc có vằn ngang trong bể trồng cây",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/443340993.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/443340993-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Noland Aull",
+      "sourceUrl": "https://www.inaturalist.org/photos/443340993",
+      "caption": "Cá gourami sọc màu xanh ánh kim bơi trong bể",
+      "best": true,
+      "kind": "other"
     }
   ],
-  "seen": 44,
-  "updatedAt": "2026-11-04",
-  "builtAt": "2026-11-04"
+  "seen": 46,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

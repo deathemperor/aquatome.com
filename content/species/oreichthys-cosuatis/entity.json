@@ -14,6 +14,144 @@
     "bangladesh",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NP",
+        "IN",
+        "BD"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Probably restricted to the Ganges and Brahmaputra River basins in Nepal, India and Bangladesh, with apparent occurrences in Thailand, Myanmar and the Western Ghats mountains in southern India likely to represent undescribed species.",
+          "countries": [
+            "NP",
+            "IN",
+            "BD"
+          ],
+          "regions": [
+            "Ganges",
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366575,
+      "total": 30,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BD",
+          14
+        ],
+        [
+          "NP",
+          6
+        ],
+        [
+          "TH",
+          4
+        ],
+        [
+          "IN",
+          3
+        ],
+        [
+          "MM",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          82.96875,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          85.78125,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          90,
+          22.5,
+          8,
+          8
+        ],
+        [
+          90,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          16.875,
+          1,
+          0
+        ],
+        [
+          97.03125,
+          25.3125,
+          2,
+          0
+        ],
+        [
+          99.84375,
+          7.03125,
+          4,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -57,7 +195,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -164,8 +302,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30",
-        "bể thủy sinh 60cm"
+        "bể cá 60cm"
       ]
     },
     {

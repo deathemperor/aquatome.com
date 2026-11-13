@@ -10,6 +10,166 @@
     "india",
     "bihar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Botia lohachata was described from Bihar in India as early as 1912.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368026,
+      "total": 47,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "NP",
+          26
+        ],
+        [
+          "IN",
+          13
+        ],
+        [
+          "BD",
+          5
+        ],
+        [
+          "PK",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          66.09375,
+          23.90625,
+          2,
+          0
+        ],
+        [
+          73.125,
+          30.9375,
+          1,
+          0
+        ],
+        [
+          75.9375,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          75.9375,
+          28.125,
+          3,
+          3
+        ],
+        [
+          77.34375,
+          15.46875,
+          3,
+          3
+        ],
+        [
+          78.75,
+          28.125,
+          1,
+          0
+        ],
+        [
+          80.15625,
+          28.125,
+          8,
+          0
+        ],
+        [
+          81.5625,
+          28.125,
+          2,
+          0
+        ],
+        [
+          82.96875,
+          26.71875,
+          5,
+          0
+        ],
+        [
+          82.96875,
+          28.125,
+          1,
+          0
+        ],
+        [
+          84.375,
+          26.71875,
+          2,
+          0
+        ],
+        [
+          85.78125,
+          25.3125,
+          5,
+          0
+        ],
+        [
+          87.1875,
+          25.3125,
+          2,
+          0
+        ],
+        [
+          88.59375,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          88.59375,
+          25.3125,
+          4,
+          3
+        ],
+        [
+          90,
+          22.5,
+          2,
+          0
+        ],
+        [
+          90,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          92.8125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          26.71875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -38,7 +198,23 @@
       "html": "<p>How variable Botia lohachata can be, however, can be seen when wild caught specimens are available, like right now (the season runs from about July until October). And in the age the pattern changes strongly to a net pattern. This raises doubts whether B. lohachata is really a good species, because at least B. almorhae, B. birdi and B. histrionica are extremely similar and have been described much earlier; a good overview of the many similar looking Indian loaches is given by Grant (2007) in the electronic publication Ichthyofile Number2.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/71be289cdae71b35.webp",
+      "thumb": "https://media.aquatome.com/commons/71be289cdae71b35-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "Public domain",
+      "author": "Orishas92",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yoyo_Loach.jpg",
+      "caption": "Cá Botia lohachata kiếm ăn trên nền sỏi nâu trong bể trồng cây",
+      "large": {
+        "url": "https://media.aquatome.com/commons/71be289cdae71b35-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

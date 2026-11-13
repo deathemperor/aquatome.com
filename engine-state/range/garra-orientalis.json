@@ -1,0 +1,94 @@
+{
+  "id": "garra-orientalis",
+  "native": {
+    "input": "a385abf6df23cbe2",
+    "at": "2026-11-08T10:57:49.558Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed in southern China, with records from the Zhu Jiang (Pearl River), Chiang Jiang, and Min Jiang watersheds.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Reports from Hainan Island appear in need of confirmation, while it is not thought to occur in the Yuan Jiang (Red River) system in China and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "In addition, earlier records from the Salween and upper Irrawaddy systems in Yunnan province, China and Myanmar are now known to represent other species.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Zhu Jiang",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed in southern China, with records from the Zhu Jiang (Pearl River), Chiang Jiang, and Min Jiang watersheds.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Chiang Jiang",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed in southern China, with records from the Zhu Jiang (Pearl River), Chiang Jiang, and Min Jiang watersheds.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Min Jiang",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed in southern China, with records from the Zhu Jiang (Pearl River), Chiang Jiang, and Min Jiang watersheds.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra orientalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2366863,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        13
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

@@ -5,18 +5,20 @@
     "Semanggi air",
     "Semanggi",
     "Dwarf Water Clover",
-    "Water Clover"
+    "Marsilea"
   ],
   "sections": {
-    "quickFacts:tropica": "<ul><li>Jenis: Tanaman karpet</li><li>Asal: Asia</li><li>Laju pertumbuhan: Sedang</li><li>Tinggi: 3–5+ cm</li><li>Kebutuhan cahaya: Sedang</li><li>CO2: Rendah</li></ul>",
-    "maintenance:tropica": "<p>Tanaman yang tangguh, tahan terhadap cahaya yang kurang dan suhu tinggi. Meski begitu, kondisi yang lebih baik tetap membantu pertumbuhannya. Ditanam dalam rumpun-rumpun kecil yang kemudian menyebar lewat tunas samping. Tanaman ini membentuk karpet yang rapat setinggi 1–3 cm dan tertanam kuat di lapisan dasar.</p>",
+    "quickFacts:tropica": "<ul><li>Tipe: Tanaman karpet</li><li>Asal: Asia</li><li>Laju pertumbuhan: Sedang</li><li>Tinggi: 3–5+ cm</li><li>Kebutuhan cahaya: Sedang</li><li>CO2: Rendah</li></ul>",
+    "maintenance:aquatome": "<p>Marsilea minuta adalah tanaman <strong>latar depan</strong>. Letakkan di bagian depan akuarium supaya tumbuh menjadi karpet yang rendah. Saat menanam, bagi tanaman menjadi rumpun-rumpun kecil lalu tancapkan ke substrat. Tanaman ini akan menyebar sendiri lewat tunas anakan. Lama-lama tanaman menutup substrat menjadi karpet rapat setinggi sekitar 1–3 cm yang tertanam kuat di substrat. Tanaman ini kuat, tetap bisa hidup walaupun cahayanya lemah atau airnya agak hangat. Hanya saja, makin stabil kondisi akuariumnya, makin bagus karpetnya.</p>",
+    "maintenance:tropica": "<p>Tanaman yang kuat, tahan kondisi cahaya kurang dan suhu tinggi. Meski begitu, kondisi yang lebih baik membantu pertumbuhannya. Ditanam dalam rumpun-rumpun kecil yang kemudian menyebar lewat tunas anakan. Membentuk karpet rapat setinggi 1–3 cm yang tertanam kuat di lapisan substrat.</p>",
     "notes:tropica": "<p>Paku air kecil ini berasal dari Asia, dan di sana sering tumbuh di sawah. Daunnya mungil, jarang lebih lebar dari 0,5 cm.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.97,
     "indexable": true,
     "bySource": {
-      "tropica": 0.9
+      "tropica": 0.97,
+      "aquatome": 0.97
     }
   }
 }

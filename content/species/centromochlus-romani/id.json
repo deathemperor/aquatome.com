@@ -1,0 +1,27 @@
+{
+  "slug": "roman-s-woodcat",
+  "name": "Roman's Woodcat",
+  "altNames": [
+    "Driftwood Catfish",
+    "Woodcat"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li><strong>Nama ilmiah:</strong> Duringlanis romani (Mees, 1988)</li><li><strong>Nama umum:</strong> Roman's Woodcat, Driftwood Catfish</li><li><strong>Ukuran:</strong> 31 mm SL</li><li><strong>Suhu:</strong> 24–28 °C</li><li><strong>Daftar Merah IUCN:</strong> Least Concern/Risiko Rendah (terakhir dinilai 2020)</li></ul>",
+    "distribution:planetcatfish": "<p>Daerah aliran Sungai San Juan, Venezuela, perairan Karibia. Lokasi tipe: Río Guarapiche, anak Sungai San Juan, dekat Monagas, Venezuela.</p>",
+    "reproduction:planetcatfish": "<p>Lihat artikel Catfish of the Month edisi Januari 2010. Ada 2 laporan pemijahan.</p>",
+    "references:planetcatfish": "<p>Proceedings of the Koninklijke Nederlandse Akademie van Wetenschappen (Series C, Biological and Medical Sciences) v. 91 (no. 4), pp 412, Figs. 3-4.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "planetcatfish": 0.85
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-09"
+  }
+}

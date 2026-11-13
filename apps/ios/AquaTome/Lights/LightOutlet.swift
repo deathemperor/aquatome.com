@@ -118,7 +118,7 @@ struct LightOutletFact: View {
   private func day(_ s: String) -> String {
     guard s.count == 8, s.allSatisfy(\.isASCII), let y = Int(s.prefix(4)), let m = Int(s.dropFirst(4).prefix(2)), let d = Int(s.suffix(2)),
           let date = Calendar(identifier: .gregorian).date(from: DateComponents(year: y, month: m, day: d)) else { return s }
-    return date.formatted(.dateTime.day().month(.defaultDigits).year())
+    return date.formatted(.dateTime.day().month(.defaultDigits).year().locale(.app))
   }
 }
 

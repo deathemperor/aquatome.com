@@ -6,8 +6,7 @@
   "inat:751695576"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/62a3f32b6e734a13.webp": "c4ccdc9f3f9ccccd",
-  "https://media.aquatome.com/commons/cd90e3d3ce36517f.webp": "3131238313869db5"
+  "https://media.aquatome.com/commons/62a3f32b6e734a13.webp": "c4ccdc9f3f9ccccd"
  },
  "inat": {
   "taxon": 128311,
@@ -21,5 +20,9 @@
  "gbif": {
   "key": 2359405,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-11"
 }

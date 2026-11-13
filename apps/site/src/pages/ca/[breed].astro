@@ -27,7 +27,7 @@ const { b } = Astro.props as { b: Breed }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 // Put together with the app's copy of it (lib/breed-page.ts).
-const { key, parent, parents, card, sources, gallery, galleryPath, strip, lines, linePhotos, body, guides, videoGuides } = breedParts(lang, c, b)
+const { key, parent, parents, card, sources, gallery, galleryPath, strip, lines, linePhotos, body, guides, videoGuides, videoPhotos } = breedParts(lang, c, b)
 const url = new URL(`/vi/ca/${b.t.slug}/`, Astro.site).href
 const jsonld = [
   { '@context': 'https://schema.org', '@type': 'Article', headline: b.t.name, alternativeHeadline: b.t.altNames.slice(0, 3).join(', ') || undefined, inLanguage: lang, dateModified: b.updatedAt, image: b.photos[0]?.url, mainEntityOfPage: url, description: b.t.summary?.join(' ') },
@@ -47,14 +47,14 @@ const alternates = await alternatesOf('breeds', b.id)
     <a href="/vi/ca/">{t('Loài cá')}</a>{parent && <> / <a href={parent.href}>{parent.name}</a></>}
   </nav>
   <header class="wrap top">
-    {b.photos.length > 0 ? <PhotoGallery photos={b.photos} alt={b.t.name} /> : <div />}
+    {b.photos.length > 0 ? <PhotoGallery photos={b.photos} alt={b.t.name} fish /> : <div />}
     <div>
       <p class="where">{t(BREED_KIND[b.kind])}{parent && b.kind === 'variety' && <>{t(', dòng của')} <a href={parent.href}>{parent.name}</a></>}</p>
       <h1 data-pagefind-meta="aka[data-aka]" data-aka={searchAliases(b.t)}>{b.t.name}</h1>
       <RedirectNote from={b.t.redirectFrom} />
       {parents.length > 0 && (
         <p class="parents">{t('Lai từ:')} {parents.map((p, i) => (
-          <>{i > 0 && ', '}{p.path ? <a href={p.path}>{p.name} <span class="sci">({p.sci})</span></a> : p.name}{!p.certain && <span class="unsure"> {t('(chưa chắc chắn)')}</span>}</>
+          <>{i > 0 && ', '}{p.path ? <a href={p.path}>{p.name} <span class="sci">({p.sci})</span></a> : p.vi ? <span lang="vi">{p.name}</span> : p.name}{!p.certain && <span class="unsure"> {t('(chưa chắc chắn)')}</span>}</>
         ))}</p>
       )}
       {b.t.altNames.length > 0 && <p class="alt" data-pagefind-ignore>{t('Tên khác: {names}', { names: b.t.altNames.join(', ') })}</p>}
@@ -77,7 +77,7 @@ const alternates = await alternatesOf('breeds', b.id)
   ) : null}
 
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến')} />
-  <VideoGuideGrid guides={videoGuides} heading={t('Có trong video hướng dẫn')} />
+  <VideoGuideGrid guides={videoGuides} photos={videoPhotos} heading={t('Có trong video hướng dẫn')} />
   {lang === 'vi' && <ReaderPhotos entity={key} name={b.t.name} />}
 
   <section class="wrap sources" aria-labelledby="src-h" data-pagefind-ignore>

@@ -64,9 +64,9 @@ test('tank-mates: a name with no match says so and keeps what was typed', async 
 test('tank-mates: an incompatible pair answers in one sentence first, then the warnings, then a table that fits', async ({ page }) => {
   await page.goto(TM)
   // A whole name typed out, common or scientific, is added without a pick. Two species both the fixture and aquatome.com
-  // have; the discus's name and address differ between them ("Cá đĩa", ca-dia in the fixture; "Cá đĩa nâu", ca-dia-nau on
-  // aquatome.com), so they're read from the page's own list.
-  const discus = await page.locator('#species-index').evaluate(el => (JSON.parse(el.textContent!) as { slug: string; name: string; scientificName: string }[]).find(i => i.scientificName === 'Symphysodon aequifasciatus')!)
+  // have; the discus's name and address are read from the page's own list, so a rename on aquatome.com ("Cá đĩa nâu",
+  // ca-dia-nau, until 2026-11-07) doesn't break it.
+  const discus = await page.locator('#tm-form').evaluate(async el => ((await (await fetch((el as HTMLElement).dataset.src!)).json()) as { slug: string; name: string; scientificName: string }[]).find(i => i.scientificName === 'Symphysodon aequifasciatus')!)
   for (const name of [discus.scientificName, 'Cá neon xanh']) {
     await page.locator('#tm-input').fill(name)
     await page.locator('#tm-input').press('Enter')
@@ -85,6 +85,25 @@ test('tank-mates: an incompatible pair answers in one sentence first, then the w
   await expect(page).toHaveURL(new RegExp(`ca=${discus.slug}:\\d+,ca-neon-xanh:\\d+`))
 })
 
+test('tank-mates: the species\' file coming late keeps the fish in the address, and what was typed gets its suggestions', async ({ page, errors }) => {
+  let release!: () => void
+  const held = new Promise<void>(r => { release = r })
+  await page.route('**/data/*/tank-mates.json', async route => { await held; await route.continue() })
+  await page.goto(`${TM}?ca=ca-neon-xanh:12`)
+  const input = page.locator('#tm-input')
+  await input.fill('neon')
+  // Nothing claims there's no such fish while the list is on its way, and the address keeps its fish.
+  await expect(page.locator('#tm-msg')).toHaveText('')
+  expect(page.url()).toContain('ca=ca-neon-xanh:12')
+  release()
+  await expect(page.locator('#tm-chosen li')).toHaveCount(1)
+  await expect(page.locator('#tm-chosen li').first()).toContainText('Cá neon xanh')
+  await expect(page.locator('#tm-chosen input').first()).toHaveValue('12')
+  await expect(page.locator('#tm-list [role=option]').first()).toBeVisible()
+  expect(page.url()).toContain('ca=ca-neon-xanh:12')
+  expect(errors).toEqual([])
+})
+
 test('tank-mates: links to the old place on the tools page open the checker with the same species', async ({ page }) => {
   await page.goto('/cong-cu/?ca=ca-neon-vua:10,ca-dia#nuoi-chung')
   await expect(page).toHaveURL(/\/cong-cu\/nuoi-chung\/\?ca=ca-neon-vua:10,ca-dia:\d+$/)
@@ -94,7 +113,7 @@ test('tank-mates: links to the old place on the tools page open the checker with
 
 test('tools page: a card for every tool; the calculators below by anchor', async ({ page }) => {
   await page.goto('/cong-cu/')
-  await expect(page.locator('.tools a')).toHaveCount(8)
+  await expect(page.locator('.tools a')).toHaveCount(9)
   await expect(page.locator('.tools a[href="/cong-cu/nhan-dien-ca/"]')).toBeVisible()
   await page.locator('.tools a[href="#suoi"]').click()
   await expect(page.locator('#suoi')).toBeInViewport()
@@ -117,7 +136,7 @@ test('Chihiros page without Bluetooth: says which browsers work; the schedule fo
 test('tank volume: the ready-made tank table fits a small phone in every language, glass column included', async ({ page }, info) => {
   test.skip(info.project.name !== 'phone', 'only a phone is narrow enough')
   await page.setViewportSize({ width: 360, height: 800 })
-  for (const path of ['/cong-cu/the-tich-be/', '/id/alat/volume-akuarium/', '/th/tools/tank-volume/']) {
+  for (const path of ['/cong-cu/the-tich-be/', '/id/alat/volume-akuarium/', '/th/tools/tank-volume/', '/ms/alat/isi-padu-tangki/']) {
     await page.goto(path)
     const table = await page.locator('.scroll').first().evaluate(el => ({ fits: el.scrollWidth <= el.clientWidth, hint: getComputedStyle(el).backgroundImage }))
     expect(table.fits, `${path}: the table is wider than a 360 px phone`).toBe(true)

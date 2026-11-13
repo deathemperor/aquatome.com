@@ -4,10 +4,12 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { parse } from 'node-html-parser'
 import { z } from 'zod'
-import { countryOf, mayPublish, namesCountry, placeCountry, RangeSchema, type SectionKey, type SourceId, type SpeciesEntity, type SpeciesRange } from '@aq/schema'
-import type { Llm } from './claude'
+import { countryOf, mayPublish, namesCountry, placeCountry, PlaceSchema, RangeSchema, TranslationSchema, type SectionKey, type SourceId, type SpeciesEntity, type SpeciesRange } from '@aq/schema'
+import { LlmError, type Llm } from './claude'
+import { placeId, rangePlace } from './merge'
 import { gbifRecords, type Gbif, type RecordsAudit } from './range-records'
 import { SOURCES, type SourceConfig } from './sources'
+import { errorKind } from './state'
 
 /**
  * Where each species lives in the wild (content `range`, `@aq/schema` RangeSchema), in two parts with their own pace:
@@ -15,7 +17,8 @@ import { SOURCES, type SourceConfig } from './sources'
  *   that text changes. Every country must come with a sentence of a source that names it, checked here word for word;
  *   one a source calls introduced or doubtful is left out. The sentences stay in engine-state/range/<id>.json.
  * - `records`, its wild records on GBIF (range-records.ts), once the native part is current, again after RECORDS_DAYS.
- * A failed model call or GBIF request leaves the species as it was, tried again after RETRY_HOURS.
+ * A failed model call or GBIF request leaves the species as it was, tried again after RETRY_HOURS. A call that failed
+ * for the usage limit leaves no such mark and stops the step's model calls for the run. GBIF's records are unchanged.
  */
 
 const TEMPLATE = readFileSync(new URL('./prompts/range.md', import.meta.url), 'utf8')
@@ -63,7 +66,7 @@ export type RegionClaim = { name: string; source: string; quote: string; country
 type Native = NonNullable<SpeciesRange['native']>
 
 /** Text as quotes are compared: one kind of quote mark, dash and space, no case. */
-const flat = (s: string) => s.normalize('NFKC').replace(/[‘’ʼ`´]/g, "'").replace(/[“”„«»]/g, '"').replace(/[‐-―−]/g, '-').replace(/\s+/g, ' ').trim().toLowerCase()
+export const flat = (s: string) => s.normalize('NFKC').replace(/[‘’ʼ`´]/g, "'").replace(/[“”„«»]/g, '"').replace(/[‐-―−]/g, '-').replace(/\s+/g, ' ').trim().toLowerCase()
 /** The same, without accents: a name matched inside its quote ("Rio Solimões" written "Rio Solimoes"). */
 const bare = (s: string) => flat(s).normalize('NFD').replace(/\p{M}/gu, '')
 
@@ -178,6 +181,7 @@ export type RangeReport = {
   native: { read: string[]; quiet: string[]; failed: string[]; calls: number }
   records: { fetched: string[]; unmatched: string[]; failed: string[]; requests: number }
   disputed: string[]; outranked: string[]; origin: string[]
+  stopped: string
 }
 
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
@@ -210,7 +214,7 @@ export async function speciesRanges(root: string, deps: RangeDeps, opts: { limit
   await mkdir(join(root, STATE), { recursive: true })
   const auditFile = (id: string) => join(root, STATE, `${id}.json`)
   const saveAudit = (a: Audit) => writeFile(auditFile(a.id), `${JSON.stringify(a, null, 2)}\n`)
-  const report: RangeReport = { native: { read: [], quiet: [], failed: [], calls: 0 }, records: { fetched: [], unmatched: [], failed: [], requests: 0 }, disputed: [], outranked: [], origin: [] }
+  const report: RangeReport = { native: { read: [], quiet: [], failed: [], calls: 0 }, records: { fetched: [], unmatched: [], failed: [], requests: 0 }, disputed: [], outranked: [], origin: [], stopped: '' }
   const load = async (id: string) => {
     const file = join(dir, id, 'entity.json')
     const raw = await readFile(file, 'utf8').catch(() => '')
@@ -224,13 +228,15 @@ export async function speciesRanges(root: string, deps: RangeDeps, opts: { limit
   for (const id of ids) {
     const s = await load(id)
     if (!s || s.audit.native?.input === s.input) continue
-    if (s.blocks.length && (report.native.calls >= opts.limit || hoursSince(s.audit.nativeFailed?.at, now) < RETRY_HOURS)) continue
+    if (s.blocks.length && (report.stopped || report.native.calls >= opts.limit || hoursSince(s.audit.nativeFailed?.at, now) < RETRY_HOURS)) continue
     let checked: ReturnType<typeof checkAnswer> = { claims: [], regions: [], disputed: [], outranked: [] }
     if (s.blocks.length) {
       report.native.calls++
       try {
         checked = checkAnswer(Answer.parse(await deps.llm({ system: 'Reply only with JSON.', prompt: promptOf(s.entity.scientificName, s.blocks), schema: schemaFor(s.blocks.map(b => b.source)) })), s.blocks)
       } catch (e) {
+        // Every account is out of its limit: a later call fails the same way, and a stamp would skip the species for a day.
+        if (e instanceof LlmError && errorKind(e.message) === 'usage') { report.stopped = e.message; continue }
         report.native.failed.push(id)
         await saveAudit({ ...s.audit, nativeFailed: { at, error: (e as Error).message.slice(0, 300) } })
         continue
@@ -293,5 +299,24 @@ export async function speciesRanges(root: string, deps: RangeDeps, opts: { limit
       report.records.requests += deps.gbif.requests() - before
     }
   }
+  await writeRangePlaces(root, ids)
   return report
+}
+
+/** A place for every river and region the ranges name and the site has none for: localize-places then names it in each language. */
+export async function writeRangePlaces(root: string, ids: string[]) {
+  const dir = join(root, 'content/places')
+  const known = new Set(await readdir(dir).catch(() => [] as string[]))
+  for (const id of ids) {
+    const native = (await readJson<SpeciesEntity>(join(root, 'content/species', id, 'entity.json')))?.range?.native
+    for (const name of native?.regions ?? []) {
+      if (known.has(placeId(name))) continue
+      const said = native!.quotes?.find(q => q.regions.includes(name))?.countries
+      const p = rangePlace(name, said?.length ? said : native!.countries)
+      known.add(p.entity.id)
+      await mkdir(join(dir, p.entity.id), { recursive: true })
+      await writeFile(join(dir, p.entity.id, 'entity.json'), `${JSON.stringify(PlaceSchema.parse(p.entity), null, 2)}\n`)
+      await writeFile(join(dir, p.entity.id, 'vi.json'), `${JSON.stringify(TranslationSchema.parse(p.vi), null, 2)}\n`)
+    }
+  }
 }

@@ -1,0 +1,256 @@
+{
+  "id": "pachypanchax-sakaramyi",
+  "scientificName": "Pachypanchax sakaramyi",
+  "order": "Cyprinodontiformes",
+  "family": "Aplocheilidae",
+  "genus": "Pachypanchax",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "madagascar",
+    "sakaramy"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MG"
+      ],
+      "regions": [
+        "Sakaramy River",
+        "Antongombato River",
+        "Ambohitra Massif"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Sakaramy River at village of Sakaramy, about 30 kilometers south of Antsiranana (Diego Suarez), 12°27'S, 49°16'E, Madagascar, elevation 500 meters', the Sakaramy being a tributary of the Sahakazoambany River, at the northernmost extremity of Madagascar.",
+          "countries": [
+            "MG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Museum specimens and interviews with local people suggest it was once distributed around the northern and eastern sides of the Ambohitra Massif, a volcanic formation at the northern tip of Madagascar, but the only remaining riverine populations are restricted to a short stretch of the Sakaramy river between Ambohitra (aka Joffreville) and the village of Sakaramy, plus the upper reaches of the adjacent Antongombato River.",
+          "countries": [],
+          "regions": [
+            "Sakaramy River",
+            "Antongombato River",
+            "Ambohitra Massif"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2347793,
+      "total": 2,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "MG",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          47.8125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          49.21875,
+          -12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 9
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-sakaramyi",
+      "html": "<p>The Madagascar panchax, Pachypanchax sakaramyi, is a killifish from high-gradient forest streams around the Ambohitra Massif in northern Madagascar. The only remaining riverine populations are in a short stretch of the Sakaramy River and the upper Antongombato River, most of the original populations having been lost to invasive species, deforestation and the diversion of the Sakaramy's source. Despite its conservation status it is relatively well-established in the aquarium hobby.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-sakaramyi",
+      "html": "<p>Type locality is 'Sakaramy River at village of Sakaramy, about 30 kilometers south of Antsiranana (Diego Suarez), 12°27'S, 49°16'E, Madagascar, elevation 500 meters', the Sakaramy being a tributary of the Sahakazoambany River, at the northernmost extremity of Madagascar.</p><p>Museum specimens and interviews with local people suggest it was once distributed around the northern and eastern sides of the Ambohitra Massif, a volcanic formation at the northern tip of Madagascar, but the only remaining riverine populations are restricted to a short stretch of the Sakaramy river between Ambohitra (aka Joffreville) and the village of Sakaramy, plus the upper reaches of the adjacent Antongombato River.</p><p>It's also supposed to occur in some low altitude crater lakes including 'Farihy Texier' and 'Farihy Fantany', but these have not been sampled since the 1950s.</p><p>The majority of original populations have already been extirpated due to introduction of invasive species such as Gambusia holbrooki and Poecilia reticulata, ongoing deforestation of the Ambohitra Massif, and physical diversion of the source of the Sakaramy River for domestic use by locals.</p><p>An additional population may exist in a stream on the southern slope of the Ambohitra Massif on the road between Bobasokoa and Anivorano, near the village of Andranotohiliny, but this requires verification.</p><p>P. sakaramyi is therefore classified as 'Critically Endangered' under IUCN criteria.</p><p>Captive breeding programmes are active in several countries, although no habitat management procedures appear to be in place at the local level.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-sakaramyi",
+      "html": "<p>Fluvial habitats consist of high-gradient streams flowing under both intact and degraded forest cover characterised by fast-flowing stretches with intermittent deeper, still pools. The fish occur in both, but are more abundant in the latter.</p><p>The water is completely transparent with no suspended material or staining by tannins, with water temperature measured to range between 20.5–22°C, pH 7.2–7.5, conductivity 58.0–75.0 μS/cm2, total and carbonate hardness 36.0–72.0 ppm.</p><p>Substrates are composed of exposed bedrock, rounded cobbles and intermittent larger boulders with waterlogged branches a common feature.</p><p>In the Sakaramy no aquatic plants have been observed, but in the upper Antongombato basin the Madagascar lace plant, Aponogeton madagascariensis, an unidentified Podostemonaceae and exotic water hyacinth, Eichornia crassipes are present.</p><p>Juveniles inhabit shallower, marginal zones with adults in deeper water and in the upper Sakaramy River, at least, no other fish species have been recorded.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-sakaramyi",
+      "html": "<p>An aquarium with base dimensions of 90 × 30 cm should be the smallest considered. Volume is about 80 litres.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-sakaramyi",
+      "html": "<ul><li>Temperature: 20–24°C</li><li>pH: 6.5–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-sakaramyi",
+      "html": "<p>Wild fish have been observed preying on stranded terrestrial insects at the water surface as well as benthic aquatic invertebrates.</p><p>In the aquarium it's an unfussy feeder and will accept quality dried products as well as live and frozen fare, including earthworms of its own body length as well as bloodworm, Tubifex, Daphnia, etc.</p><p>Wingless fruit flies of the genus Drosophila and tiny crickets are also excellent foods if gut-loaded prior to use.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-sakaramyi",
+      "html": "<p>Relatively peaceful although much smaller fishes are likely to be predated on, and given its conservation status it's perhaps best maintained alone.</p><p>It can be maintained in a group provided the aquarium contains sufficient refuges.</p><p>Rival males will regularly fight amongst themselves but serious physical damage is rare.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-sakaramyi",
+      "html": "<p>Males grow larger than females and develop more-extended fins as they mature, plus they are far more colourful than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-sakaramyi",
+      "html": "<p>If conditions are suitable this species is not difficult to breed and will deposit its eggs among live plants, aquatic mosses, synthetic mops, etc.</p><p>It's perhaps best spawned in a group which can be left in situ and in a well-decorated set-up some fry may escape predation by the adults, otherwise eggs or medium can be removed to a separate container for incubation.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-sakaramyi",
+      "html": "<p>Despite its conservation status this species is relatively well-established in the aquarium hobby.</p><p>It was considered synonymous with the congener P. playfairii by Arnoult (1959) although the majority of subsequent authors did not agree with this placement, and their respective validity has been confirmed by genetic analysis.</p><p>P. sakaramyi differs from P. playfairii in that males lack raised scales on the dorsal surface of the body, red spots on the flanks, red edging to the dorsal and anal fins and a black margin to the caudal-fin. The unpaired fins are marked with basal dark bands of variable width.</p><p>In large females there may be a diffuse dusky zone towards the base of the dorsal-fin but they do not possess the black ocellus present in females of P. playfairii.</p><p>In addition P. sakaramyi possess the shortest dorsal-fin base among all congeners found in Madagascar measuring 10.7 ± 1.4 % SL and differs from all except P. sparksorum in that the pectoral (chest) scales are much smaller than those on the flanks.</p><p>It differs from P. sparksorum in possessing additional scale rows at the base of the dorsal and anal fins, base body colour (yellow, vs. blue), a shorter dorsal-fin base and more rounded dorsal and anal fins. Females also lack a reduced pattern of reddish-brown flank spots.</p><p>The genus Pachypanchax is endemic to Madagascar and the granitic Seychelles with one recently translocated population known from the island of Zanzibar.</p><p>Following Loiselle (2006) it is diagnosed as follows: maxilla relatively immobile, bound at its posterior end to the preorbital by a fold of skin; premaxillary ascending processes flat and broad, tapered posteriorly and not overlapping in the midline; presence of a single pair of tubular nares; refelective pineal spot absent; squamation in anterior portion of body of the 'E-type' (sensu Hoedemann, 1958) with prominent 'H-type' scales; lateral line not present although some large specimens possess a shallow pit in the centre of some scales; papillae on scales and fin rays absent; haemal arches not expanded and haemal spines without pleural ribs; in adults hypural plates fused to form a hypural fan, with the join lines visible in juveniles; caudal-fin rounded to truncate with the central rays never extended; basal third to three-quarters of caudal-fin heavily-scaled, the scales in straight rows one scale wide, each series on the interspace between two rays; caudal-fin without a median lobe; filamentous extensions of the dorsal and caudal-fins variably present in males; dark gular bar variably present; no cross bars on the body; no dark spot at base of caudal-fin in males, variably present in females.</p><p>The position of the family Aplocheilidae within the Order Cyprinodontiformes and its constituent members appears to be in question.</p><p>It's generally been considered a natural, monophyletic lineage comprising species from India, South East Asia, The Seychelles and Madagascar but the results of a phylogentic analysis by Hertwig (2008) suggest that the genus Aplocheilus represents the basal sister group to all other Cyprinodontiformes with Pachypanchax forming a separate, less-ancient evolutionary lineage.</p><p>The author stopped short of suggesting new family groups for the two genera, however, and both remain in Aplocheilidae at time of writing.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-sakaramyi",
+      "html": "<ul><li>Loiselle, P. V. (2006). A review of the Malagasy Pachypanchax (Teleostei: Cyprinodontiformes, Aplocheilidae), with descriptions of four new species. Zootaxa 1366, 1-44</li><li>Myers, G. S. (1933). Pachypanchax, a New Genus of Cyprinodont Fishes from The Seychelles Islands and Madagascar. American Museum Novitates No. 592, 1 p.</li><li>Hertwig, S. T. (2008). Phylogeny of the Cyprinodontiformes (Teleostei, Atherinomorpha): the contribution of cranial soft tissue characters. Zoologica Scripta 37(2), 141-174</li><li>Murphy, W. J. and G. E. Collier (1997). A molecular phylogeny for aplocheiloid fishes (Atherinomorpha, Cyprinodontiformes): the role of vicariance and the origins of annualism. Molecular Biology and Evolution 14(8), 790-799</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4f3308a4f0e8b1b9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4f3308a4f0e8b1b9-480.webp",
+      "width": 720,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pachypanchax-sakaramyi",
+      "caption": "Head detail.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "5Gi9slsfFNE",
+      "title": "Madagascar Killifish (Pachypanchax sakaramyi)",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZIY1Fv76rII",
+      "title": "Pachypanchax sakaramyi #fish #aquarium #fishkeeping #killie #critically_endangered  #fishtank",
+      "durationSec": 49,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1ETptbdou-0",
+      "title": "KFN tentoonstelling Killi Fish Nederland",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4hxJK4WfQmU",
+      "title": "Madagascar Rainbowfish and Sakaramy killifish / Ankavia & Sakaramy-Hechtling @ Kölner Zoo [48/52]",
+      "durationSec": 41,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 90cm",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

@@ -9,6 +9,94 @@
     "south-america",
     "venezuela"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2355472,
+      "total": 82,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "VE",
+          79
+        ],
+        [
+          "BR",
+          2
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          2.8125,
+          1
+        ],
+        [
+          -68.90625,
+          4.21875,
+          3
+        ],
+        [
+          -68.90625,
+          5.625,
+          1
+        ],
+        [
+          -68.90625,
+          7.03125,
+          2
+        ],
+        [
+          -67.5,
+          1.40625,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          10
+        ],
+        [
+          -67.5,
+          4.21875,
+          17
+        ],
+        [
+          -67.5,
+          5.625,
+          22
+        ],
+        [
+          -67.5,
+          7.03125,
+          17
+        ],
+        [
+          -66.09375,
+          2.8125,
+          5
+        ],
+        [
+          -66.09375,
+          4.21875,
+          1
+        ],
+        [
+          -57.65625,
+          -14.0625,
+          1
+        ],
+        [
+          -56.25,
+          -5.625,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -38,12 +126,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-and-anostomus-ternetzi/",
       "html": "<p>Pseudanos winterbottomi reaches a length of about 15 cm, so it belongs to the group of medium-sized headstanders. Suggested common name: Striped Bambi Headstander.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-and-anostomus-ternetzi/",
-      "html": "<p>This headstander was only rarely received in past years, in single specimens as bycatch from Venezuela, usually mixed into shipments of Anostomus ternetzi or Pseudanos trimaculatus. It has since been imported directly in larger numbers.</p>"
     },
     {
       "key": "distribution",

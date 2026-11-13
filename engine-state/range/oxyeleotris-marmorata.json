@@ -1,0 +1,203 @@
+{
+  "id": "oxyeleotris-marmorata",
+  "native": {
+    "input": "664739b19e49ed34",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Thailand, Cambodia, Laos, Vietnam, Indonesia, Malaysia, Philippines, Brunei Darussalam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Thailand, Cambodia, Laos, Vietnam, Indonesia, Malaysia, Philippines, Brunei Darussalam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Thailand, Cambodia, Laos, Vietnam, Indonesia, Malaysia, Philippines, Brunei Darussalam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Thailand, Cambodia, Laos, Vietnam, Indonesia, Malaysia, Philippines, Brunei Darussalam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Thailand, Cambodia, Laos, Vietnam, Indonesia, Malaysia, Philippines, Brunei Darussalam.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Thailand, Cambodia, Laos, Vietnam, Indonesia, Malaysia, Philippines, Brunei Darussalam.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Thailand, Cambodia, Laos, Vietnam, Indonesia, Malaysia, Philippines, Brunei Darussalam.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Thailand, Cambodia, Laos, Vietnam, Indonesia, Malaysia, Philippines, Brunei Darussalam.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oxyeleotris marmorata",
+    "status": "ACCEPTED",
+    "taxonKey": 2386241,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        38
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        30
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        18
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        17
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        17
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        17
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        11
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        10
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        7
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        4
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        3
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        3
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        3
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        2
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "90cbc357-530d-40f2-8000-331f6b575dd4",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "f1d263a0-98a0-11de-b4d9-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "KH",
+      "LA",
+      "VN",
+      "ID",
+      "MY",
+      "PH",
+      "BN"
+    ],
+    "requests": 13,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

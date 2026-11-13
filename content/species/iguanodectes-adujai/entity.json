@@ -1,0 +1,275 @@
+{
+  "id": "iguanodectes-adujai",
+  "scientificName": "Iguanodectes adujai",
+  "order": "Characiformes",
+  "family": "Iguanodectidae",
+  "genus": "Iguanodectes",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro",
+    "venezuela",
+    "orinoco"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "VE"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Orinoco",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Traded as the 'red line lizard tetra', Iguanodectes adujai is a characin from the rio Negro in Brazil and the upper Río Orinoco in Venezuela.",
+          "countries": [
+            "BR",
+            "VE"
+          ],
+          "regions": [
+            "Rio Negro",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is known from the rio Negro within the Brazilan Amazon basin and upper Río Orinoco system in Venezuela.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354235,
+      "total": 16,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CO",
+          6
+        ],
+        [
+          "VE",
+          6
+        ],
+        [
+          "BR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          2.8125,
+          4,
+          3
+        ],
+        [
+          -67.5,
+          1.40625,
+          4,
+          2
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -45,
+          -19.6875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6.2
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-adujai",
+      "html": "<p>Traded as the 'red line lizard tetra', Iguanodectes adujai is a characin from the rio Negro in Brazil and the upper Río Orinoco in Venezuela. It is exported alongside the similar-looking I. geisleri, and differs in lacking the black lateral stripe beneath the red stripe and in having 28 to 34 anal-fin rays (20 to 25 in I. geisleri). It is assumed to live in smaller tributaries containing pristine blackwater.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-adujai",
+      "html": "<p>This species is known from the rio Negro within the Brazilan Amazon basin and upper Río Orinoco system in Venezuela.</p><p>Type locality is 'Rio Adujá, Rio Itú, tributary of middle Rio Negro, Amazonia, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-adujai",
+      "html": "<p>Little information is available but this species is assumed to be an inhabitant of smaller tributary channels containing pristine blackwater, and its elongate body shape would appear to suggest a preference for flowing water.</p><p>Such habitats are characterised by thick, often overhanging, riparian vegetation and substrates covered in fallen branches, tree roots and leaf litter.</p><p>The water is typically acidic, of negligible carbonate hardness and conductivity and stained brownish due to the presence of humic substances released by decomposing organic matter.</p><p>In the Orinoco system it may also be associated with habitats known as morichals which tend to contain transparent, clear water and sandy substrates, often with dense growth of aquatic plants or riparian vegetation among which the fish take shelter.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-adujai",
+      "html": "<p>Standard length: 62 mm SL. Aquarium base: 90 × 30 cm. Volume: ~81 litres.</p><p>An aquarium with surface dimensions of 90 × 30 cm or similar should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-adujai",
+      "html": "<p>Probably most-suited to an arrangement comprising a sandy substrate plus some driftwood roots and branches, although it should also thrive in a planted set-up.</p><p>The addition of dried leaf litter would further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>The latter are useful since they provide an additional food source for both adults and fry while the humic substances released by decaying leaves are also considered beneficial.</p><p>There is no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>It goes without saying that this species is sensitive to poor water conditions and should never be introduced to biologically-immature aquaria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-adujai",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-adujai",
+      "html": "<p>Likely to be omnivorous feeding on small invertebrates, crustacea, filamentous algae, fallen fruit and suchlike in nature.</p><p>In aquaria it may survive on a diet of dried foods but like most fishes does best when offered a varied menu which in this case should also contain live and frozen chironomid larvae (bloodworm), mosquito larvae, Daphnia, Moina, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-adujai",
+      "html": "<p>Generally peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It’s perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, small-to-medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you’ll be rewarded with a more natural-looking spectacle.</p><p>The interaction between rival males is also interesting to watch and they will display their best colours when competing for female attention or hierarchical position within the group.</p><p>Buy more females than males if possible to avoid individuals being harassed excessively.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-adujai",
+      "html": "<p>Etymology: Iguanodectes: from the Taino iwana, meaning 'lizard', and Ancient Greek déktés, meaning 'biter'. adujai: named for its type locality, the rio Adujá in Brazil.</p><p>I. adujai is typically exported for the aquarium hobby alongside the similar-looking congener I. geisleri (Géry, 1970) but can be identified by absence (vs. presence in I. geisleri) of a black lateral stripe beneath the red stripe on the body, anal-fin origin beneath (vs. posterior to) the dorsal-fin, dorsal-fin origin posterior to (vs. at) midbody, and possession of 28-34 (vs. 20-25) anal-fin rays.</p><p>Both I. adujai and I. geisleri have been traded as 'red line lizard tetra'.</p><p>Iguanodectes is a relatively small genus with less than ten member species and no additions since the early 1990s.</p><p>It is included in the family Iguanodectidae alongside the related genus Piabucus which is separated from Iguanodectes by possession of enlarged pectoral fins and a prominent pectoral keel.</p><p>This grouping was considered to represent a subfamily, Iguanodectinae, prior to phylogenetic analyses (Moreira, 2002; Mirande, 2010) although its monophyly was evidenced much earlier (Vari, 1977).</p><p>All iguanodectids possess the following characters: body elongate; teeth basally-contracted and multicuspid; gill membranes united and free from the isthmus; posterior end of maxilla not extending to eye; dorsal-fin origin normally positioned posterior to midbody (except in Iguanodectes geisleri in which it is at midbody); anal-fin long (except in I. geisleri).</p><p>In addition there is a process on the internal face of the dentary, the first proximal anal-fin pterygiophore is expanded and recurved posteriorly (except in I. geisleri), and the anterior portion of the posterior swimbladder chamber is thinner than the posterior portion (Moreira in Reis et al. 2003).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-adujai",
+      "html": "<ul><li>Mirande, J. M. (2010). Phylogeny of the family Characidae (Teleostei: Characiformes): from characters to taxonomy. Neotropical Ichthyology 8(3), 385-568</li><li>Cope, E. D. (1872). On the fishes of the Ambyiacu River. Proceedings of the Academy of Natural Sciences of Philadelphia v. 23, 250-294</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>Moreira, C. R. (2002). Relações Filogenéticas em Iguanodectinae (Teleostei; Characiformes; Characidae). Unpublished Master Dissertation, Universidade de São Paulo, São Paulo, 276 p.</li><li>Géry, J. (1970). Le genre Iguanodectes Cope (Pisces, Characoidei). Amazoniana 2(4), 417-433</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ca9e7afa161a816b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ca9e7afa161a816b-480.webp",
+      "width": 800,
+      "height": 459,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/iguanodectes-adujai",
+      "caption": "Individual from the UK aquarium trade; note the location of the anal- and dorsal-fin origins (see 'Notes').",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 90cm",
+        "máy tạo dòng chảy nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -7,9 +7,11 @@
   "photos": [],
   "mentions": [
     "microsorum-pteropus",
-    "bucephalandra-sp"
+    "bucephalandra-sp",
+    "vesicularia-ferriei",
+    "anubias-barteri"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "7UaAsA16woY",
     "title": "SETUP Bể thủy sinh phong cách Nature | Tank 60/40/40cm #kenhthuysinh p40",
@@ -29,8 +31,9 @@
     },
     "lang": "vi",
     "taxa": [
-      "Vesicularia sp.",
+      "Vesicularia ferriei",
       "Microsorum pteropus",
+      "Anubias barteri",
       "Bucephalandra sp.",
       "Hydrocotyle sp."
     ],
@@ -38,22 +41,20 @@
       {
         "category": "den",
         "type": "thuy-sinh",
-        "brand": "WRGB2",
         "t": 0
       },
       {
         "category": "loc",
-        "type": "thung",
         "t": 0
       },
       {
         "category": "phan-nen",
-        "type": "phan",
+        "type": "soi",
         "t": 314
       },
       {
         "category": "phan-nen",
-        "type": "soi",
+        "type": "phan",
         "t": 314
       },
       {
@@ -68,61 +69,45 @@
     ],
     "figures": [
       {
-        "heading": "Dựng bố cục và xử lý lũa ra sao",
-        "moments": [
-          {
-            "t": 15,
-            "url": "https://media.aquatome.com/video/7UaAsA16woY/t15.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh hoàn chỉnh với lũa phủ rêu và cây xung quanh."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/7UaAsA16woY/p0-YXJkc2NhcGUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/7UaAsA16woY/p0-YXJkc2NhcGUuanBn-480.webp",
-          "width": 960,
-          "height": 638,
-          "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Tank_Mermaid_and_Poseidon_Statue_Driftwood_Hardscape.jpg",
-          "caption": "Bể thủy sinh đã dựng xong bố cục lũa trên nền cát, chưa trồng cây."
-        }
-      },
-      {
-        "heading": "Trồng cây và rêu ở đâu",
-        "moments": [
-          {
-            "t": 20,
-            "url": "https://media.aquatome.com/video/7UaAsA16woY/t20.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh với rêu weeping phủ trên cành lũa và cây xung quanh."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/7UaAsA16woY/p2-ydS1JbmRpYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/7UaAsA16woY/p2-ydS1JbmRpYS5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taxiphyllum_sp.Peacock-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Rêu weeping phủ kín cành lũa, xung quanh có cây và đá trong bể."
-        }
-      },
-      {
-        "heading": "Chăm bể thế nào trong những tuần đầu",
+        "heading": "Bể này dùng những cây và vật liệu nền gì",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/7UaAsA16woY/p4-bV9maXNoZXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/7UaAsA16woY/p4-bV9maXNoZXMuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/7UaAsA16woY/p0-cXVhc2NhcGUucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/7UaAsA16woY/p0-cXVhc2NhcGUucG5n-480.webp",
           "width": 960,
-          "height": 640,
+          "height": 447,
           "licence": "CC BY-SA 4.0",
-          "author": "KannanVM",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
-          "caption": "Bể cá vàng có sỏi nền và cây thủy sinh phía sau."
+          "author": "Duc Viet Bui",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_style_aquascape.png",
+          "caption": "Bể thủy sinh phủ rêu và cây thảm xanh mướt trên lũa, nền sỏi."
+        }
+      },
+      {
+        "heading": "Xử lý lũa sau khi dựng layout",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/7UaAsA16woY/p1-aXNoYm93bC5qcGVn.webp",
+          "thumb": "https://media.aquatome.com/video/7UaAsA16woY/p1-aXNoYm93bC5qcGVn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "User:Rijans007",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Driftwood_in_fishbowl.jpeg",
+          "caption": "Khúc lũa ngâm trong bể cầu tròn đầy nước, có vài con cá bơi quanh."
+        }
+      },
+      {
+        "heading": "Vào nước thế nào cho khỏi hỏng nền",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/7UaAsA16woY/p4-ha3Zhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/7UaAsA16woY/p4-ha3Zhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 737,
+          "licence": "Public domain",
+          "author": "User Aleš Tošovský",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amaterske_akvarium.jpg",
+          "caption": "Bể thủy sinh đã trồng cây xong, nền sỏi phẳng, sẵn sàng cho nước vào."
         }
       }
     ]

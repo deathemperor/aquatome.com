@@ -1,0 +1,151 @@
+{
+  "id": "liobagrus-styani",
+  "scientificName": "Liobagrus styani",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Liobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "yangtze"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Changjiang",
+        "Po-He",
+        "Huanggai Lake"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: known only from the headwaters of the Po-He, a tributary flowing into Huanggai Lake in the middle Chang-Jiang basin, at Chibi City, South Hubei Province, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Po-He",
+            "Huanggai Lake"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "East Asia: middle and lower Changjiang [= Yangtze River].",
+          "countries": [],
+          "regions": [
+            "Changjiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342842,
+      "total": 4,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CN",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          3,
+          3
+        ],
+        [
+          120.9375,
+          26.71875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 10.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_styani.htm",
+      "html": "<ul><li>IUCN Red List: Critically Endangered (2023)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_styani.htm",
+      "html": "<p>East Asia: middle and lower Changjiang [= Yangtze River]. Type locality: known only from the headwaters of the Po-He, a tributary flowing into Huanggai Lake in the middle Chang-Jiang basin, at Chibi City, South Hubei Province, China.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_styani.htm",
+      "html": "<p>Liobagrus styani is redescribed and its identity clarified. The real L. styani is represented by the population found in the Po-He, a tributary of the lake Huanggai system in the middle Chang-Jiang basin, at Chibi City, South Hubei Province, China. The materials currently identified as L. styani from Henan, Shaanxi, Anhui and Jiangxi provinces possibly represent an undescribed species. Taxonomic and nomenclatural comments are provided for Chinese species of Liobagrus with a smooth posterior edge of the pectoral-fin spine.</p><p>Etymology: in honour of Frederic William Styan (1838–1934), tea trader and natural history collector in China, who \"presented\" the holotype.</p><p>IUCN Red List: this species is known only from the upper Po He region flowing into Huanggai Hu, on the border of Hubei and Hunan Provinces, China. Previously common and more widespread in Po He, it now has a restricted population with an extent of occurrence (EOO) of at most 50 km2. Numerous weirs and other small water facilities have been constructed around the lake, leading to a continuing decline in habitat extent and quality. As a clear-water species it is sensitive to pollution from sedimentation and nutrient loads, and there is a continuing decline in the population size resulting from pollution from various sources. There is a single location based on these threats. Therefore, it is assessed as Critically Endangered (IUCN 2023).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/d6e00f1374ba3e3c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d6e00f1374ba3e3c-480.webp",
+      "width": 500,
+      "height": 276,
+      "licence": "dùng với sự cho phép",
+      "author": "Chen et al 2024 / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_styani.htm",
+      "caption": "Liobagrus styani",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh bể cá",
+        "quạt làm mát bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

@@ -1,8 +1,8 @@
 {
   "id": "acestrorhynchus-pantaneiro",
   "native": {
-    "input": "614865dd20fd2642",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "c888317aa94189c4",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "PY",
@@ -39,6 +39,12 @@
     ],
     "regions": [
       {
+        "name": "Rio Cuiabá",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Cuiabá, Volta Grande, município de Santo Antônio do Leverger, Mato Grosso' and this species also occurs in the lower Río Paraná, Río Uruguay, Río de la Plata and rio Mamoré Paraguay, Uruguay, Argentina and Bolivia, respectively.",
+        "ok": true
+      },
+      {
         "name": "Río Paraná",
         "source": "seriouslyfish",
         "quote": "Type locality is 'Rio Cuiabá, Volta Grande, município de Santo Antônio do Leverger, Mato Grosso' and this species also occurs in the lower Río Paraná, Río Uruguay, Río de la Plata and rio Mamoré Paraguay, Uruguay, Argentina and Bolivia, respectively.",
@@ -58,12 +64,6 @@
       },
       {
         "name": "Mamoré",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Rio Cuiabá, Volta Grande, município de Santo Antônio do Leverger, Mato Grosso' and this species also occurs in the lower Río Paraná, Río Uruguay, Río de la Plata and rio Mamoré Paraguay, Uruguay, Argentina and Bolivia, respectively.",
-        "ok": true
-      },
-      {
-        "name": "Rio Cuiabá",
         "source": "seriouslyfish",
         "quote": "Type locality is 'Rio Cuiabá, Volta Grande, município de Santo Antônio do Leverger, Mato Grosso' and this species also occurs in the lower Río Paraná, Río Uruguay, Río de la Plata and rio Mamoré Paraguay, Uruguay, Argentina and Bolivia, respectively.",
         "ok": true

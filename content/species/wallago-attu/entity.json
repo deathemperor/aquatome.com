@@ -1,0 +1,228 @@
+{
+  "id": "wallago-attu",
+  "scientificName": "Wallago attu",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Wallago",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "afghanistan",
+    "pakistan",
+    "india",
+    "nepal",
+    "bangladesh",
+    "sri-lanka",
+    "myanmar",
+    "china",
+    "thailand",
+    "laos",
+    "cambodia",
+    "vietnam",
+    "indonesia",
+    "malaysia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 19,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.6
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 240
+      },
+      {
+        "source": "glaser",
+        "value": 200
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 360,
+        "hidden": "shorter than twice the fish (240 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
+      "html": "<ul><li>Difficulty: Difficult. Rated difficult because it needs a tank at least 2 m long.</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/wallago_attu_en/",
+      "html": "<p>Wallago attu attains a maximum length of about 2 m. It is one of the most voracious of all predatory Asian catfishes.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. The tank should have a very heavy, tightly fitting cover to prevent the fish escaping.</p><p>The helicopter catfish, Wallago attu, is a giant predatory catfish found through much of Asia, from Afghanistan and Pakistan to Indonesia. It can reach 240 cm, and its mouth is filled with needle-sharp, backward-pointing teeth. It will bite aggressively when fed or handled, and the profile treats it as a genuinely dangerous fish that is clearly not an aquarium species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
+      "html": "<p>Widely distributed throughout much of Asia. It has been recorded in Afghanistan, Pakistan, India, Nepal, Bangladesh, Sri Lanka, Myanmar, China, Thailand, Laos, Cambodia, Vietnam, Indonesia and Malaysia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/wallago_attu_en/",
+      "html": "<p>Origin: India.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
+      "html": "<p>Prefers turbid, deep slow-moving or still bodies of water such as large lakes and rivers. It tends to hide in muddy areas, often hiding around river banks. It breeds in shallow water just prior to the wet season, before migrating to flooded areas to feed.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
+      "html": "<p>Standard length: 240 cm SL. Aquarium base: 360 × 120 cm. Volume: ~5184 litres.</p><p>An adult fish would require a truly enormous aquarium or better still, pond. Minimum size would be something in the region of 360 × 120 × 120 cm - ~5184 litres. Even this may not be large enough for an old fish.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
+      "html": "<p>Decor is not critical, and would most likely be destroyed or continually buffeted around at any rate, so a bare tank, perhaps with a gravel substrate is probably best. This kind of fish requires a massive, highly efficient filtration system to deal with the large amounts of waste it produces. Regular partial water changes are also needed. The tank should have a very heavy, tightly fitting cover to prevent the fish escaping.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
+      "html": "<ul><li>Temperature: 19–29°C</li><li>pH: 6.0–7.6</li><li>Hardness: 1–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
+      "html": "<p>Highly piscivorous, although wild specimens have been found with amphibians, birds, small mammals and even human remains in their stomachs! In the aquarium small specimens can be offered white fish such as lancefish, earthworms, and prawns. Larger specimens will accept whole trout and the like, but do not need to be fed as often. Once or twice a week is more than adequate. Extreme caution must be exercised when feeding this fish, as it will often launch itself from the water, and is more than capable of causing injury (see below).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
+      "html": "<p>Should be kept alone as a single specimen as it will consume any fish it can fit in its capacious mouth, and will usually kill anything it can't.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
+      "html": "<p>Not achieved in aquaria for obvious reasons, but has been bred commercially in ponds in Malaysia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallago-attu",
+      "html": "<p>This species is clearly not an aquarium fish, and thankfully is not imported with any great regularity. Young specimens are occasionally seen for sale however and no matter how cute they look, don't be tempted to buy one. The gigantic adult size is not the only problem with W. attu, as the mouth is filled with needle sharp, backward-pointing teeth. The fish will bite aggressively when being fed, especially when handled and larger individuals could easily sever a hand or worse. It is a genuinely dangerous fish to own, and should only be considered by the most experienced aquarist with the resources required to house it properly.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/wallago_attu_en/",
+      "html": "<p>The enormous mouth extends far behind the eyes and contains a large number of spiky teeth. The catfish does not hesitate to use them against nasty anglers when handled. Fish that are caught by these teeth are doomed. This is maybe the reason why this catfish is offered to the Goddess Kali, the Goddess of death and destruction (but also of renewal) by the Hindus.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a7a8dfd41b852806.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a7a8dfd41b852806-480.webp",
+      "width": 500,
+      "height": 305,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/wallago_attu.htm",
+      "caption": "Wallago attu",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f700ed32c6225146.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f700ed32c6225146-480.webp",
+      "width": 500,
+      "height": 366,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/wallago_attu.htm",
+      "caption": "Wallago attu: The business end!",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5f4817f381769bcb.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5f4817f381769bcb-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Jean-Francois Helias / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/wallago_attu.htm",
+      "caption": "Wallago attu: close up of head",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "hồ xi măng nuôi cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài công suất lớn",
+        "máy bơm hồ cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá công suất lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

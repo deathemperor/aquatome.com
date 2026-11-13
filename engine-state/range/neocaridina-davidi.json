@@ -1,9 +1,26 @@
 {
   "id": "neocaridina-davidi",
   "native": {
-    "input": "cd9d1b720994b6ab",
-    "at": "2026-11-04T21:41:08.860Z",
-    "claims": [],
+    "input": "2141d35a6f16b0c9",
+    "at": "2026-11-08T03:17:10.020Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Neocaridina davidi is native to China and Taiwan.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Neocaridina davidi is native to China and Taiwan.",
+        "words": "Taiwan",
+        "ok": true
+      }
+    ],
     "regions": [],
     "disputed": [],
     "outranked": [],
@@ -62,12 +79,11 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
+    "native": [
+      "CN",
+      "TW"
+    ],
+    "requests": 15,
+    "at": "2026-11-08T03:17:10.020Z"
   }
 }

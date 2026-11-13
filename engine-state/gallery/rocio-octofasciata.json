@@ -97,7 +97,9 @@
   "File:Rocio octofasciata 132678937.jpg",
   "File:Rocio octofasciata 60544166.jpg",
   "File:Pecle-2-SharpenAI-motion.jpg",
-  "File:Zoologico de Cali (15171832742) (cropped).jpg"
+  "File:Zoologico de Cali (15171832742) (cropped).jpg",
+  "flickr:49590198273",
+  "flickr:49590192613"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/363884a2cb6d3626.webp": "16251d3736078669",
@@ -135,7 +137,9 @@
   "https://media.aquatome.com/inaturalist/427203601.webp": "074dc3c08890c8f0",
   "https://media.aquatome.com/inaturalist/60544166.webp": "2e2f2f74cca53415",
   "https://media.aquatome.com/inaturalist/132678937.webp": "26a3b22e8e1a72d3",
-  "https://media.aquatome.com/inaturalist/462837800.webp": "f9e5d9b3f1f7fb7d"
+  "https://media.aquatome.com/inaturalist/462837800.webp": "f9e5d9b3f1f7fb7d",
+  "https://live.staticflickr.com/65535/49590198273_0d5dbbb29e_b.jpg": "0662b2a68e3a72c3",
+  "https://live.staticflickr.com/65535/49590192613_dd4d176b70_b.jpg": "1a84050f0b03237a"
  },
  "inat": {
   "taxon": 230310,
@@ -149,5 +153,9 @@
  "gbif": {
   "key": 2369703,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-10"
 }

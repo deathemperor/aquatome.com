@@ -1,16 +1,22 @@
 import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { exportJWK, generateKeyPair, SignJWT, type JWK } from 'jose'
 import { afterEach, beforeAll, beforeEach, expect, test, vi } from 'vitest'
 import { LANG, LANGS } from '@aq/schema/langs'
 import { createSession } from '../accounts/session'
-import { hostPath, innerPath, REPORT_PATH, SCOREBOARD_PATH, WEB_PAGES } from '../admin/shell'
+import { CHANGELOG_PATH, hostPath, innerPath, REPORT_PATH, SCOREBOARD_PATH, WEB_PAGES } from '../admin/shell'
+import { RUNS_PATH, runPath, runsJsonPath } from '../admin/runs'
 import { APP_PAGES } from '../app-switch'
 import { putReport } from '../daily/log'
 import { handle, type Env } from '../index'
-import { OWNER_SCRIPT } from '../owner'
 import { DASHBOARD_HOST, dashboardUrl, SITE_HOST } from '../paths'
 import { testD1 } from './d1'
 import { memoryR2 } from './r2'
+
+/** A fish-ID run's id, for its page's address. */
+/** The owner bar's words, from its source (the script in every page only loads it). */
+const ownerBar = () => readFileSync(fileURLToPath(new URL('../../src/owner/bar.ts', import.meta.url).href), 'utf8')
+const RUN = '00000000-0000-4000-8000-000000000001'
 
 /**
  * The owner's dashboard on its own host, behind Cloudflare Access (worker/dashboard-host.ts, worker/access.ts): the
@@ -88,7 +94,7 @@ async function accounts(db = testD1()) {
 }
 
 /** The owner's dashboard itself, as opposed to the refusal or a public page. */
-const isDashboard = (html: string) => html.includes('Các mục quản trị')
+const isDashboard = (html: string) => html.includes('Dashboard pages')
 
 // ---- The token ----
 
@@ -99,7 +105,7 @@ test('a valid token opens the dashboard: the overview at /, each page at /<key>/
   const html = await home.text()
   expect(isDashboard(html)).toBe(true)
   expect(html).toContain('href="/" aria-current="page"')
-  expect(WEB_PAGES).toEqual(expect.arrayContaining([SCOREBOARD_PATH, REPORT_PATH]))
+  expect(WEB_PAGES).toEqual(expect.arrayContaining([SCOREBOARD_PATH, REPORT_PATH, CHANGELOG_PATH]))
   for (const p of WEB_PAGES.filter(x => x !== '/_ab/')) {
     const key = p.slice('/_ab'.length)
     const r = await dash(key, {}, e)
@@ -109,13 +115,15 @@ test('a valid token opens the dashboard: the overview at /, each page at /<key>/
 })
 
 test('a page added under /_ab/<key>/ needs nothing else: the mapping reads the dashboard\'s own list of its pages', () => {
-  for (const [inner, host] of [['/_ab/', '/'], ['/_ab/doc-gia/', '/doc-gia/'], ['/_ab/thanh-cong/', '/thanh-cong/'], ['/_ab/thanh-cong.json', '/thanh-cong.json'], ['/_ab/bao-cao/', '/bao-cao/'], ['/_ab/bao-cao/1003/', '/bao-cao/1003/']] as const) {
+  for (const [inner, host] of [['/_ab/', '/'], ['/_ab/doc-gia/', '/doc-gia/'], ['/_ab/thanh-cong/', '/thanh-cong/'], ['/_ab/thanh-cong.json', '/thanh-cong.json'], ['/_ab/bao-cao/', '/bao-cao/'], ['/_ab/bao-cao/1003/', '/bao-cao/1003/'],
+    // The fish-ID runs, under their section: a day's list, one run, the day as JSON (admin/runs.ts).
+    [RUNS_PATH, '/nhan-dien-ca/luot/'], [runPath('2026-11-06', RUN), `/nhan-dien-ca/luot/2026-11-06/${RUN}/`], [runsJsonPath('2026-11-06'), '/nhan-dien-ca/luot/2026-11-06.json']] as const) {
     expect([inner, hostPath(inner)]).toEqual([inner, host])
     expect([host, innerPath(host)]).toEqual([host, inner])
   }
   expect(hostPath('/_ab/nhan-dien-ca/?x=1#key')).toBe('/nhan-dien-ca/?x=1#key')
   // The rest of /_ab/ (actions, images, fonts, the build's JSON) stays where it is, on both hosts.
-  for (const p of ['/_ab/hidden', '/_ab/hidden.json', '/_ab/content.json', '/_ab/photos', '/_ab/report', '/_ab/anh/abc', '/_ab/fonts/a.woff2', '/_ab/anh-nhan-dien/anh/x/y', '/_ab/anh-nhan-dien/xoa', '/_ab/khong-co/', '/ca/x/', '/']) expect(hostPath(p), p).toBe(p)
+  for (const p of ['/_ab/hidden', '/_ab/hidden.json', '/_ab/content.json', '/_ab/photos', '/_ab/report', '/_ab/changelog', '/_ab/anh/abc', '/_ab/fonts/a.woff2', '/_ab/anh-nhan-dien/anh/x/y', '/_ab/anh-nhan-dien/xoa', '/_ab/khong-co/', '/ca/x/', '/']) expect(hostPath(p), p).toBe(p)
   for (const p of ['/hidden', '/hidden.json', '/fonts/', '/anh/', '/report', '/khong-co/', '/doc-gia', '/ca/x/', '/doc-gia/../hidden', '/DOC-GIA/']) expect(innerPath(p), p).toBeUndefined()
 })
 
@@ -289,8 +297,8 @@ test('unconfigured: /_ab/ on the site is exactly today\'s, with no redirect: the
       expect((await site(p, e)).status, p).toBe(200) // signed out: the sign-in in its place
     }
   }
-  expect(OWNER_SCRIPT).toContain("['Quản trị','/_ab/']")
-  expect(OWNER_SCRIPT).toContain("['Người đọc','/_ab/doc-gia/']")
+  expect(ownerBar()).toContain("['Quản trị', '/_ab/']")
+  expect(ownerBar()).toContain("['Người đọc', '/_ab/doc-gia/']")
 })
 
 // ---- Configured: the site's /_ab/ after the move ----
@@ -310,7 +318,7 @@ test('configured: a browser\'s GET of a dashboard page on the site 301s to the s
   expect((await site('/_ab/doc-gia', e)).headers.get('location')).toBe(`${DASH}/doc-gia/`)
   expect((await site('/_ab/ung-dung/?test=1', e)).headers.get('location')).toBe(`${DASH}/ung-dung/?test=1`)
   for (const link of ['/_ab/', '/_ab/doc-gia/']) {
-    expect(OWNER_SCRIPT).toContain(`'${link}'`)
+    expect(ownerBar()).toContain(`'${link}'`)
     expect((await site(link, e)).status).toBe(301)
   }
 })
@@ -334,7 +342,7 @@ test('configured: what isn\'t a browser asking for a page stays on the site, unc
   }
   // Every machine endpoint: answered, not moved.
   const post = (body: unknown) => ({ method: 'POST', body: JSON.stringify(body) })
-  for (const [path, init] of [['/_c/admin/queue', {}], ['/_c/admin/decisions', post([])], ['/_aff/products', post([])], ['/_p/admin/queue', {}], ['/_ab/report', post({})], ['/_ab/thanh-cong.json', {}]] as [string, RequestInit][]) {
+  for (const [path, init] of [['/_c/admin/queue', {}], ['/_c/admin/decisions', post([])], ['/_aff/products', post([])], ['/_p/admin/queue', {}], ['/_ab/report', post({})], ['/_ab/changelog', post({})], ['/_ab/thanh-cong.json', {}]] as [string, RequestInit][]) {
     expect((await site(path, e, dashToken, init)).status, path).not.toBe(404)
     expect((await site(path, e, browser, init)).status, path).toBe(404)
   }
@@ -445,7 +453,7 @@ test('a page\'s links: its own by address on the host, the site\'s pages back on
 test('on every page, no root-relative link is left that this host wouldn\'t answer', async () => {
   const { e } = env()
   await putReport(e.AB, '1003', { when: '2026-11-05T00:00:00.000Z', subject: 's', sent: true, care: 0, text: 't', html: '<p>mail</p>' })
-  for (const p of [...WEB_PAGES, `${REPORT_PATH}1003/`].map(hostPath)) {
+  for (const p of [...WEB_PAGES, `${REPORT_PATH}1003/`, RUNS_PATH].map(hostPath)) {
     const html = await (await dash(p, {}, e)).text()
     expect(isDashboard(html), p).toBe(true)
     for (const [, link] of html.matchAll(/\b(?:href|src|action)="(\/[^"]*)"/g)) {
@@ -491,12 +499,12 @@ test('the owner\'s forms work from the page itself, Origin: null as a no-referre
 
 test('the daily report\'s delivery from its page on this host: the form posts behind Access, from the page only, and comes back to /bao-cao/', async () => {
   const { e, store } = env()
-  expect(await (await dash('/bao-cao/', {}, e)).text()).toContain('<form class="inline" method="post" action="/_ab/bao-cao/cai-dat"><button name="email" value="0">Tắt email</button><button name="push" value="1">Bật thông báo</button></form>')
+  expect(await (await dash('/bao-cao/', {}, e)).text()).toContain('<form class="inline" method="post" action="/_ab/bao-cao/cai-dat"><button name="email" value="0">Turn off email</button><button name="push" value="1">Turn on notifications</button></form>')
   const press = (headers: Record<string, string>, token?: string | null, on: Env = e) => dash('/_ab/bao-cao/cai-dat', { method: 'POST', body: new URLSearchParams({ push: '1' }), token, headers: { 'content-type': 'application/x-www-form-urlencoded', ...headers } }, on)
   const ok = await press({ 'sec-fetch-site': 'same-origin', origin: 'null' })
   expect([ok.status, ok.headers.get('location'), ok.headers.get('x-robots-tag'), ok.headers.get('cache-control')]).toEqual([303, '/bao-cao/', 'noindex, nofollow', 'no-store'])
   expect(JSON.parse(store.get('report-settings')!)).toEqual({ email: true, push: true })
-  expect(await (await dash('/bao-cao/', {}, e)).text()).toContain('<button name="push" value="0">Tắt thông báo</button>')
+  expect(await (await dash('/bao-cao/', {}, e)).text()).toContain('<button name="push" value="0">Turn off notifications</button>')
   store.clear()
   // Not from the page, or not through Access: refused, nothing written.
   for (const headers of [{ 'sec-fetch-site': 'cross-site' }, { 'sec-fetch-site': 'same-site' }, { 'sec-fetch-site': 'none' }, {}] as Record<string, string>[]) {
@@ -526,8 +534,8 @@ test('the owner\'s private images open with the token, on this host', async () =
 })
 
 test('the owner bar\'s sign-in hint names the site\'s own sign-in: /_ab/ leads to the host, whose Access session doesn\'t make the site\'s', () => {
-  expect(OWNER_SCRIPT).toContain('mở /dang-nhap/ để đăng nhập')
-  expect(OWNER_SCRIPT).not.toContain('mở /_ab/')
+  expect(ownerBar()).toContain('mở /dang-nhap/ để đăng nhập')
+  expect(ownerBar()).not.toContain('mở /_ab/')
 })
 
 // ---- The configuration the deploy reads ----
@@ -553,7 +561,7 @@ test('the deploy creates the host, on the site\'s zone, and the vars are there t
 
 test('the Worker runs first on each dashboard page, or the 404 page would answer without it: a page added needs its line', () => {
   expect(config.assets.not_found_handling).toBe('404-page')
-  for (const p of [...WEB_PAGES, `${REPORT_PATH}1003/`]) {
+  for (const p of [...WEB_PAGES, `${REPORT_PATH}1003/`, RUNS_PATH, runPath('2026-11-06', RUN), runsJsonPath('2026-11-06')]) {
     const at = hostPath(p)
     expect(workerFirst(at), `${at} on the dashboard's host: add "/${at.split('/')[1]}/*" to run_worker_first in wrangler.jsonc`).toBe(true)
   }
@@ -579,7 +587,12 @@ test('no negative pattern in run_worker_first: one wins over every positive rule
 
 test('assets and the Indonesian and Thai pages stay as they were: no Worker before them, on either host', () => {
   for (const l of LANGS) if (LANG[l].prefix) expect(workerFirst(`${LANG[l].prefix}/`), l).toBe(false)
-  for (const p of ['/_astro/a.js', '/data/vi/species.json', '/app/vi.json', '/favicon.png', '/sitemap-index.xml', '/pagefind/pagefind.js', '/id/', '/id/ikan/x/', '/id/ikan/x/index.md', '/th/fish/x/']) expect(workerFirst(p), p).toBe(false)
+  for (const p of ['/_astro/a.js', '/data/vi/species.json', '/app/vi.json', '/favicon.png', '/sitemap.xml', '/sitemap-fish.xml', '/pagefind/pagefind.js', '/id/', '/id/ikan/x/', '/id/ikan/x/index.md', '/th/fish/x/']) expect(workerFirst(p), p).toBe(false)
+})
+
+test('Indonesian and Thai photo addresses ask the Worker first, while their parent pages stay static', () => {
+  for (const p of ['/id/ikan/x/foto/', '/id/tanaman/x/foto/', '/th/fish/x/photos/', '/th/plants/x/photos/']) expect(workerFirst(p), p).toBe(true)
+  for (const p of ['/id/ikan/x/', '/th/fish/x/', '/id/tanaman/x/', '/th/plants/x/']) expect(workerFirst(p), p).toBe(false)
 })
 
 test('what the Worker can\'t see on the host carries noindex: the host\'s rule in the build\'s _headers', () => {

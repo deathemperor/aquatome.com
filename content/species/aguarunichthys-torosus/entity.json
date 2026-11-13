@@ -26,15 +26,22 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "This species is known only from the Río Marañón in the upper Amazon basin, Peru, and probably occurs in some tributaries draining into Peru from Ecuador.",
+          "quote": "The bolt catfish, Aguarunichthys torosus, is a pimelodid catfish known only from the Río Marañón in the upper Amazon basin of Peru.",
           "countries": [
-            "PE",
-            "EC"
+            "PE"
           ],
           "regions": [
             "Río Marañón",
             "Amazon"
           ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It probably also occurs in some tributaries draining into Peru from Ecuador.",
+          "countries": [
+            "EC"
+          ],
+          "regions": []
         }
       ]
     },
@@ -105,12 +112,16 @@
       {
         "source": "seriouslyfish",
         "value": 34.6
+      },
+      {
+        "source": "glaser",
+        "value": 35
       }
     ],
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 4
       }
     ]
   },
@@ -120,6 +131,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aguarunichthys-torosus",
       "html": "<p>The bolt catfish, Aguarunichthys torosus, is a pimelodid catfish known only from the Río Marañón in the upper Amazon basin of Peru. It probably also occurs in some tributaries draining into Peru from Ecuador. Also traded as 'Jello Band' or 'Yellow Band' catfish, it eats fishes small enough to fit in its mouth and is aggressively territorial towards conspecifics, so is best kept singly among larger, ideally fluvial, species.</p><ul><li>Max size: 346 mm SL (14 in SL)</li><li>Needs a very large tank</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/aguarunichthys_torosus_en/",
+      "html": "<p>Aguarunichthys torosus is a predatory catfish imported from Peru. The species was only discovered in 1986. It grows to about 35 cm long.</p>"
     },
     {
       "key": "distribution",
@@ -170,6 +187,12 @@
       "html": "<p>Etymology: Aguarun = Peruvian Indian tribe that lives in Ecuador, and \"ichthys\" = Greek for fish.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/aguarunichthys_torosus_en/",
+      "html": "<p>The spotted pattern of A. torosus is very similar to the pattern of the wild cats of the jungle.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aguarunichthys-torosus",
@@ -213,5 +236,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-06"
 }

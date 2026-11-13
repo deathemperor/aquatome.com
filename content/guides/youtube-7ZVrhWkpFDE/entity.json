@@ -8,7 +8,7 @@
   "mentions": [
     "microsorum-pteropus"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "7ZVrhWkpFDE",
     "title": "CÁ ĐĨA kết hợp THỦY SINH - Khó hay Cực Khó?",
@@ -36,10 +36,6 @@
     ],
     "gear": [
       {
-        "category": "co2",
-        "t": 855
-      },
-      {
         "category": "loc",
         "type": "thung",
         "t": 895
@@ -52,34 +48,30 @@
       {
         "category": "phan-nen",
         "type": "phan",
-        "t": 672
+        "t": 690
       },
       {
-        "category": "be-ca",
-        "type": "lon",
-        "t": 0
+        "category": "co2",
+        "t": 858
       },
       {
         "category": "thuc-an",
         "type": "dong-lanh",
-        "t": 1140
-      },
-      {
-        "category": "thuc-an",
-        "type": "kho",
-        "t": 1236
+        "t": 1170
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao kết hợp cá đĩa với thủy sinh lại khó",
+        "heading": "Vì sao cá đĩa khó nuôi chung với cây",
         "moments": [
           {
             "t": 0,
-            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/t0.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá đĩa đỏ và vàng bơi trước bụi cây thủy sinh dạng cỏ."
+            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/at0-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá đĩa đỏ và vàng bơi trên thảm cây thủy sinh.",
+            "sharpness": 1590.2,
+            "person": false
           }
         ]
       },
@@ -87,42 +79,38 @@
         "heading": "Chọn cây nào cho bể cá đĩa",
         "moments": [
           {
-            "t": 454,
-            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/t454.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây thủy sinh xanh mọc giữa đá trong bể cá đĩa."
+            "t": 460,
+            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/at460-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh có cây hậu cảnh xanh um cùng đá, cá đĩa bơi phía sau.",
+            "sharpness": 1235,
+            "person": false
           },
           {
-            "t": 463,
-            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/t463.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá đĩa bơi trước đám cây thủy sinh ở hậu cảnh."
+            "t": 470,
+            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/at470-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá đĩa đỏ bơi trước thảm cây xanh trong bể.",
+            "sharpness": 585.8,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/p1-ydS1JbmRpYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/7ZVrhWkpFDE/p1-ydS1JbmRpYS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/p1-sZW5lbnNpcy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/7ZVrhWkpFDE/p1-sZW5lbnNpcy5qcGc-480.webp",
           "width": 960,
-          "height": 1280,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Echinodorus_amazonicus-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Bụi lá trầu xanh tươi mọc trong bể cá, lá dài khỏe."
+          "height": 599,
+          "licence": "CC BY-SA 3.0",
+          "author": "Tommy Kronkvist",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Echinodorus_quadricostatus_var._magdalenensis.jpg",
+          "caption": "Cụm lá trầu lùn xanh tốt ở tiền cảnh bể thủy sinh."
         }
       },
       {
-        "heading": "Bố cục thế nào để cá không bị thương, không bỏ ăn",
-        "moments": [
-          {
-            "t": 532,
-            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/t532.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cá đĩa thoáng với trụ lũa lớn, nhiều khoảng trống để cá bơi."
-          }
-        ],
+        "heading": "Bố cục thế nào để cá không bị thương và không trốn",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/p2-NfUGxhbnRzLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/7ZVrhWkpFDE/p2-NfUGxhbnRzLmpwZw-480.webp",
@@ -131,11 +119,11 @@
           "licence": "CC BY 4.0",
           "author": "Abhik.Mazumdar.73",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Decoration_Poseidon_Sculture_and_Mermaid_Statue_and_Driftwood_with_Anubias_Aquatic_Plants.jpg",
-          "caption": "Bể cát trắng bố trí lũa và cây thưa, chừa nhiều khoảng trống cho cá bơi."
+          "caption": "Bể thủy sinh dùng lũa nhiều nhánh, cần cân nhắc kỹ khi nuôi cá đĩa."
         }
       },
       {
-        "heading": "Có cần làm nền cho bể cá đĩa không",
+        "heading": "Có cần làm nền cho bể cá đĩa",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/p3-RvbV9zYW5kLmpwZw.webp",
@@ -145,99 +133,103 @@
           "licence": "CC BY-SA 2.0",
           "author": "kerinin",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diatom_sand.jpg",
-          "caption": "Lớp cát nền mỏng trong bể, bên cạnh khối đá xốp."
+          "caption": "Lớp cát nền và đá trong bể, nơi vi sinh có lợi bám sinh sống."
         }
       },
       {
-        "heading": "Lọc và chạy bể trước khi thả cá",
+        "heading": "Chạy bể và thả cá thế nào",
         "moments": [
           {
-            "t": 917,
-            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/t917.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bơm chính và ống dẫn nước nối vào các thùng lọc inox."
-          },
-          {
-            "t": 927,
-            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/t927.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dãy thùng lọc inox đặt cạnh nhau dùng cho bể cá đĩa."
+            "t": 820,
+            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/at820-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh cá dĩa bơi giữa bể có cây thủy sinh và đá.",
+            "sharpness": 123.9,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/p4-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/7ZVrhWkpFDE/p4-JfRmlsdGVyLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/p4-k4NTQyNDMpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/7ZVrhWkpFDE/p4-k4NTQyNDMpLmpwZw-480.webp",
+          "width": 960,
+          "height": 694,
+          "licence": "CC0",
+          "author": "Bernard Spragg. NZ from Christchurch, New Zealand",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Discus_fish._(10739854243).jpg",
+          "caption": "Cá dĩa đỏ bơi trong bể thủy sinh có cây xanh, nước trong."
+        }
+      },
+      {
+        "heading": "Lọc cho bể cá đĩa có cây",
+        "moments": [
+          {
+            "t": 930,
+            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/at930-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các thùng lọc inox nối ống xanh dẫn nước từ máy bơm.",
+            "sharpness": 580,
+            "person": false
+          },
+          {
+            "t": 940,
+            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/at940-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thùng lọc inox đặt cạnh nhau, có ống nối chia nước.",
+            "sharpness": 427.4,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/p5-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/7ZVrhWkpFDE/p5-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ bể, có ống nước và xô để vệ sinh."
+          "caption": "Thùng lọc ngoài đặt trong tủ dưới bể, đang được vệ sinh bên cạnh xô nước."
         }
       },
       {
-        "heading": "Thay nước bao nhiêu và thế nào",
-        "moments": [],
+        "heading": "Thay nước bao nhiêu và dùng nước gì",
+        "moments": [
+          {
+            "t": 1110,
+            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/at1110-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai thuốc khử clo Seachem Safe dùng để xử lý nước trước khi thay.",
+            "sharpness": 488.7,
+            "person": false
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/p5-bV9maXNoZXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/7ZVrhWkpFDE/p5-bV9maXNoZXMuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/p6-bV9maXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/7ZVrhWkpFDE/p6-bV9maXNoZXMuanBn-480.webp",
           "width": 960,
           "height": 640,
           "licence": "CC BY-SA 4.0",
           "author": "KannanVM",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
-          "caption": "Bể cá cảnh nước trong, lót sỏi, có cá vàng bơi giữa lũa."
+          "caption": "Cá vàng bơi trong bể nuôi có nền sỏi và gỗ lũa."
         }
       },
       {
-        "heading": "Chọn cá và cho ăn",
-        "moments": [
-          {
-            "t": 808,
-            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/t808.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá đĩa xanh thân cao, gần tròn bơi trong hồ thủy sinh."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/p6-hc2NpYXR1cy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/7ZVrhWkpFDE/p6-hc2NpYXR1cy5qcGc-480.webp",
-          "width": 960,
-          "height": 627,
-          "licence": "CC BY 2.0",
-          "author": "Brian Gratwicke",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orange_Discus_fish_Symphysodon_aequifasciatus.jpg",
-          "caption": "Cá đĩa cam vàng thân cao, gần tròn, khỏe mạnh, màu lên rất đẹp."
-        }
-      },
-      {
-        "heading": "Bể cách ly cho cá mới",
+        "heading": "Có cần bể cách ly cho cá mới",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/p7-YW50aW5lXzIuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/7ZVrhWkpFDE/p7-YW50aW5lXzIuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/p8-FyYW50aW5lLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/7ZVrhWkpFDE/p8-FyYW50aW5lLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Coughdrop12",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scartella_cristata_Quarantine_2.jpg",
-          "caption": "Bể đơn giản với ống PVC làm chỗ trú cho cá nhỏ mới thả."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scartella_cristata_Quarantine.jpg",
+          "caption": "Cá nhỏ trong bể đơn giản, chỉ có cây giả và ống PVC để trú."
         }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 473,
-            "url": "https://media.aquatome.com/video/7ZVrhWkpFDE/t473.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các loại cây thủy sinh chịu nóng như lá trầu và ráy để chọn."
-          }
-        ]
       }
     ]
   }

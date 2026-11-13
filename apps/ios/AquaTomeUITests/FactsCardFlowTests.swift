@@ -51,7 +51,7 @@ final class FactsCardFlowTests: XCTestCase {
     XCTAssertLessThan(credit.frame.maxY, heading.frame.minY, "the credit after the page's first heading")
     // Tapped, each figure's sources.
     let toggle = sources.firstMatch
-    for _ in 0..<4 where !toggle.isHittable { app.swipeUp() }
+    repeatUntil(toggle.isHittable, times: 4) { app.swipeUp() }
     toggle.tap()
     let opened = app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "Seriously Fish: 20–26°C")).firstMatch
     XCTAssertTrue(opened.waitForExistence(timeout: 2), "the sources behind a figure don't open")
@@ -118,7 +118,7 @@ final class FactsCardFlowTests: XCTestCase {
   private func launch(language: String = "vi", locale: String = "vi_VN", more: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(\(language))", "-AppleLocale", locale, "-reset-defaults", "-fixed-handbook"] + more
-    app.launchForFlow()
+    app.launchForFlow(.old)
     return app
   }
 

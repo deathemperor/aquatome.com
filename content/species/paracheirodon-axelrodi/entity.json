@@ -28,7 +28,39 @@
       ],
       "sources": [
         "seriouslyfish",
-        "sprucepets"
+        "sprucepets",
+        "aquariumcoop"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The cardinal tetra, Paracheirodon axelrodi, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela.",
+          "countries": [
+            "BR",
+            "CO",
+            "VE"
+          ],
+          "regions": [
+            "Rio Negro",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It also occurs in the Casiquiare Canal and parts of the Orinoco watershed in Venezuela, with the latter populations exhibiting some morphological differences compared with those from the Negro (see 'Notes').",
+          "countries": [],
+          "regions": [
+            "Casiquiare Canal"
+          ]
+        },
+        {
+          "source": "sprucepets",
+          "quote": "Originating in South America, this species is found from the Orinoco River to the Rio Negro tributary of the Amazon River, as far west as western Colombia.",
+          "countries": [],
+          "regions": [
+            "Orinoco River"
+          ]
+        }
       ]
     },
     "records": {
@@ -218,6 +250,13 @@
           "min": 23,
           "max": 27
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 23,
+          "max": 29
+        }
       }
     ],
     "ph": [
@@ -233,6 +272,13 @@
         "value": {
           "min": 4.6,
           "max": 6.2
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 4,
+          "max": 7.5
         }
       }
     ],
@@ -260,6 +306,10 @@
       {
         "source": "sprucepets",
         "value": 5
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -276,6 +326,10 @@
       {
         "source": "sprucepets",
         "value": 4
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 2
       }
     ],
     "lifeYears": [
@@ -302,10 +356,22 @@
       "html": "<ul><li><strong>Life expectancy:</strong> 4 years</li><li><strong>Social:</strong> peaceful, suitable for a community tank</li><li><strong>Tank level:</strong> top to mid-dweller</li><li><strong>Diet:</strong> omnivore</li><li><strong>Breeding:</strong> egg layer</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cardinal-tetra",
+      "html": "<p>Paracheirodon axelrodi is one of the most stunning schooling fish in the aquarium trade. It grows up to 4 cm long in captivity and has a full red stripe running from the eye to the tail, paired with an iridescent blue stripe that is visible even when the aquarium lights are off.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
       "html": "<p>The cardinal tetra is similar in appearance to the neon tetra, and the two can be told apart by the red stripe. In the cardinal tetra the red band extends the entire length of the body, while in the neon tetra it runs only from mid-body to tail. Cardinal tetras are also larger than neon tetras.</p><p>They need an established tank, so they are not the right choice for a new aquarium or for someone new to checking and maintaining water chemistry. Varieties include:</p><ul><li>Gold cardinal tetra: a more golden or opal body color that isn't as vibrant.</li><li>Albino cardinal tetra: transparent, with pink or purple eyes, and less vibrant red and blue stripes.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cardinal-tetra",
+      "html": "<p>The cardinal tetra, neon tetra and green neon tetra all have a blue horizontal stripe with a red stripe underneath it. The cardinal tetra is the biggest, at up to 4 cm, with a full red stripe from the eye to the tail. The neon tetra (P. innesi), at 3 cm, has a half red stripe that starts in the middle of the body and reaches the tail. The smallest is the green neon tetra (P. simulans), at 2.5 cm, with an iridescent turquoise stripe and only the faintest amounts of red.</p><p>Both cardinal and neon tetras are similar in nature and have similar care requirements, so the choice comes down to personal preference. The neon tetra is cheaper, while the cardinal tetra is more vibrantly coloured and slightly bigger.</p><p>They can be a little shy if you suddenly walk in front of the tank, but they quickly come out of hiding, especially in a large school.</p>"
     },
     {
       "key": "distribution",
@@ -320,6 +386,12 @@
       "html": "<p>Originating in South America, this species is found from the Orinoco River to the Rio Negro tributary of the Amazon River, as far west as western Colombia. Other locations have also reported schools of cardinals, likely comprised of fish that have escaped from collectors. Manaus, in northern Brazil, is one such location. Since overfishing this quick-replenishing species would be nearly impossible, Project Piaba's \"Buy a Fish, Save a Tree\" project has become a UN global model for sustainable wild fisheries designed to preserve rainforest habitats.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cardinal-tetra",
+      "html": "<p>This species comes from the northern rivers of South America in countries like Brazil, Venezuela and Colombia. Because of the huge fluctuations in river height between the wet and dry seasons, it is usually an annual fish in the wild. However, it can live much longer in home aquariums and grow bigger than you'd expect.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
@@ -332,6 +404,12 @@
       "html": "<p>The rainforests that cover their waterways are usually very dense and let very little light through. Cardinal tetras favor these shaded areas with slow-moving or standing waters that are very clear. They live in large schools, often in groups numbering into the hundreds. Their native habitat generally has extremely soft, acidic water, often with a pH of 5. They live in shoals, mainly in the middle water layers, where they feed on worms and small crustaceans.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cardinal-tetra",
+      "html": "<p>The cardinal tetra lives in slow-moving waterways heavily shaded by rainforest and other thick vegetation. Its native habitats include both blackwater streams (acidic pH, low minerals, and brown tannins from rotting leaves) and clearwater streams (nearly neutral pH and more plant growth). As one of the smaller fish in the ecosystem, it is used to hiding from predators, hunting and breeding along the river banks under thick cover of live plants, leaf litter and driftwood.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
@@ -342,6 +420,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
       "html": "<p>Minimum tank size: 20 gallons (about 75 litres). Keep a school of at least six; if you have a large aquarium, you can keep a bigger school.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cardinal-tetra",
+      "html": "<p>There is safety in numbers, so this schooling fish feels most comfortable with a large number of companions. While the common minimum for schooling fish is 6, at least 8–10 cardinal tetras are recommended for an aquarium of 60–75 litres or larger.</p>"
     },
     {
       "key": "maintenance",
@@ -362,6 +446,12 @@
       "html": "<p>Like the neon tetra, this species requires a mature tank with soft, acidic water, and stable water chemistry is even more important. It does not do well in a newly started aquarium.</p><ul><li>pH: ideally below 6 (4.6 to 6.2)</li><li>Hardness: not above 4 dGH</li><li>Temperature: 23 to 27 °C (73 to 81 °F)</li></ul><p>Water with a high mineral content leads to poor health and shortened lifespans.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cardinal-tetra",
+      "html": "<p>Because they come from diverse environments that experience annual flooding, this hardy species can be kept at pH 4.0–7.5, in soft to moderately hard water, at 23–29°C.</p>"
+    },
+    {
       "key": "equipment",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
@@ -380,6 +470,12 @@
       "html": "<p>The cardinal tetra is an omnivorous species and will accept most commercial fish foods. These fish have high vitamin requirements, so at least 75% of their food should be quality flake food. They especially appreciate live and frozen foods, but if fed them exclusively they may reject prepared food later on.</p><p>If only doing one to two feedings a day, offer what they can eat in about five minutes. It is better to feed several times a day, offering only what they can eat in about three minutes. All foods should be in small pieces, as cardinals have a small mouth. When conditioning breeders, live foods are important.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cardinal-tetra",
+      "html": "<p>In the wild, these micropredators feed on tiny crustaceans, insect larvae, little worms and zooplankton. They are not fussy eaters and will eat any fish food small enough to fit in their mouths. Good prepared foods include crushed flakes, nano pellets, freeze-dried tubifex worms, and small-fish foods. They also love daphnia, frozen cyclops and live baby brine shrimp. Feed a varied diet so that they get plenty of different nutrients and vitamins.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
@@ -390,6 +486,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
       "html": "<p>Cardinal tetras, like other tetra species, are peaceful, social fish that should be kept in schools of at least half a dozen. They are suitable for community tanks as long as water conditions are favorable and other species are peaceful.</p><p>Potential tank mates include:</p><ul><li>Other tetra species, such as the flame tetra and glowlight tetra</li><li>Danios</li><li>Rasboras, such as the harlequin rasbora and scissortail rasbora</li><li>Dwarf gouramis</li><li>Small catfish, especially Corydoras catfish</li></ul><p>Do not keep them with any fish known to eat smaller, slim-bodied fish. If the companion fish has a mouth big enough to swallow the cardinal tetra, it is not a suitable tank mate.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cardinal-tetra",
+      "html": "<p>A very peaceful midwater schooling fish, it gets along well with other community species of similar size. Top-dwelling fish such as pencilfish and hatchetfish, bottom dwellers such as corydoras and kuhli loaches, and algae eaters such as snails, otocinclus and bristlenose plecos make good tankmates. Since this species tolerates higher temperatures, many hobbyists pair it with discus, angelfish, German blue rams and apistogramma. Use full-grown cardinal tetras with discus and angelfish so they do not become a snack. They have also been kept with calmer betta fish, staying out of the betta's way. Adult dwarf shrimp are usually left alone if there are plenty of hiding spots, but the tetras opportunistically eat baby shrimp, so it is best to have a well-established shrimp colony first.</p>"
     },
     {
       "key": "dimorphism",
@@ -404,6 +506,12 @@
       "html": "<p>Males and females show few clear differences. Females have a somewhat deeper body with a rounder belly, while males are more slender. Males also have a hook protruding from the anal fin.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cardinal-tetra",
+      "html": "<p>Males are slimmer, while females are larger and rounder.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
@@ -414,6 +522,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
       "html": "<p>Breeding cardinal tetras is challenging at best. A separate breeding tank with stable water chemistry is important: a pH of 5.0 to 6.0 and very soft water of 3 to 5 dGH or below are essential. They spawn in the evening, generally laying between 130 and 500 eggs, and spawning can continue late into the night.</p><p>In approximately 24 hours the eggs hatch, and the fry live off their yolk sac for another four to five days. Once the fry are free swimming, feed them infusoria, rotifers, hardboiled egg yolk or commercially prepared fry food, followed by freshly hatched brine shrimp as they grow. Lighting must be kept very low; use floating plants to keep the tank dark, as the fry are highly photosensitive.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cardinal-tetra",
+      "html": "<p>This egg scatterer breeds during the rainy season, when the river swells and the strong current sweeps fertilized eggs away from predators. Adults eat their own offspring, so the eggs must be hidden in captivity.</p><ul><li>Prepare a 20- or 40-litre breeding tank with acidic pH below 6.0, low GH and a higher temperature of 27–29°C.</li><li>Place a carpet of catappa leaves, plus some java fern or a DIY spawning mop, on the bottom.</li><li>On top of the spawning material, place a layer of plastic craft mesh so eggs fall through the holes while the parents cannot reach them.</li><li>Condition the adults with plenty of high-protein foods like live baby brine shrimp and tubifex worms.</li><li>Select the best-looking male and a female full of eggs. If you cannot sex them easily, put a group of at least 6 tetras in the breeding tank.</li><li>Because eggs and young fry are sensitive to light, keep the tank in complete darkness and remove the adults at the first sign of eggs.</li></ul><p>The eggs usually hatch within 1–3 days, but the newborns cannot swim and have underdeveloped eyes. Within 3–4 days they finish absorbing their yolk sac and become free swimming, able to hunt infusoria, live vinegar eels, green water and golden pearls. Once large enough, feed them live baby brine shrimp and survival rate will increase drastically.</p>"
     },
     {
       "key": "notes",
@@ -435,6 +549,21 @@
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/9bd71e9d262fdea2.webp",
+      "thumb": "https://media.aquatome.com/commons/9bd71e9d262fdea2-480.webp",
+      "width": 1200,
+      "height": 999,
+      "licence": "CC BY-SA 3.0",
+      "author": "CHUCAO",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cardinal_Paracheirodon_axelrodi_(2).jpg",
+      "caption": "Cá neon vua trưởng thành với sọc xanh và thân đỏ trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/9bd71e9d262fdea2-large.webp",
+        "width": 1440,
+        "height": 1200
+      }
+    },
     {
       "url": "https://media.aquatome.com/seriouslyfish/195ebe66d6876b71.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/195ebe66d6876b71-480.webp",
@@ -458,17 +587,6 @@
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/sprucepets/4e2222e45b417ad7.webp",
-      "thumb": "https://media.aquatome.com/sprucepets/4e2222e45b417ad7-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "dùng với sự cho phép",
-      "author": "The Spruce Pets",
-      "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
-      "caption": "Cardinal tetra fish with shiny blue scales on top half and red scales on bottom half",
-      "source": "sprucepets"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/87c13afa83ef15de.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/87c13afa83ef15de-480.webp",
       "width": 800,
@@ -478,6 +596,50 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
       "caption": "The presence of metallic gold scales in P. axelrodi 'platinum' is a naturally-occurring phenomenon (see 'Notes').",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/841eb31c82596522.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/841eb31c82596522-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cardinal-tetra",
+      "caption": "Care Guide for Cardinal Tetras — Gorgeous Cousin of the Neon Tetra - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/4f0b426816bb1816.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/4f0b426816bb1816-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cardinal-tetra",
+      "caption": "cardinal tetra",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/a73c6bf04ea49e06.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/a73c6bf04ea49e06-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/cardinal-tetra",
+      "caption": "school of cardinal tetras in dark tank",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/sprucepets/4e2222e45b417ad7.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/4e2222e45b417ad7-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/cardinal-tetra-1378417",
+      "caption": "Cardinal tetra fish with shiny blue scales on top half and red scales on bottom half",
+      "source": "sprucepets"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/1d17284367e74705.webp",
@@ -496,8 +658,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể thủy sinh 60x30"
+        "bể cá 60cm"
       ]
     },
     {
@@ -520,5 +681,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-09"
 }

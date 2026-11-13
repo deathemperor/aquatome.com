@@ -1,0 +1,351 @@
+{
+  "id": "lasiancistrus-tentaculatus",
+  "scientificName": "Lasiancistrus tentaculatus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Lasiancistrus",
+  "group": "catfish",
+  "lNumber": "L92, L194",
+  "places": [
+    "south-america",
+    "colombia",
+    "venezuela"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Lasiancistrus tentaculatus (L092, L194) is a suckermouth catfish from Colombia and Venezuela that lives among driftwood snags in rivers.",
+          "countries": [
+            "CO",
+            "VE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339209,
+      "total": 83,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          44
+        ],
+        [
+          "CO",
+          38
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          30,
+          30
+        ],
+        [
+          -74.53125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          7.03125,
+          6,
+          6
+        ],
+        [
+          -71.71875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          5.625,
+          6,
+          6
+        ],
+        [
+          -70.3125,
+          8.4375,
+          11,
+          11
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          8.4375,
+          9,
+          9
+        ],
+        [
+          -68.90625,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          -64.6875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.4
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lasiancistrus-tentaculatus",
+      "html": "<p>Lasiancistrus tentaculatus (L092, L194) is a suckermouth catfish from Colombia and Venezuela that lives among driftwood snags in rivers. Hobbyists describe it as a wood eater and it should be given plenty of wood, although no study has looked at its diet. Mature males develop a few Ancistrus-like tentacles around the mouth, the only species in the genus to do so. Sunken eyes and a belly that is not rounded are classic signs of emaciation in newly imported fish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lasiancistrus-tentaculatus",
+      "html": "<p>Colombia and Venezuela.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lasiancistrus-tentaculatus",
+      "html": "<p>It's a riverine species typically inhabiting driftwood snags.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lasiancistrus-tentaculatus",
+      "html": "<p>Standard length 120 mm SL (12 cm). Aquarium base 75 × 30 cm. Volume ~68 litres (75 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lasiancistrus-tentaculatus",
+      "html": "<p>A biotope setup is easily achieved by simply filling the tank with loads of driftwood of different shapes and sizes. Arrange these randomly and then add a thick layer of sand as substrate. Aquatic plants are not a feature of its natural waters, and would most likely be eaten anyway. Some surface vegetation is not a bad idea, however, as it prefers dim lighting. It also needs well-oxygenated water, ideally with a good amount of movement and flow.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lasiancistrus-tentaculatus",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 6.0–7.4</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lasiancistrus-tentaculatus",
+      "html": "<p>Hobbyists report this species as xylophagous (wood-eating) and it should be given plenty of wood, although no study has looked at its diet. Studies of wood-eating loricariids have found their guts full of wood particles, but the wood passes through in under four hours and little of it is digested. It also enjoys munching on greenery such as cucumber, courgette, blanched spinach etc. and will accept sinking dried foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lasiancistrus-tentaculatus",
+      "html": "<p>An ideal choice for the South American community tank, as it's very placid. You can keep it with tankmates such as characins, peaceful cichlids, Corydoras and other Loricariids. It's not particularly territorial and you can keep a group in most sizes of tank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lasiancistrus-tentaculatus",
+      "html": "<p>Best sexed by looking at the fish from above, as adult females are noticeably broader when full of eggs. It's the only species in the genus in which mature males develop a few Ancistrus-like tentacles around the mouth, although not to anything like the extent seen in Ancistrus.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lasiancistrus-tentaculatus",
+      "html": "<p>Has been spawned in the hobby, but unfortunately little detailed information is available. The eggs are laid in a cave or crevice and hatch in around 5 days. The fry need access to both wood and greenstuffs for the best growth.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lasiancistrus-tentaculatus",
+      "html": "<p>This lovely little species was only described in 2005 and the same study also reclassified most of the species previously assigned to Lasiancistrus. Many were found to be of different genera or representatives of the same species. Lasiancistrus can be easily distinguished from Ancistrus (and indeed all other Loricariids) by the presence of whiskerlike odontodes growing among the cheek odontodes. These are very thin and clearly visible, and are indeed reminiscent of mammalian hairs.</p><p>The wood-eating loricariids that have been studied are members of the genera Panaque and Hypostomus (H. cochliodon group), and these two groups are known to have evolved convergently (independently) of one another. Lujan, Winemiller &amp; Armbruster (2012) placed Lasiancistrus with the algae and detritus grazers on the shape of its jaws, so this species' wood eating is known only from aquarium observation. It's thought that the xylophagous behaviour of the fish has developed as they inhabit areas where fallen wood litters much of the substrate. Not much light penetrates the water to initiate algal growth, giving fish with the ability to use wood as a food source a competitive advantage. It's certainly an impressive specialisation, as these Loricariids are the only species of xylophagous fish known.</p><p>When buying, check the fish has a rounded belly and that its eyes aren't sunken, as these are classic signs of emaciation in newly imported specimens.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lasiancistrus-tentaculatus",
+      "html": "<ul><li>German, Donovan P. (2009). Inside the guts of wood-eating catfishes: can they digest wood? Journal of Comparative Physiology B 179(8), 1011-1023 doi.org/10.1007/s00360-009-0381-1</li><li>Lujan, Nathan K.; German, Donovan P.; Winemiller, Kirk O. (2011). Do wood‐grazing fishes partition their niche?: morphological and isotopic evidence for trophic segregation in Neotropical Loricariidae Functional Ecology 25(6), 1327-1338 doi.org/10.1111/j.1365-2435.2011.01883.x</li><li>Lujan, Nathan K; Winemiller, Kirk O; Armbruster, Jonathan W (2012). Trophic diversity in the evolution and community assembly of loricariid catfishes BMC Evolutionary Biology 12(1), 124 doi.org/10.1186/1471-2148-12-124</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/2a0bfd2ebdd01af6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2a0bfd2ebdd01af6-480.webp",
+      "width": 500,
+      "height": 251,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_tentaculatus.htm",
+      "caption": "Lasiancistrus tentaculatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/bddd11fe07db8dbe.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bddd11fe07db8dbe-480.webp",
+      "width": 500,
+      "height": 245,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_tentaculatus.htm",
+      "caption": "Lasiancistrus tentaculatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/416f51b58624d789.webp",
+      "thumb": "https://media.aquatome.com/scotcat/416f51b58624d789-480.webp",
+      "width": 500,
+      "height": 224,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_tentaculatus.htm",
+      "caption": "Lasiancistrus tentaculatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/325003b5648d63f2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/325003b5648d63f2-480.webp",
+      "width": 500,
+      "height": 314,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_tentaculatus.htm",
+      "caption": "Lasiancistrus tentaculatus: head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 70cm",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "lũa thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -1,0 +1,230 @@
+{
+  "id": "apistogramma-iniridae",
+  "scientificName": "Apistogramma iniridae",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "venezuela",
+    "rio-inirida"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Rio Inirida"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "iniridae: after the type locality, the Rio Inirida.",
+          "countries": [],
+          "regions": [
+            "Rio Inirida"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371266,
+      "total": 66,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "VE",
+          46
+        ],
+        [
+          "CO",
+          19
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -71.71875,
+          0,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          1.40625,
+          6,
+          0
+        ],
+        [
+          -68.90625,
+          2.8125,
+          14,
+          6
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          12,
+          10
+        ],
+        [
+          -67.5,
+          2.8125,
+          22,
+          22
+        ],
+        [
+          -67.5,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_iniridae_en/",
+      "html": "<p>Adult size up to 7-8 cm; females stay 2-3 cm smaller than the males. Keep in soft, acidic and warm water (26-30°C). Origin: Venezuela. Available size: 6-8 cm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_iniridae_en/",
+      "html": "<p>Sadly this beautiful dwarf cichlid is only occasionally available. The fish are very stable and display all the behaviour that makes the keeping of these fish so desirable.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_iniridae_en/",
+      "html": "<p>The females can become very aggressive against the males during broodcare, so it is best to keep the fish in well planted tanks that have a lot of hiding places.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_iniridae_en/",
+      "html": "<p>Soft, acidic and warm water (26-30°C).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_iniridae_en/",
+      "html": "<p>They feed readily on any type of frozen and live food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_iniridae_en/",
+      "html": "<p>Like its close relative A. uaupesi, the males display their sailfin-like dorsal fins in harmless hierarchy fights.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_iniridae_en/",
+      "html": "<p>Females always stay 2-3 cm smaller than the males. A. iniridae differs from A. uaupesi mainly in that the latter has a lyre-shaped caudal fin.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_iniridae_en/",
+      "html": "<p>As in most Apistogramma species, the coloration is quite variable. There are specimens with much orange (mainly in the caudal fin), others look rather blueish. This seems not to represent different populations, as the different colour varieties live side by side.</p><p>Lexicon: Apistogramma: ancient Greek, means \"with unreliable line\"; it is not known whether the lateral line organ or the pattern is meant. iniridae: after the type locality, the Rio Inirida.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi 100w"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

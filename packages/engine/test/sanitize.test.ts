@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { plainParts, sanitizeHtml, tidyHeadings, unescapePlain } from '../src/sanitize'
+import { plainParts, sanitizeHtml, tidyHeadings, unescapePlain, viSearchWords, viWording, wordingSlips } from '../src/sanitize'
 
 test('keeps allowed tags and strips every attribute', () => {
   expect(sanitizeHtml('<p class="x" onclick="y">ok <strong style="c">b</strong></p>')).toBe('<p>ok <strong>b</strong></p>')
@@ -43,4 +43,56 @@ test('plain text (a title, a summary point, an FAQ) holds no entities', () => {
   expect(unescapePlain('A &amp;amp; B &#8211; C &lt; D')).toBe('A & B – C < D')
   expect(unescapePlain('&#99999999; &#x0;')).toBe('&#99999999; &#x0;')
   expect(plainParts([' a &amp; b ', ''], [{ q: 'Q &amp;?', a: ' ' }, { q: 'Hỏi', a: 'Đáp &gt; 1' }])).toEqual({ summary: ['a & b'], faq: [{ q: 'Hỏi', a: 'Đáp > 1' }] })
+})
+
+test('"Phi châu" is written "châu Phi", with a capital where a sentence starts; tilapia\'s "rô phi châu Phi" and "Phi Châu" stay', () => {
+  expect(viWording('Cá Oscar (cá tai tượng Phi châu)')).toBe('Cá Oscar (cá tai tượng châu Phi)')
+  // Two words a translation ran together (the tank-cycling guide, 2026-11-07).
+  expect(viWording('<li>Chỉtiêu đo pH. Que thử đa chỉtiêu.</li>')).toBe('<li>Chỉ tiêu đo pH. Que thử đa chỉ tiêu.</li>')
+  expect(viWording('Cá tetra phi châu Nannocharax brevis')).toBe('Cá tetra châu Phi Nannocharax brevis')
+  expect(viWording('<p>Phi châu có nhiều hồ. Phi châu nóng.</p><li>phi châu</li>')).toBe('<p>Châu Phi có nhiều hồ. Châu Phi nóng.</p><li>Châu Phi</li>')
+  expect(viWording('Phi châu')).toBe('Châu Phi')
+  for (const kept of ['cát nuôi cá rô phi châu Phi', 'Cá rô phi châu Phi', 'Rô phi châu Phi', 'cá Phi Châu', 'Philippines châu Á', 'phi châuX']) expect(viWording(kept)).toBe(kept)
+  const once = viWording('<p>Cá dao Phi châu. phi châu</p>')
+  expect(viWording(once)).toBe(once)
+  expect(wordingSlips('Cá dao Phi châu, cá rô phi châu Phi, tetra phi châu')).toEqual(['"Phi châu" → "châu Phi"', '"phi châu" → "châu Phi"'])
+})
+
+test('"setup bể" is written "set bể", with a capital where a sentence starts; "setup" anywhere else stays', () => {
+  expect(viWording('Cách setup bể cá betta đẹp')).toBe('Cách set bể cá betta đẹp')
+  expect(viWording('<h3>Setup bể thủy sinh có CO2</h3><p>Khi setup bể, thả ít cá. Setup bể xong thì chờ.</p>')).toBe('<h3>Set bể thủy sinh có CO2</h3><p>Khi set bể, thả ít cá. Set bể xong thì chờ.</p>')
+  for (const kept of ['setup một bể nhỏ', 'setup ly thủy sinh', 'SETUP Bể', 'bộ setup bểx']) expect(viWording(kept)).toBe(kept)
+  expect(wordingSlips('Cách setup bể cá betta đẹp')).toEqual(['"setup bể" → "set bể"'])
+})
+
+// The reader check's wording findings on top-card pages (2026-11-08); the keepers' forum writes the right-hand words.
+test('"trùn chỉ đỏ" is written "trùng huyết", "nửa tá" "6 con", "thủng lỗ đầu" "lủng đầu"; a sentence that gave both names keeps one', () => {
+  expect(viWording('cho ăn trùn chỉ đỏ (bloodworm) và artemia')).toBe('cho ăn trùng huyết (bloodworm) và artemia')
+  expect(viWording('<p>Trùn chỉ đỏ đông lạnh rất tốt.</p>')).toBe('<p>Trùng huyết đông lạnh rất tốt.</p>')
+  expect(viWording('ấu trùng muỗi lắc chironomid (trùn chỉ đỏ/trùn huyết) sống')).toBe('ấu trùng muỗi lắc chironomid (trùng huyết) sống')
+  expect(viWording('ấu trùng chironomid (trùn chỉ đỏ, hay trùng huyết), giun')).toBe('ấu trùng chironomid (trùng huyết), giun')
+  expect(viWording('cho ăn trùn chỉ đỏ (trùng huyết, tức ấu trùng muỗi chironomid)')).toBe('cho ăn trùng huyết (tức ấu trùng muỗi chironomid)')
+  for (const kept of ['trùn chỉ sống', 'trùn chỉ', 'trùng huyết', 'nửa tá loài', 'thủng lỗ']) expect(viWording(kept)).toBe(kept)
+  expect(viWording('nuôi thành đàn từ nửa tá con trở lên; mỗi giới nửa tá con đực và nửa tá con cái'))
+    .toBe('nuôi thành đàn từ 6 con trở lên; mỗi giới 6 con đực và 6 con cái')
+  expect(viWording('Lúc nào cũng nên mua ít nhất nửa tá. Nửa tá con là đủ.')).toBe('Lúc nào cũng nên mua ít nhất 6 con. 6 con là đủ.')
+  expect(viWording('<li>dễ mắc bệnh thủng lỗ đầu,</li>')).toBe('<li>dễ mắc bệnh lủng đầu,</li>')
+  expect(viWording('dễ mắc bệnh lủng lỗ đầu. Lủng lỗ đầu là')).toBe('dễ mắc bệnh lủng đầu. Lủng đầu là')
+  // A heading's number leaves the words after it at the heading's start; a count doesn't.
+  expect(viWording('<h3>#1 trùn chỉ đỏ đông lạnh</h3>')).toBe('<h3>#1 Trùng huyết đông lạnh</h3>')
+  expect(viWording('<li>2) trùn chỉ đỏ</li>')).toBe('<li>2) Trùng huyết</li>')
+  expect(viWording('<p>5 trùn chỉ đỏ là đủ</p>')).toBe('<p>5 trùng huyết là đủ</p>')
+  // "trùng chỉ đỏ", another way the site wrote the bloodworm: each of its 21 sentences means the bloodworm (2026-11-12).
+  expect(viWording('như Artemia, Daphnia hoặc trùng chỉ đỏ.')).toBe('như Artemia, Daphnia hoặc trùng huyết.')
+  expect(viWording('ấu trùng muỗi lắc (trùng chỉ đỏ)...')).toBe('ấu trùng muỗi lắc (trùng huyết)...')
+  expect(viWording('ấu trùng muỗi chironomid (trùng chỉ đỏ, hay trùng huyết), giun')).toBe('ấu trùng muỗi chironomid (trùng huyết), giun')
+  expect(viWording('thực đơn nên có thêm trùng chỉ đỏ (ấu trùng muỗi chironomid, hay trùng huyết) sống')).toBe('thực đơn nên có thêm trùng huyết (ấu trùng muỗi chironomid) sống')
+  expect(viWording('<li>Thức ăn đông lạnh như trùng chỉ đỏ hay artemia</li>')).toBe('<li>Thức ăn đông lạnh như trùng huyết hay artemia</li>')
+  expect(viWording('<p>Trùng chỉ đỏ đông lạnh</p>')).toBe('<p>Trùng huyết đông lạnh</p>')
+  for (const kept of ['trùng chỉ', 'giun chỉ đỏ']) expect(viWording(kept)).toBe(kept)
+  // A shop search stays in lowercase, as it is typed.
+  expect(viSearchWords('trùn chỉ đỏ đông lạnh')).toBe('trùng huyết đông lạnh')
+  const once = viWording('trùn chỉ đỏ/trùn huyết, nửa tá con, thủng lỗ đầu')
+  expect(viWording(once)).toBe(once)
+  expect(wordingSlips('trùn chỉ đỏ (bloodworm) và nửa tá con')).toEqual(['"trùn chỉ đỏ" → "trùng huyết"', '"nửa tá con" → "6 con"'])
 })

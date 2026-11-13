@@ -1,0 +1,75 @@
+{
+  "id": "dawkinsia-assimilis",
+  "native": {
+    "input": "4ade8913de45adce",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The mascara barb, Dawkinsia assimilis, is a cyprinid from the Netravati, Chalakudy and Kallada basins of Karnataka and Kerala, India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "India (South India).",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Netravati",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Southwest Indian states of Karnataka and Kerala where it's been collected from the Netravati, Chalakudy and Kallada river basins in recent years, though the precise extent of its distribution remains unclear.",
+        "ok": true
+      },
+      {
+        "name": "Chalakudy",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Southwest Indian states of Karnataka and Kerala where it's been collected from the Netravati, Chalakudy and Kallada river basins in recent years, though the precise extent of its distribution remains unclear.",
+        "ok": true
+      },
+      {
+        "name": "Kallada",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Southwest Indian states of Karnataka and Kerala where it's been collected from the Netravati, Chalakudy and Kallada river basins in recent years, though the precise extent of its distribution remains unclear.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dawkinsia assimilis",
+    "status": "ACCEPTED",
+    "taxonKey": 7363170,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

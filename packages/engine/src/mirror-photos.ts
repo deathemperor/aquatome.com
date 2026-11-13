@@ -1,3 +1,4 @@
+import { writePhotoState } from './photo-state'
 import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -53,7 +54,7 @@ async function files(content: string) {
 }
 
 /** Caches keyed by photo URL: a mirrored photo keeps its verdicts (no second vision call), and the old URL stays known. */
-const URL_KEYED = ['_photo-check.json', '_photo-faces.json', '_photo-rejected.json', '_photo-subjects.json', '_photo-watermarks.json']
+const URL_KEYED = ['_photo-check.json', '_photo-faces.json', '_photo-guides.json', '_photo-rejected.json', '_photo-subjects.json', '_photo-watermarks.json']
 
 /**
  * Commons, iNaturalist, Flickr and GBIF photos are served from our media bucket instead of hot-linked: their hosts set third-party
@@ -104,7 +105,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     if (!cache) continue
     let n = 0
     for (const [from, to] of moved) if (from in cache && !(to in cache)) { cache[to] = cache[from]; n++ }
-    if (n) await writeFile(path, `${JSON.stringify(cache, null, 2)}\n`)
+    if (n) await writePhotoState(path, cache)
   }
   report.mirrored = done.size
   return report

@@ -11,6 +11,86 @@
     "rio-acanti",
     "rio-acandi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Río Acandí",
+        "Rio Acanti"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Colombian tetra, Hyphessobrycon columbianus, is a characid that appears to be known only from the Río Acandí in Chocó, northern Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears to be known only from the Río Acandí in Chocó Department, northern Colombia, close to the border with Panama.",
+          "countries": [],
+          "regions": [
+            "Río Acandí"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The first specimens arrived in Germany in 1995, caught in a tributary of the Rio Acanti, Colombia.",
+          "countries": [],
+          "regions": [
+            "Rio Acanti"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354590,
+      "total": 5,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "JP",
+          3
+        ],
+        [
+          "PE",
+          1
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -97.03125,
+          37.96875,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          126.5625,
+          25.3125,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -54,7 +134,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 4
+        "value": 2
       }
     ]
   },
@@ -70,12 +150,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-columbianus",
       "html": "<p>The Colombian tetra, Hyphessobrycon columbianus, is a characid that appears to be known only from the Río Acandí in Chocó, northern Colombia. It is also traded as 'blue flame', 'blue-red' and 'Colombian red fin' tetra, and was misidentified as H. ecuadorensis for several years before it was described. Both sexes are silver with iridescent blue in the upper body and bright blood red caudal and anal fins.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/hyphessobrycon-columbianus-2/",
-      "html": "<p>Shortly after its discovery, this fish was reproduced en masse and offered in the trade (until its scientific description, mostly under the names Astyanax spec. or Hyphessobrycon ecuadoriensis), which is why the initially considerable price quickly fell to a “lower tetra level”.</p>"
     },
     {
       "key": "distribution",
@@ -185,8 +259,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá cộng đồng"
+        "bể cá 90cm"
       ]
     },
     {

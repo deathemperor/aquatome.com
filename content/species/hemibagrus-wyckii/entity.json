@@ -18,6 +18,217 @@
     "indonesia",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "VN",
+        "KH",
+        "TH",
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Pahang River",
+        "Batang Hari",
+        "Musi River",
+        "Citarum"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Records exist from the Mekong and Chao Phraya drainages in Laos, Vietnam, Cambodia and Thailand, the Pahang River drainage in Peninsular Malaysia, Batang Hari and Musi River drainages in Sumatra, the Citarum drainage in Java, and the Baram, Rejang, Kapuas and Barito systems in Borneo.",
+          "countries": [
+            "LA",
+            "VN",
+            "KH",
+            "TH",
+            "MY"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Pahang River",
+            "Batang Hari",
+            "Musi River",
+            "Citarum"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species has an enormous distribution and occurs throughout much of central Indochina and western Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338255,
+      "total": 44,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          14
+        ],
+        [
+          "ID",
+          12
+        ],
+        [
+          "KH",
+          7
+        ],
+        [
+          "LA",
+          5
+        ],
+        [
+          "TH",
+          4
+        ],
+        [
+          "VN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          0,
+          2,
+          2
+        ],
+        [
+          101.25,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          101.25,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          11.25,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          105.46875,
+          14.0625,
+          5,
+          5
+        ],
+        [
+          106.875,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          3,
+          3
+        ],
+        [
+          111.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          112.5,
+          0,
+          1,
+          1
+        ],
+        [
+          112.5,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          113.90625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -61,7 +272,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -209,8 +420,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 200cm",
-        "bể cá kính cỡ lớn"
+        "bể cá 200cm"
       ]
     },
     {

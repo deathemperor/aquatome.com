@@ -1,0 +1,253 @@
+{
+  "id": "geophagus-brokopondo",
+  "scientificName": "Geophagus brokopondo",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Geophagus",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "suriname",
+    "suriname-river"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR"
+      ],
+      "regions": [
+        "Suriname River",
+        "Brokopondo Reservoir"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Suriname River drainage, Suriname.",
+          "countries": [
+            "SR"
+          ],
+          "regions": [
+            "Suriname River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "When described it was known only from Brokopondo Reservoir, a large artificial lake in the northwest of the country formed by a dam constructed in the 1960s and officially named 'Prof. Dr. Ir. W.J. van Blommestein Meer'.",
+          "countries": [],
+          "regions": [
+            "Brokopondo Reservoir"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208429,
+      "total": 3,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "SR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 25,
+          "max": 33
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "html": "<p>Geophagus brokopondo is a cichlid endemic to the Suriname River drainage in Suriname, first known only from the Brokopondo Reservoir. It is very rarely traded, since collection of fishes for commercial purposes is not common in Suriname. Six solid vertical bars on each flank, the last covering the whole caudal peduncle, separate it from the very similar G. abalios.</p><ul><li>Needs a very large tank</li><li>Needs a soft, sandy substrate: the most essential item of décor is a soft, sandy substrate so that the fish can browse naturally (see 'Diet').</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "html": "<p>Endemic to the Suriname River drainage, Suriname.</p><p>When described it was known only from Brokopondo Reservoir, a large artificial lake in the northwest of the country formed by a dam constructed in the 1960s and officially named 'Prof. Dr. Ir. W.J. van Blommestein Meer'.</p><p>Subsequent collections have confirmed its wider existence throughout middle-to-lower parts of the Suriname watershed.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "html": "<p>Images depict clear, slightly tannin-stained to black water with the fish tending to be collected from gently sloping marginal zones or around islands where substrates consist mostly of fine sand.</p><p>An aquatic plant of the pipewort group, Tonina fluviatilis, is common at some localities.</p><p>The climate is typically humid and tropical with a well-defined wet season during which water levels in some areas can rise by as much as 5 metres with a corresponding increase in flow.</p><p>The fish fauna inhabiting Brokopondo Reservoir is considerably less diverse than that of the river prior to construction of the dam but species still found there include Leporinus fasciatus, L. friderici, Acestrorhynchus falcatus, A. microlepis, Bryconops melanurus, Chalceus macrolepidotus, Charax gibbosus, Hemigrammus boesemani, Moenkhausia grandisquamis, Curimata cyprinoides, Hoplias malabaricus, Hemiodus argenteus, H. unimaculatus, Myloplus rubripinnis, Serrasalmus rhombeus, Sternopygus macrurus, Platydoras costatus, Hypostomus surinamensis, Loricariichthys maculatus, Cichla ocellaris, Cichlasoma bimaculatum, Crenicichla multispinosa, Geophagus surinemensis, Guianacara owroewefi and Krobia guianensis.</p><p>Between 2002 and 2005 just 41 species were recorded from the lake compared with 168 from the corresponding section of river before it was dammed.</p><p>We've been unable to obtain any definitive data regarding the current situation in the river up or downstream of the reservoir.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "html": "<p>Standard length: 15 cm SL. Aquarium base: 150 × 60 cm. Volume: ~540 litres.</p><p>An aquarium with a base measuring 150 × 60 cm or more is recommended to house a group long-term.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "html": "<p>The most essential item of décor is a soft, sandy substrate so that the fish can browse naturally (see 'Diet').</p><p>Coarser materials such as gravel or small pebbles can inhibit feeding, damage gill filaments and even be ingested with the potential of internal damage or blockages.</p><p>Additional furnishings are as much a case of personal taste as anything else but the most favoured set-ups tend to feature relatively dim lighting plus some chunks of driftwood and scattered roots or branches.</p><p>Leaf litter is a typical feature of the natural environment but not really recommended in aquaria because the feeding behaviour of Geophagus spp. tends to cause an excess of partially-decomposed material in suspension which not only looks unsightly but can block filter and pump mechanisms.</p><p>One or two flattish, water-worn rocks can also be included to provide potential spawning sites if you wish.</p><p>Water quality is of the utmost importance since these cichlids are extremely susceptible to deteriorating water quality and swings in chemical parameters so should never be introduced to a biologically immature aquarium.</p><p>The best way to achieve the desired stability is to over-filter the tank using a combination of external canister filters and/or a sump system and perform minimum weekly water changes of 50-70%.</p><p>If the maintenance regime is insufficient health issues such as head and lateral line erosion or stunted growth can occur.</p><p>Mechanical filtration should also be tailored to trap small particles stirred up by the fish as sand can cause blockages and wearing issues with filter mechanisms if allowed to continually run through the system.</p><p>High flow rates should be avoided so position filter returns accordingly.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "html": "<ul><li>Temperature: 25–33°C. This species prefers warm conditions of 25–33°C.</li><li>pH: pH in the Suriname River has been measured to vary from 5.0–7.0 so aim for a value within this range.</li><li>Hardness: Ideally 0–5 dGH.</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "html": "<p>Geophagus spp. are benthophagous by nature, employing a method of feeding whereby mouthfuls of substrate are taken and sifted for edible items with the remaining material expelled via the gill openings and mouth.</p><p>For this reason they're commonly termed 'eartheaters' and the provision of a suitable substrate is essential to their long-term well-being.</p><p>Once settled they readily rise into the water column when food is introduced but continue to browse normally at other times.</p><p>The stomach contents of wild specimens mostly comprise small aquatic and terrestrial invertebrates, plant material in the form of seeds, organic detritus and sediment.</p><p>Even as adults these cichlids seem unable to properly ingest larger food items meaning the diet should contain a variety of high quality, fine-grade prepared foods plus small live or frozen bloodworm, Tubifex, Artemia, mosquito larvae, etc.</p><p>At least some of the dried products should contain a high proportion of vegetable matter such as Spirulina or similar.</p><p>Home-made, gelatine-bound recipes containing a mixture of dried fish food, puréed shellfish, fresh fruit and vegetables, for example, are proven to work well and can be cut into bite-sized discs using the end of a sharp pipette or small knife.</p><p>Rather than a single large meal offer 3-4 smaller portions daily to allow natural browsing behaviour as this seems to result in the best growth rate and condition.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "html": "<p>Unless breeding this species is surprisingly peaceful and will not predate on fishes larger than a few millimetres in length.</p><p>Suitable tankmates are far too numerous to list but include most peaceful species enjoying similar environmental conditions.</p><p>Best avoided are aggressive or territorial substrate-dwelling species, or those requiring harder water.</p><p>Some aquarists keep Geophagus spp. alongside freshwater stingrays of the genus Potamotrygon which in many cases has proven successful but in some has resulted in them disappearing at night (!).</p><p>G. brokopondo is gregarious and tends to exist in loose aggregations unless spawning, with juveniles in particular displaying strong grouping instincts.</p><p>A group of 5-8 individuals should be the minimum purchase and these will form a noticeable dominance hierarchy.</p><p>When maintained in smaller numbers weaker specimens can become the target of excessive antagonism by dominant individuals or the group may fail to settle and behave nervously.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "html": "<p>No external differences have been observed though the ovipositor of the female should be visible during spawning.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "html": "<p>All G. surinamensis group members are substrate spawning, biparental mouthbrooders which can be split into two groups based on strategy; immediate (ovophilous) and delayed (larvophilous).</p><p>In the former the eggs are laid, fertilised then picked up in the mouth of the female where they remain until the fry reach the free-swimming stage.</p><p>In the latter the eggs are guarded until they hatch with the fry then being taken into the mouths of both parents.</p><p>It appears that G. brokopondo has not been bred in captivity as we've been unable to locate any references or even confirmation of its breeding strategy.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "html": "<p>This species is very rarely-traded since collections of fishes for commercial purposes aren't common in Suriname.</p><p>It's a member of the putative G. surinamensis 'group' of closely-related species within the genus and can be identified by a combination of characters including: no dark preopercular marking; six parallel vertical bars on each flank (normally visible only when the fish are stressed, spawning or preserved); dark, squarish lateral spot positioned within the third vertical bar; sixth (posterior) bar elongate and extending over entire caudal peduncle; caudal fin greyish to brownish with pale round spots arranged in about 4 vertical lines.</p><p>The vertical bar patterning distinguishes it from the very similar-looking G. abalios which also lacks a preopercular marking and has six body bars, but in that species the sixth bar is restricted to the upper part of the caudal peduncle and the anterior three bars tend to be split vertically.</p><p>Representatives of the G. surinamensis assemblage are diagnosed by their relatively deep head and body shape, possession of a variably-sized dark spot on each flank and presence or absence of a small, dark preopercular marking.</p><p>There are currently thirteen described members but diversity is predicted to eventually prove much greater with a number of undescribed forms known some of which, such as G. sp. 'orange head' and G. sp. 'Pindare', are regularly available in the aquarium trade.</p><p>The described members of the group are G. abalios, G. altifrons, G. brachybranchus, G. brokopondo, G. camopiensis, G. dicrozoster, G. megasema, G. neambi, G. parnaibae, G. proximus, G. surinamensis, G. sveni and G. winemilleri.</p><p>Only five Geophagus species aren't included, namely G. argyrostictus, G. gottwaldi, G. grammepareius, G. harreri and G. taeniopareius.</p><p>These are most easily separated on the basis that they all possess a complete infraorbital stripe but oddly have not had their own group name assigned, usually being referred to simply as 'non-G. surinamensis group' species.</p><p>Accurate identification of G. surinamensis group members has been problematic for a number of reasons, not least that prior to Kullander (1986) G. surinamensis itself was thought to range throughout the Orinoco, Amazon and Guianas river systems but is now considered endemic to the Rio Suriname and Rio Maroni/Marowijne watersheds in eastern Suriname.</p><p>Several former 'populations' have thus been described as species in their own right since the turn of the century, meaning older literature can be somewhat unreliable.</p><p>Further, the majority of Geophagus species in the hobby are sold as G. surinamensis regardless of origin - a situation which continues to cause confusion and exacerbated by the fact that juveniles of most are virtually identical. G. surinamensis is in fact almost never traded and very few privately-owned specimens exist.</p><p>The number of species awaiting description is unconfirmed but it seems feasible that certain rivers within the Río Orinoco, rio Amazonas, rio Tocantins and rio Parnaíba basins, plus coastal drainages of the Guianas, contain one or two endemic forms.</p><p>Of those known in the aquarium hobby some are traded as G. sp. aff. altifrons which can be misleading as they don't always resemble that species.</p><p>More preferable is to label with locality data when available.</p><p>The genus Geophagus was rediagnosed by Kullander (1986) who restricted it to include only those species with paired caudal extensions to the swimbladder lined by 6-12 epihemal 'ribs' plus a greater number of caudal than abdominal vertebrae.</p><p>Some former species were moved into the resurrected genus Satanoperca while others, such as the 'Geophagus' brasiliensis and 'G.' steindachneri groups represent distinct groupings still in need of definitive classification.</p><p>Geophagus and a number of related genera are often included in the putative subfamily Geophaginae.</p><p>Kullander (1998) later conducted a morphology-based phylogenetic study in which the neotropical Cichlidae was divided into six subfamilies of which the Geophaginae contained 16 genera divided among three 'tribes':</p><ul><li>Acarichthyini - Acarichthys and Guianacara.</li><li>Crenicaratini - Biotoecus, Crenicara, Dicrossus and Mazarunia.</li><li>Geophagini - Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides and Taeniacara.</li></ul><p>Later molecular studies by Farias et al. (1999, 2000, 2001) resulted in the additions of Crenicichla and Teleocichla to the Geophaginae, a result supported by López-Fernández et al. (2005) who conducted the most detailed molecular analysis of the grouping to date including 16 of the 18 genera and 30 species.</p><p>However their conclusions regarding interrelationships between genera did vary somewhat from previous hypotheses and can be summarised by the following loosely-defined groups:</p><ul><li>a weakly-supported sister group relationship between Acarichthys and Guianacara.</li><li>a well-supported 'Satanoperca clade' comprising Satanoperca, Apistogramma, Apistogrammoides and Taeniacara.</li><li>a 'big clade' with Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Biotodoma, Crenicara and Dicrossus.</li><li>a 'crenicarine clade' with Biotoecus and Crenicichla.</li></ul><p>No representatives of Teleocichla or Mazarunia were included in the study but the former is well-established as sister to Crenicichla while the latter has grouped closely with Dicrossus and Crenicara in earlier works.</p><p>The other main conclusions of the paper are confirmation that Geophaginae is a monophyletic group exhibiting strong signs of having undergone rapid adaptive radiation.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "html": "<ul><li>Farias, I. P., G. Ortí and A. Meyer (2000). Total evidence: molecules, morphology, and the phylogenetics of cichlid fishes. The Journal of Experimental Zoology 288(1), 76-92</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (1999). Mitochondrial DNA phylogeny of the family Cichlidae: monophyly and fast molecular evolution of the Neotropical assemblage. Journal of Molecular Evolution 48(6), 703-711</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (2001). The cytrochrome b gene as a phylogenetic marker: the limits of resolution for analyzing relationships among cichlid fishes. Journal of Molecular Evolution 53(2), 89-103</li><li>Kullander, S. O. (1986). Cichlid fishes of the Amazon River drainage of Peru. Swedish Museum of Natural History, 1-431</li><li>Kullander, S. O. and H. Nijssen (1989). The Cichlids of Surinam. E.J. Brill, Leiden, The Netherlands, i-xxxii + 1-256</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>López-Fernández, H. and D. C. Taphorn (2004). Geophagus abalios, G. dicrozoster and G. winemilleri (Perciformes: Cichlidae), three new species from Venezuela. Zootaxa 439, 1-27</li><li>López-Fernández, H., R. L. Honeycutt, M. L. J. Stiassny and K. O. Winemiller (2005). Morphology, molecules, and character congruence in the phylogeny of South American geophagine cichlids (Perciformes, Labroidei). Zoologica Scripta 34(6), 627-651</li><li>Lucinda, P. H. F., C. A. S. de Lucena and N. C. Assis (2010). Two new species of cichlid fish genus Geophagus Heckel from the Rio Tocantins drainage (Perciformes: Cichlidae). Zootaxa 2429, 29-42</li><li>Mol, J. H., B. de Mérona, P. E. Ouboter and S. Sahdew (2007). The fish fauna of Brokopondo Reservoir, Suriname, during 40 years of impoundment Neotropical Ichthyology 5(3), 351-368</li><li>Staeck, W. and I. Schindler (2006). Geophagus parnaibae sp. n. -- a new species of cichlid fish (Teleostei: Perciformes: Cichlidae) from the rio Parnaíba basin, Brazil. Zoologische Abhandlungen (Dresden) 55, 69-75</li><li>Schindler, I. and W. Staeck (2006). Geophagus gottwaldi sp. n. - a new species of cichlid fish (Teleostei: Perciformes: Cichlidae) from the drainage of the upper río Orinoco in Venezuela. Zoologische Abhandlungen (Dresden) 56, 91-97</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/553667f94df93ab7.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/553667f94df93ab7-480.webp",
+      "width": 937,
+      "height": 627,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "caption": "Young adult in the aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/7e16762638581012.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7e16762638581012-480.webp",
+      "width": 800,
+      "height": 566,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "caption": "Specimen from the German aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/365a7b67fa46f353.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/365a7b67fa46f353-480.webp",
+      "width": 720,
+      "height": 540,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-brokopondo",
+      "caption": "This specimen was collected from the margins of the habitat in the previous image.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "lọc sump"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

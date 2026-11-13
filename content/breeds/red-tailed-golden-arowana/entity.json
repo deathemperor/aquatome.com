@@ -67,6 +67,21 @@
         "source": 2,
         "value": 200
       }
+    ],
+    "difficulty": [
+      {
+        "source": 6,
+        "value": 8
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 7,
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
     ]
   },
   "photos": [
@@ -78,7 +93,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Karelj",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_Prague_2012_1.jpg",
-      "caption": "Cá kim long hồng vĩ thân vàng ánh xanh, vây đỏ cam trong bể"
+      "caption": "Cá kim long hồng vĩ thân vàng ánh xanh, vây đỏ cam trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/8bf5b4bb6789f597-large.webp",
+        "width": 2022,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/2565d9b8830b7996.webp",
@@ -128,6 +148,18 @@
       "title": "How do I choose a good quality RTG aro? – MonsterFishKeepers",
       "kind": "forum",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://fishyhub.com/sg/product-detail/red-tail-golden-arowana-20049",
+      "title": "Red Tail Golden Arowana – FishyHub",
+      "kind": "shop",
+      "at": "2026-11-06"
+    },
+    {
+      "url": "https://snkaquapets.com/?p=38827",
+      "title": "Red Tail Golden Arowana (Scleropages formosus “Red Tail Golden”) – SNK Aquapets",
+      "kind": "shop",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

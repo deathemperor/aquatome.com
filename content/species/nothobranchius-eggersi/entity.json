@@ -1,0 +1,219 @@
+{
+  "id": "nothobranchius-eggersi",
+  "scientificName": "Nothobranchius eggersi",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Nothobranchius",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "tanzania",
+    "rufiji"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Rufiji"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Nothobranchius eggersi is an annual killifish apparently endemic to the lower Rufiji in eastern Tanzania, including freshwater parts of the delta.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": [
+            "Rufiji"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348645,
+      "total": 12,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TZ",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          37.96875,
+          -8.4375,
+          12,
+          12
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0.5,
+          "max": 1.3
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-eggersi",
+      "html": "<p><em>Nothobranchius eggersi</em> is an annual killifish apparently endemic to the lower Rufiji in eastern Tanzania, including freshwater parts of the delta. It inhabits ephemeral pools and swamps on lowland floodplains that dry out for several months each year, and survives as eggs in the substrate. Many wild populations are in the hobby, labelled with collection codes to limit hybridisation, alongside aquarium strains labelled 'red' or 'blue'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-eggersi",
+      "html": "<p>Type locality is 'Rufiji River near Utete, eastern Tanzania', and this species is apparently endemic to the lower Rufiji including the Selous Game Reserve and freshwater parts of the Rufiji delta region. Populations in the aquarium hobby include 'Rufiji river camp', 'Kikongono', 'Ruhoi River', 'Kanga', 'Utete', 'Saadani Game Reserve', 'Ruvu River', 'Bagamoyo', 'Makurunge', 'Killimani', 'Chamakwese', 'Nyamwage', 'Mohoro', and 'Ukuni'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-eggersi",
+      "html": "<p>Inhabits ephemeral, water-filled depressions, pools and swamps mostly located in lowland floodplains. Water levels in these seasonally-variable habitats typically decrease during the dry season and eventually become completely dessicated for several months each year.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-eggersi",
+      "html": "<p>Unless isolated temporarily for spawning purposes even a single pair should be offered an aquarium with base dimensions of 45 × 30 cm or more (about 41 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-eggersi",
+      "html": "<p>This species does not require peat although peat moss is often used as a spawning medium.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-eggersi",
+      "html": "<ul><li>Temperature: 20–24°C</li><li>pH: 7.0–8.2</li><li>Hardness: 10–30 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-eggersi",
+      "html": "<p>A natural micropredator meaning small live or frozen foods such as Daphnia, Artemia and chopped bloodworm should form the basis of the diet.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-eggersi",
+      "html": "<p>Males grow larger and are far more colourful than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-eggersi",
+      "html": "<p>When its natural habitats become dessicated during the dry season the adult fish die, leaving fertilised eggs encased within the substrate. These are resistant to dessication and remain there until the rains return some 5-6 months later at which point the fry hatch and grow very quickly with sexual maturity reached at around 3 weeks of age. Typical lifespan in the aquarium is 6-16 months and eggs should be stored at a temperature of 21.1–25°C for 3-4 months before being wetted. Some aquarists add a little marine salt to the water in order to reduce the risk of Oödinium, to which the fry are particularly susceptible.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-eggersi",
+      "html": "<p>Wild collections are generally labelled with some form of code in order that they can be told apart, thus limiting the possibility of hybridisation. Examples include 'Tan 05-43 Kigongo' in which 'TAN' is 'Tanzania', '05' the year of collection (2005), and '43 Kigongo' collection locality, or 'Ukuni TZ 2008-27' in which the locality is names first, 'TZ' represents 'Tanzania', '2008' the year and '27' locality number. There also exist aquarium strains which are normally labelled simply as 'red' or 'blue' depending on the predominant body colour.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/3e7118f839f00dbc.webp",
+      "thumb": "https://media.aquatome.com/commons/3e7118f839f00dbc-480.webp",
+      "width": 812,
+      "height": 606,
+      "licence": "CC BY-SA 3.0",
+      "author": "Violaine2, France",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nothobranchius_eggersi.png",
+      "caption": "Cá đực Nothobranchius eggersi màu đỏ trong bể trồng cây"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 50cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "bo bo đông lạnh",
+        "artemia đông lạnh",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "rêu than bùn cho cá killi",
+        "than bùn đẻ trứng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "máy sục khí mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

@@ -12,6 +12,112 @@
     "laos",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Mae Klong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Apparently native to the Mae Klong and Mekong river basins in Thailand, Laos and Cambodia but oddly appears not to occur in the Chao Phraya drainage which separates the two.",
+          "countries": [
+            "TH",
+            "LA",
+            "KH"
+          ],
+          "regions": [
+            "Mekong",
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364562,
+      "total": 22,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "TH",
+          11
+        ],
+        [
+          "KH",
+          7
+        ],
+        [
+          "LA",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          14.0625,
+          4,
+          4
+        ],
+        [
+          104.0625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          6,
+          6
+        ],
+        [
+          105.46875,
+          14.0625,
+          5,
+          5
+        ],
+        [
+          106.875,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          106.875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +161,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -151,8 +257,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x45 cm",
-        "bể cá 240 lít"
+        "bể cá 120cm"
       ]
     },
     {

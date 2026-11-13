@@ -10,8 +10,115 @@
     "brazil",
     "rio-pelotas",
     "uruguay",
-    "uruguay-river"
+    "uruguay-river",
+    "paraguay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PY"
+      ],
+      "regions": [
+        "Uruguay River",
+        "Rio Pelotas"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Pelotas at Volta Grande Dois, Marcelino Ramos, Rio Grande do Sul, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Pelotas"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: Paraguay.",
+          "countries": [
+            "PY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: upper Uruguay River basin (La Plata, Uruguay, Upper Uruguay, Pelotas).",
+          "countries": [],
+          "regions": [
+            "Uruguay River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202268,
+      "total": 68,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "BR",
+          68
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          -29.53125,
+          7,
+          7
+        ],
+        [
+          -56.25,
+          -28.125,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -29.53125,
+          7,
+          7
+        ],
+        [
+          -54.84375,
+          -28.125,
+          7,
+          7
+        ],
+        [
+          -53.4375,
+          -28.125,
+          16,
+          16
+        ],
+        [
+          -52.03125,
+          -28.125,
+          25,
+          25
+        ],
+        [
+          -50.625,
+          -29.53125,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -69,6 +176,12 @@
       "html": "<ul><li>Common name: none</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_en-2/",
+      "html": "<p>Hypostomus luteus is considered the most beautiful of all plecos. Only fully grown specimens display the reddish-yellow coloration, whereas young fish are black with light spots.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1034",
@@ -79,6 +192,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
       "html": "<p>South America: Brazil, upper Uruguay River basin. Type locality: Rio Pelotas, Volta Grande 2, Marcelino Ramos, RS, Brazil. The holotype is in the personal collection of M. Godoy.</p><p>Hypostomus luteus is endemic to Brazil, occurring in the Uruguay, Canoas, Pelotas, Forquilha, Passo Fundo, Ijuí and Jaguari rivers, in the upper Uruguay River basin. The species is widely distributed, frequent, but not very abundant. As no significant threats to its population have been detected, Hypostomus luteus has been categorised as Least Concern (LC) (IUCN 2022).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_en-2/",
+      "html": "<p>Origin: Paraguay.</p>"
     },
     {
       "key": "aquariumSize",
@@ -103,6 +222,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
       "html": "<p>Will eat all manner of foods in the aquarium: vegetables, tablet and pellet foods and good-quality flake.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_en-2/",
+      "html": "<p>Young fish are black with light spots; fully grown fish are reddish-yellow.</p>"
     },
     {
       "key": "reproduction",
@@ -205,8 +330,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá lớn nuôi cá lau kiếng"
+        "bể cá 150cm"
       ]
     },
     {
@@ -223,5 +347,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-11"
 }

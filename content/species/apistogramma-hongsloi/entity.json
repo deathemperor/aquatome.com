@@ -12,6 +12,138 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Orinoco",
+        "Río Meta",
+        "Río Vichada"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Apistogramma hongsloi is a dwarf cichlid from the Río Vichada and middle Río Meta basins in Colombia and the middle Orinoco in Venezuela.",
+          "countries": [
+            "CO",
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Río Vichada and middle Río Meta basins in Colombia, plus the middle section of the Orinoco system in Venezuela, of which both the Vichada and Meta are tributaries.",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Río Meta",
+            "Río Vichada"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371301,
+      "total": 73,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "VE",
+          40
+        ],
+        [
+          "CO",
+          33
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          0,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          4.21875,
+          11,
+          11
+        ],
+        [
+          -71.71875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -71.71875,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          -71.71875,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          5.625,
+          5,
+          5
+        ],
+        [
+          -68.90625,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          -68.90625,
+          5.625,
+          7,
+          7
+        ],
+        [
+          -68.90625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          5.625,
+          10,
+          10
+        ],
+        [
+          -67.5,
+          7.03125,
+          20,
+          20
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +187,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -136,7 +268,12 @@
       "author": "Cinh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Apistogramma_hongsloi_(m).jpg",
       "caption": "male Apistogramma hongsloi",
-      "thumb": "https://media.aquatome.com/commons/9700e603bb06640a-480.webp"
+      "thumb": "https://media.aquatome.com/commons/9700e603bb06640a-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/9700e603bb06640a-large.webp",
+        "width": 1719,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/354a3315cdaed0ac.webp",
@@ -174,8 +311,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

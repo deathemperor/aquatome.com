@@ -1,0 +1,163 @@
+{
+  "id": "neolebias-ansorgii",
+  "native": {
+    "input": "17ea6c4594a1de01",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ansorge's neolebias, Neolebias ansorgii, is a small distichodontid from Cameroon, Democratic Republic of Congo, Nigeria, Gabon and Benin.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ansorge's neolebias, Neolebias ansorgii, is a small distichodontid from Cameroon, Democratic Republic of Congo, Nigeria, Gabon and Benin.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ansorge's neolebias, Neolebias ansorgii, is a small distichodontid from Cameroon, Democratic Republic of Congo, Nigeria, Gabon and Benin.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ansorge's neolebias, Neolebias ansorgii, is a small distichodontid from Cameroon, Democratic Republic of Congo, Nigeria, Gabon and Benin.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ansorge's neolebias, Neolebias ansorgii, is a small distichodontid from Cameroon, Democratic Republic of Congo, Nigeria, Gabon and Benin.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "AO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It has been reported from Angola, Benin, Nigeria, Cameroon, Gabon, and the D. R. Congo.",
+        "words": "Angola",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It has been reported from Angola, Benin, Nigeria, Cameroon, Gabon, and the D. R. Congo.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It has been reported from Angola, Benin, Nigeria, Cameroon, Gabon, and the D. R. Congo.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It has been reported from Angola, Benin, Nigeria, Cameroon, Gabon, and the D. R. Congo.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It has been reported from Angola, Benin, Nigeria, Cameroon, Gabon, and the D. R. Congo.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It has been reported from Angola, Benin, Nigeria, Cameroon, Gabon, and the D. R. Congo.",
+        "words": "D. R. Congo",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neolebias ansorgii",
+    "status": "ACCEPTED",
+    "taxonKey": 2355753,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        42
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        13
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [
+      "CM",
+      "CD",
+      "NG",
+      "GA",
+      "BJ",
+      "AO"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

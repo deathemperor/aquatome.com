@@ -1,65 +1,527 @@
 {
   "https://www.2hraquarist.com/blogs/algae-control/algae-and-tank-maturity": {
-    "entityIds": [],
-    "updatedAt": "2026-11-05T13:27:08.014Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-algae-and-tank-maturity"
+    ],
+    "updatedAt": "2026-11-07T23:21:04.214Z",
+    "hash": "3144da4a09237a960f6ca305a3d57c3f8d12943b6722ea69827ec152b9df2515",
+    "processedHash": "3144da4a09237a960f6ca305a3d57c3f8d12943b6722ea69827ec152b9df2515",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/algae-control-101": {
-    "entityIds": [],
-    "updatedAt": "2026-11-05T13:28:14.612Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-algae-control-101"
+    ],
+    "updatedAt": "2026-11-07T23:24:30.685Z",
+    "hash": "240c7dba0d36f54164c23ead08ccc018d18e25c42d1f517e12d84c9c671c9887",
+    "processedHash": "240c7dba0d36f54164c23ead08ccc018d18e25c42d1f517e12d84c9c671c9887",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/ccontrol-algae-excess-nutrients": {
-    "entityIds": [],
-    "updatedAt": "2026-11-05T13:29:21.025Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-ccontrol-algae-excess-nutrients"
+    ],
+    "updatedAt": "2026-11-08T08:19:19.268Z",
+    "hash": "dbd28d9418124762778338df5be10538f7376c141ca5a4bdd60f910784bc1724",
+    "processedHash": "dbd28d9418124762778338df5be10538f7376c141ca5a4bdd60f910784bc1724",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/control-green-water-algae": {
-    "entityIds": [],
-    "updatedAt": "2026-11-05T23:39:14.896Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-control-green-water-algae"
+    ],
+    "updatedAt": "2026-11-08T08:24:27.040Z",
+    "hash": "bdc0846142bfba18fcbba0bba8beb656462cf3b69e51d3bdd846ee8718d8bb6a",
+    "processedHash": "bdc0846142bfba18fcbba0bba8beb656462cf3b69e51d3bdd846ee8718d8bb6a",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/green-dust-algae-gda-a-focused-study": {
-    "entityIds": [],
-    "updatedAt": "2026-11-05T23:40:21.285Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-green-dust-algae-gda-a-focused-study"
+    ],
+    "updatedAt": "2026-11-08T08:26:36.359Z",
+    "hash": "c5104231497b6c22fea429a90684bbf6daada9e9b963a55b36db5ea6fae874ea",
+    "processedHash": "c5104231497b6c22fea429a90684bbf6daada9e9b963a55b36db5ea6fae874ea",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/how-do-you-control-algae-naturally": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-do-you-control-algae-naturally"
+    ],
+    "updatedAt": "2026-11-08T08:31:28.762Z",
+    "hash": "1bfa5cceb286233237159711c74b4fdfb0f095abee6bfc8fd396d82360cf94c3",
+    "processedHash": "1bfa5cceb286233237159711c74b4fdfb0f095abee6bfc8fd396d82360cf94c3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-bba": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-bba"
+    ],
+    "updatedAt": "2026-11-06T03:30:20.833Z",
+    "hash": "8daf838801d2bbb19a28294f2768353e8cbec6330606a84a806335d13862ffff",
+    "processedHash": "8daf838801d2bbb19a28294f2768353e8cbec6330606a84a806335d13862ffff",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-cladophora": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-cladophora"
+    ],
+    "updatedAt": "2026-11-06T03:31:57.633Z",
+    "hash": "13ae298d27691d7492312fc157cb8838d1cdc67bd06698d60d48cb7cc44531f9",
+    "processedHash": "13ae298d27691d7492312fc157cb8838d1cdc67bd06698d60d48cb7cc44531f9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-cynobacteria": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-cynobacteria"
+    ],
+    "updatedAt": "2026-11-06T03:33:04.288Z",
+    "hash": "647d90c564cbf3653ed3f996b7e40693cb380c1ff04a3eefe6585df43ef4e0be",
+    "processedHash": "647d90c564cbf3653ed3f996b7e40693cb380c1ff04a3eefe6585df43ef4e0be",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-diatoms": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-diatoms"
+    ],
+    "updatedAt": "2026-11-06T11:11:38.201Z",
+    "hash": "146598e9e85b8124faf9be31228459002021b7360c00b0eae2eac7ce503f8e5f",
+    "processedHash": "146598e9e85b8124faf9be31228459002021b7360c00b0eae2eac7ce503f8e5f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-green-dust-algae": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-green-dust-algae"
+    ],
+    "updatedAt": "2026-11-06T11:15:18.056Z",
+    "hash": "ebbe4c9f00db8ea72c11c5369c3d8d98c718659ce392450c0f7dac29be95f3a8",
+    "processedHash": "ebbe4c9f00db8ea72c11c5369c3d8d98c718659ce392450c0f7dac29be95f3a8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-green-spot-algae": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-green-spot-algae"
+    ],
+    "updatedAt": "2026-11-06T11:17:17.032Z",
+    "hash": "0fada2aa8b48db7f3685f70c7247f06f0bb5702631b21d1cc2abbacd43267126",
+    "processedHash": "0fada2aa8b48db7f3685f70c7247f06f0bb5702631b21d1cc2abbacd43267126",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-misc-green-algae": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-misc-green-algae"
+    ],
+    "updatedAt": "2026-11-06T11:19:14.939Z",
+    "hash": "1f467f6d33d0bf6bf4c2a598c03205d3593657f4094c9acd8286b93ea573dbe6",
+    "processedHash": "1f467f6d33d0bf6bf4c2a598c03205d3593657f4094c9acd8286b93ea573dbe6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-get-rid-of-staghorn-algae": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-get-rid-of-staghorn-algae"
+    ],
+    "updatedAt": "2026-11-06T11:21:52.698Z",
+    "hash": "29d5ce059e8378079d80d96646a43acd070a558b96d7b19cde8625d010e2e24c",
+    "processedHash": "29d5ce059e8378079d80d96646a43acd070a558b96d7b19cde8625d010e2e24c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-remove-brown-algae-diatoms-planted-aquarium": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-remove-brown-algae-diatoms-planted-aquarium"
+    ],
+    "updatedAt": "2026-11-06T18:29:54.527Z",
+    "hash": "ddf769712256153e942b28368917f23ccf5bd99eaf431835257e97e78874a17c",
+    "processedHash": "ddf769712256153e942b28368917f23ccf5bd99eaf431835257e97e78874a17c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/localized-algae-problems": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-localized-algae-problems"
+    ],
+    "updatedAt": "2026-11-06T18:33:40.422Z",
+    "hash": "adf5bd58188fe48647565fd07feeac87fbcdcbf7b57b316f2021c86601a7d3a6",
+    "processedHash": "adf5bd58188fe48647565fd07feeac87fbcdcbf7b57b316f2021c86601a7d3a6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/prevent-algae-growth": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-prevent-algae-growth"
+    ],
+    "updatedAt": "2026-11-07T01:02:56.633Z",
+    "hash": "473691eaa24648e806f475419bd500204dda8682598c4fe9c7a022dcbbb72f45",
+    "processedHash": "473691eaa24648e806f475419bd500204dda8682598c4fe9c7a022dcbbb72f45",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/solving-algae-issues-without-using-algicides": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-solving-algae-issues-without-using-algicides"
+    ],
+    "updatedAt": "2026-11-08T11:19:29.447Z",
+    "hash": "100d1074b7729407681f76d4f033f246d0dd39fc3233f137647128b4230f508a",
+    "processedHash": "100d1074b7729407681f76d4f033f246d0dd39fc3233f137647128b4230f508a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/tackle-algae-by-doing-nothing": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-tackle-algae-by-doing-nothing"
+    ],
+    "updatedAt": "2026-11-08T11:28:18.823Z",
+    "hash": "d0906583853259b8250f9e6a70b52c72b465c567042dab6bb5daf3537254763c",
+    "processedHash": "d0906583853259b8250f9e6a70b52c72b465c567042dab6bb5daf3537254763c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/this-wouldnt-work": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-this-wouldnt-work"
+    ],
+    "updatedAt": "2026-11-08T11:32:51.525Z",
+    "hash": "ff28dc65d1375d358e399e4cae2d2ab95a5b8d3ac821725be07fa46d7fa5ad7d",
+    "processedHash": "ff28dc65d1375d358e399e4cae2d2ab95a5b8d3ac821725be07fa46d7fa5ad7d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/ada-15": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-ada-15"
+    ],
+    "updatedAt": "2026-11-08T17:14:28.944Z",
+    "hash": "6b6b7f8705c8ef918605b3f4cc89878d4b382047ce8b23dedace17615b37ab34",
+    "processedHash": "6b6b7f8705c8ef918605b3f4cc89878d4b382047ce8b23dedace17615b37ab34",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/ada-hardscape-focused-tank": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-ada-hardscape-focused-tank"
+    ],
+    "updatedAt": "2026-11-08T17:15:13.304Z",
+    "hash": "14cdc0f9518ae1c3699e6cf68f0143dd1ba2651e7857bbf3ba377515759404bf",
+    "processedHash": "14cdc0f9518ae1c3699e6cf68f0143dd1ba2651e7857bbf3ba377515759404bf",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/ada-hardscape-only-tank": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-ada-hardscape-only-tank"
+    ],
+    "updatedAt": "2026-11-08T17:15:56.698Z",
+    "hash": "f448bc01d3c95d6fbeb88236b39586e538961ebb876d013f9697ea32f6d44d53",
+    "processedHash": "f448bc01d3c95d6fbeb88236b39586e538961ebb876d013f9697ea32f6d44d53",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/andre-longarco": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-andre-longarco"
+    ],
+    "updatedAt": "2026-11-08T17:16:39.499Z",
+    "hash": "422137bf4cbbb8ab340d1415886270e1363d2be1913b30a5960449854d8b1827",
+    "processedHash": "422137bf4cbbb8ab340d1415886270e1363d2be1913b30a5960449854d8b1827",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/art-commissio": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-art-commissio"
+    ],
+    "updatedAt": "2026-11-08T17:18:16.501Z",
+    "hash": "4380cf1e4f29c8aa21de503db8ad7baf61e7dd1b0332f20c46f4e32bd680cc15",
+    "processedHash": "4380cf1e4f29c8aa21de503db8ad7baf61e7dd1b0332f20c46f4e32bd680cc15",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/chonlatee-jaturonrusmee-2018": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-chonlatee-jaturonrusmee-2018"
+    ],
+    "updatedAt": "2026-11-08T17:19:10.158Z",
+    "hash": "9696137e9b2958f22b10d2a295e6cb2210be5c35591307757c53f394255d6f84",
+    "processedHash": "9696137e9b2958f22b10d2a295e6cb2210be5c35591307757c53f394255d6f84",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/cory-hopkins": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-cory-hopkins"
+    ],
+    "updatedAt": "2026-11-08T17:19:53.064Z",
+    "hash": "d7a5aa82148410198bdb296fed80b72defa157be565dc2ae4ac55702718cf328",
+    "processedHash": "d7a5aa82148410198bdb296fed80b72defa157be565dc2ae4ac55702718cf328",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/cory-hopkins-1": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-cory-hopkins-1"
+    ],
+    "updatedAt": "2026-11-08T17:20:45.252Z",
+    "hash": "20f659fb33b4c3f4cc093148d0945191049274f7b26a4514293292fd63dc461d",
+    "processedHash": "20f659fb33b4c3f4cc093148d0945191049274f7b26a4514293292fd63dc461d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/cory-hopkins-2": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-cory-hopkins-2"
+    ],
+    "updatedAt": "2026-11-08T17:21:27.296Z",
+    "hash": "43160d7b88a85f6fb4fe605919276aee289e70c5b89dd0bdf36485260c76d5f9",
+    "processedHash": "43160d7b88a85f6fb4fe605919276aee289e70c5b89dd0bdf36485260c76d5f9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/cory-hopkins-natural-biotope-1": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-cory-hopkins-natural-biotope-1"
+    ],
+    "updatedAt": "2026-11-08T17:22:17.113Z",
+    "hash": "9c17ad6eb45d1e50f3c6654e31c95a7003cd2fe9f4a6437ce4c125662474c7e6",
+    "processedHash": "9c17ad6eb45d1e50f3c6654e31c95a7003cd2fe9f4a6437ce4c125662474c7e6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/cory-hopkins-natural-biotope-2": {
     "entityIds": [],
-    "updatedAt": "2026-11-05T23:41:29.627Z",
+    "updatedAt": "2026-11-08T17:24:08.602Z",
+    "hash": "09dbccb6d1ed395765e82665c1d432cfe928782bad873688c2486a043044027b",
+    "processedHash": "09dbccb6d1ed395765e82665c1d432cfe928782bad873688c2486a043044027b",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/craftspeak": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-craftspeak"
+    ],
+    "updatedAt": "2026-11-08T17:24:35.587Z",
+    "hash": "dca320227dced9e3a3902edf17878250a6148b0272c695652006949d2459b048",
+    "processedHash": "dca320227dced9e3a3902edf17878250a6148b0272c695652006949d2459b048",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/dennis-wong": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-dennis-wong"
+    ],
+    "updatedAt": "2026-11-08T23:11:25.953Z",
+    "hash": "94f1cca7570b314ae66b9f242375236ffa494ddfed431236844c79fbbcf7d65a",
+    "processedHash": "94f1cca7570b314ae66b9f242375236ffa494ddfed431236844c79fbbcf7d65a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/dennis-wong-1": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-dennis-wong-1"
+    ],
+    "updatedAt": "2026-11-08T23:12:13.680Z",
+    "hash": "fc89b48fabcd654a7a58a592e80c473c08cd6c57090a7e9dea7c620ec279b11c",
+    "processedHash": "fc89b48fabcd654a7a58a592e80c473c08cd6c57090a7e9dea7c620ec279b11c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/dou-mok": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-dou-mok"
+    ],
+    "updatedAt": "2026-11-08T23:12:56.645Z",
+    "hash": "da734ad4a7eaa76130bd488eafafcf1aa2b5a781ccb922003ba6aa8c3704a6c5",
+    "processedHash": "da734ad4a7eaa76130bd488eafafcf1aa2b5a781ccb922003ba6aa8c3704a6c5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/dou-mok-1": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-1"
+    ],
+    "updatedAt": "2026-11-08T23:13:44.375Z",
+    "hash": "9afc14fa2bf2682ecc79d6b2e4a8d6aa35f2c05bbe465088436d66082a954822",
+    "processedHash": "9afc14fa2bf2682ecc79d6b2e4a8d6aa35f2c05bbe465088436d66082a954822",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/dou-mok-2": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-2"
+    ],
+    "updatedAt": "2026-11-08T23:14:23.077Z",
+    "hash": "cac53a68359119c5390aeb30fc1b6e52ae1092c4659c8a908e3c432a25c00862",
+    "processedHash": "cac53a68359119c5390aeb30fc1b6e52ae1092c4659c8a908e3c432a25c00862",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/dou-mok-4": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-4"
+    ],
+    "updatedAt": "2026-11-08T23:15:07.777Z",
+    "hash": "39923aed603f3a54aefd59a6ed3f9f67949de58a23042a79ae1e0ff46bb9d871",
+    "processedHash": "39923aed603f3a54aefd59a6ed3f9f67949de58a23042a79ae1e0ff46bb9d871",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/dutch-style": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-dutch-style"
+    ],
+    "updatedAt": "2026-11-08T23:15:51.599Z",
+    "hash": "f36fb01f5c7fb8633bddcba9be5b85ed558c5bc427c49f8723a3dbf052fbb4d1",
+    "processedHash": "f36fb01f5c7fb8633bddcba9be5b85ed558c5bc427c49f8723a3dbf052fbb4d1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/dutch-style-1": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-1"
+    ],
+    "updatedAt": "2026-11-08T23:16:40.473Z",
+    "hash": "abebcd8b33cdf8b8d03af266653920add67cd5c4388e9b362d2bc466b72c358c",
+    "processedHash": "abebcd8b33cdf8b8d03af266653920add67cd5c4388e9b362d2bc466b72c358c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/dutch-style-2": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-2"
+    ],
+    "updatedAt": "2026-11-08T23:17:40.121Z",
+    "hash": "abdd3498370d6399416ff0fd22eb0d6a7e7b921e64b6d8b4224a3472293c0288",
+    "processedHash": "abdd3498370d6399416ff0fd22eb0d6a7e7b921e64b6d8b4224a3472293c0288",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/dutch-style-mc": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-mc"
+    ],
+    "updatedAt": "2026-11-08T23:18:34.765Z",
+    "hash": "580e686e96251d605f2bf56ec116d4a4bf744e3931b9663b78fa4d9a7d97a2b7",
+    "processedHash": "580e686e96251d605f2bf56ec116d4a4bf744e3931b9663b78fa4d9a7d97a2b7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/dutch-style-rf": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-rf"
+    ],
+    "updatedAt": "2026-11-08T23:19:59.766Z",
+    "hash": "3d8011bcdeceb79003c09f49f5dc76cdffae153aeabe55ce69b3aa2f6180d53d",
+    "processedHash": "3d8011bcdeceb79003c09f49f5dc76cdffae153aeabe55ce69b3aa2f6180d53d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/dutch-style-sp": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-sp"
+    ],
+    "updatedAt": "2026-11-08T23:21:01.322Z",
+    "hash": "ae1652a25843edcf8a52f7a6bba036fe18ac72d1bb96179c0b5f94694a60a2e3",
+    "processedHash": "ae1652a25843edcf8a52f7a6bba036fe18ac72d1bb96179c0b5f94694a60a2e3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/fernando-ferreira": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira"
+    ],
+    "updatedAt": "2026-11-08T23:21:59.126Z",
+    "hash": "79607f41887d90285cec3bff0d8605f4e56348fe7eb3c0677da69c3077e4f2ce",
+    "processedHash": "79607f41887d90285cec3bff0d8605f4e56348fe7eb3c0677da69c3077e4f2ce",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/fernando-ferreira-2": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira-2"
+    ],
+    "updatedAt": "2026-11-08T23:22:58.760Z",
+    "hash": "78aa6f796079672edc89b0cae603ef2210d694f4f20eeef3aa513fc28060d420",
+    "processedHash": "78aa6f796079672edc89b0cae603ef2210d694f4f20eeef3aa513fc28060d420",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/fernando-ferreira-3": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira-3"
+    ],
+    "updatedAt": "2026-11-08T23:23:52.609Z",
+    "hash": "be48f20101353b491fd319ee945230b43b8bc4159fb094ade07fd9ef89a3ce07",
+    "processedHash": "be48f20101353b491fd319ee945230b43b8bc4159fb094ade07fd9ef89a3ce07",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/george-farmer": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-aquascaping-ideas-george-farmer"
+    ],
+    "updatedAt": "2026-11-08T23:25:29.809Z",
+    "hash": "f5339828ec673d2e339e5c82c885a5f4e2228b2ffbfcff511cf117df45870f3b",
+    "processedHash": "f5339828ec673d2e339e5c82c885a5f4e2228b2ffbfcff511cf117df45870f3b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/george-farmer-1": {
+    "entityIds": [],
+    "updatedAt": "2026-11-10T20:11:43.978Z",
     "status": "error",
-    "attempts": 3,
+    "attempts": 0,
     "error": "no archived copy (HTTP 429)"
   },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-limnophila-aromatica": {
-    "entityIds": [],
-    "updatedAt": "2026-11-04T21:58:22.460Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "plants/limnophila-aromatica"
+    ],
+    "updatedAt": "2026-11-07T23:15:59.738Z",
+    "hash": "e78f99d85408f8a9f0753d2fb6203ccee808219431058be73fc7b373da614587",
+    "processedHash": "e78f99d85408f8a9f0753d2fb6203ccee808219431058be73fc7b373da614587",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-ludwigia-brevipes": {
-    "entityIds": [],
-    "updatedAt": "2026-11-04T22:00:34.676Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "plants/ludwigia-brevipes"
+    ],
+    "updatedAt": "2026-11-07T23:19:07.884Z",
+    "hash": "64a37ecf28e86d4e70899c42bbd017c98e429e3cd3082874b24e88c1044e4187",
+    "processedHash": "64a37ecf28e86d4e70899c42bbd017c98e429e3cd3082874b24e88c1044e4187",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-micranthemum-tweediei-monte-carlo": {
-    "entityIds": [],
-    "updatedAt": "2026-11-04T21:59:28.439Z",
-    "status": "error",
-    "attempts": 3,
-    "error": "no archived copy (HTTP 429)"
+    "entityIds": [
+      "plants/micranthemum-tweediei"
+    ],
+    "updatedAt": "2026-11-07T23:12:36.990Z",
+    "hash": "af0bb197afffbcba9fc1e91b35900f251ed290a23e8491689bdef583d9287b68",
+    "processedHash": "af0bb197afffbcba9fc1e91b35900f251ed290a23e8491689bdef583d9287b68",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-pogostemon-erectus": {
+    "entityIds": [
+      "plants/pogostemon-deccanensis"
+    ],
+    "updatedAt": "2026-11-08T17:11:21.673Z",
+    "hash": "9b5c19ed9c6881ff819f405f3105f52039510aa5cb4a6ab0c763a59b1ce48137",
+    "processedHash": "9b5c19ed9c6881ff819f405f3105f52039510aa5cb4a6ab0c763a59b1ce48137",
+    "status": "processed",
+    "attempts": 0
   }
 }

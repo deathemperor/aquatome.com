@@ -1,0 +1,253 @@
+{
+  "id": "carinotetraodon-irrubesco",
+  "scientificName": "Carinotetraodon irrubesco",
+  "order": "Tetraodontiformes",
+  "family": "Tetraodontidae",
+  "genus": "Carinotetraodon",
+  "group": "other",
+  "places": [
+    "asia",
+    "indonesia",
+    "sambas"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Banjuasin",
+        "Sambas",
+        "Sumatra",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Banjuasin",
+            "Sambas",
+            "Sumatra",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2407799,
+      "total": 0,
+      "fetched": "2026-11-07",
+      "countries": [],
+      "cells": []
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
+      "html": "<p>The red-tailed redeye puffer, Carinotetraodon irrubesco, is a small freshwater puffer endemic to Indonesia, known from Sumatra and West Kalimantan. Males have a reddish caudal fin and lack the black spot at the dorsal-fin base seen in the other red-eyed puffers, and the eyes bulge clearly above the head. It has been collected only among submerged riparian vegetation of terrestrial origin, in murky brown water.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
+      "html": "<p>Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.</p><p>The type series was obtained from the aquarium trade with type locality given as 'Banjuasin basin, Sumatra Selatan, Sumatra, Indonesia'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
+      "html": "<p>Collected exclusively from submerged riparian vegetation of terrestrial origin, and at the Samba River habitat the water was murky brown with a pH around 6.0.</p><p>Syntopic fish species include Rasbora tornieri, R. bankanensis, Doryichthys deokhatoides, Brachygobius doriae and an unidentified species of Dermogenys (Tan, 1999).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
+      "html": "<p>An aquarium with dimensions of 60 × 30 × 30 cm (about 54 litres) or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
+      "html": "<p>This species requires a well-decorated aquarium with driftwood roots or branches plus plenty of aquatic plants, of which floating varieties can be used to provide additional shade. The addition of dried leaf litter further emphasises the natural feel and as well as offering cover brings with it development of microbe colonies which can provide a valuable early food source for fry.</p><p>Any flow from the filter should not be strong, and regular small water changes are recommended since this species is sensitive to deteriorating conditions.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
+      "html": "<p>Tetraodontids lack true teeth, the jawbone itself being modified into four fused toothlike structures. These grow continuously at a surprising rate, so offer regular meals of shelled invertebrates such as snails, small crab legs, cockles, etc., in order to maintain them at a reasonable length. There is some evidence to suggest that aufwuchs form a significant proportion of the natural diet, therefore it may be worth permitting or even encouraging algal growth on hard items of décor.</p><p>Additional foods can include chopped shellfish, small earthworms, and live or frozen chironomid larvae (bloodworm), Artemia, etc. Dried products should not form the principal component of the diet, although pelleted formats with a very hard consistency may prove useful.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
+      "html": "<p>Less aggressive than some members of the genus but nevertheless best maintained alone or alongside a group of peaceful, schooling cyprinids of a size large enough to escape predation but small enough that they offer no competition or threat.</p><p>It is only loosely gregarious, males in particular tending to be territorial, but a group can be maintained provided sufficient cover and space is available.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
+      "html": "<p>In males body colour is greyish and faintly mottled, and this is distinctly separated from the white belly and underside of the head. There is a broad, pale stripe extending posteriorly from the eye to the caudal peduncle, plus a similarly-coloured, chevron-shaped marking on the dorsal surface and a narrow interorbital bar with the latter markings not in contact with each other. All males possess a broad, red mid-ventral stripe and the dorsum is also sometimes red. The pectoral and anal fins are normally hyaline, sometimes tinged with red, while the dorsal and caudal fins are red.</p><p>In females the body is slightly paler with a similar broad, pale lateral stripe to that of males, but this is often interrupted and may contain irregular brownish markings. There are two or three additional, undulating pale stripes on the body and these form an irregular reticulated pattern. The belly is whitish with a number of brownish stripes broken into a series of smaller markings and there is a darker blotch just anterior to the anal-fin origin. The fins are mostly hyaline but the dorsal contains faint stripes while the caudal is yellowish with reticulated markings and several dark bars. The eye is red in both males and females, but sometimes appears greenish-blue in the former.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
+      "html": "<p>This species has been bred in aquaria with at least one documented account.</p><p>Prior to spawning the single male individual present was observed to attack one of the two females sharing its aquarium while displaying to the other, so the former was removed.</p><p>During courtship the male displayed to the female by darkening its colours and extending its ventral ridge (see 'Notes'), and after a couple of hours the pair deposited several hundred eggs among vegetation and attached to décor. The adults were subsequently removed after the male was observed preying on the eggs.</p><p>The first fry hatched in 65 hours and were still in possession of a yolk sac but free-swimming immediately with the sac fully-absorbed by the third day at which point infusoria was introduced as a first food. After 10 days 30-40 fry were alive and feeding on rotifers, but it is unclear if any were raised beyond this point.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
+      "html": "<p>This species is uncommon in the aquarium hobby. It is included in a group often referred to as 'red-eyed puffers', which currently contains four recognised species distributed in Indochina and the Greater Sunda Islands. It can be distinguished from C. borneensis, C. lorteti, and C. salivator, the remaining members of this group, by the following combination of characters: 10-12 dorsal-fin rays; 15-16 pectoral-fin rays; 9-10 anal-fin rays; 11 caudal-fin rays; eyes bulging clearly above the head; in males dorsal-fin reddish, black spot on dorsal-fin base absent, pectoral-fin base hyaline, anal-fin reddish with faint black edge, caudal-fin reddish, throat unmarked, no bars on body; in females ventral surface with interrupted black stripes, 5-7 bars on caudal-fin.</p><p>Carinotetraodon is distinguished from other genera within the family Tetraodontidae by the presence of distinctive dorsal and ventral keels in males, plus distinct sexual dimorphism in terms of both morphology and colour pattern. Tetraodontidae is the most speciose group among Tetraodontiformes and its members mostly inhabit coastal waters in South America, Central Africa, and Southeast Asia. It is the only tetraodontiform family in which a number of members exclusively inhabit freshwater, and genetic evidence suggests that the timing of these invasions differed, occurring around 0–10 million years ago (MA) in South America, 17–38 MA in Central Africa and 48–78 MA in Southeast Asia.</p><p>Tetraodontids are commonly referred to as 'puffers' due to the ability of many species to inflate their body to an enormous size when stressed or threatened. This is achieved by drawing water into a specialised ventral diverticulum of the stomach, although air can also be used if the fish is removed from the water. As a result of these morphological adaptations puffers swim via a unique combination of pectoral and median fin undulations referred to as 'diodontiform' swimming. They are also able to produce sounds by grinding the jaw/pharyngeal teeth or vibrating the swim bladder. Puffers are secondary freshwater fishes, with the majority of members exclusively inhabiting marine environments.</p><p>Other defining characters of tetraodontids include a tough skin usually covered with small spines, a beak-like dental plate divided by a median suture, a reduced gill opening anterior to the pectoral-fin base, no pelvic fins or spinous fin rays, typically short-based dorsal and anal fins, and no ribs.</p><p>Puffer flesh is toxic and can cause clinical poisoning and human mortality, although it is regarded as a delicacy in certain countries. The predominant toxin, usually either tetrodotoxin or saxitoxin, is dependant on species, geographic area, and time of year. The toxins are not produced by the fishes themselves, but by bacteria living in symbiotic association, or they are acquired via the food chain.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
+      "html": "<ul><li>Tan, H. H. (1999). A new species of Carinotetraodon from Sumatra and Borneo and validity of C. borneensis (Teleostei: Tetraodontidae). Ichthyological Exploration of Freshwaters 10(4), 345-354</li><li>Lim, K. K. P. and M. Kottelat (1995). Carinotetraodon salivator, a new species of pufferfish from Sarawak, Malaysia (Teleostei: Tetraodontidae). Japanese Journal of Ichthyology 41(4), 359-365</li><li>Yamanoue, Y., M. Miya, H. Doi, K. Mabuchi, H. Sakai and M. Nishida (2011). Multiple Invasions into Freshwater by Pufferfishes (Teleostei: Tetraodontidae): A Mitogenomic Perspective. PLoS ONE 6(2), e17410</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Ebert, K. (2001). The puffers of fresh and brackish waters. Aqualog, Rodgau, 1-96</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/785e2f0a9d7d6943.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/785e2f0a9d7d6943-480.webp",
+      "width": 800,
+      "height": 594,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
+      "caption": "Female specimen from the German aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/494ce4634863368a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/494ce4634863368a-480.webp",
+      "width": 600,
+      "height": 367,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
+      "caption": "Adult male.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "JHBcgo5CJfw",
+      "title": "Aquarium Diary 03: Red Tailed Red Eye Puffer (Carinotetraodon irrubesco)",
+      "durationSec": 550,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "EznIrrHPcqQ",
+      "title": "red eyed puffer Carinotetraodon irrubesco",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7q7ylicwQRY",
+      "title": "Puffer (Red Eye) [Carinotetraodon Irrubesco]",
+      "durationSec": 27,
+      "lang": "tr"
+    },
+    {
+      "youtubeId": "LnK7MB7ZNIk",
+      "title": "Carinotetraodon irrubesco 🔥😊👌👌 Rosnie jak na drożdżach #aquarium #fish #fishtank #carinotetraodon",
+      "durationSec": 43,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ dòng chảy nhẹ",
+        "lọc bể cá 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "ốc nhỏ làm thức ăn cho cá nóc",
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nổi",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

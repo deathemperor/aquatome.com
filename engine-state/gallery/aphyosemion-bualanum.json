@@ -1,8 +1,18 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {
-  "https://media.aquatome.com/commons/debcef84eaa72230.webp": "a6a6731f170d25a4"
+ "hashes": {},
+ "commons": "2026-11-04",
+ "inat": {
+  "taxon": 94295,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
  },
- "commons": "2026-11-04"
+ "gbif": {
+  "key": 2348331,
+  "next": null
+ }
 }

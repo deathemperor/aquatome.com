@@ -15,6 +15,43 @@
       {
         "source": "glaser",
         "value": 30
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 35
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -26,10 +63,28 @@
       "html": "<p>The \"real\" piranha, Pygocentrus piraya, grows up to 30 cm long. It is characterized by its deep red breast and mighty jaws when fully grown. However, even juveniles display a very attractive coloration.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
+      "html": "<p>The piraya, Pygocentrus piraya, is a piranha restricted to the rio São Francisco watershed in eastern Brazil. It can be identified by bright yellow-orange pigmentation on the lower jaw, opercle and flanks in life, and larger specimens have rays in the adipose fin. It is best maintained alone because mature individuals are reported to be extremely aggressive towards one another when space is limited.</p><ul><li>Needs a very large tank</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-piraya-3/",
       "html": "<p>Pygocentrus piraya is restricted to the river system of the Sao Francisco in southern Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
+      "html": "<p>Restricted to the rio São Francisco watershed in eastern Brazil, where it has been recorded throughout the system including major tributaries such as the rios das Velhas and Grande. An introduced population inhabits the Pedra do Cavalo reservoir on the rio Paraguaçu, Bahia state.</p><p>Type locality is 'Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
+      "html": "<p>Has been recorded from major river channels, smaller tributaries, floodplain lakes, and large artificial reservoirs formed by dams.</p>"
     },
     {
       "key": "aquariumSize",
@@ -38,10 +93,46 @@
       "html": "<p>P. piraya should be kept in really big aquaria, as it becomes a large fish and must be kept in groups.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
+      "html": "<p>Standard length: 350 mm SL (35 cm).</p><p>Suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
+      "html": "<p>Some aquarists maintain this species in bare-bottomed arrangements for ease of maintenance, but standard aquarium gravel or sand are both suitable substrates. Other décor is basically down to personal taste but plants may be eaten, especially if the fish decide to spawn. Lighting is relatively unimportant and can be dim to strong as preferred.</p><p>Pygocentrus spp. typically produce a lot of waste so the use of one or more over-sized external filter is essential. If possible buy units with inbuilt heaters or at least fit a sturdy heater-guard as adults have been known to damage submerged equipment. Sump systems also work well and the heater can be housed within.</p><p>Aim to change 30-50% of the tank volume each week, and exercise extreme care when performing such maintenance or when netting the fish for any reason.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
+      "html": "<p>Pygocentrus spp. are not exclusive carnivores and are more accurately described as opportunistic generalists.</p><p>The natural diet consists not only of live fishes but also aquatic invertebrates, insects, nuts, seeds and fruits. Each jaw contains a single row of sharp, pointed, triangular teeth which are used like blades to puncture and tear but equally chop and crush.</p><p>They also attack sick or dying fishes, feed on the fins of larger species, and scavenge carcasses, but assaults on live animals entering the water are very rare and mostly relate to accidental biting or cases in which they have become trapped in small pools during dry periods, i.e., when food is scarce and the fish present in high densities.</p><p>In the aquarium juveniles can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn, and suchlike while adults will accept strips of fish flesh, whole prawns, mussels, live river shrimp, larger earthworms, etc.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration. Similarly, there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-piraya-3/",
       "html": "<p>Most piranha species belong to the genus Serrasalmus. Externally Pygocentrus and Serrasalmus are very similar, but the behaviour of the members of the two genera is completely different. All Serrasalmus are fin eaters and solitary fish whereas all three Pygocentrus species (P. caribe, P. nattereri and P. piraya) are schooling fish.</p><p>Usually no piranha will attack a human being. Nevertheless you should keep respect as the fish have razor-sharp teeth and can give really heavy bites. There is only real danger when the aquarium is too small for the fish and they cannot get out of the way or during feeding times, as by chance the piranha can take the keeper's finger for food by mistake.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
+      "html": "<p>Best-maintained alone, although adults may leave much smaller fishes alone if well-fed. An extremely large aquarium would be required in order to attempt maintenance of a group, since mature individuals are reported to be extremely aggressive towards one another when space is limited.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
+      "html": "<p>Females generally attain a larger adult size than males, and sexually mature individuals exhibit a more-rounded body shape, especially during reproductive periods.</p>"
     },
     {
       "key": "reproduction",
@@ -50,13 +141,43 @@
       "html": "<p>When they reach maturity, pairs build up small territories (places around large plants are most wanted). They dig out spawning pits by hitting away the gravel with the caudal fin and defend this against other fish. Only the male defends eggs (many thousands) and fry. The brood care ends when the young become free swimming.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
+      "html": "<p>Unrecorded, but probably employs a similar reproductive strategy to that of the congener P. nattereri whereby wild populations exhibit two annual reproductive seasons, the first during the rising of the water level at the onset of the wet season, and the second during the low water period during November and December, when there is a sudden temporary increase in water level. Flooded marginal vegetation and marginal grasses within floodplain lakes are the preferred spawning areas.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-piraya-3/",
       "html": "<p>All in all P. piraya is a gorgeous fish for show tanks where it can also show its fascinating and highly developed behaviour.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
+      "html": "<p>Pygocentrus species are famed as rapacious predators capable of rapidly stripping flesh from bone and a danger to any animal entering its native waters, although little of this infamy is based on factual evidence and there remains not a single record of wild piranhas killing a human being.</p><p>In taxonomic terms, most modern workers continue to follow the nomenclatural system proposed by Fink (1993) in which there exist three species; Pygocentrus piraya (Cuvier, 1819), P. cariba (Humboldt, 1821), and P. nattereri. While the identities of the first two remain in little doubt, Fink was unable to accurately diagnose P. nattereri, and it remains uncertain whether the species represents a single evolutionary lineage or not. P. palometa Valenciennes 1850 was described from the Río Orinoco and is still listed as valid by some sources and occasionally appears on trade lists, but it is generally regarded as a nomen dubium.</p><p>Following Fink (1993), P. piraya can be distinguished from congeners by the following combination of characters: adipose fin with rays in larger specimens (vs. always without rays in other Pygocentrus species); branched dorsal-fin rays 15-18, usually 16 (vs. 14-18, usually 15); usually 7 neural spines anterior to first pterygiophore (vs. usually 6); vertebrae 36-39, usually 38 (vs. 35-38, usually 36). It can also be identified by colour pattern since it possesses distinctive bright yellow-orange pigmentation on the lower jaw, opercle and lateral body in life.</p><p>The family Serrasalmidae contains 16 genera comprising the piranhas, pacus and relatives. Their characteristic features include a compressed body shape, long dorsal fin with 16 or more rays, and a variable number of sharp serrae formed by modified abdominal scales on the ventral surface. They are found in numerous habitat-types from lowland floodplains and flooded forests to upstream headwaters, and occur in all major South American river systems east of the Andes. Some species perform unique ecological functions such as seed dispersal, or sustain important inland fisheries and aquaculture projects.</p><p>Members display three main feeding habits: carnivory (flesh-eating), frugivory (fruit and seed-eating) and lepidophagy (eating the scales and fins of other fishes). Carnivorous species normally possess a single row of tricuspid teeth on each jaw, frugivores tend to have two series of incisor or molariform teeth on the premaxilla, one row of teeth on the dentaries and often a pair of symphyseal teeth, while in lepidophages the teeth are tuberculate and located on the outer edge of the premaxilla.</p><p>The evolutionary history of serrasalmids has been studied by various authors, with the most recent analyses (Thompson et al., 2014) supporting the existence of three major clades within the family. The \"pacu\" clade contains the genera Colossoma, Mylossoma and Piaractus, the \"true piranha\" clade includes Metynnis, Pygopristis, Pygocentrus, Pristobrycon, Catoprion, and Serrasalmus, and the Myleus clade comprises the Myleus-like pacus.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
+      "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fink, W. L. (1993). Revision of the piranha genus Pygocentrus (Teleostei, Characiformes). Copeia 1993(3), 665-687</li><li>Ortí, G., A. Sivasundar, K. Dietz, and M. Jégu (2008). Phylogeny of the Serrasalmidae (Characiformes) based on mitochondrial DNA sequences. Genetics and Molecular Biology 31(1), 343-351</li><li>Fink, W. L. and M. L. Zelditch (1997). Shape analysis and taxonomic status of Pygocentrus piranhas (Ostariophysi, Characiformes) from the Paraguay and Paraná River basins of South America. Copeia 1997(1), 179-182</li><li>Freeman, B., L. G. Nico, M. Osentoski, H. L. Jelks and T. M. Collins (2007). Molecular systematics of Serrasalmidae: Deciphering the identities of piranha species and unraveling their evolutionary histories. Zootaxa 1484, 1-38</li><li>Thompson, A. W., R. Betancur-R., H. López-Fernández and G. Ortí (2014). A time-calibrated, multi-locus phylogeny of piranhas and pacus (Characiformes: Serrasalmidae) and a comparison of species tree methods. Molecular Phylogenetics and Evolution 81, 242-257</li><li>Anderson, J. T., T, Nuttle, J. S. Saldaña Rojas, T. H. Pendergast and A. S. Flecker (2009). Extremely long-distance seed dispersal by an overfished Amazonian frugivore. Proceedings of the Royal Society of London B: Biological Sciences 278(1723), 3329-3335</li><li>Cuvier, G. (1819). Sur les poissons du sous-genre Hydrocyon, sur deux nouvelles espèces de Chalceus, sur trois nouvelles espèces du Serrasalmes, et sur l'Argentina glossodonta de Forskahl, qui est l'Albula gonorhynchus de Bloch. Mémoires du Muséum National d'Histoire Naturelle, Paris (N. S.) (Série A) Zoologie v. 5, 351-379</li><li>Hubert, N., F. Duponchelle, J. Nunez, C. Garcia-Davila, D. Paugy, and J. F. Renno (2007). Phylogeography of the piranha genera Serrasalmus and Pygocentrus: implications for the diversification of the Neotropical ichthyofauna. Molecular Ecology 16(10), 2115-2136</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/24cb241202c04155.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/24cb241202c04155-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-piraya",
+      "caption": "Adult individual from the U.S. aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "3ranicShbhI",
@@ -106,5 +227,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-06"
 }

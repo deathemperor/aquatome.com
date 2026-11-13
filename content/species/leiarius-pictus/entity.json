@@ -15,6 +15,114 @@
     "brazil",
     "guyana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE",
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Rio Orinoco",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The sailfin pim, Leiarius pictus, is a large pimelodid catfish from the Rio Orinoco basin in Colombia and Venezuela and the Amazon in Peru and Brazil.",
+          "countries": [
+            "CO",
+            "VE",
+            "PE",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Rio Orinoco basin in Colombia and Venezuela, and parts of the Amazon drainage in Peru and Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Orinoco",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338862,
+      "total": 15,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          9
+        ],
+        [
+          "PE",
+          4
+        ],
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -58,7 +166,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 4
+        "value": 6
       }
     ]
   },
@@ -154,17 +262,6 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/310f9a9d5af4027e.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/310f9a9d5af4027e-480.webp",
-      "width": 640,
-      "height": 299,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leiarius-pictus",
-      "caption": "Sailfin Pim (Leiarius pictus)",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/dfda10a42debfb86.webp",
       "thumb": "https://media.aquatome.com/scotcat/dfda10a42debfb86-480.webp",
       "width": 500,
@@ -192,8 +289,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 240cm",
-        "bể kính cá cảnh cỡ lớn"
+        "bể cá 240cm"
       ]
     },
     {

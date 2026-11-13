@@ -12,6 +12,36 @@
     "colombia",
     "brazil"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The blue tetra, Knodus borki, is a small characid from Colombia and Brazil, found in rivers, streams and tributaries.",
+          "countries": [
+            "CO",
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2353826,
+      "total": 0,
+      "fetched": "2026-11-09",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -181,7 +211,7 @@
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/",
-      "html": "<p>In 2008, while examining a newly imported species (previously referred to as Boehlkea sp. \"Sky Blue\"), Dr. Axel Zarske discovered that it was actually Boehlkea fredcochui. The fish that had been referred to as B. fredcochui for decades, on the other hand, represented a species of the genus Knodus that had not yet been scientifically recorded and was described as Knodus borki in honor of Dieter Bork.</p><p>The common name Blue Peru Tetra has remained. The animals were first imported around 1956. The location \"Leticia\" (Colombia) referred to at the time was the city from which the export took place. To this day, Leticia, located in the border triangle of Peru, Brazil, and Colombia, is one of the most important trading centers for ornamental fish in the Amazon region. Many rarities are even shipped exclusively via Leticia, even though they come from relatively distant areas, simply because Leticia has the infrastructure that makes it possible to market the animals. In fact, Knodus borki occurs in the vicinity of Iquitos.</p><p>The \"real\" Boehlkea fredcochui is very rarely found in the trade.</p>"
+      "html": "<p>In 2008, while examining a newly imported species (previously referred to as Boehlkea sp. \"Sky Blue\"), Dr. Axel Zarske discovered that it was actually Boehlkea fredcochui. The fish that had been referred to as B. fredcochui for decades, on the other hand, represented a species of the genus Knodus that had not yet been scientifically recorded and was described as Knodus borki in honor of Dieter Bork.</p><p>The \"real\" Boehlkea fredcochui is very rarely found in the trade.</p>"
     },
     {
       "key": "notes",
@@ -190,14 +220,24 @@
       "html": "<p>The colour of this species is often so intense that many who first see it for sale assume it to be artificially coloured. It is currently the only representative of the genus known.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/f46eaa2b1fada81a.webp",
+      "thumb": "https://media.aquatome.com/commons/f46eaa2b1fada81a-480.webp",
+      "width": 980,
+      "height": 437,
+      "licence": "CC BY 4.0",
+      "author": "Axel Zarske and D. Bork",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Knodus_borki_(live).png",
+      "caption": "Cá tetra xanh Knodus borki ánh xanh lam trong bể thủy sinh"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá thủy sinh 80cm"
+        "bể cá 80cm"
       ]
     },
     {

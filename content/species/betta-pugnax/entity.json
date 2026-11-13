@@ -11,6 +11,132 @@
     "penang",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "SG"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta pugnax is a paternal mouthbrooding labyrinth fish from much of Peninsular Malaysia and Singapore, described from Penang.",
+          "countries": [
+            "MY",
+            "SG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394033,
+      "total": 133,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          59
+        ],
+        [
+          "MY",
+          57
+        ],
+        [
+          "SG",
+          15
+        ],
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          5.625,
+          2,
+          0
+        ],
+        [
+          98.4375,
+          7.03125,
+          21,
+          0
+        ],
+        [
+          98.4375,
+          8.4375,
+          9,
+          0
+        ],
+        [
+          99.84375,
+          4.21875,
+          28,
+          28
+        ],
+        [
+          99.84375,
+          5.625,
+          29,
+          3
+        ],
+        [
+          101.25,
+          2.8125,
+          6,
+          6
+        ],
+        [
+          101.25,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          101.25,
+          5.625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          12,
+          12
+        ],
+        [
+          102.65625,
+          1.40625,
+          13,
+          13
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          112.5,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -54,7 +180,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -132,14 +258,29 @@
       "html": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Tan, H. H. and P. K. L. Ng (2005). The labyrinth fishes (Teleostei: Anabantoidei, Channoidei) of Sumatra, Indonesia. Raffles Bulletin of Zoology Supplement 13, 115-138</li><li>Tan, H. H. and S. H. Tan (1996). Redescription of the Malaysian fighting fish Betta pugnax (Teleostei: Belontiidae), and description of Betta pulchra, new species from Peninsular Malaysia. Raffles Bulletin of Zoology 44(2), 419-434</li><li>Cantor, T. E. (1849). Catalogue of Malayan fishes. Journal of the Asiatic Society of Bengal 18(2), i-xii + 983-1443</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/0bbdfae84bcca19b.webp",
+      "thumb": "https://media.aquatome.com/commons/0bbdfae84bcca19b-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "CheongWeei Gan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_pugnax_214309578.jpg",
+      "caption": "Cá betta pugnax ngoài tự nhiên trên nền sỏi và lá khô",
+      "large": {
+        "url": "https://media.aquatome.com/commons/0bbdfae84bcca19b-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá 80x30"
+        "bể cá 80cm"
       ]
     },
     {

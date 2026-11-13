@@ -10,6 +10,77 @@
     "india",
     "tambraparni"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Tambraparni",
+        "Western Ghats"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The 'arulius' barb, Dawkinsia tambraparniei, is a cyprinid possibly restricted to the middle Tambraparni River basin in Tamil Nadu, southern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Stream 7 miles from Kalladaikurichi, Tambraparni watershed, Tinnevelly District, Madras State, India', and this species is possibly restricted to middle parts of the Tambraparni River basin.",
+          "countries": [],
+          "regions": [
+            "Tambraparni"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Tambraparni arises in the Western Ghats mountains and flows through the state of Tamil Nadu in southern India, eventually emptying into the Gulf of Mannar.",
+          "countries": [],
+          "regions": [
+            "Western Ghats"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8350583,
+      "total": 22,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          22
+        ]
+      ],
+      "cells": [
+        [
+          75.9375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          8.4375,
+          19,
+          19
+        ],
+        [
+          80.15625,
+          22.5,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +124,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -62,7 +133,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntius-tambraparniei",
-      "html": "<p>The 'arulius' barb, Dawkinsia tambraparniei, is a cyprinid possibly restricted to the middle Tambraparni River basin in Tamil Nadu, southern India. Described as a subspecies of D. arulius, it appears in most earlier aquarium literature as Puntius arulius or 'arulius barb' and is often still traded as such, although D. arulius is quite different-looking and rarely exported. Many fish in the trade are likely to have been bred commercially.</p><ul><li>Difficulty: moderate (6 of 8), because it needs a well-established tank and stable water.</li></ul>"
+      "html": "<p>The 'arulius' barb, Dawkinsia tambraparniei, is a cyprinid possibly restricted to the middle Tambraparni River basin in Tamil Nadu, southern India. Described as a subspecies of D. arulius, it appears in most earlier aquarium literature as Puntius arulius or 'arulius barb' and is often still traded as such, although D. arulius is quite different-looking and rarely exported. Many fish in the trade are likely to have been bred commercially.</p><ul><li>Difficulty: moderate (4 of 8), because it needs a well-established tank and stable water.</li></ul>"
     },
     {
       "key": "distribution",
@@ -171,8 +242,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x45",
-        "bể cá dài 120cm"
+        "bể cá 120cm"
       ]
     },
     {

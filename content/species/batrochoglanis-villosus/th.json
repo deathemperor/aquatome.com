@@ -1,0 +1,28 @@
+{
+  "slug": "batrochoglanis-villosus",
+  "name": "Batrochoglanis villosus",
+  "altNames": [
+    "บัมเบิ้ลบีแคทฟิช",
+    "Bumblebee catfish",
+    "ปลาแมวบัมเบิ้ลบี"
+  ],
+  "sections": {
+    "distribution:planetcatfish": "<p>แอมะซอน แอมะซอนตอนบน แม่น้ำนาเนย์ (Nanay) มีภาพถ่ายจากแม่น้ำนาเนย์ใกล้เมืองอีกีโตส ประเทศเปรู</p>",
+    "distribution:scotcat": "<p>อเมริกาใต้: แม่น้ำเดเมรารา ลุ่มน้ำเอสเซกิโบ ลุ่มน้ำโอรีโนโก และลุ่มน้ำแอมะซอน แหล่งที่พบตัวอย่างต้นแบบ (type locality): Potaro Landing ประเทศบริติชเกียนา</p>",
+    "maintenance:scotcat": "<p>ควรจัดที่หลบซ่อนให้มากพอ เพื่อให้ปลาได้หลบซ่อนในเวลากลางวัน</p>",
+    "diet:scotcat": "<p>กินอาหารปลาได้ทุกประเภทโดยไม่มีปัญหา ทั้งอาหารแผ่น อาหารเม็ดแบบแผ่นจม (tablet) อาหารเม็ด อาหารสด และอาหารแช่แข็ง</p>",
+    "behaviour:scotcat": "<p>ปลาในสกุลนี้เป็นปลานักล่าในตู้ปลา จะล่าปลาที่มีขนาดเล็กกว่า เหมาะจะเลี้ยงเป็นกลุ่มเล็ก ๆ 2-3 ตัว เป็นปลาที่ชอบหลบซ่อนตัวมาก</p>",
+    "reproduction:planetcatfish": "<p>การเพาะพันธุ์: ยังไม่มีรายงาน ไม่มีรายงานการเพาะพันธุ์</p>",
+    "notes:planetcatfish": "<p>สถานะในบัญชีแดงของ IUCN: ยังไม่ได้รับการประเมิน (Not Evaluated) เคยมีปลาวัยอ่อนขนาด 3-4 ซม. (ความยาวมาตรฐาน, SL) ถูกขายในชื่อ Microglanis</p>",
+    "notes:scotcat": "<p>ที่มาของชื่อ: ชื่อชนิด villosus เป็นภาษาละติน แปลว่า มีขนหรือขนรุงรัง หมายถึงเส้นใยเล็ก ๆ คล้ายขนที่มีอยู่ทั่วทั้งตัว โดยเฉพาะบริเวณเหนือครีบอกซึ่งมีหนาแน่นเป็นพิเศษ</p><p>บัญชีแดงของ IUCN: แม้ข้อมูลเกี่ยวกับปลาชนิดนี้จะมีอยู่จำกัด แต่ได้รับการประเมินให้อยู่ในสถานะกังวลน้อยที่สุด (Least Concern) เนื่องจากมีเขตการกระจายพันธุ์กว้าง (IUCN 2022)</p>",
+    "references:scotcat": "<p>Brejão, G.L. 2022. Batrochoglanis villosus. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org (11/2019).</p><p>Shibatta, O.A., 2003. Pseudopimelodidae (Bumblebee catfishes, dwarf marbled catfishes). p. 401-405. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.7,
+      "scotcat": 0.7
+    }
+  }
+}

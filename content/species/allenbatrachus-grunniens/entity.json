@@ -24,12 +24,12 @@
       "countries": [
         "IN",
         "BD",
+        "PH",
         "MM",
         "TH",
         "MY",
         "KH",
-        "VN",
-        "PH"
+        "VN"
       ],
       "regions": [
         "Ganges"
@@ -40,20 +40,27 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Type locality is given simply as 'East Indies', and this species is currently accepted to range eastwards from the Ganges River delta in India and Bangladesh around the coastlines of Myanmar, Thailand, Malaysia, Cambodia, Vietnam, and the Philippines.",
+          "quote": "The freshwater toadfish, Allenbatrachus grunniens, is a euryhaline toadfish from the Ganges delta in India and Bangladesh east to the Philippines.",
           "countries": [
             "IN",
             "BD",
-            "MM",
-            "TH",
-            "MY",
-            "KH",
-            "VN",
             "PH"
           ],
           "regions": [
             "Ganges"
           ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given simply as 'East Indies', and this species is currently accepted to range eastwards from the Ganges River delta in India and Bangladesh around the coastlines of Myanmar, Thailand, Malaysia, Cambodia, Vietnam, and the Philippines.",
+          "countries": [
+            "MM",
+            "TH",
+            "MY",
+            "KH",
+            "VN"
+          ],
+          "regions": []
         }
       ]
     },
@@ -315,6 +322,12 @@
       ]
     }
   },
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "Although this species is euryhaline it rarely does well when maintained in freshwater for prolonged periods.",
+    "fixed": true
+  },
   "dataCard": {
     "tempC": [
       {
@@ -352,7 +365,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -361,7 +374,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/allenbatrachus-grunniens",
-      "html": "<p>The freshwater toadfish, Allenbatrachus grunniens, is a euryhaline toadfish from the Ganges delta in India and Bangladesh east to the Philippines. It is relatively common in the hobby and, contrary to popular belief, not venomous, but its dorsal and opercular spines can pierce the skin, so it needs netting with extreme caution. It rarely does well when kept in freshwater for prolonged periods.</p><ul><li>Max size: 300 mm SL (12 in SL)</li><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 7.5–9.0</li><li>Hardness: 15–25 dGH</li><li>Difficulty: 5 of 8 (moderate); needs a very large tank</li></ul>"
+      "html": "<p>The freshwater toadfish, Allenbatrachus grunniens, is a euryhaline toadfish from the Ganges delta in India and Bangladesh east to the Philippines. It is relatively common in the hobby and, contrary to popular belief, not venomous, but its dorsal and opercular spines can pierce the skin, so it needs netting with extreme caution. It rarely does well when kept in freshwater for prolonged periods.</p><ul><li>Max size: 300 mm SL (12 in SL)</li><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 7.5–9.0</li><li>Hardness: 15–25 dGH</li><li>Difficulty: 4 of 8 (moderate); needs a very large tank</li></ul>"
     },
     {
       "key": "distribution",
@@ -403,7 +416,12 @@
       "author": "5snake5",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Allenbatrachus_grunniens_-_Grunniens_S%C3%BC%C3%9Fwasser_Kr%C3%B6tenfisch.jpg",
       "caption": "Grunniens Süßwasser Krötenfisch (Allenbatrachus grunniens) im Aquarium.",
-      "thumb": "https://media.aquatome.com/commons/2f639cd464d93059-480.webp"
+      "thumb": "https://media.aquatome.com/commons/2f639cd464d93059-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/2f639cd464d93059-large.webp",
+        "width": 1371,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/17aea24cf207f2be.webp",

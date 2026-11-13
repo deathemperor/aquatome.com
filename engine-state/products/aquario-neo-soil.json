@@ -1,0 +1,290 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Origin",
+      "value": "South Korea",
+      "source": 1
+    },
+    {
+      "key": "Material",
+      "value": "Natural volcanic ash/volcanic soil",
+      "source": 0
+    },
+    {
+      "key": "Structure",
+      "value": "Two layers: brown core, black outer coat; lighter than typical soils",
+      "source": 0
+    },
+    {
+      "key": "Grain size (Compact Plants Normal)",
+      "value": "about 3 mm",
+      "source": 1
+    },
+    {
+      "key": "Effect on water",
+      "value": "Slightly lowers pH and hardness",
+      "source": 1
+    },
+    {
+      "key": "Bacteria",
+      "value": "Contains dormant beneficial bacteria plus their food; activate on contact with water",
+      "source": 0
+    },
+    {
+      "key": "Bag sizes",
+      "value": "3 L and 8 L",
+      "source": 2
+    },
+    {
+      "key": "Warranty",
+      "value": "None listed",
+      "source": 2
+    }
+  ],
+  "variants": [
+    {
+      "name": "Neo Soil Plants / Compact Plants (Normal)",
+      "specs": [
+        {
+          "key": "Sizes",
+          "value": "3 L, 8 L",
+          "source": 1
+        },
+        {
+          "key": "Grain size",
+          "value": "about 3 mm",
+          "source": 1
+        },
+        {
+          "key": "Intended use",
+          "value": "Planted tanks with CO2, adequate light and fertiliser",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Neo Soil No CO2",
+      "specs": [
+        {
+          "key": "Sizes",
+          "value": "3 L, 8 L",
+          "source": 3
+        },
+        {
+          "key": "Colour",
+          "value": "Natural black",
+          "source": 3
+        },
+        {
+          "key": "Intended use",
+          "value": "Low-tech tanks without CO2 injection, shrimp and nano tanks",
+          "source": 3
+        },
+        {
+          "key": "Recommended depth",
+          "value": "5–7 cm",
+          "source": 3
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/neo-soil-compact-plants-cua-aquario-phan-nen-dat-nen-thuy-sinh",
+      "variant": "Neo Soil Compact Plants 3 L",
+      "vnd": 300000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/neo-soil-compact-plants-cua-aquario-phan-nen-dat-nen-thuy-sinh",
+      "variant": "Neo Soil Compact Plants 8 L (with TAB 35 g and FE+ pack)",
+      "vnd": 720000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/aquario-neo-soil-no-co2-nen-thuy-sinh-cho-be-low-tech",
+      "variant": "Neo Soil No CO2 3 L",
+      "vnd": 280000,
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/aquario-neo-soil-no-co2-nen-thuy-sinh-cho-be-low-tech",
+      "variant": "Neo Soil No CO2 8 L",
+      "vnd": 580000,
+      "source": 3
+    },
+    {
+      "shop": "GreenDeal",
+      "url": "https://www.greendeal.vn/aquario-neo-soil-compact-plants-normal",
+      "variant": "Neo Soil Compact Plants Normal 3 L (out of stock)",
+      "vnd": 250000,
+      "source": 2
+    },
+    {
+      "shop": "GreenDeal",
+      "url": "https://www.greendeal.vn/aquario-neo-soil-compact-plants-normal",
+      "variant": "Neo Soil Compact Plants Normal 8 L (out of stock)",
+      "vnd": 510000,
+      "source": 2
+    },
+    {
+      "shop": "Sun Aquarium",
+      "url": "https://sunaquarium.vn/san-pham/neo-soil-plants/",
+      "variant": "Neo Soil Plants 3 L (low end of 230,000–500,000₫ range; per-size prices not shown)",
+      "vnd": 230000,
+      "source": 0
+    },
+    {
+      "shop": "Sun Aquarium",
+      "url": "https://sunaquarium.vn/san-pham/neo-soil-plants/",
+      "variant": "Neo Soil Plants 8 L (high end of 230,000–500,000₫ range; per-size prices not shown)",
+      "vnd": 500000,
+      "source": 0
+    }
+  ],
+  "fits": [
+    {
+      "fact": "The Plants version is meant for planted tanks and expects CO2 (Neo CO2 or a pressurised system), good light and fertiliser",
+      "source": 0
+    },
+    {
+      "fact": "Sellers say it is safe for fish and invertebrates",
+      "source": 2
+    },
+    {
+      "fact": "One seller rates it well for shrimp keeping and says it helps hold pH down in layouts that use pH-raising rocks",
+      "source": 1
+    },
+    {
+      "fact": "The No CO2 version is aimed at low-tech, shrimp and nano tanks",
+      "source": 3
+    },
+    {
+      "fact": "One seller lists it for foreground to background plants such as Anubias nana, Java fern, Cryptocoryne and dwarf baby tears",
+      "source": 4
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Use it straight from the bag without rinsing",
+      "source": 1
+    },
+    {
+      "fact": "Put kitchen paper over the soil and fill slowly to limit clouding; the filter clears any remaining haze",
+      "source": 1
+    },
+    {
+      "fact": "Planting is easier while the soil is damp, before the tank is fully filled",
+      "source": 1
+    },
+    {
+      "fact": "Change one third of the water every 3 days after setup, then one third weekly",
+      "source": 0
+    },
+    {
+      "fact": "For the No CO2 version: lay it 5–7 cm deep, change water often in the first 1–2 weeks, and avoid disturbing the substrate afterwards",
+      "source": 3
+    },
+    {
+      "fact": "After 5–6 months, add root tabs/base fertiliser or liquid fertiliser to extend the soil's life",
+      "source": 1
+    },
+    {
+      "fact": "Store unused soil dry and out of direct sun",
+      "source": 3
+    }
+  ],
+  "issues": [
+    {
+      "fact": "May contain small impurities such as bits of wood",
+      "source": 1
+    },
+    {
+      "fact": "Coloured bacteria may show up in the bag; the distributor says this is normal",
+      "source": 0
+    },
+    {
+      "fact": "Mixing it with another brand's soil raises the algae risk and calls for more water changes; one seller says not to mix at all",
+      "source": 0
+    },
+    {
+      "fact": "Sellers contradict each other on fertiliser: one page says nothing extra is needed but also tells you to add suitable fertiliser",
+      "source": 0
+    },
+    {
+      "fact": "The versions differ: Compact/Plants Normal is for CO2-injected tanks, while No CO2 is made for low-tech setups",
+      "source": 3
+    },
+    {
+      "fact": "Sellers make claims (pH 6.5–7.5, NPK and trace content) that the manufacturer has not been shown to confirm",
+      "source": 4
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "ADA",
+      "model": "Aqua Soil Amazonia Ver.2",
+      "why": "The benchmark premium soil that lowers pH and KH. It costs much more and is more prone to turning muddy",
+      "source": 6
+    },
+    {
+      "brand": "Ultum Nature Systems",
+      "model": "Controsoil",
+      "why": "Japanese soil made from volcanic ash in several grain sizes, including Extra Fine for nano tanks. One forum user said it was the only soil that gave them no ammonia spike",
+      "source": 7
+    },
+    {
+      "brand": "Aquario",
+      "model": "Neo Soil No CO2",
+      "why": "A cheaper sibling in the same range (280,000₫ for 3 L) that suits low-tech tanks without CO2",
+      "source": 3
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://sunaquarium.vn/san-pham/neo-soil-plants/",
+      "title": "Neo Soil Plants (Đất nền Neo cho cây) - Sun Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/neo-soil-compact-plants-cua-aquario-phan-nen-dat-nen-thuy-sinh",
+      "title": "NEO SOIL COMPACT PLANTS của AQUARIO - Thủy Sinh Bích Phương",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.greendeal.vn/aquario-neo-soil-compact-plants-normal",
+      "title": "AQUARIO - Neo Soil Compact Plants (Normal) - GreenDeal",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/aquario-neo-soil-no-co2-nen-thuy-sinh-cho-be-low-tech",
+      "title": "Phân nền Aquario Neo Soil No CO2 - Thủy Sinh Bích Phương",
+      "kind": "shop"
+    },
+    {
+      "url": "https://yeuthuysinh.vn/neo-soil-compact-plants-aquario-phan-nen-dat-nen",
+      "title": "NEO SOIL COMPACT PLANTS AQUARIO - Yêu Thủy Sinh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://buceplant.com/products/aquario-neo-soil",
+      "title": "Aquario Neo Soil - Buce Plant",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquasabi.com/ADA-Aqua-Soil-Amazonia-Ver2",
+      "title": "ADA Aqua Soil Amazonia Ver.2 - Aquasabi",
+      "kind": "shop"
+    },
+    {
+      "url": "https://forum.aquariumcoop.com/topic/31576-neo-aquarium-soil-experiences-and-your-recommendations/",
+      "title": "Neo aquarium soil experiences and your recommendations - Aquarium Co-Op forum",
+      "kind": "forum"
+    }
+  ]
+}

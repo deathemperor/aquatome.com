@@ -1,0 +1,210 @@
+{
+  "id": "nanochromis-transvestitus",
+  "scientificName": "Nanochromis transvestitus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Nanochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "lake-mai-ndombe"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Lake Mai-Ndombe"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It is known only from Lake Mai-Ndombe in Democratic Republic of Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Lake Mai-Ndombe"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372696,
+      "total": 10,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CD",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          16.875,
+          -2.8125,
+          9,
+          9
+        ],
+        [
+          18.28125,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-transvestitus",
+      "html": "<p>Nanochromis transvestitus is a dwarf cichlid known only from Lake Mai-Ndombe, a blackwater lake in the Democratic Republic of Congo. The name refers to the female being the more colourful fish, with a red flush to the belly. It lives in rocky areas of the lake, needs very soft, acidic water, will not usually spawn much above pH 6.0 and is not recommended for beginners.</p><ul><li>Temperament: peaceful; best kept in a pair</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-transvestitus",
+      "html": "<p>It is known only from Lake Mai-Ndombe in Democratic Republic of Congo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-transvestitus",
+      "html": "<p>Lake Mai-Ndombe is a black water lake, meaning its water is stained with tannins released from decaying organic matter. The fish are usually found in rocky areas of the lake, which has a sandy floor.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-transvestitus",
+      "html": "<p>A tank of 60 cm x 30 cm x 30 cm (55 litres) should be the minimum considered for a single pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-transvestitus",
+      "html": "<p>The tank should contain plenty of hiding places for this shy species. Clay pot caves, rocks, roots and pieces of driftwood can all be used to provide these. Plants are not essential but it will appreciate the additional cover. A sandy substrate is recommended as it likes to dig. Filtering through peat is also useful in recreating the tannin-stained waters of its natural habitat.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-transvestitus",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 4.0–7.0</li><li>Hardness: 0–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-transvestitus",
+      "html": "<p>It will accept most foods offered but live and frozen varieties should form the bulk of the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-transvestitus",
+      "html": "<p>Relatively peaceful with other species that can cope with the soft and acidic water conditions it requires. Good tankmates include smaller Alestiid tetras such as Ladigesia roloffi, some South American tetras and other dwarf cichlids such as Pelvicachromis species. It is best kept in pairs as it can be quite aggressive towards conspecifics. A large tank is required for more than one pair. If you want to try this allow a territory of at least 60 x 30 cm floorspace per pair.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-transvestitus",
+      "html": "<p>Females are more colourful than males, having a red flush to the belly and more intense colouration overall. Adult males usually develop small extensions to the dorsal and anal fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-transvestitus",
+      "html": "<p>Not easy as the species will not usually spawn in water with a pH value of much above 6.0. It's a bi-parental cave spawner. A single pair can be bred in a 45 cm tank, with significantly larger quarters being required for multiple pairs. The tank should be set up as suggested above with very soft and acidic water of pH 5.0-6.5 and a temperature of 25–27°C. Gentle filtration via an air-powered sponge filter is adequate. Rocks and driftwood should be provided as the fish will normally excavate their spawning site from under one of these. They will also provide hiding places for the female if she is not ready to spawn.</p><p>The male can be very aggressive in his pursuits, although pairing is actually initiated by the female. This is the tricky part. In an enclosed space such as a fish tank the female is essentially trapped within the male's territory. In nature she would simply swim away from the sex-obsessed male and return when she is good and ready. This is obviously impossible in the confines of aquariums. A balance must be found whereby the female can come into condition whilst being able to avoid the incessant attention of the male. This is why as many hiding places as possible must be crammed into the tank. The use of target fish in the form of other small cichlids may also help but even then success is not guaranteed.</p><p>At any rate the pair should be conditioned on a varied diet of live and frozen foods. When in spawning condition, the pair will take on more intense coloration and the female will begin to display at the male, contorting her body into an 's' shape and exposing her by now bright red belly. Much gill flaring and mouthing will ensue. The pair will then excavate a cave underneath a rock or piece of driftwood, where spawning occurs. The male will defend the spawning site while the female tends to the eggs. Some role swapping may occur here.</p><p>The eggs will hatch in 2-3 days and become free swimming at around 7 days. The fry are quite big and can be fed microworm and/or brine shrimp nauplii from the moment they are free swimming. It is essential that they are kept in very soft and acidic water in the early stages of life. Swings in pH and dH will often result in substantial losses. As they grow they can slowly be acclimatised to more standard conditions. Brood care by the parents usually continues for about a month, after which they may spawn again. Predation of the fry by the parents is very rare.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nanochromis-transvestitus",
+      "html": "<p>N. transvestitus is a truly stunning fish when in good condition. However, it is not recommended to the beginner due to its very specific water requirements. The scientific name is derived from the fact that the female is the more colourful fish, making it something of an oddity.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sponge khí",
+        "máy sục khí mini"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100w",
+        "sưởi có chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "than bùn lọc nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

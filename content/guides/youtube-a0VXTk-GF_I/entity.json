@@ -6,9 +6,11 @@
   "html": "",
   "photos": [],
   "mentions": [
-    "microsorum-pteropus"
+    "microsorum-pteropus",
+    "osteoglossum-bicirrhosum",
+    "piaractus-brachypomus"
   ],
-  "updatedAt": "2026-11-04",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "a0VXTk-GF_I",
     "title": "HOW TO: All natural DIY aquarium decorations",
@@ -28,135 +30,91 @@
     },
     "transcribed": true,
     "taxa": [
-      "Taxothrix sp.",
+      "Taxithelium barbieri",
       "Anubias sp.",
-      "Osteoglossum sp.",
+      "Osteoglossum bicirrhosum",
+      "Piaractus brachypomus",
       "Microsorum pteropus"
     ],
     "gear": [],
     "figures": [
       {
-        "heading": "Vì sao chọn lũa buộc cây cho bể cá lớn",
-        "moments": [
-          {
-            "t": 25,
-            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/t25.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Khúc lũa, rêu java và cây ráy được chuẩn bị sẵn để buộc."
-          },
-          {
-            "t": 94,
-            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/t94.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cây ráy bám trên lũa trong bể lớn, có đàn cá bơi quanh."
-          }
-        ]
-      },
-      {
-        "heading": "Chọn lũa và cây thế nào",
-        "moments": [
-          {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/t45.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Rêu java đã được gắn kín một mặt khúc lũa nhỏ."
-          },
-          {
-            "t": 72,
-            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/t72.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cây ráy lá to gắn trên khúc lũa."
-          }
-        ]
+        "heading": "Chọn lũa và cây gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/a0VXTk-GF_I/p0-mdHdvb2RfMi5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/a0VXTk-GF_I/p0-mdHdvb2RfMi5qcGc-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY 4.0",
+          "author": "Evan Baldonado",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_Catfish_(Otocinclus_sp.)_on_Malaysian_driftwood_2.jpg",
+          "caption": "Cá nhỏ nằm trên khúc lũa, bên cạnh rêu java xanh mướt."
+        }
       },
       {
         "heading": "Buộc rêu java lên lũa",
-        "moments": [
-          {
-            "t": 43,
-            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/t43.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Rêu java được trải thành lớp mỏng đều trên mặt lũa."
-          },
-          {
-            "t": 51,
-            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/t51.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tay giữ lớp rêu java trên lũa, chuẩn bị quấn chỉ ép rêu."
-          }
-        ]
-      },
-      {
-        "heading": "Gắn ráy lên lũa",
-        "moments": [
-          {
-            "t": 57,
-            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/t57.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bôi keo gel lên thân rễ của cây ráy trước khi dán vào lũa."
-          },
-          {
-            "t": 71,
-            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/t71.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ráy đã gắn lên lũa, thân rễ và rễ để lộ ra ngoài."
-          }
-        ]
-      },
-      {
-        "heading": "Thả thử với cá lớn: kết quả thực tế",
-        "moments": [
-          {
-            "t": 88,
-            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/t88.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá rồng bơi ngang qua cụm ráy trong bể, không đụng tới."
-          },
-          {
-            "t": 92,
-            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/t92.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đàn cá đô la móc đỏ bơi quanh cụm ráy vừa thả vào bể."
-          }
-        ]
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 29,
-            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/t29.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Khúc lũa nhỏ chuẩn bị sẵn để gắn rêu java."
-          },
-          {
-            "t": 39,
-            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/t39.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Rêu java được buộc cố định lên khúc lũa nhỏ."
-          }
-        ],
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/a0VXTk-GF_I/p6-phdmFtb29zLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/a0VXTk-GF_I/p6-phdmFtb29zLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/a0VXTk-GF_I/p1-phdmFtb29zLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/a0VXTk-GF_I/p1-phdmFtb29zLmpwZw-480.webp",
           "width": 960,
           "height": 1124,
           "licence": "CC BY-SA 3.0",
           "author": "Wikimedia Commons",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Javamoos.jpg",
-          "caption": "Cận cảnh bụi rêu java xanh mướt, sẵn sàng để buộc lên lũa."
+          "caption": "Cận cảnh rêu java xanh mướt với những nhánh mảnh xòe ra."
+        }
+      },
+      {
+        "heading": "Gắn ráy lên lũa",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/a0VXTk-GF_I/p2-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/a0VXTk-GF_I/p2-NfUGxhbnRzLmpwZw-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Cây ráy xanh tốt bám trên khúc lũa trong bể thủy sinh."
+        }
+      },
+      {
+        "heading": "Thử với cá lớn: kết quả ra sao",
+        "moments": [
+          {
+            "t": 96,
+            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/at96-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá đô la móc đỏ bơi quanh khúc lũa có cây trong bể.",
+            "sharpness": 570.5,
+            "person": false
+          },
+          {
+            "t": 100,
+            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/at100-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá rồng bơi ngang qua khúc lũa gắn cây mà không đụng tới.",
+            "sharpness": 496.7,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Lũa gắn cây mang lại gì cho bể",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/a0VXTk-GF_I/p4-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/a0VXTk-GF_I/p4-NfUGxhbnRzLmpwZw-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Cây lá xanh gắn trên khúc lũa trong bể nền cát trắng."
         }
       }
     ]

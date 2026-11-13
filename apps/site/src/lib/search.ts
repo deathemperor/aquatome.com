@@ -8,7 +8,8 @@ import { slugify } from '@aq/schema/slug'
  * is searched (ranked like the title, see the search page) but never shown in a result's excerpt.
  */
 export const searchAliases = (t: Pick<Translation, 'name' | 'altNames' | 'redirectFrom'>, scientificName?: string, synonyms: string[] = []) => {
-  const names = [t.name, ...t.altNames, ...(t.redirectFrom ?? []).map(r => r.name)]
+  // A renamed page may keep its old name as another name too ("Cá đĩa nâu"): each name once.
+  const names = [...new Set([t.name, ...t.altNames, ...(t.redirectFrom ?? []).map(r => r.name).filter(Boolean)])]
   const former = synonyms.filter(s => !names.some(n => n.toLowerCase() === s.toLowerCase()))
   return [...(scientificName ? [scientificName] : []), ...former, ...names.slice(1), ...names.filter(n => /đ/i.test(n)).map(n => slugify(n).replaceAll('-', ' '))].join(', ')
 }

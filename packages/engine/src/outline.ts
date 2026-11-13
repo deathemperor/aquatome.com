@@ -37,9 +37,13 @@ function walk(node: Node, out: string[]): void {
 }
 
 /** `product`: the image sits in a shop product card (class or id naming "product"), e.g. Aquarium Co-Op's product tiles in its articles. */
-/** `page`: the photo's own page, when it has one; `author`: the photographer, when the source names one per photo. */
+/**
+ * `page`: the photo's own page, when it has one; `author`: the photographer, when the source names one per photo; `credit`:
+ * the credit line its source prints under it in its figure (Seriously Fish: a photographer, or a picture agency).
+ */
 /** `heading`: the heading it sits under (the last one before it), so a guide puts it in the same section. */
-export type PageImage = { src: string; alt: string; width?: number; height?: number; product?: true; page?: string; author?: string; heading?: string }
+/** `link`: where the link around it goes, if one does (source-photos.ts: a link to another article makes it that article's card). */
+export type PageImage = { src: string; alt: string; width?: number; height?: number; displayWidth?: number; displayHeight?: number; product?: true; page?: string; author?: string; credit?: string; heading?: string; link?: string }
 
 const PRODUCT_BOX = /product/i
 const inProduct = (i: HTMLElement) => {
@@ -47,15 +51,30 @@ const inProduct = (i: HTMLElement) => {
   return false
 }
 
-/** Largest candidate: srcset entry with the biggest `w`, else the plain src with its width/height attributes. */
+const linkOf = (i: HTMLElement) => {
+  for (let n = i.parentNode as HTMLElement | null; n && n.tagName; n = n.parentNode as HTMLElement | null) if (n.rawTagName?.toLowerCase() === 'a') return n.getAttribute('href')
+  return undefined
+}
+
+/** The credit line in the caption of the figure an image sits in (Seriously Fish: `<figcaption>…<span class="…credit…">`). */
+const creditOf = (i: HTMLElement) => {
+  for (let n = i.parentNode as HTMLElement | null; n && n.tagName; n = n.parentNode as HTMLElement | null) {
+    if (n.rawTagName?.toLowerCase() !== 'figure') continue
+    const line = n.querySelector('figcaption [class*="credit"]')
+    return (line && clean(inline(line))) || undefined
+  }
+  return undefined
+}
+
+/** A srcset `w` is a file width; width/height attributes only describe the page layout. */
 function pageImage(i: HTMLElement): PageImage | null {
   const src = i.getAttribute('src') ?? i.getAttribute('data-src')
   const w = Number(i.getAttribute('width')) || undefined
   const h = Number(i.getAttribute('height')) || undefined
   const set = (i.getAttribute('srcset') ?? i.getAttribute('data-srcset') ?? '').split(',').map(c => c.trim().split(/\s+/)).flatMap(([u, d]) => (u && d?.endsWith('w') ? [{ u, w: Number.parseInt(d) }] : [])).sort((a, b) => b.w - a.w)[0]
   const alt = clean(i.getAttribute('alt') ?? '')
-  if (set && (!w || set.w > w)) return { src: set.u, alt, width: set.w, ...(w && h ? { height: Math.round((h * set.w) / w) } : {}) }
-  return src ? { src, alt, ...(w ? { width: w } : {}), ...(h ? { height: h } : {}) } : null
+  if (set && (!w || set.w > w)) return { src: set.u, alt, width: set.w, ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) }
+  return src ? { src, alt, ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) } : null
 }
 
 /** The heading each image sits under: the last h1–h4 before it in the page. */
@@ -89,7 +108,9 @@ export function htmlToOutline(html: string, contentSelector?: string): { title: 
   const images = scope.querySelectorAll('img').flatMap(i => {
     const p = pageImage(i)
     const heading = under.get(i)
-    return p ? [{ ...p, ...(inProduct(i) ? { product: true as const } : {}), ...(heading ? { heading } : {}) }] : []
+    const link = linkOf(i)
+    const credit = creditOf(i)
+    return p ? [{ ...p, ...(inProduct(i) ? { product: true as const } : {}), ...(heading ? { heading } : {}), ...(link ? { link } : {}), ...(credit ? { credit } : {}) }] : []
   })
   const out: string[] = []
   walk(scope, out)

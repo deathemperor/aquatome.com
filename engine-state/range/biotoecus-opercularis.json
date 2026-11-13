@@ -1,0 +1,116 @@
+{
+  "id": "biotoecus-opercularis",
+  "native": {
+    "input": "53361d655c683873",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Biotoecus opercularis is a small geophagine cichlid from the middle Amazon basin in Brazil, including the lower Madeira, Tapajós and Negro.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Available size: 3–4 cm. Origin: Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "It's since recorded throughout much of the region including the lower rios Madeira, Tapajós, Trombetas and middle-to-lower Negro.",
+        "ok": true
+      },
+      {
+        "name": "Tapajós",
+        "source": "seriouslyfish",
+        "quote": "It's since recorded throughout much of the region including the lower rios Madeira, Tapajós, Trombetas and middle-to-lower Negro.",
+        "ok": true
+      },
+      {
+        "name": "Trombetas",
+        "source": "seriouslyfish",
+        "quote": "It's since recorded throughout much of the region including the lower rios Madeira, Tapajós, Trombetas and middle-to-lower Negro.",
+        "ok": true
+      },
+      {
+        "name": "Negro",
+        "source": "seriouslyfish",
+        "quote": "It's since recorded throughout much of the region including the lower rios Madeira, Tapajós, Trombetas and middle-to-lower Negro.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Biotoecus opercularis is a small geophagine cichlid from the middle Amazon basin in Brazil, including the lower Madeira, Tapajós and Negro.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Biotoecus opercularis",
+    "status": "ACCEPTED",
+    "taxonKey": 2370394,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        102
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        32
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        14
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        11
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

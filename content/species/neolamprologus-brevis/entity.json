@@ -13,6 +13,92 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371771,
+      "total": 95,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ZM",
+          45
+        ],
+        [
+          "TZ",
+          21
+        ],
+        [
+          "CD",
+          15
+        ],
+        [
+          "BI",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          4
+        ],
+        [
+          28.125,
+          -4.21875,
+          21
+        ],
+        [
+          29.53125,
+          -9.84375,
+          16
+        ],
+        [
+          29.53125,
+          -8.4375,
+          9
+        ],
+        [
+          29.53125,
+          -7.03125,
+          5
+        ],
+        [
+          29.53125,
+          -5.625,
+          8
+        ],
+        [
+          30.9375,
+          -9.84375,
+          28
+        ],
+        [
+          30.9375,
+          -8.4375,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -60,7 +146,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 4
+        "value": 2
       }
     ]
   },
@@ -186,19 +272,7 @@
       "html": "<p>There is disagreement about the genus of Lamprologus brevis. Some scientists assign only the species of the lower Congo to the genus Lamprologus and put all species of Lake Tanganyika in Neolamprologus (and other genera), others think this is nonsense and leave especially the snail cichlids (there are several species) in Lamprologus. Lamprologus brevis can also be found under the name Neolamprologus brevis. Both are the same species.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/2e79536786d5dbc3.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/2e79536786d5dbc3-480.webp",
-      "width": 728,
-      "height": 369,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-brevis",
-      "caption": "Neolamprologus brevis",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "KSmjAAZK-4I",
@@ -235,10 +309,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá mini 40 lít",
-        "bể cá 60cm",
-        "bể cá cichlid"
+        "bể cá 50cm"
       ]
     },
     {

@@ -1,0 +1,108 @@
+{
+  "id": "cynotilapia-pulpican",
+  "scientificName": "Cynotilapia pulpican",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Cynotilapia",
+  "group": "cichlids",
+  "places": [],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Cynotilapia pulpican can be kept in aquaria like any other Mbuna (Mbuna is the name for all the rock dwelling cichlids from Lake Malawi).",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372861,
+      "total": 16,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "MW",
+          16
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -12.65625,
+          16
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/cynotilapia_pulpican_en/",
+      "html": "<p>Cynotilapia pulpican can be kept in aquaria like any other Mbuna (Mbuna is the name for all the rock dwelling cichlids from Lake Malawi). Common names: Pseudotropheus \"Kingsizei\", Likoma Blue Frost.</p><p>Cynotilapia pulpican become 6-8 cm long in the wild, but, like all Mbuna, they grow bigger in the aquarium. Even old males will not grow larger than 10 cm, and females always stay smaller. So C. pulpican is one of the smallest species of Mbuna known so far.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/cynotilapia_pulpican_en/",
+      "html": "<p>At first glimpse Cynotilapia look very much like the Malawi Zebras of the genus Maylandia. In contrast to the zebras, in Cynotilapia the teeth are unicuspid (with two cusps in zebras). This difference matters: the zebras feed on Aufwuchs (e.g. the algae film on rocks with all the microorganisms it contains), whereas Cynotilapia feed on plankton (mainly small crustaceans), which is picked out of the water column. So the zebras and Cynotilapia differ very much in their natural way of feeding.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/cynotilapia_pulpican_en/",
+      "html": "<p>It is best to keep them in larger groups of 10 or more specimens. The sex composition of the group matters little. Those who want to breed will prefer one male to a greater number of females, while those who simply want to watch the fish do best to keep more males than females. In the latter case there will always be one or two dominant males in the tank that display their breathtaking colours.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/cynotilapia_pulpican_en/",
+      "html": "<p>Lexicon: Cynotilapia means \"dog-Tilapia\"; this refers to the unicuspid \"canine\" teeth. Tilapia is another genus of cichlid.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá malawi"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cichlid",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá rô phi malawi",
+        "thức ăn cichlid mbuna"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

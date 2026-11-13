@@ -1,0 +1,67 @@
+{
+  "id": "garra-rakhinica",
+  "native": {
+    "input": "ae7be4f97c0935fa",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is known only from its type locality, a minor stream draining in to the Bay of Bengal from the western slope of the Rakhine Yoma mountain range in western Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rakhine Yoma",
+        "source": "seriouslyfish",
+        "quote": "This species is known only from its type locality, a minor stream draining in to the Bay of Bengal from the western slope of the Rakhine Yoma mountain range in western Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Thade River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Taunggok, Thade River drainage, Yan Khaw Chaung, about 4 kilometers on logging road from Gwetauk village, 23 kilometers on road Taunggok-Pyay, 18°47'48\"N, 94°21'46\"E, Rakhine State, Myanmar'.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra rakhinica",
+    "status": "ACCEPTED",
+    "taxonKey": 2366929,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T10:57:49.558Z"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "id": "crenicichla-marmorata",
+  "scientificName": "Crenicichla marmorata",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Crenicichla",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "lago-maracana"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2370986,
+      "total": 30,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BR",
+          30
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          -1.40625,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          5
+        ],
+        [
+          -61.875,
+          -8.4375,
+          2
+        ],
+        [
+          -61.875,
+          -5.625,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          1
+        ],
+        [
+          -59.0625,
+          -7.03125,
+          1
+        ],
+        [
+          -59.0625,
+          -5.625,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          1
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          1
+        ],
+        [
+          -56.25,
+          -7.03125,
+          2
+        ],
+        [
+          -56.25,
+          -2.8125,
+          2
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          2
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          3
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          1
+        ],
+        [
+          -52.03125,
+          0,
+          1
+        ],
+        [
+          -46.40625,
+          -9.84375,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_marmorata_lago_maracana_en/",
+      "html": "<p>Lago Maracana is famous among aquarists for its beautiful discus. Crenicichla marmorata from that lake were received for the first time ever.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_marmorata_lago_maracana_en/",
+      "html": "<p>Two specimens were received, currently 20-25 cm long.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

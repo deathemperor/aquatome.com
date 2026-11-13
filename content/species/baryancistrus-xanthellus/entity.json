@@ -5,12 +5,132 @@
   "family": "Loricariidae",
   "genus": "Baryancistrus",
   "group": "catfish",
-  "lNumber": "L018",
+  "lNumber": "L18",
   "places": [
     "south-america",
     "brazil",
     "xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Xingu",
+        "Iriri River"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the rio Xingu basin where it inhabits a section of the river's main channel known as 'Volta Grande do rio Xingu' which lies between Belo Monte falls and the mouth of the rio Iriri in Pará state, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Xingu"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "L177 is collected in a tributary of the Xingu, the Iriri River.",
+          "countries": [],
+          "regions": [
+            "Iriri River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6167964,
+      "total": 160,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          160
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          8,
+          8
+        ],
+        [
+          -54.84375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -5.625,
+          41,
+          41
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          12,
+          12
+        ],
+        [
+          -53.4375,
+          -5.625,
+          32,
+          32
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          18,
+          18
+        ],
+        [
+          -52.03125,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          39,
+          39
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -65,7 +185,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       },
       {
         "source": "glaser",
@@ -246,9 +366,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá lớn nuôi cá lau kính",
-        "bể cá 120x45"
+        "bể cá 120cm"
       ]
     },
     {

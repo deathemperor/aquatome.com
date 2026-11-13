@@ -10,9 +10,12 @@ import { HERO } from '../lib/hero'
 import { creditsFor } from '../lib/credits'
 import { smallSrc } from '../lib/img'
 import { homeVideos } from '../lib/video'
-import { completeFirst, easyPlants, featuredSpecies, groupTiles, leadGuides, nativeSpecies, STEP_GUIDES } from '../lib/home'
+import { easyPlants, featuredSpecies, groupTiles, leadGuides, nativeCards, nativeSpecies, STEP_GUIDES } from '../lib/home'
 import { i18n } from '../lib/i18n'
 import { pagePictures, photosOf, takeEach } from '../lib/pictures'
+import { toolCards } from '../lib/tools'
+import { categoryRank, fmt } from '../lib/format'
+import { categoriesIn, shownTypes } from '../lib/equipment'
 
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
@@ -21,7 +24,7 @@ const cycle = guideById(STEP_GUIDES.cycle)
 const water = guideById(STEP_GUIDES.water)
 // Three first steps; a step whose guide isn't published links nowhere and is dropped.
 const steps = [
-  cycle && { n: 1, title: t('Chạy chu trình nitơ'), text: t('Nuôi vi sinh trong bể vài tuần trước khi thả cá, để chất thải của cá không thành chất độc.'), href: `/vi/huong-dan/${cycle.t.slug}/` },
+  cycle && { n: 1, title: t('Chạy chu trình nitơ'), text: t('Nuôi vi sinh trước khi thả cá, đến khi đo amoniac và nitrit đều về 0. Thường mất vài tuần.'), href: `/vi/huong-dan/${cycle.t.slug}/` },
   { n: 2, title: t('Chọn cá hợp bể'), text: t('Nhập bể của bạn ở trên, hoặc bắt đầu từ những loài dễ nuôi.'), href: '/vi/ca/?difficultyMax=3' },
   water && { n: 3, title: t('Thay nước định kỳ'), text: t('Thay bao nhiêu, bao lâu một lần, và cách làm để cá không bị sốc.'), href: `/vi/huong-dan/${water.t.slug}/` },
 ].filter(x => !!x).map((x, i) => ({ ...x, n: i + 1 }))
@@ -29,10 +32,14 @@ const guides = leadGuides(c).filter(g => g !== cycle && g !== water).slice(0, 4)
 const videos = homeVideos(c)
 const featured = featuredSpecies(lang, c)
 const plants = easyPlants(c)
-const equipment = c.equipment
+// The buying guides with a page in this language: one whose kind of gear no fish or guide here uses yet has none.
+const paged = new Set(categoriesIn(lang, c).map(u => u.category))
+const equipment = c.equipment.filter(e => paged.has(e.category)).sort((a, b) => categoryRank(a.category) - categoryRank(b.category))
+// The tools a keeper comes back for; the rest are a tap away on the tools page.
+const tools = toolCards(t).filter(x => ['/vi/cong-cu/nuoi-chung/', '/vi/cong-cu/the-tich-be/', '#phan-bon', '/vi/cong-cu/den-chihiros/'].includes(x.href)).map(x => ({ ...x, href: x.href.startsWith('#') ? `/vi/cong-cu/${x.href}` : x.href }))
 const native = nativeSpecies(lang, c)
-// The country's own fish, besides those already featured above; full data cards first, like the featured ones.
-const nativeShown = completeFirst(native.species.filter(s => !featured.includes(s))).slice(0, 4)
+// The country's own fish, besides those already featured above.
+const nativeShown = nativeCards(lang, c, featured)
 // Every picture once, chosen in page order (lib/pictures.ts): a group's tile takes its next fish's photo when the
 // cards above show its best one.
 const pics = pagePictures(c)
@@ -45,7 +52,7 @@ const videoPhotos = takeEach(pics, videos, g => guideImages(c, g))
 const plantPhotos = takeEach(pics, plants, p => photosOf(p.photos))
 const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...groups.map(g => g.photo), ...guidePhotos, ...videoPhotos, ...plantPhotos].map(p => p ?? undefined))]
 ---
-<Base title={t('AquaTome — Cẩm nang cá cảnh & thủy sinh')} description={t('Nhập kích thước, nhiệt độ và pH bể của bạn để xem loài cá nào hợp; hồ sơ loài, cây thủy sinh và hướng dẫn nuôi bằng tiếng Việt.')} credits={credits}>
+<Base title={t('AquaTome — Cẩm nang cá cảnh & thủy sinh')} description={t('Nhập kích thước, nhiệt độ và pH bể của bạn để xem loài cá nào hợp. Có hồ sơ loài, cây thủy sinh và hướng dẫn nuôi bằng tiếng Việt.')} credits={credits}>
   <link slot="head" rel="preload" as="image" href={HERO.url} imagesrcset={`${HERO.url} 960w, ${HERO.large} 1600w`} imagesizes="(min-width: 900px) 40vw, 100vw" fetchpriority="high" />
   <Nav slot="header" />
 
@@ -75,13 +82,25 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
     <section class="wrap block" aria-labelledby="steps-h">
       <h2 id="steps-h" class="h">{t('Bể đầu tiên: ba việc cần làm')}</h2>
       <ol class="steps">
-        {steps.map(s => <li><a href={s.href}><span class="n">{s.n}</span><b>{s.title}</b><span class="t">{s.text}</span></a></li>)}
+        {steps.map(s => <li><a href={s.href}><span class="n">{s.n}</span><b>{s.title} <span class="go" aria-hidden="true">→</span></b><span class="t">{s.text}</span></a></li>)}
       </ol>
     </section>
   )}
 
+  <section class="wrap block" aria-labelledby="tools-h">
+    <div class="head"><h2 id="tools-h" class="h">{t('Công cụ')}</h2><a href="/vi/cong-cu/">{t('Tất cả công cụ →')}</a></div>
+    <ul class="tools">
+      {tools.map(x => (
+        <li><a href={x.href}>
+          <svg class="ico" viewBox="0 0 48 48" aria-hidden="true" set:html={x.icon} />
+          <span class="tx"><b>{x.name}</b><span>{x.what}</span></span>
+        </a></li>
+      ))}
+    </ul>
+  </section>
+
   <section class="wrap block" aria-labelledby="featured-h">
-    <div class="head"><h2 id="featured-h" class="h">{t('Loài quen thuộc')}</h2><a href="/vi/ca/">{t('Tất cả {n} loài →', { n: c.species.length })}</a></div>
+    <div class="head"><h2 id="featured-h" class="h">{t('Loài quen thuộc')}</h2><a href="/vi/ca/">{t('Tất cả {n} loài →', { n: fmt(lang).num(c.species.length) })}</a></div>
     {featured.length === 0
       ? <p class="empty">{t('Chưa có hồ sơ loài nào được xuất bản.')}</p>
       : <div class="grid">{featured.map((s, i) => <SpeciesCard s={s} eager={i < 4} photo={featuredPhotos[i]} />)}</div>}
@@ -89,7 +108,7 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
 
   {native.place?.parent && nativeShown.length === 4 && (
     <section class="wrap block" aria-labelledby="native-h">
-      <div class="head"><h2 id="native-h" class="h">{t('Cá bản địa {place}', { place: native.place.t.name })}</h2><a href={`/vi/nguon-goc/${native.place.parent}/${native.place.id}/`}>{t('Tất cả {n} loài →', { n: native.count })}</a></div>
+      <div class="head"><h2 id="native-h" class="h">{t('Cá bản địa {place}', { place: native.place.t.name })}</h2><a href={`/vi/nguon-goc/${native.place.parent}/${native.place.id}/`}>{t('Tất cả {n} loài →', { n: fmt(lang).num(native.count) })}</a></div>
       <div class="grid">{nativeShown.map((s, i) => <SpeciesCard s={s} photo={nativePhotos[i]} />)}</div>
     </section>
   )}
@@ -111,28 +130,28 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
   {guides.length > 0 && (
     <section class="wrap block" aria-labelledby="guides-h">
       <div class="head"><h2 id="guides-h" class="h">{t('Hướng dẫn cơ bản')}</h2><a href="/vi/huong-dan/">{t('Tất cả hướng dẫn →')}</a></div>
-      <div class="grid">{guides.map((g, i) => <GuideCard g={g} photo={guidePhotos[i]} />)}</div>
+      <div class="grid">{guides.map((g, i) => <GuideCard g={g} photo={guidePhotos[i]} credit={false} />)}</div>
     </section>
   )}
 
   {videos.length > 0 && (
     <section class="wrap block" aria-labelledby="videos-h">
       <div class="head"><h2 id="videos-h" class="h">{t('Video hướng dẫn')}</h2><a href="/vi/video/">{t('Tất cả video →')}</a></div>
-      <div class="grid">{videos.map((g, i) => <GuideCard g={g} photo={videoPhotos[i]} />)}</div>
+      <div class="grid">{videos.map((g, i) => <GuideCard g={g} photo={videoPhotos[i]} credit={false} />)}</div>
     </section>
   )}
 
   {plants.length > 0 && (
     <section class="wrap block" aria-labelledby="plants-h">
-      <h2 id="plants-h" class="h">{t('Cây dễ trồng, không cần CO₂')}</h2>
+      <div class="head"><h2 id="plants-h" class="h">{t('Cây dễ trồng, không bắt buộc CO2')}</h2><a href="/vi/cay/">{t('Tất cả {n} cây →', { n: fmt(lang).num(c.plants.length) })}</a></div>
       <div class="grid">{plants.map((p, i) => <PlantCard p={p} photo={plantPhotos[i]} />)}</div>
     </section>
   )}
 
   {equipment.length > 0 && (
     <section class="wrap block" aria-labelledby="equip-h">
-      <h2 id="equip-h" class="h">{t('Mua thiết bị: chọn thế nào')}</h2>
-      <ul class="equip">{equipment.map(e => <li><a href={`/vi/thiet-bi/${e.category}/`}>{e.name}</a></li>)}</ul>
+      <div class="head"><h2 id="equip-h" class="h">{t('Mua thiết bị: chọn thế nào')}</h2><a href="/vi/thiet-bi/">{t('Tất cả thiết bị →')}</a></div>
+      <ul class="equip">{equipment.map(e => <li><a href={`/vi/thiet-bi/${e.category}/`}><b>{e.name}</b><span>{shownTypes(e).map((x, i, all) => <><span class="it">{x.name.replace(/(\d) (?=[a-zA-Zđ])/g, '$1\u00a0')}{i < all.length - 1 && ' ·'}</span>{i < all.length - 1 && ' '}</>)}</span></a></li>)}</ul>
     </section>
   )}
 
@@ -154,6 +173,7 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
   .search span { display: flex; border-bottom: 1px solid var(--c-ink-soft); }
   .search input { flex: 1; min-width: 0; min-height: 44px; border: 0; background: none; font: inherit; font-size: 1rem; color: var(--c-ink); padding: 0 2px; }
   .search input:focus-visible { outline: none; }
+  .search input::placeholder { color: var(--c-ink-soft); opacity: 1; }
   .search span:focus-within { border-color: var(--c-ink); box-shadow: 0 1px 0 var(--c-ink); }
   .search button { min-height: 44px; min-width: 44px; border: 0; background: none; font: 600 0.95rem var(--f-body); color: var(--c-moss); cursor: pointer; }
   .photo { margin: 0; padding: 10px; background: var(--c-mat); box-shadow: 0 1px 0 var(--c-rule), 0 12px 30px -18px rgb(29 42 34 / 0.35); }
@@ -162,7 +182,8 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
   .block { padding-block: var(--space-7) 0; }
   .block:last-of-type { padding-bottom: var(--space-7); }
   .h { font-size: var(--step-3); }
-  .head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); }
+  /* The heading keeps its line; its "all" link drops under it when the two don't fit (a phone). */
+  .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; column-gap: var(--space-4); }
   .head a { white-space: nowrap; padding-block: 10px; }
   .head, section > .h { border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-5); }
   .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-6) var(--space-5); }
@@ -170,13 +191,22 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
 
   .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--c-rule); background: var(--c-plate); }
   .steps li + li { border-left: 1px solid var(--c-rule); }
-  .steps a { display: grid; grid-template-columns: auto 1fr; gap: 2px var(--space-3); padding: var(--space-5); height: 100%; text-decoration: none; color: inherit; }
+  .steps a { display: grid; grid-template-columns: auto 1fr; align-content: start; gap: 2px var(--space-3); padding: var(--space-5); height: 100%; text-decoration: none; color: inherit; }
   .steps .n { grid-row: span 2; font: 400 2.6rem/1 var(--f-display); color: var(--c-cardinal); }
   .steps b { font: 500 var(--step-1) var(--f-display); }
   .steps .t { color: var(--c-ink-soft); font-size: 0.95rem; }
+  .steps .go { color: var(--c-moss); }
   .steps a:hover b { color: var(--c-moss); text-decoration: underline; text-underline-offset: 0.15em; }
 
-  .groups { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: var(--space-4) var(--space-3); }
+  .tools { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-5); }
+  .tools a { display: flex; align-items: flex-start; gap: var(--space-3); min-height: 44px; text-decoration: none; color: inherit; }
+  .ico { flex: none; width: 3rem; height: 3rem; padding: 0.4rem; background: var(--c-plate); box-shadow: 0 0 0 1px var(--c-rule); color: var(--c-moss); fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .tx { display: grid; gap: 2px; min-width: 0; }
+  .tx b { font: 500 var(--step-1) var(--f-display); }
+  .tx span { font-size: 0.9rem; line-height: 1.4; color: var(--c-ink-soft); }
+  .tools a:hover b { color: var(--c-moss); }
+
+  .groups { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-4) var(--space-3); } /* 14 groups: two even rows */
   .groups a { display: block; text-decoration: none; color: inherit; font-size: 0.95rem; }
   .gp { display: block; padding: 4px; background: var(--c-mat); box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); margin-bottom: var(--space-2); }
   .gp img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
@@ -185,8 +215,14 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
   .cnt { display: block; color: var(--c-ink-faint); font-size: 0.8rem; }
   .groups a:hover b { color: var(--c-moss); }
 
-  .equip { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--space-5); }
-  .equip a { display: inline-block; padding-block: 10px; font: 400 var(--step-1) var(--f-display); }
+  .equip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--space-5); } /* nine kinds: three even rows */
+  .equip li { border-top: 1px solid var(--c-rule); }
+  .equip a { display: grid; gap: 2px; min-height: 44px; padding-block: var(--space-3); text-decoration: none; color: inherit; }
+  .equip b { font: 500 var(--step-1) var(--f-display); }
+  .equip span { font-size: 0.85rem; color: var(--c-ink-soft); }
+  /* A kind breaks between items, never inside one, and its dot stays with the item before it. */
+  .equip .it { display: inline-block; }
+  .equip a:hover b { color: var(--c-moss); text-decoration: underline; text-underline-offset: 0.15em; }
 
   @media (max-width: 900px) {
     .tank-in { grid-template-columns: 1fr; gap: var(--space-5); padding-block: var(--space-5) var(--space-6); }
@@ -194,10 +230,13 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
     .photo img { aspect-ratio: 16 / 9; }
     .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-3); }
     .steps { grid-template-columns: 1fr; }
+    .equip { grid-template-columns: 1fr; }
+    .tools { grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); gap: var(--space-4) var(--space-5); }
     .steps li + li { border-left: 0; border-top: 1px solid var(--c-rule); }
     .groups { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--space-5); gap: var(--space-3); padding-bottom: var(--space-2); margin-inline: calc(-1 * var(--space-5)); padding-inline: var(--space-5); }
     .groups li { flex: 0 0 calc(100% / 3.3); scroll-snap-align: start; } /* three cards and a slice of the fourth: the row reads as one that scrolls */
     .block { padding-top: var(--space-6); }
     .h { font-size: var(--step-2); }
+    .head { flex-direction: column; align-items: flex-start; } /* every section's "all" link under its heading: one rhythm down the page */
   }
 </style>

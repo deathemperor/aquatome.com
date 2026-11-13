@@ -1,0 +1,28 @@
+{
+  "slug": "ca-killi-canh-buom",
+  "name": "Cá killi cánh buồm",
+  "altNames": [
+    "Cá killi Terranatos",
+    "Sailfin killi"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Đây là Terranatos dolichopterus do trại ở Đức cho đẻ, còn gọi là cá killi cánh buồm (Aqualog \"New World Killis\", trang 190, log-no: S27715). Loài này có nguồn gốc từ Venezuela và lớn tới 5 cm.</p>",
+    "distribution:glaser": "<p>Venezuela.</p>",
+    "behaviour:glaser": "<p>Loài này nên nuôi theo đàn.</p>",
+    "reproduction:glaser": "<p>Nền bể nên trải than bùn, vì lúc đẻ chúng \"lặn\" chui xuống nền.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-09"
+  }
+}

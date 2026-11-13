@@ -10,6 +10,75 @@
     "spain",
     "catalonia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ES"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Spanish toothcarp, or fartet, Apricaphanius iberus, is restricted to a few small areas of Spain's Mediterranean coast.",
+          "countries": [
+            "ES"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10799761,
+      "total": 12,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ES",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -4.21875,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          -1.40625,
+          36.5625,
+          3,
+          3
+        ],
+        [
+          -1.40625,
+          37.96875,
+          3,
+          3
+        ],
+        [
+          2.8125,
+          40.78125,
+          3,
+          3
+        ],
+        [
+          2.8125,
+          42.1875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "Try to find out the origin of your fish as some populations will do best in freshwater but if in doubt we recommend the addition of marine salt in the ratio of 1-3 g/L as most will need it."
+  },
   "dataCard": {
     "ph": [
       {
@@ -144,28 +213,6 @@
       "caption": "Adult female from the Delta del Llobregat.",
       "source": "seriouslyfish",
       "thumb": "https://media.aquatome.com/seriouslyfish/12eee3911b0bede9-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/c4d90a3382393738.webp",
-      "width": 848,
-      "height": 636,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/aphanius-iberus",
-      "caption": "The Torrent del Pí is a small perennial lagoon in a dessicated river bed, Catalunya. Here pictured in spring...",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/c4d90a3382393738-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/6b238c57f046e2ca.webp",
-      "width": 847,
-      "height": 636,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/aphanius-iberus",
-      "caption": "...and here in summer...",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/6b238c57f046e2ca-480.webp"
     }
   ],
   "videos": [],
@@ -173,8 +220,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x30",
-        "bể cá dài 120cm"
+        "bể cá 120cm"
       ]
     },
     {

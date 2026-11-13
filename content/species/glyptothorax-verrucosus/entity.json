@@ -10,6 +10,56 @@
     "india",
     "kaladan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Koladyne River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: India: Mizoram: Lawntlai District: Koladyne River at Kolchaw.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Presently only known from the Koladyne River in Mizoram, India.",
+          "countries": [],
+          "regions": [
+            "Koladyne River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8094975,
+      "total": 5,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IN",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          91.40625,
+          21.09375,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

@@ -19,6 +19,13 @@
           "min": 15,
           "max": 25
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -34,6 +41,10 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -57,6 +68,12 @@
       "html": "<p>The white-cheeked goby, Rhinogobius duospilus, is a small goby from Hong Kong and southern China, living in clear hill streams. It was often sold in the past as 'Rhinogobius wui', a name now listed as a valid species, so aquarium literature published under either name may refer to either fish. Adults are extremely sedentary, and populations in neighbouring streams are genetically distinct from one another.</p><ul><li>Max size: 50 mm SL (2.0 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 15–25°C (59–77°F)</li><li>pH: 6.0–7.5</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_duospilus_r_wui__en/",
+      "html": "<p>Gobies are becoming more and more popular in the hobby. A real classic is R. duospilus, which was known under the name R. wui for a long time. Nowadays R. wui is considered a synonym of R. duospilus. This small goby grows to only 4 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-duospilus",
@@ -67,6 +84,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-duospilus",
       "html": "<p>A bottom-dwelling fish of small, clear hill streams, where it clings to rocks with the sucker-like disc formed by its pelvic fins.</p><p>In Hong Kong these streams are a series of riffles and pools over beds of stones and boulders, and the water is often slightly acidic, nutrient-poor and of low conductivity (Yang and Dudgeon, 2010).</p><p>It occurs there alongside the loaches Pseudogastromyzon myersi, Liniparhomaloptera disparis and Schistura fasciolata, and a congener, R. similis, is also found in the territory.</p><p>Adults are extremely sedentary. In a marking study in a Hong Kong hill stream the fish had moved an average of about 3 m after 35 weeks (Ho and Dudgeon, 2016), and populations in neighbouring streams are genetically distinct from one another (Chan et al., 2026).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_duospilus_r_wui__en/",
+      "html": "<p>In the wild it lives in brooks.</p>"
     },
     {
       "key": "aquariumSize",
@@ -85,6 +108,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-duospilus",
       "html": "<ul><li>Temperature: 15–25°C (59–77°F)</li><li>pH: 6.0–7.5</li><li>Hardness: not recorded</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_duospilus_r_wui__en/",
+      "html": "<p>Any addition of salt is unnecessary. Due to the origin of the species (southern China) it can be kept without a heater. The water temperature can be between 16 and 26°C.</p>"
     },
     {
       "key": "diet",
@@ -111,6 +140,12 @@
       "html": "<p>Unlike amphidromous congeners, whose larvae drift down to the sea, R. duospilus spends its whole life in fresh water, and the young develop directly into juveniles soon after hatching (Chan et al., 2026).</p><p>As is typical for the genus, the eggs are laid on the underside of a stone or in a crevice and guarded by the male until they hatch, so flat stones, slate or clay pipes should be provided.</p><p>Members of the R. duospilus group have been bred in aquaria, but because these fish are so hard to identify it isn't known which species were involved. There are no reliable figures for clutch size or incubation period in this species.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_duospilus_r_wui__en/",
+      "html": "<p>The males build burrows under stones. Here the fish spawn. The comparatively large larvae can be raised rather easily.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-duospilus",
@@ -124,12 +159,37 @@
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "g_ocNlsfzWQ",
+      "title": "Rhinogobius Duospilus #aquarium #goby #smallfish",
+      "durationSec": 36,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HV4RCnUsRiE",
+      "title": "Rhinogobius Duospilus (Wui)",
+      "durationSec": 70,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Zsi49srtH3s",
+      "title": "Rhinogobius duospilus 20",
+      "durationSec": 51,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "t9FibPE7qQY",
+      "title": "Rhinogobius duospilus",
+      "durationSec": 19,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm"
+        "bể cá 60cm"
       ]
     },
     {
@@ -154,5 +214,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-10"
 }

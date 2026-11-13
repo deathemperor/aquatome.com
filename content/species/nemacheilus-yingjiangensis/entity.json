@@ -1,0 +1,209 @@
+{
+  "id": "nemacheilus-yingjiangensis",
+  "scientificName": "Nemacheilus yingjiangensis",
+  "order": "Cypriniformes",
+  "family": "Nemacheilidae",
+  "genus": "Nemacheilus",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "china",
+    "irrawaddy"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Daying River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Schistura yingjiangensis is a nemacheilid loach known only from the Daying River, an Irrawaddy tributary in Yingjiang County, Yunnan, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Daying River, a tributary of the Irrawaddy watershed in Yingjiang County, Yunnan Province, China.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy",
+            "Daying River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205251,
+      "total": 3,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          23.90625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-yingjiangensis",
+      "html": "<p><em>Schistura yingjiangensis</em> is a nemacheilid loach known only from the Daying River, an Irrawaddy tributary in Yingjiang County, Yunnan, China. It appears never to have been exported for the aquarium hobby. Normally listed in <em>Nemacheilus</em>, it appears under <em>Schistura</em> in Kottelat (2012), as it does in Chen &amp; Neely (2012) and Endruweit (2014).</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li><li>Rated moderate because it needs a well-established tank and stable water.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-yingjiangensis",
+      "html": "<p>Known only from the Daying River, a tributary of the Irrawaddy watershed in Yingjiang County, Yunnan Province, China.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-yingjiangensis",
+      "html": "<p>An aquarium with a base measuring 80 × 30 cm or more is recommended (about 72 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-yingjiangensis",
+      "html": "<p>Should not prove difficult to maintain under the correct conditions; we strongly recommend keeping it in a tank designed to resemble a flowing stream or river with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches arranged to form a network of nooks, crannies, and shaded spots, thus providing broken lines of sight. While the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis, or Anubias spp. can be grown attached to the décor.</p><p>Though torrent-like conditions are unnecessary it does best if there is a high proportion of dissolved oxygen and some water movement in the tank meaning power filter(s), additional powerhead(s), or airstone(s) should be employed as necessary.</p><p>Like many fishes that naturally inhabit running water it's probably intolerant to accumulation of organic pollutants and requires spotless water in order to thrive, meaning weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-yingjiangensis",
+      "html": "<ul><li>Temperature: 20–24°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-yingjiangensis",
+      "html": "<p>Schistura species tend to be omnivorous although the bulk of their diet consists of small insects, worms, crustaceans and other zooplankton with only relatively small amounts of plant matter consumed, mostly via the stomach contents of prey items.</p><p>In the aquarium they will accept dried foods of a suitable size but should not be fed these exclusively. Daily meals of small live and frozen fare such as Daphnia, Artemia, bloodworm, etc., will result in the best colouration and condition.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-yingjiangensis",
+      "html": "<p>Fishes which inhabit similar biotopes in nature, especially peaceful, open water-dwelling cyprinids, are likely to constitute the best options.</p><p>Other possibilities include balitorids like Gastromyzon, Pseudogastromyzon, Beaufortia, and Sewellia, plus Crossocheilus and Garra species. Some similarly-shaped relatives such as other Schistura, Acanthocobitis, and Nemacheilus spp. are excessively territorial or otherwise aggressive, although a combination may work in larger aquaria.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-yingjiangensis",
+      "html": "<p>Adult females are likely to be slightly larger and heavier-bodied than males. In many congeners males possess a suborbital flap and thickened or tuberculated pectoral-fin rays but in this case we have no information.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-yingjiangensis",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-yingjiangensis",
+      "html": "<p>This species appears never to have been exported for the aquarium hobby and we currently have no information regarding its diagnosis.</p><p>It's normally listed as a member of Nemacheilus but appears under the genus Schistura in Kottelat (2012) hence is included as such here. No additional information is given. Chen &amp; Neely (2012) and Endruweit (2014) also accept this species as Schistura.</p><p>Schistura is the most species-rich genus among nemacheilid loaches with some 190 members and it continues to grow with over 100 having been described since 1990. It may represent a polyphyletic lineage and is often arranged into a number of loosely-defined species 'groups', some of which are quite dissimilar to one another.</p><p>Among these are an assemblage in which some or all of the body bars are vertically split and another which exhibit reductions in body size (adult size &lt;50 mm SL), the number of pelvic and pectoral-fin rays and often the number of caudal-fin rays and lateral line length, for example.</p><p>Some species, such as S. geisleri, also appear to be unrelated to any of the others.</p><p>Most inhabit flowing streams or areas close to waterfalls where there naturally exist high concentrations of dissolved oxygen, and a handful are troglobytic, i.e., cave-dwelling, in existence. The latter have reduced pigmentation and are completely blind in many cases.</p><p>Schistura spp. are distinguished from other nemacheilids by a combination of morphological characters which include: a moderately arched mouth which is 2-3.5 times wider than it is long; a median 'interruption' in the lower lip which does not form two lateral triangular pads and can vary from smooth to furrowed in texture; diverse colour pattern but usually dark with relatively regular bars; usually a black bar at the caudal-fin base which can be broken into two spots or smaller bars; one or two black markings along the base of the dorsal-fin; lack of acuminate scales on the caudal peduncle; caudal-fin shape variable from truncate to forked but usually emarginate; presence or absence of a median notch in the lower jaw; clear sexual dimorphism in some species.</p><p>The family Nemacheilidae is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-yingjiangensis",
+      "html": "<ul><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Chen, X.-Y. and D. A. Neely (2012). Schistura albirostris, a new nemacheiline loach (Teleostei: Balitoridae) from the Irrawaddy River drainage of Yunnan Province, China. Zootaxa No. 3586, 222-227</li><li>Endruweit, M. (2014). Schistura megalodon species nova, a new river loach from the Irrawaddy basin in Dehong, Yunnan, China (Teleostei: Cypriniformes: Nemacheilidae). Zoological Research v. 35 (no. 5), 353-361</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "lọc thùng tạo dòng mạnh",
+        "đá sủi khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "Artemia đông lạnh",
+        "trùng huyết đông lạnh",
+        "thức ăn cho cá chạch"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông",
+        "sỏi nhỏ cho bể cá",
+        "đá cuội bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

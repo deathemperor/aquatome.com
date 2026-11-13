@@ -1,0 +1,846 @@
+{
+  "id": "cetopsis-coecutiens",
+  "scientificName": "Cetopsis coecutiens",
+  "order": "Siluriformes",
+  "family": "Cetopsidae",
+  "genus": "Cetopsis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco",
+    "colombia",
+    "ecuador",
+    "peru",
+    "brazil",
+    "amazon",
+    "bolivia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "CO",
+        "EC",
+        "PE",
+        "BR",
+        "BO"
+      ],
+      "regions": [
+        "Amazon",
+        "Tocantins",
+        "Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Has a widespread natural range, inhabiting areas of Venezuela, Colombia, Ecuador, Peru, Brazil and Bolivia.",
+          "countries": [
+            "VE",
+            "CO",
+            "EC",
+            "PE",
+            "BR",
+            "BO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's found in the Amazon, Tocantins, and Orinoco River basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Tocantins",
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337994,
+      "total": 236,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          164
+        ],
+        [
+          "VE",
+          31
+        ],
+        [
+          "PE",
+          26
+        ],
+        [
+          "CO",
+          11
+        ],
+        [
+          "BO",
+          3
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -78.75,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -74.53125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          0,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -68.90625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          0,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          6,
+          6
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          8.4375,
+          8,
+          8
+        ],
+        [
+          -61.875,
+          -9.84375,
+          6,
+          6
+        ],
+        [
+          -61.875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          8.4375,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          13,
+          13
+        ],
+        [
+          -59.0625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          18,
+          18
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          12,
+          12
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          14,
+          14
+        ],
+        [
+          -53.4375,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -15.46875,
+          6,
+          6
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          0,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -32.34375,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.4
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 26.5
+      },
+      {
+        "source": "glaser",
+        "value": 40
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cetopsis-coecutiens",
+      "html": "<p>The blue whale catfish, Cetopsis coecutiens, is a cetopsid catfish from the Amazon, Tocantins and Orinoco river basins. In the wild it swims in voracious feeding groups, homing in on weakened fish by smell and burrowing into prey. It will bite chunks out of tankmates much bigger than itself, so it is best kept alone, and at up to 26.5 cm it needs a large tank with strong water flow and dim lighting.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/cetopsis-coecutiens-en/",
+      "html": "<p>Cetopsis coecutiens grows up to 40 cm long and is widespread across South America. It is a merciless hunter, but peaceful towards its own kind.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/cetopsis-coecutiens-en/",
+      "html": "<p>These animals are only for specialists and zoos. However, if one has a tank that is spacious enough, keeping these catfish is not difficult at all.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cetopsis-coecutiens",
+      "html": "<p>Has a widespread natural range, inhabiting areas of Venezuela, Colombia, Ecuador, Peru, Brazil and Bolivia. It's found in the Amazon, Tocantins, and Orinoco River basins.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/cetopsis-coecutiens-en/",
+      "html": "<p>Spread very far over South America. People living along the Amazon river call them inter alia Candiru-açu (Brazil) or Canero (Peru). Specimens were received from Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cetopsis-coecutiens",
+      "html": "<p>Predominantly swims in open water in large, flowing rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cetopsis-coecutiens",
+      "html": "<p>An active species that needs a tank measuring at least 120 × 45 × 45 cm (~243 litres) when fully grown.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cetopsis-coecutiens",
+      "html": "<p>Decor isn't particularly critical but water movement is. It does best with a good degree of flow running through the tank. Try to position the filter return so that it breaks the surface. The agitation created by this will provide the desired levels of dissolved oxygen. Alternatively, position a powerhead at one end of the tank. Dim lighting is also preferable, as its natural waters are usually quite deep and murky. It is much more active under these conditions.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cetopsis-coecutiens",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.0–7.4</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cetopsis-coecutiens",
+      "html": "<p>There's no need to provide live fish, as it is an eager and aggressive feeder. Offer a meaty diet of frozen and live foods such as prawns, mussel, cockle, lancefish, earthworms etc. Some specimens will even accept dried foods. It is so greedy that overfeeding comes very easily.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/cetopsis-coecutiens-en/",
+      "html": "<p>In the author's facility they feed readily on Tubifex and dry food (granulates). Even when trapped in a fish cast they bite pieces out of their fellow captives.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cetopsis-coecutiens",
+      "html": "<p>Best kept alone, as not only will it eat smaller tankmates, it will often bite chunks out of larger fish as well. In nature, it has been seen ripping pieces of flesh from much bigger fish than itself. Some success has been had with keeping it in groups, as it seems less likely to regard conspecifics as a source of food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/cetopsis-coecutiens-en/",
+      "html": "<p>The animals are merciless hunters, and attacks on humans are reported. They are very peaceful towards conspecifics. Like a Great White Shark, the catfish swim perpetually and cannot close the mouth for long; the coloration (dark back, light belly) is also shark-like.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cetopsis-coecutiens",
+      "html": "<p>Females are fuller-bodied than males, and males develop a pointed dorsal fin as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cetopsis-coecutiens",
+      "html": "<p>Unknown. Certainly not achieved in the hobby to date.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cetopsis-coecutiens",
+      "html": "<p>An infrequently seen but very interesting oddball species for those who are looking for something a little different. To others, it might appear to be a rather nasty species. In the wild, it swims in voracious feeding groups. Apparently, it can home in on weakened or distressed fish as it has a very well developed sense of smell. Other specialisations include the tiny eyes and particularly slimy skin. The former are reduced in size and covered by a thin layer of skin so they are less likely to be damaged when it is burrowing into prey, while the latter makes it easier for it to enter. Seeing a group of these in a feeding frenzy in the aquarium is quite something. It could definitely inflict a nasty bite, so exercise due caution when performing tank maintenance.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/cetopsis-coecutiens-en/",
+      "html": "<p>Naturalists of the 18th century already knew it as the \"whale catfish\", because its shape is somewhat reminiscent of certain cetaceans. It also has two pairs of nasal openings: one pair on the front of the head, the other opening over the eyes, like the blowholes of whales. In the aquarium these catfish are more interesting than beautiful.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/3084bb596e4768c5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3084bb596e4768c5-480.webp",
+      "width": 500,
+      "height": 352,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_coecutiens.htm",
+      "caption": "Cetopsis coecutiens: close up of head",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/eff6b35e4e863eb4.webp",
+      "thumb": "https://media.aquatome.com/scotcat/eff6b35e4e863eb4-480.webp",
+      "width": 500,
+      "height": 318,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_coecutiens.htm",
+      "caption": "Cetopsis coecutiens",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/342d4d7cbbd70e93.webp",
+      "thumb": "https://media.aquatome.com/scotcat/342d4d7cbbd70e93-480.webp",
+      "width": 500,
+      "height": 304,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/cetopsidae/cetopsis_coecutiens.htm",
+      "caption": "Cetopsis coecutiens",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "VkNgRHKx-gs",
+      "title": "Young Cetopsis Coecutiens (Blue whale catfish) feeding",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ANs3DDNbHD4",
+      "title": "Cetopsis coecutiens",
+      "durationSec": 45,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6U0hbY2wIfw",
+      "title": "Cetopsis coecutiens 藍鯨",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mJkNbaMJ8is",
+      "title": "Cetopsis coecutiens 藍鯨\n\n魚社水族 FISH BOX AQUARIUM",
+      "durationSec": 22,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "tôm đông lạnh cho cá",
+        "thức ăn đông lạnh cho cá da trơn"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn LED ánh sáng dịu"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

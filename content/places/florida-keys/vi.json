@@ -1,10 +1,13 @@
 {
   "slug": "florida-keys",
-  "name": "Florida Keys",
-  "altNames": [],
+  "name": "quần đảo Florida Keys",
+  "altNames": [
+    "Florida Keys"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

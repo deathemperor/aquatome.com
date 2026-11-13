@@ -1,17 +1,9 @@
 {
   "id": "acanthopsoides-robertsi",
   "native": {
-    "input": "1b63fca7de39b876",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "0a64348129312690",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
-      {
-        "code": "ID",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Acanthopsoides robertsi is a dwarf horse-face loach from the Kapuas River basin in West Kalimantan, Indonesian Borneo.",
-        "words": "Indonesian",
-        "ok": true
-      },
       {
         "code": "ID",
         "status": "native",
@@ -25,13 +17,15 @@
       {
         "name": "Kapuas River",
         "source": "seriouslyfish",
-        "quote": "Acanthopsoides robertsi is a dwarf horse-face loach from the Kapuas River basin in West Kalimantan, Indonesian Borneo.",
+        "quote": "Described from the Kapuas River basin in Kalimantan Barat (West Kalimantan) province, Indonesian Borneo where it occurs alongside the congener A. molobrion.",
+        "country": "ID",
         "ok": true
       },
       {
         "name": "Borneo",
         "source": "seriouslyfish",
-        "quote": "Acanthopsoides robertsi is a dwarf horse-face loach from the Kapuas River basin in West Kalimantan, Indonesian Borneo.",
+        "quote": "Described from the Kapuas River basin in Kalimantan Barat (West Kalimantan) province, Indonesian Borneo where it occurs alongside the congener A. molobrion.",
+        "country": "ID",
         "ok": true
       }
     ],

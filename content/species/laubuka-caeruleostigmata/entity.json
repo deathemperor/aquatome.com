@@ -1,0 +1,265 @@
+{
+  "id": "laubuka-caeruleostigmata",
+  "scientificName": "Laubuka caeruleostigmata",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Laubuka",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "thailand",
+    "chao-phraya",
+    "cambodia",
+    "vietnam"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Mekong River system in Laos, Thailand, and Cambodia, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+          "countries": [
+            "LA",
+            "TH",
+            "KH"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8248002,
+      "total": 3,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "KH",
+          1
+        ],
+        [
+          "MY",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-caeruleostigmata",
+      "html": "<ul><li>Difficulty: Moderate. Rated moderate because it needs a well-established tank and stable water.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-caeruleostigmata",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li></ul><p>The flying minnow, Laubuka caeruleostigmata, is a cyprinid from the Mekong system in Laos, Thailand and Cambodia, and the Chao Phraya and Mae Klong. Also known as 'leaping barb', it was once quite common in the ornamental trade and has apparently become scarce in the wild. It schools near the surface in main river channels, has a bright blue spot on top of the head, and is an accomplished jumper that needs a tightly-fitting cover.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-caeruleostigmata",
+      "html": "<p>Known from the Mekong River system in Laos, Thailand, and Cambodia, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.</p><p>Type locality is 'Menam Chao Phya River, below Nakhon Sawan, central Thailand', corresponding to the Chao Phraya River in Nakhon Sawan province.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-caeruleostigmata",
+      "html": "<p>Tends to form schools near the surface in main river channels and larger tributaries, but has apparently become scarce in recent years.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-caeruleostigmata",
+      "html": "<p>An aquarium with base dimensions of 120 × 30 cm (about 108 litres) or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-caeruleostigmata",
+      "html": "<p>This species will do well in most well-maintained larger aquaria but is best maintained in a set-up designed to resemble a flowing river or stream, with a substrate of variably-sized rocks, gravel and some large water-worn boulders.</p><p>This can be further furnished with driftwood branches, and while the majority of plant species will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor. In this kind of environment it will display more natural behaviour and can be kept alongside other species that enjoy similar conditions.</p><p>Like many fishes that naturally inhabit running waters it's intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive. The aquarium must also have a tightly-fitting cover since this species is an accomplished jumper.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-caeruleostigmata",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-caeruleostigmata",
+      "html": "<p>Feeds on terrestrial and aquatic invertebrates and their larvae in nature. In the aquarium it will accept dried foods of a suitable size but should also be offered live and frozen Daphnia, Artemia, chironomid larvae (bloodworm), etc., on a regular basis.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-caeruleostigmata",
+      "html": "<p>Not an aggressive fish and can be kept with many cyprinids, loaches, cichlids, catfish and characins, although as always when selecting a compatible community of fish proper research is essential.</p><p>It is a schooling species by nature and ideally should be kept in a group of at least 8-10 specimens which will not only make the fish less nervous but result in a more effective, natural looking display.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-caeruleostigmata",
+      "html": "<p>Adult females are noticeably deeper-bodied and usually grow slightly larger than males.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-caeruleostigmata",
+      "html": "<p>This species is also known as 'leaping barb' and was once quite common in the ornamental trade but is now seldom seen.</p><p>It can be distinguished from other members of the genus by the following characters: bright blue spot on top of head; series of 4-5 short faint bars on anterior portion of body; 19-23½ branched anal-fin rays; body depth fits 2.1-2.9 times in SL.</p><p>The generic name tended to be spelled 'Laubuca' for a number of years, but it is now established that Bleeker used 'Laubuka' first, therefore this spelling has priority.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-caeruleostigmata",
+      "html": "<ul><li>Smith, H. M. (1931). Descriptions of new genera and species of Siamese fishes. Proceedings of the United States National Museum 79(2873), 1-48</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Kulabtong, S., S. Suksri and C. Nonpayom (2012). New data of the freshwater fish genera Laubuca Bleeker, 1860 (Cypriniformes Cyprinidae) and Phenacostethus Myers, 1928 (Atheriniformes Phallostethidae) in Thailand. Biodiversity Journal 3(3), 159-164</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/321cd0e4fb709453.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/321cd0e4fb709453-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-caeruleostigmata",
+      "caption": "Specimen from the Singapore aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2aebcc276084f1f6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2aebcc276084f1f6-480.webp",
+      "width": 634,
+      "height": 490,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laubuka-caeruleostigmata",
+      "caption": "This species possesses a number of short dark bars on the anterior portion of the body.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc thác bể cá",
+        "máy tạo dòng chảy bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ dạng mảnh",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể cá",
+        "đá cuội trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

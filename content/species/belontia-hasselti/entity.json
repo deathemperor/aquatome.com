@@ -14,6 +14,154 @@
     "indonesia",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "SG",
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Java"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Java combtail, Belontia hasselti, is a labyrinth fish from peninsular Thailand, Peninsular Malaysia, Singapore, Sumatra, Borneo and Java.",
+          "countries": [
+            "TH",
+            "MY",
+            "SG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Java, Indonesia'.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Java"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to southern Indochina, from southern (peninsular) Thailand, throughout Peninsular Malaysia, Singapore, and the Greater Sunda Islands of Sumatra, Borneo, and Java.",
+          "countries": [],
+          "regions": [
+            "Sumatra",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394193,
+      "total": 26,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          12
+        ],
+        [
+          "MY",
+          12
+        ],
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          101.25,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          101.25,
+          5.625,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          5.625,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          113.90625,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -57,7 +205,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -135,38 +283,7 @@
       "html": "<ul><li>Cuvier, G. and A. Valenciennes. (1831). Histoire naturelle des poissons. Tome septième. Livre septième. Des Squamipennes. Livre huitième. Des poissons à pharyngiens labyrinthiformes. Histoire naturelle des poissons. v. 7, 1-531</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Linke, H. (1992). Labyrinth Fish: The Bubble Nest Builders. Tetra Press, 1-176</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Rüber, L, R. Britz and R. Zardoya (2006). Molecular phylogenetics and evolutionary diversification of labyrinth fishes (Perciformes: Anabantoidei). Systematic Biology 55(3), 374-397</li><li>Tan, H. H. and P. K. L. Ng (2005). The labyrinth fishes (Teleostei: Anabantoidei, Channoidei) of Sumatra, Indonesia. Raffles Bulletin of Zoology Supplement 13, 115-138</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/76844852ac3fc360.webp",
-      "width": 960,
-      "height": 1179,
-      "licence": "Public domain",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polyacanthus_hasselti_-_1700-1880_-_Print_-_Iconographia_Zoologica_-_Special_Collections_University_of_Amsterdam_-_UBA01_IZ13800005.tif",
-      "caption": "Polyacanthus hasselti",
-      "thumb": "https://media.aquatome.com/commons/76844852ac3fc360-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/db2909042fbde6d5.webp",
-      "width": 960,
-      "height": 1602,
-      "licence": "CC BY-SA 3.0",
-      "author": "Rvalette",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cuvier-72-Polyacanthe-Nason.jpg",
-      "caption": "Planche N°72 du livre \"Le règne animal distribué d'après son organisation\" par Georges Cuvier (Tome 8), seconde édition de 1828, représentant : -en haut : Polyacanthus hasselti -en bas : Naseus fronti",
-      "thumb": "https://media.aquatome.com/commons/db2909042fbde6d5-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/8d8c3a4ace965b4b.webp",
-      "width": 960,
-      "height": 578,
-      "licence": "Public domain",
-      "author": "Buffon, Georges Louis Leclerc; Cuvier, Georges; Valenciennes",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Histoire_naturelle_des_poissons_(10438620076).jpg",
-      "caption": "t '.!S 3 I ni",
-      "thumb": "https://media.aquatome.com/commons/8d8c3a4ace965b4b-480.webp"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "YQ5zKNlPkls",
@@ -197,8 +314,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá dài 120x30"
+        "bể cá 120cm"
       ]
     },
     {

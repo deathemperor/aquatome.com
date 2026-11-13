@@ -2,7 +2,12 @@
   "id": "corydoras-pygmaeus",
   "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": 10,
-  "speciesUpdatedAt": "2026-10-30",
-  "generatedAt": "2026-10-30T13:47:23.499Z"
+  "schoolMin": 8,
+  "speciesUpdatedAt": "2026-11-08",
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-08T01:50:46.507Z"
 }

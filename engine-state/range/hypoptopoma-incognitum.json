@@ -1,0 +1,127 @@
+{
+  "id": "hypoptopoma-incognitum",
+  "native": {
+    "input": "17ec0833aa382f76",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hypoptopoma incognitum is a loricariid catfish described from the Río Itenez, northeastern Bolivia, and the most widespread member of its genus.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded through much of the central and lower Amazon basin, the rio Tocantins, and some minor rivers draining straight into the Atlantic in northeastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is the Río Itenez, Beni department, northeastern Bolivia but is the most widely-distributed member of the genus and has been recorded from much of the central and lower Amazon basin plus the rio Tocantins and some minor rivers draining directly into the Atlantic Ocean in northeastern Brazil.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is the Río Itenez, Beni department, northeastern Bolivia but is the most widely-distributed member of the genus and has been recorded from much of the central and lower Amazon basin plus the rio Tocantins and some minor rivers draining directly into the Atlantic Ocean in northeastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded through much of the central and lower Amazon basin, the rio Tocantins, and some minor rivers draining straight into the Atlantic in northeastern Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Tocantins",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded through much of the central and lower Amazon basin, the rio Tocantins, and some minor rivers draining straight into the Atlantic in northeastern Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Río Itenez",
+        "source": "seriouslyfish",
+        "quote": "Hypoptopoma incognitum is a loricariid catfish described from the Río Itenez, northeastern Bolivia, and the most widespread member of its genus.",
+        "country": "BO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypoptopoma incognitum",
+    "status": "ACCEPTED",
+    "taxonKey": 5961529,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        36
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        34
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        25
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        19
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        5
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "967a00a1-297b-478c-8c86-cf801e93a6af",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "BO",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

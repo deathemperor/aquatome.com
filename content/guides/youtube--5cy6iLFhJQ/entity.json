@@ -1,14 +1,15 @@
 {
   "id": "youtube--5cy6iLFhJQ",
-  "kind": "setup",
+  "kind": "aquascaping",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=-5cy6iLFhJQ",
   "html": "",
   "photos": [],
   "mentions": [
-    "bucephalandra-sp"
+    "bucephalandra-sp",
+    "taxiphyllum-barbieri"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "-5cy6iLFhJQ",
     "title": "Lật Hồ 1m2 Thay Layout Để Ươm 1,5kg Bucep | Stream Nature Skull Bay Ver.2 (Phần 2)",
@@ -29,7 +30,7 @@
     "lang": "vi",
     "taxa": [
       "Bucephalandra sp.",
-      "Taxiphyllum sp."
+      "Taxiphyllum barbieri"
     ],
     "gear": [
       {
@@ -45,50 +46,64 @@
       {
         "category": "cay-thuy-sinh",
         "type": "reu",
-        "t": 230
+        "t": 260
       },
       {
         "category": "cay-thuy-sinh",
         "type": "gan-lua",
-        "t": 228
+        "t": 330
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 486
       }
     ],
     "figures": [
       {
-        "heading": "Đèn cho bể 1m2 chơi cơ bản",
+        "heading": "Chỉnh độ cao đèn",
         "moments": [
           {
-            "t": 79,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/t79.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đèn thanh được đặt lên cao phía trên mặt bể."
-          },
-          {
-            "t": 109,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/t109.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể sáng đèn nhìn toàn cảnh, ánh sáng phủ khá đều."
+            "t": 100,
+            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at100-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể sáng đều và rộng khi đèn được kê cao lên.",
+            "sharpness": 286.8,
+            "person": false
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/p0-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/-5cy6iLFhJQ/p0-1bV9MaWdodC5qcGc-480.webp",
+          "width": 960,
+          "height": 666,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lime Huang",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+          "caption": "Bể thủy sinh có đèn gác trên khung kê cao phía trên mặt bể."
+        }
       },
       {
-        "heading": "Rút nước và xem lại lũa đã ngâm",
+        "heading": "Ngâm lũa và rút nước",
         "moments": [
           {
-            "t": 99,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/t99.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể 1m2 ngâm lũa, nước đã ngả màu vàng."
+            "t": 110,
+            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at110-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể có lũa ngâm, nước ngả vàng trước khi rút nước.",
+            "sharpness": 196.1,
+            "person": false
           },
           {
-            "t": 104,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/t104.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh các khúc lũa và đá trong bể đang ngâm."
+            "t": 125,
+            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at125-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đang rút nước trong bể 1m2 bằng ống hút.",
+            "sharpness": 2086.2,
+            "person": false
           }
         ],
         "photo": {
@@ -99,25 +114,29 @@
           "licence": "CC BY-SA 3.0",
           "author": "User:Rijans007",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Driftwood_in_fishbowl.jpeg",
-          "caption": "Khúc lũa đang ngâm trong bể tròn, nước hơi ngả vàng."
+          "caption": "Khúc lũa đang được ngâm trong bể tròn đầy nước để xả chát."
         }
       },
       {
-        "heading": "Gom Bucep từ nhiều nguồn",
+        "heading": "Chuẩn bị Bucep trước khi gắn",
         "moments": [
           {
-            "t": 193,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/t193.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Gỡ từng cụm Bucep từ các gói hàng gửi về, xếp lên khay xốp."
+            "t": 230,
+            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at230-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các bụi Bucep xếp trên khay xốp cạnh thùng xốp đựng cây mới về.",
+            "sharpness": 1949.7,
+            "person": false
           },
           {
-            "t": 227,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/t227.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây Bucep được gỡ ra, xếp trên khay và để riêng trong hộp nước."
+            "t": 235,
+            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at235-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bucep mới về được gỡ ra, để cạnh chậu và hộp chờ thả tạm.",
+            "sharpness": 417.3,
+            "person": false
           }
         ],
         "photo": {
@@ -128,27 +147,12 @@
           "licence": "CC BY-SA 4.0",
           "author": "Manuel Werner / CC-BY-SA-3.0 Werner, Deutschland",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bucephalandra_Shine_Blue_and_Bucephalandra_pygmaea_ex_situ.jpg",
-          "caption": "Nhiều cây Bucep trồng bám trên đá lũa trong bể thủy sinh."
+          "caption": "Những bụi Bucep đã trồng bám đá trong bể thủy sinh."
         }
       },
       {
-        "heading": "Rêu mini Taiwan lên nhanh, phải tỉa thường xuyên",
-        "moments": [
-          {
-            "t": 272,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/t272.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể lớn với cụm lũa lớn, chỗ để dán rêu lên lũa."
-          },
-          {
-            "t": 301,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/t301.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Rêu tỉa ra được để trong chậu và thùng xốp bên cạnh bể."
-          }
-        ],
+        "heading": "Rêu mini Taiwan lên nhanh, phải tỉa thường",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/p3-d0aF9UV18yLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/-5cy6iLFhJQ/p3-d0aF9UV18yLmpwZw-480.webp",
@@ -157,47 +161,20 @@
           "licence": "CC BY-SA 4.0",
           "author": "Jidanni",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Differential_moss_growth_TW_2.jpg",
-          "caption": "Rêu xanh mướt phủ kín một tảng đá, giống rêu dán trên lũa."
+          "caption": "Rêu xanh mướt phủ kín một tảng đá, trông giống rêu mini Taiwan."
         }
       },
       {
-        "heading": "Gỡ rêu cũ và dây cước khỏi lũa",
+        "heading": "Gắn Bucep lên lũa",
         "moments": [
           {
-            "t": 351,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/t351.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh với bộ lũa ghép nhiều cành còn nằm trong bể."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/p4-aXNoYm93bC5qcGVn.webp",
-          "thumb": "https://media.aquatome.com/video/-5cy6iLFhJQ/p4-aXNoYm93bC5qcGVn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "User:Rijans007",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Driftwood_in_fishbowl.jpeg",
-          "caption": "Cây lũa nhiều cành đặt trong bể thủy tinh tròn, có vài con cá bơi quanh."
-        }
-      },
-      {
-        "heading": "Dán rêu lên lũa bằng keo",
-        "moments": [
-          {
-            "t": 514,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/t514.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tay cầm một nhánh rêu nhỏ, chuẩn bị dán lên lũa."
-          },
-          {
-            "t": 523,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/t523.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các nhánh rêu được để sẵn trên khay trắng trước khi dán."
+            "t": 540,
+            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at540-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể với cành lũa lớn, sẵn sàng gắn Bucep lên lũa.",
+            "sharpness": 858.8,
+            "person": false
           }
         ]
       }

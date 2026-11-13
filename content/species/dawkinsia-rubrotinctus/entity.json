@@ -10,6 +10,47 @@
     "india",
     "cauvery"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Cauvery",
+        "Kabini"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Dawkinsia rubrotincta is a cyprinid from southern India, considered widespread throughout the Cauvery drainage in Karnataka, Kerala and Tamil Nadu.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Cauvery"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is the Mananthavadi River, a tributary of the Kabini river system within the larger Cauvery watershed in Wayanad District of Kerala state, southern India, but it's now considered widespread throughout the Cauvery drainage in the states of Karnataka, Kerala and Tamil Nadu.",
+          "countries": [],
+          "regions": [
+            "Kabini"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7513872,
+      "total": 0,
+      "fetched": "2026-11-07",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +94,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -182,8 +223,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x45 cm",
-        "bể cá 240 lít"
+        "bể cá 120cm"
       ]
     },
     {

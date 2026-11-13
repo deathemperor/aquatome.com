@@ -10,10 +10,22 @@
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/380c70c466d7e866.webp": "9592870d87930118",
   "https://media.aquatome.com/seriouslyfish/27a201a2e68f9bbd.webp": "4c4666ee271f4921",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Apistogramma_nijsseni_%28m%29.jpg/1280px-Apistogramma_nijsseni_%28m%29.jpg": "2f5b06070706b4c5",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Apistogramma_nijsseni_%28f%29.jpg/1280px-Apistogramma_nijsseni_%28f%29.jpg": "1b058c1e0da6333d",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Nijsseni_female.JPG/1280px-Nijsseni_female.JPG": "1260180e171242e3",
-  "https://upload.wikimedia.org/wikipedia/commons/0/01/Nijsseni_female_cropped.jpg": "10e00e171d2c60f2"
+  "https://media.aquatome.com/commons/328eb67c58d5f9bd.webp": "90200e17152ce0d2",
+  "https://media.aquatome.com/commons/07dbe08c519c1ad0.webp": "5220192c175263e3",
+  "https://media.aquatome.com/commons/310a08f9d4a7e0f3.webp": "13090c1e0da73b3d",
+  "https://media.aquatome.com/commons/73c5aabdb0e98f78.webp": "2f5b06070706a5d5"
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "inat": {
+  "taxon": 611245,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2371246,
+  "next": null
+ }
 }

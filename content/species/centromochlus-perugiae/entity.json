@@ -1,0 +1,440 @@
+{
+  "id": "centromochlus-perugiae",
+  "scientificName": "Centromochlus perugiae",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Centromochlus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "ecuador"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "EC"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The oil catfish, Duringlanis perugiae, is a small auchenipterid catfish from Peru and Ecuador.",
+          "countries": [
+            "PE",
+            "EC"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344638,
+      "total": 72,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "PE",
+          33
+        ],
+        [
+          "EC",
+          14
+        ],
+        [
+          "BR",
+          12
+        ],
+        [
+          "CO",
+          12
+        ],
+        [
+          "BO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -5.625,
+          7,
+          7
+        ],
+        [
+          -78.75,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -78.75,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          0,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          1.40625,
+          10,
+          0
+        ],
+        [
+          -74.53125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -15.46875,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          -18.28125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4.9,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/duringlanis-perugiae",
+      "html": "<p>The oil catfish, Duringlanis perugiae, is a small auchenipterid catfish from Peru and Ecuador. It lives around the shorelines of swift-flowing rivers with sandy substrates and no aquatic plants. By day it squeezes into spaces little bigger than itself, emerging in the evening to feed close to the surface in the flow. It breeds quite easily given strong flow and plenty of small crevices.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/duringlanis-perugiae",
+      "html": "<p>Peru, Ecuador.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/duringlanis-perugiae",
+      "html": "<p>Inhabits swift-flowing parts of rivers, where it's found around the shorelines. There is no aquatic vegetation of any kind, and the substrate is usually sandy.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/duringlanis-perugiae",
+      "html": "<p>Standard length: 6 cm SL. Aquarium base: 45 × 30 cm. Volume: ~41 litres (45 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/duringlanis-perugiae",
+      "html": "<p>The fish like to squeeze themselves into spaces little bigger than themselves during the day, so provide plenty of hiding places among tangles of bogwood or lengths of plastic piping. A sand substrate is best, and the fish prefer a good amount of water flow, although this isn't absolutely essential. The fish emerge in the evening to feed in open water, and the addition of a red lightbulb will allow you to observe this, as the fish can't see red wavelengths.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/duringlanis-perugiae",
+      "html": "<p>Temperature: 24–30°C.</p><p>pH: Has been caught in water with wildly varying pH over a range of 4.9–8.0 in nature. In aquaria it's probably best to aim for somewhere around neutral, although clearly this is a very adaptable species.</p><p>Hardness: 1–25 dGH.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/duringlanis-perugiae",
+      "html": "<p>Insectivorous in the wild, but in aquaria it relishes live and frozen foods such as bloodworm, earthworms etc., as well as sinking dried foods. Add food after lights out to ensure it receives its share, but take care not to overfeed, as the fish are very greedy.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/duringlanis-perugiae",
+      "html": "<p>Safe with all but the smallest of fry, therefore suitable for most community aquaria. Ideally keep it in a South American biotope aquarium, with tetras, dwarf cichlids and other peaceful catfish such as Corydoras sp. and smaller Loricariids. It's totally unaggressive towards conspecifics, and is equally happy when kept singly, or as part of a group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/duringlanis-perugiae",
+      "html": "<p>Males have an extended anal fin, which is used in a similar fashion to the gonopodium possessed by livebearers. Females are much rounder than males when gravid.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/duringlanis-perugiae",
+      "html": "<p>Can be bred quite easily when kept in the correct conditions. It won't spawn unless the tank has a moderate to strong flow of water, and lots of small crevices in which the eggs are laid. Lengths of pvc piping are ideal for this. Use air-powered sponge-type filtration, so that any eggs or fry aren't sucked up. As with other Auchenipterids, fertilisation takes place internally, via the modified anal fin of the male. The female guards the eggs until they hatch, at which point it's a good idea to move the adults or fry to a separate tank, in order to avoid predation. The fry will accept microworm or brine shrimp nauplii once they've used up their yolk sacs, which takes 6 or 7 days, but like the adults they'll only feed under cover of darkness. They prefer to hide off the substrate, near the surface, so provide plenty of hiding places high up the tank. Fine-leaved floating plants such as Riccia are ideal for this purpose.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/duringlanis-perugiae",
+      "html": "<p>A very cute little catfish, that unfortunately is rarely kept in ideal conditions. When it is maintained properly, it's a joy to watch as it feeds from close to the water surface, swimming frantically in the flow. It was reclassified, and placed in the genus Centromochlus in 1998. Calegari, Vari &amp; Reis (2019) then moved it to Duringlanis.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "zgoySTXawc4",
+      "title": "Honeycomb woodcat fish (tatia/centromochlus perugiae)",
+      "durationSec": 133,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Y1-2-0e1SlM",
+      "title": "centromochlus perugiae \"oil catfish\" wigglers",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WoMIAPjCPVU",
+      "title": "oil catfish (centromochlus perugiae) feeding",
+      "durationSec": 39,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Flb4u-bFw2A",
+      "title": "Centromochlus perugiae feeding time",
+      "durationSec": 17,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 50cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc tạo dòng chảy mạnh",
+        "lọc bọt biển cho cá bột",
+        "máy bơm tạo dòng",
+        "lọc bể cá dòng mạnh",
+        "lọc bọt biển"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ cá",
+        "cát thủy sinh mịn",
+        "cát nền bể cá",
+        "cát sông mịn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn chìm cho cá da trơn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

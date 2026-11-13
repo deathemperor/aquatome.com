@@ -39,7 +39,6 @@
   "File:Zig zag eel(Mastacembelus armatus) (15215).jpg"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/a3e53cec47a22b50.webp": "7f2f614d64795345",
   "https://media.aquatome.com/commons/12f19a3a1b01c2eb.webp": "19b0b8921ac2e0e0"
  },
  "inat": {
@@ -54,5 +53,9 @@
  "gbif": {
   "key": 2351784,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-09"
 }

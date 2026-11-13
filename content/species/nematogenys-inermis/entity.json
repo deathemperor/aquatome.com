@@ -7,13 +7,113 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "chile"
+    "chile",
+    "biobio"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CL"
+      ],
+      "regions": [
+        "Biobío River",
+        "Laguna Grande San Pedro"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Chile.",
+          "countries": [
+            "CL"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Its probable extinction has been documented in the middle course of the Biobío River, and it was reported in Laguna Grande San Pedro in the Biobío Region up to the nineties, but sampling between March 2018 and February 2019 did not capture a single individual there.",
+          "countries": [],
+          "regions": [
+            "Biobío River",
+            "Laguna Grande San Pedro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338998,
+      "total": 23,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CL",
+          23
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          -39.375,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -37.96875,
+          10,
+          10
+        ],
+        [
+          -71.71875,
+          -36.5625,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -35.15625,
+          4,
+          4
+        ],
+        [
+          -71.71875,
+          -33.75,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 24
+      },
+      {
+        "source": "scotcat",
+        "value": 24
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.7,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -25,10 +125,34 @@
       "html": "<p>Nematogenys inermis (Guichenot, 1848). Family: Nematogenyidae. Type locality: Chile. Maximum size: 240 mm (9.4 inches) SL. IUCN Red List category: Critically Endangered (last assessed 2021).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "html": "<ul><li>Common name: Mountain Catfish</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "html": "<p>This species is very rare in the aquatic hobby. There is not much information on keeping it in the aquarium, as it has never been exported due to its rarity. The IUCN Red List assesses it as Critically Endangered; a population decline of 90% is suspected over the past 12 years, and urgent conservation measures are needed.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1150",
       "html": "<p>South America: Chile.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "html": "<p>South America: isolated localities in Concepción, Rancagua and Angol, Chile. Formerly widespread throughout much of Central Chile. Type locality: Chile.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "html": "<p>The genus is endemic to some rivers in Chile. The species is presently considered extinct in almost all Chilean rivers, with the exception of some relatively undisturbed coastal catchments. Its probable extinction has been documented in the middle course of the Biobío River, and it was reported in Laguna Grande San Pedro in the Biobío Region up to the nineties, but sampling between March 2018 and February 2019 did not capture a single individual there. These changes may be attributed to water quality and habitat deterioration. Habitat alteration due to water extraction, contamination and river regulation is still in place and expected to intensify, and the species is endemic to central regions of Chile that are highly vulnerable to climate change.</p>"
     },
     {
       "key": "reproduction",
@@ -37,45 +161,26 @@
       "html": "<p>There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "html": "<p>Nematogenys contains a single species, N. inermis. It has no adipose fin and the caudal fin is short and rounded. It was previously placed in the Trichomycteridae. A fossil from the Miocene, continental fluviolacustrine deposits of the upper Cura–Mallín Formation (37–39°S), Chile, was described and named Nematogenys cuivi (Azpelicueta &amp; Rubilar, 1997). Etymology: the specific name inermis is Latin for unarmed, referring to the absence of opercular spines, which distinguished it from presumed congeners in Trichomycterus at the time of description.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1150",
       "html": "<p>Fauna Chilena.... in Gay., pp 312, Pl. 9 (fig. 2).</p>"
-    }
-  ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/de6fc3d3c3245737.webp",
-      "width": 960,
-      "height": 705,
-      "licence": "Public domain",
-      "author": "J. H. Richard",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nematogenys_inermis.jpg",
-      "caption": "Nematogenys inermis",
-      "thumb": "https://media.aquatome.com/commons/de6fc3d3c3245737-480.webp"
     },
     {
-      "url": "https://media.aquatome.com/commons/a7875cd8204ddfd5.webp",
-      "width": 960,
-      "height": 385,
-      "licence": "Public domain",
-      "author": "Girard, Charles, 1822-1895",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Contributions_to_the_fauna_of_Chile_(Nematogenys_inermis).jpg",
-      "caption": "Nematogenys inermis",
-      "thumb": "https://media.aquatome.com/commons/a7875cd8204ddfd5-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/f8120e5f9661b611.webp",
-      "width": 960,
-      "height": 591,
-      "licence": "CC0",
-      "author": "Internet Archive Book Images",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ictalurus_punctatus_pectoral_fin_first_ray.jpg",
-      "caption": "Title: Bonner zoologische Monographien Identifier: bonnerzoo202519861987bonn Year: 1971 (1970s) Authors: Subjects: Zoology Publisher: Bonn, Zoologisches Forschungsinstitut und Museum Alexander Koenig ",
-      "thumb": "https://media.aquatome.com/commons/f8120e5f9661b611-480.webp"
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "html": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. T.F.H. Publications. de Pínna, M.C.C., 2003. Nematogenyidae (mountain catfishes). In Reis, Kullander and Ferraris (eds.) Checklist of the Freshwater Fishes of South and Central America. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil. Zootaxa 1418:1-628. Froese, R. and D. Pauly. 2017. FishBase. Górski, K. 2023. Nematogenys inermis. The IUCN Red List of Threatened Species 2023. The ETYFish Project Fish Name Etymology Database.</p>"
     }
   ],
+  "photos": [],
   "videos": [],
   "productSlots": [],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-06"
 }

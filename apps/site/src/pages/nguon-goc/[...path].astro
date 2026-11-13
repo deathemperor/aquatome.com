@@ -9,6 +9,7 @@ import { speciesLists } from '../../lib/list-data'
 import { PAGE } from '../../scripts/filter-list'
 import { i18n, langOf } from '../../lib/i18n'
 import { alternatesWhere } from '../../lib/alternates'
+import { capitalized } from '../../lib/range'
 import { ORIGINS, PLACE_INTRO, PLACE_INTROS, PLACE_TITLES } from '../../lib/taxa-places'
 
 const { t, lang } = i18n(Astro.url)
@@ -35,15 +36,15 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 }
 const { place, species, kids, parent } = Astro.props as { place?: Localized<PlaceEntity>; species: Localized<SpeciesEntity>[]; kids: Localized<PlaceEntity>[]; parent?: Localized<PlaceEntity> }
 const name = place ? TITLES[place.id] ?? place.t.name : t(ORIGINS)
-const crumbs: [string, string][] = place ? [['/vi/nguon-goc/', t(ORIGINS)], ...(parent ? [[`/vi/nguon-goc/${parent.id}/`, parent.t.name] as [string, string]] : [])] : []
+const crumbs: [string, string][] = place ? [['/vi/nguon-goc/', t(ORIGINS)], ...(parent ? [[`/vi/nguon-goc/${parent.id}/`, capitalized(parent.t.name)] as [string, string]] : [])] : []
 const intro = place ? INTROS[place.id] ?? t(PLACE_INTRO, { n: species.length, place: place.t.name }) : t('Duyệt loài theo châu lục, quốc gia và dòng sông nơi chúng sinh ra.')
 // The same place in another language: named there (the index always is).
 const alternates = await alternatesWhere(Astro.url.pathname, c => !place || c.places.some(p => p.id === place.id))
 const href = (k: Localized<PlaceEntity>) => (k.kind === 'country' ? `/vi/nguon-goc/${k.parent}/${k.id}/` : k.kind === 'continent' ? `/vi/nguon-goc/${k.id}/` : undefined)
 ---
-<Browse title={place && !TITLES[place.id] ? t('Cá cảnh bản địa {place}: {n} loài', { place: name, n: species.length }) : name} heading={name} crumbs={crumbs} intro={intro} credits={creditsFor(gridPhotos(c, species.slice(0, PAGE)).map(p => p ?? undefined))} creditsLater={species.length > PAGE} alternates={alternates}>
+<Browse title={place && !TITLES[place.id] ? t('Cá cảnh bản địa {place}: {n} loài', { place: name, n: species.length }) : name} heading={capitalized(name)} crumbs={crumbs} intro={intro} credits={creditsFor(gridPhotos(c, species.slice(0, PAGE)).map(p => p ?? undefined))} creditsLater={species.length > PAGE} alternates={alternates}>
   {kids.length > 0 && (
-    <ul class="kids">{kids.map(k => { const h = href(k); return <li>{h ? <a href={h}>{k.t.name}</a> : <span>{k.t.name}</span>}</li> })}</ul>
+    <ul class="kids">{kids.map(k => { const h = href(k); return <li>{h ? <a href={h}>{capitalized(k.t.name)}</a> : <span>{capitalized(k.t.name)}</span>}</li> })}</ul>
   )}
   {place && <PagedSpecies species={species} list={`nguon-goc/${Astro.params.path}`} heading={t('Danh sách loài')} />}
 </Browse>

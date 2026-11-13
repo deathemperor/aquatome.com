@@ -1,0 +1,592 @@
+{
+  "id": "butis-koilomatodon",
+  "scientificName": "Butis koilomatodon",
+  "order": "Perciformes",
+  "family": "Eleotridae",
+  "genus": "Butis",
+  "group": "gobies",
+  "places": [
+    "asia",
+    "thailand"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2386071,
+      "total": 263,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TW",
+          71
+        ],
+        [
+          "AU",
+          63
+        ],
+        [
+          "CN",
+          27
+        ],
+        [
+          "BR",
+          19
+        ],
+        [
+          "VN",
+          12
+        ],
+        [
+          "TH",
+          10
+        ],
+        [
+          "MY",
+          9
+        ],
+        [
+          "MZ",
+          8
+        ],
+        [
+          "ID",
+          7
+        ],
+        [
+          "PH",
+          6
+        ],
+        [
+          "CM",
+          5
+        ],
+        [
+          "IN",
+          5
+        ],
+        [
+          "NG",
+          4
+        ],
+        [
+          "PG",
+          4
+        ],
+        [
+          "SG",
+          4
+        ],
+        [
+          "GF",
+          3
+        ],
+        [
+          "BD",
+          2
+        ],
+        [
+          "GW",
+          1
+        ],
+        [
+          "HK",
+          1
+        ],
+        [
+          "KE",
+          1
+        ],
+        [
+          "ZA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -12.65625,
+          2
+        ],
+        [
+          -52.03125,
+          4.21875,
+          3
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          1
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          4
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          3
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          4
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          2
+        ],
+        [
+          -40.78125,
+          -18.28125,
+          1
+        ],
+        [
+          -39.375,
+          -18.28125,
+          1
+        ],
+        [
+          -37.96875,
+          -5.625,
+          1
+        ],
+        [
+          -15.46875,
+          11.25,
+          1
+        ],
+        [
+          5.625,
+          4.21875,
+          3
+        ],
+        [
+          7.03125,
+          4.21875,
+          1
+        ],
+        [
+          8.4375,
+          4.21875,
+          5
+        ],
+        [
+          25.3125,
+          -35.15625,
+          1
+        ],
+        [
+          32.34375,
+          -26.71875,
+          7
+        ],
+        [
+          37.96875,
+          -18.28125,
+          1
+        ],
+        [
+          39.375,
+          -4.21875,
+          1
+        ],
+        [
+          75.9375,
+          9.84375,
+          1
+        ],
+        [
+          78.75,
+          11.25,
+          1
+        ],
+        [
+          82.96875,
+          16.875,
+          1
+        ],
+        [
+          85.78125,
+          19.6875,
+          1
+        ],
+        [
+          88.59375,
+          22.5,
+          1
+        ],
+        [
+          91.40625,
+          11.25,
+          1
+        ],
+        [
+          91.40625,
+          21.09375,
+          1
+        ],
+        [
+          97.03125,
+          7.03125,
+          5
+        ],
+        [
+          98.4375,
+          7.03125,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          1
+        ],
+        [
+          99.84375,
+          5.625,
+          1
+        ],
+        [
+          99.84375,
+          12.65625,
+          3
+        ],
+        [
+          101.25,
+          1.40625,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          1
+        ],
+        [
+          101.25,
+          11.25,
+          1
+        ],
+        [
+          102.65625,
+          0,
+          4
+        ],
+        [
+          102.65625,
+          1.40625,
+          3
+        ],
+        [
+          102.65625,
+          2.8125,
+          2
+        ],
+        [
+          104.0625,
+          8.4375,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          3
+        ],
+        [
+          104.0625,
+          37.96875,
+          1
+        ],
+        [
+          105.46875,
+          8.4375,
+          2
+        ],
+        [
+          105.46875,
+          9.84375,
+          1
+        ],
+        [
+          105.46875,
+          19.6875,
+          2
+        ],
+        [
+          106.875,
+          9.84375,
+          1
+        ],
+        [
+          106.875,
+          19.6875,
+          1
+        ],
+        [
+          108.28125,
+          11.25,
+          1
+        ],
+        [
+          108.28125,
+          19.6875,
+          2
+        ],
+        [
+          109.6875,
+          19.6875,
+          3
+        ],
+        [
+          112.5,
+          22.5,
+          1
+        ],
+        [
+          113.90625,
+          21.09375,
+          1
+        ],
+        [
+          115.3125,
+          22.5,
+          1
+        ],
+        [
+          116.71875,
+          22.5,
+          2
+        ],
+        [
+          116.71875,
+          23.90625,
+          5
+        ],
+        [
+          118.125,
+          23.90625,
+          4
+        ],
+        [
+          119.53125,
+          22.5,
+          62
+        ],
+        [
+          119.53125,
+          25.3125,
+          8
+        ],
+        [
+          120.9375,
+          23.90625,
+          9
+        ],
+        [
+          122.34375,
+          9.84375,
+          1
+        ],
+        [
+          122.34375,
+          11.25,
+          1
+        ],
+        [
+          123.75,
+          12.65625,
+          4
+        ],
+        [
+          129.375,
+          -14.0625,
+          2
+        ],
+        [
+          129.375,
+          -12.65625,
+          7
+        ],
+        [
+          130.78125,
+          -12.65625,
+          34
+        ],
+        [
+          132.1875,
+          -12.65625,
+          5
+        ],
+        [
+          132.1875,
+          -2.8125,
+          1
+        ],
+        [
+          133.59375,
+          -7.03125,
+          1
+        ],
+        [
+          135,
+          -15.46875,
+          2
+        ],
+        [
+          136.40625,
+          -5.625,
+          4
+        ],
+        [
+          136.40625,
+          -2.8125,
+          1
+        ],
+        [
+          140.625,
+          -18.28125,
+          2
+        ],
+        [
+          140.625,
+          -8.4375,
+          1
+        ],
+        [
+          142.03125,
+          -9.84375,
+          1
+        ],
+        [
+          143.4375,
+          -9.84375,
+          1
+        ],
+        [
+          143.4375,
+          -8.4375,
+          1
+        ],
+        [
+          144.84375,
+          -16.875,
+          2
+        ],
+        [
+          146.25,
+          -19.6875,
+          4
+        ],
+        [
+          150.46875,
+          -25.3125,
+          1
+        ],
+        [
+          150.46875,
+          -23.90625,
+          1
+        ],
+        [
+          151.875,
+          -28.125,
+          3
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "However, for long-term keeping it is suggested to keep them in a brackish environment, e.g. 5-10 grams of salt per litre."
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/butis_koilomatodon_en/",
+      "html": "<p>Butis koilomatodon is a sleeper goby that reaches a maximum length of about 8 cm and is one of the smaller sleepers. The animals received originate from Thailand. Some authors also place this species in the genus Prionobutis.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/butis_koilomatodon_en/",
+      "html": "<p>Butis koilomatodon has an extremely wide range. It is known not only from the Indo-West-Pacific region, but also from the eastern Pacific and the eastern and western Atlantic. This distribution clearly shows that the larvae develop in a marine environment.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/butis_koilomatodon_en/",
+      "html": "<p>The adult goby accepts pure freshwater as easily as pure marine water. However, for long-term keeping it is suggested to keep them in a brackish environment, e.g. 5-10 grams of salt per litre.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/butis_koilomatodon_en/",
+      "html": "<p>It is not necessary to feed these predatory fish with live food; they readily accept frozen food as well, such as Artemia, bloodworms etc. However, smaller fish, shrimps etc. will be taken as food by the goby.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/butis_koilomatodon_en/",
+      "html": "<p>Like all Butis species, B. koilomatodon is able to swim and hunt in every conceivable position, often upside down. The species can be told apart from its congeners at first glance by the blunt profile of the head.</p><p>Against conspecifics this species is quarrelsome, so it should be kept in well-structured tanks with a lot of hiding places.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "PZcBIYrotI4",
+      "title": "Butis Koilomatodon ( Bống Hổ )",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ppJMNnynmfw",
+      "title": "Butis Koilomatodon ( Bống Hổ ) và Omobranchus Zebra",
+      "durationSec": 45,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NLKLH4MYJmQ",
+      "title": "Butis Koilomatodon ( Bống Hổ )",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "nwdl_uo5Nmw",
+      "title": "Butis Koilomatodon ( Bống Hổ )",
+      "durationSec": 51,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nước lợ",
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

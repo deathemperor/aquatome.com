@@ -1,0 +1,306 @@
+{
+  "id": "copella-carsevennensis",
+  "scientificName": "Copella carsevennensis",
+  "order": "Characiformes",
+  "family": "Lebiasinidae",
+  "genus": "Copella",
+  "group": "other",
+  "places": [
+    "south-america",
+    "guyana",
+    "suriname",
+    "maroni",
+    "french-guiana",
+    "brazil",
+    "amapa"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "SR",
+        "GF",
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Copella carsevennensis is a small lebiasinid from coastal river systems in Guyana, Suriname, French Guiana and Amapá state, Brazil.",
+          "countries": [
+            "GY",
+            "SR",
+            "GF",
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355698,
+      "total": 348,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "GF",
+          318
+        ],
+        [
+          "BR",
+          21
+        ],
+        [
+          "SR",
+          7
+        ],
+        [
+          "GY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          -56.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          1.40625,
+          9,
+          9
+        ],
+        [
+          -54.84375,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          -54.84375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          2.8125,
+          112,
+          112
+        ],
+        [
+          -53.4375,
+          4.21875,
+          186,
+          186
+        ],
+        [
+          -52.03125,
+          2.8125,
+          10,
+          10
+        ],
+        [
+          -52.03125,
+          4.21875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/copella-carsevennensis",
+      "html": "<p>Copella carsevennensis is a small lebiasinid from coastal river systems in Guyana, Suriname, French Guiana and Amapá state, Brazil. It appears in the trade from time to time among wild-caught fishes from the Guianas. Zarske (2011) separated it from C. arnoldi, partly because it lays its eggs among submerged vegetation and not out of the water, though Mol (2012) considers the two synonymous.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/copella-carsevennensis",
+      "html": "<p>Appears to be distributed throughout coastal river systems in Guyana, Suriname, French Guiana and Amapa state, northeastern Brazil.</p><p>Type locality is given as both 'Carsevenne' in the original description with distribution listed as 'French Guiana', but the former actually refers to a coastal river drainage in Amapa, a few hundred kilometres from the border with French Guiana.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/copella-carsevennensis",
+      "html": "<p>Surface dimensions of 75 × 30 cm or equivalent (about 68 litres) should be the minimum considered for long-term care although smaller aquaria can be used for breeding.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/copella-carsevennensis",
+      "html": "<p>Best kept in a densely-planted aquarium or paludarium with some overhanging vegetation, roots or branches important if you wish to raise fry alongside the adults (see 'Reproduction').</p><p>Floating vegetation is also useful since this species appears to prefer relatively dim conditions and spends much of its time in the upper part of the water column.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments. Alder cones may also be used for the latter purpose.</p><p>The water should be well-oxygenated with a little surface agitation advisable.</p><p>Do not add this fish to a biologically immature aquarium as it can be susceptible to swings in water chemistry.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/copella-carsevennensis",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/copella-carsevennensis",
+      "html": "<p>Probably a micropredator feeding on tiny invertebrates and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should also be offered daily meals of small live and frozen fare such as Artemia nauplii, Moina, grindal worm, etc.</p><p>Small insects such as crickets or Drosophila fruit flies are also suitable to use although it's best to fill the stomachs of these by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/copella-carsevennensis",
+      "html": "<p>Peaceful but somewhat unsuitable for the general community aquarium.</p><p>It's perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and diminutive, non-predatory cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p><p>Males will also display their best colours and some fascinating behaviour as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/copella-carsevennensis",
+      "html": "<p>Males grows significantly larger, develop more-extended fins and are more intensely-coloured than females, while the latter are noticeably rounder-bodied, especially when gravid.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/copella-carsevennensis",
+      "html": "<p>This species deposits its eggs among vegetation, these being guarded by the male during incubation.</p><p>In a mature set-up it's possible that small numbers of fry may start to appear without intervention but should you wish to maximise yield a more controlled approach using a separate tank is preferable.</p><p>This can be arranged very simply with an air-powered sponge filter and some aquatic plants or synthetic alternative which should ideally be floating or reaching the water surface.</p><p>Nuptial males form small, temporary territories around an intended spawning site and attempt to attract sexually-active females in the vicinity.</p><p>The eggs may be laid on a broad plant leaf or if unavailable scattered among fine-leaved vegetation and the female(s) can be removed post-spawning, leaving the male to guard and tend the brood.</p><p>Incubation is 36-72 hours and once the eggs begin to hatch parental care ceases and the male should also be removed as he may begin to eat the fry.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p><p>As with other Copella spp. growth is very slow.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/copella-carsevennensis",
+      "html": "<p>This species does appear in the aquarium trade from time-to-time, often among shipments of other wild-caught fishes from the Guianas.</p><p>It can be told apart from other Copella spp. by the following characters: 24-26 scales in the lateral row; absence of a dark stripe running from the tip of the snout to the eye; dorsal-fin insertion located closer to the caudal-fin base than the posterior edge of the opercle; no black triangular marking in the ventral rays of the lower caudal-fin lobe.</p><p>C. carsevennensis has formerly been synonymised with C. arnoldi but was considered separate by Zarske (2011) using the following combination characters: absence (vs. presence) of a silvery-white to white patch in the centre of some of the flank scales in males, particularly in the lower half of the body; absence (vs. presence) of a horizontal dark body bar in nuptial males; absence (vs. presence) of thin black margins in the dorsal, ventral and anal fins; eggs deposited among submerged vegetation (vs. eggs deposited outside of the water).</p><p>Mol (2012) considers the two species synonymous based on a personal communication although no detailed explanation is given so they continue to be listed separately for the time being.</p><p>The genus Copella can be told apart from the closely-related Pyrrhulina by aspects of head morphology plus possession of only one (vs. two) row of conical teeth in the premaxillary.</p><p>The family Lebiasinidae is included in the order Characiformes and sometimes split into the nominal subfamilies Lebiasininae and Pyrrhulininae, though there has not been a major review of the grouping in recent times.</p><p>All lebiasinid genera possess a relatively long, elongate body shape with 17-33 scales in the lateral series and laterosensory canal system absent or reduced to 7 scales or less.</p><p>Some species have an adipose fin while others do not, and the anal-fin has a relatively short base of 13 scales or less.</p><p>In the majority of members males have an enlarged or otherwise well-developed anal-fin used in courtship and spawning.</p><p>The frontal/parietal fontanelle is always absent, the cheek well-covered by the orbital and opercular bones, the supraoccipital crest is absent, and the scales of the dorsal body begin over the parietal bones.</p><p>Characiformes is among the most diverse orders of freshwater fishes currently including close to 2000 valid species distributed among 19 families.</p><p>This tremendous taxonomical and morphological diversity has historically impaired the ability of researchers to resolve their genetic relationships with many genera remaining incertae sedis.</p><p>A further limiting factor has been that in many cases exhaustive study of these on an individual basis is the only way to resolve such problems.</p><p>Modern molecular phylogenetic techniques have allowed some headway, though, and a research paper by Calcagnotto et al. published in 2005 revealed some interesting hypotheses.</p><p>Their results suggest that Lebiasinidae forms a trans-atlantic, monophyletic clade alongside the families Ctenoluciidae and Hepsetidae, this clade further forming a sister group to Alestidae.</p><p>Others such as Oliveira et al. (2011) have concluded that the family Erythrinidae is also closely-related to this grouping with Hepsetidae and Alestidae more distant.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/copella-carsevennensis",
+      "html": "<ul><li>Zarske, A. and J. Géry (2006). Zur Identität von Copella nattereri (Steindachner, 1876) einschließlich der Beschreibung einer neuen Art (Teleostei: Characiformes: Lebiasinidae). Zoologische Abhandlungen (Dresden) 56, 15-46</li><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Zarske, A. (2011). Beiträge zur Kenntnis der Vertreter der Gattungen Pyrrhulina VALENCIENNES, 1846 und Copella MYERS, 1956 des nordöstlichen Südamerika (Teleostei: Characiformes: Lebiasinidae). Vertebrate Zoology 61(1), 13-45</li><li>Regan, C. T. (1912). A revision of the South American characid fishes of the genera Chalceus, Pyrrhulina, Copeina, and Pogonocharax. Annals and Magazine of Natural History (Series 8) v. 10 (no. 58), 387-395</li><li>Mol, J. H. A. (2012). The Freshwater Fishes of Suriname. Brill Academic Publishers, 1-890</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ca712403783cba45.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ca712403783cba45-480.webp",
+      "width": 801,
+      "height": 522,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/copella-carsevennensis",
+      "caption": "Adult male individual.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt biển sục khí",
+        "lọc bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "thức ăn khô cỡ nhỏ cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nổi",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

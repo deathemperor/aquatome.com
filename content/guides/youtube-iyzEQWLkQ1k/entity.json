@@ -8,7 +8,7 @@
   "mentions": [
     "danio-rerio"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "iyzEQWLkQ1k",
     "title": "CRAZY aquarium breeding rack!!",
@@ -28,80 +28,29 @@
     },
     "transcribed": true,
     "taxa": [
-      "Danio rerio",
-      "Oncorhynchus mykiss",
-      "Salvelinus alpinus",
-      "Xenopus laevis"
+      "Danio rerio"
     ],
     "gear": [
       {
         "category": "be-ca",
         "type": "chuan",
-        "t": 75
+        "t": 60
       }
     ],
     "figures": [
       {
-        "heading": "Giàn bể này dùng vào việc gì",
-        "moments": [
-          {
-            "t": 317,
-            "url": "https://media.aquatome.com/video/iyzEQWLkQ1k/t317.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Toàn cảnh giàn kệ nuôi cá trong phòng nghiên cứu."
-          },
-          {
-            "t": 327,
-            "url": "https://media.aquatome.com/video/iyzEQWLkQ1k/t327.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Giàn bể nhiều tầng bằng ống PVC với đèn LED và các bể nhựa nhỏ."
-          }
-        ]
-      },
-      {
-        "heading": "Bể nhựa ba cỡ: vì sao không dùng bể kính",
-        "moments": [
-          {
-            "t": 98,
-            "url": "https://media.aquatome.com/video/iyzEQWLkQ1k/t98.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Các bể nhựa trong suốt gắn trên giàn kệ."
-          }
-        ]
-      },
-      {
-        "heading": "Nước vào và nước ra đi đường nào",
-        "moments": [
-          {
-            "t": 254,
-            "url": "https://media.aquatome.com/video/iyzEQWLkQ1k/t254.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Các nhánh ống nhỏ dẫn nước tới sát từng bể trên giàn."
-          }
-        ]
-      },
-      {
-        "heading": "Ống và khung làm từ vật liệu gì",
-        "moments": [
-          {
-            "t": 205,
-            "url": "https://media.aquatome.com/video/iyzEQWLkQ1k/t205.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh ống nhựa trắng và các co nối của giàn bể."
-          },
-          {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/iyzEQWLkQ1k/t210.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Khung giàn bể làm từ ống nhựa trắng, nhiều tầng xếp song song."
-          }
-        ]
+        "heading": "Tự làm thay vì mua giàn thương mại",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/iyzEQWLkQ1k/p2-cmVfRnJhbWUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/iyzEQWLkQ1k/p2-cmVfRnJhbWUuanBn-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY-SA 4.0",
+          "author": "Art Graphics",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Welding_Aluminium_Picture_Frame.jpg",
+          "caption": "Hàn khung nhôm bằng máy hàn, tia lửa bắn ra tung tóe."
+        }
       }
     ]
   }

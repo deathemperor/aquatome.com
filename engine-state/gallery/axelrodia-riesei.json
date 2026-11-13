@@ -3,7 +3,8 @@
  "judged": [
   "File:Axelrodia riesei (MNHN-1982-0538).jpg",
   "File:Pfeffersalmler Axelrodia riesei (16467043916).jpg",
-  "File:Aquarium with a school of Axelrodia riesei.jpg"
+  "File:Aquarium with a school of Axelrodia riesei.jpg",
+  "flickr:12273479723"
  ],
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/eb80c1e695ab26b1.webp": "706ceee9e7e6ff6e",
@@ -21,5 +22,9 @@
  "gbif": {
   "key": 2352795,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-10"
 }

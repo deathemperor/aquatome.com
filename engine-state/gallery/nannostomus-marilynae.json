@@ -5,8 +5,7 @@
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/a0868a21c77541a4.webp": "930f0e073e66c6c6",
-  "https://media.aquatome.com/seriouslyfish/db5b202ac69b66ee.webp": "062c4c1e8e0212a4",
-  "https://media.aquatome.com/commons/2f3577aa2b861cef.webp": "fffff7c0e03f3f37"
+  "https://media.aquatome.com/seriouslyfish/db5b202ac69b66ee.webp": "062c4c1e8e0212a4"
  },
  "inat": {
   "taxon": 615682,
@@ -16,5 +15,9 @@
    "agree": 0
   }
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "gbif": {
+  "key": 2355658,
+  "next": null
+ }
 }

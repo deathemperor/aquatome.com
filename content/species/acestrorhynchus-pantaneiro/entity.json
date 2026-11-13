@@ -25,11 +25,11 @@
         "BO"
       ],
       "regions": [
+        "Rio Cuiabá",
         "Río Paraná",
         "Río Uruguay",
         "Río de la Plata",
-        "Mamoré",
-        "Rio Cuiabá"
+        "Mamoré"
       ],
       "sources": [
         "seriouslyfish"
@@ -45,11 +45,11 @@
             "BO"
           ],
           "regions": [
+            "Rio Cuiabá",
             "Río Paraná",
             "Río Uruguay",
             "Río de la Plata",
-            "Mamoré",
-            "Rio Cuiabá"
+            "Mamoré"
           ]
         }
       ]
@@ -539,7 +539,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 7
+        "value": 6
       }
     ]
   },
@@ -548,7 +548,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-pantaneiro",
-      "html": "<ul><li>Max size: 240 mm SL (9 in SL)</li><li>Aquarium size: 250 × 90 cm (98 × 36 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Difficulty: 7 of 8 (Difficult) – rated difficult because it needs a tank at least 2 m long.</li><li>Hardiness: needs a well-established tank</li></ul>"
+      "html": "<ul><li>Max size: 240 mm SL (9 in SL)</li><li>Aquarium size: 250 × 90 cm (98 × 36 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Difficulty: 6 of 8 (Difficult) – rated difficult because it needs a tank at least 2 m long.</li><li>Hardiness: needs a well-established tank</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -678,8 +678,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 250cm",
-        "bể cá lớn dài 2.5m"
+        "bể cá 250cm"
       ]
     },
     {

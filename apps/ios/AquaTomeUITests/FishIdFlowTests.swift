@@ -32,6 +32,21 @@ final class FishIdFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Chưa có trong cẩm nang."].exists, "a guess the handbook has no page for isn't said so")
   }
 
+  /// The privacy policy opens the site's page in the browser, as the site's pages about itself do (PageRoute), and the
+  /// screen stays as it was: no screen pushed in the app, which that page would leave blank.
+  func testThePrivacyPolicyOpensInTheBrowserAndTheScreenStays() {
+    let app = launch()
+    openTool(app)
+    let policy = app.buttons["Chính sách bảo mật"]
+    repeatUntil(policy.exists && policy.isHittable, times: 6) { app.swipeUp() }
+    policy.tap()
+    let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
+    XCTAssertTrue(safari.wait(for: .runningForeground, timeout: 15), "not the browser")
+    app.activate()
+    XCTAssertTrue(app.navigationBars["Đây là cá gì?"].waitForExistence(timeout: 5), "a screen pushed over the tool")
+    XCTAssertFalse(app.descendants(matching: .any)["page"].exists, "a web screen in the app")
+  }
+
   /// A fish boxed on the photo: only that part goes, cut from the photo at full size: about half of its 1600 × 1200 each
   /// way, not the whole photo shrunk (1024 × 768), nor a part of that (about 512 wide).
   func testAFishBoxedSendsOnlyThatPart() {
@@ -136,28 +151,55 @@ final class FishIdFlowTests: XCTestCase {
 
   /// A run the Worker takes long over: past the first seconds the screen says it may take a minute, and with no answer
   /// in the request's time, the site's words for a run that failed, not "no network". Meanwhile the photo can't be
-  /// changed (the library, the box), so the answer comes in under the photo it's for.
+  /// changed (the library, the box), so the answer comes in under the photo it's for. The test moves the wait on itself
+  /// (`-test-gates`): the 10 s to the longer words, then the stand-in's 40 s to the request's time running out, so a slow
+  /// Mac's steps can't run past either.
   func testWhileWaitingThePhotoStaysAndALongWaitIsSaid() {
-    let app = launch("-picked-photo", "-fish-id-slow")
+    let gates = Gates()
+    let app = launch("-picked-photo", "-fish-id-slow", "-test-gates", gates.path)
     openTool(app)
     signIn(app)
     send(app)
+    let said = element(app, "fish-id-said")
+    // At once, in the button's place: a spinner and what it's doing.
+    XCTAssertTrue(said.waitForLabel("Đang nhận diện… thường mất vài giây.", timeout: 5), said.saying)
     // Back to the top, where the photo's controls are.
     for _ in 0..<3 { app.swipeDown() }
-    let library = element(app, "fish-id-library"), box = element(app, "fish-id-box")
-    XCTAssertTrue(library.waitForExistence(timeout: 5) && box.exists, "the photo's controls aren't shown")
+    let library = element(app, "fish-id-library"), box = element(app, "fish-id-box"), send = element(app, "fish-id-send")
+    XCTAssertTrue(library.waitForExistence(timeout: 5), "the photo's controls aren't shown")
     XCTAssertFalse(library.isEnabled, "another photo can be picked while one is identified")
-    XCTAssertFalse(box.isEnabled, "the photo can be boxed while it's identified")
-    // Under "Nhận diện", below the photo.
-    let said = element(app, "fish-id-said")
+    // Nothing greyed out that reads as broken: no box to change, and in the button's place a spinner and what it's doing.
+    XCTAssertFalse(box.exists, "the photo can be boxed while it's identified")
+    XCTAssertFalse(send.exists, "a greyed-out button while it's identified")
     reveal(app, said)
-    // The stand-in holds the request 40 s: the line changes at 10.
-    XCTAssertTrue(said.waitForLabel("Vẫn đang nhận diện… có thể mất đến một phút.", timeout: 30), said.saying)
-    XCTAssertTrue(said.waitForLabel("Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.", timeout: 45), said.saying)
-    XCTAssertTrue(element(app, "fish-id-send").isEnabled, "can't send again")
+    XCTAssertEqual(said.label, "Đang nhận diện… thường mất vài giây.", "the words changed before their time")
+    gates.open("fish-id-longer")
+    XCTAssertTrue(said.waitForLabel("Vẫn đang nhận diện… có thể mất đến một phút.", timeout: 5), said.saying)
+    gates.open("fish-id-answer")
+    // The wait over, the box comes back where the spinner was, with the button and the words under it: those maybe
+    // below the screen's edge.
+    XCTAssertTrue(box.waitForExistence(timeout: 5), "still identifying")
     XCTAssertTrue(box.isEnabled, "the box stays off")
+    reveal(app, said)
+    XCTAssertEqual(said.label, "Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.")
+    XCTAssertTrue(send.isEnabled, "can't send again")
     reveal(app, library, up: true)
     XCTAssertTrue(library.isEnabled, "the library stays off")
+  }
+
+  /// While it identifies, the end of the screen (the tips' last line) still comes up above the tab bar.
+  func testWhileItIdentifiesTheScreensEndIsAboveTheTabBar() {
+    // Held for as long as the flow takes: no gate is opened.
+    let app = launch("-picked-photo", "-fish-id-slow", "-test-gates", Gates().path)
+    openTool(app)
+    signIn(app)
+    let bar = app.tabBars.firstMatch
+    XCTAssertTrue(bar.waitForExistence(timeout: 5), "no tab bar")
+    send(app)
+    XCTAssertTrue(element(app, "fish-id-said").waitForExistence(timeout: 5), "not identifying")
+    app.endsAboveTheTabBar("fish ID while it identifies")
+    let last = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Công cụ chỉ đoán từ ảnh'")).firstMatch
+    XCTAssertTrue(last.exists && last.frame.maxY <= bar.frame.minY + 0.5, "the tips' last line isn't above the bar: \(last.frame) \(bar.frame)")
   }
 
   /// Back from a guess's page, the guesses and the box are as they were: the photo isn't read again, which would take
@@ -207,7 +249,8 @@ final class FishIdFlowTests: XCTestCase {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", accounts,
                            "-reset-fake-server"] + more
-    app.launchForFlow()
+    // The old look's: every flow here finds the tool through Tìm's search.
+    app.launchForFlow(.old)
     return app
   }
 
@@ -251,12 +294,23 @@ final class FishIdFlowTests: XCTestCase {
   /// boxing, a drag on the photo draws a box.
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement, up: Bool = false) {
     let (from, to) = up ? (0.4, 0.7) : (0.7, 0.4)
-    for _ in 0..<12 where !(e.exists && e.isHittable) {
+    repeatUntil(e.exists && e.isHittable, times: 12) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: from))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: to)), withVelocity: .fast,
                thenHoldForDuration: 0.1)
     }
     XCTAssertTrue(e.exists && e.isHittable, "\(e) not found")
+  }
+}
+
+/// The app's waits the test moves on itself (`TestGate`): a folder of its own, where opening one writes its file.
+private struct Gates {
+  let path = FileManager.default.temporaryDirectory.appending(path: "gates-\(UUID().uuidString)").path
+
+  init() { try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true) }
+
+  func open(_ name: String) {
+    XCTAssertTrue(FileManager.default.createFile(atPath: (path as NSString).appendingPathComponent(name), contents: Data()), "gate \(name) not opened")
   }
 }
 

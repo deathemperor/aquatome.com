@@ -1,0 +1,70 @@
+{
+  "id": "microdevario-nana",
+  "native": {
+    "input": "3914cb4ca9975d2e",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Microdevario nanus is a miniature cyprinid from the lower Sittaung and Bago drainages of the Irrawaddy system in Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "Microdevario nanus is a miniature cyprinid from the lower Sittaung and Bago drainages of the Irrawaddy system in Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Sittaung",
+        "source": "seriouslyfish",
+        "quote": "Microdevario nanus is a miniature cyprinid from the lower Sittaung and Bago drainages of the Irrawaddy system in Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Bago",
+        "source": "seriouslyfish",
+        "quote": "Microdevario nanus is a miniature cyprinid from the lower Sittaung and Bago drainages of the Irrawaddy system in Myanmar.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Microdevario nana",
+    "status": "ACCEPTED",
+    "taxonKey": 2363246,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

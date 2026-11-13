@@ -1,0 +1,123 @@
+{
+  "id": "youtube-CzyeWSYmJaQ",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=CzyeWSYmJaQ",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-07",
+  "video": {
+    "youtubeId": "CzyeWSYmJaQ",
+    "title": "MAKING THE BIG SHALLOW EVEN BETTER! FINAL TWEAKS BEFORE ADDING FISH!",
+    "channel": "MJ Aquascaping",
+    "channelUrl": "https://www.youtube.com/channel/UCZt0DA238-CmgriSgjeTjUA",
+    "durationSec": 871,
+    "publishedAt": "2022-07-16",
+    "chapters": [],
+    "series": {
+      "id": "PLrlvf56gZy-iSJKyNoTGEbxt06iBHTeGY",
+      "position": 3
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/CzyeWSYmJaQ/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Skylight",
+        "model": "Hyperspot L",
+        "t": 165
+      },
+      {
+        "category": "loc",
+        "brand": "Oase",
+        "model": "Crystal Skim 350",
+        "t": 226
+      },
+      {
+        "category": "loc",
+        "brand": "Aquario",
+        "model": "Neo Flow",
+        "t": 292
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Oase",
+        "model": "Biomaster 850 Thermo",
+        "t": 325
+      },
+      {
+        "category": "khac",
+        "brand": "INTAQO",
+        "model": "Essential controller",
+        "t": 393
+      },
+      {
+        "category": "khac",
+        "brand": "Fzone",
+        "model": "Auto Top Off",
+        "t": 450
+      },
+      {
+        "category": "khac",
+        "brand": "Seachem",
+        "t": 345
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "t": 385
+      },
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "t": 290
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Nước còn đục thì có nên thả cá không",
+        "moments": [
+          {
+            "t": 15,
+            "url": "https://media.aquatome.com/video/CzyeWSYmJaQ/at15-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh lũa và rêu còn hơi đục, chưa thả cá.",
+            "sharpness": 2247.3,
+            "person": false
+          },
+          {
+            "t": 25,
+            "url": "https://media.aquatome.com/video/CzyeWSYmJaQ/at25-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể nước còn đục, lũa phủ rêu và cây xanh.",
+            "sharpness": 2020,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Tự làm kệ trượt cho lọc và thùng nước",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/CzyeWSYmJaQ/p3-dF8tX2hlYWQuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/CzyeWSYmJaQ/p3-dF8tX2hlYWQuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC0",
+          "author": "Fructibus",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bottom_mounting_wheel_drawer_slide_rail_-_50_cm_-_right_wall_mount_-_head.jpg",
+          "caption": "Ray trượt ngăn kéo màu trắng có bánh xe, dùng làm kệ kéo cho lọc."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,573 @@
+{
+  "id": "hemibarbus-labeo",
+  "scientificName": "Hemibarbus labeo",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Hemibarbus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "china",
+    "yangtze",
+    "taiwan",
+    "south-korea",
+    "north-korea",
+    "mongolia",
+    "onon",
+    "russia",
+    "amur",
+    "japan",
+    "biwa",
+    "laos",
+    "mekong"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "KR",
+        "MN",
+        "RU",
+        "JP"
+      ],
+      "regions": [
+        "Yangtze",
+        "Amur",
+        "Onon River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China, Taiwan, Korea, Mongolia, Russia, and Japan.",
+          "countries": [
+            "CN",
+            "KR",
+            "MN",
+            "RU",
+            "JP"
+          ],
+          "regions": [
+            "Yangtze",
+            "Amur"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Transbaikalia, Dauria; Onon River, Russia [Upper Amur River]'.",
+          "countries": [],
+          "regions": [
+            "Onon River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366001,
+      "total": 4326,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "JP",
+          2402
+        ],
+        [
+          "KR",
+          1671
+        ],
+        [
+          "TW",
+          210
+        ],
+        [
+          "CN",
+          42
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          29.53125,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          28.125,
+          2,
+          2
+        ],
+        [
+          106.875,
+          39.375,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          22.5,
+          5,
+          5
+        ],
+        [
+          111.09375,
+          22.5,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          35.15625,
+          10,
+          10
+        ],
+        [
+          111.09375,
+          36.5625,
+          3,
+          3
+        ],
+        [
+          112.5,
+          33.75,
+          5,
+          5
+        ],
+        [
+          112.5,
+          35.15625,
+          5,
+          5
+        ],
+        [
+          118.125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          118.125,
+          30.9375,
+          2,
+          2
+        ],
+        [
+          119.53125,
+          22.5,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          23.90625,
+          21,
+          0
+        ],
+        [
+          119.53125,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          22.5,
+          27,
+          0
+        ],
+        [
+          120.9375,
+          23.90625,
+          161,
+          0
+        ],
+        [
+          120.9375,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          123.75,
+          39.375,
+          2,
+          2
+        ],
+        [
+          125.15625,
+          33.75,
+          3,
+          3
+        ],
+        [
+          125.15625,
+          36.5625,
+          24,
+          24
+        ],
+        [
+          126.5625,
+          33.75,
+          75,
+          75
+        ],
+        [
+          126.5625,
+          35.15625,
+          569,
+          569
+        ],
+        [
+          126.5625,
+          36.5625,
+          424,
+          424
+        ],
+        [
+          126.5625,
+          37.96875,
+          115,
+          115
+        ],
+        [
+          127.96875,
+          33.75,
+          10,
+          10
+        ],
+        [
+          127.96875,
+          35.15625,
+          323,
+          323
+        ],
+        [
+          127.96875,
+          36.5625,
+          113,
+          113
+        ],
+        [
+          127.96875,
+          37.96875,
+          13,
+          13
+        ],
+        [
+          129.375,
+          30.9375,
+          24,
+          24
+        ],
+        [
+          129.375,
+          32.34375,
+          120,
+          120
+        ],
+        [
+          129.375,
+          36.5625,
+          2,
+          2
+        ],
+        [
+          130.78125,
+          30.9375,
+          21,
+          21
+        ],
+        [
+          130.78125,
+          32.34375,
+          1,
+          1
+        ],
+        [
+          132.1875,
+          32.34375,
+          24,
+          24
+        ],
+        [
+          132.1875,
+          33.75,
+          110,
+          110
+        ],
+        [
+          133.59375,
+          32.34375,
+          3,
+          3
+        ],
+        [
+          133.59375,
+          33.75,
+          174,
+          174
+        ],
+        [
+          133.59375,
+          35.15625,
+          73,
+          73
+        ],
+        [
+          135,
+          32.34375,
+          1,
+          1
+        ],
+        [
+          135,
+          33.75,
+          159,
+          159
+        ],
+        [
+          135,
+          35.15625,
+          64,
+          64
+        ],
+        [
+          136.40625,
+          33.75,
+          88,
+          88
+        ],
+        [
+          136.40625,
+          35.15625,
+          103,
+          103
+        ],
+        [
+          136.40625,
+          36.5625,
+          26,
+          26
+        ],
+        [
+          137.8125,
+          33.75,
+          23,
+          23
+        ],
+        [
+          137.8125,
+          35.15625,
+          34,
+          34
+        ],
+        [
+          137.8125,
+          36.5625,
+          153,
+          153
+        ],
+        [
+          139.21875,
+          35.15625,
+          473,
+          473
+        ],
+        [
+          139.21875,
+          36.5625,
+          195,
+          195
+        ],
+        [
+          139.21875,
+          37.96875,
+          171,
+          171
+        ],
+        [
+          139.21875,
+          39.375,
+          74,
+          74
+        ],
+        [
+          139.21875,
+          40.78125,
+          11,
+          11
+        ],
+        [
+          140.625,
+          35.15625,
+          12,
+          12
+        ],
+        [
+          140.625,
+          36.5625,
+          23,
+          23
+        ],
+        [
+          140.625,
+          37.96875,
+          202,
+          202
+        ],
+        [
+          140.625,
+          39.375,
+          40,
+          40
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-labeo",
+      "html": "<p>Max size: 450 mm SL (45 cm).</p><p>Difficulty: Moderate. Needs a very large tank and should be kept in a group.</p><p>The barbel steed, Hemibarbus labeo, is a cyprinid widespread in eastern Asia between the Yangtze and Amur river basins. A predominantly riverine fish of clear, well-oxygenated running water, it forms schools just above the substrate as an adult, and some populations make annual spawning migrations. Adults lack dark spots on the body and have a long snout and well-developed lips.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-labeo",
+      "html": "<p>Widespread in eastern Asia between the Yangtze and Amur river basins, including China, Taiwan, Korea, Mongolia, Russia, and Japan. May have been introduced to the Mekong basin in Laos.</p><p>Type locality is 'Transbaikalia, Dauria; Onon River, Russia [Upper Amur River]'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-labeo",
+      "html": "<p>Predominantly a riverine fish preferring clear, well-oxygenated, running waters with substrates of sand, gravel, rock or mud, where adults tend to form schools just above the substrate.</p><p>At least some populations undergo annual spawning migrations.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-labeo",
+      "html": "<p>Wild individuals are known to feed on benthic crustaceans, insects, molluscs, and other macroinvertebrates.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-labeo",
+      "html": "<p>Sexually mature, nuptial males develop fine tubercules on the head and fins.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-labeo",
+      "html": "<p>This species can be distinguished from other members of the genus by the following combination of characters: absence of dark spots on body in adults; body elongate with slightly convex dorsal profile; head longer than body is deep; snout much longer than postorbital head length; lips well developed, lateral lobes of lower lip broad and thick with folds, median process small; barbel thickness shorter or equal to eye diameter; dorsal spine strong, ⅔ of HL; dorsal-fin origin closer to tip of snout than caudal-fin base; 15+ gill rakers; 6½ branched anal-fin rays; posterior simple dorsal-fin rays ossified and spinous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-labeo",
+      "html": "<ul><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (2006). Fishes of Mongolia. A check-list of the fishes known to occur in Mongolia with comments on systematics and nomenclature. The World Bank. Washington, DC., i-xi + 1-103</li><li>Bogutskaya, N. G., A. M. Naseka, S. V. Shedko, E. D. Vasil'eva and I. A. Chereshnev (2008). The fishes of the Amur River: updated check-list and zoogeography. Ichthyological Exploration of Freshwaters 19(4), 301-366</li><li>Lin, C-J., H-D. Lin, J-P. Wang, S-C. Chao and T-Y. Chiang (2010). Phylogeography of Hemibarbus labeo (Cyprinidae): secondary contact of ancient lineages of mtDNA. Zoologica Scripta 39(1), 22-35</li><li>Ho, H.-C. and K.-T. Shao (2011). Annotated checklist and type catalog of fish genera and species described from Taiwan. Zootaxa 2957, 1-74</li><li>Yue, P. Q. (1995). A revision of the cyprinid fishes of the genus Hemibarbus in China (Cypriniformes: Cyprinidae). Acta Zootaxonomica Sinica 20(1), 116-123</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Pallas, P. S. (1776). Reise durch verschiedene Provinzen des Russischen Reichs. Dritter Theil. Vom Jahr 1772 und 1773. Kayserlichen Academie der Wissenschaften, St. Petersburg,, 1-454</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3862d38f90dd7d5f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3862d38f90dd7d5f-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-labeo",
+      "caption": "Individuals on sale in the Korean aquarium trade. The fish in the centre of the image has a damaged upper caudal-fin lobe.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ea45dcb39fe2bf12.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ea45dcb39fe2bf12-480.webp",
+      "width": 800,
+      "height": 450,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemibarbus-labeo",
+      "caption": "A group of subadults in their natural habitat, Japan.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ZUNHObD_wy0",
+      "title": "Hemibarbus labeo ( barbel steed )",
+      "durationSec": 18,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wwvl5fS_2p8",
+      "title": "Hemibarbus labeo",
+      "durationSec": 77,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2jsp4zLEpvY",
+      "title": "Barbel steed-Hemibarbus labeo竹篙頭（唇䱻）#shorts #台灣野外紀錄 #淡水魚 #freshwaterfish #biotope #cyprinidae#長長臉好可愛",
+      "durationSec": 14,
+      "lang": "zh"
+    },
+    {
+      "youtubeId": "mj2UGn3zI5g",
+      "title": "1150910 The Barbel steed foraging on benthos at Gin-Gua-Liao creek in Taipei.",
+      "durationSec": 126,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 300 lít",
+        "bể cá 500 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "máy tạo dòng chảy",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "sỏi nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

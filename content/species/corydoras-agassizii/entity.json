@@ -1,0 +1,252 @@
+{
+  "id": "corydoras-agassizii",
+  "scientificName": "Corydoras agassizii",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "peru",
+    "rio-nanay"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE"
+      ],
+      "regions": [
+        "Amazon River",
+        "Río Nanay"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Brochis agassizii, long known as Corydoras agassizii, is an armoured catfish from the Amazon around the border of Brazil and Peru, described from near Tabatinga.",
+          "countries": [
+            "BR",
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Amazon River near Tabatinga, Amazonas, Brazil'.",
+          "countries": [],
+          "regions": [
+            "Amazon River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Records exist from the Río Nanay, more than 200 kilometres upstream of the type locality, so it appears to range at least as far as the city of Iquitos in Loreto Regio, Peru, but distribution is usually given as 'Amazon River basin near border of Brazil and Peru'.",
+          "countries": [],
+          "regions": [
+            "Río Nanay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342761,
+      "total": 15,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PE",
+          8
+        ],
+        [
+          "BR",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-agassizii",
+      "html": "<p>Brochis agassizii, long known as Corydoras agassizii, is an armoured catfish from the Amazon around the border of Brazil and Peru, described from near Tabatinga. Its name is commonly misapplied to similar-looking fishes, and it can be hard to identify even when the collection locality is known. It is most often confused with B. ambiacus, and fish matching that species appear far more common in the trade.</p><ul><li>Temperament: peaceful; needs to be kept in a group</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-agassizii",
+      "html": "<p>Type locality is 'Amazon River near Tabatinga, Amazonas, Brazil'. Tabatinga is a municipality in the Três Fronteiras region where the borders of Brazil, Peru, and Colombia meet, but this species' wider distribution is unclear.</p><p>Records exist from the Río Nanay, more than 200 kilometres upstream of the type locality, so it appears to range at least as far as the city of Iquitos in Loreto Regio, Peru, but distribution is usually given as 'Amazon River basin near border of Brazil and Peru'.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-agassizii",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-agassizii",
+      "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-agassizii",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-agassizii",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-agassizii",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and broader-bodied than males, especially when gravid.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-agassizii",
+      "html": "<p>This species' name is commonly misapplied to a number of similar-looking fishes and it can be difficult to identify even if collection locality is known.</p><p>Colour pattern is variable, for example, and it's not clear whether this occurs between, within, or both between and within populations.</p><p>In the original description, Steindachner did note that the first three dorsal-fin rays are completely black while the remainder is whitish with rows of small, brownish spots. Some specimens had a larger brownish spot at the upper edge of the same fin.</p><p>In addition, the ventral fins were described as unmarked and yellowish, the pelvic fins also yellowish with the first ray brownish, and the caudal-fin bluish-white with 3-5 regular rows of transverse brown spots. A blurred 'yellowish' stripe runs along the lateral line.</p><p>The species with which Brochis agassizii is most often confused is B. ambiacus Cope, 1872, with its colour pattern described as follows: straw-coloured with numerous indefinite brown spots on the sides. Dorsal-fin with a large black spot covering anterior half, which also expands on the dorsal region around the base of the fin. Four vertical brown bands on caudal-fin, anal spotted. Cheeks with blue reflections.'</p><p>Fish with variable colour patterns but more-or-less matching both these descriptions are widely-available in the aquarium trade, although the latter seem far more common than the former.</p><p>The fact that Steindachner did not mention the presence of any black markings on the upper body in his description of B. agassizii may also be significant.</p><p>Until 2024 this species was placed in Corydoras, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to Brochis.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist.</p><p>Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-agassizii",
+      "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Steindachner, F. (1876). Ichthyologische Beiträge (V). Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.), 49-240</li><li>Cope, E. D. (1872). On the fishes of the Ambiyacu River. Proceedings of the Academy of Natural Sciences of Philadelphia 23, 250-294</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "viên thức ăn cá dọn đáy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "cát nền cho cá chuột"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 60cm",
+        "lọc treo bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

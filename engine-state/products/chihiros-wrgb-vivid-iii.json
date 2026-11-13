@@ -1,0 +1,316 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Power",
+      "value": "180 W max with fan; 110 W without fan",
+      "source": 0
+    },
+    {
+      "key": "Luminous flux",
+      "value": "16,600 lm at 180 W; about 10,000 lm without fan",
+      "source": 1
+    },
+    {
+      "key": "Colour temperature",
+      "value": "10,000 K",
+      "source": 0
+    },
+    {
+      "key": "Beam angle",
+      "value": "120°",
+      "source": 0
+    },
+    {
+      "key": "CRI",
+      "value": "80 (R9: 8)",
+      "source": 0
+    },
+    {
+      "key": "Dimensions",
+      "value": "520 × 240 mm; 23 mm high without fan, 42 mm with fan",
+      "source": 0
+    },
+    {
+      "key": "Weight",
+      "value": "5.12 kg",
+      "source": 0
+    },
+    {
+      "key": "LEDs",
+      "value": "160 RGB 3-in-1 + 160 white",
+      "source": 2
+    },
+    {
+      "key": "Housing material",
+      "value": "Aluminium housing",
+      "source": 3
+    },
+    {
+      "key": "LED cover",
+      "value": "Acrylic",
+      "source": 0
+    },
+    {
+      "key": "Tank size",
+      "value": "Up to 90 cm long (60–90 cm)",
+      "source": 1
+    },
+    {
+      "key": "Power adapter",
+      "value": "36 V, 5.5 A",
+      "source": 1
+    },
+    {
+      "key": "Rated lifespan",
+      "value": "About 40,000 hours",
+      "source": 1
+    },
+    {
+      "key": "Cooling",
+      "value": "Smart fan, switches on at 38 °C and off at 33 °C",
+      "source": 0
+    },
+    {
+      "key": "Control",
+      "value": "Bluetooth via My Chihiros app (brightness, colour mix, timer, sunrise/sunset, fan)",
+      "source": 2
+    },
+    {
+      "key": "Cables",
+      "value": "2 m power cable, 3.8 m LED cable, 2 × 2 m steel hanging cables",
+      "source": 0
+    },
+    {
+      "key": "Warranty (Vietnam)",
+      "value": "6 months",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "WRGB Vivid III Black (60–90 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "180 W",
+          "source": 1
+        },
+        {
+          "key": "Price",
+          "value": "8,200,000₫ at Shrimp Home",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "WRGB Vivid III White (60–90 cm)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "180 W",
+          "source": 1
+        },
+        {
+          "key": "Price",
+          "value": "7,585,000₫ at Shrimp Home",
+          "source": 1
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Shrimp Home",
+      "url": "https://shrimphome.vn/den-led-chihiros-wrgb-vivid-3-led-light",
+      "variant": "Black",
+      "vnd": 8200000,
+      "source": 1
+    },
+    {
+      "shop": "Shrimp Home",
+      "url": "https://shrimphome.vn/den-led-chihiros-wrgb-vivid-3-led-light",
+      "variant": "White",
+      "vnd": 7585000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/den-chihiros-vivid-3",
+      "variant": "Black",
+      "vnd": 7600000,
+      "source": 2
+    },
+    {
+      "shop": "Cá Cảnh Thiên Phước",
+      "url": "https://cacanhthienphuoc.vn/den-chihiros-vivid-3-den-cho-ho-ca-thuy-sinh",
+      "variant": "Vivid 3 (colour not stated)",
+      "vnd": 7000000,
+      "source": 3
+    },
+    {
+      "shop": "Vua Qua",
+      "url": "https://vuaqua.vn/chihiros/den-chihiros-vivid-3/",
+      "variant": "Black",
+      "vnd": 8200000,
+      "source": 4
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Sized for tanks up to about 90 cm long. A 180 cm tank can use two units side by side, grouped in the app.",
+      "source": 0
+    },
+    {
+      "fact": "Meant for planted and aquascape tanks that need strong light and good colour rendering.",
+      "source": 1
+    },
+    {
+      "fact": "Not for tanks with a cover. It must hang at least 60 mm above the water, and it is for indoor use only.",
+      "source": 0
+    },
+    {
+      "fact": "The optional shades only block light at the front and back, so light still spills out the sides. This can bother people in living-room setups, for example near a TV.",
+      "source": 5
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Hang it from the ceiling with the included steel cables, or use a separate holder. Vietnamese shops sell the stand separately.",
+      "source": 0
+    },
+    {
+      "fact": "The cooling fan has to be attached to get the full 180 W. Without it, the light is limited to about 110 W.",
+      "source": 1
+    },
+    {
+      "fact": "First setup: install My Chihiros, turn on Bluetooth and location on your phone, pick the light from the device list, then set the colours.",
+      "source": 2
+    },
+    {
+      "fact": "Chihiros staff advise 20–30% brightness for a new planted tank, then about 5% more every 1–2 weeks. In a mature tank, use a preset and adjust it by about ±5%.",
+      "source": 5
+    },
+    {
+      "fact": "Recommended light period is 6–8 hours, with the light 15–30 cm above the water.",
+      "source": 5
+    },
+    {
+      "fact": "When buying online in Vietnam, the shop recommends filming the unboxing in case you need to make a warranty claim.",
+      "source": 1
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Long-term reports are scarce. One owner gave it 4 stars because they weren't yet sure how long it would last.",
+      "source": 6
+    },
+    {
+      "fact": "On the earlier Vivid RGB, forum users argued about fan noise and worried the light could fail if the fan did.",
+      "source": 7
+    },
+    {
+      "fact": "The light is very intense, so expect to spend time fine-tuning it. A user of the older RGB Vivid also called its mounting hardware poor.",
+      "source": 8
+    },
+    {
+      "fact": "Version difference: the Vivid III is thinner than the Vivid II (2.3 cm vs 3.4 cm) and goes up from 130 W to 180 W.",
+      "source": 9
+    },
+    {
+      "fact": "Vua Qua's 6-month warranty doesn't cover the power supply, and its refund value drops each month after the first.",
+      "source": 4
+    },
+    {
+      "fact": "Spec listings don't agree on the LED count: Vua Qua's page gives both 40/80 and 160/160.",
+      "source": 4
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Chihiros",
+      "model": "RGB Vivid 2 Mate",
+      "why": "Cheaper and an older generation at about 5,500,000₫ on Vua Qua. It is thicker and less powerful (about 125–130 W).",
+      "source": 10
+    },
+    {
+      "brand": "Chihiros",
+      "model": "WRGB II Pro 60",
+      "why": "Much cheaper rail-style light with less output (74 W, 6,630 lm) for 60–80 cm tanks. It suits lower-tech planted tanks.",
+      "source": 11
+    },
+    {
+      "brand": "Chihiros",
+      "model": "WRGB II 60",
+      "why": "Budget option at 67 W. Chihiros replacement parts for this line are sold at Vietnamese shops such as Shrimp Home.",
+      "source": 12
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquasabi.de/Chihiros-WRGB-VIVID-III_1",
+      "title": "Aquasabi – Chihiros WRGB VIVID III",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shrimphome.vn/den-led-chihiros-wrgb-vivid-3-led-light",
+      "title": "Shrimp Home – Đèn led Chihiros WRGB VIVID 3",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhtim.vn/den-chihiros-vivid-3",
+      "title": "Thủy Sinh Tím – Đèn Chihiros VIVID 3",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cacanhthienphuoc.vn/den-chihiros-vivid-3-den-cho-ho-ca-thuy-sinh",
+      "title": "Cá Cảnh Thiên Phước – Đèn Chihiros Vivid 3",
+      "kind": "shop"
+    },
+    {
+      "url": "https://vuaqua.vn/chihiros/den-chihiros-vivid-3/",
+      "title": "Vua Qua – Đèn Chihiros Vivid 3",
+      "kind": "shop"
+    },
+    {
+      "url": "https://chihiros.community.forum/threads/vivid-3-settings.7698/",
+      "title": "Chihiros Community Forum – Vivid 3 settings",
+      "kind": "forum"
+    },
+    {
+      "url": "https://buceplant.com/products/chihiros-wrgb-vivid-3-led-light",
+      "title": "Buce Plant – Chihiros WRGB Vivid 3 LED Light",
+      "kind": "shop"
+    },
+    {
+      "url": "https://ukaps.org/forum/threads/new-chihiros-rgb-vivid-looks-very-promising.54030/page-5",
+      "title": "UKAPS – New Chihiros RGB Vivid looks very promising",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.plantedtank.net/threads/chihiros-rgb-vivid-impressions.1299951/",
+      "title": "Planted Tank – Chihiros RGB vivid impressions",
+      "kind": "forum"
+    },
+    {
+      "url": "https://xanhaqua.com/den-chihiros-wrgb-vivid-3",
+      "title": "Xanh Aqua – Đèn Chihiros WRGB Vivid 3 (search snippet)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://vuaqua.vn/den/chihiros/",
+      "title": "Vua Qua – Chihiros category",
+      "kind": "shop"
+    },
+    {
+      "url": "https://greenaqua.hu/en/chihiros-wrgb-ii-pro-60-cm-led-light-60-80-cm-74-w-6630-lm.html",
+      "title": "Green Aqua – Chihiros WRGB II Pro 60",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquasabi.com/Chihiros-LED-System-Series-WRGB-II-60",
+      "title": "Aquasabi – Chihiros WRGB II 60",
+      "kind": "shop"
+    }
+  ]
+}

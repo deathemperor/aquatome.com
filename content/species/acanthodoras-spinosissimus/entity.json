@@ -27,7 +27,8 @@
       "regions": [
         "Amazon",
         "Essequibo",
-        "Rio Solimões"
+        "Solimões",
+        "Lago do Coari"
       ],
       "sources": [
         "seriouslyfish"
@@ -53,7 +54,8 @@
             "CO"
           ],
           "regions": [
-            "Rio Solimões"
+            "Solimões",
+            "Lago do Coari"
           ]
         }
       ]
@@ -353,7 +355,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -362,7 +364,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acanthodoras-spinosissimus",
-      "html": "<p>The chocolate talking catfish, Acanthodoras spinosissimus, is a doradid catfish from the northern Amazon basin and the Essequibo in Guyana. Usually exported as bycatch among Platydoras armatulus, it is sold under the same trade names as A. cataphractus, and the most useful difference is the pale blotches on its back between the dorsal and caudal fins. Largely nocturnal and gregarious, it is best kept in a group of at least four.</p><ul><li>Max size: 137 mm SL (5 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 4–25 dGH</li><li>Difficulty: 5 of 8 (moderate)</li></ul>"
+      "html": "<p>The chocolate talking catfish, Acanthodoras spinosissimus, is a doradid catfish from the northern Amazon basin and the Essequibo in Guyana. Usually exported as bycatch among Platydoras armatulus, it is sold under the same trade names as A. cataphractus, and the most useful difference is the pale blotches on its back between the dorsal and caudal fins. Largely nocturnal and gregarious, it is best kept in a group of at least four.</p><ul><li>Max size: 137 mm SL (5 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 4–25 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
       "key": "distribution",
@@ -471,8 +473,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 120x30"
+        "bể cá 120cm"
       ]
     },
     {

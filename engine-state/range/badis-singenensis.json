@@ -1,0 +1,67 @@
+{
+  "id": "badis-singenensis",
+  "native": {
+    "input": "7d66bf2f2c291003",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "A new species of the Indo-Burmese genus Badis was described in late 2011 from the Singen River, Brahmaputra basin in Arunachal Pradesh, India, raising the number of formally described species to sixteen.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The type series was collected from the Singen River, Saku-Kadu Village, East Siang District, Arunachal Brahmaputra drainage, north-eastern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Singen River",
+        "source": "seriouslyfish",
+        "quote": "A new species of the Indo-Burmese genus Badis was described in late 2011 from the Singen River, Brahmaputra basin in Arunachal Pradesh, India, raising the number of formally described species to sixteen.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "A new species of the Indo-Burmese genus Badis was described in late 2011 from the Singen River, Brahmaputra basin in Arunachal Pradesh, India, raising the number of formally described species to sixteen.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Badis singenensis",
+    "status": "ACCEPTED",
+    "taxonKey": 6168883,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

@@ -10,6 +10,96 @@
     "sri-lanka",
     "mahaweli"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [
+        "Mahaweli",
+        "Kelani",
+        "Kalu",
+        "Nilwala"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Ceylonese combtail, Belontia signata, is a labyrinth fish endemic to the central and southern river systems of Sri Lanka.",
+          "countries": [
+            "LK"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Sri Lanka where it occurs throughout central and southern river systems including the Mahaweli, Kelani, Kalu and Nilwala drainages.",
+          "countries": [],
+          "regions": [
+            "Mahaweli",
+            "Kelani",
+            "Kalu",
+            "Nilwala"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394196,
+      "total": 35,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "LK",
+          33
+        ],
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          5.625,
+          2,
+          2
+        ],
+        [
+          78.75,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          5.625,
+          27,
+          27
+        ],
+        [
+          80.15625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          111.09375,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +143,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -131,14 +221,29 @@
       "html": "<ul><li>Benl, G. and F. Terofal (1975). Beiträge zur Kenntnis der Belontiinae (Pisces, Perciformes, Anabantoidei, Belontiidae). Teil 2. Veroeffentlichungen des Zoologischen Stattssammlung (München) 18, 227-250</li><li>Günther, A. (1861). Catalogue of the acanthopterygian fishes in the collection of the British Museum. 3. Gobiidae, Discoboli, Pediculati, Blenniidae, Labyrinthici, Mugilidae, Notacanthi. London. Catalogue of the fishes in the British Museum Vol. 3, 1-586</li><li>Linke, H. (1992). Labyrinth Fish: The Bubble Nest Builders. Tetra Press, 1-176</li><li>Kottelat, M. and R. Pethiyagoda (1990). Danio pathirana, a new species of cyprinid fish endemic to southern Sri Lanka. Ichthyological Exploration of Freshwaters 1(3), 247-252</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Rüber, L, R. Britz and R. Zardoya (2006). Molecular phylogenetics and evolutionary diversification of labyrinth fishes (Perciformes: Anabantoidei). Systematic Biology 55(3), 374-397</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/614307629.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/614307629-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "dhfischer",
+      "sourceUrl": "https://www.inaturalist.org/photos/614307629",
+      "caption": "Cá lược đuôi Sri Lanka màu cam giữa lá rụng dưới suối",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/614307629-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 120x30"
+        "bể cá 120cm"
       ]
     },
     {

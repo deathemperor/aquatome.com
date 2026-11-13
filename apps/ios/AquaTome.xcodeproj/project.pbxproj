@@ -14,6 +14,7 @@
 		D3236292626CA47984470E87 /* AccountSync in Frameworks */ = {isa = PBXBuildFile; productRef = 4BFDEC878C6DCB864680A92D /* AccountSync */; };
 		7A1C3E5F2B4D6A8C0E1F2A3B /* Plugs in Frameworks */ = {isa = PBXBuildFile; productRef = 8B2D4F6A3C5E7B9D1F2A3B4C /* Plugs */; };
 		C1A5E0D2B7F94A3E8D6C2B10 /* TankCheck in Frameworks */ = {isa = PBXBuildFile; productRef = C1A5E0D2B7F94A3E8D6C2B11 /* TankCheck */; };
+		D7E1A2B3C4D5E6F708192A3B /* Telemetry in Frameworks */ = {isa = PBXBuildFile; productRef = D7E1A2B3C4D5E6F708192A3C /* Telemetry */; };
 		7A3C5E9B1D2F4A6C8E0B2D4F /* WeekAqua in Frameworks */ = {isa = PBXBuildFile; productRef = 7A3C5E9B1D2F4A6C8E0B2D50 /* WeekAqua */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 				D3236292626CA47984470E87 /* AccountSync in Frameworks */,
 				7A1C3E5F2B4D6A8C0E1F2A3B /* Plugs in Frameworks */,
 				C1A5E0D2B7F94A3E8D6C2B10 /* TankCheck in Frameworks */,
+				D7E1A2B3C4D5E6F708192A3B /* Telemetry in Frameworks */,
 				7A3C5E9B1D2F4A6C8E0B2D4F /* WeekAqua in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +128,7 @@
 				4BFDEC878C6DCB864680A92D /* AccountSync */,
 				8B2D4F6A3C5E7B9D1F2A3B4C /* Plugs */,
 				C1A5E0D2B7F94A3E8D6C2B11 /* TankCheck */,
+				D7E1A2B3C4D5E6F708192A3C /* Telemetry */,
 				7A3C5E9B1D2F4A6C8E0B2D50 /* WeekAqua */,
 			);
 			productName = AquaTome;
@@ -178,6 +181,7 @@
 			knownRegions = (
 				vi,
 				id,
+				ms,
 				th,
 				Base,
 			);
@@ -460,6 +464,10 @@
 		C1A5E0D2B7F94A3E8D6C2B11 /* TankCheck */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TankCheck;
+		};
+		D7E1A2B3C4D5E6F708192A3C /* Telemetry */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Telemetry;
 		};
 		7A3C5E9B1D2F4A6C8E0B2D50 /* WeekAqua */ = {
 			isa = XCSwiftPackageProductDependency;

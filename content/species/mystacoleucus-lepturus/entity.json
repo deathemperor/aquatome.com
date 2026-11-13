@@ -1,0 +1,198 @@
+{
+  "id": "mystacoleucus-lepturus",
+  "scientificName": "Mystacoleucus lepturus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Mystacoleucus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "china",
+    "lancang-jiang",
+    "laos",
+    "mekong",
+    "thailand"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "LA",
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Lancang Jiang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the upper Mekong River basin in southern China (where the river is known as Lancang Jiang), Laos, and Thailand.",
+          "countries": [
+            "CN",
+            "LA",
+            "TH"
+          ],
+          "regions": [
+            "Mekong",
+            "Lancang Jiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363145,
+      "total": 10,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "LA",
+          7
+        ],
+        [
+          "CN",
+          2
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          101.25,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          21.09375,
+          4,
+          4
+        ],
+        [
+          102.65625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 9.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-lepturus",
+      "html": "<p>Max size: 95 mm SL (9.5 cm).</p><p>Mystacoleucus lepturus is a riverine cyprinid known only from the upper Mekong basin in southern China, Laos and Thailand. It favours clear, well-oxygenated running water over sand or gravel. The body is relatively slender, with a black margin on the dorsal fin and many crescent-marked scales. Records from Vietnam and Hainan Island refer to other species. Like all Mystacoleucus it has a forward-pointing predorsal spine that can snag in a net.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-lepturus",
+      "html": "<p>Known only from the upper Mekong River basin in southern China (where the river is known as Lancang Jiang), Laos, and Thailand. Records from Vietnam and Hainan Island are incorrect and refer to other species.</p><p>Type locality is 'Tributary of Lancang Jiang, Mengna (Mengla) Xian, Xishuangbanna, Yunnan Province, China'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-lepturus",
+      "html": "<p>Predominantly a riverine fish favouring clear, well-oxygenated, running water with substrates of sand or gravel and often present in rock and boulder-filled headwater streams.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-lepturus",
+      "html": "<p>This species can be distinguished from congeners by the following combination of characters: body relatively slender, depth fitting 3.4-3.8 times in SL; 32-33 + 2 lateral line scales; 14 circumpeduncular scale rows; presence of a single pair of barbels; black distal margin on dorsal-fin; numerous body scales with dark, crescent-shaped markings.</p><p>All Mystacoleucus species possess a procumbent predorsal spine orientated towards the head, though it can be difficult to spot with the naked eye. This can become entangled in an aquarium net so care must be taken when handling the fish.</p><p>The trait is shared by members of Tor, Spinibarbus and Paraspinibarbus although there exists no strong evidence to suggest that these genera form a monophyletic lineage and it is likely that they developed the spine independantly of one another. Mystacoleucus spp. can be further identified by the presence of 6-10 branched anal-fin rays and 24-39 lateral line scales.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-lepturus",
+      "html": "<ul><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Kottelat, M. (2000). Notes on taxonomy, nomenclature and distribution of some fishes of Laos. Journal of South Asian Natural History 5(1), 83-90</li><li>Huang, S.-Y. (1979). Notes on fishes of the genus Mystacoleucus from southern Yunnan, China, with description of a new species. Acta Zootaxonomica Sinica 4(4), 419-421</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/26c2573ce24e2bad.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/26c2573ce24e2bad-480.webp",
+      "width": 820,
+      "height": 408,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-lepturus",
+      "caption": "Specimen from Laos.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2cdf48fac8f1245a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2cdf48fac8f1245a-480.webp",
+      "width": 820,
+      "height": 408,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystacoleucus-lepturus",
+      "caption": "Another individual from Laos.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá thủy sinh lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy tạo dòng chảy bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

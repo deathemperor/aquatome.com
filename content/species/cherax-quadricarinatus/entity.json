@@ -1,0 +1,943 @@
+{
+  "id": "cherax-quadricarinatus",
+  "scientificName": "Cherax quadricarinatus",
+  "order": "Decapoda",
+  "family": "Parastacidae",
+  "genus": "Cherax",
+  "group": "other",
+  "places": [
+    "oceania",
+    "australia",
+    "gulf-of-carpentaria",
+    "papua-new-guinea",
+    "new-guinea"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "AU"
+      ],
+      "regions": [
+        "Gulf of Carpentaria",
+        "New Guinea"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Cherax quadricarinatus is a tropical species of freshwater crayfish native to the Gulf of Carpentaria in northern Australia and southern New Guinea.",
+          "countries": [
+            "AU"
+          ],
+          "regions": [
+            "Gulf of Carpentaria",
+            "New Guinea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4648609,
+      "total": 345,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "AU",
+          243
+        ],
+        [
+          "PR",
+          22
+        ],
+        [
+          "MX",
+          15
+        ],
+        [
+          "RE",
+          13
+        ],
+        [
+          "SZ",
+          12
+        ],
+        [
+          "PG",
+          5
+        ],
+        [
+          "US",
+          5
+        ],
+        [
+          "ZA",
+          5
+        ],
+        [
+          "MQ",
+          4
+        ],
+        [
+          "FR",
+          3
+        ],
+        [
+          "ID",
+          3
+        ],
+        [
+          "TW",
+          3
+        ],
+        [
+          "GF",
+          2
+        ],
+        [
+          "MY",
+          2
+        ],
+        [
+          "PE",
+          2
+        ],
+        [
+          "CR",
+          1
+        ],
+        [
+          "GB",
+          1
+        ],
+        [
+          "HK",
+          1
+        ],
+        [
+          "HU",
+          1
+        ],
+        [
+          "IT",
+          1
+        ],
+        [
+          "UA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -118.125,
+          37.96875,
+          1,
+          0
+        ],
+        [
+          -108.28125,
+          23.90625,
+          6,
+          0
+        ],
+        [
+          -99.84375,
+          18.28125,
+          4,
+          0
+        ],
+        [
+          -99.84375,
+          22.5,
+          4,
+          0
+        ],
+        [
+          -98.4375,
+          25.3125,
+          4,
+          0
+        ],
+        [
+          -88.59375,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          -85.78125,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -81.5625,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          16.875,
+          8,
+          0
+        ],
+        [
+          -67.5,
+          18.28125,
+          2,
+          0
+        ],
+        [
+          -66.09375,
+          16.875,
+          2,
+          0
+        ],
+        [
+          -66.09375,
+          18.28125,
+          10,
+          0
+        ],
+        [
+          -61.875,
+          14.0625,
+          4,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -1.40625,
+          52.03125,
+          1,
+          0
+        ],
+        [
+          2.8125,
+          42.1875,
+          3,
+          0
+        ],
+        [
+          8.4375,
+          45,
+          1,
+          0
+        ],
+        [
+          18.28125,
+          46.40625,
+          1,
+          0
+        ],
+        [
+          30.9375,
+          -28.125,
+          2,
+          0
+        ],
+        [
+          30.9375,
+          -26.71875,
+          13,
+          0
+        ],
+        [
+          30.9375,
+          -25.3125,
+          2,
+          0
+        ],
+        [
+          32.34375,
+          47.8125,
+          1,
+          0
+        ],
+        [
+          54.84375,
+          -22.5,
+          3,
+          0
+        ],
+        [
+          54.84375,
+          -21.09375,
+          10,
+          0
+        ],
+        [
+          98.4375,
+          1.40625,
+          3,
+          0
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          118.125,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          118.125,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          119.53125,
+          22.5,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          23.90625,
+          2,
+          0
+        ],
+        [
+          127.96875,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          129.375,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          129.375,
+          -14.0625,
+          5,
+          5
+        ],
+        [
+          130.78125,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          130.78125,
+          -14.0625,
+          10,
+          10
+        ],
+        [
+          130.78125,
+          -12.65625,
+          29,
+          29
+        ],
+        [
+          132.1875,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          132.1875,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          132.1875,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          133.59375,
+          -26.71875,
+          15,
+          15
+        ],
+        [
+          133.59375,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          133.59375,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          133.59375,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          135,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          135,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          135,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          135,
+          -12.65625,
+          5,
+          5
+        ],
+        [
+          136.40625,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          136.40625,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          136.40625,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          136.40625,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          137.8125,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          137.8125,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          137.8125,
+          -19.6875,
+          7,
+          7
+        ],
+        [
+          137.8125,
+          -18.28125,
+          3,
+          3
+        ],
+        [
+          139.21875,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          139.21875,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          139.21875,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          139.21875,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -21.09375,
+          8,
+          8
+        ],
+        [
+          140.625,
+          -18.28125,
+          3,
+          3
+        ],
+        [
+          140.625,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          140.625,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          140.625,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          142.03125,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          142.03125,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          142.03125,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          142.03125,
+          -16.875,
+          7,
+          7
+        ],
+        [
+          142.03125,
+          -15.46875,
+          4,
+          4
+        ],
+        [
+          142.03125,
+          -14.0625,
+          7,
+          7
+        ],
+        [
+          142.03125,
+          -12.65625,
+          13,
+          13
+        ],
+        [
+          142.03125,
+          -11.25,
+          13,
+          13
+        ],
+        [
+          142.03125,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          143.4375,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          143.4375,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          143.4375,
+          -18.28125,
+          3,
+          3
+        ],
+        [
+          143.4375,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          143.4375,
+          -15.46875,
+          4,
+          4
+        ],
+        [
+          143.4375,
+          -8.4375,
+          3,
+          0
+        ],
+        [
+          144.84375,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          144.84375,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          144.84375,
+          -18.28125,
+          13,
+          13
+        ],
+        [
+          144.84375,
+          -16.875,
+          7,
+          7
+        ],
+        [
+          146.25,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          146.25,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          146.25,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          147.65625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          151.875,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          151.875,
+          -28.125,
+          10,
+          10
+        ],
+        [
+          151.875,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          151.875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          153.28125,
+          -29.53125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 35
+      }
+    ],
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 3,
+          "max": 25
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 4,
+          "max": 6
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/cherax-quadricarinatus-4/",
+      "html": "<p>Cherax quadricarinatus, also known as Australian red claw crayfish, has been propagated as edible crayfish in aquaculture for decades and was therefore one of the very first Cherax species available for aquaristics. Males can reach up to 30 cm in length; females remain somewhat smaller.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/red-claw-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Common names: Redclaw crayfish, Red clawed Yabby, Australian Red clawed crayfish, Blue lobster, Blue yabby, Giant crayfish</li><li>Tank size (optimal): 120 litres</li><li>Breeding: Easy-Medium</li><li>Optimal KH: 3–20</li><li>Diet: Detritivore / omnivore</li><li>Temperament: Conditionally peaceful as adults, aggressive as juveniles</li><li>Colour form: Blue (dark to light blue)</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/cherax-quadricarinatus-4/",
+      "html": "<p>The 3-5 cm long juveniles, which are beautifully colored in light blue, are usually sold. As they get older, the animals become darker. Adult animals have a length of 10-12 cm.</p><p>C. quadricarinatus is one of the species on the early warning list of invasive species that may be banned in Europe in the future, as released animals have been repeatedly observed in Spain. Please never release any animals into the wild. Firstly, this is cruelty to animals and secondly, it is strictly forbidden.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/red-claw-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Warning: NEVER release the Red claw crayfish into the wild! This species is nationally and globally classified as an invasive species. Aquarium releases account for many aquatic invasive species. The introduction and spreading of non-indigenous aquatic fauna has caused, and still causes, strong ecological impacts in freshwater environments worldwide, and is one of the leading threats to freshwater biodiversity.</p><p>Red claw crayfish are not plant safe and cannot be kept in planted tanks. Like most crayfish, they will eat, cut and shred almost everything in the tank. The only viable options are plastic plants, floating plants, or cheap plants you are ready to lose.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/red-claw-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cherax quadricarinatus is a tropical species of freshwater crayfish native to the Gulf of Carpentaria in northern Australia and southern New Guinea.</p><p>As a successful invasive species, it is now widespread globally outside its native range as a result of aquaculture and the aquarium trade. It has become established in Europe (the Iberian Peninsula), Asia (Singapore, Israel), South Africa, Latin America (Ecuador, Argentina, Jamaica, Puerto Rico, Cuba, Mexico and others), and even in Los Angeles, California (Lake Balboa).</p><p>It is currently considered the 2nd most cosmopolitan crayfish species globally, after the Red swamp crayfish (Procambarus clarkii).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/red-claw-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These crayfish prefer turbid, slow-moving rivers, lakes, lagoons or static water holes. They have also been found in freshwater irrigation channels, fast-flowing rivers and streams, and brackish-water lagoons.</p><p>In all cases, they prefer rocky habitat with plenty of caves for exploring, foraging and protection during moulting.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/red-claw-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Red claw crayfish need a large space because of their growth potential. A 120-litre tank is recommended per adult crayfish. They can grow up to 25–35 cm.</p><p>They are very good escape artists, so cover the tank as much as you can. They are also quite strong and can move light lids.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/red-claw-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Red claw crayfish care is quite easy and straightforward. They are not high-maintenance, adapt well to captivity and stay healthy in most situations.</p><p>Make sure the tank is set up correctly and properly cycled. Do a 15–20% water change a week.</p><p>Moulting: in crustaceans, growth involves periodic shedding and reconstruction of the hard calcified exoskeleton. Under optimal conditions the average weight after 3 months is 10–20 g, after 4 months 30–40 g, after 6 months 50–60 g and after 9 months 70–80 g. The moult cycle has four stages: pre-moult, moult, post-moult and inter-moult. When a crayfish is about to moult it looks for a place to hide; otherwise it can easily fall prey to tankmates.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/red-claw-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Temperature: ideally 23–28°C. They are very hardy; lethal limits are around 10–35°C. Growth ceases below 15°C, so in most cases room temperature suits them fine.</p><p>pH: 7.0–8.5.</p><p>Hardness: KH 3–20 and GH 3–25.</p><p>Salinity: they inhabit freshwater but can grow well at salinity below 10 ppt. High salinity causes more opportunistic pathogenic bacteria, leading to immune damage.</p><p>Ammonia, nitrite and nitrate tolerance: Meade and Watts (1995) studied survival of juveniles. Crayfish exposed to 50, 100 and 200 mg/L total ammonia survived an average of 40, 36 and 14 h. At 25, 50 and 100 mg/L nitrite they survived an average of 96, 22 and 5 h. No mortalities were observed at nitrate concentrations up to 1000 mg/L. Even though they are very tolerant, testing their limits is not recommended: the gills are the most susceptible organ and high nitrogenous waste causes severe gill damage.</p><p>Dissolved oxygen: they can survive for some time at very low dissolved oxygen (1 ppm). Under air exposure, crayfish started dying after 24 h and survival decreased to 62.2% after 36 h.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/red-claw-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Filtration: only two options – hang-on-back and canister filters. Sponge filters are a very bad idea because the crayfish will chip, chew and break apart the sponge.</p><p>Lighting: no special requirements, as they are nocturnal. If you have plants, adapt the lighting to their needs.</p><p>Substrate: the captive habitat should replicate the natural environment as much as possible, so stones and gravel are the best choice. The substrate should be comfortable and easy to hide in. Experiments showed that a natural environment gave survival of 81.25±8.84% versus 37.50±8.84% with no substrate, and weight gain of 347.36±6.04% versus 122.60±20.51%.</p><p>Decorations and hiding spots: artificial shelters are essential and should be abundant. Shelter during the mating season protects during moulting, protects broodstock against predation and minimizes aggression. Stacks of PVC pipes, mesh bundles, driftwood, etc. provide enough shelter, especially in the grow-out phase.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/red-claw-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Red claw crayfish are omnivorous and extremely opportunistic eaters, eating about anything edible they come across. Adults do well even on a relatively low-protein diet with a high proportion of cheap plant material. This is not recommended for hatchlings and juveniles, as it adversely affects growth and aggression. The optimal food for juveniles is zooplankton.</p><p>For best growth they need a good mix of meat and vegetation, with protein at about 20–30% of the diet for adults and 30–40% for juveniles.</p><p>Suggested foods: leaves, plants, vegetables, crushed snails, earthworms, brine shrimp, dead fish or shrimp, Daphnia, Artemia, shrimp pellets, shrimp granules, fish food (flakes), shrimp food (crustacean food, algae wafers), frozen bloodworms.</p><p>Feeding frequency: 3–4 times a week for adults, daily for juveniles.</p><ul><li>Feed in the evening before lights out. They are nocturnal and come out and feed better when lights are off.</li><li>Leave food for 24 hours before removing it. Leaves can stay for several days. Remove whatever is not consumed in one day to prevent water contamination.</li><li>Crayfish often drag and store food in hiding spots; check from time to time to prevent bacterial contamination.</li><li>They need diversity in food; change the diet periodically.</li></ul>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/cherax-quadricarinatus-4/",
+      "html": "<p>Even though Cherax quadricarinatus is one of the largest species, it is also one of the most peaceful. Selection for keeping in aquaculture has probably contributed to the fact that these crayfish, unlike many other crayfish species, are absolutely compatible even with each other and usually do not even damage each other when they are freshly moulted and still butter soft.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/red-claw-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Despite their large size, adult Red claw crayfish are generally gregarious and non-aggressive, and tolerate relatively high stocking densities. This does not mean they are social; they simply tolerate high densities better than other crayfish species.</p><p>Juveniles are quite aggressive and compete strongly for resources. Cannibalism is one of the main causes of low survival at the juvenile stage.</p><p>They are nocturnal, active in the late evening and at night; activity gradually stops before sunrise, after which they prefer to hide.</p><p>They are non-burrowing and very good escape artists, so cover the tank.</p><ul><li>Social: No</li><li>Active: No</li><li>Peaceful: Generally yes (adults), no (juveniles)</li><li>Burrowers: No (generally)</li></ul>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/cherax-quadricarinatus-4/",
+      "html": "<p>The sexes can be distinguished, as in all Cherax species, by the sexual openings (gonopores) on the walking legs. In females the gonopores are located on the 3rd, in males on the 5th pair of walking legs. This is the best form of sex determination, especially in young animals. In adults it is easier because only males develop the red blisters on the outside of the scissor finger.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/red-claw-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cherax quadricarinatus is sexually dimorphic.</p><ul><li>Growth rate: males grow faster and bigger than females.</li><li>Pereopods (legs): males have a gonopore opening on one of the 5th legs, females on the opposite 3rd leg.</li><li>Claws: the major chelae of males reach larger sizes (wider and longer) than those of females with a similar carapace length.</li><li>Colour pattern: males have the red patch on the claws.</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/cherax-quadricarinatus-4/",
+      "html": "<p>The length of the head carapace (cephalothorax) indicates when C. quadricarinatus becomes sexually mature: males at 17 mm and females at 24.5 mm. This corresponds to a total length of approx. 4.5 – 6 cm.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/red-claw-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Maturity: sexual maturity at 6–12 months, at a body weight of approximately 50–120 g.</p><p>Mating: unlike most crayfish, males do not initiate the process. Females approach males and almost invariably initiate mating. The male arches the abdomen and rolls over backward onto his dorsal side beneath the female. Copulation lasts a few minutes.</p><p>Eggs: eggs are fertilized within 24 hours after spawning. Reproduction only occurs while water temperature remains above 23°C. Larger females carry more eggs, usually 300–1000 per brood. The eggs are held under the female's abdomen and she uses her pleopods to keep them clean and aerated. Depending on temperature, eggs hatch within 6–8 weeks, e.g. 42 days at 26°C and 39 days at 28°C. During development eggs change colour from green to brown and orange.</p><p>Hatching: there are no free-living larval stages; larvae develop within the eggs. Around 85–90% hatch, but survival to the juvenile stage is much lower. Newly hatched young cannot live separately from the mother for the first 7–10 days, then leave her within 1–3 days as independent miniature adults. Brooding females generally do not cannibalize eggs and young.</p><p>Juveniles require an abundance of planktonic organisms (phytoplankton and zooplankton). Without a proper diet they become cannibalistic, leaving very few survivors. In early juvenile stages newly moulted individuals are prone to cannibalism, and larger individuals prey on smaller ones; frequent moulting and competition for resources leading to size hierarchy aggravate this.</p><p>They can spawn all year at 25°C, and females can spawn up to 4 times per year.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/red-claw-crayfish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Cherax quadricarinatus is a large crayfish, up to 35 cm in length in optimal conditions. Males can reach a maximum weight of 500 g and females 400 g. The body is generally dark blue (carapace) mottled with beige and red/brown spots, with red leg joints; greenish or grey variations occur in the trade. Juveniles range from light blue to light grey, mottled in white with whitish leg joints. Unique features include four distinct anterior ridges on the carapace and a red patch on the outer margin of the claw (a male trait), hence the common name.</p><p>Lifespan is about 4–5 years, and up to 6 years in the tank under optimal conditions.</p><p>It is a fast-growing crayfish tolerant of a broad range of conditions, and easy to keep, which has made it one of the most popular pet-traded species. Do not forget how big they can grow.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/7469339063d9d54a.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/7469339063d9d54a-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/red-claw-crayfish-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Yme4qkjjnCg",
+      "title": "Cherax Quadricarinatus",
+      "durationSec": 225,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "YOCzT0ErAYY",
+      "title": "Cherax quadricarinatus",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VR2GbhPGgO8",
+      "title": "Crayfish journey. Cherax Quadricarinatus or Australian Red Claw. First Trio. #aquarium #farmlife",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "h4oDJiLNjWI",
+      "title": "Cherax quadricarinatus",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể nuôi tôm hùm đất"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tôm hùm đất",
+        "thức ăn chìm cho tôm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

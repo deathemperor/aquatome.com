@@ -23,7 +23,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/427013941",
       "caption": "Cá zebra đỏ bơi gần đá trong môi trường tự nhiên",
       "best": true,
-      "kind": "habitat"
+      "kind": "habitat",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/427013941-large.webp",
+        "width": 1170,
+        "height": 936
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/427013951.webp",
@@ -35,7 +40,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/427013951",
       "caption": "Cá zebra đỏ cái bơi giữa đá trong hồ Malawi",
       "best": true,
-      "kind": "habitat"
+      "kind": "habitat",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/427013951-large.webp",
+        "width": 1170,
+        "height": 936
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/fe0bb4ceb78d10cc.webp",
@@ -45,7 +55,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Gourami Watcher",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_zebra_cichlid_5.jpg",
-      "caption": "Cá cái màu cam rực, ảnh cận cảnh trong bể"
+      "caption": "Cá cái màu cam rực, ảnh cận cảnh trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/fe0bb4ceb78d10cc-large.webp",
+        "width": 1203,
+        "height": 854
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/ba56b70d67eab59a.webp",
@@ -55,7 +70,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Gourami Watcher",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_Zebra_Cichlid_6.jpg",
-      "caption": "Cá cái màu cam nhìn gần, vây lưng xòe trong bể"
+      "caption": "Cá cái màu cam nhìn gần, vây lưng xòe trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/ba56b70d67eab59a-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/2fd450d9d982bbdc.webp",
@@ -65,17 +85,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Gourami Watcher",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_zebra_cichlid_6.JPG",
-      "caption": "Cá màu đỏ cam rực bơi trong bể có sỏi xanh"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/258281751.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/258281751-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Mark Richman",
-      "sourceUrl": "https://www.inaturalist.org/photos/258281751",
-      "caption": "Cá zebra đỏ màu hồng trắng nhìn gần trong bể"
+      "caption": "Cá màu đỏ cam rực bơi trong bể có sỏi xanh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/2fd450d9d982bbdc-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/427013945.webp",
@@ -85,7 +100,12 @@
       "licence": "CC BY",
       "author": "Reid Hardin",
       "sourceUrl": "https://www.inaturalist.org/photos/427013945",
-      "caption": "Cá zebra đỏ cái màu cam hồng giữa đá ngoài tự nhiên"
+      "caption": "Cá zebra đỏ cái màu cam hồng giữa đá ngoài tự nhiên",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/427013945-large.webp",
+        "width": 1170,
+        "height": 936
+      }
     },
     {
       "url": "https://media.aquatome.com/inaturalist/242649073.webp",
@@ -218,6 +238,16 @@
       "caption": "Đàn cá zebra đỏ bơi quanh lũa trong bể cá",
       "best": false,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/258281751.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/258281751-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Mark Richman",
+      "sourceUrl": "https://www.inaturalist.org/photos/258281751",
+      "caption": "Cá zebra đỏ màu hồng trắng nhìn gần trong bể"
     }
   ],
   "seen": 39,

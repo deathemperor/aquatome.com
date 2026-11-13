@@ -4,6 +4,9 @@
 pull request (the content engine's, say) are left out. At most TestFlight's 4,000 bytes (UTF-8): past that, the oldest
 are counted instead of listed. "<", ">" and emoji, which TestFlight refuses, are dropped.
 
+A pull request whose description has a "## What to Test" section (the squash merge's body is the description) has that
+section's lines under its title: where to tap, from the app's first screen, for a build the owner is to try.
+
 Usage: testflight-notes.py SINCE prints the text (SINCE: the last upload's commit; empty when there was none).
 `--test` checks it on a throwaway repository."""
 import os, re, subprocess, sys, tempfile
@@ -19,31 +22,50 @@ def plain(subject):
     m = re.fullmatch(r'(?:[a-z0-9]+(?:\([^)]*\))?!?: )?(.+?) \(#\d+\)', subject.strip())
     if not m:
         return None
-    t = ' '.join(''.join(c for c in m.group(1) if c not in '<>' and ord(c) <= 0xFFFF and c != '\ufe0f').split())
+    t = clean(m.group(1))
     first = t.split(' ', 1)[0]
     return t if first[1:] != first[1:].lower() else t[:1].upper() + t[1:]
+
+
+def clean(text):
+    return ' '.join(''.join(c for c in text if c not in '<>' and ord(c) <= 0xFFFF and c != '\ufe0f').split())
+
+
+def taps(body):
+    """The lines of a description's "## What to Test" section, up to the next heading, blank ones left out."""
+    m = re.search(r'^## What to Test[ \t]*$(.*?)(?=^#{1,2} |\Z)', (body or '').replace('\r\n', '\n'), re.M | re.S)
+    return [t for t in map(clean, m.group(1).splitlines()) if t] if m else []
+
+
+def entry(commit):
+    """A commit (its subject, or its subject and body) as its lines in the note; None for one that isn't a merged pull
+    request."""
+    subject, body = commit if isinstance(commit, tuple) else (commit, '')
+    title = plain(subject)
+    return None if title is None else '\n'.join([f'- {title}', *(f'  {t}' for t in taps(body))])
 
 
 def size(text):
     return len(text.encode())
 
 
-def notes(subjects):
-    titles = [t for t in map(plain, subjects) if t]
-    kept = titles
-    text = '\n'.join(f'- {t}' for t in kept)
+def notes(commits):
+    entries = [e for e in map(entry, commits) if e]
+    kept = entries
+    text = '\n'.join(kept)
     while size(text) > LIMIT:
         kept = kept[:-1]
-        text = '\n'.join(f'- {t}' for t in kept) + f'\n…and {len(titles) - len(kept)} more'
+        text = '\n'.join(kept) + f'\n…and {len(entries) - len(kept)} more'
     return text or NOTHING
 
 
 def subjects(since, cwd=None):
+    """Each commit since then that touches the app, newest first, as its subject and body."""
     if not since:
         return []
-    log = subprocess.run(['git', 'log', '--format=%s', f'{since}..HEAD', '--', *PATHS], cwd=cwd, check=True,
+    log = subprocess.run(['git', 'log', '--format=%s%x1f%b%x1e', f'{since}..HEAD', '--', *PATHS], cwd=cwd, check=True,
                          capture_output=True, text=True).stdout
-    return log.splitlines()
+    return [tuple(c.strip('\n').split('\x1f', 1)) for c in log.split('\x1e') if c.strip()]
 
 
 def test():
@@ -57,16 +79,22 @@ def test():
     assert notes([]) == NOTHING and notes(['content: engine pages 2026-11-02']) == NOTHING
     many = notes([f'feat(ios): đổi số {i:03}, một tiêu đề đủ dài để lấp đầy ghi chú × (#{i})' for i in range(200)])
     assert size(many) <= LIMIT and many.startswith('- Đổi số 000') and many.endswith(' more'), many[-40:]
+    body = 'Why it changes.\n\n## What to Test\n\n- Owner only: open <Cá betta>, tap ⋯.\n  Then Ảnh.\n\n## Changelog\n- App: x'
+    assert taps(body) == ['- Owner only: open Cá betta, tap ⋯.', 'Then Ảnh.'], taps(body)
+    assert taps(body.replace('\n', '\r\n')) == taps(body)
+    assert taps('## Changelog\n- none') == [] and taps('') == [] and taps('## What to Test\n### On v2\n- x\n# Other\n- y') == ['### On v2', '- x']
+    assert notes([('feat(ios v2): the whole page (#5)', body), 'fix(ios): x (#4)']) == \
+        '- The whole page\n  - Owner only: open Cá betta, tap ⋯.\n  Then Ảnh.\n- X', notes([('feat(ios v2): the whole page (#5)', body)])
     with tempfile.TemporaryDirectory() as d:
         git = lambda *a: subprocess.run(['git', '-c', 'user.name=t', '-c', 'user.email=t@example.invalid', *a], cwd=d,
                                         check=True, capture_output=True, text=True).stdout.strip()
         git('init', '-q')
-        def commit(path, subject):
+        def commit(path, subject, body=''):
             os.makedirs(os.path.join(d, os.path.dirname(path)), exist_ok=True)
             with open(os.path.join(d, path), 'a') as f:
                 f.write(subject + '\n')
             git('add', '-A')
-            git('commit', '-q', '-m', subject)
+            git('commit', '-q', '-m', subject, *(['-m', body] if body else []))
             return git('rev-parse', 'HEAD')
         last = commit('apps/ios/a.swift', 'feat(ios): uploaded already (#1)')
         commit('docs/a.md', 'docs: not the app (#2)')
@@ -74,6 +102,8 @@ def test():
         commit('protocols/p.json', 'chore(protocols): the third (#4)')
         commit('apps/ios/c.json', 'content: engine pages 2026-11-02')
         assert notes(subjects(last, d)) == '- The third\n- The second', notes(subjects(last, d))
+        commit('apps/ios/d.swift', 'feat(ios v2): the fourth (#5)', '## What to Test\n- Open Cá betta.\n\n## Changelog\n- App: x')
+        assert notes(subjects(last, d)) == '- The fourth\n  - Open Cá betta.\n- The third\n- The second', notes(subjects(last, d))
         assert notes(subjects('', d)) == NOTHING
 
 

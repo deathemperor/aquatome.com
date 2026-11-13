@@ -12,6 +12,106 @@
     "democratic-republic-of-the-congo",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo and Zambia).",
+          "countries": [
+            "BI",
+            "CD",
+            "ZM"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372484,
+      "total": 44,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CD",
+          16
+        ],
+        [
+          "BI",
+          12
+        ],
+        [
+          "TZ",
+          12
+        ],
+        [
+          "ZM",
+          3
+        ],
+        [
+          "ZA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          25.3125,
+          -29.53125,
+          1,
+          0
+        ],
+        [
+          28.125,
+          -4.21875,
+          28,
+          28
+        ],
+        [
+          29.53125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          29.53125,
+          -5.625,
+          7,
+          0
+        ],
+        [
+          30.9375,
+          -9.84375,
+          5,
+          2
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -59,7 +159,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -143,14 +243,29 @@
       "html": "<p>Julidochromis are commonly known as \"Julies\" in the hobby. This particular species may also be seen for sale as the Chequered Julie. A truly characterful cichlid exhibiting quirky behaviour, it will swim hugging the rock surfaces no matter what the angle is. As with other Julies, large water changes should be avoided as this can cause mated pairs to turn on one another. Several geographical morphs are available. However, no two species or morphs of Julidochromis should be kept together in aquaria as they may hybridise.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/74bcca71ec4599cc.webp",
+      "thumb": "https://media.aquatome.com/commons/74bcca71ec4599cc-480.webp",
+      "width": 1200,
+      "height": 676,
+      "licence": "CC BY-SA 4.0",
+      "author": "Cedricguppy- Loury Cédric",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Julidochromis_marlieri_-_Aqua_porte_dor%C3%A9e_09.JPG",
+      "caption": "Cá julie Marlier trưởng thành trên nền đá trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/74bcca71ec4599cc-large.webp",
+        "width": 2129,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 100cm",
-        "bể cá cichlid Tanganyika"
+        "bể cá 120cm"
       ]
     },
     {

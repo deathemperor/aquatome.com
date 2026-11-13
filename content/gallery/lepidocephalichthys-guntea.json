@@ -11,19 +11,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Guntea_loach.jpg",
       "caption": "Cá chạch lá guntea nền đen, thân vàng cam, ảnh studio",
       "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/151525430.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/151525430-480.webp",
-      "width": 1024,
-      "height": 484,
-      "licence": "CC BY",
-      "author": "Sandipan Das",
-      "sourceUrl": "https://www.inaturalist.org/photos/151525430",
-      "caption": "Cá chạch lá guntea bơi trên nền sỏi trong bể",
-      "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/commons/92f924b887c1fd2a-large.webp",
+        "width": 2133,
+        "height": 1200
+      }
     }
   ],
   "seen": 9,

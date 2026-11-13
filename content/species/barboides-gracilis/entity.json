@@ -12,6 +12,131 @@
     "cameroon",
     "equatorial-guinea"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BJ",
+        "NG",
+        "CM",
+        "GQ"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish",
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Barboides gracilis is a miniature cyprinid from coastal West and Central Africa, ranging from Benin through Nigeria and Cameroon to Equatorial Guinea.",
+          "countries": [
+            "BJ",
+            "NG",
+            "CM",
+            "GQ"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2360908,
+      "total": 46,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BJ",
+          28
+        ],
+        [
+          "CM",
+          12
+        ],
+        [
+          "NG",
+          5
+        ],
+        [
+          "GQ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          0,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          1.40625,
+          5.625,
+          17,
+          17
+        ],
+        [
+          1.40625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          1.40625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          2.8125,
+          5.625,
+          3,
+          3
+        ],
+        [
+          2.8125,
+          11.25,
+          7,
+          7
+        ],
+        [
+          5.625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          5.625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          2.8125,
+          9,
+          9
+        ],
+        [
+          9.84375,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -80,7 +205,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       },
       {
         "source": "aquariumbreeder",
@@ -273,17 +398,6 @@
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/8c34e4f810658f8f.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/8c34e4f810658f8f-480.webp",
-      "width": 760,
-      "height": 570,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/barboides-gracilis",
-      "caption": "Newly-imported, hence a little skinny, male of Barboides gracilis.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/6b45654f1e455dd7.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/6b45654f1e455dd7-480.webp",
       "width": 800,
@@ -310,8 +424,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá nano 20 lít",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {

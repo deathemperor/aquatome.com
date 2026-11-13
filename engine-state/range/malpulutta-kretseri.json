@@ -1,0 +1,88 @@
+{
+  "id": "malpulutta-kretseri",
+  "native": {
+    "input": "37af898ecd89e9af",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The ornate paradisefish, Malpulutta kretseri, is a labyrinth fish from the 'wet zone' of southwestern Sri Lanka.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Sri Lanka.",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Gin",
+        "source": "seriouslyfish",
+        "quote": "If it did once occur further north, it now appears restricted to Sri Lanka's 'wet zone', where it has been recorded from the Gin, Kelani, Kalu, Nilwala, and Bentota river basins.",
+        "country": "LK",
+        "ok": true
+      },
+      {
+        "name": "Kelani",
+        "source": "seriouslyfish",
+        "quote": "If it did once occur further north, it now appears restricted to Sri Lanka's 'wet zone', where it has been recorded from the Gin, Kelani, Kalu, Nilwala, and Bentota river basins.",
+        "country": "LK",
+        "ok": true
+      },
+      {
+        "name": "Kalu",
+        "source": "seriouslyfish",
+        "quote": "If it did once occur further north, it now appears restricted to Sri Lanka's 'wet zone', where it has been recorded from the Gin, Kelani, Kalu, Nilwala, and Bentota river basins.",
+        "country": "LK",
+        "ok": true
+      },
+      {
+        "name": "Nilwala",
+        "source": "seriouslyfish",
+        "quote": "If it did once occur further north, it now appears restricted to Sri Lanka's 'wet zone', where it has been recorded from the Gin, Kelani, Kalu, Nilwala, and Bentota river basins.",
+        "country": "LK",
+        "ok": true
+      },
+      {
+        "name": "Bentota",
+        "source": "seriouslyfish",
+        "quote": "If it did once occur further north, it now appears restricted to Sri Lanka's 'wet zone', where it has been recorded from the Gin, Kelani, Kalu, Nilwala, and Bentota river basins.",
+        "country": "LK",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Malpulutta kretseri",
+    "status": "ACCEPTED",
+    "taxonKey": 2393979,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "LK"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

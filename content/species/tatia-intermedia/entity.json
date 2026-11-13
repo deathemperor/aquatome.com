@@ -1,0 +1,205 @@
+{
+  "id": "tatia-intermedia",
+  "scientificName": "Tatia intermedia",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Tatia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "brazil",
+    "amazon",
+    "guyana",
+    "suriname",
+    "french-guiana"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      },
+      {
+        "source": "scotcat",
+        "value": 12
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/tatia-intermedia-4/",
+      "html": "<p>Tatia intermedia reaches a length of around 10 cm, but becomes sexually mature at about half this length.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_intermedia.htm",
+      "html": "<ul><li>Common name: Snowflake Woodcat</li><li>Synonym: Centromochlus intermedius</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_intermedia.htm",
+      "html": "<p>South America: Amazon River basin and rivers of the Guianas. Type locality: Marabitanos; Pará, Brazil.</p><p>Tatia intermedia is described for Brazil, occurring in the lower third of the Amazon basin (states of Amazonas, Pará, and Tocantins), in the Tocantins-Araguaia system, and coastal rivers of Pará and Amapá. It also occurs in rivers of Guyana, Suriname, and French Guiana. The species is frequent and abundant in the locations where it has been recorded. There is no information on the connectivity between the subpopulations in Brazil and the rivers of the Guianas. As no significant threats were identified, Tatia intermedia was categorised as Least Concern (LC). (IUCN 2022).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/tatia-intermedia-4/",
+      "html": "<p>The closer relatives of Tatia are quite well known aquaristically, as several species have proven to be easy to keep and breed. The attractive coloration of some species makes up for the fact that these animals are rarely seen during the day. They only leave their hiding places at feeding times. The following applies to the hiding place: the closer, the better, because Tatia love physical contact.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/tatia-intermedia-4/",
+      "html": "<p>As with all Tatia species, the anal fin of sexually mature males is transformed into a mating organ.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_intermedia.htm",
+      "html": "<p>The anal fin is the key to the sexual dimorphism of this genus. The female has a normal anal fin, but in the male it is modified into a copulatory organ with the first and second rays thickened and longer; it is thought that the male uses this to clasp the female during the spawning embrace. Mature females have caudal-fin lobes of the same length, while mature males have an elongated upper lobe.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/tatia-intermedia-4/",
+      "html": "<p>These catfish have internal fertilization, so no male needs to be present when the eggs are laid.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/tatia-intermedia-4/",
+      "html": "<p>Three species in particular are often confused with each other and it still does not seem to be clear which is which: Tatia aulopygia, T. galaxias and T. intermedia. All three have a rather elongated, cylindrical body with a dark ground color. Usually (but by no means always, there are also unicolored animals in T. intermedia) there is a bright dot pattern on it. If dots are present, T. galaxias differs from the other two in the shape of the dots: circular. In T. aulopygia and T. intermedia the dots/spots are always longitudinal oval. It is difficult to distinguish between T. aulopygia and T. intermedia on the basis of coloration, for this you have to look at an anatomical detail. The thorny shoulder process bone, the so-called cleithrum (it lies on the outside of the body and is therefore easy to see on the living animal), is short in T. intermedia. It always ends in front of an imaginary vertical line from the base of the dorsal fin to the belly. In T. aulopygia this process is much longer and protrudes far beyond the imaginary line.</p><p>As nice as this species differentiation model sounds, it is sometimes ambiguous. It seems important to always look at several individuals in order to arrive at a useful result.</p><p>Indonesia is currently offering offspring of a Tatia species of this group of forms as \"T. galaxias\". This is certainly not this species. All characteristics point to T. intermedia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_intermedia.htm",
+      "html": "<p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 4–5; anal soft rays: 9–10; vertebrae: 35–36. Differs from other species by having a wide elliptical cranial fontanel and a short postcleithral process not reaching the vertical through the origin of the dorsal fin. The only other Tatia with a variable colouration is Tatia galaxias, but this species differs from T. galaxias by its short postcleithral process, its small eye (21.4–26.3% HL) and its long snout (38.8–44.3% HL). Nasal ossified with wide medial flanges partially sutured to the lateral margin of the mesethmoid.</p><p>Colouration: Body colouration is variable, usually with elliptical spots along the sides of the body, large specimens with faint spots; or a uniformly pale brown colour pattern; the caudal fin has small spots or is pale brown.</p><p>Etymology: intermedia means intermediate, with eyes larger than T. aulopygia but smaller than Centromochlus heckelii, its presumed congener at the time.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_intermedia.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1991 Aquarien atlas. Bd. 3. Melle: Mergus, Verlag für Natur- und Heimtierkunde, Germany. 1104 p. Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p. Catfish Association Great Britain. Volume1. Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Tatia intermedia. The IUCN Red List of Threatened Species 2022. Sarmento-Soares, Luisa Maria; Martins-Pinheiro, Ronaldo Fernando A systematic revision of Tatia (Siluriformes: Auchenipteridae: Centromochlinae) Neotropical Ichthyology, 6(3):495- 542, 2008. ScotCat Factsheet June 200. no.048. Sterba, Gunther: Freshwater Fishes of the World 1. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/280bfa2c73142c06.webp",
+      "thumb": "https://media.aquatome.com/scotcat/280bfa2c73142c06-480.webp",
+      "width": 500,
+      "height": 280,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_intermedia.htm",
+      "caption": "Tatia intermedia",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/0521c4f805b21368.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0521c4f805b21368-480.webp",
+      "width": 500,
+      "height": 289,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_intermedia.htm",
+      "caption": "Tatia intermedia",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/55dc60cf2611fcca.webp",
+      "thumb": "https://media.aquatome.com/scotcat/55dc60cf2611fcca-480.webp",
+      "width": 500,
+      "height": 314,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_intermedia.htm",
+      "caption": "Tatia intermedia",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4d68cf9c616b0221.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4d68cf9c616b0221-480.webp",
+      "width": 500,
+      "height": 381,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tatia_intermedia.htm",
+      "caption": "Tatia intermedia: close up of head",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "EsYopzJsQTs",
+      "title": "Tatia intermedia egg mass",
+      "durationSec": 10,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DuFNF9ToJwo",
+      "title": "Tatia intermedia fry feeding",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ph5IMNPMdaY",
+      "title": "Tatia intermedia eggs",
+      "durationSec": 93,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "p_7RJvbG6-0",
+      "title": "Tatia Intermedia Laying Eggs during the daytime!",
+      "durationSec": 35,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá cho cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

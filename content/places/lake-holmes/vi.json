@@ -1,10 +1,13 @@
 {
   "slug": "lake-holmes",
-  "name": "Lake Holmes",
-  "altNames": [],
+  "name": "hồ Holmes",
+  "altNames": [
+    "Lake Holmes"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -9,7 +9,7 @@
     "poecilia-reticulata",
     "neocaridina-davidi"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "ZYwZzYODC4Y",
     "title": "Cách tính số lượng cá trong bể Thủy Sinh Bền Vững",
@@ -30,38 +30,20 @@
     "lang": "vi",
     "taxa": [
       "Poecilia reticulata",
-      "Neocaridina davidi",
-      "Neritina sp."
+      "Poecilia sp."
     ],
-    "gear": [
-      {
-        "category": "be-ca",
-        "type": "nano",
-        "t": 0
-      },
-      {
-        "category": "loc",
-        "type": "suc-khi",
-        "t": 155
-      }
-    ],
+    "gear": [],
     "figures": [
       {
-        "heading": "Quy tắc gốc: 2 lít cho một con cá nhỏ",
+        "heading": "Mốc chuẩn: 2 lít nước cho một con cá nhỏ",
         "moments": [
           {
-            "t": 57,
-            "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/t57.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh vài con cá nhỏ màu đỏ bơi gần cây thủy sinh."
-          },
-          {
-            "t": 75,
-            "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/t75.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể cá nước trà với nhiều cá nhỏ bơi giữa lũa và cây."
+            "t": 58,
+            "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/at58-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá nhỏ màu đỏ bơi giữa cây thủy sinh trong bể.",
+            "sharpness": 141.5
           }
         ],
         "photo": {
@@ -72,59 +54,44 @@
           "licence": "CC BY 4.0",
           "author": "Amy E. Deacon, Hideyasu Shimadzu, Maria Dornelas, Indar W. Ramnarine & Anne E. Magurran",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trinidadian_guppy_(Poecilia_reticulata)_male_and_female.png",
-          "caption": "Hai con cá bảy màu trong bể, cỡ cá nhỏ dùng làm chuẩn."
+          "caption": "Hai con cá bảy màu nhỏ bơi trong bể, cỡ chuẩn để tính 2 lít nước."
         }
-      },
-      {
-        "heading": "Tính thể tích bể thế nào",
-        "moments": [
-          {
-            "t": 28,
-            "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/t28.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh cây rậm với vài con cá nhỏ màu đỏ bơi giữa cây."
-          },
-          {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/t120.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Con cá đỏ bơi giữa đám cây thủy sinh trong bể."
-          }
-        ]
       },
       {
         "heading": "Cá lớn hơn thì tính sao",
         "moments": [
           {
-            "t": 122,
-            "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/t122.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá mún đỏ bơi giữa bể thủy sinh nhiều cây."
+            "t": 124,
+            "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/at124-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá mún đỏ bơi giữa bể thủy sinh nhiều cây xanh.",
+            "sharpness": 722.7,
+            "person": false
           },
           {
-            "t": 126,
-            "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/t126.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá mún đỏ và cá nhỏ khác bơi trong bể cây rậm."
+            "t": 128,
+            "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/at128-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vài con cá mún đỏ bơi trong bể cây rậm rạp.",
+            "sharpness": 762.9,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/p2-JhYnlwbGF0LmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/ZYwZzYODC4Y/p2-JhYnlwbGF0LmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/p2-hfQ2Fycm90LmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/ZYwZzYODC4Y/p2-hfQ2Fycm90LmpwZw-480.webp",
           "width": 960,
-          "height": 768,
-          "licence": "CC0",
-          "author": "Souravgg8",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Babyplat.jpg",
-          "caption": "Mấy con cá mún nhiều màu bơi trong bể thủy sinh có cây."
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Ry362",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fantail_Goldfish_Carrot.jpg",
+          "caption": "Một con cá vàng bơi trong bể kính gia đình."
         }
       },
       {
-        "heading": "Tép và ốc có cần tính không",
+        "heading": "Tép và ốc có cần tính vào không",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/p3-5femVicmEpLmpwZw.webp",
@@ -134,49 +101,21 @@
           "licence": "CC BY 4.0",
           "author": "Evan Baldonado",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zebra_Nerite_Snail_(Neritina_natalensis_sp._zebra).jpg",
-          "caption": "Ốc nerita vằn bò trên nền cát trong bể, cạnh một cục rêu."
+          "caption": "Ốc nerita vằn nhỏ bò trên nền cát cạnh cục tảo trong bể."
         }
       },
       {
-        "heading": "Bể có lọc và sủi thì nuôi thêm được bao nhiêu",
+        "heading": "Bể có lọc và sủi thì thả thêm được bao nhiêu",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/p4-5OTMtNDIzMi5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/ZYwZzYODC4Y/p4-5OTMtNDIzMi5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/p4-uZF9zdG9uZS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/ZYwZzYODC4Y/p4-uZF9zdG9uZS5qcGc-480.webp",
           "width": 960,
-          "height": 1280,
+          "height": 720,
           "licence": "CC BY-SA 4.0",
-          "author": "Raimond Spekking",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eheim_type_2011,_pump_101101993-4232.jpg",
-          "caption": "Lọc thùng ngoài bể màu xanh lá, loại lọc thường dùng cho bể nuôi cá."
-        }
-      },
-      {
-        "heading": "Vì sao không nên vượt giới hạn",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/p5-bGlwcGluZXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/ZYwZzYODC4Y/p5-bGlwcGluZXMuanBn-480.webp",
-          "width": 960,
-          "height": 540,
-          "licence": "CC BY 4.0",
-          "author": "Vyacheslav Argenberg",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Malate,_Manila,_Aquarium,_Fish,_Philippines.jpg",
-          "caption": "Đàn cá chen chúc trong một bể kính, cho thấy cảnh nuôi quá đông."
-        }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/ZYwZzYODC4Y/p6-9Hcm91cGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/ZYwZzYODC4Y/p6-9Hcm91cGVyLmpwZw-480.webp",
-          "width": 960,
-          "height": 1064,
-          "licence": "CC BY 2.5",
-          "author": "Diliff",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Georgia_Aquarium_-_Giant_Grouper.jpg",
-          "caption": "Đàn cá nhỏ bơi quanh một con cá song lớn trong bể đông cá."
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
+          "caption": "Máy sủi oxy mini kèm ống dẫn khí và cục đá sủi cho bể cá."
         }
       }
     ]

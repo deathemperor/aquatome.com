@@ -1,0 +1,98 @@
+{
+  "id": "nannostomus-minimus",
+  "native": {
+    "input": "982dfb57e80020ef",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The least pencilfish, Nannostomus minimus, is a tiny lebiasinid from the Potaro and Mazaruni systems of the Essequibo basin in Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Erukin, Guyana' which appears to correspond to a creek of that name within the Potaro River system, with one specimen also deriving from Amatuk Falls.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "The least pencilfish, Nannostomus minimus, is a tiny lebiasinid from the Potaro and Mazaruni systems of the Essequibo basin in Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Potaro",
+        "source": "seriouslyfish",
+        "quote": "The least pencilfish, Nannostomus minimus, is a tiny lebiasinid from the Potaro and Mazaruni systems of the Essequibo basin in Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Mazaruni",
+        "source": "seriouslyfish",
+        "quote": "The least pencilfish, Nannostomus minimus, is a tiny lebiasinid from the Potaro and Mazaruni systems of the Essequibo basin in Guyana.",
+        "country": "GY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nannostomus minimus",
+    "status": "ACCEPTED",
+    "taxonKey": 2355648,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        22
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "GY"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

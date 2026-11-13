@@ -8,22 +8,57 @@
   "places": [
     "south-america",
     "colombia",
-    "rio-magdalena"
+    "rio-magdalena",
+    "magdalena"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 40
+      },
+      {
+        "source": "scotcat",
+        "value": 40
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ]
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_cochliodon.htm",
+      "html": "<ul><li>Common name: Blue-eyed Pleco</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaque_cochliodon_en/",
       "html": "<p>Colombia, Rio Magdalena.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_cochliodon.htm",
+      "html": "<p>South America: Colombia, Rio Magdalena and Rio Cauca. Type locality: Aus dem Cauca, dem grössten Nebenflusse des Magdalenen-Stromes, Colombia.</p>"
     },
     {
       "key": "aquariumSize",
@@ -32,10 +67,22 @@
       "html": "<p>Wood eaters of this size (more than 40 cm) need large aquariums with very high-performance filtration units, since substantial quantities of excrement are produced.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_cochliodon.htm",
+      "html": "<p>This species is a bit robust in an aquarium set-up so would need plenty of hiding places, plenty of water changes, due to their wood eating habits, and powerful filtration. Needs a spacious aquarium.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaque_cochliodon_en/",
       "html": "<p>The vegetable part of the food should be high; cucumbers, potatoes, carrots and other vegetables are gladly eaten.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_cochliodon.htm",
+      "html": "<p>All Panaque (Panaqolus) are wood eaters so would need this in an aquarium set-up. Feed also vegetable foods such as cucumber, courgette (zucchini) and sinking tablets.</p>"
     },
     {
       "key": "reproduction",
@@ -45,9 +92,15 @@
     },
     {
       "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaque_cochliodon_en/",
-      "html": "<p>December 2005: After years in which no Panaque cochliodon (Panaque suttoni, P. suttonorum) were imported, a few individuals are now reaching us again. Whether environmental problems or the civil war in parts of Colombia are responsible for their absence cannot be judged from a distance. It is good to see this species, not rare in former times, again. Their bright blue eyes on a black body are unique and are the special attraction of this species.</p>"
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_cochliodon.htm",
+      "html": "<p>This catfish was for many years thought to be Panaque suttonorum (suttoni?) but it is now finally recognised to be Panaque cochliodon. This mistake was rectified when again looking at Schultz's original description of P. suttonorum, which was totally different, and was also from a different location. The smaller Panaques are actually Panaqolus and the larger species are Panaque.</p><p>Description: Panaque have an oval shaped mouth and the jaws have very large spatulate teeth with a single cusp, arranged in a V form, while Panaqolus have a small number of spatulate teeth and Panaque grow quite a bit larger.</p><p>Etymology: The specific name cochliodon: cochli, from cochlearium (L.), a small Roman spoon with a long tapering handle; odon, from odoús, tooth, referring to spoon-shaped dentary and premaxillary tooth cusps.</p><p>Known for its blue eyes.</p><p>IUCN Red List: Near Threatened because of a suspected population reduction of approximately 25% due to fishing pressure for ornamental purposes and habitat degradation in parts of its range. It may qualify for Vulnerable, but there are currently not sufficient data to support such an assessment. Surveys to estimate population size and monitor trends are recommended (IUCN 2016).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_cochliodon.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Jimenez-Segura, L., Mojica, J. &amp; Alonso, J. C. 2016. Panaque cochliodon. The IUCN Red List of Threatened Species 2016. ScotCat Factsheet. no.71 May 2002. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -74,6 +127,16 @@
       "source": "scotcat"
     },
     {
+      "url": "https://media.aquatome.com/commons/aa110ca147bb2ba8.webp",
+      "thumb": "https://media.aquatome.com/commons/aa110ca147bb2ba8-480.webp",
+      "width": 960,
+      "height": 617,
+      "licence": "CC BY-SA 2.0",
+      "author": "Sini Merikallio from Helsinki, Finland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panaque_cochliodon_-_Blue-eyed_plec_(5936849425).jpg",
+      "caption": "I named him Rambo. He came with the aquarium I bought when 10 years old or so, he was already big. When I was about 17 he died, shortly after which I sold my aquarium as he was 'the fish of my life'. "
+    },
+    {
       "url": "https://media.aquatome.com/scotcat/1a076d54068972ac.webp",
       "thumb": "https://media.aquatome.com/scotcat/1a076d54068972ac-480.webp",
       "width": 500,
@@ -94,16 +157,6 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_cochliodon.htm",
       "caption": "Panaque cochliodon",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/aa110ca147bb2ba8.webp",
-      "width": 960,
-      "height": 617,
-      "licence": "CC BY-SA 2.0",
-      "author": "Sini Merikallio from Helsinki, Finland",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panaque_cochliodon_-_Blue-eyed_plec_(5936849425).jpg",
-      "caption": "I named him Rambo. He came with the aquarium I bought when 10 years old or so, he was already big. When I was about 17 he died, shortly after which I sold my aquarium as he was 'the fish of my life'. ",
-      "thumb": "https://media.aquatome.com/commons/aa110ca147bb2ba8-480.webp"
     }
   ],
   "videos": [],
@@ -130,5 +183,86 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-05"
+  "updatedAt": "2026-11-09",
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Rio Magdalena",
+        "Rio Cauca"
+      ],
+      "sources": [
+        "scotcat",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Colombia, Rio Magdalena.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Colombia, Rio Magdalena and Rio Cauca.",
+          "countries": [],
+          "regions": [
+            "Rio Magdalena",
+            "Rio Cauca"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339868,
+      "total": 157,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CO",
+          156
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          5.625,
+          10,
+          10
+        ],
+        [
+          -75.9375,
+          7.03125,
+          142,
+          142
+        ],
+        [
+          -75.9375,
+          9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

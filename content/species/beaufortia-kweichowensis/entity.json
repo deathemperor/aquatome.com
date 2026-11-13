@@ -10,6 +10,52 @@
     "china",
     "xi-jiang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Xi Jiang",
+        "Zhu Jiang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Xi Jiang (West River) system in southern China, the major tributary of the great Zhu Jiang (Pearl River).",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Xi Jiang",
+            "Zhu Jiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205367,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +99,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -182,8 +228,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30",
-        "bể cá thủy sinh 60cm"
+        "bể cá 60cm"
       ]
     },
     {
@@ -197,7 +242,7 @@
       "category": "thuc-an",
       "keywords": [
         "thức ăn tảo spirulina",
-        "thức ăn cho cá bám đá"
+        "thức ăn cho cá tỳ bà bướm"
       ]
     },
     {

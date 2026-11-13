@@ -12,6 +12,70 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears restricted in range with confirmed records existing only from Johor state, southern Peninsular Malaysia, and the Kapuas river system in West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo).",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2387166,
+      "total": 6,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          5
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          0,
+          1,
+          0
+        ],
+        [
+          111.09375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +119,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -139,8 +203,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể thủy sinh nhỏ"
+        "bể cá 60cm"
       ]
     },
     {

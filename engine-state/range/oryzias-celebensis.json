@@ -1,0 +1,102 @@
+{
+  "id": "oryzias-celebensis",
+  "native": {
+    "input": "c368ab5f3a12e250",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Oryzias celebensis, the Celebes rice fish, originates from Indonesia, where it inhabits the island of Celebes.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Celebes ricefish, Oryzias celebensis, lives in rivers and streams of southwestern Sulawesi, Indonesia, with a further record from Timor.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Celebes",
+        "source": "glaser",
+        "quote": "Oryzias celebensis, the Celebes rice fish, originates from Indonesia, where it inhabits the island of Celebes.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sulawesi",
+        "source": "seriouslyfish",
+        "quote": "The Celebes ricefish, Oryzias celebensis, lives in rivers and streams of southwestern Sulawesi, Indonesia, with a further record from Timor.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Timor",
+        "source": "seriouslyfish",
+        "quote": "The Celebes ricefish, Oryzias celebensis, lives in rivers and streams of southwestern Sulawesi, Indonesia, with a further record from Timor.",
+        "ok": true
+      },
+      {
+        "name": "Maros River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Makassar, Maros River near Maros, Sulawesi, Indonesia'.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Lake Tempe",
+        "source": "seriouslyfish",
+        "quote": "Described from the Maros River (Salo Maros), southwestern Sulawesi, Indonesia and subsequently recorded from rivers and streams throughout the southwestern arm of the island including Lake Tempe (Danau Tempe), plus the Mota Talau River, East Timor state on the nearby island of Timor.",
+        "ok": true
+      },
+      {
+        "name": "Cerekang River",
+        "source": "seriouslyfish",
+        "quote": "More recently Herder and Chapuis (2010) reported it to be more widespread on Sulawesi, with new records pertaining to an unnamed small stream within the upper Cerekang River system, close to Lake Matano in the central part of the island (though within the boundaries of South Sulawesi province).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TL"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oryzias celebensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2368381,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

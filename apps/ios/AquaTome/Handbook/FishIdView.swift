@@ -1,6 +1,5 @@
 import AccountSync
 import Handbook
-import PhotosUI
 import SwiftUI
 
 /// Pushed on the Tìm tab for the fish-ID screen (AppScreen.fishId).
@@ -15,8 +14,9 @@ struct FishIdView: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @State private var tool = Tool.checking
-  @State private var picked: PhotosPickerItem?
+  @State private var picked: PickedPhoto?
   @State private var camera = false
+  @State private var library = false
   /// The photo as picked, full size: a box is cut from it.
   @State private var original: Data?
   /// The whole photo shrunk: what goes without a box, and its preview.
@@ -29,10 +29,14 @@ struct FishIdView: View {
   @State private var box: CGRect?
   @State private var part: Data?
   @State private var sending = false
+  /// VoiceOver's place: on what it's doing while it identifies (the button it was on goes), then on what it says after.
+  @AccessibilityFocusState private var onWait: Bool
+  @AccessibilityFocusState private var onSaid: Bool
   /// What the screen is doing, or why it can't, as the site's status line says it.
   @State private var said: String?
   @State private var found: FishId.Identification?
   @State private var onSite: URL?
+  @Environment(ChatStore.self) private var chat
 
   /// What GET says of the tool, or that the site couldn't be reached.
   enum Tool: Equatable { case checking, offline, off, resting, on(perAccount: Int?) }
@@ -48,7 +52,8 @@ struct FishIdView: View {
         Section {
           Text("Ảnh không được lưu lại: ảnh được gửi tới Claude, mô hình AI của Anthropic, để nhận diện rồi bỏ đi.")
             .font(.footnote).foregroundStyle(.secondary)
-          Button("Chính sách bảo mật") { onSite = URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#nhan-dien-ca")) }
+          // In the browser, as the site's pages about itself open (PageRoute): a screen in the app would be left blank.
+          Link("Chính sách bảo mật", destination: URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#nhan-dien-ca"))!)
             .font(.footnote)
         }
         Section("Chụp sao cho dễ nhận") {
@@ -70,6 +75,7 @@ struct FishIdView: View {
         if let s = f.line.map(text) ?? first { AccessibilityNotification.Announcement(s).post() }
       }
     }
+    .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
     .navigationTitle("Đây là cá gì?")
     .navigationBarTitleDisplayMode(.inline)
     .navigationDestination(item: $onSite) { WebScreen(url: $0) }
@@ -78,8 +84,8 @@ struct FishIdView: View {
     .task {
       guard tool == .checking else { return }
       #if DEBUG
-      // UI tests can't drive the system's photo picker: an item picked as the picker picks one (`load` reads it).
-      if Self.picksTestPhoto { picked = PhotosPickerItem(itemIdentifier: Self.testItem) }
+      // UI tests can't drive the system's photo picker: a photo picked as the picker picks one.
+      if Self.picksTestPhoto { picked = PickedPhoto(data: Self.testPhoto) }
       #endif
       await ask()
     }
@@ -87,19 +93,29 @@ struct FishIdView: View {
     // take the guesses and the box away and cost another identification to get them back.
     .onChange(of: picked) { _, item in
       guard let item else { return }
-      Task { await take { await load(item) } }
+      Task { await take { item.data } }
     }
     .task(id: box) { await cut() }
     .fullScreenCover(isPresented: $camera) {
-      CameraPicker { data in
+      ImagePicker(source: .camera, picked: { data in
         camera = false
         guard let data else { return }
-        // The library's photo is no longer the one shown: picking it again is a change.
+        // The library's photo, if one was picked, isn't kept.
         picked = nil
         Task { await take { data } }
-      }
+      }, cancelled: { camera = false })
       .ignoresSafeArea()
+      .ownerScreen("camera")
     }
+    .sheet(isPresented: $library) {
+      ImagePicker(source: .photoLibrary, picked: { data in
+        library = false
+        picked = PickedPhoto(data: data)
+      }, cancelled: { library = false })
+      .ignoresSafeArea()
+      .ownerScreen("sheet photo-library")
+    }
+    .ownerScreen("tool fish-id")
   }
 
   // MARK: The tool
@@ -148,7 +164,7 @@ struct FishIdView: View {
           .disabled(sending)
           .accessibilityIdentifier("fish-id-camera")
       }
-      PhotosPicker(selection: $picked, matching: .images) { Label("Chọn ảnh có sẵn", systemImage: "photo.on.rectangle") }
+      Button { library = true } label: { Label("Chọn ảnh có sẵn", systemImage: "photo.on.rectangle") }
         .disabled(sending)
         .accessibilityIdentifier("fish-id-library")
     } footer: {
@@ -159,26 +175,35 @@ struct FishIdView: View {
         BoxedPhoto(image: preview, boxing: boxing && !sending, box: $box)
           .frame(maxWidth: .infinity)
           .listRowInsets(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
-        if boxing {
-          Button("Dùng cả ảnh") { boxing = false; box = nil }.disabled(sending).accessibilityIdentifier("fish-id-whole")
-        } else {
-          Button("Khoanh một con cá") { boxing = true }.disabled(sending).accessibilityIdentifier("fish-id-box")
-        }
-        if boxing {
-          Text(boxSaid).font(.footnote).foregroundStyle(.secondary).accessibilityIdentifier("fish-id-box-said")
+        // While it's identified, the photo is the one sent: no box to change, and nothing greyed out that reads as broken.
+        if !sending {
+          if boxing {
+            Button("Dùng cả ảnh") { boxing = false; box = nil }.accessibilityIdentifier("fish-id-whole")
+          } else {
+            Button("Khoanh một con cá") { boxing = true }.accessibilityIdentifier("fish-id-box")
+          }
+          if boxing {
+            Text(boxSaid).font(.footnote).foregroundStyle(.secondary).accessibilityIdentifier("fish-id-box-said")
+          }
         }
       }
-      // Here the reader's opt-in to keep the photo goes (`keep`), with the site's next change.
-      Button { Task { await send() } } label: {
-        Text("Nhận diện").frame(maxWidth: .infinity).fontWeight(.semibold)
-      }
-      .disabled(sending || sent == nil)
-      .accessibilityIdentifier("fish-id-send")
-      if let said {
-        HStack(spacing: 8) {
-          if sending { ProgressView().accessibilityHidden(true) }
-          Text(said).accessibilityIdentifier("fish-id-said")
+      if sending {
+        // In the button's place, what it's doing: a spinner and the words, as live as the wait is.
+        HStack(spacing: 10) {
+          ProgressView().accessibilityHidden(true)
+          Text(said ?? "").accessibilityIdentifier("fish-id-said").accessibilityFocused($onWait)
         }
+        .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+      } else {
+        // Here the reader's opt-in to keep the photo goes (`keep`), with the site's next change.
+        Button { Task { await send() } } label: {
+          // Its line under it runs from the row's edge, as the other rows' do, not from the centred word.
+          Text("Nhận diện").frame(maxWidth: .infinity).fontWeight(.semibold)
+            .alignmentGuide(.listRowSeparatorLeading) { $0[.leading] }
+        }
+        .disabled(sent == nil)
+        .accessibilityIdentifier("fish-id-send")
+        if let said { Text(said).accessibilityIdentifier("fish-id-said").accessibilityFocused($onSaid) }
       }
     }
   }
@@ -203,6 +228,37 @@ struct FishIdView: View {
     } header: {
       if f.hasGuesses { Text("Có thể là") }
     }
+    // While the chat is on: asking about it, with the guesses (never the photo).
+    if chat.on, f.hasGuesses, let route = Self.chat(f) {
+      Section {
+        NavigationLink(value: route) {
+          Label {
+            if route.subject.plant { Text("Hỏi về cây này") } else { Text("Hỏi về con cá này") }
+          } icon: {
+            Image(systemName: "bubble.left.and.text.bubble.right.fill")
+          }
+          .font(.body.weight(.semibold))
+          .foregroundStyle(.tint)
+        }
+        .accessibilityIdentifier("chat-entry")
+      } footer: {
+        Text("Trả lời dựa trên cẩm nang AquaTome")
+      }
+    }
+  }
+
+  /// The chat about this identification: its guesses as it words them ("Gần như chắc chắn Cá betta (cá xiêm), có thể
+  /// Cá betta imbellis"), the first's page and photo.
+  static func chat(_ f: FishId.Identification) -> ChatRoute? {
+    guard let identified = Chat.Identified(f), let first = f.results.first else { return nil }
+    let guesses = f.results.prefix(3).enumerated().map { i, g in
+      let s = sure(g.confidence)
+      return "\(i == 0 ? s : ChatNames.inSentence(s)) \(g.page?.name ?? name(g))"
+    }
+    return ChatRoute(start: Chat.Start(from: .fishId, identified: identified),
+                     subject: ChatSubject(plant: f.verdict == "plant", name: first.page?.name ?? name(first), sci: nil, img: nil,
+                                          guesses: guesses.joined(separator: ", "),
+                                          second: f.results.dropFirst().first.map { $0.page?.name ?? name($0) }))
   }
 
   private func text(_ line: FishId.Line) -> String {
@@ -216,7 +272,7 @@ struct FishIdView: View {
   /// A page a guess names: the app's own screen for it, else its web page in the app.
   private func open(_ l: FishId.Linked) {
     guard let path = l.path, let u = URL(string: path, relativeTo: handbook.site)?.absoluteURL else { return }
-    if let screen = AppScreen.of(u, site: handbook.site, listed: { handbook.item(at: $0) != nil }) { openScreen(screen) } else { onSite = u }
+    if let screen = AppScreen.of(u, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil }) { openScreen(screen) } else { onSite = u }
   }
 
   // MARK: Doing it
@@ -249,14 +305,6 @@ struct FishIdView: View {
     said = small == nil ? String(localized: "Không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.") : nil
   }
 
-  /// A photo picked from the library, as data.
-  private func load(_ item: PhotosPickerItem) async -> Data? {
-    #if DEBUG
-    if item.itemIdentifier == Self.testItem { return Self.testPhoto }
-    #endif
-    return try? await item.loadTransferable(type: Data.self)
-  }
-
   /// The box's part, cut from the full-size photo and shrunk as the whole one is.
   private func cut() async {
     part = nil
@@ -270,11 +318,14 @@ struct FishIdView: View {
   private func send() async {
     guard let jpeg = sent, !sending else { return }
     sending = true
+    onWait = true
     found = nil
     said = String(localized: "Đang nhận diện… thường mất vài giây.")
+    // Done, it says so where VoiceOver is: a problem's words, or the guesses (read out as they come, onChange(of: found)).
+    defer { onSaid = said != nil }
     // Claude may take up to 25 s on the Worker, and the app waits 65: past the first seconds, the screen says so.
     let longer = Task {
-      try await Task.sleep(for: .seconds(10))
+      try await TestGate.wait("fish-id-longer", or: .seconds(10))
       guard !Task.isCancelled else { return }
       said = String(localized: "Vẫn đang nhận diện… có thể mất đến một phút.")
     }
@@ -331,9 +382,8 @@ struct FishIdView: View {
   private static var ownCopy: String? { OwnCopy.isOurs ? AccountsClient.ourCopy : nil }
 
   #if DEBUG
-  /// `-picked-photo`: a library item picked as the screen opens, read as `testPhoto`.
+  /// `-picked-photo`: `testPhoto` picked as the screen opens.
   static let picksTestPhoto = ProcessInfo.processInfo.arguments.contains("-picked-photo")
-  static let testItem = "ui-test-photo"
 
   /// A 1600 × 1200 photo of a fish, to box and send.
   static var testPhoto: Data? {
@@ -351,6 +401,18 @@ struct FishIdView: View {
 
 /// A guess's name: Claude's common name, else its scientific one.
 private func name(_ g: FishId.Guess) -> String { g.commonName.isEmpty ? g.scientificName : g.commonName }
+
+extension FishIdView {
+  /// How sure a guess is, in words.
+  static func sure(_ confidence: Double) -> String {
+    switch FishId.Sure(confidence) {
+    case .almostCertain: String(localized: "Gần như chắc chắn")
+    case .quiteLike: String(localized: "Khá giống")
+    case .maybe: String(localized: "Có thể")
+    case .unlikely: String(localized: "Ít khả năng")
+    }
+  }
+}
 
 /// The photo picked, and while boxing, a box dragged on it (a finger's drag; a tap or a box too small to hold a fish
 /// keeps the one before), the rest dimmed, as the site's page draws it.
@@ -462,14 +524,7 @@ private struct GuessRow: View {
     .padding(.vertical, 4)
   }
 
-  private var sure: String {
-    switch FishId.Sure(guess.confidence) {
-    case .almostCertain: String(localized: "Gần như chắc chắn")
-    case .quiteLike: String(localized: "Khá giống")
-    case .maybe: String(localized: "Có thể")
-    case .unlikely: String(localized: "Ít khả năng")
-    }
-  }
+  private var sure: String { FishIdView.sure(guess.confidence) }
 
   /// "Không phải? N loài <Genus> khác…" under a page, "N loài <Genus> có…" under a guess with none.
   private var genus: some View {
@@ -490,29 +545,5 @@ private struct GuessRow: View {
       (guess.page != nil ? Text("Không phải? \(n) loài \(g) khác trong cẩm nang") : Text("\(n) loài \(g) có trong cẩm nang"))
         .font(.subheadline.weight(.semibold))
     }
-  }
-}
-
-/// The camera, for a photo taken now (SwiftUI has none). The simulator has no camera: its button isn't shown there.
-private struct CameraPicker: UIViewControllerRepresentable {
-  let taken: (Data?) -> Void
-
-  func makeUIViewController(context: Context) -> UIImagePickerController {
-    let c = UIImagePickerController()
-    c.sourceType = .camera
-    c.delegate = context.coordinator
-    return c
-  }
-  func updateUIViewController(_ c: UIImagePickerController, context: Context) {}
-  func makeCoordinator() -> Coordinator { Coordinator(taken) }
-
-  final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    let taken: (Data?) -> Void
-    init(_ taken: @escaping (Data?) -> Void) { self.taken = taken }
-    // Its orientation goes with the JPEG, and is applied as it's shrunk.
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-      taken((info[.originalImage] as? UIImage)?.jpegData(compressionQuality: 0.9))
-    }
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) { taken(nil) }
   }
 }

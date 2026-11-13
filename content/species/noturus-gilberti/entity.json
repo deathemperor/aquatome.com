@@ -10,6 +10,76 @@
     "united-states",
     "roanoke-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "Roanoke River",
+        "Dan River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "North America: Upper Roanoke River (including Dan River) drainage in Virginia and North Carolina, USA.",
+          "countries": [
+            "US"
+          ],
+          "regions": [
+            "Roanoke River",
+            "Dan River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341023,
+      "total": 95,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "US",
+          95
+        ]
+      ],
+      "cells": [
+        [
+          -81.5625,
+          32.34375,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          35.15625,
+          13,
+          13
+        ],
+        [
+          -81.5625,
+          36.5625,
+          52,
+          52
+        ],
+        [
+          -80.15625,
+          36.5625,
+          28,
+          28
+        ],
+        [
+          -78.75,
+          36.5625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -109,27 +179,6 @@
       "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_gilberti.htm",
       "caption": "Noturus gilberti",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/a9487d62d781626a.webp",
-      "thumb": "https://media.aquatome.com/scotcat/a9487d62d781626a-480.webp",
-      "width": 500,
-      "height": 309,
-      "licence": "dùng với sự cho phép",
-      "author": "Gavin Martin / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/ictaluridae/noturus_gilberti.htm",
-      "caption": "Noturus gilberti",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/c9e1e7806d49d865.webp",
-      "width": 960,
-      "height": 1398,
-      "licence": "Public domain",
-      "author": "David Starr Jordan",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_37848_Noturus_furiosus,_Jordan_%26_Meek_(Figs_1,_1a,_1b);_Noturus_gilberti,_Jordan_%26_Evermann_(Figs_2,_2a,_2b).jpeg",
-      "caption": "Noturus furiosus, Jordan & Meek (Figs. 1, 1a, 1b); Noturus gilberti, Jordan & Evermann (Figs. 2, 2a, 2b) Subject: Noturus Tag: Fish",
-      "thumb": "https://media.aquatome.com/commons/c9e1e7806d49d865-480.webp"
     }
   ],
   "videos": [],

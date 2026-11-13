@@ -1058,7 +1058,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -1139,7 +1139,12 @@
       "author": "Yung-Lun Lin",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Monopterus_albus_404816204.jpg",
       "caption": "Asian Swamp Eel (Monopterus albus) in Taiwan",
-      "thumb": "https://media.aquatome.com/commons/87bc3d56b351b9ae-480.webp"
+      "thumb": "https://media.aquatome.com/commons/87bc3d56b351b9ae-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/87bc3d56b351b9ae-large.webp",
+        "width": 1798,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/3b460d9b2b61368f.webp",

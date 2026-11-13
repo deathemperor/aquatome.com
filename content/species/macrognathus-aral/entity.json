@@ -14,6 +14,259 @@
     "nepal",
     "myanmar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PK",
+        "IN",
+        "LK",
+        "BD",
+        "NP",
+        "MM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This spiny eel originates from South East Asia, i.e. Pakistan, India, Sri Lanka, Bangladesh, Nepal up to Myanmar in their most southern distribution area.",
+          "countries": [
+            "PK",
+            "IN",
+            "LK",
+            "BD",
+            "NP",
+            "MM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204051,
+      "total": 92,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "IN",
+          64
+        ],
+        [
+          "BD",
+          16
+        ],
+        [
+          "MM",
+          5
+        ],
+        [
+          "NP",
+          3
+        ],
+        [
+          "LK",
+          2
+        ],
+        [
+          "PK",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          66.09375,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          74.53125,
+          11.25,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          78.75,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          78.75,
+          16.875,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          81.5625,
+          16.875,
+          4,
+          4
+        ],
+        [
+          82.96875,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          82.96875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          84.375,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          85.78125,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          85.78125,
+          22.5,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          22.5,
+          12,
+          12
+        ],
+        [
+          87.1875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          12,
+          12
+        ],
+        [
+          90,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          90,
+          22.5,
+          14,
+          14
+        ],
+        [
+          90,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          25.3125,
+          8,
+          8
+        ],
+        [
+          94.21875,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          94.21875,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          95.625,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "The water of the aquarium should be given some sea salt (1-2 tea spoons per 10 litre of water) and should be well aerated."
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -54,48 +307,7 @@
       "html": "<p>Publications about breeding the spiny eels can be found in the literature of the last 40 years only incidentally, and only from the smaller species.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/478aa162714acb49.webp",
-      "width": 960,
-      "height": 181,
-      "licence": "Public domain",
-      "author": "Nilesh Heda",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macrognathus_aral.jpg",
-      "caption": "A fresh water fish species from Adan river of Painganga basin from the Gadchiroli district of Maharashtra state India.",
-      "thumb": "https://media.aquatome.com/commons/478aa162714acb49-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/1074fc410fd17595.webp",
-      "width": 960,
-      "height": 532,
-      "licence": "Public domain",
-      "author": "Bloch, Marcus Elieser; Hennig, J. F.; Schneider, Johann Gottlob",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:M.E._Blochii_..._Systema_ichthyologiae_iconibus_CX_illustratum_(Plate_89)_(6892438280).jpg",
-      "caption": "Macrognathus aral syn. Rhynchobdella aralM.E. Blochii, doctoris medicinae Berolinensis ... Systema ichthyologiae iconibus CX illustratum. atlas.",
-      "thumb": "https://media.aquatome.com/commons/1074fc410fd17595-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/56a52074c2a31e7b.webp",
-      "width": 960,
-      "height": 578,
-      "licence": "Public domain",
-      "author": "Buffon, Georges Louis Leclerc; Cuvier, Georges; Valenciennes",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Histoire_naturelle_des_poissons_(10438727176).jpg",
-      "caption": "Macrognathus aral syn. Rhynchobdella aral",
-      "thumb": "https://media.aquatome.com/commons/56a52074c2a31e7b-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/7e1c871f0683953c.webp",
-      "width": 960,
-      "height": 544,
-      "licence": "Public domain",
-      "author": "Bloch, Marcus Elieser; Hennig, J. F.; Schneider, Johann Gottlob",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:M.E._Blochii_..._Systema_ichthyologiae_iconibus_CX_illustratum_(Plate_89)_(6005492093).jpg",
-      "caption": "Macrognathus aral syn. Rhynchobdella aral",
-      "thumb": "https://media.aquatome.com/commons/7e1c871f0683953c-480.webp"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

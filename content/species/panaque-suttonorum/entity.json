@@ -7,22 +7,143 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "colombia"
+    "colombia",
+    "venezuela",
+    "lake-maracaibo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "CO"
+      ],
+      "regions": [
+        "Lake Maracaibo",
+        "Río Negro"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Western and eastern tributaries of Lake Maracaibo, Venezuela and Colombia.",
+          "countries": [
+            "VE",
+            "CO"
+          ],
+          "regions": [
+            "Lake Maracaibo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Río Negro below the mouth of the Río Yasa, Maracaibo basin, Venezuela.",
+          "countries": [],
+          "regions": [
+            "Río Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339872,
+      "total": 1,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 25
+      },
+      {
+        "source": "scotcat",
+        "value": 28
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 4
       }
     ]
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_suttonorum.htm",
+      "html": "<ul><li>Common name: Blue-eye panaque</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_suttonorum.htm",
+      "html": "<p>South America: Western and eastern tributaries of Lake Maracaibo, Venezuela and Colombia. Type locality: Río Negro below the mouth of the Río Yasa, Maracaibo basin, Venezuela.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_suttonorum.htm",
+      "html": "<p>This species is a bit robust in an aquarium set-up so would need plenty of hiding places, plenty of water changes, due to their wood eating habits, and powerful filtration. Needs a spacious aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_suttonorum.htm",
+      "html": "<p>All Panaques and also the Panaqolus genera are wood eaters so would need this in an aquarium set-up. Feed also vegetable foods such as cucumber, courgette (zucchini) and sinking tablets.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panque_suttoni_en/",
       "html": "<p>The Blue-eyed Panaque was in the 1980s one of the most common loricariids in the trade. The correct scientific name is Panaque suttonorum. For unknown reasons the fish is hardly available nowadays, and there are many rumours: some say an ecological catastrophe occurred, others that the river was poisoned and all fish killed, and another that the Colombian drug mafia controls the area where the fish occurs. Whatever the truth, the species cannot be extinct in the wild, as a few specimens are still obtained now and then. A beautiful individual with bright blue eyes, about 20-25 cm long, has been seen.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_suttonorum.htm",
+      "html": "<p>The differences between the Panaqolus and the Panaque genera is that the latter has an oval shaped mouth and the jaws have very large spatulate teeth with a single cusp, arranged in a V form, while Panaqolus have a small number of spatulate teeth and are also a smaller genus.</p><p>Etymology: The specific name suttonorum is a commemorative suffix, plural: in honour of Dr. (1894-1950) and Mrs. Fredrick A. Sutton, who were \"very kind\" to Schultz when he stayed at the camp of the Lago Petroleum Corporation in Maracaibo, Venezuela [originally spelled suttoni; the emended spelling is in prevailing usage].</p><p>IUCN Red List: This restricted species could possibly be over-harvested and its habitat may be under threat. The impact of these threats cannot be assessed and therefore an assessment of Data Deficient has been made (IUCN 2009).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_suttonorum.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Fisch-Muller, S., 2003. Loricariidae-Ancistrinae (Armored catfishes). p. 373-400. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil. Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 10/2024 ). Reis, R &amp; Lima, F. 2009. Panaque suttonorum. The IUCN Red List of Threatened Species 2009. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -61,5 +182,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-09"
 }

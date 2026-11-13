@@ -1,0 +1,278 @@
+{
+  "id": "petrochromis-famula",
+  "scientificName": "Petrochromis famula",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Petrochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "tanzania",
+    "zambia"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370288,
+      "total": 44,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "CD",
+          18
+        ],
+        [
+          "TZ",
+          14
+        ],
+        [
+          "ZM",
+          11
+        ],
+        [
+          "BI",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          2
+        ],
+        [
+          28.125,
+          -5.625,
+          1
+        ],
+        [
+          28.125,
+          -4.21875,
+          9
+        ],
+        [
+          29.53125,
+          -9.84375,
+          4
+        ],
+        [
+          29.53125,
+          -8.4375,
+          4
+        ],
+        [
+          29.53125,
+          -7.03125,
+          6
+        ],
+        [
+          29.53125,
+          -5.625,
+          9
+        ],
+        [
+          30.9375,
+          -9.84375,
+          7
+        ],
+        [
+          33.75,
+          -7.03125,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petrochromis-famula",
+      "html": "<p><em>Petrochromis famula</em> is a cichlid endemic to Lake Tanganyika, found in both the north and the south of the lake in shallow water over rocky bottoms. Its highly specialised mouthparts form a rasping 'plate' for scraping algae from rock, so the diet in captivity should be high in fibre and low in protein. Like others in the genus it has a nasty reputation, though aggression is directed primarily towards conspecifics.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petrochromis-famula",
+      "html": "<p>Endemic to Lake Tanganyika.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petrochromis-famula",
+      "html": "<p>It is found in both the north and the south of the lake, usually in shallow water over rocky bottoms.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petrochromis-famula",
+      "html": "<p>Standard length: 15 cm SL. Aquarium base: 120 × 30 cm. Volume: ~108 litres.</p><p>120 × 30 × 30 cm - ~108 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petrochromis-famula",
+      "html": "<p>Use piles of rocks to form lots of caves and hiding places with areas of open space for swimming between. A sandy substrate is ideal. Powerful biological filtration is a must as these fish are quite large, greedy and messy.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petrochromis-famula",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 7.5–9.0</li><li>Hardness: 8–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petrochromis-famula",
+      "html": "<p>Due to its very specific natural diet (see below), it should be offered foods that are high in fibre and low in protein. A large proportion of the diet should therefore be composed of vegetable matter such as spirulina flake or blanched spinach/lettuce. Live and frozen brine shrimp, Daphnia and bloodworm are useful supplements to this.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petrochromis-famula",
+      "html": "<p><em>P. famula</em>, like others in the genus, has a nasty reputation but aggression is directed primarily towards conspecifics. This can be dissipated somewhat by keeping the fish in an overcrowded situation with other robust and greedy species, such as mbuna, or (preferably) other Petrochromis species. A situation such as this will not allow male fish to claim territories and they will be far less violent as a result. Do not combine it with more peaceable or small fish such as Neolamprologus or Julidochromis. In the community tank, it is best to keep only a single male with several females or a number of pairs. In a species set up, interspecific aggression is far more pronounced and it is not unknown for female fish to have to be removed for their own safety. Again, this can be combatted by adding a relatively large number of fish!</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petrochromis-famula",
+      "html": "<p>Male fish are more colourful than females and develop pointed dorsal, anal and pelvic fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petrochromis-famula",
+      "html": "<p>Possible but not easy. Maternal mouthbrooder. Due to the violent nature of the fish with others of its species it is actually more easily bred in a community set up or heavily stocked species tank as suggested above. The male(s) will establish a territory and will defend this against other male fish and other species. Once in condition, he will display constantly at the females and attempt to entice them into his territory to spawn. When a female is willing, she will follow the male to the spawning site and lay her eggs several at a time, taking them into her mouth immediately. The male has spots resembling eggs on his anal fin and the female is also attracted to these. When she tries to add them to the brood in her mouth she actually receives sperm from the male, thus fertilising the eggs. Following spawning the female leaves the territory of the male and he plays no part in broodcare. The eggs may number up to 60 and the female holds them in her mouth for around 4 weeks. She will not accept food during this period. A brooding female can be easily recognised by her distended buccal cavity and you may wish to remove her to a separate tank to increase the chances of fry survival. Some breeders prefer to leave the female in the main aquarium and then strip the fry from her mouth at around the 3 week stage but this approach is for experts only. The fry themselves are very large (around 1 cm!) when released and will accept much the same food as the adult fish straight away, although any dried foods should first be crushed. They grow very quickly if fed several times a day.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petrochromis-famula",
+      "html": "<p>The mouthparts of this species are highly specialised, reflecting its natural feeding habits of rasping algae and other organisms from rock surfaces. It feeds almost exclusively on unicellular algae and has very thick, extended lips and brush-like, mobile pads of teeth. The mouthparts thus form a rasping 'plate', used when the fish is feeding. It is somewhat rare in the hobby, perhaps due to its violent reputation or the fact that this is not a particularly gregarious species in nature.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "KkcxSNQplr0",
+      "title": "Petrochromis Famula Orange Fin Kigoma WF",
+      "durationSec": 32,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8cmAdgX1n2s",
+      "title": "Petrochromis Famula.Kabiolwe@gmx.de zum 2. Mal,  34 WF.AVI",
+      "durationSec": 306,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jxKx6M1TFs0",
+      "title": "Petrochromis Famula Orange Fin Kigoma",
+      "durationSec": 123,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TC7aUFZifzE",
+      "title": "Petrochromis Famula Kambwimba 1.AVI",
+      "durationSec": 53,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy lọc ngoài cho bể cichlid"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina cho cichlid",
+        "thức ăn cá rô phi cảnh thực vật"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

@@ -14,6 +14,129 @@
     "china",
     "yunnan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong",
+        "Malay Peninsula"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Mystacoleucus chilopterus is a pelagic cyprinid from the middle Mekong, Chao Phraya and Mae Klong basins in Laos and Thailand.",
+          "countries": [
+            "LA",
+            "TH"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Kottelat (2001) reports that it is also present in the Malay Peninsula, but records seem scarce.",
+          "countries": [],
+          "regions": [
+            "Malay Peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363151,
+      "total": 10,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TH",
+          6
+        ],
+        [
+          "KH",
+          1
+        ],
+        [
+          "LA",
+          1
+        ],
+        [
+          "MY",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          101.25,
+          16.875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -24,7 +147,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 4
       }
     ]
   },

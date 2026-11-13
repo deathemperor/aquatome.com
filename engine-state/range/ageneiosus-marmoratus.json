@@ -1,8 +1,8 @@
 {
   "id": "ageneiosus-marmoratus",
   "native": {
-    "input": "47b671db82ec65d1",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "f7de815294e8c5b4",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "GY",
@@ -37,46 +37,6 @@
         "ok": true
       },
       {
-        "code": "GY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The holotype was collected from a creek below the settlement of Potaro Landing in the Potaro-Siparuni region of central Guyana which almost certainly refers to a tributary of the Potaro River, itself an affluent of the much larger Essequibo system.",
-        "words": "Guyana",
-        "ok": true
-      },
-      {
-        "code": "GY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Current knowledge suggests it to occur over a huge area since it's also been recorded from the Courantyne/Corantijn basin in western Guyana and Suriname, the upper Amazon region in Peru and Ecuador, and there is also a questionable record from the Paraná drainage in Argentina.",
-        "words": "Guyana",
-        "ok": true
-      },
-      {
-        "code": "SR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Current knowledge suggests it to occur over a huge area since it's also been recorded from the Courantyne/Corantijn basin in western Guyana and Suriname, the upper Amazon region in Peru and Ecuador, and there is also a questionable record from the Paraná drainage in Argentina.",
-        "words": "Suriname",
-        "ok": true
-      },
-      {
-        "code": "PE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Current knowledge suggests it to occur over a huge area since it's also been recorded from the Courantyne/Corantijn basin in western Guyana and Suriname, the upper Amazon region in Peru and Ecuador, and there is also a questionable record from the Paraná drainage in Argentina.",
-        "words": "Peru",
-        "ok": true
-      },
-      {
-        "code": "EC",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Current knowledge suggests it to occur over a huge area since it's also been recorded from the Courantyne/Corantijn basin in western Guyana and Suriname, the upper Amazon region in Peru and Ecuador, and there is also a questionable record from the Paraná drainage in Argentina.",
-        "words": "Ecuador",
-        "ok": true
-      },
-      {
         "code": "AR",
         "status": "doubtful",
         "source": "seriouslyfish",
@@ -87,29 +47,21 @@
     ],
     "regions": [
       {
-        "name": "Essequibo",
-        "source": "seriouslyfish",
-        "quote": "The holotype was collected from a creek below the settlement of Potaro Landing in the Potaro-Siparuni region of central Guyana which almost certainly refers to a tributary of the Potaro River, itself an affluent of the much larger Essequibo system.",
-        "country": "GY",
-        "ok": true
-      },
-      {
         "name": "Amazon",
         "source": "seriouslyfish",
         "quote": "Bottlenose catfish, Ageneiosus marmoratus, is a predatory auchenipterid catfish from Guyana, Suriname and the upper Amazon in Peru and Ecuador.",
         "ok": true
       },
       {
-        "name": "Courantyne",
+        "name": "Essequibo",
         "source": "seriouslyfish",
-        "quote": "Current knowledge suggests it to occur over a huge area since it's also been recorded from the Courantyne/Corantijn basin in western Guyana and Suriname, the upper Amazon region in Peru and Ecuador, and there is also a questionable record from the Paraná drainage in Argentina.",
+        "quote": "The holotype was collected from a creek below the settlement of Potaro Landing in the Potaro-Siparuni region of central Guyana which almost certainly refers to a tributary of the Potaro River, itself an affluent of the much larger Essequibo system.",
         "ok": true
       },
       {
-        "name": "Potaro",
+        "name": "Courantyne",
         "source": "seriouslyfish",
-        "quote": "The holotype was collected from a creek below the settlement of Potaro Landing in the Potaro-Siparuni region of central Guyana which almost certainly refers to a tributary of the Potaro River, itself an affluent of the much larger Essequibo system.",
-        "country": "GY",
+        "quote": "Current knowledge suggests it to occur over a huge area since it's also been recorded from the Courantyne/Corantijn basin in western Guyana and Suriname, the upper Amazon region in Peru and Ecuador, and there is also a questionable record from the Paraná drainage in Argentina.",
         "ok": true
       }
     ],

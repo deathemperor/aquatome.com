@@ -1,0 +1,105 @@
+{
+  "id": "ceratoglanis-scleronema",
+  "native": {
+    "input": "a796f594e96e8ef2",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Krawang, Java, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Citarum drainage in Java, the Batang Hari and Siak drainages in Sumatra, the Pahang drainage in Peninsular Malaysia and the Baram, Barito, Kapuas, and Rejang drainages in Borneo.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Reported from the Mekong basin in Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Citarum",
+        "source": "planetcatfish",
+        "quote": "Asia: Citarum drainage in Java, the Batang Hari and Siak drainages in Sumatra, the Pahang drainage in Peninsular Malaysia and the Baram, Barito, Kapuas, and Rejang drainages in Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "planetcatfish",
+        "quote": "Asia: Citarum drainage in Java, the Batang Hari and Siak drainages in Sumatra, the Pahang drainage in Peninsular Malaysia and the Baram, Barito, Kapuas, and Rejang drainages in Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Pahang",
+        "source": "planetcatfish",
+        "quote": "Asia: Citarum drainage in Java, the Batang Hari and Siak drainages in Sumatra, the Pahang drainage in Peninsular Malaysia and the Baram, Barito, Kapuas, and Rejang drainages in Borneo.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "planetcatfish",
+        "quote": "Reported from the Mekong basin in Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "planetcatfish",
+        "quote": "Asia: Citarum drainage in Java, the Batang Hari and Siak drainages in Sumatra, the Pahang drainage in Peninsular Malaysia and the Baram, Barito, Kapuas, and Rejang drainages in Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "planetcatfish",
+        "quote": "Asia: Citarum drainage in Java, the Batang Hari and Siak drainages in Sumatra, the Pahang drainage in Peninsular Malaysia and the Baram, Barito, Kapuas, and Rejang drainages in Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ceratoglanis scleronema",
+    "status": "ACCEPTED",
+    "taxonKey": 2337581,
+    "datasets": [
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "MY",
+      "TH"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

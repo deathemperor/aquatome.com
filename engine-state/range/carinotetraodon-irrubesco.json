@@ -1,0 +1,64 @@
+{
+  "id": "carinotetraodon-irrubesco",
+  "native": {
+    "input": "74d93a99d87a769d",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Banjuasin",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sambas",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Carinotetraodon irrubesco",
+    "status": "ACCEPTED",
+    "taxonKey": 2407799,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

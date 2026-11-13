@@ -12,6 +12,92 @@
     "terengganu",
     "sai-buri"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH"
+      ],
+      "regions": [
+        "Terengganu",
+        "Perak",
+        "Endau",
+        "Muar",
+        "Sai Buri",
+        "Kolok"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It inhabits Malaysia and Southern Thailand.",
+          "countries": [
+            "MY",
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Distributed throughout Peninsular Malaysia where it's been recorded from the Terengganu, Perak, Tahan, Muar, Jelai, Endau, Mersing and Sedili river basins.",
+          "countries": [],
+          "regions": [
+            "Terengganu",
+            "Perak",
+            "Endau",
+            "Muar"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It also occurs in the Sai Buri, Bang Nara and Kolok river systems, southern Thailand.",
+          "countries": [],
+          "regions": [
+            "Sai Buri",
+            "Kolok"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358607,
+      "total": 3,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          2
+        ],
+        [
+          "SE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          57.65625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -30,7 +116,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ],
     "tempC": [
@@ -84,7 +170,7 @@
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
-      "html": "<p>For the first time ever we were able now to import Homaloptera parclitella. This species has been discovered scientifically only in 2005.</p><p>A perfect water quality is absolutely necessary for these pretty loaches, otherwise they quickly become sick. So the recommendable species is better suited for experienced hobbyists.</p>"
+      "html": "<p>A perfect water quality is absolutely necessary for these pretty loaches, otherwise they quickly become sick. So the recommendable species is better suited for experienced hobbyists.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -162,7 +248,7 @@
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
-      "html": "<p>For our customers: the fish have code 421578 on our stocklist. Please note that we exclusively supply the wholesale trade.</p><p>Text &amp; photos: Frank Schäfer</p>"
+      "html": "<p>Text &amp; photos: Frank Schäfer</p>"
     },
     {
       "key": "notes",
@@ -227,8 +313,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá thủy sinh nhỏ"
+        "bể cá 120cm"
       ]
     },
     {

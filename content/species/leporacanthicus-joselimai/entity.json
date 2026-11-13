@@ -219,17 +219,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/scotcat/1df9ed979d5788b5.webp",
-      "thumb": "https://media.aquatome.com/scotcat/1df9ed979d5788b5-480.webp",
-      "width": 500,
-      "height": 375,
-      "licence": "dùng với sự cho phép",
-      "author": "Vitor Hugo Quaresma / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/leporacanthicus_joselimai.htm",
-      "caption": "Leporacanthicus joselimai",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/d92d97f105270310.webp",
       "thumb": "https://media.aquatome.com/commons/d92d97f105270310-480.webp",
       "width": 960,
@@ -237,7 +226,12 @@
       "licence": "CC BY-SA 2.0",
       "author": "Thomas Siems",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leporacanthicus_joselimai,_Wei%C3%9Fspitzen-R%C3%BCsselzahnwels,_L_264_(10227361116).jpg",
-      "caption": "Leporacanthicus joselimai, Weißspitzen-Rüsselzahnwels, L 264"
+      "caption": "Leporacanthicus joselimai, Weißspitzen-Rüsselzahnwels, L 264",
+      "large": {
+        "url": "https://media.aquatome.com/commons/d92d97f105270310-large.webp",
+        "width": 1605,
+        "height": 1200
+      }
     }
   ],
   "videos": [
@@ -270,8 +264,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 100 lít"
+        "bể cá 120cm"
       ]
     },
     {

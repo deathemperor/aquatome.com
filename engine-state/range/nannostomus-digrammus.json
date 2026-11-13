@@ -1,0 +1,192 @@
+{
+  "id": "nannostomus-digrammus",
+  "native": {
+    "input": "a25aaa85f511ce7d",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The twostripe pencilfish, Nannostomus digrammus, is a lebiasinid from the central Amazon basin in Brazil and the Rupununi basin in Guyana.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The twostripe pencilfish, Nannostomus digrammus, is a lebiasinid from the central Amazon basin in Brazil and the Rupununi basin in Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the central Amazon basin with records existing from the Madeira, Branco, Trombetas, and Tapajós river drainages, plus the Rupununi basin in Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given by Fowler as 'Rio Madeira about 200 miles east of W. Long. 62°20', Brazil'.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "In recent years very similar-looking fish with an additional thin dark stripe in the lower portion of the body (see 'Notes') have been exported with Colombia given as origin, and it may also occur in Peru.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "In recent years very similar-looking fish with an additional thin dark stripe in the lower portion of the body (see 'Notes') have been exported with Colombia given as origin, and it may also occur in Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The twostripe pencilfish, Nannostomus digrammus, is a lebiasinid from the central Amazon basin in Brazil and the Rupununi basin in Guyana.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rupununi",
+        "source": "seriouslyfish",
+        "quote": "The twostripe pencilfish, Nannostomus digrammus, is a lebiasinid from the central Amazon basin in Brazil and the Rupununi basin in Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "Native to the central Amazon basin with records existing from the Madeira, Branco, Trombetas, and Tapajós river drainages, plus the Rupununi basin in Guyana.",
+        "ok": true
+      },
+      {
+        "name": "Branco",
+        "source": "seriouslyfish",
+        "quote": "Native to the central Amazon basin with records existing from the Madeira, Branco, Trombetas, and Tapajós river drainages, plus the Rupununi basin in Guyana.",
+        "ok": true
+      },
+      {
+        "name": "Trombetas",
+        "source": "seriouslyfish",
+        "quote": "Native to the central Amazon basin with records existing from the Madeira, Branco, Trombetas, and Tapajós river drainages, plus the Rupununi basin in Guyana.",
+        "ok": true
+      },
+      {
+        "name": "Tapajós",
+        "source": "seriouslyfish",
+        "quote": "Native to the central Amazon basin with records existing from the Madeira, Branco, Trombetas, and Tapajós river drainages, plus the Rupununi basin in Guyana.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nannostomus digrammus",
+    "status": "ACCEPTED",
+    "taxonKey": 2355646,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        56
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        51
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        27
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        22
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        17
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        9
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        8
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        4
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

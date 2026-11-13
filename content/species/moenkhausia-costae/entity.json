@@ -10,6 +10,262 @@
     "brazil",
     "rio-sao-francisco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Sao Francisco",
+        "Itapicuru"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This tetra originates from Brazil (Rio Sao Francisco and Itapicuru).",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Sao Francisco",
+            "Itapicuru"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352610,
+      "total": 207,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BR",
+          207
+        ]
+      ],
+      "cells": [
+        [
+          -47.8125,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -21.09375,
+          10,
+          10
+        ],
+        [
+          -46.40625,
+          -19.6875,
+          14,
+          14
+        ],
+        [
+          -46.40625,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -12.65625,
+          7,
+          7
+        ],
+        [
+          -46.40625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -45,
+          -19.6875,
+          8,
+          8
+        ],
+        [
+          -45,
+          -18.28125,
+          15,
+          15
+        ],
+        [
+          -45,
+          -16.875,
+          10,
+          10
+        ],
+        [
+          -45,
+          -15.46875,
+          9,
+          9
+        ],
+        [
+          -45,
+          -14.0625,
+          4,
+          4
+        ],
+        [
+          -45,
+          -12.65625,
+          4,
+          4
+        ],
+        [
+          -45,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          -43.59375,
+          -16.875,
+          4,
+          4
+        ],
+        [
+          -43.59375,
+          -15.46875,
+          11,
+          11
+        ],
+        [
+          -43.59375,
+          -14.0625,
+          20,
+          20
+        ],
+        [
+          -43.59375,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -42.1875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -11.25,
+          8,
+          8
+        ],
+        [
+          -40.78125,
+          -9.84375,
+          5,
+          5
+        ],
+        [
+          -40.78125,
+          -8.4375,
+          5,
+          5
+        ],
+        [
+          -40.78125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -9.84375,
+          12,
+          12
+        ],
+        [
+          -39.375,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -39.375,
+          -7.03125,
+          8,
+          8
+        ],
+        [
+          -39.375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -37.96875,
+          -11.25,
+          9,
+          9
+        ],
+        [
+          -37.96875,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -37.96875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -37.96875,
+          -7.03125,
+          17,
+          17
+        ],
+        [
+          -36.5625,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -36.5625,
+          -8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -32,48 +288,7 @@
       "html": "<p>Brazil: Rio Sao Francisco and Itapicuru.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/c9cdfacaf949c0c1.webp",
-      "width": 960,
-      "height": 438,
-      "licence": "CC0",
-      "author": "Carl H. Eigenmann",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moenkhausia_costae_illustration_(1917).jpg",
-      "caption": "An illustration of characiform fish species Moenkhausia costae from the 1917 book \"The American Characidae\".",
-      "thumb": "https://media.aquatome.com/commons/c9cdfacaf949c0c1-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/060001cbbd192e31.webp",
-      "width": 800,
-      "height": 616,
-      "licence": "CC BY-SA 3.0",
-      "author": "Staatliche Naturwissenschaftliche Sammlungen Bayerns",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moenkhausia_costae_(ZSM-007586).jpg",
-      "caption": "Moenkhausia costae, preserved in the Pisces Collection at the Zoologische Staatssammlung München. This specimen was collected from Juazeiro, Bahia, Brazil.",
-      "thumb": "https://media.aquatome.com/commons/060001cbbd192e31-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/e6de4b0f2722e7a3.webp",
-      "width": 800,
-      "height": 610,
-      "licence": "CC BY-SA 3.0",
-      "author": "Staatliche Naturwissenschaftliche Sammlungen Bayerns",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moenkhausia_costae_(ZSM-007587).jpg",
-      "caption": "Moenkhausia costae, preserved in the Pisces Collection at the Zoologische Staatssammlung München. This specimen was collected from Juazeiro, Bahia, Brazil.",
-      "thumb": "https://media.aquatome.com/commons/e6de4b0f2722e7a3-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/de709303da1c07d2.webp",
-      "width": 960,
-      "height": 1278,
-      "licence": "CC0",
-      "author": "Internet Archive Book Images",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_American_Characidae_(1917)_(17930836210).jpg",
-      "caption": "Title: The American Characidae Identifier: americancharacid431ei Year: 1917 (1910s) Authors: Eigenmann, Carl H. , 1863-1927; Myers, George S. (George Sprague), 1905-1985 Subjects: Characidae; Fishes P",
-      "thumb": "https://media.aquatome.com/commons/de709303da1c07d2-480.webp"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "jWWe0dV3kdM",

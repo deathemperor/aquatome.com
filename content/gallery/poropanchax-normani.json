@@ -11,7 +11,24 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poropanchax_normani.jpg",
       "caption": "Đàn cá mắt đèn Norman bơi quanh cây thủy sinh",
       "best": true,
-      "kind": "group"
+      "kind": "group",
+      "large": {
+        "url": "https://media.aquatome.com/commons/ba649dcaa46bcddd-large.webp",
+        "width": 1599,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b8866d8c078b971a.webp",
+      "thumb": "https://media.aquatome.com/commons/b8866d8c078b971a-480.webp",
+      "width": 1154,
+      "height": 876,
+      "licence": "CC0",
+      "author": "Obsidian Soul",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poropanchax_normani_(Norman%27s_lampeye_killifish)_05.jpg",
+      "caption": "Cá mắt đèn Norman bơi trên cây rêu xanh",
+      "best": false,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/34b932da7a8b9da4.webp",
@@ -23,7 +40,12 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aplocheilichthys_normani_1.jpg",
       "caption": "Cá mắt đèn Norman trong bể, thân ánh vàng xanh",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "large": {
+        "url": "https://media.aquatome.com/commons/34b932da7a8b9da4-large.webp",
+        "width": 1276,
+        "height": 957
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/a81e5a564c071170.webp",
@@ -60,18 +82,6 @@
       "caption": "Nhóm cá mắt đèn Norman bơi trong bể",
       "best": false,
       "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/b8866d8c078b971a.webp",
-      "thumb": "https://media.aquatome.com/commons/b8866d8c078b971a-480.webp",
-      "width": 1154,
-      "height": 876,
-      "licence": "CC0",
-      "author": "Obsidian Soul",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poropanchax_normani_(Norman%27s_lampeye_killifish)_05.jpg",
-      "caption": "Cá mắt đèn Norman bơi trên cây rêu xanh",
-      "best": false,
-      "kind": "other"
     }
   ],
   "seen": 13,

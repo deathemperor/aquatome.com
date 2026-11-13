@@ -1,0 +1,323 @@
+{
+  "id": "nannostomus-harrisoni",
+  "scientificName": "Nannostomus harrisoni",
+  "order": "Characiformes",
+  "family": "Lebiasinidae",
+  "genus": "Nannostomus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "guyana",
+    "demerara"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY"
+      ],
+      "regions": [
+        "Demerara River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The blackstripe pencilfish, Nannostomus harrisoni, is a lebiasinid that appears endemic to the Demerara River basin in eastern Guyana.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Canal at Christianburg, Guyana' and this species appears endemic to the Demerara River basin, eastern Guyana including some its tributaries such as Haiama River, Kuruabaru River, Haiakwa Creek and Haianari Creek.",
+          "countries": [],
+          "regions": [
+            "Demerara River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355653,
+      "total": 69,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "GY",
+          40
+        ],
+        [
+          "BR",
+          17
+        ],
+        [
+          "VE",
+          7
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "BO",
+          1
+        ],
+        [
+          "PE",
+          1
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          8,
+          0
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          2.8125,
+          16,
+          16
+        ],
+        [
+          -60.46875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          22,
+          22
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -50.625,
+          -4.21875,
+          7,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-harrisoni",
+      "html": "<p>The blackstripe pencilfish, Nannostomus harrisoni, is a lebiasinid that appears endemic to the Demerara River basin in eastern Guyana. Quite rare in the hobby, it is more often exported as bycatch among shipments of N. eques than in numbers. It inhabits sluggish tributaries, swamps and flooded forest, and mature males show red in the pelvic, anal and caudal fins.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-harrisoni",
+      "html": "<p>Type locality is 'Canal at Christianburg, Guyana' and this species appears endemic to the Demerara River basin, eastern Guyana including some its tributaries such as Haiama River, Kuruabaru River, Haiakwa Creek and Haianari Creek.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-harrisoni",
+      "html": "<p>Inhabits sluggish tributaries, small rivers, and swampy zones, especially in areas where aquatic vegetation grows densely or with submerged woody structures and leaf litter.</p><p>It's often found in areas of flooded forest and floodplain lakes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-harrisoni",
+      "html": "<p>Base dimensions of at least 60 × 30 cm or equivalent are required. Volume is about 54 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-harrisoni",
+      "html": "<p>Should ideally be kept in a heavily-planted set-up, preferably with a dark substrate and some patches of floating vegetation around which the fish will tend to congregate, bodies angled towards the surface.</p><p>Driftwood branches and dried leaf litter can also be added, the latter in particular driving establishment of microbe colonies as decomposition occurs.</p><p>Such microorganisms can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves are also thought beneficial.</p><p>Use gentle filtration; an air-powered sponge-style unit should prove adequate in most cases though a degree of flow is acceptable.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-harrisoni",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-harrisoni",
+      "html": "<p>A micropredator feeding on tiny invertebrates and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should also be offered daily meals of small live and frozen fare such as Artemia nauplii, Moina, grindal worm, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-harrisoni",
+      "html": "<p>Very peaceful but does not make an ideal community fish due to its small size and rather timid nature.</p><p>In a community it's best kept with similarly-sized, peaceful characids and smaller callichthyid or loricariid catfishes.</p><p>It also makes an ideal dither fish for Apistogramma spp. and other dwarf cichlids since it tends to inhabit the middle-to-upper regions of the tank, and does not actively predate fry.</p><p>It's very much a gregarious animal so buy as many as possible, ideally 10 or more, as when kept in larger groups any aggression is spread between individuals plus the fish are bolder and exhibit more natural behaviour.</p><p>Unlike some relatives rival males rarely spar or do each other harm in any way.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-harrisoni",
+      "html": "<p>Mature males possess red pigmentation in the pelvic, anal, and caudal fins, while in females the pelvic and anal fins are hyaline and the caudal-fin pigmention paler.</p><p>Males are normally slimmer than females, especially when the latter are gravid.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-harrisoni",
+      "html": "<p>Has been achieved in aquaria, albeit rarely, and in a densely-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more smaller containers should also be set up and filled with aged water.</p><p>Fill much of the available space with fine wool mops, Taxiphyllum or other fine-leaved aquatic plant.</p><p>Neither lighting nor filtration is necessary although you can install a small air-powered sponge filter if you prefer.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container, though it's worth noting that the more individuals involved the greater the risk of egg predation, plus males may distract each other from females if there's more than one in the tank.</p><p>The adults can be removed after 2-3 days and the first fry should be visible a day or two later. Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-harrisoni",
+      "html": "<p>This species is quite rare in the aquarium hobby and is not often available in numbers, more often being exported as bycatch among shipments of the congener N. eques.</p><p>Don't worry if your fish look different when you switch on the aquarium lights after dark or in the morning as like most Nannostomus species it assumes a cryptic, vertically-barred colour pattern at night.</p><p>This diurnal rhythm has been show to occur in blind specimens, suggesting it's an automatic response that the fish cannot control.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt khí sponge",
+        "máy sục khí mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia",
+        "thức ăn khô cỡ nhỏ cho cá chì"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "nền thủy sinh màu tối"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

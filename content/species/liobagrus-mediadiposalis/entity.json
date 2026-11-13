@@ -11,6 +11,121 @@
     "china",
     "japan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "JP",
+        "KR"
+      ],
+      "regions": [
+        "Korean Peninsula",
+        "Rakuto River",
+        "Natong",
+        "Kokson",
+        "Yongsan",
+        "Tchongchin"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Southern Asia: China, Japan and Korea waters.",
+          "countries": [
+            "CN",
+            "JP",
+            "KR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species is observed in central and southern parts of the Korean Peninsula, where it is endemic.",
+          "countries": [],
+          "regions": [
+            "Korean Peninsula"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rakuto River at Bun-kei, Chosen, Korea.",
+          "countries": [],
+          "regions": [
+            "Rakuto River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Rivers of Natong, Kokson, Yongsan, Kim and Tchongchin, Korea.",
+          "countries": [],
+          "regions": [
+            "Natong",
+            "Kokson",
+            "Yongsan",
+            "Tchongchin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342844,
+      "total": 180,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "KR",
+          180
+        ]
+      ],
+      "cells": [
+        [
+          126.5625,
+          33.75,
+          6,
+          6
+        ],
+        [
+          126.5625,
+          35.15625,
+          31,
+          31
+        ],
+        [
+          127.96875,
+          33.75,
+          20,
+          20
+        ],
+        [
+          127.96875,
+          35.15625,
+          45,
+          45
+        ],
+        [
+          127.96875,
+          36.5625,
+          66,
+          66
+        ],
+        [
+          127.96875,
+          37.96875,
+          10,
+          10
+        ],
+        [
+          129.375,
+          36.5625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -133,17 +248,6 @@
       "author": "taek-guen-im / ScotCat",
       "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_mediadiposalis.htm",
       "caption": "Liobagrus mediadiposalis",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/b097620064ea86fd.webp",
-      "thumb": "https://media.aquatome.com/scotcat/b097620064ea86fd-480.webp",
-      "width": 500,
-      "height": 281,
-      "licence": "dùng với sự cho phép",
-      "author": "Amaël Borzée / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_mediadiposalis.htm",
-      "caption": "Liobagrus mediadiposalis: Nammun-ri, Yangyang-eup Yangyang, Gangwon-do",
       "source": "scotcat"
     },
     {

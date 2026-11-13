@@ -65,6 +65,32 @@
           "max": 81
         }
       }
+    ],
+    "difficulty": [
+      {
+        "source": 2,
+        "value": 5
+      },
+      {
+        "source": 1,
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 2,
+        "value": {
+          "min": 25,
+          "max": 50
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 25,
+          "max": 35
+        }
+      }
     ]
   },
   "photos": [
@@ -76,7 +102,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Tubifex",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:4018_three_Kois.JPG",
-      "caption": "Ba con cá Koi đỏ trắng bơi trong ao tối"
+      "caption": "Ba con cá Koi đỏ trắng bơi trong ao tối",
+      "large": {
+        "url": "https://media.aquatome.com/commons/524ea0ccffb63a2a-large.webp",
+        "width": 1505,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/82d229bb33b5863b.webp",
@@ -86,7 +117,12 @@
       "licence": "CC BY-SA 3.0",
       "author": "Laslovarga",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:1Koi_Fish.JPG",
-      "caption": "Đàn cá Koi đỏ trắng và trắng bơi trong ao"
+      "caption": "Đàn cá Koi đỏ trắng và trắng bơi trong ao",
+      "large": {
+        "url": "https://media.aquatome.com/commons/82d229bb33b5863b-large.webp",
+        "width": 1607,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/80e0ed6066f39bcf.webp",
@@ -96,7 +132,12 @@
       "licence": "CC BY 3.0",
       "author": "z tanuki",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:5_Chome_Obi,_Nichinan-shi,_Miyazaki-ken_889-2535,_Japan_-_panoramio_(6).jpg",
-      "caption": "Ba con cá Koi đỏ trắng và cam trong ao đáy đá"
+      "caption": "Ba con cá Koi đỏ trắng và cam trong ao đáy đá",
+      "large": {
+        "url": "https://media.aquatome.com/commons/80e0ed6066f39bcf-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/36004275626e5ffa.webp",
@@ -106,7 +147,12 @@
       "licence": "CC BY 2.0",
       "author": "John Lodder",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:2012-12-15_Koi_at_the_huntington.jpg",
-      "caption": "Cá Koi màu cam đỏ bơi trên nền đất trong ao"
+      "caption": "Cá Koi màu cam đỏ bơi trên nền đất trong ao",
+      "large": {
+        "url": "https://media.aquatome.com/commons/36004275626e5ffa-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     }
   ],
   "commons": "Category:Koi",

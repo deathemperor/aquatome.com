@@ -8,7 +8,7 @@
   "mentions": [
     "poecilia-reticulata"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "9i-EoBCBWR8",
     "title": "Aquarium Lids Make a HUGE difference! [Data Nerd Video]",
@@ -31,22 +31,10 @@
     ],
     "gear": [
       {
-        "category": "khac",
-        "brand": "YoLink",
-        "t": 31
-      },
-      {
         "category": "suoi",
         "type": "chinh-nhiet",
-        "brand": "Eheim",
-        "model": "300 W",
-        "t": 139
-      },
-      {
-        "category": "khac",
-        "brand": "Casa",
-        "model": "WiFi timer with energy monitoring",
-        "t": 139
+        "brand": "Ehiem",
+        "t": 2106
       },
       {
         "category": "be-ca",
@@ -56,55 +44,63 @@
     ],
     "figures": [
       {
-        "heading": "Nắp đậy làm bể ấm hơn bao nhiêu",
+        "heading": "Đậy kín, đậy hở và không đậy khác nhau bao nhiêu",
         "moments": [
           {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/9i-EoBCBWR8/t59.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hàng bể nuôi đặt cạnh nhau, bể có nắp đậy và bể để hở."
+            "t": 60,
+            "url": "https://media.aquatome.com/video/9i-EoBCBWR8/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dãy bể guppy nhỏ xếp cạnh nhau, một số bể có nắp, một số để hở.",
+            "sharpness": 1748.2,
+            "person": false
           },
           {
-            "t": 89,
-            "url": "https://media.aquatome.com/video/9i-EoBCBWR8/t89.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Nắp kính đậy trên bể, chừa khe nhỏ phía trước để cho ăn."
+            "t": 90,
+            "url": "https://media.aquatome.com/video/9i-EoBCBWR8/at90-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nắp đậy trên bể, chừa khe hở ở phía sau để cho ăn.",
+            "sharpness": 207.9,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Thí nghiệm ngoài trời: nắp, sưởi hay cả hai",
+        "heading": "Thử nghiệm ngoài trời được bố trí thế nào",
         "moments": [
           {
-            "t": 197,
-            "url": "https://media.aquatome.com/video/9i-EoBCBWR8/t197.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hai thiết bị đo nhiệt độ đặt ngoài trời cạnh khung cửa sổ."
+            "t": 210,
+            "url": "https://media.aquatome.com/video/9i-EoBCBWR8/at210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dãy thùng nước đặt ngoài trời, đóng khung gỗ, có nắp đậy và đầu đo.",
+            "sharpness": 1165.9,
+            "person": false
           },
           {
-            "t": 216,
-            "url": "https://media.aquatome.com/video/9i-EoBCBWR8/t216.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Thùng nước ngoài trời có nắp khung phủ lưới, đặt chỗ không nắng trực tiếp."
+            "t": 220,
+            "url": "https://media.aquatome.com/video/9i-EoBCBWR8/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh nắp thùng nước ngoài trời với đầu đo đặt bên cạnh.",
+            "sharpness": 2983.6,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Không có nắp tốn thêm bao nhiêu tiền điện",
+        "heading": "Có sưởi và có nắp thì nhiệt độ ổn định đến đâu",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/9i-EoBCBWR8/p2-ha3dhcml1bS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/9i-EoBCBWR8/p2-ha3dhcml1bS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/9i-EoBCBWR8/p4-ha3dhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/9i-EoBCBWR8/p4-ha3dhcml1bS5qcGc-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 3.0",
           "author": "Ewkaa",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
-          "caption": "Cây sưởi bể cá có giác hút, dây điện cuộn gọn trên nền tối."
+          "caption": "Thanh sưởi bể cá có giác hút, dùng giữ nhiệt độ nước ổn định."
         }
       }
     ]

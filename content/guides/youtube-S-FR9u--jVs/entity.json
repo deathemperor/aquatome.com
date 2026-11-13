@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "S-FR9u--jVs",
     "title": "Nuôi cá có cần thay nước?",
@@ -28,15 +28,9 @@
     "taxa": [],
     "gear": [
       {
-        "category": "khac",
-        "brand": "Vision",
-        "model": "Bio",
-        "t": 94
-      },
-      {
         "category": "phan-nen",
         "type": "la",
-        "t": 94
+        "t": 90
       },
       {
         "category": "loc",
@@ -47,36 +41,112 @@
         "category": "loc",
         "type": "thung",
         "t": 155
+      },
+      {
+        "category": "khac",
+        "brand": "Vision",
+        "model": "Bio",
+        "t": 94
       }
     ],
     "figures": [
       {
-        "heading": "Có bắt buộc phải thay nước không",
-        "moments": [],
+        "heading": "Bể bền vững có bắt buộc thay nước không",
+        "moments": [
+          {
+            "t": 0,
+            "url": "https://media.aquatome.com/video/S-FR9u--jVs/at0-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh bền vững với nhiều cây và cá màu bơi quanh.",
+            "sharpness": 1058.5,
+            "person": false
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/S-FR9u--jVs/p0-bV9GaXNoZXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/S-FR9u--jVs/p0-bV9GaXNoZXMuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/S-FR9u--jVs/p0-fMjBfNzA2NC5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/S-FR9u--jVs/p0-fMjBfNzA2NC5KUEc-480.webp",
           "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 4.0",
-          "author": "KannanVM",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_Fishes.jpg",
-          "caption": "Bể nuôi nước trong, nền sỏi sạch, đàn cá khỏe mạnh bơi lội."
+          "height": 638,
+          "licence": "CC BY-SA 3.0",
+          "author": "Ganeshk",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fresh_water_aquarium_2013_01_20_7064.JPG",
+          "caption": "Bể thủy sinh trồng nhiều cây xanh, nước trong, nhìn ổn định và bền vững."
         }
       },
       {
-        "heading": "Chuẩn bị nước trước khi thay thế nào",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/S-FR9u--jVs/p1-oZ2FsbG9uKS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/S-FR9u--jVs/p1-oZ2FsbG9uKS5qcGc-480.webp",
-          "width": 960,
-          "height": 1280,
-          "licence": "CC BY-SA 4.0",
-          "author": "SAgbley",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Veronica_Bucket_(gallon).jpg",
-          "caption": "Thùng nhựa lớn có vòi dùng chứa nước để qua đêm cho bay clo."
-        }
+        "heading": "Xác định nhu cầu trước khi xử lý nước",
+        "moments": [
+          {
+            "t": 72,
+            "url": "https://media.aquatome.com/video/S-FR9u--jVs/at72-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nước trong với cá đỏ bơi quanh cây và lũa phủ rêu.",
+            "sharpness": 1007.9,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Ba yếu tố ảnh hưởng đến độ trong của nước",
+        "moments": [
+          {
+            "t": 96,
+            "url": "https://media.aquatome.com/video/S-FR9u--jVs/at96-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nhỏ có cây xanh đỏ, nước trong và đèn sáng.",
+            "sharpness": 774.9,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Muốn nước thật trong thì làm sao",
+        "moments": [
+          {
+            "t": 166,
+            "url": "https://media.aquatome.com/video/S-FR9u--jVs/at166-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nước trong với lũa, cây xanh và đàn cá đỏ.",
+            "sharpness": 900.2,
+            "person": false
+          },
+          {
+            "t": 190,
+            "url": "https://media.aquatome.com/video/S-FR9u--jVs/at190-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nước trong vắt, cây lá hồng và đá đen.",
+            "sharpness": 638,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Không cần quá khắt khe",
+        "moments": [
+          {
+            "t": 226,
+            "url": "https://media.aquatome.com/video/S-FR9u--jVs/at226-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cụm cây thân đỏ hồng và lá xanh trong bể thủy sinh.",
+            "sharpness": 173.6,
+            "person": false
+          },
+          {
+            "t": 230,
+            "url": "https://media.aquatome.com/video/S-FR9u--jVs/at230-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây thủy sinh thân hồng mọc dày trong bể, có cá nhỏ bơi phía sau.",
+            "sharpness": 181.5,
+            "person": false
+          }
+        ]
       }
     ]
   }

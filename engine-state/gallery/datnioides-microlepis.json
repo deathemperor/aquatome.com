@@ -3,11 +3,12 @@
  "judged": [
   "File:Tigerfish037.JPG",
   "File:Datnioididae Datnioides polota 1.jpg",
-  "File:Datnioides microlepis Mount.jpg"
+  "File:Datnioides microlepis Mount.jpg",
+  "flickr:42099988004"
  ],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/ddb802f08d11f201.webp": "004d8d07070d0d00",
-  "https://media.aquatome.com/commons/3c736744cee17c47.webp": "0f5f5f5f972f0f17"
+  "https://media.aquatome.com/commons/3c736744cee17c47.webp": "0f5f5f5f972f0f17",
+  "https://live.staticflickr.com/884/42099988004_ce115bfa77_b.jpg": "1919bb9fdde87871"
  },
  "inat": {
   "taxon": 613782,
@@ -21,5 +22,9 @@
  "gbif": {
   "key": 5210838,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-10"
 }

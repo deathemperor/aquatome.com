@@ -10,6 +10,74 @@
     "indonesia",
     "java"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Java"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The spotted betta, Betta picta, is a small paternal mouthbrooding labyrinth fish known only from Java, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the island of Java, Indonesia, where it may be endemic to western and central areas.",
+          "countries": [],
+          "regions": [
+            "Java"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394035,
+      "total": 9,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          106.875,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          106.875,
+          -7.03125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +121,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -148,8 +216,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá mini 54 lít"
+        "bể cá 60cm"
       ]
     },
     {

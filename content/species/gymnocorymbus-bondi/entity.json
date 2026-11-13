@@ -11,6 +11,208 @@
     "orinoco",
     "venezuela"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Rio Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Rio Orinoco basin in Colombia and Venezuela.",
+          "countries": [
+            "CO",
+            "VE"
+          ],
+          "regions": [
+            "Rio Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2353923,
+      "total": 73,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CO",
+          34
+        ],
+        [
+          "GY",
+          16
+        ],
+        [
+          "VE",
+          16
+        ],
+        [
+          "PE",
+          3
+        ],
+        [
+          "TT",
+          2
+        ],
+        [
+          "BR",
+          1
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -74.53125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          4.21875,
+          12,
+          12
+        ],
+        [
+          -71.71875,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -70.3125,
+          5.625,
+          13,
+          13
+        ],
+        [
+          -70.3125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -60.46875,
+          7.03125,
+          10,
+          0
+        ],
+        [
+          -59.0625,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -43,6 +245,10 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 5.5
       }
     ],
     "tankCm": [
@@ -54,7 +260,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -66,10 +272,22 @@
       "html": "<p>The silver tetra, Gymnocorymbus bondi, is a characid from the Rio Orinoco basin in Colombia and Venezuela. It inhabits small tributaries, streams and creeks. Juveniles have reddish unpaired fins that fade as they mature, and the fairly bland adults are not often seen in the hobby. Peaceful and hardy, it is sometimes labelled G. socolofi, a name now considered a junior synonym of G. bondi.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gymnocorymbus-socolofi-en/",
+      "html": "<p>The genus Gymnocorymbus comprises only three species, one of which – the Black Skirt tetra, G. ternetzi – is among the most popular ornamental fish. The other two species are absolute rarities, including the rare Gymnocorymbus socolofi from Colombia.</p><p>This tetra reaches a maximum length of about 5.5 cm and is, like its famous relative, a pretty and undemanding schooling fish. At a length of about 2 cm the species exhibit the prettiest colour. However, even fully grown fish look very nice due to their unusual body shape and the golden back.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gymnocorymbus-bondi",
       "html": "<p>Rio Orinoco basin in Colombia and Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gymnocorymbus-socolofi-en/",
+      "html": "<p>Colombia.</p>"
     },
     {
       "key": "habitat",
@@ -128,29 +346,36 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gymnocorymbus_socolofi_en/",
-      "html": "<p>It has been quite a long time since this pretty tetra, Gymnocorymbus socolofi, could be imported from Colombia. Very small specimens look very much like the Yellow Tetra (Hyphessobrycon bifasciatus), but the larger they grow, the more the shape of the body resembles a Gymnocorymbus. The pretty orange-finned tetra has finally been imported again.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/gymnocorymbus-socolofi-en/",
+      "html": "<p>Currently it is discussed whether G. socolofi is identical with the species described as Phenacogaster bondi. If so, the latter name, as the older one, will be the valid one due to priority and the fish would have to be named Gymnocorymbus bondi.</p><p>Gymnocorymbus: from ancient Greek, meaning roughly \"with naked peak\", referring to the scaleless anterior back. socolofi: dedication name for Ross Socolof (1925 – 2009). ternetzi: dedication name for Carl Ternetz. Phenacogaster: from ancient Greek, meaning roughly \"with elusive belly\". bondi: dedication name for Frank E. Bond, who organized an expedition to the Orinoco where the species was discovered.</p><p>Suggested common name: Goldback Skirt tetra.</p>"
     }
   ],
-  "photos": [
+  "photos": [],
+  "videos": [
     {
-      "url": "https://media.aquatome.com/commons/37db43f1c96e8dce.webp",
-      "thumb": "https://media.aquatome.com/commons/37db43f1c96e8dce-480.webp",
-      "width": 950,
-      "height": 575,
-      "licence": "CC0",
-      "author": "Carl H. Eigenmann",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gymnocorymbus_bondi_illustration_(1917).jpg",
-      "caption": "An illustration of characiform fish species Gymnocorymbus bondi from the 1917 book \"The American Characidae\". At the time, it was referred to as Moenkhausia bondi, with the basionym Moenkhausia profun"
+      "youtubeId": "shN1bClW6EE",
+      "title": "Gymnocorymbus bondi (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 74,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "lvFHiZU86OI",
+      "title": "Gymnocorymbus bondi (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GcKiFK3xQYQ",
+      "title": "高身銀板燈魚(Gymnocorymbus bondi)",
+      "durationSec": 21,
+      "lang": "en"
     }
   ],
-  "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá thủy sinh 68 lít"
+        "bể cá 60cm"
       ]
     },
     {
@@ -174,5 +399,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-10"
 }

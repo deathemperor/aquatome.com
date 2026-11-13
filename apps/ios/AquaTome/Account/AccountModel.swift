@@ -1,5 +1,7 @@
 import AccountSync
+import Handbook
 import Foundation
+import Handbook
 import Observation
 import Tanks
 
@@ -11,7 +13,8 @@ import Tanks
 @MainActor
 final class AccountModel {
   enum State: Equatable {
-    /// Not asked yet, or the server couldn't be reached: nothing shown.
+    /// No answer from the server yet: before its first, or with no network then (`unreached`). A session kept on this
+    /// phone starts `signedIn` instead, as the account was last seen.
     case unknown
     /// Accounts are off on the server.
     case off
@@ -19,8 +22,27 @@ final class AccountModel {
     case signedIn(AccountUser)
   }
 
+  /// Why the last sync didn't go through, for the sync row and the profile button's dot (none for no network: the
+  /// changes wait on the phone).
+  enum SyncFault: Equatable {
+    /// No network, or aquatome.com not answering: "Thử lại".
+    case offline
+    /// The account's store is from a newer app: "Cập nhật ứng dụng".
+    case newerStore
+    /// Refused or failed, and why. `retry`: trying again may help (the server busy or failing), not when it can't (the
+    /// account full, records it won't take).
+    case failed(String, retry: Bool)
+  }
+
   private(set) var state = State.unknown
+  /// The last sync that went through on this phone, kept across launches while signed in.
   private(set) var syncedAt: Date?
+  private(set) var syncFault: SyncFault?
+  /// The ways the account signed in when its session ended (it expired, or was signed out elsewhere): their buttons come
+  /// first, so the reader doesn't make a second account with another, until an account signs in. Kept across launches.
+  private(set) var endedWays: [String]?
+  /// The reader has opened the Tài khoản sheet since the session ended: no dot for it any more.
+  private(set) var endedSeen = false
   /// The last thing to tell the reader, and whether it is a problem.
   private(set) var message: (text: String, bad: Bool)?
   /// Signing in, out, or deleting the account.
@@ -37,6 +59,8 @@ final class AccountModel {
   /// "Thêm passkey" long after signing in on this phone: the server wants a sign-in first, and one to this account adds
   /// the passkey.
   private(set) var signingInAgain = false
+  /// The server couldn't be reached the last time it was asked who is signed in.
+  private(set) var unreached = false
 
   // Not shown, so not observed.
   @ObservationIgnored private let tanks: TanksModel
@@ -45,6 +69,8 @@ final class AccountModel {
   @ObservationIgnored private let google: GoogleSignIn
   @ObservationIgnored private let passkey: PasskeySignIn
   @ObservationIgnored private let keychain: TokenStore
+  /// Requests whose answers stream (the chat's), on their own session.
+  @ObservationIgnored private let streams: ServerEvents.Send
   /// The UI tests' stand-in for the Turnstile check (no web page, a new token each time).
   @ObservationIgnored let fakeChecks: Bool
   @ObservationIgnored private var token: String?
@@ -56,9 +82,24 @@ final class AccountModel {
   @ObservationIgnored private var again = false
   /// The store as the last sync left it: a change seen after that is the reader's, and is sent.
   @ObservationIgnored private var synced: TankStore?
+  /// The owner's dashboard (Owner/): shown only to the owner's account, read with its session; a reply saying the
+  /// session is over signs it out.
+  @ObservationIgnored private(set) lazy var owner = OwnerAccess(send: api.send, session: { [unowned self] in
+    user.flatMap { u in token.map { (u.id, $0) } }
+  }, ended: { [unowned self] in sessionEnded() })
+  /// The daily report's notifications on this phone, for the owner's account (OwnerNotifications).
+  @ObservationIgnored private(set) lazy var push = OwnerPush(owner: owner, environment: Self.apns)
+  /// The APNs a build's token is from: a debug build's (Xcode, development signing) the sandbox's; TestFlight's and the
+  /// App Store's, production's.
+  #if DEBUG
+  static let apns = "sandbox"
+  #else
+  static let apns = "production"
+  #endif
 
-  init(tanks: TanksModel, api: AccountsClient = AccountsClient(), apple: AppleSignIn = SystemAppleSignIn(), google: GoogleSignIn = SystemGoogleSignIn(), passkey: PasskeySignIn = SystemPasskeySignIn(), keychain: TokenStore = TokenStore(), fakeChecks: Bool = false) {
+  init(tanks: TanksModel, api: AccountsClient = AccountsClient(), apple: AppleSignIn = SystemAppleSignIn(), google: GoogleSignIn = SystemGoogleSignIn(), passkey: PasskeySignIn = SystemPasskeySignIn(), keychain: TokenStore = TokenStore(), fakeChecks: Bool = false, streams: @escaping ServerEvents.Send = AccountModel.streamSession()) {
     self.tanks = tanks
+    self.streams = streams
     self.api = api
     self.apple = apple
     self.google = google
@@ -71,18 +112,50 @@ final class AccountModel {
       UserDefaults.standard.set(true, forKey: "account.installed")
     }
     token = keychain.read()
+    // Signed in on this phone: shown as last seen until the server answers, so with no network too.
+    if token != nil, let kept = UserDefaults.standard.data(forKey: Self.keptUser),
+      let u = try? JSONDecoder().decode(AccountUser.self, from: kept) {
+      state = .signedIn(u)
+      syncedAt = UserDefaults.standard.object(forKey: Self.keptSyncedAt) as? Date
+    }
+    endedWays = UserDefaults.standard.stringArray(forKey: Self.keptEnded)
+    endedSeen = UserDefaults.standard.bool(forKey: Self.keptEndedSeen)
+  }
+
+  /// The account as last seen signed in on this phone (its id and ways to sign in; nothing secret).
+  private static let keptUser = "account.user"
+  private static let keptSyncedAt = "account.syncedAt"
+  private static let keptEnded = "account.endedWays"
+  private static let keptEndedSeen = "account.endedSeen"
+
+  /// Something the reader should see: a sync that failed (not for want of a network), or a session that ended and
+  /// hasn't been seen in the sheet. The profile button's dot.
+  var fault: Bool {
+    if let f = syncFault, f != .offline { return true }
+    return endedWays != nil && !endedSeen
+  }
+
+  /// The Tài khoản sheet is open: an ended session is seen.
+  func sheetOpened() {
+    guard endedWays != nil, !endedSeen else { return }
+    endedSeen = true
+    UserDefaults.standard.set(true, forKey: Self.keptEndedSeen)
   }
 
   /// A store on the phone this app can't keep whole (newer, unreadable) isn't sent or replaced.
   var canSync: Bool { tanks.problem == nil || tanks.problem == .saveFailed }
   var user: AccountUser? { if case .signedIn(let u) = state { u } else { nil } }
   var signsInWithApple: Bool { user?.methods.contains { $0.kind == "apple" } ?? false }
+  var hasPasskey: Bool { user?.methods.contains { $0.kind == "passkey" } ?? false }
   /// The ways the account signs in, as the account section lists them ("Apple và passkey").
-  var ways: String {
+  var ways: String { Self.names(user?.methods.map(\.kind) ?? []) }
+
+  /// Ways to sign in by their kinds, named and listed ("Apple và passkey").
+  static func names(_ kinds: [String]) -> String {
     let names = ["apple": "Apple", "google": "Google", "email": "email", "passkey": "passkey"]
     var list: [String] = []
-    for m in user?.methods ?? [] { let w = names[m.kind] ?? m.kind; if !list.contains(w) { list.append(w) } }
-    return list.formatted(.list(type: .and, width: .narrow))
+    for k in kinds { let w = names[k] ?? k; if !list.contains(w) { list.append(w) } }
+    return list.formatted(.list(type: .and, width: .narrow).locale(.app))
   }
 
   /// Sends one of the reader's own posts to a page (a comment, a photo: protocols/talk.openapi.json) as this account,
@@ -109,6 +182,25 @@ final class AccountModel {
     return (data, res.statusCode)
   }
 
+  /// Asks as this account for an answer that streams (the chat's), `make` given the session's token: the answer and its
+  /// bytes as they come, or nil signed out. Throws what stopped it (no network).
+  func stream(_ make: (String) -> URLRequest) async throws -> (response: HTTPURLResponse, bytes: AsyncThrowingStream<UInt8, any Error>)? {
+    guard let token else { return nil }
+    return try await streams(make(token))
+  }
+
+  /// A session for answers that stream: no cookies and no cache, as AccountsClient's, and a request's own time limit
+  /// (the chat's 65 s between bytes), not that session's 20.
+  nonisolated static func streamSession() -> ServerEvents.Send {
+    let c = URLSessionConfiguration.ephemeral
+    c.httpShouldSetCookies = false
+    c.httpCookieAcceptPolicy = .never
+    c.httpCookieStorage = nil
+    c.urlCache = nil
+    c.timeoutIntervalForRequest = 65
+    return ServerEvents.urlSession(URLSession(configuration: c))
+  }
+
   /// A request that needs no account (the fish-ID tool's state), through the same server: its status and body, or nil
   /// offline.
   func fetch(_ r: URLRequest) async -> (Data, Int)? {
@@ -121,6 +213,7 @@ final class AccountModel {
     let asked = token
     do {
       let answer = try await api.session(token: asked)
+      unreached = false
       // Signed in, out, or deleted meanwhile: the answer is about a session that has gone.
       guard token == asked, !working else { return }
       if case .on(let p, _, _) = answer { offersEmail = p.email; offersPasskey = p.passkey; offersGoogle = p.google }
@@ -128,16 +221,23 @@ final class AccountModel {
       case .off:
         state = .off
       case .on(_, _, let u?):
-        state = .signedIn(u)
+        signedIn(u)
+        await pictureArrived(u)
         await sync()
       case .on(_, _, nil):
         // A token whose session ended elsewhere (signed out there, or the account deleted).
-        let ended = token != nil
-        forget()
-        if ended { say(String(localized: "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ."), bad: true) }
+        if token != nil { ended() } else { forget() }
       }
+    } catch is CancellationError {
+      // The Tài khoản sheet closed before the answer (its task cancelled): nothing learned about the network.
+    } catch AccountError.offline {
+      // Offline: as it was, said so while nothing is known.
+      unreached = true
+      if user != nil { syncFault = .offline }
     } catch {
-      // Offline: as it was.
+      // The server answered, but not with who is signed in (it failed, or its reply wasn't read): a fault, with "Thử lại".
+      unreached = true
+      if user != nil { syncFault = .failed(problem(error), retry: true) }
     }
   }
 
@@ -206,7 +306,8 @@ final class AccountModel {
     let adding = signingInAgain && s.user.id == user?.id
     if !adding { signingInAgain = false }
     token = s.token
-    state = .signedIn(s.user)
+    signedIn(s.user)
+    await pictureArrived(s.user)
     await sync(first: true)
     if adding { await register(s.token) }
   }
@@ -232,7 +333,7 @@ final class AccountModel {
       let u = try await api.addPasskey(p, token: token)
       // Signed out meanwhile (a sync told the session had ended): nothing to show.
       guard self.token == token else { return }
-      state = .signedIn(u)
+      signedIn(u)
       say(String(localized: "Đã thêm passkey. Lần sau bấm “Đăng nhập bằng passkey” rồi mở khóa bằng Face ID, vân tay hoặc mã PIN của máy."))
     } catch AccountError.refused("reauth_needed") {
       again = true
@@ -240,8 +341,7 @@ final class AccountModel {
     } catch is PasskeyExists {
       say(String(localized: "Máy này đã có passkey của tài khoản này."))
     } catch AccountError.signedOut {
-      forget()
-      say(String(localized: "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ."), bad: true)
+      ended()
     } catch AccountError.refused("bad_passkey") {
       say(String(localized: "Chưa thêm được passkey: thử lại."), bad: true)
     } catch {
@@ -251,8 +351,7 @@ final class AccountModel {
 
   /// The app's language, for the Turnstile check and the mail: one the site has, else Vietnamese.
   static var lang: String {
-    let l = Bundle.main.preferredLocalizations.first.map { String($0.prefix(2)) } ?? "vi"
-    return ["vi", "id", "th"].contains(l) ? l : "vi"
+    SiteLanguage.of(Bundle.main.preferredLocalizations).code
   }
   var turnstilePage: URL { api.turnstilePage(lang: Self.lang) }
 
@@ -333,21 +432,24 @@ final class AccountModel {
       try tanks.commitSynced(r.applied(to: tanks.store))
       synced = tanks.store
       syncedAt = Date()
+      UserDefaults.standard.set(syncedAt, forKey: Self.keptSyncedAt)
       syncs += 1
       let added = tanks.tanks.count - before
-      if !r.refused.isEmpty { say(String(localized: "\(r.refused.count) bản ghi không hợp lệ nên chưa vào tài khoản."), bad: true) }
-      else if first && added > 0 { say(String(localized: "Đã thêm \(added) bể từ tài khoản.")) }
+      syncFault = r.refused.isEmpty ? nil : .failed(String(localized: "\(r.refused.count) bản ghi không hợp lệ nên chưa vào tài khoản."), retry: false)
+      if first && added > 0 { say(String(localized: "Đã thêm \(added) bể từ tài khoản.")) }
       else if message?.bad == true { message = nil }
     } catch _ where token != sent {
       // Stale, as above: nothing to say about a session that has gone.
     } catch AccountError.signedOut {
-      forget()
-      say(String(localized: "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ."), bad: true)
+      ended()
     } catch AccountError.offline {
-      say(String(localized: "Chưa đồng bộ được: không có mạng. Các thay đổi vẫn lưu trên máy này."), bad: true)
+      syncFault = .offline
+    } catch AccountError.newerStore {
+      syncFault = .newerStore
     } catch is CancellationError {
     } catch {
-      say(problem(error), bad: true)
+      // The account full: deleting tanks, not trying again, gets it through.
+      syncFault = .failed(problem(error), retry: error as? AccountError != .refused("too_many"))
     }
     syncing = false
     if again { again = false; await sync() }
@@ -366,10 +468,45 @@ final class AccountModel {
     }
   }
 
+  /// The account's fish picture (ProfilePictures) sent to the account, so the reader's other phones have it; the phone
+  /// shows it at once (AccountPicture.key). One not sent (offline, or the server failed) is sent at the next refresh.
+  func sendPicture(_ id: String?) async {
+    guard let token, let u = user else { return }
+    UserDefaults.standard.set(u.id, forKey: AccountPicture.unsent)
+    do {
+      let now = try await api.setPicture(id, token: token)
+      guard self.token == token else { return }
+      UserDefaults.standard.removeObject(forKey: AccountPicture.unsent)
+      signedIn(now)
+    } catch AccountError.signedOut {
+      ended()
+    } catch AccountError.refused("bad_picture") {
+      // One of this app's set the server's hasn't (their sets differ): kept on this phone alone.
+      UserDefaults.standard.removeObject(forKey: AccountPicture.unsent)
+    } catch {}
+  }
+
+  /// The account's picture as the server has it, taken on this phone; this phone's own choice instead while it's still
+  /// to be sent, which it then is.
+  private func pictureArrived(_ u: AccountUser) async {
+    let stored = UserDefaults.standard.string(forKey: AccountPicture.key) ?? ""
+    if !UserDefaults.standard.bool(forKey: AccountPicture.carried) {
+      UserDefaults.standard.set(true, forKey: AccountPicture.carried)
+      if AccountPicture.chosen(stored, by: u) != nil { UserDefaults.standard.set(u.id, forKey: AccountPicture.unsent) }
+    }
+    if UserDefaults.standard.string(forKey: AccountPicture.unsent) == u.id {
+      await sendPicture(AccountPicture.chosen(stored, by: u)?.id)
+    } else {
+      UserDefaults.standard.set(u.picture.flatMap { ProfilePicture.with(id: $0) }.map { AccountPicture.stored($0, by: u) } ?? "", forKey: AccountPicture.key)
+    }
+  }
+
   func signOut() async {
     guard let token, !working else { return }
     working = true
     defer { working = false }
+    // While the session holds: the site stops sending the owner's notifications to this phone.
+    await push.signingOut()
     do {
       try await api.signOut(token: token)
     } catch AccountError.signedOut {
@@ -397,28 +534,60 @@ final class AccountModel {
         return
       }
     }
+    await push.signingOut()
     do {
       try await api.deleteAccount(token: token, appleCode: code)
       forget()
       say(String(localized: "Đã xóa tài khoản. Các bể vẫn còn trên máy này."))
     } catch AccountError.signedOut {
-      forget()
-      say(String(localized: "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ."), bad: true)
+      ended()
     } catch AccountError.refused("apple_reauth") {
       // Apple was added to the account elsewhere since: its step on the next press.
-      if case .on(_, _, let u?) = try? await api.session(token: token) { state = .signedIn(u) }
+      if case .on(_, _, let u?) = try? await api.session(token: token) { signedIn(u) }
       say(problem(AccountError.refused("apple_reauth")), bad: true)
     } catch {
       say(problem(error), bad: true)
     }
   }
 
+  /// Signed in as `u`, kept on the phone for a launch with no network.
+  private func signedIn(_ u: AccountUser) {
+    state = .signedIn(u)
+    UserDefaults.standard.set(try? JSONEncoder().encode(u), forKey: Self.keptUser)
+    endedWays = nil
+    endedSeen = false
+    for k in [Self.keptEnded, Self.keptEndedSeen] { UserDefaults.standard.removeObject(forKey: k) }
+  }
+
+  /// Another request with the token was told the session is over (401 `signed_out`): signed out, and said so, as a sync
+  /// told the same is.
+  func sessionEnded() { ended() }
+
+  /// The session is over (it expired, or was signed out elsewhere): signed out, its ways to sign in kept to offer first.
+  private func ended() {
+    var kinds: [String] = []
+    for k in user?.methods.map(\.kind) ?? endedWays ?? [] where !kinds.contains(k) { kinds.append(k) }
+    forget()
+    message = nil
+    // No account known on the phone (its kept copy unreadable after an update, say): nothing to name, so plain signed
+    // out, not a sentence with no way in it.
+    guard !kinds.isEmpty else { return }
+    endedWays = kinds
+    endedSeen = false
+    UserDefaults.standard.set(kinds, forKey: Self.keptEnded)
+    UserDefaults.standard.set(false, forKey: Self.keptEndedSeen)
+  }
+
   private func forget() {
     keychain.delete()
+    UserDefaults.standard.removeObject(forKey: Self.keptUser)
+    UserDefaults.standard.removeObject(forKey: AccountPicture.unsent)
     token = nil
     signingInAgain = false
     synced = nil
     syncedAt = nil
+    syncFault = nil
+    UserDefaults.standard.removeObject(forKey: Self.keptSyncedAt)
     later?.cancel()
     if state != .off { state = .signedOut }
   }

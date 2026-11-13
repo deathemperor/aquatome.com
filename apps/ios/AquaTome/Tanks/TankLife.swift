@@ -183,6 +183,7 @@ struct UnlistedCount: View {
       }
       if failed { Text("Chưa lưu được thay đổi. Thử lại.").foregroundStyle(Color.warning) }
     }
+    .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
     .navigationTitle(handbook.page(for: entry)?.name ?? entry.name)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
@@ -214,9 +215,11 @@ struct PutOnTank: View {
   let life: Life
   var tankId: String?
   var done: (() -> Void)?
+  /// Opens the tank it was put on. The sheet's owner does it, once the sheet has closed: changing the tab and its stack as a
+  /// sheet closes over them is a race (the owner saw a blank tank after it, 7 Nov; the tests couldn't reproduce it).
+  var open: ((String) -> Void)?
   @Environment(TanksModel.self) private var tanks
   @Environment(\.dismiss) private var dismiss
-  @Environment(\.openScreen) private var openScreen
   /// The tank picked; nil for a new one.
   @State private var target: String?
   @State private var name = ""
@@ -246,15 +249,13 @@ struct PutOnTank: View {
       if let saved {
         Section {
           Text("Đã lưu vào “\(saved.name)”.").accessibilityIdentifier("put-saved")
-          Button("Xem trong Bể của tôi →") {
-            dismiss()
-            openScreen(.tanks(saved.id))
-          }
-          .accessibilityIdentifier("put-open")
+          Button("Xem trong Bể của tôi →") { open?(saved.id) }
+            .accessibilityIdentifier("put-open")
         }
       }
       if failed { Text("Chưa lưu được thay đổi. Thử lại.").foregroundStyle(Color.warning) }
     }
+    .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
     .navigationTitle(life.name)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
@@ -268,6 +269,7 @@ struct PutOnTank: View {
       fill()
     }
     .onChange(of: target) { fill() }
+    .ownerScreen("put-on-tank")
   }
 
   /// What's typed, when it's a number the store takes.
@@ -336,12 +338,14 @@ struct LifePicker: View {
       // Scientific names are typed here, as on the site's search: not corrected, not capitalized.
       .autocorrectionDisabled()
       .textInputAutocapitalization(.never)
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle("Thêm cá hoặc cây")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Hủy") { dismiss() } } }
       .navigationDestination(item: $picked) { life in PutOnTank(life: life, tankId: tankId, done: { dismiss() }) }
       .navigationDestination(item: $named) { name in
         NewUnlisted(name: name, sci: NewUnlisted.readsAsScientific(name) ? name : nil, tankId: tankId, done: { dismiss() })
+          .ownerScreen("new-unlisted")
       }
       .refreshable { await handbook.load() }
       // Until the index is here (the tanks tab may be the first one opened), or when it can't be; not over what was
@@ -411,6 +415,7 @@ struct NewUnlisted: View {
       if full { Text("Đã đủ \(maxUnlisted) loài chưa có trang trên bể này.").foregroundStyle(Color.warning) }
       if failed { Text("Chưa lưu được thay đổi. Thử lại.").foregroundStyle(Color.warning) }
     }
+    .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
     .navigationTitle(typed)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {

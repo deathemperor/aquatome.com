@@ -1,8 +1,22 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:319837101"
+ ],
  "hashes": {
   "https://media.aquatome.com/commons/a3c759fb1d47d73e.webp": "4c5b5f1f1e5c6119"
  },
- "commons": "2026-11-03"
+ "commons": "2026-11-03",
+ "inat": {
+  "taxon": 93722,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 337974849
+  }
+ },
+ "gbif": {
+  "key": 2372761,
+  "next": null
+ }
 }

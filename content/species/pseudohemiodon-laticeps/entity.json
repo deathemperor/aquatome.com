@@ -1,0 +1,382 @@
+{
+  "id": "pseudohemiodon-laticeps",
+  "scientificName": "Pseudohemiodon laticeps",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pseudohemiodon",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "paraguay",
+    "argentina",
+    "parana",
+    "uruguay"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PY",
+        "AR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The giant whiptail catfish, Pseudohemiodon laticeps, is a loricariid from the rios Uruguay, Paraná and Paraguay in Brazil, Paraguay and Argentina.",
+          "countries": [
+            "BR",
+            "PY",
+            "AR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340381,
+      "total": 30,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BR",
+          10
+        ],
+        [
+          "VE",
+          8
+        ],
+        [
+          "AR",
+          4
+        ],
+        [
+          "EC",
+          4
+        ],
+        [
+          "PY",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          0,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -33.75,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -30.9375,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -18.28125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudohemiodon-laticeps",
+      "html": "<p>The giant whiptail catfish, Pseudohemiodon laticeps, is a loricariid from the rios Uruguay, Paraná and Paraguay in Brazil, Paraguay and Argentina. Growing to 300 mm, it stays buried in soft substrate by day and emerges to feed at night, so a sandy substrate and very clean, stable water matter most. The male is a paternal 'lip brooder', carrying the eggs on his labial barbels for 12-14 days, and the species has been bred in aquaria.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudohemiodon-laticeps",
+      "html": "<p>Distributed throughout the rios Uruguay, Paraná and Paraguay with records existing from southern Brazil, Paraguay and Argentina.</p><p>Type locality is given simply as 'Paraguay'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudohemiodon-laticeps",
+      "html": "<p>Inhabits areas of soft substrate within which it remains buried during the day, emerging to feed at night.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudohemiodon-laticeps",
+      "html": "<p>An aquarium with base dimensions of at least 180 × 60 cm or equivalent is required (about 648 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudohemiodon-laticeps",
+      "html": "<p>The most important provisions are very clean, stable water conditions and a sandy substrate in order that the fish can exhibit natural behaviour.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudohemiodon-laticeps",
+      "html": "<ul><li>Temperature: 18–24°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudohemiodon-laticeps",
+      "html": "<p>Likely to be an opportunistic omnivore by nature.</p><p>In captivity some sinking dried foods may be accepted but regular meals of live or frozen Daphnia, mosquito larvae, chironomid larvae (bloodworm), etc., are essential for the maintenance of good health.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudohemiodon-laticeps",
+      "html": "<p>A paternal 'lip brooder' which has been bred in aquaria.</p><p>Post-spawning the male carries the eggs attached to his labial barbels for a period of 12-14 days after which the fry hatch with a large yolk sac attached, this being absorbed over the next 48 hours or so.</p><p>During incubation the behaviour of the male is apparently unaffected and he may burrow into the substrate with the eggs attached.</p><p>Successful captive breeding has tended to involve removing the eggs to a separate aquarium just prior to hatching.</p><p>The fry are able to accept Artemia nauplii and suchlike as soon as the yolk sac has been fully-absorbed with a yield of 15-20 considered a good number.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudohemiodon-laticeps",
+      "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Evers, H-G. and I. Seidel (2005). Catfish Atlas: Volume 1 Mergus Verlag GmbH, Melle, 1-943</li><li>Regan, C. T. (1904). A monograph of the fishes of the family Loricariidae. Transactions of the Zoological Society of London 17 (pt 3, no. 1), 191-350</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/12d9848030760fa2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/12d9848030760fa2-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Benjamin Stowell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudohemiodon_laticeps.htm",
+      "caption": "Pseudohemiodon laticeps",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/bc784fb3b0fb0962.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bc784fb3b0fb0962-480.webp",
+      "width": 500,
+      "height": 337,
+      "licence": "dùng với sự cho phép",
+      "author": "Birger Kamprath / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudohemiodon_laticeps.htm",
+      "caption": "Pseudohemiodon laticeps",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/767be1308c87c45f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/767be1308c87c45f-480.webp",
+      "width": 500,
+      "height": 368,
+      "licence": "dùng với sự cho phép",
+      "author": "Birger Kamprath / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudohemiodon_laticeps.htm",
+      "caption": "Pseudohemiodon laticeps: Head view - sand particles on head",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/38b39fdac5d04f49.webp",
+      "thumb": "https://media.aquatome.com/scotcat/38b39fdac5d04f49-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Mitsuhiro Iwamoto / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudohemiodon_laticeps.htm",
+      "caption": "Pseudohemiodon laticeps: head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá",
+        "cát sông thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "bo bo đông lạnh",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm sục khí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

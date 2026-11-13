@@ -1,8 +1,9 @@
 import { parse } from 'node-html-parser'
 import { slugify } from '@aq/schema/slug'
-import type { Content, GuideEntity, Localized, Photo, PictureSet, Series } from '@aq/schema'
+import { stillShown, THUMB_WIDTH, thumbOf, type Content, type GuideEntity, type Localized, type Photo, type PictureSet, type Series } from '@aq/schema'
 import { translator, type Lang } from './i18n'
 import { photoMark } from './cite'
+import { guideImage } from './mentions'
 
 type VideoGuide = Localized<GuideEntity> & { video: NonNullable<GuideEntity['video']> }
 export const isVideo = (g: Localized<GuideEntity>): g is VideoGuide => !!g.video
@@ -19,6 +20,22 @@ export function clock(sec: number): string {
 export const isoDuration = (sec: number) => `PT${Math.floor(sec / 3600) ? `${Math.floor(sec / 3600)}H` : ''}${Math.floor((sec % 3600) / 60)}M${Math.floor(sec % 60)}S`
 
 export const watchUrl = (id: string, start = 0) => `https://www.youtube.com/watch?v=${id}${start ? `&t=${start}s` : ''}`
+
+/** A first chapter that only lists the others ("Chapters cuz uncle MJ cares about your time", "Mục lục video"). */
+const INDEX = /^\s*(m[ụu]c l[ụu]c|chapters?\b|table of contents|timestamps?\b)/i
+
+/**
+ * A video's chapters as a guide lists them (VideoPlayer, its schema.org clips, the app's copy), each with where it ends:
+ * the creator's own titles, or the guide's, one per chapter, when it has them all; a first chapter that only lists the
+ * others left out.
+ */
+export function guideChapters(v: NonNullable<GuideEntity['video']>, titles: string[] = []) {
+  const ours = titles.length === v.chapters.length
+  return v.chapters
+    .map((c, i) => ({ start: c.start, end: v.chapters[i + 1]?.start ?? v.durationSec, title: ours ? titles[i]! : c.title, index: c.start === 0 && (INDEX.test(c.title) || (ours && INDEX.test(titles[i]!))) }))
+    .filter(c => !c.index)
+    .map(({ index: _, ...c }) => c)
+}
 
 /**
  * The video's thumbnail as the guide's picture (share preview), credited to the channel. Card thumb: hqdefault (480×360,
@@ -46,15 +63,29 @@ export function hours(lang: Lang, sec: number): string {
   return h ? (m ? t('{h} giờ {m} phút', { h, m }) : t('{h} giờ', { h })) : t('{m} phút', { m })
 }
 
-/** Video guides for the homepage: the first parts of each series (largest first), then their next parts. */
+/**
+ * Video guides for the homepage, each with a picture: the first parts of each series (largest first), then their next
+ * parts; one of each subject (set bể, chăm cây, …) before a second of any, so the row isn't three builds.
+ */
 export function homeVideos(c: Content, n = 4): VideoGuide[] {
-  const lists = c.series.map(s => seriesGuides(c, s).filter(g => g.t.quality.indexable)).filter(l => l.length).sort((a, b) => b.length - a.length)
-  const out: VideoGuide[] = []
-  for (let i = 0; out.length < n && lists.some(l => l[i]); i++) for (const l of lists) if (l[i] && out.length < n) out.push(l[i]!)
-  return out
+  const lists = c.series.map(s => seriesGuides(c, s).filter(g => g.t.quality.indexable && guideImage(c, g))).filter(l => l.length).sort((a, b) => b.length - a.length)
+  const order: VideoGuide[] = []
+  for (let i = 0; lists.some(l => l[i]); i++) for (const l of lists) if (l[i]) order.push(l[i]!)
+  const firsts = order.filter((g, i) => order.findIndex(x => x.kind === g.kind) === i)
+  return [...firsts, ...order.filter(g => !firsts.includes(g))].slice(0, n)
 }
 
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+
+/**
+ * A still the video's own frame (1200 px) also has its 480 px copy. The stills' grid (pages/huong-dan/[slug].astro, columns
+ * of 11rem or more in the text's width, the window's less 3rem): one a row below 412 px, two below 600 px, then three of
+ * at most 14rem. A frame no wider than the copy is drawn as it is.
+ */
+function stillSrcset(m: { url: string; width: number }): string {
+  const small = m.width > THUMB_WIDTH ? thumbOf(m.url) : undefined
+  return small ? ` srcset="${esc(small)} ${THUMB_WIDTH}w, ${esc(m.url)} ${m.width}w" sizes="(max-width: 411px) calc(100vw - 3rem), (max-width: 599px) calc(50vw - 1.875rem), 14rem"` : ''
+}
 
 /**
  * Each section's pictures after its first paragraph (or list): the open-licence photo, then stills from the video
@@ -68,14 +99,16 @@ export function illustrate(lang: Lang, html: string, v: NonNullable<GuideEntity[
   for (const h of root.querySelectorAll('h2, h3')) { // h2: a heading over sub-sections (lib/toc.ts)
     const f0 = byHeading.get(h.textContent.replace(/\s+/g, ' ').trim())
     if (!f0) continue
-    // Nothing the page already shows: a photo picked for two sections, two stills of the same scene.
-    const f = shown ? { ...f0, photo: shown.take([f0.photo]), moments: f0.moments.filter(m => shown.take([m])) } : f0
+    // No still under 480p (a storyboard tile, a low-resolution video): the section keeps its words, and the page its
+    // video. Then nothing the page already shows: a photo picked for two sections, two stills of the same scene.
+    const sharp = f0.moments.filter(stillShown)
+    const f = shown ? { ...f0, photo: shown.take([f0.photo]), moments: sharp.filter(m => shown.take([m])) } : { ...f0, moments: sharp }
     if (!f.photo && !f.moments.length) continue
     const photo = f.photo
       ? `<figure class="vphoto"><img src="${esc(f.photo.url)}" width="${f.photo.width}" height="${f.photo.height}" alt="${esc(f.photo.caption ?? '')}" loading="lazy"><figcaption>${esc(f.photo.caption ?? '')}${photoMark(lang, f.photo)}</figcaption></figure>`
       : ''
     const moments = f.moments.length
-      ? `<div class="moments"><p class="mh">${t('Trong video')}</p><ul>${f.moments.map(m => `<li><button type="button" class="moment" data-t="${m.t}" data-vp-for="${esc(v.youtubeId)}"><span class="visually-hidden">${t('Xem video từ')}</span> <img src="${esc(m.url)}" width="${m.width}" height="${m.height}" alt="" loading="lazy"> <span class="mt"><span aria-hidden="true">▶</span> ${clock(m.t)}</span> <span class="mc">${esc(m.caption)}</span></button></li>`).join('')}</ul></div>`
+      ? `<div class="moments"><p class="mh">${t('Trong video')}</p><ul>${f.moments.map(m => `<li><button type="button" class="moment" data-t="${m.t}" data-vp-for="${esc(v.youtubeId)}"><span class="visually-hidden">${t('Xem video từ')}</span> <img src="${esc(m.url)}"${stillSrcset(m)} width="${m.width}" height="${m.height}" alt="" loading="lazy"> <span class="mt"><span aria-hidden="true">▶</span> ${clock(m.t)}</span> <span class="mc">${esc(m.caption)}</span></button></li>`).join('')}</ul></div>`
       : ''
     const after = h.nextElementSibling && ['P', 'UL', 'OL'].includes(h.nextElementSibling.tagName) ? h.nextElementSibling : h
     after.insertAdjacentHTML('afterend', `<div class="vfigs">${photo}${moments}</div>`)

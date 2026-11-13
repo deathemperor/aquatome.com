@@ -1,0 +1,261 @@
+{
+  "id": "mastacembelus-ellipsifer",
+  "scientificName": "Mastacembelus ellipsifer",
+  "order": "Synbranchiformes",
+  "family": "Mastacembelidae",
+  "genus": "Mastacembelus",
+  "group": "other",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "tanzania",
+    "zambia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ",
+            "ZM"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2351884,
+      "total": 54,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ZM",
+          25
+        ],
+        [
+          "CD",
+          10
+        ],
+        [
+          "TZ",
+          10
+        ],
+        [
+          "BI",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          28.125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -4.21875,
+          14,
+          14
+        ],
+        [
+          29.53125,
+          -9.84375,
+          12,
+          12
+        ],
+        [
+          29.53125,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          29.53125,
+          -5.625,
+          9,
+          9
+        ],
+        [
+          30.9375,
+          -9.84375,
+          12,
+          12
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 9.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-ellipsifer",
+      "html": "<p>The Tanganyikan spiny eel, Mastacembelus ellipsifer, is a spiny eel endemic to Lake Tanganyika. It is found around the shores, most often where the rocks give way to sandier substrates, and spends much of its time burrowed in the substrate, so the aquarium needs a layer of sand. Nocturnal and predatory, it is best kept in a Tanganyikan community with species too large to be considered food.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-ellipsifer",
+      "html": "<p>Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-ellipsifer",
+      "html": "<p>This species is generally found around the shores of the lake, most often in the intermediate zones where the rocks start to give way to sandier substrates.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-ellipsifer",
+      "html": "<p>Standard length: 45 cm SL. Aquarium base: 120 × 45 cm. Volume: approx. 245 litres.</p><p>Does not require masses of space despite its adult size. A tank measuring 120 × 45 × 45 cm is adequate. The width of the tank is far more important than the height.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-ellipsifer",
+      "html": "<p>Use piles of rocks to form sheltered areas. It is essential that the tank base is covered in a layer of sand, as the fish spends much of its time burrowed in the substrate. Gravel is not recommended as its sharp edges can damage the eel's skin. There should also be no strong currents in the aquarium. Dim lighting is preferable if you want to see your eel regularly, as it is a nocturnal species by nature.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-ellipsifer",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 8.0–9.5</li><li>Hardness: 8–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-ellipsifer",
+      "html": "<p>In nature, the spiny eel preys on small fish but aquarium specimens readily accept dead alternatives. Prawn, cockle, mussel, earthworms and bloodworm can all be offered.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-ellipsifer",
+      "html": "<p>Peaceful with species it cannot fit into its mouth. Not suitable for most freshwater tanks due to its hard, alkaline water requirements. It is best kept in a Tanganyikan community, where it can be combined with any species too large to be considered food. It tends to be territorial with conspecifics, so a large tank is required if more than one is to be kept.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-ellipsifer",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-ellipsifer",
+      "html": "<p>Has not been bred in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mastacembelus-ellipsifer",
+      "html": "<p>M. ellipsifer is a stunning eel that makes a nice 'alternative' species for the Tanganyikan community tank. The species in the family Mastacembelidae are known as \"spiny\" eels because the dorsal rays are very hard. Care must therefore be exercised when handling them to avoid injuries. The swim bladder in these eels has also disappeared completely, an adaptation to their bottom-dwelling lifestyle. The African species such as this one can be distinguished from their Asian relatives by the conjoined dorsal, caudal and anal fins, whereas the Asian species have a distinct caudal fin.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ cá",
+        "cát mịn cho cá đáy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W",
+        "máy sưởi nước"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH",
+        "test GH KH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

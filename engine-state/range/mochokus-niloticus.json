@@ -1,0 +1,118 @@
+{
+  "id": "mochokus-niloticus",
+  "native": {
+    "input": "3bf9e0b6802e5ec3",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Nile River near Thebes, Egypt.",
+        "words": "Egypt",
+        "ok": true
+      },
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Specific name of niloticus –icus, belonging to the Nile River near Thebes, Egypt, the type locality.",
+        "words": "Egypt",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nile",
+        "source": "planetcatfish",
+        "quote": "Africa: Nile and Niger basins.",
+        "ok": true
+      },
+      {
+        "name": "Niger",
+        "source": "planetcatfish",
+        "quote": "Africa: Nile and Niger basins.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Chad",
+        "source": "planetcatfish",
+        "quote": "Reported from the Chad basin.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Nile",
+        "source": "scotcat",
+        "quote": "Africa: Nile and Niger basins.",
+        "ok": true
+      },
+      {
+        "name": "Niger",
+        "source": "scotcat",
+        "quote": "Africa: Nile and Niger basins.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NG",
+        "NE",
+        "TD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mochokus niloticus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344258,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        10
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        6
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "EG"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

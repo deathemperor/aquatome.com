@@ -1,0 +1,154 @@
+{
+  "id": "cryptoheros-cutteri",
+  "scientificName": "Cryptoheros cutteri",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Cryptoheros",
+  "group": "cichlids",
+  "places": [
+    "north-america",
+    "honduras"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "HN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A smaller cichlid from Honduras.",
+          "countries": [
+            "HN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370310,
+      "total": 45,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "HN",
+          40
+        ],
+        [
+          "GT",
+          3
+        ],
+        [
+          "SV",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -90,
+          14.0625,
+          4,
+          1
+        ],
+        [
+          -90,
+          15.46875,
+          2,
+          0
+        ],
+        [
+          -88.59375,
+          14.0625,
+          8,
+          8
+        ],
+        [
+          -88.59375,
+          15.46875,
+          3,
+          3
+        ],
+        [
+          -87.1875,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          -87.1875,
+          15.46875,
+          23,
+          23
+        ],
+        [
+          -85.78125,
+          14.0625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 13
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cryptoheros_cutteri_en/",
+      "html": "<p>A smaller cichlid from Honduras. Males reach a maximum length of 13 cm, while females always stay smaller.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cryptoheros_cutteri_en/",
+      "html": "<p>Despite the comparatively small size, one should not keep these cichlids in small tanks.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cryptoheros_cutteri_en/",
+      "html": "<p>They have a very vivid temper, especially when they care for the offspring.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cryptoheros_cutteri_en/",
+      "html": "<p>The species of Cryptoheros differ from the other members of the Central American Cichlasoma relationship inter alia by the fact that they prefer to spawn on places that are a bit hidden. So the fish display an intermediate behaviour between typical open spawners and cave spawners. Both parents take intensive care of eggs and juveniles.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cichlid"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá 120cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

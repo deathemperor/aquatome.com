@@ -5,7 +5,7 @@
   "family": "Loricariidae",
   "genus": "Otocinclus",
   "group": "catfish",
-  "lNumber": "LDA023",
+  "lNumber": "LDA23",
   "places": [
     "south-america",
     "brazil",
@@ -15,6 +15,496 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Paraná",
+        "Xingu",
+        "Tocantins"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Descalvados, Rio Paraguay system, Mato Grosso State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon, Orinoco, Paraná/Paraguay, Xingu and Tocantins River basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco",
+            "Paraná",
+            "Xingu",
+            "Tocantins"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340460,
+      "total": 362,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "BR",
+          122
+        ],
+        [
+          "PY",
+          106
+        ],
+        [
+          "VE",
+          85
+        ],
+        [
+          "AR",
+          24
+        ],
+        [
+          "CO",
+          18
+        ],
+        [
+          "BO",
+          4
+        ],
+        [
+          "PE",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          0,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          2.8125,
+          8,
+          0
+        ],
+        [
+          -73.125,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          5.625,
+          5,
+          0
+        ],
+        [
+          -71.71875,
+          7.03125,
+          12,
+          0
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          7.03125,
+          25,
+          0
+        ],
+        [
+          -70.3125,
+          8.4375,
+          40,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          -67.5,
+          -15.46875,
+          4,
+          0
+        ],
+        [
+          -67.5,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          -66.09375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -32.34375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -33.75,
+          17,
+          0
+        ],
+        [
+          -60.46875,
+          -30.9375,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -28.125,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -25.3125,
+          9,
+          0
+        ],
+        [
+          -59.0625,
+          -23.90625,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          -22.5,
+          12,
+          1
+        ],
+        [
+          -59.0625,
+          -21.09375,
+          14,
+          6
+        ],
+        [
+          -59.0625,
+          -16.875,
+          9,
+          9
+        ],
+        [
+          -59.0625,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -28.125,
+          4,
+          0
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          18,
+          0
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          20,
+          0
+        ],
+        [
+          -57.65625,
+          -23.90625,
+          16,
+          0
+        ],
+        [
+          -57.65625,
+          -22.5,
+          4,
+          0
+        ],
+        [
+          -57.65625,
+          -19.6875,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -18.28125,
+          8,
+          8
+        ],
+        [
+          -57.65625,
+          -16.875,
+          10,
+          10
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          7,
+          7
+        ],
+        [
+          -56.25,
+          -29.53125,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -28.125,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -25.3125,
+          5,
+          0
+        ],
+        [
+          -56.25,
+          -21.09375,
+          7,
+          7
+        ],
+        [
+          -56.25,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -16.875,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -7.03125,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          -26.71875,
+          12,
+          8
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -19.6875,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          -18.28125,
+          8,
+          8
+        ],
+        [
+          -54.84375,
+          -16.875,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -11.25,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,6 +545,15 @@
       "html": "<p>South America: Amazon, Orinoco, Paraná/Paraguay, Xingu and Tocantins River basins. Type locality: Descalvados, Rio Paraguay system, Mato Grosso State, Brazil.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi có bể thủy sinh 450 lít, lá crypt và anubias nana vàng trong bể bị rêu bám. Sau khi thả 15 con vào, chỉ 48 giờ là trên lá không còn chút rêu nào, kể cả rêu sợi. Đó là chuyện của một bể, chưa chắc bể nào cũng nhanh như vậy.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=107",
@@ -73,16 +572,43 @@
       "html": "<p>Initially algae: add a shoal to an \"algaefied\" tank and then supplement the diet with sinking tablets and the usual cucumber, lettuce or courgette (zucchini).</p>"
     },
     {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này nổi tiếng ăn tảo nâu, rêu đốm xanh và rêu bụi xanh. Mấy thứ đó phủ thành lớp dày trên lá và chắn mất ánh sáng, thế là cây yếu dần rồi chết.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=107",
       "html": "<p>Peaceful. Keep in groups (preferably at least six) with any small to mid-sized community fish.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi thấy đàn cá hay tụ lại và bơi đồng loạt khắp bể, rõ nhất là lúc sáng sớm và chập tối. Ban ngày, thỉnh thoảng có con tách ra ở một mình.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "dimorphism",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=107",
       "html": "<p>Females are larger and broader, especially when viewed from above.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Soi thật gần sẽ thấy trên thân loài này có những cái gai li ti. Đó là thứ nó dùng để tự vệ, đỡ được phần nào trước những con cá săn mồi lớn hơn ngoài tự nhiên.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "references",
@@ -113,29 +639,16 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_vittatus.htm",
       "caption": "Otocinclus vittatus",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/5377260d03d03a66.webp",
-      "width": 960,
-      "height": 1206,
-      "licence": "CC BY 4.0",
-      "author": "Florencia Brancolini, Priscilla Minotti, Lucila Protogino, Hugo López, and Claudio Baigún",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_fauna_from_R%C3%ADo_Pilcomayo_National_Park_(5_of_7).png",
-      "caption": "Fish fauna from the Rio Pilcomayo National Park. Per the source, they are listed as:(49) Pimelodella laticeps;(50) Rhamdia quelen;(51) Tridentopsis cahuali;(52) Callichthys callichthys;(53) Corydoras ",
-      "thumb": "https://media.aquatome.com/commons/5377260d03d03a66-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/b6b8c344ec243ab0.webp",
-      "width": 880,
-      "height": 324,
-      "licence": "CC BY 4.0",
-      "author": "Florencia Brancolini, Priscilla Minotti, Lucila Protogino, Hugo López, and Claudio Baigún",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_fauna_from_R%C3%ADo_Pilcomayo_National_Park_(5_of_7)_(clipped).png",
-      "caption": "Fish fauna from the Rio Pilcomayo National Park. Per the source, they are listed as:(49) Pimelodella laticeps;(50) Rhamdia quelen;(51) Tridentopsis cahuali;(52) Callichthys callichthys;(53) Corydoras ",
-      "thumb": "https://media.aquatome.com/commons/b6b8c344ec243ab0-480.webp"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "6C3cORsXseY",
+      "title": "Meet the Adorable Otocinclus Catfish - Otocinclus vittatus - Best Algae Eating Fish",
+      "durationSec": 220,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -165,5 +678,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=6C3cORsXseY",
+      "title": "Meet the Adorable Otocinclus Catfish - Otocinclus vittatus - Best Algae Eating Fish"
+    }
+  ]
 }

@@ -13,6 +13,92 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The striped brichardi, Neolamprologus savoryi, is a rock-dwelling cichlid endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371821,
+      "total": 36,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TZ",
+          11
+        ],
+        [
+          "ZM",
+          11
+        ],
+        [
+          "CD",
+          8
+        ],
+        [
+          "BI",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -5.625,
+          1
+        ],
+        [
+          28.125,
+          -4.21875,
+          9
+        ],
+        [
+          29.53125,
+          -9.84375,
+          3
+        ],
+        [
+          29.53125,
+          -8.4375,
+          6
+        ],
+        [
+          29.53125,
+          -7.03125,
+          2
+        ],
+        [
+          29.53125,
+          -5.625,
+          7
+        ],
+        [
+          30.9375,
+          -9.84375,
+          7
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -134,8 +220,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 75cm",
-        "bể cá 70 lít"
+        "bể cá 80cm"
       ]
     },
     {

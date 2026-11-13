@@ -10,8 +10,147 @@
     "malaysia",
     "indonesia",
     "sumatra",
-    "borneo"
+    "borneo",
+    "sarawak",
+    "kapuas",
+    "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "SG",
+        "ID"
+      ],
+      "regions": [
+        "Malay Peninsula",
+        "Sumatra",
+        "Borneo",
+        "Kapuas",
+        "Mahakam",
+        "Batang Hari"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Current distribution is accepted to include the states of Terengganu, Pahang and Johor, Peninsular Malaysia and Singapore, plus the Great Sunda Islands of Sumatra and Borneo.",
+          "countries": [
+            "MY",
+            "SG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Borneo it occurs in the Malaysian state of Sarawak plus the Indonesian provinces of Kalimantan Barat (Kapuas River) and Kalimantan Timur (Mahakam River) meaning it's also likely to occur in Kalimantan Tengah, which lies in between the former two.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Mahakam"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "As far as known, Pangio shelfordii is distributed across parts of the Malay Peninsula, Sumatra (including some small offshore islands), and Borneo.",
+          "countries": [],
+          "regions": [
+            "Malay Peninsula",
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On Sumatra it's known from the provinces of Riau, Jambi (Batang Hari River drainage) and Bangka Island.",
+          "countries": [],
+          "regions": [
+            "Batang Hari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367941,
+      "total": 23,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "ID",
+          15
+        ],
+        [
+          "MY",
+          6
+        ],
+        [
+          "SG",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          0,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          -1.40625,
+          6,
+          6
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          112.5,
+          0,
+          4,
+          4
+        ],
+        [
+          113.90625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -20,12 +159,53 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 26
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 8
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 8
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 8
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
       }
     ]
   },
@@ -37,10 +217,40 @@
       "html": "<p>One of the most unusual species of coolie loach. Grows to a maximum length of 8 cm but is very thin, with markings reminiscent of leopard skin. Some color morphs of Pangio alternans are similarly colored, but those loaches are significantly more stocky in build.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-shelfordii",
+      "html": "<ul><li>Social: needs to be kept in a group</li><li>Compatibility: fine with other fish</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-shelfordii",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when introduced to a new environment.</p><p>Pangio shelfordii is a variably patterned kuhli loach from Peninsular Malaysia, Singapore, Sumatra and Borneo. Its patterning varies within and between populations, and as currently understood the species represents an assemblage containing a number of unidentified taxa. Some Sumatran and Bornean populations resemble P. piperata, which often occurs alongside it. It is exported occasionally, often as bycatch among shipments of congeners.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pangio-shelfordii-2/",
       "html": "<p>As far as known, Pangio shelfordii is distributed across parts of the Malay Peninsula, Sumatra (including some small offshore islands), and Borneo. However, it is not found throughout the entire area, but rather in localized locations. This explains why these animals are found in the trade from time to time, but not regularly.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-shelfordii",
+      "html": "<p>Current distribution is accepted to include the states of Terengganu, Pahang and Johor, Peninsular Malaysia and Singapore, plus the Great Sunda Islands of Sumatra and Borneo.</p><p>On Sumatra it's known from the provinces of Riau, Jambi (Batang Hari River drainage) and Bangka Island.</p><p>In Borneo it occurs in the Malaysian state of Sarawak plus the Indonesian provinces of Kalimantan Barat (Kapuas River) and Kalimantan Timur (Mahakam River) meaning it's also likely to occur in Kalimantan Tengah, which lies in between the former two.</p><p>Type locality is the Sarawak River near the city of Kuching, Sarawak but the habitat was reported to be under extreme pressure from human activity as long ago as the early 1990s when Kottelat and Lim (1993) failed to recollect the species there.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-shelfordii",
+      "html": "<p>Most commonly found in shallow, slow-moving sections of forest streams or other calm habitats such as swamps, oxbows, and backwaters.</p><p>Many such environments are associated with ancient peat swamps and contain blackwater although it's also found in clear waters which may or may not be tannin-stained to some extent.</p><p>Such habitats are typically shaded from the sun by marginal vegetation and the dense tree canopy above.</p><p>The water generally has a negligible dissolved mineral content, is poorly buffered and pH can be as low as 3.0 or 4.0 due to the gradual release of tannins and organic acids from decaying plant material.</p><p>Depending on locality the substrate may be composed of peat, mud or sand with the fish typically abundant in piles of leaf litter.</p><p>In the Kapuas basin, Kalimantan Barat (West Kalimantan), Indonesian Borneo P. shelfordii coexists with numerous species including Pangio semicincta, P. malayana, P. angullaris, Eirmotus insignis, 'Puntius' anchisporus, 'P.' hexazona, and Brachygobius xanthomelas.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-shelfordii",
+      "html": "<p>Standard length: 80 mm SL.</p><p>Aquarium base: 60 × 30 cm. Volume: ~54 litres.</p><p>An aquarium with base measurements of at least 60 × 30 cm or equivalent is recommended.</p>"
     },
     {
       "key": "maintenance",
@@ -49,10 +259,22 @@
       "html": "<p>For decades, all kinds of Pangio have proven themselves to be attractive and harmless scavengers for Asian aquariums with peaceful species. The only disadvantage is that you often don’t see them for weeks, and usually the only way to catch them again is to completely empty the aquarium. Give these loaches a spot with soft sandy soil where they can burrow.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-shelfordii",
+      "html": "<p>Use a soft, sandy substrate since this species likes to dig and tends to spend some of its time completely buried. When coarser gravel is used it may become stressed or damage itself, and feeding behaviour can be inhibited.</p><p>A few driftwood roots and branches, placed in such a way that plenty of shady spots are formed, can be used to add structure to the display and addition of dried leaf litter would provide additional cover and aid in simulating natural conditions.</p><p>Fairly dim lighting is also preferable and aquatic plants from genera such as Microsorum, Taxiphyllum, and Cryptocoryne spp. can also be added.</p><p>Gentle filtration providing a little surface agitation is adequate and high flow rates best avoided. Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when introduced to a new environment.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pangio-shelfordii-2/",
       "html": "<p>They prefer soft and slightly acidic water, but practical experience has shown that they can live happily for many years even in “rock-hard” water with a pH above 8. The water temperature can be between 22 and 28°C, and it does not matter if it is slightly higher or lower at times.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-shelfordii",
+      "html": "<ul><li>Temperature: 21–26°C</li><li>pH: 4.0–7.0</li><li>Hardness: 0–8 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -61,10 +283,46 @@
       "html": "<p>They will eat anything that fits in their mouths. It is important to provide a mulm corner. Mulm – the brown sludge consisting of feces, food and plant residues that appears in every aquarium at some point – is not a bad thing. In nature, it is an important food source for many small fish. Without mulm, the intestinal flora of such fish suffers and they become increasingly emaciated, despite otherwise good food supply.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-shelfordii",
+      "html": "<p>Chiefly a micropredator sifting mouthfuls of substrate through the mouth and gills from which insect larvae, small crustaceans and suchlike are extracted with a proportion of the natural diet also likely to comprise organic detritus and plant material from the gut contents of prey.</p><p>In the aquarium it will accept sinking dried foods but should also be offered regular meals of live and frozen Daphnia, Artemia, bloodworm, micro worm, grindal worm, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-shelfordii",
+      "html": "<p>Pangio spp. are peaceful both with one another and other fishes and there exist no reports of them harming tankmates though they may prey on eggs or fry.</p><p>In nature they're often found in large aggregations and in captivity will often pack themselves into a single nook, cranny or cave when at rest, so a group of at least 5-6 specimens should be the minimum purchased.</p><p>Small, peaceful species from similar environments such as Boraras, Sundadanio, smaller Rasbora, Trichopsis, Sphaerichthys, Kottelatlimia, etc., constitute the best tankmates.</p><p>Some sand-dwelling loaches from the family Nemacheilidae are also suitable but proper research is essential as some can be excessively competitive, territorial or otherwise aggressive.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-shelfordii",
+      "html": "<p>Adult females are typically heavier-bodied and a little larger than males, while in mature males the first pectoral-fin ray is visibly branched and thickened.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-shelfordii",
+      "html": "<p>Unrecorded in aquaria but presumably a seasonal spawner in nature.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pangio-shelfordii-2/",
       "html": "<p>They are often exported under the name “Pangio muraeniformis”. This species does exist and also has a similarly slender build. The two species P. shelfordii and P. muraeniformis were temporarily synonymized (in which case P. shelfordii is the valid name because it is significantly older). However, it is now believed again that they are separate species, with P. muraeniformis typically having a longitudinal band along the middle of its body (in reality, many dots that visually merge into a longitudinal band) and inhabiting Johore and Singapore. As with so many Pangio species, the great variety of markings makes it very difficult to distinguish between species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-shelfordii",
+      "html": "<p>This species is exported occasionally, often as bycatch among shipments of congeners.</p><p>It's included in the P. shelfordii group of closely-related species and can be distinguished from other members by the following combination of characters: body with a more-or-less conspicuous series of midlateral blotches, sometimes forming a solid lateral stripe; a dark bar-like marking at the base of the caudal fin; caudal fin mottled; three dark bars on head (not including snout markings); median lobe of lower lip forming a barbel; 46-51 vertebrae.</p><p>Patterning is highly variable depending both within and between populations and as currently understood the species represents an assemblage containing a number of unidentified taxa (Kottelat and Lim, 1993; Tan and Kottelat, 2009; Bohlen et al., 2011; Kottelat, 2012).</p><p>For example, those from Singapore and Johor possess intricate mottling on the dorsal surface while individuals from Terengganu have a series of saddle-like markings either alternating or connecting with the midlateral markings. The former may actually be Pangio muraeniformis (de Beaufort 1933) although this has not been confirmed.</p><p>Sarawak specimens have a similar pattern to those from Terengganu but the midlateral markings tend to be extended vertically and considerably darker at mid-body, with the dorsal saddles much lighter and tending to adjoin each other leaving only thin pale patches between. The species was described from the Sungai (river) Sarawak close to the city of Kuching.</p><p>In fish from Bangka Island the midlateral blotches form a continuous dark stripe with irregular markings with dorsal patterning consisting of either poorly-defined predorsal saddles or fine spots.</p><p>Those from the upper Kapuas River, Kalimantan Barat, Borneo, possess irregular midlateral markings which are darker at midbody height and relatively few, irregularly-shaped, diffuse dorsal saddles.</p><p>In the lower Kapuas populations have a speckled body patterning with a black midlateral stripe and dorsal saddles in just the occasional specimen.</p><p>Some Sumatran and Bornean populations of P. shelfordii superficially resemble P. piperata which can cause issues with identification as the two often occur together.</p><p>In general however the body patterning in P. piperata is much plainer than that of P. shelfordii, and they differ in vertebral counts (mode 47 vs. 50, respectively).</p><p>The pectoral fins in male P. piperata are also proportionally longer being approximately twice as long as those in females vs. slightly longer in P. shelfordii.</p><p>Kottelat and Lim (1993) suggested that the P. shelfordii group represents one of four such assemblages within the genus alongside the P. anguillaris, P. kuhlii and P. oblonga groups.</p><p>This unofficial system was followed until Bohlen et al. (2011) published a molecular phylogenetic analysis including 18 recognised species plus a number of undescribed ones.</p><p>Their results suggest the existence of three, rather than four, major lineages within the genus; the P. anguillaris and P. shelfordii groups represent two of them with Kottelat and Lim's P. kuhlii and P. oblonga groups together forming the third.</p><p>P. shelfordii group members are separated from those of the P. kuhlii-oblonga and P. anguillaris groups by possession of a pair of labial 'barbels' on the lower lip, a dark bar at the base of the caudal fin, several rows of spots on the caudal fin and a relatively slim caudal peduncle.</p><p>They currently include P. atactos, P. incognito, P. muraeniformis, P. piperata, P. shelfordii and P. superba.</p><p>Pangio is among the most speciose cobitid genera and widespread throughout South and Southeast Asia with species diversity thought to be considerably greater than currently recognised.</p><p>Pangio species are often generically referred to as 'kuhli' or 'coolie' loaches in the aquarium hobby, the latter a variation of the former which was itself derived from the surname of German naturalist Heinrich Kuhl (1797-1821). Ichthyologists tend to refer to them as 'eel loaches'.</p><p>They're distinguished from other cobitids by their long, slender body shape, relatively high number of vertebrae and the position of the dorsal fin which is situated well behind the origin of the pelvic fins (vs. in front of, above or only slightly behind).</p><p>Several described members were previously included in the genus Acanthophthalmus which Kottelat (1987) demonstrated to be a synonym of Cobitis, and he chose the replacement name Pangio in preference to its simultaneous synonym Apua (Blyth, 1860).</p><p>Myers (1929) placed P. anguillaris as type species of Cobitophis, a grouping containing the very elongate species, while Perugia (1892) originally described P. doriae in the genus Eucirrhichthys. The former was synonymised with Acanthophthalmus by Nalbant (1963) and the latter by Roberts (1989).</p><p>The family Cobitidae, often referred to as 'true' loaches, is widely distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.</p><p>Phylogenetic analyses by Tang et al. (2006), Šlechtová et al. (2007) and Šlechtová et al. (2008) revealed that the group constitutes a separate genetic lineage to the family Botiidae (the two were previously grouped together under Cobitidae as subfamilies Cobitinae and Botiinae).</p><p>In the most recent study Pangio was found to be more closely affiliated with Acantopsis, Acanthopsoides and Kottelatlimia than Lepidocephalichthys as had been previously hypothesised.</p><p>All cobitids possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g. if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and with larger species even break human skin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pangio-shelfordii",
+      "html": "<ul><li>Burridge, M. E. (1992). Systematics of the Acanthophthalmus kuhlii complex (Teleostei: Cobitidae), with the description of a new species from Sarawak and Brunei. Copeia 1992(1), 172-186</li><li>Britz, R. and J. Maclaine (2007). A review of the eel-loaches, genus Pangio, from Myanmar (Teleostei: Cypriniformes: Cobitidae). Ichthyological Exploration of Freshwaters 18(1), 17-30</li><li>Britz, R. and M. Kottelat (2010). Pangio longimanus, a miniature species of eel-loach from central Laos (Teleostei: Cypriniformes: Cobitidae). Ichthyological Exploration of Freshwaters 20(4), 317-376</li><li>Hadiaty, R. K. and M. Kottelat (2009). Pangio lidi, a new species of loach from eastern Borneo, Indonesia. Zootaxa 2171, 65-68</li><li>Kottelat, M. and K. K. P. Lim (1993). A review of the eel-loaches of the genus Pangio (Teleostei: Cobitidae) from the Malay Peninsula, with descriptions of six new species. Raffles Bulletin of Zoology 41(2), 203-249</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366</li><li>Popta, C. M. L. (1903). Acanthophthalmus shelfordii, n. sp. Notes from the Leyden Museum 23, 231-233</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Tan, H. H. and M. Kottelat (2009). The fishes of the Batang Hari drainage, Sumatra, with description of six new species. Ichthyological Exploration of Freshwaters 20(1), 13-69</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Šlechtová, V., J. Bohlen and A. Perdices (2008). Molecular phylogeny of the freshwater fish family Cobitidae (Cypriniformes: Teleostei): delimitation of genera, mitochondrial introgression and evolution of sexual dimorphism. Molecular Phylogenetics and Evolution 47(2), 812-831</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Bohlen, J., V, Šlechtová, H. H. Tan and R. Britz (2011). Phylogeny of the Southeast Asian freshwater fish genus Pangio (Cypriniformes; Cobitidae). Molecular Phylogenetics and Evolution 61(3), 854-865</li></ul>"
     }
   ],
   "photos": [],
@@ -80,8 +338,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể thủy sinh mini"
+        "bể cá 60cm"
       ]
     },
     {
@@ -92,5 +349,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-06"
 }

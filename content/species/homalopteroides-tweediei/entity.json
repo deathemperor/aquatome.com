@@ -17,6 +17,149 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "ID",
+        "LA",
+        "KH",
+        "VN"
+      ],
+      "regions": [
+        "Mekong",
+        "Kapuas",
+        "Borneo",
+        "Endau"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Homalopteroides tweediei is a small hillstream loach from Peninsular Malaysia, the Mekong system and West Kalimantan in Indonesian Borneo.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has since been recorded throughout much of the country as well as parts of the Mekong river system in Thailand, Laos, Cambodia and Vietnam, plus the Kapuas and several other river basins in Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+          "countries": [
+            "ID",
+            "LA",
+            "KH",
+            "VN"
+          ],
+          "regions": [
+            "Mekong",
+            "Kapuas"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Kahang River, part of the Endau drainage in Johor state, Peninsular Malaysia, it has been recorded alongside Homaloptera zollingeri, H. parclitella, H. ogilviei and Homalopteroides nebulosa as well as Malayochela maassi, Crossocheilus langei, Cyclocheilichthys apogon, Mystacoleucus marginatus, Rasbora dusonensis, R. elegans, R. paucisqualis, Trigonopoma gracile, 'Puntius' partipentazona, Nemacheilus masyae, N. selangoricus, Neohomaloptera johorensis, Acanthopsoides molobrion, Pangio cuneovirgata, P. doriae, P. kuhlii, P. malayana, P. piperata, P. shelfordii, Pseudomystus fuscus, Akysis microps, A. hendricksoni, and an unidentified species of Glyptothorax.",
+          "countries": [],
+          "regions": [
+            "Endau"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9384014,
+      "total": 17,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          7
+        ],
+        [
+          "MY",
+          7
+        ],
+        [
+          "LA",
+          2
+        ],
+        [
+          "KH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ],
+        [
+          112.5,
+          0,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -35,7 +178,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ],
     "tempC": [
@@ -223,8 +366,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá cộng đồng"
+        "bể cá 50cm"
       ]
     },
     {

@@ -10,6 +10,68 @@
     "nigeria",
     "niger"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG"
+      ],
+      "regions": [
+        "Ogun"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Nigeria, where it occurs in the Ogun and lower Niger river systems.",
+          "countries": [
+            "NG"
+          ],
+          "regions": [
+            "Ogun"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2356195,
+      "total": 22,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "NG",
+          22
+        ]
+      ],
+      "cells": [
+        [
+          2.8125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          5.625,
+          4.21875,
+          13,
+          13
+        ],
+        [
+          5.625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          7.03125,
+          4.21875,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -134,7 +196,12 @@
       "author": "Aquarium_tropical_du_Palais_de_la_Porte_Dorée_-_Phenacogrammus_interruptus.jpg: KoS derivative work: Haplochromis",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arnoldichthys_spilopterus.JPG",
       "caption": "Arnoldichthys spilopterus",
-      "thumb": "https://media.aquatome.com/commons/e51911265bb55e7f-480.webp"
+      "thumb": "https://media.aquatome.com/commons/e51911265bb55e7f-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/e51911265bb55e7f-large.webp",
+        "width": 1002,
+        "height": 664
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/ce94afa335014bca.webp",
@@ -152,8 +219,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá dài 120x30"
+        "bể cá 120cm"
       ]
     },
     {

@@ -1,0 +1,224 @@
+{
+  "id": "isorineloricaria-acuarius",
+  "scientificName": "Isorineloricaria acuarius",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Isorineloricaria",
+  "group": "catfish",
+  "lNumber": "L93, L153, L195",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Apure",
+        "Orinoco",
+        "Arauca"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Isorineloricaria acuarius is a suckermouth catfish from the Apure and middle Orinoco drainages in the Venezuelan Llanos, where it lives on sandy runs in whitewater rivers.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's known from the río Apure and rivers draining into it, including the Portuguesa, Guanare, Guárico and Orituco, and from the río Arauca.",
+          "countries": [],
+          "regions": [
+            "Apure",
+            "Arauca"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7798884,
+      "total": 8,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          8.4375,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 26.9
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/isorineloricaria-acuarius",
+      "html": "<p><em>Isorineloricaria acuarius</em> is a suckermouth catfish from the Apure and middle Orinoco drainages in the Venezuelan Llanos, where it lives on sandy runs in whitewater rivers. Traded as L093 and L195, the blue fin thresher pleco, it was sold as <em>Hypostomus villarsi</em> until it was described in 2016. <em>I. villarsi</em> is a different fish from the Lake Maracaibo basin, with a sharp ridge on each side of the head where <em>I. acuarius</em> has a rounded one.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/isorineloricaria-acuarius",
+      "html": "<p>Apure and middle Orinoco drainages in the Venezuelan Llanos. It's known from the río Apure and rivers draining into it, including the Portuguesa, Guanare, Guárico and Orituco, and from the río Arauca. Only one fish has been caught in the main Orinoco, just downstream of the mouth of the Apure (Ray &amp; Armbruster, 2016). Type locality is 'Rio Portuguesa, 3 km northeast of El Barriero, Portuguesa, Venezuela', at about 9.052°N, 69.488°W.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/isorineloricaria-acuarius",
+      "html": "<p>It lives in flowing waters running over sandy substrates that are scattered with rocks and stones, and is often found on or around driftwood snags.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/isorineloricaria-acuarius",
+      "html": "<p>A tank at least 150 cm long is needed, and Südamerikafans recommends 200 cm.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/isorineloricaria-acuarius",
+      "html": "<p>A spacious tank is required, preferably with a sandy substrate. Provide hiding places and shade with some big chunks of driftwood and smooth rocks. Dim lighting is also beneficial. Try to arrange the decor so as much of it is off the tank bottom as possible, as the fish moves with great speed at times, especially when startled. It also needs well-oxygenated water, and an efficient filter to deal with the large amounts of waste it produces.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/isorineloricaria-acuarius",
+      "html": "<ul><li>Temperature: 25–29°C</li><li>pH: 6.0–7.5</li><li>Hardness: not recorded</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/isorineloricaria-acuarius",
+      "html": "<p>An unfussy feeder, it will accept most foods. Offer regular feedings of greens such as cucumber, courgette, blanched spinach etc., as well as live, frozen and dried stuff. It tends to become less of a vegetarian as it grows.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/isorineloricaria-acuarius",
+      "html": "<p>A peaceful species that can be kept with a variety of tankmates, such as larger characins, cyprinids, peaceful cichlids and other catfish. It's surprisingly non-territorial and can be kept both in a species group or other peaceful Loricariids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/isorineloricaria-acuarius",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/isorineloricaria-acuarius",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/isorineloricaria-acuarius",
+      "html": "<p>It was sold as <em>Hypostomus villarsi</em> until it was described in 2016, and is a rare find in the hobby. If you're lucky enough to see some for sale, check the fish have rounded bellies and that their eyes aren't sunken before you part with any cash, as these are classic signs of emaciation in newly imported Loricariids.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên chìm cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

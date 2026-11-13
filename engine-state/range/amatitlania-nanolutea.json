@@ -1,14 +1,22 @@
 {
   "id": "amatitlania-nanolutea",
   "native": {
-    "input": "7cc69f622757a889",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "042bd66041df116e",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "PA",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Amatitlania nanolutea is a small Central American cichlid endemic to the Guarumo river basin in northwestern Panama.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Boca del Toro, Río Guarumo, 9°55' to 9°52'N, 82°13'W, Chiriqui Grande District, Panama', and this species is endemic to the Guarúmo river basin in northwestern Panama.",
         "words": "Panama",
         "ok": true
       }

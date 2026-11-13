@@ -2,13 +2,15 @@ import Handbook
 import SwiftUI
 
 /// The handbook: before a search, a home arranged as the site arranges it (HomeList: fish by group, plants by where
-/// they go, guides by subject, the tools, the glossary); while searching, every page that matches, of one kind if
+/// they go, guides by subject, equipment, the tools, the glossary); while searching, every page that matches, of one kind if
 /// picked. A page opens as the app draws it (guides), the site's page, or the app's own screen for it (the Chihiros
 /// tool is the Lights tab, "Bể của tôi" the tanks tab, the fish-ID tool a screen of its own).
 struct HandbookView: View {
   /// The pages open in the tab: a link in a page the app draws pushes onto it (AppScreen.page).
   @Binding var path: NavigationPath
   @Environment(HandbookModel.self) private var handbook
+  /// On v2's search tab: a fish's or plant's page as v2 draws it (SpeciesPage), with v1's for a part it can't (FullPage).
+  @Environment(\.v2Pages) private var v2Pages
 
   var body: some View {
     @Bindable var handbook = handbook
@@ -38,12 +40,23 @@ struct HandbookView: View {
       .listStyle(.insetGrouped)
       // The chips right under the search field, not a section's space below it; the home keeps its own.
       .contentMargins(.top, handbook.query.isEmpty ? nil : 4, for: .scrollContent)
-      .searchable(text: $handbook.query, prompt: Text("Tìm loài cá, cây, hướng dẫn"))
+      // Placed, not left to iOS: iOS 27 keeps a search tab's field out of sight until the page is pulled down.
+      .searchable(text: $handbook.query, placement: .navigationBarDrawer(displayMode: .always), prompt: Text("Tìm loài cá, cây, hướng dẫn"))
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle("Tìm")
-      .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
+      .profileButton()
+      .navigationDestination(for: HandbookIndex.Item.self) { item in
+        if #available(iOS 18, *), v2Pages, item.kind == .fish || item.kind == .plant { SpeciesPage(item: item) } else {
+          PageView(item: item, url: handbook.url(item))
+        }
+      }
+      .navigationDestination(for: FullPage.self) { PageView(item: $0.item, url: handbook.url($0.item), at: $0.at) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
+      .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query) }
       .navigationDestination(for: FishIdRoute.self) { _ in FishIdView() }
       .navigationDestination(for: SitePage.self) { WebScreen(url: $0.url) }
+      .navigationDestination(for: TankMatesTool.self) { TankMatesView(query: $0.query) }
+      .navigationDestination(for: ChatRoute.self) { ChatView(route: $0) }
       .overlay {
         if handbook.status == .loading { ProgressView() }
         // Nothing found of any kind (none of one, with others found, is a row: NoneOfKind).
@@ -131,7 +144,7 @@ private struct MoreResults: View {
   var body: some View {
     let shown = handbook.results.count
     VStack(alignment: .leading, spacing: 4) {
-      Text("Đang hiện \(shown.formatted()) trong \((shown + handbook.left).formatted()) kết quả. Gõ thêm để thu hẹp.")
+      Text("Đang hiện \(shown.formatted(.number.locale(.app))) trong \((shown + handbook.left).formatted(.number.locale(.app))) kết quả. Gõ thêm để thu hẹp.")
         // As the chips' counts: the footer's secondary measured 3.3:1 on the light look's background.
         .foregroundStyle(Color.primary.opacity(0.6))
         .accessibilityIdentifier("more-note")
@@ -149,11 +162,11 @@ private struct NoneOfKind: View {
   @Environment(HandbookModel.self) private var handbook
 
   var body: some View {
-    let found = HandbookIndex.Kind.allCases.compactMap { k in handbook.counts[k].map { "\(k.title) (\($0.formatted()))" } }
+    let found = HandbookIndex.Kind.allCases.compactMap { k in handbook.counts[k].map { "\(k.title) (\($0.formatted(.number.locale(.app))))" } }
     ContentUnavailableView {
       Label("Không có kết quả trong “\(kind.title)”", systemImage: "magnifyingglass")
     } description: {
-      Text("“\(handbook.query)” có kết quả trong \(found.formatted(.list(type: .and))).")
+      Text("“\(handbook.query)” có kết quả trong \(found.formatted(.list(type: .and).locale(.app))).")
     } actions: {
       Button("Xem tất cả") { handbook.kind = nil }.accessibilityIdentifier("see-all")
     }
@@ -207,41 +220,51 @@ struct StatusText: View {
 
 struct ItemRow: View {
   let item: HandbookIndex.Item
+  @Environment(\.dynamicTypeSize) private var size
+
   var body: some View {
+    // At the accessibility text sizes, no picture: beside one, the name and the scientific name broke mid-word.
+    let pictured = !size.isAccessibilitySize
+    let lengthInLine = !pictured && item.sub == nil && item.video != nil
     HStack(spacing: 12) {
-      AsyncImage(url: item.img.flatMap(URL.init(string:))) { image in
-        image.resizable().scaledToFill()
-      } placeholder: {
-        // No photo, or not yet: the kind's glyph in the square a photo fills, so the names beside them line up.
-        ZStack {
-          Color(.tertiarySystemFill)
-          Image(systemName: item.kind.symbol).font(.system(size: 22)).foregroundStyle(.secondary)
-        }
-      }
-      .frame(width: 56, height: 56)
-      .clipShape(RoundedRectangle(cornerRadius: 8))
-      // A video guide's length on its picture, as the site's cards show it (read after the name, as the row's value).
-      .overlay(alignment: .bottomTrailing) {
-        if let s = item.video {
-          Text(verbatim: clock(s))
-            .font(.caption2.weight(.semibold)).monospacedDigit()
-            .foregroundStyle(.white).padding(.horizontal, 3).background(.black.opacity(0.75), in: RoundedRectangle(cornerRadius: 3))
-            .padding(2)
-            .accessibilityHidden(true)
-        }
-      }
+      if pictured { picture }
       VStack(alignment: .leading, spacing: 2) {
         Text(item.name).foregroundStyle(.primary)
-        // A scientific name in italics; a video series' channel; else what it is (a video guide: a video).
+        // A scientific name in italics; a video series' channel; else what it is (a video guide: a video, and its length
+        // when there's no picture to show it on).
         if let sub = item.sub { Text(sub).font(.caption).italic(item.kind != .video).foregroundStyle(.secondary) }
+        else if lengthInLine, let s = item.video { Text(verbatim: "\(HandbookIndex.Kind.video.title) · \(clock(s))").font(.caption).foregroundStyle(.secondary) }
         else { Text(item.video != nil ? HandbookIndex.Kind.video.title : item.kind.title).font(.caption).foregroundStyle(.secondary) }
       }
     }
     .accessibilityElement(children: .combine)
-    .accessibilityValue(Text(verbatim: item.video.map(clock) ?? ""))
+    .accessibilityValue(Text(verbatim: lengthInLine ? "" : item.video.map(clock) ?? ""))
     .accessibilityIdentifier("item")
   }
 
+  private var picture: some View {
+    AsyncImage(url: item.img.flatMap(URL.init(string:))) { image in
+      image.resizable().scaledToFill()
+    } placeholder: {
+      // No photo, or not yet: the kind's glyph in the square a photo fills, so the names beside them line up.
+      ZStack {
+        Color(.tertiarySystemFill)
+        Image(systemName: item.kind.symbol).font(.system(size: 22)).foregroundStyle(.secondary)
+      }
+    }
+    .frame(width: 56, height: 56)
+    .clipShape(RoundedRectangle(cornerRadius: 8))
+    // A video guide's length on its picture, as the site's cards show it (read after the name, as the row's value).
+    .overlay(alignment: .bottomTrailing) {
+      if let s = item.video {
+        Text(verbatim: clock(s))
+          .font(.caption2.weight(.semibold)).monospacedDigit()
+          .foregroundStyle(.white).padding(.horizontal, 3).background(.black.opacity(0.75), in: RoundedRectangle(cornerRadius: 3))
+          .padding(2)
+          .accessibilityHidden(true)
+      }
+    }
+  }
 }
 
 extension HandbookIndex.Kind {
@@ -253,6 +276,9 @@ extension HandbookIndex.Kind {
     case .glossary: String(localized: "Thuật ngữ")
     case .tool: String(localized: "Công cụ")
     case .video: String(localized: "Video")
+    case .equipment: String(localized: "Thiết bị")
+    case .taxon: String(localized: "Phân loại")
+    case .origin: String(localized: "Nguồn gốc")
     }
   }
   var symbol: String {
@@ -263,6 +289,9 @@ extension HandbookIndex.Kind {
     case .glossary: "character.book.closed"
     case .tool: "wrench.and.screwdriver"
     case .video: "play.rectangle"
+    case .equipment: "gearshape"
+    case .taxon: "list.bullet.indent"
+    case .origin: "globe.asia.australia"
     }
   }
 }

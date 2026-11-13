@@ -19,6 +19,609 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "CO",
+        "BR",
+        "EC",
+        "GY",
+        "VE"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Essequibo",
+        "Madeira",
+        "Ucayali"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The fish are sourced from the upper Amazon, mostly from Peru, but sometimes also from Colombia or Brazil.",
+          "countries": [
+            "PE",
+            "CO",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs throughout much of the Amazon basin in Brazil, Colombia, Peru, and Ecuador, including the Amazonas/Solimões main channel plus the rios Pará, Tocantins, Jari, Xingu, Tapajós, Uatumã, Madeira, Trombetas, Negro, Purus, Tefé, Japurá/Caquetá, Juruá, Jutaí, Içá/Putomayo, Javary, Ampiyacu, Amacayacú, Napo, Nanay, Marañón, and Ucayali, with its range extending at least as far upstream as Pucallpa in eastern Peru.",
+          "countries": [
+            "EC"
+          ],
+          "regions": [
+            "Madeira",
+            "Ucayali"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There are also numerous records from drainages north of the Amazon mouth including the Essequibo and Waini in Guyana, and lower Orinoco in Venezuela.",
+          "countries": [
+            "GY",
+            "VE"
+          ],
+          "regions": [
+            "Orinoco",
+            "Essequibo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Amazon puffer, Colomesus asellus, is a freshwater puffer found throughout much of the Amazon basin, with records north to Guyana and Venezuela.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2407613,
+      "total": 378,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          277
+        ],
+        [
+          "GY",
+          43
+        ],
+        [
+          "PE",
+          32
+        ],
+        [
+          "VE",
+          15
+        ],
+        [
+          "CO",
+          6
+        ],
+        [
+          "EC",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -8.4375,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          -4.21875,
+          18,
+          18
+        ],
+        [
+          -70.3125,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          6,
+          6
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          9,
+          9
+        ],
+        [
+          -63.28125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          8.4375,
+          7,
+          7
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          21,
+          21
+        ],
+        [
+          -60.46875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -60.46875,
+          5.625,
+          6,
+          6
+        ],
+        [
+          -60.46875,
+          7.03125,
+          10,
+          10
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          -59.0625,
+          5.625,
+          10,
+          10
+        ],
+        [
+          -57.65625,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -5.625,
+          7,
+          7
+        ],
+        [
+          -56.25,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -2.8125,
+          30,
+          30
+        ],
+        [
+          -54.84375,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          38,
+          38
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          11,
+          11
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          4,
+          4
+        ],
+        [
+          -52.03125,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          0,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -2.8125,
+          18,
+          18
+        ],
+        [
+          -49.21875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -12.65625,
+          6,
+          6
+        ],
+        [
+          -49.21875,
+          -11.25,
+          8,
+          8
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          10,
+          10
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          10,
+          10
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -47.8125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -84,7 +687,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       },
       {
         "source": "aquariumcoop",
@@ -176,12 +779,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-asellus",
       "html": "<p>Unrecorded in aquaria.</p><p>This species exhibits a spawning strategy comparable to that of marine puffers and in contrast to the majority of freshwater tetraodontids, with high fecundity, relatively small eggs, and no parental care. Limited studies in the central Amazon basin suggest that spawning occurs in main river channels or close to banks at the mouths of floodplain lakes and tributaries during periods of high water. The pelagic larvae are washed into nursery zones in floodplain lakes where they complete their development, returning to river channels when flood waters recede.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/colomesus-asellus-sphoeroides-asellus-2/",
-      "html": "<p>A look-alike species was described in 2013 from the Rio Tocantins basin in Brazil; it is virtually indistinguishable from S. asellus in color, but differs in minor anatomical details and, most notably, based on DNA: Sphoeroides tocantinensis. This species is also a strictly freshwater pufferfish. To the best of our knowledge, it is not exported, and its care should not differ from that of S. asellus.</p>"
     },
     {
       "key": "notes",
@@ -285,17 +882,6 @@
       "source": "aquariumcoop"
     },
     {
-      "url": "https://media.aquatome.com/aquariumcoop/84ee3470fcb4ca67.webp",
-      "thumb": "https://media.aquatome.com/aquariumcoop/84ee3470fcb4ca67-480.webp",
-      "width": 938,
-      "height": 644,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Co-op",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amazon-puffer-care-guide",
-      "caption": "Group of Amazon puffers eating frozen bloodworms",
-      "source": "aquariumcoop"
-    },
-    {
       "url": "https://media.aquatome.com/aquariumcoop/e6dbb87efecdf666.webp",
       "thumb": "https://media.aquatome.com/aquariumcoop/e6dbb87efecdf666-480.webp",
       "width": 1002,
@@ -304,6 +890,17 @@
       "author": "Aquarium Co-op",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amazon-puffer-care-guide",
       "caption": "Amazon puffer examining the gravel",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/84ee3470fcb4ca67.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/84ee3470fcb4ca67-480.webp",
+      "width": 938,
+      "height": 644,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amazon-puffer-care-guide",
+      "caption": "Group of Amazon puffers eating frozen bloodworms",
       "source": "aquariumcoop"
     },
     {
@@ -323,8 +920,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá thủy sinh nhỏ"
+        "bể cá 120cm"
       ]
     },
     {

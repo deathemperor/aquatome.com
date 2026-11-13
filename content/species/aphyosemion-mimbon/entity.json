@@ -10,6 +10,68 @@
     "gabon",
     "mve"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [
+        "Mvé",
+        "Abanga",
+        "Mbei",
+        "Komo",
+        "Nkam"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from a minor tributary of the Mvé River running through the village of Akoga, northwestern Gabon and has been recorded in other headwater drainages of the region including the Abanga, Mbei, Komo and Nkam.",
+          "countries": [
+            "GA"
+          ],
+          "regions": [
+            "Mvé",
+            "Abanga",
+            "Mbei",
+            "Komo",
+            "Nkam"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348380,
+      "total": 10,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "GQ",
+          9
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          0,
+          9,
+          0
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -47,7 +109,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 4
       }
     ]
   },

@@ -1,17 +1,47 @@
 ---
-import type { GuideEntity, Localized } from '@aq/schema'
+import type { GuideEntity, Localized, Photo } from '@aq/schema'
 import GuideCard from './GuideCard.astro'
-interface Props { guides: Localized<GuideEntity>[]; heading: string; max?: number }
-const { guides, heading, max = 6 } = Astro.props
+import { i18n } from '../lib/i18n'
+/**
+ * Video guides as cards, the first `max`. A phone shows two, with a button for the rest (without the script, all of them).
+ * `photos`: each card's picture as its page chose it, in the same order (a page never shows one twice, lib/pictures.ts).
+ */
+interface Props { guides: Localized<GuideEntity>[]; heading: string; max?: number; photos: (Photo | null)[] }
+const { guides, heading, max = 6, photos } = Astro.props
+const { t } = i18n(Astro.url)
+const shown = guides.slice(0, max)
 ---
 {guides.length > 0 && (
-  <section class="wrap vg" aria-label={heading} data-pagefind-ignore>
+  <section class="wrap vg" aria-label={heading} data-pagefind-ignore data-vg>
     <h2>{heading}</h2>
-    <div class="grid">{guides.slice(0, max).map(g => <GuideCard g={g} />)}</div>
+    <div class="grid">{shown.map((g, i) => <GuideCard g={g} photo={photos[i] ?? null} />)}</div>
+    {shown.length > 2 && <p class="all"><button type="button" data-vg-all hidden>{t('Xem cả {n} video', { n: shown.length })}</button></p>}
   </section>
 )}
+<script>
+  for (const vg of document.querySelectorAll<HTMLElement>('[data-vg]')) {
+    const all = vg.querySelector<HTMLButtonElement>('[data-vg-all]')
+    if (!all) continue
+    vg.dataset.few = ''
+    all.hidden = false
+    all.addEventListener('click', () => {
+      delete vg.dataset.few
+      all.hidden = true
+      vg.querySelector<HTMLElement>('.grid > :nth-child(3)')?.focus()
+    })
+  }
+</script>
 <style>
   .vg { padding-block: var(--space-5) var(--space-6); }
   h2 { font-size: var(--step-2); border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-5); }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
+  .all { display: none; margin: var(--space-5) 0 0; }
+  .all button { display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.5rem; font: 600 1rem var(--f-body); background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-ink); cursor: pointer; }
+  .all button:hover { background: var(--c-ink); color: var(--c-paper); }
+  .all button[hidden] { display: none; }
+  /* A phone: two cards, each a full screen's width, then the button for the rest. */
+  @media (max-width: 520px) {
+    .vg[data-few] .grid > :global(:nth-child(n + 3)) { display: none; }
+    .all { display: block; }
+  }
 </style>

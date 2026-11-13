@@ -9,6 +9,7 @@ import { contract } from './contract'
 import { testD1 } from './d1'
 import { memoryLedger } from './ledger'
 import { emptyDay } from '../fishid/ledger'
+import { memoryR2 } from './r2'
 
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4, 5, 6, 7, 8])
 const A = 'sk-ant-api03-aaaaaaaaaaaa'
@@ -137,7 +138,7 @@ const CHECKED = { verdict: 'fish', guesses: [
   { ...NEON.guesses[1], id: null },
 ] }
 const apiError = (status: number, type: string, msg: string, headers: Record<string, string> = {}) => Response.json({ type: 'error', error: { type, message: msg } }, { status, headers })
-const fields = (p: Point) => ({ outcome: p.blobs[0], key: p.blobs[2], stopped: p.blobs[9], input: p.doubles[0], output: p.doubles[1], cost: p.doubles[2], attempts: p.doubles[4], turns: p.doubles[7], tools: p.doubles[8], refs: p.doubles[9] })
+const fields = (p: Point) => ({ outcome: p.blobs[0], key: p.blobs[2], stopped: p.blobs[9], input: p.doubles[0], output: p.doubles[1], cost: p.doubles[2], attempts: p.doubles[4], turns: p.doubles[7], tools: p.doubles[8], refs: p.doubles[9], rechecked: p.doubles[10] })
 const today = () => new Date().toISOString().slice(0, 10)
 /** Each reader's count today, in the ledger. */
 const readerCount = (l: ReturnType<typeof memoryLedger>) => Object.values(l.day()?.readers ?? {})
@@ -184,6 +185,60 @@ test('the agent on: it searches the handbook, opens two pages and their photos, 
   expect(readerCount(ledger)).toEqual([1])
 })
 
+test('every run is kept a year as text: the agent asks for its thinking summarised; its turns and the answer under the day; never the photo, the reader\'s address or a key; today\'s call too, its request as before', async () => {
+  const r2 = memoryR2()
+  const { e } = agentEnv({ UPLOADS: r2.bucket })
+  const c = claude([() => asks([['get_entry', { id: 'paracheirodon-innesi' }]]), () => message(CHECKED, 'end_turn', usage3)])
+  const waits: Promise<unknown>[] = []
+  await (await handle(post(), e, p => { waits.push(p) }, undefined, deps(c.fetch))).json()
+  await Promise.all(waits)
+  for (const x of c.calls) expect(x.body.thinking).toEqual({ type: 'adaptive', display: 'summarized' })
+  const runs = [...r2.m].filter(([k]) => k.startsWith('fish-id-runs/'))
+  expect(runs).toHaveLength(1)
+  const [key, o] = runs[0]!
+  expect(key).toMatch(new RegExp(`^fish-id-runs/${new Date().toISOString().slice(0, 10)}/[0-9a-f-]{36}\\.json$`))
+  const text = new TextDecoder().decode(o.bytes)
+  const r = JSON.parse(text)
+  expect(r).toMatchObject({ v: 1, lang: 'vi', from: '', model: 'claude-opus-5-5', outcome: 'ok', agent: { calls: 2, tools: 1, photos: 2, stopped: 'answer' }, verdict: 'fish',
+    results: [{ scientificName: 'Paracheirodon innesi', confidence: 0.92, reason: 'Sọc xanh ánh kim, nửa sau thân đỏ.', page: 'paracheirodon-innesi' }, { scientificName: 'Paracheirodon axelrodi', page: 'paracheirodon-axelrodi' }] })
+  expect(key).toContain(r.id)
+  expect(r.turns).toHaveLength(2)
+  expect(r.turns[0].tools).toEqual([{ name: 'get_entry', input: { id: 'paracheirodon-innesi' }, result: expect.stringMatching(/^paracheirodon-innesi \(species\): Cá neon xanh[\s\S]*The other 1 species of Paracheirodon/), photos: ['https://media.aquatome.com/neon-480.webp', 'https://media.aquatome.com/neon-2-480.webp'] }])
+  expect(r.turns[1].text).toBe(JSON.stringify(CHECKED))
+  for (const never of [btoa(String.fromCharCode(...JPEG)), '203.0.113.7', A, B, 'iPhone']) expect(text).not.toContain(never)
+
+  // Today's single call (the agent off): its answer kept the same way, its request unchanged (no thinking asked for).
+  const r2b = memoryR2()
+  const { e: off } = env({ UPLOADS: r2b.bucket })
+  const d = claude([() => message(NEON)])
+  const waits2: Promise<unknown>[] = []
+  await (await handle(post(), off, p => { waits2.push(p) }, undefined, deps(d.fetch))).json()
+  await Promise.all(waits2)
+  expect(d.calls[0]!.body).toStrictEqual(TODAY_REQUEST)
+  const single = JSON.parse(new TextDecoder().decode([...r2b.m.values()][0]!.bytes))
+  expect(single).toMatchObject({ outcome: 'ok', turns: [{ text: JSON.stringify(NEON) }] })
+  expect(single).not.toHaveProperty('agent')
+  // Streamed (the app's progress): the same, one record when the run ends.
+  const r2c = memoryR2()
+  const { e: s3 } = agentEnv({ UPLOADS: r2c.bucket })
+  const waits3: Promise<unknown>[] = []
+  expect(await (await handle(streamed(), s3, p => { waits3.push(p) }, undefined, deps(claude([() => message(CHECKED, 'end_turn', usage3)]).fetch))).text()).toContain('event: result')
+  await Promise.all(waits3)
+  expect([...r2c.m.keys()].filter(k => k.startsWith('fish-id-runs/'))).toHaveLength(1)
+  // A bucket that fails to save: the reader's answer as ever, the error logged.
+  const { e: broken } = agentEnv({ UPLOADS: { put: async () => { throw new Error('r2 down') } } })
+  const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
+  const waits4: Promise<unknown>[] = []
+  const res4 = await handle(post(), broken, p => { waits4.push(p) }, undefined, deps(claude([() => message(CHECKED)]).fetch))
+  expect(res4.status).toBe(200)
+  await Promise.all(waits4)
+  expect(errors.mock.calls.some(c => c[0] === 'fish-id transcript:')).toBe(true)
+  errors.mockRestore()
+  // No bucket: the identification as before, nothing kept.
+  const { e: bare } = agentEnv()
+  expect((await run(post(), bare, deps(claude([() => message(CHECKED)]).fetch))).status).toBe(200)
+})
+
 test('the agent on: a page the answer names without checking still links by its name, and a guess with no page stays unlinked', async () => {
   const { e } = agentEnv()
   const c = claude([() => message({ verdict: 'fish', guesses: [{ ...NEON.guesses[0], id: null }, { scientificName: 'Nannostomus beckfordi', commonName: 'Golden pencilfish', variety: null, confidence: 0.1, reason: 'Sọc dọc.', id: 'no-such-page' }] })])
@@ -192,7 +247,31 @@ test('the agent on: a page the answer names without checking still links by its 
   expect(body.results.map(r => r.page?.id ?? null)).toEqual(['paracheirodon-innesi', null])
 })
 
-test('the agent on: a call after the first fails → its key set aside as the rotation would, and today\'s single call answers on the next key', async () => {
+test('the agent on: an answer under 0.6 sure is sent back once with its genus\'s species; the answer after it is the reader\'s, logged as rechecked', async () => {
+  const { e, points } = agentEnv()
+  const unsure = { verdict: 'fish', guesses: [{ scientificName: 'Betta splendens', commonName: 'Betta', variety: null, confidence: 0.4, reason: 'Thân đỏ.', id: null }] }
+  const sure = { verdict: 'fish', guesses: [{ ...unsure.guesses[0], confidence: 0.85, id: 'betta-splendens' }] }
+  const c = claude([() => message(unsure, 'end_turn', CACHED), () => message(sure, 'end_turn', CACHED)])
+  const body = await (await run(post(), e, deps(c.fetch))).json() as { results: { confidence: number; page?: { id: string } }[] }
+  expect(body.results.map(r => [r.page?.id, r.confidence])).toEqual([['betta-splendens', 0.85]])
+  expect(c.calls).toHaveLength(2)
+  const messages = (c.calls[1]!.body as { messages: { role: string; content: { type: string; text?: string }[] }[] }).messages
+  expect(messages.map(m => m.role)).toEqual(['user', 'assistant', 'user'])
+  const sent = messages[2]!.content[0]!.text!
+  expect(sent).toMatch(/^Your top guess is only 0\.40 sure\./)
+  expect(sent).toContain('"betta-splendens"')
+  expect(sent).not.toContain('halfmoon-betta')
+  expect(fields(points[0]!)).toMatchObject({ outcome: 'ok', stopped: 'answer', turns: 2, rechecked: 1 })
+
+  // Sure enough: one call, logged as not rechecked.
+  const { e: e2, points: p2 } = agentEnv()
+  const d = claude([() => message(sure, 'end_turn', CACHED)])
+  await run(post(), e2, deps(d.fetch))
+  expect(d.calls).toHaveLength(1)
+  expect(fields(p2[0]!)).toMatchObject({ turns: 1, rechecked: 0 })
+})
+
+test('the agent on: a call after the first fails → its key set aside as the rotation would, and the next key takes the same call, with what the run has read', async () => {
   const { e, kv, points } = agentEnv()
   const c = claude([
     () => asks([['search_handbook', { query: 'Paracheirodon innesi', genus: null }]]),
@@ -205,10 +284,48 @@ test('the agent on: a call after the first fails → its key set aside as the ro
   expect(body.steps).toEqual([{ kind: 'search', query: 'Paracheirodon innesi' }])
   expect(body.results[0]!.page?.id).toBe('paracheirodon-innesi')
   expect(c.calls.map(x => x.key)).toEqual([A, A, B])
-  expect(c.calls[2]!.body.tools).toBeUndefined() // today's call, as the flag off would send it
+  // The agent's call as A was sent it: its tools, and the search it made with its result. Not today's single call.
+  expect(c.calls[2]!.body.tools).toEqual(c.calls[1]!.body.tools)
+  expect(c.calls[2]!.body.messages).toEqual(c.calls[1]!.body.messages)
   expect(JSON.parse(kv.get(`fishid:key:${await keyHash(A)}`)!.v)).toMatchObject({ why: 'rate' })
   expect(kv.has(`fishid:key:${await keyHash(B)}`)).toBe(false)
-  expect(fields(points[0]!)).toMatchObject({ outcome: 'ok', stopped: 'fallback', turns: 3, tools: 1, attempts: 3 })
+  expect(fields(points[0]!)).toMatchObject({ outcome: 'ok', stopped: 'answer', turns: 2, tools: 1, attempts: 3 })
+})
+
+test('the agent on: a key that runs out of credit between calls is set aside, and the next key carries the run on to its answer', async () => {
+  const { e, kv, points, ledger } = agentEnv()
+  const c = claude([
+    () => asks([['search_handbook', { query: 'Paracheirodon innesi', genus: null }]]),
+    // What an organisation with no credit answers (a real key, 2026-11-07): a 400, not a 402.
+    () => apiError(400, 'invalid_request_error', 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'),
+    () => asks([['get_entry', { id: 'paracheirodon-innesi' }]]),
+    () => message(NEON),
+  ])
+  const res = await run(post(), e, deps(c.fetch))
+  expect(res.status).toBe(200)
+  // The rest of the run is the next key's: the call that failed, and the ones after it.
+  expect(c.calls.map(x => x.key)).toEqual([A, A, B, B])
+  expect(c.calls.every(x => x.body.tools)).toBe(true)
+  expect((c.calls[3]!.body.messages as unknown[]).length).toBe(5)
+  expect(JSON.parse(kv.get(`fishid:key:${await keyHash(A)}`)!.v)).toMatchObject({ why: 'credit' })
+  expect(fields(points[0]!)).toMatchObject({ outcome: 'ok', stopped: 'answer', turns: 3, tools: 2 })
+  expect(readerCount(ledger)).toEqual([1])
+})
+
+test('the agent on: when the next key refuses the run\'s history as a request, today\'s single call answers on the keys left', async () => {
+  const { e, kv, points } = agentEnv()
+  const c = claude([
+    () => asks([['search_handbook', { query: 'Paracheirodon innesi', genus: null }]]),
+    () => apiError(529, 'overloaded_error', 'Overloaded'),
+    () => apiError(400, 'invalid_request_error', 'messages.1.content.0: something about the history'),
+    () => message(NEON),
+  ])
+  const res = await run(post(), e, deps(c.fetch))
+  expect(res.status).toBe(200)
+  expect(c.calls.map(x => x.key)).toEqual([A, A, B, A])
+  expect(c.calls[3]!.body.tools).toBeUndefined() // today's call, as the flag off would send it
+  expect(kv.has(`fishid:key:${await keyHash(B)}`)).toBe(false)
+  expect(fields(points[0]!)).toMatchObject({ outcome: 'ok', stopped: 'fallback' })
 })
 
 test('the agent on: a failed call with under 10 s left answers unavailable, and the reader\'s count is given back', async () => {
@@ -246,20 +363,23 @@ test('the agent off: no result gives the reader\'s count back too (a failed call
   expect(readerCount(ledger)).toEqual([1])
 })
 
-test('the site\'s spend a day: past FISH_ID_USD_PER_DAY (default $15) the next photo is busy before any call; each answer adds its cost', async () => {
+test('the site\'s spend a day: past FISH_ID_USD_PER_DAY (default $50, chat\'s too) the next photo is busy before any call; each answer adds its cost', async () => {
   const { e, ledger } = env()
-  const spent = { ...emptyDay(), calls: 3, usd: 15 }
+  const spent = { ...emptyDay(), calls: 3, usd: 50 }
   ledger.storage.m.set(`day:${today()}`, spent)
   const c = claude([() => message(NEON)])
   const res = await run(post(), e, deps(c.fetch))
   expect([res.status, await res.json()]).toEqual([429, { error: 'busy' }])
   expect(c.calls).toHaveLength(0)
   expect(readerCount(ledger)).toEqual([])
-  const { e: e2, ledger: l2 } = env({ FISH_ID_USD_PER_DAY: '20' })
+  const { e: e2, ledger: l2 } = env({ FISH_ID_USD_PER_DAY: '60' })
   l2.storage.m.set(`day:${today()}`, spent)
   expect((await run(post(), e2, deps(c.fetch))).status).toBe(200)
   expect(l2.day()).toMatchObject({ calls: 4, runs: {} })
-  expect(l2.day()!.usd).toBeCloseTo(15.0084, 10)
+  expect(l2.day()!.usd).toBeCloseTo(50.0084, 10)
+  // The owner's dashboard reads today's and yesterday's spend and the cap (admin/pages.ts flags a day past 80% of it).
+  const yesterday = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10)
+  expect(await fishIdStatus(e2 as never, new Date())).toMatchObject({ cap: 60, spend: [{ day: today(), usd: l2.day()!.usd }, { day: yesterday, usd: 0 }] })
 })
 
 const slowly = (r: () => Response, ms = 25) => async () => { await new Promise(res => setTimeout(res, ms)); return r() }

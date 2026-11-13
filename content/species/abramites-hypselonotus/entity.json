@@ -604,7 +604,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -613,7 +613,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/abramites-hypselonotus",
-      "html": "<p>The marbled headstander, Abramites hypselonotus, is an anostomid from the Amazon, Orinoco and Paraguay-Paraná basins in South America. An ecological generalist, it occurs in turbid main river channels, minor tributaries and backwaters, and enters inundated zones during the annual floods. Best kept as a group in a large tank alongside cichlids, characins and catfishes, it may nip long or trailing fins and eat soft-leaved plants.</p><ul><li>Max size: 140 mm SL (6 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 20–30°C (68–86°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–15 dGH</li><li>Difficulty: 5 of 8 (easy)</li></ul>"
+      "html": "<p>The marbled headstander, Abramites hypselonotus, is an anostomid from the Amazon, Orinoco and Paraguay-Paraná basins in South America. An ecological generalist, it occurs in turbid main river channels, minor tributaries and backwaters, and enters inundated zones during the annual floods. Best kept as a group in a large tank alongside cichlids, characins and catfishes, it may nip long or trailing fins and eat soft-leaved plants.</p><ul><li>Max size: 140 mm SL (6 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 20–30°C (68–86°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–15 dGH</li><li>Difficulty: 2 of 8 (easy)</li></ul>"
     },
     {
       "key": "distribution",
@@ -684,16 +684,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/ddad73f9a1015901.webp",
-      "width": 960,
-      "height": 1707,
-      "licence": "CC BY-SA 4.0",
-      "author": "Ramon and Suzanne Vargas",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abramites_hypselonotus_143059024.jpg",
-      "caption": "Marbled Headstander (Abramites hypselonotus) in Bolivia",
-      "thumb": "https://media.aquatome.com/commons/ddad73f9a1015901-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/015bedeb7d93d7f3.webp",
       "width": 960,
       "height": 674,
@@ -701,7 +691,12 @@
       "author": "Petruss",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abramites_hypselonotus1.jpg",
       "caption": "Abramites hypselonotus en el acuario del Zoológico de Cali, Colombia",
-      "thumb": "https://media.aquatome.com/commons/015bedeb7d93d7f3-480.webp"
+      "thumb": "https://media.aquatome.com/commons/015bedeb7d93d7f3-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/015bedeb7d93d7f3-large.webp",
+        "width": 1708,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/aa0220c87b8ca157.webp",
@@ -719,8 +714,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá dài 120x30"
+        "bể cá 120cm"
       ]
     },
     {

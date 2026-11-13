@@ -1,0 +1,30 @@
+{
+  "id": "trivia-medaka-space",
+  "type": "trivia",
+  "about": [
+    "species/oryzias-latipes"
+  ],
+  "sources": [
+    {
+      "url": "https://doi.org/10.1016/s0273-1177(97)00205-6",
+      "title": "Development of space-fertilized eggs and formation of primordial germ cells in the embryos of Medaka fish",
+      "publisher": "Advances in Space Research",
+      "date": "1998",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "show": {
+    "from": "2026-11-09",
+    "until": "2027-11-08"
+  },
+  "photo": {
+    "url": "https://media.aquatome.com/commons/4f94899e8e811e8e-large.webp",
+    "width": 1800,
+    "height": 1200,
+    "licence": "CC BY-SA 3.0",
+    "author": "根川孝太郎 (Kotaro Negawa)",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitano_Medaka_Male_by_Hino,_Tokyo.jpg"
+  },
+  "rotate": 180,
+  "updatedAt": "2026-11-08"
+}

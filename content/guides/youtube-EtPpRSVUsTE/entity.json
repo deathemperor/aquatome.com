@@ -1,0 +1,136 @@
+{
+  "id": "youtube-EtPpRSVUsTE",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=EtPpRSVUsTE",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-09",
+  "video": {
+    "youtubeId": "EtPpRSVUsTE",
+    "title": "Building a DIY Native Creek By Hand Almost Ruined Me",
+    "channel": "SerpaDesign",
+    "channelUrl": "https://www.youtube.com/channel/UCGzXtNdhjPxvCNWFme1bG0g",
+    "durationSec": 1882,
+    "publishedAt": "2026-08-15",
+    "chapters": [],
+    "series": {
+      "id": "PLGPT1t4CqpfgR3-g8uqhCFdobxpfonu5U",
+      "position": 24
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/EtPpRSVUsTE/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Plethodon cinereus",
+      "Lithobates clamitans",
+      "Dryophytes versicolor",
+      "Rudbeckia hirta",
+      "Phlox sp.",
+      "Solidago speciosa",
+      "Echinacea sp.",
+      "Agastache foeniculum",
+      "Asclepias incarnata",
+      "Juniperus sp.",
+      "Carex sp.",
+      "Iris sp."
+    ],
+    "gear": [
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 186
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Đặt đá, gỗ và chèn khe sao cho chắc",
+        "moments": [
+          {
+            "t": 210,
+            "url": "https://media.aquatome.com/video/EtPpRSVUsTE/at210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Gốc cây và cành gỗ đặt xen giữa các hòn đá trên lớp vải.",
+            "sharpness": 1634.6,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/EtPpRSVUsTE/p2-bmVfc3RlcHMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/EtPpRSVUsTE/p2-bmVfc3RlcHMuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "PattayaPatrol",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:DFC_6033_A_peaceful_garden_pond_framed_by_lush_tropical_foliage_and_sun-dappled_stone_steps.jpg",
+          "caption": "Dòng suối với đá tảng xếp chắc chắn, xung quanh là cây cối rậm rạp."
+        }
+      },
+      {
+        "heading": "Làm lọc bog",
+        "moments": [
+          {
+            "t": 460,
+            "url": "https://media.aquatome.com/video/EtPpRSVUsTE/at460-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Máng thoát nước đặt trong rãnh, phủ vải địa kỹ thuật, cạnh ống lọc.",
+            "sharpness": 575.6,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Tìm và vá chỗ rò",
+        "moments": [
+          {
+            "t": 810,
+            "url": "https://media.aquatome.com/video/EtPpRSVUsTE/at810-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mực nước ở mép hồ đá, chỗ cần kiểm tra rò rỉ.",
+            "sharpness": 564.4,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Giữ chỗ ở cho ếch, kỳ giông và côn trùng",
+        "moments": [
+          {
+            "t": 930,
+            "url": "https://media.aquatome.com/video/EtPpRSVUsTE/at930-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nòng nọc bám trên đá cạnh gốc cây trong nước.",
+            "sharpness": 2159.3,
+            "person": false
+          },
+          {
+            "t": 940,
+            "url": "https://media.aquatome.com/video/EtPpRSVUsTE/at940-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Con ếch ngồi trên tảng đá ở khu bờ.",
+            "sharpness": 151,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/EtPpRSVUsTE/p6-3NzczNTIyKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/EtPpRSVUsTE/p6-3NzczNTIyKS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 2.0",
+          "author": "John Tann from Sydney, Australia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Striped_marsh_frog_tadpoles_-_day_3_(3437773522).jpg",
+          "caption": "Nòng nọc bơi giữa lá khô, thân cây và gốc cói trong nước nông."
+        }
+      }
+    ]
+  }
+}

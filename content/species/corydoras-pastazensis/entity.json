@@ -1,0 +1,275 @@
+{
+  "id": "corydoras-pastazensis",
+  "scientificName": "Corydoras pastazensis",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "ecuador",
+    "pastaza",
+    "peru",
+    "ucayali"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "PE"
+      ],
+      "regions": [
+        "Pastaza",
+        "Ucayali",
+        "Puinahua"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species has been collected in upper parts of the Pastaza river basin in Ecuador plus the ríos Ucayali and Puinahua in Peru.",
+          "countries": [
+            "EC",
+            "PE"
+          ],
+          "regions": [
+            "Pastaza",
+            "Ucayali",
+            "Puinahua"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342677,
+      "total": 21,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PE",
+          13
+        ],
+        [
+          "EC",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-pastazensis",
+      "html": "<p>The Pastaza cory, Corydoras pastazensis, is an armoured catfish from the upper Río Pastaza basin in Ecuador and the ríos Ucayali and Puinahua in Peru. The Río Tigre form was raised to species status as C. orcesi, a decision not followed by all authorities. The two are relatively easy to tell apart: in C. pastazensis the dark vertical bar breaks up or tapers off low on the body, and the body is peppered with numerous small dark spots.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-pastazensis",
+      "html": "<p>This species has been collected in upper parts of the Pastaza river basin in Ecuador plus the ríos Ucayali and Puinahua in Peru.</p><p>Records from the ríos Tigre and Napo probably relate to the congener C. orcesi although this species is not considered valid by all authorities (see 'Notes').</p><p>Type locality is 'Chicherata near the mouth of the Río Bobonaza, a tributary of the Río Pastaza, itself a tributary of the Río Marañón, Pastaza Province, Ecuador, about 2° 33' S latitude and 76° 40' W longitude', although the latter coordinates have been questioned with 2° 22' S, 76° 38' W appearing more accurate based on the other details provided.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-pastazensis",
+      "html": "<p>Standard length: 7 cm SL. Aquarium base: 90 × 30 cm. Volume: about 81 litres.</p><p>Minimum base dimensions of 90 × 30 cm or equivalent are suggested for general care, although smaller aquaria may be used for breeding purposes.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-pastazensis",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-pastazensis",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 5.0–7.0</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-pastazensis",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-pastazensis",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 6-8 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-pastazensis",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and broader-bodied than males, especially when gravid.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-pastazensis",
+      "html": "<p>Etymology: Corydoras comes from the Ancient Greek κόρυς (korus), meaning 'helmet', and δορά (dora), meaning 'skin, hide of an animal', in allusion to the rows of bony plates on the flanks of genus members. The name pastazensis refers to the Río Pastaza, Ecuador, with the type series having been collected from one of its tributaries.</p><p>The form from the Río Tigre, previously referred to as the subspecies C. p. orcesi (Weitzman &amp; Nijssen, 1970) was raised to full species status as C. orcesi by Isbrücker (2001), but this decision does not appear to have been followed by all authorities some of which consider C. p. orcesi a synonym of C. pastazensis.</p><p>The two species are relatively easy to tell apart by colour pattern; in C. pastazensis the dark vertical bar in the anterior portion of the body breaks up or tapers off in the lower portion of the body and the body is peppered with numerous small dark spots; in C. orcesi the vertical bar is more continuous and there are fewer, larger spots on the body.</p><p>The genus Corydoras held over 150 valid species until Dias et al. (2024) divided it into five genera.</p><p>It's included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It's thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-pastazensis",
+      "html": "<ul><li>Weitzman, S. H. (1963). A new catfish, Corydoras pastazensis (Callichthyidae) from Ecuador. Proceedings of the Biological Society of Washington v. 76, 59-64</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/3a6ba60cb33fcee9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3a6ba60cb33fcee9-480.webp",
+      "width": 500,
+      "height": 302,
+      "licence": "dùng với sự cho phép",
+      "author": "Memin / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_pastazensis.htm",
+      "caption": "Corydoras pastazensis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/537e0dade63870ee.webp",
+      "thumb": "https://media.aquatome.com/scotcat/537e0dade63870ee-480.webp",
+      "width": 500,
+      "height": 243,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_pastazensis.htm",
+      "caption": "Corydoras pastazensis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá chuột chìm",
+        "thức ăn viên chìm cho cá chuột"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 90cm",
+        "lọc ngoài bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

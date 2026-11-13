@@ -6,9 +6,11 @@
   "html": "",
   "photos": [],
   "mentions": [
-    "neocaridina-davidi"
+    "neocaridina-davidi",
+    "micranthemum-tweediei-monte-carlo",
+    "micranthemum-tweediei"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "xaMPVEEhQzU",
     "title": "Aquascape Tutorial: Super Simple Low Budget Nano Tank - This Could Be Your First Aquascape!!",
@@ -48,8 +50,7 @@
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Aquagrow",
-        "model": "UNIQ nano",
-        "t": 323
+        "model": "UNIQ nano"
       },
       {
         "category": "co2",
@@ -57,16 +58,16 @@
         "t": 323
       },
       {
-        "category": "co2",
+        "category": "khac",
         "brand": "Aquario",
         "model": "neo diffuser",
-        "t": 427
+        "t": 422
       },
       {
         "category": "khac",
         "brand": "APT",
-        "model": "complete",
-        "t": 443
+        "model": "Complete",
+        "t": 442
       },
       {
         "category": "phan-nen",
@@ -88,188 +89,164 @@
     ],
     "figures": [
       {
-        "heading": "Chuẩn bị bể và nền",
+        "heading": "Chuẩn bị gì trước khi set bể",
         "moments": [
           {
-            "t": 54,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t54.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể kính siêu trong, đường silicon mảnh, lớp nền cũ giữ lại từ bể trước."
-          }
-        ]
-      },
-      {
-        "heading": "Sắp đá theo kiểu Iwagumi",
-        "moments": [
-          {
-            "t": 128,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t128.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đặt viên đá phụ cạnh đá chính lệch về một bên bể."
+            "t": 0,
+            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/at0-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lớp nền cũ được dàn sẵn trong bể kính trống.",
+            "sharpness": 9227.9,
+            "person": false
           },
           {
-            "t": 157,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t157.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ba viên đá Seiryu đã sắp xong, đá chính lệch sang một bên."
+            "t": 5,
+            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/at5-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ba viên đá Seiryu đặt trên nền, cây trải nền xung quanh.",
+            "sharpness": 580.5,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/xaMPVEEhQzU/p1-LWxlbm5hcnQuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/xaMPVEEhQzU/p1-LWxlbm5hcnQuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/xaMPVEEhQzU/p0-LWxlbm5hcnQuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/xaMPVEEhQzU/p0-LWxlbm5hcnQuanBn-480.webp",
           "width": 960,
           "height": 337,
           "licence": "CC BY-SA 4.0",
           "author": "Lennart Jöhnk",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquascaping-minilandschaft-lennart.jpg",
-          "caption": "Bể thủy sinh Iwagumi với đá chính lệch bên và thảm cỏ xanh."
+          "caption": "Bể thủy sinh có đá Seiryu và thảm cây trải nền xanh mướt."
         }
       },
       {
-        "heading": "Đắp thêm phân nền và giữ nền không trôi",
+        "heading": "Đắp nền và đặt đá thế nào",
         "moments": [
           {
-            "t": 172,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t172.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đổ thêm phân nền mới lên lớp nền cũ quanh các khối đá."
-          },
-          {
-            "t": 217,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t217.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cắt dải nhựa từ cốc nhựa để làm vách giữ nền."
-          }
-        ]
-      },
-      {
-        "heading": "Chọn cây: HC Cuba hay Monte Carlo",
-        "moments": [
-          {
-            "t": 236,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t236.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cụm cây thảm xanh được tách nhỏ trên khay trước khi trồng."
-          },
-          {
-            "t": 285,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t285.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây trồng thành từng cụm nhỏ đều nhau trên nền đất quanh đá."
+            "t": 165,
+            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/at165-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ba viên đá xếp lệch trên nền dốc, viên chính to nhất.",
+            "sharpness": 1138.7,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/xaMPVEEhQzU/p3-X1NoYXJqYWguanBn.webp",
-          "thumb": "https://media.aquatome.com/video/xaMPVEEhQzU/p3-X1NoYXJqYWguanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ranjith-chemmad",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_aquariums_Sharjah.jpg",
-          "caption": "Thảm HC Cuba xanh mướt phủ kín nền bể, lên thảm rất đẹp."
-        }
-      },
-      {
-        "heading": "Đổ nước và lắp thiết bị",
-        "moments": [
-          {
-            "t": 325,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t325.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể đã đầy nước, lắp xong thiết bị và chờ cây lên."
-          },
-          {
-            "t": 340,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t340.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đang đổ nước vào bể, mực nước dâng lên trên lớp cây trồng."
-          }
-        ]
-      },
-      {
-        "heading": "Tháng đầu sẽ diễn ra thế nào",
-        "moments": [
-          {
-            "t": 359,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t359.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh thảm HC li ti mới trồng bên cạnh hòn đá."
-          },
-          {
-            "t": 379,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t379.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể sau vài tuần, đá và cây phủ lớp nâu tảo silic."
-          }
-        ]
-      },
-      {
-        "heading": "Chăm sóc trong giai đoạn đầu",
-        "moments": [
-          {
-            "t": 443,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t443.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng ống xi phông thay nước trong bể thủy sinh mới setup."
-          },
-          {
-            "t": 477,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t477.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể sau khi thay nước, thảm cỏ xanh và đá gọn gàng."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/xaMPVEEhQzU/p6-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/xaMPVEEhQzU/p6-FzY2FwaW5nLmpwZw-480.webp",
-          "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây rậm rạp, có đàn cá neon bơi giữa các tầng cây."
-        }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 162,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t162.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ba viên đá đặt trên nền đất, viên chính lệch tâm."
-          },
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/t330.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bố cục đá với thảm cây xanh phủ nền trong bể."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/xaMPVEEhQzU/p7-bWlfU2NhcGUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/xaMPVEEhQzU/p7-bWlfU2NhcGUuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/xaMPVEEhQzU/p1-bWlfU2NhcGUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/xaMPVEEhQzU/p1-bWlfU2NhcGUuanBn-480.webp",
           "width": 960,
           "height": 636,
           "licence": "CC BY-SA 3.0",
           "author": "Moritz Holzinger",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Iwagumi_Scape.jpg",
-          "caption": "Bể thủy sinh đá kiểu iwagumi với nền đắp dốc và viên đá chính lệch tâm."
+          "caption": "Bể thủy sinh có nền dốc dần về sau, với ba viên đá lớn đặt lệch tâm."
+        }
+      },
+      {
+        "heading": "Giữ nền dốc không tụt ra trước",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/xaMPVEEhQzU/p2-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/xaMPVEEhQzU/p2-FzY2FwaW5nLmpwZw-480.webp",
+          "width": 960,
+          "height": 338,
+          "licence": "CC BY 3.0",
+          "author": "Ghostsword",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
+          "caption": "Bể thủy sinh cây đã phủ kín, nền dốc dần lên phía sau."
+        }
+      },
+      {
+        "heading": "Trồng cây trải nền",
+        "moments": [
+          {
+            "t": 290,
+            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/at290-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nhìn từ trên xuống, cây trồng thành từng cụm nhỏ trải khắp nền.",
+            "sharpness": 5267.1,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/xaMPVEEhQzU/p3-dW1fVS5BLkUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/xaMPVEEhQzU/p3-dW1fVS5BLkUuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ranjith-chemmad",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_aquarium_U.A.E.jpg",
+          "caption": "Bể thủy sinh có thảm cây trải nền xanh mướt, phía sau là đá và cây thân."
+        }
+      },
+      {
+        "heading": "Đổ nước và chạy bể",
+        "moments": [
+          {
+            "t": 305,
+            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/at305-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh đã trồng thảm cây và xếp đá, sẵn sàng đổ nước.",
+            "sharpness": 4234,
+            "person": false
+          },
+          {
+            "t": 320,
+            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/at320-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lót khăn giấy lên nền để nước đổ vào chậm, không xới cây.",
+            "sharpness": 1697.8,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/xaMPVEEhQzU/p4-BcXVhcml1bS5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/xaMPVEEhQzU/p4-BcXVhcml1bS5KUEc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC0",
+          "author": "Tdwittt",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planted_Nano_Aquarium.JPG",
+          "caption": "Bể mới setup với lũa, nền đen và cây trồng xong, sẵn sàng chạy."
+        }
+      },
+      {
+        "heading": "Tháng đầu tiên diễn ra thế nào",
+        "moments": [
+          {
+            "t": 360,
+            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/at360-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Một mảng cây nhỏ bị nổi lên sát mặt nước trong hồ mới setup.",
+            "sharpness": 1653.1,
+            "person": false
+          },
+          {
+            "t": 385,
+            "url": "https://media.aquatome.com/video/xaMPVEEhQzU/at385-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tảo nâu bắt đầu phủ lên đá và nền sau vài tuần.",
+            "sharpness": 2281.8,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/xaMPVEEhQzU/p5-RvbV9zYW5kLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/xaMPVEEhQzU/p5-RvbV9zYW5kLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 2.0",
+          "author": "kerinin",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diatom_sand.jpg",
+          "caption": "Lớp tảo silic màu nâu phủ trên cát ở bể mới setup."
         }
       }
     ]

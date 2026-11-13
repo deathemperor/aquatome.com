@@ -133,6 +133,9 @@ public enum Readers {
     return CGImageDestinationFinalize(dest) ? out as Data : nil
   }
 
+  /// A smaller picture for sending with an owner report.
+  public static func shrinkForReport(_ photo: Data) -> Data? { shrink(photo, maxSide: 2000, quality: 0.7) }
+
   /// The photo's width and height as it shows, turned by its orientation.
   private static func uprightSize(_ source: CGImageSource) -> (Double, Double)? {
     guard let p = CGImageSourceCopyPropertiesAtIndex(source, 0, nil) as? [CFString: Any],

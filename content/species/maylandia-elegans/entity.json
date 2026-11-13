@@ -1,0 +1,134 @@
+{
+  "id": "maylandia-elegans",
+  "scientificName": "Maylandia elegans",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Maylandia",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "malawi",
+    "lake-malawi"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Shell dwelling cichlids from Lake Malawi belong to a small complex of closely related species that are not easy to distinguish from each other.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373025,
+      "total": 26,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MW",
+          26
+        ]
+      ],
+      "cells": [
+        [
+          32.34375,
+          -14.0625,
+          1
+        ],
+        [
+          33.75,
+          -16.875,
+          1
+        ],
+        [
+          33.75,
+          -15.46875,
+          5
+        ],
+        [
+          33.75,
+          -14.0625,
+          13
+        ],
+        [
+          33.75,
+          -12.65625,
+          4
+        ],
+        [
+          35.15625,
+          -15.46875,
+          1
+        ],
+        [
+          35.15625,
+          -14.0625,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/shell-dwelling-cichlids-from-lake-malawi-maylandia-cf-elegans-likoma/",
+      "html": "<p>In their natural habitat, which is mostly sandy areas, hiding places are scarce. Shell dwelling cichlids from Lake Malawi belong to a small complex of closely related species that are not easy to distinguish from each other.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/shell-dwelling-cichlids-from-lake-malawi-maylandia-cf-elegans-likoma/",
+      "html": "<p>The shell dwelling cichlids from Lake Malawi use the empty shells exclusively as hiding places. If Maylandia cf. elegans LIKOMA is kept like \"normal\" Mbuna cichlids in an aquarium with stones and other hiding places, they will not use empty snail shells, because in the wild they have no such opportunity.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/shell-dwelling-cichlids-from-lake-malawi-maylandia-cf-elegans-likoma/",
+      "html": "<p>Cichlids of Lake Malawi belong to the Haplochromis relationship and are agamous (they never form stable pairs) maternal mouthbrooders. No Lake Malawi cichlid is known to use empty shells for breeding; in Lake Tanganyika, by contrast, many shell dwellers related to Lamprologus are cave-brooders that breed in shells.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/shell-dwelling-cichlids-from-lake-malawi-maylandia-cf-elegans-likoma/",
+      "html": "<p>Another name for this species in the hobby is Maylandia s. \"Livingstonii Likoma\", a clear hint to the close relationship between the two species. All species of Maylandia are occasionally placed in Metriaclima; both generic names are synonymous.</p><p>The adaptation to a new resource, empty snail shells, allows Maylandia cf. elegans LIKOMA and its close relatives to use a habitat that would offer no chance of survival to Mbuna cichlids otherwise.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá cichlid Malawi",
+        "cát san hô bể cichlid"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá cichlid Malawi",
+        "vỏ ốc rỗng cho cá cichlid"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid Malawi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

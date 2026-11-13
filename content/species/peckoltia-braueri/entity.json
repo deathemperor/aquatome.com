@@ -9,13 +9,133 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-negro"
+    "rio-negro",
+    "takutu",
+    "guyana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "GY"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Takutu River"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Brazil, Guyana, Takutu River downstream of Lethem.",
+          "countries": [
+            "BR",
+            "GY"
+          ],
+          "regions": [
+            "Takutu River"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "L135 comes from the central Rio Negro basin.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202092,
+      "total": 25,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "GY",
+          17
+        ],
+        [
+          "BR",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          0,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          18,
+          18
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 12
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 4
       }
     ]
   },
@@ -25,6 +145,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/finally_available_again_l135__en/",
       "html": "<p>The L-catfish L135 is one of the most attractive L-numbers. Most specialists currently believe that it represents a variety of the species Peckoltia braueri. This species has also been given two other L-numbers, L121 and L305. L135 is the most colourful of them. It attains a maximum length of 12-15 cm and has already been bred in aquaria.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_braueri.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern (2023). Despite the little information available on this species, it is frequent with no apparent threats.</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -37,6 +163,54 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/finally_available_again_l135__en/",
       "html": "<p>L135 comes from the central Rio Negro basin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_braueri.htm",
+      "html": "<p>South America: Brazil, Guyana, Takutu River downstream of Lethem.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_braueri.htm",
+      "html": "<p>Inhabits swift riffles among very large boulders.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_braueri.htm",
+      "html": "<p>Should be kept at slightly higher temperatures and have a requirement for a higher oxygen intake.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_braueri.htm",
+      "html": "<p>Omnivores, easy to feed with frozen and live foods and also tablet and flake food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_braueri.htm",
+      "html": "<p>Peaceful inhabitants of an aquarium.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_braueri.htm",
+      "html": "<p>Males have bristles behind the gill covers, on the pectoral fin spines and on the posterior part of the body. They also possess bristles on the upper caudal fin rays.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_braueri.htm",
+      "html": "<p>Description: Dorsal spines (total): 2; dorsal soft rays (total): 1–8; anal spines: 1; anal soft rays: 4. Distinguished from all other species of Peckoltia except P. cavatica by having an orange band in the dorsal fin and by having thin, wavy, black lines that tend to outline the plates and bones of the head. Differs from P. cavatica by having the dorsal saddles better developed, by having the head plates and bones completely outlined in black with intense lines, by having black vermiculations on the pterotic-supracleithrum, by having at least one broken band in the caudal fin, and by having the marginal orange band of the dorsal and caudal fins not as thick or as intense as in P. cavatica. The genus Peckoltia possesses a medium sized mouth with the same number of teeth in the lower and upper jaw. The lower end of the caudal fin is usually oblique and only slightly indented.</p><p>Etymology: In honour of German zoologist August Brauer (1863–1917), Berlin Zoological Museum, for the loan of type specimens.</p><p>Remarks: The L-numbers L121, L135 and L305 are the same species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_braueri.htm",
+      "html": "<p>Armbruster, J.W. and D.C. Werneke, 2005. Peckoltia cavatica, a new loricariid catfish from Guyana and a redescription of P. braueri (Eigenmann 1912) (Siluriformes). Zootaxa 882:1-14.</p><p>Froese, R. and D. Pauly. Editors. 2008. FishBase. www.fishbase.org, version (11/2008).</p><p>Salvador, G.N. 2023. Peckoltia braueri. The IUCN Red List of Threatened Species 2023.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -74,7 +248,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "klldrqjQwnQ",
+      "title": "L135 Peckoltia braueri WORMLINE",
+      "durationSec": 36,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VCxtwNvr5oE",
+      "title": "Peckoltia cf. braueri L135",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "G2nGxGBMIqo",
+      "title": "L121 Peckoltia braueri",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "n_uFaoZ4fuU",
+      "title": "Peckoltia Braueri L135",
+      "durationSec": 60,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -98,5 +297,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-09"
 }

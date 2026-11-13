@@ -1,12 +1,15 @@
 {
   "id": "asterophysus-batrachus",
-  "summary": "Cá trê nuốt (Asterophysus batrachus) hợp với người đã có kinh nghiệm, muốn nuôi cá săn mồi trong bể lớn. Cần bể dài tối thiểu 150 cm, nước 22–28 °C, pH 5–7, độ cứng 1–8 dGH, lọc hiệu quả vì cá thải nhiều chất thải. Khó nhất là bể cộng đồng không hợp (cá nuốt được con lớn gần gấp đôi mình) và phải giữ nước sạch, độ khó 7/8.",
+  "summary": "Cá trê nuốt (Asterophysus batrachus) hợp với người đã có bể lớn và quen nuôi cá săn mồi, độ khó 4/8. Cá dài tới 25 cm, cần bể tối thiểu 150 cm (150 × 60 cm, khoảng 540 lít), nước 22–28 °C, pH 5–7, độ cứng 1–8 dGH, lọc mạnh như lọc thùng ngoài hoặc sump. Khó nhất là giữ nước sạch vì cá thải nhiều và có thể nhạy cảm với chất ô nhiễm hữu cơ, cộng với việc không thể nuôi chung vì cá nuốt được con gần gấp đôi thân mình.",
   "mistakes": [
-    "Thả vào bể cộng đồng: loài này nuốt được cá lớn gần gấp đôi mình nên không được khuyến nghị, đừng nuôi kiểu này.",
-    "Thả vào bể chưa hoàn thiện về mặt sinh học: chỉ thả khi bể đã hoàn thiện, vì cá có thể nhạy với chất ô nhiễm hữu cơ.",
-    "Cho ăn thịt gà, tim bò hoặc dùng cá mồi lâu dài: nên cho thịt cá trắng, tôm nguyên con, giun đất; cá trưởng thành 1–2 bữa mỗi tuần là đủ."
+    "Thả chung với cá khác trong bể cộng đồng thì cá bị nuốt, vì cá trê nuốt ăn được con gần gấp đôi thân mình; nên nuôi riêng một bể.",
+    "Thả cá vào bể chưa hoàn thiện về mặt sinh học thì dễ hỏng vì cá có thể nhạy cảm với chất ô nhiễm hữu cơ; hãy để bể ổn định trước và thay nước hằng tuần 30–50%.",
+    "Cá mới nhập bỏ ăn mà vội đổi cách nuôi hay bỏ cuộc; cứ giữ nước sạch và chờ khoảng 10 ngày, cá thường chịu ăn lại."
   ],
-  "speciesUpdatedAt": "2026-10-29",
-  "generatedAt": "2026-10-31T16:27:03.403Z",
-  "review": "approved"
+  "speciesUpdatedAt": "2026-11-06",
+  "generatedAt": "2026-11-09T02:14:08.220Z",
+  "review": "pending",
+  "problems": [
+    "\"hợp với người đã có bể lớn và quen nuôi cá săn mồi\": the page never says the species needs a keeper experienced with predatory fish. It only says the tank must be very large, and the card rates difficulty as medium (4/8)."
+  ]
 }

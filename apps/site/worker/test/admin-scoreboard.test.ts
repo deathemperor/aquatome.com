@@ -3,7 +3,7 @@ import { afterEach, expect, test, vi } from 'vitest'
 import { handle, type Env } from '../index'
 import { isSearch } from '../readers'
 import { BEACON_SQL, GROUPS, isAnswered, mondayOf, scoreboardBlock, scoreboardPage, summariseScoreboard, visitsOf, WEEKS, weeksTo, windowStart, type BeaconRow, type CheckIssue, type ScoreboardInput } from '../admin/scoreboard'
-import { COUNTED } from '../admin/ae'
+import { SINCE_RESET, WHO_RANK } from '../admin/ae'
 import { NAV, SCOREBOARD_PATH, unset } from '../admin/shell'
 import { dashboardUrl } from '../paths'
 import { SECTIONS } from '../dashboard'
@@ -186,31 +186,32 @@ test('guardrails: problems open at each week\'s end, Lighthouse and deploys apar
 
 test('a part that can\'t load says so in its place; its metrics read null, the others stand', () => {
   const s = summariseScoreboard(input({ beacon: { failed: 'AE down' }, checks: { failed: 'GitHub 403' }, community: { tanks: [], comments: [{ at: '2026-11-17T01:00:00.000Z' }], photos: [] } }))
-  expect(s.failed).toEqual(expect.objectContaining({ beacon: 'AE down', checks: 'GitHub 403', content: 'Chưa cấu hình x.' }))
+  expect(s.failed).toEqual(expect.objectContaining({ beacon: 'AE down', checks: 'GitHub 403', content: 'Not set up: x.' }))
   expect(metric(s, 'answered').now).toBeNull()
   expect(metric(s, 'checksOpen').now).toBeNull()
   expect(metric(s, 'comments').now).toBe(1)
   const html = scoreboardPage(s)
   expect(html).toContain('AE down')
   expect(html).toContain('GitHub 403')
-  expect(html).toContain('Bình luận được duyệt')
+  expect(html).toContain('Comments approved')
 })
 
-test('the page: Vietnamese, each metric this week against last with its 12 weeks, what can\'t be measured yet, only its own links', () => {
+test('the page: English, each metric this week against last with its 12 weeks, what can\'t be measured yet, only its own links', () => {
   const rows = [row('a', 'view', '/ca/a/', '2026-11-17 02:00:00', 1, GOOGLE), row('a', 'time', '/ca/a/', '2026-11-17 02:00:30', 30), row('b', 'view', '/ca/b/', '2026-11-10 02:00:00', 1, GOOGLE), row('b', 'scroll', '/ca/b/', '2026-11-10 02:00:04', 50)]
   const html = scoreboardPage(summariseScoreboard(input({ beacon: rows })))
-  expect(html).toContain('<h1>Thành công</h1>')
-  expect(html).toContain('16/11 đến 22/11')
+  expect(html).toContain('<h1>Scoreboard</h1>')
+  expect(html).toContain('16 Nov to 22 Nov')
   for (const name of Object.values(GROUPS).slice(1)) expect(html, name).toContain(`>${name}</h2>`)
-  expect(html).toContain('Cùng lúc tuần trước')
+  expect(html).toContain('Same point last week')
   expect(html).toContain('class="spark"')
-  expect(html).toContain('Chưa đo được')
-  expect(html).toContain('Search Console')
-  expect(html).toContain('aria-current="page">Thành công<')
+  expect(html).toContain('Not measured yet')
+  expect(html).toContain('AdSense')
+  expect(html).toContain('aria-current="page">Scoreboard<')
   // A chart over weeks says weeks.
-  expect(html).toContain('12 tuần')
-  expect(html).toContain('Tuần 16/11')
-  expect(html).not.toContain('Hôm nay')
+  expect(html).toContain('12 weeks')
+  expect(html).toContain('Week of 16 Nov')
+  // No bar is today's: the rail's "Today" is the overview.
+  expect(html).not.toMatch(/Today \d|\(today\)/)
   // Nothing about who a reader is: no session ids in the page or the JSON.
   expect(html).not.toContain('"sid"')
   expect(JSON.stringify(summariseScoreboard(input({ beacon: rows, community: { tanks: [{ who: 'reader-9', at: '2026-11-17T01:00:00.000Z' }], comments: [], photos: [] } })))).not.toContain('reader-9')
@@ -219,7 +220,7 @@ test('the page: Vietnamese, each metric this week against last with its 12 weeks
 test('the report\'s block: the north star and the key metrics, week against last, with the page\'s address', () => {
   const rows = [row('a', 'view', '/ca/a/', '2026-11-17 02:00:00', 1, GOOGLE), row('a', 'time', '/ca/a/', '2026-11-17 02:00:30', 30), row('b', 'view', '/ca/b/', '2026-11-10 02:00:00', 1, GOOGLE), row('b', 'scroll', '/ca/b/', '2026-11-10 02:00:04', 50), row('c', 'view', '/ca/c/', '2026-11-12 02:00:00', 1, GOOGLE), row('c', 'scroll', '/ca/c/', '2026-11-12 02:00:04', 90)]
   const b = scoreboardBlock(summariseScoreboard(input({ beacon: rows })))
-  expect(b.lines[0]).toBe('Người đọc tìm được câu trả lời: 1 (cùng lúc tuần trước 1, cả tuần trước 2)')
+  expect(b.lines[0]).toBe('Readers who found their answer: 1 (same point last week 1, all of last week 2)')
   expect(b.lines).toHaveLength(5)
   expect(b.href).toBe(dashboardUrl(SCOREBOARD_PATH))
 })
@@ -232,7 +233,9 @@ test('the dashboard\'s absolute address is built in one place, worker/paths.ts d
 
 test('the beacon\'s query keeps to the count and the kinds of event readers send', () => {
   const sql = BEACON_SQL(windowStart(NOW))
-  expect(sql).toContain(COUNTED)
+  // From the reset, with each tab's mark, so visitsOf leaves ours out (us.test.ts).
+  expect(sql).toContain(SINCE_RESET)
+  expect(sql).toContain(WHO_RANK)
   expect(sql).toContain("toDateTime('2026-08-30 17:00:00')")
   expect(sql).toContain("blob2 IN ('view', 'time', 'scroll', 'aff')") // not the language chooser's `lang`
 })
@@ -270,12 +273,12 @@ test('/_ab/thanh-cong/: the owner\'s, like every dashboard page: the token opens
     for (const path of ['/_ab/thanh-cong/', '/_ab/thanh-cong']) {
       const body = await (await handle(get(path, h), e)).text()
       expect(body, path).toContain('data-next="/_ab/thanh-cong/"')
-      expect(body, path).not.toContain('<h1>Thành công</h1>')
+      expect(body, path).not.toContain('<h1>Scoreboard</h1>')
     }
   }
 })
 
-test('the app\'s section list stays as its contract has it: the scoreboard is on the web dashboard only', () => {
-  expect(NAV.map(([p]) => p)).not.toContain('/_ab/thanh-cong/')
-  expect(SECTIONS.map(s => s.key)).not.toContain('thanh-cong')
+test('the scoreboard is one of the app\'s sections, first after the overview (docs/design/dashboard.md)', () => {
+  expect(NAV.map(([p]) => p).slice(0, 2)).toEqual(['/_ab/', '/_ab/thanh-cong/'])
+  expect(SECTIONS[0]?.key).toBe('thanh-cong')
 })

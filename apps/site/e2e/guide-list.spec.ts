@@ -15,7 +15,7 @@ async function subjects(page: Page) {
   return (await chips.allTextContents()).map((text, i) => ({ text, n: count(text), chip: chips.nth(i) }))
 }
 
-for (const [path, lang] of [['/huong-dan/', 'vi'], ['/id/panduan/', 'id'], ['/th/guides/', 'th']] as const) {
+for (const [path, lang] of [['/huong-dan/', 'vi'], ['/id/panduan/', 'id'], ['/th/guides/', 'th'], ['/ms/panduan/', 'ms']] as const) {
   test(`guide list: a subject chip shows its guides, in the address; "all" brings back the list and the beginner row (${path})`, async ({ page, errors }) => {
     await page.goto(path)
     // Read from the cards, not the chips: a list with two subjects must have chips.
@@ -52,6 +52,27 @@ for (const [path, lang] of [['/huong-dan/', 'vi'], ['/id/panduan/', 'id'], ['/th
     expect(errors).toEqual([])
   })
 }
+
+// A subject picked while the data file is on its way showed the whole first page under its chip until it came: other
+// subjects' guides labelled as theirs (aquatome.com's check, 8 November, on a slow fetch). Its own guides show at once.
+test('guide list: a subject picked before the list\'s data comes shows only its own guides, at once', async ({ page }) => {
+  let arrive = () => {}
+  const held = new Promise<void>(r => { arrive = r })
+  await page.route('**/data/vi/guides.json', async route => { await held; await route.continue() })
+  await page.goto('/huong-dan/')
+  const [, ...kinds] = await subjects(page)
+  test.skip(kinds.length < 2, 'fewer than two subjects')
+  const pick = kinds.reduce((a, b) => (b.n < a.n ? b : a))
+  const label = pick.text.replace(/\s*\d+\s*$/, '').trim()
+  await pick.chip.click()
+  // Those of its guides the page has (none, if they're all further down the list), and no other subject's.
+  for (const kind of await page.locator('#guide-list > [data-kind]:visible .kind').allTextContents()) expect(kind, 'before the data file').toBe(label)
+  await expect(page.locator('#guide-list')).toHaveAttribute('aria-busy', 'true')
+  arrive()
+  await expect(visible(page)).toHaveCount(Math.min(pick.n, PAGE))
+  await expect(page.locator('#guide-list')).not.toHaveAttribute('aria-busy')
+  for (const kind of await page.locator('#guide-list > [data-kind]:visible .kind').allTextContents()) expect(kind).toBe(label)
+})
 
 test('"Xem thêm" adds the next page in place; without the script it is a link to that page', async ({ page }) => {
   await page.goto('/huong-dan/')

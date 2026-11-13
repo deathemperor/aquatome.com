@@ -1,8 +1,8 @@
 {
-  "slug": "ca-bam-da-sewellia-speciosa",
-  "name": "Cá bám đá Sewellia speciosa",
+  "slug": "ca-ty-ba-buom-lao",
+  "name": "Cá tỳ bà bướm Lào",
   "altNames": [
-    "Cá chình suối",
+    "Cá bám đá Sewellia speciosa",
     "Hillstream loach",
     "Cá bám đá Lào",
     "Laos sucker",
@@ -10,11 +10,10 @@
   ],
   "sections": {
     "quickFacts:glaser": "<p>Chiều dài tối đa khoảng 6 cm.</p>",
-    "beforeYouBuy:glaser": "<p>Gần đây chúng tôi lần đầu tiên nhập được loài cá bám đá đẹp này từ Lào.</p>",
     "distribution:glaser": "<p>Loài này chỉ phân bố trong vùng ảnh hưởng của sông Kong ở Lào và Việt Nam.</p>",
     "dimorphism:glaser": "<p>Loài này có sự khác biệt giới tính rất thú vị. Cá đực – nhìn chung nhỏ hơn cá cái – phát triển các mảng nốt sần (tubercle) trên vây ngực. Ý nghĩa của đặc điểm này vẫn chưa được nghiên cứu.</p>",
     "behaviour:glaser": "<p>Giống như tất cả các loài Sewellia, những con cá này thích dòng chảy mạnh. Chúng hoàn toàn hiền hòa với các bạn cùng bể, dù là cùng loài hay khác loài.</p>",
-    "diet:glaser": "<p>Cần đảm bảo cá được cho ăn đủ. Cá sẵn sàng ăn thức ăn đông lạnh, đặc biệt là trùn chỉ đỏ (bloodworm).</p>",
+    "diet:glaser": "<p>Cần đảm bảo cá được cho ăn đủ. Cá sẵn sàng ăn thức ăn đông lạnh, đặc biệt là trùng huyết (bloodworm).</p>",
     "notes:glaser": "<p>Giải nghĩa tên: Sewellia: tên đặt để vinh danh một người. speciosa: tiếng Latin, nghĩa là “đẹp, rực rỡ”.</p>",
     "references:glaser": "<p>Text &amp; photos: Frank Schäfer</p>",
     "beforeYouBuy:seriouslyfish": "<ul><li>Bể phải có nắp đậy kín, vì loài này có tiếng hay nhảy.</li><li>Cá cần dòng chảy rất mạnh. Lọc phải đẩy được lượng nước gấp 15–20 lần thể tích bể mỗi giờ.</li></ul><p>Loài này cần nước ổn định và sống nhờ lớp màng sinh học (biofilm) bám trên các bề mặt. Vì vậy tuyệt đối không thả chúng vào bể mà hệ vi sinh chưa ổn định. Bể cũng phải có nắp đậy thật kín, vì cá có thể bò thẳng lên mặt kính theo đúng nghĩa đen.</p><p>Sewellia speciosa là một loài chạch suối đồi, có vẻ là loài đặc hữu của lưu vực sông Xe Kong ở miền Trung Việt Nam và nam Lào. Cá bắt đầu có mặt trên thị trường từ đầu năm 2010. Trong danh sách hàng của các nhà buôn, đôi khi nó mang tên 'Laos sucker' hoặc 'Laos Sakura sucker'. Thân cá có đốm và không có sọc. Đây là điểm để phân biệt nó với S. lineolata, loài có hình dáng tương tự nhưng thân có sọc. Ngoài tự nhiên, cá sống ở vùng đầu nguồn nông, nước chảy xiết và rất giàu oxy.</p>",
@@ -37,5 +36,12 @@
       "glaser": 0.8,
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-bam-da-sewellia-speciosa",
+      "name": "Cá bám đá Sewellia speciosa"
+    }
+  ]
 }

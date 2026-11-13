@@ -10,6 +10,50 @@
     "gabon",
     "ogooue"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [
+        "Ogooué"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from close to the city of Lambarené, western Gabon, and thought endemic to the lower Ogooué river basin, including the tributary Ngounie drainage.",
+          "countries": [
+            "GA"
+          ],
+          "regions": [
+            "Ogooué"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4284383,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "GA",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          -1.40625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -42,6 +86,10 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -53,7 +101,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 4
+        "value": 2
       }
     ]
   },
@@ -62,7 +110,13 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-gabunense-gabunense",
-      "html": "<ul><li>Max size: 50 mm SL (2.0 in)</li><li>Aquarium size: 45 × 25 cm (18 × 10 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.5–7.2</li><li>Hardness: 5–15 dGH</li><li>Difficulty: 4 of 8 (Easy)</li></ul>"
+      "html": "<ul><li>Max size: 50 mm SL (2.0 in)</li><li>Aquarium size: 45 × 25 cm (18 × 10 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.5–7.2</li><li>Hardness: 5–15 dGH</li><li>Difficulty: 2 of 8 (Easy)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_gabunense_en/",
+      "html": "<p>A. gabunense is a really hardy fish and pretty easy to keep. It is a suitable species for aquarists who like the colourful killifish group but have not yet dared to keep them. The Gabon killi attains a maximum length of about 5 cm.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -131,14 +185,79 @@
       "html": "<p>A. gabunense is a good beginner's killifish as it is not an annual species, being found in permanent bodies of water in nature.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/963615abc14e66229dae9b876f7c6193.webp",
+      "thumb": "https://media.aquatome.com/processed/963615abc14e66229dae9b876f7c6193-480.webp",
+      "width": 787,
+      "height": 541,
+      "licence": "dùng với sự cho phép",
+      "author": "Hristo Hristov",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-gabunense-gabunense",
+      "caption": "Adult pair, male at front.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-aphyosemion-gabunense",
+        "pixelHash": "0fb0d87a3988ff95500ae81430973d8bd5b43e58482f7a5b64061873e9afa52e"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:40:28.678Z",
+          "originalHash": "f2174ac40013346bd715f06b8475b74caf2f89bc0eb6f52b0d230663d63a1dbd",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 787,
+            "originalHeight": 586,
+            "window": {
+              "x0": 0,
+              "y0": 45,
+              "x1": 787,
+              "y1": 586
+            },
+            "subject": {
+              "x0": 32,
+              "y0": 184,
+              "x1": 726,
+              "y1": 513
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 571,
+              "y0": 9,
+              "x1": 777,
+              "y1": 39
+            }
+          ],
+          "checks": {
+            "species": [
+              "7915675a047f754032bcc73be60f23cb36cd9acb8231e76a0a5fc13135f2861b",
+              "7a967942f6f209058220d0354a3253628e0ffbc3654feed6d5ff7bf34bda63f4"
+            ],
+            "ownership": [
+              "3bc727bbe1013c786c5d0e6ebebea68e87f65b7d603cf79074db1fb2cd737520",
+              "47ab96d44b8eb3f3cf021f9aba2681f6c75c097ba9d9f99a2f4d996276a16b70"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/4a2a23116f61b04d.webp",
+        "width": 787,
+        "height": 586,
+        "thumb": "https://media.aquatome.com/seriouslyfish/4a2a23116f61b04d-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá mini 30 lít"
+        "bể cá 50cm"
       ]
     },
     {
@@ -163,5 +282,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-08"
 }

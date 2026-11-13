@@ -11,6 +11,230 @@
     "india",
     "godavari"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [
+        "Godavari",
+        "Krishna",
+        "Kaveri",
+        "Palar",
+        "Periyar"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Lepidocephalichthys thermalis is a cobitid loach from Sri Lanka and Peninsular India, described from the hot waters of Cania, Sri Lanka.",
+          "countries": [
+            "LK"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the latter it's known from the Godavari, Krishna, Palar, Kaveri and Periyar river drainages.",
+          "countries": [],
+          "regions": [
+            "Godavari",
+            "Krishna",
+            "Kaveri",
+            "Palar",
+            "Periyar"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368138,
+      "total": 130,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "IN",
+          76
+        ],
+        [
+          "LK",
+          54
+        ]
+      ],
+      "cells": [
+        [
+          70.3125,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          71.71875,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          73.125,
+          15.46875,
+          10,
+          0
+        ],
+        [
+          73.125,
+          16.875,
+          10,
+          0
+        ],
+        [
+          73.125,
+          18.28125,
+          21,
+          0
+        ],
+        [
+          73.125,
+          19.6875,
+          3,
+          0
+        ],
+        [
+          74.53125,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          74.53125,
+          11.25,
+          1,
+          0
+        ],
+        [
+          75.9375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          75.9375,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          75.9375,
+          9.84375,
+          5,
+          0
+        ],
+        [
+          75.9375,
+          11.25,
+          3,
+          0
+        ],
+        [
+          77.34375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          77.34375,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          77.34375,
+          11.25,
+          3,
+          0
+        ],
+        [
+          77.34375,
+          16.875,
+          1,
+          0
+        ],
+        [
+          78.75,
+          5.625,
+          4,
+          4
+        ],
+        [
+          78.75,
+          7.03125,
+          6,
+          6
+        ],
+        [
+          78.75,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          78.75,
+          11.25,
+          1,
+          0
+        ],
+        [
+          80.15625,
+          5.625,
+          19,
+          19
+        ],
+        [
+          80.15625,
+          7.03125,
+          21,
+          21
+        ],
+        [
+          80.15625,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          80.15625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          81.5625,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          82.96875,
+          21.09375,
+          4,
+          0
+        ],
+        [
+          84.375,
+          19.6875,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -54,7 +278,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -63,7 +287,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-thermalis",
-      "html": "<p>Lepidocephalichthys thermalis is a cobitid loach from Sri Lanka and Peninsular India, described from the hot waters of Cania, Sri Lanka. Available sporadically, it makes an excellent choice for those new to keeping loaches. Unlike most of the genus it shows a preference for headwaters and clear, flowing streams. It was for a number of years included in Lepidocephalus until Havird and Page (2010) placed it in Lepidocephalichthys.</p><ul><li>Max size: 50 mm SL (2.0 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+      "html": "<p>Lepidocephalichthys thermalis is a cobitid loach from Sri Lanka and Peninsular India, described from the hot waters of Cania, Sri Lanka. Available sporadically, it makes an excellent choice for those new to keeping loaches. Unlike most of the genus it shows a preference for headwaters and clear, flowing streams. It was for a number of years included in Lepidocephalus until Havird and Page (2010) placed it in Lepidocephalichthys.</p><ul><li>Max size: 50 mm SL (2.0 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
       "key": "distribution",
@@ -143,28 +367,6 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-thermalis",
       "caption": "Adult specimen.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/2758554c285d600e.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/2758554c285d600e-480.webp",
-      "width": 1000,
-      "height": 636,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-thermalis",
-      "caption": "Attracting interested children at the Deviyar River.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/3a6d88ab70df5f48.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/3a6d88ab70df5f48-480.webp",
-      "width": 800,
-      "height": 486,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-thermalis",
-      "caption": "Erik Åhlander kindly provided images of collection localities in India. This is the Pamba River, Kerala state.",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -172,8 +374,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

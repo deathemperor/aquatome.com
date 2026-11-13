@@ -1,0 +1,309 @@
+{
+  "id": "ectodus-descampsii",
+  "scientificName": "Ectodus descampsii",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Ectodus",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "tanzania",
+    "zambia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika, between Moliro and Utinta Bay. Recorded in Burundi, DR Congo, Tanzania and Zambia.",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ",
+            "ZM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Descamp's strange-tooth cichlid, Ectodus descampsii, is a shy cichlid endemic to Lake Tanganyika, between Moliro and Utinta Bay.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370844,
+      "total": 100,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CD",
+          26
+        ],
+        [
+          "TZ",
+          26
+        ],
+        [
+          "BI",
+          24
+        ],
+        [
+          "ZM",
+          24
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          8,
+          8
+        ],
+        [
+          28.125,
+          -4.21875,
+          23,
+          23
+        ],
+        [
+          29.53125,
+          -9.84375,
+          12,
+          12
+        ],
+        [
+          29.53125,
+          -8.4375,
+          20,
+          20
+        ],
+        [
+          29.53125,
+          -7.03125,
+          10,
+          10
+        ],
+        [
+          29.53125,
+          -5.625,
+          10,
+          10
+        ],
+        [
+          30.9375,
+          -9.84375,
+          14,
+          14
+        ],
+        [
+          30.9375,
+          -8.4375,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10.4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ectodus-descampsii",
+      "html": "<p>Descamp's strange-tooth cichlid, Ectodus descampsii, is a shy cichlid endemic to Lake Tanganyika, between Moliro and Utinta Bay. It inhabits open water over sand and is gregarious, so a group of at least eight is recommended. An undescribed fish, Ectodus sp. 'north', is sometimes imported under this name and has a smaller adult size and a black dorsal spot towards the front of the fin (in the middle in E. descampsii).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ectodus-descampsii",
+      "html": "<p>Endemic to Lake Tanganyika, between Moliro and Utinta Bay. Recorded in Burundi, DR Congo, Tanzania and Zambia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ectodus-descampsii",
+      "html": "<p>It inhabits open waters over sandy substrates.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ectodus-descampsii",
+      "html": "<p>Standard length: 104 mm SL. Aquarium base: 90 × 30 cm. Volume: ~81 litres (90 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ectodus-descampsii",
+      "html": "<p>The aquarium should contain piles of rocks arranged to form caves with large areas of open water between them. A sandy substrate is best. This species does not damage vegetation so plants can be used but are not essential, likewise driftwood pieces. Select hard water-tolerant species such as Anubias or Vallisneria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ectodus-descampsii",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 7.5–9.0</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ectodus-descampsii",
+      "html": "<p>Will accept most foods offered but live and frozen varieties should form the bulk of the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ectodus-descampsii",
+      "html": "<p>The species is quite shy by nature, and aggressive or boisterous tankmates such as Mbuna should be avoided. Good choices include Julidochromis, Neolamprologus, Cyprichromis and Tanganyikan Synodontis catfish. It's important to keep a group of at least eight of these, as it's gregarious by nature and may become withdrawn without the security of conspecifics.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ectodus-descampsii",
+      "html": "<p>Unknown. The male's dorsal spot is larger than that of the female according to some sources.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ectodus-descampsii",
+      "html": "<p>Unrecorded in aquaria although it is likely possible. Little information about its natural spawning behaviour exists. It's known to be a polygamous maternal mouthbrooder that spawns in depressions in the substrate which are dug by the male. If you want to breed this fish using a similar approach as with other substrate-spawning Malawi cichlids is probably a good place to start.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ectodus-descampsii",
+      "html": "<p>A rare species in the hobby, there is also another, as yet undescribed fish sometimes imported as E. descampsii but this is thought to be a distinct species. This one is currently known as Ectodus sp. \"north\", as it's found further up the lake than E. descampsii. It can be distinguished by its smaller adult size and the fact that the black spot on the dorsal is found towards the front whereas in E. descampsii it's found in the middle of the fin. Confusingly, E. sp. \"north\" was until recently thought to be the true descampsii whereas the southern population was referred to as Ectodus d. \"ndole\". Verne (2001) found that the holotype of E. descampsii was actually the same as the southern population, and the names have now been changed accordingly.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "3k20yxx25VM",
+      "title": "Ectodus descampsii starting a new crater!",
+      "durationSec": 64,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wSIY5CHg5EU",
+      "title": "Ectodus descampsii from egg to fry",
+      "durationSec": 496,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gU1s20iaTCA",
+      "title": "Ectodus descampsii with  her family in her mouth",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cTW89nmZs70",
+      "title": "Ectodus descampsii tumbling her eggs",
+      "durationSec": 74,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá Tanganyika",
+        "cát mịn hồ cá",
+        "cát nền bể cá",
+        "cát cho cichlid Tanganyika"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 90 cm",
+        "lọc treo hồ cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi hồ cá 100W",
+        "máy sưởi điều chỉnh nhiệt độ",
+        "sưởi bể cá 100W",
+        "máy sưởi cá cảnh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "thức ăn cá cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

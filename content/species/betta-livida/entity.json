@@ -11,6 +11,56 @@
     "malaysia",
     "selangor"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish",
+        "bwaquatics"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta livida is a small bubble-nesting labyrinth fish endemic to peat swamps in northern Selangor state, Peninsular Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Wild-caught Betta livida from Indonesia, belonging to the Betta coccina complex.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394039,
+      "total": 3,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -57,7 +107,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ],
     "tankCm": [
@@ -251,8 +301,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá nhỏ 20 lít",
-        "bể nano thủy sinh"
+        "bể cá 50cm"
       ]
     },
     {

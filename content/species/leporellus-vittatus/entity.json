@@ -1,0 +1,952 @@
+{
+  "id": "leporellus-vittatus",
+  "scientificName": "Leporellus vittatus",
+  "order": "Characiformes",
+  "family": "Anostomidae",
+  "genus": "Leporellus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "peru",
+    "ucayali",
+    "colombia",
+    "orinoco",
+    "venezuela",
+    "apure",
+    "paraguay",
+    "bolivia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE",
+        "PY",
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Amazon River",
+        "Paraná-Paraguay",
+        "Rio São Francisco",
+        "Orinoco",
+        "Río Magdalena"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given simply as 'Amazon River, Brazil' and according to current thinking this species has a huge natural range encompassing the Amazon River system in Brazil and Peru plus the Paraná-Paraguay drainage in southern Brazil and Paraguay and rio São Francisco basin in southern Brazil.",
+          "countries": [
+            "BR",
+            "PE",
+            "PY"
+          ],
+          "regions": [
+            "Amazon River",
+            "Paraná-Paraguay",
+            "Rio São Francisco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Specimens in the images were collected from the Río Casanare in Colombia, a tributary of the Río Meta, meaning it also occurs in the Orinoco system where it's also known from the Río Apure in Venezuela, and the Río Samaná Sur, a tributary of the Río Magdalena, Colombia.",
+          "countries": [
+            "CO",
+            "VE"
+          ],
+          "regions": [
+            "Orinoco",
+            "Río Magdalena"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355517,
+      "total": 825,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CO",
+          464
+        ],
+        [
+          "BR",
+          286
+        ],
+        [
+          "VE",
+          45
+        ],
+        [
+          "PY",
+          12
+        ],
+        [
+          "PE",
+          11
+        ],
+        [
+          "GY",
+          5
+        ],
+        [
+          "EC",
+          1
+        ],
+        [
+          "UY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          0,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          -75.9375,
+          5.625,
+          339,
+          339
+        ],
+        [
+          -75.9375,
+          7.03125,
+          100,
+          100
+        ],
+        [
+          -75.9375,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          -74.53125,
+          8.4375,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          8.4375,
+          22,
+          22
+        ],
+        [
+          -68.90625,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -11.25,
+          12,
+          12
+        ],
+        [
+          -60.46875,
+          2.8125,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          -32.34375,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -15.46875,
+          5,
+          5
+        ],
+        [
+          -59.0625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          10,
+          10
+        ],
+        [
+          -56.25,
+          -28.125,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -15.46875,
+          6,
+          6
+        ],
+        [
+          -56.25,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -26.71875,
+          16,
+          16
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          13,
+          13
+        ],
+        [
+          -54.84375,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -21.09375,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -25.3125,
+          9,
+          9
+        ],
+        [
+          -53.4375,
+          -23.90625,
+          10,
+          10
+        ],
+        [
+          -53.4375,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          8,
+          8
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -23.90625,
+          13,
+          13
+        ],
+        [
+          -50.625,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -19.6875,
+          24,
+          24
+        ],
+        [
+          -50.625,
+          -16.875,
+          5,
+          5
+        ],
+        [
+          -50.625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -22.5,
+          6,
+          6
+        ],
+        [
+          -49.21875,
+          -19.6875,
+          9,
+          9
+        ],
+        [
+          -49.21875,
+          -18.28125,
+          5,
+          5
+        ],
+        [
+          -49.21875,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          5,
+          5
+        ],
+        [
+          -47.8125,
+          -22.5,
+          16,
+          16
+        ],
+        [
+          -47.8125,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -19.6875,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -18.28125,
+          4,
+          4
+        ],
+        [
+          -47.8125,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -22.5,
+          10,
+          10
+        ],
+        [
+          -46.40625,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -45,
+          -22.5,
+          9,
+          9
+        ],
+        [
+          -45,
+          -21.09375,
+          3,
+          3
+        ],
+        [
+          -45,
+          -19.6875,
+          6,
+          6
+        ],
+        [
+          -45,
+          -18.28125,
+          7,
+          7
+        ],
+        [
+          -45,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          -45,
+          -15.46875,
+          6,
+          6
+        ],
+        [
+          -45,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -43.59375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -11.25,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 210
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "html": "<ul><li>Difficulty: Difficult (6 of 8), because it needs a tank at least 2 m long.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. A tightly-fitting cover is also essential as anostomids tend to be prodigious jumpers.</li></ul><p>Leporellus vittatus is an anostomid with a huge natural range across the Amazon, Paraná-Paraguay, São Francisco and Orinoco river systems. Unlike most anostomids it is adapted to a benthic existence in flowing water and spends most of its time on or around the substrate. Occasionally exported, it requires quite specialised conditions, an aquarium of at least 210 by 60 cm and ideally a group of six or more.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "html": "<p>Type locality is given simply as 'Amazon River, Brazil' and according to current thinking this species has a huge natural range encompassing the Amazon River system in Brazil and Peru plus the Paraná-Paraguay drainage in southern Brazil and Paraguay and rio São Francisco basin in southern Brazil.</p><p>Specimens in the images were collected from the Río Casanare in Colombia, a tributary of the Río Meta, meaning it also occurs in the Orinoco system where it's also known from the Río Apure in Venezuela, and the Río Samaná Sur, a tributary of the Río Magdalena, Colombia.</p><p>It exhibits certain differences in colour pattern depending on population, although these have yet to be recorded in detail.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "html": "<p>A large-growing, rheophilic, active species such as this requires an aquarium with base dimensions of at least 210 × 60 cm or equivalent (about 756 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "html": "<p>The aquarium should ideally be designed to resemble a flowing stream or river with a substrate of variably-sized rocks, sand, fine gravel, and some larger water-worn boulders.</p><p>This can be further furnished with driftwood roots and branches if you wish but be sure to leave plenty of open swimming space.</p><p>While the majority of aquatic plants will fail to thrive in such surroundings hardy genera such as Microsorum, Bolbitis, or Anubias spp. can be grown attached to the décor.</p><p>Like many fishes that naturally inhabit running waters it's intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive.</p><p>It also does best if there is a high proportion of dissolved oxygen and moderate degree of water movement so external filters, powerheads, airstones, etc., should be employed as necessary.</p><p>As stable water conditions are obligatory for its well-being this fish should never be added to biologically-immature aquaria and weekly water changes of 30-50% aquarium volume should be considered mandatory.</p><p>A tightly-fitting cover is also essential as anostomids tend to be prodigious jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "html": "<ul><li>Temperature: 18–26°C</li><li>pH: 5.5–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "html": "<p>Said to be predominantly herbivorous by nature but quite unfussy in the aquarium and will accept most things offered, although products high in protein are best avoided.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "html": "<p>Not recommended for the general community aquarium given its adult size but can be maintained alongside comparably-sized cichlids, catfishes and other species which enjoy similar conditions.</p><p>It should ideally be maintained in a group of 6 or more specimens and although a degree of squabbling is natural as the fish form a pecking order individuals are normally quite peaceful towards one another once this is established.</p><p>Single specimens can become aggressive, particularly towards similarly-shaped tankmates.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "html": "<p>This species is occasionally exported for the aquarium fish trade although it requires quite specialised conditions for proper long-term care.</p><p>Unlike the majority of anostomids it possesses morphology adapted to a benthic existence in flowing water, and as such tends to spend the majority of its time on or around the substrate.</p><p>Etymology: Leporellus is a diminutive of the generic name Leporinus, of which it was originally a subgenus. vittatus comes from the Latin vittatus, meaning 'striped, banded', in reference to this species' colour pattern.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ortega, H. and R. P. Vari (1986). Annotated checklist of the freshwater fishes of Peru. Smithsonian Contributions to Zoology No. 437, iii + 1-25</li><li>Carvalho, P. T., S. J. Tang, J. I. Fredieu, R. Quispe, I. Corahua, H. Ortega and J. S. Albert (2009). Fishes from the upper Yuruá river, Amazon basin, Peru. Check List 5(3), 673-691</li><li>Taphorn P., D. C. (1992). The characiform fishes of the Apure River drainage, Venezuela. Biollania Edición Especial - No. 4. Monografias Cientificas del Museo de Ciencias Naturales, UNELLEZ - Guanara, estado Portuguesa, Venezuela, 1-537</li><li>Cuvier, G. and A. Valenciennes (1850). Histoire naturelle des poissons. Tome vingt-deuxième. Suite du livre vingt-deuxième. Suite de la famille des Salmonoïdes. Table générale de l'Histoire Naturelle des Poissons (pp. 1-91). v. 22, i-xx + 1 p. + 1-532 + 1-91</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1f83ac5668afb82d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1f83ac5668afb82d-480.webp",
+      "width": 800,
+      "height": 532,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "caption": "Subadult specimen from the UK aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1c8abd7cf7a9f48e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1c8abd7cf7a9f48e-480.webp",
+      "width": 801,
+      "height": 601,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "caption": "Head detail.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5443ff7d1a91e505.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5443ff7d1a91e505-480.webp",
+      "width": 640,
+      "height": 316,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "caption": "Specimen collected from the Río Samaná Sur, Río Magdalena system, Sonsón municipality, Antioquia department, Colombia.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/57aaa39842817668.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/57aaa39842817668-480.webp",
+      "width": 799,
+      "height": 354,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporellus-vittatus",
+      "caption": "Adult from the Río Casanare system, Colombia.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 210cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc ngoài bể lớn",
+        "máy tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ăn thực vật",
+        "thức ăn viên cho cá lớn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi mịn",
+        "cát sông",
+        "đá cuội trang trí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

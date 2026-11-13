@@ -16,6 +16,136 @@
     "kalimantan-barat",
     "brunei"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "SG",
+        "BN",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Belitung"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality translates as 'surroundings of Kuala Lumpur', but current records suggest a range extending from Trang province, southern Thailand, throughout much of Peninsular Malaysia, Singapore, western Borneo (Malaysian states of Sabah and Sarawak, Brunei Darussalam, and Indonesian province of Kalimantan Barat), Belitung (aka Billiton) Island, and central-eastern Sumatra (Jambi province).",
+          "countries": [
+            "TH",
+            "MY",
+            "SG",
+            "BN",
+            "ID"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra",
+            "Belitung"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205324,
+      "total": 28,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MY",
+          16
+        ],
+        [
+          "ID",
+          10
+        ],
+        [
+          "SG",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          101.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          0,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          1.40625,
+          9,
+          9
+        ],
+        [
+          102.65625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ],
+        [
+          112.5,
+          0,
+          4,
+          4
+        ],
+        [
+          116.71875,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          118.125,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -59,7 +189,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -155,7 +285,6 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30",
         "bể cá 60cm"
       ]
     },

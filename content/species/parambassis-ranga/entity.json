@@ -605,7 +605,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -679,16 +679,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/81ecb46052a2524f.webp",
-      "width": 960,
-      "height": 522,
-      "licence": "Public domain",
-      "author": "w:en:User:Quatermass",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Painted_Indian_Glassy_Fish.jpg",
-      "caption": "quoted from w:en:Image:Painted Indian Glassy Fish.jpg: \"Painted or Dyed Indian Glassy Fish, Parambassis ranga. Pink version shown. These fish are artificially injected with dye to give this fish some ",
-      "thumb": "https://media.aquatome.com/commons/81ecb46052a2524f-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/c0c66a46c6b3925b.webp",
       "width": 800,
       "height": 800,
@@ -697,6 +687,16 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parambassis_ranga_2.jpg",
       "caption": "Parambassis ranga",
       "thumb": "https://media.aquatome.com/commons/c0c66a46c6b3925b-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/81ecb46052a2524f.webp",
+      "width": 960,
+      "height": 522,
+      "licence": "Public domain",
+      "author": "w:en:User:Quatermass",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Painted_Indian_Glassy_Fish.jpg",
+      "caption": "quoted from w:en:Image:Painted Indian Glassy Fish.jpg: \"Painted or Dyed Indian Glassy Fish, Parambassis ranga. Pink version shown. These fish are artificially injected with dye to give this fish some ",
+      "thumb": "https://media.aquatome.com/commons/81ecb46052a2524f-480.webp"
     }
   ],
   "videos": [],
@@ -704,8 +704,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá 72 lít"
+        "bể cá 80cm"
       ]
     },
     {

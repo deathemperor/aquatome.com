@@ -1,0 +1,610 @@
+{
+  "id": "margarites-pupillus",
+  "scientificName": "Margarites pupillus",
+  "order": "Trochida",
+  "family": "Margaritidae",
+  "genus": "Margarites",
+  "group": "snails",
+  "places": [
+    "north-america",
+    "united-states",
+    "california"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Bering Sea"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Margarites pupillus is primarily a subtidal species found along sub-tropical coastlines from the Bering Sea to San Diego, California.",
+          "countries": [],
+          "regions": [
+            "Bering Sea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5190256,
+      "total": 1031,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "US",
+          601
+        ],
+        [
+          "CA",
+          430
+        ]
+      ],
+      "cells": [
+        [
+          -167.34375,
+          53.4375,
+          35
+        ],
+        [
+          -167.34375,
+          56.25,
+          1
+        ],
+        [
+          -167.34375,
+          59.0625,
+          3
+        ],
+        [
+          -165.9375,
+          53.4375,
+          1
+        ],
+        [
+          -164.53125,
+          54.84375,
+          2
+        ],
+        [
+          -163.125,
+          54.84375,
+          7
+        ],
+        [
+          -163.125,
+          59.0625,
+          1
+        ],
+        [
+          -161.71875,
+          54.84375,
+          11
+        ],
+        [
+          -161.71875,
+          56.25,
+          1
+        ],
+        [
+          -160.3125,
+          54.84375,
+          3
+        ],
+        [
+          -160.3125,
+          57.65625,
+          2
+        ],
+        [
+          -158.90625,
+          53.4375,
+          1
+        ],
+        [
+          -158.90625,
+          57.65625,
+          4
+        ],
+        [
+          -157.5,
+          54.84375,
+          1
+        ],
+        [
+          -157.5,
+          57.65625,
+          2
+        ],
+        [
+          -156.09375,
+          56.25,
+          2
+        ],
+        [
+          -154.6875,
+          56.25,
+          30
+        ],
+        [
+          -154.6875,
+          57.65625,
+          1
+        ],
+        [
+          -154.6875,
+          59.0625,
+          2
+        ],
+        [
+          -153.28125,
+          53.4375,
+          1
+        ],
+        [
+          -153.28125,
+          56.25,
+          1
+        ],
+        [
+          -153.28125,
+          57.65625,
+          30
+        ],
+        [
+          -153.28125,
+          59.0625,
+          13
+        ],
+        [
+          -151.875,
+          57.65625,
+          2
+        ],
+        [
+          -151.875,
+          59.0625,
+          125
+        ],
+        [
+          -150.46875,
+          59.0625,
+          2
+        ],
+        [
+          -150.46875,
+          60.46875,
+          1
+        ],
+        [
+          -149.0625,
+          59.0625,
+          4
+        ],
+        [
+          -149.0625,
+          60.46875,
+          15
+        ],
+        [
+          -147.65625,
+          59.0625,
+          21
+        ],
+        [
+          -147.65625,
+          60.46875,
+          7
+        ],
+        [
+          -146.25,
+          59.0625,
+          2
+        ],
+        [
+          -146.25,
+          60.46875,
+          3
+        ],
+        [
+          -144.84375,
+          59.0625,
+          1
+        ],
+        [
+          -137.8125,
+          57.65625,
+          6
+        ],
+        [
+          -136.40625,
+          54.84375,
+          2
+        ],
+        [
+          -136.40625,
+          56.25,
+          13
+        ],
+        [
+          -136.40625,
+          57.65625,
+          12
+        ],
+        [
+          -136.40625,
+          59.0625,
+          1
+        ],
+        [
+          -135,
+          54.84375,
+          1
+        ],
+        [
+          -135,
+          56.25,
+          4
+        ],
+        [
+          -135,
+          57.65625,
+          14
+        ],
+        [
+          -133.59375,
+          52.03125,
+          3
+        ],
+        [
+          -133.59375,
+          53.4375,
+          12
+        ],
+        [
+          -133.59375,
+          54.84375,
+          1
+        ],
+        [
+          -133.59375,
+          56.25,
+          2
+        ],
+        [
+          -132.1875,
+          52.03125,
+          39
+        ],
+        [
+          -132.1875,
+          53.4375,
+          1
+        ],
+        [
+          -132.1875,
+          54.84375,
+          7
+        ],
+        [
+          -130.78125,
+          52.03125,
+          4
+        ],
+        [
+          -130.78125,
+          53.4375,
+          4
+        ],
+        [
+          -129.375,
+          49.21875,
+          1
+        ],
+        [
+          -129.375,
+          50.625,
+          23
+        ],
+        [
+          -129.375,
+          52.03125,
+          6
+        ],
+        [
+          -127.96875,
+          49.21875,
+          16
+        ],
+        [
+          -127.96875,
+          50.625,
+          31
+        ],
+        [
+          -126.5625,
+          47.8125,
+          12
+        ],
+        [
+          -126.5625,
+          49.21875,
+          24
+        ],
+        [
+          -126.5625,
+          50.625,
+          2
+        ],
+        [
+          -125.15625,
+          37.96875,
+          6
+        ],
+        [
+          -125.15625,
+          39.375,
+          7
+        ],
+        [
+          -125.15625,
+          40.78125,
+          22
+        ],
+        [
+          -125.15625,
+          42.1875,
+          15
+        ],
+        [
+          -125.15625,
+          43.59375,
+          4
+        ],
+        [
+          -125.15625,
+          47.8125,
+          24
+        ],
+        [
+          -125.15625,
+          49.21875,
+          46
+        ],
+        [
+          -123.75,
+          36.5625,
+          51
+        ],
+        [
+          -123.75,
+          37.96875,
+          23
+        ],
+        [
+          -123.75,
+          46.40625,
+          2
+        ],
+        [
+          -123.75,
+          47.8125,
+          203
+        ],
+        [
+          -123.75,
+          49.21875,
+          24
+        ],
+        [
+          -122.34375,
+          35.15625,
+          4
+        ],
+        [
+          -122.34375,
+          36.5625,
+          14
+        ],
+        [
+          -122.34375,
+          46.40625,
+          1
+        ],
+        [
+          -122.34375,
+          47.8125,
+          1
+        ],
+        [
+          -120.9375,
+          33.75,
+          2
+        ],
+        [
+          -119.53125,
+          32.34375,
+          1
+        ],
+        [
+          -119.53125,
+          45,
+          1
+        ],
+        [
+          -118.125,
+          32.34375,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "aquariumbreeder",
+    "quote": "Type: saltwater snail"
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 8.1,
+          "max": 8.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 6
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1,
+          "max": 1.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/margarita-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Margarita snail</li><li>Other names: Puppet margarite snail, Little margarite</li><li>Scientific name: Margarites pupillus</li><li>Minimum tank size: 40 litres</li><li>Type: saltwater snail</li><li>Breeding: very difficult</li><li>Water type: SG 1.021–1.025</li><li>Optimal KH: 8–12</li><li>Nitrate: less than 20 ppm</li><li>Diet: omnivore/detritivore</li><li>Temperament: peaceful</li><li>Colour forms: orange, pearl-brown, lusterless, ashen or whitish</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/margarita-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These snails could have been excellent pets if not for their sensitive nature, which does not allow them to be kept easily in captivity. This is the main reason for their short lifespan. Margarita snails are cold-water snails, and their life span is dramatically reduced in reef (tropical) tanks: they are not hardy enough to live in tropical tanks.</p><p>Generally, Margarita snails do not reproduce in captivity, so the pet industry depends completely on wild-caught animals.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/margarita-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Margarites pupillus is primarily a subtidal species found along sub-tropical coastlines from the Bering Sea to San Diego, California.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/margarita-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In their natural habitat, their population distribution is closely related to the abundance of the algal canopy. In the wild, these snails are found in high densities, but that does not mean that they are social. They simply do not care much about other snails unless they mate.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/margarita-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Because of their small size, there are no minimum requirements. Even nano marine tanks (40 litres) are good enough for a few Margarita snails. However, the main problem with small tanks is that water parameters can be very difficult to keep stable, so unless you are already an expert, it is best to stay away from such small setups. In small tanks, the snails may also run out of food quickly.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/margarita-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Keeping Margarita snails is difficult because they have specific requirements. An established tank (with diatoms and algae) and an adequate temperature are essential.</p><p>Margarita snails are not hardy and are very sensitive to even small changes in water values, especially temperature, which can easily harm them. It is therefore critical to acclimate them before placing them in the tank. Do not rush the process: do it very slowly to prevent unnecessary stress. In general, 2–3 hours is enough.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/margarita-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Temperature: Margarita snails are sub-tropical mollusks, so the ideal water temperature is 15–20°C. They do not like warm water and cannot tolerate it for long periods.</li><li>pH: 8.1–8.4.</li><li>Hardness: 8–12 dKH.</li><li>Specific gravity: 1.021–1.025.</li><li>Calcium and magnesium: calcium of 400–450 ppm and magnesium of 1250–1350 ppm are optimal.</li><li>Nitrate: less than 20 ppm.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/margarita-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Lighting: Margarita snails are nocturnal and do not really need light. If you keep corals and fish in the tank, the lighting should be adapted to their needs.</p><p>Filtration: there are no special requirements. Any filter suited to the size of the tank is fine.</p><p>Substrate: the snails are not diggers and have no substrate preference. However, smooth gravel and rocks are probably best because they are better for algae growth.</p><p>Decorations: not necessary, but the snails appreciate stones, rocks, PVC pipes and similar items. They provide hiding places and a lot of surface area for algae and diatom growth.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/margarita-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Margarites pupillus is an omnivore/detritivore. Gut analysis shows that although these snails ingest macroscopic algae and detrital elements, their primary food is diatoms. Another study found:</p><ul><li>94% contained unidentified filamentous red algae,</li><li>86% contained diatoms,</li><li>79% contained sponge spicules,</li><li>64% contained filamentous brown algae,</li><li>21% contained remains of hydroids,</li><li>14% had remains of bryozoans,</li><li>7% contained filamentous green algae.</li></ul><p>In aquariums, they act as a clean-up crew against diatoms (brown algae), green spot algae, debris and waste, and are great scavengers. In captivity they also eat leftover shrimp or fish food, such as pills, flakes, pellets, algae/spirulina wafers and frozen foods.</p><p>Like all snails, they need calcium in the diet or in the water (ideally both) to keep their shells hard. Calcium levels between 350 and 450 ppm are optimal.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/margarita-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Margarita snails are non-aggressive and docile, and prefer peaceful tank mates. They have no proper defensive mechanism: unlike many marine snails, they cannot retreat into their shell and close it with an operculum. Instead, they try to outrun the predator by increasing their speed up to 10 cm/min, and they can flick their shells rapidly back and forth to shake off the predator.</p><p>Although surprisingly active even during the day, laboratory experiments show a negative reaction to light intensities corresponding to daylight, so they are considered nocturnal, with activity peaking at dusk. In nature, this nocturnal behaviour is very common among small invertebrates, mainly to avoid visual predators while feeding.</p><p>They are not natural diggers and do not stay in one place for long.</p><ul><li>Social: no</li><li>Active: at night</li><li>Peaceful: yes</li><li>Burrowers: no</li></ul><h3>Reef safety</h3><p>These snails are completely reef safe. They will not damage anything in a reef tank, being too small to bulldoze through corals, and they do not snack on corals.</p><h3>Tank mates</h3><p>They are very peaceful and can be good companions for shrimp and non-carnivorous fish, for example shrimp (Sexy shrimp, Pederson cleaner shrimp, Red fire shrimp (Lysmata debelius), Peppermint shrimp (Lysmata wurdemanni), Skunk cleaner (Lysmata amboinensis)) and snails (Bumble bee snail, Fighting conch, Cerith snails, Trochus snails). Bumble bee snails can potentially attack weak or upside-down Margarita snails if there is not enough food in the tank.</p><p>Not recommended: large and/or aggressive fish, aggressive shrimp (such as coral banded shrimp), most crab species, and all hermit crabs (including Halloween hermit crab and Blue leg hermit crab). Hermit crabs can try to kill them for their shells. If you still keep them together, make sure the hermit crabs have numerous empty shells spread through the tank; this only reduces aggression, not eliminates it.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/margarita-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Margarita snails are not hermaphrodites; each individual is either male or female. There are no significant size differences between the sexes, and no research was found describing how males and females can be distinguished by external features.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/margarita-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Generally, Margarita snails do not reproduce in captivity, and there are only a few reports of successful breeding in home aquariums.</p><ul><li>Veligers of Margarites pupillus hatch prior to torsion. Shell secretion starts right before hatching. At first the shell is soft, flexible and crumples easily prior to and during torsion (72 hours), but it becomes rigid soon afterward.</li><li>They are broadcast spawners: females do not lay eggs but release millions of oocytes (unfertilized eggs) into the water, while males release semen (a cloudy white substance).</li><li>Spawning usually lasts 5–15 minutes. It will cloud the tank water, but the water clears soon. In a community tank, corals and other filter feeders eat the particles that cloud the water.</li><li>There is no data on how long it takes eggs to hatch and metamorphose to the crawling stage.</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/margarita-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<h3>Taxonomy and identification</h3><p>The identity of Margarita snails has been confusing for hobbyists. The species was previously known as Trochus pupillus. Some forum users claim that true Margarita snails have a pink-orange, smooth, silvery shell, with photos showing colours from near magenta to bright orange. This is true only to some degree: Margarites pupillus has a very variable shell, so colour cannot be relied on for identification. It can be pearl-brown, lusterless, ashen or whitish on the outside, surrounded by green-brown threads.</p><h3>Description</h3><p>Margarita snails are small marine mollusks. The largest size is around 2.5 cm, but they generally barely reach 2 cm.</p><ul><li>The shell consists of 4–5 whorls.</li><li>It is conical and narrowly umbilicated.</li><li>The base of the shell is flat.</li><li>The aperture is circular; the columella is arched, faux luminous and finely speckled.</li></ul><p>Because they are often covered with algae, the natural colour of the shell is almost impossible to see. In nature, algal growth on the shell may act as camouflage against predators.</p><h3>Lifespan</h3><p>Knowledge of these snails is scanty. There is no official data on the maximum lifespan in the wild. Sexually mature animals can live for at least 2 years, and shell analysis of wild animals suggests they may potentially live over 4 years. In aquariums they live only 1–1.5 years even with the best care, because these snails are not tropical and marine tanks do not replicate their natural environment. Poor conditions, feeding and shipping stress can shorten their lifespan further.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/0ee570f916051a91.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/0ee570f916051a91-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/margarita-snail-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể biển nano 40 lít",
+        "bể thủy sinh nước mặn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tảo spirulina dạng viên",
+        "thức ăn cho ốc dọn bể"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test KH nước biển",
+        "test canxi nước biển",
+        "khúc xạ kế đo độ mặn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

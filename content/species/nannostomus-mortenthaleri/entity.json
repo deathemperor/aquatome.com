@@ -11,6 +11,65 @@
     "rio-nany",
     "nanay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Nanay",
+        "Río Tigre"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Nannostomus mortenthaleri from Peru was the most beautiful new discovery in aquatics in 2000.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The coral red pencilfish, Nannostomus mortenthaleri, is a lebiasinid that appears endemic to the Nanay basin and Río Tigre system in Loreto, Peru.",
+          "countries": [],
+          "regions": [
+            "Nanay",
+            "Río Tigre"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355649,
+      "total": 5,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "PE",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -45,7 +104,7 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 7
+        "value": 4
       }
     ],
     "ph": [
@@ -241,8 +300,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá thủy sinh 60cm",
-        "bể cá 80cm"
+        "bể cá 90cm"
       ]
     },
     {

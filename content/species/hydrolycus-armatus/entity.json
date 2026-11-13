@@ -1,0 +1,783 @@
+{
+  "id": "hydrolycus-armatus",
+  "scientificName": "Hydrolycus armatus",
+  "order": "Characiformes",
+  "family": "Cynodontidae",
+  "genus": "Hydrolycus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "venezuela",
+    "orinoco",
+    "guyana",
+    "essequibo",
+    "colombia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "BR",
+        "VE"
+      ],
+      "regions": [
+        "Essequibo",
+        "Amazon",
+        "Orinoco",
+        "Río Caroni"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'sandbars in vicinity of Maipuri campsite, 4°34'N, 58°35'W, Essequibo River, Guyana', with current records suggesting it to occur in the eastern Amazon basin in Brazil, Río Orinoco in Venezuela and Essequibo drainage in Guyana.",
+          "countries": [
+            "GY",
+            "BR",
+            "VE"
+          ],
+          "regions": [
+            "Essequibo",
+            "Amazon",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is pelagic and adults tend to be associated with flowing stretches of main river channels and larger tributaries of both white and black water rivers, although it's also known from a number of artificial lakes such as the Guri reservoir on the Río Caroni, Venezuela.",
+          "countries": [],
+          "regions": [
+            "Río Caroni"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352289,
+      "total": 381,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          246
+        ],
+        [
+          "VE",
+          88
+        ],
+        [
+          "GY",
+          23
+        ],
+        [
+          "CO",
+          16
+        ],
+        [
+          "BO",
+          6
+        ],
+        [
+          "PE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          1.40625,
+          4,
+          0
+        ],
+        [
+          -73.125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          5.625,
+          6,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          10,
+          10
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          4,
+          0
+        ],
+        [
+          -68.90625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          2.8125,
+          2,
+          1
+        ],
+        [
+          -68.90625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          5.625,
+          3,
+          1
+        ],
+        [
+          -68.90625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          2.8125,
+          18,
+          18
+        ],
+        [
+          -67.5,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          5.625,
+          5,
+          5
+        ],
+        [
+          -67.5,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          -67.5,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -64.6875,
+          7.03125,
+          13,
+          13
+        ],
+        [
+          -63.28125,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          7,
+          7
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -9.84375,
+          8,
+          8
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          -60.46875,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -9.84375,
+          9,
+          9
+        ],
+        [
+          -59.0625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          -59.0625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          16,
+          16
+        ],
+        [
+          -57.65625,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -12.65625,
+          78,
+          78
+        ],
+        [
+          -56.25,
+          -11.25,
+          43,
+          43
+        ],
+        [
+          -56.25,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          8,
+          8
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          10,
+          10
+        ],
+        [
+          -52.03125,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          7,
+          7
+        ],
+        [
+          -52.03125,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          6,
+          6
+        ],
+        [
+          -47.8125,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 66
+      },
+      {
+        "source": "glaser",
+        "value": 75
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
+      "html": "<ul><li>Needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus_armatus_en-2/",
+      "html": "<p>The Giant Waterwolve is a fish-eating predator that attains a maximum length of 75 cm and is the largest species of the four members of the genus Hydrolycus. Hydrolycus means \"water wolf\"; armatus means \"armoured\".</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump.</p><p>The payara, Hydrolycus armatus, is a large, predatory dogtooth characin from the eastern Amazon, the Orinoco and the Essequibo in Guyana. Given its eventual size and natural behaviour it probably should not be considered a home aquarium subject at all, though juveniles are sometimes sold. It is regularly confused with the smaller H. scomberoides, and no other member of the genus has white margins to the anal and caudal fins.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus_armatus_en-2/",
+      "html": "<p>This animal is much sought after by owners of really big tanks and public aquaria; sadly larger specimens are difficult to transport, which is why this fish, although anything but rare in the wild, is hardly ever imported. Juveniles from the Orinoco have now been imported in larger numbers and are perfectly suited for acclimatization in aquaria.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
+      "html": "<p>Type locality is 'sandbars in vicinity of Maipuri campsite, 4°34'N, 58°35'W, Essequibo River, Guyana', with current records suggesting it to occur in the eastern Amazon basin in Brazil, Río Orinoco in Venezuela and Essequibo drainage in Guyana.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus_armatus_en-2/",
+      "html": "<p>Orinoco.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
+      "html": "<p>This species is pelagic and adults tend to be associated with flowing stretches of main river channels and larger tributaries of both white and black water rivers, although it's also known from a number of artificial lakes such as the Guri reservoir on the Río Caroni, Venezuela.</p><p>In fluvial populations reproduction occurs between November and April and adults perform upstream migrations in order to do so.</p><p>Juveniles presumably occur in smaller tributaries and areas of flooded forest.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
+      "html": "<p>Suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
+      "html": "<p>Relatively unfussy and often maintained in completely bare set-ups.</p><p>It does best if there is a high proportion of dissolved oxygen and moderate degree of water movement so external filters, powerheads, airstones, etc., should be employed as necessary.</p><p>As stable water conditions are obligatory for its well-being this fish should never be added to biologically-immature aquaria and weekly water changes of 30-50% aquarium volume should be considered mandatory.</p><p>A tightly-fitting cover is also essential as Hydrolycus spp. are prodigious jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
+      "html": "<p>An obligate but generalised piscivore capable of consuming prey up to around half its own body size.</p><p>Newly-imported specimens often refuse to accept anything but live fishes but most can be weaned onto dead alternatives once recognised as edible.</p><p>Like the vast majority of predatory fishes this species should not be fed mammalian or avian meat like beef heart or chicken, and similarly there is no benefit in the long-term use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
+      "html": "<p>This species is aggressive, especially towards conspecifics and similar-looking fishes, so is best-maintained alone or alongside large benthic fishes such as Potamotrygon spp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus_armatus_en-2/",
+      "html": "<p>Towards conspecifics and other fish that are too big to be seen as prey, Hydrolycus are absolutely peaceful. It is possible to keep a group of these predators.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
+      "html": "<p>H. armatus probably should not be considered a home aquarium subject at all given its eventual size and natural behaviour, and we know of only a handful of private aquarists with the facilities required to house it long-term.</p><p>Unfortunately, juveniles are sometimes seen for sale, most often without adequate information regarding their long-term care.</p><p>Other vernacular names include 'vampire fish', 'Cachorra' or 'Pirandirá' (the latter two names being used in Brazil where they're also applied to congeners).</p><p>It's regularly confused with the smaller congener, H. scomberoides, which is perhaps better-suited to private aquaria with a maximum size of around 300 mm (30 cm), although a huge tank and specialist care are still necessary.</p><p>The following combination of characters may be used to distinguish it from congeners: body and head silvery, slightly darker dorsally; fins hyaline with proximal portions of caudal and anal fins yellowish; caudal and anal fins with a black subdistal band and white margin; distal portions of dorsal-fin rays with dark pigmentation.</p><p>In particular no other member of the genus has white margins to the anal and caudal fins.</p><p>Hydrolycus can be easily-separated from other genera in the family Cynodontidae by the fact that the dorsal-fin origin is located distinctly anterior to a vertical through the anal-fin origin plus the dorsoventral enlargement of the mesethmoid spine is almost round in shape from a lateral view and enlarged in Hydrolycus scomberoides, H. armatus and H. tatauaia.</p><p>It's sometimes included in the putative subfamily Cynodontinae alongside Cynodon and Rhaphiodon, these being separated from other Characiformes by a series of derived features plus their oblique mouth shape and highly-developed dentary canine teeth.</p><p>The latter fit into a pair of corresponding openings in the upper jaw which allows the mouth to be closed completely.</p><p>Cynodontinae contains two primary monophyletic lineages, one comprising the genus Hydrolycus and the other a clade with Cynodon and Rhaphiodon spp., with members sometimes referred to collectively as 'dogtooth characins'.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
+      "html": "<ul><li>W. Jardine (ed.) (1841). The Natural history of fishes of Guiana - Part I. The Naturalists' Library. Vol. 3. W. H. Lizars, Edinburgh, 17-263</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Toledo-Piza, M. (2000). The Neotropical Fish Subfamily Cynodontinae (Teleostei: Ostariophysi: Characiformes): A Phylogenetic Study and a Revision of Cynodon and Rhaphiodon. American Museum Novitates 3286, 1-88</li><li>Toledo-Piza, M., N. A. Menezes and G. M. dos Santos (1999). Revision of the neotropical fish genus Hydrolycus (Ostariophysi: Cynodontinae) with the description of two new species. Ichthyological Exploration of Freshwaters 10(3), 255-280</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/60b5fc28f33f1b4a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/60b5fc28f33f1b4a-480.webp",
+      "width": 800,
+      "height": 513,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
+      "caption": "Subadult measuring 220 mm SL.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài cho bể lớn",
+        "máy tạo dòng",
+        "sủi khí oxy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá công suất lớn"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước pH GH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

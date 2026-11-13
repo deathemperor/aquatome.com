@@ -10,6 +10,216 @@
     "colombia",
     "rio-atrato"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Rio Atrato"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The animals described here are German offspring descended from parent fish caught in the Rio Atrato in Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Rio Atrato"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7856519,
+      "total": 2226,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CO",
+          2217
+        ],
+        [
+          "VE",
+          6
+        ],
+        [
+          "AU",
+          1
+        ],
+        [
+          "BR",
+          1
+        ],
+        [
+          "GB",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          2.8125,
+          22,
+          22
+        ],
+        [
+          -77.34375,
+          4.21875,
+          15,
+          15
+        ],
+        [
+          -77.34375,
+          5.625,
+          27,
+          27
+        ],
+        [
+          -77.34375,
+          7.03125,
+          14,
+          14
+        ],
+        [
+          -77.34375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          1.40625,
+          13,
+          13
+        ],
+        [
+          -75.9375,
+          2.8125,
+          50,
+          50
+        ],
+        [
+          -75.9375,
+          4.21875,
+          43,
+          43
+        ],
+        [
+          -75.9375,
+          5.625,
+          426,
+          426
+        ],
+        [
+          -75.9375,
+          7.03125,
+          686,
+          686
+        ],
+        [
+          -75.9375,
+          8.4375,
+          134,
+          134
+        ],
+        [
+          -75.9375,
+          9.84375,
+          20,
+          20
+        ],
+        [
+          -74.53125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          7.03125,
+          184,
+          184
+        ],
+        [
+          -74.53125,
+          8.4375,
+          533,
+          533
+        ],
+        [
+          -74.53125,
+          9.84375,
+          32,
+          32
+        ],
+        [
+          -74.53125,
+          11.25,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          7.03125,
+          6,
+          5
+        ],
+        [
+          -73.125,
+          9.84375,
+          4,
+          3
+        ],
+        [
+          -70.3125,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          9.84375,
+          3,
+          0
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          0,
+          52.03125,
+          1,
+          0
+        ],
+        [
+          133.59375,
+          -26.71875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -38,7 +248,23 @@
       "html": "<p>Confusion arose over time due to naming. For a long time the fish was listed in the genus Aequidens, and Andinoacara latifrons was long considered a synonym of the similar species A. pulcher. The animals described here are German offspring descended from parent fish caught in the Rio Atrato in Colombia.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/f2891fa32a99ad7d.webp",
+      "thumb": "https://media.aquatome.com/commons/f2891fa32a99ad7d-480.webp",
+      "width": 1200,
+      "height": 729,
+      "licence": "CC BY 2.0",
+      "author": "Ictiologia Universidad Católica de Oriente",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_latifrons_(16495110976).jpg",
+      "caption": "Cá rô phi xanh Atrato trưởng thành trong bể nền sỏi",
+      "large": {
+        "url": "https://media.aquatome.com/commons/f2891fa32a99ad7d-large.webp",
+        "width": 1973,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

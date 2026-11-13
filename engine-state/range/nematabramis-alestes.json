@@ -1,0 +1,81 @@
+{
+  "id": "nematabramis-alestes",
+  "native": {
+    "input": "1dd1d003387cdac2",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the southern Philippines with records from the islands of Basilan, Mindanao, Palawan, and Busuanga.",
+        "words": "Philippines",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Basilan",
+        "source": "seriouslyfish",
+        "quote": "Native to the southern Philippines with records from the islands of Basilan, Mindanao, Palawan, and Busuanga.",
+        "country": "PH",
+        "ok": true
+      },
+      {
+        "name": "Mindanao",
+        "source": "seriouslyfish",
+        "quote": "Native to the southern Philippines with records from the islands of Basilan, Mindanao, Palawan, and Busuanga.",
+        "country": "PH",
+        "ok": true
+      },
+      {
+        "name": "Palawan",
+        "source": "seriouslyfish",
+        "quote": "Native to the southern Philippines with records from the islands of Basilan, Mindanao, Palawan, and Busuanga.",
+        "country": "PH",
+        "ok": true
+      },
+      {
+        "name": "Busuanga",
+        "source": "seriouslyfish",
+        "quote": "Native to the southern Philippines with records from the islands of Basilan, Mindanao, Palawan, and Busuanga.",
+        "country": "PH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nematabramis alestes",
+    "status": "ACCEPTED",
+    "taxonKey": 2367363,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "18896efa-22df-4fbd-9782-42f47257e753",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "PH"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

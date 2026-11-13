@@ -117,10 +117,8 @@
   "https://media.aquatome.com/seriouslyfish/bb1fb8fb621b44ad.webp": "67666b4f6727a707",
   "https://media.aquatome.com/scotcat/6fa08b113c126f0f.webp": "7ce4d81c3b9d3126",
   "https://media.aquatome.com/commons/babf3b33ae9e4fca.webp": "0c499f3d8f704509",
-  "https://media.aquatome.com/commons/e8c2f03ba5629268.webp": "9ec667208ea44627",
   "https://media.aquatome.com/inaturalist/259166169.webp": "52526a4d45454c51",
   "https://media.aquatome.com/inaturalist/308943038.webp": "3525248f1a4c1daf",
-  "https://media.aquatome.com/commons/f29e8529f2571332.webp": "1f1f792f2c391d78",
   "https://media.aquatome.com/commons/c5f7b004c3cebbd0.webp": "dc76364341030e11",
   "https://media.aquatome.com/inaturalist/56317257.webp": "70fcfcb1f23878b1",
   "https://media.aquatome.com/commons/31ee82e61c172146.webp": "c743c39b27236381",
@@ -131,7 +129,6 @@
   "https://media.aquatome.com/inaturalist/724575745.webp": "a643a0664763832b",
   "https://media.aquatome.com/inaturalist/304439371.webp": "bcbc5c1c180c0602",
   "https://media.aquatome.com/commons/519107c5558f73b0.webp": "596064c60a111a3d",
-  "https://media.aquatome.com/commons/85aed283b556b527.webp": "3bb7ce3f1f9f363f",
   "https://media.aquatome.com/commons/10e634c6767a9409.webp": "ec494c4c8c9ecc94",
   "https://media.aquatome.com/commons/c73b9a1eaf04ff47.webp": "ede9e9ce8cf5e1c0",
   "https://media.aquatome.com/commons/785e88dad02f8721.webp": "fcd878f970052764",
@@ -162,5 +159,9 @@
  "gbif": {
   "key": 2340714,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-10"
 }

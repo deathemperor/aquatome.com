@@ -10,6 +10,50 @@
     "india",
     "manipur"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Manipur river basin",
+        "Iril",
+        "Khuga",
+        "Dikhu"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Manipur state, northeastern India and also known from neighbouring Nagaland state with type locality 'On Ukjhang sang Road, 1 mile from Yaribuk, Manipur, Assam, India'.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Most habitats lie within the Manipur river basin, including the tributary Iril and Khuga drainages, and the Dikhu watershed in Nagaland.",
+          "countries": [],
+          "regions": [
+            "Manipur river basin",
+            "Iril",
+            "Khuga",
+            "Dikhu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361500,
+      "total": 0,
+      "fetched": "2026-11-07",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -149,8 +193,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá dài 80x30"
+        "bể cá 80cm"
       ]
     },
     {

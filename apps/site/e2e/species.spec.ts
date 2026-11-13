@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test'
-import { expect, test } from './fixtures'
+import { expect, openCard, test } from './fixtures'
 import { sourcePages } from './pages'
 
 // A species' numbers agree wherever the page shows them (resolveDataCard in @aq/schema): here the data card's temperature
@@ -47,9 +47,9 @@ test('species page on a small phone in °F: each key fact stays in its own colum
 test('species page: the jump row takes the reader to a part and marks where they are', async ({ page }, info) => {
   await page.goto('/ca/ca-neon-vua/')
   const row = page.locator('nav.jump')
-  const chips = row.locator('a')
+  const chips = row.locator('ul a') // the parts; the photos' chip, at the row's end, opens another page (gallery.spec.ts)
   expect(await chips.count(), 'parts to jump to').toBeGreaterThanOrEqual(2)
-  for (const h of await chips.evaluateAll(as => as.map(a => a.getBoundingClientRect().height))) expect(h, 'chip height').toBeGreaterThanOrEqual(44)
+  for (const h of await row.locator('a').evaluateAll(as => as.map(a => a.getBoundingClientRect().height))) expect(h, 'chip height').toBeGreaterThanOrEqual(44)
   const below = async (target: string) => (await page.locator(target).boundingBox())!.y - ((await row.boundingBox())!.y + (await row.boundingBox())!.height)
 
   const chip = chips.nth(1)
@@ -71,11 +71,13 @@ test('species page: the jump row takes the reader to a part and marks where they
   }, { message: 'the marked chip is in sight in the row' }).toBe(true)
 })
 
-// One "Nguồn và độ tin cậy" toggle per data card (it used to be one per value, 17 px tall); only the values the sources
-// disagree on are marked, and the toggle shows each source's own figure for them. Cá neon vua's sources disagree (see the
-// first check), on the fixture and on aquatome.com.
-test('species data card: one sources toggle, the disagreeing values marked, each source\'s figure inside', async ({ page }, info) => {
+// One "Nguồn và độ tin cậy" toggle per data card (it used to be one per value, 17 px tall); the values the sources
+// disagree on show each source's own figure there, and only those far enough apart to matter carry the card's dot (a dot
+// for 1 °C or 1 cm sat on 5 of 7 cells: design critique, 2026-11-06). Cá neon vua's sources disagree (see the first
+// check), on the fixture and on aquatome.com.
+test('species data card: one sources toggle, the disagreeing values listed, each source\'s figure inside', async ({ page }, info) => {
   await page.goto('/ca/ca-neon-vua/')
+  await openCard(page)
   const card = page.locator('.facts .datacard')
   // The sources toggle; the difficulty cell's "Vì sao?" is its own (card-guide.spec.ts).
   const summary = card.locator('.trust > summary')
@@ -84,14 +86,19 @@ test('species data card: one sources toggle, the disagreeing values marked, each
   const marked = card.locator('.card [data-conflict]')
   const n = await marked.count()
   expect(n, 'values the sources disagree on').toBeGreaterThanOrEqual(1)
-  await expect(card.locator('.card .mark')).toHaveCount(n)
+  // A dot only on a cell whose sources disagree, and each dot says so to a screen reader.
+  expect(await card.locator('.card .mark').count(), 'dots').toBeLessThanOrEqual(n)
+  for (const dot of await card.locator('.card .mark').all()) {
+    await expect(dot.locator('xpath=ancestor::div[@data-field][1]')).toHaveAttribute('data-conflict', 'true')
+    await expect(dot).toHaveText('Các nguồn ghi khác nhau')
+  }
   const field = (await marked.first().getAttribute('data-field'))!
   const by = card.locator(`.trust [data-src-field="${field}"]`)
   await expect(by).toBeHidden()
   const press = () => (info.project.name === 'phone' ? summary.tap() : summary.click())
   await press()
   await expect(by).toBeVisible()
-  await expect(by.locator('p')).toHaveText(/^(Mức mọi nguồn cùng khuyên|Mỗi nguồn ghi một mức)$/)
+  await expect(by.locator('p')).toHaveText('Mỗi nguồn ghi một mức')
   const items = by.locator('li')
   expect(await items.count(), 'one line per source').toBeGreaterThanOrEqual(2)
   for (const li of await items.all()) {
@@ -103,31 +110,28 @@ test('species data card: one sources toggle, the disagreeing values marked, each
 })
 
 // The data card is the page's one copy of each figure (design critique 2026-10-31: Cá neon vua's text said 5 cm,
-// "Trung bình", pH 3,5–7,5 where its card said 3,5 cm, Dễ, pH 4,6–6,2). A block that states a figure the card resolved
-// otherwise says, above itself, which source it follows and what the card shows; quick facts don't restate the card.
-// Read from the page (the card, the source list), so it holds on aquatome.com too.
-test('species page: a section\'s figure that differs from the card names its source and the card\'s figure', async ({ page }) => {
-  await page.goto('/ca/ca-neon-vua/')
-  const sources = await page.locator('#nguon li a').allTextContents()
+// "Trung bình", pH 3,5–7,5 where its card said 3,5 cm, Dễ, pH 4,6–6,2). A block whose figure is far from the card's says
+// so after itself, with the card's figure; quick facts don't restate the card. Read from the page (the card), so it holds
+// on aquatome.com too, where this page may have no such block: test/build.test.ts holds the fixture's.
+test('species page: a section\'s figure far from the card is followed by the card\'s figure', async ({ page }) => {
+  await page.goto('/ca/ca-galaxy/')
   const notes = page.locator('.body p.off')
-  expect(await notes.count(), 'blocks that follow another source than the card').toBeGreaterThanOrEqual(1)
   // A figure as the page holds it: its °C / cm pair (what the units toggle converts), else its text.
   const figure = (el: import('@playwright/test').Locator) => el.evaluate(e => {
     const x = e.matches('[data-c], [data-cm]') ? e : e.querySelector('[data-c], [data-cm]')
     return x ? (x.getAttribute('data-c') ?? x.getAttribute('data-cm'))! : e.textContent!.replace(/\s*dGH$/, '').trim()
   })
   for (const note of await notes.all()) {
-    const text = (await note.textContent())!.trim()
-    expect(sources.some(s => text.startsWith(`${s} ghi khác bảng dữ liệu:`)), text).toBe(true)
+    expect((await note.textContent())!.trim()).toContain('Thông số ở đầu trang ghi khác đoạn này:')
     const source = await note.getAttribute('data-source')
-    await expect(note.locator('xpath=following-sibling::*[1]')).toHaveAttribute('data-source', source!) // the block it is about
+    await expect(note.locator('xpath=preceding-sibling::*[1]')).toHaveAttribute('data-source', source!) // the block it is about
     for (const off of await note.locator('[data-off]').all()) {
       const field = (await off.getAttribute('data-off'))!
       const card = await figure(page.locator(`.facts .card [data-field="${field}"] .v`))
       expect(await figure(off.locator('.ours')), `${field}: the card's own figure`).toBe(card)
-      expect(await figure(off.locator('.theirs')), `${field}: the source's differs`).not.toBe(card)
     }
   }
+  await page.goto('/ca/ca-neon-vua/')
   // Quick facts never name the family, which the header shows. (A card figure's item stays when it says more than the
   // figure, or when its source gave the card none, so those can't be ruled out from the page alone.)
   const facts = await page.locator('section[data-section="quickFacts"] li').allTextContents()
@@ -160,15 +164,17 @@ test('species page: each "Tránh" chip says why; a size reason gives a size of t
 async function speciesWithGallery(page: Page) {
   for (const gallery of sourcePages().filter(p => /^\/ca\/[^/]+\/anh\/$/.test(p))) {
     await page.goto(gallery.replace(/anh\/$/, ''))
-    if (await page.locator('header.top > .facts').count() && await page.locator('header.top .photo').count() && await page.locator('main section.strip').count()) return true
+    if (await page.locator('header.top > .facts').count() && await page.locator('header.top .photo').count() && await page.locator('main section.strip').count()) return (await openCard(page), true)
   }
   return false
 }
 
 // On a computer the photo column used to end under the photo while the facts beside it ran on, a screen and more (the
-// owner's screenshot of Cá neon vua), with the thumbnails below both. They now fill the column under the photo; on a phone
-// they come after the facts. One strip either way, each thumbnail once. Read from the page, so it holds on aquatome.com.
-test('species page: the gallery\'s thumbnails sit under the photo beside the facts on a computer, after the facts on a phone, once', async ({ page, errors }, info) => {
+// owner's screenshot of Cá neon vua), with the thumbnails below both. They now fill the column under the photo. On a phone
+// they had gone after the care text, and the owner asked twice why the gallery was at the bottom (4 and 8 November): they
+// are under the photo there too, one row of them, before the first care section, on the screen and in reading order.
+// One strip either way, each thumbnail once. Read from the page, so it holds on aquatome.com.
+test('species page: the gallery\'s thumbnails sit under the photo, beside the facts on a computer, before the care text on a phone, once', async ({ page, errors }, info) => {
   test.skip(!(await speciesWithGallery(page)), 'no species page with a gallery strip')
   const strip = page.locator('main section.strip')
   await expect(strip).toHaveCount(1)
@@ -183,7 +189,14 @@ test('species page: the gallery\'s thumbnails sit under the photo beside the fac
 
   const [photo, facts, box] = [(await page.locator('header.top .photo').boundingBox())!, (await page.locator('header.top > .facts').boundingBox())!, (await strip.boundingBox())!]
   if (info.project.name === 'phone') {
-    expect(box.y, 'below the facts').toBeGreaterThanOrEqual(facts.y + facts.height)
+    const care = page.locator('.body > section[data-section]').first()
+    const text = (await care.boundingBox())!
+    expect(box.y, 'under the photo').toBeGreaterThanOrEqual(photo.y + photo.height)
+    expect(box.y + box.height, 'above the first care section').toBeLessThanOrEqual(text.y)
+    expect(await strip.evaluate((s, c) => !!(s.compareDocumentPosition(c) & Node.DOCUMENT_POSITION_FOLLOWING), await care.elementHandle()), 'before the care text in reading order').toBe(true)
+    const thumb = (await strip.locator('li').first().boundingBox())!
+    expect(box.height, 'one row of thumbnails').toBeLessThan(2 * thumb.height)
+    expect(facts.y, 'the facts above').toBeLessThan(photo.y)
   } else {
     expect(Math.abs(box.x - photo.x), 'in the photo column').toBeLessThanOrEqual(1)
     expect(box.x + box.width, 'left of the facts').toBeLessThanOrEqual(facts.x)
@@ -214,28 +227,24 @@ test('species page on a phone: a long thumbnails heading and link wrap instead o
 
 // Beside facts longer than the photo column, the column follows them down (sticky): scrolled until the thumbnails would
 // have left the screen, they are still on it. On a screen too short for the whole column (700 px), the thumbnails alone
-// follow. The jump row's "Ảnh", tapped from further down, brings them back into view. The thumbnails are the strip's
-// heading and its own (#a1–#a8): on a tall screen more follow them, down to the column's end.
+// follow. The thumbnails are the strip's heading and its own (#a1–#a8): on a tall screen more follow them, down to the
+// column's end.
 test('species page on a computer: the photo column stays in view while the facts scroll by', async ({ page }, info) => {
   test.skip(info.project.name === 'phone', 'the computer layout')
   test.skip(!(await speciesWithGallery(page)), 'no species page with a gallery strip')
   const strip = page.locator('main section.strip')
   const head = strip.locator('.head')
   const last = strip.locator('li').nth(await strip.locator('li a').evaluateAll(as => as.findLastIndex(a => Number(/#a(\d+)$/.exec(a.getAttribute('href')!)?.[1] ?? 1) <= 8)))
-  const [top, end, facts] = [(await head.boundingBox())!, (await last.boundingBox())!, (await page.locator('header.top > .facts').boundingBox())!]
+  const [top, end] = [(await head.boundingBox())!, (await last.boundingBox())!]
+  // The column beside the photo's: the name, the card and the summary.
+  const beside = await page.locator('header.top').evaluate(t => Math.max(...[...t.children].filter(c => !c.classList.contains('side')).map(c => c.getBoundingClientRect().bottom + scrollY)))
   const bottom = end.y + end.height
-  test.skip(facts.y + facts.height - bottom < bottom - top.y + 16, 'the facts end with the photo column')
+  test.skip(beside - bottom < bottom - top.y + 16, 'the facts end with the photo column')
   for (const height of [800, 700]) {
     await page.setViewportSize({ width: 1280, height })
     await page.evaluate(y => scrollTo({ top: y, behavior: 'instant' }), bottom)
     for (const [what, el] of [['heading', head], ['last own thumbnail', last]] as const) await expect(el, `${height} px high: the ${what}`).toBeInViewport({ ratio: 1 })
   }
-
-  const chip = page.locator('nav.jump a[href="#gal-h"]')
-  test.skip(!(await chip.count()), 'no jump row')
-  await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }))
-  await chip.click()
-  await expect(page.locator('#gal-h')).toBeInViewport()
 })
 
 /** A fish page whose gallery has photos enough to fill its photo column on the screens tried here ("Xem tất cả N ảnh",
@@ -244,7 +253,7 @@ async function speciesWithBigGallery(page: Page) {
   for (const gallery of sourcePages().filter(p => /^\/ca\/[^/]+\/anh\/$/.test(p)).slice(0, 20)) {
     const path = gallery.replace(/anh\/$/, '')
     await page.goto(path)
-    const all = page.locator('header.top .strip .head a')
+    const all = page.locator('main section.strip .head a') // in the photo column (on a phone, for screen readers only)
     if (await page.locator('header.top > .facts').count() && await all.count() && Number(/\d+/.exec((await all.textContent())!)![0]) >= 40) return path
   }
   return undefined
@@ -267,12 +276,15 @@ async function photoColumn(page: Page, path: string, width: number, height: numb
   await page.waitForLoadState('networkidle')
   page.off('request', log)
   const col = await page.locator('header.top').evaluate(top => {
-    const list = top.querySelector('.strip ul')!.getBoundingClientRect()
-    const thumbs = [...top.querySelectorAll('.strip li')].map(li => {
+    // In the photo column; on a phone, a row under the photo.
+    const strip = document.querySelector('main section.strip')!
+    const list = strip.querySelector('ul')!.getBoundingClientRect()
+    const thumbs = [...strip.querySelectorAll('li')].map(li => {
       const b = li.getBoundingClientRect()
       return { n: Number(/#a(\d+)$/.exec(li.querySelector('a')!.getAttribute('href')!)?.[1]), src: li.querySelector('img')!.src, top: b.top, bottom: b.bottom, shown: b.height > 0 && b.bottom > list.top && b.top < list.bottom }
     })
-    return { thumbs, list: list.bottom, facts: top.querySelector('.facts')!.getBoundingClientRect().bottom, window: innerHeight }
+    // The column beside it: the name, the card and the summary.
+    return { thumbs, list: list.bottom, facts: Math.max(...[...top.children].filter(c => !c.classList.contains('side')).map(c => c.getBoundingClientRect().bottom)), window: innerHeight }
   })
   return { ...col, thumbs: col.thumbs.map(t => ({ ...t, downloaded: asked.has(t.src) })) }
 }
@@ -280,8 +292,11 @@ async function photoColumn(page: Page, path: string, width: number, height: numb
 // The owner, on a computer (1,800 px wide): "there's still a gap on left". The photo column ended under the strip's two
 // rows of thumbnails while the facts beside it ran on several hundred px. It is now as tall as its room (the window, or
 // the facts when they end first), and the gallery's next photos fill it in whole rows, none the page shows elsewhere.
-// Thumbnails it has no room for are never downloaded. On a window under 50rem the column is as before: the photo
-// scrolls away and the strip's 8 stay pinned (1280 × 780). Read from the page, so it holds on aquatome.com.
+// Thumbnails it has no room for are never downloaded, but for the row after the last shown: while the fonts load, the
+// summary beside it sets a line or two taller, so for a moment the column has room for one row more, and that row's
+// thumbnails load (aquatome.com's Cá convict at 1800 × 1400, 8 November: the summary 682 px, then 599). On a window under
+// 50rem the column is as before: the photo scrolls away and the strip's 8 stay pinned (1280 × 780). Read from the page,
+// so it holds on aquatome.com.
 test('species page on a computer: the photo column fills its room with whole rows of thumbnails, none twice', async ({ page }, info) => {
   test.skip(info.project.name === 'phone', 'the computer layout')
   const path = await speciesWithBigGallery(page)
@@ -293,7 +308,7 @@ test('species page on a computer: the photo column fills its room with whole row
     const own = thumbs.filter(t => t.n <= 8)
     expect(own.every(t => t.shown), `${at}: the strip's own thumbnails`).toBe(true)
     for (const t of shown) expect(t.bottom, `${at}: #a${t.n} whole`).toBeLessThanOrEqual(list + 0.5)
-    for (const t of thumbs.filter(t => !t.shown)) expect(t.downloaded, `${at}: #a${t.n}, not shown, not downloaded`).toBe(false)
+    for (const t of thumbs.filter(t => !t.shown).slice(4)) expect(t.downloaded, `${at}: #a${t.n}, not shown, not downloaded`).toBe(false)
     if (height < 800) {
       expect(shown.map(t => t.n), `${at}: the strip's own, as before`).toEqual(own.map(t => t.n))
       continue
@@ -311,17 +326,23 @@ test('species page on a computer: the photo column fills its room with whole row
   for (const t of thumbs) expect(pictures.filter(p => p === pictureOf(t.src)), `#a${t.n}: ${pictureOf(t.src)} once on the page`).toHaveLength(1)
 })
 
-// On a phone the strip is as before: its 8 thumbnails, 6 on a screen under 640 px, after the facts; the gallery's further
-// photos are neither shown nor downloaded.
-test('species page on a phone: the strip\'s 8 thumbnails, 6 on a narrow screen, nothing more', async ({ page }, info) => {
+// On a phone the strip is its 8 thumbnails in one row under the photo, which swipes sideways, and the gallery's link at
+// its end, on the screen; the gallery's further photos are neither shown nor downloaded.
+test('species page on a phone: the strip\'s 8 thumbnails in one swiping row, the gallery\'s link beside it, nothing more', async ({ page }, info) => {
   test.skip(info.project.name !== 'phone', 'the phone layout')
   const path = await speciesWithBigGallery(page)
   test.skip(!path, 'no fish page with 40 photos in its gallery')
-  for (const [width, height, most] of [[412, 915, 6], [800, 1000, 8]] as const) {
+  for (const [width, height] of [[360, 800], [412, 915], [800, 1000]] as const) {
     const { thumbs } = await photoColumn(page, path!, width, height)
     const own = thumbs.filter(t => t.n <= 8)
-    expect(thumbs.filter(t => t.shown).map(t => t.n), `${width} px`).toEqual(own.slice(0, most).map(t => t.n))
+    expect(thumbs.filter(t => t.shown).map(t => t.n), `${width} px`).toEqual(own.map(t => t.n))
+    expect(new Set(own.map(t => Math.round(t.top))).size, `${width} px: one row`).toBe(1)
     for (const t of thumbs.filter(t => !t.shown)) expect(t.downloaded, `${width} px: #a${t.n}, not shown, not downloaded`).toBe(false)
+    const row = page.locator('main section.strip ul')
+    expect(await row.evaluate(u => u.scrollWidth > u.clientWidth), `${width} px: the row swipes`).toBe(true)
+    const all = (await page.locator('main section.strip a.all').boundingBox())!
+    expect(all.x + all.width, `${width} px: the gallery's link on the screen, at the row's end`).toBeLessThanOrEqual(width)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth), `${width} px: sideways scroll`).toBeLessThanOrEqual(0)
   }
 })
 

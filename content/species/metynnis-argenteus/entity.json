@@ -10,6 +10,284 @@
     "brazil",
     "rio-tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tapajós"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Metynnis argenteus is a silver dollar, a relative of the piranhas probably endemic to the Rio Tapajós drainage in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tapajós"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2353432,
+      "total": 134,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "VE",
+          70
+        ],
+        [
+          "BR",
+          36
+        ],
+        [
+          "GY",
+          18
+        ],
+        [
+          "CO",
+          6
+        ],
+        [
+          "BO",
+          2
+        ],
+        [
+          "PE",
+          1
+        ],
+        [
+          "TT",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          0,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          50,
+          0
+        ],
+        [
+          -68.90625,
+          5.625,
+          4,
+          0
+        ],
+        [
+          -68.90625,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          7.03125,
+          6,
+          0
+        ],
+        [
+          -67.5,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          0,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -60.46875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          2.8125,
+          11,
+          0
+        ],
+        [
+          -59.0625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          10,
+          10
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -19.6875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +331,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -62,7 +340,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/metynnis-argenteus",
-      "html": "<p><strong>Metynnis argenteus</strong> is a silver dollar, a relative of the piranhas probably endemic to the Rio Tapajós drainage in Brazil. It is very similar to M. hypsauchen, and both are sold in the hobby as 'silver dollar'. The two are virtually identical in appearance and care, but M. hypsauchen has a black blotch above and behind each eye. An avid plant-eater, it is best kept in a group of at least five and may eat much smaller fish.</p><ul><li>Max size: 150 mm SL (6 in SL)</li><li>Aquarium size: 180 × 38 cm (72 × 15 in)</li><li>Temperature: 24–28°C (75–82°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 0–10 dGH</li><li>Difficulty: 5 of 8 (needs a very large tank)</li></ul>"
+      "html": "<p><strong>Metynnis argenteus</strong> is a silver dollar, a relative of the piranhas probably endemic to the Rio Tapajós drainage in Brazil. It is very similar to M. hypsauchen, and both are sold in the hobby as 'silver dollar'. The two are virtually identical in appearance and care, but M. hypsauchen has a black blotch above and behind each eye. An avid plant-eater, it is best kept in a group of at least five and may eat much smaller fish.</p><ul><li>Max size: 150 mm SL (6 in SL)</li><li>Aquarium size: 180 × 38 cm (72 × 15 in)</li><li>Temperature: 24–28°C (75–82°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 0–10 dGH</li><li>Difficulty: 6 of 8 (needs a very large tank)</li></ul>"
     },
     {
       "key": "distribution",
@@ -134,7 +412,12 @@
       "author": "NasserHalaweh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Serrasalmidae_Metynnis_argenteus_2.jpg",
       "caption": "Metynnis argenteus. Sea Life Bangkok Ocean World.",
-      "thumb": "https://media.aquatome.com/commons/67cd765491fc78be-480.webp"
+      "thumb": "https://media.aquatome.com/commons/67cd765491fc78be-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/67cd765491fc78be-large.webp",
+        "width": 1499,
+        "height": 1123
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/90b92efbfe0c6927.webp",
@@ -172,8 +455,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 180cm",
-        "bể cá 260 lít"
+        "bể cá 180cm"
       ]
     },
     {

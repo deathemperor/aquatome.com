@@ -22,8 +22,14 @@ export default defineConfig({
   // runners (2026-10-31). The failure's screenshot and accessibility snapshot (error-context.md) still show the page.
   use: { baseURL: live ?? `http://127.0.0.1:${PORT}`, trace: { mode: 'retain-on-failure', snapshots: false }, screenshot: 'only-on-failure' },
   projects: [
-    { name: 'phone', use: ourDevice(devices['Pixel 7']!) },
-    { name: 'desktop', use: { ...ourDevice(devices['Desktop Chrome']!), viewport: { width: 1280, height: 800 } } },
+    { name: 'phone', testIgnore: /owner-capture/, use: ourDevice(devices['Pixel 7']!) },
+    { name: 'desktop', testIgnore: /owner-capture/, use: { ...ourDevice(devices['Desktop Chrome']!), viewport: { width: 1280, height: 800 } } },
+    // Only where WebKit is installed (ci.yml): the owner's picture, what can go wrong with it being WebKit's; and a fish
+    // page's photo column on a computer, which Safari has sized its own way (photo-column.spec.ts).
+    ...(process.env.E2E_WEBKIT ? [
+      { name: 'iphone', testMatch: /owner-capture/, use: ourDevice(devices['iPhone 13']!) },
+      { name: 'safari', testMatch: /photo-column/, use: { ...ourDevice(devices['Desktop Safari']!), viewport: { width: 1280, height: 800 } } },
+    ] : []),
   ],
   webServer: live ? undefined : { command: `node e2e/serve.mjs ${process.env.E2E_DIST ?? 'dist'} ${PORT}`, url: `http://127.0.0.1:${PORT}/`, reuseExistingServer: !process.env.CI },
 })

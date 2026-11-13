@@ -33,13 +33,13 @@ test('heater: 60×30×36 cm from 16 °C to 26 °C → 75 W; warm room → none',
 })
 
 test('tools page: nav link, a card for every tool, sitemap; the checker\'s species index; species pages link to the checker', async () => {
-  const { page, DIST } = await import('./dist')
+  const { page, DIST, sitemapText } = await import('./dist')
   const { readFileSync } = await import('node:fs')
   const { dom } = page('/cong-cu/')
   expect(dom.querySelector('nav a[href="/cong-cu/"]')).not.toBeNull()
   // Pages of their own, and the calculators below by anchor (each anchor has its section).
   const cards = dom.querySelectorAll('.tools a').map(a => a.getAttribute('href')!)
-  expect(cards).toEqual(['/cong-cu/nhan-dien-ca/', '/cong-cu/nuoi-chung/', '/cong-cu/the-tich-be/', '#nen', '#suoi', '#phan-bon', '/cong-cu/den-chihiros/', '/cong-cu/be-cua-toi/'])
+  expect(cards).toEqual(['/cong-cu/nhan-dien-ca/', '/cong-cu/nuoi-chung/', '/cong-cu/the-tich-be/', '/cong-cu/du-toan-be/', '#nen', '#suoi', '#phan-bon', '/cong-cu/den-chihiros/', '/cong-cu/be-cua-toi/'])
   for (const h of cards.filter(h => h.startsWith('#'))) expect(dom.querySelector(h), h).not.toBeNull()
   expect(dom.querySelector('#species-index')).toBeNull()
   // The other languages' cards keep their links (a link to a page a language lacks loses its href).
@@ -48,11 +48,16 @@ test('tools page: nav link, a card for every tool, sitemap; the checker\'s speci
   const redirect = (path: string) => page(path).dom.querySelectorAll('script:not([src])').map(s => s.text).find(s => s.includes('location.replace'))
   expect(redirect('/id/alat/')).toContain("location.replace('/id/alat/kecocokan-ikan/'")
   expect(redirect('/th/tools/')).toContain("location.replace('/th/tools/tank-mates/'")
-  const idx = JSON.parse(page('/cong-cu/nuoi-chung/').dom.querySelector('#species-index')!.text) as { slug: string; sizeCm?: number; temperament?: string; schoolMin?: number; img?: string; aka?: string[]; pop?: number }[]
+  // The checker's species are a file of their own: inlined, they held the page's first paint back (720 KB on aquatome.com).
+  const tm = page('/cong-cu/nuoi-chung/')
+  expect(tm.dom.querySelector('#species-index')).toBeNull()
+  expect(tm.dom.querySelector('#tm-form')!.getAttribute('data-src')).toBe('/data/vi/tank-mates.json')
+  expect(page('/th/tools/tank-mates/').dom.querySelector('#tm-form')!.getAttribute('data-src')).toBe('/data/th/tank-mates.json')
+  const idx = JSON.parse(readFileSync(`${DIST}/data/vi/tank-mates.json`, 'utf8')) as { slug: string; sizeCm?: number; temperament?: string; schoolMin?: number; img?: string; aka?: string[]; pop?: number }[]
   expect(idx.some(i => i.sizeCm !== undefined)).toBe(true)
   expect(idx.find(i => i.slug === 'ca-neon-vua')).toMatchObject({ temperament: 'peaceful', schoolMin: 8, aka: ['Cardinal tetra'], pop: 3 })
   expect(idx.find(i => i.slug === 'ca-neon-vua')?.img).toMatch(/^https:\/\//)
-  const sitemap = readFileSync(`${DIST}/sitemap.xml`, 'utf8')
+  const sitemap = sitemapText()
   for (const p of ['/cong-cu/', '/cong-cu/nuoi-chung/', '/id/alat/kecocokan-ikan/', '/th/tools/tank-mates/']) expect(sitemap).toContain(p)
   expect(page('/ca/ca-neon-vua/').dom.querySelector('a[href="/cong-cu/nuoi-chung/?ca=ca-neon-vua:8"]')).not.toBeNull()
 })

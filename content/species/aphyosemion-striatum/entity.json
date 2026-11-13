@@ -12,6 +12,118 @@
     "gabon",
     "ogooue"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GQ",
+        "GA"
+      ],
+      "regions": [
+        "Ogooué",
+        "Mitemele River",
+        "Mbei",
+        "Komo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears restricted to the area between the lower Mitemele River, Equatorial Guinea and the lower Ogooué basin in Gabon, including coastal drainages such as the Mbei, Komo and Gabon watersheds in between.",
+          "countries": [
+            "GQ",
+            "GA"
+          ],
+          "regions": [
+            "Ogooué",
+            "Mitemele River",
+            "Mbei",
+            "Komo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348243,
+      "total": 30,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CD",
+          22
+        ],
+        [
+          "GA",
+          5
+        ],
+        [
+          "GQ",
+          2
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          0,
+          3,
+          3
+        ],
+        [
+          8.4375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ],
+        [
+          11.25,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          12.65625,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          12.65625,
+          -5.625,
+          19,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +167,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -64,7 +176,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-striatum",
-      "html": "<ul><li>Max size: 50 mm SL (2.0 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 6.5–7.5</li><li>Hardness: 3–12 dGH</li><li>Difficulty: 5 of 8</li></ul>"
+      "html": "<ul><li>Max size: 50 mm SL (2.0 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 6.5–7.5</li><li>Hardness: 3–12 dGH</li><li>Difficulty: 2 of 8</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -148,7 +260,12 @@
       "author": "Alexander Prokoshev",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aphyosemion_striatum_pair.jpg",
       "caption": "Juvenile adults male and female of Aphyosemion striatum",
-      "thumb": "https://media.aquatome.com/commons/6be9cab7aee7abed-480.webp"
+      "thumb": "https://media.aquatome.com/commons/6be9cab7aee7abed-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/6be9cab7aee7abed-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/c6e6056b029f40fe.webp",
@@ -166,8 +283,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45x30",
-        "bể cá mini có nắp đậy"
+        "bể cá 50cm"
       ]
     },
     {

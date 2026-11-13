@@ -1,0 +1,82 @@
+{
+ "day": "2026-11-13",
+ "baseline": {
+  "day": "2026-11-08",
+  "pct": {
+   "vi": 50,
+   "id": 37,
+   "th": 31,
+   "ms": 51
+  }
+ },
+ "langs": {
+  "vi": {
+   "pages": 4077,
+   "read": 3513,
+   "wrong": 1578,
+   "pct": 44,
+   "held": 405
+  },
+  "id": {
+   "pages": 1325,
+   "read": 1155,
+   "wrong": 341,
+   "pct": 30,
+   "held": 79
+  },
+  "th": {
+   "pages": 1314,
+   "read": 1115,
+   "wrong": 308,
+   "pct": 28,
+   "held": 75
+  },
+  "ms": {
+   "pages": 214,
+   "read": 169,
+   "wrong": 57,
+   "pct": 34,
+   "held": 20
+  }
+ },
+ "labels": {
+  "product": "Sản phẩm tiệm ở đây có thể không bán",
+  "shop": "Tiệm ở nước ngoài",
+  "price": "Giá hay phí ship ở nước ngoài",
+  "dose": "Liều theo sản phẩm nước ngoài",
+  "source": "Nhắc tới bài hay video gốc",
+  "units": "Gallon, inch hay số lít đổi từ đó",
+  "words": "Chữ người chơi ở đây không dùng",
+  "elsewhere": "Viết cho người đọc ở nước khác",
+  "kit": "Bộ đồ hay danh mục của tiệm nước ngoài",
+  "harm": "Lời khuyên làm theo thì hại cá, con vật khác, cây hay người nuôi",
+  "card": "Thẻ ghi loài mới là \"phát hiện\" hay thiếu ngày công bố, hay xu hướng thiếu số liệu và nguồn",
+  "dose-purpose": "Liều không nói để trị gì",
+  "dose-conflict": "Cùng một cách trị mà trang này liều khác trang kia",
+  "dose-caution": "Liều thiếu lời dặn cho tép và con vật nhạy",
+  "lethal": "Mức gây chết trong thí nghiệm (LC50, LD50), người đọc dễ hiểu nhầm là mức con vật chịu được"
+ },
+ "sample": [
+  {
+   "lang": "vi",
+   "path": "/vi/ca/ca-tetra-heterocharax-virgulatus/",
+   "url": "https://aquatome.com/ca/ca-tetra-heterocharax-virgulatus/",
+   "title": "Cá tetra Heterocharax virgulatus",
+   "wrong": []
+  },
+  {
+   "lang": "id",
+   "path": "/id/ikan/chalinochromis-brichardi/",
+   "url": "https://aquatome.com/id/ikan/chalinochromis-brichardi/",
+   "title": "Chalinochromis brichardi",
+   "wrong": []
+  },
+  {
+   "lang": "id",
+   "path": "/id/ikan/malabar-baril/",
+   "url": "https://aquatome.com/id/ikan/malabar-baril/",
+   "title": "Malabar Baril",
+   "wrong": []
+  }
+ ]
+}

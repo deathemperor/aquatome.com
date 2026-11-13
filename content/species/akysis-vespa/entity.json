@@ -21,12 +21,14 @@
       ],
       "regions": [
         "Salween",
-        "Ataran"
+        "Ataran",
+        "Hanthayaw"
       ],
       "sources": [
         "seriouslyfish",
         "scotcat",
-        "planetcatfish"
+        "planetcatfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -37,15 +39,9 @@
             "TH"
           ],
           "regions": [
-            "Salween"
-          ]
-        },
-        {
-          "source": "scotcat",
-          "quote": "Asia: Ataran River drainage in Myanmar.",
-          "countries": [],
-          "regions": [
-            "Ataran"
+            "Salween",
+            "Ataran",
+            "Hanthayaw"
           ]
         }
       ]
@@ -90,6 +86,13 @@
         "value": {
           "min": 23,
           "max": 28
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 23,
+          "max": 30
         }
       }
     ],
@@ -141,7 +144,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -150,7 +153,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
-      "html": "<ul><li>Max size: 31 mm SL (1.2 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 16.5–23.5°C (62–74°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+      "html": "<ul><li>Max size: 31 mm SL (1.2 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 16.5–23.5°C (62–74°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -163,6 +166,18 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1199",
       "html": "<ul><li>Scientific name: Akysis vespa Ng &amp; Kottelat, 2004</li><li>Common names: Orange Banded Stone Catfish, Orange Banded Hillstream Catfish, Wasp Stream Catfish</li><li>Size: 35 mm (1.4\") SL</li><li>Etymology: from the Greek a, meaning without, and kystis, meaning bladder; in reference to the lack of a swimbladder.</li><li>Type locality: Stream \"Chon Son\" between Kyondaw and Phadaw, about 20 kilometers northwest of Payathouzu (at border with Thailand), 15°25'N, 98°15'E, Kayin State, Myanmar.</li></ul><p>Fishes of the genus Akysis are small species (typically not larger than 50 mm SL) with tuberculate skin and a cryptic color pattern generally consisting of yellow patches or bands on a brown body. They are distributed from the Irrawaddy River drainage to the west, the Citarum River drainage to the east and south and the Lancanjiang (upper Mekong) drainage to the north.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/akysis_vespa_en/",
+      "html": "<ul><li>Origin: Burma (Myanmar)</li><li>Available size: 3–4 cm</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/akysis_vespa_en/",
+      "html": "<p>Among the catfishes are several species that are able to take revenge for being caught by giving a poisonous sting. Although the venom has only mild effects on most people (burning, local swelling, pain) it might be even fatal for allergy sufferers. You should always keep in mind that the honey bee is the animal responsible for most deaths caused by animals in humans.</p><p>The real problem with venomous fishes: you cannot say what will happen before you are stung the first time. So it is better to be cautious with Akysis vespa.</p><p>The scientific name \"vespa\" already says a lot. It refers not only to the yellow-black coloration, but also to the very painful sting this species can inflict. The good news is that Akysis vespa is a perfect aquarium fish and can even be bred in the home aquarium.</p>"
     },
     {
       "key": "distribution",
@@ -183,6 +198,12 @@
       "html": "<p>Asia: Ataran River drainage in Myanmar (Salween/Thanlwin, Ataran).</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/akysis_vespa_en/",
+      "html": "<p>Akysis vespa originates from Burma. It is known so far only from the upper reaches of the Ataran river in the northern part of Burma. The Ataran rises in Thailand and empties into the Andaman Sea.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
@@ -193,6 +214,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
       "html": "<p>Occurs in clear, fast-flowing streams with a gravelly bottom.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/akysis_vespa_en/",
+      "html": "<p>Akysis inhabits clear, fast moving streamlets with pebbly ground.</p>"
     },
     {
       "key": "aquariumSize",
@@ -229,6 +256,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1199",
       "html": "<p>Rocks or driftwood to partially deflect the current and for the fish to hide in. Some vegetation or leaf litter is also ideal.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/akysis_vespa_en/",
+      "html": "<p>In the aquarium it is much more active when good current is provided.</p>"
     },
     {
       "key": "diet",
@@ -273,6 +306,12 @@
       "html": "<p>The males are slimmer than the females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/akysis_vespa_en/",
+      "html": "<p>Sexes can be distinguished best by the shape of the body. Females are more plump. When in spawning condition you can see the greenish eggs through the belly of the female.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
@@ -289,6 +328,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1199",
       "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/akysis_vespa_en/",
+      "html": "<p>The eggs have a diameter of around 1.5 mm.</p><p>As in many other fishes, the spawning season of A. vespa is induced by the rainy season. As in breeding corys, strong water changes (about 80%) with cool, soft water should be made. This lowers the water temperature from about 30°C to about 23°C. The males chase the females strongly. It has proved useful to use a group of males for breeding. The successful male wraps its body around the female during spawning. The eggs need about 4 days to hatch.</p>"
     },
     {
       "key": "notes",
@@ -348,17 +393,6 @@
       "sourceUrl": "https://www.scotcat.com/akysidae/akysis_vespa.htm",
       "caption": "Akysis vespa",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/c3f5a84df3511b1b.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/c3f5a84df3511b1b-480.webp",
-      "width": 600,
-      "height": 400,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/akysis-vespa",
-      "caption": "The Hanthayaw/Suriya river as it flows through Tak province, Thailand.",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -366,8 +400,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá nhỏ 40 lít"
+        "bể cá 50cm"
       ]
     },
     {
@@ -393,5 +426,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-06"
 }

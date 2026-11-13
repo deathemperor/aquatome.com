@@ -1,0 +1,162 @@
+{
+  "id": "aequidens-patricki",
+  "scientificName": "Aequidens patricki",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Aequidens",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "peru"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This cichlid originates from a comparatively small collecting site in Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208310,
+      "total": 17,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "PE",
+          10
+        ],
+        [
+          "CO",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          -9.84375,
+          8,
+          8
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          0,
+          4,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/aequidens_patricki_en/",
+      "html": "<p>Maximum size is 12-15 cm. The species is quite peaceful and very hardy.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/aequidens_patricki_en/",
+      "html": "<p>Aequidens patricki is imported only very occasionally. Small surface-dwelling fishes, like hatchetfish, might be taken as food by the cichlids.</p><p>The specimens recently obtained from one of the very rare imports from Peru are 5-7 cm long and have just reached maturity.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/aequidens_patricki_en/",
+      "html": "<p>This cichlid originates from a comparatively small collecting site in Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/aequidens_patricki_en/",
+      "html": "<p>In the wild, the species lives in soft and acidic water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/aequidens_patricki_en/",
+      "html": "<p>Despite its maximum size of 12-15 cm, the fish can be bred already in rather small tanks of 200 litres upwards.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/aequidens_patricki_en/",
+      "html": "<p>The species is very hardy and adapts well to variable water conditions in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/aequidens_patricki_en/",
+      "html": "<p>This species was introduced in the Newsletter Extra Calendar Week 23 (3), 2013, erroneously under the name of Aequidens sp. Jenaro Herrera.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 lít",
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 200 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200 lít"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

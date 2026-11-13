@@ -10,6 +10,60 @@
     "china",
     "longjin"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Longjin river"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from a mountain stream at Lianhua Mountain (Lianhua Shan), Haifeng county, Guangdong province, southeastern China and apparently endemic to the Longjin river drainage which flows through the town of Haifeng before emptying into the South China Sea.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Longjin river"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2357512,
+      "total": 2,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "ES",
+          1
+        ],
+        [
+          "SE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -9.84375,
+          42.1875,
+          1,
+          0
+        ],
+        [
+          9.84375,
+          57.65625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -150,7 +204,6 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 75cm",
         "bể cá 80cm"
       ]
     },

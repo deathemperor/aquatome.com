@@ -3,9 +3,18 @@
  "judged": [
   "File:Ailichthys puncata Day Suzini 114.jpg"
  ],
- "hashes": {
-  "https://media.aquatome.com/scotcat/ac306b49641859c5.webp": "0101010603979cc0",
-  "https://media.aquatome.com/scotcat/ece10baf4b7425d8.webp": "03030703978e4c04"
+ "hashes": {},
+ "commons": "2026-11-03",
+ "inat": {
+  "taxon": 93580,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
  },
- "commons": "2026-11-03"
+ "gbif": {
+  "key": 2341634,
+  "next": null
+ }
 }

@@ -16,6 +16,174 @@
     "bolivia",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE",
+        "EC"
+      ],
+      "regions": [
+        "Amazon",
+        "Madeira",
+        "Río Napo",
+        "Río Marañón",
+        "Yavarí",
+        "Abunã"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The blacktop cory, Corydoras acutus, is an armoured catfish from the upper Amazon basin in Brazil, Peru, Ecuador and possibly Bolivia.",
+          "countries": [
+            "BR",
+            "PE",
+            "EC"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's currently understood to occur throughout parts of the upper Amazon basin in Brazil, Peru, Ecuador, and possibly Bolivia, including the rios Yavarí, Abunã (rio Madeira system), Nueva Rocafuerte (Río Napo system), and Huitoyacu (Río Marañón system).",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Madeira",
+            "Río Napo",
+            "Río Marañón",
+            "Yavarí",
+            "Abunã"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342643,
+      "total": 77,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BO",
+          27
+        ],
+        [
+          "BR",
+          27
+        ],
+        [
+          "PE",
+          23
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          16,
+          16
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          5,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          4,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          13,
+          2
+        ],
+        [
+          -67.5,
+          -15.46875,
+          6,
+          0
+        ],
+        [
+          -66.09375,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -9.84375,
+          12,
+          12
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +221,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -140,17 +308,6 @@
       "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_acutus.htm",
       "caption": "Corydoras acutus",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/60cd5419267cac37.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/60cd5419267cac37-480.webp",
-      "width": 768,
-      "height": 576,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-acutus",
-      "caption": "This species is known to inhabit the rio Abunã in Acre state, Brazil, seen here on the right at its confluence with the much larger rio Madeira (left).",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [],

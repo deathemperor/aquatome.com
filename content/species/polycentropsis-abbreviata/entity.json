@@ -1,0 +1,384 @@
+{
+  "id": "polycentropsis-abbreviata",
+  "scientificName": "Polycentropsis abbreviata",
+  "order": "Perciformes",
+  "family": "Nandidae",
+  "genus": "Polycentropsis",
+  "group": "labyrinth",
+  "places": [
+    "africa",
+    "nigeria",
+    "benin",
+    "cameroon",
+    "gabon"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG",
+        "BJ",
+        "CM",
+        "GA"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The African leaf fish, Polycentropsis abbreviata, is a predatory leaf fish from Nigeria, Benin, Cameroon and Gabon.",
+          "countries": [
+            "NG",
+            "BJ",
+            "CM",
+            "GA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2399376,
+      "total": 50,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BJ",
+          24
+        ],
+        [
+          "NG",
+          17
+        ],
+        [
+          "CM",
+          4
+        ],
+        [
+          "GA",
+          4
+        ],
+        [
+          "GH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -4.21875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          0,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          1.40625,
+          5.625,
+          15,
+          15
+        ],
+        [
+          1.40625,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          2.8125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          2.8125,
+          11.25,
+          4,
+          4
+        ],
+        [
+          5.625,
+          4.21875,
+          12,
+          12
+        ],
+        [
+          5.625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          5.625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          7.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          2.8125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 26,
+          "max": 31
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8
+      },
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polycentropsis-abbreviata",
+      "html": "<p>The African leaf fish, Polycentropsis abbreviata, is a predatory leaf fish from Nigeria, Benin, Cameroon and Gabon. Camouflaged to mimic a dead leaf, it stalks prey in a head-down stance and can swallow prey almost as big as itself. It is flighty and very sensitive to deteriorations in water quality, needs soft, acidic water and often accepts only live food. It is not recommended for the beginner.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polycentropsis-abbreviata",
+      "html": "<p>Cameroon, Benin, Gabon, Nigeria.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polycentropsis-abbreviata",
+      "html": "<p>It inhabits pools, swamps, creeks and slow-moving rivers. It occurs most frequently in areas of submerged vegetation around the banks of these.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polycentropsis-abbreviata",
+      "html": "<p>Standard length: 80 mm SL. Aquarium base: 60 × 38 cm. Volume: ~68 litres (60 × 38 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polycentropsis-abbreviata",
+      "html": "<p>Soft acidic water is essential. The aquarium should be dimly-lit with floating plants in order to diffuse the light further. Heavy planting with large-leaved varieties such as Echinodorus species, as well as some hiding places in the form of driftwood, are also recommended to make this fish feel secure as they can be very nervous. Any water movement should be kept to a minimum.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polycentropsis-abbreviata",
+      "html": "<ul><li>Temperature: 26–31°C</li><li>pH: 6.0–6.5</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polycentropsis-abbreviata",
+      "html": "<p>It is carnivorous and often will only accept live food. Bloodworm and small earthworms are good choices. Some specimens can be trained to accept dead alternatives but will only feed on items that are moving through the water column. Although it is highly piscivorous in nature, there is no need to feed P. abbreviata live fish in the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polycentropsis-abbreviata",
+      "html": "<p>A species tank is highly preferable, although it can be kept with medium-sized loricariids and armoured catfish without too many problems. Other quiet species which are too large to be eaten, such as gouramis, Ctenopoma and West African dwarf cichlids are also possibilities. Small fish will certainly be eaten. It is possible to maintain a small group of this species in a suitably large tank, as it is not particularly aggressive towards conspecifics.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polycentropsis-abbreviata",
+      "html": "<p>Not an easy fish to sex. According to Baensch, females have a convex ventral line, which is straight in males, but this is unconfirmed. When the fish are spawning the female takes on a lighter patterning.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polycentropsis-abbreviata",
+      "html": "<p>Rarely achieved in captivity. Bubble nester. Apparently, the fish can be induced to breed by providing dense planting, especially around the surface, and lowering the water level to 10–15 cm. The tank should be warm (above 25°C) and dimly-lit. It is best to select a single pair of fish, and these should be conditioned with plenty of live foods. It is the male who builds the bubblenest, situating it amongst the surface vegetation. He may construct several nests prior to spawning. The act itself is quite a vigorous affair and the pair may deposit over 100 eggs into the bubble nest. The eggs hatch in 48-72 hours and should be fed live foods such as brine shrimp nauplii from birth. It is advisable to remove the parents once the eggs have hatched, or they may predate on the fry. The maintenance of high water quality is essential as the young are very sensitive to deteriorating water quality.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/polycentropsis-abbreviata",
+      "html": "<p>Like the closely related Polycentrus species from South America, with which it is sometimes confused, this fish is camouflaged to mimic a dead leaf, both in body shape and pattern. It can also change colour to match its surroundings. When hunting, it stalks its prey in a head-down stance, appearing to drift towards it like a dead leaf drifting in a current. In reality the fish is propelled by tiny movements of its transparent hind fins. When it strikes at an item of prey, the entire mouth protrudes outwards, forming a tube into which the prey is sucked, usually head first. This happens so quickly it is often difficult to see. It can swallow prey almost as big as itself in this way. It is quite rare in the hobby, and is not the easiest fish to maintain in captivity. It is therefore not recommended for the beginner. In addition to being a voracious predator, P. abbreviata is also a somewhat flighty species that is very sensitive to deteriorations in water quality.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/",
+      "html": "<p>Polycentropsis abbreviata means roughly translated “short and similar to Polycentrus”. In fact the African Leaffish looks very similar to Polycentrus schomburgkii from South America. Both species witness the existence of the ancient super continent Gondwana. Gondwana was formed from what is now South America, Africa, India, Australia, and Antarctica. South America drifted away from Gondwana about 100 million years ago. The ancestor of the small leaffishes – both species, the African as well as the South American become only about 8 cm long – must have existed already at that time and most probably it looked very much alike the recent species.</p><p>The African Leaffish is only very rarely offered.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/",
+      "html": "<p>Anyone who is able and willing to fulfill this demand will find the African Leaffish a fascinating study subject.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/",
+      "html": "<p>The P. abbreviata that still exists today comes from West Africa, from Benin to Gabon. It is imported from Nigeria.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/",
+      "html": "<p>The species needs to be fed with live food items like White Moskito larvae, large Daphnia, small earthworms, Tubifex and small feeder fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/",
+      "html": "<p>Polycentropsis abbreviata is known as the “African Leaffish”. The camouflage as a dead leaf is really astonishing. The fish drifts around and preys on small fish and shrimps, which are caught with the very large evertable mouth. The ability to change coloration is amazing. The very same specimen can change within seconds from marbled to light beige or even almost black. Even very small leaffishes can do that. Specimens measuring 1-2 cm in length have a different, very contrasting black and white pattern. This coloration is also found in various labyrinth fish in very young stages, such as Ctenopoma weeksii, Sphaerichthys osphromenoides, and Ctenops nobilis. The purpose of this coloration has not yet been researched.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/",
+      "html": "<p>Sadly the sexes can be only hardly told apart. Females tend to stay a bit smaller and have a smaller head.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/",
+      "html": "<p>The broodcare of the African Leaffish is also remarkable. The male builds a kind of bubble nest under a broad leaf of a plant. This is similar to the bubblenest of the anabantoid fish, but the peculiar bubbles are larger. Here the fish spawn. The male alone takes care for eggs and newly hatched larvae. The broodcare ends when the youngsters swim free.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "rtViTJ5vmio",
+      "title": "African leaf fish (Polycentropsis abbreviata)",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Knuc2laxN60",
+      "title": "Polycentropsis abbreviata wild feeding",
+      "durationSec": 53,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xsYQyzfYPs8",
+      "title": "polycentropsis abbreviata hunting shrimp",
+      "durationSec": 51,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hRuTjResCe0",
+      "title": "Polycentropsis abbreviata feeding on gambusia",
+      "durationSec": 45,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "giun đất nhỏ làm thức ăn cá",
+        "thức ăn sống cho cá",
+        "trùng chỉ",
+        "bo bo"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh lá lớn",
+        "cây kiếm Echinodorus",
+        "cây thủy sinh nổi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

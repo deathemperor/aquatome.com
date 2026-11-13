@@ -12,6 +12,96 @@
     "republic-of-the-congo",
     "angola"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA",
+        "CG"
+      ],
+      "regions": [
+        "Ogooué"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from 'Cap Gentil', now known as Cape Lopez, close to the mouth of the Ogooué River, Gabon and is distributed in lowland areas along much of the country's coastline plus that of Congo which borders Gabon to the south.",
+          "countries": [
+            "GA",
+            "CG"
+          ],
+          "regions": [
+            "Ogooué"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348299,
+      "total": 20,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "GA",
+          10
+        ],
+        [
+          "CG",
+          9
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          0,
+          3,
+          3
+        ],
+        [
+          9.84375,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ],
+        [
+          11.25,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          11.25,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          11.25,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +145,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -162,8 +252,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá mini 30 lít"
+        "bể cá 50cm"
       ]
     },
     {

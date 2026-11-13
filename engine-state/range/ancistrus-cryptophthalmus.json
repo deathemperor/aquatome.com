@@ -1,0 +1,82 @@
+{
+  "id": "ancistrus-cryptophthalmus",
+  "native": {
+    "input": "e3685d9a8eb7990c",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Caverna Passa Três, about 300 meters into the cave, Rio São Vicente system, São Domingos, Goiás State, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: São Vicente and Angélica-Bezerra cave system in upper Paraná River, Tocantins River drainage in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraná River",
+        "source": "planetcatfish",
+        "quote": "South America: São Vicente and Angélica-Bezerra cave system in upper Paraná River, Tocantins River drainage in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Tocantins River",
+        "source": "planetcatfish",
+        "quote": "South America: São Vicente and Angélica-Bezerra cave system in upper Paraná River, Tocantins River drainage in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio São Vicente",
+        "source": "planetcatfish",
+        "quote": "Type locality: Caverna Passa Três, about 300 meters into the cave, Rio São Vicente system, São Domingos, Goiás State, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ancistrus cryptophthalmus",
+    "status": "ACCEPTED",
+    "taxonKey": 5961463,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "9343010e-8261-4bd9-9314-bf2faf34f4e7",
+        4
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

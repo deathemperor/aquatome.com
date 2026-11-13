@@ -1,0 +1,315 @@
+{
+  "id": "hyphessobrycon-simulatus",
+  "scientificName": "Hyphessobrycon simulatus",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "french-guiana",
+    "maroni"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GF"
+      ],
+      "regions": [
+        "Maroni",
+        "Mana",
+        "Sinnamary",
+        "Kourou",
+        "Approuague",
+        "Oyapock"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The false x-ray tetra, Hyphessobrycon simulatus, is a characid endemic to French Guiana, from the Maroni to the Oyapock/Oiapoque river basins.",
+          "countries": [
+            "GF"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to French Guiana, where it is known from the Maroni, Mana, Sinnamary, Kourou, Comté, Mahury, Kaw, Approuague and Oyapock/Oiapoque River basins.",
+          "countries": [],
+          "regions": [
+            "Maroni",
+            "Mana",
+            "Sinnamary",
+            "Kourou",
+            "Approuague",
+            "Oyapock"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354621,
+      "total": 319,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "GF",
+          273
+        ],
+        [
+          "SR",
+          26
+        ],
+        [
+          "BR",
+          19
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          4.21875,
+          20,
+          0
+        ],
+        [
+          -54.84375,
+          4.21875,
+          15,
+          11
+        ],
+        [
+          -53.4375,
+          2.8125,
+          56,
+          51
+        ],
+        [
+          -53.4375,
+          4.21875,
+          203,
+          203
+        ],
+        [
+          -52.03125,
+          2.8125,
+          12,
+          1
+        ],
+        [
+          -52.03125,
+          4.21875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-simulatus",
+      "html": "<p>The false x-ray tetra, Hyphessobrycon simulatus, is a characid endemic to French Guiana, from the Maroni to the Oyapock/Oiapoque river basins. Uncommon in the trade, it was originally described in the genus Pseudopristella. It is told from Pristella maxillaris by a larger humeral spot and black in the anal fin limited to the first ray.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-simulatus",
+      "html": "<p>Endemic to French Guiana, where it is known from the Maroni, Mana, Sinnamary, Kourou, Comté, Mahury, Kaw, Approuague and Oyapock/Oiapoque River basins.</p><p>Type locality is 'Kourou River (coast), French Guiana'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-simulatus",
+      "html": "<p>Typically inhabits still and sluggish tributaries and backwaters, including oxbows and floodplain lakes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-simulatus",
+      "html": "<p>An aquarium with base dimensions of 80 × 30 cm or equivalent (about 72 litres) should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-simulatus",
+      "html": "<p>Perhaps looks best in an arrangement comprising a sandy substrate plus some driftwood roots and branches although it should also thrive in a planted set-up.</p><p>The addition of dried leaf litter would further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>The latter are useful since they provide an additional food source for both adults and fry while the humic substances released by decaying leaves are also considered beneficial.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-simulatus",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-simulatus",
+      "html": "<p>Likely to be omnivorous feeding on small invertebrates, crustacea, filamentous algae, fallen fruit and suchlike in nature.</p><p>In aquaria it may survive on a diet of dried foods but like most fishes does best when offered a varied menu which in this case should also contain live and frozen chironomid larvae (bloodworm), mosquito larvae, Daphnia, Moina, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-simulatus",
+      "html": "<p>Very peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It is perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, small-to-medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-simulatus",
+      "html": "<p>Sexually mature females are noticeably rounder-bodied and a little larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-simulatus",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-simulatus",
+      "html": "<p>H. simulatus is uncommon in the aquarium trade although its name is sometimes applied to other species.</p><p>It was originally described in the monotypic genus Pseudopristella, and can be distinguished from the vaguely similar Pristella maxillaris by possession of a relatively large (vs. relatively small) humeral spot and having black pigmentation in the anal-fin restricted to the first ray (vs. a prominent distal blotch).</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal-fin.</p><p>The grouping was revised by Eigenmann (1918, 1921) while Géry (1977) created artificial groups of species based on colour pattern, and these definitions are still widely used today, e.g., the H. agulha group, the H. heterorhabdus group, etc. These cannot be considered to represent monophyletic assemblages, however, and their concepts continue to be redefined.</p><p>Weitzman &amp; Palmer (1997) hypothesised the existence of a monophyletic assemblage within the genus based on colour pattern and male fin morphology that they termed the 'rosy tetra clade', with one of the characters supporting its monophyly being presence of a prominent dark marking on the dorsal-fin. This assemblage, plus other morphologically similar species, is considered to represent Hyphessobrycon sensu stricto by some authors, with the remaining species included in a much-expanded H. heterorhabdus group.</p><p>Others have proposed conflicting, typically more restricted, views of both the genus and/or its constituent species groups, and significant confusion remains. What is clear is that, as currently recognised, Hyphessobrycon is a polyphyletic lineage containing several genera.</p><p>The process of splitting it up has already started, and Malabarba et al. (2012) revalidated the genus Ectrepopterus Fowler, previously considered a synonym of Hyphessobrycon. They also analysed its relationships within the Characidae in the context of Mirande's (2010) previous work, but included the type species, H. compressus, for the first time in such a study. The results demonstrated that H. compressus is more closely-related to 'rosy tetra' representatives such as H. eques, H. pulchripinnis, and H. socolofi than other species then placed in the genus, including Psalidodon anisitsi, H. bifasciatus, H. elachys, H. herbertaxelrodi, and H. luetkeni.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-simulatus",
+      "html": "<ul><li>Géry, J. (1960). Contributions to the study of the characoid fishes, No. 6. New Cheirodontinae from French Guiana. Senckenbergiana Biologica 41(1/2), 15-39</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>Weitzman, S. H. and L. Palmer (1997). A new species of Hyphessobrycon (Teleostei: Characidae) from the Neblina region of Venezuela and Brazil, with comments on the putative `rosy tetra clade'. Ichthyological Exploration of Freshwaters 7(3), 209-242</li><li>Zarske, A. (2014). Zur Systematik einiger Blutsalmler oder \"Rosy Tetras\" (Teleostei: Ostariophysi: Characidae). Vertebrate Zoology 64(2), 139-167</li><li>Mirande, J. M. (2010). Phylogeny of the family Characidae (Teleostei: Characiformes): from characters to taxonomy. Neotropical Ichthyology 8(3), 385-568</li><li>Malabarba, L. R., V. A. Bertaco, F. R. Carvalho &amp; T. O. Litz. (2012). Revalidation of the genus Ectrepopterus Fowler (Teleostei: Characiformes), with the redescription of its type species, E. uruguayensis. Zootaxa 3204, 47-60</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6f8cceb2ee4b260f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6f8cceb2ee4b260f-480.webp",
+      "width": 640,
+      "height": 435,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-simulatus",
+      "caption": "Specimen from the German aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 80cm",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

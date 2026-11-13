@@ -1,0 +1,117 @@
+{
+  "id": "mystus-bocourti",
+  "native": {
+    "input": "32a22e09be99d476",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Mystus bocourti comes from the river basins of the Mekong and the Chao Phraya in Thailand, Laos, and Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Mystus bocourti comes from the river basins of the Mekong and the Chao Phraya in Thailand, Laos, and Cambodia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Mystus bocourti comes from the river basins of the Mekong and the Chao Phraya in Thailand, Laos, and Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Siam.",
+        "words": "Siam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "glaser",
+        "quote": "Mystus bocourti comes from the river basins of the Mekong and the Chao Phraya in Thailand, Laos, and Cambodia.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "glaser",
+        "quote": "Mystus bocourti comes from the river basins of the Mekong and the Chao Phraya in Thailand, Laos, and Cambodia.",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "scotcat",
+        "quote": "Asia: Mekong and Chao Phraya River basins.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "scotcat",
+        "quote": "Asia: Mekong and Chao Phraya River basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mystus bocourti",
+    "status": "ACCEPTED",
+    "taxonKey": 5201906,
+    "datasets": [
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        10
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

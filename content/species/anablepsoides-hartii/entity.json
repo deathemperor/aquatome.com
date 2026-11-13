@@ -1,0 +1,183 @@
+{
+  "id": "anablepsoides-hartii",
+  "scientificName": "Anablepsoides hartii",
+  "order": "Cyprinodontiformes",
+  "family": "Rivulidae",
+  "genus": "Anablepsoides",
+  "group": "killifish",
+  "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 7924816,
+      "total": 168,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "TT",
+          114
+        ],
+        [
+          "VE",
+          46
+        ],
+        [
+          "US",
+          3
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "GY",
+          2
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -116.71875,
+          32.34375,
+          3
+        ],
+        [
+          -74.53125,
+          2.8125,
+          1
+        ],
+        [
+          -73.125,
+          2.8125,
+          1
+        ],
+        [
+          -70.3125,
+          9.84375,
+          1
+        ],
+        [
+          -68.90625,
+          9.84375,
+          2
+        ],
+        [
+          -67.5,
+          9.84375,
+          6
+        ],
+        [
+          -66.09375,
+          9.84375,
+          1
+        ],
+        [
+          -64.6875,
+          9.84375,
+          21
+        ],
+        [
+          -63.28125,
+          7.03125,
+          1
+        ],
+        [
+          -63.28125,
+          9.84375,
+          14
+        ],
+        [
+          -61.875,
+          9.84375,
+          97
+        ],
+        [
+          -61.875,
+          11.25,
+          17
+        ],
+        [
+          -59.0625,
+          5.625,
+          2
+        ],
+        [
+          -45,
+          -2.8125,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 11
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 3,
+          "max": 3
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_hartii_en/",
+      "html": "<p>Rivulus hartii (the species has recently been placed in the genus Anablepsoides, thus the correct name is now Anablepsoides hartii) becomes comparatively large and grows to a maximum size of 11 cm. In the aquarium this rather peaceful fish can live up to 3 years.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_hartii_en/",
+      "html": "<p>The tank must always be absolutely densely covered, for all Rivulus are perfect jumpers.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "uPWN4uj7SpI",
+      "title": "Anablepsoides hartii früher Rivulus hartii Jungfische 4 Wochen alt",
+      "durationSec": 33,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eaO0BwKx1e4",
+      "title": "Anablepsoides spec.affin hartii GR 06.6, Izcaragua",
+      "durationSec": 42,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ALyly9N9vik",
+      "title": "Episode 2 - Jumping Guabine (Anablepsoides hartii)",
+      "durationSec": 191,
+      "lang": "en-GB"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể có nắp đậy kín",
+        "nắp kính bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc treo bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

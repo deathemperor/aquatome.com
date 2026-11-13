@@ -13,6 +13,217 @@
     "panama",
     "mamoni"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "EC",
+        "PA"
+      ],
+      "regions": [
+        "Rio Magdalena",
+        "Mamoni River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Colombia: Rio Magdalena, Colombia Caribbean Rivers, Magdalena.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Rio Magdalena"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Colombia, Ecuador and Panama.",
+          "countries": [
+            "EC",
+            "PA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Mamoni River, near Chepo in the Isthmus of Panama.",
+          "countries": [],
+          "regions": [
+            "Mamoni River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202393,
+      "total": 948,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CO",
+          862
+        ],
+        [
+          "PA",
+          59
+        ],
+        [
+          "EC",
+          27
+        ]
+      ],
+      "cells": [
+        [
+          -80.15625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          -1.40625,
+          22,
+          22
+        ],
+        [
+          -80.15625,
+          0,
+          2,
+          2
+        ],
+        [
+          -80.15625,
+          8.4375,
+          20,
+          20
+        ],
+        [
+          -78.75,
+          7.03125,
+          22,
+          22
+        ],
+        [
+          -78.75,
+          8.4375,
+          19,
+          19
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -77.34375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -77.34375,
+          5.625,
+          15,
+          15
+        ],
+        [
+          -75.9375,
+          1.40625,
+          130,
+          130
+        ],
+        [
+          -75.9375,
+          2.8125,
+          50,
+          50
+        ],
+        [
+          -75.9375,
+          4.21875,
+          390,
+          390
+        ],
+        [
+          -75.9375,
+          5.625,
+          126,
+          126
+        ],
+        [
+          -75.9375,
+          7.03125,
+          106,
+          106
+        ],
+        [
+          -74.53125,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          -74.53125,
+          5.625,
+          11,
+          11
+        ],
+        [
+          -74.53125,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          -74.53125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -119,18 +330,7 @@
       "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Fisch-Muller, S., 2003. Loricariidae-Ancistrinae (Armored catfishes). p. 373-400. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. www.fishbase.org (06/2023).</p><p>Lyons, T.J., Armbruster, J.W. &amp; González, R. 2020. Chaetostoma fischeri. The IUCN Red List of Threatened Species 2020.</p><p>Mesa-Salazar, L. 2016. Chaetostoma patiae. The IUCN Red List of Threatened Species 2016.</p><p>Steindachner, F. (1879). Beiträge zur Kenntniss der Süsswasserfische Südamerikas. Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe. v. 16 (no. 15): 149-152.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/bd62890f723261dd.webp",
-      "thumb": "https://media.aquatome.com/commons/bd62890f723261dd-480.webp",
-      "width": 960,
-      "height": 541,
-      "licence": "CC BY 2.0",
-      "author": "Ictiologia Universidad Católica de Oriente",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chaetostoma_fischeri_(16521483575).jpg",
-      "caption": "Chaetostoma fischeri"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

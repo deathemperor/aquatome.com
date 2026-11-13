@@ -14,6 +14,219 @@
     "kalimantan",
     "tasik-bera"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Java"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "They originate from Southeast Asia (Thailand to Borneo).",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Apparently native to Peninsular Malaysia plus the Greater Sunda Islands of Borneo, Sumatra, and Java.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra",
+            "Java"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Indonesia: Borneo: Kalimantan Selatan: Banjarmasin'.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2365645,
+      "total": 38,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TH",
+          10
+        ],
+        [
+          "KH",
+          9
+        ],
+        [
+          "VN",
+          8
+        ],
+        [
+          "ID",
+          6
+        ],
+        [
+          "MY",
+          4
+        ],
+        [
+          "TW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          3,
+          0
+        ],
+        [
+          102.65625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          11.25,
+          5,
+          0
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          9.84375,
+          4,
+          0
+        ],
+        [
+          106.875,
+          9.84375,
+          4,
+          0
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          3,
+          3
+        ],
+        [
+          111.09375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          112.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          115.3125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          21.09375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -65,7 +278,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 7
+        "value": 6
       }
     ]
   },
@@ -246,8 +459,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 3m",
-        "bể cá kính cỡ lớn"
+        "bể cá 200cm"
       ]
     },
     {

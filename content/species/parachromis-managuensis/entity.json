@@ -1,0 +1,719 @@
+{
+  "id": "parachromis-managuensis",
+  "scientificName": "Parachromis managuensis",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Parachromis",
+  "group": "cichlids",
+  "places": [
+    "north-america",
+    "honduras",
+    "ulua",
+    "nicaragua",
+    "costa-rica",
+    "matina"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "HN",
+        "NI",
+        "CR"
+      ],
+      "regions": [
+        "Ulua",
+        "Matina"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The jaguar cichlid, Parachromis managuensis, is a large predatory cichlid from eastern Central America, from Honduras through Nicaragua to Costa Rica.",
+          "countries": [
+            "HN",
+            "NI",
+            "CR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The natural range of this species extends southwards down the eastern side of Central America, from the River Ulua in Honduras through Nicaragua to the River Matina in Costa Rica.",
+          "countries": [],
+          "regions": [
+            "Ulua",
+            "Matina"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208202,
+      "total": 766,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "MX",
+          204
+        ],
+        [
+          "US",
+          189
+        ],
+        [
+          "TW",
+          103
+        ],
+        [
+          "NI",
+          51
+        ],
+        [
+          "HN",
+          44
+        ],
+        [
+          "RE",
+          40
+        ],
+        [
+          "GT",
+          39
+        ],
+        [
+          "CR",
+          22
+        ],
+        [
+          "SV",
+          18
+        ],
+        [
+          "BR",
+          13
+        ],
+        [
+          "PA",
+          12
+        ],
+        [
+          "PH",
+          10
+        ],
+        [
+          "CN",
+          6
+        ],
+        [
+          "PR",
+          6
+        ],
+        [
+          "MY",
+          3
+        ],
+        [
+          "AU",
+          2
+        ],
+        [
+          "ID",
+          2
+        ],
+        [
+          "BZ",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -158.90625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          -113.90625,
+          36.5625,
+          1,
+          0
+        ],
+        [
+          -94.21875,
+          16.875,
+          86,
+          0
+        ],
+        [
+          -94.21875,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          -92.8125,
+          16.875,
+          45,
+          0
+        ],
+        [
+          -92.8125,
+          18.28125,
+          47,
+          0
+        ],
+        [
+          -91.40625,
+          14.0625,
+          6,
+          0
+        ],
+        [
+          -91.40625,
+          15.46875,
+          21,
+          0
+        ],
+        [
+          -91.40625,
+          16.875,
+          5,
+          0
+        ],
+        [
+          -91.40625,
+          18.28125,
+          2,
+          0
+        ],
+        [
+          -90,
+          12.65625,
+          5,
+          0
+        ],
+        [
+          -90,
+          14.0625,
+          17,
+          0
+        ],
+        [
+          -90,
+          15.46875,
+          19,
+          0
+        ],
+        [
+          -90,
+          16.875,
+          1,
+          0
+        ],
+        [
+          -90,
+          29.53125,
+          1,
+          0
+        ],
+        [
+          -88.59375,
+          12.65625,
+          6,
+          1
+        ],
+        [
+          -88.59375,
+          14.0625,
+          10,
+          10
+        ],
+        [
+          -88.59375,
+          15.46875,
+          8,
+          6
+        ],
+        [
+          -87.1875,
+          11.25,
+          32,
+          32
+        ],
+        [
+          -87.1875,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          -87.1875,
+          14.0625,
+          8,
+          8
+        ],
+        [
+          -87.1875,
+          15.46875,
+          4,
+          4
+        ],
+        [
+          -85.78125,
+          9.84375,
+          13,
+          13
+        ],
+        [
+          -85.78125,
+          11.25,
+          3,
+          3
+        ],
+        [
+          -85.78125,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          -85.78125,
+          15.46875,
+          6,
+          6
+        ],
+        [
+          -84.375,
+          9.84375,
+          10,
+          10
+        ],
+        [
+          -84.375,
+          11.25,
+          3,
+          3
+        ],
+        [
+          -84.375,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          -84.375,
+          14.0625,
+          5,
+          5
+        ],
+        [
+          -84.375,
+          15.46875,
+          5,
+          5
+        ],
+        [
+          -82.96875,
+          7.03125,
+          4,
+          0
+        ],
+        [
+          -82.96875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -82.96875,
+          25.3125,
+          5,
+          0
+        ],
+        [
+          -82.96875,
+          26.71875,
+          2,
+          0
+        ],
+        [
+          -81.5625,
+          7.03125,
+          3,
+          0
+        ],
+        [
+          -81.5625,
+          23.90625,
+          4,
+          0
+        ],
+        [
+          -81.5625,
+          25.3125,
+          160,
+          0
+        ],
+        [
+          -81.5625,
+          26.71875,
+          4,
+          0
+        ],
+        [
+          -80.15625,
+          8.4375,
+          5,
+          0
+        ],
+        [
+          -80.15625,
+          25.3125,
+          9,
+          0
+        ],
+        [
+          -80.15625,
+          26.71875,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          18.28125,
+          5,
+          0
+        ],
+        [
+          -66.09375,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          -45,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          -43.59375,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          2,
+          0
+        ],
+        [
+          -40.78125,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          -37.96875,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -37.96875,
+          -8.4375,
+          3,
+          0
+        ],
+        [
+          -36.5625,
+          -8.4375,
+          3,
+          0
+        ],
+        [
+          -35.15625,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          54.84375,
+          -22.5,
+          6,
+          0
+        ],
+        [
+          54.84375,
+          -21.09375,
+          34,
+          0
+        ],
+        [
+          101.25,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          105.46875,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          108.28125,
+          18.28125,
+          2,
+          0
+        ],
+        [
+          109.6875,
+          -8.4375,
+          2,
+          0
+        ],
+        [
+          109.6875,
+          18.28125,
+          2,
+          0
+        ],
+        [
+          112.5,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          119.53125,
+          22.5,
+          17,
+          0
+        ],
+        [
+          119.53125,
+          23.90625,
+          53,
+          0
+        ],
+        [
+          120.9375,
+          12.65625,
+          10,
+          0
+        ],
+        [
+          120.9375,
+          22.5,
+          25,
+          0
+        ],
+        [
+          120.9375,
+          23.90625,
+          6,
+          0
+        ],
+        [
+          149.0625,
+          -22.5,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 18
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 61
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120,
+        "hidden": "shorter than twice the fish (61 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-managuensis",
+      "html": "<p>The jaguar cichlid, Parachromis managuensis, is a large predatory cichlid from eastern Central America, from Honduras through Nicaragua to Costa Rica. Almost exclusively carnivorous, it will see smaller fish as food and is always territorial. A large aquarium is required, and a single spawn from large adults can produce 3000 fry.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-managuensis",
+      "html": "<p>The natural range of this species extends southwards down the eastern side of Central America, from the River Ulua in Honduras through Nicaragua to the River Matina in Costa Rica. It's been introduced into most other Central American countries as well as Hawaii, the USA, Philippines and Singapore.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-managuensis",
+      "html": "<p>Found inhabiting a variety of biotopes, from heavily-silted, murky lakes with soft substrates to clearer streams and ponds. Apparently it shows a preference for warmer waters which are often hypoxic (starved of oxygen).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-managuensis",
+      "html": "<p>Standard length: 61 cm SL.</p><p>Aquarium base: 120 × 38 cm.</p><p>Volume: ~205 litres.</p><p>120 cm long × 45 cm high × 37.5 cm wide - 212 litres. Much larger for fish of 30 cm and over.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-managuensis",
+      "html": "<p>Decorate the aquarium with natural territory boundaries and plenty of rocks, wood and caves as hiding places for the female.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-managuensis",
+      "html": "<ul><li>Temperature: 24–30°C</li><li>pH: 6.0–8.0</li><li>Hardness: 6–18 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-managuensis",
+      "html": "<p>Almost exclusively carnivorous in nature, preying on smaller fish and aquatic invertebrates.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-managuensis",
+      "html": "<p>Big cichlid syndrome. Will see smaller fish as food. Can be aggressive when breeding and are always territorial. Male can be aggressive towards any female Managuense if the female doesn't want to breed when the male does. Adequate cover in the aquarium can help disperse this aggression.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-managuensis",
+      "html": "<p>Females are smaller and more rounded, males have pointed dorsal and anal fins and generally more colour.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-managuensis",
+      "html": "<p>As with a lot of cichlids, Parachromis managuensis will clean a surface chosen for spawning. Eggs will be laid onto this surface and when the fry hatch they will be moved to spawning pits which the parents will have dug into the substrate. Managuense are excellent parents and will look after their young for up to 6 weeks. By this point, the fry should be between 15 mm and 25 mm. After that, parents may start to spawn again. At this point the fry need to be removed or they will be killed by the parents whilst they guard the new batch. Sometimes the parents will look after both batches, but if this is the case the older fry will generally eat the new batch. Raising the fry without parental care is a lot more difficult, and is generally not recommended.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachromis-managuensis",
+      "html": "<p>Parachromis managuensis are your typical North/Central American large predatory cichlid. They are extremely attractive, but a large aquarium is required. They are not difficult to look after, as long as filtration is up to standard. Choose tankmates carefully - if you are hoping to breed Managuense, house a breeding pair or grow 6 juveniles up until a pair is formed. One of the biggest problems with breeding Managuense is the fact that a single spawn from 30 cm parents can produce 3000 fry. What would you do with 3000 potentially 60 cm predatory cichlids? Bear this in mind before giving Managuense the chance to breed.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "8z_xAxWfRbs",
+      "title": "Jaguar Cichlid Care Guide: Tank Size, Tank Mates, Diet & Breeding",
+      "durationSec": 733,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Ai1uYhaUaiI",
+      "title": "XXL Jaguar Cichlids in Love ❤️ | Meeting for the first time | Parachromis Managuensis",
+      "durationSec": 97,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "oq_w7IVWfW8",
+      "title": "Jaguar cichlid vs wolf cichlid / Parachromis managuensis vs Parachromis Dovii",
+      "durationSec": 18,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "CirrNUrAWAk",
+      "title": "The Jaguar Cichlid & Tank Mates",
+      "durationSec": 21,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 200 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid cỡ lớn",
+        "thức ăn cá ăn thịt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

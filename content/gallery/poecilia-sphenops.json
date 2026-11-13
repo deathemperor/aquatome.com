@@ -23,19 +23,12 @@
       "sourceUrl": "https://www.inaturalist.org/photos/6286600",
       "caption": "Hai cá molly trong bể nuôi nền xanh",
       "best": true,
-      "kind": "pair"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/611221064.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/611221064-480.webp",
-      "width": 1024,
-      "height": 402,
-      "licence": "CC BY",
-      "author": "Carlos Domínguez-Rodríguez",
-      "sourceUrl": "https://www.inaturalist.org/photos/611221064",
-      "caption": "Cá molly ngoài tự nhiên bơi gần đáy sỏi",
-      "best": true,
-      "kind": "habitat"
+      "kind": "pair",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/6286600-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/f89391c4e5bf15da.webp",
@@ -176,9 +169,21 @@
       "author": "Guilherme Cameis Freda",
       "sourceUrl": "https://www.inaturalist.org/photos/331337998",
       "caption": "Cá molly bạc nhạt trong bể cây thủy sinh xanh"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/611221064.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/611221064-480.webp",
+      "width": 1024,
+      "height": 402,
+      "licence": "CC BY",
+      "author": "Carlos Domínguez-Rodríguez",
+      "sourceUrl": "https://www.inaturalist.org/photos/611221064",
+      "caption": "Cá molly ngoài tự nhiên bơi gần đáy sỏi",
+      "best": true,
+      "kind": "habitat"
     }
   ],
-  "seen": 98,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 99,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

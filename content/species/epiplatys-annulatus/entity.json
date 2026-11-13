@@ -10,8 +10,112 @@
     "guinea",
     "sierra-leone",
     "moka",
-    "liberia"
+    "liberia",
+    "conakry"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GN",
+        "SL",
+        "LR"
+      ],
+      "regions": [
+        "Moka"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The clown killifish, Epiplatys annulatus, is a small killifish from coastal lowlands of southern Guinea, Sierra Leone and northwestern Liberia.",
+          "countries": [
+            "GN",
+            "SL",
+            "LR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Boulenger gave the type locality as 'Matea, Sierra Leone' with this assumed to refer to a settlement currently known as 'Maka' in the Moka river system, southern Sierra Leone.",
+          "countries": [],
+          "regions": [
+            "Moka"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348780,
+      "total": 16,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "SL",
+          7
+        ],
+        [
+          "GN",
+          5
+        ],
+        [
+          "LR",
+          3
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -14.0625,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          -12.65625,
+          7.03125,
+          6,
+          6
+        ],
+        [
+          -11.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -11.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -9.84375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -9.84375,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -27,6 +131,20 @@
           "min": 19,
           "max": 26
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 23,
+          "max": 25
+        }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -36,6 +154,20 @@
           "min": 4,
           "max": 7
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ],
     "gh": [
@@ -43,6 +175,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 1,
+          "max": 8
+        }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 4,
           "max": 8
         }
       }
@@ -55,6 +194,14 @@
       {
         "source": "aquariumcoop",
         "value": 3.5
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 3.5
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -66,11 +213,24 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       },
       {
         "source": "aquariumcoop",
         "value": 2
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 2,
+          "max": 3
+        }
       }
     ]
   },
@@ -88,10 +248,40 @@
       "html": "<p>Epiplatys annulatus, also known as the clown killi, rocket killifish and banded panchax, is a colourful little fish that stays in the upper third of the aquarium. The common names come from the alternating vertical bands of dark brown and tannish-yellow on the body and the vibrant, flame-like tail of the males.</p><p>Adults can reach up to 3.5 cm. Most fish sold in stores are juveniles around 1 cm long and will not show their true red, yellow, blue and orange colours until they are raised to maturity. Lifespan is only about 2-3 years.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Scientific name: Epiplatys annulatus</li><li>Other names: Clown killie, Banded panchax, Rocket panchax</li><li>Optimal tank size: 40 litres</li><li>Breeding: Easy – Medium</li><li>Optimal KH: 1 – 6</li><li>Dwellers: Top</li><li>Nitrate: less than 40</li><li>Diet: Carnivore</li><li>Temperament: Peaceful</li><li>Colour form: black bands with blue, red and yellow fins</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_conakry_en/",
+      "html": "<p>This tiny and charming little jewel becomes only 3-4 cm long. Common name: Clown Killi.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
+      "html": "<p>Epiplatys annulatus, commonly known as the Clown Killifish, is a small, colorful freshwater fish native to West Africa. Its striking appearance and relatively easy care requirements make it a popular choice for aquarium hobbyists. They have a tan-yellow body with black bands and red stripes down the caudal fins.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-annulatus",
       "html": "<p>Widely-distributed in coastal lowlands of southern Guinea and Sierra Leone to northwestern Liberia (around Monrovia).</p><p>Boulenger gave the type locality as 'Matea, Sierra Leone' with this assumed to refer to a settlement currently known as 'Maka' in the Moka river system, southern Sierra Leone.</p><p>When the collection locality is known aquarists tend to label the fish as such in order to avoid hybridisation and preserve bloodlines, e.g., Brama Town, Conakry, Fallaba, Fandié, Kasewe, Kinkon, Kobora, Maboshi, Maka, Monrovia, Njala, Petifu-Junction, Robertsport, Serabu, Sogiyah, Sowoja, etc.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Clown Killifish have a very restricted distribution. They are recorded in three of West Africa's ichthyological provinces – Guinea, Liberia and Sierra Leone – where the hot and wet seasons are very pronounced.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_conakry_en/",
+      "html": "<p>The animals are wild collected specimens of the form known in the hobby as the 'Conakry variety'.</p>"
     },
     {
       "key": "habitat",
@@ -106,6 +296,18 @@
       "html": "<p>They originally come from slow-moving streams and swamps near the coasts of west Africa.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Epiplatys annulatus is always confined to smaller pools and sedentary wetlands, never to large lakes and/or rivers with strong currents.</p><p>In the natural ecosystem it inhabits ponds and shallow streams where the current is very slow-moving.</p><p>According to one study, in nature the smectite clay substrate plays an important role in their breeding (egg formation and development).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
+      "html": "<p>Epiplatys annulatus thrives in lowland swamps, sluggish streams, and small rivers within regions characterized by open savannahs and tropical rainforests. It is commonly found in areas with marginal vegetation or aquatic plants. While most habitats are freshwater, it can also tolerate slightly brackish conditions in certain locations.</p><p>The climate in its range is consistently hot and humid, with a distinct wet season spanning April-May and October-November. Most rivers in this region flow year-round. The water is typically warm, soft, and acidic, though extensive deforestation of primary rainforest has impacted many habitats. Consequently, surviving populations often reside within protected forest reserves.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-annulatus",
@@ -118,10 +320,28 @@
       "html": "<p>Because of their small size, rocket killifish are one of the few species that can live in a 19-litre nano tank or larger.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The minimum recommended tank size is 20 litres (nano tank). Ideally, a 40-litre tank will suit them much better. In large tanks they will be lost and difficult to see.</p><p>Keeping stable water parameters in small tanks can be hard even for experienced aquarists. Smaller aquaria should be used only for breeding.</p><p>Long tanks are better than tall tanks of the same size, as they like shallow water.</p><p>You need a tight lid, as Clown Killifish are big-time jumpers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
+      "html": "<p>A minimum of 40 litres is recommended for a group of 6 or more.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-annulatus",
       "html": "<p>Perhaps looks best in a heavily-planted set-up or natural-style arrangement comprising a sandy substrate plus some driftwood roots and branches.</p><p>The addition of dried leaf litter would further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the humic substances released by the decaying leaves are also considered beneficial, with alder cones also useful in this respect.</p><p>There's no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>This species seems to do best under fairly dim lighting but you can add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Anubias spp., while floating vegetation, such as Ceratopteris spp., is also appreciated.</p><p>It's also sensitive to fluctuating or deteriorating water conditions and should never be added to biologically-immature aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Care is quite easy and straightforward. Cycle your tank before bringing fish home, then check the water quality with a test kit.</p><p>Before putting the fish into your tank, carefully acclimate them to the temperature. Do it very slowly to prevent unnecessary stress.</p><p>Some professional breeders keep them even without filtration, feeding live foods only, but they have to do water changes every 1 – 2 days. Beginners should not do this.</p><p>Plants and decorations: they need many plants and hiding places. These can be floating plants, fake plants, driftwood, leaves and other decorations. Floating plants and mosses are used to lay eggs and hide fry, and floating plants also discourage jumping when there is no lid.</p><p>Substrate: in aquariums the substrate matters little; floating plants and mosses can be used.</p>"
     },
     {
       "key": "waterConditions",
@@ -136,10 +356,34 @@
       "html": "<p>Like most killifish, they tolerate cooler temperatures of 19-26°C, so they can be kept in an unheated aquarium with other cold water species. Lowering the water temperature can help slow their metabolism and lengthen their lifespan.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>If you buy captive-bred fish (bred for several generations), find out the water parameters they were bred in. If you can't, presume the breeder kept them in parameters close to natural ones.</p><p>Temperature: they can live in a wide range of 21 – 30°C, but the optimal range in the aquarium is 23 – 25°C.</p><p>pH: aim for 6.0 – 7.0. In nature they are mostly found in slightly acidic water (below 7.0). Some report keeping and breeding them at pH 7 – 7.5, but this may be because those captive-bred generations were used to such water. Fish not prepared for it will die. The same can happen if fish accustomed to less ideal parameters are moved to optimal ones.</p><p>Hardness: they appreciate soft water of 4 – 8 GH. Hard water is not good for them.</p><p>Salinity: freshwater species. Some information online says Epiplatys annulatus was found in slightly brackish water, but this could not be verified; it would be an exception. Do not keep them in brackish water.</p><p>Water flow: they are surface dwellers, so any surface agitation makes them uncomfortable and causes stress. Still or very slow water currents are important.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
+      "html": "<ul><li>pH: 6.5-7.5</li><li>Temperature: 22-26°C</li><li>Hardness: Soft to moderately hard</li></ul>"
+    },
+    {
       "key": "equipment",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/clown-killifish",
       "html": "<p>As with most surface-dwelling fish, keep a tight lid or hood with all gaps covered so they cannot jump out of the aquarium.</p><p>Provide a gentle filter with low flow (such as a sponge filter) and lots of floating plants for cover.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Filtration: sponge filters can be used. They cause some surface agitation, but much less than other filters, and they are safe for fry. With most other filters you will need an extra sponge pre-filter to prevent fry from being sucked in.</p><p>Lighting: lighting should suit the plants in the tank. Ideally pick floating plants or plants that do not need much light, because too much light washes out their coloration.</p><p>Lid: a tight lid is required because they are phenomenal jumpers.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
+      "html": "<p>A densely planted aquarium with plenty of hiding places is ideal.</p>"
     },
     {
       "key": "diet",
@@ -154,6 +398,18 @@
       "html": "<p>Because of their tiny mouths and preference for swimming near the water surface, give them a wide variety of tiny floating foods, such as fry food, crushed flakes and freeze-dried daphnia. They will also happily eat slow-sinking foods, such as live baby brine shrimp, frozen cyclops and small pellets.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Clown Killifish are micro predators (micro-carnivores). They feed entirely on other small organisms such as mosquito larvae and small crustaceans. They do not eat algae.</p><p>In the aquarium they can be fed a wide variety of foods:</p><ul><li>brine shrimp</li><li>moina</li><li>bloodworms</li><li>black worms</li><li>daphnia</li><li>fruit flies</li><li>grindal worms</li><li>mosquito larvae</li><li>cyclops</li></ul><p>They do not require only live foods. Frozen and commercial foods can be fed too, such as Fluval Bug Bites, Hikari First Bites and any really small crushed flake food. Any live or frozen food that fits in their mouths can be given.</p><p>Adults can be fed once a day, whereas juveniles should be fed twice a day. Do not let them starve; otherwise they can turn aggressive to each other because of food competition.</p><p>They are diurnal, so feed them during the day. They are surface feeders, with mouths developed to catch prey above them, and rarely pick anything off the substrate. Use a protein-based, varied diet. Their mouths are very small, so grind up flakes.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
+      "html": "<p>Omnivorous, feeding on a variety of small live and flake foods.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-annulatus",
@@ -164,6 +420,18 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/clown-killifish",
       "html": "<p>Because of their brightly coloured tails, you may be tempted to keep only males, but they can sometimes be a bit territorial with each other. Instead, aim for a ratio of 1 male to every 2-3 females. A larger group allows them to feel more comfortable and display their natural social behaviours.</p><p>They are a fun community fish and get along fine with other peaceful fish that are not big enough to eat them. They have been kept with celestial pearl danios (Danio margaritatus), Norman's lampeye killifish (Poropanchax normani), chili rasboras (Boraras brigittae), pygmy cory catfish (Corydoras pygmaeus), snails and other nano species. As with many killifish, they tend to stay near the water surface, so consider adding tank mates that swim in the middle to bottom layers of the aquarium for greater visual variety.</p><p><strong>Betta:</strong> It depends on the betta's personality. Some bettas do not like other colourful fish swimming in the top third of the aquarium, so rocket killifish would not be a good pairing. Other bettas do not mind the extra company and ignore them completely, so you can try housing them together and separate them if needed.</p><p><strong>Dwarf shrimp:</strong> In general, clown killifish do not seem to eat adult dwarf shrimp such as cherry shrimp (Neocaridina davidi), Caridina shrimp and ghost shrimp. Baby shrimp, however, are fair game, so keeping them together is not recommended if you plan on selling shrimp. Provide more decorations and live plants so the shrimp have plenty of places to hide.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Clown Killifish are cute, peaceful, non-aggressive and very shy. They are best kept in a species-only tank or a community tank with small, non-aggressive species. They are small, so anything that fits in their mouths may eat them.</p><p>They are social and like to be in groups, but do not shoal in the literal sense. They behave more comfortably in a group. Small groups and overcrowding can both change behaviour and cause aggression. Start with at least 4 – 6.</p><p>They do not harass other fish species, but can be pretty aggressive with each other, and conflicts between males are not always harmless. Fins can be torn, and a dominant fish can bully others until they stop eating and die. This is uncommon; usually they settle disputes by swimming side by side and pushing each other to find the alpha. Larger groups, without overcrowding, help avoid rivalry.</p><p>They are very reclusive and timid, especially females when kept with other fish.</p><p>They are mostly surface dwellers and stay near the top, occasionally cruising the middle and lower levels. They do not move much, but when they do they are very quick.</p><p>They are phenomenal jumpers. A tight lid is needed, and be extra careful when opening the lid to feed.</p><ul><li>Social: yes</li><li>Activity: average</li><li>Placement: surface dwellers</li><li>Peaceful: yes (with other fish species)</li><li>Jumpers: yes</li></ul><p>Plant safe: they are carnivorous and do not eat live plants.</p><p>Tankmates: ideally a species-only tank. In a community tank, all tankmates should be gentle and enjoy the same water parameters. Compatible fish include Pygmy Cory, Boraras, Panda Garra, Albino Bristlenose Pleco, Neon Tetras, Brilliant Rummynose Tetras, Harlequin Rasboras, Ruby Tetras, Dwarf Ember Barbs, Guppies, Dwarf Chain loaches, Kuhli Loaches, Endlers and Medaka Ricefish.</p><p>Dwarf shrimp: they will not harm adult shrimp but will feed on shrimplets, and shrimp may eat the killifish's eggs.</p><p>Snails: compatible with any freshwater snail.</p><p>Avoid: large and/or aggressive and/or boisterous fish (cichlids, arowanas, tiger fish, etc.); top-dwelling fish that compete for food; crayfish and most freshwater crabs; even small African Dwarf Frogs may try to catch small Clown Killifish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
+      "html": "<p>Peaceful and compatible with other small, peaceful fish.</p>"
     },
     {
       "key": "dimorphism",
@@ -178,6 +446,18 @@
       "html": "<p>Male rocket killifish have brightly coloured tails, whereas females have a clear tail.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Males are 2.5 – 3.5 cm long, while females are smaller at 2 – 3 cm.</p><ul><li>Anal fins: males have a tail that looks almost like fire coming from the rear end, and can have red anal fins outlined in blue or blue outlined in red. Females have more transparent anal fins with just a little red in the middle of the tail.</li><li>Ventral fins: males can be bright red or bright orange, whereas females have less developed fin extensions and are less coloured.</li><li>Size: females are slightly smaller than males.</li></ul>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
+      "html": "<p>Females have shorter and less colorful fins.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-annulatus",
@@ -190,10 +470,40 @@
       "html": "<p>With the right ratio of males to females, breeding should be fairly easy. When the water is clean and food is plentiful, they tend to scatter their eggs on dense floating plants (such as dwarf water lettuce and riccia) and on DIY spawning mops.</p><p>For the highest fry survival rates, keep a species-only breeding tank and remove the eggs to hatch them in a breeding box or a separate grow-out tank. The eggs hatch in about 1.5 weeks, and the fry can then be fed tiny foods such as infusoria, vinegar eels, powdered fry food and live baby brine shrimp.</p><p>Use dense floating plants to encourage spawning and to provide more cover for the fry if you plan on colony breeding (keeping the adults together with the fry).</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Clown Killifish are not that difficult to breed as long as conditions are good. They can breed even in a community tank, but a separate breeding tank is better. Three main factors: stable and good water conditions, a proper diet (mostly live food), and keeping fry alone in a separate tank. Some people could not breed them in tanks with Amano shrimp and snails, which ate all the eggs.</p><p>Maturity: depending on temperature, they reach sexual maturity at 2 – 3 months old, when they become more colourful.</p><p>Mating: the optimal ratio of females to males is 2:1 or 3:1. Males constantly follow females and try to pin them against any surface.</p><p>Eggs: they are egg scatterers, not livebearers. Females usually lay 1 – 2 eggs each day and can do so every couple of weeks, producing up to 10 – 20 fry per pair of adults. The eggs are adhesive and attach easily to plants. They prefer to spawn at the surface, but mosses are also a good medium, as their structure acts like a spider web hiding eggs and fry. After fertilisation, the eggs hatch within 10 – 12 days at 24 – 25°C. Some aquarists use yarn mops instead of plants, which makes it easier to move eggs to another tank and incubate them away from adults.</p><p>Hatching: if well fed, adults generally do not prey on their young, so babies can stay in the same tank. Juveniles from previous batches will eat smaller fry, so separate different generations. After hatching, the fry grow rapidly and need frequent feeding (at least 2 times a day) with rotifers, moina, infusoria, newly hatched brine shrimp, nematodes (microworms), etc.</p><p>To initiate spawning: give live foods and soften the water a bit. Adding 10 – 20% rainwater (or distilled water) replicates the breeding season.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
+      "html": "<p>Epiplatys annulatus are egg scatterers, meaning they don't build nests. They will typically lay their eggs on plants or in the substrate of their tank. Use spawning mops, mosses or floating plants.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-annulatus",
       "html": "<p>This species is also traded as 'rocket killifish' and 'banded panchax' and has previously been included in the monotypic genus Pseudepiplatys.</p><p>The latter is not currently considered valid since it was found to render the remaining group of Epiplatys species paraphyletic.</p><p>E. annulatus exhibits differences in colour pattern depending on population especially in the unpaired fins. The anal-fin may or may not have a red distal margin, for example, while in some forms the dorsal and anal fins are yellow.</p><p>Following the key of Romand (1992) it can be told apart from congeners by the following combination of characters: presence of 4 very broad, dark, transverse bars alternating with yellowish bars between the snout and caudal-fin; longitudinal bands never present; adult size &lt; 50 mm (2.0 in) SL.</p><p>Epiplatys is the most widely-distributed genus of West African aplocheiloid killifish with a range overlapping that of the other genera native to the region which are more restricted and split into eastern and western groups based on their respective patterns of distribution.</p><p>For example, Callopanchax is restricted to coastal lowlands of far Western Africa with Scriptaphyosemion and Archiaphyosemion known only from the interior of the Western rainforest, whereas Aphyosemion and Fundulopanchax present more easterly ranges extending south and eastward from Nigeria.</p><p>Although previously considered closely-related to the genus Aplocheilus due to shared similarities such as possessing an upturned mouth and dwelling mostly near the water surface Epiplatys is in fact affiliated with the western group above, i.e., its closest relatives are Callopanchax, Scriptaphyosemion and Archiaphyosemion.</p><p>In addition the phylogenetic analysis of Collier et al. (2009) revealed the existence of two distinct clades within Epiplatys itself, one comprising those species restricted to the Western rainforest (the western/savanna clade) and other those inhabiting lowland (coastal) swamps and streams west of the Dahomey Gap.</p><p>Most members of the coastal clade have a colour pattern consisting of broad, dark vertical bars which are present in juveniles of those species which lack them as adults, plus many populations possess an asymmetric caudal-fin shape with an extended lower lobe, whereas western clade species tend to lack or only possess thin oblique dark bars on the body and have symmetrically-shaped caudal fins.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Killifish does not come from the verb \"to kill\" but from the Dutch word 'kil', meaning 'small stream or creek', derived from Middle Dutch 'kille'.</p><p>The species was described by George Albert Boulenger in 1915 as Haplochilus annulatus. It has since been known as Pseudepiplatys annulatus, Aplocheilus annulatus, Haplochilus annulatus and Panchax annulatus; Epiplatys annulatus is the current name.</p><p>Epiplatys comes from the Greek epí ('above, on top of') and platýs ('flat, broad'). Annulatus comes from the Latin 'annulus', meaning 'ring' (the banded pattern), not 'annual'. Clown Killifish are not annual killies and are short-lived, living 2 – 3 years in the aquarium under optimal conditions. High temperatures increase metabolism and shorten lifespan.</p><p>They are also called 'Rockets' because their tails look like a rocket flame, especially in males.</p><p>Description: they have small heads with bright neon blue eyes and elongated slender bodies with 4 vertical dark stripes alternating with cream or yellowish bars between the snout and caudal fin. Colour pattern can differ slightly between populations. Stressed fish can temporarily lose colour, especially during shipping, and young fish are less colourful.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_conakry_en/",
+      "html": "<p>Pseudepiplatys: from ancient Greek, means “false Epiplatys”. annulatus: Latin, means “ringed”.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
+      "html": "<p>Epiplatys means \"to float\", while \"annulus\" means rings, referring to the black bands.</p>"
     },
     {
       "key": "references",
@@ -247,24 +557,14 @@
       "caption": "Male Clown killi (also called Banded panchax, Epiplatys annulatus) hovering just below the surface, which is what they do."
     },
     {
-      "url": "https://media.aquatome.com/commons/6150986c9dfe812a.webp",
-      "thumb": "https://media.aquatome.com/commons/6150986c9dfe812a-480.webp",
-      "width": 960,
-      "height": 540,
-      "licence": "CC BY-SA 4.0",
-      "author": "Cassius Chaerea",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panchax_prstencov%C3%BD.jpg",
-      "caption": "Clown killi - male"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/43feca8b8e2a0767.webp",
-      "thumb": "https://media.aquatome.com/commons/43feca8b8e2a0767-480.webp",
-      "width": 871,
-      "height": 438,
-      "licence": "CC0",
-      "author": "ATuin-hek at English Wikipedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clown_killi_1.jpg",
-      "caption": "Clown killi, also called Banded panchax (Epiplatys annulatus)."
+      "url": "https://media.aquatome.com/aquariumbreeder/c9f394278fcbcfda.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/c9f394278fcbcfda-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     }
   ],
   "videos": [
@@ -297,8 +597,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá nhỏ 40 lít"
+        "bể cá 50cm"
       ]
     },
     {
@@ -324,5 +623,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-09"
 }

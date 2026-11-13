@@ -12,6 +12,54 @@
     "laos",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA"
+      ],
+      "regions": [
+        "Songkhram River",
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Oryzias songkhramensis is a small ricefish known only from the Songkhram River basin in northeastern Thailand and the Mekong drainage in Laos.",
+          "countries": [
+            "TH",
+            "LA"
+          ],
+          "regions": [
+            "Songkhram River",
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961079,
+      "total": 1,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          16.875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +103,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 2
       }
     ]
   },
@@ -133,7 +181,71 @@
       "html": "<ul><li>Herder, F. and S. Chapuis (2010). Oryzias hadiatyae, a new species of ricefish (Atherinomorpha: Belonifornes: Adrianichthyidae) endemic to Lake Masapi, Central Sulawesi, Indonesia. The Raffles Bulletin of Zoology 58(2), 269-280</li><li>Magtoon, W. (2010). Oryzias songkhramensis, a new species of ricefish (Beloniformes; Adrianichthyidae) from northeast Thailand and central Laos. Tropical Natural History 10(1), 107-129</li><li>Magtoon, W. and A. Termvidchakorn (2009). A Revised Taxonomic Account of Ricefish Oryzias (Beloniformes; Adrianichthyidae), in Thailand, Indonesia and Japan. The Natural History Journal of Chulalongkorn University 9(1), 35-68</li><li>Parenti, L. R. (2008). A phylogenetic analysis and taxonomic revision of ricefishes, Oryzias and relatives (Beloniformes, Adrianichthyidae). Zoological Journal of the Linnean Society 154(3), 494-610</li><li>Parenti, L. R. and B. Soeroto (2004). Adrianichthys roseni and Oryzias nebulosus, two new ricefishes (Atherinomorpha: Beloniformes: Adrianichthyidae) from Lake Poso, Sulawesi, Indonesia. Ichthyological Research 51(1), 10-19</li><li>Parenti, L. R. and R. K. Hadiaty (2010). A new, remarkably colorful, small ricefish of the genus Oryzias (Beloniformes, Adrianichthyidae) from Sulawesi, Indonesia. Copeia 2010 (2), 268-273</li><li>Roberts, T. R. (1998). Systematic observations on tropical Asian medakas or ricefishes of the genus Oryzias, with descriptions of four new species. Ichthyological Research 45(3), 213-224</li><li>Rosen, D. E. and L. R. Parenti (1981). Relationships of Oryzias, and the groups of atherinomorph fishes. American Museum Novitates 2719, 1–25</li><li>Takehana, Y., K. Naruse K and M. Sakaizumi (2005). Molecular phylogeny of the medaka fishes genus Oryzias (Beloniformes: Adrianichthyidae) based on nuclear and mitochondrial DNA sequences. Molecular Phylogenetics and Evolution 36(2), 417–428</li><li>Uwa, H. and W. Magtoon (1986). Description and karyotype of a new ricefish, Oryzias mekongensis from Thailand. Copeia 1986 (2), 473-478</li><li>Uwa, H. and L. Parenti (1988). Morphometric and meristic variation in ricefishes, genus Oryzias: a comparison with cytogenetic data. Japanese Journal of Ichthyology 35(2), 159-166</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/fc9fadb81a67fa90499b9b4ba9b5b468.webp",
+      "thumb": "https://media.aquatome.com/processed/fc9fadb81a67fa90499b9b4ba9b5b468-480.webp",
+      "width": 700,
+      "height": 433,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-songkhramensis",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261112-oryzias-songkhramensis-sf-1",
+        "pixelHash": "2e1ba71e2572ac6add8c0941fdf4987940182712ae6724169d789af55caf47c3"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-12T11:13:56.178Z",
+          "originalHash": "ec036f98b3a210d996ae23b342085b15a6b0b7cbfa036fb36311b6019a17f447",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 700,
+            "originalHeight": 467,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 700,
+              "y1": 433
+            },
+            "subject": {
+              "x0": 77,
+              "y0": 175,
+              "x1": 615,
+              "y1": 326
+            },
+            "margin": 12
+          },
+          "excludedMarks": [
+            {
+              "x0": 22,
+              "y0": 438,
+              "x1": 130,
+              "y1": 455
+            }
+          ],
+          "checks": {
+            "species": [
+              "2d8b024e4248133a8179ad15f94d47230413622517b8502547761e5578ad88b4",
+              "921cac21bc49f8211a7f05dd03bc3020ff9aebb2e1ae6866448a851476e7ab9d"
+            ],
+            "ownership": [
+              "89a49da119ced857af629edd0d9203a48d3f1d4750d9d6e9286f8acef153320a",
+              "25c1a145c7e8403209f80c8f92cf5cfe1fe9ee5f3091db0ba1acd961f12cda9d"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://www.seriouslyfish.com/images/2012/03/Oryzias-songkhramensis.jpg",
+        "width": 700,
+        "height": 467
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "oXphF4oO3BI",
@@ -152,8 +264,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá nhỏ 40cm",
-        "bể thủy sinh mini"
+        "bể cá 40cm"
       ]
     },
     {

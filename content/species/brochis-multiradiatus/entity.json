@@ -12,10 +12,122 @@
     "napo",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Río Napo",
+        "Río Lagartococha"
+      ],
+      "sources": [
+        "scotcat",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to tributaries of the northwestern Amazon basin in Ecuador and Peru.",
+          "countries": [
+            "EC",
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Tributary of Río Lagartococha near town of Garza-Cocha, upper Río Napo system, Province Napo, Ecuador'.",
+          "countries": [],
+          "regions": [
+            "Río Napo",
+            "Río Lagartococha"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342823,
+      "total": 17,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          13
+        ],
+        [
+          "BO",
+          2
+        ],
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -7.03125,
+          5,
+          5
+        ],
+        [
+          -75.9375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -70.3125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -19.6875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "difficulty": [
       {
         "source": "glaser",
+        "value": 2
+      },
+      {
+        "source": "seriouslyfish",
         "value": 2
       }
     ],
@@ -26,6 +138,13 @@
           "min": 21,
           "max": 24
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -34,6 +153,13 @@
         "value": {
           "min": 6,
           "max": 7.2
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
         }
       }
     ],
@@ -44,11 +170,22 @@
           "min": 0,
           "max": 15
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "scotcat",
+        "value": 10
+      },
+      {
+        "source": "seriouslyfish",
         "value": 10
       }
     ],
@@ -56,6 +193,10 @@
       {
         "source": "scotcat",
         "value": 76
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 120
       }
     ]
   },
@@ -65,6 +206,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
       "html": "<ul><li>Size: male 9.0 cm, female 10.0 cm</li><li>IUCN Red List: Least Concern, as it is widely distributed, common within some of its range, and no major widespread threats are known to currently affect its population (IUCN 2023).</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-multiradiata",
+      "html": "<p>Known in the hobby as the hognose 'Brochis', Brochis multiradiata, long known as Corydoras multiradiatus, is an armoured catfish from the northwestern Amazon basin in Ecuador and Peru. Formerly placed in Brochis, it has an extended snout and 17-18 dorsal-fin rays, against 6-8 in other Corydoras. Little is known of its habitat, but it is likely to live in smaller tributaries and still waters such as backwaters and oxbows, as closely related species do.</p>"
     },
     {
       "key": "distribution",
@@ -79,10 +226,28 @@
       "html": "<p>South America: Western Amazon River basin, Ecuador and Peru. Type locality: afluente occidental del río Lagartococha, cerca del poblado de Garza-Cocha, sistema del alto Napo.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-multiradiata",
+      "html": "<p>Native to tributaries of the northwestern Amazon basin in Ecuador and Peru.</p><p>Type locality is 'Tributary of Río Lagartococha near town of Garza-Cocha, upper Río Napo system, Province Napo, Ecuador'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-multiradiata",
+      "html": "<p>The only information provided by Orcés V. is that the type series was collected at 200-250 m AMSL, but this species is likely to form aggregations in smaller tributaries and still bodies of water such as backwaters, oxbows and marginal lakes, similar to closely-related species.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
       "html": "<p>A tank of at least 30\" x 15\" x 12\" (about 76 x 38 x 30 cm) is suggested for a shoal.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-multiradiata",
+      "html": "<p>Minimum dimensions of 120 × 45 × 45 cm or equivalent are recommended (about 243 litres).</p>"
     },
     {
       "key": "maintenance",
@@ -97,10 +262,22 @@
       "html": "<p>Water quality and general husbandry are very important; changing a minimum of 25% of the water every fortnight is recommended.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-multiradiata",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it is kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
       "html": "<p>Best kept in water with a pH in the range of 6.0-7.2 and hardness up to 15.0 dGH. Ideally suited to temperatures of 21-24°C.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-multiradiata",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -115,10 +292,34 @@
       "html": "<p>As with the other Brochis, they readily accept a mixed and varied diet: catfish pellets, good quality flake foods, granular foods, cultured whiteworm and frozen foods such as bloodworm.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-multiradiata",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-multiradiata",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 6-8 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-multiradiata",
+      "html": "<p>Adult females are noticeably rounder, higher-bodied, and grow slightly larger than males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochis-multiradiatus-bred/",
       "html": "<p>Breeding of Brochis succeeds only rarely. Only B. splendens is bred in southeast Asia in good numbers, and an undescribed species from Bolivia, CW 035, was successfully bred by Hans-Georg Evers.</p><p>A breeder from Hungary, Pasaréti Gyula, achieved an extensive brood of Brochis multiradiatus from a group consisting of 10 males and 4 females. The young were only 2 months old and already 3-6 cm tall, and very attractively coloured.</p><p>Brochis species probably spawn exclusively in the rainy season, when ornamental fishing is impossible, and the young grow so fast that at the beginning of the dry season, when collectors can work again, they already look like adults.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-multiradiata",
+      "html": "<p>Unreported.</p>"
     },
     {
       "key": "notes",
@@ -133,10 +334,22 @@
       "html": "<p>Brochis multiradiata has a 17 dorsal ray count compared to B. splendens (12) and B. britskii (15), and a far longer snout than the latter two. Lineage: Brochis is included in Lineage 8 (sub-clade 1) with the \"intermediate long-snouts\" with deeper bodies.</p><p>Etymology: the specific name multiradiata means many (fin) rays.</p><p>Remarks: Brochis was synonymised with Corydoras by Britto in 2003, but a future revision will resurrect Brochis (Cope, 1871) as a full genus again, so Brochis is retained for now because of marked differences between the two genera. In the latest revision (Dias et al 2024), Brochis multiradiatus was placed in Lineage 8 sub-clade 1, keeping the genus name Brochis, with the specific name changed to multiradiata.</p>"
     },
     {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-multiradiata",
+      "html": "<p>This species was formerly classified in the genus Brochis and is sometimes referred to as 'long-finned brochis'.</p><p>B. multiradiata can be distinguished from other ex-Brochis species by the extended snout and possession of 17-18 dorsal-fin rays (vs. 10-12 in B. splendens and 15-18, normally 15, in B. britskii). All other members of the genus Corydoras, as well as the closely-related Aspidoras and Scleromystax, possess 6-8 dorsal-fin rays.</p><p>Brochis was first synonymised with Corydoras by Britto (2003), since the latter genus cannot be considered monophyletic if the former is accepted as valid. This decision has been supported in subsequent phylogenetic studies by Shimabukuro-Dias et al. (2004) and Alexandrou et al. (2011), although the name Brochis is still common in aquarium literature. Dias et al. (2024) revalidated the genus and placed this species in it again.</p><p>The genus is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes due to the presence of bony plates in place of scales on the body. Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium they are occasionally seen rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them. It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
       "key": "references",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
       "html": "<p>Alexandrou, Markos &amp; Taylor, Martin. (2011). Evolution, ecology and taxonomy of the Corydoradinae revisited.</p><p>Frederico, R.G. &amp; Jimenez-Prado, P. 2023. Corydoras (Brochis) multiradiata. The IUCN Red List of Threatened Species 2023.</p><p>Ian A. M. Fuller &amp; Hans-Georg Evers (2011). Identifying Corydoradinae Catfish Supplement 1. Ian Fuller Enterprises.</p><p>ScotCat Factsheet no. 129. March 2007.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-multiradiata",
+      "html": "<ul><li>Orcés V., G. (1960). Peces ecuatorianos de la familia Callichthyidae, con la descripción de una especie nueva. Ciencia y Naturaleza (Quito) v. 3, 2-6</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Alexandrou, M. A. and M. I. Taylor (2011). Evolution, Ecology and Taxonomy of the Corydoradinae Revisited. In: Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 101-114</li><li>Alexandrou, M. A., C. Oliveira, M. Maillard, R. A. R. McGill, J. Newton, S. Creer, and M. I. Taylor (2011). Competition and phylogeny determine community structure in Müllerian co-mimics. Nature 469, 84-89</li><li>Britto, M. R. (2003). Phylogeny of the subfamily Corydoradinae Hoedeman, 1952 (Siluriformes: Callichthyidae), with a definition of its genera. Proceedings of the Academy of Natural Sciences of Philadelphia, 153, 118-154</li><li>Hoedeman, J. J. (1952). Notes on the Ichthyology of Surinam (Dutch Guiana). The Catfish genera Hoplosternum and Callichthys, with key to the genera and groups of the family Callichthyidae. Beaufortia 1(12), 1-11</li><li>Reis, R. E. (1998). Anatomy and phylogenetic analysis of the neotropical callichthyid catfishes (Ostariophysi, Siluriformes). Zoological Journal of the Linnean Society 124(2), 105-168</li><li>Shimabukuro-Dias, C. K., C. Oliveira, R. E. Reis and F. Foresti (2004). Molecular phylogeny of the armored catfish family Callichthyidae (Ostariophysi, Siluriformes). Molecular Phylogenetics and Evolution 32(1), 152-163</li></ul>"
     }
   ],
   "photos": [
@@ -172,14 +385,26 @@
       "caption": "Hog-Nosed Brochis Brochis multiradiatus at the Louisville Zoo"
     },
     {
-      "url": "https://media.aquatome.com/commons/245fb44fcadad96d.webp",
-      "thumb": "https://media.aquatome.com/commons/245fb44fcadad96d-480.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "karsten_s",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_multiradiatus_246860237.jpg",
-      "caption": "hog-nosed catfish (Corydoras multiradiatus) in Peru"
+      "url": "https://media.aquatome.com/seriouslyfish/f4e7f4dc9e4bc46c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f4e7f4dc9e4bc46c-480.webp",
+      "width": 720,
+      "height": 367,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-multiradiata",
+      "caption": "...and another.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/68b82eecd5ae10a7.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/68b82eecd5ae10a7-480.webp",
+      "width": 800,
+      "height": 532,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-multiradiata",
+      "caption": "Specimen from the UK aquarium trade...",
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/scotcat/9df8dd5c9841f650.webp",
@@ -191,16 +416,6 @@
       "sourceUrl": "https://www.scotcat.com/callichthyidae/brochis_multiradiata.htm",
       "caption": "Brochis multiradiata: showing head area",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/18fbcd29fe9b7752.webp",
-      "thumb": "https://media.aquatome.com/commons/18fbcd29fe9b7752-480.webp",
-      "width": 960,
-      "height": 656,
-      "licence": "CC BY-SA 3.0",
-      "author": "Ltshears",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_at_Louisville_Zoo_2.jpg",
-      "caption": "Hog-nosed Brochis Brochis multiradiatus at Louisville Zoo)"
     }
   ],
   "videos": [
@@ -233,8 +448,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá cho cá chuột"
+        "bể cá 120cm"
       ]
     },
     {
@@ -251,5 +465,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-06"
 }

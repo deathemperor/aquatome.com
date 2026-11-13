@@ -2,10 +2,39 @@
   "id": "astyanax-mexicanus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/flickr/5024220618.webp",
+      "thumb": "https://media.aquatome.com/flickr/5024220618-480.webp",
+      "width": 1024,
+      "height": 785,
+      "licence": "CC BY 2.0",
+      "author": "Just chaos",
+      "sourceUrl": "https://www.flickr.com/photos/7326810@N08/5024220618",
+      "caption": "Đàn cá tetra hang mù màu nhạt trên nền sỏi vàng",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/15719439215.webp",
+      "thumb": "https://media.aquatome.com/flickr/15719439215-480.webp",
+      "width": 1024,
+      "height": 415,
+      "licence": "CC BY 2.0",
+      "author": "James St. John",
+      "sourceUrl": "https://www.flickr.com/photos/47445767@N05/15719439215",
+      "caption": "Cá tetra hang thân bạc ánh xanh, ảnh cận cảnh",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/528d8e73e4cbf0de.webp",
       "thumb": "https://media.aquatome.com/commons/528d8e73e4cbf0de-480.webp",
       "width": 1200,
       "height": 771,
+      "large": {
+        "url": "https://media.aquatome.com/commons/528d8e73e4cbf0de-large.webp",
+        "width": 1869,
+        "height": 1200
+      },
       "licence": "CC BY-SA 3.0",
       "author": "H. Zell",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astyanax_mexicanus_01.jpg",
@@ -36,6 +65,11 @@
       "thumb": "https://media.aquatome.com/commons/41348773648e0f49-480.webp",
       "width": 1200,
       "height": 636,
+      "large": {
+        "url": "https://media.aquatome.com/commons/41348773648e0f49-large.webp",
+        "width": 2267,
+        "height": 1200
+      },
       "licence": "CC BY 2.0",
       "author": "James St. John",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astyanax_fasciatus_(Mexican_blind_cavefish)_3.jpg",
@@ -56,6 +90,11 @@
       "thumb": "https://media.aquatome.com/inaturalist/341466838-480.webp",
       "width": 771,
       "height": 1024,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/341466838-large.webp",
+        "width": 1200,
+        "height": 1594
+      },
       "licence": "CC0",
       "author": "Helen Wilkie",
       "sourceUrl": "https://www.inaturalist.org/photos/341466838",
@@ -106,6 +145,11 @@
       "thumb": "https://media.aquatome.com/commons/45b717cab8081cac-480.webp",
       "width": 1200,
       "height": 900,
+      "large": {
+        "url": "https://media.aquatome.com/commons/45b717cab8081cac-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
       "licence": "CC BY-SA 4.0",
       "author": "Syrio",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bosco_delle_fate_-_Astyanax_mexicanus_01.jpg",
@@ -172,7 +216,7 @@
       "caption": "Cá tetra dạng có mắt, thân ánh xanh bạc trong bể tối"
     }
   ],
-  "seen": 43,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 51,
+  "updatedAt": "2026-11-08",
+  "builtAt": "2026-11-08"
 }

@@ -1,0 +1,141 @@
+{
+  "id": "ancistrus-triradiatus",
+  "native": {
+    "input": "8702a4177e246cd6",
+    "at": "2026-11-09T23:57:44.132Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The horned bristlenose pleco, Ancistrus triradiatus, is a small suckermouth catfish from Colombia and Venezuela, found among rocks in flowing streams.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The horned bristlenose pleco, Ancistrus triradiatus, is a small suckermouth catfish from Colombia and Venezuela, found among rocks in flowing streams.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Colombia and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Colombia and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ancistrus triradiatus",
+    "status": "ACCEPTED",
+    "taxonKey": 5961428,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        72
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        43
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        38
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        29
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        18
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        14
+      ],
+      [
+        "872b0fcc-d7dc-44c8-8175-f5bf18cc28a1",
+        8
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "bb1f4643-8a9a-4d72-b631-88a41c0528bc",
+        3
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        3
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

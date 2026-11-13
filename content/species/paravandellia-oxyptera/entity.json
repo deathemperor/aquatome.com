@@ -11,13 +11,359 @@
     "paraguay",
     "argentina",
     "parana",
-    "uruguay"
+    "uruguay",
+    "ecuador"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "AR",
+        "EC",
+        "PY",
+        "UY"
+      ],
+      "regions": [
+        "Paraná",
+        "La Plata",
+        "Rio Paraguay"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Cáceres, Rio Paraguay, Mato Grosso State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Paraguay"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Paraná, Paraguay and Uruguay River basins (Argentina, Brazil, Ecuador, Paraguay and Uruguay).",
+          "countries": [
+            "AR",
+            "EC",
+            "PY",
+            "UY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Paraná, Paraguay and Uruguay River basins (La Plata basin, including the Upper Paraguay).",
+          "countries": [],
+          "regions": [
+            "Paraná",
+            "La Plata"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343320,
+      "total": 216,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "BR",
+          200
+        ],
+        [
+          "PY",
+          7
+        ],
+        [
+          "AR",
+          5
+        ],
+        [
+          "UY",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -33.75,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -33.75,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -28.125,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -16.875,
+          109,
+          109
+        ],
+        [
+          -56.25,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -14.0625,
+          23,
+          23
+        ],
+        [
+          -54.84375,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -28.125,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -26.71875,
+          10,
+          10
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -19.6875,
+          9,
+          9
+        ],
+        [
+          -54.84375,
+          -18.28125,
+          10,
+          10
+        ],
+        [
+          -53.4375,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -18.28125,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -45,
+          -22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 2.5
+      },
+      {
+        "source": "scotcat",
+        "value": 3
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -29,15 +375,33 @@
       "html": "<ul><li><strong>Scientific name:</strong> Paravandellia oxyptera Miranda Ribeiro, 1912</li><li><strong>Common name:</strong> Pantanal Parasitic Catfish</li><li><strong>Type locality:</strong> Cáceres, Rio Paraguay, Mato Grosso State, Brazil.</li><li><strong>IUCN Red List category:</strong> Least Concern (last assessed 2020).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/paravandellia_oxyptera.htm",
+      "html": "<ul><li>Common name: Pantanal parasitic catfish</li><li>IUCN Red List: Least Concern (2023)</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1229",
       "html": "<p>South America: Paraná, Paraguay and Uruguay River basins (La Plata basin, including the Upper Paraguay).</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/paravandellia_oxyptera.htm",
+      "html": "<p>South America: Paraná, Paraguay and Uruguay River basins (Argentina, Brazil, Ecuador, Paraguay and Uruguay). Type locality: Caceres, margens do Rio Paraguay [Brazil].</p>"
+    },
+    {
       "key": "habitat",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1229",
+      "html": "<p>Inhabits rivers with sandy to muddy bottom.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/paravandellia_oxyptera.htm",
       "html": "<p>Inhabits rivers with sandy to muddy bottom.</p>"
     },
     {
@@ -47,30 +411,43 @@
       "html": "<p>Found to exhibit parasitic traits. Forages during the day, and at night seeks the gill chambers of larger fishes, especially catfishes. It enters and leaves the gill chamber during the host's ventilating movements: it feeds on blood drawn from the gill filaments and may stay in the gill chamber for 1-3 min. When gorged with blood, it moves to the bottom and buries itself in the sand.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/paravandellia_oxyptera.htm",
+      "html": "<p>Found to exhibit parasitic traits. Forages both during the day and at night seeks the gill chambers of larger fishes, especially catfishes. Enters and leaves the gill chamber during the host's ventilating movements: feeds on blood drawn from the gill filaments and may stay in the gill chamber for 1-3 min; when gorged with blood, moves to the bottom and buries itself in the sand. A single large catfish tethered on the river bank may feed thousand of these parasitic catfish over a period of up to 6 hours. Large numbers of this fish may kill fishes tethered by fishermen.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/paravandellia_oxyptera.htm",
+      "html": "<p>Two females, 1.8 cm TL, caught in January (wet season) had about 150 mature oocytes each, and one male 2.0 cm TL had well-developed testes.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1229",
       "html": "<p>Unreported. Sexually mature at around 18 mm. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/paravandellia_oxyptera.htm",
+      "html": "<p>Etymology: The genus name Paravandellia: para-, near, i.e., considered between Stegophilus and Vandellia (yet described as having the general appearance of the former). The specific name oxyptera: oxy, sharp; ptera, fin, presumably referring to the large, falcate pectoral fins.</p><p>IUCN Red List: despite the little information available on this species, it seems to be common and abundant and has a wide range, therefore it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1229",
       "html": "<p>Loricariidae, Callichthyidae, Doradidae e Trichomycteridae Annexo no. 5, pp 29.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/paravandellia_oxyptera.htm",
+      "html": "<p>Brejão, G.L. 2023. Paravandellia oxyptera. The IUCN Red List of Threatened Species 2023.</p><p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, (10/2023).</p><p>Machado, F.A. and I. Sazima, 1983. Comportamento alimentar do peixe hematófago Branchioica bertonii (Siluriformes, Trichomycteridae). Ciência e cultura 35(3):344-352.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/4b20ce875377ff25.webp",
-      "thumb": "https://media.aquatome.com/scotcat/4b20ce875377ff25-480.webp",
-      "width": 500,
-      "height": 173,
-      "licence": "dùng với sự cho phép",
-      "author": "Freshwater Fish from Uruguay 2nd. edition / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/trichomycteridae/paravandellia_oxyptera.htm",
-      "caption": "Paravandellia oxyptera",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/076008c9deb2d414.webp",
       "thumb": "https://media.aquatome.com/scotcat/076008c9deb2d414-480.webp",
@@ -85,5 +462,5 @@
   ],
   "videos": [],
   "productSlots": [],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-09"
 }

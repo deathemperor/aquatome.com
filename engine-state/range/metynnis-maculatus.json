@@ -1,0 +1,163 @@
+{
+  "id": "metynnis-maculatus",
+  "native": {
+    "input": "bc1401e8d75aa7b3",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The spotted metynnis, Metynnis maculatus, is a silver dollar probably confined to the upper rio Madeira and upper rio Paraguai in Bolivia and Brazil.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The spotted metynnis, Metynnis maculatus, is a silver dollar probably confined to the upper rio Madeira and upper rio Paraguai in Bolivia and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "This species' range is unclear with records extending from Guyana to the upper and lower Amazon basins in Peru and Brazil, respectively.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "This species' range is unclear with records extending from Guyana to the upper and lower Amazon basins in Peru and Brazil, respectively.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "rio Madeira",
+        "source": "seriouslyfish",
+        "quote": "The spotted metynnis, Metynnis maculatus, is a silver dollar probably confined to the upper rio Madeira and upper rio Paraguai in Bolivia and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "rio Paraguai",
+        "source": "seriouslyfish",
+        "quote": "The spotted metynnis, Metynnis maculatus, is a silver dollar probably confined to the upper rio Madeira and upper rio Paraguai in Bolivia and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "rio Guaporé",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Guaporé, Mato Grosso, Brazil'.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Pantanal",
+        "source": "seriouslyfish",
+        "quote": "The majority of records pertain to the rio Guaporé (Río Iténez in Bolivia), the main affluent of the rio Mamoré, which drains the vast tropical wetland known as the Pantanal, and the upper rio Paraguai, which also has its headwaters in the Pantanal but flows in the opposite direction.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Metynnis maculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2353417,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        130
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        29
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        24
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        22
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        16
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BO",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

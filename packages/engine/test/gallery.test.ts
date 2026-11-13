@@ -6,6 +6,7 @@ import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { mirrorPlan } from '../src/mirror-photos'
+import { WikimediaRefused } from '../src/wikimedia-rest'
 import { breedNames, commonsCandidates, dhash, galleries, rankGallery, screenTagged, type GalleryDeps, type GalleryPhoto, type Vet } from '../src/gallery'
 
 const meta = (licence: string, artist = '<a href="x">Ann</a>, [[User:Bo K|Bo]]') => ({ LicenseShortName: { value: licence }, Artist: { value: artist } })
@@ -34,6 +35,48 @@ test('commons: category and subcategories (not "in art"), then search; open lice
   expect(c[0]!.thumb).toMatch(/\/500px-A\.jpg$/)
 })
 
+
+test("commons: a file whose own categories or description say it is a drawing, food or another species is no candidate", async () => {
+  const withMeta = (title: string, extra: Record<string, { value: string }>) => { const x = info(title, 'CC BY 4.0'); Object.assign(x.imageinfo[0]!.extmetadata, extra); return x }
+  const all: Record<string, unknown> = {
+    'File:A.jpg': withMeta('File:A.jpg', { Categories: { value: 'Barbonymus gonionotus|Media from iNaturalist' } }),
+    'File:Barbonymus gonionotus Bleeker.jpg': withMeta('File:Barbonymus gonionotus Bleeker.jpg', { Categories: { value: 'Barbonymus gonionotus|Cyprinidae illustrations' } }),
+    'File:Pla som.jpg': withMeta('File:Pla som.jpg', { Categories: { value: 'Fried fish in Thailand|Pickled fish' } }),
+    'File:Barb gonio 080525 9625 ltn.jpg': withMeta('File:Barb gonio 080525 9625 ltn.jpg', { ImageDescription: { value: 'Barbonymus gonionotus (122mm SL). <b>errata</b>: Misidentified, it should be Mystacoleucus marginatus' } }),
+  }
+  let asked = ''
+  const c = await commonsCandidates('Barbonymus gonionotus', async (u: string) => {
+    const q = new URL(u).searchParams
+    if (q.get('list') === 'categorymembers') return { query: { categorymembers: Object.keys(all).map(title => ({ ns: 6, title })) } }
+    if (q.get('list') === 'search') return { query: { search: [] } }
+    asked = q.get('iiextmetadatafilter')!
+    return { query: { pages: Object.fromEntries(q.get('titles')!.split('|').map((t, i) => [String(i), all[t]])) } }
+  })
+  expect(asked).toBe('LicenseShortName|Artist|ImageDescription|Categories')
+  expect(c.map(x => x.key)).toEqual(['File:A.jpg'])
+})
+
+test('commons: files with long names are asked for in addresses the server takes, each file once', async () => {
+  // Found 2026-11-10 in the photos log: "vittina-waigiensis commons: HTTP 414" every cycle (72 times on 6 pages), so those
+  // pages' Commons photos were never read. Museum shell series name each file in a sentence.
+  const long = (i: number) => `File:Vittina waigiensis (Lesson, 1831) – shell ${i}, ${'Naturalis Biodiversity Center, Leiden, the Netherlands; '.repeat(4)}.jpg`
+  const titles = Array.from({ length: 120 }, (_, i) => long(i))
+  const lengths: number[] = []
+  const asked: string[] = []
+  const c = await commonsCandidates('Vittina waigiensis', async (u: string) => {
+    const q = new URL(u).searchParams
+    if (q.get('list') === 'categorymembers') return { query: { categorymembers: titles.map(title => ({ ns: 6, title })) } }
+    if (q.get('list') === 'search') return { query: { search: [] } }
+    lengths.push(u.length)
+    const batch = q.get('titles')!.split('|')
+    asked.push(...batch)
+    expect(batch.length).toBeLessThanOrEqual(50)
+    return { query: { pages: Object.fromEntries(batch.map((t, i) => [String(i), info(t, 'CC BY 4.0')])) } }
+  })
+  expect(Math.max(...lengths)).toBeLessThan(8000)
+  expect(asked).toEqual(titles)
+  expect(c).toHaveLength(120)
+})
 
 /** A different picture for every address (seeded noise), so near-copy detection tells them apart; `same` makes two addresses one picture. */
 const same = new Map<string, string>()
@@ -125,6 +168,61 @@ test('gallery: never pads — only photos the screening kept are added; a page a
   expect(calls).toBe(0)
 })
 
+test('gallery: while Wikimedia rests, a Commons candidate is not judged: the page keeps its queue, unjudged and not dry, and the next run screens it', async () => {
+  const r = await root()
+  const resting = deps({ get: async u => { if (new URL(u).hostname.endsWith('wikimedia.org')) throw new WikimediaRefused('2026-10-30T12:00:00.000Z'); return new Uint8Array(await picture(u)) } })
+  const report = await galleries(r, resting, { sheets: 5 })
+  expect(report.failed).toEqual(['betta-splendens: Wikimedia refused this Mac: no request before 2026-10-30T12:00:00.000Z'])
+  expect(report.sheets).toBe(0)
+  const st = await read(r, 'engine-state/gallery/betta-splendens.json')
+  expect(st.queue.map((c: { key: string }) => c.key).sort()).toEqual(['File:A.jpg', 'inat:1'])
+  expect(st.judged).toEqual([])
+  expect(st.exhausted).toBeUndefined()
+  // The rest over: both are screened.
+  await galleries(r, deps(), { sheets: 5 })
+  expect((await read(r, 'engine-state/gallery/betta-splendens.json')).judged.sort()).toEqual(['File:A.jpg', 'inat:1'])
+})
+
+test('gallery: a full album is read again for the candidates a person seeded alone, and grows at most three past its target', async () => {
+  const r = await root()
+  await mkdir(join(r, 'content/gallery'), { recursive: true })
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  const full = Array.from({ length: 100 }, (_, i) => ({ url: `https://media.aquatome.com/x/${i}.webp`, width: 1200, height: 800, licence: 'CC BY', author: 'a', sourceUrl: `https://x/${i}` }))
+  await writeFile(join(r, 'content/gallery/betta-splendens.json'), JSON.stringify({ id: 'betta-splendens', photos: full, seen: 100, updatedAt: '2026-10-01' }))
+  const cand = (n: number) => ({ key: `inat:${900 + n}`, url: `https://inaturalist-open-data.s3.amazonaws.com/photos/${900 + n}/large.jpg`, width: 1024, height: 768, licence: 'CC BY', author: 'a', sourceUrl: `https://www.inaturalist.org/photos/${900 + n}` })
+  // Five seeded, one the step queued itself: only seeds are screened, as many as the album has spaces (three), and the
+  // other two wait in the queue, still seeded.
+  const queue = [1, 2, 3, 4, 5].map(cand)
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [...queue, cand(6)], judged: [], hashes: {}, seeded: queue.map(c => c.key) }))
+  let calls = 0
+  const report = await galleries(r, deps({ http: async u => { calls++; return deps().http(u) } }), { sheets: 5 })
+  expect(calls).toBe(0) // its sources aren't read
+  const g = await read(r, 'content/gallery/betta-splendens.json')
+  expect(g.photos).toHaveLength(103)
+  expect(g.photos.filter((p: { unchecked?: boolean }) => p.unchecked)).toHaveLength(3) // waiting for the photo check
+  expect(report.done).toEqual(['betta-splendens: 103/100 (+3)'])
+  const st = await read(r, 'engine-state/gallery/betta-splendens.json')
+  expect(st.judged).toEqual(['inat:901', 'inat:902', 'inat:903'])
+  expect(st.queue.map((c: { key: string }) => c.key)).toEqual(['inat:904', 'inat:905', 'inat:906'])
+  expect(st.seeded).toEqual(['inat:904', 'inat:905'])
+  // Three past its target: the next run leaves it alone, seeds and all.
+  calls = 0
+  expect((await galleries(r, deps({ http: async u => { calls++; return deps().http(u) } }), { sheets: 5 })).done).toEqual([])
+  expect(calls).toBe(0)
+  // The photo check takes one off: the next run screens the next seed, for that one space.
+  await writeFile(join(r, 'content/gallery/betta-splendens.json'), JSON.stringify({ ...g, photos: g.photos.slice(1) }))
+  expect((await galleries(r, deps(), { sheets: 5 })).done).toEqual(['betta-splendens: 103/100 (+1)'])
+  const after = await read(r, 'engine-state/gallery/betta-splendens.json')
+  expect(after.queue.map((c: { key: string }) => c.key)).toEqual(['inat:905', 'inat:906'])
+  expect(after.seeded).toEqual(['inat:905'])
+  // Once every seed is screened, the full album is left alone.
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ ...after, queue: after.queue.slice(1), seeded: undefined }))
+  await writeFile(join(r, 'content/gallery/betta-splendens.json'), JSON.stringify({ ...g, photos: g.photos.slice(2) }))
+  calls = 0
+  expect((await galleries(r, deps({ http: async u => { calls++; return deps().http(u) } }), { sheets: 5 })).done).toEqual([])
+  expect(calls).toBe(0)
+})
+
 test('gallery: rejected photos never come back and leave galleries; a usage limit stops the run', async () => {
   const r = await root()
   await mkdir(join(r, 'content/gallery'), { recursive: true })
@@ -152,6 +250,27 @@ test('gallery: a photo blocked after it moved to our bucket (a watermark) is kno
   await galleries(r, deps({ faces: async f => (looked.push(f.length), f.map(() => 0)) }), { sheets: 5 })
   expect(looked).toEqual([])
   expect(await readFile(join(r, 'content/gallery/betta-splendens.json'), 'utf8').then(t => JSON.parse(t).photos)).toEqual([])
+})
+
+test("gallery: a photo the photo check took off this page is never put back, from the queue or a search; another page's verdict doesn't count", async () => {
+  const r = await root()
+  const inat1 = 'https://inaturalist-open-data.s3.amazonaws.com/photos/1/large.jpg'
+  const commonsA = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/A.jpg/1280px-A.jpg'
+  const queued = { url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/77/original.jpg', thumb: 'https://inaturalist-open-data.s3.amazonaws.com/photos/77/medium.jpg', width: 1332, height: 1776, licence: 'CC BY', author: 'a', sourceUrl: 'https://www.inaturalist.org/photos/77', key: 'inat:77' }
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [queued], judged: [], hashes: {} }))
+  const verdict = (ok: string) => ({ ok, typical: false, note: 'looked at by eye' })
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
+    [`https://media.aquatome.com/${mirrorPlan(queued.url)!.key}`]: { 'betta-splendens': verdict('other') },
+    [`https://media.aquatome.com/${mirrorPlan(inat1)!.key}`]: { 'betta-splendens': verdict('none') },
+    // Off another page only: fine here.
+    [`https://media.aquatome.com/${mirrorPlan(commonsA)!.key}`]: { 'betta-imbellis': verdict('other') },
+  }))
+  await galleries(r, deps(), { sheets: 5 })
+  const shown = urls(await read(r, 'content/gallery/betta-splendens.json'))
+  expect(shown).not.toContain(queued.sourceUrl)
+  expect(shown).not.toContain('https://www.inaturalist.org/photos/1')
+  expect(shown.some(u => u.includes('commons.wikimedia.org'))).toBe(true)
 })
 
 test('gallery: the sheet budget stops the run; the next run continues from the queue and the cursor', async () => {
@@ -417,6 +536,13 @@ test('a breed\'s gallery as the step writes it is the one the site loads for tha
   const written = await read(r, 'content/gallery/balloon-molly.json')
   const c = await loadAll({ root: join(r, 'content'), lang: 'vi', publicBuild: false })
   expect(c.breeds.map(b => b.id)).toContain('balloon-molly')
-  expect(c.galleries['balloon-molly']!.map(p => p.sourceUrl)).toEqual(urls(written))
-  expect(c.galleries['balloon-molly']).toHaveLength(4)
+  // What the step just added waits for the photo check, so no page shows it yet.
+  const photos = written.photos as { sourceUrl: string; unchecked?: boolean }[]
+  expect(photos.map(p => !!p.unchecked)).toEqual([true, true, true, true])
+  expect(c.galleries['balloon-molly']).toBeUndefined()
+  // Judged and left on, a photo loses the mark (photo-check.ts), and the site loads the gallery as the step wrote it.
+  await writeFile(join(r, 'content/gallery/balloon-molly.json'), JSON.stringify({ ...written, photos: photos.map(({ unchecked: _, ...p }) => p) }))
+  const after = await loadAll({ root: join(r, 'content'), lang: 'vi', publicBuild: false })
+  expect(after.galleries['balloon-molly']!.map(p => p.sourceUrl)).toEqual(urls(written))
+  expect(after.galleries['balloon-molly']).toHaveLength(4)
 })

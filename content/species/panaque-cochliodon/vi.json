@@ -1,20 +1,28 @@
 {
   "slug": "ca-lau-kinh-mat-xanh-panaque-cochliodon",
   "name": "Cá lau kính mắt xanh Panaque cochliodon",
-  "altNames": [],
+  "altNames": [
+    "Cá tỳ bà mắt xanh",
+    "Blue-eyed Pleco"
+  ],
   "sections": {
     "distribution:glaser": "<p>Colombia, sông Magdalena.</p>",
     "aquariumSize:glaser": "<p>Cá ăn gỗ cỡ này (dài hơn 40 cm) cần bể lớn và lọc thật khỏe. Lý do là chúng thải ra rất nhiều phân.</p>",
     "diet:glaser": "<p>Khẩu phần nên có nhiều rau củ. Dưa leo, khoai tây, cà rốt và các loại rau củ khác chúng đều ăn rất khoái.</p>",
     "reproduction:glaser": "<p>Nếu có người thử cho sinh sản thì rất đáng giá, vì nhờ đó loài này mới giữ được trong giới nuôi bể. Có điều, ngay cả những năm trước, khi cá còn chưa hiếm như bây giờ, vẫn chưa có báo cáo sinh sản nào được xác nhận.</p>",
-    "notes:glaser": "<p>Tháng 12/2005: Sau nhiều năm không thấy Panaque cochliodon (Panaque suttoni, P. suttonorum) về hàng, nay lại có vài con nhập về. Nguyên nhân chúng vắng bóng là do vấn đề môi trường hay do nội chiến ở một số vùng của Colombia thì ở xa khó mà đánh giá được. Loài này trước đây không hiếm, nên thấy chúng quay lại là chuyện đáng mừng. Đôi mắt xanh lam sáng nổi trên thân đen là nét độc nhất vô nhị của loài. Đây cũng là điểm khiến chúng hút người chơi.</p>"
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Blue-eyed Pleco (cá lau kiếng mắt xanh)</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: Colombia, sông Magdalena và sông Cauca. Nơi thu mẫu chuẩn: Aus dem Cauca, dem grössten Nebenflusse des Magdalenen-Stromes, Colombia.</p>",
+    "maintenance:scotcat": "<p>Loài này khá to khỏe khi nuôi trong bể, nên cần bố trí nhiều chỗ trốn và chạy lọc mạnh. Chúng ăn gỗ nên bể phải thay nước nhiều. Bể nuôi cũng phải rộng.</p>",
+    "diet:scotcat": "<p>Cá Panaque (Panaqolus) đều ăn gỗ, nên trong bể phải có gỗ cho chúng gặm. Ngoài gỗ, cho ăn thêm rau như dưa chuột, bí ngòi và thức ăn viên chìm.</p>",
+    "notes:scotcat": "<p>Suốt nhiều năm, người ta tưởng con cá da trơn này là Panaque suttonorum (suttoni?). Giờ thì nó đã được công nhận là Panaque cochliodon. Nhầm lẫn này được sửa khi người ta xem lại bản mô tả gốc của Schultz về P. suttonorum. Con cá trong bản mô tả đó khác hẳn, và được thu ở một nơi khác. Các loài Panaque cỡ nhỏ thật ra thuộc Panaqolus, còn các loài cỡ lớn mới là Panaque.</p><p>Mô tả: Panaque có miệng hình bầu dục. Hàm của chúng có những chiếc răng hình thìa rất lớn, mỗi chiếc chỉ một mấu, xếp thành hình chữ V. Panaqolus thì chỉ có ít răng hình thìa, và Panaque lớn hơn Panaqolus khá nhiều.</p><p>Nguồn gốc tên gọi: tên loài cochliodon ghép từ cochli và odon. Cochli lấy từ cochlearium (tiếng Latinh), tên một loại thìa nhỏ của người La Mã có cán dài, thon dần về cuối. Odon lấy từ odoús, nghĩa là răng. Cả tên ám chỉ các mấu răng hình thìa ở xương răng và xương tiền hàm trên.</p><p>Loài này nổi tiếng với đôi mắt màu xanh.</p><p>Danh lục đỏ IUCN: loài này nằm trong nhóm Sắp bị đe dọa, vì quần thể của nó bị nghi đã giảm khoảng 25%. Số cá giảm là do bị đánh bắt làm cá cảnh và do môi trường sống xuống cấp ở một số vùng phân bố. Nó có thể đủ điều kiện xếp vào nhóm Sắp nguy cấp, nhưng hiện chưa có đủ dữ liệu để đánh giá như vậy. IUCN khuyên nên khảo sát để ước tính số lượng cá thể và theo dõi xu hướng tăng giảm (IUCN 2016).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Jimenez-Segura, L., Mojica, J. &amp; Alonso, J. C. 2016. Panaque cochliodon. The IUCN Red List of Threatened Species 2016. ScotCat Factsheet. no.71 May 2002. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "scotcat": 0.95
+    }
   }
 }

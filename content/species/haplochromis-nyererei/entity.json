@@ -1,0 +1,223 @@
+{
+  "id": "haplochromis-nyererei",
+  "scientificName": "Haplochromis nyererei",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Haplochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "tanzania",
+    "lake-victoria"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Lake Victoria",
+        "Mwanza Gulf",
+        "Speke Gulf",
+        "Ukerewe Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Pundamilia nyererei is a maternally mouthbrooding cichlid endemic to Lake Victoria, recorded only from the southern part of the lake in Tanzania.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": [
+            "Lake Victoria"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Mwanza Gulf, Tanzania, Lake Victoria', and it's also known from Speke Gulf at the lake's southwestern extremity, with the southern shoreline of Ukerewe Island (often referred to as 'Nansio' Island in the aquarium hobby) appearing to represent its northern limit.",
+          "countries": [],
+          "regions": [
+            "Mwanza Gulf",
+            "Speke Gulf",
+            "Ukerewe Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373693,
+      "total": 1,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          32.34375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pundamilia-nyererei",
+      "html": "<p>Pundamilia nyererei is a maternally mouthbrooding cichlid endemic to Lake Victoria, recorded only from the southern part of the lake in Tanzania. It is mostly restricted to rocky, littoral habitats around islands. At least 11 populations are known and male colour varies with locality, so fish are labelled with collection details to avoid hybridisation in aquaria. Males are aggressive and can kill other males if the tank lacks cover.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pundamilia-nyererei",
+      "html": "<p>Endemic to Lake Victoria which has a shoreline divided between Kenya, Uganda and Tanzania, although P. nyererei has been recorded only in the southern part of the lake belonging entirely to Tanzania.</p><p>Type locality is 'Mwanza Gulf, Tanzania, Lake Victoria', and it's also known from Speke Gulf at the lake's southwestern extremity, with the southern shoreline of Ukerewe Island (often referred to as 'Nansio' Island in the aquarium hobby) appearing to represent its northern limit.</p><p>At least 11 populations are known, including 'Nansio Island', 'Ruti Island', 'Zue Island', 'Makobe Island', 'Igombe Island', 'Anchor Island', 'Python Islands', and 'Luanso Island'.</p><p>Male colour pattern varies somewhat with locality, so the fish tend to be labelled with collection details in order to avoid undesirable hybridisation in aquaria.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pundamilia-nyererei",
+      "html": "<p>Mostly restricted to rocky, littoral habitats around islands, and particularly associated with shelf-like formations.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pundamilia-nyererei",
+      "html": "<p>An aquarium with base dimensions of 120 × 45 cm (about 240 litres) or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pundamilia-nyererei",
+      "html": "<p>This species does not require a lot of open swimming space and displays a preference for rocky environments so much of the available space can be filled with rockwork arranged in such a way that many broken lines-of-sight are created.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pundamilia-nyererei",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 7.0–8.5</li><li>Hardness: 4–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pundamilia-nyererei",
+      "html": "<p>Omnivorous by nature, with wild fish feeding chiefly on aquatic invertebrates and zooplankton.</p><p>In the aquarium, it will accept most foods offered but live and frozen Artemia, Daphnia, mosquito larvae, etc. varieties should form a good proportion of the diet, with some vegetable matter also included in the form of high quality dried products.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pundamilia-nyererei",
+      "html": "<p>Males in particular are aggressive and fully capable of killing other males if the tank does not contain sufficient cover. Individual females may also be targeted so it's best to stock several per male.</p><p>In a community it can be kept alongside other Victorian species but take care not to mix populations and avoid keeping it with other Pundamilia spp.</p><p>It also makes a suitable companion for many mbuna from Lake Malawi, but be sure to research your choices properly prior to purchase.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pundamilia-nyererei",
+      "html": "<p>Males grow larger and are more colourful than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pundamilia-nyererei",
+      "html": "<p>Maternal mouthbrooder. Ideally it should be bred in a species tank using a single male and at least 3 females, although it will often spawn in the community aquarium.</p><p>Perhaps the easiest way to obtain a breeding group is to begin with a batch of young fish. Once sexually mature males will select a spawning site which is defended against other males, and display to passing females to mate with him.</p><p>A receptive female will approach the spawning site and deposit a few eggs, immediately taking them into her mouth as she goes.</p><p>The male has coloured spots on his anal-fin which resemble eggs and the female is also attracted to these. When she tries to add them to the clutch in her mouth, the male releases milt and the eggs are fertilised. The cycle is then repeated until the female is spent of eggs.</p><p>The female will carry the eggs for around 3 weeks before releasing free-swimming fry which can be offered Artemia nauplii, microworm, powdered dry foods and suchlike immediately.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pundamilia-nyererei",
+      "html": "<p>The genus Pundamilia currently comprises five species, all of which are endemic to the southern portion of Lake Victoria.</p><p>Their taxonomy is not fully-resolved, however, with some authors preferring to retain them within the catch-all assemblage Haplochromis pending further study.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pundamilia-nyererei",
+      "html": "<ul><li>van Oijen, M. J. P. (1996). The generic classification of the haplochromine cichlids of Lake Victoria, East Africa. Zoologische Verhandelingen Leiden 302, 57-110</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá rô phi cảnh",
+        "artemia đông lạnh",
+        "thức ăn cá cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

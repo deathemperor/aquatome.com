@@ -18,12 +18,13 @@
       "regions": [],
       "sources": [
         "seriouslyfish",
-        "aquariumcoop"
+        "aquariumcoop",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Occurs in fresh waters in the Campoma and Buena Vista lagoons unto Carupano, in northeastern Venezuela.",
+          "quote": "Endler's livebearer, Poecilia wingei, is a small livebearer from the Campoma and Buena Vista lagoons in northeastern Venezuela.",
           "countries": [
             "VE"
           ],
@@ -105,7 +106,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       },
       {
         "source": "aquariumcoop",
@@ -137,6 +138,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
       "html": "<p>Occurs in fresh waters in the Campoma and Buena Vista lagoons unto Carupano, in northeastern Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/endler_s_guppy_el_tigre_en/",
+      "html": "<p>The \"El Tigre\" fish represent a pure strain of a population that was initially collected in El Tigre, Venezuela.</p>"
     },
     {
       "key": "habitat",
@@ -199,6 +206,12 @@
       "html": "<p>Endlers are more comfortable in a group of their own kind. Because of the males' strong drive to mate, keep one male for every 2-3 females so the females get a break. They get along with almost any peaceful community fish too big to eat them, such as smaller tetras, danios and corydoras. If the population grows out of control, African dwarf frogs or other predatory fish can eat some fry while leaving the adults alone.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/endler_s_guppy_el_tigre_en/",
+      "html": "<p>Endler's Guppys are lively fish, and they can even step up their colours during display.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
@@ -229,6 +242,12 @@
       "html": "<p>There has been much discussion in the past as to whether this species and P. reticulata are in fact conspecific. The two are proven to hybridise and produce fertile offspring. However, Schories et al. (2009) determined that P. wingei is now unequivocally defined by the molecular phylogeny as a valid species. A third distinct \"guppy\" species, Poecilia (Acanthophacelus) obscura, is described from Trinidad (Schories et al, 2009). Schories et al. propose that the three \"guppy\" species be placed in the sub-genus Acanthophacelus that is considered to be generically different from all other taxa in the Poeciliinae subfamily.</p><p>Endler's Livebearer was actually discovered in 1937 by Franklyn F. Bond before being rediscovered by John Endler in 1975 in Laguna de Patos, Cumana, northeastern Venezuela. It was found coexisting, but not interbreeding with, a wild form of P. reticulata. Both species are native to this area of Venezuela, but P. reticulata was much less common in areas where P. wingei was thriving. This is thought to be partially related to habitat type, as guppies are usually found in colder, running water.</p><p>Dr. Endler reported the possibility of another collection site at a point where a certain peninsula joins the mainland. He tried to find it but the directions he was given were incorrect, so there is still the chance that this species exists in nature.</p><p>P. wingei is very close in appearance to some populations of wild guppy, although much of its natural variability has been lost through inbreeding in the hobby. Several morphs are still available however.</p><p>Endler's are still relatively rare in the hobby though they are commonly available through dedicated breeders and are occasionally seen on sale in stores.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/endler_s_guppy_el_tigre_en/",
+      "html": "<p>The \"El Tigre\" variety of Endler's Guppy (Poecilia wingei) is a wild form of a small livebearer, first sent from a breeder in Thailand. The fish are variable in coloration, but they have all the features that make Endler's Guppys favorite aquarium fish: the small size, the lively behaviour and the ability to step up their colours during display. The colours are brilliant anyway.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-wingei",
@@ -236,17 +255,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/aquariumcoop/1ecd8edbd3be4a96.webp",
-      "thumb": "https://media.aquatome.com/aquariumcoop/1ecd8edbd3be4a96-480.webp",
-      "width": 1000,
-      "height": 667,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Co-op",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
-      "caption": "Care Guide for Endler’s Livebearers – The Guppy’s Little Cousin - Aquarium Co-Op",
-      "source": "aquariumcoop"
-    },
     {
       "url": "https://media.aquatome.com/aquariumcoop/fe5723ff2df7f1f3.webp",
       "thumb": "https://media.aquatome.com/aquariumcoop/fe5723ff2df7f1f3-480.webp",
@@ -298,6 +306,17 @@
       "author": "Marrabbio2",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poecilia_wingei_male_%22black_ba%22r.JPG",
       "caption": "Poecilia wingei male, var. \"black bar\""
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/1ecd8edbd3be4a96.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/1ecd8edbd3be4a96-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
+      "caption": "Care Guide for Endler’s Livebearers – The Guppy’s Little Cousin - Aquarium Co-Op",
+      "source": "aquariumcoop"
     }
   ],
   "videos": [
@@ -330,8 +349,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể thủy sinh mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {
@@ -355,5 +373,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-08"
 }

@@ -8,7 +8,7 @@
   "mentions": [
     "scleropages-formosus"
   ],
-  "updatedAt": "2026-11-04",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "LsQQ1yVFsBQ",
     "title": "370 gallon plywood aquarium UPDATE",
@@ -32,137 +32,93 @@
     ],
     "gear": [
       {
-        "category": "khac",
-        "brand": "Lifeguard Aquatics",
-        "model": "flush strainers",
-        "t": 122
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
       },
       {
         "category": "loc",
-        "type": "thung",
-        "t": 420
+        "type": "sump",
+        "t": 30
+      },
+      {
+        "category": "khac",
+        "brand": "Lifeguard Aquatics",
+        "t": 120
       }
     ],
     "figures": [
       {
-        "heading": "Các kiểu đầu tràn đã thử trên lỗ khoan vách hông",
-        "moments": [
-          {
-            "t": 44,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/t44.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đầu tràn dạng lưới chắn hình trụ cầm trước vách bể."
-          },
-          {
-            "t": 138,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/t138.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hai lỗ tràn trên vách hông nhìn từ trong bể, nước chảy qua."
-          }
-        ]
-      },
-      {
         "heading": "Vì sao khoan vách hông thay vì khoan đáy",
         "moments": [
           {
-            "t": 143,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/t143.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh đầu nối ren dùng cho lỗ khoan trên vách bể."
+            "t": 190,
+            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/at190-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cắt tấm acrylic trên bàn cưa để làm hộp tràn.",
+            "sharpness": 520.3,
+            "person": false
           },
           {
-            "t": 192,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/t192.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hộp tràn bằng acrylic đặt sẵn, chưa gắn vào bể."
+            "t": 195,
+            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/at195-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm kính acrylic được cắt rời, chuẩn bị làm hộp tràn bên ngoài bể.",
+            "sharpness": 74.5,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Dự định bày bên trong bể",
-        "moments": [
-          {
-            "t": 252,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/t252.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá rồng bơi sát mặt kính trong bể trống, chưa bày trí."
-          }
-        ]
-      },
-      {
-        "heading": "Quy trình chà bể và thay nước",
-        "moments": [
-          {
-            "t": 360,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/t360.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bàn chải cán dài đưa xuống chà vách bể khi bể còn chạy."
-          }
-        ]
-      },
-      {
-        "heading": "Bao lâu thay nước một lần",
-        "moments": [
-          {
-            "t": 483,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/t483.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá rồng ánh xanh lục nhìn nghiêng, thấy rõ đầu và vảy."
-          },
-          {
-            "t": 488,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/t488.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Thân cá rồng với hàng vảy lớn bơi trong bể tối."
-          }
-        ],
+        "heading": "Dự định cho bên trong bể",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/p5-bV9GaXNoZXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/LsQQ1yVFsBQ/p5-bV9GaXNoZXMuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/p2-ZV8yMDEyXzMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/LsQQ1yVFsBQ/p2-ZV8yMDEyXzMuanBn-480.webp",
           "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 4.0",
-          "author": "KannanVM",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_Fishes.jpg",
-          "caption": "Bể nước ngọt sạch, đáy sỏi, cá thưa thoáng, dễ giữ nước trong."
+          "height": 509,
+          "licence": "CC BY-SA 3.0",
+          "author": "Karelj",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_Prague_2012_3.jpg",
+          "caption": "Cá rồng châu Á bơi trong bể có cây thủy sinh xanh."
         }
       },
       {
-        "heading": "Nuôi bể lớn tốn bao nhiêu tiền mỗi tháng",
+        "heading": "Thay nước cho bể lớn",
         "moments": [
           {
-            "t": 543,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/t543.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá rồng bơi trong bể lớn dưới ánh đèn công suất thấp."
+            "t": 405,
+            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/at405-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống xả thả vào lỗ thoát sàn, đầu van nối bên cạnh.",
+            "sharpness": 787.8,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Bắt đầu từ đâu",
+        "heading": "Bể ván ép tốn bao nhiêu tiền mỗi tháng",
         "moments": [
           {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/t390.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tay đang chỉnh van và ống xả nước ở đáy bể."
+            "t": 520,
+            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/at520-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá rồng bơi gần đáy bể trong ánh đèn công suất thấp.",
+            "sharpness": 258.9,
+            "person": false
           },
           {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/t400.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ống xả có van bi đỏ nối xuống cống sàn cạnh bể."
+            "t": 530,
+            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/at530-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá rồng bơi trong bể ván ép, ánh đèn xanh lam.",
+            "sharpness": 227.9,
+            "person": false
           }
         ]
       }

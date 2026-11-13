@@ -1261,12 +1261,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amia-calva",
       "html": "<p>Rare in the hobby, the bowfin is a stunning specimen fish for the aquarist with the means to house it properly. It is the sole remaining species in the family Amiidae, an ancient and primitive group that is related to the garfish. It possesses the ability to breathe atmospheric air, via an enormous, highly vascularised accessory breathing organ that extends throughout the entire body cavity. The gills are stiffened in order to prevent them collapsing outside the water and, provided it's kept moist, the fish can survive without access to water for some time. Under drought conditions the fish can burrow into wet ground in a similar fashion to the more well-known lungfish species, where they can remain, completely motionless, until the rains return. This state is known as aestivation.</p><p>Although the bowfin is considered at risk of becoming endangered, it is not a popular species in its native waters. This is due to its voracious predation of both game and food species. Apparently, it puts up a great fight when hooked by rod and line.</p><p>In captivity it can be exceptionally long-lived when cared for properly and specimens over 30 years old are known. One final point to note is that this quite a dangerous species to own. The mouth is filled with razor sharp teeth and it will often bite aggressively when being fed or handled. Larger individuals could easily sever a finger, or worse and, as such, the bowfin is recommended only to experienced fishkeepers.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/amia_calva_en/",
-      "html": "<p>Lexicon: Amia was a name for a fish in ancient Greece, but nobody knows today which species was meant. calva is Latin and means \"smooth\".</p><p>Stock code 364006; supplied exclusively to the wholesale trade.</p>"
     }
   ],
   "photos": [
@@ -1278,37 +1272,12 @@
       "author": "Original uploader was Stan Shebs at commons.wikipedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amia_calva_4.jpg",
       "caption": "Amia calva.",
-      "thumb": "https://media.aquatome.com/commons/e9a9059d4d73c052-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/d1dd85e31ec0021a.webp",
-      "width": 960,
-      "height": 261,
-      "licence": "Public domain",
-      "author": "Duane Raver/U.S. Fish and Wildlife Service",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amia_calva1.jpg",
-      "caption": "Bowfin (Amia calva)",
-      "thumb": "https://media.aquatome.com/commons/d1dd85e31ec0021a-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/e01034e876f41d4f.webp",
-      "width": 960,
-      "height": 345,
-      "licence": "CC BY-SA 2.0",
-      "author": "NOAA Great Lakes Environmental Research Laboratory",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bowfin_illustration.jpg",
-      "caption": "A detailed colored illustration of a bowfin.",
-      "thumb": "https://media.aquatome.com/commons/e01034e876f41d4f-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/681d4d1568a540ca.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "Clara Dandridge",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amia_calva_106276497.jpg",
-      "caption": "Bowfin (Amia calva)",
-      "thumb": "https://media.aquatome.com/commons/681d4d1568a540ca-480.webp"
+      "thumb": "https://media.aquatome.com/commons/e9a9059d4d73c052-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/e9a9059d4d73c052-large.webp",
+        "width": 1200,
+        "height": 475
+      }
     }
   ],
   "videos": [],
@@ -1316,8 +1285,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 180x60",
-        "bể cá lớn 600 lít"
+        "bể cá 180cm"
       ]
     },
     {

@@ -1,0 +1,120 @@
+{
+  "id": "procatopus-similis",
+  "scientificName": "Procatopus similis",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Procatopus",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "cameroon"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 5203867,
+      "total": 42,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "CM",
+          29
+        ],
+        [
+          "NG",
+          12
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          2.8125,
+          5.625,
+          4
+        ],
+        [
+          5.625,
+          4.21875,
+          4
+        ],
+        [
+          7.03125,
+          4.21875,
+          2
+        ],
+        [
+          8.4375,
+          2.8125,
+          5
+        ],
+        [
+          8.4375,
+          4.21875,
+          11
+        ],
+        [
+          8.4375,
+          5.625,
+          1
+        ],
+        [
+          9.84375,
+          1.40625,
+          2
+        ],
+        [
+          9.84375,
+          2.8125,
+          10
+        ],
+        [
+          9.84375,
+          4.21875,
+          2
+        ],
+        [
+          9.84375,
+          50.625,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/procatopus_similis_mundemba_en/",
+      "html": "<p>The current Cameroon import also contains several local varieties of the magnificent lampeyes of the genus Procatopus. The first one presented is a variety of P. similis from Mundemba, which is a breathtaking yellow species. Even the upper border of the iris is golden-yellow in this lampeye.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá killifish",
+        "bể cá nhỏ 40cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá killifish",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt khí cho bể nhỏ",
+        "máy sục khí mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

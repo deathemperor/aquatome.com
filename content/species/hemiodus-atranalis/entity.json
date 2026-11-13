@@ -1,0 +1,340 @@
+{
+  "id": "hemiodus-atranalis",
+  "scientificName": "Hemiodus atranalis",
+  "order": "Characiformes",
+  "family": "Hemiodontidae",
+  "genus": "Hemiodus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "guyana",
+    "peru",
+    "brazil"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "PE",
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hemiodus atranalis is a shoaling hemiodontid characin from Guyana, Peru and Brazil, found in floodplain rivers and lakes.",
+          "countries": [
+            "GY",
+            "PE",
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354913,
+      "total": 60,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          39
+        ],
+        [
+          "PE",
+          21
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          12,
+          12
+        ],
+        [
+          -73.125,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 9
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-atranalis",
+      "html": "<p>Hemiodus atranalis is a shoaling hemiodontid characin from Guyana, Peru and Brazil, found in floodplain rivers and lakes. Its reported maximum size is only 90 mm SL, though it probably grows bigger than this. Very active and skittish when first introduced, it usually settles in a large group, and the tank needs a well-fitting cover since it can leap surprising distances.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-atranalis",
+      "html": "<p>Guyana, Peru and Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-atranalis",
+      "html": "<p>Inhabits floodplain rivers and lakes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-atranalis",
+      "html": "<p>Very active and needs a tank measuring at least 120 × 30 × 30 cm (about 108 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-atranalis",
+      "html": "<p>A biotope setup would consist, very simply, of a layer of a couple of inches of inert sand as substrate, with perhaps some driftwood branches and twisted roots scattered around. Some floating vegetation will help to make it less skittish, though, and it's equally at home in a fully planted setup. In either case the water should be very well-oxygenated, and make sure the tank has a well-fitting cover as it can leap surprising distances. It's sensitive to poor water conditions, so tank maintenance must be stringent.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-atranalis",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 6.0–7.0</li><li>Hardness: 3–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-atranalis",
+      "html": "<p>Unfussy, and will accept most live, frozen and dried foods. Try to make sure it receives some greenstuffs in its diet, as it's reported to feed quite heavily on plant matter in nature.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-atranalis",
+      "html": "<p>Very peaceful but it can intimidate much smaller or more quiet species with its activity and size. It makes an ideal shoaling species for the larger Amazon biotope setup, where it can be combined with similarly-sized characins, cichlids such as Geophagus, Satanoperca and Heros, catfish and Loricariids. It's a shoaling species by nature and should always be kept in a group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-atranalis",
+      "html": "<p>Unknown. Mature females are likely to be rounder-bellied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-atranalis",
+      "html": "<p>Not thought to have been bred in the hobby. It's probably an egg-scatterer.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodus-atranalis",
+      "html": "<p>Hemiodus species can be a very skittish when first introduced to the aquarium, but usually settle down over time, especially if a large number are being kept together. All of them look superficially similar, but can be distinguished by differences in patterning. None are particularly common in the hobby.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy sục khí oxy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100w"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá characin",
+        "thức ăn cá thực vật dạng viên"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

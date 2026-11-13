@@ -10,6 +10,110 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Branco",
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The blackline apisto, Apistogramma gibbiceps, is a dwarf cichlid from the Rio Branco and middle Rio Negro basins in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Branco",
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371231,
+      "total": 54,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          51
+        ],
+        [
+          "GY",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          13,
+          13
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          24,
+          24
+        ],
+        [
+          -61.875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          0,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +157,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -62,7 +166,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
-      "html": "<ul><li>Max size: 45 mm SL (1.8 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 27–29°C (81–84°F)</li><li>pH: 5.0–6.5</li><li>Hardness: up to 3 dGH</li><li>Difficulty: 5 of 8 (moderate)</li></ul><p>The blackline apisto, Apistogramma gibbiceps, is a dwarf cichlid from the Rio Branco and middle Rio Negro basins in Brazil. It is identified by a row of short dark marks low on the flank below the lateral band, which show most clearly on a settled fish. Meinken's type series held three species, and A. roraimae from the Rio Branco has been treated as a synonym since 2003.</p>"
+      "html": "<ul><li>Max size: 45 mm SL (1.8 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 27–29°C (81–84°F)</li><li>pH: 5.0–6.5</li><li>Hardness: up to 3 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul><p>The blackline apisto, Apistogramma gibbiceps, is a dwarf cichlid from the Rio Branco and middle Rio Negro basins in Brazil. It is identified by a row of short dark marks low on the flank below the lateral band, which show most clearly on a settled fish. Meinken's type series held three species, and A. roraimae from the Rio Branco has been treated as a synonym since 2003.</p>"
     },
     {
       "key": "distribution",
@@ -137,8 +241,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45x30",
-        "bể cá mini thủy sinh"
+        "bể cá 50cm"
       ]
     },
     {

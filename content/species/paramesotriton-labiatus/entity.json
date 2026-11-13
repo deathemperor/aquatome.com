@@ -1,0 +1,184 @@
+{
+  "id": "paramesotriton-labiatus",
+  "scientificName": "Paramesotriton labiatus",
+  "order": "Caudata",
+  "family": "Salamandridae",
+  "genus": "Paramesotriton",
+  "group": "other",
+  "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 10701161,
+      "total": 346,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CN",
+          345
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -122.34375,
+          36.5625,
+          1
+        ],
+        [
+          106.875,
+          25.3125,
+          85
+        ],
+        [
+          108.28125,
+          22.5,
+          2
+        ],
+        [
+          109.6875,
+          23.90625,
+          34
+        ],
+        [
+          109.6875,
+          25.3125,
+          33
+        ],
+        [
+          111.09375,
+          23.90625,
+          54
+        ],
+        [
+          112.5,
+          25.3125,
+          53
+        ],
+        [
+          116.71875,
+          29.53125,
+          6
+        ],
+        [
+          118.125,
+          29.53125,
+          74
+        ],
+        [
+          118.125,
+          30.9375,
+          1
+        ],
+        [
+          119.53125,
+          28.125,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/beautiful_pachytriton_arrived__en/",
+      "html": "<p>The Paddletail Newts of the genus Pachytriton are available only a few weeks per year. The systematics of this genus are very confusing, so the specimens cannot be determined exactly. They are listed as Pachytriton cf. labiatus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/beautiful_pachytriton_arrived__en/",
+      "html": "<p>The tank should be quite spacious.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/beautiful_pachytriton_arrived__en/",
+      "html": "<p>Pachytriton should be kept in clean water; some current is very good for the animals. No heater is needed.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/beautiful_pachytriton_arrived__en/",
+      "html": "<p>Water temperature for regular keeping should be around 20°C, and 10°C during hibernation. A temporary increase of the water temperature up to 26°C does not harm the animals at all.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/beautiful_pachytriton_arrived__en/",
+      "html": "<p>They feed on any type of frozen and live food that fits the mouth.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/beautiful_pachytriton_arrived__en/",
+      "html": "<p>These newts are territorial. As in cichlids, Pachytriton give up their territorial behaviour when the population density is very high.</p><p>These newts never leave the water as long as they feel well; they are completely aquatic.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/53449d65489928f7.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "KENPEI",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pachytriton_labiatus1.jpg",
+      "caption": "Pachytriton labiatus, the paddletail newt",
+      "thumb": "https://media.aquatome.com/commons/53449d65489928f7-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ojqQH8B1yCw",
+      "title": "Pachytriton labiatus Found his food",
+      "durationSec": 122,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zwh_2jaI-NY",
+      "title": "Paddle tail newt eating (Pachytriton labiatus)",
+      "durationSec": 67,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1185sH0kb1o",
+      "title": "Pachytriton labiatus habitat",
+      "durationSec": 39,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QYk-UlVtLLU",
+      "title": "Feeding Pachytriton labiatus",
+      "durationSec": 150,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc ngoài bể cá",
+        "máy lọc nước mạnh cho bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh nước bể cá",
+        "quạt làm mát bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn khô cho sa giông",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

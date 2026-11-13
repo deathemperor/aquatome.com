@@ -1,0 +1,56 @@
+import { expect, test } from 'vitest'
+import { reaches, withoutContacts } from '../chat/contacts'
+import type { Handbook } from '../chat/handbook'
+import { handedTanks, NOTES_CHARS, type Tank } from '../chat/tools'
+
+test('a way to reach someone or an address is taken out of a tank\'s notes; the rest stays', () => {
+  expect(withoutContacts('Lọc thùng 600L/h, mua ở shop Cá Đẹp, gọi 0912 345 678 hoặc zalo: 0912345678, xem fb.com/cadep nhé. Đèn 30W bật 8 tiếng.'))
+    .toBe('Lọc thùng 600L/h, mua ở shop Cá Đẹp, gọi … hoặc …, xem … nhé. Đèn 30W bật 8 tiếng.')
+  expect(withoutContacts('Nhà mình ở số 12 đường Lê Lợi, quận 1, nước máy hơi cứng.')).toBe('Nhà mình ở …, …, nước máy hơi cứng.')
+  expect(withoutContacts('Email saya budi@contoh.co.id, tinggal di Jl. Merdeka 5. CO2 2 bps.')).toBe('Email saya …, tinggal di …. CO2 2 bps.')
+  expect(withoutContacts('บ้านอยู่ซอยลาดพร้าว 101 ตู้ 60 ซม.')).toBe('บ้านอยู่… ตู้ 60 ซม.')
+  // The figures a tank's notes hold aren't a phone number.
+  const plain = 'Bể 60x40x40, pH 6.8, GH 6, thay 30% nước mỗi tuần, phân nền 2 năm, 1 ml phân nước mỗi ngày.'
+  expect([withoutContacts(plain), reaches(plain)]).toEqual([plain, false])
+  expect(reaches('gọi 0912 345 678')).toBe(true)
+  // Digits in Thai script, and slashes between them; domains past the usual endings.
+  expect(withoutContacts('โทร ๐๘๑๒๓๔๕๖๗๘ ตู้ 60 ซม.')).toBe('โทร … ตู้ 60 ซม.')
+  expect(withoutContacts('gọi 0912/345/678, xem linktr.ee/cadep hoặc cadep.vip')).toBe('gọi …, xem … hoặc …')
+  // Sentences run together after a full stop, a light's schedule and levels, a date and a figure are none of them.
+  for (const kept of ['CO2 1bps.đèn 8h, cá khỏe.nước trong', 'Đèn 13-21 80 80 80 80', 'Thay 30% ngày 12/10/2025 30 lít']) expect([withoutContacts(kept), reaches(kept)]).toEqual([kept, false])
+  // Numbers with their country code, as phones are typed.
+  expect(withoutContacts('gọi +84 912 345 678 hoặc 84912345678')).toBe('gọi … hoặc …')
+  expect(withoutContacts('hubungi 62812345678, telefon 60123456789')).toBe('hubungi …, telefon …')
+  // A date, a tank's number, a city and an app's name inside a word are none of them.
+  const ordinary = 'Set ngày 2024-11-08 hoặc 08/11/2024, bể số 2 ở TP.HCM, v.v. Baseline: 7.0 pH.'
+  expect([withoutContacts(ordinary), reaches(ordinary)]).toEqual([ordinary, false])
+})
+
+test('a tank goes with every question as read_tanks gives it, but for its name and the ways to reach anyone in its notes', () => {
+  const hb = { byId: () => undefined } as unknown as Handbook
+  const tank: Tank = { id: 't1', name: 'Bể nhà Lan', litres: 60, species: [{ id: 'paracheirodon-innesi', count: 10 }], unlisted: [], substrate: 'phân nền', days: 30, notes: 'Đèn 30W bật 8 tiếng, gọi Lan 0912 345 678.' }
+  expect(JSON.parse(handedTanks([tank], hb))).toEqual([{
+    id: 't1', litres: 60, fish: [{ name: 'paracheirodon-innesi', count: 10 }], substrate: 'phân nền', savedDaysAgo: 30, readerNotes: 'Đèn 30W bật 8 tiếng, gọi Lan ….',
+  }])
+  // A number across the notes' cut: none of it stays.
+  const across = `${'x'.repeat(NOTES_CHARS - 9)} gọi 0912345678`
+  expect(JSON.parse(handedTanks([{ ...tank, notes: across }], hb))[0].readerNotes).not.toMatch(/\d/)
+})
+
+test('every field the reader typed goes with the question cleaned, not only the notes; read_tanks still gives them as typed', async () => {
+  const known = { name: 'Cá neon xanh' }
+  const hb = { byId: (id: string) => (id === 'paracheirodon-innesi' ? known : undefined) } as unknown as Handbook
+  const tank: Tank = {
+    id: 't1', name: 'Bể', species: [{ id: 'paracheirodon-innesi', count: 10 }, { id: 'zalo: 0912345678', count: 1 }],
+    unlisted: [{ name: 'Cá lạ gọi 0912345678', kind: 'fish' }, { name: 'Rêu xem shop.example.com', kind: 'plant' }],
+    plants: ['mua tại www.example.com'], substrate: 'Jalan Merdeka 5', days: 3,
+    lights: [{ name: 'Đèn của a@example.com' }], power: ['Lọc 0987654321'],
+  }
+  const handed = JSON.stringify(JSON.parse(handedTanks([tank], hb)))
+  for (const gone of ['0912345678', 'example.com', 'a@', 'Merdeka', '0987654321']) expect(handed, gone).not.toContain(gone)
+  expect(JSON.parse(handed)[0]).toMatchObject({ fish: [{ name: 'Cá neon xanh', id: 'paracheirodon-innesi', count: 10 }, { name: expect.stringContaining('…') }, { name: 'Cá lạ gọi …' }], savedDaysAgo: 3 })
+  // Ordinary names stay as typed.
+  const plain: Tank = { ...tank, species: [], plants: undefined, unlisted: [{ name: 'Cá sặc gấm', kind: 'fish' }], substrate: 'phân nền ADA', lights: [{ name: 'WRGB II 60' }], power: ['Lọc thùng'] }
+  expect(JSON.parse(handedTanks([plain], hb))[0]).toMatchObject({ fish: [{ name: 'Cá sặc gấm' }], substrate: 'phân nền ADA', plugsPower: ['Lọc thùng'] })
+  expect(JSON.parse(handedTanks([plain], hb))[0].lights[0]).toContain('WRGB II 60')
+})

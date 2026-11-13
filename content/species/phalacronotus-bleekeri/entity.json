@@ -1,0 +1,368 @@
+{
+  "id": "phalacronotus-bleekeri",
+  "scientificName": "Phalacronotus bleekeri",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Phalacronotus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "cambodia",
+    "laos",
+    "vietnam"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "KH",
+        "LA",
+        "VN"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Thailand, Cambodia, Laos, Vietnam.",
+          "countries": [
+            "TH",
+            "KH",
+            "LA",
+            "VN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337850,
+      "total": 47,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "TH",
+          29
+        ],
+        [
+          "KH",
+          17
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          14.0625,
+          8,
+          8
+        ],
+        [
+          101.25,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          6,
+          6
+        ],
+        [
+          104.0625,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          104.0625,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          14.0625,
+          8,
+          8
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalacronotus-bleekeri",
+      "html": "<ul><li>Needs a very large tank.</li><li>Needs a tight-fitting lid as this species is known to jump.</li></ul><p>Bleeker's sheatfish (Phalacronotus bleekeri) is a large silurid catfish from Thailand, Cambodia, Laos and Vietnam. An irregular import, it is often confused with some of its congeners. At up to 60 cm it needs a lot of open swimming space, powerful filtration and a heavy, tightly fitting cover, and it will eat any smaller fish it can fit in its mouth.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalacronotus-bleekeri",
+      "html": "<p>Thailand, Cambodia, Laos, Vietnam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalacronotus-bleekeri",
+      "html": "<p>Inhabits rivers, lakes, streams and ponds. Migrates into flooded areas during the rainy season. These migrations are affected by the lunar cycle as well as changing water levels.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalacronotus-bleekeri",
+      "html": "<p>Standard length: 60 cm SL.</p><p>Aquarium base: 180 × 60 cm.</p><p>Volume: ~648 litres.</p><p>180 × 60 × 60 cm, ~648 litres is the bare minimum for an adult fish, though the bigger the tank the better.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalacronotus-bleekeri",
+      "html": "<p>This species requires a lot of open swimming space, along with some suitably-sized hiding places. Lengths of thick plastic piping should be adequate for this, as it is doubtful that any aquatic plants could withstand the movements of a fish this size. Filtration should be powerful and efficient, as this fish is a messy eater and produces a lot of waste, and is sensitive to deteriorating water conditions. Regular water changes must be strictly observed for the same reason. The tank should also have a very heavy, tightly fitting cover, as the fish are good jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalacronotus-bleekeri",
+      "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 6.0–7.0</li><li>Hardness: 3–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalacronotus-bleekeri",
+      "html": "<p>Relatively unfussy and will take most live, frozen and dried foods. Offer larger specimens earthworms, pieces of prawn and mussel and dried pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalacronotus-bleekeri",
+      "html": "<p>Fairly peaceful for its size, although it will eat any smaller fish it can fit in its mouth. Good tankmates include medium to large sized cyprinids, characins, similarly-sized Asian or South American catfish and larger cichlids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalacronotus-bleekeri",
+      "html": "<p>Males have a serrated edge to the pectoral spine, while females do not. Mature females are thicker-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalacronotus-bleekeri",
+      "html": "<p>Not yet thought to have been achieved in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/phalacronotus-bleekeri",
+      "html": "<p>An irregular import, this species is often confused with some of its congeners. It makes an interesting addition to a community of larger fish.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/34d1a80b9151c972.webp",
+      "thumb": "https://media.aquatome.com/scotcat/34d1a80b9151c972-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/phalacronotus_bleekeri.htm",
+      "caption": "Phalacronotus bleekeri",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d6fe5331b591b012.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d6fe5331b591b012-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/phalacronotus_bleekeri.htm",
+      "caption": "Phalacronotus bleekeri",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/0ececddbb09747bb.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0ececddbb09747bb-480.webp",
+      "width": 500,
+      "height": 307,
+      "licence": "dùng với sự cho phép",
+      "author": "Jean-Francois Helias / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/phalacronotus_bleekeri.htm",
+      "caption": "Phalacronotus bleekeri: head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b0314bb936d50292.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "NasserHalaweh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siluridae_Phalacronotus_bleekeri_2.jpg",
+      "caption": "Phalacronotus bleekeri BLEEKER'S SHEATFISH. Bang Sai Arts and Crafts Centre.",
+      "thumb": "https://media.aquatome.com/commons/b0314bb936d50292-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "pCAzCj-yMIE",
+      "title": "Phalacronotus Bleekeri - Łowca Doskonały",
+      "durationSec": 144,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pksgRdFZGpQ",
+      "title": "Phalacronotus bleekeri @ Blue Sheatfish/Bilut (Thailand)",
+      "durationSec": 7,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1-ZkE1g-oCc",
+      "title": "Phalacronotus bleekeri/Blue Sheath Catfish",
+      "durationSec": 7,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vhvl0tix8ds",
+      "title": "Phalacronotus bleekeri - short documentation",
+      "durationSec": 31,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng công suất lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá da trơn lớn",
+        "thức ăn cho cá săn mồi"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

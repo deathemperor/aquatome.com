@@ -1,0 +1,210 @@
+{
+  "id": "lepidiolamprologus-boulengeri",
+  "scientificName": "Lepidiolamprologus boulengeri",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Lepidiolamprologus",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "tanzania",
+    "lake-tanganyika"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It is found along the Tanzanian shoreline in the north of the lake.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9441127,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TZ",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          -5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidiolamprologus-boulengeri",
+      "html": "<p>Lepidiolamprologus boulengeri is a small shell-dwelling cichlid endemic to Lake Tanganyika, found along the Tanzanian shoreline in the north of the lake. It lives among scattered rocks and open sand littered with empty snail shells. It is told apart from L. hecqui and Lamprologus kungweensis by the orange border on its dorsal and anal fins, and it will spawn in small caves if no shells are available.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidiolamprologus-boulengeri",
+      "html": "<p>Endemic to Lake Tanganyika. It is found along the Tanzanian shoreline in the north of the lake.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidiolamprologus-boulengeri",
+      "html": "<p>It is found in areas with scattered rocks and areas of open sand around the shoreline, in areas where the substrate is littered with empty snail shells.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidiolamprologus-boulengeri",
+      "html": "<p>Standard length: 65 mm SL (6.5 cm).</p><p>45cm x 30cm x 30cm - 40 litres for a pair, a larger tank is required for a colony.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidiolamprologus-boulengeri",
+      "html": "<p>The aquarium should have large open areas of sandy substrate to which should be added a good number of empty snail shells (see breeding section below). More shells should be provided than there are individual fish. The substrate should be at least 5 cm deep as this species likes to dig. The water must be hard and alkaline.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidiolamprologus-boulengeri",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 7.5–9.0</li><li>Hardness: 8–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidiolamprologus-boulengeri",
+      "html": "<p>Live and frozen varieties should form the bulk of the diet, although dried foods are usually accepted.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidiolamprologus-boulengeri",
+      "html": "<p>A territorial species that will defend its shell and the small territory around it vigorously. It can be combined with other species that inhabit other areas of the aquarium. Good tankmate choices include small rockdwellers such as Neolamprologus brichardi or smaller species of Julidochromis and open water species such as Cyprichromis. If a number of fish are kept it will form a colony. If keeping it in a colony situation make sure there are enough shells and try to keep more females than there are males. Also worth bearing in mind is that a single male will hold a 30 cm x 30 cm territory in nature so adequate space must be provided if more than one male is to be kept.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidiolamprologus-boulengeri",
+      "html": "<p>Not easy to sex by physical means, although adult males grow larger than females. The easiest way to tell the sexes apart is by differences in behaviour, as males display almost constantly to females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidiolamprologus-boulengeri",
+      "html": "<p>Quite easy. Shell brooder. It may breed in the community aquarium, but if you want to raise a full brood of these fish, a separate aquarium should be used. Set up the aquarium as suggested above. Provide a good number of snail shells in which the females will lay their eggs. Escargot shells are a good choice and can be obtained from most decent delicatessens. Water should be hard and alkaline, with a pH of around 8.0-8.5 and a temperature of 25–26.5 °C. Allow at least 30 cm x 30 cm of territorial space for each male, if there is more than one. Provide 3-4 females for each male as this species spawns in a harem situation. Condition the fish well on a good diet of live and frozen foods. The male(s) will dig a depression in the centre of their territory, in which several shells are placed. He will then attempt to catch the attention of females by displaying at them, and if he is successful a female will choose one of the shells and proceed to bury it until only the entrance is visible. Several females usually live in a single male's territory and he will spawn with them all. During spawning itself, the female deposits her eggs inside her shell. When she has finished she begins to back out of the shell at which point the male releases his sperm which is either 'sucked' into the shell by the action of the exiting female or fanned in by the male using his fins, thus fertilising the eggs. After fertilisation, the pair become very aggressive towards anything entering the male's territory, with the female guarding the area around the shell and the male patrolling the entire territory. The eggs (up to 60) hatch in around 3 days, becoming free swimming at around the 10 day stage. The fry are large enough to accept brine shrimp nauplii or microworm once they become free swimming. It is probably better to remove the fry to a separate rearing tank at this stage to ensure the best survival rate. Although the parents do not usually harm them, other fish in the colony may eat them. The fry also tend to leave the protection of the parents more quickly than with most other shell dwelling species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidiolamprologus-boulengeri",
+      "html": "<p>L. boulengeri can be distinguished from the similar L. hecqui and Neolamprologus kungweensis primarily by the orange border on the dorsal and anal fins, although its adult patterning is somewhat different to the other species. Unlike many other shell dwellers, it will spawn in small caves if no shells are made available.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 50cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá Tanganyika",
+        "cát san hô"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 50W",
+        "máy sưởi có chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

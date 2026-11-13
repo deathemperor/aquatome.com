@@ -10,6 +10,100 @@
     "mekong",
     "chao-phraya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Mae Klong",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Mekong at Chieng Sen, northern Siam.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Mekong, Mae Klong and Chao Phraya River basins.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Mae Klong",
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341627,
+      "total": 30,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TH",
+          26
+        ],
+        [
+          "LA",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          14.0625,
+          6,
+          6
+        ],
+        [
+          104.0625,
+          15.46875,
+          3,
+          2
+        ],
+        [
+          104.0625,
+          16.875,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          14.0625,
+          17,
+          16
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -80,19 +174,7 @@
       "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. www.fishbase.org, version (11/2009).</p><p>Ng, H.H., 1999. Laides longibarbis, a valid species of schilbeid catfish from Indochina (Teleostei: Siluriformes). Ichthyol. Explor. Freshwat. 10(4):381-385.</p><p>Ng, H.H. 2012. Laides longibarbis. The IUCN Red List of Threatened Species 2012.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/e3dd61489176688f.webp",
-      "thumb": "https://media.aquatome.com/scotcat/e3dd61489176688f-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/ailiidae/laides_longibarbis.htm",
-      "caption": "Laides longibarbis",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

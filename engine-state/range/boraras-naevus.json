@@ -1,0 +1,61 @@
+{
+  "id": "boraras-naevus",
+  "native": {
+    "input": "1999b0f0baef7181",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from southern (peninsular) Thailand with the type series originating from a swamp north of Surat Thani city, Surat Thani Province.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tapi",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded at additional locations, all within the lower Tapi river drainage on the Gulf of Thailand slope of the Malay Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded at additional locations, all within the lower Tapi river drainage on the Gulf of Thailand slope of the Malay Peninsula.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Boraras naevus",
+    "status": "ACCEPTED",
+    "taxonKey": 6166887,
+    "datasets": [
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "id": "corydoras-albolineatus",
+  "scientificName": "Corydoras albolineatus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "lNumber": "C056",
+  "places": [
+    "south-america",
+    "bolivia",
+    "rio-itenez",
+    "brazil",
+    "guapore"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BO",
+        "BR"
+      ],
+      "regions": [
+        "Río Iténez",
+        "Río Paraguá",
+        "Río Madeira"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hoplisoma albolineatum (C056), long known as Corydoras albolineatus, is an armoured catfish from the Río Iténez, or Guaporé, system in Bolivia and Brazil.",
+          "countries": [
+            "BO",
+            "BR"
+          ],
+          "regions": [
+            "Río Iténez"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is on the north bank of the lower Río Paraguá, Río Iténez system, Santa Cruz Department, southeastern Bolivia.",
+          "countries": [],
+          "regions": [
+            "Río Paraguá"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Iténez is known as the Guaporé in Brazil and drains into the Río Mamoré, thus forming part of the upper Río Madeira system, itself a major tributary of the Amazon.",
+          "countries": [],
+          "regions": [
+            "Río Madeira"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342770,
+      "total": 6,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          4
+        ],
+        [
+          "BO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 32
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-albolineatum",
+      "html": "<p>Hoplisoma albolineatum (C056), long known as Corydoras albolineatus, is an armoured catfish from the Río Iténez, or Guaporé, system in Bolivia and Brazil. It has a wide white longitudinal band and unmarked fins, and may be confused with the deeper-bodied H. xinguense. In the wild it forms aggregations of up to several thousand over sandy substrates and sand banks. It is not common in the hobby but is available occasionally.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-albolineatum",
+      "html": "<p>Type locality is on the north bank of the lower Río Paraguá, Río Iténez system, Santa Cruz Department, southeastern Bolivia.</p><p>The Iténez is known as the Guaporé in Brazil and drains into the Río Mamoré, thus forming part of the upper Río Madeira system, itself a major tributary of the Amazon.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-albolineatum",
+      "html": "<p>In the upper Iténez (Guaporé) it most commonly inhabits riparian zones with sandy substrates or edges of sand banks, although it's also been collected in smaller streams and residual flood waters.</p><p>It typically forms large aggregations of up to several thousand individuals and at the confluence of the ríos Paraguá and Iténez occurs sympatrically with the congener Hoplisoma paragua.</p><p>Water parameters taken at several localities between 2001-2003 included water temperature 29.1–31.6 °C, pH 6.47-7.46 and conductivity 24-27 µS/cm.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-albolineatum",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-albolineatum",
+      "html": "<ul><li>Temperature: 22–32°C</li><li>pH: 6.0–7.5</li><li>Hardness: 0–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-albolineatum",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-albolineatum",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-albolineatum",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and higher-bodied than males.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-albolineatum",
+      "html": "<p>Not a common fish in the aquarium hobby but is available occasionally and may be confused with Hoplisoma xinguense, a deeper-bodied fish.</p><p>It can be told apart from congeners by the following characters: body with a wide, white, longitudinal band and numerous small brown spots on top of the head and snout; all fins without markings; snout length fitting 6.3-8.0 times in SL; head length fitting 2.0-2.5 times in SL; snout short and rounded in side profile; dorsal and pectoral fins with I, 7 rays; anal and ventral fins with I, 5 rays; caudal-fin with iii 6-6 ii rays; 20-22 plates in upper lateral row, 19-20 in lower row.</p><p>Until 2024 this species was placed in Corydoras, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to Hoplisoma.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist.</p><p>Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-albolineatum",
+      "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Knaack, J. (2004). Beschreibung von sechs neuen Arten der Gattung Corydoras La Cépède, 1803 (Teleostei: Siluriformes: Callichthyidae). Zoologische Abhandlungen (Dresden) 54, 55-105</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "OHzzM3PQE-A",
+      "title": "Corydoras Albolineatus",
+      "durationSec": 97,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "B_EnzkNHKRo",
+      "title": "corydora albolineatus",
+      "durationSec": 70,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jxhGkCLBYIg",
+      "title": "Corydoras albolineatus family",
+      "durationSec": 138,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eLRODfjk4Xg",
+      "title": "Corydoras albolineatus C 56...艾柏金線鼠",
+      "durationSec": 32,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chuột",
+        "nền cát bể thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "thức ăn viên chìm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

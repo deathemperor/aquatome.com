@@ -62,7 +62,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -197,7 +197,12 @@
       "licence": "CC BY 3.0",
       "author": "This illustration was made by Peter Potrowl. Please credit this with : © Peter Potrowl in the immediate vicinity of the image. A link to my website sitemai.eu would be much appreciated but isn't mandatory. An email to Peter Potrowl would be appreciated too. Do not copy this image illegally by ignoring the terms of the license below, as it is not in the public domain. If you would like special permission to use, license, or purchase the image please contact me Peter Potrowl to negotiate terms. More free pictures in my website. Donations are accepted here and here.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shanghai_Ocean_Aquarium_-_Chitala_blanci_1.jpg",
-      "caption": "Royal knifefish (Chitala blanci) in Shanghai Ocean Aquarium"
+      "caption": "Royal knifefish (Chitala blanci) in Shanghai Ocean Aquarium",
+      "large": {
+        "url": "https://media.aquatome.com/commons/9d6904b7f2d7a98e-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/f4b642e1c1311797.webp",
@@ -260,5 +265,97 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-02",
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "VN",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Tonlé Sap"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The royal featherback, Chitala blanci, is a very large notopterid endemic to the Mekong drainage in Laos, Thailand, Vietnam and Cambodia.",
+          "countries": [
+            "LA",
+            "TH",
+            "VN",
+            "KH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Chitala blanci originates from the basin of the Mekong river in Thailand, Laos, and Cambodia.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Mekong river drainage in Laos, Thailand, Vietnam, and Cambodia, including the Mekong delta region and Tonlé Sap lake system.",
+          "countries": [],
+          "regions": [
+            "Tonlé Sap"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2402266,
+      "total": 14,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "KH",
+          6
+        ],
+        [
+          "LA",
+          6
+        ],
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          16.875,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          7,
+          7
+        ],
+        [
+          105.46875,
+          14.0625,
+          4,
+          4
+        ]
+      ]
+    }
+  }
 }

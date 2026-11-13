@@ -1,0 +1,378 @@
+{
+  "id": "mimagoniates-microlepis",
+  "scientificName": "Mimagoniates microlepis",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Mimagoniates",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "bahia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The blue tetra, Mimagoniates microlepis, is a characid from southeastern Brazil, found from southern Bahia to northern Rio Grande do Sul.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2353883,
+      "total": 931,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BR",
+          920
+        ],
+        [
+          "PY",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -26.71875,
+          4,
+          0
+        ],
+        [
+          -56.25,
+          -25.3125,
+          6,
+          0
+        ],
+        [
+          -52.03125,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -26.71875,
+          6,
+          6
+        ],
+        [
+          -52.03125,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -30.9375,
+          49,
+          49
+        ],
+        [
+          -50.625,
+          -29.53125,
+          49,
+          49
+        ],
+        [
+          -50.625,
+          -26.71875,
+          21,
+          21
+        ],
+        [
+          -50.625,
+          -25.3125,
+          5,
+          5
+        ],
+        [
+          -49.21875,
+          -29.53125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -28.125,
+          11,
+          11
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          142,
+          142
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          69,
+          69
+        ],
+        [
+          -49.21875,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          125,
+          125
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          17,
+          17
+        ],
+        [
+          -46.40625,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          85,
+          85
+        ],
+        [
+          -46.40625,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -45,
+          -23.90625,
+          41,
+          41
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          87,
+          87
+        ],
+        [
+          -43.59375,
+          -22.5,
+          25,
+          25
+        ],
+        [
+          -42.1875,
+          -22.5,
+          8,
+          8
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          4,
+          4
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          11,
+          11
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          93,
+          93
+        ],
+        [
+          -40.78125,
+          -18.28125,
+          25,
+          25
+        ],
+        [
+          -39.375,
+          -18.28125,
+          23,
+          23
+        ],
+        [
+          -39.375,
+          -16.875,
+          16,
+          16
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 23
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mimagoniates-microlepis",
+      "html": "<p>The blue tetra, Mimagoniates microlepis, is a characid from southeastern Brazil, found from southern Bahia to northern Rio Grande do Sul. Not to be confused with Knodus borki, also sold as 'blue tetra', it is much scarcer in the hobby, less boisterous and lacks that species' tendency to nip fins. It inhabits flowing clear-water streams and small rivers of coastal floodplains, and is a predominantly surface-dwelling fish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mimagoniates-microlepis",
+      "html": "<p>This species is native to the southeastern states of Brazil, occurring from southern Bahia to the northern tip of Rio Grande do Sul.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mimagoniates-microlepis",
+      "html": "<p>Most often found inhabiting flowing clear water streams, small rivers and tributaries of coastal floodplains.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mimagoniates-microlepis",
+      "html": "<p>Standard length: 60 mm SL. Aquarium base: 60 × 38 cm. Volume: ~68 litres.</p><p>A small group would need a tank around 60 × 38 × 30 cm, about 68 litres in size.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mimagoniates-microlepis",
+      "html": "<p>This species does well in a heavily planted set-up, ideally with a dark substrate. Provide areas of dense vegetation, along with some open areas for swimming. Other decor can consist of twisted roots and pieces of bogwood. The shade offered by patches of floating plants will also be appreciated by this predominantly surface-dwelling fish.</p><p>Alternatively a tank designed around its natural waters could make an interesting project. It shares these flowing, well-oxygenated streams with some other species found in the hobby and thus an attempt to replicate a \"true\" biotope is possible. Use sand as substrate, adding some smooth, water worn rocks and driftwood twigs/branches to create the desired effect. Placing the filter or spraybar at one end of the tank will provide flow, and locating them in such a way that the flow of water breaks the surface will supply additional oxygen.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mimagoniates-microlepis",
+      "html": "<ul><li>Temperature: 18–23°C (prefers slightly cool temperatures)</li><li>pH: 6.0–7.0</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mimagoniates-microlepis",
+      "html": "<p>It's a near exclusive insectivore by nature, feeding chiefly on terrestrial insects. It proves unfussy in the aquarium though, greedily accepting just about anything offered. For the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia and brine shrimp, along with dried flakes and granules.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mimagoniates-microlepis",
+      "html": "<p>A peaceful species that won't compete well with very boisterous or much larger tankmates. Ideally, keep it with other South American species, such as Hemigrammus or Hyphessobrycon tetras, pencil fish, Apistogramma and other small cichlids, Corydoras and Loricariids. In a more general community it can be combined with smaller rasboras, barbs, Anabantoids and West African dwarf cichlids such as Pelvicachromis species. It won't do well in tanks containing discus or other species requiring higher temperatures.</p><p>In nature it occurs sympatrically with Scleromystax barbatus and Characidium species, so a biotope set-up could make for an eye-catching display. It also makes an ideal dither for cool water cichlids such as Gymnogeophagus.</p><p>Always buy a group of at least 6 of these, preferably 10 or more. It is a shoaling species by nature, and will fare much better when in the company of its own kind. Like most tetras it actually looks far more effective when maintained like this anyway.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mimagoniates-microlepis",
+      "html": "<p>Adult females are more rounded in the belly and a little less intensely coloured than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mimagoniates-microlepis",
+      "html": "<p>Can be bred in a similar way to many other small characins. You'll need to set up a separate tank if you want to raise decent numbers of fry. Something around 45 × 25 × 25 cm in size is fine. This should be very dimly lit and contain clumps of fine-leaved plants such as java moss or spawning mops, to give the fish somewhere to deposit their eggs. Alternatively, you could cover the base of the tank with some kind of mesh. This should be of a large enough grade so that the eggs can fall through it, but small enough so that the adults cannot reach them. The water should be on the soft and acidic side, with a temperature of around 21–23.5°C. A small air-powered sponge filter bubbling away very gently is all that is needed in terms of filtration.</p><p>It can be spawned in a group, with half a dozen specimens of each sex being a good number. Condition these with plenty of small live foods and spawning should not present too many problems. Alternatively, it can be spawned in pairs. Under this technique, the fish are conditioned in male and female groups in separate tanks. When the females are noticeably full of eggs and the males are displaying their best colours, select the fattest female and best-coloured male and transfer them to the spawning tank in the evening. They should spawn the following morning.</p><p>In either situation, the adults will eat the eggs given the chance and should be removed as soon as eggs are noticed. These will hatch in 48–72 hours, with the fry becoming free swimming a few days later. They should be fed on an infusoria-type food for the initial period, until they are large enough to accept microworm or brine shrimp nauplii.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mimagoniates-microlepis",
+      "html": "<p>Not to be confused with the other species commonly sold under the name \"blue tetra\", Knodus borki, this species is much scarcer in the hobby. It also makes a better resident of the community tank than its cousin, being less boisterous and lacking the tendency to nip the fins of other species.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc bọt khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ dạng vảy",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu java",
+        "cây thủy sinh nổi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

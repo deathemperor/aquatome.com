@@ -10,6 +10,44 @@
     "thailand",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Boraras micros is a tiny cyprinid from the Mekong basin in northeastern Thailand, recorded in Nong Khai, Udon Thani and Sakon Nakhon provinces.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Mostly restricted to parts of the Mekong basin in northeastern Thailand where it's been collected in the provinces of Nong Khai, Udon Thani and Sakon Nakhon.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366586,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +91,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -131,7 +169,71 @@
       "html": "<ul><li>Conway, K. W. (2005). Monophyly of the genus Boraras (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 16(3), 249-264</li><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Liao, T. Y., Kullander, S. O. and F. Fang (2010). Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae). Zoologica Scripta 39(2), 155-176</li><li>Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li><li>Conway, K. W. and M. Kottelat (2011). Boraras naevus, a new species of miniature and sexually dichromatic freshwater fish from peninsular Thailand (Ostariophysi: Cyprinidae). Zootaxa 3002, 45-51</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. and C. Vidthayanon (1993). Boraras micros, a new genus and species of minute freshwater fish from Thailand (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 4(2), 161-176</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/5dda68837433b0737213da025035a3be.webp",
+      "thumb": "https://media.aquatome.com/processed/5dda68837433b0737213da025035a3be-480.webp",
+      "width": 640,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitwong / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boraras-micros",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261112-boraras-micros-sf-4",
+        "pixelHash": "388c7fe47e2c311153a581410fd44dca91ef326794510e5bc890035cb25d411b"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-12T11:19:12.680Z",
+          "originalHash": "65a416eddb84c5e9ac51ac98bba8a93a4122442fdfdbc4858209b28ede1604f1",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 640,
+            "originalHeight": 361,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 640,
+              "y1": 300
+            },
+            "subject": {
+              "x0": 142,
+              "y0": 76,
+              "x1": 599,
+              "y1": 255
+            },
+            "margin": 10
+          },
+          "excludedMarks": [
+            {
+              "x0": 433,
+              "y0": 304,
+              "x1": 604,
+              "y1": 323
+            }
+          ],
+          "checks": {
+            "species": [
+              "fa6bc6e1326d81f15b10e8971958a330b13afee4d14ea0556345fb09c661cf87",
+              "ce260f9580045c7c8a439bfa12903ca8e8f9db626071899c3dc37190961356b9"
+            ],
+            "ownership": [
+              "dfca3103242e5466c0e2744abe564139f4d359821a176b94a6628330110e9223",
+              "37b3df9ebc40a586da42527f347ee846345ddca117798614c958b603314a7ed3"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://www.seriouslyfish.com/images/2012/03/Boraras-micros.jpg",
+        "width": 640,
+        "height": 361
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "QqYY5628TBk",
@@ -144,8 +246,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá thủy sinh 45cm",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

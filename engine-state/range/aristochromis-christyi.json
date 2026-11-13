@@ -1,0 +1,89 @@
+{
+  "id": "aristochromis-christyi",
+  "native": {
+    "input": "957eac62d755a754",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "MW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi and is found throughout the lake thus it can be said to occur in the countries of Malawi, Mozambique and Tanzania.",
+        "words": "Malawi",
+        "ok": true
+      },
+      {
+        "code": "MZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi and is found throughout the lake thus it can be said to occur in the countries of Malawi, Mozambique and Tanzania.",
+        "words": "Mozambique",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi and is found throughout the lake thus it can be said to occur in the countries of Malawi, Mozambique and Tanzania.",
+        "words": "Tanzania",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi and is found throughout the lake thus it can be said to occur in the countries of Malawi, Mozambique and Tanzania.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aristochromis christyi",
+    "status": "ACCEPTED",
+    "taxonKey": 2372948,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        8
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        5
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "MW",
+      "MZ",
+      "TZ"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

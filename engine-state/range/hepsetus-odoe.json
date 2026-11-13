@@ -1,0 +1,270 @@
+{
+  "id": "hepsetus-odoe",
+  "native": {
+    "input": "02d7d909780acac9",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is found in West and Central Africa, from the Sassandra in Ivory Coast to Kribi in Cameroon, and in the Niger, Volta and Chad basins.",
+        "words": "Ivory Coast",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is found in West and Central Africa, from the Sassandra in Ivory Coast to Kribi in Cameroon, and in the Niger, Volta and Chad basins.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Ivory Coast, Ghana, Togo, Benin, Burkina Faso, Nigeria, Cameroon, Chad and the Central African Republic.",
+        "words": "Ghana",
+        "ok": true
+      },
+      {
+        "code": "TG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Ivory Coast, Ghana, Togo, Benin, Burkina Faso, Nigeria, Cameroon, Chad and the Central African Republic.",
+        "words": "Togo",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Ivory Coast, Ghana, Togo, Benin, Burkina Faso, Nigeria, Cameroon, Chad and the Central African Republic.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "BF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Ivory Coast, Ghana, Togo, Benin, Burkina Faso, Nigeria, Cameroon, Chad and the Central African Republic.",
+        "words": "Burkina Faso",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Ivory Coast, Ghana, Togo, Benin, Burkina Faso, Nigeria, Cameroon, Chad and the Central African Republic.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "TD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Ivory Coast, Ghana, Togo, Benin, Burkina Faso, Nigeria, Cameroon, Chad and the Central African Republic.",
+        "words": "Chad",
+        "ok": true
+      },
+      {
+        "code": "CF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded in Ivory Coast, Ghana, Togo, Benin, Burkina Faso, Nigeria, Cameroon, Chad and the Central African Republic.",
+        "words": "Central African Republic",
+        "ok": true
+      },
+      {
+        "code": "SN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Fish from elsewhere in Africa were once included in H. odoe and are now separate species: H. occidentalis from Senegal to Liberia, H. lineata and H. kingsleyae from the Congo and Gabon, and H. cuvieri in southern Africa.",
+        "words": "Senegal",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Fish from elsewhere in Africa were once included in H. odoe and are now separate species: H. occidentalis from Senegal to Liberia, H. lineata and H. kingsleyae from the Congo and Gabon, and H. cuvieri in southern Africa.",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Fish from elsewhere in Africa were once included in H. odoe and are now separate species: H. occidentalis from Senegal to Liberia, H. lineata and H. kingsleyae from the Congo and Gabon, and H. cuvieri in southern Africa.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Niger",
+        "source": "seriouslyfish",
+        "quote": "It is found in West and Central Africa, from the Sassandra in Ivory Coast to Kribi in Cameroon, and in the Niger, Volta and Chad basins.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Volta",
+        "source": "seriouslyfish",
+        "quote": "It is found in West and Central Africa, from the Sassandra in Ivory Coast to Kribi in Cameroon, and in the Niger, Volta and Chad basins.",
+        "ok": true
+      },
+      {
+        "name": "Chad",
+        "source": "seriouslyfish",
+        "quote": "It is found in West and Central Africa, from the Sassandra in Ivory Coast to Kribi in Cameroon, and in the Niger, Volta and Chad basins.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Sassandra",
+        "source": "seriouslyfish",
+        "quote": "It is found in West and Central Africa, from the Sassandra in Ivory Coast to Kribi in Cameroon, and in the Niger, Volta and Chad basins.",
+        "country": "CI",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hepsetus odoe",
+    "status": "ACCEPTED",
+    "taxonKey": 2352194,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        283
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        163
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        136
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        35
+      ],
+      [
+        "1c6b8a9f-5bd9-4358-9915-b7643779b03e",
+        25
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        22
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        20
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        16
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        13
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        12
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        11
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        11
+      ],
+      [
+        "1b18bab9-abdb-41b4-83c8-368ca2e6d391",
+        7
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        4
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "47f75ea9-ad74-47ab-919a-b8c8d4f1fce3",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        2
+      ],
+      [
+        "18d3c829-ab7b-4f60-af60-a61f628a8c1d",
+        1
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [
+      "CI",
+      "GH",
+      "TG",
+      "BJ",
+      "BF",
+      "NG",
+      "CM",
+      "TD",
+      "CF"
+    ],
+    "requests": 13,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

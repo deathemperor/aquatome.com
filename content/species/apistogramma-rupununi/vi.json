@@ -1,0 +1,22 @@
+{
+  "slug": "ca-apisto-rupununi",
+  "name": "Cá Apisto rupununi",
+  "altNames": [],
+  "sections": {
+    "notes:glaser": "<p>Sau một thời gian khá dài, loài cichlid lùn này cuối cùng cũng được nhập về lại. Lứa cá này chắc là có nguồn gốc từ Amapá, Brazil. Khi cá bắt ngoài tự nhiên còn nhỏ, khá khó phân biệt A. rupununi với A. steindachneri. Nhưng lứa mới nhập lần này đã khá lớn, vài con đực đã dài khoảng 5 cm. Không con nào có tia trên cùng và tia dưới cùng của vây đuôi kéo dài ra. Dấu hiệu rõ nhất để phân biệt hai loài là đuôi hình đàn lia ở con đực A. steindachneri đã đủ lớn để đẻ. Vì thế, người ta cho rằng số cá mới nhập này là A. rupununi.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

@@ -10,6 +10,58 @@
     "turkey",
     "sakarya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TR"
+      ],
+      "regions": [
+        "Sakarya River",
+        "Lake Çavuşçu"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Sakarya River basin including Lake Çavuşçu (Çavuşçu Göl) in western central Turkey.",
+          "countries": [
+            "TR"
+          ],
+          "regions": [
+            "Sakarya River",
+            "Lake Çavuşçu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11630324,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TR",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          30.9375,
+          37.96875,
+          4,
+          4
+        ],
+        [
+          32.34375,
+          37.96875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {
@@ -151,8 +203,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x30",
-        "bể cá dài 120cm"
+        "bể cá 120cm"
       ]
     },
     {

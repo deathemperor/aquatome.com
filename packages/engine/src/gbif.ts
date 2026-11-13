@@ -1,18 +1,104 @@
 import { createHash } from 'node:crypto'
 import type { Candidate } from './gallery'
 
-export type Taxon = { canonicalName: string; order?: string; family?: string; genus?: string; matchType: string }
-type Match = { canonicalName?: string; species?: string; rank?: string; status?: string; matchType: string; order?: string; family?: string; genus?: string }
+export type Taxon = { canonicalName: string; phylum?: string; class?: string; order?: string; family?: string; genus?: string; matchType: string }
+type Match = { canonicalName?: string; species?: string; rank?: string; status?: string; matchType: string; phylum?: string; class?: string; order?: string; family?: string; genus?: string }
+
+/**
+ * Names GBIF's backbone matches, fuzzily, to another animal, each checked by a person against the pages that use them
+ * (2026-11-13): the name the backbone is asked instead, or null where it lacks the species and the checklists GBIF indexes
+ * are read (gbifSearchTaxon). The group check (pageTaxon) refuses a worm for a catfish; a fish matched to another fish
+ * only a person sees. Kept out of _gbif-names.json, which the sweep clears of them (page-folds.ts).
+ */
+export const MISMATCHED: Readonly<Record<string, string | null>> = {
+  // The skunk cory, moved to Brochis in 2024: the backbone's nearest "Brochis arcuata" is a tube worm's synonym.
+  'Brochis arcuata': 'Corydoras arcuatus',
+  'Brochis arcuatus': 'Corydoras arcuatus',
+  // A torrent catfish from the Minjiang the backbone lacks: it took another species, L. chenghaiensis.
+  'Liobagrus chengduensis': null,
+  // The rosy tetra: the backbone took Megalamphodus roseus, another tetra (Hyphessobrycon roseus).
+  'Megalamphodus rosaceus': 'Hyphessobrycon rosaceus',
+}
+
+/**
+ * A name's row in MISMATCHED, however it is cased or spaced ("liobagrus  chengduensis "): GBIF answers those the same
+ * wrong way (Astra, 2026-11-13).
+ */
+export const mismatchedKey = (name: string) => {
+  const k = name.trim().replace(/\s+/g, ' ').toLowerCase()
+  return Object.keys(MISMATCHED).find(m => m.toLowerCase() === k)
+}
 
 /** GBIF backbone match; null when GBIF can't resolve the name to a species-level taxon. Synonyms resolve to the accepted species. */
 export async function gbifMatch(name: string, http: (url: string) => Promise<unknown>, cache: Record<string, Taxon | null>): Promise<Taxon | null> {
+  const known = mismatchedKey(name)
+  if (known !== undefined) {
+    const instead = MISMATCHED[known]
+    // The checklists are searched for the name as the table writes it: they match it exactly.
+    return instead ? gbifMatch(instead, http, cache) : gbifSearchTaxon(known, http)
+  }
   if (name in cache) return cache[name] ?? null
   const m = (await http(`https://api.gbif.org/v1/species/match?name=${encodeURIComponent(name)}`)) as Match
   const ok = m.matchType !== 'NONE' && m.matchType !== 'HIGHERRANK' && m.canonicalName
   const accepted = m.status === 'SYNONYM' && m.rank === 'SPECIES' && m.species ? m.species : m.canonicalName
-  const t: Taxon | null = ok ? { canonicalName: accepted!, order: m.order, family: m.family, genus: m.genus, matchType: m.matchType } : null
+  const t: Taxon | null = ok ? { canonicalName: accepted!, ...(m.phylum ? { phylum: m.phylum } : {}), ...(m.class ? { class: m.class } : {}), order: m.order, family: m.family, genus: m.genus, matchType: m.matchType } : null
   cache[name] = t
   return t
+}
+
+// GBIF's backbone gives a ray-finned fish no class (2026-11-12: Hyphessobrycon, Corydoras, Polypterus, Acipenser), only
+// its phylum and order, so a chordate with none is a fish. The other fish classes it does give.
+const FISH = ['Coelacanthi', 'Dipneusti', 'Elasmobranchii', 'Holocephali', 'Petromyzonti']
+/** The classes a page's group (prompts/process.md) can be; a fish group by default. */
+const GROUP_CLASSES: Record<string, { fish: boolean; classes: string[] }> = {
+  shrimp: { fish: false, classes: ['Malacostraca'] },
+  snails: { fish: false, classes: ['Gastropoda', 'Bivalvia'] },
+  other: { fish: true, classes: [...FISH, 'Malacostraca', 'Branchiopoda', 'Gastropoda', 'Bivalvia', 'Amphibia', 'Anthozoa', 'Echinoidea', 'Clitellata'] },
+}
+
+/**
+ * The species a page is about, from its scientific name and the synonyms it gives: an exact match on any of them (a
+ * synonym resolving to its accepted name included) first, else a fuzzy one that is an animal the page's group can be,
+ * else none. An exact match of a class the group can't be is none too. A fuzzy match can be another animal: "Brochis
+ * arcuata" matched a tube worm's synonym and made a catfish page "Ditrupa arietina"; the genus Mollienisia, exactly, is a
+ * moth's.
+ */
+export async function pageTaxon(names: string[], group: string | undefined, match: (name: string) => Promise<Taxon | null>): Promise<Taxon | null> {
+  const can = GROUP_CLASSES[group ?? 'other'] ?? { fish: true, classes: FISH }
+  const wrong = (t: Taxon) => t.class !== undefined && !can.classes.includes(t.class)
+  const fits = (t: Taxon) => (t.class !== undefined ? can.classes.includes(t.class) : can.fish && t.phylum === 'Chordata')
+  const fuzzy: Taxon[] = []
+  for (const name of names) {
+    const t = await match(name)
+    // An exact name in GBIF's checklists (MISMATCHED) is as good as the backbone's.
+    if ((t?.matchType === 'EXACT' || t?.matchType === 'SEARCH') && !wrong(t)) return t
+    if (t && t.matchType !== 'EXACT' && t.matchType !== 'SEARCH') fuzzy.push(t)
+  }
+  return fuzzy.find(fits) ?? null
+}
+
+type Usage = { canonicalName?: string; rank?: string; taxonomicStatus?: string; order?: string; family?: string; genus?: string; parentKey?: number }
+/**
+ * A species too new for GBIF's backbone (Nanosphronemus gemma, described in 2026: the match is NONE) from the checklists
+ * GBIF indexes (ZooBank, WoRMS…): its ACCEPTED SPECIES records whose canonical name is exactly this name, as one species.
+ * Family and order from a record that gives both, else from its genus's record. Null when there is none, when no record
+ * places it, or when records place it in different families. Never a fuzzy or partial name, a synonym or another rank.
+ * Not kept in _gbif-names.json, whose readers take its answers as the backbone's.
+ */
+export async function gbifSearchTaxon(name: string, http: (url: string) => Promise<unknown>): Promise<Taxon | null> {
+  const r = (await http(`https://api.gbif.org/v1/species/search?q=${encodeURIComponent(name)}&rank=SPECIES&status=ACCEPTED&limit=50`)) as { results?: Usage[] }
+  const same = (r.results ?? []).filter(u => u.canonicalName === name && u.rank === 'SPECIES' && u.taxonomicStatus === 'ACCEPTED')
+  if (!same.length) return null
+  const placed = same.filter(u => u.order && u.family)
+  if (new Set(placed.map(u => u.family)).size > 1) return null
+  let at = placed[0]
+  for (const u of same) {
+    if (at || !u.parentKey) break
+    const g = (await http(`https://api.gbif.org/v1/species/${u.parentKey}`)) as Usage
+    if (g.order && g.family) at = g
+  }
+  if (!at) return null
+  return { canonicalName: name, order: at.order, family: at.family, genus: same.find(u => u.genus)?.genus ?? name.split(' ')[0], matchType: 'SEARCH' }
 }
 
 /** iNaturalist's research-grade observations as a GBIF dataset: read from iNaturalist itself instead. */

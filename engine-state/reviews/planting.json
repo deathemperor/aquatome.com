@@ -1,0 +1,565 @@
+{
+  "vi/plants/alternanthera-reineckii-mini": [
+    {
+      "at": "2026-11-08T03:34:02Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"Cây ở đây là cây nuôi cấy mô trong cốc kín\" – the phrase \"ở đây\" is awkward and sounds like it points to a shop or the page. \"Cây bán dạng nuôi cấy mô trong cốc kín\" would read better.",
+        "\"chậm hơn dòng Alternanthera thường\" – the page compares it to \"Alternanthera nổi tiếng này\", meaning A. reineckii. Saying \"thường\" is vaguer than the source.",
+        "The cutting method (\"tuốt vài lá ở đoạn dưới cùng…\") comes from the guide about the full-size A. reineckii as a background plant. It is a general stem-plant method, so it is acceptable here, but it is only loosely tied to this plant."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-08T03:34:02Z",
+      "model": "opus",
+      "score": 0.72,
+      "notes": [
+        "\"làm cây chính trong bể nhỏ\" goes beyond the page, which only says the plant suits small tanks. Nothing calls it the main plant.",
+        "\"có nhíp thì cắm dễ hơn hẳn\" comes from the stem-cutting guide, where it is about pushing cuttings in between dense clumps. Here it is applied to in vitro portions, which that guide doesn't cover.",
+        "\"Cây thường bán dạng in vitro\": the page says only that this product is a tissue-culture cup. \"thường\" (usually) generalises beyond that.",
+        "\"mọc gọn và thấp\": the page says compact growth (\"sinh trưởng gọn gàng\") and slower growth. \"thấp\" (low) is an inference.",
+        "\"Chia càng nhỏ thì cây trải càng rộng\" is linked to the 5–10 cm carpet, but the page says the carpet comes from careful trimming. The guide's point about dividing was about other foreground plants."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/plants/anubias-barteri-nana": [
+    {
+      "at": "2026-11-06T15:33:22Z",
+      "model": "opus",
+      "score": 0.82,
+      "notes": [
+        "\"phần lớn dân chơi buộc nó lên lũa\" overstates the source, which only says Anubias 'thường được gắn lên lũa'. It turns that into a claim about what most hobbyists do.",
+        "\"Bụi ráy to thường có rễ rất dài\" comes from the guide on tying a large Anubias clump onto big driftwood, not from information about nana specifically. It's general Anubias advice presented as nana advice.",
+        "\"rồi cứ đổ nghiêng mãi\": the word 'mãi' adds emphasis the source doesn't have ('cây sẽ lỏng ra và cứ đổ nghiêng').",
+        "The advice to split the clump to spread it across many spots applies to a large piece of driftwood in the source ('nếu lũa lớn'). The passage drops that condition."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/anubias-barteri-var-caladiifolia": [
+    {
+      "at": "2026-11-08T03:33:21Z",
+      "model": "opus",
+      "score": 0.88,
+      "notes": [
+        "Slightly repetitive wording: \"rải ra nhiều chỗ, thay vì dồn cả bụi vào một chỗ\" uses \"chỗ\" twice in a short clause.",
+        "\"Nút buộc phải là nút kép, do nút đơn dễ tuột\" sounds a little stiff. \"nên thắt nút kép vì nút đơn dễ tuột\" would read more naturally.",
+        "The general Anubias claim \"Cũng như các loại ráy khác, người ta thường gắn cây lên lũa\" comes from the tying guide, not this plant's page. It is acceptable, but it extends the guide's general statement to this plant."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/anubias-barteri-var-coffeifolia": [
+    {
+      "at": "2026-11-08T23:10:25Z",
+      "model": "opus",
+      "score": 0.65,
+      "notes": [
+        "Added placement advice not in INPUT: \"nên lúc chọn chỗ gắn cần tính thêm phần thân rễ đó\". The INPUT gives the rhizome length but never says to allow space for it.",
+        "\"Bể lớn hay bể nhỏ đặt nó đều đẹp\" leaves out the INPUT's reason (the leaf colour and shape). It isn't wrong, but on its own it reads like an unsupported claim.",
+        "\"Bể có cá ăn cây cũng trồng được\" goes slightly beyond the source. The INPUT only says plant-eating fish don't touch it. This is minor.",
+        "\"chỗ của nó là trên lũa hoặc đá\" is a little stiff. Something like \"buộc/gắn lên lũa, đá\" would sound more natural to a hobbyist."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T23:10:25Z",
+      "model": "opus",
+      "score": 0.4,
+      "notes": [
+        "\"Khe giữa lũa và đá là một chỗ đặt đẹp cho Anubias cỡ nhỏ\" comes from the betta-tank video guide, which was about an unnamed small Anubias. It is not about this plant.",
+        "\"Ở bể nửa nước nửa cạn, Anubias trồng được cả dưới nước lẫn lên vách rêu phía trên mặt nước\" comes from the paludarium guide, which planted Anubias nana 'Kirin' and 'Bonsai', not coffeifolia. It presents a guide's method as this plant's.",
+        "\"miễn là không khí trong bể đủ ẩm\" is a condition taken from the paludarium guide. The plant's page and figures give no humidity requirement.",
+        "\"Loài này\" is inaccurate: the page calls coffeifolia a cultivar (giống trồng) of Anubias barteri, not a species. \"Giống này\" would be correct."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/plants/aponogeton-ulvaceus": [
+    {
+      "at": "2026-11-08T19:10:41Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "Heading \"Mấy tuần đầu\" sets a time frame the INPUT doesn't give. The guide only says \"lúc mới set\".",
+        "\"Nếu phân nền đã dùng hơn nửa năm thì nhét thêm phân nhét\" comes from the video's general advice on reusing old substrate. It isn't advice specific to this plant, so it reads a bit off-topic here.",
+        "\"củ mua về chỉ là một củ đen chưa có lá\" describes the bulbs bought in one video setup, but the passage presents it as always true of this plant."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/azolla": [
+    {
+      "at": "2026-11-10T05:09:04Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"Mấy tuần đầu\" sets a timeframe the INPUT never gives. It only says biomass can double in 4–7 days once the plant takes hold.",
+        "\"dàn lại chỗ còn thưa\" changes the INPUT's advice. The INPUT says to thin out and spread the spots where the mat is too thick (\"dàn lại những chỗ thảm quá dày\"), not to fill in sparse spots.",
+        "\"không phải vùi hay buộc vào đâu cả\" is a small addition. The INPUT says no substrate is needed but says nothing about not burying or tying the plant."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/bucephalandra-sp": [
+    {
+      "at": "2026-11-06T18:21:50Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"chứ không trồng như cây nền\" goes slightly beyond the INPUT: the vị trí figure only says it grows attached to driftwood and rock, and nothing says not to plant it in the substrate.",
+        "\"dù trồng nhiều vẫn dễ bị rêu hại ở giai đoạn đầu\" and the advice to plant fast-growing plants alongside come from the algae guide, which covers new tanks in general. This is algae advice, not placement or planting, so it is a little off the passage's topic.",
+        "\"dùng nhíp khều sạch bông đá\" is general prep advice for potted plants. The INPUT never applies it to Bucephalandra specifically. It is supported, but generalised to this plant."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/bucephalandra-sp-dark-skeleton-king": [
+    {
+      "at": "2026-11-06T18:22:35Z",
+      "model": "opus",
+      "score": 0.75,
+      "notes": [
+        "\"chứ không phải dưới nền\" is an added caution. The INPUT only gives the position as 'sống bám trên lũa, đá' and never says not to plant it in the substrate.",
+        "\"trong mấy tuần đầu\" is more specific than the source's \"giai đoạn đầu\".",
+        "\"thả thêm cây thả nổi để chúng hút bớt dinh dưỡng dư\": the guide credits fast-growing plants with absorbing excess nutrients. For floating plants it only says they grow fast because they take CO2 from the air, so this attribution is stretched.",
+        "\"Bạn nên dùng nhíp khều thật sạch\": the guide says to remove as much rock wool as possible and uses tweezers only for the root-bound half. \"thật sạch\" overstates this a little."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/bucephalandra-sp-degori": [
+    {
+      "at": "2026-11-06T15:33:48Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"Mấy tuần đầu bể dễ lên rêu\": the INPUT only says \"giai đoạn đầu\" of a newly set-up tank. \"Mấy tuần\" is an added timeframe, and the passage drops the new-tank context.",
+        "\"sẽ đỡ rêu hơn nhiều\": the INPUT says fast-growing plants take up excess nutrients and keep algae from spreading. \"hơn nhiều\" overstates this.",
+        "\"Nếu mua cây chậu, bạn nên gỡ bông đá...\": this advice comes from a general prep guide, not one about this plant. It's acceptable, but the INPUT never says Degori is sold potted; the page says it's sold as rhizomes."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/bucephalandra-sp-mini-melawi": [
+    {
+      "at": "2026-11-06T21:35:45Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"Mấy tuần đầu\": the INPUT says \"giai đoạn đầu\" of a newly set-up tank (bể mới). It gives no number of weeks, and the passage leaves out the new-tank context.",
+        "\"hoặc thả thêm cây nổi để chúng hút bớt dinh dưỡng dư\": the INPUT says only fast-growing plants absorb excess nutrients. Floating plants are said to grow fast because they take CO2 from the air, not to absorb nutrients.",
+        "\"chứ không phải dưới nền\": the INPUT never says not to plant it in the substrate. This is inferred from \"sống bám trên lũa, đá\".",
+        "\"Cây chậu mua về thường còn dính bông đá\": the rock-wool advice is a general tip for potted plants. The plant's page describes it as sold in rhizome portions (Single/Double/Triple), so this may not apply to this plant."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/bucephalandra-sp-red-cherry": [
+    {
+      "at": "2026-11-06T21:35:27Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"không trồng xuống nền như cây thường\" is a caution the INPUT never gives. The INPUT only says the plant grows attached to driftwood or rock (\"sống bám trên lũa, đá\").",
+        "\"phải gỡ hết bông đá\" is stronger than the source, which says to remove the rock wool \"càng nhiều càng tốt\" (as much as possible).",
+        "\"mấy tuần đầu\" is a time frame the source doesn't give. The source only says \"giai đoạn đầu\" (the early stage).",
+        "\"hút bớt dinh dưỡng dư\" weakens the source, which says fast-growing plants \"hút hết dinh dưỡng dư\" (absorb all the excess nutrients). The fact is still broadly intact."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/bucephalandra-sp-round-leaf": [
+    {
+      "at": "2026-11-06T18:22:13Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "Awkward, ambiguous gloss: \"Bucep (tên dân chơi hay gọi Bucephalandra)\" reads as if Bucephalandra is the nickname. The source has it the other way round: \"dân chơi hay gọi tắt là Bucep\".",
+        "\"khều hết bông đá\" goes further than the source, which says \"gỡ đi càng nhiều càng tốt\" and \"khều từng chút\".",
+        "The rock-wool section assumes a potted plant, but the product page lists \"Quy cách: 3 thân rễ\" (3 rhizomes). The 'if potted' condition keeps it accurate, but it's a weak fit for this plant.",
+        "\"hút bớt phân dư\" changes the source's \"hút hết dinh dưỡng dư\" (says \"phân\" instead of \"dinh dưỡng\", \"bớt\" instead of \"hết\"). The meaning survives but the wording is looser."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/ceratopteris-thalictroides": [
+    {
+      "at": "2026-11-09T10:15:03Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"nó trồng ở phía sau\" is awkward Vietnamese; something like \"nên trồng\" or \"trồng nó ở\" reads better.",
+        "\"nó trồng ở phía sau, đúng chỗ chuyển...\" is firmer than the guide, which only says the plant \"có thể trồng\" there."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T10:15:03Z",
+      "model": "opus",
+      "score": 0.6,
+      "notes": [
+        "\"nhất là trong bể nhỏ\" is added: the guide only says the plant grows fast and needs regular trimming. It never says small tanks make this more necessary.",
+        "\"hợp nhất với hậu cảnh hoặc trung cảnh, nhưng nó cũng sống được khi thả nổi\" ranks the positions. The \"vị trí\" figure lists hậu cảnh, trung cảnh and thả nổi equally, so floating gets downgraded.",
+        "\"Cây không vươn lên thì cũng không sao\" sits right after the small open-top tank sentence, which ties it to that case. In the guide it is about the 120 cm shallow-tank setup, so the context gets muddled."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/plants/crinum-calamistratum": [
+    {
+      "at": "2026-11-07T16:39:37Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"Lá cây có thể dài 50–75 cm\" takes the video guide's figure, but the plant's own page says 40 to 120 cm. The two don't match, and the page's range would be the safer one to use.",
+        "\"Đừng buộc cây lên lũa hay đá như dương xỉ Java\" is ambiguous: it can be read as \"don't tie it on like you would a Java fern\" or as \"don't tie it on driftwood or stone, like a Java fern\". It could be clearer, e.g. \"Khác với dương xỉ Java, đừng buộc cây lên lũa hay đá\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/echinodorus-angustifolia": [
+    {
+      "at": "2026-11-10T00:10:40Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"thì cây mới lên tốt\" makes rich substrate or root tabs sound required. The INPUT only says the plant does best (\"phát triển tốt nhất\") with them.",
+        "\"phân nhét quanh gốc\" adds a placement detail (around the base) that the INPUT doesn't give. It only says \"phân viên bón rễ\".",
+        "\"đưa ra hậu cảnh\" is an odd verb choice, since \"ra\" suggests moving forward. \"đặt ở hậu cảnh\" reads more naturally.",
+        "\"lan dần\" goes against the INPUT, which says the plant spreads quickly (\"lan nhanh\")."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/echinodorus-ozelot-green": [
+    {
+      "at": "2026-11-07T13:38:26Z",
+      "model": "opus",
+      "score": 0.95,
+      "notes": [
+        "\"gần như mọi điều kiện bể\" adds \"bể\" to the source's \"gần như mọi điều kiện\". It's a harmless narrowing.",
+        "\"lá xòe ra thành bụi rộng chừng 20–40 cm\": the source says the rosette (\"cụm hoa thị\") spreads, not a \"bụi\" (bush). The wording is slightly loose, but the figure matches."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T13:38:26Z",
+      "model": "opus",
+      "score": 0.7,
+      "notes": [
+        "\"nên người mới chơi cũng trồng được\" — the INPUT says only \"dễ trồng\" and never mentions beginners, so this is added advice.",
+        "\"Vì vậy bạn nên chừa cho nó một khoảng đủ rộng trong bể\" — this spacing advice is inferred from the size; the INPUT never says it.",
+        "\"Cây cao khoảng 20–50 cm\" — this matches the notes, but the quickFacts give 20-30+ cm after two months, and the passage doesn't mention that figure."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/plants/echinodorus-x-barthii": [
+    {
+      "at": "2026-11-09T06:11:34Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"vì cả bụi xòe rộng 20–30 cm\" adds a reason the INPUT doesn't give: it says the plant suits solitary planting in large tanks and gives the 20-30 cm spread separately, without linking the two.",
+        "\"những cây thấp mọc bên dưới\" adds \"thấp\"; the INPUT only says \"các cây mọc bên dưới\". This is minor.",
+        "\"tỉa bớt lá\" names leaves as what gets trimmed; the INPUT only says \"tỉa bớt\". This is a small wording change."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/eleocharis-acicularis": [
+    {
+      "at": "2026-11-07T06:37:38Z",
+      "model": "opus",
+      "score": 0.6,
+      "notes": [
+        "\"Mấy tuần đầu\" heading gives a timeframe the INPUT doesn't give, and it clashes with the \"2–3 tháng\" in the same bullet.",
+        "\"Cây cần phân nền hoặc nền có dinh dưỡng, sỏi trơn thì không hợp\" comes from the dwarf hair grass guide, not this plant. Tropica says E. acicularis \"sống khỏe trong gần như mọi điều kiện bể\", so the two conflict.",
+        "\"thường mất khoảng 2–3 tháng mới phủ kín\" is the dwarf variety's carpeting time from the guide, given here as this plant's.",
+        "\"Cắm trên nền khô rồi mới châm nước thì nền đỡ bẩn và không bị nhão\" is taken from the 90 cm tank-setup video and given as general planting advice.",
+        "The whole splitting and grid-planting method is copied from the dwarf hair grass guide and applied to the parent species without saying so."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/plants/eleocharis-parvula": [
+    {
+      "at": "2026-11-06T21:35:09Z",
+      "model": "opus",
+      "score": 0.82,
+      "notes": [
+        "\"Thảm thường mất khoảng 2–3 tháng mới kín\": the hairgrass guide gives 2–3 months for growing without CO2, and the CO2 video says about three months. The passage drops that condition while also advising stable CO2.",
+        "\"cỏ lên chậm hơn hẳn\": the source only says \"lên chậm hơn\". Adding \"hẳn\" makes the slowdown sound much bigger than the INPUT does.",
+        "\"thành một thảm thấp\": the Tropica text says \"thảm dày\". Changing it to \"thấp\" shifts the meaning a little."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/eleocharis-pusilla": [
+    {
+      "at": "2026-11-08T23:11:03Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"mỗi lần tỉa phải gỡ bớt chồi bò của nó\": the INPUT describes gỡ chồi bò during one trim session. It doesn't say this is needed every trim.",
+        "\"Cây bán dưới dạng cấy mô trong cốc gel\": the plant's page only says it is tissue culture in a sealed cup (\"đóng trong cốc kín\"). The gel comes from the guide's general in vitro section.",
+        "\"pusilla thấp nhất nên đứng trước\": the guide only ranks the heights and says the grass gets taller toward the back and centre. \"nên\" makes it sound firmer than the source, but the meaning is close."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/eriocaulon-sp-vietnam": [
+    {
+      "at": "2026-11-07T06:38:28Z",
+      "model": "opus",
+      "score": 0.68,
+      "notes": [
+        "\"vì cây thiếu chất là yếu đi ngay\" overstates the INPUT. It only says to fertilise so the plant doesn't run short of nutrients; it never says the plant weakens right away (\"ngay\").",
+        "\"Bạn trồng cây xuống nền\" reads like a planting instruction. The INPUT only implies it, through \"mọc khỏe trong nền giàu dinh dưỡng\", and gives no actual planting method.",
+        "\"mọc khỏe nhất khi nền giàu dinh dưỡng\" turns the INPUT's \"mọc khỏe\" into a superlative (\"nhất\") that the source doesn't use."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/plants/hygrophila-polysperma-rosanervig": [
+    {
+      "at": "2026-11-09T13:13:20Z",
+      "model": "opus",
+      "score": 0.9,
+      "notes": [
+        "The emersed-leaf trimming method is taken from a video guide's general advice on Crypt and Hygrophila, not from this cultivar's own page. It is presented as this plant's method, which is acceptable but generalised.",
+        "'mấy tuần đầu bể trông trống' drops the guide's softener 'hơi' (slightly), so the claim is a bit stronger than the source.",
+        "'giữ kiểu lá vân của giống' shortens the source's 'hồng vân cẩm thạch' (pink marbled) pattern. It is a little vague but still accurate."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/limnobium-laevigatum": [
+    {
+      "at": "2026-11-09T16:40:09Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"Nếu bèo bỗng lớn chậm hẳn lại thì đó là dấu hiệu nước đã cạn phân\": the INPUT says growth slows as nutrients run low (\"cạn dần\"). \"bỗng\" (suddenly) and \"đã cạn\" (already run out) are stronger than that.",
+        "\"chỉ cần thả lên mặt nước chứ không trồng xuống nền\": this is a fair reading of the \"thả nổi\" figure, but the INPUT gives no planting instruction.",
+        "\"buông xuống trong nước\" is a small descriptive addition. The INPUT only calls the roots \"mảnh, dài và đẹp\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/limnophila-aromatica": [
+    {
+      "at": "2026-11-10T05:08:41Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "The general new-tank advice from the video guide ('để đèn thấp rồi nâng dần', 'chưa vội châm phân nước') is in the INPUT, but it reads as if it were specific to Ngò om. It also drifts away from where to place the plant and how to plant it.",
+        "'nhất là khi bể dùng nền soil' compresses the guide's split (3 weeks for soil, at least 1 week for inert gravel or sand). It's acceptable but loose.",
+        "'Loài này trồng dày được. Cứ cắm dày ngay từ đầu' joins the plant page's 'chịu được trồng dày' to the guide's general dense-planting tip. This is fine, but the second sentence isn't about this plant specifically."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/littorella-uniflora": [
+    {
+      "at": "2026-11-09T10:15:37Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"tách thành từng cụm lá hoa thị rồi cắm riêng từng cụm xuống nền\" adds a splitting step and the act of pushing them into the substrate. The INPUT only says \"trồng từng cụm lá hoa thị riêng\".",
+        "\"hợp trồng ở tiền cảnh\" is fine Vietnamese, but \"hợp để trồng ở tiền cảnh\" or \"thích hợp trồng tiền cảnh\" would read more naturally."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/ludwigia-brevipes": [
+    {
+      "at": "2026-11-10T05:08:23Z",
+      "model": "opus",
+      "score": 0.9,
+      "notes": [
+        "\"để cây mọc thẳng lên\" turns the INPUT's hedge \"có xu hướng mọc thẳng lên hơn\" into a firm result. It only makes the cây more likely to grow upright."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/plants/marsilea-minuta": [
+    {
+      "at": "2026-11-07T06:37:51Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"chia cây thành từng cụm nhỏ rồi cắm xuống nền\": the INPUT only says to plant in small clumps (\"trồng thành từng cụm nhỏ\"). Splitting the plant and pushing it into the substrate are small added method details.",
+        "\"nước hơi nóng\" softens the INPUT's \"nhiệt độ cao\" (high temperature) to \"slightly warm water\", which changes the claim a little.",
+        "\"Có điều bể càng ổn thì thảm lên càng đẹp\": \"bể càng ổn\" is vague next to the INPUT's \"điều kiện bể tốt hơn\" (better tank conditions). The fact holds, but the wording is loose."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/micranthemum-callitrichoides": [
+    {
+      "at": "2026-11-09T20:57:02Z",
+      "model": "opus",
+      "score": 0.9,
+      "notes": [
+        "\"Chia cây thành từng cụm nhỏ\" adds a dividing step. The INPUT only says to plant small clumps a few cm apart.",
+        "\"chỗ của nó là tiền cảnh\" sounds a bit casual and stiff. \"thích hợp trồng tiền cảnh\" would read more naturally.",
+        "\"Cuba\" is used on its own as the plant's name in the first sentence with no fuller name, which is slightly abrupt."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/micranthemum-tweediei-monte-carlo": [
+    {
+      "at": "2026-11-07T09:38:52Z",
+      "model": "opus",
+      "score": 0.88,
+      "notes": [
+        "'Phải khoảng ba tuần cây mới bắt đầu bám rễ' drops the guide's hedge 'thường', so it reads as a firm timeline rather than the usual case",
+        "'Nếu bên dưới đang ra nhiều chồi xanh mới thì cây không chết' turns the guide's 'không phải dấu hiệu cây chết' (not a sign of dying) into a flat claim that the plant isn't dying",
+        "'Lá cũ ngả vàng' drops 'hơi' (slightly) from the guide's 'hơi ngả vàng'",
+        "'nên chỗ của nó là tiền cảnh' says carpeting is the reason for foreground placement; the input gives foreground as the position but never states this causal link"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/microsorum-pteropus-narrow": [
+    {
+      "at": "2026-11-08T03:32:45Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"nó lên đẹp nhất khi bạn buộc lên\" overstates the guide, which only says the plant \"lên đẹp hơn\" when tied on.",
+        "\"Sau vài tuần rễ sẽ tự bám chặt vào lũa, đá, lúc đó bạn có thể gỡ dây ra\" comes right after the sentence on planting in the substrate, so it reads as if substrate-planted roots also grip the wood. The order is confusing.",
+        "The planting method comes from the general Java fern guide, not from this cultivar's page. It is still in the INPUT, but the passage never uses the plant's own page note \"Cây dễ bám vào rễ cây và đá\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/najas-guadalupensis": [
+    {
+      "at": "2026-11-09T06:12:03Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"Cách hay làm nhất\" reads a little awkward; \"Cách phổ biến nhất\" or \"Người ta thường\" would sound more natural.",
+        "\"vì cây tự bám xuống nền\" turns the source's concession (\"Dù vậy, cây cũng có thể tự bám\") into the reason for the background placement, and the INPUT doesn't make that link. It also drops \"có thể\": the plant can root, it doesn't always."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/nymphaea-zenkeri": [
+    {
+      "at": "2026-11-10T05:08:04Z",
+      "model": "opus",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T05:08:04Z",
+      "model": "opus",
+      "score": 0.6,
+      "notes": [
+        "\"để lá vươn ra từ phía sau\" isn't on the plant's page. It comes from the betta video guide, which says lilies 'sẽ đẹp khi vươn ra từ đó', so the passage borrows a video's advice.",
+        "\"Chuyện này không đáng lo\" goes a bit further than the source, which only says a healthy new bulb is the most important part. It's acceptable but slightly reassuring in tone."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/plants/pogostemon-stellatus": [
+    {
+      "at": "2026-11-09T06:12:29Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"khi đó cần châm thêm phân\" makes the source's hedge firmer. The INPUT only says pale leaves \"có thể là dấu hiệu bể cần châm thêm phân\".",
+        "\"do trồng cạn kiểu đầm lầy\" adds \"trồng cạn\" and a causal \"do\". The INPUT only says the plants are \"trồng trong điều kiện đầm lầy\". This is minor.",
+        "\"thân dài 20–60 cm\" comes from the notes, but the quick facts give the height as \"15 - 30+ cm\". The passage doesn't mention this second figure."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/spirodela-polyrrhiza": [
+    {
+      "at": "2026-11-10T00:10:19Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"không phải vùi xuống nền hay buộc vào đâu cả\" is an inference about planting method; the INPUT only gives \"vị trí: thả nổi\" and doesn't say anything about not burying or tying the plant",
+        "\"cho cá bơi bên dưới\" adds a small detail; the INPUT only says it gives shade and shelter for fish"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/utricularia-graminifolia": [
+    {
+      "at": "2026-11-09T16:39:48Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"trồng một mảng giữa hai tảng đá lớn trong bể iwagumi\" turns one specific layout from a guide into general placement advice, so it reads like it was lifted from a single tank's build",
+        "\"UG\" is used from the first sentence without the full name (Utricularia graminifolia) or the Vietnamese name, so a handbook reader may not know which plant is meant",
+        "\"Có thể trải nó từ mép trước lùi dần qua giữa bể về phía sau\" comes from one guide's specific tank but is written as a standard option"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T16:39:48Z",
+      "model": "opus",
+      "score": 0.65,
+      "notes": [
+        "\"Tách chậu thành từng nhúm nhỏ\" is a planting step the INPUT doesn't give for UG. The advice to divide plants into small portions comes from the in vitro gel prep in another guide, and the UG there came as a pot.",
+        "\"Nghe nói UG không ưa ammonia\" copies the video maker's hearsay hedge. It reads as relaying one guide's rumour, not handbook advice.",
+        "\"Trồng vào bể có lọc và nền đã chạy lâu thì hy vọng là ammonia không tăng vọt\" turns one tank's hope into general guidance and keeps the vlog-style \"hy vọng\".",
+        "\"có bể sau hai tháng mà thảm vẫn chỗ dày chỗ thưa\" is a thinly veiled reference to one specific video tank's result."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ]
+}

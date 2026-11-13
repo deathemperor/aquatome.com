@@ -2,6 +2,23 @@
   "id": "albino-oscar",
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/1dddb522f9c5b4d2.webp",
+      "thumb": "https://media.aquatome.com/commons/1dddb522f9c5b4d2-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC0",
+      "author": "BlueInOrbit",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pez_oscar_albino.jpg",
+      "caption": "Cá tai tượng albino màu vàng nhạt trong bể có sỏi đá",
+      "best": false,
+      "kind": "form",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1dddb522f9c5b4d2-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    },
+    {
       "url": "https://media.aquatome.com/commons/c1076224289ea009.webp",
       "thumb": "https://media.aquatome.com/commons/c1076224289ea009-480.webp",
       "width": 1200,
@@ -38,6 +55,18 @@
       "kind": "form"
     },
     {
+      "url": "https://media.aquatome.com/flickr/26482177290.webp",
+      "thumb": "https://media.aquatome.com/flickr/26482177290-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA 2.0",
+      "author": "The Reptilarium",
+      "sourceUrl": "https://www.flickr.com/photos/75561519@N07/26482177290",
+      "caption": "Cá tai tượng albino trắng đốm đỏ bơi trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
       "url": "https://media.aquatome.com/commons/c836d47f858a56f6.webp",
       "thumb": "https://media.aquatome.com/commons/c836d47f858a56f6-480.webp",
       "width": 1200,
@@ -60,21 +89,9 @@
       "caption": "Cá tai tượng albino đốm đỏ nhìn nghiêng trong bể xanh",
       "best": false,
       "kind": "form"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/1dddb522f9c5b4d2.webp",
-      "thumb": "https://media.aquatome.com/commons/1dddb522f9c5b4d2-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC0",
-      "author": "BlueInOrbit",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pez_oscar_albino.jpg",
-      "caption": "Cá tai tượng albino màu vàng nhạt trong bể có sỏi đá",
-      "best": false,
-      "kind": "form"
     }
   ],
-  "seen": 15,
-  "updatedAt": "2026-11-04",
-  "builtAt": "2026-11-04"
+  "seen": 20,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-10"
 }

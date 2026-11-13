@@ -16,7 +16,14 @@ import { definition, type Tool } from './tools'
  *   not a hard cap: the forced call itself still runs.
  * - Past the tool calls, a `tool_use` gets a "limit reached" `is_error` result; a tool that throws, or one Claude names
  *   that doesn't exist, gets an `is_error` result with a short message. Both count as tool calls.
- * - No call runs past `ms` from the first: each call's timeout is what is left (at most `callMs`).
+ * - No call runs past `ms` from the first: each call's timeout is what is left (at most `callMs`). Once a call has begun
+ *   writing its text it may take all the time left (`writingMs`): stopping an answer on its way loses it, and a call
+ *   that answers first thing (handed sections, handover.ts) is the only one that can be writing at `callMs`.
+ * - With `pace`, the time kept for the last call follows the run's own speed, so a slow hour reads less and still
+ *   answers: see `pace`.
+ * - `recheck` may send an answer Claude chose back once, with more to read. That answer is held: if a later call fails,
+ *   time runs out, or the run ends on anything but an answer (cut short, a refusal, a tool request on the forced call),
+ *   the held answer is the run's.
  * - `cache_control` on the newest tool result, so the next call reads the photo and the turns before from cache (the
  *   caller marks the first message's photo). The API takes 4 marks at most: a run of more calls stops marking once the
  *   history holds 4, so no limits can make a call the API refuses.
@@ -24,7 +31,8 @@ import { definition, type Tool } from './tools'
  * It knows nothing of keys or fish: `send` makes the call (the caller picks the key), and the tools come from the caller.
  * Plain TypeScript, no Cloudflare types: the accuracy script runs the same loop in Node.
  */
-export type Limits = { calls: number; tools: number; photos: number; inputTokens: number; ms: number; lastCallMs: number; callMs: number }
+/** `writingGraceMs`: how far past `ms` a call that has begun writing may run; none unless given. */
+export type Limits = { calls: number; tools: number; photos: number; inputTokens: number; ms: number; lastCallMs: number; callMs: number; writingGraceMs?: number }
 export const LIMITS: Limits = { calls: 4, tools: 6, photos: 6, inputTokens: 40_000, ms: 27_000, lastCallMs: 12_000, callMs: 20_000 }
 
 /** Why the run ended: Claude answered when it chose to, or a limit forced the last call; `error`: a call failed. */
@@ -43,18 +51,52 @@ export type AgentRun<Step> = {
   photos: number
   spent: Spent
   steps: Step[]
+  /** The answer was sent back with more to read (`recheck`). */
+  rechecked?: boolean
+  /** Every message sent, the first one included (the last answer isn't in it: it is `message`). */
+  history: Anthropic.MessageParam[]
 }
 export type AgentInput<Step> = {
-  send: (body: Anthropic.MessageCreateParamsNonStreaming, opts: { timeoutMs: number; call: number }) => Promise<Anthropic.Message>
+  send: (body: Anthropic.MessageCreateParamsNonStreaming, opts: { timeoutMs: number; writingMs: number; call: number }) => Promise<Anthropic.Message>
   model: string
   system: string
   tools: Tool<Step>[]
   first: Anthropic.MessageParam
   schema: Record<string, unknown>
   effort: 'low' | 'medium' | 'high'
+  /** The forced last call's effort, when it isn't `effort`; with `pace`, only when the time left won't hold an answer at `effort`. */
+  lastEffort?: 'low' | 'medium' | 'high'
+  /**
+   * The last call's time from the run's pace: its calls so far, averaged. Another call is made only while it would leave
+   * `quick` times that (and `lastCallMs`), so a slow run answers sooner; after the first call alone, `first` times it,
+   * since one slow call isn't yet a slow hour. The forced call is at `effort` when the time left holds `answer` times
+   * it, else at `lastEffort`, and it may take all the time left, not only `callMs`. A first call that tried a failing
+   * key first counts that time too. The chat's figures, and what they did: `CHAT_PACE` (chat/agent.ts).
+   */
+  pace?: { answer: number; quick: number; first: number }
+  /** Sent as is on every call (adaptive thinking with its summary shown, say); none: the model's default. */
+  thinking?: Anthropic.ThinkingConfigParam
   maxTokens: number
   limits?: Partial<Limits>
   onStep?: (step: Step) => void
+  /**
+   * Asked once a run, when Claude answers of its own accord with time for another call: more for it to read before the
+   * answer is final (undefined: the answer stands). It answers again, with the tools while calls are left.
+   */
+  recheck?: (answer: Anthropic.Message) => Anthropic.ContentBlockParam[] | undefined
+  /**
+   * Said after the last message on the call a limit forces (tool_choice none), that call only: what to do with no more
+   * tools. Without it, the chat's forced answer was sometimes empty ({"text":""}): told nothing, Claude had no answer
+   * ready.
+   */
+  lastWord?: string
+  /**
+   * For a call that hasn't begun writing with `ms` of the run left: it's given up, and one more is asked that can only
+   * answer, with no thinking, at most `maxTokens`, at `lastEffort`, told `word`, so the reader gets a short answer and
+   * not an error. So too for a call that runs out `callMs` unwritten. `begun`: some of the answer has reached the reader,
+   * and a second answer can't follow it.
+   */
+  lastTry?: { ms: number; maxTokens: number; word: string; begun: () => boolean }
   clock?: () => number
 }
 
@@ -68,6 +110,14 @@ export const tokensOf = (results: Anthropic.ToolResultBlockParam[]) => results.r
   : (r.content ?? []).reduce((m, b) => m + (b.type === 'text' ? Math.ceil(b.text.length / 4) : b.type === 'image' ? 400 : 0), 0)), 0)
 const marksIn = (m: Anthropic.MessageParam) => (typeof m.content === 'string' ? 0 : m.content.filter(b => 'cache_control' in b && b.cache_control).length)
 const LIMIT_REACHED = 'Limit reached: no more tool calls in this identification. Answer with what you have.'
+/** The history with `word` after the last message's content, for one call; the history itself is left as it is. */
+const withWord = (history: Anthropic.MessageParam[], word: string): Anthropic.MessageParam[] => {
+  const last = history.at(-1)!
+  // A call always follows the reader's turn (the first message, or tool results); were it not, the word is a turn of its own.
+  if (last.role !== 'user') return [...history, { role: 'user', content: [{ type: 'text', text: word }] }]
+  const content: Anthropic.ContentBlockParam[] = typeof last.content === 'string' ? [{ type: 'text', text: last.content }] : [...last.content]
+  return [...history.slice(0, -1), { role: 'user', content: [...content, { type: 'text', text: word }] }]
+}
 
 export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step>> {
   const lim = { ...LIMITS, ...a.limits }
@@ -76,36 +126,64 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
   const byName = new Map(a.tools.map(t => [t.name, t]))
   const tools = a.tools.map(definition)
   const history: Anthropic.MessageParam[] = [a.first]
-  const run: AgentRun<Step> = { stopped: 'answer', calls: 0, tools: 0, photos: 0, spent: { input: 0, cacheRead: 0, cacheWrite: 0, output: 0 }, steps: [] }
+  const run: AgentRun<Step> = { stopped: 'answer', calls: 0, tools: 0, photos: 0, spent: { input: 0, cacheRead: 0, cacheWrite: 0, output: 0 }, steps: [], history }
   /** The next call's input, as guessed after the last one (0 before the first). */
   let next = 0
   let marks = marksIn(a.first)
+  /** The answer sent back by `recheck`: it stands if the run then fails, runs out of time or ends on anything but an answer. */
+  let held: Anthropic.Message | undefined
+  /** The time the calls so far took: the run's pace. */
+  let took = 0
+  /** The next call is `lastTry`'s. */
+  let trying = false
   for (;;) {
     const left = deadline - clock()
-    const forced: Stopped | undefined = run.calls + 1 >= lim.calls ? 'calls' : run.tools >= lim.tools ? 'tools' : left < lim.lastCallMs ? 'time'
+    const each = run.calls ? took / run.calls : 0
+    const late = left < lim.lastCallMs || (a.pace !== undefined && left - each < (run.calls === 1 ? a.pace.first : a.pace.quick) * each)
+    const forced: Stopped | undefined = trying ? 'time' : run.calls + 1 >= lim.calls ? 'calls' : run.tools >= lim.tools ? 'tools' : late ? 'time'
       : inputOf(run.spent) + next > lim.inputTokens ? 'tokens' : undefined
-    if (left < 1000) return { ...run, stopped: 'error', error: new Error('out of time') }
+    if (left < 1000) return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: new Error('out of time') }
     run.calls++
+    const effort = a.lastEffort && (trying || (forced && !(a.pace && left >= a.pace.answer * each))) ? a.lastEffort : a.effort
+    const began = clock()
+    const grace = lim.writingGraceMs ?? 0
+    // A call gets at least a second before it's given up: key rotation sends nothing with less (fishid/keys.ts `rotate`).
+    const giveUp = a.lastTry && left - a.lastTry.ms >= 1000 ? left - a.lastTry.ms : left
+    /** How long the call may go before it begins writing. */
+    const wait = trying ? left + grace : Math.min(forced && a.pace ? left : lim.callMs, giveUp)
     let r: Anthropic.Message
     try {
       r = await a.send({
         model: a.model,
-        max_tokens: a.maxTokens,
+        max_tokens: trying ? a.lastTry!.maxTokens : a.maxTokens,
         system: a.system,
         tools,
         tool_choice: forced ? { type: 'none' } : { type: 'auto' },
-        output_config: { effort: a.effort, format: { type: 'json_schema', schema: a.schema } },
-        messages: [...history],
-      }, { timeoutMs: Math.min(left, lim.callMs), call: run.calls })
+        ...(trying ? { thinking: { type: 'disabled' as const } } : a.thinking ? { thinking: a.thinking } : {}),
+        output_config: { effort, format: { type: 'json_schema', schema: a.schema } },
+        messages: trying ? withWord(history, a.lastTry!.word) : forced && a.lastWord ? withWord(history, a.lastWord) : [...history],
+      }, { timeoutMs: wait, writingMs: left + grace, call: run.calls })
     } catch (e) {
-      return { ...run, stopped: 'error', error: e }
+      if (!held && !trying && a.lastTry && !a.lastTry.begun() && clock() - began > wait - 1000) { trying = true; continue }
+      return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: e }
     }
+    took += clock() - began
     run.spent.input += r.usage.input_tokens
     run.spent.cacheRead += r.usage.cache_read_input_tokens ?? 0
     run.spent.cacheWrite += r.usage.cache_creation_input_tokens ?? 0
     run.spent.output += r.usage.output_tokens
-    // An answer, a refusal, or anything that isn't a request for tools ends the run; so does the forced call, whatever it says.
-    if (r.stop_reason !== 'tool_use' || forced || !r.content.some(b => b.type === 'tool_use')) return { ...run, message: r, stopped: forced ?? 'answer' }
+    // An answer, a refusal, or anything that isn't a request for tools ends the run; so does the forced call, whatever it
+    // says. An answer Claude chose, with time left for a last call, may first be sent back once with more to read.
+    if (r.stop_reason !== 'tool_use' || forced || !r.content.some(b => b.type === 'tool_use')) {
+      if (held && r.stop_reason !== 'end_turn') return { ...run, message: held, stopped: forced ?? 'answer' }
+      const more = !forced && !run.rechecked && r.stop_reason === 'end_turn' && deadline - clock() >= lim.lastCallMs ? a.recheck?.(r) : undefined
+      if (!more?.length) return { ...run, message: r, stopped: forced ?? 'answer' }
+      run.rechecked = true
+      held = r
+      next = promptOf(r.usage) + r.usage.output_tokens + Math.ceil(more.reduce((n, b) => n + (b.type === 'text' ? b.text.length : 0), 0) / 4)
+      history.push({ role: 'assistant', content: r.content as Anthropic.ContentBlockParam[] }, { role: 'user', content: more })
+      continue
+    }
 
     const results: Anthropic.ToolResultBlockParam[] = []
     for (const use of r.content) {

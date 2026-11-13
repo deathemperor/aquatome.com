@@ -720,7 +720,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 7
+        "value": 6
       }
     ]
   },
@@ -729,7 +729,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-falcirostris",
-      "html": "<ul><li><strong>Max size:</strong> 350 mm SL (14 in SL)</li><li><strong>Aquarium size:</strong> 250 × 90 cm (98 × 36 in)</li><li><strong>Temperature:</strong> 22–28°C (72–82°F)</li><li><strong>pH:</strong> 6.0–7.5</li><li><strong>Hardness:</strong> 1–12 dGH</li><li><strong>Difficulty:</strong> 7 of 8 (difficult), rated so because it needs a tank at least 2 m long. Needs a well-established tank.</li></ul>"
+      "html": "<ul><li><strong>Max size:</strong> 350 mm SL (14 in SL)</li><li><strong>Aquarium size:</strong> 250 × 90 cm (98 × 36 in)</li><li><strong>Temperature:</strong> 22–28°C (72–82°F)</li><li><strong>pH:</strong> 6.0–7.5</li><li><strong>Hardness:</strong> 1–12 dGH</li><li><strong>Difficulty:</strong> 6 of 8 (difficult), rated so because it needs a tank at least 2 m long. Needs a well-established tank.</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -806,15 +806,69 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/90adbcc6f253dff5.webp",
-      "width": 870,
-      "height": 653,
+      "url": "https://media.aquatome.com/processed/afe1c00cd905d372b2f1a242019fe066.webp",
+      "thumb": "https://media.aquatome.com/processed/afe1c00cd905d372b2f1a242019fe066-480.webp",
+      "width": 827,
+      "height": 587,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Enrico Richter",
       "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-falcirostris",
-      "caption": "The blackwater Río Cinaruco, Venezuela, is a natural habitat of this species.",
+      "caption": "...seen in juveniles.",
       "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/90adbcc6f253dff5-480.webp"
+      "ownerCrop": {
+        "id": "owner-crop-20261111-acestrorhynchus-falcirostris",
+        "pixelHash": "205062d828a9bb4ac00746a3664c3525cb2d10495465afa1fb58fb7ff3074d09"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:09:00.799Z",
+          "originalHash": "a228724667bf5f696eb8f8e84fa24465ef4e21386aa735d3a92b39fbfcbb73ba",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 827,
+            "originalHeight": 620,
+            "window": {
+              "x0": 0,
+              "y0": 33,
+              "x1": 827,
+              "y1": 620
+            },
+            "subject": {
+              "x0": 159,
+              "y0": 179,
+              "x1": 689,
+              "y1": 401
+            },
+            "margin": 16
+          },
+          "excludedMarks": [
+            {
+              "x0": 12,
+              "y0": 8,
+              "x1": 185,
+              "y1": 26
+            }
+          ],
+          "checks": {
+            "species": [
+              "75c4bbc172aa8370279104de9ce17cc12b62f830ff1c8ce6b7396886a3be3ab1",
+              "f2a103ee295528f7a8655fda0278bf6c679ae32d24b1b4367903c03c0fd00daf"
+            ],
+            "ownership": [
+              "2960bd4dedb163763c5823e86fbca2fc449d5a2e1a82944aaf9f7fe3a610e3d6",
+              "5ea7d17c2c5760fab022c202fdd603497ea919eae0b5cab787c2342a03911683"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/54795495077d35be.webp",
+        "width": 827,
+        "height": 620,
+        "thumb": "https://media.aquatome.com/seriouslyfish/54795495077d35be-480.webp"
+      }
     }
   ],
   "videos": [],
@@ -822,8 +876,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 250cm",
-        "bể cá lớn 2000 lít"
+        "bể cá 250cm"
       ]
     },
     {

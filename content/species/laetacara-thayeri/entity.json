@@ -12,6 +12,238 @@
     "peru",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Negro",
+        "Solimões",
+        "Ucayali",
+        "Tigre",
+        "Yavarí"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Laetacara thayeri is a cichlid from the middle and upper Amazon basin in western Brazil and northern Peru.",
+          "countries": [
+            "BR",
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the middle and upper Amazon basins in western Brazil and northern Peru with records existing from the ríos Tigre, Ucayali, Yavarí (Javary) and Amazon basins in Peru, and the Solimões, Amazon and lower rio Negro in Brazil with the rio Trombetas considered to represent its downstream limit.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Rio Negro",
+            "Solimões",
+            "Ucayali",
+            "Tigre",
+            "Yavarí"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370414,
+      "total": 103,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          63
+        ],
+        [
+          "PE",
+          37
+        ],
+        [
+          "CO",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          16,
+          16
+        ],
+        [
+          -73.125,
+          -8.4375,
+          7,
+          7
+        ],
+        [
+          -73.125,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          8,
+          8
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          9,
+          7
+        ],
+        [
+          -67.5,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          5,
+          5
+        ],
+        [
+          -63.28125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -49,7 +281,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -103,19 +335,7 @@
       "html": "<ul><li>Ottoni, F. P. and W. J. E. M. Costa (2009). Description of a new species of Laetacara Kullander, 1986 from central Brazil and re-description of Laetacara dorsigera (Heckel, 1840) (Labroidei: Cichlidae: Cichlasomatinae). Vertebrate Zoology 59(1), 41-48</li><li>Ottoni, F. P., P. H. N Bragança, P. F. Amorim and C. S. Gama (2012). A new species of Laetacara from the northern Brazil coastal floodplains (Teleostei: Cichlidae). Vertebrate Zoology 62(2), 181-188</li><li>Staeck, W. and I. Schindler (2007). Description of Laetacara fulvipinnis sp. n. (Teleostei: Perciformes: Cichlidae) from the upper drainages of the rio Orinoco and rio Negro in Venezuela. Vertebrate Zoology 51(1), 63-71</li></ul>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/10fea536c0f603cc.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/10fea536c0f603cc-480.webp",
-      "width": 641,
-      "height": 300,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-thayeri",
-      "caption": "Subadult individual.",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "7_eT0Odizfg",

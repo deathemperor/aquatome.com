@@ -11,6 +11,423 @@
     "rio-grande",
     "mexico"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "US",
+        "MX"
+      ],
+      "regions": [
+        "Rio Grande"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The only species of cichlid occuring naturally in the USA, it inhabits the Rio Grande drainage in both the southern United States and Mexico.",
+          "countries": [
+            "US",
+            "MX"
+          ],
+          "regions": [
+            "Rio Grande"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373136,
+      "total": 6436,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "US",
+          4226
+        ],
+        [
+          "MX",
+          2210
+        ]
+      ],
+      "cells": [
+        [
+          -115.3125,
+          35.15625,
+          5,
+          5
+        ],
+        [
+          -112.5,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          -112.5,
+          32.34375,
+          1,
+          1
+        ],
+        [
+          -106.875,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          -106.875,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          -104.0625,
+          28.125,
+          14,
+          14
+        ],
+        [
+          -104.0625,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          -104.0625,
+          30.9375,
+          12,
+          12
+        ],
+        [
+          -102.65625,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          -102.65625,
+          26.71875,
+          298,
+          298
+        ],
+        [
+          -102.65625,
+          28.125,
+          4,
+          4
+        ],
+        [
+          -102.65625,
+          29.53125,
+          335,
+          335
+        ],
+        [
+          -102.65625,
+          30.9375,
+          6,
+          6
+        ],
+        [
+          -101.25,
+          21.09375,
+          42,
+          42
+        ],
+        [
+          -101.25,
+          22.5,
+          2,
+          2
+        ],
+        [
+          -101.25,
+          23.90625,
+          69,
+          69
+        ],
+        [
+          -101.25,
+          25.3125,
+          282,
+          282
+        ],
+        [
+          -101.25,
+          26.71875,
+          135,
+          135
+        ],
+        [
+          -101.25,
+          28.125,
+          409,
+          409
+        ],
+        [
+          -101.25,
+          29.53125,
+          436,
+          436
+        ],
+        [
+          -101.25,
+          30.9375,
+          43,
+          43
+        ],
+        [
+          -99.84375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          -99.84375,
+          16.875,
+          1,
+          1
+        ],
+        [
+          -99.84375,
+          18.28125,
+          23,
+          23
+        ],
+        [
+          -99.84375,
+          19.6875,
+          31,
+          31
+        ],
+        [
+          -99.84375,
+          21.09375,
+          119,
+          119
+        ],
+        [
+          -99.84375,
+          22.5,
+          289,
+          289
+        ],
+        [
+          -99.84375,
+          23.90625,
+          347,
+          347
+        ],
+        [
+          -99.84375,
+          25.3125,
+          327,
+          327
+        ],
+        [
+          -99.84375,
+          26.71875,
+          76,
+          76
+        ],
+        [
+          -99.84375,
+          28.125,
+          463,
+          463
+        ],
+        [
+          -99.84375,
+          29.53125,
+          464,
+          464
+        ],
+        [
+          -99.84375,
+          30.9375,
+          2,
+          2
+        ],
+        [
+          -98.4375,
+          19.6875,
+          30,
+          30
+        ],
+        [
+          -98.4375,
+          21.09375,
+          74,
+          74
+        ],
+        [
+          -98.4375,
+          22.5,
+          22,
+          22
+        ],
+        [
+          -98.4375,
+          23.90625,
+          19,
+          19
+        ],
+        [
+          -98.4375,
+          25.3125,
+          269,
+          269
+        ],
+        [
+          -98.4375,
+          26.71875,
+          137,
+          137
+        ],
+        [
+          -98.4375,
+          28.125,
+          488,
+          488
+        ],
+        [
+          -98.4375,
+          29.53125,
+          848,
+          848
+        ],
+        [
+          -98.4375,
+          30.9375,
+          2,
+          2
+        ],
+        [
+          -97.03125,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          -97.03125,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          -97.03125,
+          28.125,
+          66,
+          66
+        ],
+        [
+          -97.03125,
+          29.53125,
+          32,
+          32
+        ],
+        [
+          -97.03125,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          -97.03125,
+          32.34375,
+          7,
+          7
+        ],
+        [
+          -95.625,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          -95.625,
+          28.125,
+          6,
+          6
+        ],
+        [
+          -95.625,
+          29.53125,
+          118,
+          118
+        ],
+        [
+          -94.21875,
+          16.875,
+          1,
+          1
+        ],
+        [
+          -94.21875,
+          33.75,
+          2,
+          2
+        ],
+        [
+          -92.8125,
+          16.875,
+          1,
+          1
+        ],
+        [
+          -91.40625,
+          29.53125,
+          38,
+          38
+        ],
+        [
+          -90,
+          28.125,
+          2,
+          2
+        ],
+        [
+          -90,
+          29.53125,
+          5,
+          5
+        ],
+        [
+          -90,
+          39.375,
+          4,
+          4
+        ],
+        [
+          -82.96875,
+          26.71875,
+          11,
+          11
+        ],
+        [
+          -82.96875,
+          28.125,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          -80.15625,
+          25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {
@@ -34,6 +451,10 @@
       {
         "source": "seriouslyfish",
         "value": 30
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -45,7 +466,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 4
       }
     ]
   },
@@ -57,10 +478,22 @@
       "html": "<p>The Texas cichlid, Herichthys cyanoguttatus, is native to the Rio Grande drainage in the southern United States and Mexico. The only cichlid occurring naturally in the USA, it is highly belligerent and territorial, digs constantly and needs a tank of at least 120 cm for a single specimen. The similar H. carpintis is sometimes sold under its name and has larger, scattered flank spots, where H. cyanoguttatus shows obvious lateral rows of small spots.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pearl_cichlids_german_bred_ones_available__en/",
+      "html": "<ul><li>Maximum reported length: about 30 cm.</li><li>Young German-bred fish are offered at 4–5 cm.</li><li>Large specimens are among the most colorful cichlids.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/herichthys-cyanoguttatus",
       "html": "<p>The only species of cichlid occuring naturally in the USA, it inhabits the Rio Grande drainage in both the southern United States and Mexico. It's also been introduced to several areas outside its natural range where thriving populations now exist, including Florida.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pearl_cichlids_german_bred_ones_available__en/",
+      "html": "<p>The large spotted form is believed to belong to the species Herichthys carpinte, which originates from Mexico, whereas the small spotted form is thought to represent the \"real\" Herichthys cyanoguttatum. The latter is the only native cichlid of the US and the northernmost species of cichlid at all.</p>"
     },
     {
       "key": "habitat",
@@ -115,48 +548,34 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/herichthys-cyanoguttatus",
       "html": "<p>Like many cichlids, members of the genus Herichthys share something of a confused taxonomic past. Erected in 1854 with H. cyanoguttatus the type species, its members were moved into Cichlasoma by Regan in 1905. However following a reclassification of Cichlasoma by Kullander in 1983 it was once again deemed valid. In 1996 Kullander suggested Herichthys should only contain species \"sharing a colour pattern of short vertical bars or black spots posteriorly from the middle of the side, and a unique breeding colour pattern in which the dorsal half of the entire head and anterior flank region turns a pale greyish in contrast to black or dark grey adjacent areas or the entire body turns pale\". There are currently ten member species, with the possibility of further changes at some point in the future.</p><p>Several geographical variants are known, which tend to vary slightly in patterning and colour. These can be tricky to identify correctly, as similar variations have also been recorded within particular populations of the species.</p><p>Confusion can also arise with the very similar H. carpintis, a Mexican species that is sometimes seen on sale mislabelled as H. cyanoguttatus or with the common name \"green Texas cichlid\". The two can usually be told apart by examining the form of the spotted markings on the flanks of the fish. These tend to form quite obvious lateral rows of small spots in H. cyanoguttatus, having a more irregular, scattered arrangement of larger spots in H. carpintis. H. carpintis is also the smaller species when adult, only reaching around 9 - 10\". Misidentification is still possible though, as some wild populations of H. carpintis resemble H. cyanoguttatus very closely.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pearl_cichlids_german_bred_ones_available__en/",
+      "html": "<p>The Pearl cichlid was imported and successfully bred in Germany as early as 1902. Since then its name has changed several times: formerly known as Cichlasoma cyanoguttatum, it is now placed in the genus Herichthys.</p><p>Pearl cichlids are almost forgotten nowadays.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/1fe955d6d5ae9f7d.webp",
-      "width": 960,
-      "height": 704,
-      "licence": "CC0",
-      "author": "Nick Loveland",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Herichthys_cyanoguttatus_184228237.jpg",
-      "caption": "Texas Cichlid (Herichthys cyanoguttatus)",
-      "thumb": "https://media.aquatome.com/commons/1fe955d6d5ae9f7d-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/b3a9389660458443.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC0",
-      "author": "Nick Loveland",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Herichthys_cyanoguttatus_316466484.jpg",
-      "caption": "Texas Cichlid (Herichthys cyanoguttatus)",
-      "thumb": "https://media.aquatome.com/commons/b3a9389660458443-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/8e743813725e2af1.webp",
+      "thumb": "https://media.aquatome.com/commons/8e743813725e2af1-480.webp",
       "width": 800,
       "height": 533,
       "licence": "CC BY-SA 2.0",
       "author": "Charles & Clint",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Herichthys_cyanoguttatum_(Rio_Grande_Cichlid).jpg",
-      "caption": "Herichthys cyanoguttatum (Rio Grande cichlid, Texas cichild).",
-      "thumb": "https://media.aquatome.com/commons/8e743813725e2af1-480.webp"
+      "caption": "Herichthys cyanoguttatum (Rio Grande cichlid, Texas cichild)."
     },
     {
       "url": "https://media.aquatome.com/commons/1871764b680fd375.webp",
+      "thumb": "https://media.aquatome.com/commons/1871764b680fd375-480.webp",
       "width": 960,
       "height": 1280,
       "licence": "CC BY 4.0",
       "author": "Mbrickn",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:BGSU_Herichthys_cyanoguttatus.jpg",
-      "caption": "BGSU Herichthys cyanoguttatus (Texas Cichlid) in an aquarium",
-      "thumb": "https://media.aquatome.com/commons/1871764b680fd375-480.webp"
+      "caption": "BGSU Herichthys cyanoguttatus (Texas Cichlid) in an aquarium"
     }
   ],
   "videos": [],
@@ -164,8 +583,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá lớn nuôi cichlid"
+        "bể cá 120cm"
       ]
     },
     {
@@ -190,5 +608,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-09"
 }

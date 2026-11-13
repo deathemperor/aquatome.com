@@ -1,0 +1,83 @@
+{
+  "id": "liniparhomaloptera-disparis",
+  "native": {
+    "input": "cf0e5c9e997c1efc",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Guangdong Province on the southern coast of mainland China and since recorded from various parts of the Pearl River (Zhu Jiang) system which drains the majority of Guangdong and Guangxi provinces plus parts of Yunnan, Guizhou, Hunan and Jiangxi as well as extending into northeastern Vietnam.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Guangdong Province on the southern coast of mainland China and since recorded from various parts of the Pearl River (Zhu Jiang) system which drains the majority of Guangdong and Guangxi provinces plus parts of Yunnan, Guizhou, Hunan and Jiangxi as well as extending into northeastern Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pearl River",
+        "source": "seriouslyfish",
+        "quote": "Described from Guangdong Province on the southern coast of mainland China and since recorded from various parts of the Pearl River (Zhu Jiang) system which drains the majority of Guangdong and Guangxi provinces plus parts of Yunnan, Guizhou, Hunan and Jiangxi as well as extending into northeastern Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Hainan",
+        "source": "seriouslyfish",
+        "quote": "It's also known from Hong Kong and Hainan islands (see 'Notes').",
+        "ok": true
+      },
+      {
+        "name": "Hong Kong",
+        "source": "seriouslyfish",
+        "quote": "It's also known from Hong Kong and Hainan islands (see 'Notes').",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "HK"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Liniparhomaloptera disparis",
+    "status": "ACCEPTED",
+    "taxonKey": 4286905,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        12
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "b9afe2d0-b264-4422-bf8c-096b2a53c18f",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "VN"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

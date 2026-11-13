@@ -11,6 +11,128 @@
     "kalimantan",
     "barito"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kalimantan",
+        "Sumatra",
+        "Bangka",
+        "Belitung",
+        "Bintan",
+        "Barito River"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Another mouthbrooder type betta originating from South Kalimantan in Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's subsequently been recorded over a large range including all four provinces of Kalimantan as well as near Palembang in South Sumatra (Sumatera Selatan) province, Sumatra and the islands of Bangka, Belitung (together forming Bangka-Belitung province) and Bintan (Riau Islands province).",
+          "countries": [],
+          "regions": [
+            "Kalimantan",
+            "Sumatra",
+            "Bangka",
+            "Belitung",
+            "Bintan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Barito River delta, Banjarmasin, Borneo Indonesia' which corresponds to the town of Banjarmasin in South Kalimantan (Kalimantan Selatan) province.",
+          "countries": [],
+          "regions": [
+            "Barito River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394057,
+      "total": 37,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          37
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          0,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          0,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          111.09375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          112.5,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          113.90625,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          113.90625,
+          -2.8125,
+          13,
+          13
+        ],
+        [
+          115.3125,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -72,7 +194,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -88,12 +210,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-edithae",
       "html": "<p>Betta edithae is a paternal mouthbrooding labyrinth fish from Indonesia, recorded across Kalimantan, southern Sumatra, Bangka, Belitung and Bintan. The only member of the B. edithae group, it is separated from all other Betta spp. by its opaque or translucent branchiostegal membrane and posterior opercle. Fish from Bintan differ from Bornean specimens in several characters, and it remains unclear whether all populations are conspecific.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-edithae",
-      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
     },
     {
       "key": "distribution",
@@ -207,17 +323,12 @@
       "author": "Ahsan al hidayat",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_edithae_M.jpg",
       "caption": "Male Betta edithae. locality from Kotabumi, Lampung, Southern Sumatra.",
-      "thumb": "https://media.aquatome.com/commons/5641ab0f145765cd-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/e7c991513616784a.webp",
-      "width": 960,
-      "height": 544,
-      "licence": "CC BY-SA 3.0",
-      "author": "Soulkeeper",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_edithae_3.jpg",
-      "caption": "Betta edithae",
-      "thumb": "https://media.aquatome.com/commons/e7c991513616784a-480.webp"
+      "thumb": "https://media.aquatome.com/commons/5641ab0f145765cd-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/5641ab0f145765cd-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/057b20334a02a7a1.webp",
@@ -228,6 +339,16 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_edithae9.JPG",
       "caption": "Betta edithae",
       "thumb": "https://media.aquatome.com/commons/057b20334a02a7a1-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e7c991513616784a.webp",
+      "width": 960,
+      "height": 544,
+      "licence": "CC BY-SA 3.0",
+      "author": "Soulkeeper",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_edithae_3.jpg",
+      "caption": "Betta edithae",
+      "thumb": "https://media.aquatome.com/commons/e7c991513616784a-480.webp"
     },
     {
       "url": "https://media.aquatome.com/commons/b672eaccda32fb6e.webp",
@@ -267,8 +388,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 40cm",
-        "bể thủy sinh mini"
+        "bể cá 80cm"
       ]
     },
     {

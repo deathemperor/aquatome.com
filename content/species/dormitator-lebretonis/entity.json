@@ -1,0 +1,452 @@
+{
+  "id": "dormitator-lebretonis",
+  "scientificName": "Dormitator lebretonis",
+  "order": "Perciformes",
+  "family": "Eleotridae",
+  "genus": "Dormitator",
+  "group": "gobies",
+  "places": [
+    "africa",
+    "senegal",
+    "gambia",
+    "guinea",
+    "cote-d-ivoire",
+    "ghana",
+    "benin",
+    "nigeria",
+    "namibia",
+    "angola"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "SN",
+        "GM",
+        "GN",
+        "CI",
+        "GH",
+        "BJ",
+        "NG",
+        "NA",
+        "AO"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It's been recorded in Senegal, Gambia, Guinea, Cote d'Ivoire, Ghana, Benin, Nigeria, Namibia and Angola.",
+          "countries": [
+            "SN",
+            "GM",
+            "GN",
+            "CI",
+            "GH",
+            "BJ",
+            "NG",
+            "NA",
+            "AO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2386413,
+      "total": 88,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BJ",
+          22
+        ],
+        [
+          "SN",
+          13
+        ],
+        [
+          "NG",
+          12
+        ],
+        [
+          "CD",
+          10
+        ],
+        [
+          "CI",
+          9
+        ],
+        [
+          "CM",
+          6
+        ],
+        [
+          "CG",
+          4
+        ],
+        [
+          "TG",
+          3
+        ],
+        [
+          "GH",
+          2
+        ],
+        [
+          "GM",
+          2
+        ],
+        [
+          "NA",
+          2
+        ],
+        [
+          "AO",
+          1
+        ],
+        [
+          "GA",
+          1
+        ],
+        [
+          "GQ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -16.875,
+          11.25,
+          1,
+          1
+        ],
+        [
+          -16.875,
+          15.46875,
+          11,
+          11
+        ],
+        [
+          -15.46875,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          -15.46875,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          -7.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -5.625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -4.21875,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          -1.40625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          0,
+          5.625,
+          1,
+          1
+        ],
+        [
+          0,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          1.40625,
+          5.625,
+          20,
+          17
+        ],
+        [
+          2.8125,
+          5.625,
+          4,
+          4
+        ],
+        [
+          2.8125,
+          11.25,
+          4,
+          4
+        ],
+        [
+          5.625,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          7.03125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          8.4375,
+          0,
+          1,
+          0
+        ],
+        [
+          8.4375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          8.4375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          8.4375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          9.84375,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          9.84375,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          11.25,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          11.25,
+          -7.03125,
+          10,
+          0
+        ],
+        [
+          11.25,
+          -5.625,
+          5,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "Although it's sometimes found in freshwater in nature, it will do better with the addition of salt to around 1/4 marine strength (1.005sg) in the aquarium, although it has also been kept successfully in hard, alkaline freshwater."
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
+      "html": "<p>The clay goby, Dormitator lebretonis, is an eleotrid from coastal Western Africa, where it lives in estuaries, lagoons and mangroves. Mainly found in brackish water, it makes a peaceful addition to the brackish or hardwater community of medium-sized fish, though it will eat anything that fits in its mouth. Adults develop a pattern of reds and blues, and it was formerly placed in the defunct genus Batanga.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
+      "html": "<p>Occurs throughout Western Africa. It's been recorded in Senegal, Gambia, Guinea, Cote d'Ivoire, Ghana, Benin, Nigeria, Namibia and Angola.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
+      "html": "<p>Inhabits coastal waters, including estuaries, lagoons and mangroves. It's mainly found in brackish waters but has also been found in freshwater habitats.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
+      "html": "<p>Not a particularly active species. A tank measuring 75cm x 30cm x 30cm - 70 litres is big enough for a pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
+      "html": "<p>A soft, sandy substrate is best, along with lots caves, nooks and crannies where it can lurk and form territories. Although it's sometimes found in freshwater in nature, it will do better with the addition of salt to around 1/4 marine strength (1.005sg) in the aquarium, although it has also been kept successfully in hard, alkaline freshwater. It will be more active and visible during daylight hours if you provide dim lighting.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 7.0–8.5</li><li>Hardness: 10–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
+      "html": "<p>An unfussy goby that will accept most dried, frozen and live foods. It also enjoys some vegetable matter in its diet and will often browse on green algae if it is present in the tank. Try it on blanched spinach or nori (dried seaweed).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
+      "html": "<p>Peaceful enough, but don't attempt to keep it with much smaller species, as it will eat anything it can fit in its mouth. It may also nip the fins of slow-moving or long-finned species. Ideal tankmates are other hardwater or brackish species that inhabit different levels of the aquarium, such as archer fish, chromides, rainbowfish, Monos and Chanda species. It can be kept in groups provided there is enough space, as it can be a little territorial with its own kind, especially rival males.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
+      "html": "<p>Males develop extended rays in the anal and second dorsal fins and often develop a nuchal hump as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
+      "html": "<p>Has been achieved in the hobby but unfortunately it's not very well-documented. Apparently, it spawns in caves or plant leaves if no caves are available. There are conflicting views as to whether it requires fresh or brackish water in which to breed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/dormitator-lebretonis",
+      "html": "<p>Not often seen for sale, but if you can find it, it makes a peaceful addition to the brackish or hardwater community of medium-sized fish. It was previously considered a member of the now defunct genus Batanga. The fish in the picture is a young specimen. Adults develop a pleasing pattern of reds and blues and are most attractive.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "6BM0q-eqD2s",
+      "title": "Dormitator lebretonis.mp4",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GdHoHNcjYfw",
+      "title": "Dormitator lebretonis - Lehmgrundel",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Gse-zDZ6bwc",
+      "title": "Dormitator lebretonis (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 41,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eJrySNkg5Jw",
+      "title": "Dormitator lebretonis  彩虹塘鱧",
+      "durationSec": 14,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền mịn cho cá bống",
+        "cát nền bể nước lợ",
+        "cát nền mịn cho bể cá",
+        "cát san hô nước lợ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá bống",
+        "rong biển nori cho cá",
+        "thức ăn cá bống"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 70 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W",
+        "máy sưởi chỉnh nhiệt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

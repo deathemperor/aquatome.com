@@ -1,0 +1,377 @@
+{
+  "id": "macropodus-ocellatus",
+  "scientificName": "Macropodus ocellatus",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Macropodus",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "china",
+    "amur",
+    "japan",
+    "north-korea",
+    "south-korea"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "KR",
+        "JP"
+      ],
+      "regions": [
+        "Amur River",
+        "Pearl River",
+        "Chusan Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from an enormous range in China, Korea, Japan, and possibly northeastern Vietnam, which on the mainland stretches between the Zhu Jiang (Pearl River) in southern China and Heilong Jiang (Amur River) at the border between northeastern China and Russia.",
+          "countries": [
+            "CN",
+            "KR",
+            "JP"
+          ],
+          "regions": [
+            "Amur River",
+            "Pearl River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Chusan Island, China', now usually referred to as Zhoushan.",
+          "countries": [],
+          "regions": [
+            "Chusan Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5211151,
+      "total": 69,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "KR",
+          43
+        ],
+        [
+          "CN",
+          21
+        ],
+        [
+          "GB",
+          4
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -4.21875,
+          49.21875,
+          4,
+          0
+        ],
+        [
+          99.84375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          106.875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          40.78125,
+          4,
+          4
+        ],
+        [
+          109.6875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          28.125,
+          2,
+          2
+        ],
+        [
+          112.5,
+          28.125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          39.375,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          118.125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          118.125,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          30.9375,
+          5,
+          5
+        ],
+        [
+          120.9375,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          125.15625,
+          35.15625,
+          2,
+          2
+        ],
+        [
+          125.15625,
+          36.5625,
+          13,
+          13
+        ],
+        [
+          126.5625,
+          35.15625,
+          14,
+          14
+        ],
+        [
+          126.5625,
+          36.5625,
+          10,
+          10
+        ],
+        [
+          127.96875,
+          35.15625,
+          3,
+          3
+        ],
+        [
+          127.96875,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          35.15625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-ocellatus",
+      "html": "<p>The roundtail paradise fish, Macropodus ocellatus, is a labyrinth fish with an enormous range in China, Korea and Japan, north to the Amur River. It lives in ditches, rice paddies, marshes and river backwaters, where winter can freeze the surface and drop the water to 3 °C. It is sometimes referred to as M. chinensis in older literature, a name now considered a synonym of M. opercularis. Males are territorial when breeding and build bubble nests.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-ocellatus",
+      "html": "<p>Known from an enormous range in China, Korea, Japan, and possibly northeastern Vietnam, which on the mainland stretches between the Zhu Jiang (Pearl River) in southern China and Heilong Jiang (Amur River) at the border between northeastern China and Russia. Populations in the Russian portion of the Amur basin may have been introduced artificially.</p><p>Type locality is 'Chusan Island, China', now usually referred to as Zhoushan.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-ocellatus",
+      "html": "<p>Has been collected from irrigation ditches, rice paddies, pools, marshes, streams, and backwaters of larger rivers. During winter months the temperature across some of its natural range can drop well below zero, resulting in frozen water surfaces and temperatures as low as 3 °C.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-ocellatus",
+      "html": "<p>Standard length: 8 cm SL. Aquarium base: 80 × 30 cm. Volume: ~72 litres.</p><p>An aquarium with base dimensions measuring 80 × 30 cm or equivalent should be the minimum considered for a single pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-ocellatus",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed such a way that a few shady spots are formed, while some floating or surface vegetation should be included if the aim is to breed the fish (see 'Reproduction').</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover brings with it development of microbe colonies which can provide a valuable early food source for fry.</p><p>This species can be maintained in an unheated aquarium in most cases, and there is evidence to suggest that it actively benefits from a cool period during winter months.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-ocellatus",
+      "html": "<ul><li>Temperature: 10–22°C</li><li>pH: 6.0–7.5</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-ocellatus",
+      "html": "<p>Likely to prey on insect larvae and suchlike in nature, and should be offered small live or frozen Daphnia, Artemia, white worm, grindal worm, etc., in captivity. Some high quality dried products may also be accepted.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-ocellatus",
+      "html": "<p>Males become territorially aggressive when reproductively active, but this species can be maintained as a group in a suitably-sized, well-decorated aquarium.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-ocellatus",
+      "html": "<p>Males are larger than females and possess extended soft rays in the dorsal, anal, and caudal fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-ocellatus",
+      "html": "<p>Bubble nester. Soft water with a slightly raised temperature is said to induce reproductive behaviour.</p><p>The aquarium should have the tightest-fitting cover possible (some breeders use clingfilm/plastic wrap) because the fry need access to a layer of warm, humid air, without which development of the labyrinth organ can be impaired.</p><p>The pair need not be separated prior to spawning. The male tends to construct his nest within a raft of surface vegetation, and the female(s) are usually tolerated during this period. Once the nest is complete, the male displays to potential mates using his elongated dorsal, anal, and caudal fins.</p><p>The nuptial female becomes paler in colour. Spawning normally occurs beneath the nest in an 'embrace' typical of osphronemids, with the male wrapped around the female.</p><p>At the point of climax milt and a few eggs are released. The latter contain a globule of oil and are lighter than water, therefore they float upwards to the nest, often assisted by the male. The process is then repeated until the female is spent, with several hundred eggs typically deposited.</p><p>Post-spawning the adults can normally be left in situ, although cover should be provided for the female. Often the nest becomes broken up and the eggs are instead gathered together into a 'clump'.</p><p>Once the eggs hatch, typically in 3-4 days, they remain in the nest until the yolk sac is fully-absorbed. When the fry begin to swim freely the male will lose interest and the adults are best removed at this stage.</p><p>The require an infusoria-grade food for the first few days, after which they can accept motile foods such as microworm and Artemia nauplii. Water changes should be small and regular rather than large and intermittent.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-ocellatus",
+      "html": "<p>M. ocellatus is sometimes referred to as M. chinensis (Bloch, 1790) in older literature, a name now considered synonymous with M. opercularis (Linnaeus, 1758). Colour pattern apparently exhibits some variability between populations, although this has not been studied in detail.</p><p>It can be distinguished from congeners by the following combination of characters: caudal-fin rounded; eye stripe not connecting spot on posterior projection of opercle with eye; dorsal-fin rays filamentous posterior to a vertical through the posterior anal-fin rays in adults; 16-19 spinous dorsal-fin rays; 6-13 rakers on ceratobranchial of first gill arch; posterior tip or margin of body scales not darker than scales</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, which permits the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be more developed in those inhabiting harsher environments.</p><p>Etymology: Macropodus comes from the Ancient Greek μακρός (makrós), meaning 'long', and ποδός (podós), meaning 'foot, leg', in reference to the long pelvic fins in members of the genus. ocellatus comes from the Latin ocellatus, meaning 'having small eyes', in reference to the blackish opercular spot.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-ocellatus",
+      "html": "<ul><li>Winstanley, T. and K. D. Clements (2008). Morphological re-examination and taxonomy of the genus Macropodus (Perciformes: Osphronemidae). Zootaxa 1908, 1-27</li><li>Freyhof, J. and F. Herder (2002). Review of the paradise fishes of the genus Macropodus in Vietnam, with description of two new species from Vietnam and southern China (Perciformes: Osphronemidae). Ichthyological Exploration of Freshwaters 13(2), 147-167</li><li>Cantor, T. E. (1842). General features of Chusan, with remarks on the flora and fauna of that island. Annals and Magazine of Natural History (New Series) v. 9 (nos 58, 59, 60), 265-278, 361-370, 481-493</li><li>Naseka, A. M. and N. G. Bogutskaya (2004). Contribution to taxonomy and nomenclature of freshwater fishes of the Amur drainage area and the Far East (Pisces, Osteichthyes). Zoosystematica Rossica 12, 279-290</li><li>Paepke, H-J. (1994). Die Paradiesfische. Neue Brehm Bücherei 616, Westarp Wissenschaften, Magdeburg, 1-144</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/6fc83a54aa635062.webp",
+      "thumb": "https://media.aquatome.com/commons/6fc83a54aa635062-480.webp",
+      "width": 1200,
+      "height": 826,
+      "licence": "CC BY-SA 4.0",
+      "author": "Zinogre",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macropodus_ocellatus_28365502.jpg",
+      "caption": "Cá cờ đuôi tròn bơi giữa rêu java trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/6fc83a54aa635062-large.webp",
+        "width": 1743,
+        "height": 1200
+      }
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 80cm",
+        "máy sục khí mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "daphnia đông lạnh",
+        "thức ăn khô cho cá cờ"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nổi",
+        "lũa thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

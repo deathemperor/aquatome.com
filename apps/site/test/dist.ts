@@ -13,6 +13,10 @@ export const page = (path: string): { html: string; dom: HTMLElement } => {
   return { html, dom: parse(html) }
 }
 
+/** Every sitemap the build wrote, as one text: /sitemap.xml is only the index of them, one per kind of page. */
+export const sitemapText = (dist = DIST) =>
+  [...readFileSync(`${dist}/sitemap.xml`, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => readFileSync(`${dist}${new URL(m[1]!).pathname}`, 'utf8')).join('\n')
+
 /** A page the apps name (lib/i18n appPath: a Vietnamese one by its /vi/ form, while APP_VI_ROOT is off), as the site built it. */
 export const appPage = (path: string) => page(withoutVi(path))
 /** A link on a built page ("/ca/x/", "/id/ikan/x/"), as the apps name its page; a link elsewhere as it is. */

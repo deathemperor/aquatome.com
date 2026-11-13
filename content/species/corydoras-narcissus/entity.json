@@ -1,0 +1,238 @@
+{
+  "id": "corydoras-narcissus",
+  "scientificName": "Corydoras narcissus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-purus"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Purus"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears to be endemic to the Rio Purus, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Purus"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342745,
+      "total": 1,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-narcissus",
+      "html": "<p>The long-nosed skunk cory, Corydoras narcissus, is an armoured catfish that appears to be endemic to the Rio Purus in Brazil. It lives alongside Brochis arcuata and looks very similar at first glance, but has an elongated snout where that of B. arcuata is much more rounded. Large for a Corydoras at around 75 mm SL, it does best with some water flow in the tank.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-narcissus",
+      "html": "<p>Appears to be endemic to the Rio Purus, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-narcissus",
+      "html": "<p>Small tributaries, creeks, areas of flooded forest and sand banks.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-narcissus",
+      "html": "<p>Standard length: 75 mm SL (7.5 cm). Aquarium base: 120 × 30 cm. Volume: ~108 litres.</p><p>As with some other long-nosed Corydoras, males of the species can be somewhat aggressive towards one another. As a result a tank of around 120 × 30 × 30 cm (~108 litres) should really be the minimum size considered for a group of these.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-narcissus",
+      "html": "<p>In common with other similarly-shaped corys C. narcissus prefers a bit of water flow in the tank. If this can't be provided at least ensure the tank is well-oxygenated. It will thrive in a tank set up to replicate an Amazon biotope. This would be very simple to arrange. Use a substrate of river sand and add a few driftwood branches (if you can't find driftwood of the desired shape, common beech is safe to use if thoroughly dried and stripped of bark) and twisted roots. A few handfuls of dried leaves (again beech can be used, or oak leaves are also suitable) would complete the natural feel. Aquatic plants are not a feature of this species' natural waters. Allow the wood and leaves to stain the water the colour of weak tea, removing old leaves and replacing them every few weeks so they don't rot and foul the water. A small net bag filled with aquarium-safe peat can be added to the filter to aid in the simulation of black water conditions. Use fairly dim lighting. Alternatively, it also does well in a more standard, preferably well-planted tank.</p><p>A good maintenance regime is essential with this species as it's sensitive to deteriorating water conditions. As with all corys, don't use undergravel filtration and ensure the substrate is kept scrupulously clean. These cats are sensitive to poorly maintained or dirty substrates and can lose their barbels if kept in poor conditions.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-narcissus",
+      "html": "<ul><li>Temperature: 23–25°C</li><li>pH: 6.0–7.0</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-narcissus",
+      "html": "<p>Omnivorous and easy to feed. Use a good quality sinking pellet or tablet as the staple diet. Supplement this with live and frozen foods such as Daphnia, Artemia, bloodworm and similar.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-narcissus",
+      "html": "<p>Very peaceful and suitable for many community tanks. Don't keep it with anything very large or aggressive. Good tankmates include small characins, cyprinids, anabantoids, smaller cichlids and other peaceful catfish. Always try to maintain Corydoras in groups as they're far more confident and active in the presence of conspecifics. A group of at least six is best.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-narcissus",
+      "html": "<p>Like most corys, it's easily sexed when viewed from above. Females are noticeably rounder and broader-bodied than males, especially when full of eggs. They're often also slightly larger.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-narcissus",
+      "html": "<p>Can probably be bred in a similar fashion to many other Corydoras species. Set up the breeding tank (45 × 30 × 30 cm or similar is a good size), with either a bare bottom, sand or fine gravel substrate. Use air-powered sponge or box-type filtration as fry won't be sucked into these and provide some clumps of vegetation such as java moss. A temperature of around 24 °C and a pH of 6.5 should be fine. Filtering the water through peat is useful, as is the use of RO water. It's always better to have a higher ratio of males to females when breeding corys and 2 males per female is recommended. Condition the group on a varied diet of live, frozen and dried foods. When the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>It's worth observing a couple of notes on general cory breeding at this point. Many species are seasonal spawners, breeding during the wet season in their native countries. This occurs at the same time of year as the UK winter, so if summer breeding attempts are failing, it may be worth waiting until winter before trying again. Additionally, it can take several years for certain species to become sexually mature, so be patient. Finally, different tactics may sometimes be required, such as timing of water changes, oxygenation levels etc. If you aren't having any luck, don't be afraid of trying different approaches.</p><p>If the fish decide to spawn, they will usually lay their eggs on the tank glass, often in an area where water flow is quite high. Spawning behaviour is characterised by an initial increase in activity and excitement, before males begin to actively pursue females. A receptive female will allow a male to caress her with his barbels, before the pair take up the classic \"t-position\", in which the male grasps the female's barbels between his pectoral fin and body. He then releases some sperm and it's thought that this passes through the mouth and gills of the female, being directed towards her pelvic fins. These she uses to form a 'basket', into which she deposits a single egg (although up to 4 may be released). Once this is fertilised, she swims away to find a suitable place to deposit the egg, before the cycle is repeated. If you spawn the fish in a group situation, you will often see multiple males chasing a female as she goes to deposit an egg, in an effort to be the next chosen to fertilise them.</p><p>The adults will eat the eggs given the opportunity, so once spawning is complete you have a couple of choices. Either remove the adults and raise the brood in the same tank, or move the eggs and raise the fry elsewhere. If you decide to move the eggs, you'll find they're quite robust, and can usually be gently rolled up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated. Wherever you decide to hatch the eggs, it's always best to add a few drops of methylene blue to the water to prevent fungussing. Even then, some eggs will probably fungus, and these should be removed as soon as they're spotted in order to prevent the fungus spreading. Other options include adding an alder cone to the hatching container (these release various beneficial chemicals). Some hobbyists even use certain species of freshwater shrimp to pick any fungal spores from healthy eggs. Cherry shrimp, Neocardina heteropoda work well. These will eat diseased eggs, but leave healthy ones unharmed.</p><p>The eggs hatch in 3-5 days and once the fry have used up their yolk sacs, they'll accept microworm and brine shrimp nauplii as first foods. They seem to be less susceptible to disease when kept over a thin layer of sand, rather than in a bare-bottomed setup.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-narcissus",
+      "html": "<p>There are currently over 180 described species of Corydoras (commonly shortened to \"cory\"), making it one of the most speciose of all South American fish genera. There are also loads of undescribed species, many of which have been assigned a \"C number\" for identification purposes. This is a very simple system of numbering and is similar to the L number scheme used to identify undescribed Loricariids. Both systems were implemented by the German aquarium magazine DATZ (Die Aquarien und Terrarienzeitschrift), but have proved to be invaluable tools and are now used widely by aquarists worldwide. It's partly this tremendous diversity (along with their undeniably cute looks) that puts corys among the most popular fish in the hobby. They're also very peaceful aquarium residents. Although they'll consume bite-sized items such as eggs or fry, aggression towards other species is virtually unheard of. Intraspecific hostility is similarly unusual, occurring in only a handful of species (mainly being confined to the \"long-nosed\" varieties). Provided space isn't an issue this rarely results in physical damage, though.</p><p>In nature most species occur in large schools and as such do best when kept in a group in captivity. Most corys are primarily benthic (bottom dwelling), although a handful of exceptions do spend the majority of their time in open water. Unfortunately this behaviour often means that they're often purchased and sold as scavengers that will \"clean the bottom\" of your community tank. While they'll certainly polish off any uneaten morsels that reach the substrate, they won't keep the substrate \"clean\" as such. In fact maintenance of the substrate becomes more of a primary concern if your tank contains a few corys, as they can develop nasty infections of the barbels if kept in dirty or otherwise unfavourable conditions. It should also be said that they won't do well if expected to survive on the scraps of food that escape the fish above. Always use sinking varieties to ensure your corys receive the right amount of food.</p><p>All corys are facultative air breathers, meaning they have the ability to breathe atmospheric air to a certain extent if necessary. They possess a modified, highly vascularised intestine to aid in the uptake of atmospheric oxygen. This adaptation allows them to survive if their habitat becomes oxygen-deprived for any reason. In the aquarium you'll see them darting to the surface to take in gulps of air on occasion. This is perfectly natural and no cause for concern unless water conditions are deteriorating, in which case the frequency of visits to the surface will usually rise correspondingly.</p><p>Corys are part of the \"armoured\" catfish group, and instead of scales possess two rows of bony plates running along the flanks. The genus name is composed of the Greek words cory, meaning helmet and doras, meaning skin (here used incorrectly to denote \"armour\"). They also have very sharp pectoral fin spines, which are easily caught in the mesh of aquarium nets and can also produce a painful \"sting\" if they penetrate the skin. Care should therefore be exercised when handling or moving corys for any reason.</p><p>This species occurs sympatrically (living alongside) Brochis arcuata in nature and appears very similar at first glance. However it can be easily distinguished by the elongated snout, which is much more rounded in B. arcuata. It's quite scarce in the hobby, and tends to command quite a high price when available.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/814b2d6c0bb8058b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/814b2d6c0bb8058b-480.webp",
+      "width": 500,
+      "height": 326,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_narcissus.htm",
+      "caption": "Corydoras narcissus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/819ec444f1feb10f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/819ec444f1feb10f-480.webp",
+      "width": 500,
+      "height": 248,
+      "licence": "dùng với sự cho phép",
+      "author": "Mona Opland / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_narcissus.htm",
+      "caption": "Corydoras narcissus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3f205cd4474de179.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3f205cd4474de179-480.webp",
+      "width": 500,
+      "height": 299,
+      "licence": "dùng với sự cho phép",
+      "author": "Mona Opland / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_narcissus.htm",
+      "caption": "Corydoras narcissus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông nuôi cá chuột",
+        "nền cát mịn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "viên chìm cá đáy"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt biển chạy khí",
+        "lọc hộp"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

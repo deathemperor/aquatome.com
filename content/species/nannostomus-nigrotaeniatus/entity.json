@@ -6,6 +6,15 @@
   "genus": "Nannostomus",
   "group": "tetras",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 7391110,
+      "total": 0,
+      "fetched": "2026-11-10",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -37,7 +46,23 @@
       "html": "<p>The species is sexually dichromatic. Only the males have red spots in the fins.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/0d9b1232d95aabfb.webp",
+      "thumb": "https://media.aquatome.com/commons/0d9b1232d95aabfb-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "CC BY-SA 4.0",
+      "author": "Cedricguppy - Loury Cédric",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nannostomus_nigrotaeniatus_-_AquariumPorteDoree_01.jpg",
+      "caption": "Cá chì miệng đỏ bơi trong bể thủy sinh nhiều cây",
+      "large": {
+        "url": "https://media.aquatome.com/commons/0d9b1232d95aabfb-large.webp",
+        "width": 1920,
+        "height": 1080
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "V-M0SptJmek",
@@ -51,7 +76,7 @@
       "category": "be-ca",
       "keywords": [
         "bể cá thủy sinh 60cm",
-        "bể nuôi cá bút chì"
+        "bể nuôi cá chì"
       ]
     },
     {

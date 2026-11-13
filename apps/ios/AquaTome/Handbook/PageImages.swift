@@ -12,6 +12,10 @@ struct PageImage: View {
   let ratio: CGFloat
   var alt: String?
   var corner: CGFloat = 10
+  /// One that doesn't come stays a plain fill, with no photo symbol: a cell among hundreds in the grid.
+  var plain = false
+  /// A smaller copy of this picture, in memory already, to show until this one has come.
+  var until: String?
   @State private var picture: (src: String, image: UIImage)?
   /// The address of the one that didn't come (offline before it was kept, or gone from the site).
   @State private var missing: String?
@@ -20,23 +24,28 @@ struct PageImage: View {
   @Environment(\.displayScale) private var scale
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
-  init(src: String, ratio: CGFloat, alt: String? = nil, corner: CGFloat = 10) {
+  init(src: String, ratio: CGFloat, alt: String? = nil, corner: CGFloat = 10, plain: Bool = false, until: String? = nil) {
     self.src = src
     self.ratio = ratio
     self.alt = alt
     self.corner = corner
+    self.plain = plain
+    self.until = until
   }
 
   /// This address's picture: the one decoded for it here, else one in memory at any size.
-  private var image: UIImage? { picture?.src == src ? picture?.image : PageImages.cached(src) }
+  private var image: UIImage? { picture?.src == src ? picture?.image : PageImages.cached(src) ?? until.flatMap(PageImages.cached) }
 
   var body: some View {
+    // The size, fixed with the task's id. The first layout's task (size zero) runs after the size has come; reading the
+    // state live, it fetched, then the size's own task fetched again and the first was stopped: each grid cell twice.
+    let px = pixels
     Rectangle().fill(.fill.tertiary)
       .aspectRatio(ratio, contentMode: .fit)
       .overlay {
         if let image {
           Image(uiImage: image).resizable().scaledToFill().transition(.opacity)
-        } else if missing == src {
+        } else if missing == src, !plain {
           // A photo's place, not an empty box.
           Image(systemName: "photo").font(.title2).foregroundStyle(.tertiary)
         }
@@ -49,12 +58,14 @@ struct PageImage: View {
       .accessibilityLabel(Text(verbatim: alt ?? ""))
       // No words for it: VoiceOver reads the caption under it instead (a linked one, its button, as the caption).
       .accessibilityHidden(alt == nil)
-      .task(id: [src, "\(pixels)"]) {
-        guard pixels.width > 0 else { return }
-        let size = PageImages.Size.filling(pixels), src = src
+      .task(id: [src, "\(px)"]) {
+        guard px.width > 0 else { return }
+        let size = PageImages.Size.filling(px), src = src
         if let hit = PageImages.cached(src, size) { picture = (src, hit); return }
         let had = image != nil
-        let loaded = await PageImages.image(src, size)
+        // On its way already, ahead of the reader (the photo grid): not fetched a second time.
+        var loaded = await PageImages.ahead[src]?.value
+        if loaded == nil { loaded = await PageImages.image(src, size) }
         guard !Task.isCancelled else { return }
         // Faded in as it comes; one in memory at a smaller size, swapped.
         if let loaded {
@@ -116,6 +127,9 @@ enum PageImages {
     return c
   }()
 
+  /// Thumbnails being fetched ahead of the reader (the photo grid), for a cell that reaches the screen first.
+  @MainActor static var ahead: [String: Task<UIImage?, Never>] = [:]
+
   /// In memory at any size: shown at once while the right size comes.
   static func cached(_ src: String) -> UIImage? { memory.object(forKey: src as NSString)?.image }
 
@@ -140,7 +154,8 @@ enum PageImages {
     await PictureLog.shared.asked(src, role)
     let args = ProcessInfo.processInfo.arguments
     // `-slow-pictures`: a full photo takes 20 s to come, so a test sees what the viewer shows while it's on its way.
-    if role == .full, args.contains("-slow-pictures") {
+    // `-slow-thumbs`: so too a page's picture (a cell's in the grid), so a test sees its fetch stopped.
+    if (role == .full && args.contains("-slow-pictures")) || (role == .page && args.contains("-slow-thumbs")) {
       try? await Task.sleep(for: .seconds(20))
       if Task.isCancelled {
         await PictureLog.shared.stopped(src)
@@ -181,6 +196,12 @@ enum PageImages {
     let format = UIGraphicsImageRendererFormat()
     format.scale = role == .full ? 2 : 1
     return UIGraphicsImageRenderer(size: CGSize(width: 600, height: 400), format: format).jpegData(withCompressionQuality: 0.9) { c in
+      // The brightest photo there is: what stands on one has to read on it.
+      if ProcessInfo.processInfo.arguments.contains("-white-pictures") {
+        UIColor.white.setFill()
+        c.fill(CGRect(x: 0, y: 0, width: 600, height: 400))
+        return
+      }
       let colors = [UIColor(hue: hue, saturation: 0.7, brightness: 0.6, alpha: 1), UIColor(hue: hue + 0.05, saturation: 0.8, brightness: 0.2, alpha: 1)]
       let gradient = CGGradient(colorsSpace: nil, colors: colors.map(\.cgColor) as CFArray, locations: nil)!
       c.cgContext.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: 0, y: 400), options: [])
@@ -234,10 +255,12 @@ private final class Decoded: Sendable {
 @MainActor @Observable final class PictureLog {
   static let shared = PictureLog()
   private(set) var full: [String] = []
+  private(set) var page: [String] = []
   private(set) var stopped: [String] = []
 
   func asked(_ src: String, _ role: PageImages.Role) {
     if role == .full { full.append(src) }
+    if role == .page { page.append(src) }
   }
 
   func stopped(_ src: String) { stopped.append(src) }

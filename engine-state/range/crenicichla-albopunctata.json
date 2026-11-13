@@ -1,0 +1,177 @@
+{
+  "id": "crenicichla-albopunctata",
+  "native": {
+    "input": "7720d361f76b2c7f",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The white-spotted pike cichlid, Saxatilia albopunctata, is a pike cichlid from Guyana, Suriname and French Guiana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The white-spotted pike cichlid, Saxatilia albopunctata, is a pike cichlid from Guyana, Suriname and French Guiana.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The white-spotted pike cichlid, Saxatilia albopunctata, is a pike cichlid from Guyana, Suriname and French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its natural range runs from the Rio Demerara in Guyana, through Suriname to the river Approuague in French Guiana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its natural range runs from the Rio Demerara in Guyana, through Suriname to the river Approuague in French Guiana.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its natural range runs from the Rio Demerara in Guyana, through Suriname to the river Approuague in French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Demerara",
+        "source": "seriouslyfish",
+        "quote": "Its natural range runs from the Rio Demerara in Guyana, through Suriname to the river Approuague in French Guiana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Approuague",
+        "source": "seriouslyfish",
+        "quote": "Its natural range runs from the Rio Demerara in Guyana, through Suriname to the river Approuague in French Guiana.",
+        "country": "GF",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Crenicichla albopunctata",
+    "status": "ACCEPTED",
+    "taxonKey": 2371005,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        45
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        39
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        16
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        10
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        8
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        6
+      ],
+      [
+        "68ace562-4acd-4a6e-a1ef-52c73a5018d8",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "5d1e5f0d-811c-4ab0-bb38-f141cc0174de",
+        2
+      ],
+      [
+        "e42bf2ce-364f-444c-ba0e-c5947cc5f4b3",
+        2
+      ],
+      [
+        "f3d6d354-239e-4686-a267-8c9516fe2aab",
+        2
+      ],
+      [
+        "240e848b-47bc-40a3-a44c-6e745901d2d0",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "941aeef8-2aa1-490d-b6fc-0133095dccea",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "SR",
+      "GF"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

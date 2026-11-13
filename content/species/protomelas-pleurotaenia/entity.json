@@ -1,0 +1,218 @@
+{
+  "id": "protomelas-pleurotaenia",
+  "scientificName": "Protomelas pleurotaenia",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Protomelas",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "malawi",
+    "lake-malawi"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371499,
+      "total": 10,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "MW",
+          9
+        ],
+        [
+          "CD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -2.8125,
+          1
+        ],
+        [
+          33.75,
+          -15.46875,
+          5
+        ],
+        [
+          33.75,
+          -14.0625,
+          2
+        ],
+        [
+          33.75,
+          -12.65625,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.6,
+          "max": 8.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 14
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-pleurotaenia",
+      "html": "<p>Protomelas pleurotaenia is a cichlid endemic to Lake Malawi, known from Nkhata Bay and Monkey Bay, where it lives in vegetation between rock and sand. It feeds by blowing at the top layer of the substrate, usually sand, and eating the invertebrates it uncovers. Rare in the hobby, it is gentle and unsuited to the mbuna community, though it becomes territorial when breeding.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-pleurotaenia",
+      "html": "<p>Endemic to Lake Malawi. It is found in Nkhata Bay and Monkey Bay.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-pleurotaenia",
+      "html": "<p>It inhabits beds of vegetation between rocky and sandy areas.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-pleurotaenia",
+      "html": "<p>Standard length: 14 cm SL. Aquarium base: 120 × 45 cm. Volume: ~205 litres (120 × 45 × 38 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-pleurotaenia",
+      "html": "<p>Much of the aquarium should contain piles of rocks arranged to form caves with small areas of open water between. A sandy substrate is best and some clumps of Vallisneria would simulate the natural habitat of the fish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-pleurotaenia",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 7.6–8.8</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-pleurotaenia",
+      "html": "<p>It will accept most foods offered but live and frozen varieties should form the bulk of the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-pleurotaenia",
+      "html": "<p>A gentle species which is not suited to the boisterous mbuna community although it does become territorial when breeding. Suitable tankmates include Aulonocara, Copadichromis and other peaceful Malawi species. Males are very territorial and a very large tank would be required to keep more than one. It is also better to keep several females per male.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-pleurotaenia",
+      "html": "<p>The male is larger and much more colourful than the female and has extended dorsal, anal and pelvic fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-pleurotaenia",
+      "html": "<p>No information available regarding captive breeding. It is most likely a maternal mouthbrooder following a similar pattern to other species in the genus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/protomelas-pleurotaenia",
+      "html": "<p>This species has an interesting method of feeding in nature. It 'blows' at the top layer of the substrate (usually sand) and feeds on any invertebrates or other morsels that are uncovered. It is rare in the hobby and little information regarding its care is available.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát cho cá cichlid Malawi"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200 lít",
+        "máy sưởi bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá 120cm",
+        "máy lọc bể cá cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

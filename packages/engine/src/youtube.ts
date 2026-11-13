@@ -10,12 +10,18 @@ import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
 import { gate } from './quality'
+import { lastKept, logReviews, readReviews, reviewKey } from './review-log'
+import { roundPage, withTanks } from './round'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { loadState, saveState, type UrlState } from './state'
 import type { Finder } from './video-discovery'
-import type { Storyboard } from './video-images'
+import type { Storyboard, Stream, VideoFrames } from './video-images'
 import { extractVideoItems, readKit, resolveTaxa, type Kit } from './video-items'
+import { setHold } from './video-hold'
+import { readVideoRejected } from './videos'
+import { byRank } from './video-order'
 import { seconds } from './videos'
+import { VI_STYLE as STYLE } from './phrases'
 
 /** YouTube is rate-limiting or bot-checking this machine: stop everything and try again next cycle; no video is at fault. */
 export const throttled = (e: unknown) => /HTTP Error 429|Too Many Requests|confirm you.re not a bot/i.test((e as Error)?.message ?? '')
@@ -47,10 +53,11 @@ const base = (l?: string | null) => (l ?? '').toLowerCase().split(/[-_]/)[0] || 
 
 const KINDS = ['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery'] as const
 export type Draft = { relevant: boolean; kind: GuideEntity['kind']; viTitle: string; summary: string[]; body: string; faq: { q: string; a: string }[]; chapters: string[] }
-const WRITE = readFileSync(new URL('./prompts/video-guide.md', import.meta.url), 'utf8')
-const REVIEW = readFileSync(new URL('./prompts/video-review.md', import.meta.url), 'utf8')
-const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
+const WRITE = withTanks(readFileSync(new URL('./prompts/video-guide.md', import.meta.url), 'utf8'))
+const REVIEW = withTanks(readFileSync(new URL('./prompts/video-review.md', import.meta.url), 'utf8'))
 const EDIT = readFileSync(new URL('./prompts/video-edit.md', import.meta.url), 'utf8')
+const FIX = readFileSync(new URL('./prompts/video-fix.md', import.meta.url), 'utf8')
+const MEND = readFileSync(new URL('./prompts/video-mend.md', import.meta.url), 'utf8')
 const str = { type: 'string' }
 const DRAFT_SCHEMA = {
   type: 'object', required: ['relevant', 'kind', 'viTitle', 'summary', 'body', 'faq', 'chapters'],
@@ -107,13 +114,19 @@ const thumbOf = async (id: string) => {
   return ok ? { url: maxres, width: 1280, height: 720 } : { url: `https://i.ytimg.com/vi/${id}/mqdefault.jpg`, width: 320, height: 180 }
 }
 
-/** Transcripts kept on this machine (not committed): the images pass and rewrites reuse them instead of asking YouTube again. */
+/**
+ * Transcripts kept on this machine (not committed): the images pass and rewrites reuse them instead of asking YouTube again.
+ * One fetch at a time in a process, so guides checked a few at once (video-recheck.sh) never ask YouTube at once.
+ */
 const CACHE = process.env.TRANSCRIPT_CACHE ?? join(homedir(), '.cache/aquatome/transcripts')
+let fetching: Promise<unknown> = Promise.resolve()
 async function cached(file: string, make: () => Promise<string | null>): Promise<string | null> {
   const path = join(CACHE, file)
   const hit = await readFile(path, 'utf8').catch(() => null)
   if (hit) return hit
-  const v = await make()
+  const mine = fetching.then(make)
+  fetching = mine.catch(() => undefined)
+  const v = await mine
   if (v) { await mkdir(CACHE, { recursive: true }); await writeFile(path, v) }
   return v
 }
@@ -219,12 +232,55 @@ export function ytApi(key: string, get: (url: string) => Promise<unknown> = asyn
   }
 }
 
-/** The largest storyboard (scrub-preview frames) YouTube lists for a video; its sheet URLs are signed, so use them right away. */
-export async function ytStoryboard(id: string): Promise<Storyboard | null> {
-  const d = JSON.parse(await run(['-J', watch(id)]))
-  const sb = ((d.formats ?? []) as (Storyboard & { format_note?: string })[]).filter(f => f.format_note === 'storyboard' && f.fragments?.length).sort((a, b) => b.width - a.width)[0]
-  return sb ? { fps: sb.fps, rows: sb.rows, columns: sb.columns, width: sb.width, height: sb.height, fragments: sb.fragments.map(f => ({ url: f.url })) } : null
+/**
+ * Seconds between storyboard tiles. YouTube's storyboard gives it (2, 5 or 10 s so far), but yt-dlp passes on only tiles
+ * ÷ duration as `fps`. The tile count is ceil(duration ÷ interval) + 1 of the video's true length, which yt-dlp rounds
+ * down to a whole second: a 765.4 s video reads 765, so where the interval divides it the count is one more (155 tiles of
+ * 5 s, not 154). Missing that, 1 ÷ fps (4.94 s) put every tile 1.3% early, and its frame never matched (2026-11-09).
+ */
+export function storyboardInterval(fps: number, duration: number): number {
+  const n = Math.round(fps * duration)
+  return [1, 2, 5, 10, 15, 20, 30, 60].find(i => Math.ceil(duration / i) + 1 === n || Math.floor(duration / i) + 2 === n) ?? 1 / fps
 }
+
+/**
+ * One yt-dlp call for a video's pictures: its largest storyboard (sheet URLs are signed, so use them right away) and a
+ * stream to take frames from, the widest video-only https format up to 1280 px, H.264 first (ffmpeg decodes it
+ * anywhere), with the user agent yt-dlp was given it for.
+ */
+export async function ytFrames(id: string): Promise<VideoFrames> {
+  const d = JSON.parse(await run(['-J', watch(id)]))
+  type Format = Storyboard & { format_note?: string; url?: string; protocol?: string; vcodec?: string; acodec?: string; http_headers?: Record<string, string> }
+  const formats = (d.formats ?? []) as Format[]
+  const sb = formats.filter(f => f.format_note === 'storyboard' && f.fragments?.length).sort((a, b) => b.width - a.width)[0]
+  const avc = (f: Format) => Number(f.vcodec!.startsWith('avc1'))
+  const v = formats.filter(f => f.url && f.protocol === 'https' && f.vcodec && f.vcodec !== 'none' && (!f.acodec || f.acodec === 'none') && f.width > 0 && f.width <= 1280)
+    .sort((a, b) => b.width - a.width || avc(b) - avc(a))[0]
+  const ua = v?.http_headers?.['User-Agent']
+  return {
+    storyboard: sb ? { fps: sb.fps, interval: storyboardInterval(sb.fps, Number(d.duration)), rows: sb.rows, columns: sb.columns, width: sb.width, height: sb.height, fragments: sb.fragments.map(f => ({ url: f.url })) } : null,
+    stream: v ? { url: v.url!, ...(ua ? { userAgent: ua } : {}) } : null,
+  }
+}
+
+/** YouTube refuses a new stream address for its first seconds (403), then takes it (2026-11-09: measured three times, refused at 0 s, taken at 2 s). */
+export async function retry403<T>(f: () => Promise<T>, wait = (ms: number) => new Promise(r => setTimeout(r, ms))): Promise<T> {
+  for (let tries = 2; ; tries--) {
+    try { return await f() } catch (err) {
+      if (!tries || !/\b403\b/.test((err as Error).message)) throw err
+      await wait(3000)
+    }
+  }
+}
+
+/** The stream's frame at `sec` seconds, as PNG. ffmpeg seeks by range requests, so only the part around it is downloaded. */
+export const ytGrab = (s: Stream, sec: number) => retry403(() => grabOnce(s, sec))
+const grabOnce = (s: Stream, sec: number) => new Promise<Uint8Array>((resolve, reject) =>
+  execFile('ffmpeg', ['-nostdin', '-loglevel', 'error', ...(s.userAgent ? ['-user_agent', s.userAgent] : []), '-ss', sec.toFixed(3), '-i', s.url, '-frames:v', '1', '-c:v', 'png', '-f', 'image2pipe', '-'], { encoding: 'buffer', maxBuffer: 64 * 1024 * 1024, timeout: 60_000 }, (e, out, err) => {
+    if (e) reject(new Error(`ffmpeg: ${(err.toString() || e.message).trim().split('\n').pop()}`))
+    else if (!out.length) reject(new Error('ffmpeg: no frame'))
+    else resolve(new Uint8Array(out))
+  }))
 
 const flat = async (url: string, end = 30) => {
   const d = JSON.parse(await run(['--flat-playlist', '--playlist-end', String(end), '-J', url]))
@@ -275,7 +331,7 @@ const videoPrompt = (m: VideoMeta, transcript: string, notes?: string[], style?:
   `Mô tả video:\n${m.description.slice(0, 1500)}`,
   `Ngôn ngữ video: ${LANG_NAME[m.lang ?? 'en'] ?? m.lang}.${m.lang === 'vi' ? ' Video bằng tiếng Việt: tuyệt đối không chép lại câu nói trong bản ghi; viết lại hoàn toàn bằng lời của bạn, sắp xếp theo cấu trúc bài hướng dẫn.' : ''}`,
   `Bản ghi:\n${transcript.slice(0, 120_000)}`,
-  ...(notes?.length ? [`Bản trước bị người duyệt chấm thấp. Sửa theo các ghi chú sau:\n${notes.map(n => `- ${n}`).join('\n')}`] : []),
+  ...(notes?.length ? [`Bản trước bị người duyệt chấm thấp vì các lỗi dưới đây (câu trích là của bản trước). Viết bài mới từ bản ghi và đừng lặp lại chúng:\n${notes.map(n => `- ${n}`).join('\n')}`] : []),
 ].join('\n\n')
 
 const SYSTEM = 'Bạn viết bài hướng dẫn thủy sinh bằng tiếng Việt. Chỉ trả lời bằng JSON.'
@@ -292,14 +348,41 @@ export async function editDraft(llm: Llm, d: Draft, model?: string): Promise<Dra
   return same ? { ...e, kind: d.kind, relevant: d.relevant } : d
 }
 
+/**
+ * The reviewer's notes applied to the draft they are about, checked against the transcript: what the video doesn't say goes,
+ * nothing new comes in. A fresh draft fixed the old notes and brought new inventions. null: the edit came back broken.
+ */
+export async function fixDraft(llm: Llm, transcript: string, d: Draft, notes: string[], o: WriteOpts & { lang?: string; /** The notes are the reader-fit check's (video-mend.ts): what the video says but a reader here can't use. */ reader?: boolean } = {}): Promise<Draft | null> {
+  const own = o.lang === 'vi' ? ['Video bằng tiếng Việt: không chép lại câu nói trong bản ghi; chỗ nào sửa thì viết bằng lời của bạn.'] : []
+  const e = await llm<Draft>({ system: SYSTEM, prompt: [FIX, ...(o.reader ? [MEND] : []), ...(o.style ? [STYLE] : []), ...own, `Bản ghi:\n${transcript.slice(0, 120_000)}`, `Bài cần sửa (JSON):\n${JSON.stringify(d)}`, `${o.reader ? 'Ghi chú về người đọc' : 'Ghi chú của người duyệt'}:\n${notes.map(n => `- ${n}`).join('\n')}`].join('\n\n'), schema: DRAFT_SCHEMA, model: o.model })
+  if (!e.relevant || !usable(e)) return null
+  return { ...e, kind: d.kind, relevant: d.relevant, chapters: e.chapters.length === d.chapters.length ? e.chapters : d.chapters }
+}
+
 const namesSource = (d: Draft, channel: string) => {
   const text = JSON.stringify([d.viTitle, d.summary, d.body, d.faq]).toLowerCase()
   return /tác giả|người làm video|trong video|theo video|video này/.test(text) || (!!channel.trim() && text.includes(`theo ${channel.trim().toLowerCase()}`))
 }
 
-export async function reviewDraft(llm: Llm, transcript: string, d: Draft, m?: VideoMeta) {
+/**
+ * Words that speak for many keepers or rank one way above others. The writer once wrote a creator's own habit as
+ * "nhiều người thấy…" or "ai cũng…" (its prompt suggested it until 2026-11-07, in about 200 of 500 guides), so the reviewer
+ * is handed each such sentence to hold against the transcript.
+ */
+const CROWD = /nhiều người|ai cũng|dân chơi|giới chơi|người chơi (?:thường|hay)|hầu hết|luôn luôn|(?:tốt|hiệu quả|an toàn|dễ|phổ biến) nhất/iu
+
+/** The guide's sentences with a CROWD word, once each. */
+export function crowdLines(d: Pick<Draft, 'summary' | 'body' | 'faq'>): string[] {
+  const text = [...d.summary, d.body.replace(/<\/(?:p|li|h3|td|th)>/g, '\n').replace(/<[^>]+>/g, ''), ...d.faq.flatMap(f => [f.q, f.a])].join('\n')
+  return [...new Set(text.split(/(?<=[.?!:])\s+|\n+/).map(s => s.trim()).filter(s => CROWD.test(s)))]
+}
+
+/** `also`: what this guide's editor was told beyond the writer's rules, so the reviewer doesn't fault it (video-mend.ts). */
+export async function reviewDraft(llm: Llm, transcript: string, d: Pick<Draft, 'viTitle' | 'summary' | 'body' | 'faq'>, m?: Pick<VideoMeta, 'title' | 'channel' | 'lang'>, also?: string) {
   const guide = `<h2>${d.viTitle}</h2>\n<ul>${d.summary.map(s => `<li>${s}</li>`).join('')}</ul>\n${d.body}\n${d.faq.map(f => `<p><strong>${f.q}</strong> ${f.a}</p>`).join('\n')}`
-  const r = await llm<{ score: number; notes: string[] }>({ system: 'You are a strict reviewer of Vietnamese aquarium guides. Reply only with JSON.', prompt: `${REVIEW}\n\n${m ? `VIDEO: "${m.title}" by ${m.channel} (the creator; the guide must not name them or the channel), spoken in ${m.lang ?? 'en'}${m.lang === 'vi' ? '. The transcript is Vietnamese too: sentences copied from it, or barely changed, count as faults (below 0.75 if there are several)' : ''}\n\n` : ''}TRANSCRIPT:\n${transcript.slice(0, 120_000)}\n\nGUIDE:\n${guide}`, schema: REVIEW_SCHEMA })
+  const crowd = crowdLines(d)
+  const check = crowd.length ? `\n\nCHECK THESE SENTENCES: each speaks for many people or ranks something. A note for each one the speaker doesn't say, at that strength:\n${crowd.map(s => `- ${s}`).join('\n')}` : ''
+  const r = await llm<{ score: number; notes: string[] }>({ system: 'You are a strict reviewer of Vietnamese aquarium guides. Reply only with JSON.', prompt: `${REVIEW}\n\n${also ? `${also.trim()}\n\n` : ''}${m ? `VIDEO: "${m.title}" by ${m.channel} (the creator; the guide must not name them or the channel), spoken in ${m.lang ?? 'en'}${m.lang === 'vi' ? '. The transcript is Vietnamese too: sentences copied from it, or barely changed, count as faults (below 0.75 if there are several)' : ''}\n\n` : ''}TRANSCRIPT:\n${transcript.slice(0, 120_000)}\n\nGUIDE:\n${guide}${check}`, schema: REVIEW_SCHEMA })
   return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 10) }
 }
 
@@ -342,20 +425,68 @@ export type VideoDeps = { yt: YouTube; llm: Llm; root: string; now: () => Date; 
 export type VideoReport = { written: string[]; skipped: string[]; errors: string[]; stoppedEarly: boolean }
 
 /**
- * Each playlist video not done yet → an original Vietnamese guide (guides/youtube-<id>/), reviewed against the transcript
- * and rewritten once with the reviewer's notes if it scores low (then published unindexed, like translations).
+ * The guides a recheck (review-backfill.ts, `reviewedBefore`) left for a redo: the review of the version on the site is a
+ * recheck from `since` on, under the bar, with notes for the writer, and the video wasn't tried after it (a redo leaves
+ * its own review; a skip or a failure, the video's state). The owner's videos first, or in `rank`'s order (by guide id,
+ * video-order.ts), then the lowest scores.
  */
-/** redo: rewrite guides already written (same slug, cover kept), e.g. after a prompt change. only: these video ids. */
-export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[]; singles?: string[]; only?: string[]; limit?: number; maxMinutes?: number; write?: WriteOpts; redo?: boolean } = {}): Promise<VideoReport> {
+/**
+ * The video guides in search whose newest second read failed at 0.55 or under, not yet read three times: each gets two
+ * more reads before any closes (the chief of staff, 2026-11-11; `review-backfill-97`, its own daily ceiling), so the
+ * redo (recheckedGuides) passes them over until then. Ids as `youtube-<id>`.
+ */
+export async function lowVideoGuides(root: string): Promise<string[]> {
+  const traced = await readReviews(root, 'video-guide')
+  const out: string[] = []
+  for (const id of (await readdir(join(root, 'content/guides')).catch(() => [] as string[])).filter(d => d.startsWith('youtube-'))) {
+    const last = traced[reviewKey({ id: `guides/${id}`, lang: 'vi' })]?.[0]
+    if (!last || last.attempt !== 'recheck' || last.reads || last.score > 0.55) continue
+    const q = (await readJson<Translation>(join(root, 'content/guides', id, 'vi.json')))?.quality
+    if (q && q.score >= QUALITY_THRESHOLD) out.push(id)
+  }
+  return out.sort()
+}
+
+export async function recheckedGuides(root: string, since: string, rank?: (id: string) => number[]): Promise<{ id: string; series?: string }[]> {
+  const state = await loadState(root, 'youtube')
+  const waiting = new Set(await lowVideoGuides(root))
+  const owners = new Set(((await readJson<{ id: string; by?: string }[]>(join(root, 'engine-state/youtube-videos.json'))) ?? []).filter(v => v.by === 'owner').map(v => v.id))
+  const out: { id: string; series?: string; score: number; first: boolean }[] = []
+  for (const [key, ts] of Object.entries(await readReviews(root, 'video-guide'))) {
+    const id = /^vi\/guides\/youtube-(.+)$/.exec(key)?.[1]
+    const t = ts.find(x => x.kept)
+    if (!id || !t || t.attempt !== 'recheck' || Date.parse(t.at) < Date.parse(since) || t.score >= QUALITY_THRESHOLD || !t.notes.length || waiting.has(`youtube-${id}`)) continue
+    const tried = state[id]?.updatedAt
+    if (tried && Date.parse(tried) > Date.parse(t.at)) continue
+    const v = (await readJson<GuideEntity>(join(root, 'content/guides', `youtube-${id}`, 'entity.json')))?.video
+    if (v) out.push({ id, ...(v.series ? { series: v.series.id } : {}), score: t.score, first: owners.has(id) })
+  }
+  const first = (a: (typeof out)[number], b: (typeof out)[number]) => (rank ? byRank(rank(`youtube-${a.id}`), rank(`youtube-${b.id}`)) : Number(b.first) - Number(a.first))
+  return out.sort((a, b) => first(a, b) || a.score - b.score || a.id.localeCompare(b.id)).map(({ id, series }) => ({ id, ...(series ? { series } : {}) }))
+}
+
+/**
+ * Each playlist video not done yet → an original Vietnamese guide (guides/youtube-<id>/), reviewed against the transcript
+ * and, if it scores low, edited once where the reviewer's notes point (then published unindexed, like translations).
+ */
+/**
+ * redo: rewrite guides already written (same slug, cover kept), e.g. after a prompt change. only: these video ids.
+ * rechecked (with redo): the first `limit` of recheckedGuides(since, rank), and only their playlists: with none, no call;
+ * `parallel` of them at once.
+ */
+export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[]; singles?: string[]; only?: string[]; limit?: number; maxMinutes?: number; write?: WriteOpts; redo?: boolean; rechecked?: string; rank?: (id: string) => number[]; parallel?: number } = {}): Promise<VideoReport> {
   const { yt, llm, root } = deps
   const contentRoot = join(root, 'content')
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
   const report: VideoReport = { written: [], skipped: [], errors: [], stoppedEarly: false }
   const state = await loadState(root, 'youtube')
-  const set = async (id: string, s: Omit<UrlState, 'attempts' | 'updatedAt'>) => {
+  // The files every video writes (the state, the changelog), one write at a time: videos can be written at once.
+  let writing: Promise<unknown> = Promise.resolve()
+  const inTurn = <T>(f: () => Promise<T>) => { const r = writing.then(f); writing = r.catch(() => undefined); return r }
+  const set = (id: string, s: Omit<UrlState, 'attempts' | 'updatedAt'>) => inTurn(async () => {
     state[id] = { ...s, attempts: s.status === 'error' ? (state[id]?.attempts ?? 0) + 1 : 0, updatedAt: deps.now().toISOString() }
     await saveState(root, 'youtube', state)
-  }
+  })
   /**
    * redo: the guides on the site (whatever a later attempt left in the state), each once, in the playlist that is its
    * series (a video in several playlists is not moved, and other playlists get no series page). Their transcripts are
@@ -367,9 +498,14 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
     if (v) written.set(v.youtubeId, v.series?.id)
   }
   const redone = new Set<string>()
+  const picked = opts.rechecked ? (await recheckedGuides(root, opts.rechecked, opts.rank)).slice(0, opts.limit) : undefined
+  const only = picked?.map(g => g.id) ?? opts.only
+  // A video on the rejected list (engine-state/_video-rejected.json) is never a guide, nor written again by a redo: a guide
+  // that taught catching fish by raising CO₂ until they gasp was taken down by hand (2026-11-08).
+  const rejected = await readVideoRejected(root)
   /** New, or failed fewer than 3 times and waited 6 h × attempts (so an outage doesn't use up every video's tries in one day). */
   const due = (id: string, playlist?: string) => {
-    if (opts.only && !opts.only.includes(id)) return false
+    if (rejected[id] || (only && !only.includes(id))) return false
     if (opts.redo) return written.has(id) && !redone.has(id) && written.get(id) === playlist
     const s = state[id]
     return !s || (s.status === 'error' && s.attempts < 3 && deps.now().getTime() - Date.parse(s.updatedAt) > s.attempts * 6 * 3_600_000)
@@ -396,14 +532,29 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       if (why) { await set(vid, { status: 'skipped', entityIds: [], error: why }); report.skipped.push(`${vid}: ${why}`); failedInARow = 0; return false }
 
       const write = (notes?: string[]) => writeDraft(llm, m, transcript!, { ...opts.write, notes })
-      let d = await write()
+      // A redo starts from what the last review of the guide on the site found, when it was under the bar.
+      const before = opts.redo ? await lastKept(root, { id: `guides/youtube-${vid}`, lang: 'vi' }, ['video-guide']) : undefined
+      let d = await write(before && gate(before.score, false) === 'retry' ? before.notes : undefined)
       if (!d.relevant) { await set(vid, { status: 'skipped', entityIds: [], error: 'not a guide' }); report.skipped.push(`${vid}: not a guide`); failedInARow = 0; return false }
       if (!usable(d)) throw new Error('draft without a title or body')
-      let { score, notes } = await reviewDraft(llm, transcript!, d, m)
-      if (gate(score, false) === 'retry') {
-        const again = await write(notes)
-        // A broken rewrite keeps the first draft and its score.
-        if (again.relevant && usable(again)) { d = again; score = (await reviewDraft(llm, transcript!, d, m)).score }
+      const tries = [await reviewDraft(llm, transcript!, d, m)]
+      let kept = tries[0]!
+      if (gate(kept.score, false) === 'retry') {
+        const fixed = await fixDraft(llm, transcript!, d, kept.notes, { ...opts.write, lang })
+        // A broken edit keeps the first draft and its score.
+        if (fixed) { d = fixed; kept = await reviewDraft(llm, transcript!, d, m); tries.push(kept) }
+      }
+      const score = kept.score
+      // A redo never leaves a guide worse (Writing Lead, 2026-11-07): a new version that scores under the review of the one
+      // on the site leaves that one in place. Its reviews are kept, none on the page, and the video is marked tried, so a
+      // recheck's redo list doesn't send it back.
+      if (before && score < before.score) {
+        await logReviews(root, 'video-guide', { id: `guides/youtube-${vid}`, lang: 'vi' }, tries, undefined, { now: deps.now() })
+        await set(vid, { status: 'processed', entityIds: [`youtube-${vid}`] })
+        report.skipped.push(`${vid}: the new version scored ${score.toFixed(2)}, under the guide's ${before.score.toFixed(2)}: kept the guide`)
+        redone.add(vid)
+        failedInARow = 0
+        return false
       }
       // The guide sits under the video: a slip like "trong video" or "Theo <channel>" gets an editor pass, which states it directly.
       if (namesSource(d, m.channel)) d = await editDraft(llm, d, opts.write?.model)
@@ -415,6 +566,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       const id = `youtube-${vid}`
       const dir = join(contentRoot, 'guides', id)
       const prev = { entity: await readJson<GuideEntity>(join(dir, 'entity.json')), vi: await readJson<Translation>(join(dir, 'vi.json')) }
+      const held = prev.vi?.quality?.chat === false
       const taxa = items?.taxa ?? prev.entity?.video?.taxa
       const gear = items?.gear ?? prev.entity?.video?.gear
       const now = deps.now().toISOString().slice(0, 10)
@@ -423,18 +575,30 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         mentions: [...new Set([...(prev.entity?.mentions ?? []), ...await resolveTaxa(contentRoot, taxa ?? [])])],
         video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, ...(series ? { series: { id: series.id, position } } : {}), thumb: m.thumb, ...(lang !== 'en' ? { lang } : {}), ...(ownTranscript || (unknown && !captions) ? { transcribed: true } : {}), ...(taxa ? { taxa } : {}), ...(gear ? { gear } : {}) },
       })
-      const name = unescapePlain(d.viTitle).trim()
-      const vi = TranslationSchema.parse(metricPage({
+      // A title a person picked (nameFixed: the owner's "Duplicated", 2026-11-11) stays through a new version.
+      const name = prev.vi?.nameFixed ? prev.vi.name : unescapePlain(d.viTitle).trim()
+      // Rounded here too (round.ts): the video jobs have no rounding step before their gate, whose units rule finds a
+      // volume only a gallon conversion gives ("bể 38 lít") and puts the new text back for it.
+      const vi = TranslationSchema.parse(roundPage(metricPage({
         slug: prev.vi?.slug ?? pickSlug(name, 'video', await guideSlugs(contentRoot)), name, altNames: [], sections: {},
-        body: sanitizeHtml(d.body), ...plainParts(d.summary, d.faq),
+        // A body fixed by hand keeps its summary, the body in short; questions fixed by hand keep theirs.
+        body: prev.vi?.bodyFixed ? prev.vi.body : sanitizeHtml(d.body), ...plainParts(prev.vi?.bodyFixed && prev.vi.summary?.length ? prev.vi.summary : d.summary, prev.vi?.faqFixed ? prev.vi.faq ?? [] : d.faq),
         ...(m.chapters.length && d.chapters.length === m.chapters.length ? { chapters: d.chapters.map(c => c.trim()) } : {}),
-        quality: { score, indexable: score >= QUALITY_THRESHOLD, bySource: { youtube: score } },
+        // A guide held out of the chat (video-hold.ts) stays held while its new version is under the bar.
+        quality: { score, indexable: score >= QUALITY_THRESHOLD, bySource: { youtube: score }, ...(held && score < QUALITY_THRESHOLD ? { chat: false as const } : {}) },
         ...(prev.vi?.cover ? { cover: prev.vi.cover } : {}),
-      }, 'vi'))
+        // A note for local readers isn't the video's: a new version of the guide keeps it.
+        ...(prev.vi?.localNote ? { localNote: prev.vi.localNote } : {}),
+        ...(prev.vi?.nameFixed ? { nameFixed: true } : {}),
+        ...(prev.vi?.bodyFixed ? { bodyFixed: true } : {}),
+        ...(prev.vi?.faqFixed ? { faqFixed: true } : {}),
+      }, 'vi'), 'vi'))
       await mkdir(dir, { recursive: true })
       await writeJson(join(dir, 'entity.json'), entity)
       await writeJson(join(dir, 'vi.json'), vi)
-      await appendChangelog(contentRoot, [{ date: now, kind: 'guide', id, source: 'youtube', action: prev.entity ? 'updated' : 'new' }])
+      if (held && score >= QUALITY_THRESHOLD) await setHold(contentRoot, id, false) // its other languages too
+      await inTurn(() => appendChangelog(contentRoot, [{ date: now, kind: 'guide', id, source: 'youtube', action: prev.entity ? 'updated' : 'new' }]))
+      await logReviews(root, 'video-guide', { id: `guides/${id}`, lang: 'vi' }, tries, kept, { now: deps.now() })
       await set(vid, { status: 'processed', entityIds: [id] })
       report.written.push(`${id} (${score.toFixed(2)})`)
       redone.add(vid)
@@ -451,7 +615,9 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
     return false
   }
 
-  for (const pl of opts.playlists ?? await readPlaylists(root)) {
+  // The picked guides (rechecked) are listed first, then written `parallel` at a time.
+  const tasks: { vid: string; series?: Series; i: number }[] = []
+  for (const pl of picked ? [...new Set(picked.flatMap(g => g.series ?? []))] : opts.playlists ?? await readPlaylists(root)) {
     let p: Playlist
     try { p = await yt.playlist(pl) } catch (e) { report.errors.push(`playlist ${pl}: ${(e as Error).message}`); continue }
     if (!p.videos.some(v => due(v.id, p.id))) continue
@@ -463,17 +629,30 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
     }
     for (const [i, { id: vid }] of p.videos.entries()) {
       if (!due(vid, p.id)) continue
+      if (picked) { tasks.push({ vid, series, i }); continue }
       if (deps.now().getTime() > deadline || (opts.limit !== undefined && report.written.length >= opts.limit)) { report.stoppedEarly = true; return report }
       if (await one(vid, series, i)) return report
       await deps.sleep(VIDEO_GAP_MS)
     }
   }
   // Single videos (engine-state/youtube-videos.json): no series.
-  for (const vid of opts.singles ?? await readSingles(root)) {
+  for (const vid of picked ? picked.filter(g => !g.series).map(g => g.id) : opts.singles ?? await readSingles(root)) {
     if (!due(vid)) continue
+    if (picked) { tasks.push({ vid, i: 0 }); continue }
     if (deps.now().getTime() > deadline || (opts.limit !== undefined && report.written.length >= opts.limit)) { report.stoppedEarly = true; return report }
     if (await one(vid)) return report
     await deps.sleep(VIDEO_GAP_MS)
   }
+  // Already `limit` of them, in their order; a stop (model down, YouTube throttling) starts no more.
+  tasks.sort((a, b) => only!.indexOf(a.vid) - only!.indexOf(b.vid))
+  let stop = false
+  const worker = async () => {
+    for (let t = tasks.shift(); t && !stop; t = tasks.shift()) {
+      if (deps.now().getTime() > deadline) { report.stoppedEarly = stop = true; return }
+      if (await one(t.vid, t.series, t.i)) { stop = true; return }
+      await deps.sleep(VIDEO_GAP_MS)
+    }
+  }
+  await Promise.all(Array.from({ length: Math.max(1, opts.parallel ?? 1) }, worker))
   return report
 }

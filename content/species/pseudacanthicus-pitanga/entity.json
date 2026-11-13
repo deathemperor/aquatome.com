@@ -1,0 +1,268 @@
+{
+  "id": "pseudacanthicus-pitanga",
+  "scientificName": "Pseudacanthicus pitanga",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pseudacanthicus",
+  "group": "catfish",
+  "lNumber": "L24",
+  "places": [
+    "south-america",
+    "brazil",
+    "tocantins",
+    "rio-tocantins"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tocantins",
+        "Amazon",
+        "Rio Itacaiunas"
+      ],
+      "sources": [
+        "planetcatfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Serra dos Carajás, bedrock at rio Itacaiunas, Serra dos Carajás, Pará, Brazil",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Itacaiunas"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Brazil: Rio Tocantins (Amazon, Lower Amazon, Tocantins, Itacaiúnas).",
+          "countries": [],
+          "regions": [
+            "Rio Tocantins",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8504004,
+      "total": 3,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -50.625,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 34
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=125",
+      "html": "<ul><li>Scientific name: Pseudacanthicus pitanga Chamon, 2015</li><li>Common names: L024, Red Fin Cactus Pleco LDA118, Flame Pleco, Oliven Kaktussugemalle (Denmark)</li><li>Type locality: Serra dos Carajás, bedrock at rio Itacaiunas, Serra dos Carajás, Pará, Brazil</li><li>IUCN Red List: Not Evaluated</li><li>Etymology: Pseud- (Greek: false), Acanthicus (Greek: spiny, thorny), literally 'False Acanthicus', referring to this genus being similar to, yet different from, Acanthicus. The specific epithet comes from the Tupi-Guarani word for red, in reference to the colour of the fins.</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l24-has-been-described-pseudacanthicus-pitanga/",
+      "html": "<p>L24 has finally received a correct scientific description. The beautiful orange-finned cactus pleco from the Rio Tocantins is now named Pseudacanthicus pitanga. The specific name \"pitanga\" comes from the Tupi-Guarani language and means \"red\", in allusion to the colour of the fins.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=125",
+      "html": "<p>The German common name for this genus is 'Cactus Pleco'. Pseudacanthicus is a member of the Acanthicus clade. Species of the Acanthicus clade are distinguished from other Loricariidae by: (1) longitudinal rows of keels (pointed odontodes) along the body sides; (2) eight or more dorsal-fin rays (vs. six or seven in most other loricariids except Pterygoplichthys, Chaetostoma, Pogonopoma and Pseudancistrus pectegenitor); (3) seven to eight infraorbitals (vs. usually five or six); (4) five anal-fin branched rays (vs. usually four); and (5) hypertrophied odontodes along the snout margin (absent in other loricariids except Isbrueckerichthys and Pareiorhaphis, in Neoplecostominae; Panaque, Pseudancistrus and Neblinichthys, in Ancistrini; and most dimorphic males of Loricariinae). Within the Acanthicus group, Pseudacanthicus is distinguished by two small plates in the posterior area of the compound pterotic (vs. one median plate or plate absent), and by narrow premaxillae with a small number of elongate and curved teeth (except Leporacanthicus).</p><p>Similar to L025 (Pseudacanthicus pirarara) but ultimately smaller, with a less contrasting overall colouration making it drabber in appearance. The colour form LDA118 looks very similar to L024 (Pseudacanthicus pitanga). It is found in the upper reaches of the Rio Itacaiúnas, which shares a rainy season floodplain with the upper reaches of the Rio Frisco, a tributary of Rio Xingu. L24 comes from the Rio Tocantins.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=125",
+      "html": "<p>South America: Brazil: Rio Tocantins (Amazon, Lower Amazon, Tocantins, Itacaiúnas).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l24-has-been-described-pseudacanthicus-pitanga/",
+      "html": "<p>Rio Tocantins basin, northern Brazil. The species is very widely distributed in the Tocantins.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=125",
+      "html": "<p>Not as shy as some members of the genus, although a shady retreat should be provided.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=125",
+      "html": "<p>Carnivore although not a predator; prawns and chopped mussel appear favourites and promote favourable growth. Some vegetable matter should also be provided, which balances the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=125",
+      "html": "<p>Generally peaceful but territorial from a young age. Some large specimens are aggressively territorial and may cause problems if housed with other large nocturnal fish.</p><p>The temptation with large tough Loricariids is to keep them with large, tough fish such as Oscars or other brutish characters. This actually works quite well with most omnivorous or mainly vegetarian plecos. Pseudacanthicus, however, are big messy carnivores and, like all large plecos, produce vast amounts of waste, so they would require monumental filtration to be housed alongside non-catfish 'equals'. It is better to think of these catfish as the centrepiece fish and stock their aquarium with medium-sized (preferably omnivorous) fish. All sizes of barbs work surprisingly well.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=125",
+      "html": "<p>Mature males have considerably more odontodal growth on most fin rays, but the pectorals are the most adorned. Females fill out considerably compared with the slender males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=125",
+      "html": "<p>Unknown but almost certainly a cave / pipe spawner. There is but a single breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l24-has-been-described-pseudacanthicus-pitanga/",
+      "html": "<p>The scientific paper also discusses the risks of using this fish for the ornamental fish industry. The scientist states that this kind of use is no danger for wild populations. The only real danger for Pseudacanthicus pitanga is hydroelectric dams that change the water body in such a way that it is destroyed for fish that are specialised in fast-flowing waters, like L24. However, due to the very wide distribution of P. pitanga in the Tocantins, the species is currently not endangered at all.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=125",
+      "html": "<p>Zootaxa 3973 (no. 2), pp 310, Figs. 1-3.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l24-has-been-described-pseudacanthicus-pitanga/",
+      "html": "<p>Chamon, C. C. (2015): Pseudacanthicus pitanga: a new species of Ancestrini (Siluriformes: Loricariidae: Hypostominae) from rio Tocantins Basin, North Brazil. Zootaxa 3973 (2): 309-320</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/3ffb6745deb92ce7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3ffb6745deb92ce7-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudacanthicus_pitanga.htm",
+      "caption": "Pseudacanthicus pitanga",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a0a7f2a2826edc3e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a0a7f2a2826edc3e-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudacanthicus_pitanga.htm",
+      "caption": "Pseudacanthicus pitanga",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/58928b10c4d02efd.webp",
+      "thumb": "https://media.aquatome.com/commons/58928b10c4d02efd-480.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "B. Phalan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudacanthicus_pitanga.jpg",
+      "caption": "Pseudacanthicus pitanga"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/0c9920da1b20923e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0c9920da1b20923e-480.webp",
+      "width": 500,
+      "height": 254,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudacanthicus_pitanga.htm",
+      "caption": "Pseudacanthicus pitanga",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "PX9JqG9ZaT0",
+      "title": "L24  \nPseudacanthicus pitanga (tocantins)\n\"Red fin cactus\"\nHD - Tom's aquatic channel",
+      "durationSec": 113,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZSN-GAxlGtc",
+      "title": "Pseudacanthicus pitanga l24 12/11/2016",
+      "durationSec": 99,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kCd6ewV1PnQ",
+      "title": "L24 Red fin cactus \nPseudacanthicus pitanga (tucurui)\n\nHD - Tom's aquatic channel",
+      "durationSec": 51,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "90nv3HRIrfU",
+      "title": "Pseudacanthicus pitanga l24 19/12/2016",
+      "durationSec": 46,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc bể cá 200 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá pleco",
+        "tôm đông lạnh cho cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

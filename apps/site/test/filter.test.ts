@@ -64,6 +64,11 @@ test('breeds: all with no query, a name search keeps the matches, the water filt
   // No figure for what the filter asks (a tank, a difficulty): it may fit, but the list can't say, so it stays out.
   expect(keepBreed('Cá La Hán (Flowerhorn)', flowerhorn, { tankCm: 120 })).toBe(false)
   expect(keepBreed('Cá La Hán (Flowerhorn)', flowerhorn, { group: 'cichlid' })).toBe(false)
+  // A breed's own difficulty, from its sources, is read as a species' is: the hardest the reader will take on.
+  const oranda = { tempC: { min: 18, max: 24 }, difficulty: 3 }
+  expect(keepBreed('Cá vàng Oranda', oranda, { difficultyMax: 3 })).toBe(true)
+  expect(keepBreed('Cá vàng Oranda', oranda, { difficultyMax: 2 })).toBe(false)
+  expect(keepBreed('Cá vàng Oranda', oranda, { difficultyMax: 5, tempC: 20 })).toBe(true)
 })
 
 // "Ca dia" listed Barbucca diabolica above the discus (2026-11-01): the search matched across two words, barbuc-ca dia-bolica.

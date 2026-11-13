@@ -10,6 +10,52 @@
     "myanmar",
     "sittaung"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ka Dat Chaung",
+        "Sittaung"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Badis juergenschmidti is a badid known only from the Ka Dat Chaung river system in Mon State, south-eastern Myanmar, part of the Sittaung drainage.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Ka Dat Chaung",
+            "Sittaung"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961745,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          16.875,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {
@@ -44,7 +90,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -53,7 +99,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/badis-juergenschmidti",
-      "html": "<p>Badis juergenschmidti is a badid known only from the Ka Dat Chaung river system in Mon State, south-eastern Myanmar, part of the Sittaung drainage. Discovered by German aquarist Horst Linke in early 2010, it was known as B. sp. East Myanmar before its description. It has no opercular or cleithral blotch, and adult males have a broad, solid bar at the caudal-fin base and white margins to the caudal fin. The type locality is a shallow, slow-flowing river over boulders, stones and sand.</p><ul><li>Max size: 50 mm SL</li><li>Aquarium size: 60 × 30 cm</li><li>pH: 6.0–7.0</li><li>Hardness: 1–5 dGH</li><li>Difficulty: moderate (5 of 8)</li></ul>"
+      "html": "<p>Badis juergenschmidti is a badid known only from the Ka Dat Chaung river system in Mon State, south-eastern Myanmar, part of the Sittaung drainage. Discovered by German aquarist Horst Linke in early 2010, it was known as B. sp. East Myanmar before its description. It has no opercular or cleithral blotch, and adult males have a broad, solid bar at the caudal-fin base and white margins to the caudal fin. The type locality is a shallow, slow-flowing river over boulders, stones and sand.</p><ul><li>Max size: 50 mm SL</li><li>Aquarium size: 60 × 30 cm</li><li>pH: 6.0–7.0</li><li>Hardness: 1–5 dGH</li><li>Difficulty: moderate (4 of 8)</li></ul>"
     },
     {
       "key": "distribution",
@@ -128,8 +174,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể thủy sinh nhỏ"
+        "bể cá 60cm"
       ]
     },
     {

@@ -12,6 +12,73 @@
     "mozambique",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371163,
+      "total": 26,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MW",
+          18
+        ],
+        [
+          "MZ",
+          7
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -15.46875,
+          1
+        ],
+        [
+          33.75,
+          -14.0625,
+          14
+        ],
+        [
+          33.75,
+          -12.65625,
+          6
+        ],
+        [
+          33.75,
+          -11.25,
+          1
+        ],
+        [
+          35.15625,
+          -15.46875,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +122,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -127,26 +194,13 @@
       "html": "<p>Not a fish for the general Malawi cichlid community, N. livingstonii is an ambush predator in nature, often being seen hanging motionless around rocky structures, in Vallisneria thickets or on the floor of the lake. It is a sedentary species and does not move around a lot. This is a behavioural adaptation known as thanatosis, or 'playing dead'. This strategy is usually used for defensive means in other animals but in N. livingstonii is adapted for offensive means. The fish has a mottled colour pattern and this, combined with the aforementioned ability to lie motionless on the substrate, makes the fish appear dead to unsuspecting prey. When a smaller fish attempts to investigate the 'corpse' it receives a nasty surprise! Native people have named this fish \"Kaligono\", which loosely translates as \"sleeper\" in tribute to this behaviour. N. livingstonii is the only member of the genus to be found in both shallow and deeper water.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/bea0dafe553c3fc8.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/bea0dafe553c3fc8-480.webp",
-      "width": 601,
-      "height": 300,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-livingstonii",
-      "caption": "Nimbochromis livingstonii",
-      "source": "seriouslyfish"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 200 lít"
+        "bể cá 120cm"
       ]
     },
     {

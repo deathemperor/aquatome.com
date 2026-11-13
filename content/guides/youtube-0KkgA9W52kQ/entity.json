@@ -9,9 +9,11 @@
     "astronotus-ocellatus",
     "heros-severus",
     "mesonauta-festivus",
-    "pterophyllum-scalare"
+    "pterophyllum-scalare",
+    "tetraodon-lineatus",
+    "uaru-amphiacanthoides"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "0KkgA9W52kQ",
     "title": "THE OSCAR AQUARIUM - complete tour - The king of DIY",
@@ -74,10 +76,16 @@
       "Astronotus ocellatus",
       "Tetraodon lineatus",
       "Heros severus",
-      "Mesonauta festivus",
-      "Pterophyllum scalare"
+      "Uaru amphiacanthoides",
+      "Pterophyllum scalare",
+      "Mesonauta festivus"
     ],
     "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 182
+      },
       {
         "category": "loc",
         "type": "bot-bien",
@@ -86,101 +94,144 @@
       {
         "category": "thuc-an",
         "type": "kho",
-        "t": 464
+        "t": 465
       },
       {
         "category": "thuc-an",
         "type": "dong-lanh",
         "t": 495
-      },
-      {
-        "category": "be-ca",
-        "type": "lon",
-        "t": 182
-      },
-      {
-        "category": "phan-nen",
-        "type": "soi",
-        "t": 234
-      },
-      {
-        "category": "den",
-        "t": 234
       }
     ],
     "figures": [
       {
-        "heading": "Bể và thiết bị gồm những gì",
+        "heading": "Thay nước cho bể oscar thế nào",
         "moments": [
           {
-            "t": 5,
-            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/t5.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Toàn cảnh bể dài với nền sỏi, đá tròn và đàn Oscar."
-          },
-          {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/t10.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá Oscar bơi gần những tảng đá tròn phủ rêu trong bể."
+            "t": 65,
+            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at65-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống xả gắn vào bể oscar, nước đang được xả ra.",
+            "sharpness": 758.6,
+            "person": false
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/0KkgA9W52kQ/p0-ZvY19wYXJrLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/0KkgA9W52kQ/p0-ZvY19wYXJrLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "Booradleyp1",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_Oscar_fish-Voc_park.jpg",
-          "caption": "Bể nuôi cá Oscar nền sỏi, nhiều đá tròn và cây thủy sinh."
-        }
+        ]
       },
       {
-        "heading": "Tận dụng nước giặt lọc",
+        "heading": "Tận dụng xô nước bẩn sau khi rửa mút",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/0KkgA9W52kQ/p2-JfZm9hbV8xLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/0KkgA9W52kQ/p2-JfZm9hbV8xLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/0KkgA9W52kQ/p1-JfZm9hbV8xLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/0KkgA9W52kQ/p1-JfZm9hbV8xLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Khúc bông lọc xốp màu đen, loại hay dùng làm vật liệu lọc cho bể cá."
+          "caption": "Cận cảnh miếng mút lọc đen với các lỗ xốp chứa đầy vi sinh."
         }
       },
       {
-        "heading": "Vì sao không cần hút nền",
+        "heading": "Có cần hút nền không",
         "moments": [
           {
-            "t": 15,
-            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/t15.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể cá oscar nền sạch, đá nằm gọn, không thấy cặn đọng."
+            "t": 140,
+            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at140-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lớp sỏi nền sạch, không đọng cặn dưới đáy bể.",
+            "sharpness": 292.9,
+            "person": false
+          },
+          {
+            "t": 145,
+            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at145-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ngăn lọc có vật liệu lọc ở góc bể hút cặn vào.",
+            "sharpness": 692.1,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Nuôi oscar theo đàn khác gì nuôi một con",
-        "moments": [],
+        "heading": "Bể và đồ nghề cho đàn oscar",
+        "moments": [
+          {
+            "t": 205,
+            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at205-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể dài với đá cuội và đàn oscar bơi bên trong.",
+            "sharpness": 744.9,
+            "person": false
+          },
+          {
+            "t": 240,
+            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at240-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đèn tự chế từ chậu nhựa sơn lại, gắn bóng LED.",
+            "sharpness": 617.4,
+            "person": false
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/0KkgA9W52kQ/p4-YXF1YXJpdW0uanBn.webp",
-          "thumb": "https://media.aquatome.com/video/0KkgA9W52kQ/p4-YXF1YXJpdW0uanBn-480.webp",
+          "url": "https://media.aquatome.com/video/0KkgA9W52kQ/p3-ZvY19wYXJrLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/0KkgA9W52kQ/p3-ZvY19wYXJrLmpwZw-480.webp",
           "width": 960,
-          "height": 637,
-          "licence": "CC BY 4.0",
-          "author": "Retro Lenses",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_photo_of_an_oscar_fish_(Astronotus_ocellatus)_in_a_aquarium.jpg",
-          "caption": "Hai con oscar màu cam bơi cạnh nhau trong bể trồng cây."
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Booradleyp1",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_Oscar_fish-Voc_park.jpg",
+          "caption": "Bể kính nuôi oscar đỏ, trang trí đá cuội và vài cây thủy sinh."
         }
       },
       {
-        "heading": "Nuôi chung với cá nóc Fahaka được không",
-        "moments": [],
+        "heading": "Nuôi oscar theo đàn khác nuôi đơn ra sao",
+        "moments": [
+          {
+            "t": 325,
+            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at325-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mấy con oscar bơi gần nhau trong bể, cả đàn sống hòa thuận.",
+            "sharpness": 493.8,
+            "person": false
+          },
+          {
+            "t": 335,
+            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at335-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cả đàn oscar bơi phía trên đá và sỏi trong bể dài.",
+            "sharpness": 599.7,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Nuôi cá nóc Fahaka chung với oscar",
+        "moments": [
+          {
+            "t": 275,
+            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at275-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá nóc Fahaka vằn sọc bơi gần đáy cát giữa các hòn đá.",
+            "sharpness": 420.7,
+            "person": false
+          },
+          {
+            "t": 310,
+            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at310-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn oscar bơi phía trên trong khi bể có đá và cát bên dưới.",
+            "sharpness": 60.7,
+            "person": false
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/0KkgA9W52kQ/p5-YWlreW9rYW4uanBn.webp",
           "thumb": "https://media.aquatome.com/video/0KkgA9W52kQ/p5-YWlreW9rYW4uanBn-480.webp",
@@ -189,34 +240,63 @@
           "licence": "CC BY-SA 4.0",
           "author": "Totti",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetraodon_lineatus_Kaikyokan.jpg",
-          "caption": "Cá nóc Fahaka trong bể cát, phía sau có một con cá khác cùng bể."
+          "caption": "Cá nóc Fahaka trong bể nền cát, phía sau còn có một con cá khác."
         }
       },
       {
-        "heading": "Cho ăn thế nào để bể sạch và cá đẹp",
+        "heading": "Cho ăn sao để Fahaka không bị đói",
         "moments": [
           {
-            "t": 20,
-            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/t20.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đàn cá Oscar bơi trong bể có đá và nền sỏi."
+            "t": 605,
+            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at605-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá Fahaka nằm dưới nền cát, cạnh hòn đá, sẵn sàng ăn.",
+            "sharpness": 375.4,
+            "person": false
+          },
+          {
+            "t": 625,
+            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at625-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mấy con oscar bơi sát nhau, đang tranh nhau đớp thức ăn.",
+            "sharpness": 11.2
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/0KkgA9W52kQ/p7-YWlreW9rYW4uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/0KkgA9W52kQ/p7-YWlreW9rYW4uanBn-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY-SA 4.0",
+          "author": "Totti",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetraodon_lineatus_Kaikyokan.jpg",
+          "caption": "Cá nóc Fahaka nằm yên dưới nền cát trong bể, ít vận động."
+        }
       },
       {
-        "heading": "Nếu đàn không còn hợp nhau",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/0KkgA9W52kQ/p7-bmFjYXB1cnUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/0KkgA9W52kQ/p7-bmFjYXB1cnUuanBn-480.webp",
-          "width": 960,
-          "height": 621,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ewkaa",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Biotope_aquarium_-_Pterophyllum_sp._Manacapuru.jpg",
-          "caption": "Hai con cá thần tiên bơi trong bể có lũa, kiểu bể Nam Mỹ."
-        }
+        "heading": "Nếu đàn oscar bắt cặp và đánh nhau",
+        "moments": [
+          {
+            "t": 705,
+            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at705-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn oscar bơi trong bể tối có nhiều đá lớn.",
+            "sharpness": 568.8,
+            "person": false
+          },
+          {
+            "t": 730,
+            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at730-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể nuôi đàn oscar với đá và cát.",
+            "sharpness": 1079.7,
+            "person": false
+          }
+        ]
       }
     ]
   }

@@ -10,9 +10,21 @@
   "https://media.aquatome.com/seriouslyfish/f8c249dcf0cabb62.webp": "0b084a1e678c1c3c",
   "https://media.aquatome.com/seriouslyfish/61d5d5f357f2cf82.webp": "1f8b0f4f07bde3d9",
   "https://media.aquatome.com/seriouslyfish/7b581f5bf26b8dcf.webp": "8d6913909dd4a439",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Apistogramma_panduro_f.jpg/1280px-Apistogramma_panduro_f.jpg": "0e279d587bfea043",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Apistogramma_panduro_m.jpg/1280px-Apistogramma_panduro_m.jpg": "f6ba0c0c243e8ece",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Apistogramma_Panduro_male.jpg/1280px-Apistogramma_Panduro_male.jpg": "f3dbcf8607a7ae23"
+  "https://media.aquatome.com/commons/bf11bac1f31f9143.webp": "ebdb8f0e87a78623",
+  "https://media.aquatome.com/commons/97afe7b21e65fe70.webp": "f4bc0c0c2e3e8ece",
+  "https://media.aquatome.com/commons/16eb5297cc833876.webp": "0c2f1d597bfea047"
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "inat": {
+  "taxon": 611250,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2371223,
+  "next": null
+ }
 }

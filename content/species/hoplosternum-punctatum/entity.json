@@ -8,13 +8,121 @@
   "places": [
     "south-america",
     "colombia",
-    "atrato"
+    "atrato",
+    "panama"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PA",
+        "CO"
+      ],
+      "regions": [
+        "Atrato",
+        "Atrato River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Marte Arnade, 6 mi. east of Panama City, Panama.",
+          "countries": [
+            "PA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Colombia, Caribbean Rivers, Atrato.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Atrato"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Pacific coastal drainages of Panama and Atrato River basin, Colombia.",
+          "countries": [],
+          "regions": [
+            "Atrato River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342516,
+      "total": 17,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "PA",
+          12
+        ],
+        [
+          "CO",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -80.15625,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -78.75,
+          7.03125,
+          8,
+          8
+        ],
+        [
+          -78.75,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          7.03125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 7.7
+      },
+      {
+        "source": "scotcat",
+        "value": 8
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
       }
     ]
   },
@@ -26,10 +134,40 @@
       "html": "<p>Hoplosternum punctatum Meek &amp; Hildebrand, 1916. Common names: Spotted Hoplo. Type locality: Río Marte Arnade, 6 mi. east of Panama City, Panama. Size: 77 mm (3\") SL. IUCN Red List: Near Threatened (last assessed 2019).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
+      "html": "<ul><li>Common name: Spotted hoplo</li><li>Synonyms: none</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
+      "html": "<p>Similar looking to Dianema longibarbus, but D. longibarbus has much larger eyes.</p><p>Key to species: interopercle covered by skin, not visible externally; caudal peduncle shallower (14.3-17.2% of standard length in specimens larger than 55.0 mm SL).</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1048",
       "html": "<p>South America: Colombia, Caribbean Rivers, Atrato.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
+      "html": "<p>South America: Pacific coastal drainages of Panama and Atrato River basin, Colombia. Type locality: Rio Marte Arnade, 6 miles east of Panama City, Panama.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
+      "html": "<p>Omnivorous, taking most foods but preferring live and frozen such as daphnia, worms, white and grindal worms, and bloodworms. Will also accept good quality flake and tablet foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
+      "html": "<p>This is a peaceful midwater to bottom swimmer that will do better if kept in a group of at least 4, as individuals on their own tend to sulk and never seem to progress too well. Try to resist placing them in an aquarium with aggressive species such as some cichlids; they will do better with the usual community type fish and of course along with Corydoras sp.</p>"
     },
     {
       "key": "dimorphism",
@@ -44,14 +182,96 @@
       "html": "<p>There is a single breeding report for this species.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
+      "html": "<p>Etymology: the specific name punctatum is Latin for spotted, referring to small, roundish black spots on the entire body (except upper surface of head and dorsal region) and on dorsal and caudal-fin rays.</p><p>IUCN Red List: Hoplosternum punctatum is distributed in Pacific coastal drainages from Panama City, Panama, southward to the Atrato River on the Atlantic slope of Colombia. Extent of Occurrence is estimated to be 15,553 km². Total population size and population trend are unknown. However, mining activities, land-use changes and agricultural expansion along major transportation corridors, and deforestation associated with these activities are producing a continuous inferred decline in habitat quality throughout much of the species range. Given uncertainties regarding species distribution and the scope and magnitude of major pervasive threats, the number of locations where this species occurs cannot be determined. Therefore, H. punctatum is assessed as Near Threatened because it nearly meets all subcriteria for classification under a threatened category using criterion B1ab(iii) (IUCN 2020).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1048",
       "html": "<p>Field Museum of Natural History, Publications, Zoölogical Series v. 10 (no. 15), pp 264, Pls. 14-15.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Lyons, T.J. 2020. Hoplosternum punctatum. The IUCN Red List of Threatened Species 2020.</p><p>Reis, Roberto E. 1996. Hoplosternum Gill 1858. Version 29 April 1996.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/cb431cd8138c1b0d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/cb431cd8138c1b0d-480.webp",
+      "width": 500,
+      "height": 302,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
+      "caption": "Hoplosternum punctatum",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3e624fde3c07db9e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3e624fde3c07db9e-480.webp",
+      "width": 500,
+      "height": 306,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
+      "caption": "Hoplosternum punctatum",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c5612617297d52f1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c5612617297d52f1-480.webp",
+      "width": 500,
+      "height": 302,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
+      "caption": "Hoplosternum punctatum",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f52afa197f153ec5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f52afa197f153ec5-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Ivan Sokol / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm",
+      "caption": "Hoplosternum punctatum",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "xZpe-fQdWMY",
+      "title": "Hoplosternum Punctatum Spawning and Nesting",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "71e5t5o3qVU",
+      "title": "Feeding Hoplosternum Punctatum By Hand",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NqKhy1GZrtU",
+      "title": "Hoplosternum Punctatum Interactions",
+      "durationSec": 29,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Phoh6FZECm4",
+      "title": "Hoplosternum punctatum spotted hoplo",
+      "durationSec": 20,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -81,5 +301,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-06"
 }

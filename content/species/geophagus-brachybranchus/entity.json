@@ -14,6 +14,165 @@
     "venezuela",
     "cuyuni"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR",
+        "GY",
+        "VE"
+      ],
+      "regions": [
+        "Courantyne",
+        "Nickerie",
+        "Essequibo",
+        "Cuyuní"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'above Blanche Marie Valen, Nickerie District, Suriname' in the Nickerie river drainage, northwestern Suriname.",
+          "countries": [
+            "SR"
+          ],
+          "regions": [
+            "Nickerie"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also known from the Courantyne (aka Corantijn) system which forms the border between western Suriname and Guyana for much of its course.",
+          "countries": [
+            "GY"
+          ],
+          "regions": [
+            "Courantyne"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "López-Fernández and Taphorn (2004) reported that its range extends right across Guyana and into Venezuela via the Rio Cuyuní system.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Cuyuní"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Kullander and Nijssen (1989) and Kullander (2003) suggest it probably occurs further west into Guyana because specimens collected from the Ríos Demerera and Essequibo by Eigenmann in 1912, originally identified as G. surinamensis, actually appear to represent G. brachybranchus.",
+          "countries": [],
+          "regions": [
+            "Essequibo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208438,
+      "total": 67,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "SR",
+          54
+        ],
+        [
+          "GY",
+          8
+        ],
+        [
+          "VE",
+          3
+        ],
+        [
+          "BR",
+          1
+        ],
+        [
+          "GF",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          4.21875,
+          43,
+          43
+        ],
+        [
+          -56.25,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -57,7 +216,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -170,7 +329,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 180x60 cm"
+        "bể cá 180cm"
       ]
     },
     {

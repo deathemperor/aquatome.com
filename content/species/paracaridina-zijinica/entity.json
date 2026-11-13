@@ -1,0 +1,101 @@
+{
+  "id": "paracaridina-zijinica",
+  "scientificName": "Paracaridina zijinica",
+  "order": "Decapoda",
+  "family": "Atyidae",
+  "genus": "Paracaridina",
+  "group": "shrimp",
+  "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 4309708,
+      "total": 2,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          23.90625,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/mustang_shrimps_arrived__en/",
+      "html": "<p>The \"Mustang Shrimp\" is a very pretty, black-and-white dwarf shrimp. According to Werner Klotz, the \"godfather of dwarf shrimps\", it belongs to the species Paracaridina zijinica. Regarding keeping and breeding, it does not differ from the well-known dwarf shrimp \"Crystal Red\".</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/mustang_shrimps_arrived__en/",
+      "html": "<p>The Crystal Red, the first dwarf shrimp that appeared on the market at all, has finally been described scientifically as Caridina logemanni Klotz &amp; van Rintelen, 2014, named in honour of the brothers Logemann, well-known dwarf shrimp breeders.</p><p>In the same work, the well-known Tiger Shrimp was named Caridina mariae Klotz &amp; van Rintelen, 2014, dedicated to Maria, the wife of Werner Klotz.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/mustang_shrimps_arrived__en/",
+      "html": "<p>Klotz, W. &amp; T. van Rintelen (2014): To \"bee\" or not to be – on some ornamental shrimp from Guangdong Province, Southern China and Hong Kong SAR, with descriptions of three new species. Zootaxa 3889 (2): 151-184</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "Xqz-SqAXqAE",
+      "title": "paracaridina zijinica",
+      "durationSec": 27,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "EU20C4wpoKE",
+      "title": "Breeding Paracaridina zijinica (old Caridina meridionalis) by Fábio Silva",
+      "durationSec": 127,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KpLB95NcWZs",
+      "title": "Paracaridina zininica",
+      "durationSec": 10,
+      "lang": "zxx"
+    },
+    {
+      "youtubeId": "VcZL2P6xfl4",
+      "title": "Kopie von paracaridina zijinica",
+      "durationSec": 27,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nuôi tép cảnh",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sponge cho tép",
+        "lọc mini bể tép"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tép cảnh",
+        "thức ăn tép Crystal Red"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

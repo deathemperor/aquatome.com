@@ -21,7 +21,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 4
       }
     ]
   },
@@ -30,7 +30,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acheilognathus-signifer",
-      "html": "<p>The Korean bitterling, Tanakia signifer, is endemic to the Korean peninsula, where it occurs in southern North Korea and northern South Korea. It is considered endangered in South Korea, where it lives only in the Han river system and many populations have been extirpated. It inhabits cool, clean, shallow water over coarse sand or gravel, and like all bitterlings it spawns in living unionid mussels.</p><ul><li>Max size: 75 mm SL (3.0 in SL)</li><li>Difficulty: 3 of 8 (moderate)</li><li>Space: medium tank</li><li>Social: needs to be in a group</li><li>Compatibility: choose tankmates carefully</li></ul>"
+      "html": "<p>The Korean bitterling, Tanakia signifer, is endemic to the Korean peninsula, where it occurs in southern North Korea and northern South Korea. It is considered endangered in South Korea, where it lives only in the Han river system and many populations have been extirpated. It inhabits cool, clean, shallow water over coarse sand or gravel, and like all bitterlings it spawns in living unionid mussels.</p><ul><li>Max size: 75 mm SL (3.0 in SL)</li><li>Difficulty: 4 of 8 (moderate)</li><li>Space: medium tank</li><li>Social: needs to be in a group</li><li>Compatibility: choose tankmates carefully</li></ul>"
     },
     {
       "key": "distribution",
@@ -63,7 +63,73 @@
       "html": "<ul><li>Berg, L. S. (1907). Description of a new cyprinoid fish, Acheilognathus signifer, from Korea, with a synopsis of all the known Rhodeinae. Annals and Magazine of Natural History (Series 7) v. 19, 159-163</li><li>Cheng, P., D. Yu, S. Liu, Q. Tang, and H. Liu (2014). Molecular Phylogeny and Conservation Priorities of the Subfamily Acheilognathinae (Teleostei: Cyprinidae). Zoological Science 31(5), 300-308</li><li>Kawamura, K., T. Ueda, R. Awai, and C. Smith (2014). Phylogenetic Relationships of Bitterling Fishes (Teleostei: Cypriniformes: Acheilognathinae), Inferred from Mitochondrial Cytochrome b Sequences. Zoological Science 31(5), 321-329</li><li>Reichard, M., J. Bryja, M. Polačik, and C. Smith (2011). No evidence for host specialization or host‐race formation in the European bitterling (Rhodeus amarus), a fish that parasitizes freshwater mussels. Molecular Ecology 20(17), 3631-3643</li><li>Kawamura, K. and K. Uehara (2005). Effects of temperature on free‐embryonic diapause in the autumn‐spawning bitterling Acheilognathus rhombeus (Teleostei: Cyprinidae). Journal of Fish Biology 67(3), 684-695</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/65386165ea10433e0883a3976fdd7db5.webp",
+      "thumb": "https://media.aquatome.com/processed/65386165ea10433e0883a3976fdd7db5-480.webp",
+      "width": 418,
+      "height": 314,
+      "licence": "dùng với sự cho phép",
+      "author": "Jeon, Hyung-Bae",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acheilognathus-signifer",
+      "caption": "Nuptial male individual.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-tanakia-signifer",
+        "pixelHash": "818e0422827bfe66a7414b84604f024240ea8cae9b2eb4a02500c55e1508ab96"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T11:04:05.885Z",
+          "originalHash": "d30faf5b0ce392facdec36e68ca6f7af8645d8484eb133017c26956c8cf0a28d",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 600,
+            "originalHeight": 400,
+            "window": {
+              "x0": 181,
+              "y0": 60,
+              "x1": 599,
+              "y1": 374
+            },
+            "subject": {
+              "x0": 200,
+              "y0": 119,
+              "x1": 546,
+              "y1": 314
+            },
+            "margin": 10
+          },
+          "excludedMarks": [
+            {
+              "x0": 27,
+              "y0": 31,
+              "x1": 177,
+              "y1": 74
+            }
+          ],
+          "checks": {
+            "species": [
+              "f0d0ff2f27abe8fcf68dd681181f62e18ba86702acc1790037b3f188a4d2e505",
+              "15dcc8f042c1443c7a29435e70d0775a454074ec90a7b09bd68274485d2e6b75"
+            ],
+            "ownership": [
+              "f28930fb460956ee947aa16ec5f0fe53ea753ee8e824957e81539e8a872fd9cc",
+              "8c3aa2901cdb0bb14cd2b143e8863f9e401ed14192aae670c92eaa5dc1fbe484"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/8aac76979eeaa69f.webp",
+        "width": 600,
+        "height": 400,
+        "thumb": "https://media.aquatome.com/seriouslyfish/8aac76979eeaa69f-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

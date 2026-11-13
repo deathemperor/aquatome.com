@@ -1,14 +1,22 @@
 {
   "id": "youtube-xf_ylcdUQsQ",
-  "kind": "aquascaping",
+  "kind": "setup",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=xf_ylcdUQsQ",
   "html": "",
   "photos": [],
   "mentions": [
-    "bucephalandra-sp"
+    "bucephalandra-sp",
+    "cryptocoryne-parva",
+    "eleocharis-parvula",
+    "gratiola-viscidula",
+    "lilaeopsis-brasiliensis",
+    "myriophyllum-sp-guyana",
+    "rotala-rotundifolia",
+    "anubias-barteri",
+    "riccardia-chamedryfolia"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "xf_ylcdUQsQ",
     "title": "HOW TO: Make an Aquascape -Nano Aquascape Tutorial - Step by Step GUIDE Building a CONTEST Aquascape",
@@ -77,14 +85,14 @@
         "type": "nano",
         "brand": "Beta acuarios",
         "model": "Line Nano 40",
-        "t": 139
+        "t": 134
       },
       {
         "category": "loc",
         "type": "thung",
         "brand": "JBL",
         "model": "e701",
-        "t": 893
+        "t": 900
       },
       {
         "category": "den",
@@ -98,76 +106,152 @@
         "type": "mini",
         "brand": "Dennerle",
         "model": "Primus 160 Einweg Special Edition",
-        "t": 966
+        "t": 976
       },
       {
         "category": "phan-nen",
         "type": "phan",
         "brand": "JBL",
         "model": "plant soil brown",
-        "t": 0
+        "t": 315
       },
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 170
+        "t": 201
       }
     ],
     "figures": [
       {
-        "heading": "Bể và vật liệu gồm những gì",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/p0-BcXVhcml1bS5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/xf_ylcdUQsQ/p0-BcXVhcml1bS5KUEc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC0",
-          "author": "Tdwittt",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planted_Nano_Aquarium.JPG",
-          "caption": "Bể nhỏ bố trí lũa lớn cùng vài cây lá xanh trên nền đất đen."
-        }
+        "heading": "Lấy ý tưởng và dựng thử bố cục ở đâu",
+        "moments": [
+          {
+            "t": 210,
+            "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thùng carton cắt mặt trước và trên, xếp thử đá và lũa bên trong.",
+            "sharpness": 996.9
+          }
+        ]
       },
       {
-        "heading": "Dán lũa và đá thế nào cho chắc",
-        "moments": [],
+        "heading": "Dán lũa đá cho chắc bằng giấy vệ sinh và keo 502",
+        "moments": [
+          {
+            "t": 250,
+            "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at250-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay đang dán khúc lũa vào đá bằng keo ở khe giữa.",
+            "sharpness": 2019.5
+          },
+          {
+            "t": 280,
+            "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at280-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khối lũa và đá đã được dán chắc trong bể.",
+            "sharpness": 2178.9
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/p2-wJUI4XygxKS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/xf_ylcdUQsQ/p2-wJUI4XygxKS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/p1-Blcl9HbHVlLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/xf_ylcdUQsQ/p1-Blcl9HbHVlLmpwZw-480.webp",
           "width": 960,
-          "height": 720,
+          "height": 1707,
           "licence": "CC BY-SA 4.0",
-          "author": "Schekinov Alexey Victorovich",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%A1%D0%A3%D0%9F%D0%95%D0%A0-%D0%9A%D0%9B%D0%95%D0%99_(cyanoacrylate)._%D0%A1%D0%BA%D0%BB%D0%B5%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%B4%D0%B5%D1%82%D0%B0%D0%BB%D0%B8_(1).jpg",
-          "caption": "Tuýp keo siêu tốc (superglue) dùng để dán các chi tiết lại với nhau."
+          "author": "Glsysrp",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akfix_303_Super_Glue.jpg",
+          "caption": "Tuýp keo dán siêu dính (keo 502) dùng để dán đá và lũa."
         }
       },
       {
-        "heading": "Trồng cây và đổ nước",
-        "moments": [],
+        "heading": "Dán decal nền mờ phía sau bể thế nào",
+        "moments": [
+          {
+            "t": 450,
+            "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at450-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vuốt phẳng decal mờ trên kính sau, nền trở nên mờ đục.",
+            "sharpness": 70.3
+          }
+        ]
+      },
+      {
+        "heading": "Trồng cây cho bố cục",
+        "moments": [
+          {
+            "t": 610,
+            "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at610-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây con trồng vào các khe đá và rễ lũa.",
+            "sharpness": 2416.1
+          },
+          {
+            "t": 730,
+            "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at730-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Những cây nhỏ mới trồng xen giữa đá và lũa trong bố cục.",
+            "sharpness": 2550.5
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/p4-NfUGxhbnRzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/xf_ylcdUQsQ/p4-NfUGxhbnRzLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/p3-cXVhc2NhcGUucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/xf_ylcdUQsQ/p3-cXVhc2NhcGUucG5n-480.webp",
           "width": 960,
-          "height": 638,
-          "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Bể thủy sinh với cây lá xanh gắn trên lũa, nền cát trắng."
+          "height": 447,
+          "licence": "CC BY-SA 4.0",
+          "author": "Duc Viet Bui",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_style_aquascape.png",
+          "caption": "Bể thủy sinh bố cục lũa phủ rêu, cây xếp tầng lớp rất đẹp."
         }
       },
       {
-        "heading": "Đèn đã đủ chưa",
-        "moments": [],
+        "heading": "Lắp lọc ngoài mạnh cho bể nhỏ",
+        "moments": [
+          {
+            "t": 900,
+            "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at900-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể nhỏ đang lắp ống lọc, dây ống đặt cạnh lũa.",
+            "sharpness": 998.5
+          },
+          {
+            "t": 960,
+            "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at960-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống xả spin pipe trong, gắn trên thành bể nhỏ đã trồng cây.",
+            "sharpness": 1054.1
+          }
+        ]
+      },
+      {
+        "heading": "CO2 và đèn",
+        "moments": [
+          {
+            "t": 1170,
+            "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/at1170-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ CO2 cùng dây và phụ kiện được bày trên hộp xanh.",
+            "sharpness": 1661.7
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/p6-1bV9MaWdodC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/xf_ylcdUQsQ/p6-1bV9MaWdodC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/xf_ylcdUQsQ/p5-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/xf_ylcdUQsQ/p5-1bV9MaWdodC5qcGc-480.webp",
           "width": 960,
           "height": 666,
           "licence": "CC BY-SA 3.0",
           "author": "Lime Huang",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh nano có đèn gắn trên, lũa và cây mọc xanh tốt."
+          "caption": "Bể thủy sinh nano có lũa và cây xanh, lắp đèn LED phía trên."
         }
       }
     ]

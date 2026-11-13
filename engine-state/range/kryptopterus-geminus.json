@@ -1,0 +1,145 @@
+{
+  "id": "kryptopterus-geminus",
+  "native": {
+    "input": "e90156beecc069c4",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Thailand",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Kryptopterus geminus is a silurid catfish from the lower and middle Mekong in Thailand, Laos, Cambodia and Vietnam, and the lower Chao Phraya.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Kryptopterus geminus is a silurid catfish from the lower and middle Mekong in Thailand, Laos, Cambodia and Vietnam, and the lower Chao Phraya.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Kryptopterus geminus is a silurid catfish from the lower and middle Mekong in Thailand, Laos, Cambodia and Vietnam, and the lower Chao Phraya.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Kryptopterus geminus is a silurid catfish from the lower and middle Mekong in Thailand, Laos, Cambodia and Vietnam, and the lower Chao Phraya.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Cambodia: Stung Treng, Mekong River 2 km downstream from mouth of Tonle San on sandbars, Mekong River drainage.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "glaser",
+        "quote": "Kryptopterus geminus inhabits the large river basins of the mainland of Southeast Asia: Mekong, Mae Khlong, Bang Pakong and Chao Phraya.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "glaser",
+        "quote": "Kryptopterus geminus inhabits the large river basins of the mainland of Southeast Asia: Mekong, Mae Khlong, Bang Pakong and Chao Phraya.",
+        "ok": true
+      },
+      {
+        "name": "Mae Khlong",
+        "source": "glaser",
+        "quote": "Kryptopterus geminus inhabits the large river basins of the mainland of Southeast Asia: Mekong, Mae Khlong, Bang Pakong and Chao Phraya.",
+        "ok": true
+      },
+      {
+        "name": "Bang Pakong",
+        "source": "glaser",
+        "quote": "Kryptopterus geminus inhabits the large river basins of the mainland of Southeast Asia: Mekong, Mae Khlong, Bang Pakong and Chao Phraya.",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Known from the lower and middle Mekong river system in Thailand, Laos, Cambodia and Vietnam at least as far upstream as Vientiane, capital of Laos, and the lower Chao Phraya drainage in Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Known from the lower and middle Mekong river system in Thailand, Laos, Cambodia and Vietnam at least as far upstream as Vientiane, capital of Laos, and the lower Chao Phraya drainage in Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Kryptopterus geminus",
+    "status": "ACCEPTED",
+    "taxonKey": 2337912,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        51
+      ],
+      [
+        "65807d8f-83b2-48e7-945b-bd4658ebef74",
+        32
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        20
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA",
+      "KH",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

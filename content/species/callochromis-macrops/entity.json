@@ -1,0 +1,315 @@
+{
+  "id": "callochromis-macrops",
+  "scientificName": "Callochromis macrops",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Callochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "tanzania",
+    "zambia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania, Zambia).",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ",
+            "ZM"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369726,
+      "total": 93,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ZM",
+          38
+        ],
+        [
+          "TZ",
+          33
+        ],
+        [
+          "CD",
+          22
+        ]
+      ],
+      "cells": [
+        [
+          26.71875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -7.03125,
+          15,
+          15
+        ],
+        [
+          28.125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -9.84375,
+          20,
+          20
+        ],
+        [
+          29.53125,
+          -8.4375,
+          13,
+          13
+        ],
+        [
+          29.53125,
+          -7.03125,
+          17,
+          17
+        ],
+        [
+          29.53125,
+          -5.625,
+          8,
+          8
+        ],
+        [
+          30.9375,
+          -9.84375,
+          16,
+          16
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          33.75,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.8,
+          "max": 9.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 13.5
+      },
+      {
+        "source": "glaser",
+        "value": 14
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/callochromis-macrops",
+      "html": "<p>The big-eyed mouthbrooder, Callochromis macrops, is a sand-sifting cichlid endemic to Lake Tanganyika, found in the southern part of the lake. It lives over shallow sandy bottoms near rocks, taking in mouthfuls of sand and sifting out invertebrates through the gills. Several geographical colour forms exist and should not be kept together, as they hybridise freely. Males are particularly belligerent towards one another in captivity, so a small tank suits one male with several females.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/callochromis_macrops_en/",
+      "html": "<p>Is this a species of Geophagus from Lake Tanganyika? One can get these thoughts when seeing Callochromis macrops the first time. However, this mouthbrooding sand cichlid belongs to the large Haplochromis-relationship. The ability to change the coloration is breathtaking in this species. The same individual that right now looked silvery or blotched will become in a glimpse bright copper-red!</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/callochromis-macrops",
+      "html": "<p>Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania, Zambia).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/callochromis-macrops",
+      "html": "<p>It inhabits open areas with sandy bottoms (usually close to rocks, which the fish use for cover) in the southern part of the lake, south of Nyanza and Cape Caramba. Apparently it prefers habitats that are quite shallow and rich in suspended sediment. These tend to be murkier than most other parts of the lake. Beds of aquatic plants such as Vallisneria spiralis and Ceratophyllum demersum are common here too.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/callochromis-macrops",
+      "html": "<p>A tank of around 120 × 45 × 45 cm (~243 litres) could house a small group of these, consisting of a male and a harem of three or more females. A much bigger tank would be needed if you want to keep several males together.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/callochromis_macrops_en/",
+      "html": "<p>The maximum size reported for this species is about 12-14 cm.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/callochromis-macrops",
+      "html": "<p>A predominantly open, sandy environment is the most essential feature, as it's a sand-sifting, substrate-dwelling species. Males will also construct their bowers in the sand. Add a fairly deep layer (5–8 cm) to the tank, as they can use a surprising amount in building these. Try not to clutter up the tank too much with rocky formations, leaving as much open floor space as possible. The females do require some refuges though, so add a couple of rock piles in the back corners or at one end of the tank. You could also add some clumps of plants to provide additional cover. Both Vallisneria and Ceratophyllum are readily available, easily grown and true to the natural habitat of the species.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/callochromis-macrops",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 7.8–9.5</li><li>Hardness: 10–30 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/callochromis-macrops",
+      "html": "<p>Most foods are accepted but live and frozen varieties should form the bulk of the diet. It feeds almost exclusively from the substrate, so make sure enough food makes it to the bottom of the tank.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/callochromis-macrops",
+      "html": "<p>Fairly boisterous, but can be kept with other species provided they occupy different areas within the tank and are fairly robust. Any of the various Cyprichromis species are an excellent choice, as they occupy the upper water levels. Rock dwellers such as Altolamprologus can also work well in a big tank. Unless the tank is enormous don't add any shelldwellers or other sand sifters to the setup, as these will compete with the Callochromis for space and territories.</p><p>Although it's found existing in large groups in nature, in captivity it proves to be particularly belligerent towards conspecifics. If kept in cramped conditions intra-specific aggression between males can be very ferocious. In tanks with a footprint (surface area) of less than 183 × 46 cm only a single male should be kept. In bigger quarters you can keep more than one male, but try to form distinct territories by tactful placing of rock piles to form loose boundaries. Always keep several females per male too, as males can be quite tough on their potential partners. Keeping a group will reduce the stress placed on any individual fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/callochromis-macrops",
+      "html": "<p>Easy to sex. Males are both larger and more colourful than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/callochromis-macrops",
+      "html": "<p>It's a maternal mouthbrooder and will often spawn in the community tank if conditions are to its liking. If you wish to set up a dedicated spawning project, a separate species-only tank is advisable. This should be spacious (120 × 45 × 45 cm is a good size) and set up as suggested above. A pH of 8.0–9.0 and a temperature of 25–26.5 °C is ideal. Add a single male and 3–4 females, bringing them into condition with generous amounts of live and frozen foods. The species can spawn from a very young age.</p><p>When ready to spawn the male will dig a small depression in the sand or find an existing one that suits him. As the fish mature these nests or bowers tend to increase in size. A fully grown adult male often has a permanent turret-like bower that can measure well over 30 cm in diameter and be almost as tall. Such a dominant male will spawn almost constantly with any available females. Whatever the age of the fish, when the male has finished constructing his nest he starts to put on a show for potential mates. His colour intensifies and he displays around his nest, attempting to entice females to mate with him. He can be quite aggressive in his pursuits and it is in order to dissipate this aggression that the species is best spawned in a harem.</p><p>As well as chasing he uses his anal fin in an interesting behaviour, folding it so that the orange/red splash of colour on it is manipulated to look like an egg. This apparently encourages the females to spawn with him. The species is the only one in Lake Tanganyika in which the males show egg spots on their anal fin, the trait being more usually associated with the cichlid flock of Lake Malawi. What is most impressive about the adaptation in this species is that due to the folding of the fin, the egg actually appears in three dimensions.</p><p>When a female is interested, she will approach the spawning site and lay her eggs there, after which she immediately picks them up in her mouth. The male then displays the egg on his anal fin again. Thinking she has missed some of her brood, the female is attracted to this, attempting to add it to the eggs in her mouth. While she is doing this the male releases his sperm which mixes with and fertilises them.</p><p>The female may carry the brood of 25–60 eggs for up to 3 weeks before releasing the free swimming fry. She will not eat during this period and can be easily spotted by her distended mouth. If a female is overly stressed she may spit out the brood prematurely or eat them, so care must be taken if you decide to move the fish in order to avoid fry predation. It is also worth noting that if a female is away from the colony for too long she may lose her position in the pecking order of the group. It's best to wait as long as possible before moving a female unless she is being harassed.</p><p>The fry may still have some yolk sac remaining when they are released and do not need to be fed until this has disappeared. If they are released with no yolk sacs you can start to feed immediately. They are large enough to take brine shrimp nauplii from birth.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/callochromis-macrops",
+      "html": "<p>Members of the genus Callochromis feed in a similar way to the South American eartheaters such as Geophagus species. They extract invertebrates and other items hidden in the substrate by taking in mouthfuls of sand and sifting it through the gills. The common term sand sifters is applied to these and other Tanganyikan species that inhabit a similar ecological niche, such as Enantiopus and Xenotilapia spp.</p><p>Several geographical colour forms of this species exist. These should not be kept together as they will hybridise freely. C. melanostigma, the species which replaces C. macrops in the northern part of the lake, was formerly considered a subspecies but is now considered distinct.</p><p>Despite its somewhat rowdy nature, the species can make for a great breeding project if you're prepared to build the tank around its needs. It's beautifully coloured and exhibits some fascinating behaviour when maintained correctly.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "A8CqTM7KskE",
+      "title": "Lake tanganyika According to Carl S2E11 Kawelmwa and the Callochromis among others",
+      "durationSec": 342,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "nTANcOFYFnk",
+      "title": "Callochromis macrops ndole bay",
+      "durationSec": 73,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vw2cd-h0MeM",
+      "title": "Callochromis macrops ndole bay red male showing off for a female",
+      "durationSec": 29,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JXpSoQtbwrw",
+      "title": "Callochromis macrops at Kasanga. Lake Tanganyika",
+      "durationSec": 28,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cichlid Tanganyika",
+        "nền cát hồ cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 240 lít"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cichlid Tanganyika",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

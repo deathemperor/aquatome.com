@@ -13,6 +13,89 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "SG",
+        "ID"
+      ],
+      "regions": [
+        "Kapuas River",
+        "Borneo",
+        "Anambas",
+        "Natuna"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Barbodes banksi is a cyprinid from Peninsular Malaysia, Singapore and western Borneo, plus the Anambas and Natuna islands of Indonesia.",
+          "countries": [
+            "MY",
+            "SG",
+            "ID"
+          ],
+          "regions": [
+            "Borneo",
+            "Anambas",
+            "Natuna"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Current knowledge agrees with this as the extent of its distribution, with records from various localities in Peninsular Malaysia, Singapore (where its distribution is now much reduced), western Borneo (including Sarawak state, Malaysia, and the Kapuas River drainage, Kalimantan Barat province, Indonesia), plus the Anambas and Natuna island archipelagos (Indonesia).",
+          "countries": [],
+          "regions": [
+            "Kapuas River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8202230,
+      "total": 12,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          10
+        ],
+        [
+          "MY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          -1.40625,
+          8,
+          8
+        ],
+        [
+          109.6875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ],
+        [
+          112.5,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -56,7 +139,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -65,7 +148,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-banksi",
-      "html": "<p>Barbodes banksi is a cyprinid from Peninsular Malaysia, Singapore and western Borneo, plus the Anambas and Natuna islands of Indonesia. It is tentatively considered distinct from the closely related B. binotatus, differing in a dark, wedge-shaped marking below the dorsal fin in place of a midlateral spot, though the two may be colour forms of a single species. Occasionally exported as bycatch, it lives in habitats from fast hill streams to canals and floodplain ponds.</p><ul><li>Max size: 110 mm SL (4 in)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–10 dGH</li><li>Difficulty: 5 of 8 (easy)</li></ul>"
+      "html": "<p>Barbodes banksi is a cyprinid from Peninsular Malaysia, Singapore and western Borneo, plus the Anambas and Natuna islands of Indonesia. It is tentatively considered distinct from the closely related B. binotatus, differing in a dark, wedge-shaped marking below the dorsal fin in place of a midlateral spot, though the two may be colour forms of a single species. Occasionally exported as bycatch, it lives in habitats from fast hill streams to canals and floodplain ponds.</p><ul><li>Max size: 110 mm SL (4 in)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–10 dGH</li><li>Difficulty: 2 of 8 (easy)</li></ul>"
     },
     {
       "key": "distribution",
@@ -140,8 +223,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x45 cm",
-        "bể cá 240 lít"
+        "bể cá 120cm"
       ]
     },
     {

@@ -1,0 +1,40 @@
+{
+  "id": "hyphessobrycon-jackrobertsi",
+  "native": {
+    "input": "a25c00be56bd71de",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "A tetra from Peru that has been popular among aquarists since 1958 under the fantasy name \"Hyphessobrycon robertsi\".",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon jackrobertsi",
+    "status": "ACCEPTED",
+    "taxonKey": 7578004,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

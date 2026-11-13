@@ -1,6 +1,47 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
- "commons": "2026-11-04"
+ "judged": [
+  "inat:53826627",
+  "inat:68014539",
+  "inat:68014544",
+  "inat:68014555",
+  "inat:97098713",
+  "inat:97098760",
+  "inat:195033037",
+  "inat:337650679",
+  "inat:421783984",
+  "inat:421784008",
+  "inat:421784031",
+  "inat:498770561",
+  "inat:498770609",
+  "inat:498770661",
+  "inat:498771147",
+  "inat:498771212",
+  "inat:543785109",
+  "inat:543785129",
+  "inat:543785141",
+  "inat:543785553",
+  "inat:543785572",
+  "inat:561000177",
+  "inat:743750197"
+ ],
+ "hashes": {
+  "https://media.aquatome.com/inaturalist/68014555.webp": "7e2424340e030307",
+  "https://media.aquatome.com/inaturalist/68014544.webp": "f373b3683e7b3f7f",
+  "https://media.aquatome.com/inaturalist/68014539.webp": "1b3b71373e3430a6",
+  "https://media.aquatome.com/inaturalist/543785109.webp": "b9db9c938f87d7d3"
+ },
+ "commons": "2026-11-04",
+ "inat": {
+  "taxon": 94388,
+  "pass": "done",
+  "after": {
+   "research": 404960123,
+   "agree": 351893150
+  }
+ },
+ "gbif": {
+  "key": 2347804,
+  "next": null
+ }
 }

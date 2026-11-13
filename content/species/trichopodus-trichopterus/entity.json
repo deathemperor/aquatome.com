@@ -38,9 +38,16 @@
       "quotes": [
         {
           "source": "seriouslyfish",
+          "quote": "The three-spot gourami, Trichopodus trichopterus, is a labyrinth fish found mostly in the Mekong basin of Southeast Asia and southern China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
           "quote": "Occurs mostly in the River Mekong basin in southern China, Vietnam, Laos, Cambodia, Thailand, Myanmar and Malaysia.",
           "countries": [
-            "CN",
             "VN",
             "LA",
             "KH",
@@ -983,7 +990,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -992,7 +999,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-trichopterus",
-      "html": "<p>The three-spot gourami, Trichopodus trichopterus, is a labyrinth fish found mostly in the Mekong basin of Southeast Asia and southern China. The natural form is blue-grey with three spots, but gold, opaline, cosby, marbled and silver forms bred for the trade are seen far more often. One of the hardiest fish in the trade, it is recommended for community tanks with reservations, since some individuals become very spiteful as they mature.</p><ul><li>Max size: 150 mm SL (6 in SL)</li><li>Aquarium size: 90 × 30 cm (36 × 12 in)</li><li>Temperature: 24–30°C (75–86°F)</li><li>pH: 5.5–8.5</li><li>Hardness: 3–35 dGH</li><li>Difficulty: 5 of 8 (easy)</li></ul>"
+      "html": "<p>The three-spot gourami, Trichopodus trichopterus, is a labyrinth fish found mostly in the Mekong basin of Southeast Asia and southern China. The natural form is blue-grey with three spots, but gold, opaline, cosby, marbled and silver forms bred for the trade are seen far more often. One of the hardiest fish in the trade, it is recommended for community tanks with reservations, since some individuals become very spiteful as they mature.</p><ul><li>Max size: 150 mm SL (6 in SL)</li><li>Aquarium size: 90 × 30 cm (36 × 12 in)</li><li>Temperature: 24–30°C (75–86°F)</li><li>pH: 5.5–8.5</li><li>Hardness: 3–35 dGH</li><li>Difficulty: 2 of 8 (easy)</li></ul>"
     },
     {
       "key": "distribution",
@@ -1064,7 +1071,12 @@
       "author": "Obsidian Soul",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichopodus_trichopterus_(3_spot_gourami,_Philippines)_01.jpg",
       "caption": "Trichopodus trichopterus (3 spot gourami, Philippines)",
-      "thumb": "https://media.aquatome.com/commons/d6469d9d31e58aa4-480.webp"
+      "thumb": "https://media.aquatome.com/commons/d6469d9d31e58aa4-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/d6469d9d31e58aa4-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/86f8a55d74eb3a93.webp",
@@ -1074,7 +1086,12 @@
       "author": "Obsidian Soul",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichopodus_trichopterus_(3_spot_gourami,_Philippines)_04.jpg",
       "caption": "Trichopodus trichopterus (3 spot gourami, Philippines)",
-      "thumb": "https://media.aquatome.com/commons/86f8a55d74eb3a93-480.webp"
+      "thumb": "https://media.aquatome.com/commons/86f8a55d74eb3a93-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/86f8a55d74eb3a93-large.webp",
+        "width": 1596,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/15e74ab17a18c73f.webp",
@@ -1084,17 +1101,12 @@
       "author": "Obsidian Soul",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichopodus_trichopterus_(3_spot_gourami,_Philippines)_03.jpg",
       "caption": "Trichopodus trichopterus (3 spot gourami, Philippines)",
-      "thumb": "https://media.aquatome.com/commons/15e74ab17a18c73f-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/6a48a232d99c8b0b.webp",
-      "width": 960,
-      "height": 1280,
-      "licence": "CC BY 4.0",
-      "author": "Wutthichai Rasvara Nangkasem",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichopodus_trichopterus_238622512.jpg",
-      "caption": "three spot gourami (Trichopodus trichopterus)",
-      "thumb": "https://media.aquatome.com/commons/6a48a232d99c8b0b-480.webp"
+      "thumb": "https://media.aquatome.com/commons/15e74ab17a18c73f-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/15e74ab17a18c73f-large.webp",
+        "width": 1689,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
@@ -1102,8 +1114,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 100 lít"
+        "bể cá 90cm"
       ]
     },
     {

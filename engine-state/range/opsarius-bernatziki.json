@@ -1,0 +1,59 @@
+{
+  "id": "opsarius-bernatziki",
+  "native": {
+    "input": "c5bb9322e186f2e4",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It appears to occur in river systems on both sides of the Tennaserim Hills in Ranong, Phang-nga and Pattani provinces in peninsular Thailand, plus Tanintharyi (formerly Tennaserim) Division, Myanmar, all located south of the Isthmus of Kra.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It appears to occur in river systems on both sides of the Tennaserim Hills in Ranong, Phang-nga and Pattani provinces in peninsular Thailand, plus Tanintharyi (formerly Tennaserim) Division, Myanmar, all located south of the Isthmus of Kra.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tennaserim Hills",
+        "source": "seriouslyfish",
+        "quote": "It appears to occur in river systems on both sides of the Tennaserim Hills in Ranong, Phang-nga and Pattani provinces in peninsular Thailand, plus Tanintharyi (formerly Tennaserim) Division, Myanmar, all located south of the Isthmus of Kra.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Opsarius bernatziki",
+    "status": "ACCEPTED",
+    "taxonKey": 7193663,
+    "datasets": [],
+    "native": [
+      "TH",
+      "MM"
+    ],
+    "requests": 2,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

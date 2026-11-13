@@ -12,6 +12,134 @@
     "bangladesh",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "NP",
+        "BD",
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The frogmouth catfish, Chaca chaca, is an ambush predator from still and slow-moving waters in India, Nepal, Bangladesh and Indonesia.",
+          "countries": [
+            "IN",
+            "NP",
+            "BD",
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337568,
+      "total": 21,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BD",
+          9
+        ],
+        [
+          "IN",
+          7
+        ],
+        [
+          "MY",
+          3
+        ],
+        [
+          "NP",
+          1
+        ],
+        [
+          "NZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          85.78125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          3,
+          3
+        ],
+        [
+          88.59375,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          90,
+          22.5,
+          5,
+          5
+        ],
+        [
+          90,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          168.75,
+          -53.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -55,7 +183,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -129,16 +257,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/fb18a65ca0db34a6.webp",
-      "width": 960,
-      "height": 412,
-      "licence": "Public domain",
-      "author": "R. Mintern",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chaca_lophioides_Mintern_112.jpg",
-      "caption": "Chaca chaca syn. C. lophioidesThe species names / identity need verification - original names from plate are included here. The original plates showed the fishes facing right and have been flipped her",
-      "thumb": "https://media.aquatome.com/commons/fb18a65ca0db34a6-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/7db1e0f1cb5417e9.webp",
       "thumb": "https://media.aquatome.com/scotcat/7db1e0f1cb5417e9-480.webp",
       "width": 500,
@@ -181,16 +299,6 @@
       "sourceUrl": "https://www.scotcat.com/chacidae/chaca_chaca.htm",
       "caption": "Chaca chaca: close up of head",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/2d4f9a6a0f1dcb0f.webp",
-      "width": 960,
-      "height": 1235,
-      "licence": "Public domain",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chaca_buchanani_-_1700-1880_-_Print_-_Iconographia_Zoologica_-_Special_Collections_University_of_Amsterdam_-_UBA01_IZ14600021.tif",
-      "caption": "Chaca chaca syn. C. buchanani",
-      "thumb": "https://media.aquatome.com/commons/2d4f9a6a0f1dcb0f-480.webp"
     }
   ],
   "videos": [],
@@ -198,8 +306,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 80 lít"
+        "bể cá 90cm"
       ]
     },
     {

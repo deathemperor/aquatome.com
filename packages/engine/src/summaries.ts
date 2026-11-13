@@ -5,6 +5,7 @@ import { z } from 'zod'
 import { loadAll, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, SummarySchema, type DataCardField, type Localized, type Range, type SpeciesEntity, type Summary } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { nativeTo } from './localize'
+import { logReviews, type Review } from './review-log'
 import { shopIds } from './shops'
 
 const TEMPLATE = readFileSync(new URL('./prompts/summary.md', import.meta.url), 'utf8')
@@ -84,18 +85,18 @@ function lengthOf(before: string): 'tankCm' | 'sizeCm' | undefined {
   return tank < 0 && size < 0 ? undefined : tank > size ? 'tankCm' : 'sizeCm'
 }
 
+const range = (v: Range | number) => (typeof v === 'number' ? { min: v, max: v } : v)
+/** A summary's text as the checks read it: "60 cm x 30 cm" reads as the dimensions "60 x 30 cm". */
+const draftText = (d: Pick<Draft, 'summary' | 'mistakes'>) => [d.summary, ...d.mistakes].join('\n').replace(/(\d)\s*cm(\s*[×x]\s*\d)/g, '$1$2')
+
 /**
- * The check no model can talk its way past. A figure for a card field (temperature, pH, hardness, adult size, minimum
- * tank, "N/8" difficulty) must be the card's: a range the card's range, one value inside it; a field the card doesn't
- * have gets no figure. A length is the tank's after "bể" (or as dimensions, "60 × 30 cm"), the fish's after "cá" or a
- * size word ("lớn tới", "cỡ"), whichever is nearer; with neither, it must be one of the two. Every other number must be the card's or written in the page
- * text. Returns the problems found, in English, quoting the summary.
+ * A figure for a card field (temperature, pH, hardness, adult size, minimum tank, "N/8" difficulty) must be the card's:
+ * a range the card's range, one value inside it; a field the card doesn't have gets no figure. A length is the tank's
+ * after "bể" (or as dimensions, "60 × 30 cm"), the fish's after "cá" or a size word ("lớn tới", "cỡ"), whichever is
+ * nearer; with neither, it must be one of the two. `judged`: where the figures it settled stand in the text.
  */
-export function checkNumbers(d: Draft, card: Card, source: string): string[] {
+function cardChecks(all: string, card: Card): { problems: string[]; judged: [number, number][] } {
   const problems: string[] = []
-  // "60 cm x 30 cm" reads as the dimensions "60 x 30 cm".
-  const all = [d.summary, ...d.mistakes].join('\n').replace(/(\d)\s*cm(\s*[×x]\s*\d)/g, '$1$2')
-  const range = (v: Range | number) => (typeof v === 'number' ? { min: v, max: v } : v)
   const fits = (c: Range | number, a: number, b?: number) => { const { min, max } = range(c); return b === undefined ? a >= min - 1e-9 && a <= max + 1e-9 : same(a, min) && same(b, max) }
   const judged: [number, number][] = [] // figures already settled against the card: not looked up in the text again
   const unit = (f: DataCardField) => (f === 'tempC' ? ' °C' : f === 'gh' ? ' dGH' : f === 'sizeCm' || f === 'tankCm' ? ' cm' : f === 'difficulty' ? '/8' : '')
@@ -133,6 +134,24 @@ export function checkNumbers(d: Draft, card: Card, source: string): string[] {
     judge(m[0], 'difficulty', Number(m[1]))
     judged.push([m.index, m.index + m[0].length])
   }
+  return { problems, judged }
+}
+
+/**
+ * A summary's figures the card doesn't show (cardChecks): the check the sweep runs again on every approved summary each
+ * cycle, as a card can change under a summary without its page changing (a new rule for sources that disagree, a
+ * figure hidden, a source added). Free numbers aren't checked again: page text moves for other reasons, and a summary
+ * the owner approved by hand would keep going back.
+ */
+export const cardProblems = (d: Pick<Draft, 'summary' | 'mistakes'>, card: Card): string[] => cardChecks(draftText(d), card).problems
+
+/**
+ * The check no model can talk its way past: every card figure the card's (cardChecks), and every other number the card's
+ * or written in the page text. Returns the problems found, in English, quoting the summary.
+ */
+export function checkNumbers(d: Draft, card: Card, source: string): string[] {
+  const all = draftText(d)
+  const { problems, judged } = cardChecks(all, card)
   const rest = judged.reduce((t, [a, b]) => t.slice(0, a) + ' '.repeat(b - a) + t.slice(b), all)
   const known = [...numberSet(source), ...Object.values(card).flatMap(v => { const { min, max } = range(v); return [min, max] })]
   for (const tok of new Set(rest.match(NUM) ?? [])) {
@@ -183,10 +202,13 @@ export async function draftSummaries(contentRoot: string, llm: Llm, opts: { top:
     }
     let draft = await write()
     let problems = await check(draft)
-    if (problems.length) { draft = await write({ draft, problems }); problems = await check(draft) }
+    // The check passes or fails: 1 or 0, its problems the notes.
+    const tries: Review[] = [{ score: problems.length ? 0 : 1, notes: problems }]
+    if (problems.length) { draft = await write({ draft, problems }); problems = await check(draft); tries.push({ score: problems.length ? 0 : 1, notes: problems }) }
     const base = { id: s.id, ...draft, speciesUpdatedAt: s.updatedAt, generatedAt: opts.now().toISOString() }
     if (problems.length) { await save(contentRoot, { ...base, review: 'pending', problems }); report.pending.push({ id: s.id, problems }) }
     else { await save(contentRoot, { ...base, review: 'approved' }); report.approved.push(s.id) }
+    await logReviews(dirname(contentRoot), 'summary', { id: `species/${s.id}`, lang: 'vi' }, tries, tries.at(-1), { now: opts.now() })
   }
 
   let next = 0

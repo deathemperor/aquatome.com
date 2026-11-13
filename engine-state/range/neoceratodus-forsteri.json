@@ -1,0 +1,120 @@
+{
+  "id": "neoceratodus-forsteri",
+  "native": {
+    "input": "053c3bee93b3100b",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to parts of Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neoceratodus forsteri",
+    "status": "ACCEPTED",
+    "taxonKey": 2441266,
+    "datasets": [
+      [
+        "3f4d4bf1-5f9a-43f2-a0d8-ff6ed5952796",
+        6257
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        639
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        139
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        100
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        60
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        28
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        8
+      ],
+      [
+        "84a649ce-ff81-420d-9c41-aa1de59e3766",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        1
+      ],
+      [
+        "bf0f5d5f-f16e-4abe-9cd5-e4e7c4c630e2",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "e2980e63-d152-4219-8c1e-0ffdef3ea6aa",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

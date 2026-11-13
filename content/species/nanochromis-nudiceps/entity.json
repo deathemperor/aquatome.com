@@ -10,6 +10,126 @@
     "democratic-republic-of-the-congo",
     "cuvette-centrale"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Cuvette Centrale"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Nanochromis nudiceps is a dwarf cichlid from the Cuvette Centrale region of the Democratic Republic of Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Cuvette Centrale"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372701,
+      "total": 37,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CD",
+          27
+        ],
+        [
+          "CG",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          14.0625,
+          -5.625,
+          18,
+          14
+        ],
+        [
+          14.0625,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          14.0625,
+          0,
+          2,
+          0
+        ],
+        [
+          15.46875,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          15.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          15.46875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          16.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          16.875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          19.6875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          21.09375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          22.5,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +173,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -125,7 +245,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30x30"
+        "bể cá 60cm"
       ]
     },
     {

@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "K2U29-mR8a0",
     "title": "Complete DIY NANO planted aquarium!!!",
@@ -30,12 +30,12 @@
       {
         "category": "be-ca",
         "type": "chuan",
-        "t": 61
+        "t": 60
       },
       {
         "category": "loc",
         "type": "bot-bien",
-        "t": 104
+        "t": 105
       },
       {
         "category": "den",
@@ -48,75 +48,60 @@
         "t": 467
       },
       {
-        "category": "suoi",
-        "t": 295
+        "category": "khac",
+        "brand": "Weldon",
+        "model": "16",
+        "t": 134
+      },
+      {
+        "category": "loc",
+        "t": 235
       }
     ],
     "figures": [
       {
-        "heading": "Kích thước bể và vì sao làm được bể không viền",
+        "heading": "Bể làm từ mica thừa",
         "moments": [
           {
-            "t": 69,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/t69.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể nhỏ không viền trồng cây xanh mướt, hợp kiểu bể thủy sinh."
+            "t": 5,
+            "url": "https://media.aquatome.com/video/K2U29-mR8a0/at5-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể mica trong suốt dán không viền, không thanh giằng.",
+            "sharpness": 856.2,
+            "person": false
           },
           {
-            "t": 103,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/t103.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể mica không viền hoàn thiện, thành trong suốt nhìn rất thoáng."
+            "t": 70,
+            "url": "https://media.aquatome.com/video/K2U29-mR8a0/at70-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể mica nhỏ trồng đầy cây thủy sinh xanh mướt.",
+            "sharpness": 1467.2,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Làm lọc bông góc thế nào",
+        "heading": "Lọc mút hoạt động thế nào",
         "moments": [
           {
-            "t": 182,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/t182.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đặt thử tấm mica đen vào góc phía sau bể để kiểm tra."
+            "t": 205,
+            "url": "https://media.aquatome.com/video/K2U29-mR8a0/at205-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm mút lọc đen đặt trong ngăn sau của bể, có bơm và dây ống.",
+            "sharpness": 785.3,
+            "person": false
           },
           {
-            "t": 187,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/t187.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Khung mica đen uốn vừa góc bể, dựng làm ngăn lọc bông."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/K2U29-mR8a0/p1-JfZm9hbV8xLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/K2U29-mR8a0/p1-JfZm9hbV8xLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Khối bông lọc xốp màu đen, loại dùng làm vật liệu lọc cho bể cá."
-        }
-      },
-      {
-        "heading": "Lọc bông hoạt động ra sao",
-        "moments": [
-          {
-            "t": 207,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/t207.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh tấm bông lọc xám và bơm đặt bên trong."
-          },
-          {
-            "t": 212,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/t212.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tấm bông lọc đặt trong khoang lọc của bể, có bơm phía sau."
+            "t": 210,
+            "url": "https://media.aquatome.com/video/K2U29-mR8a0/at210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh tấm mút lọc và bơm đặt phía sau với ống nhỏ nối ra.",
+            "sharpness": 97.7,
+            "person": false
           }
         ],
         "photo": {
@@ -127,44 +112,20 @@
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Cận cảnh khối bông lọc xốp đen với các lỗ nhỏ giữ cặn và chứa vi sinh."
+          "caption": "Khối mút lọc đen với nhiều lỗ xốp nhỏ cho vi sinh bám."
         }
       },
       {
-        "heading": "Chọn bơm cho bể nano",
+        "heading": "Đèn LED từ đèn pha",
         "moments": [
           {
-            "t": 232,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/t232.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bơm mini có giác hút ở đáy, cầm sát bể cá."
-          },
-          {
-            "t": 241,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/t241.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Núm chỉnh lưu lượng ở mặt trước của bơm mini."
-          }
-        ]
-      },
-      {
-        "heading": "Tự làm đèn từ đèn pha LED",
-        "moments": [
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/t330.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ba cái đèn pha LED các cỡ xếp cạnh nhau trên bàn."
-          },
-          {
-            "t": 414,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/t414.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đèn pha LED đã được gắn vào nắp hộp đèn màu đen."
+            "t": 335,
+            "url": "https://media.aquatome.com/video/K2U29-mR8a0/at335-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ba chiếc đèn pha LED với nhiều kích cỡ khác nhau đặt cạnh nhau.",
+            "sharpness": 379.1,
+            "person": false
           }
         ],
         "photo": {
@@ -175,25 +136,44 @@
           "licence": "CC BY-SA 4.0",
           "author": "Santeri Viinamäki",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:LED_floodlights.jpg",
-          "caption": "Hai bóng đèn pha LED gắn chung trên một cột, giống kiểu đèn tự chế."
+          "caption": "Hai đèn pha LED gắn chung trên một cột, giống kiểu đèn dùng cho bể thủy sinh."
         }
       },
       {
-        "heading": "Cấp CO2 cho bể nhỏ",
+        "heading": "Làm hộp đèn bằng mica",
         "moments": [
           {
-            "t": 468,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/t468.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hệ CO2 tự chế dùng ba chai nhựa nối với nhau bằng dây."
-          },
+            "t": 455,
+            "url": "https://media.aquatome.com/video/K2U29-mR8a0/at455-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp đèn mica đặt lên miệng bể, hai đầu hộp ôm lấy bể.",
+            "sharpness": 98.9,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/K2U29-mR8a0/p5-JCUDMtNF8zLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/K2U29-mR8a0/p5-JCUDMtNF8zLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Suyash.dwivedi",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acrylic_cut_enclosure_for_IIAB_running_on_RBP3-4_3.jpg",
+          "caption": "Hộp mica đen dạng chữ nhật dài, có thể dùng làm hộp đèn đặt trên bể."
+        }
+      },
+      {
+        "heading": "Cấp CO2 cho bể nano",
+        "moments": [
           {
-            "t": 483,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/t483.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bộ van điều áp CO2 có đồng hồ và bình đếm bọt bằng đồng."
+            "t": 490,
+            "url": "https://media.aquatome.com/video/K2U29-mR8a0/at490-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bình CO2 với đồng hồ áp và van chia khí lắp sẵn.",
+            "sharpness": 659.9,
+            "person": false
           }
         ]
       }

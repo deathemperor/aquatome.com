@@ -14,10 +14,273 @@
     "guyana",
     "essequibo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "GY",
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Essequibo",
+        "Río Ampiyacu"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Ampiyacu, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Ampiyacu"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon and Essequibo River basins, including the Upper Amazon and Ampiyacu, and Guyana waters, coastal rivers of the Guianas and Essequibo.",
+          "countries": [
+            "GY"
+          ],
+          "regions": [
+            "Amazon",
+            "Essequibo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon River basin, Peru and Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343833,
+      "total": 125,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "PE",
+          59
+        ],
+        [
+          "BR",
+          45
+        ],
+        [
+          "VE",
+          10
+        ],
+        [
+          "BO",
+          5
+        ],
+        [
+          "CO",
+          3
+        ],
+        [
+          "GY",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          45,
+          45
+        ],
+        [
+          -73.125,
+          -8.4375,
+          6,
+          6
+        ],
+        [
+          -73.125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          2,
+          1
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          5.625,
+          6,
+          0
+        ],
+        [
+          -66.09375,
+          -11.25,
+          7,
+          6
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          3,
+          1
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      },
+      {
+        "source": "scotcat",
         "value": {
           "min": 23,
           "max": 26
@@ -28,6 +291,19 @@
       {
         "source": "planetcatfish",
         "value": 3.5
+      },
+      {
+        "source": "scotcat",
+        "value": 3.5
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
       }
     ]
   },
@@ -39,10 +315,22 @@
       "html": "<ul><li>Scientific name: Physopyxis lyra Cope, 1872</li><li>Common name: Robocop Catfish (Peru)</li><li>Type locality: Río Ampiyacu, Peru.</li><li>Size: 35 mm (1.4\") SL.</li><li>Temperature: 23.0-26.0°C (73.4-78.8°F)</li><li>IUCN Red List: Least Concern (last assessed 2020).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern (2023)</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1094",
       "html": "<p>South America: Amazon and Essequibo River basins, including the Upper Amazon and Ampiyacu, and Guyana waters, coastal rivers of the Guianas and Essequibo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "html": "<p>South America: Amazon River basin, Peru and Brazil. Type locality: Amazon. Described in more detail in Cope (1872a: 273, pl. 5, figs. 1a–1c), with locality as Ambyiacu River, Ecuador (now Peru).</p>"
     },
     {
       "key": "habitat",
@@ -51,16 +339,34 @@
       "html": "<p>Usually found in places with accumulated organic debris, like dense meshes of roots of floating aquatic plants. Specimens also can be found among submersed leaf litter and among root mats of river bank plants. Aquarium observations indicate that P. lyra is predominantly nocturnal, and spends most of day time sheltered among submersed root mats or buried in sand.</p>"
     },
     {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "html": "<p>It is usually found in places with accumulated organic debris, like dense meshes of roots of floating macrophytes that are abundant in rivers with turbid water. Specimens also can be found among submersed leaf litter and among root mats of riparian plants, like Symmeria paniculata (Polygonaceae).</p>"
+    },
+    {
       "key": "diet",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1094",
       "html": "<p>A nocturnal scavenger. The best way to ensure this fish is properly fed is to introduce sinking food into the tank after dark. Most foods would be accepted gluttonously. Individuals will gorge themselves on food to the point of appearing fit to burst.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "html": "<p>Will eat most prepared foods such as sunken flake and tablet foods but has a liking for frozen bloodworm.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1094",
       "html": "<p>Peaceful and small, would be perfect with anything that wouldn't consider it food. Due to its diminutive size tank mates should be relatively small, Apistogramma species are found in the same habitat.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "html": "<p>Predominantly nocturnal, and spends most of day time sheltered among submersed root mats or buried in sand.</p>"
     },
     {
       "key": "reproduction",
@@ -75,55 +381,78 @@
       "html": "<p>Physopyxis can be distinguished from the other Doradidae by the miniature size (adults generally less than 31 mm SL) and a unique combination of additional features: extreme development of the exposed pectoral girdle; well developed coracoid process longer than the postcleithral process; anterior plate of the nuchal shield absent; dorsal spine serrated only along the basal portion of its anterior margin; two infraorbital bones in young that become fused into a single plate in adult specimens; pectoral spine reaching to base of anal fin.</p><p>Physopyxis lyra differs from the other species of the genus by possessing a single row of spines on the lateral plates and a strong scapular girdle with long, broad coracoid processes having distal tips enlarged and divergent.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "html": "<p>There are three species in this genus, P. ananas, P. cristata and the more well known P. lyra, with the first two being described by Sousa and Py-Daniel (2005).</p><p>Description: Physopyxis lyra differs from the other species of the genus by possessing a single row of spines on the lateral plates and a strong scapular girdle with long, broad coracoid processes having distal tips enlarged and divergent outwards following expansion of process. Dorsal and pectoral spines strongly ossified. Dorsal spine pentagonal in cross-section with longitudinal groove along each lateral side, serrate along basal portion of anterior margin, posterior margin smooth. Pectoral spine well developed, depressed and curved, its tip usually reaching anal-fin origin.</p><p>Etymology: The specific name lyra is Latin for lyre, referring to the postcoracoid processes, \"curved, and the extremities dilated outwards, so as to present with the thoracic portion exactly the form of the Grecian lyre\".</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1094",
       "html": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 23, pp 273, Pl. 5 (figs. 1a-1c).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Salvador, G.N. 2023. Physopyxis lyra. The IUCN Red List of Threatened Species 2023.</p><p>ScotCat Factsheet no. 181. July 2011.</p><p>Sousa, L.M. and L.H. Rapp Py-Daniel 2005 Description of two new species of Physopyxis and redescription of P. lyra (Siluriformes: Doradidae). Neotrop. Ichthyol. 3(4):625-636.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/acd7ad529f95a24c.webp",
-      "width": 960,
-      "height": 764,
-      "licence": "Public domain",
-      "author": "Sandra Raredon/Smithsonian Institution",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Physopyxis_lyra_SI2.jpg",
+      "url": "https://media.aquatome.com/scotcat/30346a45808688fc.webp",
+      "thumb": "https://media.aquatome.com/scotcat/30346a45808688fc-480.webp",
+      "width": 500,
+      "height": 271,
+      "licence": "dùng với sự cho phép",
+      "author": "Daniel Blom / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
       "caption": "Physopyxis lyra",
-      "thumb": "https://media.aquatome.com/commons/acd7ad529f95a24c-480.webp"
+      "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/commons/fff8bd5cb696b796.webp",
-      "width": 960,
-      "height": 747,
-      "licence": "Public domain",
-      "author": "Sandra Raredon/Smithsonian Institution",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Physopyxis_lyra_X-ray2.jpg",
-      "caption": "Physopyxis lyra, X-ray image",
-      "thumb": "https://media.aquatome.com/commons/fff8bd5cb696b796-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/e453eaa06cde61b7.webp",
-      "width": 960,
-      "height": 702,
-      "licence": "Public domain",
-      "author": "Sandra Raredon/Smithsonian Institution",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Physopyxis_lyra_SI.jpg",
+      "url": "https://media.aquatome.com/scotcat/68095ef301f5ac5c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/68095ef301f5ac5c-480.webp",
+      "width": 500,
+      "height": 293,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
       "caption": "Physopyxis lyra",
-      "thumb": "https://media.aquatome.com/commons/e453eaa06cde61b7-480.webp"
+      "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/commons/570bda35af0950b7.webp",
-      "width": 960,
-      "height": 1342,
-      "licence": "Public domain",
-      "author": "Sandra Raredon/Smithsonian Institution",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Physopyxis_lyra_X-ray.jpg",
-      "caption": "Physopyxis lyra, X-ray image",
-      "thumb": "https://media.aquatome.com/commons/570bda35af0950b7-480.webp"
+      "url": "https://media.aquatome.com/scotcat/de00e4b2acdeebc2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/de00e4b2acdeebc2-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Daniel Blom / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "caption": "Physopyxis lyra",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/aa07a039081a59c3.webp",
+      "thumb": "https://media.aquatome.com/scotcat/aa07a039081a59c3-480.webp",
+      "width": 500,
+      "height": 289,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "caption": "Physopyxis lyra",
+      "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "1ImrZ4ZBXS8",
+      "title": "UNBOXING 40+ AWESOME CATFISH",
+      "durationSec": 416,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -147,5 +476,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

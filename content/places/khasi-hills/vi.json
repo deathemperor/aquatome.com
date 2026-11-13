@@ -1,10 +1,13 @@
 {
   "slug": "khasi-hills",
-  "name": "Khasi Hills",
-  "altNames": [],
+  "name": "đồi Khasi",
+  "altNames": [
+    "Khasi Hills"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

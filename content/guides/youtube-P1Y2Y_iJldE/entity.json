@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-04",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "P1Y2Y_iJldE",
     "title": "How to Set up an advanced aquarium - the set up",
@@ -28,25 +28,18 @@
     "taxa": [],
     "gear": [
       {
-        "category": "khac",
-        "brand": "Weldon",
-        "model": "16",
-        "t": 695
-      },
-      {
         "category": "loc",
         "type": "suc-khi",
-        "t": 797
+        "t": 810
       },
       {
         "category": "loc",
         "type": "tao-dong",
-        "brand": "Evolution Aqua",
-        "model": "4L 1050",
+        "brand": "Korallia",
         "t": 822
       },
       {
-        "category": "khac",
+        "category": "loc",
         "brand": "Quiet One",
         "model": "6000",
         "t": 885
@@ -60,15 +53,15 @@
       {
         "category": "khac",
         "brand": "Fluval",
-        "model": "hose",
-        "t": 1215
+        "model": "hoses",
+        "t": 1186
       },
       {
         "category": "suoi",
         "type": "chinh-nhiet",
         "brand": "Via Aqua",
         "model": "350 watt titanium heater",
-        "t": 1306
+        "t": 1311
       },
       {
         "category": "den",
@@ -77,119 +70,33 @@
         "t": 1396
       },
       {
-        "category": "be-ca",
-        "type": "lon",
-        "t": 0
+        "category": "khac",
+        "brand": "Weldon",
+        "model": "16",
+        "t": 695
       }
     ],
     "figures": [
       {
-        "heading": "Đường hồi và lỗ ngắt siphon",
+        "heading": "Ống xả, standpipe và hệ thay nước",
         "moments": [
           {
-            "t": 624,
-            "url": "https://media.aquatome.com/video/P1Y2Y_iJldE/t624.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đầu ra đường hồi gắn ống loc-line nằm trong bể, sát mặt nước."
+            "t": 500,
+            "url": "https://media.aquatome.com/video/P1Y2Y_iJldE/at500-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Van bi đỏ gắn dưới bể, cạnh ống đứng bên trong bể.",
+            "sharpness": 23.1,
+            "person": false
           },
           {
-            "t": 634,
-            "url": "https://media.aquatome.com/video/P1Y2Y_iJldE/t634.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh miệng hồi và ống loc-line gắn bên trong bể."
-          }
-        ]
-      },
-      {
-        "heading": "Ống xả chính và hệ thay nước gắn sẵn",
-        "moments": [
-          {
-            "t": 495,
-            "url": "https://media.aquatome.com/video/P1Y2Y_iJldE/t495.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ống xả PVC gắn van bi đỏ ở bên hông bể."
-          },
-          {
-            "t": 515,
-            "url": "https://media.aquatome.com/video/P1Y2Y_iJldE/t515.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Van bi đỏ trên đường ống xả, nước chảy xuống bên dưới bể."
-          }
-        ]
-      },
-      {
-        "heading": "Dán keo ống thế nào cho chắc",
-        "moments": [
-          {
-            "t": 673,
-            "url": "https://media.aquatome.com/video/P1Y2Y_iJldE/t673.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh đầu ống PVC trắng đang cầm trên tay để chuẩn bị dán."
-          }
-        ]
-      },
-      {
-        "heading": "Đèn UV: chọn công suất và lưu lượng",
-        "moments": [
-          {
-            "t": 1010,
-            "url": "https://media.aquatome.com/video/P1Y2Y_iJldE/t1010.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đèn UV dạng ống trắng đặt dưới sàn, nối với bơm hồi của bể."
-          }
-        ]
-      },
-      {
-        "heading": "Sưởi, powerhead và đèn",
-        "moments": [
-          {
-            "t": 1456,
-            "url": "https://media.aquatome.com/video/P1Y2Y_iJldE/t1456.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Sump kính đặt trong tủ gỗ dưới bể, cạnh khung đỡ."
-          },
-          {
-            "t": 1495,
-            "url": "https://media.aquatome.com/video/P1Y2Y_iJldE/t1495.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Thiết bị đặt trong ngăn sump bằng kính dưới tủ bể."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/P1Y2Y_iJldE/p6-ha3dhcml1bS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/P1Y2Y_iJldE/p6-ha3dhcml1bS5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "Ewkaa",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
-          "caption": "Cây sưởi bể cá có giác hút và dây điện, chụp rõ nét."
-        }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 1535,
-            "url": "https://media.aquatome.com/video/P1Y2Y_iJldE/t1535.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Góc nhìn từ trên xuống phần miệng hồi và bể lọc bằng acrylic."
-          },
-          {
-            "t": 1555,
-            "url": "https://media.aquatome.com/video/P1Y2Y_iJldE/t1555.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dây điện và đường ống chạy phía sau thành bể."
+            "t": 520,
+            "url": "https://media.aquatome.com/video/P1Y2Y_iJldE/at520-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Van bi và ống trong bể, nước chảy xuống theo ống.",
+            "sharpness": 117.7,
+            "person": false
           }
         ]
       }

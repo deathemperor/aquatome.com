@@ -14,6 +14,70 @@
     "cambodia",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "KH",
+        "VN"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widely-distributed in the middle and lower Mekong River system in Laos, Thailand, Cambodia, and Vietnam, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+          "countries": [
+            "LA",
+            "TH",
+            "KH",
+            "VN"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2365651,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "KH",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -57,7 +121,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 7
+        "value": 6
       }
     ]
   },
@@ -66,7 +130,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-rubripinna",
-      "html": "<ul><li>Difficulty: 7 of 8 (difficult), because it needs a tank at least 2 m long</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li><li>Needs a well-established tank and should be kept in a group</li></ul>"
+      "html": "<ul><li>Difficulty: 6 of 8 (difficult), because it needs a tank at least 2 m long</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li><li>Needs a well-established tank and should be kept in a group</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -143,17 +207,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/dc1be15d104a1dd5.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/dc1be15d104a1dd5-480.webp",
-      "width": 820,
-      "height": 549,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/leptobarbus-rubripinna",
-      "caption": "Subadult measuring 190 mm SL from Prey Veng province, southern Cambodia.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/37db4989eefafcd0.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/37db4989eefafcd0-480.webp",
       "width": 820,
@@ -220,8 +273,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá dài 2m",
-        "bể cá hồ lớn"
+        "bể cá 200cm"
       ]
     }
   ],

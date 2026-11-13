@@ -10,6 +10,108 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Balroglanis macracanthus is a small driftwood catfish endemic to the upper rio Negro system in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344775,
+      "total": 32,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          16
+        ],
+        [
+          "VE",
+          16
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          0,
+          7,
+          7
+        ],
+        [
+          -68.90625,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -67.5,
+          1.40625,
+          3,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          4,
+          0
+        ],
+        [
+          -67.5,
+          4.21875,
+          6,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +155,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 2
       }
     ]
   },
@@ -125,8 +227,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá 80x30"
+        "bể cá 80cm"
       ]
     },
     {

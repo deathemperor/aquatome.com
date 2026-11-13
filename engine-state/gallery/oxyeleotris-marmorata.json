@@ -42,7 +42,6 @@
   "https://media.aquatome.com/inaturalist/586219175.webp": "fdfd75f0f1bc5907",
   "https://media.aquatome.com/inaturalist/691265214.webp": "b094dc9e5c5c5277",
   "https://media.aquatome.com/inaturalist/125023594.webp": "071b7dfcbc797f7f",
-  "https://media.aquatome.com/inaturalist/338473183.webp": "84ce66a3f230e30e",
   "https://media.aquatome.com/inaturalist/569746992.webp": "250d030e34e48cfe",
   "https://media.aquatome.com/commons/1b000f0cad93e9af.webp": "7efef8f8f1e5858b"
  },
@@ -54,5 +53,9 @@
    "agree": 328850303
   }
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "gbif": {
+  "key": 2386241,
+  "next": null
+ }
 }

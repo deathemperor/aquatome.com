@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { Ledger, STALE_MS, type AdmitInput } from '../fishid/ledger'
+import { Ledger, MAX_EARLY_STOPS, STALE_MS, type AdmitInput } from '../fishid/ledger'
 import { memoryStorage } from './ledger'
 
 const DAY = '2026-11-05'
@@ -105,4 +105,34 @@ test('days: a new day starts empty, and days past the last three are cleared', a
   const ledger = new Ledger(storage)
   expect(await ledger.read(DAY)).toMatchObject({ calls: 0, usd: 0, open: 0 })
   expect([...storage.m.keys()].sort()).toEqual(['day:2026-11-03', 'day:2026-11-04'])
+})
+
+test('chat\'s questions count against chat\'s own day, not the identifications\'; the dollar cap is the one both share', async () => {
+  const { ledger, storage } = slow()
+  const chat = await Promise.all(Array.from({ length: 4 }, (_, i) => ledger.admit({ ...base, reader: `chat:acct:a${i}`, perDay: 2, kind: 'chat' })))
+  expect(chat.map(a => (a.ok ? 'ok' : a.error))).toEqual(['ok', 'ok', 'busy', 'busy'])
+  // Chat's day is full; an identification is still admitted, under its own day.
+  expect((await ledger.admit({ ...base, perDay: 1 })).ok).toBe(true)
+  expect(saved(storage)).toMatchObject({ calls: 1, chat: 2, usd: 1.5 })
+  expect(await ledger.read(DAY)).toMatchObject({ calls: 1, chat: 2 })
+  // The shared cap: $13.50 spent or reserved by both, so a chat question reserving $2 is busy.
+  storage.m.set(`day:${DAY}`, { ...saved(storage), usd: 13.5 })
+  const fresh = new Ledger(storage, () => 'run-x')
+  expect(await fresh.admit({ ...base, reader: 'chat:acct:z', perDay: 100, reserve: 2, kind: 'chat' })).toEqual({ ok: false, error: 'busy' })
+})
+
+test('a stop that comes before its question holds, its question dated either side of midnight', async () => {
+  for (const [stop, asked] of [['2026-03-02', '2026-03-01'], ['2026-03-01', '2026-03-02']] as const) {
+    const ledger = new Ledger(memoryStorage(), () => 'run')
+    expect(await ledger.cancel({ day: stop, key: 'a:k', free: 10 })).toEqual({ result: 'cancelled', counted: false })
+    expect(await ledger.admit({ ...base, day: asked, key: 'a:k' })).toEqual({ ok: false, error: 'cancelled', counted: false })
+  }
+})
+
+test('stops of questions that haven\'t come are bounded, so they can\'t fill the day; a stop of a running question isn\'t', async () => {
+  const ledger = new Ledger(memoryStorage(), () => 'run')
+  for (let i = 0; i < MAX_EARLY_STOPS; i++) await ledger.cancel({ day: DAY, key: `a:${i}`, free: 10 })
+  expect(await ledger.cancel({ day: DAY, key: 'a:past', free: 10 })).toEqual({ result: 'too late' })
+  expect(await ledger.admit({ ...base, key: 'a:past' })).toMatchObject({ ok: true })
+  expect(await ledger.cancel({ day: DAY, key: 'a:past', free: 10 })).toMatchObject({ result: 'cancelled', freeLeft: 9 })
 })

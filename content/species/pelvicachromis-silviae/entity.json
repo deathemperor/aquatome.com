@@ -1,0 +1,106 @@
+{
+  "id": "pelvicachromis-silviae",
+  "scientificName": "Pelvicachromis silviae",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Pelvicachromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "nigeria"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 7485136,
+      "total": 2,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "NG",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          5.625,
+          4.21875,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_silviae_en/",
+      "html": "<p>Males of this pretty dwarf cichlid grow to 7-8 cm long, while females stay 15-25% smaller.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_silviae_en/",
+      "html": "<p>Imported from Nigeria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_silviae_en/",
+      "html": "<p>Before its official description as P. silviae, the species had been known to hobbyists for about 40 years as Pelvicachromis sp. aff. subocellatus.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/fe4f8b28cc8a10bb.webp",
+      "thumb": "https://media.aquatome.com/commons/fe4f8b28cc8a10bb-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "CC BY-SA 4.0",
+      "author": "Udo Vornhusen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pelvicachromis_silviae.jpg",
+      "caption": "Cặp cá Pelvicachromis silviae đực và cái trong bể có nền cát",
+      "large": {
+        "url": "https://media.aquatome.com/commons/fe4f8b28cc8a10bb-large.webp",
+        "width": 2133,
+        "height": 1200
+      }
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cichlid lùn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 60cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

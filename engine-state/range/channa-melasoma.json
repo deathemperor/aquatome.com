@@ -1,0 +1,143 @@
+{
+  "id": "channa-melasoma",
+  "native": {
+    "input": "0b1bcd74201f29bb",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species' range is currently considered to extend from extreme southern Thailand (Kolok district) through Peninsular Malaysia, Singapore and the Greater Sunda Islands of Borneo and Sumatra, although it is absent from Java.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species' range is currently considered to extend from extreme southern Thailand (Kolok district) through Peninsular Malaysia, Singapore and the Greater Sunda Islands of Borneo and Sumatra, although it is absent from Java.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species' range is currently considered to extend from extreme southern Thailand (Kolok district) through Peninsular Malaysia, Singapore and the Greater Sunda Islands of Borneo and Sumatra, although it is absent from Java.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Philippines and on a number of smaller archipelagos including Bangka, Belitung (Billiton), and Palawan.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Reports from the Chao Phraya river, Thailand, and Mekong in Cambodia may be the result of misidentification or artificial introductions.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Sambas, western Borneo, Indonesia'.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "This species' range is currently considered to extend from extreme southern Thailand (Kolok district) through Peninsular Malaysia, Singapore and the Greater Sunda Islands of Borneo and Sumatra, although it is absent from Java.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "This species' range is currently considered to extend from extreme southern Thailand (Kolok district) through Peninsular Malaysia, Singapore and the Greater Sunda Islands of Borneo and Sumatra, although it is absent from Java.",
+        "ok": true
+      },
+      {
+        "name": "Bangka",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Philippines and on a number of smaller archipelagos including Bangka, Belitung (Billiton), and Palawan.",
+        "ok": true
+      },
+      {
+        "name": "Belitung",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Philippines and on a number of smaller archipelagos including Bangka, Belitung (Billiton), and Palawan.",
+        "ok": true
+      },
+      {
+        "name": "Palawan",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Philippines and on a number of smaller archipelagos including Bangka, Belitung (Billiton), and Palawan.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa melasoma",
+    "status": "ACCEPTED",
+    "taxonKey": 2391562,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        18
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY",
+      "SG",
+      "PH",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

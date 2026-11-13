@@ -1,0 +1,260 @@
+{
+  "id": "neolamprologus-tretocephalus",
+  "scientificName": "Neolamprologus tretocephalus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Neolamprologus",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "tanzania"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Found in Burundi, DR Congo and Tanzania.",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371800,
+      "total": 30,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TZ",
+          16
+        ],
+        [
+          "CD",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          28.125,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          28.125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          29.53125,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          29.53125,
+          -7.03125,
+          7,
+          7
+        ],
+        [
+          29.53125,
+          -5.625,
+          7,
+          7
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-tretocephalus",
+      "html": "<p>The five-barred lamprologus, Neolamprologus tretocephalus, is an aggressive cichlid endemic to Lake Tanganyika. It lives in relatively shallow water over rocky areas and intermediate zones with scattered rocks. Five vertical bars on the flanks, against six in N. sexfasciatus, separate the two species. Its aggression, particularly when breeding, rules it out of the general Tanganyikan community.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-tretocephalus",
+      "html": "<p>Endemic to Lake Tanganyika. Found in Burundi, DR Congo and Tanzania.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-tretocephalus",
+      "html": "<p>It is usually found in relatively shallow waters, in both rocky areas and intermediate zones with scattered rocks over sandy bottoms.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-tretocephalus",
+      "html": "<p>Standard length: 150 mm SL. Aquarium base: 120 × 30 cm. Volume: ~108 litres.</p><p>120 × 30 × 30 cm, ~108 litres, for a single mated pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-tretocephalus",
+      "html": "<p>Much of the aquarium should contain piles of rocks arranged to form caves with areas of open water between. A sandy substrate is best. Efficient filtration is essential due to this species' carnivorous diet and subsequent high levels of waste.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-tretocephalus",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 7.5–9.0</li><li>Hardness: 8–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-tretocephalus",
+      "html": "<p>Offer a varied diet of meaty live and frozen foods and good quality cichlid pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-tretocephalus",
+      "html": "<p>An aggressive and territorial species whose tankmates should be chosen with care. It can be maintained successfully with other medium-sized Tanganyikan cichlids that occupy different areas of the tank such as Cyprichromis species. Other rockdwellers such as larger Julidochromis or Altolamprologus are possibilities if the tank is large enough and sufficient territories are provided. It can even be kept with mbuna. It is very aggressive towards conspecifics and only a single pair should be kept.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-tretocephalus",
+      "html": "<p>A difficult species to sex. Adult male fish do tend to grow larger than females, however.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-tretocephalus",
+      "html": "<p>Possible but infrequent in aquaria. Bi-parental cave spawner. We suggest the purchase of a group of young fish and allowing these to pair off naturally. Once a pair forms (this may take a year or more), the other fish should be removed from the aquarium as they will not be tolerated by the pair. Buying an adult male and female will not guarantee a pair and often results in the female being harassed to death. Even when a pair does form, the bond is weak and lasts only for the duration of spawning and brood care. Between spawns, the male may become intolerant of the female, so the provision of hiding places is essential.</p><p>The breeding aquarium should be at least 120 cm in length and set up as suggested above. The pH should be around 8.2–9.0 and the temperature 25–26.5°C. The pair will spawn in a cave, which they often excavate themselves. The female lays her eggs on the floor of it. It is often very difficult to tell if they have spawned until the fry are seen.</p><p>Once spawning has occurred, the female will tend to the eggs while the male guards the area around the cave. He becomes very violent at this point and may even try to attack you if you are looking into the tank! The fry are large enough to take brine shrimp nauplii from birth. Once they are free swimming, brood care by the female lasts for another 2–3 weeks, at which point the male takes over, often becoming intolerant of the female.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-tretocephalus",
+      "html": "<p>It can be distinguished from the similar N. sexfasciatus by the presence of only five, rather than six, vertical bars on its flanks. It is not recommended for the general Tanganyikan community due to its aggressive nature, particularly when breeding.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c748f50dc7316fa0.webp",
+      "width": 960,
+      "height": 768,
+      "licence": "CC BY-SA 3.0",
+      "author": "Chrumps",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_tretocephalus.jpg",
+      "caption": "Szczelinowiec pięciopręgi",
+      "thumb": "https://media.aquatome.com/commons/c748f50dc7316fa0-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "lọc ngoài cho cichlid"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cichlid",
+        "thức ăn đông lạnh cho cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cichlid Tanganyika"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

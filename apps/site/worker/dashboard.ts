@@ -2,25 +2,37 @@ import { accessOn, type AccessEnv } from './access'
 import { sessionOf, tokenOf, type Session } from './accounts/session'
 import { catalogOf, fishIdStatus, type FishIdEnv } from './fishid/api'
 import { deleteKept, keptImage, recentKept } from './fishid/kept'
+import { listRuns, readRun } from './fishid/transcript'
+import { RUNS_PATH, runPage, runsPage } from './admin/runs'
+import { chatReportsPage, chatReportsSection, recentReports } from './admin/chat-reports'
 import { loadHidden, updateHidden } from './hidden'
 import { OWNER_COOKIE, SITE_OWNER_COOKIE } from './owner'
 import { DASHBOARD_HOST } from './paths'
 import { approveByOwner, photosLive, recentPhotos, removePhoto, waitingPhotos, waitingUpload, type PhotosEnv } from './photos'
 import { queryReaderDays, queryReaders } from './readers'
 import { queryAsks } from './lang-ask'
-import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } from './admin/data'
-import { queryAppWeeks, queryBeacon, queryChecks, queryCommunity, scoreboardPage, summariseScoreboard, weeksTo, windowStart, type Scoreboard } from './admin/scoreboard'
-import { clicksByKind, listSnapshots, loadContentStats, queryContentReads, talkByPage } from './admin/content'
+import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting, ownerActs } from './admin/data'
+import { lastMondayStart, mondayOf, queryAppWeeks, queryBeacon, queryChecks, queryCommunity, scoreboardPage, scoreboardSection, summariseScoreboard, weeksTo, windowStart, type Scoreboard } from './admin/scoreboard'
+import { todayPage, type Today } from './admin/today'
+import { readChanges } from './daily/changelog'
+import { listReports } from './daily/log'
+import { clicksByKind, listSnapshots, loadContentStats, loadLowScores, pagesByRef, queryContentReads, talkByPage } from './admin/content'
+import { commentPages } from './comments/photo'
 import { contentPage, contentSection } from './admin/content-page'
-import { queryFishId, queryFishIdDays } from './admin/fishid'
+import { loadGsc, loadSignals, qualityJson, queryQuality } from './admin/quality'
+import type { ContentStats } from './admin/content-shape'
+import { commentItem, COMMENTS_FORM, COMMENTS_PATH, commentsPage, commentsSection, commentWeek, decideComment, EXPIRED, GONE, listComments, readCursor, stateOf, type CommentItem, type CommentState } from './admin/comments'
+import { FISH_PERIOD_KEYS, queryFishId, queryFishIdDays } from './admin/fishid'
 import { appPage, appSection, queryApp } from './admin/app'
 import type { Section } from './admin/blocks'
 import {
-  accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection, overviewPage,
-  photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection, type AffSummary, type Overview,
+  accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection,
+  photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection, type AffSummary, type Overview, type RecentPhoto, type WaitingPhoto,
 } from './admin/pages'
-import { hostPath, isFailed, loginPage, NAV, REPORT_PATH, SCOREBOARD_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
+import { hostPath, isFailed, loginPage, NAV, REPORT_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
+import { READERS_FROM } from './admin/ae'
 import { HOME_TZ, localDay, viewerZone } from './admin/time'
+import { changelogPage, changelogSection, loadChangelog } from './daily/changelog'
 import { loadReports, reportPage, reportsPage, reportsSection, SETTINGS_FORM } from './daily/page'
 import type { PushEnv } from './daily/push'
 import { setSettings, type ReportSettings } from './daily/settings'
@@ -139,12 +151,33 @@ async function signInPage(env: AdminEnv, url: URL, key: WebPath, other: boolean)
 const FONT = /^\/_ab\/fonts\/[a-z0-9-]+\.woff2$/
 /** A waiting reader photo's upload, shown on /_ab/anh-ban-doc/. */
 const WAITING_PHOTO = /^\/_ab\/anh\/([0-9a-f-]{36})$/
-const NO_AE = 'AE_API_TOKEN và CF_ACCOUNT_ID'
+const NO_AE = 'AE_API_TOKEN and CF_ACCOUNT_ID'
+/** The Comments page's words are English (admin/comments.ts). */
+const NO_D1 = { failed: 'D1 is not set up on this server.' }
 /** This deploy's content.json (scripts/content-stats.ts): a build without it is a part that didn't load. */
 const contentOf = async (env: AdminEnv, origin: string) => {
   if (!env.ASSETS) return unset('ASSETS')
   const s = await soft('content', loadContentStats(env.ASSETS, origin))
-  return s === undefined ? { failed: 'Bản build này chưa có content.json.' } : s
+  return s === undefined ? { failed: 'This build has no content.json.' } : s
+}
+/**
+ * Comments' photos on /_ab/anh-ban-doc/, each given its comment's page (`comment`): the page's key, and its address
+ * from this build's content.json, read only when there is such a photo.
+ */
+async function markCommentPhotos(env: AdminEnv, origin: string, photos: (RecentPhoto | WaitingPhoto)[]): Promise<void> {
+  if (!env.DB || !photos.some(p => p.entity_ref.startsWith('comment:'))) return
+  const pages = await commentPages(env.DB, photos)
+  const stats = env.ASSETS ? await soft('content', loadContentStats(env.ASSETS, origin)) : undefined
+  const paths = stats && !isFailed(stats) ? pagesByRef(stats) : undefined
+  for (const p of photos) {
+    const page = pages.get(p.id)
+    if (page) p.comment = { page, ...(paths?.get(page) ? { path: paths.get(page)!.path } : {}) }
+  }
+}
+/** The content page's quality part (admin/quality.ts): the beacon's last 28 days, Search Console's figures in KV, this build's page signals and the names readers asked for. */
+export async function loadQuality(env: AdminEnv, origin: string, a: { account: string; token: string }, stats: ContentStats) {
+  const [gsc, signals, wanted] = await Promise.all([loadGsc(env.AB), env.ASSETS ? loadSignals(env.ASSETS, origin) : undefined, listWanted(env.AB).then(w => w.names, () => [])])
+  return queryQuality(a.account, a.token, stats, gsc ?? undefined, signals, wanted)
 }
 export const ae = (env: AdminEnv) => (env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? { account: env.CF_ACCOUNT_ID, token: env.AE_API_TOKEN } : undefined)
 
@@ -165,7 +198,7 @@ export const loadOverview: Load<Overview> = async (env, url, now, tz) => {
     db ? soft('clicks', clicksByDay(db, now, 31)) : unset('D1'),
     a ? soft('fish-id', queryFishIdDays(a.account, a.token, now, tz)) : unset(NO_AE),
     soft('fish-id keys', fishIdStatus(env, now)),
-    photosLive(env) ? soft('photos', livePhotos(env.DB!)) : unset('ảnh bạn đọc (D1, R2, Turnstile)'),
+    photosLive(env) ? soft('photos', livePhotos(env.DB!)) : unset('Reader photos (D1, R2, Turnstile)'),
     db ? soft('moderation', moderationWaiting(db)) : unset('D1'),
     soft('wanted', listWanted(env.AB)),
     db ? soft('accounts', accountStats(db, now, tz)) : unset('D1'),
@@ -176,7 +209,34 @@ export const loadOverview: Load<Overview> = async (env, url, now, tz) => {
   return { now, tz, readers, clicks, fish, keys, photos, waiting, wanted, accounts, hidden, content, snapshots }
 }
 
-const overviewHtml: Load<string> = async (...a) => overviewPage(await loadOverview(...a))
+const overviewHtml: Load<string> = async (...a) => todayPage(await loadToday(...a))
+
+/** The overview's version 2 (admin/today.ts): its parts, and the ones it reads besides, each failing on its own. */
+export const loadToday: Load<Today> = async (env, url, now, tz) => {
+  const a = ae(env)
+  const db = env.DB
+  const from = lastMondayStart(now)
+  const monday = mondayOf(localDay(now, HOME_TZ))
+  const [o, beacon, held, heldPages, waiting, kept, crashes, lastReport, changes, acts] = await Promise.all([
+    loadOverview(env, url, now, tz),
+    a ? soft('beacon', queryBeacon(a.account, a.token, from)) : unset(NO_AE),
+    db ? soft('held comments', db.prepare("SELECT COUNT(*) AS n FROM comments WHERE status = 'held'").first<{ n: number }>().then(r => r?.n ?? 0)) : unset('D1'),
+    // The pages they're on, newest first: the need names them.
+    db ? soft('held comments’ pages', db.prepare("SELECT entity_ref AS ref FROM comments WHERE status = 'held' GROUP BY entity_ref ORDER BY MAX(created_at) DESC LIMIT 6").all<{ ref: string }>().then(r => r.results.map(x => x.ref))) : unset('D1'),
+    // Each with the page it's for: a comment's photo, its comment's.
+    photosLive(env) ? soft('waiting photos', waitingPhotos(env).then(async xs => {
+      const ps = xs ?? []
+      const pages = db && ps.some(p => p.entity_ref.startsWith('comment:')) ? await commentPages(db, ps) : new Map<string, string>()
+      return ps.map(x => ({ id: x.id, ref: pages.get(x.id) ?? x.entity_ref }))
+    })) : undefined,
+    env.UPLOADS ? soft('kept', recentKept(env.UPLOADS).then(xs => xs.length)) : undefined,
+    a ? soft('app crashes', queryAppWeeks(a.account, a.token, from).then(x => x.crashes.filter(c => mondayOf(localDay(c.at, HOME_TZ)) === monday).reduce((k, c) => k + Number(c.n), 0))) : unset(NO_AE),
+    soft('reports', listReports(env.AB).then(xs => xs[0] ?? null)),
+    soft('change log', readChanges(env.AB)),
+    db ? soft('owner acts', ownerActs(db, photosLive(env))) : unset('D1'),
+  ])
+  return { ...o, beacon, countingFrom: READERS_FROM, held, heldPages, waitingPhotos: waiting, kept, crashes, lastReport, changes, acts }
+}
 
 /**
  * The scoreboard's data (admin/scoreboard.ts), each part failing on its own, its weeks Vietnam's whoever asks: the page,
@@ -199,22 +259,38 @@ export async function loadScoreboard(env: AdminEnv, url: URL, now: Date): Promis
   ])
   return summariseScoreboard({ now, owners: owners(env), beacon, app, community, clicks, content, snapshots, checks })
 }
-const scoreboardHtml: Load<string> = async (env, url, now, tz) => scoreboardPage(await loadScoreboard(env, url, now), tz)
 /** One daily report as it was sent (daily/page.ts), under the log's section: a page of the web dashboard alone. */
 const REPORT_PAGE = new RegExp(`^${REPORT_PATH}(\\d{1,20})/$`)
 const reportHtml = (id: string): Load<string | undefined> => (env, _url, now, tz) => reportPage(env.AB, id, now, tz)
+/** The fish-ID runs kept a year (fishid/transcript.ts, admin/runs.ts): a day's list (?ngay=, today's UTC day by default) and one run; web only, outside NAV. */
+const DAY = /^\d{4}-\d{2}-\d{2}$/
+const RUN_PAGE = /^\/_ab\/nhan-dien-ca\/luot\/(\d{4}-\d{2}-\d{2})\/([0-9a-f-]{36})\/$/
+const runsHtml: Load<string> = async (env, url, now, tz) => {
+  const asked = url.searchParams.get('ngay') ?? ''
+  // A day as written (2026-11-06) that is a real day; else today's (UTC, as runs are kept).
+  const t = Date.parse(`${asked}T00:00:00Z`)
+  const day = DAY.test(asked) && !Number.isNaN(t) && new Date(t).toISOString().slice(0, 10) === asked ? asked : now.toISOString().slice(0, 10)
+  return runsPage(day, env.UPLOADS ? await soft('fish-id runs', listRuns(env.UPLOADS, day)) : unset('R2'), now, tz)
+}
+const runHtml = (day: string, id: string): Load<string | undefined> => async (env, _url, now, tz) => {
+  const r = env.UPLOADS ? await readRun(env.UPLOADS, day, id) : null
+  return r ? runPage(day, r, now, tz) : undefined
+}
 /** Each section: its loaders, side by side, each failing on its own; days and times in the viewer's zone `tz` (admin/time.ts). */
 const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
+  '/_ab/thanh-cong/': view(async (env, url, now, tz) => ({ tz, s: await loadScoreboard(env, url, now) }), d => scoreboardPage(d.s, d.tz), d => scoreboardSection(d.s)),
+  '/_ab/thay-doi/': view((env, _url, now, tz) => loadChangelog(env.AB, now, tz), changelogPage, changelogSection),
   '/_ab/noi-dung/': view(async (env, url, now, tz) => {
     const a = ae(env)
-    const [stats, snapshots] = await Promise.all([contentOf(env, url.origin), soft('snapshots', listSnapshots(env.AB))])
-    const off = (what: string): Soft<never> => (isFailed(stats) ? { failed: 'Không có content.json.' } : unset(what))
-    const [reads, talk, clicks] = await Promise.all([
+    const [stats, low, snapshots] = await Promise.all([contentOf(env, url.origin), env.ASSETS ? soft('reviews', loadLowScores(env.ASSETS, url.origin)) : undefined, soft('snapshots', listSnapshots(env.AB))])
+    const off = (what: string): Soft<never> => (isFailed(stats) ? { failed: 'No content.json.' } : unset(what))
+    const [reads, talk, clicks, quality] = await Promise.all([
       a && !isFailed(stats) ? soft('content reads', queryContentReads(a.account, a.token, stats, 30)) : off(NO_AE),
       env.DB && !isFailed(stats) ? soft('content talk', talkByPage(env.DB, stats)) : off('D1'),
       env.DB && !isFailed(stats) ? soft('content clicks', clicksByKind(env.DB, stats, now)) : off('D1'),
+      a && !isFailed(stats) ? soft('quality', loadQuality(env, url.origin, a, stats)) : off(NO_AE),
     ])
-    return { now, tz, stats, reads, talk, clicks, snapshots }
+    return { now, tz, stats, low, reads, talk, clicks, snapshots, quality }
   }, contentPage, contentSection),
   '/_ab/doc-gia/': view(async (env, _url, now, tz) => {
     const a = ae(env)
@@ -228,14 +304,15 @@ const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
   }, d => appPage(d.now, d.test, d.s, d.tz), d => appSection(d.test, d.s)),
   '/_ab/nhan-dien-ca/': view(async (env, url, now, tz) => {
     const a = ae(env)
+    const period = url.searchParams.get('period')
     const [stats, keys, catalog] = await Promise.all([
-      a ? soft('fish-id', queryFishId(a.account, a.token, now, tz)) : unset(NO_AE),
+      a ? soft('fish-id', queryFishId(a.account, a.token, now, tz, FISH_PERIOD_KEYS.find(k => k === period) ?? 'week')) : unset(NO_AE),
       soft('fish-id keys', fishIdStatus(env, now)),
       catalogOf(env, url.origin),
     ])
     // A guess's page by its id, from the catalog the tool links with; never an address from the log itself.
     const pages = new Map((catalog?.entries ?? []).map(e => [e.id, e.url.vi]))
-    return { now, tz, stats, keys, pages }
+    return { now, tz, stats, keys, pages, period }
   }, fishIdPage, fishIdSection),
   '/_ab/anh-nhan-dien/': view(async (env, _url, now, tz) => ({ now, tz, xs: env.UPLOADS ? await soft('kept', recentKept(env.UPLOADS)) : undefined }),
     d => keptPage(d.xs, d.now, d.tz), d => keptSection(d.xs, d.now, d.tz)),
@@ -245,13 +322,29 @@ const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
     return { now, tz, clicks, summary }
   }, d => affiliatePage(d.clicks, d.summary, d.now, d.tz), d => affiliateSection(d.clicks, d.summary, d.now, d.tz)),
   '/_ab/muon-co/': view(async (env, _url, now, tz) => ({ now, tz, w: await soft('wanted', listWanted(env.AB)) }), d => wantedPage(d.now, d.w, d.tz), d => wantedSection(d.now, d.w, d.tz)),
-  '/_ab/anh-ban-doc/': view(async (env, _url, now, tz) => {
+  '/_ab/anh-ban-doc/': view(async (env, url, now, tz) => {
     const [xs, waiting] = await Promise.all([soft('photos', recentPhotos(env)), soft('waiting photos', waitingPhotos(env))])
+    await soft('comment photos', markCommentPhotos(env, url.origin, [...(Array.isArray(xs) ? xs : []), ...(Array.isArray(waiting) ? waiting : [])]))
     return { now, tz, xs, waiting }
   }, d => photosPage(d.xs, d.waiting, d.now, d.tz), d => photosSection(d.xs, d.waiting, d.now, d.tz)),
   '/_ab/an-trang/': view(async (env, _url, now, tz) => ({ now, tz, h: await soft('hidden', loadHidden(env.AB, true)) }), d => hiddenPage(d.h, d.now, d.tz), d => hiddenSection(d.h, d.now, d.tz)),
+  '/_ab/binh-luan/': view(async (env, url, now, tz) => {
+    // ?state= (held by default) and, on the web, ?cursor= for an older page; the app's section takes ?state= alone (owner-api.ts).
+    const state = stateOf(url.searchParams.get('state')) ?? 'held'
+    const cursor = readCursor(url.searchParams.get('cursor') ?? '')
+    const db = env.DB
+    const [list, week, stats] = await Promise.all([
+      db ? soft('comments', listComments(db, state, cursor)) : NO_D1,
+      db ? soft('comment week', commentWeek(db, now)) : NO_D1,
+      contentOf(env, url.origin),
+    ])
+    const talk = !db ? NO_D1 : isFailed(stats) ? stats : await soft('comment talk', talkByPage(db, stats, 5))
+    return { now, tz, state, list, week, talk, ...(isFailed(stats) ? {} : { pages: pagesByRef(stats) }) }
+  }, commentsPage, commentsSection),
   '/_ab/tai-khoan/': view(async (env, _url, now, tz) => ({ now, tz, a: env.DB ? await soft('accounts', accountStats(env.DB, now, tz)) : unset('D1') }),
     d => accountsPage(d.a, d.now, d.tz), d => accountsSection(d.a, d.now, d.tz)),
+  '/_ab/bao-sai/': view(async (env, _url, now, tz) => ({ now, tz, d: env.UPLOADS ? await soft('chat reports', recentReports(env.UPLOADS)) : undefined }),
+    d => chatReportsPage(d.d, d.now, d.tz), d => chatReportsSection(d.d, d.now, d.tz)),
   '/_ab/bao-cao/': view((env, _url, now, tz) => loadReports(env, now, tz, ids => liveOwnerApps(env, ids, now)), reportsPage, reportsSection),
 }
 export const ADMIN_PAGES: AdminPath[] = ['/_ab/', ...(Object.keys(PAGES) as (keyof typeof PAGES)[])]
@@ -260,6 +353,12 @@ export const ADMIN_PAGES: AdminPath[] = ['/_ab/', ...(Object.keys(PAGES) as (key
 export const sectionKey = (path: AdminPath) => path.slice('/_ab/'.length, -1)
 /** Every page but the overview, as the app reads them (GET /api/owner/sections/{key}), in the dashboard's order and with its names. */
 export const SECTIONS = NAV.flatMap(([path, name]) => (path === '/_ab/' ? [] : [{ key: sectionKey(path), name, path }]))
+/** The comments after `cursor` for GET /api/owner/comments, each with its page as the section gives it (content.json). */
+export async function moreComments(env: AdminEnv, db: D1Database, url: URL, now: Date, state: CommentState, cursor: NonNullable<ReturnType<typeof readCursor>>): Promise<{ items: CommentItem[]; next?: string }> {
+  const [list, stats] = await Promise.all([listComments(db, state, cursor), contentOf(env, url.origin)])
+  const pages = isFailed(stats) ? undefined : pagesByRef(stats)
+  return { items: list.rows.map(r => commentItem(r, pages, now)), ...(list.next ? { next: list.next } : {}) }
+}
 /** A section as blocks, from the same load as its page; undefined for a key that isn't one. */
 export async function sectionJson(key: string, env: AdminEnv, url: URL, now: Date, tz: string): Promise<Section | undefined> {
   const path = SECTIONS.find(x => x.key === key)?.path
@@ -289,6 +388,14 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     if (req.method !== 'GET' || (!bearerOk(req, env.AB_DASH_TOKEN) && !(await owner()))) return notFound()
     return Response.json(await loadHidden(env.AB, true), { headers: { 'cache-control': 'no-store' } })
   }
+  if (path === '/_ab/noi-dung/quality.json') {
+    // The quality lists for the writers' rewrite queue (Bearer token) as for the owner.
+    if (req.method !== 'GET' || (!bearerOk(req, env.AB_DASH_TOKEN) && !(await owner()))) return notFound()
+    const a = ae(env)
+    const stats = env.ASSETS ? await loadContentStats(env.ASSETS, url.origin) : undefined
+    if (!a || !stats) return Response.json({ error: 'not_configured' }, { status: 503, headers: { 'cache-control': 'no-store' } })
+    return Response.json(qualityJson(await loadQuality(env, url.origin, a, stats)), { headers: { 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow' } })
+  }
   if (path === '/_ab/thanh-cong.json') {
     // The scoreboard as data, for the site lead (Bearer token) as for the owner; only its counts, nobody's details.
     if (req.method !== 'GET' || (!bearerOk(req, env.AB_DASH_TOKEN) && !(await owner()))) return notFound()
@@ -308,7 +415,7 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     const form = await req.formData().catch(() => null)
     if (!form) return badForm()
     const id = String(form.get('id') ?? '')
-    // Duyệt: the next moderation pass publishes it; Gỡ (any other action): removed now.
+    // Approve: the next moderation pass publishes it; Remove (any other action): removed now.
     if (form.get('action') === 'approve') await approveByOwner(env, id, now)
     else await removePhoto(env, id, 'removed by owner', now)
     return see('/_ab/anh-ban-doc/')
@@ -319,6 +426,17 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     if (req.method !== 'GET' || !env.UPLOADS || !(await ownerOrApp())) return notFound()
     const o = await keptImage(env.UPLOADS, shot[1] === 'anon' ? undefined : shot[1], shot[2]!)
     return o ? new Response(o.body, { headers: { 'content-type': 'image/jpeg', 'cache-control': 'private, no-store', 'x-robots-tag': 'noindex, nofollow' } }) : notFound()
+  }
+  // A day of fish-ID runs whole, as JSON, for the evals: the owner's only, never stored or indexed.
+  const runsJson = /^\/_ab\/nhan-dien-ca\/luot\/(\d{4}-\d{2}-\d{2})\.json$/.exec(path)
+  if (runsJson) {
+    if (req.method !== 'GET' || !env.UPLOADS || !(await owner())) return notFound()
+    const bucket = env.UPLOADS
+    const rows = await listRuns(bucket, runsJson[1]!)
+    const runs = []
+    // A few reads at a time: a busy day is a few hundred runs.
+    for (let i = 0; i < rows.length; i += 20) runs.push(...(await Promise.all(rows.slice(i, i + 20).map(r => readRun(bucket, r.day, r.id)))).filter(r => r !== null))
+    return new Response(JSON.stringify(runs), { headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'private, no-store', 'x-robots-tag': 'noindex, nofollow', 'content-disposition': `attachment; filename="fish-id-runs-${runsJson[1]}.json"` } })
   }
   if (path === '/_ab/anh-nhan-dien/xoa') {
     if (req.method !== 'POST' || !env.UPLOADS || !(await owner())) return notFound()
@@ -341,6 +459,18 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     await setSettings(env.AB, change)
     return see(REPORT_PATH)
   }
+  // Show or hide a reader's comment (admin/comments.ts), as the app's POST /api/owner/comments/{id} does; back to the state
+  // the owner was looking at.
+  if (path === COMMENTS_FORM) {
+    if (req.method !== 'POST' || !(await owner()) || !env.DB) return notFound()
+    const form = await req.formData().catch(() => null)
+    const action = form?.get('action')
+    if (!form || (action !== 'show' && action !== 'hide')) return badForm()
+    const done = await decideComment(env.DB, String(form.get('id') ?? ''), action, now)
+    if (typeof done === 'string') return new Response(done === 'expired' ? EXPIRED : GONE, { status: done === 'expired' ? 409 : 404, headers: { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' } })
+    const state: CommentState = stateOf(String(form.get('state') ?? '')) ?? 'held'
+    return see(`${COMMENTS_PATH}?state=${state}`)
+  }
   if (path === '/_ab/hidden') {
     if (req.method !== 'POST' || !(await owner())) return notFound()
     const form = await req.formData().catch(() => null)
@@ -352,7 +482,8 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
 
   const key = (path.endsWith('/') ? path : `${path}/`) as WebPath
   const report = REPORT_PAGE.exec(key)
-  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : key === SCOREBOARD_PATH ? scoreboardHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]!) : undefined
+  const oneRun = RUN_PAGE.exec(key)
+  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]!) : (key as string) === RUNS_PATH ? runsHtml : oneRun ? runHtml(oneRun[1]!, oneRun[2]!) : undefined
   if (!render) return notFound()
   if (req.method !== 'GET' && req.method !== 'HEAD') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } })
   // Moved to its own host once Access guards it. A bearer asked for something else, and gets what it always got. Never

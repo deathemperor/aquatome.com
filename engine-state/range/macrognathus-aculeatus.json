@@ -1,0 +1,129 @@
+{
+  "id": "macrognathus-aculeatus",
+  "native": {
+    "input": "38d368eaa29a7a69",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Apparently adult Macrognathus (the females show clear spawning condition) were imported from Indonesia which, according to the exporter, were collected on the relatively small island of Bangka.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Java",
+        "source": "glaser",
+        "quote": "Therefore Kottelat and Widjanarti limited the origin to Java in 2005 and established a neotype from there as future reference.",
+        "ok": true
+      },
+      {
+        "name": "Bangka",
+        "source": "glaser",
+        "quote": "Apparently adult Macrognathus (the females show clear spawning condition) were imported from Indonesia which, according to the exporter, were collected on the relatively small island of Bangka.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "IN",
+        "BD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Macrognathus aculeatus",
+    "status": "ACCEPTED",
+    "taxonKey": 5204062,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        24
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        14
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        11
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        4
+      ],
+      [
+        "db5e874b-3e69-4380-bd61-f4cf5237e0f5",
+        3
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "9f2af0c5-2ff7-42fe-aad6-c0b5af96535a",
+        1
+      ],
+      [
+        "a255c20a-10de-4bb7-8ba8-10ba413a9845",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 13,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

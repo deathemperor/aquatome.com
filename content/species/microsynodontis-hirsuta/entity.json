@@ -1,0 +1,147 @@
+{
+  "id": "microsynodontis-hirsuta",
+  "scientificName": "Microsynodontis hirsuta",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Microsynodontis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "gabon",
+    "ntem"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [
+        "Ntem River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Ntem River, Gabon. Type locality: Ngomo creek, where it crosses the Oyem-Minvoul road, 1°41'30.0''N, 11°39'18.9''E, Woleu-Ntem Province, Gabon.",
+          "countries": [
+            "GA"
+          ],
+          "regions": [
+            "Ntem River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344192,
+      "total": 2,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "GA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          11.25,
+          1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1305",
+      "html": "<ul><li>Scientific name: Microsynodontis hirsutus Ng, 2004</li><li>IUCN Red List: Not Evaluated</li></ul><p>The genus Microsynodontis has an interrupted lateral line. The caudal fin is usually rounded or truncate, sometimes with a slight indent. There is a long adipose fin with no fin ray. Three pairs of barbels, with the mandibular barbels branched.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1305",
+      "html": "<p>Africa: Ntem River, Gabon. Type locality: Ngomo creek, where it crosses the Oyem-Minvoul road, 1°41'30.0''N, 11°39'18.9''E, Woleu-Ntem Province, Gabon.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1305",
+      "html": "<p>Found in a fast-flowing creek over a rock/pebble substrate.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1305",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1305",
+      "html": "<p>Etymology: Microsynodontis comes from the Greek mikros, meaning small, and synodontis, in reference to the small size of members of this genus. Hirsutus is Latin for hairy, in reference to the long tubercles on the head, giving the fish a hairy appearance.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1305",
+      "html": "<p>Zootaxa No. 531, pp 20, Figs. 2a, 3a, 10.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác nước bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nhỏ nền bể cá",
+        "đá cuội bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -12,6 +12,178 @@
     "thailand",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "TH",
+        "SG"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Kalimantan"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Sambas, Kalimantan, western Borneo, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kalimantan"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Sumatra and Borneo. Reported from Thailand. Also found in Greater Sunda Island rivers and Singapore waters.",
+          "countries": [
+            "TH",
+            "SG"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202689,
+      "total": 33,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MY",
+          20
+        ],
+        [
+          "ID",
+          9
+        ],
+        [
+          "SG",
+          2
+        ],
+        [
+          "IN",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          101.25,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          1.40625,
+          2,
+          1
+        ],
+        [
+          108.28125,
+          0,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          112.5,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          113.90625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          12,
+          0
+        ],
+        [
+          115.3125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          116.71875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          116.71875,
+          5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -107,17 +279,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/4d286e3a8e28c64f.webp",
-      "thumb": "https://media.aquatome.com/scotcat/4d286e3a8e28c64f-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "/ / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_leiacanthus.htm",
-      "caption": "Clarias leiacanthus",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/commons/49fb502779b8e691.webp",
       "width": 960,

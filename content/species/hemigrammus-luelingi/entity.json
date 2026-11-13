@@ -11,6 +11,154 @@
     "amazon",
     "colombia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "CO"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Hemigrammus ocellifer is actually much more common and widespread than H. luelingi, which is a common species in western Amazon basin, especially Peru and Colombia, but not elsewhere.\"",
+          "countries": [
+            "PE",
+            "CO"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354359,
+      "total": 73,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "PE",
+          51
+        ],
+        [
+          "BR",
+          10
+        ],
+        [
+          "CO",
+          9
+        ],
+        [
+          "EC",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          0,
+          2,
+          0
+        ],
+        [
+          -75.9375,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          -75.9375,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -5.625,
+          10,
+          10
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          -4.21875,
+          13,
+          13
+        ],
+        [
+          -73.125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          13,
+          13
+        ],
+        [
+          -70.3125,
+          -5.625,
+          8,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          2,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

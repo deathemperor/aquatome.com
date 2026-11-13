@@ -10,6 +10,58 @@
     "india",
     "tamil-nadu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Western Ghats",
+        "Anaimalai Hills"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Mesonoemacheilus herrei is a loach from the Anaimalai Hills of the Western Ghats in Tamil Nadu, southern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Western Ghats",
+            "Anaimalai Hills"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358151,
+      "total": 18,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "IN",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          75.9375,
+          9.84375,
+          15,
+          15
+        ],
+        [
+          75.9375,
+          11.25,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -53,7 +105,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -171,8 +223,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể cá mini 60cm"
+        "bể cá 60cm"
       ]
     },
     {

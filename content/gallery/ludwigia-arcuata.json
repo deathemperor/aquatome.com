@@ -2,66 +2,6 @@
   "id": "ludwigia-arcuata",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/709690156.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/709690156-480.webp",
-      "width": 990,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "natalie",
-      "sourceUrl": "https://www.inaturalist.org/photos/709690156",
-      "caption": "Ludwigia lá kim thân đỏ mọc bò ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/55ce7784b85869c5.webp",
-      "thumb": "https://media.aquatome.com/commons/55ce7784b85869c5-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Krzysztof Ziarnek, Kenraiz",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ludwigia_arcuata_kz02.jpg",
-      "caption": "Hoa vàng Ludwigia lá kim mọc ngoài tự nhiên",
-      "best": true,
-      "kind": "flower"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/186041435.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/186041435-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Claire Herzog",
-      "sourceUrl": "https://www.inaturalist.org/photos/186041435",
-      "caption": "Nhiều hoa vàng nở rộ trên thảm Ludwigia lá kim",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/47c309a2b0cd2994.webp",
-      "thumb": "https://media.aquatome.com/commons/47c309a2b0cd2994-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Krzysztof Ziarnek, Kenraiz",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ludwigia_arcuata_kz01.jpg",
-      "caption": "Hoa vàng và lá hẹp của Ludwigia lá kim ngoài tự nhiên",
-      "best": true,
-      "kind": "flower"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/724302722.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/724302722-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "James Hardee",
-      "sourceUrl": "https://www.inaturalist.org/photos/724302722",
-      "caption": "Ludwigia lá kim mọc nhô khỏi mặt nước ở vùng đất ngập",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/267550990.webp",
       "thumb": "https://media.aquatome.com/inaturalist/267550990-480.webp",
       "width": 1024,
@@ -82,18 +22,6 @@
       "author": "Stan Shebs",
       "sourceUrl": "https://www.inaturalist.org/photos/551164859",
       "caption": "Cụm hoa vàng Ludwigia lá kim chụp cận cảnh",
-      "best": true,
-      "kind": "flower"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/709690068.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/709690068-480.webp",
-      "width": 1024,
-      "height": 998,
-      "licence": "CC0",
-      "author": "natalie",
-      "sourceUrl": "https://www.inaturalist.org/photos/709690068",
-      "caption": "Hoa vàng nở trên thân đỏ của Ludwigia lá kim",
       "best": true,
       "kind": "flower"
     },
@@ -142,6 +70,18 @@
       "author": "Jay Horn",
       "sourceUrl": "https://www.inaturalist.org/photos/379082826",
       "caption": "Cận cảnh hoa vàng Ludwigia lá kim mọc ven bùn",
+      "best": true,
+      "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/9213290367.webp",
+      "thumb": "https://media.aquatome.com/flickr/9213290367-480.webp",
+      "width": 1023,
+      "height": 737,
+      "licence": "CC BY-SA 2.0",
+      "author": "阿橋花譜 KHQ Flower Guide",
+      "sourceUrl": "https://www.flickr.com/photos/52582306@N03/9213290367",
+      "caption": "Hoa vàng của Ludwigia lá kim giữa những lá hẹp xanh",
       "best": true,
       "kind": "flower"
     },
@@ -420,9 +360,81 @@
       "caption": "Hoa Ludwigia lá kim mọc trên nền đất ẩm ngoài tự nhiên",
       "best": false,
       "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/709690156.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/709690156-480.webp",
+      "width": 990,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "natalie",
+      "sourceUrl": "https://www.inaturalist.org/photos/709690156",
+      "caption": "Ludwigia lá kim thân đỏ mọc bò ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/55ce7784b85869c5.webp",
+      "thumb": "https://media.aquatome.com/commons/55ce7784b85869c5-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Krzysztof Ziarnek, Kenraiz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ludwigia_arcuata_kz02.jpg",
+      "caption": "Hoa vàng Ludwigia lá kim mọc ngoài tự nhiên",
+      "best": true,
+      "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/186041435.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/186041435-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Claire Herzog",
+      "sourceUrl": "https://www.inaturalist.org/photos/186041435",
+      "caption": "Nhiều hoa vàng nở rộ trên thảm Ludwigia lá kim",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/47c309a2b0cd2994.webp",
+      "thumb": "https://media.aquatome.com/commons/47c309a2b0cd2994-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Krzysztof Ziarnek, Kenraiz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ludwigia_arcuata_kz01.jpg",
+      "caption": "Hoa vàng và lá hẹp của Ludwigia lá kim ngoài tự nhiên",
+      "best": true,
+      "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/724302722.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/724302722-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "James Hardee",
+      "sourceUrl": "https://www.inaturalist.org/photos/724302722",
+      "caption": "Ludwigia lá kim mọc nhô khỏi mặt nước ở vùng đất ngập",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/709690068.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/709690068-480.webp",
+      "width": 1024,
+      "height": 998,
+      "licence": "CC0",
+      "author": "natalie",
+      "sourceUrl": "https://www.inaturalist.org/photos/709690068",
+      "caption": "Hoa vàng nở trên thân đỏ của Ludwigia lá kim",
+      "best": true,
+      "kind": "flower"
     }
   ],
-  "seen": 87,
-  "updatedAt": "2026-11-01",
-  "builtAt": "2026-11-01"
+  "seen": 88,
+  "updatedAt": "2026-11-06",
+  "builtAt": "2026-11-06"
 }

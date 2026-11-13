@@ -1,0 +1,306 @@
+{
+  "id": "otocinclus-cocama",
+  "scientificName": "Otocinclus cocama",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Otocinclus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "ucayali"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Ucayali",
+        "Marañon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The zebra oto, Otocinclus cocama, is a miniature loricariid from Peru, thought to occur throughout the lower Ucayali and Marañon.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Quebrada Yamayacu, about 4°55'S, 73°43'W, tributary to the caño of the cocha Supay in Jenaro Herrera, Provincia Requena, Departamento Loreto, Peru', and O. cocama is thought to occur throughout the lower Ucayali and Marañon in Peru.",
+          "countries": [],
+          "regions": [
+            "Ucayali",
+            "Marañon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340465,
+      "total": 12,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "PE",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-cocama",
+      "html": "<p>The zebra oto, Otocinclus cocama, is a miniature loricariid from Peru, thought to occur throughout the lower Ucayali and Marañon. Vertically elongated blotches from the dorsal midline to the belly distinguish it from all congeners, and it has a complete lateral line. It can be delicate when first imported and benefits from quarantine in a tank with a good biofilm to graze.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-cocama",
+      "html": "<p>Type locality is 'Quebrada Yamayacu, about 4°55'S, 73°43'W, tributary to the caño of the cocha Supay in Jenaro Herrera, Provincia Requena, Departamento Loreto, Peru', and O. cocama is thought to occur throughout the lower Ucayali and Marañon in Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-cocama",
+      "html": "<p>Otocinclus spp. are mostly restricted to small tributaries or slow-flowing marginal zones of larger rivers and usually associated with aquatic vegetation or terrestrial grasses growing in the water. They tend to occur in large numbers, often among the vegetation in the upper part of the water column, near the surface.</p><p>The type locality of O. cocama is described as a creek containing clear water with dense marginal vegetation among which the fish were found.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-cocama",
+      "html": "<p>Standard length: 45 mm SL.</p><p>Aquarium base: 45 × 30 cm. Volume: ~41 litres.</p><p>Aquarium base dimensions of 45 × 30 cm or equivalent should be the smallest considered for long-term maintenance.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-cocama",
+      "html": "<p>Requires a mature, densely-planted set-up, ideally with floating vegetation and roots, twigs or branches to add structural complexity. Dried leaf litter can also be added if you wish and will be grazed by the fish as it decomposes.</p><p>Use gentle filtration; an air-powered sponge-style unit should prove adequate in most cases. This species requires stable water conditions and should never be added to an immature aquarium.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-cocama",
+      "html": "<ul><li>Temperature: 21–25°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-cocama",
+      "html": "<p>Vegetarian, it feeds on algae and aufwuch in its habitat. When introduced to an aquarium, there should be a good supply of common green algae or diatoms (brown algae) present or a good biofilm on plant leaves and other surfaces such as in an established aquarium, otherwise the fish may well starve. Once acclimated, it will feed from sinking foods such as algae, spirulina, kelp tablets and discs. Vegetables such as blanched spinach, cucumber and zucchini may be offered. It will eat other foods but must not be fed a diet lacking in vegetable (algae, etc) matter.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-cocama",
+      "html": "<p>Peaceful with other species but does not make an ideal community fish due to its small size and rather timid nature. Ideally it should be kept alone or at most with diminutive, non-aggressive characids, smaller callichthyid or loricariid catfishes, and perhaps freshwater shrimp from the genera Caridina or Neocaridina.</p><p>Otocinclus spp. are gregarious by nature and should ideally be maintained in a group of 6 specimens or more. The aquarium should be well-planted; this species' sole activity during daylight hours is to graze algae from plant leaves, wood, rock, tank walls--indeed any surface. It will frequently stop to rest on the leaves of plants, and may frequently be inconspicuous in the aquarium. Without abundant plants and other surfaces it will feel exposed and vulnerable and such stress readily brings on health issues and early demise. There have been reports of otos feeding off the sides of certain other fish; this habit is probably the result of stress or insufficient vegetable (algae) matter in the aquarium. Otos continually eat, so this must be considered when acquiring them.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-cocama",
+      "html": "<p>Fully-grown adult males tend to be 5 – 10 mm smaller than females, and possess a conical urogenital papilla behind the anus which is absent in females.</p><p>Males also possess a flap on the dorsal surface of the unbranched pectoral-fin</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-cocama",
+      "html": "<p>Has been achieved, but unforunately very few details are available. Presumably the fry are very tiny and will require access to copious amounts of algae and other greenstuffs.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-cocama",
+      "html": "<p>This stunning miniature Loricariid has only been available in the hobby since 2001, and was described to science in 2004. As with other otos, it can be a little delicate when first imported and should be quarantined carefully until it's settled. The quarantine tank should be established in order to provide a good biofilm on surfaces for the fish to graze.</p><p>The following putative autapomorphies distinguish Otocinclus cocama from all its congeners: (1) a unique, distinct color pattern consisting of vertically elongated blotches spanning from the dorsal midline to the ventral border of flanks (Figs. 1 and 4), and (2) a complete lateral line, without the gap plates (midbody plates without lateral line perforations) present in other Otocinclus. In addition, the new species can be distinguished from most other Otocinclus by its high number of teeth (30-45 in premaxilla and 23-36 in dentary vs. 10-29 and 9-22 in most species except O. huaorani Schaefer, 1997 [18-34 and 16-30], O. mura Schaefer, 1997 [22-30 and 18-27], and O. bororo Schaefer, 1997 [17-31 and 17-26]). From O. huaorani, O. mura, and O. bororo, the new species can be further distinguished by the presence of a small metapterygoid channel (vs. absent in these three species), and by having one W-shaped mark in the caudal fin (vs. two W-shaped mark in the above three species) [Reis, 2004][2].</p><p>Lehmann (2006) in describing the new species O. batmani noted that it differs from O. cocama by the absence of vertically elongated blotches from the dorsal midline to the ventral border of flanks, and by lacking a posterior extension of black pigmentation on the base of two central caudal-fin rays. Phylogenetic relationships of the new species suggest it belongs to Schaefer's (2007) Clade B which would now include O. huaorani, O. mariae, O. bororo, O. mura, O. cocama and O. batmani. Within this group, O. batmani shares with O. cocama the presence of a single, intensely pigmented W-shaped caudal fin spot, which Lehmann identified as a synapomorphy uniting these two species.</p><p>You may observe otos suddenly dart to the surface for a gulp of air, very similar to the catfish in the Callichthyidae (cory, etc) family. Otos possess a modification of the esophageal wall that may function in aerial respiration and assist in providing additional buoyancy that aids these fish in remaining close to the water surface in their habitats (Schaefer, 1997).</p><p>Otocinclus is a basal member of the tribe Hypoptopomatini and is believed to be monophyletic (Schaefer, 1997). The species of Otocinclus are widely distributed in cis-Andean South America, from northern Venezuela to northern Argentina, usually inhabiting small to medium sized water bodies, often associated with marginal vegetation (Reis, 2004).</p><p>The genus Otocinclus was erected by Cope in 1871. In 1997, Scott A. Schaefer revised the genus, recognizing only 13 of the then 65 species; the others he re-assigned to various genera. Since then, new species have been described as Otocinclus, bringing the genus total to 18 valid species at the time of writing (Eschmeyer, 2015). The phylogenetic biogeography of Otocinclus led Schaefer (1997) to suggest that much of the generic and species-level diversification of the Otocinclus and perhaps other loricariid catfishes occurred prior to the formation of the Amazon basin. The phylogenetic relationships among the fish in the subfamily Hypoptopomatinae are currently under study, and the genus Otocinclus may eventually be relocated (Lehmann, 2006)[3].</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/otocinclus-cocama",
+      "html": "<ul><li>Schaefer, Scott A. (1997). The Neotropical cascudinhos: Systematics and biogeography of the Otocinclus catfishes (Siluriformes: Loricariidae). Proceedings of the Academy of Natural Sciences of Philadelphia, 148, 1-120</li><li>Reis, Roberto E. (2004). Otocinclus cocama, a new uniquely colored loricariid catfish from Peru (Teleostei: Siluriformes), with comments on the impact of taxonomic revisions to the discovery of new taxa. Neotropical Ichthyology, Volume 2, No. 3, 109-115</li><li>Lehmann, Pablo A. (2006). Otocinclus batmani, a new species of hypoptopomatine catfish (Siluriformes: Loricariidae) from Colombia and Peru. Neotropical ichthyology, volume4, number4, 379-383</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/bfe9d5bb999e3c5f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bfe9d5bb999e3c5f-480.webp",
+      "width": 500,
+      "height": 329,
+      "licence": "dùng với sự cho phép",
+      "author": "Billy Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_cocama.htm",
+      "caption": "Otocinclus cocama",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/02594d8ce9096184.webp",
+      "thumb": "https://media.aquatome.com/scotcat/02594d8ce9096184-480.webp",
+      "width": 500,
+      "height": 301,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_cocama.htm",
+      "caption": "Otocinclus cocama",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1e8545d29d4cf782.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1e8545d29d4cf782-480.webp",
+      "width": 500,
+      "height": 302,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_cocama.htm",
+      "caption": "Otocinclus cocama",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/fb4ea6b7a2d8831a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/fb4ea6b7a2d8831a-480.webp",
+      "width": 500,
+      "height": 267,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_cocama.htm",
+      "caption": "Otocinclus cocama",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "p2LHEG3JK0s",
+      "title": "Zebra Otocinclus, a shy and reclusive fish - Tank of the Week Ep 22",
+      "durationSec": 703,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hnf3hAYmPrs",
+      "title": "🪵🌿 Holz und #Ludwigia Dschungel für die #Otocinclus - Beckenvorstellung #Aquaristik #Aquarium",
+      "durationSec": 552,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "MfIF--Fh82g",
+      "title": "Otocinclus cocama frisst Zucchini",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cvjooCLIojM",
+      "title": "Otocinclus cocama - zebra oto",
+      "durationSec": 51,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 50cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sponge khí",
+        "máy sục khí mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tảo cho cá oto",
+        "viên spirulina cho cá lau kiếng"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh",
+        "cây thủy sinh nổi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

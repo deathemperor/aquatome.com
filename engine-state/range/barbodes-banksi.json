@@ -1,0 +1,98 @@
+{
+  "id": "barbodes-banksi",
+  "native": {
+    "input": "9e5e67fba748640a",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Barbodes banksi is a cyprinid from Peninsular Malaysia, Singapore and western Borneo, plus the Anambas and Natuna islands of Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Barbodes banksi is a cyprinid from Peninsular Malaysia, Singapore and western Borneo, plus the Anambas and Natuna islands of Indonesia.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Barbodes banksi is a cyprinid from Peninsular Malaysia, Singapore and western Borneo, plus the Anambas and Natuna islands of Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kapuas River",
+        "source": "seriouslyfish",
+        "quote": "Current knowledge agrees with this as the extent of its distribution, with records from various localities in Peninsular Malaysia, Singapore (where its distribution is now much reduced), western Borneo (including Sarawak state, Malaysia, and the Kapuas River drainage, Kalimantan Barat province, Indonesia), plus the Anambas and Natuna island archipelagos (Indonesia).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Barbodes banksi is a cyprinid from Peninsular Malaysia, Singapore and western Borneo, plus the Anambas and Natuna islands of Indonesia.",
+        "ok": true
+      },
+      {
+        "name": "Anambas",
+        "source": "seriouslyfish",
+        "quote": "Barbodes banksi is a cyprinid from Peninsular Malaysia, Singapore and western Borneo, plus the Anambas and Natuna islands of Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Natuna",
+        "source": "seriouslyfish",
+        "quote": "Barbodes banksi is a cyprinid from Peninsular Malaysia, Singapore and western Borneo, plus the Anambas and Natuna islands of Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barbodes banksi",
+    "status": "ACCEPTED",
+    "taxonKey": 8202230,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "SG",
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

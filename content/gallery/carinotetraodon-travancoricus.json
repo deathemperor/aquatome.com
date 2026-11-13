@@ -2,6 +2,18 @@
   "id": "carinotetraodon-travancoricus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/flickr/16163465973.webp",
+      "thumb": "https://media.aquatome.com/flickr/16163465973-480.webp",
+      "width": 1023,
+      "height": 805,
+      "licence": "CC BY-SA 2.0",
+      "author": "AJC1",
+      "sourceUrl": "https://www.flickr.com/photos/47353092@N00/16163465973",
+      "caption": "Cá nóc lùn đực giữa rong thủy sinh xanh",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/68022680.webp",
       "thumb": "https://media.aquatome.com/inaturalist/68022680-480.webp",
       "width": 1024,
@@ -26,10 +38,27 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/flickr/16782280862.webp",
+      "thumb": "https://media.aquatome.com/flickr/16782280862-480.webp",
+      "width": 1024,
+      "height": 801,
+      "licence": "CC BY-SA 2.0",
+      "author": "AJC1",
+      "sourceUrl": "https://www.flickr.com/photos/47353092@N00/16782280862",
+      "caption": "Cá nóc lùn nhìn chính diện trong bể thủy sinh",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/a935c0e316a0c435.webp",
       "thumb": "https://media.aquatome.com/commons/a935c0e316a0c435-480.webp",
       "width": 1200,
       "height": 800,
+      "large": {
+        "url": "https://media.aquatome.com/commons/a935c0e316a0c435-large.webp",
+        "width": 1800,
+        "height": 1200
+      },
       "licence": "CC BY-SA 3.0",
       "author": "Michelle Jo",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_Freshwater_Puffer_Fish.JPG",
@@ -40,6 +69,11 @@
       "thumb": "https://media.aquatome.com/commons/4017d7c95fcd0ef9-480.webp",
       "width": 1200,
       "height": 675,
+      "large": {
+        "url": "https://media.aquatome.com/commons/4017d7c95fcd0ef9-large.webp",
+        "width": 2060,
+        "height": 1159
+      },
       "licence": "CC BY-SA 3.0",
       "author": "Michelle Jo",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_Freshwater_Puffer_Fish_2.jpg",
@@ -50,6 +84,11 @@
       "thumb": "https://media.aquatome.com/commons/d5b2cb76324e9c5d-480.webp",
       "width": 1200,
       "height": 801,
+      "large": {
+        "url": "https://media.aquatome.com/commons/d5b2cb76324e9c5d-large.webp",
+        "width": 1799,
+        "height": 1200
+      },
       "licence": "CC BY-SA 4.0",
       "author": "Chunbin",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E3%82%A2%E3%83%99%E3%83%8B%E3%83%BC%E3%83%91%E3%83%95%E3%82%A1%E3%83%BC.jpg",
@@ -60,6 +99,11 @@
       "thumb": "https://media.aquatome.com/inaturalist/386047058-480.webp",
       "width": 1024,
       "height": 768,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/386047058-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
       "licence": "CC BY",
       "author": "Matthew Inabinett",
       "sourceUrl": "https://www.inaturalist.org/photos/386047058",
@@ -118,7 +162,7 @@
       "caption": "Cá nóc lùn màu vàng xanh trong bể thủy sinh"
     }
   ],
-  "seen": 69,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 71,
+  "updatedAt": "2026-11-09",
+  "builtAt": "2026-11-09"
 }

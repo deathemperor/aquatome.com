@@ -1,0 +1,879 @@
+{
+  "id": "faxonius-rusticus",
+  "scientificName": "Faxonius rusticus",
+  "order": "Decapoda",
+  "family": "Cambaridae",
+  "genus": "Faxonius",
+  "group": "other",
+  "places": [
+    "north-america",
+    "united-states",
+    "ohio-river"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 8979506,
+      "total": 5614,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "US",
+          4894
+        ],
+        [
+          "CA",
+          718
+        ],
+        [
+          "FR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -120.9375,
+          43.59375,
+          18
+        ],
+        [
+          -119.53125,
+          43.59375,
+          18
+        ],
+        [
+          -116.71875,
+          35.15625,
+          1
+        ],
+        [
+          -106.875,
+          33.75,
+          1
+        ],
+        [
+          -106.875,
+          39.375,
+          3
+        ],
+        [
+          -106.875,
+          42.1875,
+          6
+        ],
+        [
+          -105.46875,
+          35.15625,
+          6
+        ],
+        [
+          -105.46875,
+          36.5625,
+          2
+        ],
+        [
+          -105.46875,
+          40.78125,
+          2
+        ],
+        [
+          -105.46875,
+          42.1875,
+          2
+        ],
+        [
+          -98.4375,
+          37.96875,
+          4
+        ],
+        [
+          -98.4375,
+          42.1875,
+          2
+        ],
+        [
+          -97.03125,
+          37.96875,
+          2
+        ],
+        [
+          -97.03125,
+          40.78125,
+          2
+        ],
+        [
+          -97.03125,
+          42.1875,
+          1
+        ],
+        [
+          -95.625,
+          42.1875,
+          1
+        ],
+        [
+          -95.625,
+          43.59375,
+          7
+        ],
+        [
+          -95.625,
+          46.40625,
+          37
+        ],
+        [
+          -95.625,
+          47.8125,
+          2
+        ],
+        [
+          -95.625,
+          49.21875,
+          158
+        ],
+        [
+          -94.21875,
+          42.1875,
+          8
+        ],
+        [
+          -94.21875,
+          43.59375,
+          16
+        ],
+        [
+          -94.21875,
+          45,
+          27
+        ],
+        [
+          -94.21875,
+          46.40625,
+          18
+        ],
+        [
+          -94.21875,
+          47.8125,
+          5
+        ],
+        [
+          -94.21875,
+          49.21875,
+          48
+        ],
+        [
+          -92.8125,
+          40.78125,
+          4
+        ],
+        [
+          -92.8125,
+          42.1875,
+          17
+        ],
+        [
+          -92.8125,
+          43.59375,
+          11
+        ],
+        [
+          -92.8125,
+          45,
+          95
+        ],
+        [
+          -92.8125,
+          46.40625,
+          92
+        ],
+        [
+          -92.8125,
+          47.8125,
+          162
+        ],
+        [
+          -92.8125,
+          49.21875,
+          1
+        ],
+        [
+          -91.40625,
+          37.96875,
+          1
+        ],
+        [
+          -91.40625,
+          40.78125,
+          6
+        ],
+        [
+          -91.40625,
+          42.1875,
+          33
+        ],
+        [
+          -91.40625,
+          43.59375,
+          22
+        ],
+        [
+          -91.40625,
+          45,
+          78
+        ],
+        [
+          -91.40625,
+          46.40625,
+          11
+        ],
+        [
+          -91.40625,
+          47.8125,
+          21
+        ],
+        [
+          -90,
+          39.375,
+          33
+        ],
+        [
+          -90,
+          40.78125,
+          191
+        ],
+        [
+          -90,
+          42.1875,
+          213
+        ],
+        [
+          -90,
+          43.59375,
+          128
+        ],
+        [
+          -90,
+          45,
+          547
+        ],
+        [
+          -90,
+          46.40625,
+          4
+        ],
+        [
+          -90,
+          47.8125,
+          31
+        ],
+        [
+          -88.59375,
+          33.75,
+          1
+        ],
+        [
+          -88.59375,
+          35.15625,
+          21
+        ],
+        [
+          -88.59375,
+          36.5625,
+          1
+        ],
+        [
+          -88.59375,
+          39.375,
+          1
+        ],
+        [
+          -88.59375,
+          40.78125,
+          538
+        ],
+        [
+          -88.59375,
+          42.1875,
+          352
+        ],
+        [
+          -88.59375,
+          43.59375,
+          172
+        ],
+        [
+          -88.59375,
+          45,
+          60
+        ],
+        [
+          -88.59375,
+          46.40625,
+          3
+        ],
+        [
+          -88.59375,
+          47.8125,
+          1
+        ],
+        [
+          -87.1875,
+          32.34375,
+          1
+        ],
+        [
+          -87.1875,
+          33.75,
+          6
+        ],
+        [
+          -87.1875,
+          35.15625,
+          27
+        ],
+        [
+          -87.1875,
+          36.5625,
+          40
+        ],
+        [
+          -87.1875,
+          37.96875,
+          21
+        ],
+        [
+          -87.1875,
+          39.375,
+          18
+        ],
+        [
+          -87.1875,
+          40.78125,
+          26
+        ],
+        [
+          -87.1875,
+          42.1875,
+          2
+        ],
+        [
+          -87.1875,
+          43.59375,
+          5
+        ],
+        [
+          -87.1875,
+          45,
+          10
+        ],
+        [
+          -85.78125,
+          33.75,
+          1
+        ],
+        [
+          -85.78125,
+          35.15625,
+          88
+        ],
+        [
+          -85.78125,
+          36.5625,
+          88
+        ],
+        [
+          -85.78125,
+          37.96875,
+          114
+        ],
+        [
+          -85.78125,
+          39.375,
+          86
+        ],
+        [
+          -85.78125,
+          40.78125,
+          23
+        ],
+        [
+          -85.78125,
+          42.1875,
+          4
+        ],
+        [
+          -85.78125,
+          43.59375,
+          20
+        ],
+        [
+          -85.78125,
+          45,
+          32
+        ],
+        [
+          -85.78125,
+          46.40625,
+          2
+        ],
+        [
+          -85.78125,
+          47.8125,
+          7
+        ],
+        [
+          -84.375,
+          35.15625,
+          68
+        ],
+        [
+          -84.375,
+          36.5625,
+          23
+        ],
+        [
+          -84.375,
+          37.96875,
+          115
+        ],
+        [
+          -84.375,
+          39.375,
+          130
+        ],
+        [
+          -84.375,
+          40.78125,
+          52
+        ],
+        [
+          -84.375,
+          42.1875,
+          1
+        ],
+        [
+          -84.375,
+          43.59375,
+          12
+        ],
+        [
+          -84.375,
+          45,
+          40
+        ],
+        [
+          -84.375,
+          46.40625,
+          1
+        ],
+        [
+          -82.96875,
+          35.15625,
+          57
+        ],
+        [
+          -82.96875,
+          36.5625,
+          16
+        ],
+        [
+          -82.96875,
+          37.96875,
+          8
+        ],
+        [
+          -82.96875,
+          39.375,
+          15
+        ],
+        [
+          -82.96875,
+          40.78125,
+          48
+        ],
+        [
+          -82.96875,
+          42.1875,
+          17
+        ],
+        [
+          -82.96875,
+          45,
+          39
+        ],
+        [
+          -81.5625,
+          37.96875,
+          1
+        ],
+        [
+          -81.5625,
+          39.375,
+          3
+        ],
+        [
+          -81.5625,
+          40.78125,
+          17
+        ],
+        [
+          -81.5625,
+          42.1875,
+          28
+        ],
+        [
+          -81.5625,
+          43.59375,
+          28
+        ],
+        [
+          -81.5625,
+          45,
+          1
+        ],
+        [
+          -80.15625,
+          39.375,
+          1
+        ],
+        [
+          -80.15625,
+          40.78125,
+          2
+        ],
+        [
+          -80.15625,
+          42.1875,
+          3
+        ],
+        [
+          -80.15625,
+          43.59375,
+          102
+        ],
+        [
+          -80.15625,
+          45,
+          3
+        ],
+        [
+          -78.75,
+          37.96875,
+          2
+        ],
+        [
+          -78.75,
+          39.375,
+          45
+        ],
+        [
+          -78.75,
+          40.78125,
+          7
+        ],
+        [
+          -78.75,
+          43.59375,
+          106
+        ],
+        [
+          -78.75,
+          45,
+          12
+        ],
+        [
+          -77.34375,
+          37.96875,
+          1
+        ],
+        [
+          -77.34375,
+          39.375,
+          86
+        ],
+        [
+          -77.34375,
+          40.78125,
+          14
+        ],
+        [
+          -77.34375,
+          42.1875,
+          25
+        ],
+        [
+          -77.34375,
+          43.59375,
+          27
+        ],
+        [
+          -77.34375,
+          45,
+          20
+        ],
+        [
+          -75.9375,
+          39.375,
+          74
+        ],
+        [
+          -75.9375,
+          40.78125,
+          12
+        ],
+        [
+          -75.9375,
+          42.1875,
+          33
+        ],
+        [
+          -75.9375,
+          43.59375,
+          18
+        ],
+        [
+          -75.9375,
+          45,
+          30
+        ],
+        [
+          -74.53125,
+          40.78125,
+          54
+        ],
+        [
+          -74.53125,
+          42.1875,
+          65
+        ],
+        [
+          -74.53125,
+          43.59375,
+          3
+        ],
+        [
+          -73.125,
+          40.78125,
+          2
+        ],
+        [
+          -73.125,
+          42.1875,
+          19
+        ],
+        [
+          -73.125,
+          43.59375,
+          214
+        ],
+        [
+          -73.125,
+          45,
+          39
+        ],
+        [
+          -73.125,
+          46.40625,
+          1
+        ],
+        [
+          -71.71875,
+          43.59375,
+          1
+        ],
+        [
+          -70.3125,
+          43.59375,
+          1
+        ],
+        [
+          -70.3125,
+          45,
+          1
+        ],
+        [
+          1.40625,
+          43.59375,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 3,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 12
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 4,
+          "max": 4
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "html": "<ul><li>Name: Rusty crayfish</li><li>Scientific name: Faxonius rusticus</li><li>Tank size (optimal): 80 litres</li><li>Breeding: easy</li><li>Size: up to 7–12 cm long</li><li>Diet: omnivore / carnivore</li><li>Temperament: aggressive</li><li>Colour: from greenish-grey, light to reddish-brown</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "html": "<p>Faxonius rusticus is one of the worst invasive crayfish species in North America. Legislation has been passed in many states to prevent the introduction, sale, or possession of this species. Even if it is not banned in your state or country, NEVER release the Rusty crayfish into the wild. The introduction and spread of non-indigenous aquatic species has strong ecological impacts in freshwater environments worldwide and is one of the leading threats to freshwater biodiversity.</p><p>Rusty crayfish are aggressive and extremely adaptable. They grow and mature fast, and once established they are extremely difficult to nearly impossible to eradicate.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "html": "<p>This crayfish is native to the United States, in the Ohio River Basin (southeast Illinois, Indiana, Ohio, West Virginia, Tennessee, Kentucky, and parts of Alabama, Virginia and North Carolina).</p><p>It has now been reported in 33 US states and 3 Canadian provinces, possibly through use as live bait by anglers or intentional release by lake managers seeking to manage macrophyte communities. It was first caught in 1973 in Illinois and is spreading rapidly across the east of North America, displacing native crayfish.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "html": "<p>Rusty crayfish live in freshwater streams, rivers, lakes and ponds, preferring areas with rocks, logs and trees for cover. It is a habitat generalist, thriving in both flowing and standing water with gravel, cobble or sand substrate. It prefers clear, well-oxygenated waters with diverse habitats and shelter, but this does not limit its expansion.</p><p>In nature they are mostly found in less than 1 metre of water but have been found as deep as 14.6 metres.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "html": "<p>Crayfish need a lot of space. A 60-litre tank is the recommended minimum for one Rusty crayfish; a 20 or 40-litre tank is too small for a large adult. Start with an 80-litre tank; larger is better, as it allows diverse areas to dwell and hide, and because crayfish produce a lot of waste, water parameters are easier to keep stable.</p><p>Rusty crayfish are great escape artists and will climb air hoses and silicone sealant, so use a fitted lid and keep the water line not too high.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "html": "<p>If you are a first-time crayfish owner, cycle your tank before bringing any crayfish home, then check water quality with a test kit.</p><p>Leave food for 24 hours before removing it; remove leftovers by siphoning to prevent water contamination. Leaves can stay in the tank for several days. Do not remove molted exoskeletons. Check hiding places from time to time, as crayfish store food there, to prevent bacterial contamination.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "html": "<p>Temperature: in the wild they survive from near 0 to 35°C, but they do not necessarily thrive at the extremes. The preferred range is 20–25°C. Crayfish are coldblooded and less active in colder temperatures.</p><p>pH: they prefer pH above 5.5 and dissolved calcium above 2.5 mg/L; ideally pH should be more than 7.0. Low pH impedes calcium absorption and weakens the carapace, increasing mortality.</p><p>Hardness: optimal KH 3–20 and GH 3–25.</p><p>Calcium is essential for the exoskeleton. To grow and restore lost limbs, crayfish must regularly molt, which requires a high amount of calcium and leaves them vulnerable.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "html": "<p>Lighting: although they can be active during the day, they are considered nocturnal, so there are no special requirements; adapt lighting to any plants.</p><p>Aeration and flow: they appreciate a well-oxygenated tank but it is not strictly necessary.</p><p>Substrate: they can inhabit all substrates but prefer cobble habitat of small rocks, gravel and boulders, which they use as shelter from cannibalism and predation, rather than sand or muck.</p><p>Decor: provide hiding places, which protect crayfish during molting, protect young against predation and reduce aggression. Stacks of PVC pipes, mesh bundles, driftwood, etc. should outnumber the crayfish to reduce competition and cannibalism.</p><p>Plants: Rusty crayfish eat, cut and shred almost any plant, so planted tanks are not recommended. Viable options are plastic plants, floating plants, or cheap plants you are ready to lose.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "html": "<p>Rusty crayfish are voracious eaters with a greater metabolic rate and appetite than most crayfish. They are opportunistic omnivores. In the wild they eat snails, insects, fish eggs, small fish, vegetables, aquatic plants, algae and detritus. Detritus was the most abundant item in the gut (44–65% of the diet). They shift diet seasonally.</p><p>In captivity they need a good mix of meat and vegetation, with protein at about 20–30% of the diet. Suggested foods: leaves, plants, vegetables, crushed snails, earthworms, brine shrimp, dead fish or shrimp, shrimp pellets and granules, crustacean food such as Hikari Shrimp Cuisine, and frozen bloodworms.</p><p>Feeding frequency: 3–4 times a week for adults, daily for juveniles. Vary the diet periodically.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "html": "<p>Rusty crayfish are fully aquatic and need permanent water. Unlike many crayfish they are non-burrowers, though they may do shallow burrowing during temperature extremes or when no other shelter is available. They prefer shelter under rocks and logs.</p><p>They are very aggressive and engage in frequent fights over resources, including shelters, to establish dominance. Crayfish also communicate through urine as a chemical cue.</p><p>They show both diurnal and nocturnal activity and are fairly active, spending about equal time immobile and walking. In aquariums they often show wall-following, trailing an antenna along the wall.</p><p>Tankmates: they are too territorial and hostile to have suitable tankmates, attacking fish, other crayfish, crabs, dwarf frogs and especially snails, and raiding fish nests at night. Small community fish and shrimp have no chance, while larger or aggressive fish will hunt the crayfish. The ideal is a species-only tank with many hiding places.</p><p>Social: no. Active: yes. Peaceful: no. Territorial: yes. Burrower: no.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "html": "<p>Males often have larger chelae and are slightly larger overall than females. Males have 2 corneous central projections, each with a smaller non-corniculate median process, and the rear surface shows a strongly angled shoulder. Females have a nearly rhomboidal annulus ventralis with a trench through the anterior portion and two posteriorly facing projections extending over the central depression.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "html": "<p>Males and females mature at the same size, when carapace length reaches 1.5 cm. In nature they mate in late summer, early fall or early spring; reproduction can occur twice a year. A receptive female allows the male to clamp her claws and place her on her back. Females can store sperm until their eggs are ready to be fertilized and begin laying as water temperatures rise. Females are attracted to male pheromones in the breeding season, but males show no preference for female signals.</p><p>Females carry the fertilized, deep red or maroon eggs under the tail on the swimmerets, 80 to 575 eggs depending on female size. Eggs hatch after 20–30 days on average. Juveniles stay near the mother for several weeks, then become independent. Juveniles survive best at 20–25°C but grow best at 26–28°C. After maturity, growth slows considerably.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "html": "<p>Taxonomy: the species was originally described as Cambarus rusticus (1852), moved to the genus Orconectes in 1872 (Orconectes rusticus), and renamed Faxonius rusticus in 2017. The change is based on a separation of cave-dwelling (Orconectes) and non-cave-dwelling (Faxonius) crayfish.</p><p>Appearance: average carapace length is greater than 6 cm, and total length reaches up to 10 cm. The claws are particularly large, almost the size of the carapace. Colour ranges from greenish-grey, light to reddish-brown, always with a dark red (rusty) spot on each side of the carapace just before the tail. The dorsal carapace usually has a U-shaped dark brown saddle, and abdomen segments often have W-shaped dark brown patches. The robust claws are gapped at the base when closed and often red-tipped followed by black bands.</p><p>Lifespan: up to 4 years.</p>"
+    },
+    {
+      "key": "references",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "html": "<ul><li>Guiaşu, Radu Cornel, and Mark Labib. “The unreliable concept of native range as applied to the distribution of the rusty crayfish (Faxonius rusticus) in North America.” Hydrobiologia 848, no. 6 (2021): 1177-1205.</li><li>Messager, Mathis L., and Julian D. Olden. “Phenotypic variability of rusty crayfish (Faxonius rusticus) at the leading edge of its riverine invasion.” Freshwater Biology 64, no. 6 (2019): 1196-1209.</li><li>Wood, Tyler C., and Paul A. Moore. “Big and bad: how relative predator size and dietary information influence rusty crayfish (Faxoniusrusticus) behavior and resource-use decisions.” Canadian Journal of Zoology 98, no. 1 (2020): 62-72.</li><li>Kamran, Maryam, Megan E. Moore, and Paul A. Moore. “Homing behavior following shelter displacement in two crayfishes, Creaserinusfodiens (Cottle, 1863) and Faxoniusrusticus (Girard, 1852) (Decapoda: Astacidea: Cambaridae).” Journal of Crustacean Biology 38, no. 5 (2018): 531-538.</li><li>McGill, Kyle. “The Life History of Faxoniusrusticus (Girard, 1852) in Sunfish Creek, Monroe County, Ohio.” (2018).</li><li>Lorman, J.G. 1980. Ecology of the crayfish Orconectes rusticus in northern Wisconsin. Ph.D.Dissertation, University of Wisconsin, Madison, Wisconsin</li><li>Tran, MARK V., and A. Manning. “Seasonal Diet Shifts in the Rusty Crayfish, Faxoniusrusticus (Girard). 5.” (2019).</li><li>Hartzell, Sean M., Amber L. Pitt, and Steve Davis. “Invasive rusty crayfish (Faxonius rusticus) are diurnally more exposed than an imperiled native congener.” Journal of the Pennsylvania Academy of Science 95, no. 1 (2021): 17-27.</li><li>Olden, Julian D.; McCarthy, Julia M.; Maxted, Jeffrey T.; Fetzer, William W.; Vander Zanden, Jake (2006). “The rapid spread of rusty crayfish (Faxonius rusticus) with observations on native crayfish declines in Wisconsin (U.S.A.) over the past 130 years”. Biological Invasions.</li><li>Homan, Robert C. “Creating a Distribution Model of Invasive Rusty Crayfish (Faxonius Rusticus) in Michigan Streams Using Publically Accessible Data.” (2020).</li><li>Luscavage, Elizabeth. “Female Invasive Crayfish Faxonius Rusticus Prefer Pheromones of Conspecific Males During the Breeding Season.” (2021).</li><li>Florey, Cassidy L., and Paul A. Moore. “Analysis and description of burrow structure in four species of freshwater crayfishes (Decapoda: Astacoidea: Cambaridae) using photogrammetry to recreate casts as 3D models.” The Journal of Crustacean Biology 39, no. 6 (2019): 711-719.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/40968dbb5e54cce6.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/40968dbb5e54cce6-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60 lít",
+        "bể nuôi tôm càng có nắp"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tôm càng",
+        "thức ăn viên cho tôm cua"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 60 lít"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước pH GH KH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

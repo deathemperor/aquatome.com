@@ -11,6 +11,71 @@
     "peru",
     "loreto"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Amazon River",
+        "rio Itaya"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Apistogramma paulmuelleri (A52) is a dwarf cichlid apparently endemic to Loreto, Peru, described from a forest stream near the Iquitos to Nauta road.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The authors also state that the species is 'apparently endemic to the Loreto' and that all localities are 'east of the rio Itaya and west of the Amazon River north of Nauta'.",
+          "countries": [],
+          "regions": [
+            "Amazon River",
+            "rio Itaya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7579623,
+      "total": 14,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -5.625,
+          8,
+          8
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -18,6 +83,13 @@
         "value": {
           "min": 22,
           "max": 31
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 25,
+          "max": 30
         }
       }
     ],
@@ -27,6 +99,13 @@
         "value": {
           "min": 4,
           "max": 6.5
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 4.5,
+          "max": 5.6
         }
       }
     ],
@@ -43,6 +122,10 @@
       {
         "source": "seriouslyfish",
         "value": 4.2
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -54,7 +137,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -63,7 +146,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
-      "html": "<p><em>Apistogramma paulmuelleri</em> (A52) is a dwarf cichlid apparently endemic to Loreto, Peru, described from a forest stream near the Iquitos to Nauta road. It has been traded as A. sp. 'Apache', a name also applied to other, non-conspecific Apistogramma. Since 2009 parts of the type locality stream have been degraded by removal of riparian vegetation.</p><ul><li>Max size: male 42 mm SL, female 33 mm SL</li><li>Aquarium size: 45 × 30 cm</li><li>Temperature: 22–31°C</li><li>pH: 4.0–6.5</li><li>Hardness: 1–3 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+      "html": "<p><em>Apistogramma paulmuelleri</em> (A52) is a dwarf cichlid apparently endemic to Loreto, Peru, described from a forest stream near the Iquitos to Nauta road. It has been traded as A. sp. 'Apache', a name also applied to other, non-conspecific Apistogramma. Since 2009 parts of the type locality stream have been degraded by removal of riparian vegetation.</p><ul><li>Max size: male 42 mm SL, female 33 mm SL</li><li>Aquarium size: 45 × 30 cm</li><li>Temperature: 22–31°C</li><li>pH: 4.0–6.5</li><li>Hardness: 1–3 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
       "key": "distribution",
@@ -130,52 +213,88 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
       "html": "<ul><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (1999). Mitochondrial DNA phylogeny of the family Cichlidae: monophyly and fast molecular evolution of the Neotropical assemblage. Journal of Molecular Evolution 48(6), 703-711</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (2001). The cytochrome b gene as a phylogenetic marker: the limits of resolution for analyzing relationships among cichlid fishes. Journal of Molecular Evolution 53(2), 89-103</li><li>López-Fernández, H., R. L. Honeycutt, M. L. J. Stiassny and K. O. Winemiller (2005). Morphology, molecules, and character congruence in the phylogeny of South American geophagine cichlids (Perciformes, Labroidei). Zoologica Scripta 34(6), 627-651</li><li>Römer, U. (2006). Cichlid Atlas: v. 2 Mergus Verlag GmbH, 1-1320</li><li>Wise, M. (2011). Apistogramma Species List By Species-Groups/Complexes. World Wide Web electronic publication, http://apisto.sites.no, Accessed on 13.02.17</li><li>Römer, U., J. Beninde, F. Duponchelle, C. R. García Dávila, A. Vela Díaz and J-F. Renno (2013). Description of Apistogramma paulmuelleri sp. n., a new geophagine cichlid species (Teleostei: Perciformes) from the Amazon river basin in Loreto, Peru. Vertebrate Zoology 63(1), 15-34</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_sp_masken_has_been_described_as_apistogramma_paulmuelleri_en/",
+      "html": "<p>Currently more than 80 species of Apistogramma are described and scientifically accepted. About 60 additional species are already known, but not described scientifically. A pretty species of Apistogramma has been imported from Peru since the middle of the 1980s. Due to the nice pattern of red and blue colours in the face, the species was given the provisional name Apistogramma sp. Masken (the German term Masken means mask).</p><p>The species has now been described as Apistogramma paulmuelleri.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_sp_masken_has_been_described_as_apistogramma_paulmuelleri_en/",
+      "html": "<p>The species seems to be restricted to the Departamento Loreto in Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_sp_masken_has_been_described_as_apistogramma_paulmuelleri_en/",
+      "html": "<p>It lives in soft (6-149 µS/cm), acidic (pH 4.5 – 5.6) and warm (25-30°C), clear water.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_sp_masken_has_been_described_as_apistogramma_paulmuelleri_en/",
+      "html": "<p>However, the species has proved to be quite adaptable in aquaria and can be kept and bred under variable conditions.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_sp_masken_has_been_described_as_apistogramma_paulmuelleri_en/",
+      "html": "<p>Males attain a total length of about 6 cm, females of about 4 cm.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_sp_masken_has_been_described_as_apistogramma_paulmuelleri_en/",
+      "html": "<p>Lexicon: Apistogramma: ancient Greek, means “with unreliable line”. It is not known whether the lateral line organ or the pattern is meant. paulmuelleri: dedication name for the biogeographer Paul Müller (1940 – 2010).</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/b430888765baaac4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b430888765baaac4-480.webp",
       "width": 639,
       "height": 479,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
       "caption": "Male engaged in courtship display. Origin unspecified.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/b430888765baaac4-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/394d9bc296716673.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/394d9bc296716673-480.webp",
       "width": 639,
       "height": 479,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
       "caption": "Young adult pair, female front.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/394d9bc296716673-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/1bc079711165145c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1bc079711165145c-480.webp",
       "width": 639,
       "height": 479,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
       "caption": "Male (back) and female engaged in courtship behaviour.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/1bc079711165145c-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/5599ffc19a2cbedb.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5599ffc19a2cbedb-480.webp",
       "width": 640,
       "height": 480,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-paulmuelleri",
       "caption": "Female guarding her brood of eggs...",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/5599ffc19a2cbedb-480.webp"
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -183,8 +302,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45x30",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {
@@ -210,5 +328,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-09"
 }

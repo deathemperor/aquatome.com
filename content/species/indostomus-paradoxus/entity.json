@@ -10,6 +10,109 @@
     "myanmar",
     "lake-indawgyi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Lake Indawgyi",
+        "Ayeyarwady"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It originates from the northern parts of Burma.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Lake Indawgyi, with most of the type series collected at its northern end, near Nyaungbin, Kachin state, northern Myanmar, and subsequently recorded in tributaries of the Ayeyarwady/Irrawaddy River around the state capital of Myitkyina.",
+          "countries": [],
+          "regions": [
+            "Lake Indawgyi",
+            "Ayeyarwady"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2356564,
+      "total": 37,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "MM",
+          29
+        ],
+        [
+          "TH",
+          7
+        ],
+        [
+          "NO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          14.0625,
+          66.09375,
+          1,
+          0
+        ],
+        [
+          94.21875,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          23.90625,
+          12,
+          12
+        ],
+        [
+          97.03125,
+          25.3125,
+          16,
+          16
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          101.25,
+          5.625,
+          4,
+          0
+        ],
+        [
+          101.25,
+          7.03125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -71,7 +174,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -214,17 +317,6 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-paradoxus",
       "caption": "This species is rarely-traded.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/2b680afc97297e27.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/2b680afc97297e27-480.webp",
-      "width": 899,
-      "height": 599,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-paradoxus",
-      "caption": "Lake Indawgyi, Myanmar is a natural habitat of this species.",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -232,8 +324,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể nano 20 lít",
-        "bể cá mini"
+        "bể cá 40cm"
       ]
     },
     {

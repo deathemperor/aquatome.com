@@ -1,0 +1,79 @@
+{
+  "id": "batasio-feruminatus",
+  "native": {
+    "input": "45c2ed8b9aee8161",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Batasio feruminatus is a small bagrid catfish from the Ataran River system in southern Myanmar, to which it is possibly endemic.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Some Ataran tributaries extend across the border into Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from a stream named 'Chon Son', located between the settlements of Phadaw and Kyondaw, Kayin state, southern Myanmar and within the Ataran River system, to which the species is possibly endemic.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Ataran forms the headwaters of part of the larger Salween drainage, and some of its tributaries extend across the nearby border into Thailand, where it's known as the Kasat.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ataran",
+        "source": "seriouslyfish",
+        "quote": "Batasio feruminatus is a small bagrid catfish from the Ataran River system in southern Myanmar, to which it is possibly endemic.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "The Ataran forms the headwaters of part of the larger Salween drainage, and some of its tributaries extend across the nearby border into Thailand, where it's known as the Kasat.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Batasio feruminatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338630,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

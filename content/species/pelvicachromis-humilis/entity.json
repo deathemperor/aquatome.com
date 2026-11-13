@@ -11,6 +11,109 @@
     "liberia",
     "sierra-leone"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GN",
+        "LR",
+        "SL"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The current import from Guinea contains five different species/morphs of the relationship of Pelvicachromis humilis.",
+          "countries": [
+            "GN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Pelvicachromis humilis \"Liberia Red\" was collected, as can be seen from the name, in the border region between Liberia and Guinea.",
+          "countries": [
+            "LR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The yellow kribensis, Wallaceochromis humilis, is a cichlid from Sierra Leone, Liberia and Guinea.",
+          "countries": [
+            "SL"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372945,
+      "total": 33,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "SL",
+          21
+        ],
+        [
+          "LR",
+          7
+        ],
+        [
+          "GN",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -14.0625,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -14.0625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -12.65625,
+          7.03125,
+          9,
+          9
+        ],
+        [
+          -12.65625,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -12.65625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          -11.25,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -11.25,
+          7.03125,
+          15,
+          15
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -154,8 +257,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá 80cm"
+        "bể cá 120cm"
       ]
     },
     {

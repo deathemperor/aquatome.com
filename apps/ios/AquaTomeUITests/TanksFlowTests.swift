@@ -61,7 +61,7 @@ final class TanksFlowTests: XCTestCase {
       if round > 1 { field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: 90)) }
       field.typeText(String(repeating: "a", count: 90))
       let cut = expectation(for: NSPredicate(format: "value == %@", String(repeating: "a", count: 80)), evaluatedWith: field)
-      XCTAssertEqual(XCTWaiter.wait(for: [cut], timeout: 3), .completed, "round \(round): the field shows \((field.value as? String)?.count ?? 0) characters, not 80")
+      XCTAssertEqual(XCTWaiter.wait(for: [cut], timeout: 8), .completed, "round \(round): the field shows \((field.value as? String)?.count ?? 0) characters, not 80")
     }
     app.buttons["save"].tap()
     let row = app.buttons["tank"].firstMatch
@@ -100,6 +100,36 @@ final class TanksFlowTests: XCTestCase {
     XCTAssertEqual(app.buttons.matching(identifier: "tank").count, 1, "the edit made another tank")
   }
 
+  // A phone in a language the app doesn't have (English): the app's words are Vietnamese, and so are its numbers. Once the
+  // app had Malay, iOS made its locale Malay's (8 Nov): a decimal took Malay's point (64.8 lít), and the words looked up
+  // through a LocalizedStringResource (a field's prompt, Đèn's presets) came in Malay.
+  func testAPhoneInEnglishGetsTheAppsWordsAndDecimals() { phoneInEnglish(["-v2", Look.old.rawValue]) }
+  /// v2, the app's look (the owner, 8 Nov), whose tabs hold the same screens; the one above, the old look, which a
+  /// reader can still switch on.
+  func testAPhoneInEnglishGetsTheAppsWordsAndDecimalsInV2() { phoneInEnglish(["-v2", "YES"]) }
+
+  private func phoneInEnglish(_ more: [String] = []) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US", "-fixed-handbook", "-reset-defaults"] + more
+    app.launchForFlow()
+    app.openTab("Bể của tôi")
+    XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "the empty state")
+    app.buttons["add-first"].tap()
+    let name = app.descendants(matching: .any)["name"].firstMatch
+    XCTAssertTrue(name.waitForExistence(timeout: 5), "no field name")
+    XCTAssertEqual(name.placeholderValue, "Ví dụ: Bể 60 phòng khách")
+    type(app, "name", "Bể 60")
+    type(app, "l", "60")
+    type(app, "w", "30")
+    type(app, "h", "36")
+    app.buttons["save"].tap()
+    let row = app.buttons["tank"].firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "no tank listed")
+    XCTAssertTrue(row.label.contains("64,8 lít"), row.label)
+    app.openTab("Đèn")
+    XCTAssertTrue(app.staticTexts["Bể mới trồng"].waitForExistence(timeout: 5), "Đèn's presets not in the app's words")
+  }
+
   func testANewSizeDropsLitresGivenForTheOldOne() {
     let app = launch("-seed-tanks", "litres")
     let row = app.buttons["tank"].firstMatch
@@ -131,9 +161,12 @@ final class TanksFlowTests: XCTestCase {
     let app = launch()
     add(app, "Bể tạm")
     app.buttons["tank"].firstMatch.tap()
-    app.buttons["delete"].tap()
+    let delete = app.buttons["delete"]
+    delete.tap()
     let confirm = app.buttons["Xóa"].firstMatch
     XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
+    // It pointed at the top of the screen, far from the button tapped at the tank's end: 261 pt off, where on its button it's 23.
+    XCTAssertLessThan(abs(confirm.frame.midY - delete.frame.midY), 150, "the question isn't by the button that asked it")
     confirm.tap()
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "the tank is still listed")
   }

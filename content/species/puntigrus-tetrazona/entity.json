@@ -243,7 +243,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       },
       {
         "source": "aquariumcoop",
@@ -375,15 +375,19 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/1406639b4bea275b.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/1406639b4bea275b-480.webp",
-      "width": 820,
-      "height": 572,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
-      "caption": "Wild-collected adult male specimen from the U.K. aquarium trade.",
-      "source": "seriouslyfish"
+      "url": "https://media.aquatome.com/commons/a9ce5abbcfa6ca8b.webp",
+      "thumb": "https://media.aquatome.com/commons/a9ce5abbcfa6ca8b-480.webp",
+      "width": 1200,
+      "height": 728,
+      "licence": "CC BY-SA 2.5",
+      "author": "André Karwath aka Aka",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_tetrazona_(aka).jpg",
+      "caption": "Cá tứ vân đực vây lưng đen viền đỏ, nền sáng",
+      "large": {
+        "url": "https://media.aquatome.com/commons/a9ce5abbcfa6ca8b-large.webp",
+        "width": 1978,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/175ec923044d9832.webp",
@@ -394,17 +398,6 @@
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
       "caption": "A genuine wild individual from Sumatra (see 'Notes').",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/5ae10588e0d7f0d1.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/5ae10588e0d7f0d1-480.webp",
-      "width": 820,
-      "height": 518,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
-      "caption": "Wild-collected adult female from the U.K. aquarium trade.",
       "source": "seriouslyfish"
     },
     {
@@ -428,6 +421,28 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tiger-barb",
       "caption": "tiger barb in planted aquarium",
       "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1406639b4bea275b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1406639b4bea275b-480.webp",
+      "width": 820,
+      "height": 572,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
+      "caption": "Wild-collected adult male specimen from the U.K. aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5ae10588e0d7f0d1.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5ae10588e0d7f0d1-480.webp",
+      "width": 820,
+      "height": 518,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntigrus-tetrazona",
+      "caption": "Wild-collected adult female from the U.K. aquarium trade.",
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/aquariumcoop/9e84c0ede8b080b0.webp",
@@ -482,8 +497,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80x30 cm",
-        "bể cá 72 lít"
+        "bể cá 80cm"
       ]
     },
     {

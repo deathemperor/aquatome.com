@@ -14,6 +14,106 @@
     "mayo-kebbi",
     "nigeria"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "CF",
+        "TD"
+      ],
+      "regions": [
+        "Benue",
+        "Mayo Kébbi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Bouala lyretail, Aphyosemion bualanum, is a killifish from the upper Benue and Mayo Kébbi systems in Cameroon, Central African Republic and Chad.",
+          "countries": [
+            "CM",
+            "CF",
+            "TD"
+          ],
+          "regions": [
+            "Benue",
+            "Mayo Kébbi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348331,
+      "total": 15,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CM",
+          11
+        ],
+        [
+          "DE",
+          3
+        ],
+        [
+          "CF",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          50.625,
+          3,
+          0
+        ],
+        [
+          11.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          11.25,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          11.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          19.6875,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -44,14 +144,69 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/debcef84eaa72230.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "CC BY-SA 3.0",
-      "author": "Montykillies",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aphyosemion_elberti_red_T.jpg",
-      "caption": "Male Aphyosemion elberti \"Red T\", a West African Killifish from Cameroon. This is a photo of a small (2 in) fresh water fish taken in a photo tank in 1979. It was known at the time as Aphyosemion bual",
-      "thumb": "https://media.aquatome.com/commons/debcef84eaa72230-480.webp"
+      "url": "https://media.aquatome.com/processed/99c3fab5581db50cf724522f8e200322.webp",
+      "thumb": "https://media.aquatome.com/processed/99c3fab5581db50cf724522f8e200322-480.webp",
+      "width": 718,
+      "height": 539,
+      "licence": "dùng với sự cho phép",
+      "author": "Hristo Hristov",
+      "sourceUrl": "https://www.seriouslyfish.com/species/aphyosemion-bualanum",
+      "caption": "Adult male specimen; collection details unspecified.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-aphyosemion-bualanum",
+        "pixelHash": "5975d416f91fa380b48e9fed54fd8e5cee5fe716d8903436e11f0e443dda3773"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:35:24.797Z",
+          "originalHash": "eb4365cc1716ac1788e5fe0860bdb73a08ea6a20613a64294ed7bdd0384511d1",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 787,
+            "originalHeight": 585,
+            "window": {
+              "x0": 19,
+              "y0": 46,
+              "x1": 737,
+              "y1": 585
+            },
+            "subject": {
+              "x0": 49,
+              "y0": 176,
+              "x1": 706,
+              "y1": 464
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 16,
+              "y0": 10,
+              "x1": 220,
+              "y1": 40
+            }
+          ],
+          "checks": {
+            "species": [
+              "55d035e1b55345d07aa3b4bcb818f0dd201f7380e1a83e48eab6e9778fa77342",
+              "e5ad08b829b663fcdb13d238b3859155c8adbec768b5b2b06ce8be2b9cfcd817"
+            ],
+            "ownership": [
+              "dae72388ed3e4607f5d3cd036726eafae6ebdba3bb812b928c5a13f5b78b06a5",
+              "d5a2fcfdf8cf8e3e20f0f4a02cc2b55b3b6068fd883b7667de1695de69c1d283"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/080d3266f7ca0af1.webp",
+        "width": 787,
+        "height": 585,
+        "thumb": "https://media.aquatome.com/seriouslyfish/080d3266f7ca0af1-480.webp"
+      }
     }
   ],
   "videos": [],

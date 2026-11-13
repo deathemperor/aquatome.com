@@ -10,6 +10,38 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: Corydoras serratus is endemic to Brazil and known only from the holotype, collected in the upper Rio Negro basin, in the state of Amazonas.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342783,
+      "total": 0,
+      "fetched": "2026-11-07",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -37,12 +69,6 @@
     ]
   },
   "sections": [
-    {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/corydoras-serratus-4/",
-      "html": "<p>The saddle-snouted Corydoras serratus from the upper Rio Negro region in Brazil is one of the most sought-after armored catfish. Because the saddle-snouted Corydoras, in contrast to the long-snouted and round-snouted former (now assigned to other genera) Corydoras, tend to be solitary fish, they cannot be caught economically in large numbers. This and the fact that incredible prices were sometimes paid for these fish in Japan made them top rarities on the ornamental fish market for a long time.</p>"
-    },
     {
       "key": "quickFacts",
       "source": "scotcat",

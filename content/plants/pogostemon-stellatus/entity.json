@@ -1,6 +1,9 @@
 {
   "id": "pogostemon-stellatus",
   "scientificName": "Pogostemon stellatus",
+  "synonyms": [
+    "Eusteralis stellata"
+  ],
   "difficulty": 3,
   "light": "high",
   "co2": "required",
@@ -15,6 +18,12 @@
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Pogostemonstellatus(053G)/4498",
       "html": "<ul><li>Type: Stem</li><li>Origin: Asia</li><li>Growth rate: Medium</li><li>Height: 15 - 30+ cm</li><li>Light demand: High</li><li>CO2: High</li></ul>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Pogostemon stellatus là cây cắt cắm, thân dài 20–60 cm và xòe ngang có thể tới 10 cm, hợp trồng ở trung cảnh hoặc hậu cảnh. Cây bán ở tiệm thường là bụi thấp, gọn do trồng cạn kiểu đầm lầy, phải trồng xuống bể nó mới ra hết dáng và màu. Lá nhạt màu có thể là do thiếu vi lượng, khi đó cần châm thêm phân. Có khi bể đã ổn mà cây vẫn đột ngột ngừng lớn.</p>"
     },
     {
       "key": "maintenance",
@@ -90,5 +99,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

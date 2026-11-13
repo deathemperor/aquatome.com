@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "rPcqAAy890Y",
     "title": "HOW TO: Algae scrubber SUPER CHARGED",
@@ -28,168 +28,124 @@
     "taxa": [],
     "gear": [
       {
-        "category": "khac",
+        "category": "loc",
+        "type": "suc-khi",
         "brand": "Hagen",
         "model": "Elite Air Bubbler A955",
-        "t": 121
+        "t": 128
       },
       {
         "category": "loc",
         "type": "suc-khi",
-        "t": 530
+        "t": 9
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 305
       }
     ],
     "figures": [
       {
-        "heading": "Bộ lọc rêu hoạt động thế nào",
+        "heading": "Bộ lọc rêu làm được gì",
         "moments": [
+          {
+            "t": 10,
+            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at10-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ lọc rêu sáng đèn LED tím trong hệ thống bể.",
+            "sharpness": 111.8,
+            "person": false
+          },
           {
             "t": 45,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/t45.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Tấm lưới nhựa đặt trong khung hộp lọc rêu."
-          },
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/t60.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Rêu mọc thành mảng xanh đậm trên tấm lưới nhựa nhám."
+            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at45-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khung lưới của bộ lọc rêu đặt trên bàn, nhìn chính diện.",
+            "sharpness": 1397.4,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Cần chuẩn bị những gì",
+        "heading": "Nguyên lý hoạt động",
         "moments": [
           {
-            "t": 139,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/t139.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Ống sủi khí cứng và các phụ kiện được lấy ra khỏi vỉ."
+            "t": 535,
+            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at535-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp lọc rêu đặt cạnh bể, đèn tím chiếu vào tấm lưới.",
+            "sharpness": 135.2,
+            "person": false
           },
           {
-            "t": 159,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/t159.webp",
+            "t": 545,
+            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at545.webp",
             "width": 159,
             "height": 90,
-            "caption": "Hộp nhựa màu tối đặt trên bàn cùng ít phụ kiện nhỏ."
+            "caption": "Cận cảnh tấm lưới đan đã chà nhám của bộ lọc rêu."
           }
         ]
       },
       {
-        "heading": "Làm phần hộp lọc và tấm lưới",
+        "heading": "Cần chuẩn bị gì",
         "moments": [
           {
-            "t": 94,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/t94.webp",
+            "t": 70,
+            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at70.webp",
             "width": 159,
             "height": 90,
-            "caption": "Hai hộp nhựa xếp chồng, so vành hộp đã cắt đáy."
-          },
-          {
-            "t": 104,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/t104.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Dùng dao rọc giấy cắt bỏ đáy hộp nhựa."
+            "caption": "Hộp nhựa xanh đậm rẻ tiền dùng làm thân bộ lọc rêu."
           }
         ]
       },
       {
-        "heading": "Làm phần đèn",
-        "moments": [
-          {
-            "t": 372,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/t372.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Hộp đèn đã lót băng keo nhôm phản quang, LED gắn bên trong."
-          },
-          {
-            "t": 417,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/t417.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Dùng máy khoan khoan lỗ ở đáy hộp đèn để luồn dây nguồn."
-          }
-        ],
+        "heading": "Làm phần thân và ống khí",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/rPcqAAy890Y/p3-hlcl92aWV3LmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/rPcqAAy890Y/p3-hlcl92aWV3LmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "Kmashaye5220",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wrapped_by_Aluminum_foil_and_clear_tape-_another_view.jpg",
-          "caption": "Hộp bọc nhôm phản quang, có lỗ luồn dây nguồn ra ngoài."
-        }
-      },
-      {
-        "heading": "Lắp đặt và chạy máy",
-        "moments": [
-          {
-            "t": 511,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/t511.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Hộp lọc gắn trong kính, hộp đèn tím gắn mặt ngoài kính đối diện."
-          },
-          {
-            "t": 571,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/t571.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Hộp đèn mỏng được gắn ở mặt ngoài kính bể."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/rPcqAAy890Y/p4-uZF9zdG9uZS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/rPcqAAy890Y/p4-uZF9zdG9uZS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/rPcqAAy890Y/p3-9hX3N0YWNrLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/rPcqAAy890Y/p3-9hX3N0YWNrLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
-          "caption": "Máy sủi khí nhỏ kèm ống dây mềm và đá sủi cho bể cá."
+          "author": "Ser Amantio di Nicolao",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orange_plastic_storage_container_on_top_of_a_stack.jpg",
+          "caption": "Hộp nhựa màu cam có nắp, loại có thể dùng làm vỏ bộ lọc."
         }
       },
       {
-        "heading": "Bật đèn bao lâu và chỉnh thế nào",
+        "heading": "Chuẩn bị tấm lưới cho rêu bám",
         "moments": [
           {
-            "t": 561,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/t561.webp",
+            "t": 170,
+            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at170.webp",
             "width": 159,
             "height": 90,
-            "caption": "Cụm lọc rêu gắn ở thành bể, đèn tím đỏ đang sáng."
-          },
-          {
-            "t": 581,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/t581.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Cận cảnh lưới lọc rêu dưới ánh đèn tím, nước chảy tràn trên mặt."
+            "caption": "Tấm lưới nằm gọn trong lòng hộp, nhỏ hơn hộp một chút."
           }
         ]
       },
       {
-        "heading": "Chăm sóc tấm lưới rêu",
+        "heading": "Lắp đặt và chạy",
         "moments": [
           {
-            "t": 541,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/t541.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Tấm lưới rêu cận cảnh, lớp rêu bám đều trên mặt lưới."
+            "t": 525,
+            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at525-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp đèn tím gắn ở mặt ngoài kính bể.",
+            "sharpness": 492.5,
+            "person": false
           },
           {
-            "t": 546,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/t546.webp",
+            "t": 540,
+            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at540.webp",
             "width": 159,
             "height": 90,
-            "caption": "Mặt lưới rêu sát mặt nước, thấy lớp rêu bám trên lưới."
+            "caption": "Hộp lưới gắn ngoài thành bể, nhìn gần từ bên cạnh."
           }
         ]
       }

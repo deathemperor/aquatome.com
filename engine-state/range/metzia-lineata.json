@@ -1,0 +1,126 @@
+{
+  "id": "metzia-lineata",
+  "native": {
+    "input": "6ad99d8aa6d586aa",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to occur in southern China (Pearl River system in Guangxi, Guizhou, Yunnan, and Guangdong provinces, Jiulong Jiang and Jin Jiang drainages in Fujian province, Red River in Yunnan province), Hainan Island, Hong Kong, and northern Vietnam (Red River basin).",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to occur in southern China (Pearl River system in Guangxi, Guizhou, Yunnan, and Guangdong provinces, Jiulong Jiang and Jin Jiang drainages in Fujian province, Red River in Yunnan province), Hainan Island, Hong Kong, and northern Vietnam (Red River basin).",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It has been introduced to a number of river systems in China and is now also present in northern Laos, while records from Taiwan appear to refer to the congener M. mesembrinum.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It has been introduced to a number of river systems in China and is now also present in northern Laos, while records from Taiwan appear to refer to the congener M. mesembrinum.",
+        "words": "Taiwan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pearl River",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to occur in southern China (Pearl River system in Guangxi, Guizhou, Yunnan, and Guangdong provinces, Jiulong Jiang and Jin Jiang drainages in Fujian province, Red River in Yunnan province), Hainan Island, Hong Kong, and northern Vietnam (Red River basin).",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Red River",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to occur in southern China (Pearl River system in Guangxi, Guizhou, Yunnan, and Guangdong provinces, Jiulong Jiang and Jin Jiang drainages in Fujian province, Red River in Yunnan province), Hainan Island, Hong Kong, and northern Vietnam (Red River basin).",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Hainan Island",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to occur in southern China (Pearl River system in Guangxi, Guizhou, Yunnan, and Guangdong provinces, Jiulong Jiang and Jin Jiang drainages in Fujian province, Red River in Yunnan province), Hainan Island, Hong Kong, and northern Vietnam (Red River basin).",
+        "ok": true
+      },
+      {
+        "name": "Jiulong Jiang",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to occur in southern China (Pearl River system in Guangxi, Guizhou, Yunnan, and Guangdong provinces, Jiulong Jiang and Jin Jiang drainages in Fujian province, Red River in Yunnan province), Hainan Island, Hong Kong, and northern Vietnam (Red River basin).",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Jin Jiang",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to occur in southern China (Pearl River system in Guangxi, Guizhou, Yunnan, and Guangdong provinces, Jiulong Jiang and Jin Jiang drainages in Fujian province, Red River in Yunnan province), Hainan Island, Hong Kong, and northern Vietnam (Red River basin).",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "LA"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Metzia lineata",
+    "status": "ACCEPTED",
+    "taxonKey": 2362362,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        12
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        11
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        11
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

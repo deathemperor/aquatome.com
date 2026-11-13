@@ -21,6 +21,179 @@
     "indonesia",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "KH",
+        "LA",
+        "TH",
+        "VN",
+        "MY",
+        "BN",
+        "ID"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Borneo",
+        "Sumatra",
+        "Kalimantan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is currently accepted to have an enormous distribution that covers much of Southeast Asia including the countries Cambodia, Laos, Thailand, Vietnam, Singapore, Malaysia (states of Sarawak and Sabah, Borneo), Brunei Darussalam and Indonesia (Sumatra and Kalimantan, Borneo).",
+          "countries": [
+            "KH",
+            "LA",
+            "TH",
+            "VN",
+            "MY",
+            "BN",
+            "ID"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra",
+            "Kalimantan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is present in several major river systems including the Mekong and Chao Phraya.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10374537,
+      "total": 35,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          19
+        ],
+        [
+          "MY",
+          6
+        ],
+        [
+          "ID",
+          5
+        ],
+        [
+          "KH",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          8.4375,
+          8,
+          8
+        ],
+        [
+          98.4375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          18.28125,
+          5,
+          5
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          101.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -150,16 +323,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/8054a83041d2890f.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "CC BY-SA 3.0",
-      "author": "Wibowo Djatmiko (Wie146)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbon_schwanen_101016-7839_mp.JPG",
-      "caption": "Barbonymus schwanenfeldii, 121 mm SL (standard length). From Ketapang, West Kalimantan, Indonesia.",
-      "thumb": "https://media.aquatome.com/commons/8054a83041d2890f-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/d4038617bf081d11.webp",
       "width": 960,
       "height": 640,
@@ -168,26 +331,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbonymus_schwanenfeldii_L%C3%B3d%C5%BA.jpg",
       "caption": "Barbonymus schwanenfeldii and Balantiocheilos melanopterus in the background; aquarium in palm house of Botanical Garden in Łódź, Poland",
       "thumb": "https://media.aquatome.com/commons/d4038617bf081d11-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/7a99c198fd34875a.webp",
-      "width": 960,
-      "height": 621,
-      "licence": "CC BY-SA 4.0",
-      "author": "Parkenings",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbonymus_schwanenfeldii_%26_Thorichthys_meeki.jpg",
-      "caption": "Aquarium with Barbonymus schwanenfeldii and Thorichthys meeki.",
-      "thumb": "https://media.aquatome.com/commons/7a99c198fd34875a-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/f6dd0d91d41a3bb1.webp",
-      "width": 960,
-      "height": 560,
-      "licence": "CC BY 3.0",
-      "author": "Published by Zoologische Mededelingen, at http://www.zoologischemededelingen.nl . Creative commons license published on main page.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbonymus_schwanenfeldii_Bleeker.jpg",
-      "caption": "Barbonymus schwanenfeldii, Tinfoil barb",
-      "thumb": "https://media.aquatome.com/commons/f6dd0d91d41a3bb1-480.webp"
     }
   ],
   "videos": [],
@@ -195,8 +338,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 200cm",
-        "bể cá 700 lít"
+        "bể cá 210cm"
       ]
     },
     {

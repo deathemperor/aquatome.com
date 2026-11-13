@@ -1,0 +1,21 @@
+{
+  "slug": "tep-cam-caridina-propinqua",
+  "name": "Tép cam Caridina propinqua",
+  "altNames": [
+    "Tép cam",
+    "Orange Shrimp"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Caridina cf. propinqua là một loài tép màu cam, về cơ bản thì dễ nuôi.</p>",
+    "waterConditions:glaser": "<p>Thấy tép bắt đầu nhạt màu thì hạ pH xuống.</p>",
+    "notes:glaser": "<p>Loài tép này là tép bắt ngoài tự nhiên.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

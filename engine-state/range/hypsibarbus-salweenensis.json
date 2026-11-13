@@ -1,0 +1,65 @@
+{
+  "id": "hypsibarbus-salweenensis",
+  "native": {
+    "input": "d88dd8bfb11d7f76",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hypsibarbus salweenensis is a large cyprinid endemic to the Salween river system in Yunnan province, China, eastern Myanmar and northwestern Thailand.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hypsibarbus salweenensis is a large cyprinid endemic to the Salween river system in Yunnan province, China, eastern Myanmar and northwestern Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hypsibarbus salweenensis is a large cyprinid endemic to the Salween river system in Yunnan province, China, eastern Myanmar and northwestern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Hypsibarbus salweenensis is a large cyprinid endemic to the Salween river system in Yunnan province, China, eastern Myanmar and northwestern Thailand.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypsibarbus salweenensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2365513,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ]
+    ],
+    "native": [
+      "CN",
+      "MM",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

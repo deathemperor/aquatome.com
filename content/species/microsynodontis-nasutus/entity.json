@@ -1,0 +1,110 @@
+{
+  "id": "microsynodontis-nasutus",
+  "scientificName": "Microsynodontis nasutus",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Microsynodontis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "gabon",
+    "ogowe"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [
+        "Ogowe River",
+        "Okano River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Okano River on rapids 0.5 km south of the village of Na, Woleu-Ntem Province, Gabon.",
+          "countries": [
+            "GA"
+          ],
+          "regions": [
+            "Okano River"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Ogowe River, Gabon.",
+          "countries": [],
+          "regions": [
+            "Ogowe River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344195,
+      "total": 3,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "GA",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          11.25,
+          0,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1307",
+      "html": "<ul><li>Scientific name: Microsynodontis nasutus Ng, 2004</li><li>Type locality: Okano River on rapids 0.5 km south of the village of Na, Woleu-Ntem Province, Gabon.</li><li>Etymology: Microsynodontis comes from the Greek mikros, meaning small, and synodontis, in reference to the small size of members of this genus. Nasutus is Latin for big nose, referring to the rather long snout of this species.</li><li>IUCN Red List: Data Deficient (last assessed 2009).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1307",
+      "html": "<p>Africa: Ogowe River, Gabon.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1307",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1307",
+      "html": "<p>The genus Microsynodontis has an interrupted lateral line. The caudal fin is usually rounded or truncate, sometimes with a slight indent. There is a long adipose fin with no fin ray. There are three pairs of barbels, with the mandibular barbels branched.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1307",
+      "html": "<p>Zootaxa No. 531, pp 32, Fig. 14.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-08"
+}

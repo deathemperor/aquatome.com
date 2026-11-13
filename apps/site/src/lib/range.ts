@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto'
-import { CELL_DEG, countryName, PLACE_ALIASES, placeCountry, recordsInside, recordsOutside, slugify, type Content, type SourceId, type SpeciesRange } from '@aq/schema'
+import { CELL_DEG, countryName, markVietnameseNames, PLACE_ALIASES, placeCountry, recordsInside, recordsOutside, slugify, type Content, type SourceId, type SpeciesRange } from '@aq/schema'
 import { fmt } from './format'
 import { served, translator, type Lang } from './i18n'
 import { mapSvg, rangeMap, type RangeMap, type SquareKind } from './range-map'
@@ -37,10 +37,16 @@ export function appRange(range: SpeciesRange | undefined, regionName: (name: str
   }
 }
 
-/** A region's name in this language: the site's place of that name (a river or region page's own name), else as written. */
-export function regionNames(places: Content['places']): (name: string) => string {
-  const byId = new Map(places.map(p => [p.id, p.t.name]))
-  return name => byId.get(PLACE_ALIASES[slugify(name)] ?? slugify(name)) ?? name
+/** A place's name where it starts a chip, a heading or a list item: stored as written in a sentence ("sông Hồng"). */
+export const capitalized = (name: string) => name.charAt(0).toLocaleUpperCase('vi') + name.slice(1)
+
+/**
+ * A region's name in this language: the site's place of that name (a river or region's own name), else as written. Every
+ * place written in this language (`placeNames`), not only those with a page here: a Thai fish page named the Thái Bình,
+ * Kỳ Cùng, Mã and Lam rivers in Vietnamese while their Thai names sat unread (2026-11-08).
+ */
+export function regionNames(placeNames: Content['placeNames']): (name: string) => string {
+  return name => placeNames[PLACE_ALIASES[slugify(name)] ?? slugify(name)] ?? name
 }
 
 /**
@@ -55,7 +61,7 @@ export function countryNames(lang: Lang, places: Content['places'], paged: Set<s
   }
   return code => {
     const p = own.get(code)
-    return { name: p?.t.name ?? countryName(code, lang), ...(p && paged.has(p.id) ? { place: p.id } : {}) }
+    return { name: capitalized(p?.t.name ?? countryName(code, lang)), ...(p && paged.has(p.id) ? { place: p.id } : {}) }
   }
 }
 
@@ -126,7 +132,7 @@ export function rangeParts(lang: Lang, c: Content, s: { id: string; name: string
   const { num } = fmt(lang)
   const origins = originPages(lang, c)
   const nameOf = countryNames(lang, c.places, new Set(origins.map(p => p.id)))
-  const regionName = regionNames(c.places)
+  const regionName = regionNames(c.placeNames)
   const country = (code: string) => {
     const { name, place } = nameOf(code)
     const p = place ? origins.find(x => x.id === place) : undefined
@@ -140,9 +146,11 @@ export function rangeParts(lang: Lang, c: Content, s: { id: string; name: string
     native?.countries.length ? `<p><strong>${esc(t('Sống tự nhiên ở:'))}</strong> ${native.countries.map(country).join(', ')}${marks(q => q.countries.length > 0)}</p>` : '',
     native?.regions.length ? `<p><strong>${esc(t('Sông, hồ, vùng:'))}</strong> ${native.regions.map(r => esc(regionName(r))).join(', ')}${marks(q => q.regions.length > 0)}</p>` : '',
   ].join('')
+  // A source's sentence as it wrote it, in English; the Vietnamese names in it ("the Thái Bình, Sông Kỳ Cùng, Mã and
+  // Lam rivers") marked Vietnamese, as in a translated page's text.
   const said = quotes?.length ? {
     title: t('Nguồn ghi gì'),
-    html: `<ul>${quotes.map(q => `<li><strong>${[...q.countries.map(code => esc(nameOf(code).name)), ...q.regions.map(r => esc(regionName(r)))].join(', ')}</strong> · ${esc(c.sources[q.source]?.name ?? q.source)}${mark(q.source)}: <span lang="en">“${esc(q.quote)}”</span></li>`).join('')}</ul>`,
+    html: `<ul>${quotes.map(q => `<li><strong>${capitalized([...q.countries.map(code => esc(nameOf(code).name)), ...q.regions.map(r => esc(regionName(r)))].join(', '))}</strong> · ${esc(c.sources[q.source]?.name ?? q.source)}${mark(q.source)}: <span lang="en">“${markVietnameseNames(esc(q.quote))}”</span></li>`).join('')}</ul>`,
   } : undefined
 
   const inside = shown && native?.countries.length ? recordsInside(s.range!) : undefined

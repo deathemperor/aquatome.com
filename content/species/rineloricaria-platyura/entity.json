@@ -1,0 +1,147 @@
+{
+  "id": "rineloricaria-platyura",
+  "scientificName": "Rineloricaria platyura",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Rineloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "essequibo",
+    "french-guiana",
+    "comte",
+    "brazil",
+    "madeira"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 14
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1293",
+      "html": "<p>Rineloricaria platyura (Müller &amp; Troschel, 1849). Common names: Pearlscale Whiptail, Amazonia Whiptail. Type locality: Rupununi River, Guyana. Size: 14 cm SL. IUCN: Least Concern.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1293",
+      "html": "<p>South America: various coastal rivers from near the Amazon mouth to the Essequibo River, including the lower and middle Amazon, Madeira, Canumã, Acari, Orapu, Comté, Mana and Rupununi.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1293",
+      "html": "<p>The fish should be provided with half-pipe type refuges, which are also often used as spawning sites.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1293",
+      "html": "<p>Adaptable omnivores, these fish will eat most foods, from cucumber or zucchini slices to frozen bloodworm or dry flake foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1293",
+      "html": "<p>Peaceful and not territorial.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1293",
+      "html": "<p>Males grow short spines on the top of the head and on the pectoral fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1293",
+      "html": "<p>Like many Rineloricaria, this species spawns in open-ended tubes, although at least one report also confirmed spawning on glass. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1293",
+      "html": "<p>Reisen in Britisch-Guiana, pp 631.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/cf23ff43953f48d7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/cf23ff43953f48d7-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "Mitsuhiro Iwamoto / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_platyura.htm",
+      "caption": "Rineloricaria platyura",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/92e560ca2ee4f14a.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rineloricaria_platyura.jpg",
+      "caption": "Rineloricaria platyura",
+      "thumb": "https://media.aquatome.com/commons/92e560ca2ee4f14a-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "EWmvfTmIdrY",
+      "title": "19.Tag nach Schlupf Zucht des Hexenwels Rineloricaria fallax platyura Zwergharnischwels",
+      "durationSec": 35,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "951Wu5OFH8A",
+      "title": "New rare whiptail catfish! Rineloricaria platyura!",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "x1Qfhtz81fY",
+      "title": "Zucht des Hexenwels Rineloricaria fallax Zwergharnischwels",
+      "durationSec": 22,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "BlGyQ6SlIGQ",
+      "title": "Zucht des Hexenwels Rineloricaria fallax Zwergharnischwels platyura",
+      "durationSec": 80,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá dọn bể",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

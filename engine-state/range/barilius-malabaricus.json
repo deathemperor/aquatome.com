@@ -1,0 +1,53 @@
+{
+  "id": "barilius-malabaricus",
+  "native": {
+    "input": "63029303e83174c4",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Probably restricted to southern parts of Karnataka state and northern Kerala state in southwestern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Payaswini",
+        "source": "seriouslyfish",
+        "quote": "Following its revalidation in 2015 (see 'Notes') it is known with certainty only from the Payaswini and Vallapattanam river systems in Kerala although it is thought to occur elsewhere.",
+        "ok": true
+      },
+      {
+        "name": "Vallapattanam",
+        "source": "seriouslyfish",
+        "quote": "Following its revalidation in 2015 (see 'Notes') it is known with certainty only from the Payaswini and Vallapattanam river systems in Kerala although it is thought to occur elsewhere.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barilius malabaricus",
+    "status": "ACCEPTED",
+    "taxonKey": 8449869,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

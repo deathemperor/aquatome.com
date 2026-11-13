@@ -1,0 +1,77 @@
+{
+  "id": "carinotetraodon-borneensis",
+  "native": {
+    "input": "0f42d743fc069872",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from southern Sarawak state, Malaysia (Borneo), with confirmed records from the Sarawak, Sadong and Rajang river systems.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known only from southern Sarawak state, Malaysia (Borneo), with confirmed records from the Sarawak, Sadong and Rajang river systems.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Rajang",
+        "source": "seriouslyfish",
+        "quote": "Known only from southern Sarawak state, Malaysia (Borneo), with confirmed records from the Sarawak, Sadong and Rajang river systems.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Sadong",
+        "source": "seriouslyfish",
+        "quote": "Known only from southern Sarawak state, Malaysia (Borneo), with confirmed records from the Sarawak, Sadong and Rajang river systems.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Sarawak",
+        "source": "seriouslyfish",
+        "quote": "Known only from southern Sarawak state, Malaysia (Borneo), with confirmed records from the Sarawak, Sadong and Rajang river systems.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "Carinotetraodon borneensis is found in Borneo (Sarawak).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Carinotetraodon borneensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2407804,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

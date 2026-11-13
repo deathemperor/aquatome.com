@@ -1,0 +1,197 @@
+{
+  "id": "guinearma-huzardi",
+  "scientificName": "Guinearma huzardi",
+  "order": "Decapoda",
+  "family": "Sesarmidae",
+  "genus": "Guinearma",
+  "group": "other",
+  "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 9756112,
+      "total": 33,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CI",
+          10
+        ],
+        [
+          "NG",
+          5
+        ],
+        [
+          "CM",
+          4
+        ],
+        [
+          "GH",
+          4
+        ],
+        [
+          "AO",
+          3
+        ],
+        [
+          "CG",
+          2
+        ],
+        [
+          "LR",
+          2
+        ],
+        [
+          "CD",
+          1
+        ],
+        [
+          "GN",
+          1
+        ],
+        [
+          "SL",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -15.46875,
+          9.84375,
+          1
+        ],
+        [
+          -14.0625,
+          7.03125,
+          1
+        ],
+        [
+          -11.25,
+          5.625,
+          2
+        ],
+        [
+          -7.03125,
+          4.21875,
+          1
+        ],
+        [
+          -4.21875,
+          4.21875,
+          9
+        ],
+        [
+          -2.8125,
+          4.21875,
+          1
+        ],
+        [
+          -1.40625,
+          4.21875,
+          1
+        ],
+        [
+          -1.40625,
+          7.03125,
+          1
+        ],
+        [
+          0,
+          5.625,
+          1
+        ],
+        [
+          2.8125,
+          5.625,
+          4
+        ],
+        [
+          7.03125,
+          4.21875,
+          1
+        ],
+        [
+          8.4375,
+          2.8125,
+          1
+        ],
+        [
+          9.84375,
+          2.8125,
+          1
+        ],
+        [
+          9.84375,
+          5.625,
+          1
+        ],
+        [
+          11.25,
+          -7.03125,
+          3
+        ],
+        [
+          11.25,
+          -5.625,
+          3
+        ],
+        [
+          12.65625,
+          5.625,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "This Perisesarma species is completely euryhalin, which means that pure seawater can be used as well as pure freshwater; however it has proofed to be best to use brackish water (5 to 10 grams seasalt per litre), because nitrate and nitrite are by far less toxic in salty water than in pure freshwater."
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/perisesarma_huzardi_en/",
+      "html": "<p>This crab is something like the big sister of the \"classical\" Red Mangrove Crab, Pseudosesarma moeschi. Regarding keeping that crab no major differences exist to that of the smaller relative with the exception that P. huzardi becomes as twice as large – about 8 cm carapax width. So the species needs bigger and more spacious tanks.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/perisesarma_huzardi_en/",
+      "html": "<p>This Perisesarma species is completely euryhalin, which means that pure seawater can be used as well as pure freshwater; however it has proofed to be best to use brackish water (5 to 10 grams seasalt per litre), because nitrate and nitrite are by far less toxic in salty water than in pure freshwater.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/perisesarma_huzardi_en/",
+      "html": "<p>One should feed these crabs, which have the same job in the mangrove as the earthworms have in the garden, e.g. converting the dead leaves from the trees into humus, with dead leaves, fruits and vegetables. Besides this, one can feed any type of frozen fish food (not too much) and flakes. One should be very careful with protein rich granulates. The crabs like it, but they don't stomach it very well.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn nuôi cua",
+        "bể nuôi cua nước lợ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cua",
+        "thức ăn đông lạnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

@@ -10,11 +10,115 @@
     "india",
     "karnataka"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Western Ghats",
+        "Swarna",
+        "Sita"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "B. ardens comes from the Indian state of Karnataka.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently known from the Sita and Swarna rivers systems which drain the western slopes of the Western Ghats mountains in Karnataka state, southwestern India.",
+          "countries": [],
+          "regions": [
+            "Western Ghats",
+            "Swarna",
+            "Sita"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8626121,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          75.9375,
+          8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 12
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 10.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -26,10 +130,22 @@
       "html": "<p>Barilius ardens grows to about 12 cm long (with caudal fin). It is one of the most beautiful Barilius species.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-ardens",
+      "html": "<ul><li>Needs a very large tank.</li><li>Needs a tight-fitting lid as this species is known to jump.</li><li>Needs to be kept in a group.</li><li>Choose tankmates carefully.</li><li>Needs a well-established tank.</li></ul><p>Opsarius ardens is a fast-swimming cyprinid from the Sita and Swarna river systems of the Western Ghats in Karnataka, southwestern India. Before its description it was usually identified in the trade as O. canarensis. A row of bluish-green vertical markings along the body and broad orange margins on the dorsal and anal fins distinguish it. It lives in well-oxygenated, moderate to fast-flowing rivers and streams.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barilius-ardens-2/",
       "html": "<p>B. ardens comes from the Indian state of Karnataka.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-ardens",
+      "html": "<p>Currently known from the Sita and Swarna rivers systems which drain the western slopes of the Western Ghats mountains in Karnataka state, southwestern India.</p><p>Type locality is '13°20’02”N, 74°54’46”E, Swarna River, Karnataka, India'.</p>"
     },
     {
       "key": "habitat",
@@ -38,10 +154,40 @@
       "html": "<p>Fishes of the genus Barilius are ecologically best compared to trout in the Indian region, where they do not naturally occur. Barilius thus prefer to live in clear waters with a gravelly bottom and some current.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-ardens",
+      "html": "<p>Inhabits well-oxygenated, low-to-medium gradient, moderate to fast-flowing rivers and streams with substrates of gravel, cobbles, larger boulders and exposed bedrock.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-ardens",
+      "html": "<p>Requires a large aquarium with minimum surface area of 150 × 60 cm or equivalent. Volume: about 540 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-ardens",
+      "html": "<p>The aquarium should ideally be designed to resemble a flowing stream or river with a substrate of variably-sized rocks, sand, fine gravel, and some larger water-worn boulders. This can be further furnished with driftwood roots and branches if you wish but be sure to leave plenty of open swimming space.</p><p>While the majority of aquatic plants will fail to thrive in such surroundings hardy genera such as Microsorum, Bolbitis, or Anubias spp. can be grown attached to the décor.</p><p>This species is intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive. It also does best if there is a high proportion of dissolved oxygen and moderate degree of water movement meaning external filters, powerheads, airstones, etc., should be employed as necessary.</p><p>As stable water conditions are obligatory for its well-being this fish should never be added to biologically-immature aquaria, and weekly water changes of 30-50% aquarium volume should be considered mandatory. A tightly-fitting cover is also essential as Barilius spp. are prodigious jumpers.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-ardens",
+      "html": "<ul><li>Temperature: 18–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barilius-ardens-2/",
       "html": "<p>They are small predators that prefer to eat insects that fall on the water surface, but also insect larvae living in the water, crustaceans or even small fish belong to the prey spectrum. The mouth gap of Barilius is comparatively large.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-ardens",
+      "html": "<p>Barilius spp. are predominantly surface-feeders preying on aquatic and terrestrial insects in nature, with some small fishes and benthic invertebrates probably taken as well.</p><p>In the aquarium good quality dried products can be offered but should be supplemented with regular meals of live and frozen fare such as chironomid larvae (bloodworm), Artemia, chopped earthworms, etc. Drosophila fruit flies and small crickets are also suitable provided they are gut-loaded prior to use.</p>"
     },
     {
       "key": "behaviour",
@@ -50,26 +196,103 @@
       "html": "<p>They are mostly seen in loose groups, they are not really schooling fish. They like to \"play\" among themselves, chasing each other over short distances, but without harming each other.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-ardens",
+      "html": "<p>Unsuitable for the general community due to its environmental requirements, and likely to outcompete or intimidate slow-moving and less bold species at meal times since it is an extremely fast swimmer and vigorous feeder. Much smaller fishes should also be omitted as they may be predated upon.</p><p>The best tankmates are similarly-sized, robust, pelagic cyprinids such as Dawkinsia, other Barilius or larger Devario and Rasbora spp. while bottom-dwellers could consist of Garra, Crossocheilus, Botia and Schistura spp., for example. Many characids and loricariid catfishes should also work well, but be sure to perform thorough research before purchase.</p><p>Although gregarious by nature this is a shoaling rather than schooling species which develops a distinct pecking order and therefore should always be maintained in a group of five or more individuals. If only two or three are purchased the subdominant fish may be bullied incessantly whereas solitary specimens may become aggressive towards similar-looking species.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-ardens",
+      "html": "<p>Adult females are less-brightly-coloured, tend to grow a little larger and are thicker-bodied than males, especially when gravid.</p><p>Nuptial males develop breeding tubercules on the head and orange pigmentation on the flanks and lower portion of the body.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barilius-ardens-2/",
       "html": "<p>Unlike trout, which are migratory fish that move upstream to reproduce and dig pits in the ground where they spawn, Barilius, as far as this is known at all, dive into the ground and spawn in the gravel. The reproductive behavior of Barilius species is virtually unexplored.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-ardens",
+      "html": "<p>Unreported.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barilius-ardens-2/",
       "html": "<p>The coloration of Barilius is comparable to that of young trout. Both have a number of dark vertical stripes on the flanks. There is a lack of striking colors, but Barilius are nevertheless often very colorful, especially yellow and blue colors iridesce on their bodies depending on the incidence of light.</p><p>Very similar (and apparently sometimes mixed with B. ardens) is B. malabaricus, which differs from B. ardens by smaller flank spots and a differently colored caudal fin; in B. malabaricus the median caudal fin rays are not white.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-ardens",
+      "html": "<p>Prior to its description this species was typically identified as the congener O. canarensis in the ornamental trade.</p><p>It can be distinguished from congeners by the following combination of characters: unique colour pattern consisting of a row of bluish-green markings along the length of the body, the upper comprising 7-9 vertically-elongate markings 4-6 scales high and 2-3 scales wide, with the anterior three blotches split into 2 smaller rows in large adults; dorsal and anal fins with broad orange margins; 5+4+3 teeth on the fifth ceratobranchial; 16-18 predorsal scales; 10½ branched dorsal-fin rays; 13½ branched anal-fin rays; 36-37 + 1 lateral line scales; gill rakers slender and well-defined.</p><p>The generic placement of Barilius species has been open to question since Howes (1980) concluded that the Barilius grouping, within which they were included at the time, was not monophyletic and identified two separate lineages. The first group contained B. barila, the type species, plus B. bendelisis, B. radiolatus, B. vagra, and B. shacra, while the second included all other species, and initially these were referred to the subdivisions 'group i' and 'group ii' within Barilius itself.</p><p>The composition of these groups is confusing since in a later work Howes (1983) included B. evezardi and B. modestus in 'group i' whilst omitting B. bendelisis, B. radiolatus, and B. shacra without explicitly stating why.</p><p>Rainboth (1991) assigned the members of Howe's 'group ii' to the revalidated generic name Opsarius based on the fact it was the oldest available with 'group i' species retaining the name Barilius due to the presence of the type species.</p><p>This system has been followed by some subsequent authors, e.g., Tang et al. (2010) and Collins et al. (2012) but not gain wider usage until Kottelat (2013), who included all former Barilius from Southeast Asia in Opsarius.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-ardens",
+      "html": "<ul><li>Collins R. A., K. F. Armstrong, R. Meier, Y. Yi, S. D. J. Brown, R. H. Cruickshank, S. Keeling, and C. Johnston (2012). Barcoding and border biosecurity: identifying cyprinid fishes in the aquarium trade. PLoS ONE 7(1), e28381</li><li>Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214</li><li>Liao, T-Y, S. O. Kullander, and F. Fang (2011). Phylogenetic position of rasborin cyprinids and monophyly of major lineages among the Danioninae, based on morphological characters (Cypriniformes: Cyprinidae). Journal of Zoological Systematics and Evolutionary Research 49(3), 224-232</li><li>Howes, G. J. (1980). The anatomy, phylogeny and classification of bariliine cyprinid fishes. Bulletin of the British Museum (Natural History) : Zoology series 37(3), 129-198</li><li>Knight, J. D. M., A. Rai, R. K. P. d'Souza and B. Vijaykrishnan (2015). Barilius ardens (Teleostei: Cyprinidae), a new species from the Western Ghats, India, with redescription of B. malabaricus and B. canarensis. Zootaxa 3926(3), 396-412</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fc85e2524e237609.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fc85e2524e237609-480.webp",
+      "width": 800,
+      "height": 424,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-ardens",
+      "caption": "Subadult male from the U.K. aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bdb5c2287bcc35c7.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bdb5c2287bcc35c7-480.webp",
+      "width": 800,
+      "height": 509,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/opsarius-ardens",
+      "caption": "Juvenile individual.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "q1Jknio_INY",
+      "title": "Barilius Ardens Get a NEW Home! Hill Trouts",
+      "durationSec": 710,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xBYDmYyrdGo",
+      "title": "Barilius ardens",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Mr6cSEA6VnQ",
+      "title": "The Aquarium Trout - Barilius ardens",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Eft7RtWy2iE",
+      "title": "Species Profile: Orange Fin Hill Trout aka Barilius Ardens",
+      "durationSec": 814,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá dài"
+        "bể cá 150cm"
       ]
     },
     {
@@ -93,5 +316,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-09"
 }

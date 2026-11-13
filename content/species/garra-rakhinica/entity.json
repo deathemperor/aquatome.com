@@ -10,6 +10,75 @@
     "myanmar",
     "thade"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Rakhine Yoma",
+        "Thade River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is known only from its type locality, a minor stream draining in to the Bay of Bengal from the western slope of the Rakhine Yoma mountain range in western Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Rakhine Yoma"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Taunggok, Thade River drainage, Yan Khaw Chaung, about 4 kilometers on logging road from Gwetauk village, 23 kilometers on road Taunggok-Pyay, 18°47'48\"N, 94°21'46\"E, Rakhine State, Myanmar'.",
+          "countries": [],
+          "regions": [
+            "Thade River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366929,
+      "total": 9,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IN",
+          6
+        ],
+        [
+          "MM",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          4,
+          0
+        ],
+        [
+          92.8125,
+          22.5,
+          2,
+          0
+        ],
+        [
+          94.21875,
+          18.28125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -20,7 +89,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 4
       }
     ]
   },
@@ -29,7 +98,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/garra-rakhinica",
-      "html": "<p>Max size: 60 mm SL (2.4 in SL). Difficulty: 3 of 8 (moderate). Needs to be kept in a group; fine with other fish.</p><p>Garra rakhinica is a small cyprinid known only from its type locality, a minor stream on the western slope of the Rakhine Yoma, western Myanmar. In March 1998 that stream was reduced to a series of interconnected pools of clear water over gravel and rocks, with no aquatic vegetation. The body is almost uniform greyish, with a dark spot behind the upper edge of the opercle and white tips to the caudal-fin lobes.</p>"
+      "html": "<p>Max size: 60 mm SL (2.4 in SL). Difficulty: 4 of 8 (moderate). Needs to be kept in a group; fine with other fish.</p><p>Garra rakhinica is a small cyprinid known only from its type locality, a minor stream on the western slope of the Rakhine Yoma, western Myanmar. In March 1998 that stream was reduced to a series of interconnected pools of clear water over gravel and rocks, with no aquatic vegetation. The body is almost uniform greyish, with a dark spot behind the upper edge of the opercle and white tips to the caudal-fin lobes.</p>"
     },
     {
       "key": "distribution",

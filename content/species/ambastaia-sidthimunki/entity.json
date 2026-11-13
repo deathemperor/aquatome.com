@@ -147,7 +147,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       },
       {
         "source": "aquariumcoop",
@@ -160,7 +160,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
-      "html": "<ul><li>Max size: 60 mm SL (2.4 in SL)</li><li>Aquarium size: 80 × 30 cm (31 × 12 in)</li><li>Temperature: 20–30°C (68–86°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–12 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
+      "html": "<ul><li>Max size: 60 mm SL (2.4 in SL)</li><li>Aquarium size: 80 × 30 cm (31 × 12 in)</li><li>Temperature: 20–30°C (68–86°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–12 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -235,6 +235,15 @@
       "html": "<p>Typically kept at 24–28°C, but they can reportedly go even warmer.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này giữ bể khoảng 25–26 °C, nước trung tính, và thấy chúng khá dễ tính, chỉ cần các chỉ số không quá thấp hay quá cao. Theo người này, nước máy ở hầu hết mọi nơi đều nuôi được chúng.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "equipment",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
@@ -253,6 +262,15 @@
       "html": "<p>Loaches prefer meatier foods, so feed sinking foods that are small enough to fit inside their mouths or soft enough to nibble on. A good variety of community fish foods works, such as nano pellets, Repashy gel food, frozen bloodworms and daphnia. If there are speed eaters in the aquarium, make sure the loaches get enough food so they have nicely rounded bellies.</p><p>Loaches with pointy faces enjoy eating aquatic snails because their snouts are well suited for digging into the openings of snail shells. Dwarf chain loaches will eat smaller snails and have been known to pester bigger ones.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Đừng coi loài này là cá dọn bể sống nhờ thức ăn thừa. Chúng ăn bất cứ thứ gì chìm xuống đáy, kể cả thức ăn mảnh, nhưng phải cho ăn đàng hoàng và để ý xem thức ăn có xuống tới đáy hay không.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
@@ -263,6 +281,15 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
       "html": "<p>Dwarf chain loaches are more chill than many boisterous loaches and suit peaceful community tanks. They swim both at the bottom and in the middle of the tank, fluttering their fins like hummingbirds, and unlike many loaches they are active during the day. They are energetic but were never seen bullying other fish, even at mealtimes. They are curious and will investigate new fish. A big group helps them feel less stressed, establish a social hierarchy and display behaviours like playing follow the leader.</p><p>They interact well with similar-sized community fish, including angelfish, corydoras catfish, platies, tetras, rasboras and plecos. They can be a little shy, so dither fish help them come out into the open. They feed on small bugs and crustaceans in the wild, so they will snack on cherry shrimp babies and other tiny animals.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này cư xử như một con cá heo hề cỡ lớn nhốt trong thân hình nhỏ xíu. Chúng lúc nào cũng mò mẫm, lục lọi khắp bể. Thỉnh thoảng sẽ gặp cảnh chúng chen vào những khe rất kỳ quặc hoặc nằm chồng lên nhau. Lúc ngủ chúng nằm nghiêng hẳn sang một bên, trông như đã chết, nhưng chỉ cần lại gần là chúng lao vụt đi ngay.</p><p>Chúng không dữ nhưng rất ồn ào và bạo dạn. Đôi khi chúng húc vào cá khác, trông như gây sự, nhưng thật ra chỉ là tò mò lại xem chứ không làm hại gì. Ngoài các loài cá nuôi chung đã kể, chúng cũng sống được với cá cầu vồng.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "dimorphism",
@@ -293,6 +320,15 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
       "html": "<p>Ambastaia nigrolineata, the black-lined loach, is sometimes confused with Ambastaia sidthimunki.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Chữ \"chuỗi\" trong tên gọi là do hoa văn trên thân trông như những mắt xích nối nhau, khác kiểu sọc thẳng thường gặp ở các loài cá heo khác. Khoảng mười năm trước, loài này từng được rất nhiều người săn lùng. Từ khi nhiều loài cá heo mới xuất hiện trên thị trường, chúng ít được nhắc đến hơn hẳn. Một người nuôi loài này thấy chúng bơi lội và nghịch ngợm đến mức khách không chơi cá đến nhà nhìn từ đầu kia phòng cũng để ý.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "references",
@@ -380,13 +416,19 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "axPlxg-ortg",
+      "title": "Dwarf Chain Loaches: Why Doesn't Anyone Keep These?",
+      "durationSec": 316,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá 90x30"
+        "bể cá 80cm"
       ]
     },
     {
@@ -412,5 +454,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-11",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=axPlxg-ortg",
+      "title": "Dwarf Chain Loaches: Why Doesn't Anyone Keep These?"
+    }
+  ]
 }

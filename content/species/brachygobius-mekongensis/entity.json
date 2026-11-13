@@ -14,6 +14,95 @@
     "tonle-sap",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "VN",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Tonlé Sap"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is close to the settlement of Muang Kengkok in Savannakhet Province, central Laos, and given as 'Xe Banghiang basin: Xe Champhon, between bridge at between bridge at Muang Kengkok and about 4 kilometers upstream, 16°27'45\"N, 105°12'38\"E'.",
+          "countries": [
+            "LA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "B. mekongensis is known to occur throughout the central and lower Mekong from Vientiane province, Laos, and Nongkhai province, northeastern Thailand to southern Vietnam and Cambodia, where it also occurs in the Tonlé Sap lake and river system.",
+          "countries": [
+            "TH",
+            "VN",
+            "KH"
+          ],
+          "regions": [
+            "Mekong",
+            "Tonlé Sap"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377133,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "LA",
+          2
+        ],
+        [
+          "KH",
+          1
+        ],
+        [
+          "TH",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          15.46875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -66,7 +155,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-mekongensis",
-      "html": "<ul><li>Max size: 18 mm SL (0.7 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 0–5 dGH</li><li>Difficulty: 6 of 8 measures (Moderate)</li></ul><p>The Mekong bumblebee goby, Brachygobius mekongensis, is a tiny goby from the central and lower Mekong, including the Tonlé Sap system. It is apparently restricted to slow-moving or standing fresh water such as marshes, seasonal swamps and floodplains with dense aquatic vegetation. Narrow, often broken dark bars on a pale background separate it from the most similar species, B. nunus. It is poorly known in the hobby, and other species are sold under its name.</p>"
+      "html": "<ul><li>Max size: 18 mm SL (0.7 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 0–5 dGH</li><li>Difficulty: 4 of 8 (Moderate)</li></ul><p>The Mekong bumblebee goby, Brachygobius mekongensis, is a tiny goby from the central and lower Mekong, including the Tonlé Sap system. It is apparently restricted to slow-moving or standing fresh water such as marshes, seasonal swamps and floodplains with dense aquatic vegetation. Narrow, often broken dark bars on a pale background separate it from the most similar species, B. nunus. It is poorly known in the hobby, and other species are sold under its name.</p>"
     },
     {
       "key": "distribution",
@@ -147,8 +236,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45 cm",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

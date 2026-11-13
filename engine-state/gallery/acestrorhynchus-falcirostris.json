@@ -2,12 +2,10 @@
  "queue": [],
  "judged": [
   "File:Acestrorhynchus falcirostris.jpg",
-  "inat:210728942"
+  "inat:210728942",
+  "File:1018-5674-fa-32-02-e32682-gf3.jpg"
  ],
- "hashes": {
-  "https://media.aquatome.com/seriouslyfish/972149f699782be7.webp": "919800c882e480c9",
-  "https://media.aquatome.com/seriouslyfish/90adbcc6f253dff5.webp": "07031935711b1f05"
- },
+ "hashes": {},
  "commons": "2026-11-03",
  "inat": {
   "taxon": 607816,
@@ -16,5 +14,9 @@
    "research": 124332454,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2355577,
+  "next": null
  }
 }

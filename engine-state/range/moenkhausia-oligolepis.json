@@ -1,0 +1,304 @@
+{
+  "id": "moenkhausia-oligolepis",
+  "native": {
+    "input": "45990a291304199b",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Wild M. oligolepis are occasionally imported from Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ranges throughout much of northern South America, with populations in Venezuela, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ranges throughout much of northern South America, with populations in Venezuela, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ranges throughout much of northern South America, with populations in Venezuela, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ranges throughout much of northern South America, with populations in Venezuela, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ranges throughout much of northern South America, with populations in Venezuela, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ranges throughout much of northern South America, with populations in Venezuela, Guyana, Suriname, French Guiana, Peru and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "M. oligolepis occurs in the Amazon region and the Guianas.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Moenkhausia oligolepis",
+    "status": "ACCEPTED",
+    "taxonKey": 2352558,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        290
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        271
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        215
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        192
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        140
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        135
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        133
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        78
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        70
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        68
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        57
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        51
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        48
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        40
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        39
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        33
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        32
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        31
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        30
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        29
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        26
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        15
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        13
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        13
+      ],
+      [
+        "5d1e5f0d-811c-4ab0-bb38-f141cc0174de",
+        9
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        7
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        6
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        4
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        4
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        3
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        3
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "941aeef8-2aa1-490d-b6fc-0133095dccea",
+        2
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "cff7cefc-b0d5-4128-9fac-d26e8b5a7f81",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "f3d6d354-239e-4686-a267-8c9516fe2aab",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "VE",
+      "GY",
+      "SR",
+      "GF",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

@@ -7,7 +7,7 @@ import Tanks
 // adding a passkey, syncing "Bể của tôi" with the account, signing out and deleting the account. The app sends `client: "app"`, a bearer token, no cookie and
 // no Origin; the server answers it a token instead of a cookie.
 
-public struct AccountMethod: Sendable, Equatable {
+public struct AccountMethod: Sendable, Equatable, Codable {
   public let id: String
   /// "apple", "google", "email" or "passkey".
   public let kind: String
@@ -15,11 +15,14 @@ public struct AccountMethod: Sendable, Equatable {
   public let lastUsedAt: String?
 }
 
-/// An account holds no name, email address or phone number: only its sign-in methods.
-public struct AccountUser: Sendable, Equatable {
+/// An account holds no name, email address or phone number: only its sign-in methods. Codable, so the app can keep it
+/// on the phone to show offline.
+public struct AccountUser: Sendable, Equatable, Codable {
   public let id: String
   public let createdAt: String?
   public let methods: [AccountMethod]
+  /// The fish picture the reader chose for the account (an id of protocols/profile-pictures.json), if any.
+  public var picture: String? = nil
 }
 
 /// The sign-ins the server offers (client ids are the web's; the app uses its own).
@@ -168,6 +171,9 @@ public struct AccountsClient: Sendable {
   /// What our own copies of the app (debug and test builds, TestFlight) add to their user agent, so the site leaves
   /// their visits, clicks and wanted names out of its reader stats (apps/site/worker/bots.ts). A reader's copy never does.
   public static let ourCopy = "AquaTomeCheck/1"
+  /// Whether a release build is one of our own copies, by the name of its App Store receipt (`Bundle.appStoreReceiptURL`,
+  /// there before the receipt itself is): a TestFlight copy's is the sandbox's, a copy from the App Store has its own.
+  public static func isOurCopy(receipt: String?) -> Bool { receipt == "sandboxReceipt" }
   /// The app's Sign in with Apple client id (its bundle id), one of the server's APPLE_CLIENT_IDS.
   public static let appleClientId = "com.aquatome.app"
 
@@ -312,6 +318,12 @@ public struct AccountsClient: Sendable {
   }
 
   /// Ends this phone's session (the server answers 204 for one that had ended already).
+  /// The account's fish picture set, or taken off with nil (sent as null): the account as it now is. An id the server's
+  /// set hasn't is refused `bad_picture`.
+  public func setPicture(_ id: String?, token: String) async throws -> AccountUser {
+    try AccountUser(try await call("POST", "/api/v1/account/picture", token: token, body: ["picture": id.map(JSON.string) ?? .null])["user"])
+  }
+
   public func signOut(token: String) async throws {
     _ = try await call("POST", "/api/v1/auth/logout", token: token, body: [:])
   }
@@ -355,6 +367,6 @@ extension AccountUser {
     self.init(id: id, createdAt: o["createdAt"]?.string, methods: try methods.map { m in
       guard let m = m.object, let id = m["id"]?.string, let kind = m["kind"]?.string, let at = m["createdAt"]?.string else { throw AccountError.badReply }
       return AccountMethod(id: id, kind: kind, createdAt: at, lastUsedAt: m["lastUsedAt"]?.string)
-    })
+    }, picture: o["picture"]?.string)
   }
 }

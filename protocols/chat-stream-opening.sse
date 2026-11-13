@@ -1,0 +1,17 @@
+event: opening
+data: {"text":"Mình đang tra cẩm nang về cách nuôi cá neon xanh theo đàn cho bạn."}
+
+event: step
+data: {"kind":"read","page":{"kind":"fish","title":"Cá neon xanh","url":"/vi/ca/ca-neon-xanh/"}}
+
+: ping
+
+event: text
+data: {"text":"Cá neon xanh sống theo đàn, "}
+
+event: text
+data: {"text":"từ 8 con trở lên, trong bể có nhiều cây để trú."}
+
+event: done
+data: {"conversation":"0b7e4d2a-3c51-4f8e-a9d6-1e2f3a4b5c6d","n":1,"text":"Cá neon xanh sống theo đàn, từ 8 con trở lên, trong bể có nhiều cây để trú.","blocks":[],"suggestions":["Nuôi chung với cá gì?"],"covered":true,"model":"claude-haiku-5-5","steps":[{"kind":"read","page":{"kind":"fish","title":"Cá neon xanh","url":"/vi/ca/ca-neon-xanh/"}}],"opening":"Mình đang tra cẩm nang về cách nuôi cá neon xanh theo đàn cho bạn."}
+

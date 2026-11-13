@@ -1,0 +1,324 @@
+{
+  "id": "cyclocheilos-enoplos",
+  "scientificName": "Cyclocheilos enoplos",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Cyclocheilos",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "cambodia",
+    "tonle-sap",
+    "vietnam",
+    "thailand",
+    "chao-phraya",
+    "malaysia",
+    "endau",
+    "indonesia",
+    "kapuas"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "KH",
+        "VN",
+        "ID"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong",
+        "Borneo",
+        "Sumatra",
+        "Java"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Cyclocheilos enoplos is a large cyprinid from the Mekong region and Thailand south through Peninsular Malaysia to Borneo, Sumatra and Java.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently understood to have an enormous natural range extending southwestwards from the Mekong region in Laos, Cambodia, and Vietnam through Thailand, and into Peninsular Malaysia and the Greater Sunda Islands of Borneo, Sumatra, and Java.",
+          "countries": [
+            "LA",
+            "KH",
+            "VN"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra",
+            "Java"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Kalimas River, Surabaya, Java, Indonesia'.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It thus occurs throughout the Mekong, Mae Klong and Chao Phraya river drainages as well as a host of smaller river basins, lakes and reservoirs.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10591831,
+      "total": 53,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "KH",
+          26
+        ],
+        [
+          "ID",
+          23
+        ],
+        [
+          "MY",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          102.65625,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          12,
+          12
+        ],
+        [
+          104.0625,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          104.0625,
+          11.25,
+          5,
+          5
+        ],
+        [
+          104.0625,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          105.46875,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          105.46875,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          111.09375,
+          -8.4375,
+          10,
+          10
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilos-enoplos",
+      "html": "<p>Cyclocheilos enoplos is a large cyprinid from the Mekong region and Thailand south through Peninsular Malaysia to Borneo, Sumatra and Java. Growing to around 750 mm SL, it is clearly unsuitable for aquaria and scarce to non-existent in the ornamental trade. In the Mekong it makes long seasonal migrations, and adults move upstream above Khone Falls in what appear to be spawning migrations.</p><ul><li>Rated difficult because it needs a tank at least 2 m long.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilos-enoplos",
+      "html": "<p>Currently understood to have an enormous natural range extending southwestwards from the Mekong region in Laos, Cambodia, and Vietnam through Thailand, and into Peninsular Malaysia and the Greater Sunda Islands of Borneo, Sumatra, and Java.</p><p>It thus occurs throughout the Mekong, Mae Klong and Chao Phraya river drainages as well as a host of smaller river basins, lakes and reservoirs. It is used as a food fish in some countries and may vary a little in colouration and patterning depending on collection locality.</p><p>Type locality is 'Kalimas River, Surabaya, Java, Indonesia'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilos-enoplos",
+      "html": "<p>A riverine species exhibiting mid-water to benthic foraging behaviour during the dry season, and is thought to migrate to flooded riparian forests during the wet season in order to reproduce.</p><p>In the Mekong, it has been observed to migrate upstream from Phnom Penh to Khone Falls between November and February, returning downstream between May and August. The downstream migration ends in the Mekong delta area in Vietnam, where the fish remain until the floods reach their peak in October and November. These lower Mekong migrations mostly comprise juveniles and sub-adults, whereas above Khone Falls, upstream migrations between April and September are dominated by adult fishes and appear to represent spawning migrations.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilos-enoplos",
+      "html": "<p>Standard length: 750 mm SL (75 cm).</p><p>Suitable only for outdoor ponds, public installations or the very largest, highly-specialised private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilos-enoplos",
+      "html": "<p>A large, mature filter system, rigorous maintenance regime comprising weekly water changes of 50-70% tank volume should be considered mandatory, but décor is likely to be relatively unimportant.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilos-enoplos",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–8.0</li><li>Hardness: 1–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilos-enoplos",
+      "html": "<p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults should accept larger items as well as dried pellets, although the latter should not form the staple diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilos-enoplos",
+      "html": "<p>Relatively peaceful with fishes too large to be considered prey.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilos-enoplos",
+      "html": "<p>Sexually mature females are likely to be thicker-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilos-enoplos",
+      "html": "<p>See 'Habitat' for some basic information.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilos-enoplos",
+      "html": "<p>C. enoplos is clearly an unsuitable aquarium subject, and it is scarce to non-existent in the ornamental trade.</p><p>Cyclocheilos species have been included in the genus Cyclocheilichthys in the past, but can be separated by their larger adult size (typically 600 mm+), more elongate body shape, possession of a large and long dorsal-fin spine, and ramified lateral line tubes.</p><p>There have been some nomenclatural issues in recent years, ostensibly because Cyclocheilichthys and the now synonymous Anematichthys were used simultaneously by Bleeker (1859) in reference to the same fish, C. apogon. The issue was addressed by Kottelat (1999) but later misinterpreted by Pasco-Viel, Veran and Variot, 2012, who concluded that Cyclocheilichthys represents a paraphyletic grouping and split the genus into two groups: Cyclocheilichthys (comprising C. enoplos) and Anematichthys (comprising C. apogon, C. armatus and C. repasson).</p><p>This was corrected by Kottelat (2013), and Cyclocheilichthys currently comprises seven species with the revalidated genus Cyclocheilos including the former members C. enoplos and C. furcatus.</p><p>Given the extremely wide range exhibited by C. enoplos, and taking into account patterns observed in other Southeast Asian fishes, it seems logical that this species may also turn out to represent a group of closely-related taxa.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilos-enoplos",
+      "html": "<ul><li>Bleeker, P. (1849). Bijdrage tot de kennis der ichthyologische fauna van Midden- en Oost-Java, met beschrijving van eenige nieuwe species. Verhandelingen van het Bataviaasch Genootschap van Kunsten en Wetenschappen. 23(12), 1-23</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Kottelat, M. (1999). Nomenclature of the genera Barbodes, Cyclocheilichthys, Rasbora and Chonerhinos (Teleostei: Cyprinidae and Tetraodontidae), with comments on the definition of the first reviser. Raffles Bulletin of Zoology Supplement 47(2), 591-600</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Pasco-Viel, E., M. Veran and L. Variot (2012). Bleeker was right: Revision of the genus Cyclocheilichthys (Bleeker 1859) and resurrection of the genus Anematichthys (Bleeker 1859), based on morphological and molecular data of Southeast Asian Cyprininae (Teleostei, Cypriniformes). Zootaxa 3586, 41-54</li><li>Kottelat, M. (2013). The valid generic names for the fish species usually placed in Cyclocheilichthys (Pisces: Cyprinidae). Zootaxa 3640(4), 479-482</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Pasco-Viel, E., M. Veran and L. Variot (2013). Comments on 'The valid generic names for the fish species usually placed in Cyclocheilichthys' (KOTTELAT 2013) and a correction of Pasco-viel et al. (2012). Zootaxa 3640(3), 483-484</li><li>Sokheng, C., C. K. Chhea, S. Viravong, K. Bouakhamvongsa, U. Suntornratana, N. Yoorong, N. T. Tung, T. Q. Bao, A. F. Poulsen and J. V. Jørgensen (1999). Fish migrations and spawning habits in the Mekong mainstream: a survey using local knowledge (basin-wide). Assessment of Mekong fisheries: Fish Migrations and Spawning and the Impact of Water Management Project (AMFC). AMFP Report 2/99. Vientiane, Lao, P.D.R., 1-149</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/panitvong/inat-715400164.webp",
+      "thumb": "https://media.aquatome.com/panitvong/inat-715400164-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://www.inaturalist.org/photos/715400164",
+      "source": "panitvong"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước công suất lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá lớn",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

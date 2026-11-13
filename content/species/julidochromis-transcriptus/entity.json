@@ -11,6 +11,80 @@
     "lake-tanganyika",
     "burundi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It is known from between Luhanga and Makabola in the Democratic Republic of the Congo and grows to around 65 mm SL.",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to northwestern Lake Tanganyika, between Luhanga and Makabola in the Democratic Republic of the Congo, with type locality given simply as the 'extreme north' of the lake.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372482,
+      "total": 16,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CD",
+          11
+        ],
+        [
+          "ZM",
+          3
+        ],
+        [
+          "BI",
+          1
+        ],
+        [
+          "SI",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          45,
+          1,
+          0
+        ],
+        [
+          28.125,
+          -4.21875,
+          12,
+          11
+        ],
+        [
+          30.9375,
+          -9.84375,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -21,7 +95,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 4
       }
     ]
   },
@@ -51,7 +125,23 @@
       "html": "<p>Etymology: Julidochromis: from the name 'Julidini', a putative tribe of labrid marine wrasses which Julidochromis resemble, and the Greek chromis, meaning 'fish'. transcriptus: from the Latin transcribo, meaning 'transcribed, copied'.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/1307e62fb581a9ab.webp",
+      "thumb": "https://media.aquatome.com/commons/1307e62fb581a9ab-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 3.0",
+      "author": "Acubens",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naskalnik_wezoglowy.jpg",
+      "caption": "Cá julie mặt nạ bơi trong bể có cây thủy sinh xanh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1307e62fb581a9ab-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "Rce0sN6CTp0",

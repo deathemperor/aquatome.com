@@ -7,14 +7,19 @@
     "distribution:planetcatfish": "<p>Nam Mỹ. Loài này sống ở sông Preto, thuộc lưu vực sông Paraíba do Sul ở Brazil. Cụ thể là các sông của bang Rio de Janeiro, sông Paraíba do Sul và sông Preto (Minas Gerais).</p>",
     "diet:planetcatfish": "<p>Cá trong chi này ăn được cả mồi sống lẫn mồi đông lạnh. Thức ăn khô làm sẵn bán ngoài tiệm chúng cũng ăn tốt. Bạn chỉ cần chú ý đừng cho ăn quá tay. Ngoài tự nhiên, chúng ăn các loài động vật không xương sống nhỏ sống dưới đáy.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận nào về việc loài này sinh sản trong bể nuôi.</p>",
-    "references:planetcatfish": "<p>Revue française d'Aquariologie Herpétologie v. 18 (no. 4) [for 1991], pp 107, Fig. 8.</p>"
+    "references:planetcatfish": "<p>Revue française d'Aquariologie Herpétologie v. 18 (no. 4) [for 1991], pp 107, Fig. 8.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: không có</li><li>Tên đồng nghĩa: không có</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: sông Preto, thuộc lưu vực sông Paraíba do Sul (Rio de Janeiro, Brazil). Nơi thu mẫu chuẩn: Visconde de Mauá, cách làng Maromba 1 km về phía đông, trên sông Preto, gần chỗ sông gặp suối Santa Clara, lưu vực sông Paraíba, Rio de Janeiro, Brazil.</p>",
+    "habitat:scotcat": "<p>Trichomycterus mirissumba là loài đặc hữu, chỉ có ở đoạn giữa lưu vực sông Paraíba do Sul, thuộc hai bang Minas Gerais và Rio de Janeiro. Loài này không nhiều và ít gặp. Chúng sống trong phạm vi Khu bảo vệ môi trường Serra da Mantiqueira (APA).</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên loài: mirissumba là tên người dân làng Maromba (Rio de Janeiro, Brazil) gọi loài cá da trơn này. Tên này có lẽ bắt nguồn từ tiếng Tupí-Guaraní, nghĩa chưa rõ (nòng nọc).</p><p>Sách đỏ IUCN: loài này hiếm và ít gặp, sống trong phạm vi Khu bảo vệ môi trường Serra da Mantiqueira. Hiện chưa thấy mối đe dọa đáng kể nào, nên loài được xếp vào mức Ít quan tâm (LC) (IUCN 2022).</p>",
+    "references:scotcat": "<p>de Pínna, M.C.C. and W. Wosiacki, 2003. Trichomycteridae (pencil or parasitic catfishes). p. 270-290. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, (06/2024).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Trichomycterus maracaya. The IUCN Red List of Threatened Species 2022.</p>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.7
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.92
+    }
   }
 }

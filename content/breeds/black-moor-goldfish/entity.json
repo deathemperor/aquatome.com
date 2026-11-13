@@ -92,6 +92,28 @@
           "max": 20
         }
       }
+    ],
+    "lifeYears": [
+      {
+        "source": 1,
+        "value": {
+          "min": 10,
+          "max": 10
+        }
+      },
+      {
+        "source": 7,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": 7,
+        "value": 2
+      }
     ]
   },
   "photos": [
@@ -103,7 +125,12 @@
       "licence": "Public domain",
       "author": "KDBlackmore",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_Moor_Goldfish.jpg",
-      "caption": "Cá vàng mắt lồi đen đuôi dài bơi trong bể"
+      "caption": "Cá vàng mắt lồi đen đuôi dài bơi trong bể",
+      "large": {
+        "url": "https://media.aquatome.com/commons/a2b410fe31df8255-large.webp",
+        "width": 1399,
+        "height": 930
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/b262d48ce5db4cdb.webp",
@@ -123,7 +150,12 @@
       "licence": "CC BY 2.5",
       "author": "Riyad Youssef",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_Moor_Fish.jpg",
-      "caption": "Cá vàng mắt lồi đen nhìn chính diện trong bể thủy sinh"
+      "caption": "Cá vàng mắt lồi đen nhìn chính diện trong bể thủy sinh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/d72849cc3c17a358-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/f069491f6a699837.webp",
@@ -179,6 +211,12 @@
       "title": "File:Carassius auratus Black Moor-edit1.jpg – Wikimedia Commons",
       "kind": "other",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/black-moor-goldfish",
+      "title": "Black Moor Goldfish Care, Lifespan, Tank Size & Tank Mates – Fish Keeping World",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

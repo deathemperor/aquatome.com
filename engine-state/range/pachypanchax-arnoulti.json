@@ -1,0 +1,79 @@
+{
+  "id": "pachypanchax-arnoulti",
+  "native": {
+    "input": "d66d1f0459a794b8",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "MG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Pachypanchax arnoulti is a killifish endemic to western Madagascar, where it occurs in the Mahavavy du Sud and Betsiboka river systems.",
+        "words": "Madagascar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mahavavy du Sud",
+        "source": "seriouslyfish",
+        "quote": "Pachypanchax arnoulti is a killifish endemic to western Madagascar, where it occurs in the Mahavavy du Sud and Betsiboka river systems.",
+        "ok": true
+      },
+      {
+        "name": "Betsiboka",
+        "source": "seriouslyfish",
+        "quote": "Pachypanchax arnoulti is a killifish endemic to western Madagascar, where it occurs in the Mahavavy du Sud and Betsiboka river systems.",
+        "ok": true
+      },
+      {
+        "name": "Lake Kinkony",
+        "source": "seriouslyfish",
+        "quote": "Current known range includes the Mahavavy du Sud and Betsiboka river systems in western Madagascar, some first-order streams entering the Mozambique Channel between their mouths and Lake Kinkony plus its satellite lakes in the Mahavavy du Sud delta region.",
+        "ok": true
+      },
+      {
+        "name": "Kamoro River",
+        "source": "seriouslyfish",
+        "quote": "Additional localities include a hill stream flowing from the Tampoketsa highlands and the upper Kamoro River basin, and may also occur in the Mahajamba and Soahany watersheds.",
+        "ok": true
+      },
+      {
+        "name": "Mahajamba",
+        "source": "seriouslyfish",
+        "quote": "Additional localities include a hill stream flowing from the Tampoketsa highlands and the upper Kamoro River basin, and may also occur in the Mahajamba and Soahany watersheds.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pachypanchax arnoulti",
+    "status": "ACCEPTED",
+    "taxonKey": 2347792,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        14
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        9
+      ],
+      [
+        "ebc90ee8-ffdd-462c-b5dd-8a8fe3921e5a",
+        4
+      ]
+    ],
+    "native": [
+      "MG"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

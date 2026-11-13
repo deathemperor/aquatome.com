@@ -107,7 +107,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -116,7 +116,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/amatitlania-nanolutea",
-      "html": "<p>Amatitlania nanolutea is a small Central American cichlid endemic to the Guarumo river basin in northwestern Panama. Sometimes called the 'yellow convict', it lives in well-oxygenated, moderate to fast-flowing lowland streams. It is not as aggressive as some others in the genus, though territorial when breeding. A substrate-spawner forming temporary pair bonds, both sexes turn bright yellow during courtship.</p><ul><li>Max size: 65 mm SL (2.6 in SL)</li><li>Aquarium size: 90 × 30 cm (36 × 12 in)</li><li>Temperature: 23–26°C (73–79°F)</li><li>pH: 5.0–7.5</li><li>Hardness: 10–25 dGH</li><li>Difficulty: 6 of 8 (Moderate)</li></ul>"
+      "html": "<p>Amatitlania nanolutea is a small Central American cichlid endemic to the Guarumo river basin in northwestern Panama. Sometimes called the 'yellow convict', it lives in well-oxygenated, moderate to fast-flowing lowland streams. It is not as aggressive as some others in the genus, though territorial when breeding. A substrate-spawner forming temporary pair bonds, both sexes turn bright yellow during courtship.</p><ul><li>Max size: 65 mm SL (2.6 in SL)</li><li>Aquarium size: 90 × 30 cm (36 × 12 in)</li><li>Temperature: 23–26°C (73–79°F)</li><li>pH: 5.0–7.5</li><li>Hardness: 10–25 dGH</li><li>Difficulty: 4 of 8 (Moderate)</li></ul>"
     },
     {
       "key": "distribution",
@@ -185,14 +185,79 @@
       "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/7fb9a60755f0a99d36d6082897015cfb.webp",
+      "thumb": "https://media.aquatome.com/processed/7fb9a60755f0a99d36d6082897015cfb-480.webp",
+      "width": 640,
+      "height": 395,
+      "licence": "dùng với sự cho phép",
+      "author": "Klaus Steinhaus",
+      "sourceUrl": "https://www.seriouslyfish.com/species/amatitlania-nanolutea",
+      "caption": "Adult male; note the enlarged head shape and lack of dark marking in the dorsal-fin.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-amatitlania-nanolutea",
+        "pixelHash": "c4cb4d40bd60f7e63643b7dc261b787ad40d6c37a35d06bc8a59fdf351e77cde"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:27:30.032Z",
+          "originalHash": "4f23a46a44afc1d1047f77291333c2568099ca057ef99793f720e8b33b8dab48",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 640,
+            "originalHeight": 427,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 640,
+              "y1": 395
+            },
+            "subject": {
+              "x0": 142,
+              "y0": 110,
+              "x1": 546,
+              "y1": 345
+            },
+            "margin": 11
+          },
+          "excludedMarks": [
+            {
+              "x0": 8,
+              "y0": 400,
+              "x1": 209,
+              "y1": 418
+            }
+          ],
+          "checks": {
+            "species": [
+              "3c2aaedbe78e3a11437e5a8973480b0d58b25cad96cb772a93a0689cfd5fc778",
+              "40e56d7c4abcfacce33b8602332b484d2494dbc937463a3594b40067f6e370d3"
+            ],
+            "ownership": [
+              "2a148dc3c8f10026c1770803c0112a3463af5ee0c7e62dc47e4b8a497b4e4621",
+              "2243ba5cc0b6dcc238fc9db90fde28535df430b4fdb704c1507e1ba6a180f2ed"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/1cf4e59af4cc232f.webp",
+        "width": 640,
+        "height": 427,
+        "thumb": "https://media.aquatome.com/seriouslyfish/1cf4e59af4cc232f-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90x30 cm",
-        "bể cá 90 cm"
+        "bể cá 90cm"
       ]
     },
     {

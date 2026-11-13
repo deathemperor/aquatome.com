@@ -6,20 +6,35 @@
 export const REPO_URL = 'https://github.com/deathemperor/aquatome.com/'
 const MAX_LIST = 50
 const MAX_TITLE = 200
+/** The product changes' bounds (scripts/changelog.mjs MAX_TEXT, daily-report.mjs MAX_CHANGES): a few lines a pull request. */
+const MAX_CHANGES = 100
+const MAX_CHANGE = 300
 
 export type Item = { number: number; title: string; url: string }
+export const AREAS = ['Site', 'App', 'Engine'] as const
+export type Area = (typeof AREAS)[number]
+/** What a merged pull request changed for readers, app users or the engine's content, in plain words, and when it merged. */
+export type Change = { area: Area; text: string; at: string }
 export type Listed = { total: number; items: Item[] }
 /** Runs on main that ran (none cancelled or skipped), and those that failed. */
 export type Runs = { runs: number; failed: number }
 /** A workflow whose last runs on main failed with no success after them: its newest failure's link, when the first was. */
 export type Failing = { workflow: string; url: string; since: string; failures: number }
+/**
+ * The app's next days from the editorial calendar (content/curation.json), which the collector reads in its checkout: the
+ * weeks they touch, with the Vietnamese theme and the curator's note for the owner, and each day's fish by its name.
+ */
+export type Calendar = { weeks: { from: string; to: string; theme: string; why?: string }[]; days: { date: string; fish?: string; why?: string }[] }
+/** Fish and breed pages whose head has no animal in it and no "yes" from the photo check (engine-state/_photo-no-animal-heads.json): newest first. */
+export type NoAnimal = { total: number; items: { page: string; name: string; since: string }[] }
 export type GitHubSide = {
   runId: string
   runUrl: string
   since: string
   /** What GitHub wouldn't give: the counts it feeds may be low. */
   missing: string[]
-  merged: Listed
+  /** The product changes of the pull requests merged in the window (scripts/changelog.mjs), newest first. */
+  changes: Change[]
   /** `live`: the newest deploy.yml run that succeeded. */
   deploys: Runs & { live?: { sha: string; url: string; at: string } }
   /** The engine's cycles (engine.yml; the Mac's parts report only when they fail), and its `content:` commits on main by part. */
@@ -34,6 +49,8 @@ export type GitHubSide = {
   issues: Listed
   notes: number
   prs: { ready: Listed; draft: Listed }
+  calendar?: Calendar
+  noAnimal?: NoAnimal
 }
 
 class Refused extends Error {}
@@ -43,7 +60,7 @@ const count = (x: unknown) => (Number.isInteger(x) && (x as number) >= 0 && (x a
 const text = (x: unknown, max = MAX_TITLE) => (typeof x === 'string' && x.length <= max ? x.replace(/\p{Cc}/gu, ' ') : refuse())
 const link = (x: unknown) => (typeof x === 'string' && x.length <= 300 && x.startsWith(REPO_URL) && !/[\s"'<>]/.test(x) ? x : refuse())
 const moment = (x: unknown) => (typeof x === 'string' && x.length <= 40 && Number.isFinite(Date.parse(x)) ? x : refuse())
-const list = <T>(x: unknown, each: (y: unknown) => T): T[] => (Array.isArray(x) && x.length <= MAX_LIST ? x.map(each) : refuse())
+const list = <T>(x: unknown, each: (y: unknown) => T, max = MAX_LIST): T[] => (Array.isArray(x) && x.length <= max ? x.map(each) : refuse())
 const item = (x: unknown): Item => {
   const r = record(x)
   return { number: count(r.number), title: text(r.title), url: link(r.url) }
@@ -52,9 +69,41 @@ const listed = (x: unknown): Listed => {
   const r = record(x)
   return { total: count(r.total), items: list(r.items, item) }
 }
+const change = (x: unknown): Change => {
+  const r = record(x)
+  const area = AREAS.find(a => a === r.area) ?? refuse()
+  return { area, text: text(r.text, MAX_CHANGE).trim() || refuse(), at: moment(r.at) }
+}
+const date = (x: unknown) => (typeof x === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(x) ? x : refuse())
+const calendar = (x: unknown): Calendar => {
+  const r = record(x)
+  return {
+    weeks: list(r.weeks, y => {
+      const w = record(y)
+      return { from: date(w.from), to: date(w.to), theme: text(w.theme), ...(w.why === undefined ? {} : { why: text(w.why, MAX_CHANGE) }) }
+    }, 4),
+    days: list(r.days, y => {
+      const d = record(y)
+      return { date: date(d.date), ...(d.fish === undefined ? {} : { fish: text(d.fish) }), ...(d.why === undefined ? {} : { why: text(d.why, MAX_CHANGE) }) }
+    }, 14),
+  }
+}
+const noAnimal = (x: unknown): NoAnimal => {
+  const r = record(x)
+  return { total: count(r.total), items: list(r.items, y => { const i = record(y); return { page: text(i.page), name: text(i.name), since: date(i.since) } }) }
+}
 const runs = (x: unknown): Runs => {
   const r = record(x)
   return { runs: count(r.runs), failed: count(r.failed) }
+}
+
+/** What changelog.yml sends on each push to main, or null for a body to refuse. */
+export function parseChanges(body: string): Change[] | null {
+  try {
+    return list(record(JSON.parse(body)).changes, change, MAX_CHANGES)
+  } catch {
+    return null
+  }
 }
 
 /** The body as sent, or null for one to refuse. `runId` is the run's id: it keys the report (daily/log.ts). */
@@ -70,7 +119,7 @@ export function parseGitHubSide(body: string): GitHubSide | null {
     return {
       runId, runUrl: link(r.runUrl), since: moment(r.since),
       missing: list(r.missing, y => text(y)),
-      merged: listed(r.merged),
+      changes: list(r.changes, change, MAX_CHANGES),
       deploys: { ...runs(deploys), ...(live ? { live: { sha: text(live.sha, 40), url: link(live.url), at: moment(live.at) } } : {}) },
       engine: runs(r.engine),
       commits: {
@@ -97,6 +146,8 @@ export function parseGitHubSide(body: string): GitHubSide | null {
       issues: listed(r.issues),
       notes: count(r.notes),
       prs: { ready: listed(prs.ready), draft: listed(prs.draft) },
+      ...(r.calendar === undefined ? {} : { calendar: calendar(r.calendar) }),
+      ...(r.noAnimal === undefined ? {} : { noAnimal: noAnimal(r.noAnimal) }),
     }
   } catch {
     return null

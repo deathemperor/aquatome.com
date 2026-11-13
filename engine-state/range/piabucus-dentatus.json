@@ -1,0 +1,155 @@
+{
+  "id": "piabucus-dentatus",
+  "native": {
+    "input": "437404b3d5b177ec",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The piabuco tetra, Piabucus dentatus, is a large tetra from coastal waters of northern South America, from Venezuela to the mouth of the Amazon.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Venezuela, Guyana, Suriname, French Guiana and Brazil, where its range extends southwards to the mouth of the Amazon.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Venezuela, Guyana, Suriname, French Guiana and Brazil, where its range extends southwards to the mouth of the Amazon.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Venezuela, Guyana, Suriname, French Guiana and Brazil, where its range extends southwards to the mouth of the Amazon.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Venezuela, Guyana, Suriname, French Guiana and Brazil, where its range extends southwards to the mouth of the Amazon.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Venezuela, Guyana, Suriname, French Guiana and Brazil, where its range extends southwards to the mouth of the Amazon.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Venezuela, Guyana, Suriname, French Guiana and Brazil, where its range extends southwards to the mouth of the Amazon.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Piabucus dentatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2352811,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        26
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        25
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        11
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "5d1e5f0d-811c-4ab0-bb38-f141cc0174de",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "GY",
+      "SR",
+      "GF",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

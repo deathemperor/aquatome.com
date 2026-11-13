@@ -1,20 +1,16 @@
 {
-  "slug": "ca-dia",
-  "name": "Cá đĩa",
+  "slug": "ca-dia-heckel",
+  "name": "Cá đĩa Heckel",
   "altNames": [
-    "Cá đĩa đỏ",
     "Pompadour fish",
-    "Royal Discus",
     "Discus",
-    "Cá đĩa Pompadour",
-    "Cá đĩa Royal",
-    "Cá đĩa hoàng gia"
+    "Cá đĩa Pompadour"
   ],
   "sections": {
     "quickFacts:sprucepets": "<p>Cá đĩa thuộc hàng đẹp nhất trong các loài cá cảnh. Đến giờ chúng vẫn là điểm nhấn rất đẹp cho bất kỳ bể trưng bày lớn nào. Người chơi cá biết đến cá đĩa lần đầu vào năm 1933, và chính Tiến sĩ Herbert R. Axelrod là người đưa chúng nổi tiếng khắp thế giới. Cá trưởng thành dài khoảng 15 cm. Cá đĩa được xem là một trong những loài cá nhiệt đới nước ngọt khó nuôi nhất.</p>",
     "distribution:sprucepets": "<p>Giống cá ông tiên (Pterophyllum) và Cichlasoma festivum, cá đĩa sống ở vùng Amazon rộng lớn. Vùng phân bố của chúng kéo dài từ trung lưu sông Amazon vào sâu trong rừng rậm, tới tận các vùng ngập lũ của Venezuela và Peru.</p>",
     "habitat:sprucepets": "<p>Người ta khá hay gặp cá đĩa giữa những đám cây mọc dày ở các khúc sông quanh co, nước lặng. Chúng cũng ở dưới những bờ đất nhô ra và trong các khe đá. Ở chỗ nước nông, cá bố mẹ trông con dưới lá của nhiều loài Nymphaea.</p>",
-    "aquariumSize:sprucepets": "<p>Với cá đĩa con, bể tối thiểu phải là 100 × 50 × 50 cm, không thể nhỏ hơn. Cá trưởng thành cần bể dài 150 cm, tức khoảng 285 lít trở lên, thì mới sống thoải mái và có cơ hội sinh sản thành công. Cá vẫn có thể đẻ trong bể nhỏ hơn. Tuy vậy, muốn tỷ lệ thành công cao nhất thì nên dùng bể từ 285 lít, trồng nhiều cây và lọc tốt. Cá đĩa không ưa nước thay đổi. Khối nước càng lớn thì các thay đổi càng diễn ra chậm.</p>",
+    "aquariumSize:sprucepets": "<p>Với cá đĩa con, bể tối thiểu phải là 100 × 50 × 50 cm, không thể nhỏ hơn. Cá trưởng thành cần bể dài 150 cm, tức khoảng 300 lít trở lên, thì mới sống thoải mái và có cơ hội sinh sản thành công. Cá vẫn có thể đẻ trong bể nhỏ hơn. Tuy vậy, muốn tỷ lệ thành công cao nhất thì nên dùng bể từ 300 lít, trồng nhiều cây và lọc tốt. Cá đĩa không ưa nước thay đổi. Khối nước càng lớn thì các thay đổi càng diễn ra chậm.</p>",
     "waterConditions:sprucepets": "<p>Cá đĩa cần nước thật sạch, thật trong, lọc qua than bùn, trong một bể có cây đã chạy ổn định. Nhiệt độ nên giữ đều ở 28°C, pH 6,5–7,5, độ cứng 1–12 dGH.</p><p>Khi cho cá sinh sản: 30°C, pH 6–6,5, độ cứng 0–5 dGH.</p>",
     "diet:sprucepets": "<p>Cá đĩa rất kén ăn. Bạn nhất định phải cho chúng ăn thức ăn sống và thức ăn đông lạnh. Nếu chỉ ăn cám khô dạng mảnh, cá sẽ chết rất nhanh. Thỉnh thoảng bạn vẫn có thể cho ăn cám mảnh để bổ sung. Trong thời gian nuôi con, cá bột ăn ngay trên hai bên thân cá bố mẹ. Vì thế cả cá đực lẫn cá cái đều cần ăn thêm đạm.</p>",
     "behaviour:sprucepets": "<p>Cá đĩa rất hiền. Khác với nhiều loài cichlid, chúng không đào bới nền, cũng không nhổ hay xé nát cây. Cá đĩa sống hòa thuận với các loài cá khác. Chỉ đến mùa sinh sản chúng mới dữ lên để bảo vệ con rất quyết liệt.</p><p>Cách tốt nhất là mua một nhóm cá đĩa con rồi để chúng tự ghép cặp. Cá đĩa đã thành đôi thì gắn bó với nhau suốt đời. Khi một cặp đã tìm được nhau, bạn sẽ thấy rõ. Hai con tách khỏi đàn và chiếm riêng một góc bể làm lãnh thổ. Nếu muốn cá sinh sản thành công, mỗi bể chỉ nên để lại một cặp. Số cá còn lại có thể chuyển sang bể khác, ở đó có thể sẽ có thêm một cặp nữa thành đôi.</p>",
@@ -28,5 +24,6 @@
     "bySource": {
       "sprucepets": 0.9
     }
-  }
+  },
+  "nameFixed": true
 }

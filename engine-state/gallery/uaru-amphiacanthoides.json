@@ -11,11 +11,8 @@
  ],
  "hashes": {
   "https://media.aquatome.com/commons/03726a431470b8ed.webp": "03038f8686436374",
-  "https://media.aquatome.com/commons/ba268c24c65b0b84.webp": "6cf0f0b8acf87631",
-  "https://media.aquatome.com/commons/0fc8c7de1c9dea9a.webp": "2a2ae0e0f246989a",
-  "https://media.aquatome.com/commons/1ac659a7619769ec.webp": "a2c8e0e9f070c180",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/304514165/large.jpg": "3c323239736e7a52",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/747617065/large.jpg": "e62e1bdfce60317d"
+  "https://media.aquatome.com/inaturalist/747617065.webp": "662a1fdfce20317b",
+  "https://media.aquatome.com/inaturalist/304514165.webp": "3c323239734e7250"
  },
  "commons": "2026-11-04",
  "inat": {
@@ -25,5 +22,9 @@
    "research": 405646213,
    "agree": 406880595
   }
+ },
+ "gbif": {
+  "key": 2371462,
+  "next": null
  }
 }

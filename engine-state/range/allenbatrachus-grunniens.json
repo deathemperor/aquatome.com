@@ -1,9 +1,33 @@
 {
   "id": "allenbatrachus-grunniens",
   "native": {
-    "input": "9e65e8a8336337a9",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "e64d7f08a9b809be",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The freshwater toadfish, Allenbatrachus grunniens, is a euryhaline toadfish from the Ganges delta in India and Bangladesh east to the Philippines.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The freshwater toadfish, Allenbatrachus grunniens, is a euryhaline toadfish from the Ganges delta in India and Bangladesh east to the Philippines.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The freshwater toadfish, Allenbatrachus grunniens, is a euryhaline toadfish from the Ganges delta in India and Bangladesh east to the Philippines.",
+        "words": "Philippines",
+        "ok": true
+      },
       {
         "code": "IN",
         "status": "native",
@@ -73,7 +97,8 @@
       {
         "name": "Ganges",
         "source": "seriouslyfish",
-        "quote": "Type locality is given simply as 'East Indies', and this species is currently accepted to range eastwards from the Ganges River delta in India and Bangladesh around the coastlines of Myanmar, Thailand, Malaysia, Cambodia, Vietnam, and the Philippines.",
+        "quote": "The freshwater toadfish, Allenbatrachus grunniens, is a euryhaline toadfish from the Ganges delta in India and Bangladesh east to the Philippines.",
+        "country": "IN",
         "ok": true
       }
     ],

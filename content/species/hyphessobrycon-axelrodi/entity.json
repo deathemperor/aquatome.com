@@ -1,0 +1,137 @@
+{
+  "id": "hyphessobrycon-axelrodi",
+  "scientificName": "Hyphessobrycon axelrodi",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "trinidad-and-tobago",
+    "trinidad",
+    "venezuela"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2354583,
+      "total": 30,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "VE",
+          21
+        ],
+        [
+          "TT",
+          5
+        ],
+        [
+          "GY",
+          3
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          7.03125,
+          1
+        ],
+        [
+          -71.71875,
+          8.4375,
+          1
+        ],
+        [
+          -70.3125,
+          7.03125,
+          11
+        ],
+        [
+          -70.3125,
+          8.4375,
+          2
+        ],
+        [
+          -68.90625,
+          5.625,
+          1
+        ],
+        [
+          -68.90625,
+          7.03125,
+          4
+        ],
+        [
+          -67.5,
+          1.40625,
+          1
+        ],
+        [
+          -67.5,
+          4.21875,
+          1
+        ],
+        [
+          -61.875,
+          9.84375,
+          5
+        ],
+        [
+          -59.0625,
+          7.03125,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_axelrodi_en/",
+      "html": "<p>This charming dwarf tetra is easy to keep and an ideal inhabitant of so-called nano tanks. The maximum length is 2 cm in males and about 3 cm in females.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_axelrodi_en/",
+      "html": "<p>Regarding the generic name this tetra has undergone a real odyssey. It was initially described under the generic name of Aphyocharax, in 1977 Géry placed it in Megalamphodus with question mark. In 1997 Weitzman and Palmer dissolved the genus Megalamphodus and the calypsotetra was placed in Hyphessobrycon. Today Megalamphodus is regarded again as a valid genus by most scientists, but whether the calypsotetra belongs to that genus is still an open question. So it is most often placed in Hyphessobrycon currently.</p><p>Aphyocharax means \"small Charax\"; Charax is another genus of tetra. Hyphessobrycon means \"small Brycon\"; Brycon is another genus of tetra. Megalamphodus means \"with spacious ways\", referring to anatomical details. axelrodi is a dedication name for Herbert Axelrod.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nano 30cm",
+        "bể cá nhỏ thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc nhỏ cho bể nano"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá tetra nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

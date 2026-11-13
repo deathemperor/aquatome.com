@@ -11,9 +11,16 @@
     "poecilia-reticulata",
     "glossostigma-elatinoides",
     "rotala-rotundifolia",
-    "bucephalandra-sp"
+    "bucephalandra-sp",
+    "paracheirodon-simulans",
+    "ludwigia-arcuata",
+    "rotala-wallichii",
+    "phyllanthus-fluitans",
+    "micranthemum-tweediei-monte-carlo",
+    "micranthemum-umbrosum",
+    "hyphessobrycon-amandae"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "I_KBOUM1RXM",
     "title": "SIMPLE AQUARIUM PLANT LIQUID FERTILIZERS ROUTINE",
@@ -32,59 +39,67 @@
       "height": 720
     },
     "taxa": [
-      "Hemigrammus sp.",
+      "Paracheirodon simulans",
       "Apistogramma trifasciata",
       "Otocinclus sp.",
       "Caridina multidentata",
-      "Poecilia reticulata",
-      "Glossostigma elatinoides",
-      "Phyllanthus fluitans",
-      "Micranthemus tweediei",
-      "Micranthemus umbrosum",
       "Ludwigia arcuata",
       "Rotala rotundifolia",
       "Rotala wallichii",
       "Hydrocleys nymphoides",
+      "Poecilia reticulata",
+      "Glossostigma elatinoides",
+      "Phyllanthus fluitans",
+      "Micranthemum tweediei",
+      "Micranthemum umbrosum",
+      "Nesaea pedicellata",
       "Bucephalandra sp.",
       "Cryptocoryne sp.",
-      "Nesaea pedicellata"
+      "Hyphessobrycon amandae",
+      "Ludwigia sp."
     ],
     "gear": [
       {
-        "category": "khac",
-        "brand": "Masterline",
-        "model": "Masterline 1",
-        "t": 120
+        "category": "be-ca",
+        "type": "chuan",
+        "brand": "Dennerle",
+        "model": "Scapers Tank 70L",
+        "t": 0
       },
       {
-        "category": "khac",
-        "brand": "Masterline",
-        "model": "Masterline 2",
-        "t": 180
+        "category": "be-ca",
+        "type": "nano",
+        "brand": "Dennerle",
+        "model": "Scapers Tank 35L",
+        "t": 0
       },
       {
-        "category": "khac",
-        "brand": "Masterline",
-        "model": "Masterline Carbo",
-        "t": 210
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Chihiros",
+        "model": "WRGB 2",
+        "t": 0
       },
       {
-        "category": "khac",
-        "brand": "Masterline",
-        "model": "Potassium",
-        "t": 240
+        "category": "co2",
+        "type": "binh",
+        "brand": "CO2Art",
+        "model": "Pro-SE",
+        "t": 0
       },
       {
-        "category": "khac",
-        "brand": "Vimi",
-        "model": "Stimulator",
-        "t": 270
+        "category": "loc",
+        "type": "thung",
+        "brand": "Oase",
+        "model": "Biomaster 850 Thermo",
+        "t": 720
       },
       {
-        "category": "khac",
-        "brand": "Masterline",
-        "model": "All in One",
-        "t": 180
+        "category": "loc",
+        "type": "thung",
+        "brand": "JBL",
+        "model": "e701",
+        "t": 0
       },
       {
         "category": "phan-nen",
@@ -96,130 +111,140 @@
       {
         "category": "den",
         "type": "thuy-sinh",
-        "brand": "Chihiros",
-        "model": "WRGB 2"
-      },
-      {
-        "category": "loc",
-        "type": "thung",
-        "brand": "Oase",
-        "model": "Filtosmart 300"
-      },
-      {
-        "category": "loc",
-        "type": "thung",
-        "brand": "JBL",
-        "model": "e701"
-      },
-      {
-        "category": "loc",
-        "type": "thung",
-        "brand": "Oase",
-        "model": "Biomaster 850 Thermo",
-        "t": 740
-      },
-      {
-        "category": "co2",
-        "type": "binh",
-        "brand": "CO2Art",
-        "model": "Pro-SE"
-      },
-      {
-        "category": "be-ca",
-        "type": "chuan",
-        "brand": "Dennerle",
-        "model": "Scapers Tank 70L",
-        "t": 338
-      },
-      {
-        "category": "be-ca",
-        "type": "nano",
-        "brand": "Dennerle",
-        "model": "Scapers Tank 35L",
-        "t": 443
-      },
-      {
-        "category": "be-ca",
-        "type": "lon",
-        "brand": "WIO",
-        "model": "Vistas 120F",
-        "t": 619
-      },
-      {
-        "category": "den",
-        "type": "thuy-sinh",
         "brand": "Skylight",
-        "model": "Hyperspot L"
+        "model": "Hyperspot L",
+        "t": 0
       },
       {
-        "category": "den",
-        "type": "thuy-sinh",
-        "brand": "Skylight",
-        "model": "AQI 40"
+        "category": "khac",
+        "brand": "Masterline",
+        "model": "Masterline 1",
+        "t": 120
+      },
+      {
+        "category": "khac",
+        "brand": "Masterline",
+        "model": "Masterline 2",
+        "t": 210
+      },
+      {
+        "category": "khac",
+        "brand": "Masterline",
+        "model": "Masterline Carbo",
+        "t": 210
+      },
+      {
+        "category": "khac",
+        "brand": "Masterline",
+        "model": "Masterline Potassium",
+        "t": 240
+      },
+      {
+        "category": "khac",
+        "brand": "Vimi",
+        "model": "Stimulator",
+        "t": 270
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "brand": "ecinu",
+        "model": "pH sensor",
+        "t": 720
       },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Twinstar",
-        "model": "30B"
+        "model": "30B",
+        "t": 0
       },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Chihiros",
-        "model": "C2"
+        "model": "C2",
+        "t": 0
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Skylight",
+        "model": "AQI 40",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "brand": "Dennerle",
+        "model": "Scapers Flow",
+        "t": 0
       },
       {
         "category": "phan-nen",
         "type": "phan",
         "brand": "Dennerle",
-        "model": "Scapers Soil"
+        "model": "Scapers Soil",
+        "t": 0
       },
       {
         "category": "co2",
         "type": "binh",
         "brand": "Strideways",
-        "model": "Pro Regulator"
-      },
-      {
-        "category": "loc",
-        "brand": "Dennerle",
-        "model": "Scapers Flow"
-      },
-      {
-        "category": "khac",
-        "brand": "ADA",
-        "model": "Yamaya stone"
-      },
-      {
-        "category": "khac",
-        "brand": "Ecinu",
-        "model": "CO2 system with pH sensor",
-        "t": 730
-      },
-      {
-        "category": "khac",
-        "brand": "Seachem",
-        "model": "Excel",
-        "t": 240
+        "model": "Pro Regulator",
+        "t": 0
       }
     ],
     "figures": [
       {
-        "heading": "Cần những loại phân nước nào",
+        "heading": "Cần những chai phân nào",
         "moments": [
           {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/I_KBOUM1RXM/t10.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh cây xanh mướt, thảm cỏ phủ kín nền và đá lũa."
+            "t": 70,
+            "url": "https://media.aquatome.com/video/I_KBOUM1RXM/at70-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai hồ thủy sinh cây xanh và cây đỏ được chiếu sáng đẹp.",
+            "sharpness": 3196.2,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Bể đã ổn định: châm phân all-in-one",
-        "moments": [],
+        "heading": "Bể mới set châm thế nào",
+        "moments": [
+          {
+            "t": 1120,
+            "url": "https://media.aquatome.com/video/I_KBOUM1RXM/at1120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể mới set với đá phủ rêu nâu và nền aquasoil còn trống.",
+            "sharpness": 3123.8,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Bể trồng dày, muốn cây lên nhanh",
+        "moments": [
+          {
+            "t": 350,
+            "url": "https://media.aquatome.com/video/I_KBOUM1RXM/at350-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh trồng dày, cây rậm xanh với lũa và thảm cỏ phía trước.",
+            "sharpness": 3453.3,
+            "person": false
+          },
+          {
+            "t": 460,
+            "url": "https://media.aquatome.com/video/I_KBOUM1RXM/at460-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thảm cỏ xanh mướt và đá lũa, cây mọc dày và khỏe.",
+            "sharpness": 1756.7,
+            "person": false
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/I_KBOUM1RXM/p2-xdWFyaXVtKS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/I_KBOUM1RXM/p2-xdWFyaXVtKS5qcGc-480.webp",
@@ -228,36 +253,82 @@
           "licence": "CC BY-SA 4.0",
           "author": "Shifu Tanks",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Devario_malabaricus_-_mid-water_lateral_profile_against_aquatic_plants_(aquarium).jpg",
-          "caption": "Cá nhỏ bơi giữa bụi cây thủy sinh xanh dày trong bể trồng cây."
+          "caption": "Bể trồng dày cây thủy sinh xanh rậm với đàn cá nhỏ bơi lượn."
         }
       },
       {
-        "heading": "Bể cây đỏ: cắt đa lượng để cây lên màu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/I_KBOUM1RXM/p3-ydS1JbmRpYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/I_KBOUM1RXM/p3-ydS1JbmRpYS5qcGc-480.webp",
-          "width": 960,
-          "height": 1106,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_Hi_Red-1-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Cụm cây thân đỏ lên màu cam đỏ rực trong bể thủy sinh."
-        }
+        "heading": "Bể cây đỏ kiểu Dutch: bỏ đa lượng để lên màu",
+        "moments": [
+          {
+            "t": 660,
+            "url": "https://media.aquatome.com/video/I_KBOUM1RXM/at660-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể toàn cây đỏ rực, mọc dày trên nền đất dinh dưỡng.",
+            "sharpness": 3759.8,
+            "person": false
+          }
+        ]
       },
       {
-        "heading": "Bể low-tech không lọc cần rất ít phân",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/I_KBOUM1RXM/p5-FNyU4RiVBMC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/I_KBOUM1RXM/p5-FNyU4RiVBMC5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "Billtsai1518",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%9F%AE%E7%8F%8D%E7%8F%A0.jpg",
-          "caption": "Thảm Glossostigma xanh mướt mọc dày trong bể thủy sinh."
-        }
+        "heading": "Bể to, bể không lọc và bể ít đèn",
+        "moments": [
+          {
+            "t": 710,
+            "url": "https://media.aquatome.com/video/I_KBOUM1RXM/at710-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nền cỏ xanh dày với đá lớn, đèn chiếu sáng phía trên.",
+            "sharpness": 2797.3,
+            "person": false
+          },
+          {
+            "t": 750,
+            "url": "https://media.aquatome.com/video/I_KBOUM1RXM/at750-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lọc thùng đặt trong tủ bể, thiết bị lọc của bể thủy sinh.",
+            "sharpness": 288.8,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Sau khi tỉa thì châm gì",
+        "moments": [
+          {
+            "t": 610,
+            "url": "https://media.aquatome.com/video/I_KBOUM1RXM/at610-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh với các đám cây đỏ và xanh vừa được tỉa gọn.",
+            "sharpness": 4421.5,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Khi bể có rêu hại",
+        "moments": [
+          {
+            "t": 1360,
+            "url": "https://media.aquatome.com/video/I_KBOUM1RXM/at1360-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể rừng phủ rêu và rêu tóc trên lũa.",
+            "sharpness": 2358.7,
+            "person": false
+          },
+          {
+            "t": 1390,
+            "url": "https://media.aquatome.com/video/I_KBOUM1RXM/at1390-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận hơn bể rừng với rêu hại bám lũa và nền.",
+            "sharpness": 2424.7,
+            "person": false
+          }
+        ]
       }
     ]
   }

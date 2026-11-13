@@ -3,7 +3,7 @@
  * the same bar on the cards it builds (scripts/species-card.ts).
  */
 export function barStyle(kind: 'ph' | 'temp', min: number, max: number): string {
-  const [lo, hi] = kind === 'ph' ? [4, 9] : [10, 35]
+  const [lo, hi] = kind === 'ph' ? [3, 9] : [10, 35]
   const pct = (x: number) => Math.min(100, Math.max(0, ((x - lo) / (hi - lo)) * 100))
   const left = pct(min)
   const width = Math.max(pct(max) - left, 2)

@@ -8,13 +8,42 @@
   "places": [
     "south-america",
     "bolivia",
-    "rio-machupo"
+    "rio-machupo",
+    "brazil",
+    "amazon",
+    "todos-santos",
+    "venezuela",
+    "orinoco",
+    "paraguay",
+    "paraguay-river"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 8.9
+      },
+      {
+        "source": "scotcat",
+        "value": 9
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
       }
     ]
   },
@@ -26,10 +55,34 @@
       "html": "<ul><li><strong>Scientific name:</strong> Pterobunocephalus depressus (Haseman, 1911)</li><li><strong>Common name:</strong> Banjo Catfish</li><li><strong>Type locality:</strong> Río Machupo near San Joaquín, Amazon system, Bolivia.</li><li><strong>Synonyms:</strong> Buncephalus depressus, Bunocephalus albofasciatus</li><li><strong>Size:</strong> 89 mm (3.5\") SL.</li><li><strong>Identification:</strong> Smaller than Bunocephalus species and can most readily be distinguished from that genus by the number of anal fin rays (11-20 in Pterobunocephalus vs. 5-10 in Bunocephalus).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm",
+      "html": "<p>Family: Aspredinidae. Size: 9.0 cm. Temperature: 25-28°C. pH: 6.0-8.0.</p><p>IUCN Red List: despite the limited information available on this species, it is assessed as Least Concern due to its wide range (IUCN 2021).</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1068",
       "html": "<p>South America: Amazon, Orinoco and Paraguay River basins.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm",
+      "html": "<p>South America: Amazon, Orinoco and Paraguay River basins. Type locality: Todos Santos, Bolivia.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm",
+      "html": "<p>Small species that can probably be kept as per other members of this family with a quiet tank with sand and plants.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm",
+      "html": "<p>Tablet foods and small live foods.</p>"
     },
     {
       "key": "reproduction",
@@ -38,24 +91,31 @@
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm",
+      "html": "<p>Females of this genus carry embryos directly attached to the ventral surface of their bodies, which also distinguishes them from all other aspredinids.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm",
+      "html": "<p>Pterobunocephalus is a genus of small to medium sized aspredinid species. Members of this genus are distinguished from all other aspredinids by the following characters: an extremely depressed (flattened) head and body, highly reduced or absent head ornamentation, often a distinct notch in the upper jaw, and 10–20 anal fin rays.</p><p>Etymology: the genus name Pterobunocephalus: pterus, referring to the large anal fin of Bunocephalus (subgenus Pterobunocephalus) albifasciatus (= P. depressus). The specific name depressus: referring to its “greatly depressed” body.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1068",
       "html": "<p>Annals of the Carnegie Museum v. 7 (nos 3-4) (17), pp 319, Pls. 48 (fig. 1), 49.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Frederico, R.G. 2021. Pterobunocephalus depressus. The IUCN Red List of Threatened Species 2021.</li><li>Friel, John Patrick (1994-12-13) (PDF). A Phylogenetic Study of the Neotropical Banjo Catfishes (Teleostei: Siluriformes: Aspredinidae).</li><li>Lujan, Nathan. Facebook page report.</li></ul>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/ea93b1af86b8e1ea.webp",
-      "thumb": "https://media.aquatome.com/scotcat/ea93b1af86b8e1ea-480.webp",
-      "width": 500,
-      "height": 201,
-      "licence": "dùng với sự cho phép",
-      "author": "Nathan Lujan / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm",
-      "caption": "Pterobunocephalus depressus",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/5fca4c12b5070147.webp",
       "thumb": "https://media.aquatome.com/scotcat/5fca4c12b5070147-480.webp",
@@ -88,26 +148,6 @@
       "sourceUrl": "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm",
       "caption": "Pterobunocephalus depressus",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/45addec58d363313.webp",
-      "width": 960,
-      "height": 201,
-      "licence": "Public domain",
-      "author": "John D. Haseman",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:FMIB_52313_Bunocephalus_depressus_Haseman_Type.jpeg",
-      "caption": "Bunocephalus depressus Haseman. Type, Synonym of Pterobunocephalus depressus (Haseman 1911) Subject: Aspredinidae Tag: Fish",
-      "thumb": "https://media.aquatome.com/commons/45addec58d363313-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/58b07d0fb48e9adb.webp",
-      "width": 960,
-      "height": 211,
-      "licence": "Public domain",
-      "author": "John D. Haseman",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterobunocephalus_depressus.jpg",
-      "caption": "Bunocephalus depressus Haseman. Type, Synonym of Pterobunocephalus depressus (Haseman 1911) Subject: Aspredinidae Tag: Fish",
-      "thumb": "https://media.aquatome.com/commons/58b07d0fb48e9adb-480.webp"
     }
   ],
   "videos": [],
@@ -133,5 +173,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

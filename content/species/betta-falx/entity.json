@@ -8,8 +8,68 @@
   "places": [
     "asia",
     "indonesia",
-    "jambi"
+    "jambi",
+    "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Alai River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta falx is a small paternal mouthbrooding labyrinth fish endemic to Sumatra, Indonesia, where most collections come from Jambi province.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Sumatra, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type locality is within the Alai River watershed, Jambi.",
+          "countries": [],
+          "regions": [
+            "Alai River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394000,
+      "total": 3,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          -2.8125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -27,6 +87,13 @@
           "min": 4.7,
           "max": 6.8
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5.7,
+          "max": 5.7
+        }
       }
     ],
     "gh": [
@@ -36,24 +103,39 @@
           "min": 0,
           "max": 5
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 0,
+          "max": 1
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
         "value": 60
+      },
+      {
+        "source": "glaser",
+        "value": 60
       }
     ],
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -65,10 +147,22 @@
       "html": "<p>Betta falx is a small paternal mouthbrooding labyrinth fish endemic to Sumatra, Indonesia, where most collections come from Jambi province. A member of the B. picta group, it has greenish blue iridescent opercular scales and a reddish distal band on the anal and caudal fins. It inhabits shaded forest swamp streams and pools, some only a few centimetres deep, with negligible mineral content and a low pH.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_falx_en/",
+      "html": "<p>Betta falx belongs to the Betta picta form circle and was scientifically described in 1998 by Tan and Kottelat.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-falx",
       "html": "<p>Endemic to Sumatra, Indonesia. Most collections have occured in the central province of Jambi although it has also been recorded in the more northerly region of Utara.</p><p>Populations from the different localities are often labelled as such by collectors/enthusiasts in order to maintain accuracy and preserve pure bloodlines, e.g., Jambi or Sumatra Utara. The type locality is within the Alai River watershed, Jambi.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_falx_en/",
+      "html": "<p>It originates from central Sumatra.</p>"
     },
     {
       "key": "habitat",
@@ -77,10 +171,22 @@
       "html": "<p>Typically inhabits forest swamp streams and pools, some of which have been measured at just a few centimetres deep. These are usually shaded from the sun, the dense canopy of branches above meaning very little light penetrates the water surface.</p><p>Marginal vegetation also tends to grow thickly. The water itself is often stained with humic acids and other chemicals released by decaying organic material. The dissolved mineral content is negligible, pH quite low and substrate composed mainly of fallen leaves, branches and submerged tree roots.</p>"
     },
     {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_falx_en/",
+      "html": "<p>It occurs in densely overgrown, nearly standing waters. Water conditions at the habitat: pH 5.7, GH 0–1, KH 0–1.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-falx",
       "html": "<p>An aquarium with base measurements of 60 × 30 cm (24 × 12 in), about 54 litres, is suitable for a pair or small group.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_falx_en/",
+      "html": "<p>Several pairs of this species, which grows to about 6 cm, can be kept in a 60 cm aquarium.</p>"
     },
     {
       "key": "maintenance",
@@ -95,10 +201,28 @@
       "html": "<ul><li>Temperature: 22–27°C</li><li>pH: Not as fussy as some congeners. The pH in its natural waters has been recorded over the range 4.7–6.8 so provided conditions are on the acidic side of neutral no problems should arise.</li><li>Hardness: 0–5 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_falx_en/",
+      "html": "<p>The water conditions of the habitat do not have to be reproduced in the aquarium; Betta falx get along even with higher water hardness.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_falx_en/",
+      "html": "<p>The aquarium should be densely planted and not lit too strongly.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-falx",
       "html": "<p>Likely to prey on insects and other small invertebrates/zooplankton in nature. Captive fish will normally accept dried products once they're recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or bloodworm regularly to ensure development of optimal colour and condition. Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_falx_en/",
+      "html": "<p>Feeding with small live food such as Cyclops, water fleas and Culex larvae is ideal, but frozen and flake food are also accepted.</p>"
     },
     {
       "key": "behaviour",
@@ -119,6 +243,12 @@
       "html": "<p>Paternal mouthbrooder. Ideally organise a separate tank for breeding purposes, unless the fish are already being maintained alone, setting this up as suggested above.</p><p>The tank should have the tightest-fitting cover you can find (some breeders use clingfilm instead to ensure no gaps) as the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>Following a protracted courtship, eggs and milt are released during an 'embrace' typical of anabantoids in which the male wraps his body around that of the female. Several 'dummy' embraces may be required before spawning commences.</p><p>Fertilised eggs are caught on the anal fin of the male then picked up in the mouth of the female before being spat out into the water for the male to catch. Once the male has all the eggs in his mouth the cycle is repeated untill the female is spent of eggs, a process which can take some time.</p><p>A brooding male may swallow or release the eggs prematurely if stressed or inexperienced, so it's preferable to leave the female and any other fishes in situ. The incubation period is 9-12 days at the end of which the male will begin to release fully-formed, free-swimming fry.</p><p>At this point they can be removed or left to grow alongside the parents, with some reports suggesting they actually grow more quickly under such circumstances.</p><p>The fry are large enough to accept motile foods such as microworm and Artemia nauplii immediately, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter. Offer small amounts of different foods 2-3 times per day for optimal growth rate, and don't change too much water at once, with regular, small changes preferable to intermittent larger ones.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_falx_en/",
+      "html": "<p>Betta falx is a mouthbrooder. The male looks after the approximately 70 eggs, while the female takes over defending the territory. Raising the fry with Artemia nauplii is not difficult.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-falx",
@@ -132,13 +262,37 @@
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "hqmubB-BwRM",
+      "title": "Betta Falx Biotope Aquarium!",
+      "durationSec": 154,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "RBxvQqNl9rY",
+      "title": "Sumatra-Kampffisch - Betta falx",
+      "durationSec": 54,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "3LOB88XgOmU",
+      "title": "Петушок китайский (бетта фалькс) - поведение, нерест / Betta falx",
+      "durationSec": 988,
+      "lang": "ru"
+    },
+    {
+      "youtubeId": "jEvSEcJb658",
+      "title": "Betta falx rare mouthbrooding peaceful betta community",
+      "durationSec": 149,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể cá nhỏ nuôi betta"
+        "bể cá 60cm"
       ]
     },
     {
@@ -164,5 +318,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-09"
 }

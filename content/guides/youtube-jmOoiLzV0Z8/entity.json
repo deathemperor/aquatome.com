@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "jmOoiLzV0Z8",
     "title": "HOW TO: Aquarium safe rocks TUTORIAL",
@@ -35,182 +35,135 @@
     ],
     "figures": [
       {
-        "heading": "Vì sao có đá làm thay đổi nước",
+        "heading": "Bước 1: Thử độ cứng bằng dao thép",
         "moments": [
           {
-            "t": 15,
-            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/t15.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bờ đá ngoài tự nhiên nơi có thể lấy đá về làm hồ."
-          },
-          {
-            "t": 25,
-            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/t25.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Những viên đá sẫm màu nằm trên nền cát, cần thử xem có carbonate không."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/p0-lc3RvbmVfOS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/jmOoiLzV0Z8/p0-lc3RvbmVfOS5qcGc-480.webp",
-          "width": 960,
-          "height": 638,
-          "licence": "CC BY 2.0",
-          "author": "James St. John",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oncolitic_limestone_9.jpg",
-          "caption": "Cận cảnh đá vôi chứa nhiều vỏ sò hóa thạch, giàu carbonate."
-        }
-      },
-      {
-        "heading": "Phép thử 1: cạo đá bằng dao thép",
-        "moments": [
-          {
-            "t": 79,
-            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/t79.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Viên đá tròn đặt trên nền đất, có vết xước nhỏ trên bề mặt."
+            "t": 80,
+            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/at80-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Viên đá cần thử độ cứng đặt trên nền đất.",
+            "sharpness": 559.2,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Phép thử 2: nhỏ axit xem đá có sủi bọt",
+        "heading": "Bước 2: Nhỏ axit để tìm khoáng carbonate",
         "moments": [
           {
-            "t": 152,
-            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/t152.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Mặt đá sau khi nhỏ axit, có phản ứng sủi bọt."
-          },
-          {
-            "t": 177,
-            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/t177.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cầm nắp chai nhỏ vài giọt dung dịch lên mặt đá để thử."
+            "t": 195,
+            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/at195-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vết giấm đã nhỏ trên mặt đá, dùng để quan sát phản ứng.",
+            "sharpness": 1263,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/p2-cmljX2FjaWQuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/jmOoiLzV0Z8/p2-cmljX2FjaWQuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/p1-cmljX2FjaWQuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/jmOoiLzV0Z8/p1-cmljX2FjaWQuanBn-480.webp",
           "width": 960,
           "height": 1434,
           "licence": "CC BY-SA 4.0",
           "author": "Adam Rędzikowski",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tin_and_hydrochloric_acid.jpg",
-          "caption": "Axit tác dụng với khoáng carbonate, sủi bọt khí CO2 trong ống nghiệm."
+          "caption": "Axit nhỏ vào mẫu đá chứa carbonate làm sủi bọt khí trong ống nghiệm."
         }
       },
       {
-        "heading": "Vì sao không nên tin vào giấm",
+        "heading": "Bước 3: Soi kỹ những hạt lấp lánh",
         "moments": [
           {
-            "t": 182,
-            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/t182.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Nhỏ thử dung dịch lên mặt viên đá ngoài trời để xem có sủi không."
+            "t": 200,
+            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh bề mặt đá có những đốm và vân khoáng cần soi kỹ.",
+            "sharpness": 1706.7,
+            "person": false
           },
           {
-            "t": 197,
-            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/t197.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh bề mặt đá, gần như không thấy bọt sủi sau khi nhỏ."
+            "t": 210,
+            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/at210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh mặt đá, nhìn rõ các đốm nhỏ li ti nằm trong đá.",
+            "sharpness": 905.3,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/p3-X2JvdHRsZXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/jmOoiLzV0Z8/p3-X2JvdHRsZXMuanBn-480.webp",
-          "width": 960,
-          "height": 1555,
-          "licence": "CC BY-SA 4.0",
-          "author": "Sgroey",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synthetic_vinegar_bottles.jpg",
-          "caption": "Những chai giấm trắng bày bán, loại giấm thường dùng để thử đá."
-        }
-      },
-      {
-        "heading": "Soi đá tìm hạt lấp lánh",
-        "moments": [
-          {
-            "t": 206,
-            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/t206.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bề mặt đá cận cảnh, có thể soi tìm hạt lạ lấp lánh."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/p4-0xMTYxNDU0LmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/jmOoiLzV0Z8/p4-0xMTYxNDU0LmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/p2-0xMTYxNDU0LmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/jmOoiLzV0Z8/p2-0xMTYxNDU0LmpwZw-480.webp",
           "width": 960,
           "height": 572,
           "licence": "Public domain",
           "author": "Modris Baum",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Annite-1161454.jpg",
-          "caption": "Cận cảnh tinh thể khoáng kim loại đen óng ánh lẫn trong đá."
+          "caption": "Cận cảnh các tinh thể khoáng kim loại sáng bóng nằm trong đá."
         }
       },
       {
-        "heading": "Nhặt đá ở đâu cho hợp lý",
+        "heading": "Nên đi nhặt đá ở đâu",
         "moments": [
           {
-            "t": 231,
-            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/t231.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bãi đá ven nước, chỗ lý tưởng để nhặt đá cho bể."
+            "t": 235,
+            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/at235-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Những tảng đá ven nước, mặt đá đã bị bào mòn tự nhiên.",
+            "sharpness": 1031.6,
+            "person": false
           },
           {
-            "t": 246,
-            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/t246.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bờ nước với những viên đá mòn nằm sát mép nước."
+            "t": 250,
+            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/at250-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đá nằm sát mép nước bên bờ sông.",
+            "sharpness": 666.3,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/p5-kZGVuRm9yZC5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/jmOoiLzV0Z8/p5-kZGVuRm9yZC5KUEc-480.webp",
+          "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/p3-aXZlcmJhbmsuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/jmOoiLzV0Z8/p3-aXZlcmJhbmsuanBn-480.webp",
           "width": 960,
-          "height": 720,
+          "height": 1280,
           "licence": "CC BY-SA 4.0",
-          "author": "Chris Light",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stones_River_McFaddenFord_P8160137_Stones_River_McFaddenFord.JPG",
-          "caption": "Bờ suối nước nông với nhiều đá đã bị nước mài mòn, rất dễ nhặt."
+          "author": "Suglo20",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rocky_stream_bed_and_eroded_riverbank.jpg",
+          "caption": "Những viên đá nằm ngay bên dòng nước, chỗ nhặt đá tự nhiên cho bể."
         }
       },
       {
-        "heading": "Chọn bao nhiêu đá là vừa",
-        "moments": [
-          {
-            "t": 300,
-            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/t300.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Người đang đặt cành cây xuống đất để vạch khung đáy bể."
-          },
-          {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/t305.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Khung đáy bể được xếp bằng cành cây trên mặt đất."
-          }
-        ],
+        "heading": "Chọn bao nhiêu đá để mang về",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/p6-luZy10YXBlLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/jmOoiLzV0Z8/p6-luZy10YXBlLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/p4-luZy10YXBlLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/jmOoiLzV0Z8/p4-luZy10YXBlLmpwZw-480.webp",
           "width": 960,
           "height": 613,
           "licence": "Public domain",
           "author": "Evan-Amos",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Measuring-tape.jpg",
-          "caption": "Thước dây cuộn có vỏ nhựa, dùng để đo đáy bể trước khi đi chọn đá."
+          "caption": "Thước dây cuộn xanh lá dùng để đo đá và diện tích đáy bể."
+        }
+      },
+      {
+        "heading": "Làm sạch đá trước khi cho vào bể",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/jmOoiLzV0Z8/p5-NoaW5ndG9uLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/jmOoiLzV0Z8/p5-NoaW5ndG9uLmpwZw-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY-SA 4.0",
+          "author": "Thayne Tuason",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Broken_rocks_used_to_boil_water_in_baskets_Columbia_River_Washington.jpg",
+          "caption": "Đá nhặt dưới đất còn dính bùn, cần làm sạch trước khi cho vào bể."
         }
       }
     ]

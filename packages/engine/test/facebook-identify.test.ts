@@ -60,7 +60,7 @@ test('only a high-confidence match to a species on the site goes into its galler
   const g = await gallery(r, 'betta-splendens')
   expect(g).toMatchObject({ id: 'betta-splendens', seen: 0, updatedAt: '2026-10-30' })
   expect(g.builtAt).toBeUndefined()
-  expect(g.photos).toEqual([{ url: 'https://media.aquatome.com/facebook-jim/1.webp', thumb: 'https://media.aquatome.com/facebook-jim/1-480.webp', width: 1200, height: 800, licence: SOURCE_PHOTO_LICENCE, author: 'Jim Cumming', sourceUrl: 'https://www.facebook.com/photo/?fbid=1', caption: 'Cá betta đực màu đỏ trong bể', source: 'facebook-jim' }])
+  expect(g.photos).toEqual([{ url: 'https://media.aquatome.com/facebook-jim/1.webp', thumb: 'https://media.aquatome.com/facebook-jim/1-480.webp', width: 1200, height: 800, licence: SOURCE_PHOTO_LICENCE, author: 'Jim Cumming', sourceUrl: 'https://www.facebook.com/photo/?fbid=1', caption: 'Cá betta đực màu đỏ trong bể', source: 'facebook-jim', unchecked: true }])
   expect(calls.put).toEqual(['facebook-jim/1.webp'])
   expect(await gallery(r, 'pterophyllum-scalare')).toBeNull()
   expect(await decisions(r)).toMatchObject({ 1: { status: 'added', species: 'betta-splendens' }, 2: { status: 'unsure' }, 3: { status: 'off-list' }, 4: { status: 'face' }, 5: { status: 'no-fish' } })
@@ -127,5 +127,7 @@ test('Jim\'s photo joins an existing gallery after the photos already there, and
   await identifyPhotos(r, deps().d, { limit: 50 })
   const g = await gallery(r, 'betta-splendens')
   expect(g.photos.map((p: { url: string }) => p.url)).toEqual([commons.url, 'https://media.aquatome.com/facebook-jim/1.webp'])
+  // The new photo waits for the photo check; the one that was shown is as it was.
+  expect(g.photos.map((p: { unchecked?: boolean }) => !!p.unchecked)).toEqual([false, true])
   expect(g).toMatchObject({ seen: 10, builtAt: '2026-01-01', updatedAt: '2026-10-30' })
 })

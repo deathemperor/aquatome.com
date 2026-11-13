@@ -1,0 +1,269 @@
+{
+  "id": "neolamprologus-caudopunctatus",
+  "scientificName": "Neolamprologus caudopunctatus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Neolamprologus",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "zambia",
+    "lake-tanganyika",
+    "tanzania",
+    "democratic-republic-of-the-congo"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ZM",
+        "TZ",
+        "CD"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs in southern Lake Tanganyika, in Zambian waters, with records from Tanzania and the Democratic Republic of the Congo.",
+          "countries": [
+            "ZM",
+            "TZ",
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371825,
+      "total": 36,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ZM",
+          26
+        ],
+        [
+          "TZ",
+          9
+        ],
+        [
+          "CD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          -9.84375,
+          15,
+          15
+        ],
+        [
+          29.53125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          30.9375,
+          -9.84375,
+          17,
+          17
+        ],
+        [
+          30.9375,
+          -8.4375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8.5,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 24
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7.8
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 76
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-caudopunctatus",
+      "html": "<p>Affectionately referred to as 'Puncs', the caudopunctatus is a social and active dwarf cichlid endemic to the rocky and intermediate areas of shallow waters in Lake Tanganyika. A substrate-spawning rock dweller in nature, 'Puncs' are also opportunistic shell dwellers in home aquaria.</p><ul><li>Max size: male 78 mm TL, female 72 mm TL</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-caudopunctatus",
+      "html": "<p>Endemic to Lake Tanganyika. Occurs in southern Lake Tanganyika, in Zambian waters, with records from Tanzania and the Democratic Republic of the Congo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-caudopunctatus",
+      "html": "<p>Occurs in the intermediate habitat at depths varying 5 - 20 meters. Can often be found in shoals near areas with aquatic grasses; will form large breeding colonies.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-caudopunctatus",
+      "html": "<p>Aquarium base: 76 × 33 cm. Volume: about 83 litres.</p><p>A standard 20 gallon US is the minimum for a pair. Larger aquariums would be needed for a community setup or for more than one breeding pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-caudopunctatus",
+      "html": "<p>Set the tank up like the rocky shore of Lake Tanganyika, with piles of rock arranged to form caves over much of the aquarium and a sandy substrate. Shells can be added as well.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-caudopunctatus",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 8.5–9.0</li><li>Hardness: 8–24 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-caudopunctatus",
+      "html": "<p>In the aquarium it takes most foods. Live and frozen foods should make up a large part of the diet, with dried foods offered less often. Include some vegetable matter, such as spirulina or blanched spinach.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-caudopunctatus",
+      "html": "<p>A territorial species when breeding but is otherwise quite placid. It can be maintained successfully with other small to medium-sized Tanganyikan cichlids that occupy different areas of the tank such as Cyprichromis sp. Other rockdwellers such as Julidochromis or Altolamprologus sp. are possibilities if the tank is large enough and sufficient territories are provided. It should never be kept with Mbuna or other boisterous species, however.</p><p>Shell dwellers should be chosen with great caution due to the 'Punc's opportunistic behavior which could cause competition for shell space.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-caudopunctatus",
+      "html": "<p>Difficult; males tend to be larger than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-caudopunctatus",
+      "html": "<p>Can be more difficult than other substrate/cave spawners from the rift lakes but still not too difficult to achieve. Cave brooder that will form pairs. Will often breed in shells or barnacles. Each pair will need its own cave.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-caudopunctatus",
+      "html": "<p>Caudopunctatus are a very lively, active cichlid. Feisty is a great adjective for their behaviour. In larger community tanks with other species they often act as a sort of dither fish; their constant movement and social activity among their own shoal draws out more reluctant residents.</p><p>When breeding they can be quite intense but rarely cause serious damage to others as long as sufficient territory is provided.</p><p>A deep sand bed (around 5 cm) is suggested as this fish loves to dig.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-caudopunctatus",
+      "html": "<ul><li>Konings, A. (2005). Back to Nature: Guide to Tanganyika Cichlids, Revised &amp; Expanded Second Edition. Hollywood Import &amp; Export Inc., 93-94</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/d9dd6d1ab7712a1c.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Anastasiya Lvova",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9E%D0%B1%D0%B8%D1%82%D0%B0%D1%82%D0%B5%D0%BB%D0%B8_%D0%BF%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%9E%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0%D1%80%D0%B8%D1%83%D0%BC%D0%B0_07_(cropped).jpg",
+      "caption": "Обитатели петербургского Океанариума. Согласно ответу из Океанариума, или лампрологус апельсиновый, или неолампрологус каудепунктуатус",
+      "thumb": "https://media.aquatome.com/commons/d9dd6d1ab7712a1c-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/babb783c5246cff6.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Anastasiya Lvova",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9E%D0%B1%D0%B8%D1%82%D0%B0%D1%82%D0%B5%D0%BB%D0%B8_%D0%BF%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%9E%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0%D1%80%D0%B8%D1%83%D0%BC%D0%B0_07.jpg",
+      "caption": "Обитатели петербургского Океанариума. Согласно ответу из Океанариума, или лампрологус апельсиновый, или неолампрологус каудепунктуатус",
+      "thumb": "https://media.aquatome.com/commons/babb783c5246cff6-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá Tanganyika",
+        "cát san hô"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá cichlid",
+        "máy lọc bể 80cm"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH",
+        "test KH GH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

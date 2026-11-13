@@ -10,6 +10,50 @@
     "cambodia",
     "tonle-sap"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "KH"
+      ],
+      "regions": [
+        "Tonlé Sap"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Great Lake in Tonlé Sap drainage in Cambodia.",
+          "countries": [
+            "KH"
+          ],
+          "regions": [
+            "Tonlé Sap"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340948,
+      "total": 1,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "KH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          11.25,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -69,17 +113,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/538c6a897608277e.webp",
-      "thumb": "https://media.aquatome.com/scotcat/538c6a897608277e-480.webp",
-      "width": 500,
-      "height": 185,
-      "licence": "dùng với sự cho phép",
-      "author": "Dinh D. Tran / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/akysidae/pseudobagarius_filifer.htm",
-      "caption": "Pseudobagarius filifer",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/45f0d972e94cc138.webp",
       "thumb": "https://media.aquatome.com/scotcat/45f0d972e94cc138-480.webp",

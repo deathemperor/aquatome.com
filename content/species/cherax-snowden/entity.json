@@ -1,0 +1,104 @@
+{
+  "id": "cherax-snowden",
+  "scientificName": "Cherax snowden",
+  "order": "Decapoda",
+  "family": "Parastacidae",
+  "genus": "Cherax",
+  "group": "other",
+  "places": [
+    "oceania",
+    "papua-new-guinea",
+    "vogelkop"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PG"
+      ],
+      "regions": [
+        "Vogelkop Peninsula"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "These intensively coloured crayfish originate from Papua New Guinea, where they are found on the Vogelkop Peninsula.",
+          "countries": [
+            "PG"
+          ],
+          "regions": [
+            "Vogelkop Peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8682286,
+      "total": 1,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          130.78125,
+          -1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-snowden-irianto-red-and-cherax-holthuisi/",
+      "html": "<p>These intensively coloured crayfish originate from Papua New Guinea, where they are found on the Vogelkop Peninsula. Both Cherax snowden and Cherax holthuisi occur in nature in the neighbourhood, but are ecologically differently positioned, since C. holthuisi lives rather underground. The two crayfish species therefore live sympatrically (i.e. in the same occurrence area) but not syntopically (i.e. in the same biotope).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-snowden-irianto-red-and-cherax-holthuisi/",
+      "html": "<p>The bright orange colouring of C. snowden \"Irianto Red\" is, as far as is known, pure in offspring. However, when putting together breeding pairs, care must be taken not to combine mixed pairs (snowden/holthuisi), as Cherax species can hybridize with each other in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-snowden-irianto-red-and-cherax-holthuisi/",
+      "html": "<p>\"Irianto Red\" is a colour variant of Cherax snowden, which was only scientifically described in 2015, while Cherax holthuisi already received its scientific name in 2006. Before that, C. holthuisi was known as \"apricot crayfish\", while C. snowden was known in the hobby as Cherax sp. \"Orange Tip\".</p><p>Both species are mostly received mixed as wild catches, because they look extraordinarily similar. The easiest way to distinguish them is by eye size: the eyes of C. holthuisi are much smaller than those of C. snowden.</p><p>Cherax holthuisi is quite colour-variable: besides the orange ones there are also grey, whitish, yellow or bluish individuals.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể nuôi tôm hùm đất",
+        "bể thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể tôm",
+        "lọc treo bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho tôm hùm đất",
+        "thức ăn chìm cho tôm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

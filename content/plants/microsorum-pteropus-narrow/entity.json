@@ -17,13 +17,35 @@
       "html": "<ul><li>Type: Rhizomatous</li><li>Origin: Asia (cultivars arise or are bred in cultivation)</li><li>Height: 10 - 20+ cm (average height after two months in the tank)</li></ul>"
     },
     {
+      "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Dương xỉ Java lá hẹp là cây trung cảnh, và nó lên đẹp nhất khi bạn buộc lên một khúc lũa hoặc hòn đá ở khoảng giữa bể. Bạn áp thân rễ vào bề mặt lũa, cho lá hướng lên trên, rồi buộc nhẹ bằng chỉ hoặc dây cước, vừa đủ giữ cây không trôi chứ đừng siết chặt. Thân rễ cần thông thoáng, vì bị vùi kín dưới nền thì nó dễ thối dần. Nếu vẫn muốn trồng xuống nền, bạn chỉ cắm phần rễ xuống và để thân rễ nằm trên mặt nền. Sau vài tuần rễ sẽ tự bám chặt vào lũa, đá, lúc đó bạn có thể gỡ dây ra.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Microsorumpteropus'Narrow'(008APCS)/18821",
       "html": "<p>Microsorum pteropus is a highly variable species, and new varieties are easily bred. Microsorum pteropus 'Narrow' has narrower leaves, which grow at a less acute angle from the stem than the normal Microsorum pteropus. Leaves become 10-20 cm and a rhizome from 10-15 cm or more. The plant attaches readily to roots and stones. A decorative plant, which is also suitable for smaller aquariums.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/tropica/d1f6e6c91c310cd0.webp",
+      "thumb": "https://media.aquatome.com/tropica/d1f6e6c91c310cd0-480.webp",
+      "width": 1200,
+      "height": 750,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/d1f6e6c91c310cd0-large.webp",
+        "width": 1484,
+        "height": 928
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Microsorumpteropus'Narrow'(008APCS)/18821",
+      "source": "tropica"
+    }
+  ],
   "productSlots": [
     {
       "category": "cay-thuy-sinh",
@@ -39,5 +61,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-08"
 }

@@ -65,7 +65,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -80,7 +80,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-nattereri",
-      "html": "<p>The red bellied piranha, Pygocentrus nattereri, occurs through much of the Amazon basin and south into the Paraná and Uruguay river systems. Famed as a rapacious predator, it is among the most notorious freshwater fishes in the world. According to Herbert Axelrod (1976), the myth began with a feeding frenzy staged for Theodore Roosevelt in Brazil in 1913. Usually only juveniles form aggregations, and the species is relatively easy to breed in the aquarium.</p><ul><li>Difficulty: 5 of 8 (difficult), because it needs a tank at least 2 m long</li></ul>"
+      "html": "<p>The red bellied piranha, Pygocentrus nattereri, occurs through much of the Amazon basin and south into the Paraná and Uruguay river systems. Famed as a rapacious predator, it is among the most notorious freshwater fishes in the world. According to Herbert Axelrod (1976), the myth began with a feeding frenzy staged for Theodore Roosevelt in Brazil in 1913. Usually only juveniles form aggregations, and the species is relatively easy to breed in the aquarium.</p><ul><li>Difficulty: 6 of 8 (difficult), because it needs a tank at least 2 m long</li></ul>"
     },
     {
       "key": "distribution",
@@ -151,17 +151,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/eb8ab335e1f605cd.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/eb8ab335e1f605cd-480.webp",
-      "width": 800,
-      "height": 534,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-nattereri",
-      "caption": "Exposed lower jaw dentition of a specimen from Peru.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/commons/860a08f5c6dffe9c.webp",
       "thumb": "https://media.aquatome.com/commons/860a08f5c6dffe9c-480.webp",
       "width": 960,
@@ -169,7 +158,12 @@
       "licence": "CC BY 2.0",
       "author": "Gregory Moine from Niantic, USA",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gregory_Moine_-_Red_bellied_Piranha_(by).jpg",
-      "caption": "Although they have a reputation of being very aggressive, they are very sociable fish living in schools in the wild. Adult red-bellied piranhas tend to feed on worms, insects and other fish mostly at "
+      "caption": "Although they have a reputation of being very aggressive, they are very sociable fish living in schools in the wild. Adult red-bellied piranhas tend to feed on worms, insects and other fish mostly at ",
+      "large": {
+        "url": "https://media.aquatome.com/commons/860a08f5c6dffe9c-large.webp",
+        "width": 1807,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/fbb178c163b627f4.webp",
@@ -190,16 +184,6 @@
       "author": "Morten Johansen at Danish Wikipedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Voksen_Pygocentrus_Nattereri.jpg",
       "caption": "Adult red bellied piranha of circa 23 cm"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/c357b9cda35a711b.webp",
-      "thumb": "https://media.aquatome.com/commons/c357b9cda35a711b-480.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "CC BY-SA 4.0",
-      "author": "Emőke Dénes",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hal_-_Pygocentrus_nattereri_-_7.jpg",
-      "caption": "Red-bellied piranha (Pygocentrus nattereri) model at the Natural History Museum in London, England."
     }
   ],
   "videos": [
@@ -232,8 +216,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá lớn nuôi piranha"
+        "bể cá 240cm"
       ]
     },
     {

@@ -1,0 +1,247 @@
+{
+  "id": "corydoras-condiscipulus",
+  "scientificName": "Corydoras condiscipulus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "french-guiana",
+    "oyapock",
+    "brazil",
+    "amapa"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GF",
+        "BR"
+      ],
+      "regions": [
+        "Oyapock"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Oyapock (Oiapoque) river system in French Guiana and Amapá state, Brazil.",
+          "countries": [
+            "GF",
+            "BR"
+          ],
+          "regions": [
+            "Oyapock"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342659,
+      "total": 45,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "GF",
+          25
+        ],
+        [
+          "BR",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          -53.4375,
+          1.40625,
+          14,
+          14
+        ],
+        [
+          -53.4375,
+          2.8125,
+          30,
+          30
+        ],
+        [
+          -52.03125,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-condiscipulus",
+      "html": "<p><em>Brochis condiscipulus</em>, long known as <em>Corydoras condiscipulus</em>, is an armoured catfish native to the Oyapock (Oiapoque) river system in French Guiana and Amapá state, Brazil. It often occurs alongside the similar-looking <em>Hoplisoma oiapoquense</em>, from which it differs in its larger adult size, narrower body, shorter pectoral spine and longer snout.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-condiscipulus",
+      "html": "<p>Native to the Oyapock (Oiapoque) river system in French Guiana and Amapá state, Brazil.</p><p>Type locality is 'Cumuri Creek, at left bank of Oyapock River, upstream of first rapids of Grande Roche, French Guiana'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-condiscipulus",
+      "html": "<p>Recorded throughout much of the Oyapock system and often occurs in sympatry with the congener <em>Hoplisoma oiapoquense</em> (see 'Notes').</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-condiscipulus",
+      "html": "<p>Base dimensions of 90 × 30 cm or equivalent (about 81 litres) are recommended for long-term care.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-condiscipulus",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-condiscipulus",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-condiscipulus",
+      "html": "<p><em>Corydoras</em> spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-condiscipulus",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-condiscipulus",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and broader-bodied than males, especially when gravid.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-condiscipulus",
+      "html": "<p>Etymology: <em>Brochis</em> comes from the Ancient Greek βρόχος (brochos), meaning 'loop', in allusion to what Cope described as a looped cord joining the barbels at the end of the upper jaw to the chin. <em>condiscipulus</em> comes from the Latin condiscipulus, meaning 'schoolmate', in reference to this species occurring in sympatry with the similar-looking congener <em>Hoplisoma oiapoquense</em>.</p><p>This species occurs alongside the similar-looking congener <em>Hoplisoma oiapoquense</em> in nature, from which it can be told apart by the following combination of characters: larger adult size; narrower body (body breadth fits 4.0-4.4 times in standard length vs. 3.4-3.8 times in <em>H. oiapoquense</em>); shorter pectoral spine (3.4-3.8 times in SL vs. 2.7-3.2 times); longer snout (1.7-1.9 times in SL vs. 2.0-2.2).</p><p>Until 2024 this species was placed in <em>Corydoras</em>, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to <em>Brochis</em>.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-condiscipulus",
+      "html": "<ul><li>Nijssen, H. and I. J. H. Isbrücker (1980). Three new Corydoras species from French Guiana and Brazil (Pisces, Siluriformes, Callichthyidae). Netherlands Journal of Zoology 30(3), 494-503</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0ad8216fa5f4a2d0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0ad8216fa5f4a2d0-480.webp",
+      "width": 800,
+      "height": 535,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-condiscipulus",
+      "caption": "Subadult specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ad2c5459a52c418c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ad2c5459a52c418c-480.webp",
+      "width": 800,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-condiscipulus",
+      "caption": "This species has a longer snout than the similar-looking C. oiapoquensis.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chuột",
+        "nền cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 90cm",
+        "lọc treo hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

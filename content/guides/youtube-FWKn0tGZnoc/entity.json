@@ -14,7 +14,7 @@
     "gymnocorymbus-ternetzi",
     "betta-splendens"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "FWKn0tGZnoc",
     "title": "BEGINNER PLANT: Jungle Val",
@@ -34,25 +34,25 @@
     },
     "taxa": [
       "Vallisneria americana",
+      "Rotala rotundifolia",
+      "Microsorum pteropus",
+      "Anubias sp.",
       "Paracheirodon innesi",
       "Pethia conchonius",
       "Corydoras sp.",
-      "Anubias sp.",
-      "Microsorum pteropus",
-      "Rotala rotundifolia",
-      "Gymnocorymbus ternetzi",
-      "Betta splendens"
+      "Betta splendens",
+      "Gymnocorymbus ternetzi"
     ],
     "gear": [
-      {
-        "category": "den",
-        "type": "thuy-sinh",
-        "t": 170
-      },
       {
         "category": "cay-thuy-sinh",
         "type": "trong-nen",
         "t": 90
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 160
       }
     ],
     "figures": [
@@ -60,18 +60,22 @@
         "heading": "Jungle val là cây gì",
         "moments": [
           {
-            "t": 94,
-            "url": "https://media.aquatome.com/video/FWKn0tGZnoc/t94.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh với những bụi cây xanh nhỏ mọc cạnh đá."
+            "t": 120,
+            "url": "https://media.aquatome.com/video/FWKn0tGZnoc/at120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ảnh jungle val trên điện thoại đặt cạnh bể cá.",
+            "sharpness": 342,
+            "person": false
           },
           {
-            "t": 129,
-            "url": "https://media.aquatome.com/video/FWKn0tGZnoc/t129.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ảnh cây jungle val lá dài, dẹt, mọc thành bụi xanh."
+            "t": 130,
+            "url": "https://media.aquatome.com/video/FWKn0tGZnoc/at130-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ảnh cây jungle val xanh mọc thẳng đứng như cỏ trên màn hình điện thoại.",
+            "sharpness": 600.7,
+            "person": false
           }
         ],
         "photo": {
@@ -82,62 +86,82 @@
           "licence": "CC BY-SA 4.0",
           "author": "Damitr",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Aquarium_with_Vallisneria.jpg",
-          "caption": "Jungle val lá dài mọc thành bụi trong bể cá cảnh có cá bơi quanh."
+          "caption": "Jungle val mọc thẳng như cỏ, lá dài trong hồ nuôi cá."
         }
       },
       {
-        "heading": "Cần đèn mạnh cỡ nào",
+        "heading": "Cây cần bao nhiêu ánh sáng",
         "moments": [
           {
-            "t": 163,
-            "url": "https://media.aquatome.com/video/FWKn0tGZnoc/t163.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể nông với hòn non bộ bằng đá và vài cụm cây xanh dưới đáy."
-          },
+            "t": 165,
+            "url": "https://media.aquatome.com/video/FWKn0tGZnoc/at165-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể mới setup có đá bố cục và vài đám cây xanh ở chân đá.",
+            "sharpness": 159.9,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Cây lên nhanh hay chậm",
+        "moments": [
           {
-            "t": 198,
-            "url": "https://media.aquatome.com/video/FWKn0tGZnoc/t198.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh cong với bố cục đá và nền cát sáng."
+            "t": 255,
+            "url": "https://media.aquatome.com/video/FWKn0tGZnoc/at255-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Những bụi cây xanh nhỏ trồng dưới chân đá trong bể.",
+            "sharpness": 261.5,
+            "person": false
           }
         ]
       },
       {
         "heading": "Trồng ở đâu trong bể",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/FWKn0tGZnoc/p4-xdWFyaXVtKS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/FWKn0tGZnoc/p4-xdWFyaXVtKS5qcGc-480.webp",
-          "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 4.0",
-          "author": "Shifu Tanks",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Devario_malabaricus_-_mid-water_lateral_profile_against_aquatic_plants_(aquarium).jpg",
-          "caption": "Jungle val mọc thành bụi cao, xanh mướt ở hậu cảnh, cá bơi phía trước."
-        }
-      },
-      {
-        "heading": "Cắt tỉa thế nào",
         "moments": [
           {
-            "t": 321,
-            "url": "https://media.aquatome.com/video/FWKn0tGZnoc/t321.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các bụi cây xanh mọc thành cụm trên nền cát cạnh đá."
+            "t": 145,
+            "url": "https://media.aquatome.com/video/FWKn0tGZnoc/at145-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây trồng thành mảng ở góc bể cạnh khối đá.",
+            "sharpness": 394.4,
+            "person": false
+          },
+          {
+            "t": 285,
+            "url": "https://media.aquatome.com/video/FWKn0tGZnoc/at285-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể mới setup với đá và cây xanh nhỏ trồng ở góc phía trước.",
+            "sharpness": 142.4,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/FWKn0tGZnoc/p5-YV9VTUZTXzEuSlBH.webp",
-          "thumb": "https://media.aquatome.com/video/FWKn0tGZnoc/p5-YV9VTUZTXzEuSlBH-480.webp",
+          "url": "https://media.aquatome.com/video/FWKn0tGZnoc/p4-9ycGhhXzAxLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/FWKn0tGZnoc/p4-9ycGhhXzAxLmpwZw-480.webp",
           "width": 960,
-          "height": 640,
+          "height": 720,
+          "licence": "CC BY 2.5",
+          "author": "Tucsouffle",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:20061213210458_trigonostigma-heteromorpha_01.jpg",
+          "caption": "Cây thủy sinh lá dài mọc thẳng ở góc bể, cá bơi phía trước."
+        }
+      },
+      {
+        "heading": "Tỉa jungle val thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/FWKn0tGZnoc/p5-saXNuZXJpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/FWKn0tGZnoc/p5-saXNuZXJpYS5qcGc-480.webp",
+          "width": 960,
+          "height": 540,
           "licence": "CC BY-SA 4.0",
-          "author": "Fredlyfish4",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vallisneria_americana_UMFS_1.JPG",
-          "caption": "Bụi jungle val lá dài xanh tươi, mọc thành cụm dưới nước."
+          "author": "Damitr",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Aquarium_with_Vallisneria.jpg",
+          "caption": "Khóm jungle val mọc dày trong bể cá cảnh cùng đàn cá."
         }
       }
     ]

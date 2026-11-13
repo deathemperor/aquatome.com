@@ -11,7 +11,7 @@
     "paracheirodon-innesi",
     "caridina-multidentata"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "wV9FK0MHv5g",
     "title": "Cách Chăm Sóc Bể Thủy Sinh • Thủy Sinh Cơ Bản • Phần 8",
@@ -31,20 +31,20 @@
     },
     "lang": "vi",
     "taxa": [
-      "Poecilia reticulata",
       "Poecilia sphenops",
+      "Poecilia reticulata",
       "Paracheirodon innesi",
       "Otocinclus sp.",
-      "Nerita sp.",
-      "Caridina multidentata",
-      "Hemigrammus sp."
+      "Neritina sp.",
+      "Neocaridina sp.",
+      "Caridina multidentata"
     ],
     "gear": [
       {
         "category": "khac",
         "brand": "Seachem",
         "model": "Flourish Excel",
-        "t": 378
+        "t": 376
       },
       {
         "category": "be-ca",
@@ -54,99 +54,22 @@
     ],
     "figures": [
       {
-        "heading": "Vì sao bể mới set hay lên rêu hại",
-        "moments": [
-          {
-            "t": 49,
-            "url": "https://media.aquatome.com/video/wV9FK0MHv5g/t49.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đá và lũa đặt trên lớp nền của bể mới set."
-          },
-          {
-            "t": 54,
-            "url": "https://media.aquatome.com/video/wV9FK0MHv5g/t54.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây thủy sinh và lũa trong bể mới set, nền đá cát."
-          }
-        ]
+        "heading": "Bật đèn bao nhiêu tiếng mỗi ngày",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/wV9FK0MHv5g/p2-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/wV9FK0MHv5g/p2-1bV9MaWdodC5qcGc-480.webp",
+          "width": 960,
+          "height": 666,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lime Huang",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+          "caption": "Bể thủy sinh mới set có đèn LED phía trên, cây còn non."
+        }
       },
       {
-        "heading": "Thay nước thế nào trong giai đoạn đầu và về sau",
-        "moments": [
-          {
-            "t": 89,
-            "url": "https://media.aquatome.com/video/wV9FK0MHv5g/t89.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dụng cụ cạo rêu đặt gần lũa và cây thân đỏ trong bể."
-          },
-          {
-            "t": 94,
-            "url": "https://media.aquatome.com/video/wV9FK0MHv5g/t94.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể thủy sinh nhỏ có lũa, đá và cây đỏ."
-          }
-        ]
-      },
-      {
-        "heading": "Nhiệt độ nước bao nhiêu là vừa",
-        "moments": [
-          {
-            "t": 163,
-            "url": "https://media.aquatome.com/video/wV9FK0MHv5g/t163.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cây thủy sinh xanh mướt dưới đèn LED trong hồ."
-          },
-          {
-            "t": 168,
-            "url": "https://media.aquatome.com/video/wV9FK0MHv5g/t168.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn cá nhỏ bơi giữa lũa và cây thủy sinh xanh tốt."
-          }
-        ]
-      },
-      {
-        "heading": "Thả cá đúng cách để cá không bị sốc",
-        "moments": [
-          {
-            "t": 232,
-            "url": "https://media.aquatome.com/video/wV9FK0MHv5g/t232.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đổ cá cùng nước trong túi ra thau trắng."
-          },
-          {
-            "t": 257,
-            "url": "https://media.aquatome.com/video/wV9FK0MHv5g/t257.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ống nhỏ giọt dẫn nước từ bể sang thau có cá."
-          }
-        ]
-      },
-      {
-        "heading": "Thả bao nhiêu cá là đủ",
-        "moments": [
-          {
-            "t": 301,
-            "url": "https://media.aquatome.com/video/wV9FK0MHv5g/t301.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh cây đỏ xanh với vài con cá nhỏ bơi lượn."
-          },
-          {
-            "t": 306,
-            "url": "https://media.aquatome.com/video/wV9FK0MHv5g/t306.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá nhỏ bơi giữa đám cây thủy sinh bên cạnh lũa."
-          }
-        ],
+        "heading": "Thả bao nhiêu cá là vừa",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/wV9FK0MHv5g/p6-ZF9mZW1hbGUucG5n.webp",
           "thumb": "https://media.aquatome.com/video/wV9FK0MHv5g/p6-ZF9mZW1hbGUucG5n-480.webp",
@@ -155,36 +78,21 @@
           "licence": "CC BY 4.0",
           "author": "Amy E. Deacon, Hideyasu Shimadzu, Maria Dornelas, Indar W. Ramnarine & Anne E. Magurran",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trinidadian_guppy_(Poecilia_reticulata)_male_and_female.png",
-          "caption": "Một cặp cá bảy màu đực và cái bơi trong bể nuôi."
+          "caption": "Cặp cá bảy màu đực và cái bơi trong bể trồng cây."
         }
       },
       {
-        "heading": "Nuôi thêm các con ăn rêu hại",
-        "moments": [
-          {
-            "t": 331,
-            "url": "https://media.aquatome.com/video/wV9FK0MHv5g/t331.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá otto bám trên đá trong bể thủy sinh, sẵn sàng dọn rêu hại."
-          },
-          {
-            "t": 341,
-            "url": "https://media.aquatome.com/video/wV9FK0MHv5g/t341.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tép bò trên đá phủ rêu, đang gặm dọn rêu hại."
-          }
-        ],
+        "heading": "Thả thêm cá, tép, ốc ăn rêu",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/wV9FK0MHv5g/p7-dmVzdGl0dXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/wV9FK0MHv5g/p7-dmVzdGl0dXMuanBn-480.webp",
-          "width": 960,
-          "height": 540,
-          "licence": "CC BY-SA 4.0",
-          "author": "Fremen",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_vestitus.jpg",
-          "caption": "Cá otto bơi trong bể thủy sinh, đội dọn rêu hại quen thuộc."
+          "url": "https://media.aquatome.com/video/wV9FK0MHv5g/p7-UxODkwOTEpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/wV9FK0MHv5g/p7-UxODkwOTEpLmpwZw-480.webp",
+          "width": 947,
+          "height": 842,
+          "licence": "CC BY 2.0",
+          "author": "James St. John",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nerita_scabricosta_(ornate_nerite_snail)_3_(24965189091).jpg",
+          "caption": "Vỏ ốc nerita sọc vàng đen, loài ốc ăn rêu quen thuộc trong bể thủy sinh."
         }
       }
     ]

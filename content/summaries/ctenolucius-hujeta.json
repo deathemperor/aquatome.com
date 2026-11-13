@@ -1,12 +1,15 @@
 {
   "id": "ctenolucius-hujeta",
-  "summary": "Hợp với người muốn thử cá săn mồi và có chỗ cho bể dài tối thiểu 180 cm. Hồ sơ nói đây là lựa chọn khá tốt cho người mới nuôi cá săn mồi. Cá trưởng thành 25 cm, sống ở tầng nước trên, nước 22–28 °C, pH 5–7,5, độ cứng 1–15 dGH. Độ khó 7/8, khó nhất là lọc mạnh, thay nước đều và đậy nắp thật khít vì cá rất hay nhảy.",
+  "summary": "Hợp với người đã có bể lớn và muốn thử cá săn mồi: cá dài tối đa 25 cm, cần bể tối thiểu 180 cm, nước 22–28 °C, pH 5–7,5, độ cứng 1–15 dGH, độ khó 4/8. Cá ở tầng mặt, thích có cây thả nổi che bóng, nên nuôi từ bốn con trở lên, chung với cá hiền ăn ở đáy. Khó nhất là giữ nước sạch (lọc mạnh, thay 30–50% nước mỗi tuần) và đậy nắp thật khít vì cá hay nhảy.",
   "mistakes": [
-    "Để bể hở hoặc nắp lỏng; cá nhảy rất giỏi nên phải đậy nắp thật khít.",
-    "Thả cá vào bể chưa chạy vi sinh ổn định; loài này có thể nhạy với chất bẩn hữu cơ và thay đổi thông số nước, nên chờ bể ổn định rồi mới thả.",
-    "Cho ăn tim bò, thịt gà hoặc cá mồi như cá đẻ con, cá vàng nhỏ; nên cho tôm, trai, giun đất hay thịt cá cắt miếng."
+    "Để bể hở hoặc đậy lỏng thì cá nhảy ra ngoài; nên đậy nắp thật khít trong mọi trường hợp.",
+    "Thả cá vào bể chưa chạy vi sinh ổn định; nên chạy bể xong xuôi trước, vì cá có thể nhạy cảm với chất bẩn hữu cơ và thay đổi đột ngột của thông số nước.",
+    "Cho ăn thịt bò, thịt gà hoặc cá vàng, cá đẻ con làm mồi; nên cho cá nhỏ, trùng huyết, tôm, thịt cá cắt miếng, vì mỡ thịt gia súc gia cầm có thể tích lại và thậm chí làm thoái hóa nội tạng, còn cá mồi có thể mang bệnh vào bể."
   ],
   "speciesUpdatedAt": "2026-10-31",
-  "generatedAt": "2026-10-31T17:14:58.684Z",
-  "review": "approved"
+  "generatedAt": "2026-11-09T06:46:47.550Z",
+  "review": "pending",
+  "problems": [
+    "Third mistake's fix says \"nên cho cá nhỏ, trùng huyết, tôm, thịt cá cắt miếng\". On the page, \"Cá nhỏ\" in the diet section means small specimens of this fish, which eat bloodworms and so on. It doesn't recommend small fish as food. The fix also clashes with the same mistake, which warns against feeder fish, because the page says feeder fish are of little benefit."
+  ]
 }

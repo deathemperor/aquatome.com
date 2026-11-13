@@ -1,0 +1,241 @@
+{
+  "id": "pao-suvattii",
+  "scientificName": "Pao suvattii",
+  "order": "Tetraodontiformes",
+  "family": "Tetraodontidae",
+  "genus": "Pao",
+  "group": "other",
+  "places": [
+    "asia",
+    "thailand",
+    "laos"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The arrowhead puffer, Pao suvattii, is a predatory puffer from Thailand and Laos, found over rocky or muddy substrates in main river channels.",
+          "countries": [
+            "TH",
+            "LA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8043629,
+      "total": 19,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "TH",
+          13
+        ],
+        [
+          "LA",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          16.875,
+          6,
+          6
+        ],
+        [
+          101.25,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          101.25,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          16.875,
+          4,
+          4
+        ],
+        [
+          105.46875,
+          14.0625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-suvattii",
+      "html": "<p>The arrowhead puffer, Pao suvattii, is a predatory puffer from Thailand and Laos, found over rocky or muddy substrates in main river channels. A true ambush predator, it spends most of its time buried in the substrate and will mimic rocks if it cannot dig in. It will eat any fish that fits in its mouth and takes chunks from larger ones, so it is best kept on its own.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-suvattii",
+      "html": "<p>Thailand, Laos.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-suvattii",
+      "html": "<p>Occurs over rocky, or more commonly muddy, substrates in main river channels.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-suvattii",
+      "html": "<p>Not a very active species, so a tank measuring 75 x 30 x 30 cm - 70 litres is fine for a single fish.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-suvattii",
+      "html": "<p>This is a freshwater puffer and does not require the addition of salt to its tank. What is essential is the provision of a deep (5–8 cm) bed of sand as substrate. This will allow the fish to exhibit its natural behaviour (see below). Provide additional cover in the form of smooth rocks (interestingly the puffer will often attempt to mimic these), and driftwood pieces. Plants can also be used if you wish. Like all puffers, it's very sensitive to deteriorating water conditions, so regular partial water changes are a must.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-suvattii",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.5–7.5</li><li>Hardness: 5–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-suvattii",
+      "html": "<p>An ambush predator in nature, P. suvattii requires a meaty diet. Offer prawns, earthworms, sand lance, mussel etc. Some specimens may only take live foods initially, but most will accept dead alternatives. Due to its inactive nature, it doesn't need daily feeding. Every other day is fine for juvenile fish, while adults require only one or two feeds a week.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-suvattii",
+      "html": "<p>It isn't really safe to house this species with anything else! It's a voracious predator that will eat any fish it can fit in its mouth, and will often take chunks from larger tankmates. It's fairly intolerant of conspecifics but multiple specimens can be kept in a large tank with lots of hiding places and visual barriers. Some aquarists have had success keeping it with armoured Loricariid catfish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-suvattii",
+      "html": "<p>Unsexable by external characteristics.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-suvattii",
+      "html": "<p>Has been achieved in the hobby but not much information is available. They're substrate spawners and excavate a small pit into which the eggs are deposited, following a courtship which apparently involves both fish inflating themselves as they display at one another. Alternatively, they may lay directly onto a flat rock. Following fertilisation by the male, the female assumes responsibility for guarding the eggs until they hatch. The fry will accept brine shrimp nauplii once they've used up their yolk sacs.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pao-suvattii",
+      "html": "<p>Puffer fish are so called as they have the ability to inflate their elastic stomachs with water or air. This is usually a response to some kind of threat, although in the aquarium many specimens appear to inflate themselves for no apparent reason. The fish becomes 2 or 3 times its normal size, big enough to scare away many potential predators, or difficult to swallow. Puffers also have several other interesting adaptations. They are one of the few fish that can actually blink or close their eyes, which only serves to add further charm to what is already a fish with bags of character. They also have beak-like mouthparts, which are formed by a fusing of 2 teeth from each jaw (hence the family name, Tetraodontidae). These are used to crush shelled invertebrates, the favourite food of most puffers. Many parts of the body of puffers contain the deadly neurotoxin tetrodotoxin. This is the same poison found in the notorious blue-ringed octopus. When ingested in sufficient quantities, it can cause paralysis and death. As yet, there is no known antitoxin and to humans it is over 1000 times deadlier than cyanide. Grotesquely, the victim usually remains conscious as he or she becomes paralysed. It's a famous delicacy in Japan, but is prepared only by highly-trained chefs, and even then many people have died from eating it. This need not worry you, but if you need to get rid of your puffer, sell it on: getting the barbecue out is not recommended!</p><p>P. suvattii is a real oddball and is not recommended to the general aquarist due to its nasty disposition. In a species tank however, it will show some interesting behaviour. It is a true ambush predator, spending most of its time buried in the substrate, lying in wait for potential food. It can also make itself resemble an algae-covered rock if the substrate is not soft or deep enough to dig into. Its eyes are located on the top of its head, and its mouth is upturned to assist in attacking prey items from below. It can also change colour depending on its mood or surroundings.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá nóc"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá nóc",
+        "tôm đông lạnh cho cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

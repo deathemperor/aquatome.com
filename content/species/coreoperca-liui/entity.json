@@ -1,0 +1,99 @@
+{
+  "id": "coreoperca-liui",
+  "scientificName": "Coreoperca liui",
+  "order": "Perciformes",
+  "family": "Percichthyidae",
+  "genus": "Coreoperca",
+  "group": "other",
+  "places": [
+    "asia",
+    "china"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 8189391,
+      "total": 2,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          118.125,
+          28.125,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 11
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/coreoperca-cf-liui/",
+      "html": "<p>This species of Chinese perch attains a maximum length of about 11 cm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/coreoperca-cf-liui/",
+      "html": "<p>For the first time ever this interesting freshwater perch from southern China was obtained. The genera Coreoperca and Siniperca contain altogether 14 species. They are thought to be close relatives of the groupers (Serranidae), but are placed in a family on their own, the Sinipercidae.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/coreoperca-cf-liui/",
+      "html": "<p>In contrast to the groupers, the Chinese perches are absolutely peaceful towards conspecifics; they even seem to prefer to swim along with partners. Of course these fish are small predators that like living fish for food.</p><p>In external appearance the Chinese perches strongly resemble nandids (Nandus nandus), but the behaviour is completely different. Nandids are shy and always try to take cover, whereas the Chinese perches are very lively and curious and swim in open water.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "7a9RTElRwKI",
+      "title": "Coreoperca cf. liui feeding",
+      "durationSec": 113,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Y_HQdQ-TcsM",
+      "title": "Coreoperca liui",
+      "durationSec": 32,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "cá mồi sống",
+        "thức ăn đông lạnh cho cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

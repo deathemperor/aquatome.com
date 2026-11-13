@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "YCRZbn1Wbrg",
     "title": "Stop Wasting Time on Aquarium Maintenance (This is All You Need)",
@@ -34,35 +34,34 @@
       {
         "category": "loc",
         "type": "thung",
-        "t": 447
+        "t": 468
       },
       {
         "category": "co2",
-        "t": 447
-      },
-      {
-        "category": "phan-nen",
-        "type": "phan",
-        "t": 283
+        "t": 467
       }
     ],
     "figures": [
       {
-        "heading": "Thay nước nhỏ giọt thay cho thay nước một lần lớn",
+        "heading": "Thay nước nhỏ giọt thay cho thay nước một lần mỗi tuần",
         "moments": [
           {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/t59.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đầu ống nhỏ giọt màu xanh đang nhỏ nước vào bể."
+            "t": 75,
+            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/at75-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống nước xanh vắt qua thành bể để nhỏ giọt nước mới vào.",
+            "sharpness": 198.6,
+            "person": false
           },
           {
-            "t": 74,
-            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/t74.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ống nước xanh vắt qua thành bể để dẫn nước nhỏ giọt."
+            "t": 105,
+            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thùng chứa nước có phao và bơm dùng cho hệ thống thay nước tự động.",
+            "sharpness": 652.4,
+            "person": false
           }
         ],
         "photo": {
@@ -73,102 +72,66 @@
           "licence": "CC BY-SA 4.0",
           "author": "KannanVM",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
-          "caption": "Cá vàng bơi trong bể nuôi có sỏi nền và cây thủy sinh."
+          "caption": "Cá vàng bơi trong bể nuôi có sỏi nền và lũa, nước trong."
         }
       },
       {
-        "heading": "Kiểm soát rêu hại thay vì gỡ tay hằng tuần",
-        "moments": [
-          {
-            "t": 182,
-            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/t182.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dùng dụng cụ cọ rêu hại trên đá trong bể thủy sinh."
-          },
-          {
-            "t": 212,
-            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/t212.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Rêu hại phủ xanh nền và đá trong bể."
-          }
-        ],
+        "heading": "Đừng để việc gỡ rêu hại thành việc làm hằng tuần",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/p1-d25fQmVsb3cuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/YCRZbn1Wbrg/p1-d25fQmVsb3cuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/p1-fUGFjaWZpYy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/YCRZbn1Wbrg/p1-fUGFjaWZpYy5qcGc-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Coughdrop12",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Green_Algae_Down_Below.jpg",
-          "caption": "Rêu nhớt xanh phủ dày trong bể, kiểu rêu hại hay gặp."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Laurencia_Aquarium_of_the_Pacific.jpg",
+          "caption": "Rêu hại màu đỏ mọc dày thành chùm trong bể."
         }
       },
       {
-        "heading": "Chọn cá nhỏ nếu muốn bớt hút nền",
+        "heading": "Cỡ cá ảnh hưởng tới công hút nền",
         "moments": [
           {
-            "t": 276,
-            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/t276.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá nhỏ bơi giữa thảm cỏ xanh trong bể nano."
+            "t": 275,
+            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/at275-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá hổ to bơi trong bể có nhiều cây thủy sinh.",
+            "sharpness": 585.7,
+            "person": false
           },
           {
-            "t": 291,
-            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/t291.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh trải phân nền sạch, cây xanh đỏ mọc dày."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/p2-BcXVhcml1bS5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/YCRZbn1Wbrg/p2-BcXVhcml1bS5KUEc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC0",
-          "author": "Tdwittt",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planted_Nano_Aquarium.JPG",
-          "caption": "Bể nano phủ phân nền đen, có lũa, cây thủy sinh và cá nhỏ."
-        }
-      },
-      {
-        "heading": "Để thuốc tẩy chà ống thay cho bạn",
-        "moments": [
-          {
-            "t": 384,
-            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/t384.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ống lily bằng kính đang ngâm ngập trong xô nước pha thuốc tẩy."
-          },
-          {
-            "t": 399,
-            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/t399.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Xả ống lily kính dưới vòi nước sau khi ngâm thuốc tẩy."
+            "t": 300,
+            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/at300-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá dĩa cỡ lớn bơi gần lũa trong bể.",
+            "sharpness": 261.9,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Luôn có đồ dự phòng cho lúc sự cố",
+        "heading": "Chuẩn bị đồ dự phòng cho lúc có sự cố",
         "moments": [
           {
-            "t": 443,
-            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/t443.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Sủi CO2 tự chế từ chai nhựa gắn vào ống dự phòng."
+            "t": 440,
+            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/at440-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lọc thùng với các đầu nối ống dẫn nước, dễ rò rỉ khi vệ sinh.",
+            "sharpness": 125.4,
+            "person": false
           },
           {
-            "t": 458,
-            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/t458.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Sủi CO2 thủy tinh đặt trong bể, bọt khí bốc lên."
+            "t": 445,
+            "url": "https://media.aquatome.com/video/YCRZbn1Wbrg/at445-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống lily bằng thủy tinh đặt trên thành bể, dễ vỡ khi tháo lắp.",
+            "sharpness": 1122.6,
+            "person": false
           }
         ],
         "photo": {
@@ -179,7 +142,7 @@
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_2.jpg",
-          "caption": "Miếng mút lọc dự phòng hình trụ, dùng thay thế khi đồ lọc gặp sự cố."
+          "caption": "Miếng mút lọc hình trụ, loại vật tư nên có sẵn để thay khi cần."
         }
       }
     ]

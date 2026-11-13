@@ -12,6 +12,79 @@
     "bali",
     "philippines"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK",
+        "ID",
+        "PH"
+      ],
+      "regions": [
+        "Bali"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Red Fire shrimp are native to Sri Lanka, Bali (Indonesia) and Philippine waters, where they live in deep water (10–28 m).",
+          "countries": [
+            "LK",
+            "ID",
+            "PH"
+          ],
+          "regions": [
+            "Bali"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5863085,
+      "total": 5,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "LK",
+          3
+        ],
+        [
+          "PH",
+          1
+        ],
+        [
+          "RE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          54.84375,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          80.15625,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          120.9375,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "aquariumbreeder",
+    "quote": "This is a saltwater species (SG 1.023–1.025)."
+  },
   "dataCard": {
     "tempC": [
       {

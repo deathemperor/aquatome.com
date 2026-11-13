@@ -1,0 +1,134 @@
+{
+  "id": "corydoras-fowleri",
+  "native": {
+    "input": "58222b1a37f744b8",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Corydoras fowleri from Peru becomes 6-8 cm long and certainly belongs to the most beautiful Corydoras at all.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Amazon basin in Peru, with its range appearing to extend west from the río Ampiyacu at least as far as Iquitos, meaning it should also occur in the ríos Napo, Nanay, and Itaya.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "For example, it may also occur in the 'Tres Fronteras' region further east, where similar-looking fish have been collected around the borders between Peru, Brazil and Colombia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "For example, it may also occur in the 'Tres Fronteras' region further east, where similar-looking fish have been collected around the borders between Peru, Brazil and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Peru; Loreto, Caño del Chancho near Pebas (03º10'S, 71º46'W), Río Amazonus system.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Native to the Amazon basin in Peru, with its range appearing to extend west from the río Ampiyacu at least as far as Iquitos, meaning it should also occur in the ríos Napo, Nanay, and Itaya.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "río Ampiyacu",
+        "source": "seriouslyfish",
+        "quote": "Native to the Amazon basin in Peru, with its range appearing to extend west from the río Ampiyacu at least as far as Iquitos, meaning it should also occur in the ríos Napo, Nanay, and Itaya.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Napo",
+        "source": "seriouslyfish",
+        "quote": "Native to the Amazon basin in Peru, with its range appearing to extend west from the río Ampiyacu at least as far as Iquitos, meaning it should also occur in the ríos Napo, Nanay, and Itaya.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Nanay",
+        "source": "seriouslyfish",
+        "quote": "Native to the Amazon basin in Peru, with its range appearing to extend west from the río Ampiyacu at least as far as Iquitos, meaning it should also occur in the ríos Napo, Nanay, and Itaya.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Itaya",
+        "source": "seriouslyfish",
+        "quote": "Native to the Amazon basin in Peru, with its range appearing to extend west from the río Ampiyacu at least as far as Iquitos, meaning it should also occur in the ríos Napo, Nanay, and Itaya.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Río Amazonus",
+        "source": "scotcat",
+        "quote": "South America: Peru; Loreto, Caño del Chancho near Pebas (03º10'S, 71º46'W), Río Amazonus system.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR",
+        "CO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras fowleri",
+    "status": "ACCEPTED",
+    "taxonKey": 2342656,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

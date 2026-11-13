@@ -1,0 +1,172 @@
+{
+  "id": "nomorhamphus-ebrardtii",
+  "scientificName": "Nomorhamphus ebrardtii",
+  "order": "Beloniformes",
+  "family": "Zenarchopteridae",
+  "genus": "Nomorhamphus",
+  "group": "livebearers",
+  "places": [
+    "asia",
+    "indonesia",
+    "sulawesi"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Sulawesi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This livebearing fish lives endemic (exclusively there) on the island of Sulawesi, formerly known as Celebes.",
+          "countries": [],
+          "regions": [
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369046,
+      "total": 13,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          120.9375,
+          -4.21875,
+          2
+        ],
+        [
+          120.9375,
+          -2.8125,
+          2
+        ],
+        [
+          122.34375,
+          -5.625,
+          5
+        ],
+        [
+          122.34375,
+          -4.21875,
+          4
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 7,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nomorhamphus-ebrardtii-2/",
+      "html": "<p>Livebearing halfbeak, endemic to Sulawesi. Maximum length is around 6-7 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nomorhamphus-ebrardtii-2/",
+      "html": "<p>This livebearing fish lives endemic (exclusively there) on the island of Sulawesi, formerly known as Celebes.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nomorhamphus-ebrardtii-2/",
+      "html": "<p>Here the species occurs mainly in smaller brooks.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nomorhamphus-ebrardtii-2/",
+      "html": "<p>The fish need clean, oxygen-rich water. The pH should be neutral (around pH 7).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nomorhamphus-ebrardtii-2/",
+      "html": "<p>They feed almost exclusively from the water surface. In the natural habitat they feed mainly on insects and most probably on pollen. In the aquarium they readily take food flakes (which should be rather small) and freeze-dried food items.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nomorhamphus-ebrardtii-2/",
+      "html": "<p>These fish have a strict hierarchy in both males and females. Only dominant specimens have the full strength of coloration. One should keep Nomorhamphus either by pair or in groups of 10 specimens upwards.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nomorhamphus-ebrardtii-2/",
+      "html": "<p>The bright orange-red fins and the orange stripe on the belly are very striking. However, the intensity of the colours depends much on the social position of the individual fish.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "BKmgY2H4MaQ",
+      "title": "Nomorhamphus ebrardtii.mp4",
+      "durationSec": 50,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "iQscbmwzbcs",
+      "title": "Fütterung Centromochlus perugiae/ Nomorhamphus ebrardtii -Jungtiere",
+      "durationSec": 24,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "m24A6HA49kc",
+      "title": "Nomorhamphus ebrardtii",
+      "durationSec": 50,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KR2EfhWbU5k",
+      "title": "蘇拉維西紅魔鬼火箭(Nomorhamphus ebrardtii)",
+      "durationSec": 24,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác bể cá",
+        "máy sục khí bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn vảy nhỏ nổi cho cá",
+        "thức ăn sấy đông khô cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

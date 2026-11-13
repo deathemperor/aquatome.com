@@ -13,6 +13,92 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika and has been recorded throughout the lake.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369858,
+      "total": 94,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BI",
+          31
+        ],
+        [
+          "CD",
+          31
+        ],
+        [
+          "ZM",
+          17
+        ],
+        [
+          "TZ",
+          15
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          12
+        ],
+        [
+          28.125,
+          -4.21875,
+          37
+        ],
+        [
+          29.53125,
+          -9.84375,
+          5
+        ],
+        [
+          29.53125,
+          -8.4375,
+          13
+        ],
+        [
+          29.53125,
+          -7.03125,
+          7
+        ],
+        [
+          29.53125,
+          -5.625,
+          7
+        ],
+        [
+          30.9375,
+          -9.84375,
+          12
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -136,17 +222,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/23f20bb4eccb58d7.webp",
-      "width": 640,
-      "height": 480,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
-      "caption": "Non-breeding individuals form small, foraging groups in the lake.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/23f20bb4eccb58d7-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/acf9d99eb87bfccc.webp",
       "width": 870,
       "height": 582,
@@ -156,6 +231,17 @@
       "caption": "Subadult in the aquarium.",
       "source": "seriouslyfish",
       "thumb": "https://media.aquatome.com/seriouslyfish/acf9d99eb87bfccc-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/23f20bb4eccb58d7.webp",
+      "width": 640,
+      "height": 480,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/boulengerochromis-microlepis",
+      "caption": "Non-breeding individuals form small, foraging groups in the lake.",
+      "source": "seriouslyfish",
+      "thumb": "https://media.aquatome.com/seriouslyfish/23f20bb4eccb58d7-480.webp"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/045b2f82d7de7d86.webp",
@@ -174,8 +260,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 2 mét",
-        "bể kính cá cảnh cỡ lớn"
+        "bể cá 200cm"
       ]
     },
     {

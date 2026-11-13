@@ -126,7 +126,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -229,6 +229,21 @@
       "source": "seriouslyfish"
     },
     {
+      "url": "https://media.aquatome.com/commons/0fada46707e939af.webp",
+      "thumb": "https://media.aquatome.com/commons/0fada46707e939af-480.webp",
+      "width": 960,
+      "height": 594,
+      "licence": "CC BY-SA 3.0",
+      "author": "Tino Strauss",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_sterbai_02.jpg",
+      "caption": "Sterba's Catfish",
+      "large": {
+        "url": "https://media.aquatome.com/commons/0fada46707e939af-large.webp",
+        "width": 1940,
+        "height": 1200
+      }
+    },
+    {
       "url": "https://media.aquatome.com/commons/0cf400ce85679e97.webp",
       "thumb": "https://media.aquatome.com/commons/0cf400ce85679e97-480.webp",
       "width": 960,
@@ -236,7 +251,12 @@
       "licence": "Public domain",
       "author": "Matthew Mannell",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_Sterbai.jpg",
-      "caption": "Aquarium shot of the species Corydoras sterbai."
+      "caption": "Aquarium shot of the species Corydoras sterbai.",
+      "large": {
+        "url": "https://media.aquatome.com/commons/0cf400ce85679e97-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/97574188d24dda3c.webp",
@@ -246,17 +266,12 @@
       "licence": "Public domain",
       "author": "Matthew Mannell",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_Sterbai_(clipped).png",
-      "caption": "Aquarium shot of the species Corydoras sterbai."
-    },
-    {
-      "url": "https://media.aquatome.com/commons/0fada46707e939af.webp",
-      "thumb": "https://media.aquatome.com/commons/0fada46707e939af-480.webp",
-      "width": 960,
-      "height": 594,
-      "licence": "CC BY-SA 3.0",
-      "author": "Tino Strauss",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_sterbai_02.jpg",
-      "caption": "Sterba's Catfish"
+      "caption": "Aquarium shot of the species Corydoras sterbai.",
+      "large": {
+        "url": "https://media.aquatome.com/commons/97574188d24dda3c-large.webp",
+        "width": 1887,
+        "height": 923
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/a96f10a210cb97aa.webp",
@@ -299,8 +314,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá cảnh nhỏ"
+        "bể cá 50cm"
       ]
     },
     {

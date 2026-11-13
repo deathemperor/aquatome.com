@@ -26,6 +26,27 @@
       ],
       "sources": [
         "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The black widow tetra, Gymnocorymbus ternetzi, is a characid from the Rio Paraguay and Guaporé basins in Brazil, Bolivia and Argentina.",
+          "countries": [
+            "BR",
+            "BO",
+            "AR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Rio Paraguay and Guaporé basins in Brazil, Bolivia and Argentina.",
+          "countries": [],
+          "regions": [
+            "Rio Paraguay",
+            "Guaporé"
+          ]
+        }
       ]
     },
     "records": {
@@ -502,7 +523,12 @@
       "author": "emptyvi",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gymnocorymbus_ternetzi.JPG",
       "caption": "Black tetra",
-      "thumb": "https://media.aquatome.com/commons/c8365fb29d328361-480.webp"
+      "thumb": "https://media.aquatome.com/commons/c8365fb29d328361-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/c8365fb29d328361-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/a42ea62ab597c76c.webp",
@@ -555,8 +581,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 75cm",
-        "bể cá 70 lít"
+        "bể cá 80cm"
       ]
     },
     {

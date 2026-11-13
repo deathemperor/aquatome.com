@@ -517,7 +517,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 4
       }
     ]
   },
@@ -526,7 +526,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-senegalus",
-      "html": "<ul><li>Max size: 500 mm SL (20 in)</li><li>Aquarium size: 150 × 60 cm (60 × 24 in)</li><li>Temperature: 24–28°C (75–82°F)</li><li>pH: 6.2–7.8</li><li>Hardness: 5–20 dGH</li><li>Difficulty: 5 of 8 (moderate)</li></ul>"
+      "html": "<ul><li>Max size: 500 mm SL (20 in)</li><li>Aquarium size: 150 × 60 cm (60 × 24 in)</li><li>Temperature: 24–28°C (75–82°F)</li><li>pH: 6.2–7.8</li><li>Hardness: 5–20 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -597,6 +597,21 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/d7ac46635fc173c6.webp",
+      "thumb": "https://media.aquatome.com/commons/d7ac46635fc173c6-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "Public domain",
+      "author": "Mitternacht90 at en.wikipedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senegal_Bichir.JPG",
+      "caption": "Cá khủng long Senegal bơi trên sỏi màu trong bể cảnh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/d7ac46635fc173c6-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    },
+    {
       "url": "https://media.aquatome.com/commons/037ec6faed48998a.webp",
       "width": 960,
       "height": 534,
@@ -604,7 +619,12 @@
       "author": "uploaded by en:User:Zhyla",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Polypterus_senegalus_senegalus.jpg",
       "caption": "Polypterus senegalus senegalus. Juvenile bichir in an aquarium",
-      "thumb": "https://media.aquatome.com/commons/037ec6faed48998a-480.webp"
+      "thumb": "https://media.aquatome.com/commons/037ec6faed48998a-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/037ec6faed48998a-large.webp",
+        "width": 1006,
+        "height": 560
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/2d626aa2e5a4abae.webp",
@@ -642,8 +662,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá lớn 540 lít"
+        "bể cá 150cm"
       ]
     },
     {

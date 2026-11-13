@@ -1,0 +1,280 @@
+{
+  "id": "alcolapia-alcalica",
+  "scientificName": "Alcolapia alcalica",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Alcolapia",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "tanzania",
+    "lake-natron",
+    "kenya"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Lake Natron"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The soda cichlid, Alcolapia alcalica, is endemic to Lake Natron in Tanzania, a shallow soda lake full of hot, alkaline springs.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Natron in the United Republic of Tanzania, East Africa.",
+          "countries": [],
+          "regions": [
+            "Lake Natron"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369990,
+      "total": 22,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TZ",
+          17
+        ],
+        [
+          "KE",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          35.15625,
+          -2.8125,
+          20,
+          17
+        ],
+        [
+          35.15625,
+          -1.40625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 28,
+          "max": 38
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 10
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 35
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 11.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-alcalicus",
+      "html": "<p>The soda cichlid, Alcolapia alcalica, is endemic to Lake Natron in Tanzania, a shallow soda lake full of hot, alkaline springs. The lake runs at pH 9.5-10.5 and 32-43.5 °C, and though captive fish can be acclimatised to more normal conditions, this must happen slowly, with the pH kept above 8.0 and the temperature at 28 °C or more. Exceptionally rare in the hobby, it excretes urea where most fish excrete ammonia, and periodically gulps air at the surface.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-alcalicus",
+      "html": "<p>Endemic to Lake Natron in the United Republic of Tanzania, East Africa.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-alcalicus",
+      "html": "<p>It inhabits the shoreline of the lake around hot, alkaline spring inlets and lagoons.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-alcalicus",
+      "html": "<p>The tank can be relatively sparse. A sandy substrate is best as this species likes to dig. Some rock piles arranged to form caves and refuges are the only other decor required. Plants are not typical of this species' natural environment.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-alcalicus",
+      "html": "<ul><li>Temperature: 28–38 °C</li><li>pH: 8.0–10.0</li><li>Hardness: 10–35 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-alcalicus",
+      "html": "<p>Live and frozen foods should comprise a large proportion of the diet. Dried foods are also accepted. Ensure the fish receive some vegetable matter, such as blanched spinach or spirulina, as it feeds almost exclusively on algae in nature (specifically a species of blue-green algae, spirulina platensis).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-alcalicus",
+      "html": "<p>It seems to be a fairly peaceful species but should be kept alone due to its extreme water requirements. It is territorial with conspecifics but its small size means several can be kept in most tanks.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-alcalicus",
+      "html": "<p>Males tend to grow larger and are more colourful than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-alcalicus",
+      "html": "<p>Possible but not often achieved in aquaria due to the rarity of the fish! Little information is available. Maternal mouthbrooder. The aquarium should be set up as above with a pH of at least 8.0 (preferably higher) and a temperature of 28–32 °C. A breeding attempt should involve a group of fish of both sexes. Condition them with a high quality, varied diet.</p><p>When in spawning condition, the male fish will excavate a small depression or pit in the substrate, which is used as the spawning site. He will defend this from other males except when feeding, when he leaves the pit. In nature this would occur in the early morning. The female lays her eggs in the pit and then moves away, allowing the male to fertilise them before she returns and picks them up in her mouth. Relatively few eggs are laid.</p><p>In nature females will migrate between different males' spawning pits so it is possible that they spawn with multiple males within a short space of time, carrying fertilised eggs from several simultaneously. The female will carry the eggs for around 2 weeks before releasing the free swimming fry. Parental care stops at this point.</p><p>The fry are large enough to take brine shrimp nauplii or microworm from the day they are released by the mother.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-alcalicus",
+      "html": "<p>This cichlid is a true wonder of nature. It lives in a soda lake which is full of hot, alkaline springs. The water contains a high concentration of sodium carbonate and other dissolved minerals and salts. The water conditions in the lake are typically pH 9.5-10.5, kH 7000+ and temperature 32–43.5 °C! The water also has a sg reading of 1.2+ and is very shallow, having a maximum depth of only 2 metres. The fish can be acclimatised to more 'normal' conditions but the pH should not be allowed to drop below 8.0 and the temperature should be held at a minimum of 28 °C. If you manage to find some of these fish, be sure to ask the dealer what water conditions they are being kept in and how long they have had to acclimatise. This should take place over a fairly long period of time. Alcolapia alcalica is exceptionally rare in the hobby, although there has been at least one import into the UK recently.</p><p>The soda cichlid has several physiological adaptations. Instead of excreting ammonia, as most fish do, it excretes urea as waste. This is because the excretion of ammonia into water of the chemistry of Lake Natron would be very difficult, due to its high buffering capacity and alkalinity. Most of the urea is excreted through the gills. Also, the fish will periodically gulp air from the surface. This is thought to be related to the fact that oxygen solubility in the highly saline water of Lake Natron is significantly reduced and can quickly become hypoxic (oxygen deprived), especially if there are lots of fish living in a small pool. Therefore the fish have adapted to be able to respire atmospheric air if need be. Significantly, this behaviour is seen less often in captivity.</p><p>This species was formerly classifed as Oreochromis alcalicus and is still named as such in much of the available literature. There were also originally two sub-species, Oreochromis alcalicus alcalicus and O. a. grahami. Grahami has since been given distinct species status and is now the only other species in the genus.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/7e50f8d43e632a0e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7e50f8d43e632a0e-480.webp",
+      "width": 829,
+      "height": 558,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-alcalicus",
+      "caption": "Wild-collected, dominant male specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c377b5dbca28b390.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c377b5dbca28b390-480.webp",
+      "width": 829,
+      "height": 544,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-alcalicus",
+      "caption": "Wild-collected, subdominant male.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8ad11d4bbd4b5d04.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8ad11d4bbd4b5d04-480.webp",
+      "width": 834,
+      "height": 540,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-alcalicus",
+      "caption": "Young, wild-collected female brooding eggs.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/64742ca66f1e99c4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/64742ca66f1e99c4-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oreochromis-alcalicus",
+      "caption": "Habitat of the species to the south of Lake Natron, Tanzania.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "kgGUc65zDQs",
+      "title": "Alcolapia alcalica",
+      "durationSec": 32,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zEXROQqkqIM",
+      "title": "Alcolapia alcalica breeding males",
+      "durationSec": 27,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WY6MKlavKiE",
+      "title": "AfricanCichlids.net: Alcolapia alcalicus",
+      "durationSec": 78,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "j4cLUHG0SRU",
+      "title": "Gębacze ekstremofilne, Alcolapia alcalica i Danakilia sp. \"Shukoray\".",
+      "durationSec": 321,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W",
+        "máy sưởi thủy sinh chỉnh nhiệt"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát nâng pH bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tảo spirulina cho cá",
+        "thức ăn cá cichlid"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước bể cá",
+        "test KH GH bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

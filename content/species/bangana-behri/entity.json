@@ -14,6 +14,115 @@
     "vietnam",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "CN",
+        "LA",
+        "VN",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Sekong",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Mekong river system in southern China, Laos, Thailand, Vietnam, and Cambodia, and possibly the Chao Phraya watershed in central Thailand although this appears to be in question.",
+          "countries": [
+            "CN",
+            "LA",
+            "VN",
+            "KH"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It undergoes seasonal migrations, moving upstream into the Sekong, Sesan, and Srepok rivers in May and June, at the onset of the wet season, and returning downstream during the dry months between November and February.",
+          "countries": [],
+          "regions": [
+            "Sekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361256,
+      "total": 9,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "KH",
+          5
+        ],
+        [
+          "TH",
+          3
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          16.875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -68,7 +177,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -141,12 +250,6 @@
     },
     {
       "key": "behaviour",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/bangana_behri_en/",
-      "html": "<p>Like most Labeo-type fish, Bangana behri are somewhat quarrelsome towards conspecifics. In the importer's fishhouse about 30 specimens are kept together in one tank and live peacefully, but two or three specimens together can be expected not to do well. One should therefore keep them either solitary or in larger groups, a rule that holds for almost all fish related to Labeo.</p>"
-    },
-    {
-      "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/incisilabeo-behri",
       "html": "<p>May be aggressive in confined spaces, i.e., smaller aquaria.</p>"
@@ -170,29 +273,7 @@
       "html": "<ul><li>Kottelat, M. and H. Steiner (2011). Bangana musaei, a new cave fish from central Laos (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 21(4), 313-322</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Kottelat, M. (1984). A review of the species of Indochinese fresh-water fishes described by H. E. Sauvage. Bulletin du Museum National d'Histoire Naturelle Ser. 4: Section A: Zoologie, Biologie et Écologie Animales v. 6 (no. 4), 791-822</li><li>Fowler, H. W. (1937). Zoological results of the third De Schauensee Siamese Expedition. Part VIII - Fishes obtained in 1936. Proceedings of the Academy of Natural Sciences of Philadelphia v. 89, 125-264</li><li>Yang, L., M. Arunachalam, T. Sado, B. A. Levin, A. S. Golubtsov, J. Freyhof, J. P. Friel, W-J. Chen, M. V. Hirt, R. Manickam, M. K. Agnew, A. M. Simons, K. Saitoh, M. Miya, R. L. Mayden, and S. He (2012). Molecular phylogeny of the cyprinid tribe Labeonini (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 65(2), 362-379</li></ul>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/5ae0e70dc6ddd5e1.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/5ae0e70dc6ddd5e1-480.webp",
-      "width": 820,
-      "height": 363,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/incisilabeo-behri",
-      "caption": "Adult specimen.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/63429429adc79b3b.webp",
-      "thumb": "https://media.aquatome.com/commons/63429429adc79b3b-480.webp",
-      "width": 960,
-      "height": 487,
-      "licence": "CC BY-SA 4.0",
-      "author": "NasserHalaweh",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyprinidae_Bangana_behri_1.jpg",
-      "caption": "Bangana behri. Sea Life Bangkok Ocean World."
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "yykYhrSYY18",
@@ -223,8 +304,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn",
-        "hồ cá koi"
+        "bể cá 200cm"
       ]
     },
     {

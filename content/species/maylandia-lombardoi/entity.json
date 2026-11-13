@@ -1,0 +1,248 @@
+{
+  "id": "maylandia-lombardoi",
+  "scientificName": "Maylandia lombardoi",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Maylandia",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "malawi",
+    "lake-malawi"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi",
+        "Mbenji Islands"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has a limited natural range, being confined to the Mbenji Islands and Nkhomo Reef, but has also successfully been introduced around Namalenje Island.",
+          "countries": [],
+          "regions": [
+            "Mbenji Islands"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372997,
+      "total": 5,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MW",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -14.0625,
+          5
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.6,
+          "max": 8.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/maylandia-lombardoi",
+      "html": "<p>Known in the hobby as the kennyi, Maylandia lombardoi is a mbuna endemic to Lake Malawi, confined to the Mbenji Islands and Nkhomo Reef. In a reverse of the usual mbuna pattern, dominant males are yellow and females blue, though subdominant males often turn blue and brooding females can turn yellow. One of the most aggressive and territorial mbuna, it is not recommended for the novice, and commercially produced fish tend to be of lower quality than wild ones. It is still often sold as Pseudotropheus lombardoi.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/maylandia-lombardoi",
+      "html": "<p>Endemic to Lake Malawi. It has a limited natural range, being confined to the Mbenji Islands and Nkhomo Reef, but has also successfully been introduced around Namalenje Island.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/maylandia-lombardoi",
+      "html": "<p>It inhabits the intermediate zone, where the rocky shoreline gives way to sandy substrates. These areas are characterised by large amounts of sediment.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/maylandia-lombardoi",
+      "html": "<p>Standard length: 15 cm SL. Aquarium base: 120 × 45 cm. Volume: ~205 litres.</p><p>120 × 45 × 38 cm (~205 litres) is the absolute minimum due to its aggressive nature (see below).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/maylandia-lombardoi",
+      "html": "<p>Much of the aquarium should contain piles of rocks arranged to form caves with small areas of open water between. A sandy substrate is best. The growth of algae should not be discouraged as the fish will browse on it.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/maylandia-lombardoi",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 7.6–8.8</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/maylandia-lombardoi",
+      "html": "<p>It will accept most foods offered but vegetable matter in the form of spirulina flakes, blanched spinach, nori etc. should form a large proportion of the diet. This can be supplemented with live and frozen varieties. Never feed beefheart or any other red meat as it will interfere with the digestive system of these fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/maylandia-lombardoi",
+      "html": "<p>One of the most aggressive and territorial mbuna. It should not be kept with peace loving species such as Peacocks or Utaka but it can be combined with other robust mbuna, provided they do not resemble it in patterning. The tank should be overcrowded to reduce aggression and territory formation. It is incredibly aggressive towards others of the same species and the presence of heterospecifics helps to dissipate this. Unless the tank is very large, only a single male is advised, along with several females to spread his attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/maylandia-lombardoi",
+      "html": "<p>In a reverse of the common sexual dichromatism in mbuna, dominant mature males are yellow in colour whilst females are blue. Confusingly, sub-dominant males often adopt the blue colouration of the females, and mouth-brooding females can adopt the yellow colour of dominant males!</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/maylandia-lombardoi",
+      "html": "<p>Possible. Maternal mouthbrooder. For the best results, it should be spawned in a species tank. Adult fish tend to be quite expensive, so a more feasible option is to start with a group of 6-8 young fish. A 120 × 38 cm aquarium is an adequate size and this should be furnished as suggested above. Be sure to provide some areas of open sand and flat rock surfaces to act as potential spawning sites. The pH should be around 8.0-8.5 and the temperature 25–26.5°C. Condition the fish on a good diet of live, frozen and dried foods. When in condition, the male will form a territory containing either a flat rock surface or simply an area of the substrate in which he excavates a pit. He will display around this, showing intense colour and will attempt to entice females to mate with him. He can be quite aggressive in his pursuits and it is in order to dissipate this aggression that this species should be spawned in a harem. If there are other species in the tank, they will not be permitted to enter the male's territory. When a female is willing, she will approach the spawning site and lay her eggs there, allowing the male to fertilise them before taking them into her mouth. The female carries the eggs for around 3 weeks before releasing the free swimming fry. She will not eat during this period and can be easily spotted by her distended mouth. If a female is overly stressed, she may spit out the brood prematurely or eat them, so care must be taken if you decide to move the fish in order to avoid fry predation. Some breeders artificially strip the fry from the mother's mouth at the 2 week stage and raise them from that point, as this usually results in a larger number of fry. However it must be said, that this method is only for the expert. The fry will accept newly hatched brine shrimp or microworm immediately after they become free swimming.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/maylandia-lombardoi",
+      "html": "<p>A popular mbuna that has been in the hobby for many years. There is ongoing debate as to the true genus of this species, it having been variously grouped in both Maylandia and Metriaclima, as well as the currently valid Pseudotropheus. It is unlikely it will remain in Pseudotropheus, however, and many sources already consider it a member of Metriaclima. As with other members of the genus, it possesses flat, bicuspid teeth which are designed for scraping algae and other organisms from the surface of rocks. It is not recommended for the novice due to its inherent nastiness, but does make a good aquarium subject for the advanced aquarist. A point to note is that the commercially-produced fish usually seen in dealer's tanks today tend to be quite low quality compared to the wild fish.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c133e75989528b88.webp",
+      "width": 960,
+      "height": 512,
+      "licence": "CC BY 2.0",
+      "author": "Brian Gratwicke",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maylandia_lombardoi_1.jpg",
+      "caption": "pseudotropheus lombardoi",
+      "thumb": "https://media.aquatome.com/commons/c133e75989528b88-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1b32e009222384a2.webp",
+      "width": 960,
+      "height": 655,
+      "licence": "CC BY 2.0",
+      "author": "Vlad Butsky from San Jose, CA, USA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudotropheus_lombardoi_3.jpg",
+      "caption": "Pseudotropheus lombardoiImage #10914 (http://www.butsky.com)",
+      "thumb": "https://media.aquatome.com/commons/1b32e009222384a2-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f91c7dbe8f30683c.webp",
+      "width": 960,
+      "height": 628,
+      "licence": "CC BY 2.0",
+      "author": "Vlad Butsky from San Jose, CA, USA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudotropheus_lombardoi_4.jpg",
+      "caption": "Pseudotropheus lombardoiImage #10922 (http://www.butsky.com)",
+      "thumb": "https://media.aquatome.com/commons/f91c7dbe8f30683c-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7da985e3c4c3f42b.webp",
+      "width": 960,
+      "height": 711,
+      "licence": "CC BY 2.0",
+      "author": "Vlad Butsky from San Jose, CA, USA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudotropheus_lombardoi_2.jpg",
+      "caption": "Pseudotropheus lombardoiImage #10912 (http://www.butsky.com)",
+      "thumb": "https://media.aquatome.com/commons/7da985e3c4c3f42b-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200W"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá cichlid",
+        "đá tạo hang bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -1,0 +1,345 @@
+{
+  "id": "hypostomus-gymnorhynchus",
+  "scientificName": "Hypostomus gymnorhynchus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "french-guiana",
+    "oyapock",
+    "suriname",
+    "marowijne",
+    "maroni"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GF",
+        "SR"
+      ],
+      "regions": [
+        "Oyapock",
+        "Maroni",
+        "Approuague",
+        "Mana",
+        "Marowijne"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Iponcin Creek, into Approuague R., French Guiana.",
+          "countries": [
+            "GF"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Recorded from the coastal rivers of French Guiana (Oyapock, Mana and Approuague) and Suriname (Marowijne).",
+          "countries": [
+            "SR"
+          ],
+          "regions": [
+            "Oyapock",
+            "Approuague",
+            "Mana",
+            "Marowijne"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Guianan coastal drainages, from the Oyapock westward to the Maroni basin.",
+          "countries": [],
+          "regions": [
+            "Maroni"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202216,
+      "total": 311,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "GF",
+          234
+        ],
+        [
+          "SR",
+          46
+        ],
+        [
+          "BR",
+          30
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          2.8125,
+          24,
+          24
+        ],
+        [
+          -56.25,
+          4.21875,
+          11,
+          11
+        ],
+        [
+          -54.84375,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          2.8125,
+          77,
+          77
+        ],
+        [
+          -54.84375,
+          4.21875,
+          41,
+          41
+        ],
+        [
+          -54.84375,
+          5.625,
+          8,
+          8
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          4,
+          0
+        ],
+        [
+          -53.4375,
+          1.40625,
+          15,
+          5
+        ],
+        [
+          -53.4375,
+          2.8125,
+          77,
+          68
+        ],
+        [
+          -53.4375,
+          4.21875,
+          37,
+          37
+        ],
+        [
+          -52.03125,
+          0,
+          3,
+          0
+        ],
+        [
+          -52.03125,
+          2.8125,
+          6,
+          3
+        ],
+        [
+          -50.625,
+          1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 17
+      },
+      {
+        "source": "scotcat",
+        "value": 17
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1292",
+      "html": "<ul><li>Scientific name: Hypostomus gymnorhynchus (Norman, 1926)</li><li>Synonym: Plecostomus gymnorhynchus</li><li>Type locality: Iponcin Creek, into Approuague R., French Guiana.</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_gymnorhynchus.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern (2023)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1292",
+      "html": "<p>South America: Guianan coastal drainages, from the Oyapock westward to the Maroni basin. Recorded from the coastal rivers of French Guiana (Oyapock, Mana and Approuague) and Suriname (Marowijne).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_gymnorhynchus.htm",
+      "html": "<p>South America: Guianan coastal drainages, from Oyapock westward to the Maroni basin, French Guiana. Type locality: Iponcin Creek, into Approuague River, French Guiana.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_gymnorhynchus.htm",
+      "html": "<p>As with most of this genus, it will do well in a larger aquarium, although this is one of the smaller species in the genus, and the aquarium should be well filtered.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_gymnorhynchus.htm",
+      "html": "<p>Water parameters can be quite diverse for this genus.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_gymnorhynchus.htm",
+      "html": "<p>Omnivore with a liking for green, tablet and frozen foods.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1292",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1292",
+      "html": "<p>Etymology: Greek, hypo = under + Greek, stoma = mouth. The specific epithet refers to its bare (gymnos = bare, nude) snout (rhynkus = snout, nose).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_gymnorhynchus.htm",
+      "html": "<p>There is very little to choose between this species and Hypostomus surinamensis, and in 2012 Weber et al. declared H. surinamensis a synonym of H. gymnorhynchus. This has not been accepted in some quarters. Dark spots adorn this species and become somewhat smaller on the head. The tips of the caudal fin extensions are black. The genus Hypostomus has 7 rays in the dorsal fin, whereas the similar-looking Pterygoplichthys species have 10 dorsal fin rays.</p><p>Etymology: the specific name gymnorhynchus means bare-snouted, from gymnós, bare or naked, and rhýnchos, snout, referring to a \"rather broad naked margin\" on the snout.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1292",
+      "html": "<p>Annals and Magazine of Natural History (Series 9) v. 18 (no. 103), pp 95.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_gymnorhynchus.htm",
+      "html": "<p>Ballen, G.A. 2023. Hypostomus gymnorhynchus. The IUCN Red List of Threatened Species 2023.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2015. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2016 ).</p><p>Mol, H.A. Jan, The Freshwater Fishes of Suriname. BRILL, Leiden Boston, 2012. 889 p.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/5587620.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/5587620-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://www.inaturalist.org/photos/5587620",
+      "caption": "Cá Hypostomus gymnorhynchus bơi trên đáy trong môi trường tự nhiên",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/5587620-large.webp",
+        "width": 1601,
+        "height": 1200
+      }
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Znfp4ixozGM",
+      "title": "Hypostomus gymnorhynchus in a tributary of Maroni river, French Guiana",
+      "durationSec": 97,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GqFbD3jULLA",
+      "title": "Hypostomus gymnorynchus, Comté river, French Guiana",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

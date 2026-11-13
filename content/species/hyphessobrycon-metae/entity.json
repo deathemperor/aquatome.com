@@ -1,0 +1,449 @@
+{
+  "id": "hyphessobrycon-metae",
+  "scientificName": "Hyphessobrycon metae",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "colombia",
+    "meta",
+    "venezuela",
+    "orinoco"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Río Orinoco",
+        "Río Meta",
+        "Río Cinaruco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The purple tetra, Hyphessobrycon metae, is a characid endemic to the middle Río Orinoco watershed in Colombia and Venezuela.",
+          "countries": [
+            "CO",
+            "VE"
+          ],
+          "regions": [
+            "Río Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Barrigona, Río Meta, Orinoco system, Colombia'.",
+          "countries": [],
+          "regions": [
+            "Río Meta"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "One example of a natural habitat is the Río Cinaruco, a low nutrient, blackwater tributary of the Orinoco in southwestern Venezuela which comprises a meandering river channel with numerous interconnected lagoons and floodplain lakes.",
+          "countries": [],
+          "regions": [
+            "Río Cinaruco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354684,
+      "total": 198,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          154
+        ],
+        [
+          "CO",
+          42
+        ],
+        [
+          "PE",
+          1
+        ],
+        [
+          "PH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          0,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          1.40625,
+          7,
+          7
+        ],
+        [
+          -73.125,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          -73.125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -71.71875,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          5.625,
+          13,
+          13
+        ],
+        [
+          -70.3125,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          -68.90625,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          -68.90625,
+          5.625,
+          12,
+          12
+        ],
+        [
+          -68.90625,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          -67.5,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -67.5,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          -67.5,
+          5.625,
+          34,
+          34
+        ],
+        [
+          -67.5,
+          7.03125,
+          33,
+          33
+        ],
+        [
+          -67.5,
+          8.4375,
+          21,
+          21
+        ],
+        [
+          -66.09375,
+          1.40625,
+          6,
+          6
+        ],
+        [
+          -66.09375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          119.53125,
+          14.0625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-metae",
+      "html": "<p>The purple tetra, Hyphessobrycon metae, is a characid endemic to the middle Río Orinoco watershed in Colombia and Venezuela. Also known as 'Río Meta tetra', it is often misidentified, and H. peruvianus has repeatedly appeared under its name. The dark band on the caudal peduncle, without a broad dark band along the lower body, separates it from H. peruvianus and H. loretoensis.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-metae",
+      "html": "<p>Endemic to the middle Río Orinoco watershed in Colombia (departments of Meta, Casanare, Arauca, Vichada, and Guainía) and Venezuela (states of Amazonas, Apure, Guárico, and Bolivar). It appears to be widespread in tributaries between the ríos Ventuari and Apure, although the majority of records pertain to the Río Meta and its affluents, including the ríos Humadea, Guatiquá, Manacacías, Cusiana, and Casanare.</p><p>Upstream of the Meta's confluence with the Orinoco it has been collected in the ríos Ventuari, Guaviare (including the ríos Ariari and Inírida), Tomo, and Cataniapo, while downstream there exist records from the ríos Cinaruco, Capanaparo, Guárico, and Apure. It is also likely to occur in other Orinoco tributaries within this region.</p><p>Type locality is 'Barrigona, Río Meta, Orinoco system, Colombia'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-metae",
+      "html": "<p>It occurs throughout the vast Los Llanos regions of Colombia and Venezuela, and in the latter country is often associated with habitats known as morichals which tend to contain transparent, clear water and sandy substrates, often with dense growth of aquatic plants or riparian vegetation among which the fish take shelter.</p><p>In other parts of its range it has been collected from blackwater streams flowing through tropical rainforest and still floodplain lakes, while the majority of rivers and wetlands across its range are subject to extreme flooding during the annual rainy season.</p><p>One example of a natural habitat is the Río Cinaruco, a low nutrient, blackwater tributary of the Orinoco in southwestern Venezuela which comprises a meandering river channel with numerous interconnected lagoons and floodplain lakes.</p><p>The latter two biotope-types feature reduced water flow, increased turbidity and temperature, a greater accumulation of leaf litter, and higher densities of zooplankton than the main channel.</p><p>Other fishes occurring in the Río Orinoco basin and available in the trade include Brochis delphax, Platydoras costatus, Baryancistrus beggini, Hypancistrus inspector, Panqolus maccus, Panaque nigrolineatus, Hemigrammus rhodostomus, H. stictus, Hyphessobrycon sweglesi, Paracheirodon axelrodi, Pristella maxillaris, Copella nattereri, Biotodoma wavrini, Heros severus, Mesonauta insignis, Satanoperca daemon and Uaru fernandezyepezi.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-metae",
+      "html": "<p>An aquarium with base dimensions of 80 × 30 cm or equivalent should be the smallest considered (about 72 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-metae",
+      "html": "<p>Perhaps looks best in an arrangement comprising a sandy substrate plus some driftwood roots and branches, or heavily-planted set-up.</p><p>The addition of dried leaf litter would further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>The latter are useful since they provide an additional food source for both adults and fry while the humic substances released by decaying leaves are also considered beneficial.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-metae",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–8 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-metae",
+      "html": "<p>Likely to be omnivorous feeding on small invertebrates, crustacea, filamentous algae, fallen fruit and suchlike in nature.</p><p>In aquaria it may survive on a diet of dried foods but like most fishes does best when offered a varied menu which in this case should also contain live and frozen chironomid larvae (bloodworm), mosquito larvae, Daphnia, Moina, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-metae",
+      "html": "<p>Very peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It is perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, small-to-medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-metae",
+      "html": "<p>Sexually mature females are noticeably deeper-bodied and grow slightly larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-metae",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-metae",
+      "html": "<p>This species is also known as 'Río Meta tetra' in the aquarium trade, although it is often misidentified and its name has frequently been applied to other species. In particular, the congener H. peruvianus has repeatedly appeared under the name H. metae in aquarium literature.</p><p>Some variability in colour pattern has been observed in populations collected at different localities, particularly in the colour and intensity of the pale lateral body stripe. This is unsurprising given the extent of its natural range, and some of these variants have been traded with names such as H. cf. metae 'gold line', 'teal line', etc.</p><p>H. metae can be identified via the following combination of characters as per Géry (1977): dorsal-fin insertion posterior to mid-body; body depth fits less than 3.6 times in SL; head length fits 3.5-4.0 times in SL; caudal peduncle length usually fits 1.5-1.75 times in SL; snout relatively short, maxilla not reaching pupil; usually 9-10 predorsal scales; 30-31 longitudinal scales; 18-19 branched anal-fin rays.</p><p>In addition, it can be distinguished from all congeners inhabiting the Río Orinoco basin in Colombia and Venezuela by presence of a dark marking on the caudal peduncle, between the pale lateral body stripe and anal-fin, but is often confused with the similar-looking Peruvian congeners H. loretoensis and H. metae.</p><p>For aquarists, the easiest way to identify these species correctly is to examine the colour pattern; in both H. loretoensis and H. peruvianus there is a broad dark band in the lower portion of the body, between the opercle and caudal peduncle, whereas in H. metae the dark band is prominent only on the caudal peduncle itself (as per the original description by Eigenmann and Henn). In addition, the dark band extends to the tips of the median caudal-fin rays and there is a bright red marking at the base of both caudal-fin lobes in H. peruvianus, but in H. loretoensis the dark band extends only slightly onto the caudal-fin, which is a more-or-less solid brick red colour. In H. metae the dark caudal peduncle marking continues onto the base of the median caudal-fin rays, and there is a yellow-to-orange marking at the base of each caudal-fin lobe.</p><p>All three species are included in the putative 'H. agulha-group' of closely-related species within the genus as proposed by Géry (1977), of which all members possess a dark lower half of the body, especially above the anal-fin, and usually a horizontally elongate humeral spot, more or less united with the asymmetrical, broad band. Other species in this group include H. agulha, H. loretoensis, H. peruvianus, and H. herbertaxelrodi, although some authors have included one or more of these, including H. metae, in the H. heterorhabdus group.</p><p>Lima et al. 2014 noted similarities between the H. aghula group and their revised H. heterorhabdus group which comprises Hyphessobrycon heterorhabdus, H. amapaensis, and H. eschwartzae. This trio all possess: a well-defined, elongate humeral blotch which is continuous with a dark, well-defined midlateral stripe that becomes blurred towards the caudal peduncle; a longitudinal red stripe extending along the body above the midlateral line; upper half of the eye red.</p><p>This pattern is different to that presented by several members of Géry's original H. heterorhabdus group, such as H. vilmae, H. cachimbensis, and H. stegemanni, which possess a continuous, solid dark lateral stripe on the body and no obvious humeral blotch.</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal-fin.</p><p>The grouping was revised by Eigenmann (1918, 1921) while Géry (1977) created artificial groups of species based on colour pattern, and these definitions are still widely used today, e.g., the H. flammeus group, the H. heterorhabdus group, etc. These cannot be considered to represent monophyletic assemblages, however, and their concepts continue to be redefined.</p><p>Weitzman &amp; Palmer (1997) hypothesised the existence of a monophyletic assemblage within the genus based on colour pattern and male fin morphology that they termed the 'rosy tetra clade', with one of the characters supporting its monophyly being presence of a prominent dark marking on the dorsal-fin. This assemblage, plus other morphologically similar species, is considered to represent Hyphessobrycon sensu stricto by some authors, with the remaining species included in a much-expanded H. heterorhabdus group.</p><p>Others have proposed conflicting, typically more restricted, views of both the genus and/or its constituent species groups, and significant confusion remains. What is clear is that, as currently recognised, Hyphessobrycon is a polyphyletic lineage containing several genera.</p><p>The process of splitting it up has already started, and Malabarba et al. (2012) revalidated the genus Ectrepopterus Fowler, previously considered a synonym of Hyphessobrycon. They also analysed its relationships within the Characidae in the context of Mirande's (2010) previous work, but included the type species, H. compressus, for the first time in such a study. The results demonstrated that H. compressus is more closely-related to 'rosy tetra' representatives such as H. eques, H. pulchripinnis, and H. socolofi than other species then placed in the genus, including Psalidodon anisitsi, H. bifasciatus, H. elachys, H. herbertaxelrodi, and H. luetkeni.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-metae",
+      "html": "<ul><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>Weitzman, S. H. and L. Palmer (1997). A new species of Hyphessobrycon (Teleostei: Characidae) from the Neblina region of Venezuela and Brazil, with comments on the putative `rosy tetra clade'. Ichthyological Exploration of Freshwaters 7(3), 209-242</li><li>Mirande, J. M. (2010). Phylogeny of the family Characidae (Teleostei: Characiformes): from characters to taxonomy. Neotropical Ichthyology 8(3), 385-568</li><li>Malabarba, L. R., V. A. Bertaco, F. R. Carvalho &amp; T. O. Litz. (2012). A new Hyphessobrycon (Ostariophysi: Characiformes: Characidae) from the middle Amazon basin, Brazil. Zootaxa 3204, 47-60</li><li>Eigenmann, C. H. and A. W. Henn (1914). On new species of fishes from Colombia, Ecuador, and Brazil. Indiana University Studies No. 24, 231-234</li><li>García-Alzate, C. A., C. Román-Valencia and S. Prada-Pedreros (2010). Tres nuevas especies de Hyphessobrycon grupo heterorhabdus (Teleostei: Characiformes: Characidae) y clave para especies de la cuenca del Río Orinoco. Caldasia 32(2), 443-461</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "3N88qkbcy5c",
+      "title": "Hyphessobrycon metae",
+      "durationSec": 156,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WdMVrVPyULg",
+      "title": "[8K]UHD Hyphessobrycon cf.metae \"blue\" 梅塔 蓝线",
+      "durationSec": 113,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "CpHwA3d8Gl4",
+      "title": "ハイフェソブリコン・メタエ　Hyphessobrycon metae",
+      "durationSec": 29,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "skG2XTzuZiU",
+      "title": "Hyphessobrycon metae (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 61,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 80cm",
+        "máy lọc bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn cá nhỏ dạng mảnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

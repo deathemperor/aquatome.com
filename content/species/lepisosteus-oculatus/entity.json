@@ -1,0 +1,966 @@
+{
+  "id": "lepisosteus-oculatus",
+  "scientificName": "Lepisosteus oculatus",
+  "order": "Lepisosteiformes",
+  "family": "Lepisosteidae",
+  "genus": "Lepisosteus",
+  "group": "other",
+  "places": [
+    "north-america",
+    "united-states",
+    "mississippi",
+    "mexico",
+    "rio-grande"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX",
+        "US"
+      ],
+      "regions": [
+        "Mississippi River",
+        "Rio Grande",
+        "Great Lakes",
+        "Apalachicola River",
+        "Nueces River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It may also be found in the Rio Grande which forms the border between Mexico and the United States further south where records include Falcon International Reservoir, for example.",
+          "countries": [
+            "MX",
+            "US"
+          ],
+          "regions": [
+            "Rio Grande"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from Great Lakes Erie and Michigan with distribution extending south through the Mississippi River basin to the Gulf of Mexico drainages where it's said to occur between the lower Apalachicola River in Florida and the Nueces River in Texas.",
+          "countries": [],
+          "regions": [
+            "Mississippi River",
+            "Great Lakes",
+            "Apalachicola River",
+            "Nueces River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2346692,
+      "total": 52391,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "US",
+          52349
+        ],
+        [
+          "MX",
+          33
+        ],
+        [
+          "CA",
+          8
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -106.875,
+          33.75,
+          1,
+          1
+        ],
+        [
+          -104.0625,
+          28.125,
+          7,
+          7
+        ],
+        [
+          -104.0625,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          -102.65625,
+          29.53125,
+          11,
+          11
+        ],
+        [
+          -101.25,
+          25.3125,
+          4,
+          4
+        ],
+        [
+          -101.25,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          -101.25,
+          28.125,
+          33,
+          33
+        ],
+        [
+          -101.25,
+          29.53125,
+          20,
+          20
+        ],
+        [
+          -101.25,
+          30.9375,
+          4,
+          4
+        ],
+        [
+          -101.25,
+          32.34375,
+          4,
+          4
+        ],
+        [
+          -101.25,
+          35.15625,
+          7,
+          7
+        ],
+        [
+          -101.25,
+          36.5625,
+          4,
+          4
+        ],
+        [
+          -99.84375,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          -99.84375,
+          25.3125,
+          12,
+          12
+        ],
+        [
+          -99.84375,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          -99.84375,
+          28.125,
+          60,
+          60
+        ],
+        [
+          -99.84375,
+          29.53125,
+          18,
+          18
+        ],
+        [
+          -99.84375,
+          30.9375,
+          29,
+          29
+        ],
+        [
+          -99.84375,
+          32.34375,
+          25,
+          25
+        ],
+        [
+          -99.84375,
+          33.75,
+          34,
+          34
+        ],
+        [
+          -99.84375,
+          35.15625,
+          15,
+          15
+        ],
+        [
+          -99.84375,
+          36.5625,
+          3,
+          3
+        ],
+        [
+          -98.4375,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          -98.4375,
+          25.3125,
+          27,
+          27
+        ],
+        [
+          -98.4375,
+          26.71875,
+          217,
+          217
+        ],
+        [
+          -98.4375,
+          28.125,
+          214,
+          214
+        ],
+        [
+          -98.4375,
+          29.53125,
+          125,
+          125
+        ],
+        [
+          -98.4375,
+          30.9375,
+          73,
+          73
+        ],
+        [
+          -98.4375,
+          32.34375,
+          61,
+          61
+        ],
+        [
+          -98.4375,
+          33.75,
+          25,
+          25
+        ],
+        [
+          -98.4375,
+          35.15625,
+          7,
+          7
+        ],
+        [
+          -98.4375,
+          36.5625,
+          5,
+          5
+        ],
+        [
+          -97.03125,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          -97.03125,
+          28.125,
+          1097,
+          1097
+        ],
+        [
+          -97.03125,
+          29.53125,
+          230,
+          230
+        ],
+        [
+          -97.03125,
+          30.9375,
+          151,
+          151
+        ],
+        [
+          -97.03125,
+          32.34375,
+          113,
+          113
+        ],
+        [
+          -97.03125,
+          33.75,
+          53,
+          53
+        ],
+        [
+          -97.03125,
+          35.15625,
+          44,
+          44
+        ],
+        [
+          -97.03125,
+          36.5625,
+          19,
+          19
+        ],
+        [
+          -95.625,
+          28.125,
+          38,
+          38
+        ],
+        [
+          -95.625,
+          29.53125,
+          274,
+          274
+        ],
+        [
+          -95.625,
+          30.9375,
+          56,
+          56
+        ],
+        [
+          -95.625,
+          32.34375,
+          129,
+          129
+        ],
+        [
+          -95.625,
+          33.75,
+          57,
+          57
+        ],
+        [
+          -95.625,
+          35.15625,
+          42,
+          42
+        ],
+        [
+          -95.625,
+          36.5625,
+          22,
+          22
+        ],
+        [
+          -94.21875,
+          29.53125,
+          953,
+          953
+        ],
+        [
+          -94.21875,
+          30.9375,
+          41,
+          41
+        ],
+        [
+          -94.21875,
+          32.34375,
+          56,
+          56
+        ],
+        [
+          -94.21875,
+          33.75,
+          18,
+          18
+        ],
+        [
+          -94.21875,
+          35.15625,
+          3,
+          3
+        ],
+        [
+          -94.21875,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          -92.8125,
+          29.53125,
+          59,
+          59
+        ],
+        [
+          -92.8125,
+          30.9375,
+          35,
+          35
+        ],
+        [
+          -92.8125,
+          32.34375,
+          26,
+          26
+        ],
+        [
+          -92.8125,
+          33.75,
+          6,
+          6
+        ],
+        [
+          -92.8125,
+          35.15625,
+          4,
+          4
+        ],
+        [
+          -92.8125,
+          37.96875,
+          2,
+          2
+        ],
+        [
+          -91.40625,
+          28.125,
+          7,
+          7
+        ],
+        [
+          -91.40625,
+          29.53125,
+          46366,
+          46366
+        ],
+        [
+          -91.40625,
+          30.9375,
+          29,
+          29
+        ],
+        [
+          -91.40625,
+          32.34375,
+          25,
+          25
+        ],
+        [
+          -91.40625,
+          33.75,
+          11,
+          11
+        ],
+        [
+          -91.40625,
+          35.15625,
+          9,
+          9
+        ],
+        [
+          -91.40625,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          -91.40625,
+          37.96875,
+          5,
+          5
+        ],
+        [
+          -91.40625,
+          39.375,
+          15,
+          15
+        ],
+        [
+          -91.40625,
+          40.78125,
+          1,
+          1
+        ],
+        [
+          -90,
+          28.125,
+          19,
+          19
+        ],
+        [
+          -90,
+          29.53125,
+          105,
+          105
+        ],
+        [
+          -90,
+          30.9375,
+          14,
+          14
+        ],
+        [
+          -90,
+          32.34375,
+          7,
+          7
+        ],
+        [
+          -90,
+          33.75,
+          4,
+          4
+        ],
+        [
+          -90,
+          35.15625,
+          13,
+          13
+        ],
+        [
+          -90,
+          36.5625,
+          45,
+          45
+        ],
+        [
+          -90,
+          37.96875,
+          8,
+          8
+        ],
+        [
+          -90,
+          39.375,
+          7,
+          7
+        ],
+        [
+          -90,
+          40.78125,
+          1,
+          1
+        ],
+        [
+          -88.59375,
+          29.53125,
+          125,
+          125
+        ],
+        [
+          -88.59375,
+          30.9375,
+          37,
+          37
+        ],
+        [
+          -88.59375,
+          32.34375,
+          92,
+          92
+        ],
+        [
+          -88.59375,
+          33.75,
+          14,
+          14
+        ],
+        [
+          -88.59375,
+          35.15625,
+          20,
+          20
+        ],
+        [
+          -88.59375,
+          36.5625,
+          28,
+          28
+        ],
+        [
+          -88.59375,
+          37.96875,
+          5,
+          5
+        ],
+        [
+          -88.59375,
+          39.375,
+          1,
+          1
+        ],
+        [
+          -88.59375,
+          40.78125,
+          2,
+          2
+        ],
+        [
+          -87.1875,
+          29.53125,
+          82,
+          82
+        ],
+        [
+          -87.1875,
+          30.9375,
+          21,
+          21
+        ],
+        [
+          -87.1875,
+          32.34375,
+          15,
+          15
+        ],
+        [
+          -87.1875,
+          33.75,
+          25,
+          25
+        ],
+        [
+          -87.1875,
+          35.15625,
+          1,
+          1
+        ],
+        [
+          -87.1875,
+          36.5625,
+          3,
+          3
+        ],
+        [
+          -87.1875,
+          40.78125,
+          17,
+          17
+        ],
+        [
+          -87.1875,
+          42.1875,
+          35,
+          35
+        ],
+        [
+          -87.1875,
+          43.59375,
+          1,
+          1
+        ],
+        [
+          -87.1875,
+          45,
+          1,
+          1
+        ],
+        [
+          -85.78125,
+          29.53125,
+          360,
+          360
+        ],
+        [
+          -85.78125,
+          30.9375,
+          25,
+          25
+        ],
+        [
+          -85.78125,
+          32.34375,
+          14,
+          14
+        ],
+        [
+          -85.78125,
+          33.75,
+          16,
+          16
+        ],
+        [
+          -85.78125,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          -85.78125,
+          40.78125,
+          47,
+          47
+        ],
+        [
+          -85.78125,
+          42.1875,
+          14,
+          14
+        ],
+        [
+          -84.375,
+          29.53125,
+          3,
+          3
+        ],
+        [
+          -84.375,
+          30.9375,
+          44,
+          44
+        ],
+        [
+          -84.375,
+          32.34375,
+          1,
+          1
+        ],
+        [
+          -84.375,
+          33.75,
+          10,
+          10
+        ],
+        [
+          -84.375,
+          35.15625,
+          1,
+          1
+        ],
+        [
+          -84.375,
+          40.78125,
+          6,
+          6
+        ],
+        [
+          -84.375,
+          42.1875,
+          8,
+          8
+        ],
+        [
+          -84.375,
+          43.59375,
+          1,
+          1
+        ],
+        [
+          -84.375,
+          45,
+          1,
+          1
+        ],
+        [
+          -82.96875,
+          26.71875,
+          5,
+          5
+        ],
+        [
+          -82.96875,
+          28.125,
+          1,
+          1
+        ],
+        [
+          -82.96875,
+          29.53125,
+          5,
+          5
+        ],
+        [
+          -82.96875,
+          32.34375,
+          1,
+          1
+        ],
+        [
+          -82.96875,
+          40.78125,
+          9,
+          4
+        ],
+        [
+          -82.96875,
+          42.1875,
+          2,
+          0
+        ],
+        [
+          -81.5625,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          -81.5625,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          28.125,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          42.1875,
+          1,
+          0
+        ],
+        [
+          -80.15625,
+          40.78125,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          42.1875,
+          5,
+          5
+        ],
+        [
+          8.4375,
+          49.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 12,
+          "max": 20
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 125
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<ul><li>Needs a tank at least 2 m long</li></ul><p>The spotted gar, Lepisosteus oculatus, ranges from Lakes Erie and Michigan south through the Mississippi basin to the Gulf of Mexico drainages. Given its size and a lifespan of several decades it should not be considered a home aquarium subject, and only some public aquaria can maintain it long-term. A modified, vascularised swim bladder allows it to breathe atmospheric air to a certain extent.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>Known from Great Lakes Erie and Michigan with distribution extending south through the Mississippi River basin to the Gulf of Mexico drainages where it's said to occur between the lower Apalachicola River in Florida and the Nueces River in Texas.</p><p>It may also be found in the Rio Grande which forms the border between Mexico and the United States further south where records include Falcon International Reservoir, for example.</p><p>Type locality is 'Duck Lake, Calhoun County, Michigan, U.S.A.'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>Found in various habitat-types, from large lakes and rivers to sluggish tributaries, backwaters and pools though it tends to show a preference for larger, low-altitude bodies of water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>Suitable only for very large public installations.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>Relatively unfussy provided water flow is not too strong and lighting not bright.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<ul><li>Temperature: 12–20°C</li><li>pH: 6.0–8.0</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>Gars are ambush predators feeding on smaller fishes and aquatic crustaceans in nature.</p><p>It can sometimes be tricky to get newly-introduced captive individuals to accept dead foods though most will learn to do so following a short period of starvation.</p><p>After a short time most small individuals will accept meaty frozen foods such as prawns, lance fish, etc., while larger specimens can be offered whole fishes such as trout or sprats.</p><p>Feed every day when juvenile but as the fish grows reduce the frequency; an adult requires only one or two meals per week at most.</p><p>In extreme cases there may be no other option but to use live 'feeder' fishes for the initial period but it must be stressed that this is only advisable until an individual has built up adequate body mass to attempt a starvation period.</p><p>It's highly recommended to buy such feeders in advance and quarantine them for at least two weeks to ensure they're free of disease while feeding them a high quality diet so that the flesh is sufficiently nutritious.</p><p>This species should never be fed the meat of mammals such as beef heart or chicken since some of the lipids and other organic compounds contained in these meats cannot be properly metabolised by fishes, causing excess fat deposition and even organ degeneration over the long term.</p><p>Except for in the extreme circumstance described there's also no real benefit in the use of feeder fishes due to the risk of disease or parasite introduction.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>Best kept alone, or with similarly-sized, non-aggressive fishes it cannot fit into its mouth.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>Unrecorded in captivity.</p><p>In nature spawning occurs between the months of May and July and eggs are simply scattered among aquatic vegetation with no parental care.</p><p>As many as 20,000 eggs may be deposited in by a single female during such an event.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>This species clearly shouldn't be considered a home aquarium subject at all given its eventual size and the fact it can live for several decades.</p><p>It is included here only because some public aquaria are able to maintain it long-term and juveniles are occasionally offered in the aquarium trade.</p><p>Gars are among the most primitive fish species still alive today.</p><p>They have a modified, vascularised swim bladder that is connected to the pharynx and allows them to breathe atmospheric air to a certain extent.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá săn mồi",
+        "tôm đông lạnh cho cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

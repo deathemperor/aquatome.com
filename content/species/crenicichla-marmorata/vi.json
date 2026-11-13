@@ -1,0 +1,25 @@
+{
+  "slug": "ca-pike-cichlid-crenicichla-marmorata",
+  "name": "Cá pike cichlid Crenicichla marmorata",
+  "altNames": [
+    "Marbled pike cichlid"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Người chơi cá biết tiếng hồ Lago Maracana nhờ cá đĩa ở đây rất đẹp. Đây là lần đầu tiên có Crenicichla marmorata từ hồ này nhập về.</p>",
+    "notes:glaser": "<p>Lô nhập về có hai con, hiện dài 20–25 cm.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

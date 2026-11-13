@@ -6,9 +6,12 @@
   "html": "",
   "photos": [],
   "mentions": [
-    "sagittaria-subulata"
+    "sagittaria-subulata",
+    "microsorum-pteropus",
+    "neocaridina-davidi",
+    "betta-splendens"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "opp6ngBRkP4",
     "title": "Hướng dẫn setup Ly Thủy sinh siêu dễ",
@@ -28,8 +31,9 @@
     },
     "lang": "vi",
     "taxa": [
-      "Sagittaria subulata",
-      "Anubias sp."
+      "Microsorum pteropus",
+      "Neocaridina davidi",
+      "Betta splendens"
     ],
     "gear": [
       {
@@ -43,66 +47,39 @@
         "t": 36
       },
       {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 98
+      },
+      {
+        "category": "khac",
+        "brand": "502",
+        "t": 310
+      },
+      {
         "category": "den",
         "t": 735
       },
       {
         "category": "co2",
+        "type": "mini",
         "brand": "Thủy Mộc",
         "t": 767
       }
     ],
     "figures": [
       {
-        "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 0,
-            "url": "https://media.aquatome.com/video/opp6ngBRkP4/t0.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bình thủy tinh, đá, lũa và sỏi đã bày sẵn trên bàn."
-          }
-        ]
-      },
-      {
-        "heading": "Dựng đá và lũa",
-        "moments": [
-          {
-            "t": 268,
-            "url": "https://media.aquatome.com/video/opp6ngBRkP4/t268.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Chỉnh vị trí từng viên đá trong bình, lũa đặt sẵn trên bàn."
-          }
-        ]
-      },
-      {
-        "heading": "Hoàn thiện nền sau khi có đá lũa",
+        "heading": "Đèn, lọc và CO2",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/opp6ngBRkP4/p4-MDM1NjA5NSkuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/opp6ngBRkP4/p4-MDM1NjA5NSkuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/opp6ngBRkP4/p5-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/opp6ngBRkP4/p5-FzY2FwaW5nLmpwZw-480.webp",
           "width": 960,
-          "height": 636,
-          "licence": "CC BY 2.0",
-          "author": "shankar s. from Dubai, united arab emirates",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_fierce_looking,_but_critically_endanged_American_Eel_(27900356095).jpg",
-          "caption": "Nền sỏi xen lẫn đá lớn trong bể, sỏi được rải phủ quanh chân đá."
-        }
-      },
-      {
-        "heading": "Trồng cây gì và trồng ở đâu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/opp6ngBRkP4/p5-dWxhY2VhXzIuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/opp6ngBRkP4/p5-dWxhY2VhXzIuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Coughdrop12",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangea_America_Halophila_stipulacea_2.jpg",
-          "caption": "Cây lá xanh mọc trên nền sỏi cuội trong bể thủy sinh nhỏ."
+          "height": 338,
+          "licence": "CC BY 3.0",
+          "author": "Ghostsword",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
+          "caption": "Bể thủy sinh cây xanh tốt, đủ sáng, có đàn cá neon bơi trong."
         }
       }
     ]

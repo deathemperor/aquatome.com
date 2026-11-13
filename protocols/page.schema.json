@@ -70,6 +70,10 @@
                       "term",
                       "text"
                     ]
+                  },
+                  "note": {
+                    "type": "boolean",
+                    "const": true
                   }
                 },
                 "required": [
@@ -120,6 +124,10 @@
                       "term",
                       "text"
                     ]
+                  },
+                  "note": {
+                    "type": "boolean",
+                    "const": true
                   }
                 },
                 "required": [
@@ -170,6 +178,37 @@
               "required": [
                 "text",
                 "licence"
+              ]
+            },
+            "box": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "y": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "w": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 1
+                },
+                "h": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 1
+                }
+              },
+              "required": [
+                "x",
+                "y",
+                "w",
+                "h"
               ]
             }
           },
@@ -341,6 +380,10 @@
                           "term",
                           "text"
                         ]
+                      },
+                      "note": {
+                        "type": "boolean",
+                        "const": true
                       }
                     },
                     "required": [
@@ -429,6 +472,10 @@
                             "term",
                             "text"
                           ]
+                        },
+                        "note": {
+                          "type": "boolean",
+                          "const": true
                         }
                       },
                       "required": [
@@ -481,6 +528,10 @@
                               "term",
                               "text"
                             ]
+                          },
+                          "note": {
+                            "type": "boolean",
+                            "const": true
                           }
                         },
                         "required": [
@@ -547,6 +598,37 @@
                     "text",
                     "licence"
                   ]
+                },
+                "box": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "y": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "w": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 1
+                    },
+                    "h": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "maximum": 1
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "w",
+                    "h"
+                  ]
                 }
               },
               "required": [
@@ -593,6 +675,10 @@
                           "term",
                           "text"
                         ]
+                      },
+                      "note": {
+                        "type": "boolean",
+                        "const": true
                       }
                     },
                     "required": [
@@ -675,6 +761,37 @@
                         "required": [
                           "text",
                           "licence"
+                        ]
+                      },
+                      "box": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "y": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "w": {
+                            "type": "number",
+                            "exclusiveMinimum": 0,
+                            "maximum": 1
+                          },
+                          "h": {
+                            "type": "number",
+                            "exclusiveMinimum": 0,
+                            "maximum": 1
+                          }
+                        },
+                        "required": [
+                          "x",
+                          "y",
+                          "w",
+                          "h"
                         ]
                       }
                     },
@@ -919,6 +1036,37 @@
                       "licence"
                     ]
                   },
+                  "box": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      },
+                      "y": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      },
+                      "w": {
+                        "type": "number",
+                        "exclusiveMinimum": 0,
+                        "maximum": 1
+                      },
+                      "h": {
+                        "type": "number",
+                        "exclusiveMinimum": 0,
+                        "maximum": 1
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y",
+                      "w",
+                      "h"
+                    ]
+                  },
                   "thumb": {
                     "type": "string"
                   }
@@ -975,6 +1123,10 @@
                     "type": "string"
                   },
                   "conflict": {
+                    "type": "boolean",
+                    "const": true
+                  },
+                  "marked": {
                     "type": "boolean",
                     "const": true
                   },
@@ -1071,6 +1223,37 @@
                               "text",
                               "licence"
                             ]
+                          },
+                          "box": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              "y": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              "w": {
+                                "type": "number",
+                                "exclusiveMinimum": 0,
+                                "maximum": 1
+                              },
+                              "h": {
+                                "type": "number",
+                                "exclusiveMinimum": 0,
+                                "maximum": 1
+                              }
+                            },
+                            "required": [
+                              "x",
+                              "y",
+                              "w",
+                              "h"
+                            ]
                           }
                         },
                         "required": [
@@ -1153,6 +1336,37 @@
                             "required": [
                               "text",
                               "licence"
+                            ]
+                          },
+                          "box": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              "y": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                              },
+                              "w": {
+                                "type": "number",
+                                "exclusiveMinimum": 0,
+                                "maximum": 1
+                              },
+                              "h": {
+                                "type": "number",
+                                "exclusiveMinimum": 0,
+                                "maximum": 1
+                              }
+                            },
+                            "required": [
+                              "x",
+                              "y",
+                              "w",
+                              "h"
                             ]
                           }
                         },
@@ -1311,6 +1525,37 @@
                         "required": [
                           "text",
                           "licence"
+                        ]
+                      },
+                      "box": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "y": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "w": {
+                            "type": "number",
+                            "exclusiveMinimum": 0,
+                            "maximum": 1
+                          },
+                          "h": {
+                            "type": "number",
+                            "exclusiveMinimum": 0,
+                            "maximum": 1
+                          }
+                        },
+                        "required": [
+                          "x",
+                          "y",
+                          "w",
+                          "h"
                         ]
                       }
                     },

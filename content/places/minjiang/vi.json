@@ -1,10 +1,13 @@
 {
   "slug": "minjiang",
-  "name": "Minjiang",
-  "altNames": [],
+  "name": "sông Mân Giang",
+  "altNames": [
+    "Minjiang"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

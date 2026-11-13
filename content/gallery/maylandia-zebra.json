@@ -1,0 +1,44 @@
+{
+  "id": "maylandia-zebra",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/61728225.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/61728225-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Kai Squires",
+      "sourceUrl": "https://www.inaturalist.org/photos/61728225",
+      "caption": "Đàn cá zebra mbuna sọc xanh đen trong môi trường tự nhiên hồ Malawi",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/258fe7812966db17.webp",
+      "thumb": "https://media.aquatome.com/commons/258fe7812966db17-480.webp",
+      "width": 1200,
+      "height": 801,
+      "licence": "CC BY 3.0",
+      "author": "lienyuan lee",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E6%96%91%E9%A6%AC%E9%9B%80_Pseudotropheus_zebra_-_panoramio.jpg",
+      "caption": "Cá zebra mbuna có sọc đen xanh nhạt trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6bec1d387a8bb6a5.webp",
+      "thumb": "https://media.aquatome.com/commons/6bec1d387a8bb6a5-480.webp",
+      "width": 1200,
+      "height": 799,
+      "licence": "CC BY 3.0",
+      "author": "lienyuan lee",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E6%96%91%E9%A6%AC%E9%9B%80_Pseudotropheus_zebra_-_panoramio_(2).jpg",
+      "caption": "Cá zebra vàng màu cam trong bể",
+      "best": false,
+      "kind": "form"
+    }
+  ],
+  "seen": 10,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-10"
+}

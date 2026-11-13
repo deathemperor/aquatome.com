@@ -16,6 +16,337 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "SR",
+        "GF",
+        "BR",
+        "VE"
+      ],
+      "regions": [
+        "Amazon",
+        "rio Madeira",
+        "rio Negro",
+        "Río Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The golden pencilfish, Nannostomus beckfordi, is a lebiasinid widely distributed across Guyana, Suriname, French Guiana, Brazil and Venezuela.",
+          "countries": [
+            "GY",
+            "SR",
+            "GF",
+            "BR",
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Goedverwagting, a plantation on the Coast of Demerara, Guyana' but this species is widely-distributed throughout rivers of Guyana, Suriname, and French Guiana, plus the eastern Amazon drainage in Amapá and Pará states, Brazil.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also reported from the rio Madeira, lower and middle Amazon as far upstream as the lower rio Negro, and Río Orinoco in Venezuela.",
+          "countries": [],
+          "regions": [
+            "rio Madeira",
+            "rio Negro",
+            "Río Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355627,
+      "total": 356,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BR",
+          174
+        ],
+        [
+          "GF",
+          156
+        ],
+        [
+          "SR",
+          12
+        ],
+        [
+          "GY",
+          9
+        ],
+        [
+          "VE",
+          4
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          36.5625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          5.625,
+          5,
+          5
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          -54.84375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          10,
+          10
+        ],
+        [
+          -54.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -53.4375,
+          4.21875,
+          142,
+          142
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -52.03125,
+          0,
+          20,
+          20
+        ],
+        [
+          -52.03125,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -4.21875,
+          11,
+          11
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          7,
+          7
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          8,
+          8
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          4,
+          4
+        ],
+        [
+          -47.8125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          14,
+          14
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          28,
+          28
+        ],
+        [
+          -45,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          11,
+          11
+        ],
+        [
+          -43.59375,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -5.625,
+          7,
+          7
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          4,
+          4
+        ],
+        [
+          -39.375,
+          -14.0625,
+          4,
+          4
+        ],
+        [
+          -39.375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -36.5625,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          -36.5625,
+          -7.03125,
+          7,
+          7
+        ],
+        [
+          -35.15625,
+          -7.03125,
+          10,
+          10
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -70,7 +401,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 3
+        "value": 2
       }
     ]
   },
@@ -207,8 +538,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể thủy sinh 60cm"
+        "bể cá 50cm"
       ]
     },
     {

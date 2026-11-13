@@ -1,0 +1,104 @@
+{
+  "id": "benitochromis-finleyi",
+  "scientificName": "Benitochromis finleyi",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Benitochromis",
+  "group": "cichlids",
+  "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2370877,
+      "total": 47,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CM",
+          43
+        ],
+        [
+          "GQ",
+          3
+        ],
+        [
+          "NG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          2.8125,
+          5
+        ],
+        [
+          8.4375,
+          4.21875,
+          10
+        ],
+        [
+          9.84375,
+          1.40625,
+          24
+        ],
+        [
+          9.84375,
+          2.8125,
+          8
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_finleyi_mungo_en/",
+      "html": "<p>This medium sized cichlid reaches a maximum length of about 12 cm. The very beautiful fish are pair-bonding oviphilic mouthbrooders.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_finleyi_mungo_en/",
+      "html": "<p>One should keep them in larger aquaria, for the fish can become quite gruff against each other.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_finleyi_mungo_en/",
+      "html": "<p>In respect of water chemistry the species is astonishingly adaptable.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_finleyi_mungo_en/",
+      "html": "<p>Benitochromis: named after the Benito river in Rio Muni (Equatorial Guinea). finleyi: dedication name for Lee Finley.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

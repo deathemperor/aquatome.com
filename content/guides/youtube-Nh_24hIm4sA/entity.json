@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "Nh_24hIm4sA",
     "title": "AQUARIUM ALGAE GUIDE Ep #4 Cyanobacteria - Blue Green Algae Removal",
@@ -34,45 +34,32 @@
         "t": 289
       },
       {
-        "category": "test-nuoc",
-        "type": "test",
-        "t": 130
-      },
-      {
         "category": "loc",
         "type": "suc-khi",
-        "t": 340
+        "t": 320
       }
     ],
     "figures": [
       {
-        "heading": "Làm sao biết bể bị rêu nhớt lam",
+        "heading": "Vì sao BGA mọc trong bể",
         "moments": [
           {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/Nh_24hIm4sA/t59.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Mảng rêu nhớt lam xanh sẫm phủ dày trong bể thiếu sáng."
-          }
-        ]
-      },
-      {
-        "heading": "Vì sao rêu nhớt lam mọc",
-        "moments": [
-          {
-            "t": 109,
-            "url": "https://media.aquatome.com/video/Nh_24hIm4sA/t109.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Mặt cát nền bị rêu nhớt lam phủ thành từng mảng."
+            "t": 145,
+            "url": "https://media.aquatome.com/video/Nh_24hIm4sA/at145-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lớp nền chặt phủ cây thảm xanh, chỗ rêu hại dễ bám.",
+            "sharpness": 848.6,
+            "person": false
           },
           {
-            "t": 143,
-            "url": "https://media.aquatome.com/video/Nh_24hIm4sA/t143.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cây thủy sinh xanh mọc trên lớp đất nền đen."
+            "t": 165,
+            "url": "https://media.aquatome.com/video/Nh_24hIm4sA/at165-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mảng rêu hại BGA xanh đậm bám giữa đám cây.",
+            "sharpness": 85.3,
+            "person": false
           }
         ],
         "photo": {
@@ -83,35 +70,35 @@
           "licence": "CC BY-SA 2.0",
           "author": "kerinin",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diatom_sand.jpg",
-          "caption": "Lớp cát nền trong bể có màng nâu bám trên mặt, cạnh đá."
+          "caption": "Lớp cát nền trong bể, có lớp màng nâu bám trên mặt cát."
         }
       },
       {
-        "heading": "Cách 3: kháng sinh, một cách chưa kiểm chứng",
+        "heading": "Dùng kháng sinh erythromycin",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/Nh_24hIm4sA/p5-Npbl9BXzNELnBuZw.webp",
-          "thumb": "https://media.aquatome.com/video/Nh_24hIm4sA/p5-Npbl9BXzNELnBuZw-480.webp",
+          "url": "https://media.aquatome.com/video/Nh_24hIm4sA/p4-Npbl9BXzNELnBuZw.webp",
+          "thumb": "https://media.aquatome.com/video/Nh_24hIm4sA/p4-Npbl9BXzNELnBuZw-480.webp",
           "width": 960,
           "height": 795,
           "licence": "CC BY-SA 4.0",
           "author": "Jovan.gec",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erythromycin_A_3D.png",
-          "caption": "Mô hình phân tử erythromycin, loại kháng sinh có người dùng để trị rêu nhớt."
+          "caption": "Mô hình phân tử erythromycin, loại kháng sinh được nhắc tới để xử lý tảo BGA."
         }
       },
       {
-        "heading": "Làm sao để rêu nhớt lam không quay lại",
+        "heading": "Giữ cho BGA không quay lại",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/Nh_24hIm4sA/p7-bV9maXNoZXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/Nh_24hIm4sA/p7-bV9maXNoZXMuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/Nh_24hIm4sA/p6-bV9maXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/Nh_24hIm4sA/p6-bV9maXNoZXMuanBn-480.webp",
           "width": 960,
           "height": 640,
           "licence": "CC BY-SA 4.0",
           "author": "KannanVM",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
-          "caption": "Cá vàng bơi trong bể có nền sỏi và cây thủy sinh."
+          "caption": "Bể cá cảnh sạch sẽ, nền sỏi gọn gàng, có cá vàng và cây thủy sinh."
         }
       }
     ]

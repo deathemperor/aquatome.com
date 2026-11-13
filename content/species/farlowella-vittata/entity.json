@@ -1,0 +1,565 @@
+{
+  "id": "farlowella-vittata",
+  "scientificName": "Farlowella vittata",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Farlowella",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "orinoco",
+    "venezuela"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The twig catfish, Farlowella vittata, is a stick-like loricariid from the Orinoco river basin in Colombia and Venezuela.",
+          "countries": [
+            "CO",
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Orinoco river basin in Colombia and Venezuela.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340449,
+      "total": 462,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "VE",
+          375
+        ],
+        [
+          "CO",
+          86
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          51,
+          51
+        ],
+        [
+          -74.53125,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          -73.125,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          4.21875,
+          12,
+          12
+        ],
+        [
+          -73.125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          7.03125,
+          16,
+          16
+        ],
+        [
+          -73.125,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -71.71875,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          7.03125,
+          42,
+          42
+        ],
+        [
+          -71.71875,
+          8.4375,
+          5,
+          5
+        ],
+        [
+          -70.3125,
+          5.625,
+          6,
+          6
+        ],
+        [
+          -70.3125,
+          7.03125,
+          20,
+          20
+        ],
+        [
+          -70.3125,
+          8.4375,
+          86,
+          86
+        ],
+        [
+          -68.90625,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          -68.90625,
+          5.625,
+          10,
+          10
+        ],
+        [
+          -68.90625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          8.4375,
+          21,
+          21
+        ],
+        [
+          -68.90625,
+          9.84375,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          5.625,
+          31,
+          31
+        ],
+        [
+          -67.5,
+          7.03125,
+          26,
+          26
+        ],
+        [
+          -67.5,
+          8.4375,
+          22,
+          22
+        ],
+        [
+          -67.5,
+          9.84375,
+          4,
+          4
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          5.625,
+          17,
+          17
+        ],
+        [
+          -66.09375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -64.6875,
+          8.4375,
+          15,
+          15
+        ],
+        [
+          -64.6875,
+          9.84375,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          8.4375,
+          15,
+          15
+        ],
+        [
+          -63.28125,
+          9.84375,
+          6,
+          6
+        ],
+        [
+          -61.875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 15
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
+      "html": "<p>The twig catfish, Farlowella vittata, is a stick-like loricariid from the Orinoco river basin in Colombia and Venezuela. This is the most common Farlowella in hobbyists' tanks, although much of the literature refers to it as F. acus, which has a shorter, less slender rostrum. It is super sensitive to poor water quality and should only go into an established aquarium with a good biofilm, algae or dried leaves.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_vittata_en/",
+      "html": "<p>The needle suckers of the genus Farlowella are quite speciose: to date 27 species are recognized as valid. Farlowella vittata is the species most often imported into the hobby from Colombia.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
+      "html": "<p>Despite their undeniably interesting shape and habits, they're only recommended to the dedicated hobbyist who can provide them with the conditions they need to thrive. They are particularly sensitive when first imported and sadly losses are common in this initial period. Only buy well-quarantined fish, and check the belly for signs of emaciation before parting with any money.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
+      "html": "<p>Orinoco river basin in Colombia and Venezuela. Type locality: A tributary of Río Uribanto [Uribante], Tachira State, Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_vittata_en/",
+      "html": "<p>Colombia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
+      "html": "<p>Inhabits areas of submerged vegetation, dead leaves and sticks or tangled roots along the banks of gently flowing streams and rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
+      "html": "<p>Largely inactive and can be kept in a tank measuring 90 × 30 × 30 cm, about 81 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
+      "html": "<p>A dimly lit stream-type setup with a sand substrate, rounded stones and rocks and lots of driftwood branches would simulate its natural biotope. However, it is equally at home in a planted tank. It is essential that the water is well-oxygenated, preferably with a small degree of current running through the tank. Tank maintenance must be of the highest order as the species is super sensitive to poor or deteriorating water conditions.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_vittata_en/",
+      "html": "<p>Keeping and even breeding Farlowella vittata in the aquarium is not difficult. The perfect tank for Farlowella has a fine layer of algae growing on all sides of the tank except the front glass. Planting should preferably consist of plants with broad leaves.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 6.0–7.0</li><li>Hardness: 3–10 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_vittata_en/",
+      "html": "<p>F. vittata likes higher temperatures, so the water temperature should be between 26 and 30°C. Hardness and pH are of no importance to the fish as long as extremes are avoided.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
+      "html": "<p>Primarily vegetarian, so the bulk of the diet should be composed of vegetable matter in both fresh (cucumber slices, kale, blanched spinach etc.) and dried (algae wafers, spirulina tablets etc.) forms. It will accept small live and frozen foods such as bloodworm or daphnia and these should also be offered occasionally, although never as a main component of the diet.</p><p>This species will continually graze surfaces of plant leaves, wood, rock, the substrate and tank walls. It is an excellent consumer of diatoms and common green algae but will not eat troublesome algae like brush or beard.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_vittata_en/",
+      "html": "<p>The algae growing in the tank serve as basic food for the fish, but Farlowella also feed readily on all the usual types of dried and frozen fish food. Take care that the needle suckers get enough food, as they are very slow feeders.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
+      "html": "<p>Very peaceful but unsuitable for the general community due to its rather specialised requirements and retiring nature. Not only does it require pristine water, but it will easily be outcompeted for food by more vigorous or larger species. Possible tankmates could include small characins, danios, devarios and other Loricariids inhabiting similar waters, such as Chaetostoma sp.</p><p>Rival males can be somewhat territorial, but rarely is any damage done, and several can be kept in most tanks.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
+      "html": "<p>Generally easy to sex, as the rostrum (snout) of the male is broader and develops rows of odontotes as the fish matures. These are absent altogether in females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
+      "html": "<p>If kept in suitable conditions and fed well, the fish will breed quite easily, although the fry are notoriously difficult to raise. Try starting with a group of 6 or more juvenile fish to give yourself the best chance of obtaining a pair. Set up the tank as suggested above, and keep the water very clean. Condition the fish on a diet of nutrient-rich greenstuffs, such as kale, spinach etc.</p><p>The fish tend to spawn at night and the eggs are almost always deposited on a vertical surface (very often the tank glass). They're tended by the male and he remains with them, fanning them with his fins, until they hatch in around 6-10 days. During this time, he may be visited by other females who will add their eggs to the existing brood.</p><p>The hatched fry will adhere themselves to surfaces close to where they hatched; they have a very small yolk sac that is used up within a few days. Unfortunately, this is where the problems begin. As well as being very sensitive to changes in water chemistry, the fry are particularly susceptible to starvation. They need constant access to large quantities of vegetable matter, of a consistency soft enough for them to digest. Try pre-softened leaves of kale and spinach (it's better to soften these by soaking them in water for a couple of days, as blanching in boiling water tends to strip many of the nutrients away), but better results will occur with algae grown on rocks in a sunlit tank and/or dried leaves such as oak. Even with the best diet and water quality, losses may still be high in the early days. If you decide to remove the fry to a separate tank, ensure that it contains identical water to the spawning tank.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
+      "html": "<p>Of the 27 described species of Farlowella found throughout South America, only two are regularly exported. Most of the existing literature refers to these as F. acus and F. gracilis. F. acus is a species that is highly endangered and imported very rarely, if at all, and F. vittata rather than F. acus is the most common representative of the genus in hobbyists' tanks. The easiest way to distinguish the two is by comparing the shape of the rostrum, which is longer and more slender in vittata, although there are also differences in the arrangement of the ventral scutes.</p><p>This fish is truly a camouflage expert among aquarium fish; hanging or sitting motionless on a branch they are easily unnoticed. They move from surface to surface, usually with short \"hops;\" swimming when necessary is achieved by body undulations and propulsion from the caudal fin. They are believed to have a lifespan of up to 15 years; their frequent demise in aquaria is likely due to their demand for stable water parameters and conditions, and they should only be introduced to an established aquarium containing a good biofilm, algae or dried leaves. They do not appreciate being moved, and once introduced to an aquarium should be left alone.</p><p>Like most of the South American catfish, they are sensitive to chemicals and medications; when irritating substances are present in the water they will frequently select a plant leaf or object near the surface and remain motionless with their rostrum protruding above the water in an attempt to gain oxygen, and an immediate substantial partial water change should be undertaken.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_vittata_en/",
+      "html": "<p>As many species look very similar to each other, exact determination is often difficult. The 27th species was described very recently from Colombia (Farlowella yarigui, which has not been imported alive so far). Its scientific description is accompanied by a key to identify the 12 species of Farlowella known so far from Colombia. According to that key, the most often imported species of Farlowella in the hobby is in fact Farlowella vittata. It will undoubtedly take quite a long time until the correct name is commonly used in the trade; until now the Farlowella from Colombia has usually been called F. acus.</p><p>F. acus does occur in Colombia and is very similar to F. vittata, but there is one easily recognizable difference: in F. acus the males develop breeding odontodes (a \"beard\") on the snout, which is missing in ripe males of F. vittata.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
+      "html": "<ul><li>Covain, Raphael and Sonia Fisch-Muller (2007). The genera of the Neotropical armored catfish subfamily Loricariinae (Siluriformes: Loricariidae): a practical key and synopsis Zootaxa 1462, 1-40</li><li>Retzer, M.E. &amp; Page, L.M. (1997). Systematics of the stick catfishes, Farlowella Eigenmann &amp; Eigenmann (Pisces, Loricariidae) oceedings of the Academy of Natural Sciences, Philadelphia, 147, 33-88</li><li>Myers, George S. (1942). Studies on South American fresh-water fishes. I. Stanford Ichthyological Bulletin v. 2 (no. 4), 89-114</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fd432a0df033d9e3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fd432a0df033d9e3-480.webp",
+      "width": 1200,
+      "height": 1807,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/farlowella-vittata",
+      "caption": "Female F. vittata holding onto a branch of spiderwood.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c5fa0aea71e4bc66.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c5fa0aea71e4bc66-480.webp",
+      "width": 500,
+      "height": 340,
+      "licence": "dùng với sự cho phép",
+      "author": "Yann Fulliquet / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_vittata.htm",
+      "caption": "Farlowella vittata",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/e968f487129c4e45.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e968f487129c4e45-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_vittata.htm",
+      "caption": "Farlowella vittata: ventral view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "C_ga--BcNL0",
+      "title": "100 Gallon Aquarium Update - Farlowella vittata breeding again.",
+      "durationSec": 484,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zCvkp_ZQmKE",
+      "title": "Farlowella vittata: Lessons from keeping Stick Catfish by Jim Benfer",
+      "durationSec": 989,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "RrC4suAVwz0",
+      "title": "How many times have these Farlowella vittata spawned?",
+      "durationSec": 146,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pJy3w6HmGls",
+      "title": "A quick guide to Twig catfishes, Farlowella spp. in aquariums.",
+      "durationSec": 101,
+      "lang": "en-GB"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 90cm",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tảo viên cho cá dọn bể",
+        "spirulina tablet"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

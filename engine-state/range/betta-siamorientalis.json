@@ -1,0 +1,95 @@
+{
+  "id": "betta-siamorientalis",
+  "native": {
+    "input": "c8b8bbf164e339ed",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to slow-moving, shallow waters in eastern Thailand (Chachoengsao, Sa Kaeo, Prachin Buri, Chon Buri provinces), western Cambodia, and parts of Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to slow-moving, shallow waters in eastern Thailand (Chachoengsao, Sa Kaeo, Prachin Buri, Chon Buri provinces), western Cambodia, and parts of Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to slow-moving, shallow waters in eastern Thailand (Chachoengsao, Sa Kaeo, Prachin Buri, Chon Buri provinces), western Cambodia, and parts of Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta siamorientalis is a small bubble-nesting labyrinth fish from eastern Thailand, western Cambodia and Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta siamorientalis is a small bubble-nesting labyrinth fish from eastern Thailand, western Cambodia and Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta siamorientalis is a small bubble-nesting labyrinth fish from eastern Thailand, western Cambodia and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Vietnam.",
+        "words": "Vietnam",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta siamorientalis",
+    "status": "ACCEPTED",
+    "taxonKey": 8147096,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        14
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ]
+    ],
+    "native": [
+      "TH",
+      "KH",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

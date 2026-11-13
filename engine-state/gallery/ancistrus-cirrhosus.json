@@ -5,16 +5,28 @@
   "File:Ancistrus cirrhosus Orbigny.jpg",
   "File:Acanthicus adonis1.jpg",
   "File:Acanthicus adonis2.jpg",
-  "File:Ancistrus cirrhosus 3.jpg"
+  "File:Ancistrus cirrhosus 3.jpg",
+  "inat:130809773"
  ],
  "hashes": {
   "https://media.aquatome.com/sprucepets/a57d6f946356f4af.webp": "ed8d861639283099",
-  "https://media.aquatome.com/scotcat/9576b3598535f18e.webp": "69f2f2f2f2f1f1f1",
   "https://media.aquatome.com/scotcat/a325d413dce9b120.webp": "15d5f6fefaf3f8db",
   "https://media.aquatome.com/scotcat/6a888f81b0b8aeea.webp": "000120c0c0f0783d",
   "https://media.aquatome.com/scotcat/b86d8caa35a9766a.webp": "337278f0b0a28eb8",
   "https://media.aquatome.com/commons/b513cb594429c987.webp": "17bfd88d854d182b",
   "https://media.aquatome.com/commons/bb94c4734b25dd31.webp": "b1bb787078dbc348"
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "inat": {
+  "taxon": 616114,
+  "pass": "done",
+  "after": {
+   "research": 79846093,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 5961447,
+  "next": null
+ }
 }

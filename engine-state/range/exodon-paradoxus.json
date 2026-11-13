@@ -1,0 +1,154 @@
+{
+  "id": "exodon-paradoxus",
+  "native": {
+    "input": "1e6842fd72426265",
+    "at": "2026-11-08T06:57:58.844Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It can be found in Guyana and the whole Amazon and Orinoco basins.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The bucktooth tetra, Exodon paradoxus, is a scale-ripping characin widespread in the Brazilian Amazon.",
+        "words": "Brazilian",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout the Brazilian Amazon and has also been recorded in the Rio Branco, Guyana.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "It can be found in Guyana and the whole Amazon and Orinoco basins.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "It can be found in Guyana and the whole Amazon and Orinoco basins.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout the Brazilian Amazon and has also been recorded in the Rio Branco, Guyana.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Branco",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout the Brazilian Amazon and has also been recorded in the Rio Branco, Guyana.",
+        "country": "GY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Exodon paradoxus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354407,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        38
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        21
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        14
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        10
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T06:57:58.844Z"
+  }
+}

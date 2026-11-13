@@ -12,6 +12,131 @@
     "meta-river",
     "rio-meta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Río Meta",
+        "Orinoco",
+        "Meta River",
+        "Orinoco River"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "aquariumbreeder",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The ruby tetra, Axelrodia riesei, is a tiny characid known only from the upper Río Meta basin in Colombia, part of the Orinoco system.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Río Meta",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "Axelrodia riesei has a very narrow natural distribution and can only be found in the basin of the Meta River, a left tributary of the Orinoco River, in Colombia, South America.",
+          "countries": [],
+          "regions": [
+            "Meta River",
+            "Orinoco River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352795,
+      "total": 27,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          19
+        ],
+        [
+          "CO",
+          4
+        ],
+        [
+          "VE",
+          3
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          5.625,
+          3,
+          2
+        ],
+        [
+          -67.5,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          13,
+          0
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -105,7 +230,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       },
       {
         "source": "aquariumbreeder",
@@ -298,12 +423,6 @@
       "html": "<p>The genus Axelrodia was established in 1965 by Jacques Géry, and Axelrodia riesei was described in 1966. Axelrodia fowleri was later recognised as a junior synonym of Hyphessobrycon stigmatia. The species was named in honour of Dr. Herbert R. Axelrod and Mr. William Riese, a tropical-fish exporter who helped collect it.</p><p>It is one of the smallest fish in the hobby and probably the smallest in the tetra family. Body elongated and slightly compressed, pointed snout, large eyes; colour from bright red to pinkish, paler toward the belly; fins short and transparent; caudal fin forked with a conspicuous black spot.</p><p>In captivity, Ruby tetras can live 2–3 years if appropriately cared for.</p>"
     },
     {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/axelrodia_riesei_ruby_tetra_en/",
-      "html": "<p>The ruby-red coloration differs somewhat between individuals – a shipment of ruby fish always includes some more yellowish specimens. In part it is also a consequence of settling into the aquarium.</p>"
-    },
-    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/axelrodia-riesei",
@@ -333,8 +452,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể thủy sinh 60x30"
+        "bể cá 60cm"
       ]
     },
     {

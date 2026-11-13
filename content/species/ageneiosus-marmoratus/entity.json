@@ -25,10 +25,9 @@
         "EC"
       ],
       "regions": [
-        "Essequibo",
         "Amazon",
-        "Courantyne",
-        "Potaro"
+        "Essequibo",
+        "Courantyne"
       ],
       "sources": [
         "seriouslyfish"
@@ -52,8 +51,7 @@
           "quote": "The holotype was collected from a creek below the settlement of Potaro Landing in the Potaro-Siparuni region of central Guyana which almost certainly refers to a tributary of the Potaro River, itself an affluent of the much larger Essequibo system.",
           "countries": [],
           "regions": [
-            "Essequibo",
-            "Potaro"
+            "Essequibo"
           ]
         },
         {
@@ -189,7 +187,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
       }
     ]
   },
@@ -198,7 +196,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-marmoratus",
-      "html": "<p>Bottlenose catfish, Ageneiosus marmoratus, is a predatory auchenipterid catfish from Guyana, Suriname and the upper Amazon in Peru and Ecuador. Also sold as 'Guyana slopehead', 'dolphin' or 'hammerhead' catfish, it loses much of its black-blotched juvenile patterning as it grows. Surprisingly peaceful with anything too large to swallow, it is active and sometimes skittish, and needs a tank of at least 150 x 60 cm.</p><ul><li>Max size: 185 mm SL (7 in SL)</li><li>Aquarium size: 150 × 60 cm (60 × 24 in)</li><li>Temperature: 22.5–26°C (73–79°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 3–10 dGH</li><li>Difficulty: 5 of 8 (difficult)</li></ul>"
+      "html": "<p>Bottlenose catfish, Ageneiosus marmoratus, is a predatory auchenipterid catfish from Guyana, Suriname and the upper Amazon in Peru and Ecuador. Also sold as 'Guyana slopehead', 'dolphin' or 'hammerhead' catfish, it loses much of its black-blotched juvenile patterning as it grows. Surprisingly peaceful with anything too large to swallow, it is active and sometimes skittish, and needs a tank of at least 150 x 60 cm.</p><ul><li>Max size: 185 mm SL (7 in SL)</li><li>Aquarium size: 150 × 60 cm (60 × 24 in)</li><li>Temperature: 22.5–26°C (73–79°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 3–10 dGH</li><li>Difficulty: 6 of 8 (difficult)</li></ul>"
     },
     {
       "key": "distribution",
@@ -267,14 +265,79 @@
       "html": "<ul><li>Eigenmann, C. H. (1912). The freshwater fishes of British Guiana, including a study of the ecological grouping of species, and the relation of the fauna of the plateau to that of the lowlands. Memoirs of the Carnegie Museum 5(1), 1-578</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ribeiro, F. R. V. and L. H. Rapp Py-Daniel (2010). Ageneiosus uranophthalmus, a new species of aucheniperid catfish (Osteichthyes: Siluriformes) from river channels of the central Amazon basin, Brazil. Neotropical Ichthyology 8(1), 97-104</li><li>Schraml, E. (2004). 'Gotta Lotta Bottle'. Today's Fishkeeper, November 2004, 32-34</li><li>Sullivan, J. P., J. G. Lundberg and M. Hardman (2006). A phylogenetic analysis of the major groups of catfishes (Teleostei: Siluriformes) using rag1 and rag2 nuclear gene sequences. Molecular Phylogenetics and Evolution 41(3), 636–662</li><li>Walsh, S. J. (1990). A Systematic Revision of the Neotropical Catfish Family Ageneiosidae (Teleostei: Ostariophysi: Siluriformes). Unpublished Ph.D. Dissertation, University of Florida, Gainesville, 1-363</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/705a98de2ecd0ae9ad00dfc3531d7490.webp",
+      "thumb": "https://media.aquatome.com/processed/705a98de2ecd0ae9ad00dfc3531d7490-480.webp",
+      "width": 800,
+      "height": 504,
+      "licence": "dùng với sự cho phép",
+      "author": "Enrico Richter",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ageneiosus-marmoratus",
+      "caption": "Specimen measuring 200 mm SL from the Río Nanay, Peru.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-ageneiosus-marmoratus",
+        "pixelHash": "e2e80f536e55e1822f1cf55dc102fb5bb9c336469d5b72abc0be4bfd588905ae"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:14:31.558Z",
+          "originalHash": "dc830963105043efa9f68a3583ccf6ea8f473ff1d462e42a8d63e9009c3b412d",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 800,
+            "originalHeight": 542,
+            "window": {
+              "x0": 0,
+              "y0": 38,
+              "x1": 800,
+              "y1": 542
+            },
+            "subject": {
+              "x0": 146,
+              "y0": 222,
+              "x1": 637,
+              "y1": 364
+            },
+            "margin": 14
+          },
+          "excludedMarks": [
+            {
+              "x0": 21,
+              "y0": 8,
+              "x1": 176,
+              "y1": 32
+            }
+          ],
+          "checks": {
+            "species": [
+              "6d0c4f227103a8e5d9a65861fd901435225e8fd04d73375390e92985dda1f22c",
+              "7fcabdb36ba6ffd9dce6ce5964d79973c3c74b619c5cb1292dc6a7b2eccfae1f"
+            ],
+            "ownership": [
+              "324a697e8391a22c6f0ace5e7b8ee0f4b268f0e231ae735e3a8ce16e32721622",
+              "1553e1598cd410b979351417b114f96fb6e665673d5a9e726db9b0e408655fd3"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/779c55118562f497.webp",
+        "width": 800,
+        "height": 542,
+        "thumb": "https://media.aquatome.com/seriouslyfish/779c55118562f497-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá lớn 540 lít"
+        "bể cá 150cm"
       ]
     },
     {

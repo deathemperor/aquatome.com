@@ -1,8 +1,8 @@
 {
   "id": "caridina-multidentata",
   "native": {
-    "input": "945ec63970ad192d",
-    "at": "2026-11-05T06:42:12.410Z",
+    "input": "4282d9112babfcb0",
+    "at": "2026-11-09T05:57:45.266Z",
     "claims": [
       {
         "code": "JP",
@@ -19,13 +19,31 @@
         "quote": "As their alternative names suggest, the Amano shrimp is native to Japan.",
         "words": "Japan",
         "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "They come from East Asia, in countries like Japan, Taiwan and Korea, and can thrive in both freshwater and low brackish waters.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "They come from East Asia, in countries like Japan, Taiwan and Korea, and can thrive in both freshwater and low brackish waters.",
+        "words": "Taiwan",
+        "ok": true
       }
     ],
     "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "KR"
+      ],
       "sourcesOnly": []
     }
   },
@@ -72,9 +90,10 @@
       ]
     ],
     "native": [
-      "JP"
+      "JP",
+      "TW"
     ],
     "requests": 13,
-    "at": "2026-11-05T00:41:00.281Z"
+    "at": "2026-11-09T05:57:45.266Z"
   }
 }
