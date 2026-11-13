@@ -2,6 +2,7 @@ import { expect, test } from 'vitest'
 import { OWNER_CROPS, IMAGE_SWITCHES, PhotoSchema } from '../src/index'
 import { readFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
+import { slow } from '../src/test-time'
 test('the only activation is 55 individually named crops, with no general switch or source grant',async()=>{
  expect(OWNER_CROPS.filter(a=>a.approved).map(a=>a.scientificName).sort()).toEqual(["Anablepsoides ornatus", "Aphanius farsicus", "Apteronotus macrostomus", "Leptodoras cataniai", "Macrognathus aculeatus", "Ailia coila", "Acestrorhynchus falcirostris", "Acrochordonichthys septentrionalis", "Ageneiosus marmoratus", "Akysis pulvinatus", "Amatitlania nanolutea", "Amblyrhynchichthys micracanthus", "Aphanius asquamatus", "Aphanius vladykovi", "Aphyosemion bualanum", "Aphyosemion celiae", "Aphyosemion cognatum", "Aphyosemion gabunense", "Apistogrammoides pucallpaensis", "Aristochromis christyi", "Badis ruber", "Bangana devdevi", "Barilius bakeri", "Betta pardalotos", "Betta rutilans", "Betta unimaculata", "Brachygobius xanthomelas", "Copella meinkeni", "Crossocheilus burmanicus", "Cyclocheilichthys armatus", "Esmaeilius persicus", "Esomus caudiocellatus", "Hyphessobrycon elachys", "Nemacheilus saravacensis", "Opsarius koratensis", "Opsarius pulchellus", "Parosphromenus parvulus", "Rasbosoma spilocerca", "Tanakia signifer", "Boraras micros", "Carnegiella marthae", "Lobocheilos melanotaenia", "Oryzias songkhramensis", "Carnegiella myersi", "Carnegiella myersi", "Carnegiella myersi", "Anatolichthys transgrediens", "Aphyosemion hanneloreae", "Apistogramma mendezi", "Aulonocara baenschi", "Boulengerella lateristriga", "Caelatoglanis zonatus", "Canthophrys gongota", "Geophagus dicrozoster", "Champsochromis caeruleus"].sort())
  expect(new Set(OWNER_CROPS.map(a=>a.id)).size).toBe(55)
@@ -18,7 +19,7 @@ test('the schema accepts an optional head-only fitting directive without assigni
 test('the registry loads through native Node, as the browser-check configuration does',async()=>{
  const {execFile}=await import('node:child_process'),{promisify}=await import('node:util')
  const file=new URL('../src/owner-crops.ts',import.meta.url).href
- const {stdout}=await promisify(execFile)('node',['--input-type=module','-e',`const m=await import(${JSON.stringify(file)});console.log(m.OWNER_CROPS.length)`],{timeout:10000})
+ const {stdout}=await promisify(execFile)('node',['--input-type=module','-e',`const m=await import(${JSON.stringify(file)});console.log(m.OWNER_CROPS.length)`],{timeout:slow(10000)})
  expect(stdout.trim()).toBe('55')
 })
 

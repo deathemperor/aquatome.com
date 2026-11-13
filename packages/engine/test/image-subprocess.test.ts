@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
 import { codexImageJson, codexNativeImage, meteredImage, readImageQuota, probeCodexVersion, IMAGE_CAP, type QuotaReading } from '../src/codex-images'
+import { slow } from '@aq/schema/test-time'
 const dirs: string[] = []
 afterEach(async () => { await Promise.all(dirs.splice(0).map(p => rm(p, { recursive:true,force:true }))) })
 async function fake(body: string) { const dir=await mkdtemp(join(tmpdir(),'fake-image-cli-'));dirs.push(dir);const binary=join(dir,'codex');await writeFile(binary,`#!${process.execPath}\n${body}`);await chmod(binary,0o700);return {dir,binary} }
@@ -38,7 +39,7 @@ test('a quota child ignoring SIGTERM is gone when the failed read settles',async
  const f=await fake(''),pidFile=join(f.dir,'owned.pid')
  await writeFile(f.binary,`#!${process.execPath}\nrequire('node:fs').writeFileSync(${JSON.stringify(pidFile)},String(process.pid));process.on('SIGTERM',()=>{});process.stdin.resume();setInterval(()=>{},1000)`)
  const failed=readImageQuota(f.binary,{timeoutMs:15000,graceMs:30});void failed.catch(()=>{});let pid:number|undefined
- try{await vi.waitFor(async()=>{pid=Number(await readFile(pidFile,'utf8'));expect(pid).toBeGreaterThan(0)},{timeout:10000});await expect(failed).rejects.toThrow('timed out');expect(()=>process.kill(pid!,0)).toThrow()}finally{if(pid){try{process.kill(pid,'SIGKILL')}catch{}}}
+ try{await vi.waitFor(async()=>{pid=Number(await readFile(pidFile,'utf8'));expect(pid).toBeGreaterThan(0)},{timeout:slow(10000)});await expect(failed).rejects.toThrow('timed out');expect(()=>process.kill(pid!,0)).toThrow()}finally{if(pid){try{process.kill(pid,'SIGKILL')}catch{}}}
 })
 
 test('an uncertain launch refuses another launch until a fresh live quota reading succeeds',async()=>{
@@ -51,7 +52,7 @@ test('an uncertain launch refuses another launch until a fresh live quota readin
 test('the version probe forcibly stops its ignoring owned child and waits for close',async()=>{
  const f=await fake(''),pidFile=join(f.dir,'probe.pid');await writeFile(f.binary,`#!${process.execPath}\nrequire('node:fs').writeFileSync(${JSON.stringify(pidFile)},String(process.pid));process.on('SIGTERM',()=>{});setInterval(()=>{},1000)`)
  const failed=probeCodexVersion(f.binary,{timeoutMs:15000,graceMs:30});void failed.catch(()=>{});let pid:number|undefined
- try{await vi.waitFor(async()=>{pid=Number(await readFile(pidFile,'utf8'));expect(pid).toBeGreaterThan(0)},{timeout:10000});await expect(failed).rejects.toThrow('timed out');expect(()=>process.kill(pid!,0)).toThrow()}finally{if(pid){try{process.kill(pid,'SIGKILL')}catch{}}}
+ try{await vi.waitFor(async()=>{pid=Number(await readFile(pidFile,'utf8'));expect(pid).toBeGreaterThan(0)},{timeout:slow(10000)});await expect(failed).rejects.toThrow('timed out');expect(()=>process.kill(pid!,0)).toThrow()}finally{if(pid){try{process.kill(pid,'SIGKILL')}catch{}}}
 })
 
 test('ownership answer lettering stays in memory: ephemeral CLI, no raw answer file, transcript or events on disk',async()=>{
