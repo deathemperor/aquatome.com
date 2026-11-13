@@ -1,4 +1,5 @@
-import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { nameStep } from '../src/ceiling'
+import { cp, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -633,4 +634,30 @@ test('a breed page\'s units rewrite that names another figure isn\'t kept, and t
   expect(r.rewritten).toEqual(['vi/breeds/pigeon-blood-discus body (0.90)'])
   expect(r.notKept).toEqual(['vi/breeds/pigeon-blood-discus body (0.90: the figures as keepers say them aren\'t there: 130 lít)'])
   expect(JSON.parse(await readFile(file, 'utf8')).body).toContain('Theo một nguồn, cá cần nhiều chỗ. Một nguồn coi 132 lít')
+})
+for (const kind of ['species', 'guides']) test(`admission stops a ${kind} rewrite before calls, content writes or retry records`, async () => {
+  const root = await content()
+  const prior = process.env.ENGINE_COST_LOG
+  try {
+    const p = kind === 'species' ? await danio(root) : (await loadPages(join(root, 'content'), ['vi'])).find(p => p.kind === 'guides')!
+    const state = reading(p, kind === 'species' ? found(p) : [{ check: 'source', part: 'P1', quote: '', why: 's' }])
+    const files = (await readdir(root, { recursive: true })).filter(f => f.endsWith('.json'))
+    const before = await Promise.all(files.map(f => readFile(join(root, f), 'utf8')))
+    const log = join(root, 'cost.jsonl')
+    await writeFile(log, JSON.stringify({ at: new Date().toISOString(), step: 'fit-rewrite', piece: 'last', pieceUsd: 10000, finished: true }) + '\n')
+    process.env.ENGINE_COST_LOG = log
+    nameStep('fit-rewrite')
+    const model = fakeLlm(vi => vi, 1)
+    const report = await fitRewrite(root, [p], state, { llm: model.llm, now: () => new Date() }, { limit: 1 })
+    expect(report.stopped).toContain('not started')
+    expect(report.failed).toEqual([])
+    expect(model.calls).toEqual([])
+    expect((await readdir(root, { recursive: true })).filter(f => f.endsWith('.json'))).toEqual(files)
+    expect(await Promise.all(files.map(f => readFile(join(root, f), 'utf8')))).toEqual(before)
+  } finally {
+    if (prior === undefined) delete process.env.ENGINE_COST_LOG
+    else process.env.ENGINE_COST_LOG = prior
+    nameStep(undefined)
+    await rm(root, { recursive: true, force: true })
+  }
 })

@@ -1,3 +1,4 @@
+import { denied } from './piece-admission'
 import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -428,4 +429,16 @@ test('a part fixed by hand keeps its text in each language: not translated again
   const redone = JSON.parse(await readFile(file, 'utf8'))
   expect(redone.sections[held!]).toBe('<p>by hand</p>')
   if (other) expect(redone.sections[other]).toBe(`<p>T3 ${other}</p>`)
+})
+
+test('last item cost refuses admission without calls or content writes', async () => {
+  const root = await site()
+  const ids = (await import('node:fs')).readdirSync(join(root, 'content/species'))
+  let calls = 0
+  await denied('localize', root, async () => {
+    const r = await localizeSpecies(root, async () => { calls++; throw new Error('must not call') }, 'th', ids, { redo: true })
+    expect(r.stopped).toContain('not started')
+    expect(r.failed).toEqual([])
+    expect(calls).toBe(0)
+  })
 })

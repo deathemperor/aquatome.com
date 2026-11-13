@@ -1,3 +1,4 @@
+import { denied } from './piece-admission'
 import { expectControlledRejections } from './photo-privacy-assertions'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -307,4 +308,15 @@ test('a photo judged before the subject was asked is asked once, ahead of photos
   expect(urls((await json(root, `content/guides/${id}/entity.json`)).photos)).toEqual(['lead', 'old'])
   expect((await screenGuidePhotos(root, d, { limit: 1 })).judged).toBe(0)
   expect(seen).toHaveLength(1)
+})
+
+test('item admission stops without model calls or content changes', async () => {
+  const root = await store({ guide: { photos: [photo('fish')] } })
+  const { d, seen } = model({})
+  await denied('guide-photos', root, async () => {
+    const r = await screenGuidePhotos(root, d, { limit: 10 })
+    expect(r.stopped).toBeTruthy()
+    expect(r.failed).toEqual([])
+    expect(seen).toEqual([])
+  })
 })

@@ -1,3 +1,4 @@
+import { denied } from './piece-admission'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -110,4 +111,16 @@ test('videoImages: YouTube throttling a frame grab stops the run and leaves the 
   expect(r).toMatchObject({ done: [], stoppedEarly: true })
   expect(await g.figures()).toBeUndefined()
   expect(g.puts).toEqual([])
+})
+
+test('item admission stops without model calls or content changes', async () => {
+  let calls = 0
+  const g = await guide({ llm: async () => { calls++; throw new Error('called') }, look: async () => { calls++; throw new Error('called') } })
+  const before = await readFile(join(g.root, 'guides/youtube-a1/entity.json'), 'utf8')
+  await denied('videos', g.root, async () => {
+    expect(await videoImages(g.root, g.d)).toEqual({ done: [], failed: [], stoppedEarly: true })
+    expect(calls).toBe(0)
+    expect(g.puts).toEqual([])
+    expect(await readFile(join(g.root, 'guides/youtube-a1/entity.json'), 'utf8')).toBe(before)
+  })
 })
