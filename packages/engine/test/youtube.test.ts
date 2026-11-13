@@ -1,3 +1,4 @@
+import { videoBudgetStopped } from '../src/youtube'
 import { denied } from './piece-admission'
 import { existsSync } from 'node:fs'
 import { mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
@@ -585,4 +586,11 @@ test('last item cost refuses admission without calls or content writes', async (
     expect(r.stopped).toContain('not started')
     expect(calls.prompts).toEqual([])
   })
+})
+
+test('videos follow-up pictures stop on admission or usage, but can follow the writing limit', () => {
+  const r = { written: [], skipped: [], errors: [], stoppedEarly: true }
+  expect(videoBudgetStopped(r)).toBe(false)
+  expect(videoBudgetStopped({ ...r, stopped: 'not started' })).toBe(true)
+  expect(videoBudgetStopped({ ...r, errors: ["claude failed: the engine's daily limit reached for videos"] })).toBe(true)
 })

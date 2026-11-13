@@ -101,12 +101,14 @@ export async function piece<T>(name: string, fn: () => Promise<T>, o: { now?: ()
   }
 }
 
-/** CLI steps whose multi-call items record their complete cost. Both backfill commands share the worker. */
+/** CLI steps whose items check admission and record their complete cost. Both backfill commands share the worker. */
 export const WRAPPED: Record<string, string> = {
+  traits: 'traits.ts', range: 'range.ts', 'check-photos': 'photo-check.ts', 'guide-photos': 'guide-photos.ts', watermarks: 'watermarks.ts',
   'write-ideas': 'ideas.ts', summaries: 'summaries.ts', 'rewrite-vi': 'vi-backfill.ts', 'fit-rewrite': 'fit-rewrite.ts',
   localize: 'localize.ts', 'localize-guides': 'topics.ts', reader: 'reader.ts', run: 'run.ts', videos: 'youtube.ts',
   gallery: 'gallery.ts', 'review-backfill': 'review-backfill.ts', 'review-backfill-97': 'review-backfill.ts',
 }
+/** Steps with no engine items to check. */
 export const ONE_CALL: Record<string, string> = {
   autofix: 'GitHub workflow outside the engine; scripts/claude-spend.mjs accounts for it.',
   'nightly-review': 'GitHub workflow outside the engine; scripts/claude-spend.mjs accounts for it.',
@@ -115,9 +117,5 @@ export const ONE_CALL: Record<string, string> = {
   'card-crops': 'Reserved ceiling; no engine CLI handler in this checkout.',
   'chat-board': 'Ceiling set ahead of its step; no engine CLI handler yet. When one lands, it goes on WRAPPED or here with its reason.',
   'glossary-entry': 'Ceiling set ahead of its step; no engine CLI handler yet. When one lands, it goes on WRAPPED or here with its reason.',
-  'check-photos': 'One vision call per contact sheet in photo-check.ts.',
-  'guide-photos': 'One vision call per contact sheet in guide-photos.ts.',
-  watermarks: 'One vision call per contact sheet in watermarks.ts; OCR is local.',
-  traits: 'One extraction call per species in traits.ts.',
-  range: 'One native-range extraction call per species in range.ts; records use GBIF.',
+
 }

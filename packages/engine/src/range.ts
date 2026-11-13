@@ -1,3 +1,4 @@
+import { piece } from './pieces'
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
@@ -231,12 +232,11 @@ export async function speciesRanges(root: string, deps: RangeDeps, opts: { limit
     if (s.blocks.length && (report.stopped || report.native.calls >= opts.limit || hoursSince(s.audit.nativeFailed?.at, now) < RETRY_HOURS)) continue
     let checked: ReturnType<typeof checkAnswer> = { claims: [], regions: [], disputed: [], outranked: [] }
     if (s.blocks.length) {
-      report.native.calls++
       try {
-        checked = checkAnswer(Answer.parse(await deps.llm({ system: 'Reply only with JSON.', prompt: promptOf(s.entity.scientificName, s.blocks), schema: schemaFor(s.blocks.map(b => b.source)) })), s.blocks)
+        checked = checkAnswer(Answer.parse(await piece(id, () => { report.native.calls++; return deps.llm({ system: 'Reply only with JSON.', prompt: promptOf(s.entity.scientificName, s.blocks), schema: schemaFor(s.blocks.map(b => b.source)) }) })), s.blocks)
       } catch (e) {
         // Every account is out of its limit: a later call fails the same way, and a stamp would skip the species for a day.
-        if (e instanceof LlmError && errorKind(e.message) === 'usage') { report.stopped = e.message; continue }
+        if (e instanceof LlmError && errorKind(e.message) === 'usage') { report.stopped = e.message; return report }
         report.native.failed.push(id)
         await saveAudit({ ...s.audit, nativeFailed: { at, error: (e as Error).message.slice(0, 300) } })
         continue

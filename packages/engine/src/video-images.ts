@@ -1,3 +1,5 @@
+import { errorKind } from './state'
+import { piece } from './pieces'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -216,10 +218,11 @@ export async function videoImages(contentRoot: string, d: ImageDeps, opts: { lim
       if (!e.video || e.video.figures) continue
       const vi = JSON.parse(await readFile(join(contentRoot, 'guides', id, 'vi.json'), 'utf8')) as Translation
       try {
-        const figures = await figuresFor(e, vi, d, dir)
+        const figures = await piece(id, () => figuresFor(e, vi, d, dir))
         await writeFile(file, `${JSON.stringify(GuideSchema.parse({ ...e, video: { ...e.video, figures } }), null, 2)}\n`)
         done.push(`${id}: ${figures.length} sections, ${figures.reduce((n, f) => n + f.moments.length, 0)} stills, ${figures.filter(f => f.photo).length} photos`)
       } catch (err) {
+        if (err instanceof LlmError && errorKind(err.message) === 'usage') return { done, failed, stoppedEarly: true }
         if (err instanceof LlmError || throttled(err) || err instanceof WikimediaRefused) { failed.push(`${id}: ${(err as Error).message}`); return { done, failed, stoppedEarly: true } }
         failed.push(`${id}: ${(err as Error).message}`)
       }

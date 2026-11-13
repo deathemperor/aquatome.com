@@ -1,3 +1,4 @@
+import { videoBudgetStopped } from './youtube'
 import { appendFileSync, readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile, rename } from 'node:fs/promises'
 import { get as httpsGet } from 'node:https'
@@ -767,7 +768,7 @@ if (cmd === 'photo-privacy') {
   // Temperament / fin-nipping / school size from each page's text, for the tank-mates checker: new or changed pages, then
   // those read with an older prompt; --only id,id reads those again whatever their state.
   const r = await extractTraits(join(ROOT, 'content'), claudeCli, { limit: Number(values.limit ?? 100), now: () => new Date(), only: values.only?.split(',').map(x => x.trim()).filter(Boolean) })
-  console.log(`traits: ${r.done.length} done, ${r.failed.length} failed${r.failed.length ? ` (${r.failed.join(', ')})` : ''}`)
+  console.log(`traits: ${r.done.length} done, ${r.failed.length} failed${r.stopped ? ' (stopped: ' + r.stopped + ')' : ''}${r.failed.length ? ` (${r.failed.join(', ')})` : ''}`)
   // The school size Seriously Fish gives replaces the model's reading in the sweep, which every part runs (sweep.ts).
 } else if (cmd === 'range') {
   // Where each species lives in the wild (range.ts): its sources' countries and regions, --limit model calls (species
@@ -854,16 +855,18 @@ if (cmd === 'photo-privacy') {
   for (const w of r.written) console.log(`written: ${w}`)
   for (const s of r.skipped) console.log(`skipped: ${s}`)
   for (const e of r.errors) console.log(`error: ${e}`)
-  if (!r.stopped) await covers({})
-  // Pictures per section: video stills (picked on storyboard tiles, then the video's own frames) + an open-licence Commons photo, picked by Claude, no faces.
-  const get = async (u: string) => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
-  const im = await videoImages(join(ROOT, 'content'), {
-    llm: claudeCli, faces: visionFaces, frames: ytFrames, grab: ytGrab, transcript: async (id, lang) => (await ytDlp.transcript(id, lang)) ?? (await ytDlp.transcribe!(id, lang)), commons: q => searchCommons(q, http, 6), get, media: media(),
-    look: (file, prompt, schema) => claudeVision({ system: 'You pick pictures for an aquarium guide. Reply only with JSON.', prompt, schema, file }),
-  }, { limit: Number(process.env.VIDEO_IMAGES_LIMIT ?? 40) })
-  console.log(`images: ${im.done.length} guides, ${im.failed.length} failed`)
-  for (const x of im.done) console.log(`images: ${x}`)
-  for (const f of im.failed) console.log(`images failed: ${f}`)
+  if (!videoBudgetStopped(r)) {
+    await covers({})
+    // Pictures per section: video stills (picked on storyboard tiles, then the video's own frames) + an open-licence Commons photo, picked by Claude, no faces.
+    const get = async (u: string) => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
+    const im = await videoImages(join(ROOT, 'content'), {
+      llm: claudeCli, faces: visionFaces, frames: ytFrames, grab: ytGrab, transcript: async (id, lang) => (await ytDlp.transcript(id, lang)) ?? (await ytDlp.transcribe!(id, lang)), commons: q => searchCommons(q, http, 6), get, media: media(),
+      look: (file, prompt, schema) => claudeVision({ system: 'You pick pictures for an aquarium guide. Reply only with JSON.', prompt, schema, file }),
+    }, { limit: Number(process.env.VIDEO_IMAGES_LIMIT ?? 40) })
+    console.log(`images: ${im.done.length} guides, ${im.failed.length} failed${im.stoppedEarly ? ' (stopped early)' : ''}`)
+    for (const x of im.done) console.log(`images: ${x}`)
+    for (const f of im.failed) console.log(`images failed: ${f}`)
+  }
 } else if (cmd === 'product') {
   // A product page from web research (facts only, prices checked on the shop's page): pnpm engine product <brand> <model> --category loc [--type treo]
   // --redo: rewrite the page from the research already kept (engine-state/products), no new searching.

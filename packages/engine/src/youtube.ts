@@ -1,3 +1,4 @@
+import { errorKind } from './state'
 import { piece, PieceAdmissionError } from './pieces'
 import { execFile } from 'node:child_process'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -662,3 +663,6 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
   await Promise.all(Array.from({ length: Math.max(1, opts.parallel ?? 1) }, worker))
   return report
 }
+
+/** Admission and usage stops leave the remaining videos work for the next run. */
+export const videoBudgetStopped = (r: VideoReport): boolean => !!r.stopped || r.errors.some(e => errorKind(e) === 'usage')
