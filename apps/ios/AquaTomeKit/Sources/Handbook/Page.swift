@@ -85,10 +85,14 @@ public struct PageDoc: Sendable {
     public let thumb: String?
     /// The photo's credit as the page shows it: the line ("Ảnh: Aquarium Breeder"), its licence, the photo's own page.
     public let credit: Credit?
+    /// Where the fish is in the photo, as fractions of it from its top-left corner; the whole area where no frame may
+    /// cut it. A frame keeps it by the frames rule (protocols/photo-crop-vectors.json). Read and kept here; no view
+    /// draws by it yet.
+    public let box: Box?
 
     /// A photo the page doesn't carry (a reader's): `credit`, who took it.
-    public init(src: String, w: Int, h: Int, alt: String?, thumb: String?, credit: Credit?) {
-      self.src = src; self.w = w; self.h = h; self.alt = alt; self.thumb = thumb; self.credit = credit
+    public init(src: String, w: Int, h: Int, alt: String?, thumb: String?, credit: Credit?, box: Box? = nil) {
+      self.src = src; self.w = w; self.h = h; self.alt = alt; self.thumb = thumb; self.credit = credit; self.box = box
     }
 
     init?(json v: Any?) {
@@ -97,6 +101,18 @@ public struct PageDoc: Sendable {
       alt = o["alt"] as? String
       thumb = o["thumb"] as? String
       credit = Credit(json: o["credit"])
+      box = Box(json: o["box"])
+    }
+
+    /// `{x, y, w, h}`, each 0…1 of the photo; none where one is missing or out of range.
+    public struct Box: Sendable, Equatable {
+      public let x: Double, y: Double, w: Double, h: Double
+      init?(json v: Any?) {
+        guard let o = v as? [String: Any], let x = (o["x"] as? NSNumber)?.doubleValue, let y = (o["y"] as? NSNumber)?.doubleValue,
+              let w = (o["w"] as? NSNumber)?.doubleValue, let h = (o["h"] as? NSNumber)?.doubleValue,
+              x >= 0, y >= 0, w > 0, h > 0, x + w <= 1.0001, y + h <= 1.0001 else { return nil }
+        self.x = x; self.y = y; self.w = w; self.h = h
+      }
     }
 
     /// A photo's credit: the line ("Ảnh: Aquarium Breeder"), its licence, the photo's own page. An Unsplash photo's line
