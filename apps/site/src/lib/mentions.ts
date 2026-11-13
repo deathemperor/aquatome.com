@@ -126,16 +126,26 @@ export function mentionIndex(c: Content): Index {
 export const guidesMentioning = (c: Content, key: string): Localized<GuideEntity>[] =>
   c.guides.filter(g => mentionIndex(c).guides.get(g.id)?.keys.includes(key)).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
 
+/** Words only, lower case, spaced at both ends: a name is in a title when its words are, whole. */
+const words = (s: string) => ` ${s.normalize('NFC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim()} `
+/** Whether a guide's title names a fish or plant: by its name, scientific name or another of its names. */
+const titled = (title: string, x: { scientificName?: string; t: { name: string; altNames: string[] } }) =>
+  [x.t.name, x.scientificName, ...x.t.altNames].some(n => !!n && words(n).trim() !== '' && words(title).includes(words(n)))
+
 /**
  * A guide's possible pictures, best first: its own photos, the open-licence photos its video's sections show, then the
- * first photo of each fish and plant it talks about. Never the video's thumbnail: it shows the people in the video, and
- * a page's photos show none (PRODUCT.md). A card takes the first one its page doesn't show yet (lib/pictures.ts).
+ * first photo of each fish and plant it talks about, those its title names first: a guide on breeding guppies borrows a
+ * guppy, not the water louse its text names in passing (the Design Lead, 13 Nov). Never the video's thumbnail: it shows
+ * the people in the video, and a page's photos show none (PRODUCT.md). A card takes the first one its page doesn't show
+ * yet (lib/pictures.ts).
  */
 export function guideImages(c: Content, g: Localized<GuideEntity>): Photo[] {
   const m = mentionIndex(c).guides.get(g.id)
   // A section's photo can be a strip (a lamp, a tank's length) that a card's 16:9 would crop to a sliver.
   const sections = (g.video?.figures ?? []).flatMap(f => f.photo ?? []).filter(fitsCard)
-  return [...g.photos, ...sections, ...(m?.species ?? []).flatMap(s => s.photos[0] ?? []), ...(m?.plants ?? []).flatMap(p => p.photos[0] ?? [])].filter(p => !p.generated)
+  const named = [...(m?.species ?? []), ...(m?.plants ?? [])]
+  const first = [...named.filter(x => titled(g.t.name, x)), ...named.filter(x => !titled(g.t.name, x))]
+  return [...g.photos, ...sections, ...first.flatMap(x => x.photos[0] ?? [])].filter(p => !p.generated)
 }
 
 /** A guide's picture: its own photo, else one from its video's sections, else the first species or plant it talks about. */
