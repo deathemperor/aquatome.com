@@ -159,7 +159,17 @@ test('a copy naming a season its readers don\'t have is written once more with t
   expect(JSON.parse(await readFile(file, 'utf8')).body).toBe('<p>Paling sering saat air di atas 28 °C.</p>')
   // Still named after the try: nothing saved, and the copy on the site stays as it was.
   const before = await readFile(file, 'utf8')
+  const log = join(root, 'engine-state/reviews/topic.json')
+  const logged = async () => (JSON.parse(await readFile(log, 'utf8')) as Record<string, { kept: boolean }[]>)[`id/guides/${r0.id}`] ?? []
+  const earlier = (await logged()).length
   expect(await localizeTopic(root, writer(['<p>Pada musim dingin.</p>']), r0.id, 'id', { redo: true })).toMatchObject({ skipped: 'names a season its readers don\'t have: musim dingin' })
+  expect(await readFile(file, 'utf8')).toBe(before)
+  // Each try's review is logged, and none as kept (Astra's read).
+  const now = await logged()
+  expect(now.length).toBeGreaterThan(earlier)
+  expect(now.slice(0, now.length - earlier).every(t => !t.kept)).toBe(true)
+  // A season written with an entity in it is read as the reader reads it.
+  expect(await localizeTopic(root, writer(['<p>Saat musim&#32;panas.</p>']), r0.id, 'id', { redo: true })).toMatchObject({ skipped: 'names a season its readers don\'t have: musim panas' })
   expect(await readFile(file, 'utf8')).toBe(before)
 })
 

@@ -392,7 +392,8 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
     const r = await check(fixed)
     tries.push(r)
     const left = foreignSeasons(textOf(fixed), lang)
-    if (left.length) return { id, skipped: `names a season its readers don't have: ${left.join(', ')}` }
+    // Not saved, and every try's review logged, none of them kept (Astra's read).
+    if (left.length) { await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, undefined); return { id, skipped: `names a season its readers don't have: ${left.join(', ')}` } }
     w = fixed
     review = r
   }

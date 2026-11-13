@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { CHECKLIST, fitKey, fitText, type FitState } from '../src/fit'
 import { loadPages } from '../src/pages'
-import { copiesToRedo, foreignSeasons, readerCountries, readerSeasons } from '../src/seasons'
+import { copiesToRedo, foreignSeasons, readerCountries, readerSeasons, redoCopies, type Redone } from '../src/seasons'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const FIXTURE = join(ROOT, 'apps/site/test/fixture-content')
@@ -21,6 +21,11 @@ test('a season the reader\'s countries don\'t have is named; their own seasons a
   expect(foreignSeasons('ให้อาหารน้อยลงในฤดูใบไม้ร่วงและฤดูใบไม้ผลิ', 'th')).toEqual(['ฤดูใบไม้ผลิ', 'ฤดูใบไม้ร่วง'])
   // Vietnam has all of them, the North's four and the South's two.
   expect(foreignSeasons('mùa hè, mùa đông', 'vi')).toEqual([])
+  // Split by markup, a line break or an entity, as a reader still reads it (Astra's read).
+  expect(foreignSeasons('<p>Saat musim <strong>panas</strong>, air cepat hangat.</p>', 'id')).toEqual(['musim panas'])
+  expect(foreignSeasons('Saat musim\npanas', 'id')).toEqual(['musim panas'])
+  expect(foreignSeasons('Saat musim&#32;panas', 'id')).toEqual(['musim panas'])
+  expect(foreignSeasons('<p>ให้อาหารน้อยลงในฤดู<strong>ใบไม้ผลิ</strong></p>', 'th')).toEqual(['ฤดูใบไม้ผลิ'])
   expect(readerCountries('ms')).toBe('Malaysia and Brunei')
   expect(readerSeasons('id')).toBe('a rainy and a dry season')
   expect(readerSeasons('th')).toBe('a hot, a rainy and a cool season')
@@ -80,4 +85,22 @@ test('no copy of AquaTome\'s own guides names a season its readers\' countries d
     }
   }
   expect(named.filter(k => !STILL_TO_REDO.includes(k))).toEqual([])
+})
+
+test('every try at a copy counts, a failed one too, against the run\'s limit and the copy\'s two; a usage limit ends the run uncounted', async () => {
+  const redone: Redone = {}
+  const tried: string[] = []
+  const run = (fail: (id: string) => Error | undefined, limit = 1) => redoCopies(['a', 'b', 'c'], 'id', redone, {
+    limit, save: async () => {}, stop: e => (e as Error).message === 'usage limit', now: () => new Date('2026-11-13T09:00:00Z'),
+    write: async id => { tried.push(id); const e = fail(id); if (e) throw e; return { id } },
+  })
+  // The writer fails on the first: that try counts, and the run's limit of one is spent on it.
+  expect(await run(id => (id === 'a' ? new Error('the reviewer\'s reply was cut off') : undefined))).toEqual({ made: 1 })
+  expect(tried).toEqual(['a'])
+  expect(redone['id/a']).toEqual({ at: '2026-11-13T09:00:00.000Z', n: 1 })
+  // A usage limit: the run ends there, and the copy's count stays as it was.
+  expect(await run(() => new Error('usage limit'), 3)).toEqual({ made: 0, stopped: 'usage limit' })
+  expect(tried).toEqual(['a', 'a'])
+  expect(redone['id/a']!.n).toBe(1)
+  expect(redone['id/b']).toBeUndefined()
 })

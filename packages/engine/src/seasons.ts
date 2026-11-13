@@ -1,4 +1,5 @@
 import { LANG, type WrittenLang } from '@aq/schema/langs'
+import { parse } from 'node-html-parser'
 import { fitKey, fitText, type FitState } from './fit'
 import type { Page } from './pages'
 
@@ -40,16 +41,50 @@ export function readerSeasons(lang: WrittenLang): string {
   return has.length > 1 ? `a ${has.slice(0, -1).join(', a ')} and a ${has.at(-1)} season` : `a ${has[0]} season`
 }
 
+/**
+ * A text as its reader sees it: tags gone (a block's as a space), entities read, each run of spaces one. A season split
+ * by markup ("musim <strong>panas</strong>"), a line break or an entity ("musim&#32;panas") is still named (Astra's read).
+ */
+const rendered = (text: string) => parse(text.replace(/<\/?(?:p|li|ul|ol|h[1-6]|div|br|tr|td|th|table|blockquote)\b[^>]*>/gi, ' ')).text.replace(/\s+/g, ' ')
+
 /** The seasons a text names that none of its language's reader's countries has, as the text gives them, each once. */
 export function foreignSeasons(text: string, lang: WrittenLang): string[] {
   const has = new Set(LANG[lang].countries.flatMap(c => HAS[c] ?? []))
-  const found = Object.entries(NAMED[lang] ?? {}).filter(([s]) => !has.has(s as Season)).flatMap(([, re]) => [...text.matchAll(re!)].map(m => m[0].toLowerCase()))
+  const seen = rendered(text)
+  const found = Object.entries(NAMED[lang] ?? {}).filter(([s]) => !has.has(s as Season)).flatMap(([, re]) => [...seen.matchAll(re!)].map(m => m[0].toLowerCase()))
   return [...new Set(found)]
 }
 
 /** A guide's copy written again first (localize-guides), at most REDO_TRIES times: `<lang>/<id>` → when, and how often. */
 export type Redone = Record<string, { at: string; n: number }>
 export const REDO_TRIES = 2
+
+/**
+ * The copies to write again, in order, up to `limit`. Every try counts against the limit and the copy's REDO_TRIES, one
+ * that failed or still names a season too, so a copy its writer can't mend is tried twice and then waits for a person
+ * (Astra's read: a failed try counted for neither, and every listed copy could be tried, every run). A usage limit
+ * (`stop`) ends the run, and that try isn't counted.
+ */
+export async function redoCopies(ids: readonly string[], lang: WrittenLang, redone: Redone, o: { limit: number; write: (id: string) => Promise<object>; save: (r: Redone) => Promise<void>; stop: (e: unknown) => boolean; log?: (line: object) => void; now?: () => Date }): Promise<{ made: number; stopped?: string }> {
+  let made = 0
+  for (const id of ids) {
+    if (made >= o.limit) break
+    let r: object
+    try {
+      r = await o.write(id)
+    } catch (e) {
+      const message = (e as Error).message.slice(0, 200)
+      if (o.stop(e)) { o.log?.({ id, stopped: message, again: true }); return { made, stopped: message } }
+      r = { id, failed: message }
+    }
+    o.log?.({ ...r, again: true })
+    made++
+    const key = `${lang}/${id}`
+    redone[key] = { at: (o.now?.() ?? new Date()).toISOString(), n: (redone[key]?.n ?? 0) + 1 }
+    await o.save(redone)
+  }
+  return { made }
+}
 
 /**
  * The copies in `lang` to write again before any new one: those that name a season their readers don't have, and those
