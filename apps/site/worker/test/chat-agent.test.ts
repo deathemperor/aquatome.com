@@ -4,7 +4,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test, vi } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -763,6 +763,30 @@ test('a turn: Claude reads the handbook, then answers; the steps are shown as th
   // A refusal, or an answer cut short, is no answer: no blocks.
   expect(readAnswer(message([{ type: 'text', text: '{"text":' }], 'max_tokens'))).toBeUndefined()
   expect(readAnswer(message([], 'refusal'))).toBeUndefined()
+})
+
+test('a chat opened from a saved tank says so first, with the tank as every handed tank is, without its name; a tank the reader doesn\'t hold says nothing', async () => {
+  const h = await hb()
+  const tank: Tank = { id: 't1', name: 'Bể phòng khách', dims: { l: 60, w: 30, h: 36 }, species: [{ id: 'paracheirodon-innesi', count: 10 }], unlisted: [] }
+  const tanks = async () => [tank]
+  const line = await openedTank({ from: 'tank', tank: 't1' }, tanks, h, false)
+  expect(line).toContain('They opened the chat from one of their saved tanks, id t1: what they ask is about that tank unless they say otherwise.')
+  expect(line).toContain('"count":10')
+  expect(line).not.toContain('Bể phòng khách')
+  // With every tank handed over already, the line alone.
+  expect(await openedTank({ from: 'tank', tank: 't1' }, tanks, h, true)).toBe('They opened the chat from one of their saved tanks, id t1: what they ask is about that tank unless they say otherwise.')
+  // Not synced yet, deleted, or the tanks unreadable: answered as if no tank was named.
+  expect(await openedTank({ from: 'tank', tank: 'gone' }, tanks, h, false)).toBeUndefined()
+  expect(await openedTank({ from: 'tank', tank: 't1' }, async () => null, h, false)).toBeUndefined()
+  expect(await openedTank({ from: 'species', about: 'paracheirodon-innesi' }, tanks, h, false)).toBeUndefined()
+  // The run's first call carries it after the question.
+  const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
+  await answerQuestion({
+    send: async b => { bodies.push(b); return message([{ type: 'text', text: JSON.stringify(answer([])) }]) },
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Bể này ổn không?', earlier: [], start: { from: 'tank', tank: 't1' }, handbook: h, tanks,
+  })
+  const first = JSON.stringify(bodies[0]!.messages[0]!.content)
+  expect(first.indexOf('The reader asks:')).toBeLessThan(first.indexOf('id t1: what they ask is about that tank'))
 })
 
 test('the first message says where the chat started, what fish ID named, the earlier turns and what they showed, then the question', async () => {

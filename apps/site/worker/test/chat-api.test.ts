@@ -205,6 +205,11 @@ test('who may ask: an app session as a bearer, or a site session from the site\'
   expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [], photo: 'x' } }))).toEqual([400, 'bad request'])
   expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [{ scientificName: 'x'.repeat(101), confidence: 0.9 }] } }))).toEqual([400, 'bad request'])
   expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [{ scientificName: 'Paracheirodon innesi', id: 'x'.repeat(101), confidence: 0.9 }] } }))).toEqual([400, 'bad request'])
+  // A saved tank's id is an id: a string of 1 to 100 characters. A start the contract doesn't name is refused.
+  expect(await status(ask(bearer(app.token), { from: 'tank', tank: 7 }))).toEqual([400, 'bad request'])
+  expect(await status(ask(bearer(app.token), { from: 'tank', tank: '' }))).toEqual([400, 'bad request'])
+  expect(await status(ask(bearer(app.token), { from: 'tank', tank: 'x'.repeat(101) }))).toEqual([400, 'bad request'])
+  expect(await status(ask(bearer(app.token), { from: 'pond' }))).toEqual([400, 'bad request'])
   // One character past the limit (a whole forum post fits: maxChars) is refused, saying the limit, so the client keeps the text and says it.
   expect(await status(ask(bearer(app.token), { question: 'á'.repeat(1501) }))).toEqual([413, 'too long'])
   expect((await run(ask(bearer(app.token), { question: 'á'.repeat(1501) }), e, deps(c.fetch))).body).toEqual({ error: 'too long', limit: 1500 })
@@ -1351,6 +1356,11 @@ test('each answer writes the conversation\'s row: its first question, where it s
   const row = await db.prepare('SELECT * FROM chat_conversations WHERE account = ? AND id = ?').bind(account, CONV).first<Record<string, unknown>>()
   expect(row).toMatchObject({ title: 'Nuôi cá này thế nào?', questions: 2, continues: null, hidden: 0 })
   expect(JSON.parse(row!.start as string)).toEqual({ from: 'fish-id', about: 'paracheirodon-innesi', lang: 'vi' })
+  // From a saved tank: where, and which tank, kept with the row.
+  const fromTank = crypto.randomUUID()
+  await go({ conversation: fromTank, from: 'tank', about: undefined, tank: 't1' })
+  const tankRow = await db.prepare('SELECT start FROM chat_conversations WHERE account = ? AND id = ?').bind(account, fromTank).first<{ start: string }>()
+  expect(JSON.parse(tankRow!.start)).toEqual({ from: 'tank', tank: 't1', lang: 'vi' })
   expect(String(row!.last_at)).toMatch(/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\dZ$/)
   const next = crypto.randomUUID()
   await go({ conversation: next, continues: CONV })
