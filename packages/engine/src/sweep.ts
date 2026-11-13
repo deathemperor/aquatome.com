@@ -246,14 +246,15 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
+  // A species page filed under the wrong animal, joined to its fish's or moved to it (page-folds.ts): first, so the
+  // school size and the text read the page as it is now (Astra, 2026-11-13).
+  for (const f of report.folds = await foldPages(root)) changed(`species/${f.split(' → ')[1]}`)
   // A fish card's school size: Seriously Fish's, never below what another source on the page says (traits.ts), here so
   // every part of the cycle has it before its tests, whatever changed a page's sections.
   for (const id of report.schools = await schoolFromSeriouslyFish(content)) changed(`traits/${id}.json`)
   const titled: { file: string; raw: string; t: Stored; lang: WrittenLang; id: string; title: string }[] = []
   // A place's Vietnamese name with no generic word left in English (place-names.ts).
   for (const id of await sweepPlaceNames(root)) changed(`places/${id}/vi.json`)
-  // A species page filed under the wrong animal, joined to its fish's or moved to it (page-folds.ts), before the text.
-  for (const f of report.folds = await foldPages(root)) changed(`species/${f.split(' → ')[1]}`)
 
   // Text, in every language the engine writes.
   for (const kind of SWEPT_KINDS) {

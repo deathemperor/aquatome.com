@@ -42,9 +42,13 @@ const bare = (ws: string[]) => {
 /**
  * Two names a reader can't tell apart: case, accents, punctuation and a leading classifier aside. Words stay words: a
  * search for "horse face loach" doesn't find "Horseface loach", so the two are both kept. Thai is written with or
- * without spaces, so it is compared without.
+ * without spaces, so it is compared without; a Thai classifier before a name in another script doesn't make it Thai.
  */
-export const altKey = (s: string) => bare(words(s)).map(nameKey).join(/\p{Script=Thai}/u.test(s) ? '' : ' ')
+export const altKey = (s: string) => {
+  // Thai by what is left once its classifier is off: "ปลา Chili rasbora" is "chili rasbora" (Astra, 2026-11-13).
+  const ws = bare(words(s))
+  return ws.map(nameKey).join(ws.some(w => /\p{Script=Thai}/u.test(w)) ? '' : ' ')
+}
 /** "Cá betta (cá xiêm)" → the whole, "Cá betta" and "cá xiêm". */
 const parts = (s: string) => {
   const m = s.match(/^(.+?)\s*\(([^()]+)\)\s*$/)

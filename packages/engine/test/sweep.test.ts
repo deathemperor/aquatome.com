@@ -815,3 +815,19 @@ test('every photo on the never-again list leaves the pages and albums it is stil
   expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual(list)
   expect((await sweep(root)).again).toEqual([])
 })
+
+// Astra, 2026-11-13: the school size was read before the fold, so the skunk cory's came only on a second run.
+test('a page folded into its fish\'s gives that fish its school size in the same run', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const sf = { key: 'behaviour', source: 'seriouslyfish', sourceUrl: 'https://www.seriouslyfish.com/species/brochis-arcuata', html: '<p>Try to buy a mixed-sex group of at least 8-10 specimens.</p>' }
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await put('species/ditrupa-arietina/entity.json', { ...species('ditrupa-arietina', 'Ditrupa arietina'), sections: [sf] })
+  await put('species/ditrupa-arietina/vi.json', vi('Cá Ditrupa arietina', { 'behaviour:seriouslyfish': '<p>Nuôi theo nhóm ít nhất 8–10 con.</p>' }))
+  await put('species/corydoras-arcuatus/entity.json', { ...species('corydoras-arcuatus', 'Corydoras arcuatus'), sections: [] })
+  await put('species/corydoras-arcuatus/vi.json', vi('Cá chuột skunk', {}))
+  await put('traits/corydoras-arcuatus.json', { id: 'corydoras-arcuatus', temperament: 'peaceful', finNipper: false, schoolMin: 6, speciesUpdatedAt: '2026-10-29', generatedAt: '2026-10-29T15:29:02.830Z' })
+  const r = await sweep(root)
+  expect(r.folds).toEqual(['ditrupa-arietina → corydoras-arcuatus'])
+  expect((await json(root, 'content/traits/corydoras-arcuatus.json')).schoolMin).toBe(8)
+})

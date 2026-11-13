@@ -1,7 +1,7 @@
 import { readdir, readFile, rm, writeFile, mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
 import { QUALITY_THRESHOLD } from '@aq/schema'
-import { MISMATCHED } from './gbif'
+import { mismatchedKey } from './gbif'
 
 /**
  * A species page filed under the wrong animal, and where it belongs, a person having read it against its sources:
@@ -9,7 +9,10 @@ import { MISMATCHED } from './gbif'
  *   that page lacks, in each language both have, with that source's own photos, card figures and L number), unless
  *   `text` is false: a source about several species, whose figures would be another fish's there. `quiet`: the
  *   forward names no old name, and search doesn't find the page by it (the old name was another animal's).
- * - `into` a page the site doesn't have: the page moves there whole, under `sci`, its address as it was.
+ * - with `sci`, a move: when the site has no `into` page, the page moves there whole, under `sci`, its address as it was;
+ *   when it has, it joins that page as above.
+ * A fold without `sci` needs its `into` page: with that page gone it is left, the page as it was, so a page about another
+ * animal or about several fish never moves whole under the fish's name (Astra, 2026-11-13).
  * The engine names a page by its species (run.ts, gbif.ts pageTaxon), so a page under the wrong one stays until moved.
  */
 export type Fold = { from: string; into: string; sci?: string; text?: false; quiet?: true }
@@ -57,6 +60,7 @@ export async function foldPages(root: string, folds: readonly Fold[] = FOLDS, to
     if (!from) continue
     const into = join(content, 'species', f.into)
     const target = await json<Entity>(join(into, 'entity.json'))
+    if (!target && !f.sci) continue
     const langs = (await readdir(dir)).filter(x => x !== 'entity.json' && x.endsWith('.json'))
     if (!target) {
       // A move: the page is this species', whole; its range records were the other's.
@@ -94,8 +98,10 @@ export async function foldPages(root: string, folds: readonly Fold[] = FOLDS, to
         const sections = { ...t.data.sections, ...Object.fromEntries(Object.entries(g.data.sections ?? {}).filter(([k]) => sources.has(k.split(':')[1]!) && !(k in (t.data.sections ?? {})))) }
         // Each source's translation keeps its score; the page's is the lowest, as run.ts combineQuality has it.
         const bySource = { ...Object.fromEntries(Object.entries(g.data.quality?.bySource ?? {}).filter(([k]) => sources.has(k))), ...t.data.quality?.bySource }
-        const min = Math.min(...Object.values(bySource))
-        const quality = t.data.quality && sources.size ? { ...t.data.quality, score: min, indexable: t.data.quality.indexable && min >= QUALITY_THRESHOLD, bySource } : t.data.quality
+        // With no source's score on either page, the page's own stands (no lowest of none).
+        const scores = Object.values(bySource)
+        const min = scores.length ? Math.min(...scores) : t.data.quality?.score ?? 0
+        const quality = t.data.quality && sources.size && scores.length ? { ...t.data.quality, score: min, indexable: t.data.quality.indexable && min >= QUALITY_THRESHOLD, bySource } : t.data.quality
         // Its other names are the fish's; the name it was filed under stays off when it was another animal's.
         const altNames = sources.size ? [...new Set([...t.data.altNames, ...g.data.altNames])].filter(n => n !== t.data.name) : t.data.altNames
         // The site forwards a Vietnamese page's old addresses (apps/site renamed.ts); an empty name says none.
@@ -121,8 +127,9 @@ export async function foldPages(root: string, folds: readonly Fold[] = FOLDS, to
   }
   // GBIF's answers a person found wrong leave the engine's record of them (gbif.ts asks again the right way).
   const names = await json<Record<string, unknown>>(join(state, '_gbif-names.json'))
-  if (names && Object.keys(MISMATCHED).some(k => k in names.data)) {
-    for (const k of Object.keys(MISMATCHED)) delete names.data[k]
+  const stale = Object.keys(names?.data ?? {}).filter(k => mismatchedKey(k) !== undefined)
+  if (names && stale.length) {
+    for (const k of stale) delete names.data[k]
     await put(join(state, '_gbif-names.json'), names.raw, names.data)
   }
   return done

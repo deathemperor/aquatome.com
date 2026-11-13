@@ -20,11 +20,22 @@ export const MISMATCHED: Readonly<Record<string, string | null>> = {
   'Megalamphodus rosaceus': 'Hyphessobrycon rosaceus',
 }
 
+/**
+ * A name's row in MISMATCHED, however it is cased or spaced ("liobagrus  chengduensis "): GBIF answers those the same
+ * wrong way (Astra, 2026-11-13).
+ */
+export const mismatchedKey = (name: string) => {
+  const k = name.trim().replace(/\s+/g, ' ').toLowerCase()
+  return Object.keys(MISMATCHED).find(m => m.toLowerCase() === k)
+}
+
 /** GBIF backbone match; null when GBIF can't resolve the name to a species-level taxon. Synonyms resolve to the accepted species. */
 export async function gbifMatch(name: string, http: (url: string) => Promise<unknown>, cache: Record<string, Taxon | null>): Promise<Taxon | null> {
-  if (name in MISMATCHED) {
-    const instead = MISMATCHED[name]
-    return instead ? gbifMatch(instead, http, cache) : gbifSearchTaxon(name, http)
+  const known = mismatchedKey(name)
+  if (known !== undefined) {
+    const instead = MISMATCHED[known]
+    // The checklists are searched for the name as the table writes it: they match it exactly.
+    return instead ? gbifMatch(instead, http, cache) : gbifSearchTaxon(known, http)
   }
   if (name in cache) return cache[name] ?? null
   const m = (await http(`https://api.gbif.org/v1/species/match?name=${encodeURIComponent(name)}`)) as Match

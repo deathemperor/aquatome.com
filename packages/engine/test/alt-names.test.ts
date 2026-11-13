@@ -2,7 +2,7 @@ import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { breedKin, cleanAltNames, cleanBreedAltNames, tidyName, tidyNames, type BreedName, type Kin } from '../src/alt-names'
+import { altKey, breedKin, cleanAltNames, cleanBreedAltNames, tidyName, tidyNames, type BreedName, type Kin } from '../src/alt-names'
 import { sweep } from '../src/sweep'
 
 // The betta's other names as the engine had stored them (2026-11-04): shop listings of one variety each (BW Aquatics'
@@ -279,6 +279,10 @@ test('a name a person found is another fish\'s leaves that page in every form an
   expect(merah.altNames).toEqual(['Cá rasbora phượng hoàng', 'Phoenix rasbora'])
   expect(merah.off).toEqual([{ name: 'Chili rasbora', why: 'species', of: 'boraras-brigittae' }, { name: 'Cá chili rasbora', why: 'species', of: 'boraras-brigittae' }])
   expect(cleanAltNames({ name: 'Cá rasbora muỗi', sci: 'Boraras brigittae', altNames: ['Chili rasbora'] }).altNames).toEqual(['Chili rasbora'])
+  // Thai's classifier, joined or apart, before a name of two words (Astra, 2026-11-13); Thai written with or without spaces.
+  expect(cleanAltNames({ name: 'ปลาราสบอร่าเมราห์', sci: 'Boraras merah', altNames: ['ปลาChili rasbora', 'ปลา Chili rasbora', 'ราสบอร่าฟีนิกซ์'] }).altNames).toEqual(['ราสบอร่าฟีนิกซ์'])
+  expect(altKey('ปลา Chili rasbora')).toBe(altKey('Chili rasbora'))
+  expect(altKey('ปลากัด มหาชัย')).toBe(altKey('ปลากัดมหาชัย'))
 })
 
 // The chief of staff's ten of 2026-11-13: each page's other name that is another page's own, as their pages had them.

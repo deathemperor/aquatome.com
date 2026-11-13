@@ -169,4 +169,13 @@ test('a name a person found GBIF files under another animal is asked the right w
   // The wrong answers are never read, and none is written under the wrong name.
   expect(cache['Brochis arcuata']?.canonicalName).toBe('Ditrupa arietina')
   expect(cache['Corydoras arcuatus']?.canonicalName).toBe('Corydoras arcuatus')
+  // Cased or spaced another way (Astra, 2026-11-13), asked fresh or with a wrong answer on record: the same right way,
+  // and the checklists searched for the name as the table writes it.
+  cache['megalamphodus  rosaceus'] = cache['Megalamphodus rosaceus']!
+  for (const n of ['liobagrus chengduensis', 'Liobagrus chengduensis ', ' LIOBAGRUS  CHENGDUENSIS']) expect(await page([n], 'catfish'), n).toBe('Liobagrus chengduensis')
+  for (const n of ['megalamphodus  rosaceus', 'Megalamphodus rosaceus ', 'brochis Arcuata']) expect(await page([n], n.startsWith('b') ? 'catfish' : 'tetras'), n).not.toMatch(/roseus|Ditrupa/)
+  expect(await page(['megalamphodus  rosaceus'], 'tetras')).toBe('Hyphessobrycon rosaceus')
+  const searched = asked.filter(u => u.includes('/species/search'))
+  expect(searched.length).toBeGreaterThan(1)
+  for (const u of searched) expect(u).toContain('q=Liobagrus%20chengduensis&')
 })

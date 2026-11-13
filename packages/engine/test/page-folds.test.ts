@@ -138,3 +138,26 @@ test('a fold whose page is gone, or whose page a person already moved, is left',
   const after = await files(root)
   expect(Object.keys(after).filter(k => after[k] !== before[k]).map(k => k.slice(root.length + 1))).toEqual(['engine-state/_gbif-names.json'])
 })
+
+// Astra, 2026-11-13: with the fish's page gone, the worm's page and the molly article stayed whole and moved under the
+// fish's id, the worm's taxonomy and the article's moth genus with them.
+test('a fold into a page the site doesn\'t have, and isn\'t a move, is left: the page as it was, nothing written under the fish', async () => {
+  const root = await store()
+  const { rm } = await import('node:fs/promises')
+  for (const id of ['corydoras-arcuatus', 'poecilia-sphenops']) await rm(join(root, 'content/species', id), { recursive: true })
+  const before = await files(root)
+  expect(await foldPages(root, FOLDS, '2026-11-13')).toEqual(['liobagrus-chenghaiensis → liobagrus-chengduensis'])
+  const after = await files(root)
+  const changed = Object.keys({ ...before, ...after }).filter(k => after[k] !== before[k]).map(k => k.slice(root.length + 1))
+  expect(changed.filter(k => /ditrupa|corydoras|mollienisia|poecilia|sprucepets|seriouslyfish|held-by-hand/.test(k))).toEqual([])
+  expect(existsSync(join(root, 'content/species/corydoras-arcuatus'))).toBe(false)
+  expect(existsSync(join(root, 'content/species/poecilia-sphenops'))).toBe(false)
+})
+
+// GBIF's wrong answers on record under another spelling leave it too.
+test('GBIF\'s wrong answers leave the record however they are spelled; the rest stay', async () => {
+  const root = await store()
+  await writeFile(join(root, 'engine-state/_gbif-names.json'), `${JSON.stringify({ 'brochis  arcuata': { canonicalName: 'Ditrupa arietina' }, 'Megalamphodus rosaceus ': { canonicalName: 'Hyphessobrycon roseus' }, 'Corydoras arcuatus': { canonicalName: 'Corydoras arcuatus' } }, null, 2)}\n`)
+  await foldPages(root, [], '2026-11-13')
+  expect(Object.keys(await read(root, 'engine-state/_gbif-names.json'))).toEqual(['Corydoras arcuatus'])
+})
