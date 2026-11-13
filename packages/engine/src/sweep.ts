@@ -51,8 +51,8 @@ import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
  *   photo stays and is listed (`unwell`)
  * - a guide's photo that is its source's "read next" card (an unplaced photo at the source's card width): off the guide, and
  *   onto engine-state/_photo-rejected.json so a re-read can't bring it back
- * - a photo on the never-again list (engine-state/_photo-rejected.json): off every fish's, plant's, breed's, guide's,
- *   equipment and product page and every album, as the photo check takes it off (an Aquarium Glaser photo with the shop's own mark kept stays).
+ * - a photo on the never-again list (engine-state/_photo-rejected.json): off every fish's, plant's, breed's, guide's
+ *   and equipment page and every album, as the photo check takes it off (an Aquarium Glaser photo with the shop's own mark kept stays).
  *   So one that the cycle's catch-up with main or a clash at its push brings back leaves again before its tests
  * - a head photo a person picked (engine-state/_photo-head-picks.json, page → photo, from its own photos or its gallery):
  *   first on its page, the old head second. The steps before the sweep may reorder a page's photos; this has the last word.
@@ -806,11 +806,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const listed = (url: string) => url in rejected && !kept(url)
   const shownIn = async (kind: string) => (await readdir(join(content, kind)).catch(() => [] as string[])).sort().map(id => join(content, kind, id, 'entity.json'))
   const galleryFiles = (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort().map(f => join(content, 'gallery', f))
-  // Equipment pages (a category's hero and its types' photos, each language's copy) and products too: the photo check
-  // strips every content file, so one listed after an equipment page was written stayed on it until the next check
+  // Equipment pages too (a category's hero and its types' photos, each language's copy): the photo check strips every
+  // content file, so one listed after an equipment page was written stayed on it until the next check
   // (an Aquarium Co-op photo on the aquatic-plants page, in all four languages, 14 Nov).
   const everyJson = async (kind: string) => (await readdir(join(content, kind), { recursive: true }).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort().map(f => join(content, kind, f))
-  for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...(await everyJson('equipment')), ...(await everyJson('products'))]) {
+  for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...(await everyJson('equipment'))]) {
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
     const data = JSON.parse(raw) as unknown
