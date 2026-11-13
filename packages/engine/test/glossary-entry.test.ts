@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import { lengthNotes, makeGlossaryEntry, offLimits, pageNames, refusals, ruleNumbers, sfGlossaryUrl, type Draft } from '../src/glossary-entry'
+import { logReviews } from '../src/review-log'
 import type { TopicFacts } from '../src/topics'
 
 // The owner, 10 Nov 2026, of the Lũa term: "lũa sa tùng là gì, I had very hard time to get to know them". The fuller
@@ -304,53 +305,76 @@ test('a kept draft may be accepted with repetition, order and length notes only,
   expect(refusals({ ...sixth, score: 0.7 })).toEqual(['its fact score 0.7 is under the bar, 0.75'])
 })
 
+// A draft the step keeps, written by it: the writer gives `entry`, the fact check `fact` notes at `score`, the rules check `rules`.
+async function keptDraft(root: string, entry: Draft['entry'], fact: string[], rules: string[], score = 0.9) {
+  const llm: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: rules } : prompt.startsWith('Below are FACTS') ? { score, notes: fact } : entry) as never
+  return makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+}
+const none: Llm = async () => { throw new Error('no model call') }
+const draftPath = (root: string) => join(root, 'engine-state/glossary/lua.draft.json')
+
 test('an accepted draft is saved as the step kept it, logged with who accepted it and every note; a refused one changes nothing', async () => {
   const root = await site()
-  await mkdir(join(root, 'engine-state/glossary'), { recursive: true })
-  await writeFile(join(root, 'engine-state/glossary/lua.json'), JSON.stringify(facts))
-  const none: Llm = async () => { throw new Error('no model call') }
-  // Refused: a contradiction.
-  const bad = { ...sixth, notes: [...sixth.notes.slice(0, 1), 'Rule 1: two statements contradict', ...sixth.notes.slice(1)], broken: 5 }
-  await writeFile(join(root, 'engine-state/glossary/lua.draft.json'), JSON.stringify(bad))
   const before = await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')
+  // Refused: a contradiction.
+  await keptDraft(root, sixth.entry, sixth.notes.slice(0, 1), ['Rule 1: two statements contradict', 'Rule 4: x'])
   expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toMatchObject({ refused: ['a note that is not repetition, order or length: Rule 1: two statements contradict'] })
   expect(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
-  // Accepted: saved, with no model call, the draft gone.
-  await writeFile(join(root, 'engine-state/glossary/lua.draft.json'), JSON.stringify(sixth))
+  // Refused: a draft that isn't as the step kept it, however small the change.
+  await keptDraft(root, sixth.entry, sixth.notes.slice(0, 1), sixth.notes.slice(1, 4))
+  const kept = await readFile(draftPath(root), 'utf8')
+  await writeFile(draftPath(root), kept.replace('ngấm đủ nước', 'ngấm nước'))
+  expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toEqual({ id: 'lua', refused: ['the kept draft is not as the step kept it'] })
+  await writeFile(draftPath(root), kept.replace('"broken": 3', '"broken": 2'))
+  expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toEqual({ id: 'lua', refused: ['the kept draft is not as the step kept it'] })
+  expect(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
+  // Accepted as kept: saved, with no model call, the draft gone.
+  await writeFile(draftPath(root), kept)
   const r = await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff', now: () => new Date('2026-11-14T00:00:00Z') })
   expect(r).toMatchObject({ id: 'lua', score: 0.9, acceptedBy: 'the chief of staff', refs: 3 })
   const vi = JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8'))
   expect(vi).toMatchObject({ definition: sixth.entry.definition, body: sixth.entry.body, altNames: ['lũa gỗ', 'gỗ lũa'], quality: { score: 0.9, indexable: true } })
   const log = JSON.parse(await readFile(join(root, 'engine-state/reviews/glossary.json'), 'utf8'))['vi/glossary/lua']
-  expect(log[0]).toMatchObject({ at: '2026-11-14T00:00:00Z', score: 0.9, notes: sixth.notes, kept: true, acceptedBy: 'the chief of staff' })
-  await expect(readFile(join(root, 'engine-state/glossary/lua.draft.json'), 'utf8')).rejects.toThrow()
+  expect(log[0]).toMatchObject({ at: '2026-11-14T00:00:00Z', score: 0.9, notes: sixth.notes.slice(0, 4), kept: true, acceptedBy: 'the chief of staff' })
+  await expect(readFile(draftPath(root), 'utf8')).rejects.toThrow()
   // Nothing kept: nothing to accept.
   expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toEqual({ id: 'lua', refused: ['no kept draft to accept'] })
 })
 
-test('a revision of the kept draft changes only the sentences its notes quote, and is kept only if it comes closer', async () => {
+// Lũa's sixth was kept before the log had a draft's digest: it is the step's when an unsaved try has its score and notes.
+test('a draft kept before digests is the step\'s when the log has its try', async () => {
   const root = await site()
   await mkdir(join(root, 'engine-state/glossary'), { recursive: true })
   await writeFile(join(root, 'engine-state/glossary/lua.json'), JSON.stringify(facts))
-  const kept = `${JSON.stringify(sixth, null, 2)}\n`
-  await writeFile(join(root, 'engine-state/glossary/lua.draft.json'), kept)
+  await writeFile(draftPath(root), JSON.stringify(sixth))
+  expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toEqual({ id: 'lua', refused: ['the kept draft is not as the step kept it'] })
+  await logReviews(root, 'glossary', { id: 'glossary/lua', lang: 'vi' }, [{ score: 0.9, notes: sixth.notes }], undefined)
+  expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toMatchObject({ id: 'lua', score: 0.9, acceptedBy: 'the chief of staff' })
+})
+
+test('a revision of the kept draft changes only the sentences its notes quote, and is kept only if it comes closer', async () => {
+  const root = await site()
+  await keptDraft(root, sixth.entry, sixth.notes.slice(0, 1), sixth.notes.slice(1, 4))
+  const kept = await readFile(draftPath(root), 'utf8')
   const writes: string[] = []
-  const reply = (rules: string[], score = 0.9): Llm => async ({ prompt }) => {
+  const reply = (fact: string[], rules: string[], score = 0.9): Llm => async ({ prompt }) => {
     if (prompt.startsWith('GLOSSARY RULES')) return { notes: rules } as never
-    if (prompt.startsWith('Below are FACTS')) return { score, notes: ['a new fact note', 'another new one'] } as never
+    if (prompt.startsWith('Below are FACTS')) return { score, notes: fact } as never
     writes.push(prompt)
     return { ...sixth.entry, body: '<p>Sửa.</p>' } as never
   }
-  // Each revision has fewer notes but more on the facts: no closer, and the kept draft stays byte for byte.
-  const r = await makeGlossaryEntry(root, { research: async () => { throw new Error('no research') }, llm: reply(['Rule 4: x']) }, 'lua', { kind: 'aquascaping', fromDraft: true })
-  expect(r).toMatchObject({ skipped: 'breaks the rules: 4', revised: false })
+  const revise = (llm: Llm) => makeGlossaryEntry(root, { research: async () => { throw new Error('no research') }, llm }, 'lua', { kind: 'aquascaping', fromDraft: true })
+  // Fewer notes but more on the facts: no closer, and the kept draft stays byte for byte.
+  expect(await revise(reply(['a new fact note', 'another new one'], ['Rule 4: x']))).toMatchObject({ skipped: 'breaks the rules: 3', revised: false })
   expect(writes).toHaveLength(2)
   expect(writes[0]).toContain('Sửa bản trước, không viết lại: chỉ sửa, gộp hay bỏ những câu mà ghi chú trích hoặc chỉ tới, và giữ nguyên từng chữ mọi câu khác.')
   expect(writes[0]).toContain('- Rules 4 and 12: Rot should be covered once.')
   expect(writes[0]).toContain(`--- BẢN TRƯỚC ---\n${JSON.stringify(sixth.entry)}`)
-  expect(await readFile(join(root, 'engine-state/glossary/lua.draft.json'), 'utf8')).toBe(kept)
+  expect(await readFile(draftPath(root), 'utf8')).toBe(kept)
+  // As many notes, better grounded: no closer either (Codex, 14 Nov 2026).
+  expect(await revise(reply(['one fact note'], ['Rule 4: x', 'Rule 4: y', 'Rule 7: z'], 0.97))).toMatchObject({ revised: false })
+  expect(await readFile(draftPath(root), 'utf8')).toBe(kept)
   // A revision at the bar is saved.
-  const passing: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : prompt.startsWith('Below are FACTS') ? { score: 0.92, notes: [] } : { ...sixth.entry, body: '<p>Sửa.</p>' }) as never
-  expect(await makeGlossaryEntry(root, { research: async () => { throw new Error('no research') }, llm: passing }, 'lua', { kind: 'aquascaping', fromDraft: true })).toMatchObject({ id: 'lua', score: 0.92 })
+  expect(await revise(reply([], [], 0.92))).toMatchObject({ id: 'lua', score: 0.92 })
   expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).body).toBe('<p>Sửa.</p>')
 })
