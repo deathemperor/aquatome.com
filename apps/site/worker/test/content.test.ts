@@ -53,7 +53,7 @@ test('the loader reads content.json through ASSETS; a build without it gives und
   await expect(loadContentStats(assets(JSON.stringify({ v: 2 })), 'https://x.test')).rejects.toThrow('content.json v2')
   // Every built page by path, each with its kind and, for an item's page, its item.
   const index = pageIndex(STATS)
-  expect(index.size).toBe(178)
+  expect(index.size).toBe(181)
   expect(index.get('/ca/ca-neon-vua/')).toEqual({ path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', id: 'paracheirodon-axelrodi' })
 })
 

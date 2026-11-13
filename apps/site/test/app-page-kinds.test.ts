@@ -425,10 +425,11 @@ test('each glossary term\'s copy reads as its built page; one in Indonesian has 
     expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
     const { dom } = appPage(d.path)
     expect(d.title).toBe(txt(dom.querySelector('h1')))
-    // Its other names, its English name, its definition (with the page's links), in the page's order.
-    expect(all(d, 'p').map(b => text(b.c))).toEqual([...['.aka', '.en', '.def'].flatMap(sel => (dom.querySelector(sel) ? [txt(dom.querySelector(sel))] : [])), ...dom.querySelectorAll('.body > p').map(txt)])
+    // Its other names, its English name, its definition (with the page's links), the link to its material page, in the
+    // page's order.
+    expect(all(d, 'p').map(b => text(b.c))).toEqual([...['.aka', '.en', '.def', '.material-link'].flatMap(sel => (dom.querySelector(sel) ? [txt(dom.querySelector(sel))] : [])), ...dom.querySelectorAll('.body > p').map(txt)])
     expect(all(d, 'p').flatMap(b => b.c.flatMap(r => (typeof r === 'string' || !r.href ? [] : [r.href]))), d.path).toEqual(
-      dom.querySelectorAll('.def a, .body > p a').map(a => appHref(a.getAttribute('href')!)),
+      dom.querySelectorAll('.def a, .material-link a, .body > p a').map(a => appHref(a.getAttribute('href')!)),
     )
     // Its photo, then the fuller entry's headings, then the pages that use it: the heading with the count, then each
     // kind's first pages, those the app index lists. Last, its sources.
