@@ -46,6 +46,7 @@ test('a term\'s fuller entry: cited facts only, checked and rewritten once on no
   let researched = ''
   const research: Llm = async ({ prompt }) => { researched = prompt; return facts as never }
   const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
     prompts.push(prompt)
     if (prompt.startsWith('Below are FACTS')) return (++checks <= 3 ? { score: 0.7, notes: ['"1–2 tuần" needs its source'] } : { score: 0.96, notes: [] }) as never
     return written as never
@@ -117,4 +118,40 @@ test('a marketplace\'s or a social network\'s page is never a source, nor are th
   expect(wrote).not.toContain('sa tùng rừng')
   const e = JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8'))
   expect(e.refs.map((x: { url: string }) => x.url)).toEqual(facts.sources.map(x => x.url))
+})
+
+// The first Lũa (14 Nov 2026) missed the kinds the owner named, and broke house rules the fact check doesn't read. The
+// owner's asks reach the research and the writer, our pages' names reach the writer, and the rules are read: a broken one
+// goes to the rewrite, and an entry that still breaks one is not saved.
+test('the owner\'s asks reach research and writer, our pages\' names reach the writer, and an entry breaking a rule is rewritten or not saved', async () => {
+  const root = await site()
+  await mkdir(join(root, 'content/species/caridina-multidentata'), { recursive: true })
+  await writeFile(join(root, 'content/species/caridina-multidentata/entity.json'), JSON.stringify({ id: 'caridina-multidentata', scientificName: 'Caridina multidentata' }))
+  await writeFile(join(root, 'content/species/caridina-multidentata/vi.json'), JSON.stringify({ name: 'Tép Amano', altNames: ['Amano shrimp'] }))
+  const shrimp: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'other', fact: 'Amano shrimp eat the white film on new wood', source: 1 }] }
+  let researched = ''
+  const writes: string[] = []
+  const llm = (left: string[][]): Llm => async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: left.shift() ?? [] } as never
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.97, notes: [] } as never
+    writes.push(prompt)
+    return written as never
+  }
+  const research: Llm = async ({ prompt }) => { researched = prompt; return shrimp as never }
+  const r = await makeGlossaryEntry(root, { research, llm: llm([['"cồn công nghiệp" advised on one shop\'s word'], []]) }, 'lua', { kind: 'aquascaping' })
+  expect(researched).toContain('Cover each of these kinds by name')
+  expect(researched).toContain('lũa sa tùng, which shops also sell as lũa kim sa tùng')
+  expect(researched).toContain('https://thuysinhtim.vn/lua-sa-tung-1kg')
+  expect(writes[0]).toContain('--- LOẠI CẦN CÓ ---\nlũa sa tùng')
+  expect(writes[0]).toContain('lũa sa tùng là gì')
+  expect(writes[0]).toContain('Tép Amano | Caridina multidentata | Amano shrimp')
+  // The broken rule goes to the rewrite, which keeps every rule: saved.
+  expect(writes[1]).toContain('"cồn công nghiệp" advised on one shop\'s word')
+  expect(r).toMatchObject({ id: 'lua', score: 0.97 })
+  // Still broken after the rewrite: not saved, and the report says why.
+  const again = await site()
+  const before = await readFile(join(again, 'content/glossary/lua/vi.json'), 'utf8')
+  const r2 = await makeGlossaryEntry(again, { research: async () => facts as never, llm: llm([['a rule'], ['another rule']]) }, 'lua', { kind: 'aquascaping' })
+  expect(r2).toMatchObject({ id: 'lua', skipped: 'breaks the rules: 1', notes: ['a rule'] })
+  expect(await readFile(join(again, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
 })
