@@ -126,16 +126,36 @@ export function mentionIndex(c: Content): Index {
 export const guidesMentioning = (c: Content, key: string): Localized<GuideEntity>[] =>
   c.guides.filter(g => mentionIndex(c).guides.get(g.id)?.keys.includes(key)).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
 
-/** Words only, lower case, spaced at both ends: a name is in a title when its words are, whole. */
-const words = (s: string) => ` ${s.normalize('NFC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim()} `
-/** Whether a guide's title names a fish or plant: by its name, scientific name or another of its names. */
-const titled = (title: string, x: { scientificName?: string; t: { name: string; altNames: string[] } }) =>
-  [x.t.name, x.scientificName, ...x.t.altNames].some(n => !!n && words(n).trim() !== '' && words(title).includes(words(n)))
+/** Words only, lower case, spaced at both ends; a vowel sign or tone mark stays with its letter (Thai: ปลาหางนกยูง). */
+const words = (s: string) => ` ${s.normalize('NFC').toLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim()} `
+/** A name without its class word ("Ikan cupang", "Cá boraras đỏ"), as a title lists fish: "cupang, guppy, molly". */
+const bare = (n: string) => n.replace(/^\s*(cá|ikan)\s+/iu, '')
+/**
+ * Where a guide's title names a fish or plant: the earliest place one of its names stands there, as whole words (in Thai,
+ * written without spaces, anywhere), with that name's length. A name's class word may be left off, where at least four
+ * letters remain. Of two fish named at one place, the longer name is the more particular ("Betta mahachaiensis" over
+ * the betta's other name "Betta").
+ */
+const titleAt = (title: string, x: { scientificName?: string; t: { name: string; altNames: string[] } }) => {
+  const t = words(title)
+  let best: { at: number; len: number } | undefined
+  for (const n of [x.t.name, x.scientificName, ...x.t.altNames]) {
+    if (!n) continue
+    const b = bare(n)
+    for (const v of b !== n && b.trim().length >= 4 ? [n, b] : [n]) {
+      const w = words(v), core = w.trim()
+      if (!core) continue
+      const at = /\p{Script=Thai}/u.test(core) ? t.indexOf(core) : t.indexOf(w)
+      if (at >= 0 && (!best || at < best.at || (at === best.at && core.length > best.len))) best = { at, len: core.length }
+    }
+  }
+  return best
+}
 
 /**
  * A guide's possible pictures, best first: its own photos, the open-licence photos its video's sections show, then the
- * first photo of each fish and plant it talks about, those its title names first: a guide on breeding guppies borrows a
- * guppy, not the water louse its text names in passing (the Design Lead, 13 Nov). Never the video's thumbnail: it shows
+ * first photo of each fish and plant it talks about, those its title names first, in the title's order: a guide on breeding
+ * guppies borrows a guppy, not the water louse its text names in passing (the Design Lead, 13 Nov). Never the video's thumbnail: it shows
  * the people in the video, and a page's photos show none (PRODUCT.md). A card takes the first one its page doesn't show
  * yet (lib/pictures.ts).
  */
@@ -144,7 +164,10 @@ export function guideImages(c: Content, g: Localized<GuideEntity>): Photo[] {
   // A section's photo can be a strip (a lamp, a tank's length) that a card's 16:9 would crop to a sliver.
   const sections = (g.video?.figures ?? []).flatMap(f => f.photo ?? []).filter(fitsCard)
   const named = [...(m?.species ?? []), ...(m?.plants ?? [])]
-  const first = [...named.filter(x => titled(g.t.name, x)), ...named.filter(x => !titled(g.t.name, x))]
+  // Those the title names first, in the title's order, then the rest in the text's.
+  const at = new Map(named.map(x => [x, titleAt(g.t.name, x)] as const))
+  const inTitle = named.filter(x => at.get(x)).sort((a, b) => at.get(a)!.at - at.get(b)!.at || at.get(b)!.len - at.get(a)!.len)
+  const first = [...inTitle, ...named.filter(x => !at.get(x))]
   return [...g.photos, ...sections, ...first.flatMap(x => x.photos[0] ?? [])].filter(p => !p.generated)
 }
 
