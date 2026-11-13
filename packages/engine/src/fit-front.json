@@ -1,6 +1,6 @@
 {
   "about": "first is when the reader-fit work may start: before it, neither the read nor the rewrite of the front list does anything. The first rewrite that gets a page to an outcome is written to engine-state/_fit-front.json, and while cleared is false it holds every later one: cleared is set to true here once the chief of staff has looked at that run's pages. front is the pages to read and rewrite first, in this order.",
-  "cleared": true,
+  "cleared": false,
   "first": "2026-11-13T08:00:00+07:00",
   "front": [
     "vi/species/pterophyllum-scalare",
