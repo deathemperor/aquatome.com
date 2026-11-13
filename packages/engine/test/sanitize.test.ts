@@ -82,6 +82,14 @@ test('"trùn chỉ đỏ" is written "trùng huyết", "nửa tá" "6 con", "th�
   expect(viWording('<h3>#1 trùn chỉ đỏ đông lạnh</h3>')).toBe('<h3>#1 Trùng huyết đông lạnh</h3>')
   expect(viWording('<li>2) trùn chỉ đỏ</li>')).toBe('<li>2) Trùng huyết</li>')
   expect(viWording('<p>5 trùn chỉ đỏ là đủ</p>')).toBe('<p>5 trùng huyết là đủ</p>')
+  // "trùng chỉ đỏ", another way the site wrote the bloodworm: each of its 21 sentences means the bloodworm (2026-11-12).
+  expect(viWording('như Artemia, Daphnia hoặc trùng chỉ đỏ.')).toBe('như Artemia, Daphnia hoặc trùng huyết.')
+  expect(viWording('ấu trùng muỗi lắc (trùng chỉ đỏ)...')).toBe('ấu trùng muỗi lắc (trùng huyết)...')
+  expect(viWording('ấu trùng muỗi chironomid (trùng chỉ đỏ, hay trùng huyết), giun')).toBe('ấu trùng muỗi chironomid (trùng huyết), giun')
+  expect(viWording('thực đơn nên có thêm trùng chỉ đỏ (ấu trùng muỗi chironomid, hay trùng huyết) sống')).toBe('thực đơn nên có thêm trùng huyết (ấu trùng muỗi chironomid) sống')
+  expect(viWording('<li>Thức ăn đông lạnh như trùng chỉ đỏ hay artemia</li>')).toBe('<li>Thức ăn đông lạnh như trùng huyết hay artemia</li>')
+  expect(viWording('<p>Trùng chỉ đỏ đông lạnh</p>')).toBe('<p>Trùng huyết đông lạnh</p>')
+  for (const kept of ['trùng chỉ', 'giun chỉ đỏ']) expect(viWording(kept)).toBe(kept)
   // A shop search stays in lowercase, as it is typed.
   expect(viSearchWords('trùn chỉ đỏ đông lạnh')).toBe('trùng huyết đông lạnh')
   const once = viWording('trùn chỉ đỏ/trùn huyết, nửa tá con, thủng lỗ đầu')

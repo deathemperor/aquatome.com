@@ -103,9 +103,11 @@ const WORDING: { find: RegExp; use: string }[] = [
   { find: /(?<!\p{L})[Ss]etup bể(?!\p{L})/gu, use: 'set bể' },
   { find: /(?<!\p{L})[Cc]hỉtiêu(?!\p{L})/gu, use: 'chỉ tiêu' },
   { find: /(?<!\p{L})[Vv]à\s*\/\s*hoặc(?!\p{L})/gu, use: 'hoặc' },
-  { find: /(?<!\p{L})[Tt]rùn chỉ đỏ(?:\s*\/\s*|,\s*hay\s+)tr(?:ùng|ùn) huyết(?!\p{L})/gu, use: 'trùng huyết' },
-  { find: /(?<!\p{L})[Tt]rùn chỉ đỏ \(tr(?:ùng|ùn) huyết, (?=tức )/gu, use: 'trùng huyết (' },
-  { find: /(?<!\p{L})[Tt]rùn chỉ đỏ(?!\p{L})/gu, use: 'trùng huyết' },
+  // The bloodworm, written "trùn chỉ đỏ" or "trùng chỉ đỏ": a sentence that gave both names keeps one.
+  { find: /(?<=(?<!\p{L})[Tt]rùn(?:g)? chỉ đỏ \([^()]*),\s*hay\s+tr(?:ùng|ùn) huyết\)/gu, use: ')' },
+  { find: /(?<!\p{L})[Tt]rùn(?:g)? chỉ đỏ(?:\s*\/\s*|,\s*hay\s+)tr(?:ùng|ùn) huyết(?!\p{L})/gu, use: 'trùng huyết' },
+  { find: /(?<!\p{L})[Tt]rùn(?:g)? chỉ đỏ \(tr(?:ùng|ùn) huyết, (?=tức )/gu, use: 'trùng huyết (' },
+  { find: /(?<!\p{L})[Tt]rùn(?:g)? chỉ đỏ(?!\p{L})/gu, use: 'trùng huyết' },
   { find: /(?<!\p{L})[Nn]ửa tá(?: con(?!\p{L})|(?=\s*(?:[.,;:!?)]|$)))/gu, use: '6 con' },
   { find: /(?<!\p{L})(?:[Tt]hủng|[Ll]ủng) lỗ đầu(?!\p{L})/gu, use: 'lủng đầu' },
 ]

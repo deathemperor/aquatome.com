@@ -1,4 +1,4 @@
-import { photoFitsCard, resolveDataCard, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo, type PlantEntity, type Range, type Series, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
+import { boxFractions, photoFitsCard, resolveDataCard, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo, type PlantEntity, type Range, type Series, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
 import { PAGE_VERSION, pageShard, shardCount, type Block, type Image, type Inline, type PageDoc, type PageShard } from '@aq/schema/app-page'
 import { appBreeds, appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, type AppIndex } from './app-index'
 import { breedParts } from './breed-page'
@@ -44,8 +44,15 @@ const image = (lang: Lang, p: Photo | null | undefined, alt?: string, small = fa
   p && !(small && p.generated) && p.width > 0 && p.height > 0
     ? { src: small ? smallSrc(p) : p.url, w: Math.round(p.width), h: Math.round(p.height), ...(alt ? { alt } : {}), credit: photoCredit(lang, p) }
     : undefined
-/** The current app crops its detail banner and has no headFit consumer. Keep unsafe cropped leads out of its data. */
-const headImage = (lang:Lang,p:Photo|undefined,alt:string) => p && p.headFit!=='contain' && photoFitsCard(p) ? image(lang,p,alt) : undefined
+/**
+ * The current app crops its detail banner and has no headFit consumer. Keep unsafe cropped leads out of its data. The
+ * lead carries where the fish is (`box`) where the loader gave the photo one, which only its switch does.
+ */
+const headImage = (lang:Lang,p:Photo|undefined,alt:string) => {
+  const img = p && p.headFit!=='contain' && photoFitsCard(p) ? image(lang,p,alt) : undefined
+  const box = img && boxFractions(p!)
+  return img && box ? { ...img, box } : img
+}
 /** A link to a page as this language's page has it: to its own page, none (the text alone) when it has none. */
 const linked = (lang: Lang, text: string, viPath: string): Inline => (served(lang, viPath) ? { text, href: appPath(lang, viPath) } : text)
 

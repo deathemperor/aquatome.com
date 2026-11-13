@@ -1,14 +1,14 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-11). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-12). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
-| shop | 60 | 131 | 80 | 24 | 32 | 203 |
+| shop | 60 | 131 | 80 | 24 | 30 | 205 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 584 | 29 | 9 | 18 | 604 |
-| rest | 20 | 1688 | 75 | 0 | 52 | 1711 |
+| covered | 30 | 584 | 30 | 9 | 18 | 605 |
+| rest | 20 | 1688 | 74 | 0 | 51 | 1711 |
 
 ## Short of target: every source read (297)
 
@@ -63,7 +63,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/puntigrus-tetrazona | shop | 21 | 60 |
 | plants/taxiphyllum-barbieri | shop | 4 | 60 |
 | breeds/koi-guppy | shop | 0 | 60 |
-| species/corydoras-aeneus | shop | 27 | 60 |
+| species/corydoras-aeneus | shop | 26 | 60 |
 | breeds/dumbo-ear-guppy | shop | 0 | 60 |
 | species/chromobotia-macracanthus | shop | 20 | 60 |
 | plants/aegagropila-linnaei | shop | 34 | 60 |
@@ -101,7 +101,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/cryptocoryne-albida | shop | 4 | 60 |
 | species/trichogaster-lalius | shop | 34 | 60 |
 | plants/heteranthera-zosterifolia | shop | 6 | 60 |
-| species/hyphessobrycon-elachys | shop | 0 | 60 |
+| species/hyphessobrycon-elachys | shop | 1 | 60 |
 | species/hyphessobrycon-eques | shop | 5 | 60 |
 | plants/anubias-gracilis | shop | 0 | 60 |
 | species/hyphessobrycon-pulchripinnis | shop | 5 | 60 |
@@ -223,7 +223,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/yasuhikotakia-modesta | shop | 2 | 60 |
 | species/parambassis-ranga | shop | 2 | 60 |
 | species/scatophagus-argus | shop | 42 | 60 |
-| species/piaractus-brachypomus | shop | 44 | 60 |
+| species/piaractus-brachypomus | shop | 43 | 60 |
 | species/aphyocharax-anisitsi | shop | 1 | 60 |
 | species/nematobrycon-lacortei | shop | 0 | 60 |
 | species/moenkhausia-sanctaefilomenae | shop | 8 | 60 |
@@ -258,11 +258,12 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/epiplatys-annulatus | covered | 2 | 30 |
 | species/akysis-vespa | covered | 0 | 30 |
 | species/aguarunichthys-torosus | covered | 0 | 30 |
+| species/ambastaia-sidthimunki | covered | 1 | 30 |
 | species/amblydoras-nauticus | covered | 0 | 30 |
 | species/aphanotorulus-unicolor | covered | 0 | 30 |
 | species/axelrodia-riesei | covered | 1 | 30 |
 | species/betta-siamorientalis | covered | 0 | 30 |
-| species/betta-unimaculata | covered | 0 | 30 |
+| species/betta-unimaculata | covered | 1 | 30 |
 | species/boraras-merah | covered | 3 | 30 |
 | species/brachyplatystoma-vaillantii | covered | 1 | 30 |
 | species/brevibora-dorsiocellata | covered | 1 | 30 |
@@ -310,6 +311,5 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/akysis-varius | covered | 0 | 30 |
 | species/amaralia-hypsiura | covered | 0 | 30 |
 | species/ambastaia-nigrolineata | covered | 1 | 30 |
-| species/ambastaia-sidthimunki | covered | 1 | 30 |
 | species/anadoras-grypus | covered | 0 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |

@@ -380,13 +380,15 @@ test('redo rewrites only guides already written: a video not done yet waits for 
   expect(await read(root, 'content/guides/youtube-a1/entity.json')).toMatchObject({ video: { series: { id: 'PL1', position: 0 } } })
 })
 
-test('redo keeps a body fixed by hand; the rest of the guide is the new version', async () => {
+// The summary is the body's in short, so it stays with a body fixed by hand: a new draft's, from the transcript, would bring
+// back the line the fix took out (the stand-tap-water guide's "chỉ phí tiền", the independent read of 2026-11-12).
+test('redo keeps a body fixed by hand and its summary; the rest of the guide is the new version', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   await videoGuides(deps(root).d, { playlists: ['PL1'] })
   const file = join(root, 'content/guides/youtube-a1/vi.json')
-  await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), body: '<p>người sửa</p>', bodyFixed: true }))
+  await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), body: '<p>người sửa</p>', summary: ['Tóm tắt người sửa.'], bodyFixed: true }))
   await videoGuides(deps(root, { drafts: [draft('Tiêu đề mới')] }).d, { playlists: ['PL1'], redo: true, write: { style: true, model: 'opus' } })
-  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề mới', body: '<p>người sửa</p>', bodyFixed: true })
+  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề mới', body: '<p>người sửa</p>', summary: ['Tóm tắt người sửa.'], bodyFixed: true, faq: [{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần, khoảng 20 lít.' }] })
 })
 
 // Two guides from one channel had one title (the owner's "Duplicated", 2026-11-11); the titles picked by hand stay.

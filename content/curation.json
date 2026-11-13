@@ -49,7 +49,7 @@
     },
     {
      "page": "breeds/plakat-betta",
-     "img": "https://media.aquatome.com/commons/2f06e503b293c8ae.webp"
+     "img": "https://media.aquatome.com/commons/2f06e503b293c8ae-large.webp"
     }
    ],
    "shelves": [
@@ -462,10 +462,11 @@
   },
   {
    "date": "2026-11-20",
-   "img": "https://media.aquatome.com/commons/4f94899e8e811e8e-large.webp",
+   "fish": "species/boraras-brigittae",
+   "img": "https://media.aquatome.com/commons/bb991a4fdd2edcd5-large.webp",
    "guide": "guides/aquatome-ca-bi-xu-vay-benh-phu-dropsy-nguyen-nhan-cach-chua-va-phong",
    "card": "cards/trivia-glass-catfish-name",
-   "why": "Guide: Cá bị xù vảy (bệnh phù, dropsy): nguyên nhân, cách chữa và phòng, 2 search impressions."
+   "why": "Fish: Cá rasbora muỗi, a small schooling fish for a small tank."
   },
   {
    "date": "2026-11-21",
@@ -550,6 +551,14 @@
    "guide": "guides/2hraquarist-blogs-algae-control-tackle-algae-by-doing-nothing",
    "guideImg": "https://media.aquatome.com/2hraquarist/e97391145c58b6d6.webp",
    "why": "Fish: Cá khủng long Senegal, on this week's list. Guide: Xử lý tảo bằng cách... không làm gì cả?, the best left with a big enough photo."
+  },
+  {
+   "date": "2026-12-02",
+   "fish": "species/maylandia-estherae",
+   "img": "https://media.aquatome.com/commons/0bde0aea3f9c15e8-large.webp",
+   "guide": "guides/aquariumbreeder-7-signs-your-crayfish-is-suffering-from-stress",
+   "guideImg": "https://media.aquatome.com/aquariumbreeder/c0e25bd3e9c353d3.webp",
+   "why": "Fish: Cá zebra đỏ, on this week's list. Guide: 7 dấu hiệu cho thấy tôm càng (crayfish) của bạn đang bị căng thẳng, the best left with a big enough photo."
   }
  ],
  "loops": {
@@ -668,7 +677,7 @@
   "species/hemigrammus-erythrozonus": "reader fit: elsewhere",
   "species/mikrogeophagus-ramirezi": "reader fit: source",
   "species/oryzias-latipes": "reader fit: elsewhere",
-  "species/poecilia-reticulata": "reader fit: units, elsewhere",
+  "species/poecilia-reticulata": "reader fit: elsewhere",
   "species/pristella-maxillaris": "reader fit: elsewhere",
   "species/pterophyllum-scalare": "reader fit: source",
   "species/symphysodon-aequifasciatus": "reader fit: source",
@@ -676,5 +685,47 @@
   "species/thayeria-boehlkei": "reader fit: elsewhere",
   "species/trichopodus-pectoralis": "reader fit: elsewhere",
   "species/trichopodus-trichopterus": "reader fit: elsewhere"
+ },
+ "searches": {
+  "vi": [
+   "betta",
+   "cá vàng",
+   "bảy màu",
+   "tép",
+   "rêu java",
+   "bệnh đốm trắng",
+   "rêu hại",
+   "chu trình nitơ"
+  ],
+  "id": [
+   "betta",
+   "mas koki",
+   "guppy",
+   "udang",
+   "lumut jawa",
+   "lumut",
+   "louhan",
+   "arwana"
+  ],
+  "th": [
+   "ปลากัด",
+   "ปลาทอง",
+   "ปลาหางนกยูง",
+   "กุ้ง",
+   "มอส",
+   "ตะไคร่",
+   "หมอสี",
+   "ไม้น้ำ"
+  ],
+  "ms": [
+   "laga",
+   "guppy",
+   "udang",
+   "louhan",
+   "arowana",
+   "molly",
+   "discus",
+   "penapis"
+  ]
  }
 }

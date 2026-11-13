@@ -1,0 +1,71 @@
+{
+  "id": "opsarius-koratensis",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/632b2538e5301b94b784c4f7c2656cc1.webp",
+      "thumb": "https://media.aquatome.com/processed/632b2538e5301b94b784c4f7c2656cc1-480.webp",
+      "width": 850,
+      "height": 439,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/opsarius-koratensis-2/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-opsarius-koratensis",
+        "pixelHash": "0d78511d80bd7d2ec40e3f240aca7344a7c6eb1e78f58ba20aad850f9339e585"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:52:10.455Z",
+          "originalHash": "bec4b5d00a1e97490d41d4989147e4637e13da137082c481d6a4139eb9a18250",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 567,
+            "window": {
+              "x0": 0,
+              "y0": 128,
+              "x1": 850,
+              "y1": 567
+            },
+            "subject": {
+              "x0": 91,
+              "y0": 156,
+              "x1": 767,
+              "y1": 358
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 24,
+              "y0": 8,
+              "x1": 828,
+              "y1": 122
+            }
+          ],
+          "checks": {
+            "species": [
+              "719f64ec3af7e6e82daffbaa3c9ad7b6393091efb8be1a8d9e0dc54858b72204",
+              "3d4b29a1e262b43d404b235a36e78093afbe7b2cf6d64ea171bfac17f8c1bbee"
+            ],
+            "ownership": [
+              "c9addc396bdfb08bbafe9e82dca380c7285a5fdfdb7034e0ad4281f2c8f78232",
+              "343fde9c3be23c06c3eb8a1b2c9898573fea298d869c9f988a811901f2b7f346"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/0ed2e421b127145a.webp",
+        "width": 850,
+        "height": 567,
+        "thumb": "https://media.aquatome.com/glaser/0ed2e421b127145a-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

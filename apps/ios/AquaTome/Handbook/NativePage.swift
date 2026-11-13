@@ -921,6 +921,7 @@ private struct GalleryRow: View {
             .frame(width: 140 * ratio)
           }
         }
+        .v2YieldsToEdgeSwipe()
       }
       Button("Xem tất cả \(photos.count) ảnh") {
         if let grid { grid() } else { show(strip.first ?? 0) }

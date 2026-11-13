@@ -1,6 +1,6 @@
-import { spawn, spawnSync, withSimRunTurn } from './sim-run-turn'
+import { spawn, spawnSync, unlowered, withSimRunTurn } from './sim-run-turn'
 import { chmodSync, existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, symlinkSync, writeFileSync } from 'node:fs'
-import { tmpdir } from 'node:os'
+import { setPriority, tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
@@ -160,14 +160,17 @@ test.skipIf(process.platform !== 'darwin')("while a run has its turn, its simula
     const daemon = (path: string) => {
       mkdirSync(dirname(join(dir, path)), { recursive: true })
       symlinkSync('/bin/sleep', join(dir, path))
-      return spawn(join(dir, path), ['30'], { stdio: 'ignore' })
+      return () => spawn(join(dir, path), ['30'], { stdio: 'ignore' })
     }
-    const sim = daemon('CoreSimulator/Volumes/iOS/RuntimeRoot/System/Library/PrivateFrameworks/MediaAnalysis.framework/mediaanalysisd')
-    const mac = daemon('System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versions/A/Support/photoanalysisd')
+    const startSim = daemon('CoreSimulator/Volumes/iOS/RuntimeRoot/System/Library/PrivateFrameworks/MediaAnalysis.framework/mediaanalysisd')
+    const mac = daemon('System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versions/A/Support/photoanalysisd')()
     const nice = (pid?: number) => Number(spawnSync('ps', ['-o', 'nice=', '-p', String(pid)], { encoding: 'utf8' }).stdout.trim())
+    let sim: ReturnType<typeof startSim> | undefined
     try {
       await wait(200)
       const before = nice(mac.pid)
+      // Unlowered before this run's own scan, whatever a live simulator run's scan did to an earlier one (unlowered).
+      sim = await unlowered(startSim, nice, before)
       expect(nice(sim.pid)).toBe(before)
       // The run lasts until the stand-in is in the background, or 20 s: a fixed second ran out on a busy Mac, at nice 10,
       // before sim-run had looked once (2026-11-08).
@@ -176,10 +179,54 @@ test.skipIf(process.platform !== 'darwin')("while a run has its turn, its simula
       expect(nice(sim.pid)).toBe(20)
       expect(nice(mac.pid)).toBe(before)
     } finally {
-      sim.kill()
+      sim?.kill()
       mac.kill()
     }
   })
+}, 30_000)
+
+// The stand-in above is named as a simulator's daemon, so a live simulator run's scan lowers it as well (2026-11-12).
+test("a stand-in someone else's scan lowered before it was read is started afresh, three times at most", async () => {
+  const started: { pid: number; killed: boolean; kill: () => void }[] = []
+  const start = () => {
+    const c = { pid: 100 + started.length, killed: false, kill: () => { c.killed = true } }
+    started.push(c)
+    return c
+  }
+  // The first two were lowered by another run's scan before they were read; the third wasn't.
+  const got = await unlowered(start, pid => (pid === 100 || pid === 101 ? 20 : 10), 10, { settle: 0 })
+  expect(got.pid).toBe(102)
+  expect(started.map(c => c.killed)).toEqual([true, true, false])
+  // One not lowered is kept as it is, and none is started after it.
+  expect((await unlowered(start, () => 10, 10, { settle: 0 })).pid).toBe(103)
+  expect(started).toHaveLength(4)
+  // Lowered every time: the third is handed back as it is, for the test's own check to fail on.
+  const always = await unlowered(start, () => 20, 10, { settle: 0 })
+  expect(always).toMatchObject({ pid: 106, killed: false })
+  expect(started).toHaveLength(7)
+})
+
+// The same with real processes and ps, a scan's lowering played by this test: nice 19 on the first stand-in (Node's
+// lowest; sim-run.py's scan sets 20 and a background policy). Any nice but the test's own is a lowered one here.
+test.skipIf(process.platform !== 'darwin')("a real stand-in lowered before it was read is replaced by one that isn't", async () => {
+  const kids: ReturnType<typeof spawn>[] = []
+  const nice = (pid?: number) => Number(spawnSync('ps', ['-o', 'nice=', '-p', String(pid)], { encoding: 'utf8' }).stdout.trim())
+  const base = nice(process.pid)
+  const start = () => {
+    const c = spawn('/bin/sleep', ['30'], { stdio: 'ignore' })
+    kids.push(c)
+    if (kids.length === 1) setPriority(c.pid!, 19)
+    return c
+  }
+  try {
+    const got = await unlowered(start, nice, base)
+    expect(kids).toHaveLength(2)
+    expect(got).toBe(kids[1])
+    expect(nice(got.pid)).toBe(base)
+    expect(kids[0]!.killed).toBe(true)
+  } finally {
+    for (const c of kids) c.kill()
+  }
 }, 30_000)
 
 // The two files start sim-run.py, whose scan sees every analysis daemon. Dropping either file's import, or the

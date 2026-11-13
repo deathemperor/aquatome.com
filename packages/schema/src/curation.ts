@@ -128,6 +128,13 @@ export const CurationSchema = z.object({
    * fish and guide are replaced instead.
    */
   off: z.record(z.string(), z.string()).default({}),
+  /**
+   * Tìm's suggested searches ("Gợi ý tìm kiếm") in each language, in order: eight a reader of that language types, each
+   * finding its own page or its topic first in that language's index with the app's search (Curation checks them there).
+   * A language with fewer than eight that pass has none, and the app shows no section (the chief of staff, 2026-11-12).
+   */
+  searches: z.partialRecord(z.enum(LANGS), z.array(z.string().trim().min(1).max(40)).length(8)
+    .refine(xs => new Set(xs.map(x => x.toLowerCase())).size === xs.length, 'a search listed twice')).default({}),
 })
 
 export type Curation = z.infer<typeof CurationSchema>

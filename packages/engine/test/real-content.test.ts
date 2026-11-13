@@ -5,8 +5,12 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { loadAll, mayPublish, resolveDataCard, type Translation } from '@aq/schema'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
+import { englishOf } from '../src/english'
+import { productOf } from '../src/fit'
 import { loadPages } from '../src/pages'
 import { ENGLISH_PLACE_WORD } from '../src/place-names'
+import { roundPage } from '../src/round'
+import { mendPart } from '../src/source-figures'
 import { fishThaiLai, wordingSlips } from '../src/sanitize'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
 import { cardSchool, readTraits } from '../src/traits'
@@ -65,28 +69,71 @@ test("the owner's Hải Hồ and the names that replaced \"thài lài\" stay, ea
 // guides' treatment is written for a keeper in Vietnam: nothing not sold here, in any field of any language's file, and
 // nothing explaining its absence. Fritz Slime Out, Tetra AlguMin Plus and AlgoStop depot: no listing on 22 Vietnamese
 // shops' own search. Ultralife's only listing is a general pet wholesaler's, not counted as sold.
+// The chief of staff, 2026-11-12: a source is never credited with words it did not say. Our lines (the peroxide method
+// on Co-op's guide, which never names peroxide; the pharmacy and shop prices and the 40-litre example on Aquarium Breeder's)
+// are a labelled note beside each source's body, citing where its dose and prices come from. The two checks below stay as
+// strict over every file; only the note's own label, which says whom the note is for, is taken out before them.
+const AQUATOME_NOTE = 'Ghi chú của AquaTome cho bạn đọc ở Việt Nam:'
 const BLUE_GREEN_ALGAE = {
-  'aquariumcoop-blogs-aquarium-blue-green-algae': ['https://aquariumbreeder.com/blue-green-algae-cyanobacteria-profile-and-how-to-remove/', 'https://www.pharmacity.vn/oxy-gia-vp-3-60ml-loc-10-chai.html'],
-  'aquariumbreeder-blue-green-algae-cyanobacteria-profile-and-how-to-remove': ['https://www.pharmacity.vn/oxy-gia-vp-3-60ml-loc-10-chai.html'],
-}
-test.each(Object.entries(BLUE_GREEN_ALGAE))('blue-green algae: %s names no product not sold in Vietnam, cites its dose, and the engine keeps it', async (id, cited) => {
+  'aquariumcoop-blogs-aquarium-blue-green-algae': { cited: ['https://aquariumbreeder.com/blue-green-algae-cyanobacteria-profile-and-how-to-remove/', 'https://www.pharmacity.vn/oxy-gia-vp-3-60ml-loc-10-chai.html'], dose: 'note' },
+  'aquariumbreeder-blue-green-algae-cyanobacteria-profile-and-how-to-remove': { cited: ['https://aquariumbreeder.com/blue-green-algae-cyanobacteria-profile-and-how-to-remove/', 'https://www.pharmacity.vn/oxy-gia-vp-3-60ml-loc-10-chai.html'], dose: 'body' },
+} as const
+test.each(Object.entries(BLUE_GREEN_ALGAE))('blue-green algae: %s names no product not sold in Vietnam, keeps our lines in a labelled note with their sources, and the engine keeps it', async (id, { cited, dose: doseIn }) => {
   const dir = fileURLToPath(new URL(`../../../content/guides/${id}/`, import.meta.url))
+  const t = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation
+  const label = `<p><strong>${AQUATOME_NOTE}</strong> `
+  expect(t.localNote?.html.startsWith(label)).toBe(true)
   for (const file of await readdir(dir)) {
-    const text = await readFile(join(dir, file), 'utf8')
+    const raw = await readFile(join(dir, file), 'utf8')
+    // The one label at the head of vi.json's note is taken out, and nothing else: the label anywhere else still fails.
+    const text = file === 'vi.json' ? JSON.stringify({ ...t, localNote: { ...t.localNote!, html: t.localNote!.html.slice(label.length) } }) : raw
     expect(text, file).not.toMatch(/fritz|slime\s*out|slime\s*stain|algu\s*min|algo\s*stop|ultra\s*life/iu)
     expect(text, file).not.toMatch(/bài gốc|ở mỹ|ở việt nam|aquatome thêm/iu)
   }
-  const t = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation
   expect(t.bodyFixed).toBe(true)
-  expect(t.localNote).toBeUndefined()
-  expect(t.body).toContain('oxy già 3%')
-  expect(t.body).toContain('3 ml cho mỗi 4 lít')
-  // The dose says what it's for and carries its caution, so it can't be read against another guide's 0.4 ml for a whole tank.
-  const dose = t.body!.match(/<li>[^<]*3 ml cho mỗi 4 lít[^<]*<\/li>/)?.[0]
+  // The dose is for 3% peroxide, the pharmacy's, wherever a strength is named.
+  for (const m of `${t.body}${t.localNote!.html}`.matchAll(/(?:oxy già|loại)\s*(\d+(?:[.,]\d+)?)\s*%/giu)) expect(m[0]).toMatch(/\b3\s*%$/u)
+  // No writer drops the note or its sources when the source is read again (merge.ts writeGuide).
+  expect(t.localNote?.refs.map(r => r.url)).toEqual(expect.arrayContaining([...cited]))
+  // Our lines never sit under the source's name again: no pharmacy, no price, no shop, no worked example in its body.
+  expect(t.body).not.toMatch(/nhà thuốc|\d[\d.,–]* đồng|shop thủy sinh|bể 40 lít|hướng dẫn trên nhãn|chỉ dùng loại 3%/iu)
+  if (doseIn === 'note') expect(t.body).not.toMatch(/oxy già/iu)
+  // The dose says what it's for and carries its cautions in the same step, wherever it is, so it can't be read against
+  // another guide's 0.4 ml for a whole tank.
+  const where = doseIn === 'note' ? t.localNote!.html : t.body!
+  const dose = where.match(/<li>[^<]*3 ml cho mỗi 4 lít[^<]*<\/li>/)?.[0]
+  expect(dose).toContain('oxy già 3%')
   expect(dose).toContain('liều bơm tại chỗ, không phải liều châm đều cả bể')
   expect(dose).toMatch(/bỏng mang.*tép/)
-  // No writer carries a guide's refs over a source read again (merge.ts writeGuide): this says so when one is lost.
-  expect(t.refs?.map(r => r.url)).toEqual(expect.arrayContaining(cited))
+  expect(dose).toMatch(/tò mò bơi tới chỗ đang bơm/)
+  for (const step of t.localNote!.html.match(/<(p|li)>.*?<\/\1>/g) ?? []) {
+    if (!/3 ml cho mỗi 4 lít|40 lít/.test(step)) continue
+    expect(step).toMatch(/oxy già 3%|loại 3%/)
+    expect(step).toContain('liều bơm tại chỗ, không phải liều châm đều cả bể')
+    expect(step).toMatch(/bỏng mang/)
+    expect(step).toMatch(/tò mò bơi tới chỗ đang bơm/)
+  }
+})
+
+// The source's own figures (the chief of staff, 2026-11-12): until then the rounding rounded a figure a fish page's English
+// gives in metric itself, Seriously Fish's "90 × 38 × 30 cm" to "90 × 40 × 30 cm", and on the Ophthalmotilapia page one
+// line gave two lengths. Each cycle's mender puts them back from the English (source-figures.ts), at the chief's pace, and
+// the rounding keeps them. These three, the cases the chief named, go first: the steps a cycle runs give today's files
+// the source's figures back, and keep them.
+const SOURCE_FIGURES = [
+  ['vi', 'dianema-longibarbis', 'aquariumSize:seriouslyfish', ['Đáy bể: 90 × 38 cm', 'Một bể 90 × 38 × 30 cm']],
+  ['vi', 'ophthalmotilapia-ventralis', 'aquariumSize:seriouslyfish', ['Đáy bể: 135 × 45 cm', '(135 × 45 × 38 cm)']],
+  ['vi', 'cichla-monoculus', 'aquariumSize:seriouslyfish', ['305 x 91 x 122 cm']],
+  ['id', 'cichla-monoculus', 'quickFacts:seriouslyfish', ['305 x 91 x 122 cm']],
+] as const
+test.each(SOURCE_FIGURES)("the source's own figures: %s %s keeps the English's tank", async (lang, id, part, want) => {
+  const dir = fileURLToPath(new URL(`../../../content/species/${id}/`, import.meta.url))
+  const en = englishOf(JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')).sections)
+  const text = (JSON.parse(await readFile(join(dir, `${lang}.json`), 'utf8')) as Translation).sections![part]!
+  const m = mendPart(text, en.sections[part]!, lang)
+  expect(m).not.toHaveProperty('why')
+  const kept = roundPage({ sections: { [part]: m ? (m as { text: string }).text : text } }, lang, en).sections![part]!
+  for (const w of want) expect(kept).toContain(w)
 })
 
 // Praziquantel mixed into food, in all four languages, by the fish's weight (University of Florida; a trial on grass carp doses
@@ -253,3 +300,105 @@ test('no two guides in a language share a title, and none is only a name', async
   expect(errors).toEqual([])
   expect(findings.map(f => `${f.page.lang}/${f.page.id}: ${f.detail}`)).toEqual([])
 }, 300_000)
+
+// The chief of staff's rulings of 2026-11-12 on the tap-water report. Each is a hand fix the engine keeps: a guide's body
+// marked bodyFixed, a page's part marked fixed (in English and in each language beside it), a note of ours in localNote.
+// The own-voice audit (the chief of staff, 2026-11-12: a source is never credited with words it did not say). A hand fix
+// may cut a source's part; it adds nothing the source didn't say. The porthole catfish's breeding part had gained "and it
+// is rarely bred in home aquaria", which is Scotcat's and Fishkeeper's, under Seriously Fish's name.
+test('a source\'s part fixed by hand says only what the source says: the porthole catfish\'s breeding part is Seriously Fish\'s', () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
+  const e = read<{ sections: { key: string; source: string; html: string; fixed?: boolean }[] }>('species/dianema-longibarbis/entity.json')
+  const sf = e.sections.find(s => s.key === 'reproduction' && s.source === 'seriouslyfish')!
+  expect(sf.fixed).toBe(true)
+  expect(sf.html).toBe('<p>Very scant information exists regarding the spawning of this fish in captivity.</p>')
+  const vi = read<{ sections: Record<string, string> }>('species/dianema-longibarbis/vi.json').sections
+  expect(vi['reproduction:seriouslyfish']).toBe('<p>Hiện có rất ít thông tin về chuyện loài này sinh sản trong bể nuôi.</p>')
+})
+
+test('the tap-water fixes hold: Seachem Prime named at its dose, our note on water for lucky bamboo beside its source\'s, our chloramine note, artemia salt in grams', () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
+  type Guide = { body: string; bodyFixed?: boolean; faqFixed?: boolean; summary?: string[]; faq?: { q: string; a: string }[]; localNote?: { html: string; refs: { url: string }[] } }
+  // Our dechlorinating guide: the dose's product is one the shops here sell, so the reader check doesn't hold the dose.
+  const prime = read<Guide>('guides/aquatome-khu-clo-nuoc-may-cho-be-ca-cac-cach-va-cach-nao-an-toan/vi.json')
+  expect(prime.bodyFixed).toBe(true)
+  expect(prime.body).toMatch(/<h3>Liều dùng Seachem Prime theo nhà sản xuất<\/h3>\s*<p>[^<]*<\/p>\s*<ul>\s*<li>1 nắp \(5 mL\) cho 200 L/)
+  expect(productOf('Seachem Prime', 'vi')?.status).toBe('sold')
+  // Lucky bamboo (the chief of staff, 2026-11-12: a source is never credited with words it did not say). Aquarium Breeder's
+  // parts keep what it says, RO or distilled water and dechlorinated tap water if you use it; the ruling, RO with minerals
+  // added back where animals share the water and pure water only for the plant by itself, is our own part, labelled, with
+  // its sources, in every language the page has.
+  const ours = { en: /^<p><strong>AquaTome's note:<\/strong> RO or distilled water with no minerals added back, as above, is for lucky bamboo kept by itself\. Where fish, shrimp or snails share the water, use RO water with minerals added back: shrimp and snails need minerals that pure water lacks\.<\/p>$/, vi: /^<p><strong>Ghi chú của AquaTome:<\/strong> [^<]*chỉ hợp khi trồng trúc phú quý riêng\. Bể có cá, tép hay ốc sống chung thì dùng nước RO đã bù khoáng, vì tép và ốc cần khoáng/, id: /^<p><strong>Catatan AquaTome:<\/strong> [^<]*hanya cocok kalau bambu hoki dipelihara sendiri\. Kalau ada ikan, udang, atau siput di air yang sama, gunakan air RO yang sudah ditambah mineral, karena udang dan siput butuh mineral/, th: /^<p><strong>หมายเหตุจาก AquaTome:<\/strong> [^<]*เหมาะเฉพาะเมื่อปลูกไผ่กวนอิมไว้อย่างเดียว ถ้ามีปลา กุ้ง หรือหอยอยู่ในน้ำเดียวกัน ให้ใช้น้ำ RO ที่เติมแร่ธาตุแล้ว เพราะกุ้งและหอยต้องการแร่ธาตุ/ }
+  // Tap water is Aquarium Breeder's to say (its care part), so the note leaves it out.
+  const tap = { en: /tap water/i, vi: /nước máy|khử clo/, id: /air keran|klorin/, th: /น้ำประปา|คลอรีน/ }
+  const ruling = { en: /minerals added back|kept by itself/, vi: /bù khoáng|trồng (?:trúc phú quý )?riêng/, id: /ditambah mineral|dipelihara sendiri/, th: /เติมแร่ธาตุ|ไว้อย่างเดียว/ }
+  const plant = read<{ sections: { key: string; source: string; html: string; refs?: number[]; fixed?: boolean }[]; refs?: { url: string }[] }>('plants/dracaena-sanderiana/entity.json')
+  const note = plant.sections.find(s => s.key === 'waterConditions' && s.source === 'aquatome')!
+  expect(note.fixed).toBe(true)
+  expect(note.html).toMatch(ours.en)
+  // Its mark names the page its facts come from (docs/governance.md): shrimp need minerals in the water, RO/DI water takes a
+  // remineralizer, and snails suffer in distilled water, which has none (the last in its author's reply there). No page it
+  // cites says otherwise: Seneye's RO page, which says pure RO is never used on its own, isn't cited (the third
+  // independent read). Whom the advice is for, fish included, is the ruling's, by the label.
+  expect(note.refs!.map(i => plant.refs![i]!.url)).toEqual(['https://aquariumbreeder.com/shrimp-keeping-can-i-remineralize-tap-water/'])
+  expect(note.html).not.toMatch(tap.en)
+  // What Aquarium Breeder says stays its own, in every language: RO or distilled water, tap water dechlorinated first.
+  const says = { vi: [/nước RO hoặc nước cất/, /khử clo trước/], id: [/air RO atau air suling/, /hilangkan klorinnya dulu/], th: [/น้ำ RO หรือน้ำกลั่น/, /ต้องกำจัดคลอรีนก่อน/] }
+  for (const lang of ['vi', 'id', 'th'] as const) {
+    const t = read<{ sections: Record<string, string> }>(`plants/dracaena-sanderiana/${lang}.json`).sections
+    expect(t['waterConditions:aquatome'], lang).toMatch(ours[lang])
+    expect(t['waterConditions:aquatome'], lang).not.toMatch(tap[lang])
+    for (const key of ['maintenance', 'waterConditions']) expect(t[`${key}:aquariumbreeder`], `${lang} ${key}`).not.toMatch(ruling[lang])
+    expect(t['maintenance:aquariumbreeder'], lang).toMatch(says[lang][0]!)
+    expect(t['maintenance:aquariumbreeder'], lang).toMatch(says[lang][1]!)
+    expect(t['waterConditions:aquariumbreeder'], lang).toMatch(says[lang][0]!)
+  }
+  for (const key of ['maintenance', 'waterConditions']) {
+    const ab = plant.sections.find(s => s.key === key && s.source === 'aquariumbreeder')!
+    expect(ab.html, key).toMatch(/Use only RO or distilled water/)
+    if (key === 'maintenance') expect(ab.html).toMatch(/If you still use tap water, dechlorinate it first/)
+    expect(ab.html, key).not.toMatch(ruling.en)
+  }
+  // The stand-tap-water video guide: the video's advice stays the video's, our note goes beside it, and "chỉ phí tiền" goes.
+  const stand = read<Guide>('guides/youtube-S-FR9u--jVs/vi.json')
+  // The note is ours and says no more than its sources: EPA on chloramine left standing, and the Hanoi study, where only
+  // the groundwater high in ammonia bound the chlorine as chloramine. It names no video (the reader check's rule).
+  expect(stand.bodyFixed).toBe(true)
+  expect(stand.faqFixed).toBe(true)
+  expect(stand.localNote?.html).toMatch(/^<p><strong>Ghi chú của AquaTome cho bạn đọc ở Việt Nam:<\/strong> Nước máy một số nơi có cloramin, để qua đêm không hết; không chắc thì dùng chất khử clo\. Ở Hà Nội, [^<]*nguồn nước ngầm nhiều amoni/)
+  expect(stand.localNote?.html).not.toMatch(/video/i)
+  expect(stand.localNote?.refs.map(r => r.url)).toEqual(['https://19january2017snapshot.epa.gov/www3/region9/water/chloramine.html', 'https://doi.org/10.1016/S0043-1354(03)00138-6'])
+  expect(JSON.stringify([stand.body, stand.summary, stand.faq])).not.toMatch(/phí tiền/)
+  // Artemia hatching water: about 30 g of salt a litre, in grams alone (a tablespoon is nearer 18 g).
+  const spoon = { vi: /30 g[^.]{0,40}1 muỗng canh/, id: /30 g[^.]{0,60}1 sendok makan/, th: /30 กรัม[^<"]{0,60}1 ช้อนโต๊ะ/, ms: /30 g[^.]{0,80}1 sudu besar/ }
+  for (const [lang, said] of Object.entries(spoon)) {
+    const g = read<Guide>(`guides/aquatome-ap-trung-artemia-lam-thuc-an-cho-ca-con-cach-lam-tai-nha/${lang}.json`)
+    expect(g.bodyFixed, lang).toBe(true)
+    expect(JSON.stringify([g.body, g.summary, g.faq]), lang).not.toMatch(said)
+  }
+})
+
+// GBIF's fuzzy matches made a catfish page a tube worm's (Brochis arcuata → Ditrupa arietina, Sabellida), and its exact
+// Mollienisia, a moth's genus, gave a molly page a moth's family (Noctuidae). The engine now takes a match only of an animal
+// the page's group can be (gbif.ts pageTaxon). This holds each fish or shrimp page's order to its group; "other" and
+// "snails", too many orders to name, are held by that class check alone. The two above, and a spiny eel filed with the
+// loaches, wait for their own fix.
+const GROUP_ORDERS: Record<string, string[]> = {
+  catfish: ['Siluriformes'],
+  tetras: ['Characiformes'], characins: ['Characiformes'], characoids: ['Characiformes'],
+  barbs: ['Cypriniformes'], danios: ['Cypriniformes'], rasboras: ['Cypriniformes'], cyprinid: ['Cypriniformes'],
+  loaches: ['Cypriniformes'],
+  cichlids: ['Perciformes', 'Cichliformes'], labyrinth: ['Perciformes', 'Anabantiformes'], gobies: ['Perciformes', 'Gobiiformes'],
+  killifish: ['Cyprinodontiformes', 'Beloniformes'], livebearers: ['Cyprinodontiformes', 'Beloniformes'],
+  rainbowfish: ['Atheriniformes'], shrimp: ['Decapoda'],
+}
+test('every species page\'s order fits its group', () => {
+  const root = fileURLToPath(new URL('../../../content/species', import.meta.url))
+  const off = readdirSync(root).filter(id => {
+    const e = JSON.parse(readFileSync(join(root, id, 'entity.json'), 'utf8')) as { group: string; order: string }
+    return GROUP_ORDERS[e.group] !== undefined && !GROUP_ORDERS[e.group]!.includes(e.order)
+  })
+  expect(off.sort()).toEqual(['ditrupa-arietina', 'macrognathus-siamensis', 'mollienisia'])
+})

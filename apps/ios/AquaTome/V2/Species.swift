@@ -30,7 +30,10 @@ struct SpeciesPage: View {
   @Environment(\.openScreen) private var openScreen
   @Environment(\.openURL) private var openURL
   @Environment(\.v2OpenFull) private var openFull
-  @Environment(\.dismiss) private var dismiss
+  /// A Hôm nay post's ✕ (`Post`), on the post and on a page opened inside it.
+  @Environment(\.v2PostClose) private var closePost
+  /// A post itself has no back button: the bar's room starts at the screen's edge.
+  @Environment(\.v2IsPost) private var isPost
   @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.scenePhase) private var phase
   @Environment(\.colorScheme) private var scheme
@@ -78,7 +81,6 @@ struct SpeciesPage: View {
   @State private var viewport: CGFloat = 0
   @State private var origin = CGPoint.zero
   @State private var barMid: CGFloat = 0
-  @State private var backEnd: CGFloat = 0
   /// Where the bar's buttons on the right begin.
   @State private var trailStart: CGFloat = 0
   /// Saved or unsaved from the ⋯, which shows no bookmark: a tap felt (`sensoryFeedback`).
@@ -89,10 +91,6 @@ struct SpeciesPage: View {
   /// wide follow the buttons as they are.
   @State private var inRoom: Bool?
   private struct BarPlace: Equatable { let x, room: CGFloat }
-  /// An edge swipe's start and the furthest it went, so one that turned back before lifting doesn't go back. Not the view's
-  /// state: it changes with each move of the finger, and the page needn't be drawn again for it.
-  private final class Swipe { var start = CGPoint.zero, furthest: CGFloat = 0 }
-  @State private var swipe = Swipe()
   /// The bar's foot on the screen.
   @State private var barFoot: CGFloat = 106
   /// Where the page's colour reaches: still under the top bar, and down into the fade over the tab bar.
@@ -123,22 +121,21 @@ struct SpeciesPage: View {
 
   var body: some View {
     framed
+    // A Hôm nay post's ✕, at the bar's end after the bookmark and share: a toolbar of its own, inside theirs. iOS put the
+    // items of a toolbar applied after theirs first, and one among them first too (27.2, 12 Nov).
+    .toolbar(when: closePost != nil) {
+      ToolbarItem(placement: .topBarTrailing) {
+        Button { closePost?() } label: { round("xmark") }
+          .buttonStyle(.plain)
+          .accessibilityLabel(Text("Đóng"))
+          .accessibilityIdentifier("v2-close-post")
+      }
+      .v2Glass(!colourAt.top)
+    }
     // Over the photo and its colour, the bar and status bar in white. The page's own after them, never nil: iOS can keep the
     // dark one after nil, white words on the white band.
     .toolbarColorScheme(colourAt.top ? .dark : scheme, for: .navigationBar)
     .toolbar {
-      ToolbarItem(placement: .topBarLeading) {
-        Button { goBack() } label: {
-          round("chevron.left")
-            // Where the bar's middle is, and the room's start, for the name in it.
-            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).midY } action: { barMid = $0 }
-            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).maxX } action: { backEnd = $0 }
-        }
-          .buttonStyle(.plain)
-          .accessibilityLabel(Text("Quay lại"))
-          .accessibilityIdentifier("v2-back")
-      }
-      .v2Glass(!colourAt.top)
       // The owner's navigator on a long page: its title beside the back button, plain, in the bar so it takes a tap.
       if trying?.long == true, let trying {
         ToolbarItem(placement: .topBarLeading) {
@@ -165,6 +162,8 @@ struct SpeciesPage: View {
           ShareLink(item: handbook.url(item)) { Label("Chia sẻ", systemImage: "square.and.arrow.up") }
         } label: {
           round("ellipsis")
+            // Where the bar's middle is, and where its buttons on the right begin, for the name in it.
+            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).midY } action: { barMid = $0 }
             .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minX } action: { trailStart = $0 }
         }
           .buttonStyle(.plain)
@@ -205,50 +204,28 @@ struct SpeciesPage: View {
     .toolbarBackground(.hidden, for: .navigationBar)
     // The page's own buttons, in the same places all the way down: on the photo and its colour, dark circles, as iOS 26's glass
     // goes light on them, under white symbols (2.4:1); glass after the colour.
-    .navigationBarBackButtonHidden(true)
-    .accessibilityAction(.escape) { goBack() }
-    // A shade behind the status bar only, until the band comes, so the clock reads on a light photo; the bar's buttons and
-    // Mục lục have dark grounds of their own (`PageTop`). Under Reduce Motion it goes at once.
+    // A shade behind the status bar and the bar until the band comes: iOS's back button and the owner's Mục lục stand on the
+    // photo with no circle of ours, so it holds through the bar for them (Design, 12 Nov: iOS's back on a white photo from
+    // 2.4:1 to 3.5:1; `PageTop`). Under Reduce Motion it goes at once.
     .overlay(alignment: .top) {
       if hero != nil {
-        VStack(spacing: 0) {
-          LinearGradient(stops: [.init(color: .black.opacity(PageTop.shadeOpacity), location: 0),
-                                 .init(color: .black.opacity(PageTop.shadeOpacity), location: PageTop.shadeHeld),
-                                 .init(color: .clear, location: 1)], startPoint: .top, endPoint: .bottom)
-            .frame(height: PageTop.shadeHeight)
-          Spacer(minLength: 0)
-        }
-        .ignoresSafeArea()
-        .opacity(scrolled ? 0 : 1)
-        .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: scrolled)
-        .allowsHitTesting(false)
+        LinearGradient(stops: [.init(color: .black.opacity(PageTop.shadeOpacity), location: 0),
+                               .init(color: .black.opacity(PageTop.shadeHeldOpacity), location: PageTop.shadeHeld),
+                               .init(color: .clear, location: 1)], startPoint: .top, endPoint: .bottom)
+          .frame(height: PageTop.shadeHeight)
+          .ignoresSafeArea(edges: .top)
+          .opacity(scrolled ? 0 : 1)
+          .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: scrolled)
+          .allowsHitTesting(false)
       }
     }
-    // iOS 26 on: iOS's zoom takes the page back on a swipe from anywhere, and a fast flick from the very edge comes here.
+    // Its colour off the tab as it starts to leave, iOS's edge swipe included; on again if the swipe is let go of.
     .background {
-      if #available(iOS 26, *) {
-        // Its colour off the tab as the swipe starts, as with the back button (`goBack`); on again if it's let go of.
-        PageSwipes(moved: { leaving in
-          if !leaving { if front { standOnColour() } } else if footGround?.wrappedValue?.page == me { footGround?.wrappedValue = nil }
-        }, flickedBack: goBack)
-        .frame(width: 0, height: 0)
+      PageLeaves { leaving in
+        if !leaving { if front { standOnColour() } } else if footGround?.wrappedValue?.page == me { footGround?.wrappedValue = nil }
       }
+      .frame(width: 0, height: 0)
     }
-    // Before iOS 26, which has no swipe from the page's middle: a drag from the left edge, across; alongside the page's own
-    // scrolling, so a thumb that starts on the edge and goes down the page scrolls it, and a tap there lands.
-    .simultaneousGesture(DragGesture(minimumDistance: 12).onChanged { drag in
-      guard drag.startLocation.x < 16 else { return }
-      // A new swipe, if the last one was cut short with no end.
-      if drag.startLocation != swipe.start { (swipe.start, swipe.furthest) = (drag.startLocation, 0) }
-      swipe.furthest = max(swipe.furthest, drag.translation.width)
-    }.onEnded {
-      let t = $0.translation, furthest = swipe.furthest
-      (swipe.start, swipe.furthest) = (.zero, 0)
-      // Not when the finger turned back before it lifted, still moving or stopped: that's changing one's mind, as with
-      // iOS's own.
-      if $0.startLocation.x < 16, t.width > 60, t.width > abs(t.height) * 2, t.width >= furthest * 0.7,
-        $0.predictedEndTranslation.width >= t.width - 4 { goBack() }
-    }, including: Self.iosSwipes ? .subviews : .all)
     // The band in the page's colour while that's under it, so white doesn't cut the colour; then the screen's.
     .modifier(ClearUnderTopBar(shown: scrolled, ground: colourAt.top ? colour : Color(.systemBackground)))
     // The name in the bar once it has left the page, on the colour too, in the bar's middle. The page's own, not iOS's
@@ -455,8 +432,8 @@ struct SpeciesPage: View {
   /// The room between the bar's buttons, 16 points clear of them, their glass too: its edges, and how wide a name centred
   /// on the screen may be in it.
   private var barRoom: (lead: CGFloat, trail: CGFloat, even: CGFloat)? {
-    let lead = backEnd - origin.x, trail = trailStart - origin.x
-    guard backEnd > 0, trailStart > 0, trail - lead > 92 else { return nil }
+    let lead = isPost ? 16 : Self.backEnd, trail = trailStart - origin.x
+    guard trailStart > 0, trail - lead > 92 else { return nil }
     return (lead, trail, 2 * (min(width / 2 - lead, trail - width / 2) - 16))
   }
 
@@ -466,18 +443,13 @@ struct SpeciesPage: View {
   /// title comes, the bar never settled.
   private var titleWidth: CGFloat { max(80, (width > 0 ? width : 402) - 240) }
 
+  /// iOS's back button's end: its 44-point glass circle 16 points in.
+  private static let backEnd: CGFloat = 60
+
   private func standOnColour() {
     footGround?.wrappedValue = colourAt.foot ? FootGround(page: me, colour: colour) : nil
   }
 
-  /// Its colour off the tab as the back starts, not once the page has gone; the page under it, a fish's too, sets its own
-  /// as it appears.
-  private static var iosSwipes: Bool { if #available(iOS 26, *) { true } else { false } }
-
-  private func goBack() {
-    if footGround?.wrappedValue?.page == me { footGround?.wrappedValue = nil }
-    dismiss()
-  }
 
   /// White on a dark circle over the photo, in a 44-point tap area; white alone on the page's colour; past it, iOS's glass
   /// around it (`v2Glass`).
@@ -611,6 +583,7 @@ struct SpeciesPage: View {
           .containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 1, spacing: 10) }
         }
       }
+      .v2YieldsToEdgeSwipe()
       .scrollTargetLayout()
     }
     .accessibilityIdentifier("v2-photos-row")
@@ -983,6 +956,7 @@ struct SpeciesPage: View {
           .buttonStyle(.plain)
         }
       }
+      .v2YieldsToEdgeSwipe()
     }
     .contentMargins(.horizontal, 20, for: .scrollContent)
     .v2ShelfEdge()
@@ -1043,6 +1017,7 @@ struct SpeciesPage: View {
             }
           }
         }
+        .v2YieldsToEdgeSwipe()
         .scrollTargetLayout()
       }
       .contentMargins(.horizontal, 20, for: .scrollContent)
@@ -1140,6 +1115,21 @@ private struct MatesCredits: View {
         }
       }
       .foregroundStyle(.v2Faint).tint(Color.v2Faint)
+    }
+  }
+}
+
+private extension View {
+  /// A toolbar's items only when `on`: after the view's other toolbars' items. On iOS 26, a fixed space first, so once the
+  /// bar turns to glass iOS doesn't draw them in one capsule with the others (Design's parity, 13 Nov: the post's ✕ joined
+  /// the bookmark and share past the colour; the guide post's stands apart).
+  @ViewBuilder func toolbar<C: ToolbarContent>(when on: Bool, @ToolbarContentBuilder _ content: () -> C) -> some View {
+    if !on {
+      self
+    } else if #available(iOS 26, *) {
+      toolbar { ToolbarSpacer(.fixed, placement: .topBarTrailing); content() }
+    } else {
+      toolbar(content: content)
     }
   }
 }

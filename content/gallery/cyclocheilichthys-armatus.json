@@ -1,0 +1,72 @@
+{
+  "id": "cyclocheilichthys-armatus",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/60575f8be25a727a5ae05896cfcebc99.webp",
+      "thumb": "https://media.aquatome.com/processed/60575f8be25a727a5ae05896cfcebc99-480.webp",
+      "width": 700,
+      "height": 396,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-armatus",
+      "caption": "Subadult specimen from Thailand.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-cyclocheilichthys-armatus",
+        "pixelHash": "e9ee605e5dc00eaa32068047a92c1f690931373d258fe778259c5f45c8bfcc59"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:29:45.075Z",
+          "originalHash": "a308ba316a9b92d3855f2bc69d38ca9caee3c704af6c93bfd8a8598327dbbbac",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 700,
+            "originalHeight": 425,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 700,
+              "y1": 396
+            },
+            "subject": {
+              "x0": 57,
+              "y0": 130,
+              "x1": 592,
+              "y1": 341
+            },
+            "margin": 11
+          },
+          "excludedMarks": [
+            {
+              "x0": 583,
+              "y0": 401,
+              "x1": 690,
+              "y1": 416
+            }
+          ],
+          "checks": {
+            "species": [
+              "3837bd366b84d9641744e8890deca6d0deb7f5f8fb409343a52794aed47aab81",
+              "684be9b1259e86f47a26d9e0a24334079027d53535ebcc933eebd55dd422e4e4"
+            ],
+            "ownership": [
+              "f9bcee9fb0b96faaa61a547d13b5893511851fcc5b434c570650dca78534cc7d",
+              "fd5597c3224c9e00b4a4dd36a5a05eecbbe9298654a1f767911aa284b1be9c3c"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/22038247edc209af.webp",
+        "width": 700,
+        "height": 425,
+        "thumb": "https://media.aquatome.com/seriouslyfish/22038247edc209af-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

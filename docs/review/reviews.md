@@ -8,7 +8,7 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 826 | 598 (vi 598) | 598 |
+| video-guide | 849 | 617 (vi 617) | 617 |
 | translation | 1452 | 246 (vi 246) | 246 |
 | vi-rewrite | 287 | 15 (vi 15) | 15 |
 | reader-rewrite | 24 | 0 | 0 |
@@ -22,27 +22,27 @@ under `<lang>/<path>`.
 | places | 5399 | 3148 (id 1136, ms 968, th 945, vi 99) | 628 |
 | equipment | 5 | 0 | 0 |
 | planting | 31 | 0 | 0 |
-| species | 9 | 0 | 0 |
+| species | 10 | 0 | 0 |
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-598 of 826 pages under the bar.
+617 of 849 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 528 | 1430 |
-| States as certain what the source hedges, or what garbled captions only hint at | 521 | 1585 |
-| Says what the source doesn't (invented, added) | 454 | 1156 |
-| Wording: unnatural, literal, stiff or chatty | 235 | 328 |
-| A number, unit, dose or price | 202 | 292 |
-| Repeats itself (intro, summary, steps and FAQ) | 121 | 143 |
-| Meaning changed or wrong | 102 | 112 |
-| Leaves out what the source says | 45 | 48 |
-| Hobby terms and names | 38 | 38 |
-| Names or points to the video, channel, creator or source | 25 | 25 |
-| Copied from the transcript or source | 21 | 23 |
-| Off the title's topic | 20 | 20 |
-| Text left in another language | 6 | 6 |
+| Other | 542 | 1460 |
+| States as certain what the source hedges, or what garbled captions only hint at | 537 | 1640 |
+| Says what the source doesn't (invented, added) | 468 | 1182 |
+| Wording: unnatural, literal, stiff or chatty | 250 | 348 |
+| A number, unit, dose or price | 210 | 300 |
+| Repeats itself (intro, summary, steps and FAQ) | 123 | 145 |
+| Meaning changed or wrong | 105 | 116 |
+| Leaves out what the source says | 46 | 49 |
+| Hobby terms and names | 41 | 41 |
+| Names or points to the video, channel, creator or source | 27 | 28 |
+| Off the title's topic | 23 | 23 |
+| Copied from the transcript or source | 22 | 24 |
+| Text left in another language | 7 | 7 |
 
 ### Other
 
@@ -102,19 +102,19 @@ under `<lang>/<path>`.
 
 - The section "Những sai lầm hay gặp ở ba bước đầu" and "Đặt lũa theo cảm tính, không có điểm nhấn rõ ràng", plus "ngâm ngay", "tập xếp lũa trong bể khô" – the mistakes list and the 'Bắt đầu từ đâu' steps add advice the video doesn't give; r… — vi/guides/youtube-ysH2T_HOG0E, 0.45
 - "Người làm hướng dẫn đang chạy kiểu lọc này cho bể cá rồng châu Á khoảng 1.400 lít của mình": this refers to the creator. Remove the sentence, or rewrite it without a person, for example "kiểu lọc này chạy được cho cả bể cá rồng lớn cỡ 1.4… — vi/guides/youtube-2WBo3u9arUo, 0.50
-- "Bản gốc dùng bộ LED…", "Chi phí trong bản gốc" and "Bản gốc tốn khoảng 25 USD": these refer to the video. Rewrite without "bản gốc", for example "Một cách làm tốn khoảng…". — vi/guides/youtube-9QSxJymRBak, 0.50
+- "Bài này gộp hai kiểu đó" / "Ở đây cá thả ngay hôm sau": refers to the video itself. Rewrite as a plain guide statement without mentioning the source (e.g. "Cách làm này gộp..."). — vi/guides/youtube-34R1VF2bzmg, 0.50
+
+### Off the title's topic
+
+- "Bể rộng... tấm ván ép trên cùng dễ bị võng ở giữa theo thời gian": the video says it would sag, not over time; remove "theo thời gian". Also "Với phần lớn bể cỡ thông thường, phần khung coi như xong": the video says "most of you", so it i… — vi/guides/youtube-_jOnulN5myE, 0.40
+- Off-topic and unsupported: "Nếu bể bên cạnh có cá lớn hay nhìn sang đàn cá nhỏ, có thể dán một tấm đen" and the lighting/algae section drift from the title's subject (calm tank for tetras and gourami); drop the green-water/UV paragraph, wh… — vi/guides/youtube-0mh3XMpsMvk, 0.50
+- "Mỗi cây tốn khoảng 25 USD, bể dài cỡ nào cũng vậy" and the same figure in the table and FAQ: the video says the cost will be no more than $25 ("không quá 25 USD"), not about 25. Change to "không quá khoảng 25 USD". — vi/guides/youtube-9QSxJymRBak, 0.50
 
 ### Copied from the transcript or source
 
 - "Một cái lợi nữa là có thể dựng khối này bên ngoài rồi nhấc cả khối đặt vào bể": the video does not give this as a benefit of gluing. Remove it or just say the glued block was lifted into the tank. — vi/guides/youtube-5ajPkl9rhKQ, 0.50
 - "Như vậy bạn cho cá ăn và vệ sinh bể dễ hơn": the video gives no reason like this for the removable lid. Remove the reason and only say the lid can be lifted off. — vi/guides/youtube-HwD_FoRC2Ig, 0.50
 - "Gặp tảo nâu thì có thể thả ốc nerita để chúng ăn" is fine in the video, but "nên tảo nâu dễ hiện ngay ở phần kính dưới phía trước" is softer than the video's "chắc chắn". More importantly, "Tảo nâu cũng hay xuất hiện" is fine. The bigger … — vi/guides/youtube-mY_9yWKaAFc, 0.50
-
-### Off the title's topic
-
-- "Bể rộng... tấm ván ép trên cùng dễ bị võng ở giữa theo thời gian": the video says it would sag, not over time; remove "theo thời gian". Also "Với phần lớn bể cỡ thông thường, phần khung coi như xong": the video says "most of you", so it i… — vi/guides/youtube-_jOnulN5myE, 0.40
-- "Mỗi cây tốn khoảng 25 USD, bể dài cỡ nào cũng vậy" and the same figure in the table and FAQ: the video says the cost will be no more than $25 ("không quá 25 USD"), not about 25. Change to "không quá khoảng 25 USD". — vi/guides/youtube-9QSxJymRBak, 0.50
-- "Tra nhanh trên mạng thì kỷ lục của ếch bò nuôi là 16 năm" (FAQ) and "Sau đó vẫn cần tinh chỉnh... hợp với con ếch của bạn": the lifespan FAQ is off-topic for a setup guide and refers to a casual Google search, so remove it; and drop "keo … — vi/guides/youtube-fV5MucIp1M8, 0.50
 
 ### Text left in another language
 
@@ -613,4 +613,4 @@ under `<lang>/<path>`.
 
 ## species: species pages AquaTome writes from research, and what a species video adds to a page, against their research or video
 
-0 of 9 pages under the bar.
+0 of 10 pages under the bar.

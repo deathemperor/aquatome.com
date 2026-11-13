@@ -429,3 +429,13 @@ test("a language's own picks follow the same rule: a card's photo is the page's 
   const cur = CurationSchema.parse({ version: 1, weeks: [], days: [{ date: '2026-11-09', fish: 'species/aaaa', img: a.head!.url, guide: 'guides/gg', by: { id: { img: other } } }] })
   expect(checkCalendar(cur, [a, g], '2026-11-09', 1)).toEqual(["2026-11-09 id: its card's photo isn't the page's head photo"])
 })
+
+test('Tìm\'s suggested searches are eight a language, or none, and the planner keeps them as written', () => {
+  const eight = ['betta', 'cá vàng', 'bảy màu', 'tép', 'rêu java', 'bệnh đốm trắng', 'rêu hại', 'chu trình nitơ']
+  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [], searches: { vi: eight } })
+  expect(plan(cur, [fish('a')], '2026-11-12', 1).calendar.searches).toEqual({ vi: eight })
+  // Seven, a search listed twice (in any case), or a blank one: the file doesn't read.
+  for (const bad of [eight.slice(1), [...eight.slice(0, 7), 'Betta'], [...eight.slice(1), ' ']])
+    expect(CurationSchema.safeParse({ version: 1, weeks: [], days: [], searches: { vi: bad } }).success, JSON.stringify(bad)).toBe(false)
+  expect(empty.searches).toEqual({})
+})
