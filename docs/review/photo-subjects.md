@@ -893,16 +893,16 @@ Written by `pnpm engine check-photos` (2026-11-13), most-read pages first. Rules
 | species/trigonopoma-pauciperforatum | [photo](https://media.aquatome.com/inaturalist/377653440.webp) | subject unsure |
 | species/vieja-maculicauda | [photo](https://media.aquatome.com/inaturalist/391759866.webp) | subject unsure |
 | species/yasuhikotakia-morleti | [photo](https://media.aquatome.com/seriouslyfish/310bafabb58bdd78.webp) | subject unsure |
-| plants/crinum-calamistratum | [photo](https://media.aquatome.com/commons/7b513a032a5af962.webp) | subject unsure |
+| plants/crinum-calamistratum | [photo](https://media.aquatome.com/commons/7b513a032a5af962.webp) | subject yes |
 | plants/eleocharis-pusilla | [photo](https://media.aquatome.com/commons/ce4f65a789a3e328.webp) | subject unsure |
 | plants/eleocharis-pusilla | [photo](https://media.aquatome.com/inaturalist/625854750.webp) | subject unsure |
 | plants/eleocharis-pusilla | [photo](https://media.aquatome.com/inaturalist/625854780.webp) | subject unsure |
 | plants/eriocaulon-cinereum | [photo](https://media.aquatome.com/inaturalist/22989902.webp) | subject unsure |
 | plants/najas-guadalupensis | [photo](https://media.aquatome.com/commons/115ac9e2b4327121.webp) | subject unsure |
 | plants/shinnersia-rivularis | [photo](https://media.aquatome.com/aquariumbreeder/564d939ab019f4eb.webp) | subject unsure |
-| plants/spirodela-polyrrhiza | [photo](https://media.aquatome.com/commons/3ad44323659b8708.webp) | subject unsure |
-| plants/spirodela-polyrrhiza | [photo](https://media.aquatome.com/commons/49fa57c5c2370458.webp) | subject unsure |
-| plants/spirodela-polyrrhiza | [photo](https://media.aquatome.com/commons/5bd3f8d0f5c316a4.webp) | subject unsure |
+| plants/spirodela-polyrrhiza | [photo](https://media.aquatome.com/commons/3ad44323659b8708.webp) | subject yes |
+| plants/spirodela-polyrrhiza | [photo](https://media.aquatome.com/commons/49fa57c5c2370458.webp) | subject yes |
+| plants/spirodela-polyrrhiza | [photo](https://media.aquatome.com/commons/5bd3f8d0f5c316a4.webp) | subject yes |
 | plants/spirodela-polyrrhiza | [photo](https://media.aquatome.com/commons/807678be835991f3.webp) | subject unsure |
 | species/acanthicus-adonis | [photo](https://media.aquatome.com/scotcat/7fd77a16331a0054.webp) | subject unsure |
 | species/acanthicus-adonis | [photo](https://media.aquatome.com/scotcat/acccf24f0f3a1b76.webp) | subject unsure |
@@ -1095,7 +1095,7 @@ Written by `pnpm engine check-photos` (2026-11-13), most-read pages first. Rules
 
 ## Removed (1011)
 
-"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -1819,8 +1819,8 @@ Written by `pnpm engine check-photos` (2026-11-13), most-read pages first. Rules
 | species/synodontis-angelicus | [photo](https://media.aquatome.com/commons/f04d1e24a2e68e4a.webp) | subject dead |
 | species/synodontis-ocellifer | [photo](https://media.aquatome.com/commons/28c02716657cb202.webp) | subject none |
 | species/tetraodon-lineatus | [photo](https://media.aquatome.com/commons/6a713c7355815279.webp) | subject none |
-| species/tetraodon-miurus | [photo](https://media.aquatome.com/commons/1d1d7dd9e0a408fd.webp) | subject unsure; person |
-| species/tetraodon-miurus | [photo](https://media.aquatome.com/commons/8ed031b4f56048dd.webp) | subject unsure; person |
+| species/tetraodon-miurus | [photo](https://media.aquatome.com/commons/1d1d7dd9e0a408fd.webp) | subject yes; person |
+| species/tetraodon-miurus | [photo](https://media.aquatome.com/commons/8ed031b4f56048dd.webp) | subject yes; person |
 | species/tetraodon-pustulatus | [photo](https://media.aquatome.com/commons/c298eaec3843694a.webp) | subject other |
 | species/tetraodon-pustulatus | [photo](https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Tetraodon_lineatus_-_Fahaka_Puffer_%288767208722%29.jpg/1280px-Tetraodon_lineatus_-_Fahaka_Puffer_%288767208722%29.jpg) | subject other |
 | species/trichogaster-fasciata | [photo](https://media.aquatome.com/commons/0ae1a3b0779c0630.webp) | subject dead |
@@ -1835,15 +1835,15 @@ Written by `pnpm engine check-photos` (2026-11-13), most-read pages first. Rules
 | species/uaru-amphiacanthoides | [photo](https://media.aquatome.com/commons/0fc8c7de1c9dea9a.webp) | subject none |
 | species/uaru-amphiacanthoides | [photo](https://media.aquatome.com/commons/1ac659a7619769ec.webp) | subject none |
 | species/uaru-amphiacanthoides | [photo](https://media.aquatome.com/commons/ba268c24c65b0b84.webp) | subject none |
-| species/vieja-maculicauda | [photo](https://media.aquatome.com/commons/d50f3ea5630ff569.webp) | subject other |
+| species/vieja-maculicauda | [photo](https://media.aquatome.com/commons/d50f3ea5630ff569.webp) | subject unsure |
 | species/xiphophorus-variatus | [photo](https://media.aquatome.com/commons/d2b5899a8a870087.webp) | subject dead |
 | species/yunnanilus-brevis | [photo](https://media.aquatome.com/seriouslyfish/65599e4303a8f14d.webp) | subject none; person |
 | plants/bucephalandra-sp-dark-skeleton-king | [photo](https://media.aquatome.com/bwaquatics/ee179947618f9e1b.webp) | subject yes; person |
 | plants/eriocaulon-cinereum | [photo](https://media.aquatome.com/commons/5f98dc8ae9a9150c.webp) | subject dead |
 | plants/micranthemum-tweediei-monte-carlo | [photo](https://media.aquatome.com/tropica/9bce7745a5a9ae0f.webp) | subject none |
 | plants/microsorum-pteropus-narrow | [photo](https://media.aquatome.com/tropica/f808bb51b286d930.webp) | subject none |
-| plants/najas-guadalupensis | [photo](https://media.aquatome.com/commons/52164280339eb6fb.webp) | subject other |
-| plants/najas-guadalupensis | [photo](https://media.aquatome.com/commons/a3a22147055a223c.webp) | subject other |
+| plants/najas-guadalupensis | [photo](https://media.aquatome.com/commons/52164280339eb6fb.webp) | subject none |
+| plants/najas-guadalupensis | [photo](https://media.aquatome.com/commons/a3a22147055a223c.webp) | subject none |
 | plants/najas-guadalupensis | [photo](https://media.aquatome.com/inaturalist/162086638.webp) | subject yes; person |
 | species/abbottina-rivularis | [photo](https://media.aquatome.com/commons/733e9f790e1f030d.webp) | subject dead; person |
 | species/abramites-hypselonotus | [photo](https://media.aquatome.com/commons/ddad73f9a1015901.webp) | subject dead; person |
