@@ -51,7 +51,9 @@ const VOLUME = new RegExp(String.raw`(?<![\d.,])(${VI_N})(?:\s*(?:[–-]|đến)
  * length; "cho" or "trên" and the length only with the fish after it ("trên 2,5 cm chiều dài cá"), since "đặt trên 2,5
  * cm xốp" is where a tank stands (Astra, 2026-11-13).
  */
-const per = (length: string) => new RegExp(String.raw`^(?:\s+nước(?:\s+sạch)?)?\s*(?:(?:(?:(?:cho|trên)\s+)?(?:mỗi|từng)|\/)\s*${length}(?![\p{L}\p{N}])|(?:cho|trên)\s+${length}\s+(?:chiều\s+dài\s+)?(?:(?:của\s+)?(?:thân\s+)?cá|chiều\s+dài)(?![\p{L}]))`, 'iu')
+/** What a length after a volume is of when it isn't the fish: the water's level, the tank, what's in or under it. */
+const NOT_FISH = String.raw`\s*(?:mực\s+nước|nước|chiều\s+(?:cao|rộng)|(?:chiều\s+dài\s+)?(?:của\s+)?(?:bể|hồ|kính|thùng)|xốp|nền|sỏi|cát|đá)(?![\p{L}])`
+const per = (length: string) => new RegExp(String.raw`^(?:\s+nước(?:\s+sạch)?)?\s*(?:(?:(?:(?:cho|trên)\s+)?(?:mỗi|từng)|\/)\s*${length}(?![\p{L}\p{N}])(?!${NOT_FISH})|(?:cho|trên)\s+${length}\s+(?:chiều\s+dài\s+)?(?:của\s+)?(?:thân\s+)?cá(?![\p{L}]))`, 'iu')
 /** "mỗi 2,5 cm" (2,54 cm, "1 inch"): a source's "per inch". */
 const PER_INCH = per(String.raw`(?:2,54?\s*cm|(?:1\s*)?inch)`)
 /** "cho mỗi cm": a figure per cm of fish. */
@@ -60,8 +62,16 @@ const PER_CM = per(String.raw`(?:1\s*)?cm`)
 const PER_LENGTH = per(String.raw`\d[\d.,]*\s*(?:cm|mm|inch)`)
 const flat = (s: string) => s.replace(/\s+/g, ' ').trim()
 const norm = (s: string) => flat(s.normalize('NFC')).toLowerCase()
+/**
+ * A length after a volume in its clause that none of the above reads ("38 lít nước đã khử clo mỗi 2,5 cm", "cho 2,5 cm",
+ * "mỗi 2,5 cm mực nước"): what it is per can't be told, so it is for a person, never a tank (Astra, 2026-11-13). A tank
+ * set on something ("đặt trên 2,5 cm xốp") is a tank.
+ */
+const LENGTH_NEAR = /^[^.;:!?\n]{0,40}?(?:mỗi|từng|cho|trên|\/)\s*(?:\d[\d.,]*\s*)?(?:cm|mm|inch)(?![\p{L}])/iu
+const STANDS_ON = /^[^.;:!?\n]{0,40}?(?:đặt|kê|để)\s+trên\s+\d[\d.,]*\s*(?:cm|mm|inch)(?![\p{L}])/iu
 /** What a volume is given per, by the words after it. */
-const perOf = (after: string) => (PER_INCH.test(after) ? '/2.5cm' : PER_CM.test(after) ? '/cm' : PER_LENGTH.test(after) ? '/length' : '')
+const perOf = (after: string) => (PER_INCH.test(after) ? '/2.5cm' : PER_CM.test(after) ? '/cm' : PER_LENGTH.test(after) ? '/length'
+  : LENGTH_NEAR.test(after) && !STANDS_ON.test(after) ? '/length' : '')
 
 /**
  * A reading of the water, so much in each litre ("oxy hòa tan 2,5 mg/l", "nitrat dưới 20 mg/l"): how the water is, not an
@@ -69,12 +79,12 @@ const perOf = (after: string) => (PER_INCH.test(after) ? '/2.5cm' : PER_CM.test(
  * methylen với liều 2 mg/l", "oxy già 1 ml/l", "thêm CO2 với liều 20 mg/l") is a dose. Read out of a units finding's section beyond its paragraph and the ones beside it
  * (fit-rewrite.ts), which are read whole: koi's oxygen, three paragraphs below its tank, leaves the tank.
  */
-const READS_AS = String.raw`(?:\s*[:=<>≤≥~]\s*|\s+(?:hòa\s+tan|trong\s+(?:nước|bể|hồ)|dưới|trên|không\s+(?:vượt\s+)?quá|tối\s+(?:đa|thiểu)|ít\s+nhất|khoảng|chừng|từ|ở|mức|nồng\s+độ|đạt|giữ|nên|phải|luôn|cần|là|còn|lên\s+(?:tới|đến)|vượt|quá|thấp\s+hơn|cao\s+hơn)(?![\p{L}])|\s+)*`
+const READS_AS = String.raw`(?:\s*[:=<>≤≥~]\s*|\s+(?:hòa\s+tan|trong\s+(?:nước|bể|hồ)|dưới|trên|không\s+(?:được\s+)?(?:vượt\s+)?quá|ổn\s+định|tối\s+(?:đa|thiểu)|ít\s+nhất|khoảng|chừng|từ|ở|mức|nồng\s+độ|đạt|giữ|nên|phải|luôn|cần|là|còn|lên\s+(?:tới|đến)|vượt|quá|thấp\s+hơn|cao\s+hơn)(?![\p{L}])|\s+)*`
 /**
  * The substance, then only the words a reading is said with ("hòa tan", "dưới", "giữ ở mức", ":"): a substance with
  * anything else before the figure ("khử nitrit bằng muối 1 g/l") is a treatment, and its figure a dose (Astra, 2026-11-13).
  */
-const READING = String.raw`(?<![\p{L}])(?<!(?:thêm|bổ\s+sung|châm|dùng|pha|bơm)\s+)(?:[oô]xy(?!\s+già)|amoni(?:ac|a)?|ammonia|nitrit|nitrat|nh[34₃₄]|no[23₂₃]|phốt\s*phát|phosphat|po[4₄]|co2|co₂)(?![\p{L}])${READS_AS}`
+const READING = String.raw`(?<![\p{L}])(?<!(?:liều|thêm|bổ\s+sung|châm|dùng|pha|bơm|phân|dung\s+dịch|thuốc)(?![\p{L}])[^.;:!?\n]{0,25})(?:[oô]xy(?!\s+già)|o[2₂]|amoni(?:ac|a)?|ammonia|nitrit|nitrat|nh[34₃₄][⁺+]?|no[23₂₃][⁻-]?|phốt\s*phát|phosphat|po[4₄][³]?[⁻-]?|co2|co₂)(?![\p{L}])${READS_AS}`
 const CONCENTRATION = new RegExp(String.raw`(${READING})(?<![\d.,])\d[\d.,–-]*\s*(?:mg|g|gam|gram|ml|cc|ppm)\s*(?:\/|mỗi|trên)\s*(?:1\s*)?(?:l|lít)(?![\p{L}])`, 'giu')
 export const withoutConcentrations = (text: string) => text.replace(CONCENTRATION, '$1 ')
 
@@ -141,7 +151,8 @@ export function breedFigures(quote: string, facts: string, block?: string): Bree
  */
 export const figuresSaid = (figures: BreedFigure[]) => figures.reduce<BreedFigure[][]>((out, f) => {
   const last = out.at(-1)
-  if (f.perCm && last?.[0]!.perCm && last[0].from === f.from && last[0].at.split(':')[0] === f.at.split(':')[0]) last.push(f)
+  const block = (x: BreedFigure) => (x as Partial<PlacedFigure>).block
+  if (f.perCm && last?.[0]!.perCm && last[0].from === f.from && last[0].at.split(':')[0] === f.at.split(':')[0] && block(last[0]) === block(f)) last.push(f)
   else out.push([f])
   return out
 }, []).map(g => (g.length === 1 ? `"${g[0]!.from}" → "${g[0]!.to}" (${g[0]!.why})`
@@ -152,6 +163,16 @@ const quantities = (text: string) => [...text.matchAll(VOLUME)].flatMap(m => {
   const per = perOf(text.slice(m.index + m[0].length))
   return [m[1]!, ...(m[2] ? [m[2]] : [])].map(s => `${vi(s)}${per}`)
 })
+/** The words before a text's nth litre figure in its clause, figures aside: what the figure is of ("bể chính"). */
+const leadOf = (text: string, n: number) => {
+  let k = 0
+  for (const m of text.matchAll(VOLUME)) {
+    const ends = m[2] ? 2 : 1
+    if (n < k + ends) return (text.slice(0, m.index).split(/[.;:!?,]/).at(-1) ?? '').replace(/[\d.,–-]+/g, ' ').replace(/\s+/g, ' ').trim()
+    k += ends
+  }
+  return undefined
+}
 const tally = (xs: string[]) => xs.reduce((t, x) => t.set(x, (t.get(x) ?? 0) + 1), new Map<string, number>())
 const said = (k: string) => `${viFigure(Number(k.split('/')[0]))} lít${k.endsWith('/cm') ? ' cho mỗi cm' : k.endsWith('/2.5cm') ? ' cho mỗi 2,5 cm' : ''}`
 
@@ -187,9 +208,15 @@ export function keepsFigures(before: string, after: string, quotes: string[], fi
   if (missing.size) return `the figures as keepers say them aren't there: ${[...missing].join(', ')}`
   if (moved.length) return `another figure changed: ${moved.join(', ')}`
   if (swapped) return 'its figures changed places'
-  // As often as before in its paragraph: one of two "132 lít" mended, the other, a spare tank's, may stay (Astra, 2026-11-13).
+  // As often as before in its paragraph: one of two "132 lít" mended, the other, a spare tank's, may stay, but only with
+  // each mended figure after the same words as before ("bể chính"), so the spare's can't be mended in its place by
+  // trading the sentences round (Astra, 2026-11-13). Otherwise the quote must be gone.
   const times = (text: string, q: string) => text.split(q).length - 1
-  const left = quotes.filter(q => { const i = q ? was.findIndex(b => b.includes(norm(q))) : -1; return i >= 0 && times(now[i]!, norm(q)) >= times(was[i]!, norm(q)) })
+  const inPlace = (j: number) => figures.filter(f => f.block === j).every(f => leadOf(now[j]!, f.n!) === leadOf(was[j]!, f.n!))
+  const left = quotes.filter(q => {
+    const i = q ? was.findIndex(b => b.includes(norm(q))) : -1
+    return i >= 0 && (inPlace(i) ? times(now[i]!, norm(q)) >= times(was[i]!, norm(q)) : times(now[i]!, norm(q)) > 0)
+  })
   return left.length ? `the figure it mends is still there: ${left.join('; ')}` : undefined
 }
 

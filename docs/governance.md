@@ -1143,13 +1143,15 @@ The layers above still check the result.
     gallons a fish 12, 10 gallons an inch 15 lít mỗi cm), in its FAQ answers too, and after any other mend of the same
     part in the same try. Its reviewer is told the same. A figure is read whole in its quote's paragraph ("38 lít" there
     followed by "mỗi 2,5 cm", "trên mỗi 2,5 cm", "mỗi 2,54 cm", "mỗi inch" or "cho 2,5 cm chiều dài cá" is per inch;
-    a tank "đặt trên 2,5 cm xốp" is not), and a rewrite is kept only with
+    a tank "đặt trên 2,5 cm xốp" is not; any other length after a volume in its clause, "mỗi 2,5 cm mực nước" or "cho
+    2,5 cm" alone, is for a person), and a rewrite is kept only with
     each paragraph's litres as they were, in their order, each figure as keepers say it in place of its old one and no
     other moved (15 lít mỗi cm, not mỗi 2,5 cm; not the same litres left in another paragraph; not two figures trading
-    places; one of two like figures in a paragraph may be mended alone), and with its paragraphs as many as before. A figure with a dose near it (in its paragraph, the one before
+    places; one of two like figures in a paragraph may be mended alone, after the same words as before), and with its paragraphs as many as before. A figure with a dose near it (in its paragraph, the one before
     or after, or the rest of its section between the headings either side, where a reading of the water such as koi's
     dissolved oxygen in mg/l (the substance, then only the words a reading is said with) isn't a dose but a treatment's
-    rate in mg/l, or a substance beside its treatment ("khử nitrit bằng muối 1 g/l"), is; in an FAQ answer, its question too), whose
+    rate in mg/l, a substance beside its treatment ("khử nitrit bằng muối 1 g/l") or after a dose's word ("liều CO2",
+    "phân nitrat"), is; in an FAQ answer, its question too), whose
     water stays exact, a figure per another length ("mỗi 5 cm"), or a litre figure with no US figure in the
     facts to work from, is left to a person, and so is a finding code works out no figure for (gallons or a length in
     it, or a figure already the size keepers say) and a quote another mend reworded past telling which figure it was. Other units,
