@@ -1052,3 +1052,33 @@ test("a photo credited to someone its source's permission refuses leaves every p
   expect(r.held).toEqual([])
   expect((await sweep(root)).again).toEqual([])
 })
+
+// Photo Sourcing, 14 Nov: the aquatic-plants equipment page still showed an Aquarium Co-op photo on the never-again list,
+// in all four languages. The never-again pass walked fish, plant, breed, guide and album files only.
+test("a photo on the never-again list leaves every equipment page, each language's copy, and a product page: a type's photo goes, a listed hero gives way to a type's", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const p = (name: string) => photo(`https://media.aquatome.com/aquariumcoop/${name}.webp`, 'Aquatic plants')
+  const hero = p('hero'), stem = p('stem'), listed = p('listed'), moss = p('moss')
+  const page = (heroPhoto: object) => ({ category: 'cay-thuy-sinh', name: 'Cây thủy sinh', hero: heroPhoto, types: [{ name: 'Thân', photo: stem }, { name: 'Rêu', photo: listed }, { name: 'Lá', photo: moss }] })
+  await put('equipment/cay-thuy-sinh.json', page(hero))
+  await put('equipment/id/cay-thuy-sinh.json', page(hero))
+  await put('equipment/th/den.json', page(listed))
+  await put('products/p/entity.json', { id: 'p', photos: [listed, moss] })
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), `${JSON.stringify({ [listed.url]: 'rejected: withheld [sha256:' + 'a'.repeat(64) + ']' }, null, 2)}\n`)
+  const r = await sweep(root)
+  for (const f of ['equipment/cay-thuy-sinh.json', 'equipment/id/cay-thuy-sinh.json']) {
+    const e = await json(root, `content/${f}`)
+    expect(e.hero, f).toEqual(hero)
+    expect(e.types.map((t: { photo?: { url: string } }) => t.photo?.url ?? null), f).toEqual([stem.url, null, moss.url])
+  }
+  // A listed hero gives way to the first type's photo, as the photo check does.
+  expect((await json(root, 'content/equipment/th/den.json')).hero).toEqual(stem)
+  expect((await json(root, 'content/products/p/entity.json')).photos).toEqual([moss])
+  expect(r.again.filter(x => x.startsWith('equipment/') || x.startsWith('products/')).length).toBe(5)
+  expect((await sweep(root)).again).toEqual([])
+})
