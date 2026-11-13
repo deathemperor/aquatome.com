@@ -10,6 +10,99 @@
     "india",
     "yenna"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Yenna",
+        "Western Ghats",
+        "Krishna",
+        "Sharavati",
+        "Aghanashini",
+        "Yenna River"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Khavlibarb originates from the Yenna River in Satara district in the Indian state of Maharashtra.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Yenna River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from streams of the Yenna river basin, close to the city of Mahabaleshwar, in the Western Ghats mountain range, Satara district, Maharashtra state, India, and endemic to northern and central parts of the Western Ghats mountains.",
+          "countries": [],
+          "regions": [
+            "Yenna",
+            "Western Ghats"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's been recorded from the Yenna, Koyana, Krishna, Sharavati, Tunga, Bhadra, Aghanashini, Bedti, and Sita drainages.",
+          "countries": [],
+          "regions": [
+            "Krishna",
+            "Sharavati",
+            "Aghanashini"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363903,
+      "total": 32,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "IN",
+          32
+        ]
+      ],
+      "cells": [
+        [
+          73.125,
+          15.46875,
+          6,
+          6
+        ],
+        [
+          73.125,
+          16.875,
+          14,
+          14
+        ],
+        [
+          74.53125,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          74.53125,
+          14.0625,
+          8,
+          8
+        ],
+        [
+          80.15625,
+          22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

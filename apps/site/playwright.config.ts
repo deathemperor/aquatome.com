@@ -24,8 +24,12 @@ export default defineConfig({
   projects: [
     { name: 'phone', testIgnore: /owner-capture/, use: ourDevice(devices['Pixel 7']!) },
     { name: 'desktop', testIgnore: /owner-capture/, use: { ...ourDevice(devices['Desktop Chrome']!), viewport: { width: 1280, height: 800 } } },
-    // The owner's picture: what can go wrong with it is WebKit's. Only where WebKit is installed (ci.yml).
-    ...(process.env.E2E_IPHONE ? [{ name: 'iphone', testMatch: /owner-capture/, use: ourDevice(devices['iPhone 13']!) }] : []),
+    // Only where WebKit is installed (ci.yml): the owner's picture, what can go wrong with it being WebKit's; and a fish
+    // page's photo column on a computer, which Safari has sized its own way (photo-column.spec.ts).
+    ...(process.env.E2E_WEBKIT ? [
+      { name: 'iphone', testMatch: /owner-capture/, use: ourDevice(devices['iPhone 13']!) },
+      { name: 'safari', testMatch: /photo-column/, use: { ...ourDevice(devices['Desktop Safari']!), viewport: { width: 1280, height: 800 } } },
+    ] : []),
   ],
   webServer: live ? undefined : { command: `node e2e/serve.mjs ${process.env.E2E_DIST ?? 'dist'} ${PORT}`, url: `http://127.0.0.1:${PORT}/`, reuseExistingServer: !process.env.CI },
 })

@@ -229,3 +229,174 @@ test('failed overdue monthly reads remain due each cycle after the one-time reco
   expect(await backfillPhotos(root, deps)).toMatchObject({ pages: 1, errors: [expect.stringContaining('HTTP 404')] })
   expect(reads).toBe(2)
 })
+
+test("a re-read doesn't take a photo whose credit the source's permission record refuses", async () => {
+  const url = 'https://www.seriouslyfish.com/species/imaginichthys-testi/'
+  const root = await mkdtemp(join(tmpdir(), 'pb-'))
+  const dir = join(root, 'content', 'species', 'imaginichthys-testi')
+  await mkdir(dir, { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish', permission: { refusedCredits: ['Example Picture Agency'] } } }))
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ scientificName: 'Imaginichthys testi', photos: [], sections: [{ source: 'seriouslyfish', sourceUrl: url }] }))
+  const fig = (n: number, credit: string) => `<figure><a href="/images/testi-${n}.jpg"><img src="/images/testi-${n}.jpg" alt="Imaginichthys testi, view ${n}." width="800" height="600"></a><figcaption>Imaginichthys testi, view ${n}.<span class="_credit_x"><b>${credit}</b></span></figcaption></figure>`
+  const html = `<html><head><title>Imaginichthys testi</title></head><body><main><h1>Imaginichthys testi</h1><p>${'A made-up fish. '.repeat(20)}</p>${fig(1, 'Example Picture Agency')}${fig(2, 'Imaginary Person')}</main></body></html>`
+  const fetched: string[] = []
+  const r = await backfillPhotos(root, {
+    get: async () => ({ status: 200, html }),
+    bytes: async (u: string) => { fetched.push(u); return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
+    media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 800, height: 600 }) },
+    now: () => new Date('2026-11-13T12:00:00Z'),
+    sleep: async () => {},
+  })
+  expect(r).toMatchObject({ pages: 1, added: 1, errors: [] })
+  expect(fetched).toEqual(['https://www.seriouslyfish.com/images/testi-2.jpg'])
+})
+
+// Paraphanius mento (2026-11-13): its source page's top four photos were taken off for a mark, and they kept all four of
+// the page's places at every re-read, so its six other photos were never tried and the page stayed empty.
+test("photos taken off the site before don't hold a page's places: the source page's next photos are tried", async () => {
+  const { createHash } = await import('node:crypto')
+  const url = 'https://www.seriouslyfish.com/species/imaginichthys-testi/'
+  const src = (n: number) => `https://www.seriouslyfish.com/images/testi-${n}.jpg`
+  const key = (n: number) => `https://m/seriouslyfish/${createHash('sha256').update(src(n)).digest('hex').slice(0, 16)}.webp`
+  const root = await mkdtemp(join(tmpdir(), 'pb-'))
+  const dir = join(root, 'content', 'species', 'imaginichthys-testi')
+  await mkdir(dir, { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish' } }))
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ scientificName: 'Imaginichthys testi', photos: [], sections: [{ source: 'seriouslyfish', sourceUrl: url }] }))
+  await writeFile(join(root, 'engine-state', '_photo-rejected.json'), JSON.stringify(Object.fromEntries([1, 2, 3, 4].map(n => [key(n), 'watermark: withheld']))))
+  const html = `<html><head><title>Imaginichthys testi</title></head><body><main><h1>Imaginichthys testi</h1><p>${'A made-up fish. '.repeat(20)}</p>${[1, 2, 3, 4, 5, 6].map(n => `<img src="/images/testi-${n}.jpg" alt="Imaginichthys testi, view ${n}" width="800" height="600">`).join('')}</main></body></html>`
+  const fetched: string[] = []
+  const r = await backfillPhotos(root, {
+    get: async () => ({ status: 200, html }),
+    bytes: async (u: string) => { fetched.push(u); return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
+    media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 800, height: 600 }) },
+    now: () => new Date('2026-11-13T12:00:00Z'),
+    sleep: async () => {},
+  })
+  expect(r).toMatchObject({ pages: 1, added: 2, errors: [] })
+  expect(fetched).toEqual([src(5), src(6)]) // no request for a blocked photo
+  const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8'))
+  expect(e.photos.map((p: { url: string }) => p.url)).toEqual([key(5), key(6)])
+})
+
+// The chief of staff, 2026-11-13: photos credited to a business, an organisation or a person with an organisation that
+// are already on a page stay. Only new ones wait for the source's word, so a re-read keeps them.
+test("a re-read keeps a photo already on the page whose credit's kind the permission doesn't list, and adds a person's", async () => {
+  const { createHash } = await import('node:crypto')
+  const url = 'https://www.seriouslyfish.com/species/imaginichthys-testi/'
+  const src = (n: number) => `https://www.seriouslyfish.com/images/testi-${n}.jpg`
+  const key = (n: number) => `https://m/seriouslyfish/${createHash('sha256').update(src(n)).digest('hex').slice(0, 16)}.webp`
+  const root = await mkdtemp(join(tmpdir(), 'pb-kept-'))
+  const dir = join(root, 'content', 'species', 'imaginichthys-testi')
+  await mkdir(dir, { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish' } }))
+  const shown = { url: key(1), width: 800, height: 600, licence: 'dùng với sự cho phép', author: 'Seriously Fish', sourceUrl: url, source: 'seriouslyfish' }
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ scientificName: 'Imaginichthys testi', photos: [shown], sections: [{ source: 'seriouslyfish', sourceUrl: url }] }))
+  const fig = (n: number, credit: string) => `<figure><a href="/images/testi-${n}.jpg"><img src="/images/testi-${n}.jpg" alt="Imaginichthys testi, view ${n}." width="800" height="600"></a><figcaption>Imaginichthys testi, view ${n}.<span class="_credit_x"><b>${credit}</b></span></figcaption></figure>`
+  const html = `<html><head><title>Imaginichthys testi</title></head><body><main><h1>Imaginichthys testi</h1><p>${'A made-up fish. '.repeat(20)}</p>${fig(1, 'Example Aquatics')}${fig(2, 'Example Fish Society')}${fig(3, 'Imaginary Person')}</main></body></html>`
+  const fetched: string[] = []
+  const r = await backfillPhotos(root, {
+    get: async () => ({ status: 200, html }),
+    bytes: async (u: string) => { fetched.push(u); return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
+    media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 800, height: 600 }) },
+    now: () => new Date('2026-11-13T12:00:00Z'),
+    sleep: async () => {},
+  })
+  expect(r).toMatchObject({ pages: 1, added: 1, errors: [] })
+  expect(fetched).toEqual([src(3)]) // none for the one shown, none for the new organisation's
+  const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8'))
+  expect(e.photos.map((p: { url: string }) => p.url).sort()).toEqual([key(1), key(3)].sort())
+})
+
+// A reader's case (13 Nov): four photos a re-read takes rank above the one the page shows under a credit we take no more.
+// The page keeps that one; the four others share what's left of the four places.
+test("a re-read keeps a photo the page shows under a credit we take no more, though four photos rank above it", async () => {
+  const { createHash } = await import('node:crypto')
+  const url = 'https://www.seriouslyfish.com/species/imaginichthys-testi/'
+  const src = (n: number) => `https://www.seriouslyfish.com/images/testi-${n}.jpg`
+  const key = (n: number) => `https://m/seriouslyfish/${createHash('sha256').update(src(n)).digest('hex').slice(0, 16)}.webp`
+  const root = await mkdtemp(join(tmpdir(), 'pb-fifth-'))
+  const dir = join(root, 'content', 'species', 'imaginichthys-testi')
+  await mkdir(dir, { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish' } }))
+  const shown = { url: key(5), width: 800, height: 600, licence: 'dùng với sự cho phép', author: 'Example Aquatics / Seriously Fish', sourceUrl: url, source: 'seriouslyfish' }
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ scientificName: 'Imaginichthys testi', photos: [shown], sections: [{ source: 'seriouslyfish', sourceUrl: url }] }))
+  const fig = (n: number, credit: string) => `<figure><a href="/images/testi-${n}.jpg"><img src="/images/testi-${n}.jpg" alt="Imaginichthys testi, view ${n}." width="800" height="600"></a><figcaption>Imaginichthys testi, view ${n}.<span class="_credit_x"><b>${credit}</b></span></figcaption></figure>`
+  const credits = ['Imaginary Person', 'Another Person', 'Third Person', 'Fourth Person', 'Example Aquatics']
+  const html = `<html><head><title>Imaginichthys testi</title></head><body><main><h1>Imaginichthys testi</h1><p>${'A made-up fish. '.repeat(20)}</p>${credits.map((c, i) => fig(i + 1, c)).join('')}</main></body></html>`
+  const fetched: string[] = []
+  const r = await backfillPhotos(root, {
+    get: async () => ({ status: 200, html }),
+    bytes: async (u: string) => { fetched.push(u); return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
+    media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 800, height: 600 }) },
+    now: () => new Date('2026-11-13T12:00:00Z'),
+    sleep: async () => {},
+  })
+  expect(r.errors).toEqual([])
+  expect(fetched).toEqual([src(1), src(2), src(3)])
+  const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8'))
+  expect(e.photos.map((p: { url: string }) => p.url).sort()).toEqual([key(1), key(2), key(3), key(5)].sort())
+})
+
+// The reader's next case (13 Nov): the shown photo is one the page lays out small (no file width), which the picker
+// tries after the others. It keeps its place all the same, on a fish's page and on a guide, under the address it has.
+test("a re-read keeps a shown photo the page lays out small, on a fish's page and on a guide with two addresses for it", async () => {
+  const { createHash } = await import('node:crypto')
+  const key = (src: string, source = 'seriouslyfish') => `https://m/${source}/${createHash('sha256').update(src).digest('hex').slice(0, 16)}.webp`
+  const fetchedFish: string[] = []
+  // A fish's page: four photos we take rank above the shown one, which the page lays out at 400 px.
+  {
+    const url = 'https://www.seriouslyfish.com/species/imaginichthys-testi/'
+    const src = (n: number) => `https://www.seriouslyfish.com/images/testi-${n}.jpg`
+    const root = await mkdtemp(join(tmpdir(), 'pb-small-'))
+    const dir = join(root, 'content', 'species', 'imaginichthys-testi')
+    await mkdir(dir, { recursive: true })
+    await mkdir(join(root, 'engine-state'), { recursive: true })
+    await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ seriouslyfish: { name: 'Seriously Fish' } }))
+    const shown = { url: key(src(5)), width: 800, height: 600, licence: 'dùng với sự cho phép', author: 'Example Aquatics / Seriously Fish', sourceUrl: url, source: 'seriouslyfish' }
+    await writeFile(join(dir, 'entity.json'), JSON.stringify({ scientificName: 'Imaginichthys testi', photos: [shown], sections: [{ source: 'seriouslyfish', sourceUrl: url }] }))
+    const fig = (n: number, credit: string, size: string) => `<figure><img src="/images/testi-${n}.jpg" alt="Imaginichthys testi, view ${n}." ${size}><figcaption>Imaginichthys testi, view ${n}.<span class="_credit_x"><b>${credit}</b></span></figcaption></figure>`
+    const credits = ['Imaginary Person', 'Another Person', 'Third Person', 'Fourth Person']
+    const html = `<html><head><title>Imaginichthys testi</title></head><body><main><h1>Imaginichthys testi</h1><p>${'A made-up fish. '.repeat(20)}</p>${credits.map((c, i) => fig(i + 1, c, 'srcset="/images/testi-' + (i + 1) + '.jpg 800w"')).join('')}${fig(5, 'Example Aquatics', 'width="400" height="300"')}</main></body></html>`
+    const r = await backfillPhotos(root, {
+      get: async () => ({ status: 200, html }),
+      bytes: async (u: string) => { fetchedFish.push(u); return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
+      media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 800, height: 600 }) },
+      now: () => new Date('2026-11-13T12:00:00Z'), sleep: async () => {},
+    })
+    expect(r.errors).toEqual([])
+    expect(fetchedFish).toEqual([src(1), src(2), src(3)])
+    const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8'))
+    expect(e.photos.map((p: { url: string }) => p.url).sort()).toEqual([key(src(1)), key(src(2)), key(src(3)), key(src(5))].sort())
+  }
+  // A guide that shows a business's photo at /old/: the source now shows it at /new/ first. The guide keeps /old/ and
+  // fetches neither copy.
+  {
+    const url = 'https://www.aquariumglaser.de/en/fish/guide/'
+    const root = await mkdtemp(join(tmpdir(), 'pb-guide-shown-'))
+    const dir = join(root, 'content/guides/a')
+    await mkdir(dir, { recursive: true })
+    await mkdir(join(root, 'engine-state'), { recursive: true })
+    await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ glaser: { name: 'Aquarium Glaser' } }))
+    const old = 'https://www.aquariumglaser.de/old/fish.jpg'
+    const shown = { url: key(old, 'glaser'), width: 800, height: 600, licence: 'dùng với sự cho phép', author: 'Example Aquatics / Aquarium Glaser', sourceUrl: url, source: 'glaser' }
+    await writeFile(join(dir, 'entity.json'), JSON.stringify({ photos: [shown], source: 'glaser', sourceUrl: url }))
+    await writeFile(join(root, 'engine-state/_photo-backfill.json'), JSON.stringify({ [url]: '2026-10-01T00:00:00.000Z' }))
+    const fetched: string[] = []
+    const fig = (path: string) => `<figure><img src="${path}" alt="A fish." width="800" height="600"><figcaption>A fish.<span class="_credit_x"><b>Example Aquatics</b></span></figcaption></figure>`
+    const r = await backfillPhotos(root, {
+      get: async () => ({ status: 200, html: `<main>${fig('/new/fish.jpg')}${fig('/old/fish.jpg')}</main>` }),
+      bytes: async (u: string) => { fetched.push(u); return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
+      media: { urlFor: (k: string) => `https://m/${k}`, put: async (k: string) => ({ url: `https://m/${k}`, width: 800, height: 600 }) },
+      now: () => new Date('2026-11-13T12:00:00Z'), sleep: async () => {},
+    })
+    expect(r.errors).toEqual([])
+    expect(fetched).toEqual([])
+    const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8'))
+    expect(e.photos.map((p: { url: string }) => p.url)).toEqual([shown.url])
+  }
+})

@@ -7,7 +7,7 @@ import { placeFigures, type Figure, type HeadedFigure } from './figures'
 import { readingMinutes, withToc } from './toc'
 import { nextGuides } from './home'
 import { illustrate, seriesGuides, seriesOf, videoPhoto } from './video'
-import { pagePictures, photosOf } from './pictures'
+import { pagePictures, photosOf, tilePhotos } from './pictures'
 import { PAGE } from '../scripts/filter-list'
 
 /** A guide's photos that name their section, each under the heading this language's text gives it (else Vietnamese's). */
@@ -121,7 +121,7 @@ export function guideParts(lang: Lang, c: Content, g: Localized<GuideEntity>) {
   // listicle names a hundred or more), each with a picture the page doesn't show yet, or none.
   const covers = next.map(x => shown.take(guideImages(c, x)) ?? null)
   const cardSpecies = species.slice(0, PAGE), cardPlants = plants.slice(0, PAGE - cardSpecies.length)
-  const speciesPhotos = cardSpecies.map(s => shown.take(photosOf(s.photos)) ?? null)
+  const speciesPhotos = cardSpecies.map(s => shown.take(tilePhotos(s.photos)) ?? null)
   const plantPhotos = cardPlants.map(p => shown.take(photosOf(p.photos)) ?? null)
   // A guide in another language cites only the sources its own facts come from.
   const own = g.t.refs ?? g.refs

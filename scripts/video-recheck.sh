@@ -20,7 +20,7 @@ PIDFILE="$(git rev-parse --absolute-git-dir)/aquatome-engine.pid"
 # Not this run's own number: from_main starts it again as the same process.
 if [ -f "$PIDFILE" ] && [ "$(cat "$PIDFILE")" != $$ ] && ps -p "$(cat "$PIDFILE")" -o command= 2>/dev/null | grep -q 'video-recheck\.sh'; then log "the last run (pid $(cat "$PIDFILE")) is still going"; exit 0; fi
 echo $$ > "$PIDFILE"
-trap 'rm -f "$PIDFILE"' EXIT
+trap 'status=$?; rm -f "$PIDFILE"; fault_exit "$status" video-recheck' EXIT
 # shellcheck disable=SC1091
 . "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"
 # Transcripts come from the Mac's cache (473 of the 496 guides'); the rest ask YouTube, one at a time.

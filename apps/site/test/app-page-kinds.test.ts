@@ -419,20 +419,35 @@ test('each plant\'s copy reads as its built page: header, credits, sources, gall
 
 test('each glossary term\'s copy reads as its built page; one in Indonesian has the Indonesian page\'s path and words', async () => {
   const c = await getContent('vi')
+  const listed = listedPaths('vi', c)
   const terms = appGlossary('vi', c)
   expect(terms.length).toBeGreaterThan(2)
   for (const g of terms) {
-    const d = glossaryDoc('vi', g)
+    const d = glossaryDoc('vi', c, g, listed)
     expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
     const { dom } = appPage(d.path)
     expect(d.title).toBe(txt(dom.querySelector('h1')))
-    expect(d.blocks.map(b => text((b as B<'p'>).c))).toEqual([txt(dom.querySelector('.en')), ...(dom.querySelector('.def') && txt(dom.querySelector('.def')) ? [txt(dom.querySelector('.def'))] : [])])
+    // Its other names, its English name, its definition (with the page's links), in the page's order.
+    expect(all(d, 'p').map(b => text(b.c))).toEqual(['.aka', '.en', '.def'].flatMap(sel => (dom.querySelector(sel) ? [txt(dom.querySelector(sel))] : [])))
+    const def = dom.querySelector('.def')
+    expect(all(d, 'p').flatMap(b => b.c.flatMap(r => (typeof r === 'string' || !r.href ? [] : [r.href]))), d.path).toEqual(
+      (def?.querySelectorAll('a') ?? []).map(a => appHref(a.getAttribute('href')!)),
+    )
+    // The pages that use it: the heading with the count, then each kind's first pages, those the app index lists.
+    expect(one(d, 'h')?.text).toBe(dom.querySelector('.used h2') ? txt(dom.querySelector('.used h2')) : undefined)
+    const kinds = dom.querySelectorAll('.used h3').map(h3 => ({
+      t: 'pages', title: txt(h3), paths: (h3.nextElementSibling?.querySelectorAll('a') ?? []).map(a => appHref(a.getAttribute('href')!)).filter(x => listed.has(x)),
+    }))
+    expect(all(d, 'pages'), d.path).toEqual(kinds.filter(k => k.paths.length))
+    // The page's search for the rest of a long list: the app offers to open the page on the web.
+    expect(all(d, 'web').length, d.path).toBe(dom.querySelector('.used .more a') ? 1 : 0)
   }
-  const ph = glossaryDoc('vi', c.glossary.find(x => x.id === 'ph')!)
+  const ph = glossaryDoc('vi', c, c.glossary.find(x => x.id === 'ph')!, listed)
   expect(ph).toMatchObject({ kind: 'glossary', path: '/vi/thuat-ngu/ph/', title: 'pH' })
-  const id = glossaryDoc('id', c.glossary.find(x => x.id === 'ph')!)
+  // The fixture has no Indonesian terms: its Vietnamese one, made as the Indonesian page is.
+  const id = glossaryDoc('id', c, c.glossary.find(x => x.id === 'ph')!, listed)
   expect(id.path).toBe('/id/istilah/ph/')
-  expect(text((id.blocks[0] as B<'p'>).c).startsWith(translator('id')('Tiếng Anh:'))).toBe(true)
+  expect(all(id, 'p').some(b => text(b.c).startsWith(translator('id')('Tiếng Anh:')))).toBe(true)
 })
 
 test('a fish\'s copy in Indonesian: the Indonesian page\'s paths and links, no Vietnam-only parts', async () => {

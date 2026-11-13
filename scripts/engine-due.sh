@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # The engine's clock, on the owner's Mac, every hour (install-video-schedule.sh): GitHub started no scheduled engine run
 # from 06:27 to past 19:30 UTC on 2 November, engine.yml's own hourly cron included. So a cycle (engine.yml) starts from
-# here when none started in the last ENGINE_EVERY_MINUTES, the rule engine.yml's job `due` uses. A cycle is a run over
-# 10 minutes long or still going: engine.yml's hourly checks that found none due end in seconds.
+# here when none started in the last ENGINE_EVERY_MINUTES, the rule engine.yml's job `due` uses. A cycle is a run whose
+# cycle job ran (engine-last-cycle.sh).
 #
 # The pace is read where that job reads it: the repository variable, and with none set, the default written in
 # engine.yml. This script has no figure of its own. It had one, 170 minutes, and a run started from here is started by
@@ -12,13 +12,20 @@ set -euo pipefail
 export PATH="${PATH:+$PATH:}$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
 log() { echo "$(date -u +%FT%TZ) $*"; }
 REPO=deathemperor/aquatome.com
+# A Mac part's cycle hung for hours, said in its log and on GitHub (engine-stuck.sh); first, as a gh error below ends this.
+bash "$(dirname "$0")/engine-stuck.sh"
 # A gh error stops the script here (set -e): with no pace to go by, nothing starts.
 every="$(gh variable list -R "$REPO" --json name,value -q '.[] | select(.name == "ENGINE_EVERY_MINUTES") | .value')"
 [ -n "$every" ] || every="$(sed -nE 's/.*\$\{EVERY:-([0-9]+)\}.*/\1/p' "$(dirname "$0")/../.github/workflows/engine.yml" | head -1)"
 case "$every" in '' | *[!0-9]*) log "engine: not started: no pace to go by (ENGINE_EVERY_MINUTES is '$every')"; exit 0 ;; esac
-# Seconds since the last cycle started; empty when none did in the last 30 runs (30 hours of quick checks), which is
-# overdue too.
-age="$(gh run list -R "$REPO" -w engine.yml -L 30 --json createdAt,updatedAt,status -q '[.[] | select(.status != "completed" or ((.updatedAt | fromdateiso8601) - (.createdAt | fromdateiso8601)) > 600) | .createdAt | fromdateiso8601] | max | if . then (now - . | floor) else empty end')"
+# Seconds since the last cycle started, as engine.yml's due check reads it (engine-last-cycle.sh); empty when none did in
+# the last 30 runs (30 hours of quick checks), which is overdue too.
+age="$(bash "$(dirname "$0")/engine-last-cycle.sh" "$REPO")"
+# A run already waiting on GitHub, younger than the pace, makes its own check when it starts: one started from here would
+# queue behind it and go as a cycle whatever that check found, a second one off the pace. A waiting run doesn't count as
+# a cycle, though (engine-last-cycle.sh), so the one it is behind sets the pace.
+waiting="$(gh run list -R "$REPO" -w engine.yml -L 10 --json status,createdAt -q "[.[] | select(.status != \"completed\" and (now - (.createdAt | fromdateiso8601)) < $((every * 60)))] | length")"
+if [ "${waiting:-0}" -gt 0 ]; then log "engine: not started: a run is waiting on GitHub, and its own check decides"; exit 0; fi
 if [ -z "$age" ] || [ "$age" -ge $((every * 60)) ]; then
   last="none in 30 runs"
   [ -z "$age" ] || last="$((age / 60)) min ago"

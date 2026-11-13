@@ -7,6 +7,7 @@ import { allPages } from '../e2e/pages'
 import { unreached } from './reach'
 import { isViPage } from '../worker/paths'
 import { prefixedLang } from '@aq/schema/langs'
+import { slow } from '@aq/schema/test-time'
 
 // The fish and plant lists must not grow with the catalogue: past their first page, a species or plant adds nothing to
 // their HTML (#272 left ~0.6 KB and ~2.6 elements per species, and the catalogue grows ~50 species a day). The test
@@ -85,7 +86,7 @@ function buildWith(extra: number) {
 }
 
 let small: (path: string) => string, large: (path: string) => string, largeDist: string
-beforeAll(() => { small = buildWith(40).page; ({ page: large, dist: largeDist } = buildWith(80)) }, 600_000)
+beforeAll(() => { small = buildWith(40).page; ({ page: large, dist: largeDist } = buildWith(80)) }, slow(600_000))
 afterAll(() => { for (const r of roots) rmSync(r, { recursive: true, force: true }) })
 
 /**
@@ -250,4 +251,4 @@ test('every species, plant and guide page is reached from the home pages when th
   const r = unreached(largeDist)
   expect(r.items).toBeGreaterThan(80)
   expect(r.unreached, 'pages no link leads to').toEqual([])
-}, 120_000)
+}, slow(120_000))

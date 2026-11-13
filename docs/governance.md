@@ -489,6 +489,9 @@ The layers above still check the result.
   - It covers every call the engine makes to Claude (`claude.ts`), whatever started it: a call with no log named is
     written to the hand runs' log and counted from there. Not covered: picture generation, which goes to Codex on
     its own sign-in and quota (`codex-images.ts`).
+  - A measurement yields to the engine: the chat's board spends only what leaves every other step its whole line and
+    some room for the gate (`leftYielding`), so the backstop never stops a step on its account (the chief of staff,
+    13 Nov 2026).
   - The AI page review on pull requests, the nightly AI review and the auto-fix call Claude on the same accounts by
     another road, and each has a line on GitHub's side (`page-review`, `nightly-review`, `autofix`). A call writes a
     cost line: the time, the step, the account's hash, the model, dollars and tokens, and nothing of a page, a prompt
@@ -1149,8 +1152,29 @@ The layers above still check the result.
   - The rewrite (`pnpm engine fit-rewrite`, in small batches, the most-read pages first) writes a failing Vietnamese
     page again: a guide whole, from its source's facts and the market table; a fish, plant or breed page part by part,
     each part a finding quotes, kept only when its reviewer passes it and it says nothing more surely than what it was
-    written from (`hedges.ts`, which holds the guide writer too). Units, words and a kit are left to the rounding,
-    the phrase list and the gate, and harm on a fish, plant or breed page to the gate and a person. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash; a page
+    written from (`hedges.ts`, which holds the guide writer too). It mends units where the part's English gives a US
+    figure, and on a breed page, which has no English to keep a figure from, from the source's own US figure in its
+    facts (`breed-units.ts`; the chief of staff, 2026-11-12): a US tank in the table its size, another the round figure
+    keepers here say, a minimum never more than a twentieth under it (35 gallons 130 lít, 1,000 gallons 4.000, 3
+    gallons a fish 12, 10 gallons an inch 15 lít mỗi cm), in its FAQ answers too, and after any other mend of the same
+    part in the same try. Its reviewer is told the same. A figure is read whole in its quote's paragraph ("38 lít" there
+    followed by "mỗi 2,5 cm", "trên mỗi 2,5 cm", "mỗi 2,54 cm", "mỗi inch" or "cho 2,5 cm chiều dài cá" is per inch;
+    a tank "đặt trên 2,5 cm xốp" is not; any other length after a volume in its clause, "mỗi 2,5 cm mực nước", "cho
+    2,5 cm" alone, "ứng với 2,5 cm", a range of lengths or the fish's own length ("chiều dài 2,5 cm của cá"), is for a person, but for
+    the tank's own size, "dài 60 cm" or "dài khoảng 90 cm"), and a rewrite is kept only with
+    each paragraph's litres as they were, in their order, each figure as keepers say it in place of its old one and no
+    other moved (15 lít mỗi cm, not mỗi 2,5 cm; not the same litres left in another paragraph; not two figures trading
+    places; with two figures or more in a paragraph, each mended one stays with the same words around it as before, its sentence back to a label before a colon, or a
+    tank's number, and a figure per cm with the words before it, so one of two like figures may be mended alone), and with its paragraphs as many as before. A figure with a dose near it (in its paragraph, the one before
+    or after, or the rest of its section between the headings either side, where a reading of the water such as koi's
+    dissolved oxygen in mg/l (the substance, then only the words a reading is said with) isn't a dose but a treatment's
+    rate in mg/l, a substance beside its treatment ("khử nitrit bằng muối 1 g/l") or after a dose's word anywhere before it in
+    its sentence ("liều CO2", "Liều dùng: ammonia", "Cho ammonia", "Cho vào bể…", "phân nitrat", but not "cho koi:" or waste's "phân
+    hủy"), is; in an FAQ answer, its question too), whose
+    water stays exact, a figure per another length ("mỗi 5 cm"), or a litre figure with no US figure in the
+    facts to work from, is left to a person, and so is a finding code works out no figure for (gallons or a length in
+    it, or a figure already the size keepers say) and a quote another mend reworded past telling which figure it was. Other units,
+    words and a kit are left to the rounding, the phrase list and the gate, and harm on a fish, plant or breed page to the gate and a person. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash; a page
     tried and not kept waits until its text changes (`engine-state/_fit-rewrite.json`), and a title the owner fixed stays
     (`fit-rewrite.test.ts`). It runs in GitHub's rewrite cycle before the gate, from 13 Nov 2026 08:00: the front list
     first (`packages/engine/src/fit-front.json`: pages kept off Khám phá's cards and the Hôm nay card, then the

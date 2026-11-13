@@ -27,8 +27,13 @@ jobs:
     outputs:
       run: ${{ steps.due.outputs.run }}
     steps:
-      # A cycle is a run that went on for over 10 minutes or is still going; the hourly checks that found none due end
-      # in seconds. A run started by hand always goes.
+      # A cycle is a run whose cycle job ran, from when that job started (scripts/engine-last-cycle.sh, which the Mac's
+      # starter reads too); never by how long a run took: a check that waited in the queue behind a running cycle isn't
+      # one. A run started by hand always goes.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          sparse-checkout: scripts/engine-last-cycle.sh
+          sparse-checkout-cone-mode: false
       - id: due
         name: Started by hand, or ENGINE_EVERY_MINUTES since the last cycle started
         env:
@@ -36,9 +41,8 @@ jobs:
           EVERY: ${{ vars.ENGINE_EVERY_MINUTES }}
         run: |
           if [ "$GITHUB_EVENT_NAME" != schedule ]; then echo run=true >> "$GITHUB_OUTPUT"; exit 0; fi
-          last=$(gh run list -R "$GITHUB_REPOSITORY" -w engine.yml -L 30 --json databaseId,createdAt,updatedAt,status \
-            --jq "[.[] | select(.databaseId != $GITHUB_RUN_ID) | select(.status != \"completed\" or ((.updatedAt | fromdateiso8601) - (.createdAt | fromdateiso8601)) > 600) | .createdAt | fromdateiso8601] | max // 0")
-          age=$(( $(date -u +%s) - last ))
+          age=$(bash scripts/engine-last-cycle.sh)
+          if [ -z "$age" ]; then echo "no cycle in the last 30 runs"; echo run=true >> "$GITHUB_OUTPUT"; exit 0; fi
           echo "last cycle started $((age / 60)) min ago"
           if [ "$age" -ge $(( ${EVERY:-170} * 60 )) ]; then echo run=true >> "$GITHUB_OUTPUT"; else echo run=false >> "$GITHUB_OUTPUT"; fi
   cycle:

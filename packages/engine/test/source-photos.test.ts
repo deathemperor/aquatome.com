@@ -3,7 +3,7 @@ import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { ArchiveRefused } from '../src/archive'
 import { htmlToOutline } from '../src/outline'
-import { linkedPhotos, pickSourcePhotos, storeSourcePhotos } from '../src/source-photos'
+import { linkedPhotos, mayTake, photoKey, pickSourcePhotos, storeSourcePhotos } from '../src/source-photos'
 
 const jpeg = (width = 800, height = 600) => sharp({ create: { width, height, channels: 3, background: 'gray' } }).jpeg().toBuffer()
 
@@ -405,4 +405,119 @@ test('thumbnail and icon folders exclude newly eligible images while normal imag
     media: { urlFor: k => k, put: async k => ({ url: k, width: 800, height: 600 }) },
   }, [], Infinity)).toHaveLength(3)
   expect(fetched).toEqual(normal)
+})
+
+// Seriously Fish prints each photo's credit under it (figcaption's credit line): a photographer, or a picture agency its
+// permission doesn't cover. The intake reads it, so a refused credit can be refused (the chief of staff, 2026-11-13).
+test("every photo in a source's figure carries the credit line printed under it", () => {
+  const images = htmlToOutline(html, 'main').images
+  const lines = [...html.matchAll(/<span class="_credit_[^"]*"><b>([^<]+)<\/b><\/span>/g)].map(m => m[1]!.trim())
+  expect(lines.length).toBeGreaterThan(10)
+  expect(images.filter(i => i.credit).map(i => i.credit)).toEqual(lines)
+  for (const i of images.filter(i => i.credit)) expect(i.alt.endsWith(i.credit!)).toBe(false) // the caption stays the caption
+})
+
+test('a photo whose credit its source refuses is never fetched or stored, however the credit is spaced or cased', async () => {
+  const fetched: string[] = []
+  const media = { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 800, height: 600 }) }
+  const picked = [
+    { src: 'https://x.test/a.jpg', alt: 'Adult male.', credit: 'Example Picture-Agency' },
+    { src: 'https://x.test/b.jpg', alt: 'Adult female.', credit: 'Imaginary Person' },
+  ]
+  const out = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, picked, { bytes: async u => (fetched.push(u), jpeg()), media, refusedCredits: ['example picture agency'] }, [])
+  expect(fetched).toEqual(['https://x.test/b.jpg'])
+  expect(out.map(p => p.caption)).toEqual(['Adult female.'])
+})
+
+// The chief of staff, 2026-11-13: no new photo credited to a business, an organisation or a person with an organisation
+// until the source's permission record lists that kind, and a picture agency never. A person, a one-word handle and the
+// source's own name are taken. A photo passed over holds none of the page's four places and is never fetched.
+test("a photo credited to a kind its source's permission doesn't cover holds no place and isn't fetched; a person, a handle and the source itself are", async () => {
+  const fig = (n: number, credit: string) => ({ src: `https://x.test/f${n}.jpg`, alt: `Example fish, view ${n}.`, width: 800, height: 600, credit })
+  const images = [fig(1, 'Example Aquatics'), fig(2, 'Imaginary Person/Example Fish Society'), fig(3, 'example-fish.org'), fig(4, 'Imaginary Person/Example Picture Agency'), fig(5, 'Imaginary Person'), fig(6, 'Imaginaryhandle'), fig(7, 'Aquarium Glaser'), fig(8, 'Another Person')]
+  const fetched: string[] = []
+  const media = { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 800, height: 600 }) }
+  const deps = { bytes: async (u: string) => (fetched.push(u), jpeg()), media, refusedCredits: ['Example Picture Agency'] }
+  const pick = (d: typeof deps & { coveredCredits?: ('organisation' | 'business' | 'person-with-organisation')[] }) =>
+    pickSourcePhotos(images, 'https://x.test/p', ['Example fish'], 4, 'subject', undefined, mayTake('glaser', 'Aquarium Glaser', d))
+  expect(pick(deps).map(p => p.credit)).toEqual(['Imaginary Person', 'Imaginaryhandle', 'Aquarium Glaser', 'Another Person'])
+  const out = await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', pick(deps), deps, [], 4)
+  expect(out).toHaveLength(4)
+  expect(fetched).toEqual([5, 6, 7, 8].map(n => `https://x.test/f${n}.jpg`))
+  // Given straight to the store, a photo held back is still neither fetched nor stored.
+  fetched.length = 0
+  expect(await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', images.slice(0, 4), deps, [], 4)).toEqual([])
+  expect(fetched).toEqual([])
+  // A record that lists those kinds takes them; a picture agency, even as an affiliation, stays out.
+  const covered = pick({ ...deps, coveredCredits: ['business', 'organisation', 'person-with-organisation'] })
+  expect(covered.map(p => p.credit)).toEqual(['Example Aquatics', 'Imaginary Person/Example Fish Society', 'example-fish.org', 'Imaginary Person'])
+})
+
+// The chief of staff, 2026-11-13: ScotCat's © line, read from the photo page the read fetches anyway, goes through the
+// same credit check as a printed credit line.
+test("a photo page's © naming a business isn't taken; a person's is", () => {
+  const img = (n: number, author: string) => ({ src: `https://x.test/p${n}.jpg`, alt: 'Example fish', displayWidth: 640, displayHeight: 480, page: `https://x.test/p${n}.htm`, author })
+  const media = { urlFor: (key: string) => `https://media.test/${key}` }
+  const picked = pickSourcePhotos([img(1, 'Example Aquatics'), img(2, 'Imaginary Person')], 'https://x.test/fish.htm', ['Example fish'], 4, 'subject', 500, mayTake('scotcat', 'ScotCat', { media }))
+  expect(picked.map(p => p.author)).toEqual(['Imaginary Person'])
+})
+
+// A reader's three cases on the credit check (13 Nov): a credit is the picture's, whichever of its copies carries it, and
+// a photo the page shows whose credit we'd take no more keeps its place under the address the page shows.
+test('an address the page shows twice is held back when either showing carries a credit the permission does not cover', async () => {
+  const fetched: string[] = []
+  const media = { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 800, height: 600 }) }
+  const deps = { bytes: async (u: string) => (fetched.push(u), jpeg()), media }
+  const fig = (src: string, alt: string, credit?: string) => ({ src, alt, width: 800, height: 600, ...(credit ? { credit } : {}) })
+  for (const images of [
+    [fig('/fish.jpg', 'Example fish.'), fig('/fish.jpg', 'Example fish, adult.', 'Example Aquatics')],
+    [fig('/fish.jpg', 'Example fish.'), fig('/fish-1024x768.jpg', 'Example fish, large.'), fig('/fish-1024x768.jpg', 'Example fish, again.', 'Example Aquatics')],
+  ]) {
+    expect(pickSourcePhotos(images, 'https://x.test/p', ['Example fish'], 4, 'subject', undefined, mayTake('glaser', 'Aquarium Glaser', deps))).toEqual([])
+    expect(await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', pickSourcePhotos(images, 'https://x.test/p', ['Example fish']), deps, [], 4)).toEqual([])
+  }
+  expect(fetched).toEqual([])
+})
+
+test('a photo the page shows under a credit we take no more stays under the address it has, and no other copy is fetched', async () => {
+  const fetched: string[] = []
+  const media = { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 800, height: 600 }) }
+  const deps = { bytes: async (u: string) => (fetched.push(u), jpeg()), media }
+  const images = [
+    { src: '/new/fish.jpg', alt: 'Example fish.', width: 1200, height: 900, credit: 'Example Aquatics' },
+    { src: '/old/fish.jpg', alt: 'Example fish, smaller.', width: 800, height: 600, credit: 'Example Aquatics' },
+  ]
+  const shown = { url: `https://media.test/${photoKey('glaser', 'https://x.test/old/fish.jpg')}`, width: 800, height: 600, licence: 'x', author: 'Example Aquatics / Aquarium Glaser', sourceUrl: 'https://x.test/p' }
+  const picked = pickSourcePhotos(images, 'https://x.test/p', ['Example fish'], 4, 'subject', undefined, mayTake('glaser', 'Aquarium Glaser', deps, [shown]))
+  expect(await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', picked, deps, [shown], 4)).toEqual([shown])
+  expect(fetched).toEqual([])
+})
+
+test('a photo the page shows under a credit we take no more keeps its place when four others rank above it', async () => {
+  const fetched: string[] = []
+  const media = { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 800, height: 600 }) }
+  const deps = { bytes: async (u: string) => (fetched.push(u), jpeg()), media }
+  const fig = (n: number, credit: string) => ({ src: `https://x.test/f${n}.jpg`, alt: `Example fish, view ${n}.`, width: 800, height: 600, credit })
+  const images = [fig(1, 'Imaginary Person'), fig(2, 'Another Person'), fig(3, 'Third Person'), fig(4, 'Fourth Person'), fig(5, 'Example Aquatics')]
+  const shown = { url: `https://media.test/${photoKey('glaser', 'https://x.test/f5.jpg')}`, width: 800, height: 600, licence: 'x', author: 'Example Aquatics / Aquarium Glaser', sourceUrl: 'https://x.test/p' }
+  const picked = pickSourcePhotos(images, 'https://x.test/p', ['Example fish'], 4, 'subject', undefined, mayTake('glaser', 'Aquarium Glaser', deps, [shown]))
+  expect(picked.map(p => p.src)).toEqual([1, 2, 3, 5].map(n => `https://x.test/f${n}.jpg`))
+  const out = await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', picked, deps, [shown], 4)
+  expect(out.map(p => p.url)).toContain(shown.url)
+  expect(fetched).toEqual([1, 2, 3].map(n => `https://x.test/f${n}.jpg`))
+})
+
+test('a shown photo the page lays out small keeps its place too, and its rank among the photos', async () => {
+  const fetched: string[] = []
+  const media = { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 800, height: 600 }) }
+  const deps = { bytes: async (u: string) => (fetched.push(u), jpeg()), media }
+  // Its caption names the fish and theirs don't, so it ranks first.
+  const fig = (n: number, credit: string) => ({ src: `https://x.test/f${n}.jpg`, alt: `View ${n}.`, width: 800, height: 600, credit })
+  const small = { src: 'https://x.test/f5.jpg', alt: 'Example fish, view 5.', displayWidth: 400, displayHeight: 300, credit: 'Example Aquatics' }
+  const images = [fig(1, 'Imaginary Person'), fig(2, 'Another Person'), fig(3, 'Third Person'), fig(4, 'Fourth Person'), small]
+  const shown = { url: `https://media.test/${photoKey('glaser', small.src)}`, width: 800, height: 600, licence: 'x', author: 'Example Aquatics / Aquarium Glaser', sourceUrl: 'https://x.test/p' }
+  const picked = pickSourcePhotos(images, 'https://x.test/p', ['Example fish'], 4, 'subject', undefined, mayTake('glaser', 'Aquarium Glaser', deps, [shown]))
+  const out = await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', picked, deps, [shown], 4)
+  expect(out.map(p => p.url)).toEqual([shown.url, ...[1, 2, 3].map(n => `https://media.test/${photoKey('glaser', `https://x.test/f${n}.jpg`)}`)])
+  expect(fetched).toEqual([1, 2, 3].map(n => `https://x.test/f${n}.jpg`))
 })

@@ -37,10 +37,13 @@ function walk(node: Node, out: string[]): void {
 }
 
 /** `product`: the image sits in a shop product card (class or id naming "product"), e.g. Aquarium Co-Op's product tiles in its articles. */
-/** `page`: the photo's own page, when it has one; `author`: the photographer, when the source names one per photo. */
+/**
+ * `page`: the photo's own page, when it has one; `author`: the photographer, when the source names one per photo; `credit`:
+ * the credit line its source prints under it in its figure (Seriously Fish: a photographer, or a picture agency).
+ */
 /** `heading`: the heading it sits under (the last one before it), so a guide puts it in the same section. */
 /** `link`: where the link around it goes, if one does (source-photos.ts: a link to another article makes it that article's card). */
-export type PageImage = { src: string; alt: string; width?: number; height?: number; displayWidth?: number; displayHeight?: number; product?: true; page?: string; author?: string; heading?: string; link?: string }
+export type PageImage = { src: string; alt: string; width?: number; height?: number; displayWidth?: number; displayHeight?: number; product?: true; page?: string; author?: string; credit?: string; heading?: string; link?: string }
 
 const PRODUCT_BOX = /product/i
 const inProduct = (i: HTMLElement) => {
@@ -50,6 +53,16 @@ const inProduct = (i: HTMLElement) => {
 
 const linkOf = (i: HTMLElement) => {
   for (let n = i.parentNode as HTMLElement | null; n && n.tagName; n = n.parentNode as HTMLElement | null) if (n.rawTagName?.toLowerCase() === 'a') return n.getAttribute('href')
+  return undefined
+}
+
+/** The credit line in the caption of the figure an image sits in (Seriously Fish: `<figcaption>…<span class="…credit…">`). */
+const creditOf = (i: HTMLElement) => {
+  for (let n = i.parentNode as HTMLElement | null; n && n.tagName; n = n.parentNode as HTMLElement | null) {
+    if (n.rawTagName?.toLowerCase() !== 'figure') continue
+    const line = n.querySelector('figcaption [class*="credit"]')
+    return (line && clean(inline(line))) || undefined
+  }
   return undefined
 }
 
@@ -96,7 +109,8 @@ export function htmlToOutline(html: string, contentSelector?: string): { title: 
     const p = pageImage(i)
     const heading = under.get(i)
     const link = linkOf(i)
-    return p ? [{ ...p, ...(inProduct(i) ? { product: true as const } : {}), ...(heading ? { heading } : {}), ...(link ? { link } : {}) }] : []
+    const credit = creditOf(i)
+    return p ? [{ ...p, ...(inProduct(i) ? { product: true as const } : {}), ...(heading ? { heading } : {}), ...(link ? { link } : {}), ...(credit ? { credit } : {}) }] : []
   })
   const out: string[] = []
   walk(scope, out)

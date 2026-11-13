@@ -386,10 +386,15 @@ export const ChangelogSchema = z.array(ChangelogEntrySchema)
 /**
  * `publish`: true once the written permission covers the source's text and photos; `'photos'` when it covers only photos
  * (Diễn Đàn Cá Cảnh): a public build shows its photos, and nothing written from its text (sections, guides, card values).
+ * `permission.refusedCredits`: credits the permission doesn't cover, whatever the source allows (a picture agency's): the
+ * intake takes no photo it credits so, and the sweep takes those already shown off for good (engine source-photos.ts, sweep.ts).
+ * `permission.coveredCredits`: the kinds of credit, besides a person or a one-word handle, the permission covers. The intake
+ * takes no new photo credited to a business, an organisation or a person with an organisation unless its kind is listed
+ * (engine source-photos.ts `creditCovered`); a picture agency can't be.
  */
 export const SourceInfoSchema = z.object({
   name: z.string(), homepage: z.string(), publish: z.union([z.boolean(), z.literal('photos')]),
-  permission: z.object({ date: z.string(), file: z.string(), scope: z.array(z.string()), markRemoval: z.discriminatedUnion('allowed', [z.object({ allowed: z.literal(false) }), z.object({ allowed: z.literal(true), date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/), basis: z.string().optional() })]).optional() }).optional(),
+  permission: z.object({ date: z.string(), file: z.string(), scope: z.array(z.string()), refusedCredits: z.array(z.string().min(1)).optional(), coveredCredits: z.array(z.enum(['organisation', 'business', 'person-with-organisation'])).optional(), markRemoval: z.discriminatedUnion('allowed', [z.object({ allowed: z.literal(false) }), z.object({ allowed: z.literal(true), date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/), basis: z.string().optional() })]).optional() }).optional(),
 }).refine(s => !s.publish || s.permission !== undefined, { message: 'publish requires a permission record', path: ['permission'] })
 /** What a public build may show from a source: its text (and what is written from it), or its photos. */
 export const mayPublish = (info: { publish?: boolean | 'photos' } | undefined, what: 'text' | 'photos') =>

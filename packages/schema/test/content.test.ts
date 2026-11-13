@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { imperialLeft, isAllowedLicence, loadAll, resolveDataCard, slugify } from '../src/index'
 import { WRITTEN_LANGS } from '../src/langs'
+import { slow } from '../src/test-time'
 
 const root = fileURLToPath(new URL('../../../apps/site/test/fixture-content', import.meta.url))
 const load = () => loadAll({ root, lang: 'vi', publicBuild: false })
@@ -58,4 +59,4 @@ test('fish, plant, breed and guide pages give figures in metric only', async () 
     for (const t of texts) for (const x of imperialLeft(t)) left.push(`${kind}/${id}/${lang}: ${x}`)
   }
   expect(left, 'run pnpm engine metric').toEqual([])
-}, 60_000) // every page of the real content
+}, slow(60_000)) // every page of the real content

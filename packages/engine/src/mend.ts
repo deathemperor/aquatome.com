@@ -88,7 +88,8 @@ export function lostWords(before: string, after: string, covered: readonly strin
   return lostFrom(was, words(after), covered.map(c => firstAt(was, words(c))))
 }
 
-export type MendFinding = { check: FitCheck; quote: string; note: string }
+/** A finding to mend: what it quotes, the writer's note, and (`covers`) the other text its change replaces, as a breed page's units the old figure ("38 lít mỗi 2,5 cm" for a quote of "38 lít"). */
+export type MendFinding = { check: FitCheck; quote: string; note: string; covers?: readonly string[] }
 export type Dropped = { sentence: number; finding: number; text: string }
 export type Mended = { html: string; score: number; notes: string[]; lost: HedgePair[]; unasked: string[] }
 
@@ -128,7 +129,7 @@ export const asked = (d: Dropped, named: readonly { check: FitCheck; sentences: 
  * changes is written in metric (a fish, plant or breed page's rule, metric.ts), and no other: the rest of the page is
  * as it was, byte for byte (Astra's read).
  */
-export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { en?: string; source?: string; model?: string; metric?: boolean } = {}): Promise<Mended | string> {
+export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { en?: string; source?: string; model?: string; metric?: boolean; figures?: string } = {}): Promise<Mended | string> {
   const pieces = sentences(html)
   const texts = pieces.filter(p => p.sentence).map(p => p.html)
   // Each finding the part's text quotes, with the sentences (from 1) its quote lies in.
@@ -166,6 +167,8 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
   const body = [
     `--- FINDINGS ---\n${named.map((f, i) => `${i + 1}. (${f.check}, in sentence ${f.sentences.join(', ')}) quotes "${f.quote}": ${f.note}`).join('\n')}`,
     ...(o.en ? [`--- ENGLISH, for reference ---\n${o.en}`] : []),
+    // A breed page's units: the figures the notes change, which the reviewer is told are right (fit-rewrite.ts).
+    ...(o.figures ? [`--- FIGURES ---\n${o.figures}`] : []),
     shown.map(i => `### sentence ${i + 1}\nBEFORE:\n${texts[i]}\nAFTER:\n${changes.get(i) || '(left out)'}`).join('\n\n'),
   ].join('\n\n')
   const r = await llm<{ score: number; notes: string[]; dropped: Dropped[]; hedges: HedgePair[] }>({ system: 'You are a strict Vietnamese editor checking an edit. Reply only with JSON.', prompt: `${REVIEW}\n\n${hedgesAsk('BEFORE', 'AFTER')}\n\n${body}`, schema: REVIEW_SCHEMA })
@@ -179,7 +182,7 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     ...shown.flatMap(i => {
       // Each quote and listed drop where it first stands in the part, and the share of it in this sentence: a quote over
       // two sentences covers its words in each (Astra's read).
-      const covered = [...named.filter(f => f.sentences.includes(i + 1)).map(f => f.quote), ...licensed.filter(d => named[d.finding - 1]!.sentences.includes(i + 1)).map(d => d.text)]
+      const covered = [...named.filter(f => f.sentences.includes(i + 1)).flatMap(f => [f.quote, ...(f.covers ?? [])]), ...licensed.filter(d => named[d.finding - 1]!.sentences.includes(i + 1)).map(d => d.text)]
       const gone = lostFrom(words(texts[i]!), words(raw.get(i) ?? changes.get(i)!), covered.map(c => firstAt(flat.map(x => x.w), words(c)).flatMap(n => (flat[n]!.i === i ? [flat[n]!.k] : []))))
       return gone.length ? [`Left out of sentence ${i + 1}, and no finding asks for it to go: "${gone.join(' ')}"`] : []
     }),

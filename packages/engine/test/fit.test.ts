@@ -229,6 +229,17 @@ test('a guide read with an older checklist is read again; another page is not, u
   expect(fitDue([g, s], { [fitKey(g)]: { ...old(g), checklist: 2 }, [fitKey(s)]: { ...old(s), checklist: 2 } }).map(p => p.id)).toEqual(['g'])
 })
 
+// 13 Nov 2026: AquaTome's own guide to the seasons was faulted, for a Vietnamese reader, for "Ban đêm phòng có thể xuống
+// 12–14 °C" on a winter night: a winter in Hà Nội. It was kept off the Curation Lead's winter shelf for it.
+test("for Vietnam the North's winter is the reader's own; a home heated as abroad still isn't", () => {
+  expect(fitPrompt('vi')).toContain("For this reader the North's winter is their own (December to February: rooms at 10–15 °C at night")
+  expect(fitPrompt('vi')).toContain('a furnace, radiators or central heating, a basement, snow or a frozen pond still does')
+  for (const lang of ['id', 'th', 'ms'] as const) expect(fitPrompt(lang)).not.toContain("North's winter")
+  for (const lang of ['vi', 'th'] as const) for (const kind of ['guides', 'cards'] as const) expect(fitPrompt(lang, kind)).not.toContain('{{CLIMATE_NOTE}}')
+  // In the elsewhere check itself, after its examples.
+  expect(fitPrompt('vi')).toMatch(/- elsewhere: [^\n]*phạm luật"\)\. For this reader the North's winter/)
+})
+
 test('advice that would hurt is a finding the checker keeps, and its prompt asks for it', () => {
   const text = '[P1 Bắt cá] Tăng CO₂ gấp 5 đến 10 lần và tắt lọc cho tới khi cá ngáp.'
   const harm = { check: 'harm', part: 'P1', quote: 'Tăng CO₂ gấp 5 đến 10 lần và tắt lọc', why: 'fish suffocate', fix: '', product: '' }

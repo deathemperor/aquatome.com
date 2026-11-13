@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -134,6 +135,48 @@ test('localizeTopic in Malay: addressed by its name, and a name another guide ha
   expect(prompts[0]).toContain('Malay')
   expect(prompts[0]).toContain('Malaysia')
   expect(JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'ms.json'), 'utf8')).body).toBe('<p>Suhu 20 °C, 3.8 liter.</p>')
+})
+
+// The chief of staff, 13 Nov 2026: a season, place or occasion that isn't the reader's goes, and the condition stays.
+test('a copy naming a season its readers don\'t have is written once more with the condition, and not saved while it still names one', async () => {
+  const root = await site()
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research: async () => facts as never, llm: llm0 }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' })
+  const prompts: string[] = []
+  const writer = (bodies: string[]): Llm => {
+    let n = 0
+    return (async ({ prompt }) => {
+      prompts.push(prompt)
+      if (prompt.startsWith('Below are FACTS')) return { score: 0.9, notes: [] }
+      return { name: 'Mata ikan menonjol', slug: 'x', summary: ['Mata menonjol.'], body: bodies[Math.min(n++, bodies.length - 1)], faq: [] }
+    }) as Llm
+  }
+  // Named, then written with the condition: saved without the season.
+  const r = await localizeTopic(root, writer(['<p>Paling sering pada musim panas.</p>', '<p>Paling sering saat air di atas 28 °C.</p>']), r0.id, 'id')
+  expect(r).toMatchObject({ score: 0.9 })
+  expect(prompts[0]).toContain('Readers in Indonesia have a rainy and a dry season, and no other')
+  expect(prompts.some(p => p.includes('It names a season readers in Indonesia don\'t have: "musim panas"'))).toBe(true)
+  const file = join(root, 'content/guides', r0.id, 'id.json')
+  expect(JSON.parse(await readFile(file, 'utf8')).body).toBe('<p>Paling sering saat air di atas 28 °C.</p>')
+  // Still named after the try: nothing saved, and the copy on the site stays as it was.
+  const before = await readFile(file, 'utf8')
+  const log = join(root, 'engine-state/reviews/topic.json')
+  const logged = async () => (JSON.parse(await readFile(log, 'utf8')) as Record<string, { kept: boolean }[]>)[`id/guides/${r0.id}`] ?? []
+  const earlier = (await logged()).length
+  expect(await localizeTopic(root, writer(['<p>Pada musim dingin.</p>']), r0.id, 'id', { redo: true })).toMatchObject({ skipped: 'names a season its readers don\'t have: musim dingin' })
+  expect(await readFile(file, 'utf8')).toBe(before)
+  // Each try's review is logged, and none as kept (Astra's read).
+  const now = await logged()
+  expect(now.length).toBeGreaterThan(earlier)
+  expect(now.slice(0, now.length - earlier).every(t => !t.kept)).toBe(true)
+  // A season written with an entity in it is read as the reader reads it.
+  expect(await localizeTopic(root, writer(['<p>Saat musim&#32;panas.</p>']), r0.id, 'id', { redo: true })).toMatchObject({ skipped: 'names a season its readers don\'t have: musim panas' })
+  expect(await readFile(file, 'utf8')).toBe(before)
+  // And as it would be saved (Astra's read): escaped twice, or split into blocks the sanitizer joins.
+  expect(await localizeTopic(root, writer(['<p>Saat musim&amp;#32;panas.</p>']), r0.id, 'id', { redo: true })).toMatchObject({ skipped: 'names a season its readers don\'t have: musim panas' })
+  expect(await readFile(file, 'utf8')).toBe(before)
+  expect(await localizeTopic(root, writer(['<div>ฤดู</div><div>ใบไม้ผลิ</div>']), r0.id, 'th')).toMatchObject({ skipped: 'names a season its readers don\'t have: ฤดูใบไม้ผลิ' })
+  expect(existsSync(join(root, 'content/guides', r0.id, 'th.json'))).toBe(false)
 })
 
 test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is a measure, a level not the water\'s own or a rate; another page of the same forum is no second source', () => {

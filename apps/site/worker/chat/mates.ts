@@ -3,7 +3,7 @@ import { oneFishEach, tankCheck, type TankCheck, type TankFish } from '../../src
 import { checkTankmates, verdictOf, type Verdict } from '../../src/scripts/tankmates'
 import { matesOf, MAX_FISH } from './answer'
 import { factsOf, isBreed, type Handbook, type Item, type Lang } from './handbook'
-import STRINGS from './tank-check-strings.json'
+import STRINGS from './tank-check-strings.json' with { type: 'json' }
 import type { Tank } from './tools'
 
 /**

@@ -54,7 +54,7 @@ export async function chatPast(req: Request, url: URL, env: ChatEnv, now: Date, 
   const summaryOf = async (r: Row) => {
     const s = startOf(r)
     const about = await aboutOf(s)
-    return { id: r.id, question: r.title, ...(s.from ? { from: s.from } : {}), ...(about ? { about } : {}), ...(s.identified ? { identified: s.identified } : {}), started: r.first_at, last: r.last_at, n: r.questions, open: open(r), ...(r.continues ? { continues: r.continues } : {}) }
+    return { id: r.id, question: r.title, ...(s.from ? { from: s.from } : {}), ...(about ? { about } : {}), ...(s.tank ? { tank: s.tank } : {}), ...(s.identified ? { identified: s.identified } : {}), started: r.first_at, last: r.last_at, n: r.questions, open: open(r), ...(r.continues ? { continues: r.continues } : {}) }
   }
   /** One of the account's conversations it hasn't hidden, with what it keeps. */
   const held = async (id: string): Promise<{ row: Row; conv: Conversation } | undefined> => {
@@ -89,7 +89,7 @@ export async function chatPast(req: Request, url: URL, env: ChatEnv, now: Date, 
     const s = startOf(it.row)
     const about = await aboutOf(s)
     return json({
-      id: it.row.id, ...(s.from ? { from: s.from } : {}), ...(about ? { about } : {}), ...(s.identified ? { identified: s.identified } : {}),
+      id: it.row.id, ...(s.from ? { from: s.from } : {}), ...(about ? { about } : {}), ...(s.tank ? { tank: s.tank } : {}), ...(s.identified ? { identified: s.identified } : {}),
       started: it.row.first_at, last: it.row.last_at, open: open(it.row), ...(it.row.continues ? { continues: it.row.continues } : {}),
       turns: it.conv.turns.map(t => ({ question: t.question, asked: secs(t.at), turn: turnOf(t, id, env.CHAT_MODEL || DEFAULT_MODEL) })),
     })

@@ -26,6 +26,7 @@ import { auditPictures } from './audit'
 import { metricPages } from './metric'
 import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
+import { copiesToRedo, redoCopies, type Redone } from './seasons'
 import { FIT_KINDS, fitDue, fitKey, fitReport, runFit, type FitState } from './fit'
 import { gate, writeFitSummary } from './gate'
 import { restingFetch } from './wikimedia-rest'
@@ -564,7 +565,7 @@ if (cmd === 'photo-privacy') {
   if (r.refused.length || r.refusedHeld.length || r.refusedPicked.length) console.log(`sweep: ${r.refused.length} refused photos kept off; ${r.refusedHeld.length} pages held; ${r.refusedPicked.length} picked heads the check calls "none" (photo-check.ts refusedOn)`)
   for (const x of [...r.refusedHeld.map(x => `refused held: ${x}`), ...r.refusedPicked.map(x => `picked head the check calls none: ${x}`), ...r.refused.map(x => `refused off: ${x}`)]) console.log(x)
   if (r.held.length) console.log(`sweep: ${r.held.length} photos would leave every page for good, more than a run may with nobody looking: none taken off. Look at them, then run: pnpm engine sweep --titles 0 --photo-cap ${r.held.length}`)
-  for (const x of [...r.held.map(x => `photo held: ${x}`), ...r.unwell.map(x => `photo of an unwell fish kept: ${x}`), ...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.again.map(x => `never-again off: ${x}`), ...r.videos.map(x => `video off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.schools.map(x => `school size: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`), ...r.unplaced.map(x => `photo under no heading: ${x}`)]) console.log(x)
+  for (const x of [...r.held.map(x => `photo held: ${x}`), ...r.unwell.map(x => `photo of an unwell fish kept: ${x}`), ...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.again.map(x => `never-again off: ${x}`), ...r.videos.map(x => `video off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.schools.map(x => `school size: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`), ...r.unplaced.map(x => `photo under no heading: ${x}`), ...r.folds.map(x => `page folded: ${x}`)]) console.log(x)
   // After the sweep's own fixes, so a fix a reader sees dates its page (page-dates.ts).
   const dated = await updatePageDates(join(ROOT, 'content'))
   console.log(`page dates: ${dated.files} files, ${dated.changed} changed`)
@@ -1141,9 +1142,20 @@ if (cmd === 'photo-privacy') {
   if (!(lang in TARGETS)) throw new Error(`usage: pnpm engine localize-guides --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only id,id] [--limit N] [--redo]`)
   const researched = (await readdir(join(ROOT, 'engine-state/topics')).catch(() => [] as string[])).map(f => f.replace(/\.json$/, '')).sort()
   const ids = values.only?.split(',').map(s => s.trim()).filter(Boolean) ?? researched
-  let made = 0
+  // First the copies to write again (seasons.ts copiesToRedo): one naming a season its readers don't have, or read as
+  // advice for a reader elsewhere, each at most twice, its tries kept in engine-state/_guide-copy-redo.json.
+  const redoFile = join(ROOT, 'engine-state/_guide-copy-redo.json')
+  const redone = JSON.parse(await readFile(redoFile, 'utf8').catch(() => '{}')) as Redone
+  const fit = JSON.parse(await readFile(join(ROOT, 'engine-state/_fit.json'), 'utf8').catch(() => '{}')) as FitState
+  const again = values.only ? [] : copiesToRedo(await loadPages(join(ROOT, 'content'), [lang]), lang, fit, redone).filter(id => researched.includes(id))
+  const limit = Number(values.limit ?? 20)
+  const first = await redoCopies(again, lang, redone, {
+    limit, write: id => localizeTopic(ROOT, claudeCli, id, lang, { redo: true }), log: x => console.log(JSON.stringify(x)),
+    save: r => writeFile(redoFile, `${JSON.stringify(Object.fromEntries(Object.entries(r).sort(([x], [y]) => x.localeCompare(y))), null, 1)}\n`),
+  })
+  let made = first.made
   for (const id of ids) {
-    if (made >= Number(values.limit ?? 20)) break
+    if (first.stopped || made >= limit) break
     const r = await localizeTopic(ROOT, claudeCli, id, lang, { redo: values.redo }).catch(e => ({ id, failed: (e as Error).message.slice(0, 200) }))
     if (!('skipped' in r)) made++
     console.log(JSON.stringify(r))
