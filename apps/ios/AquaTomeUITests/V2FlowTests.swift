@@ -1290,8 +1290,8 @@ final class V2FlowTests: XCTestCase {
     }
     // The ⋯ in iOS's glass on the colour, as the back is (Design's parity, 13 Nov: bare dots beside the back in its glass).
     // Under each symbol, inside its circle, the ground stands apart from the colour at the screen's edge on that line.
-    let more = app.buttons["page-more"], bar = Pixels(XCUIScreen.main.screenshot())
-    func glass(_ b: XCUIElement, edge: CGFloat) -> Double { bar.at(b.frame.midX, b.frame.midY + 15).distance(to: bar.at(edge, b.frame.midY + 15)) }
+    let more = app.buttons["page-more"], seen = Pixels(XCUIScreen.main.screenshot())
+    func glass(_ b: XCUIElement, edge: CGFloat) -> Double { seen.at(b.frame.midX, b.frame.midY + 15).distance(to: seen.at(edge, b.frame.midY + 15)) }
     let backGlass = glass(back, edge: 2), moreGlass = glass(more, edge: app.frame.width - 2)
     XCTAssertGreaterThan(backGlass, 4, "iOS's glass behind the back doesn't show on the colour")
     XCTAssertGreaterThan(moreGlass, backGlass / 2, "the ⋯ bare on the colour, the back in its glass: \(moreGlass) against \(backGlass)")
