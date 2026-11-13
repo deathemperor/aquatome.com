@@ -13,6 +13,7 @@ import { figureHtml } from './figures'
 import { cardRows } from './card-rows'
 import { FIELD_LABELS, fmt, GUIDE_KIND_LABELS } from './format'
 import { galleryNote } from './gallery'
+import { glossaryParts, USED_IN_SHOWN } from './glossary-page'
 import { guideParts } from './guide-page'
 import { cleanPhoto } from './home'
 import { appLinks, appPath, isVietnamese, served, translator, type Lang, type T } from './i18n'
@@ -321,17 +322,30 @@ export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, list
   }
 }
 
-/** A glossary term's copy (pages/thuat-ngu/[slug].astro): its English (and Latin) name, then its definition. */
-export function glossaryDoc(lang: Lang, g: Localized<GlossaryEntity>): PageDoc {
+/**
+ * A glossary term's copy (pages/thuat-ngu/[slug].astro, from the same parts): its other names, its English (and Latin)
+ * name, its definition with its links, then the pages that use it, each kind with its count. `listed`: the app index's
+ * paths (listedPaths).
+ */
+export function glossaryDoc(lang: Lang, c: Content, g: Localized<GlossaryEntity>, listed: Set<string>): PageDoc {
   const t = translator(lang)
+  const { num } = fmt(lang)
+  const p = glossaryParts(lang, c, g)
+  const used = [
+    ...pagesBlock(lang, listed, `${t('Hướng dẫn')} (${num(p.guides.length)})`, p.guides.map(x => `/vi/huong-dan/${x.t.slug}/`), USED_IN_SHOWN.guides),
+    ...pagesBlock(lang, listed, `${t('Loài cá')} (${num(p.fish.length)})`, p.fish.map(x => x.href), USED_IN_SHOWN.fish),
+    ...pagesBlock(lang, listed, `${t('Cây thủy sinh')} (${num(p.plants.length)})`, p.plants.map(x => x.href), USED_IN_SHOWN.plants),
+  ]
   return {
     v: PAGE_VERSION,
     kind: 'glossary',
     path: appPath(lang, `/vi/thuat-ngu/${g.t.slug}/`),
     title: g.t.name,
     blocks: [
+      ...(p.otherNames.length ? [{ t: 'p' as const, c: [t('Tên khác: {names}', { names: p.otherNames.join(', ') })] }] : []),
       { t: 'p', c: g.latin ? [`${t('Tiếng Anh:')} ${g.en}, `, { text: g.latin, i: true }] : [`${t('Tiếng Anh:')} ${g.en}`] },
-      ...(g.t.definition ? [{ t: 'p' as const, c: [g.t.definition] }] : []),
+      ...(p.definition ? proseBlocks(lang, `<p>${p.definition}</p>`).blocks : []),
+      ...(used.length ? [{ t: 'h' as const, text: t('Dùng trong {n} trang', { n: num(p.total) }) }, ...used] : []),
     ],
   }
 }
@@ -501,7 +515,7 @@ export function appPages(lang: Lang, c: Content): Promise<Record<Kind, PageDoc[]
       guide: appGuides(lang, c).map(g => guideDoc(lang, c, g, listed)),
       fish: [...await Promise.all(appSpecies(lang, c).map(s => fishDoc(lang, c, s, listed))), ...appBreeds(lang, c).map(b => breedDoc(lang, c, b, listed))],
       plant: appPlants(lang, c).map(p => plantDoc(lang, c, p, listed)),
-      glossary: appGlossary(lang, c).map(g => glossaryDoc(lang, g)),
+      glossary: appGlossary(lang, c).map(g => glossaryDoc(lang, c, g, listed)),
       video: appSeries(lang, c).map(({ s }) => videoDoc(lang, c, s)),
       equipment: appEquipment(lang, c).map(u => equipmentDoc(lang, c, u, listed)),
     }))())

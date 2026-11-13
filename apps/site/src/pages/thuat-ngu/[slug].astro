@@ -1,23 +1,53 @@
 ---
 import type { GlossaryEntity, Localized } from '@aq/schema'
 import Browse from '../../layouts/Browse.astro'
+import GlossaryTip from '../../components/GlossaryTip.astro'
 import { getContent } from '../../lib/content'
 import { glossaryTitle } from '../../lib/meta'
 import { i18n, langOf } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
+import { fmt } from '../../lib/format'
+import { glossaryParts, termTitle, USED_IN_SHOWN } from '../../lib/glossary-page'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
   return c.glossary.map(g => ({ params: { slug: g.t.slug }, props: { g } }))
 }
 const { g } = Astro.props as { g: Localized<GlossaryEntity> }
 const { t, lang } = i18n(Astro.url)
+const { num } = fmt(lang)
 const alternates = await alternatesOf('glossary', g.id)
+const p = glossaryParts(lang, await getContent(lang), g)
+// The pages that link this term, each kind under its own heading with its count: the first few of each, as links.
+const used = [
+  { label: t('Hướng dẫn'), all: p.guides.length, links: p.guides.slice(0, USED_IN_SHOWN.guides).map(x => ({ href: `/vi/huong-dan/${x.t.slug}/`, name: x.t.name })) },
+  { label: t('Loài cá'), all: p.fish.length, links: p.fish.slice(0, USED_IN_SHOWN.fish) },
+  { label: t('Cây thủy sinh'), all: p.plants.length, links: p.plants.slice(0, USED_IN_SHOWN.plants) },
+].filter(x => x.all > 0)
 ---
-<Browse title={glossaryTitle(lang, g.t.name)} heading={g.t.name} description={g.t.definition} crumbs={[['/vi/thuat-ngu/', t('Thuật ngữ')]]} noindex={!g.t.quality.indexable} alternates={alternates}>
+<Browse title={glossaryTitle(lang, termTitle(g))} heading={g.t.name} description={g.t.definition} crumbs={[['/vi/thuat-ngu/', t('Thuật ngữ')]]} noindex={!g.t.quality.indexable} alternates={alternates}>
+  {p.otherNames.length > 0 && <p class="aka">{t('Tên khác: {names}', { names: p.otherNames.join(', ') })}</p>}
   <p class="en">{t('Tiếng Anh:')} <span lang="en">{g.en}</span>{g.latin && <>, <span class="sci">{g.latin}</span></>}</p>
-  <p class="def">{g.t.definition}</p>
+  {p.definition && <p class="def" set:html={p.definition} />}
+  {used.length > 0 && (
+    <section class="used" aria-labelledby="dung-trong">
+      <h2 id="dung-trong">{t('Dùng trong {n} trang', { n: num(p.total) })}</h2>
+      {used.map(u => (
+        <>
+          <h3>{u.label} ({num(u.all)})</h3>
+          <ul>{u.links.map(l => <li><a href={l.href}>{l.name}</a></li>)}</ul>
+        </>
+      ))}
+    </section>
+  )}
+  <GlossaryTip />
 </Browse>
 <style>
-  .en { color: var(--c-ink-soft); }
+  .aka, .en { color: var(--c-ink-soft); }
+  .aka { margin-bottom: 0; }
   .def { font-size: var(--step-1); max-width: var(--measure); line-height: 1.6; }
+  .used { margin-top: var(--space-6); max-width: var(--measure); }
+  .used h2 { font-size: var(--step-1); }
+  .used h3 { font-size: var(--step-0); margin: var(--space-4) 0 var(--space-2); }
+  .used ul { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); padding: 0; margin: 0; list-style: none; }
+  .used a { display: inline-block; min-height: 44px; line-height: 44px; }
 </style>
