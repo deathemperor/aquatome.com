@@ -1,7 +1,43 @@
 {
   "lua": {
     "asked": ["lũa sa tùng là gì", "driftwood with all kinds and names named per language", "full details"],
-    "kinds": ["lũa sa tùng, which shops also sell as lũa kim sa tùng", "mopani", "Malaysian driftwood (lũa Malaysia)", "spider wood (lũa đỗ quyên)", "manzanita", "cholla", "bogwood"],
-    "shops": ["https://thuysinhtim.vn/lua-sa-tung-1kg", "zenaquarius.com", "thuysinhtim.vn", "bongvang.vn", "aquamart.vn", "becathuysinhmini.com", "aquabest.vn"]
+    "local": [
+      "lũa đỗ quyên (spider wood), also sold as lũa đỗ quyên việt and lũa đỗ quyên xoắn",
+      "lũa linh sam",
+      "lũa sa tùng, also sold as lũa kim sa tùng",
+      "lũa hải sơn quỳ",
+      "lũa trà rừng (some pages write trà gừng: give the name as each shop's own page writes it)",
+      "lũa bonsai, and lũa xương chùm for its crown",
+      "lũa rễ rừng, and lũa thạch sùng with it",
+      "lũa săn đá and lũa san đá",
+      "lũa vân thép and lũa thép",
+      "lũa nhọ nồi",
+      "lũa sừng",
+      "lũa hải sơn tùng and lũa ngọc linh sam"
+    ],
+    "foreign": ["mopani", "Malaysian driftwood (lũa Malaysia)", "manzanita", "cholla", "bogwood"],
+    "also": [
+      "when the white film on new wood comes, when it peaks and when it goes, and what eats it",
+      "whether wood gives off ammonia, nitrite or nitrate",
+      "whether old wood that dries out floats again",
+      "wood sold for reptiles, bleach, and fake cheap driftwood"
+    ],
+    "read": [
+      "https://www.seriouslyfish.com/glossary/bogwood",
+      "https://www.liveaquaria.com/article/91/",
+      "https://aquariumscience.org/index.php/14-10-wood",
+      "https://aquasetup.com/8-loai-go-lua-thuy-sinh-dep-va-pho-bien-nhat/",
+      "https://aquamart.vn/lua-thuy-sinh-la-gi-kinh-nghiem-xu-ly-lua-thuy-sinh/",
+      "https://thuysinhaqua.com/cay-lua-thuy-sinh/",
+      "https://becamanhtuan.com/cach-lam-sach-go-lua-dung-ky-thuat/",
+      "https://gensou.sg/?p=19587",
+      "https://gensou.sg/spider-wood-aquascaping-guide/",
+      "https://kingaqua.vn/nhung-thong-tin-co-ban-ve-lua-be-thuy-sinh-n73364.html",
+      "https://becanhatdinh.com/san-pham/lua-hai-son-quy/",
+      "https://becanhatdinh.com/san-pham/lua-linh-sam/",
+      "https://becanhatdinh.com/danh-muc-san-pham/lua-thuy-sinh/",
+      "https://thuysinhtim.vn/lua-sa-tung-1kg"
+    ],
+    "shops": ["zenaquarius.com", "thuysinhtim.vn", "bongvang.vn", "aquamart.vn", "becathuysinhmini.com", "aquabest.vn"]
   }
 }
