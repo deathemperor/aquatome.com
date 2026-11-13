@@ -25,4 +25,18 @@ export const SWAPPED: readonly SwappedName[] = [
   { was: 'cá cờ', fish: ['Laetacara'], now: 'cá Laetacara', stillFor: PARADISE },
   { was: 'cá cờ', fish: ['flag cichlid'], now: 'cá Mesonauta, cá Laetacara', group: true },
   { was: 'cá thiên đường', fish: ['Macropodus opercularis'], now: 'cá cờ' },
+  // The chief of staff's names of 2026-11-13 (FISH_NAMES below): the word for the fish's kind, in a sentence that names it.
+  { was: 'cầu vồng', fish: ['Pseudomugil luminatus', 'luminatus'], now: 'mắt xanh', stillFor: ['Melanotaenia', 'Glossolepis', 'Chilatherina', 'Iriatherina', 'Marosatherina', 'Rhadinocentrus', 'Bedotia'] },
+]
+
+/**
+ * A fish page's Vietnamese name, as the chief of staff settled it: the word keepers here use for its kind, never another
+ * fish's. The sweep sets it once and guards it (`nameFixed`), with `was` and `alts` among the page's other names; the
+ * page's address stays. Its text follows: `was` wherever a Vietnamese page or summary writes it, and the kind's word in
+ * a sentence that names the fish (its row in SWAPPED).
+ */
+export type FishName = { id: string; was: string; name: string; alts?: readonly string[] }
+/** The chief of staff's names of 2026-11-13, kind by kind, smallest first. */
+export const FISH_NAMES: readonly FishName[] = [
+  { id: 'pseudomugil-luminatus', was: 'Cá cầu vồng neon đỏ mắt xanh', name: 'Cá mắt xanh neon đỏ' },
 ]

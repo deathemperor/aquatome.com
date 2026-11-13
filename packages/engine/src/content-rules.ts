@@ -9,7 +9,7 @@ import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
 import { dropEmptyBlocks, fishThaiLai, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice, viWording, wordingSlips } from './sanitize'
 import { LANG_NAME, pageUrl, type Page, type PageKind } from './pages'
-import { SWAPPED } from './names'
+import { FISH_NAMES, SWAPPED } from './names'
 import { PHRASES, phraseSlips } from './phrases'
 import { unfitCommons } from './photos'
 
@@ -841,23 +841,33 @@ const SWAPS = SWAPPED.map(r => {
   const fish = `(?:${r.fish.join('|')})`
   // Tags may stand in the way: the sweep reads this in HTML, the rule in plain text.
   const inBrackets = r.brackets ? `(?=(?:[^.,;:()<]|<[^>]+>){0,24}\\((?:\\s|<[^>]+>)*${fish}\\b)` : ''
-  // The new name's last word after the old name goes with it: "cá bám đá bướm" is "cá tỳ bà bướm", not "… bướm bướm".
-  const again = `(?:\\s+${word(r.now.split(' ').at(-1)!)})?`
+  // The new name's own words after the old name go with it: "cá bám đá bướm" is "cá tỳ bà bướm", not "… bướm bướm", and
+  // "cầu vồng mắt xanh" is "mắt xanh".
+  const tail = r.now.split(' ').filter((w, i) => i > 0 || w.toLowerCase() !== 'cá')
+  const again = `(?:${tail.map((_, i) => `\\s+${word(tail.slice(i).join('\\s+'))}`).join('|')})?`
   return { ...r, old: new RegExp(word(r.was) + again + inBrackets, 'giu'), named: new RegExp(fish, 'iu'), nowSaid: new RegExp(word(r.now), 'iu'), stays: r.stillFor && new RegExp(r.stillFor.join('|'), 'iu') }
 })
 // A sentence that has the new name too, or names the fish the old name is now, may be right under the new names (the
-// Writing Lead, 2026-11-08: "a sentence that's right under the new names shouldn't stop a publish").
-const swapsIn = (sentence: string) => SWAPS.filter(r => sentence.search(r.old) >= 0 && r.named.test(sentence) && !r.nowSaid.test(sentence) && !r.stays?.test(sentence))
+// Writing Lead, 2026-11-08: "a sentence that's right under the new names shouldn't stop a publish"). The new name read
+// outside the old one: "cầu vồng mắt xanh" doesn't say "mắt xanh" apart from it.
+const swapsIn = (sentence: string) => SWAPS.filter(r => sentence.search(r.old) >= 0 && r.named.test(sentence) && !r.nowSaid.test(sentence.replace(r.old, ' ')) && !r.stays?.test(sentence))
+// A fish page's old name (names.ts FISH_NAMES) is that fish's alone: written anywhere, it is the fish's name now.
+const RENAMES = FISH_NAMES.map(r => ({ ...r, old: new RegExp(word(r.was), 'giu') }))
+const asWritten = (m: string, name: string) => (m[0] === m[0]!.toLowerCase() ? name[0]!.toLowerCase() + name.slice(1) : name)
 /** Each sentence that gives a fish a name it no longer has, with the name it has now. */
-export const swappedNames = (text: string) => text.normalize('NFC').split(SENTENCE_END).flatMap(s =>
-  swapsIn(s).map(r => `should be "${r.now}": ${clip(s)}`))
+export const swappedNames = (text: string) => text.normalize('NFC').split(SENTENCE_END).flatMap(s => [
+  ...RENAMES.filter(r => s.search(r.old) >= 0).map(r => `should be "${r.name}": ${clip(s)}`),
+  ...swapsIn(s).map(r => `should be "${r.now}": ${clip(s)}`)])
 
 /**
- * Text (plain or HTML) with a fish's old name written as its name, in each sentence that says which fish it is. Left for
- * the swapped-name rule to list, when the sentence doesn't: one old name for two fish named, or a group.
+ * Text (plain or HTML) with a fish page's old name written as its name, wherever it is, then a fish's old name written as
+ * its name in each sentence that says which fish it is. Left for the swapped-name rule to list, when the sentence doesn't:
+ * one old name for two fish named, or a group. The page's old name first: the kind's word inside it would otherwise go
+ * alone ("Cá cầu vồng neon đỏ mắt xanh (Pseudomugil luminatus)" isn't "Cá mắt xanh neon đỏ mắt xanh").
  */
 export function renameSwapped(text: string) {
-  const nfc = text.normalize('NFC')
+  const was = text.normalize('NFC')
+  const nfc = RENAMES.reduce((s, r) => s.replace(r.old, m => asWritten(m, r.name)), was)
   const inSentence = (raw: string) => {
     const s = raw.replace(TAG, ' ')
     const swaps = swapsIn(s).filter(r => !r.group)
@@ -867,7 +877,7 @@ export function renameSwapped(text: string) {
   // Tags blanked, so the sentences end where the rule's do and at the same offsets as in the text.
   let at = 0
   const out = nfc.replace(TAG, tag => ' '.repeat(tag.length)).split(new RegExp(`(${SENTENCE_END.source})`)).map(part => inSentence(nfc.slice(at, at += part.length))).join('')
-  return out === nfc ? text : out
+  return out === was ? text : out
 }
 
 /** The same, on every string in a value. */

@@ -636,6 +636,35 @@ test('a stored page: its name, text, summary, FAQ and reviews are renamed; its o
   expect(renameStored(unchanged)).toBe(unchanged)
 })
 
+// The chief of staff, 2026-11-13: a fish is called by its kind's word, never another fish's. "Cầu vồng" is the rainbowfish's
+// (Melanotaenia); Pseudomugil are "mắt xanh". The page's old name is the fish's alone, so it is renamed wherever it is.
+test.each([
+  // Its page's old name, with the fish or without it, and the name once, not "Cá mắt xanh neon đỏ mắt xanh".
+  ['Cá cầu vồng neon đỏ mắt xanh (Pseudomugil luminatus) hiền.', 'Cá mắt xanh neon đỏ (Pseudomugil luminatus) hiền.'],
+  ['Nuôi chung với cá cầu vồng neon đỏ mắt xanh và cá chuột lùn.', 'Nuôi chung với cá mắt xanh neon đỏ và cá chuột lùn.'],
+  ['<li><strong>Cá cầu vồng neon đỏ mắt xanh</strong></li>', '<li><strong>Cá mắt xanh neon đỏ</strong></li>'],
+  // The kind's word in a sentence that names the fish: its own words after the old one go with it (today's page).
+  ['Pseudomugil luminatus, tên thường gọi là cá cầu vồng mắt xanh đỏ neon, là một loài cá nhỏ.', 'Pseudomugil luminatus, tên thường gọi là cá mắt xanh đỏ neon, là một loài cá nhỏ.'],
+  // "P." ends a sentence for the rule, so the epithet names the fish (a guide's list).
+  ['Bạn thử xem có P. luminatus (cầu vồng neon đỏ), P. furcata hay P. gertrudae không.', 'Bạn thử xem có P. luminatus (mắt xanh neon đỏ), P. furcata hay P. gertrudae không.'],
+])('a fish the chief of staff named takes its name in the text: %s', (before, after) => {
+  expect(swappedNames(before.replace(/<[^>]+>/g, ' '))).not.toEqual([])
+  expect(renameSwapped(before)).toBe(after)
+  expect(swappedNames(after.replace(/<[^>]+>/g, ' '))).toEqual([])
+  expect(renameSwapped(after)).toBe(after)
+})
+test.each([
+  // A rainbowfish named beside it: "cầu vồng" may be that fish's.
+  'Pseudomugil luminatus nuôi chung được với cá cầu vồng (Melanotaenia praecox).',
+  // Its name is there too, so the rainbowfish are other fish.
+  'Cá mắt xanh neon đỏ (Pseudomugil luminatus) nuôi chung được với cá cầu vồng.',
+  // A sentence that doesn't name it: the page's tankmates.
+  'Những loài nuôi chung rất hợp gồm rasbora nhỏ, cá chuột lùn và các loài cá cầu vồng hiền khác.',
+])('a rainbowfish beside the blue-eye is neither listed nor renamed: %s', text => {
+  expect(swappedNames(text)).toEqual([])
+  expect(renameSwapped(text)).toBe(text)
+})
+
 // 2026-11-07, a design lab: "que thử đa chỉtiêu" in the tank-cycling guide, a translation's typo. A Vietnamese word is one
 // syllable, so a word that reads as two is two words run together; a loanword written as one ("nitơ") is not.
 test('two Vietnamese syllables written as one word are found; one syllable, loanwords and other languages are not', () => {

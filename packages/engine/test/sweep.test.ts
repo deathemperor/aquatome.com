@@ -7,7 +7,7 @@ import { LlmError, type Llm } from '../src/claude'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
 import { checkPagePhotos } from '../src/photo-check'
-import { sweep, sweepTranslation } from '../src/sweep'
+import { nameFish, sweep, sweepTranslation } from '../src/sweep'
 import { atCeiling } from './at-ceiling'
 
 const photo = (url: string, caption: string) => ({ url, width: 1200, height: 800, licence: 'CC BY 4.0', author: 'A', sourceUrl: 'https://commons.wikimedia.org/x', caption })
@@ -584,6 +584,46 @@ test('a fish\'s old name can\'t stop a publish: the sweep writes its name wherev
   await writeFile(join(c, 'species/nannostomus-eques/vi.json'), JSON.stringify(vi('Cá chì', { 'distribution:seriouslyfish': '<p>Cá cờ lùn (dwarf flag cichlid) sống ở Nam Mỹ.</p>' }), null, 1))
   await sweep(root)
   expect(await listed()).toEqual(['/vi/ca/cá-chì/'])
+})
+
+// The chief of staff, 2026-11-13: the blue-eye is "cá mắt xanh", not the rainbowfish's "cầu vồng". Through the engine, guarded,
+// the old name kept for search, the address as it was.
+test('a fish the chief of staff named takes its name, guarded, the old one among its other names and its address as it was; its text, summary and other pages follow; the second run changes nothing', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const at = 'species/pseudomugil-luminatus'
+  await mkdir(join(c, at), { recursive: true })
+  await writeFile(join(c, at, 'entity.json'), JSON.stringify(species('pseudomugil-luminatus', 'Pseudomugil luminatus'), null, 1))
+  await writeFile(join(c, at, 'vi.json'), JSON.stringify({
+    ...vi('Cá cầu vồng neon đỏ mắt xanh', { 'distribution:seriouslyfish': '<p>Pseudomugil luminatus, tên thường gọi là cá cầu vồng mắt xanh đỏ neon, sống ở New Guinea.</p><p>Nuôi chung với các loài cá cầu vồng hiền khác.</p>' }),
+    slug: 'ca-cau-vong-neon-do-mat-xanh', altNames: ['Cá cầu vồng neon đỏ', 'Red-Neon Blue-eye', 'Cá mắt xanh neon đỏ'],
+  }, null, 1))
+  await writeFile(join(c, at, 'id.json'), JSON.stringify(vi('Ikan Pelangi Neon Merah', { 'distribution:seriouslyfish': '<p>Ikan.</p>' }), null, 1))
+  await writeFile(join(c, 'summaries/pseudomugil-luminatus.json'), JSON.stringify({ id: 'pseudomugil-luminatus', summary: 'Cá cầu vồng neon đỏ mắt xanh hợp bể nhỏ.', mistakes: [], speciesUpdatedAt: '2026-10-01', generatedAt: '2026-10-02', review: 'approved' }, null, 2))
+  const guide = await json(root, 'content/guides/g/vi.json')
+  await writeFile(join(c, 'guides/g/vi.json'), JSON.stringify({ ...guide, body: `<p>Thử cá cầu vồng neon đỏ mắt xanh.</p>${guide.body}` }, null, 2))
+  const listed = async () => checkPages(await loadPages(c), RULES.filter(r => r.id === 'swapped-name')).findings.map(f => f.page.path)
+  expect(await listed()).toEqual(expect.arrayContaining(['/vi/ca/ca-cau-vong-neon-do-mat-xanh/', '/vi/huong-dan/10-cách-xử-lý-rêu-hại-nhanh/']))
+
+  const r = await sweep(root)
+  expect(await listed()).toEqual([])
+  const t = await json(root, `content/${at}/vi.json`)
+  expect([t.name, t.nameFixed, t.slug]).toEqual(['Cá mắt xanh neon đỏ', true, 'ca-cau-vong-neon-do-mat-xanh'])
+  expect(t.altNames).toEqual(['Cá cầu vồng neon đỏ', 'Red-Neon Blue-eye', 'Cá cầu vồng neon đỏ mắt xanh'])
+  // Its tankmates' "cá cầu vồng" names no blue-eye, so it stays.
+  expect(t.sections['distribution:seriouslyfish']).toBe('<p>Pseudomugil luminatus, tên thường gọi là cá mắt xanh đỏ neon, sống ở New Guinea.</p><p>Nuôi chung với các loài cá cầu vồng hiền khác.</p>')
+  expect((await json(root, `content/${at}/id.json`)).name).toBe('Ikan Pelangi Neon Merah')
+  expect((await json(root, 'content/summaries/pseudomugil-luminatus.json')).summary).toBe('Cá mắt xanh neon đỏ hợp bể nhỏ.')
+  expect((await json(root, 'content/guides/g/vi.json')).body).toContain('<p>Thử cá mắt xanh neon đỏ.</p>')
+  expect(r.text['fish-name']).toEqual(['species/pseudomugil-luminatus/vi'])
+  expect(r.files).toEqual(expect.arrayContaining([`${at}/vi.json`, 'summaries/pseudomugil-luminatus.json', 'guides/g/vi.json']))
+  expect((await sweep(root)).files).toEqual([])
+
+  // A name a person chose is theirs: the step leaves a guarded page as it is.
+  await writeFile(join(c, at, 'vi.json'), JSON.stringify({ ...t, name: 'Cá mắt xanh Paskai', altNames: [] }, null, 1))
+  expect(await nameFish(c)).toEqual([])
+  expect(await nameFish(c, [{ id: 'pseudomugil-luminatus', was: 'Cá mắt xanh Paskai', name: 'Cá khác' }])).toEqual([])
+  expect((await json(root, `content/${at}/vi.json`)).name).toBe('Cá mắt xanh Paskai')
 })
 
 test('a card\'s Seriously Fish difficulty read before the engine read its word is corrected from the stored page, and its summary written again', async () => {

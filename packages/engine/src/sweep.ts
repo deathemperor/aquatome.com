@@ -7,6 +7,7 @@ import { loadAll, mayPublish, ownNumber, QUALITY_THRESHOLD, resolveDataCard, sho
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
+import { FISH_NAMES, type FishName } from './names'
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import type { PhotoVerdict } from './photo-check'
@@ -79,8 +80,11 @@ import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
  *   The address stays.
  * - a fish's summary (content/summaries): the words Vietnamese readers write another way written their way (sanitize.ts
  *   viWording), as the page's own text has them (fixTranslation)
+ * - a fish the chief of staff named (names.ts FISH_NAMES): its Vietnamese page takes the name, guarded (`nameFixed`), with
+ *   the name it had among its other names; the address stays. Once guarded, a page is left as it is (nameFish)
  * - a fish's old name, on a Vietnamese page, its summary or a buying guide: its name now, when the sentence says which fish
- *   it is (content-rules.ts renameSwapped). A rename can't stop a publish that way, and what it leaves the tests list.
+ *   it is, and a named fish's old page name wherever it is (content-rules.ts renameSwapped). A rename can't stop a publish
+ *   that way, and what it leaves the tests list.
  * - a species', plant's or breed's Vietnamese name as hobbyists write it (alt-names.ts tidyName): a place keeps its capital
  *   ("Rêu Java"), a plant's name has no "Cây thủy sinh" before it. A name a person fixed (`nameFixed`) stays; the address
  *   stays.
@@ -98,7 +102,7 @@ import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 export type SweepReport = {
   /** Files changed, `kind/id/file`. */
   files: string[]
-  /** Pages changed by each text fix: furniture, headings, repeated, labels, permission, name, renamed (and tidy: the fixes made on write). */
+  /** Pages changed by each text fix: furniture, headings, repeated, labels, permission, name, fish-name, renamed (and tidy: the fixes made on write). */
   text: Record<string, string[]>
   photos: string[]
   rejected: number
@@ -216,6 +220,26 @@ async function sfWord(root: string, card: Partial<Record<DataCardField, Value[]>
  */
 export const PHOTO_CAP = 10
 
+/**
+ * Each fish the chief of staff named (names.ts FISH_NAMES): its Vietnamese page's name, guarded (`nameFixed`) so no later
+ * step writes another, with the name it had, its old one and the row's others among its other names. The address stays.
+ * A guarded page is left: done, or a person chose its name. The fish named, by id.
+ */
+export async function nameFish(content: string, rows: readonly FishName[] = FISH_NAMES): Promise<string[]> {
+  const named: string[] = []
+  for (const r of rows) {
+    const file = join(content, 'species', r.id, 'vi.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    if (!raw) continue
+    const t = JSON.parse(raw) as Stored & { name: string; altNames: string[] }
+    if (t.nameFixed) continue
+    const altNames = [...new Set([...t.altNames, t.name, r.was, ...(r.alts ?? [])])].filter(n => n !== r.name)
+    await write(file, raw, { ...t, name: r.name, altNames, nameFixed: true })
+    named.push(r.id)
+  }
+  return named
+}
+
 /** Guides whose title is shared or only a name, written again at most a run (each a write and a review). */
 export const GUIDE_RETITLES = 10
 
@@ -235,6 +259,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const titled: { file: string; raw: string; t: Stored; lang: WrittenLang; id: string; title: string }[] = []
   // A place's Vietnamese name with no generic word left in English (place-names.ts).
   for (const id of await sweepPlaceNames(root)) changed(`places/${id}/vi.json`)
+  // A fish the chief of staff named, before the text: its name is guarded when the renames below read it.
+  for (const id of await nameFish(content)) {
+    changed(`species/${id}/vi.json`)
+    ;(report.text['fish-name'] ??= []).push(`species/${id}/vi`)
+  }
 
   // Text, in every language the engine writes.
   for (const kind of SWEPT_KINDS) {
