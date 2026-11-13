@@ -97,7 +97,7 @@ test("an article whose card picture is a section's picture leads with it, on the
 test("a day's guide picture that is a plant's photo carries its box, as the guide's card does", async () => {
   const was = await getContent('vi')
   // A plant photo taller than wide, with its whole area, as the loader gives it.
-  const plant = { url: 'https://media.aquatome.com/commons/tall-plant.webp', thumb: 'https://media.aquatome.com/commons/tall-plant-480.webp', width: 600, height: 900, author: 'a', licence: 'cc-by-4.0', sourceUrl: 'https://example.org', source: 'commons', subject: { x0: 0, y0: 0, x1: 600, y1: 900 } } as Photo
+  const plant = { url: 'https://media.aquatome.com/commons/tall-plant.webp', thumb: 'https://media.aquatome.com/commons/tall-plant-480.webp', width: 600, height: 900, author: 'a', licence: 'cc-by-4.0', sourceUrl: 'https://example.org', source: 'commons', subject: { x0: 0, y0: 0, x1: 600, y1: 900 } } as unknown as Photo
   const first = was.plants[0]!, vi = { ...was, plants: was.plants.map(p => (p === first ? { ...p, photos: [plant, ...p.photos] } : p)) }
   expect(photoBox(plant)).toEqual(WHOLE)
   const guide = vi.guides.find(g => !g.video)!
