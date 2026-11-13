@@ -1,23 +1,24 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { metricPage, QUALITY_THRESHOLD } from '@aq/schema'
+import { QUALITY_THRESHOLD } from '@aq/schema'
 import { HTMLElement, parse } from 'node-html-parser'
 import { breedFigures, figuresSaid, keepsFigures, moved, unitsLeft, withoutConcentrations, type BreedFigure, type PlacedFigure } from './breed-units'
 import { LlmError, type Llm } from './claude'
 import { FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
+import { mendPart } from './mend'
 import { fixedParts, loadPages, type Page } from './pages'
 import { piece } from './pieces'
-import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './reader'
+import { fieldOf as partOf, norm, type ReaderFinding } from './reader'
 import { metricFigures, TANK_RULE, US_UNITS } from './round'
 
 /**
  * The collection rewrite: Vietnamese pages the reader-fit read (fit.ts) found wrong for their reader, written again.
  * - A guide by its own writer, from its source's facts and the market table (for-reader.ts), which every check holds.
- * - A fish, plant or breed page part by part: each part a finding quotes goes to the reader step's rewriter with the
- *   findings as notes (reader.ts rewritePart; a section with its English against that English), kept only when its
- *   reviewer passes it. Units too, where the part's English gives the figure in US units ("a pair per 5 gallons (about
+ * - A fish, plant or breed page part by part: in each part a finding quotes, only the sentences it quotes are written
+ *   again, with the findings as notes, and the rest put back word for word; kept only when its reviewer passes the
+ *   change and nothing is left out that no finding asks to go (mend.ts). Units too, where the part's English gives the figure in US units ("a pair per 5 gallons (about
  *   19 litres)"): the code rounds a converted figure as it is written (round.ts), but not every one, and a page already
  *   written keeps it; written again, it's converted as the writer's rules say, which its reviewer holds. A part with
  *   another finding here is mended for that alone, so a rounding its reviewer fails can't lose that mend.
@@ -54,8 +55,17 @@ export function convertible(quote: string, en: string): boolean {
   return !metricFigures(quote, 'vi').some(n => given.has(n))
 }
 export type Rewritten = Record<string, { at: string; hash: string }>
-/** Each page tried, by the hash of the text it read, and how often on any of its texts (none: once, before the count). */
-export type Tried = Record<string, { at: string; hash: string; n?: number }>
+/**
+ * Each page tried, by the hash of the text it read, and how often on any of its texts (none: once, before the count);
+ * `rule`, the way its parts were mended (none: MEND_RULE 1).
+ */
+export type Tried = Record<string, { at: string; hash: string; n?: number; rule?: number }>
+/**
+ * How a fish, plant or breed page's parts are mended. 2: only the sentences a finding quotes (mend.ts, 13 Nov 2026). A
+ * page tried under an earlier rule is tried once more on the same text, within MAX_TRIES: the front list's first run
+ * left 13 parts unkept under rule 1, and the chief of staff clears the list to see what rule 2 keeps of them.
+ */
+export const MEND_RULE = 2
 /**
  * A page is tried at most this often, on any of its texts, unless named: a part its reviewers pass that the next read
  * still faults would make the page due again on its new text, a cycle at a time, with only the step's ceiling to stop it.
@@ -107,6 +117,23 @@ const asNote = (f: FitFinding, figures?: BreedFigure[]): ReaderFinding => ({
   ...(f.fix ? { fix: f.fix } : {}),
 })
 
+/**
+ * The runs of a breed figure's old text that are its numbers and unit words, which its conversion replaces: what a units
+ * finding covers in mend.ts, not the words between them (Astra's read: "38 lít nước sạch mỗi 2,5 cm" written "15 lít cho
+ * mỗi cm" lost "sạch", and passed).
+ */
+const UNIT_WORDS = new Set(['lít', 'l', 'cm', 'mm', 'm', 'mỗi', 'cho', 'trên', 'từng', 'gallon', 'gal', 'inch'])
+const figureRuns = (from: string) => {
+  const runs: string[][] = [[]]
+  for (const w of from.normalize('NFC').toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? []) {
+    if (/^\d/.test(w) || UNIT_WORDS.has(w)) runs.at(-1)!.push(w)
+    else if (runs.at(-1)!.length) runs.push([])
+  }
+  return runs.filter(r => r.length).map(r => r.join(' '))
+}
+/** A finding as the writer's note on the sentences it quotes (a breed page's units with the figures to write). */
+const noteOf = (f: FitFinding, figures?: BreedFigure[]) => { const n = asNote(f, figures); return `${n.problem}${n.fix ? ` Nên viết: "${n.fix}"` : ''}` }
+
 export type RewriteReport = { rewritten: string[]; notKept: string[]; skipped: string[]; failed: string[]; stopped: string }
 
 /**
@@ -122,15 +149,17 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
   const done: Page[] = []
   const at = d.now().toISOString()
   const triesOf = (k: string) => (tried[k] ? tried[k].n ?? 1 : 0)
-  const due = pages.filter(p => rewriteDue(p, state) && tried[fitKey(p)]?.hash !== fitText(p).hash)
+  // Tried on this text, and (but a guide, which is written whole) by the way parts are mended now.
+  const triedOn = (p: Page) => tried[fitKey(p)]?.hash === fitText(p).hash && (p.kind === 'guides' || (tried[fitKey(p)]?.rule ?? 1) >= MEND_RULE)
+  const due = pages.filter(p => rewriteDue(p, state) && !triedOn(p))
   // Tried MAX_TRIES times and due again: listed for a person to name (`--only`), never tried here.
   const capped = o.retry ? [] : due.filter(p => triesOf(fitKey(p)) >= MAX_TRIES).map(fitKey)
   if (capped.length) report.skipped.push(`${capped.length} page${capped.length > 1 ? 's' : ''} tried ${MAX_TRIES} times and due again, for a person to name: ${capped.slice(0, 10).join(', ')}${capped.length > 10 ? ', …' : ''}`)
-  for (const p of pages.filter(p => rewriteDue(p, state) && (o.retry || (tried[fitKey(p)]?.hash !== fitText(p).hash && triesOf(fitKey(p)) < MAX_TRIES))).slice(0, o.limit)) {
+  for (const p of pages.filter(p => rewriteDue(p, state) && (o.retry || (!triedOn(p) && triesOf(fitKey(p)) < MAX_TRIES))).slice(0, o.limit)) {
     const key = fitKey(p)
     const before = tried[key]
     // A page a person names doesn't use up one of its own tries.
-    tried[key] = { at, hash: fitText(p).hash, n: triesOf(key) + (o.retry ? 0 : 1) }
+    tried[key] = { at, hash: fitText(p).hash, n: triesOf(key) + (o.retry ? 0 : 1), rule: MEND_RULE }
     let changed = 0
     try {
       if (p.kind === 'guides') {
@@ -209,20 +238,21 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
               return fs.filter(x => !seen.has(`${block}|${x.at}`) && !!seen.add(`${block}|${x.at}`)).map(x => ({ ...x, block }))
             })
             const said = figures.length ? `This is a breed page with no English source: its litres are our conversion of a source's US figure, and the editor was told to name these as keepers here say, from the source's own US figure, a minimum never more than a twentieth under it: ${figuresSaid(figures)}. Those changes are correct, not errors.` : undefined
-            const r = await rewritePart(d.llm, html, now.map(f => asNote(f, told.get(f))), { en: p.en?.[field], source: source && names[source]?.name, ...(said ? { figures: said } : {}) })
-            if (!r) { report.skipped.push(`${key} ${field}: its quotes aren't in one block`); continue }
+            const r = await mendPart(d.llm, html, now.map(f => ({ check: f.check, quote: f.quote ?? '', note: noteOf(f, told.get(f)), covers: told.get(f)?.flatMap(x => figureRuns(x.from)) })), { en: p.en?.[field], source: source && names[source]?.name, model: 'opus', metric: METRIC_KINDS.includes(p.kind), ...(said ? { figures: said } : {}) })
+            if (typeof r === 'string') { report.skipped.push(`${key} ${field}: ${r}`); continue }
             const next = faq ? parse(r.html).text.trim() : r.html
-            // Kept at the bar, and saying nothing more surely than before (hedges.ts); a breed page's units with each figure.
+            // Kept at the bar, leaving out only what a finding asks to go, saying nothing more surely than before (hedges.ts),
+            // and a breed page's units with each figure.
             const off = mine.length ? keepsFigures(textOf(before), textOf(next), mine.map(f => f.quote ?? ''), figures) : undefined
-            if (r.score < QUALITY_THRESHOLD || r.lost.length || off) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${[...(off ? [off] : []), ...r.notes].slice(0, 2).join('; ')})`); continue }
+            if (r.score < QUALITY_THRESHOLD || r.lost.length || r.unasked.length || off) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${[...(off ? [off] : []), ...r.notes].slice(0, 2).join('; ')})`); continue }
             if (next === before) { report.skipped.push(`${key} ${field}: the rewrite changed nothing`); continue }
             if (faq) t.faq![Number(faq[1])]!.a = next
             else if (field === 'body') t.body = next
             else if (field === 'definition') t.definition = next
             else t.sections![field.replace(/^sections\./, '')] = next
-            // Each part as it's kept, so a later part's failure loses none. Fish, plant and breed pages are written in metric
-            // only, as by every other writer (metric.ts).
-            await writeFile(file, `${JSON.stringify(METRIC_KINDS.includes(p.kind) ? metricPage(t, 'vi') : t, null, 2)}\n`)
+            // Each part as it's kept, so a later part's failure loses none. The sentences that changed are in metric already
+            // (mendPart); nothing else on the page is touched (Astra's read: converting the page changed parts no one read).
+            await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
             changed++
             report.rewritten.push(`${key} ${field}${passes.length > 1 && mine.length ? ' units' : ''} (${r.score.toFixed(2)})`)
           }
