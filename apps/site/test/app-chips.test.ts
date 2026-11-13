@@ -29,6 +29,18 @@ test("a chip holds the species its rule names, the breeds that are forms or cros
   for (const ch of [am!, dia!, han!]) expect(ch.count).toBe(ch.members.length)
 })
 
+// The Writing Lead, 14 Nov: Tép is the shrimp group less crayfish, marine shrimp and Macrobrachium, by id.
+test("a chip leaves out what it names in `except`: a breed by its id, a species with the breeds that are forms or crosses of it", async () => {
+  const dia = (except: string[]) => ({ id: 'dia', names: { vi: 'Dĩa' }, match: { genus: ['Symphysodon'], except } })
+  const [noHorn] = await row('vi', [dia(['flowerhorn-cichlid'])])
+  expect(noHorn!.members.sort()).toEqual(['pigeon-blood-discus', 'symphysodon-aequifasciatus'])
+  expect(noHorn!.count).toBe(2)
+  // The discus out, its form and its cross go with it, and a chip left with no fish is left out.
+  expect(await row('vi', [dia(['symphysodon-aequifasciatus'])])).toEqual([])
+  // `except` alone holds no fish.
+  expect(() => chips([{ id: 'x', names: { vi: 'X' }, match: { except: ['symphysodon-aequifasciatus'] } }])).toThrow(/a chip holds some fish/)
+})
+
 test("the row keeps the file's order, not one by counts; a chip with no word or no fish in a language is left out, and the rest close up", async () => {
   const xs = [
     { id: 'tep', names: { vi: 'Tép' }, match: { group: ['shrimp'] } },

@@ -271,8 +271,9 @@ export function chipsFor(lang: Lang, c: Content, everySpecies: Content['species'
     if (!name) return []
     const m = chip.match, rule = [m.group, m.places, m.family, m.genus].some(v => v?.length)
     const fits = (want: string[] | undefined, has: string | string[] | undefined) => !want?.length || (Array.isArray(has) ? has.some(x => want.includes(x)) : !!has && want.includes(has))
-    const inChip = (s: SpeciesEntity | undefined) => !!s && (!!m.species?.includes(s.id) || (rule && fits(m.group, s.group) && fits(m.places, s.places) && fits(m.family, s.family) && fits(m.genus, s.genus)))
-    const members = [...listed.species.filter(inChip), ...listed.breeds.filter(b => m.breeds?.includes(b.id) || bases(b).some(id => inChip(byId.get(id))))]
+    const out = (id: string) => !!m.except?.includes(id)
+    const inChip = (s: SpeciesEntity | undefined) => !!s && !out(s.id) && (!!m.species?.includes(s.id) || (rule && fits(m.group, s.group) && fits(m.places, s.places) && fits(m.family, s.family) && fits(m.genus, s.genus)))
+    const members = [...listed.species.filter(inChip), ...listed.breeds.filter(b => !out(b.id) && (m.breeds?.includes(b.id) || bases(b).some(id => inChip(byId.get(id)))))]
     return members.length ? [{ chip, name, members }] : []
   })
   // Pictures go to the chips with fewest fish first, so a group of one fish keeps its best photo when a wider group holds

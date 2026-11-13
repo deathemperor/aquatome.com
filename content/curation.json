@@ -804,6 +804,20 @@
    "match": {
     "group": [
      "shrimp"
+    ],
+    "except": [
+     "cambarellus-puer",
+     "cambarellus-shufeldtii",
+     "cambarus-bartonii",
+     "cherax-holthuisi",
+     "lysmata-amboinensis",
+     "lysmata-debelius",
+     "periclimenes-yucatanicus",
+     "saron-marmoratus",
+     "gnathophyllum-americanum",
+     "urocaridella-antonbruunii",
+     "macrobrachium-brasiliense",
+     "macrobrachium-dayanum"
     ]
    }
   },

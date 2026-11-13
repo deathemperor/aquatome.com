@@ -126,7 +126,10 @@ export const ChipSchema = z.object({
     genus: z.array(z.string()).optional(),
     species: z.array(z.string()).optional(),
     breeds: z.array(z.string()).optional(),
-  }).refine(m => Object.values(m).some(v => v?.length), 'a chip holds some fish'),
+    /** Species or breeds the rule would take that keepers don't count in the group, by id (Tép leaves out crayfish and
+     * marine shrimp: the Writing Lead, 14 Nov). A breed of a species left out is out too. */
+    except: z.array(z.string()).optional(),
+  }).refine(({ except: _, ...m }) => Object.values(m).some(v => v?.length), 'a chip holds some fish'),
   /** Members whose photo is tried first for its picture, in order. */
   cover: z.array(z.string()).optional(),
 })
