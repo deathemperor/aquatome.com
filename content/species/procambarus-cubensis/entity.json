@@ -9,6 +9,88 @@
     "north-america",
     "cuba"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CU"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Cuban crayfish are endemic to Cuba, where they occur in scattered localities except in the southwestern mountains.",
+          "countries": [
+            "CU"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2227139,
+      "total": 17,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "CU",
+          17
+        ]
+      ],
+      "cells": [
+        [
+          -84.375,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          -84.375,
+          22.5,
+          2,
+          2
+        ],
+        [
+          -82.96875,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          -82.96875,
+          22.5,
+          4,
+          4
+        ],
+        [
+          -81.5625,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          -78.75,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          19.6875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

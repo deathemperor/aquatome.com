@@ -11,6 +11,176 @@
     "rio-tocantins",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tocantins",
+        "Amazon",
+        "Rio Trombetas",
+        "Rio Pará"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is restricted – as far as known – to the Rio Tocantins in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tocantins"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's found exclusively in the middle and lower parts of the Amazon drainage in Brazil, including the Rio Trombetas, Rio Tocantins and Rio Pará.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Rio Trombetas",
+            "Rio Pará"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2419354,
+      "total": 84,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BR",
+          83
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          10,
+          10
+        ],
+        [
+          -50.625,
+          0,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          42,
+          42
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

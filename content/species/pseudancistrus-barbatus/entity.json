@@ -14,6 +14,190 @@
     "essequibo",
     "oyapock"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GF",
+        "SR",
+        "BR"
+      ],
+      "regions": [
+        "Oyapock",
+        "Mana",
+        "Maroni",
+        "Corantijn",
+        "Essequibo"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: La Mana River, French Guiana.",
+          "countries": [
+            "GF"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Pseudancistrus barbatus is restricted to river basins in French Guiana, where it occurs in the Marowijne River at the border with Suriname, in Mana River, and in Oyapock River at the border with Brazil.",
+          "countries": [
+            "SR",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Oyapock, Mana, Maroni, Suriname, Corantijn and Essequibo River basins.",
+          "countries": [],
+          "regions": [
+            "Oyapock",
+            "Mana",
+            "Maroni",
+            "Corantijn",
+            "Essequibo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202287,
+      "total": 260,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "GF",
+          175
+        ],
+        [
+          "SR",
+          45
+        ],
+        [
+          "BR",
+          31
+        ],
+        [
+          "GY",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          -59.0625,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -57.65625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          2.8125,
+          15,
+          15
+        ],
+        [
+          -56.25,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          2.8125,
+          96,
+          96
+        ],
+        [
+          -54.84375,
+          4.21875,
+          65,
+          65
+        ],
+        [
+          -54.84375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          1.40625,
+          22,
+          22
+        ],
+        [
+          -53.4375,
+          2.8125,
+          36,
+          36
+        ],
+        [
+          -53.4375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -20,6 +20,181 @@
     "republic-of-the-congo",
     "congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG",
+        "CM",
+        "CD",
+        "GH",
+        "LR",
+        "CI",
+        "TG",
+        "GA",
+        "BJ",
+        "CF",
+        "CG"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It has been recorded in Nigeria, Cameroon, Democratic Republic of Congo, Ghana, Liberia, Ivory Coast, Togo, Gabon, Benin, Central African Republic and Congo Republic.",
+          "countries": [
+            "NG",
+            "CM",
+            "CD",
+            "GH",
+            "LR",
+            "CI",
+            "TG",
+            "GA",
+            "BJ",
+            "CF",
+            "CG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2346578,
+      "total": 36,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "CD",
+          33
+        ],
+        [
+          "CI",
+          1
+        ],
+        [
+          "GA",
+          1
+        ],
+        [
+          "GH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -8.4375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          0,
+          5.625,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          15.46875,
+          -2.8125,
+          9,
+          9
+        ],
+        [
+          16.875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          19.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          21.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          21.09375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          22.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          22.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          22.5,
+          0,
+          1,
+          1
+        ],
+        [
+          22.5,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          23.90625,
+          0,
+          8,
+          8
+        ],
+        [
+          23.90625,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

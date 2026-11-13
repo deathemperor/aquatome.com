@@ -1,0 +1,69 @@
+{
+  "id": "protocheirodon-pi",
+  "native": {
+    "input": "ab4831d67236ff7b",
+    "at": "2026-11-13T05:31:31.275Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Protocheirodon pi",
+    "status": "ACCEPTED",
+    "taxonKey": 9741842,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        14
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        10
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-13T05:31:31.275Z"
+  }
+}

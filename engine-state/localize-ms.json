@@ -372,6 +372,222 @@
       "#1: \"Rainbow bitterling\" is left in English as the common name. Consider adding a Malay form such as \"Bitterling pelangi\"."
     ]
   },
+  "acnodon-normani": {
+    "at": "2026-11-13",
+    "from": "2026-11-03",
+    "name": "Sheep Pacu",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "aeba8ef5fda3",
+      "quickFacts:glaser": "35b5fdabc690",
+      "beforeYouBuy:glaser": "c99863d49093",
+      "distribution:seriouslyfish": "a958471e0cd4",
+      "habitat:seriouslyfish": "bcf61cdfd346",
+      "aquariumSize:seriouslyfish": "8b2e078c4dc7",
+      "aquariumSize:glaser": "c80b64211af3",
+      "maintenance:seriouslyfish": "d80d6c3ecdf2",
+      "waterConditions:seriouslyfish": "99234dca9cc1",
+      "waterConditions:glaser": "55303c5e9d05",
+      "diet:seriouslyfish": "ef4c1546fc39",
+      "diet:glaser": "de4b45089f4e",
+      "behaviour:seriouslyfish": "9970745c4919",
+      "behaviour:glaser": "4cdbeb3e4ca6",
+      "dimorphism:seriouslyfish": "99a13a33357a",
+      "reproduction:seriouslyfish": "632ef5bb4654",
+      "notes:seriouslyfish": "4036b32ff4ef",
+      "notes:glaser": "12a056a15c2d",
+      "references:seriouslyfish": "48d02667f459"
+    }
+  },
+  "acrochordonichthys-gyrinus": {
+    "at": "2026-11-13",
+    "from": "2026-10-29",
+    "name": "Falcate Chameleon Catfish",
+    "confidence": "low",
+    "score": 0.8,
+    "notes": [
+      "Items 1 and 8: \"ikan sekawan yang lebih kecil\" for \"smaller tankmates\" is wrong, because \"sekawan\" means shoalmates. Use \"ikan lain yang lebih kecil dalam tangki\" or \"ikan sekolam\".",
+      "Item 9: \"lipatan berisi\" for \"fleshy flap\" is unnatural. Use \"lipatan berdaging\".",
+      "Item 7: \"Pemberian makanan secara terus\" for \"targeted feeding\" is vague. Use \"pemberian makanan secara terarah\" or \"disasarkan\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "bc345be44411",
+      "distribution:seriouslyfish": "64aafe5fed46",
+      "habitat:seriouslyfish": "e93254963697",
+      "aquariumSize:seriouslyfish": "38dacf9ae265",
+      "maintenance:seriouslyfish": "10baacdaa14f",
+      "waterConditions:seriouslyfish": "43cde1a4858b",
+      "diet:seriouslyfish": "f9ba60235095",
+      "behaviour:seriouslyfish": "5cf4662cf3ff",
+      "dimorphism:seriouslyfish": "439c1984e905",
+      "reproduction:seriouslyfish": "1e64a9dab8e9",
+      "notes:seriouslyfish": "6931e79929ec",
+      "references:seriouslyfish": "3009150301ff"
+    }
+  },
+  "acrochordonichthys-rugosus": {
+    "at": "2026-11-13",
+    "from": "2026-10-30",
+    "name": "Asian banjo catfish",
+    "confidence": "low",
+    "score": 0.93,
+    "notes": [
+      "Item 13: \"lipatan berisi\" for \"fleshy flap\" is slightly awkward; \"lipatan kulit berdaging\" would read more naturally.",
+      "Item 1/15: \"liang ketiak\" for \"axillary pore\" is literal; consider \"liang aksila\" with a short gloss."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "d6b9f2a87513",
+      "quickFacts:scotcat": "e60493b15db0",
+      "distribution:seriouslyfish": "0b776a016a1c",
+      "distribution:scotcat": "f57ea33763fc",
+      "habitat:seriouslyfish": "75554e143a2a",
+      "habitat:scotcat": "6f613958332a",
+      "aquariumSize:seriouslyfish": "1bfd390d77ce",
+      "maintenance:seriouslyfish": "10baacdaa14f",
+      "waterConditions:seriouslyfish": "2558f3c9481c",
+      "diet:seriouslyfish": "f9ba60235095",
+      "diet:scotcat": "b654131bf96b",
+      "behaviour:seriouslyfish": "5cf4662cf3ff",
+      "dimorphism:seriouslyfish": "7ef623a1be61",
+      "reproduction:seriouslyfish": "1e64a9dab8e9",
+      "notes:seriouslyfish": "a908dc466c7c",
+      "notes:scotcat": "40aa32f39acc",
+      "references:scotcat": "d385b7dbd6eb"
+    }
+  },
+  "acrochordonichthys-septentrionalis": {
+    "at": "2026-11-13",
+    "from": "2026-10-29",
+    "name": "Mae Klong Chameleon Catfish",
+    "confidence": "low",
+    "score": 0.92,
+    "notes": [
+      "Item 7: \"Pemberian makanan secara terus begini\" is ambiguous for \"targeted feeding\". Use \"pemberian makanan secara terarah/tepat pada ikan\".",
+      "Item 9: \"lipatan berisi\" for \"fleshy flap\" is awkward. Use \"lipatan kulit yang berdaging\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "94a655f39ab5",
+      "distribution:seriouslyfish": "2d8f545d5bb9",
+      "habitat:seriouslyfish": "e93254963697",
+      "aquariumSize:seriouslyfish": "a4e7fd2869c2",
+      "maintenance:seriouslyfish": "10baacdaa14f",
+      "waterConditions:seriouslyfish": "43cde1a4858b",
+      "diet:seriouslyfish": "f9ba60235095",
+      "behaviour:seriouslyfish": "5cf4662cf3ff",
+      "dimorphism:seriouslyfish": "439c1984e905",
+      "reproduction:seriouslyfish": "1e64a9dab8e9",
+      "notes:seriouslyfish": "853eeca08d25",
+      "references:seriouslyfish": "3009150301ff"
+    }
+  },
+  "acrossocheilus-beijiangensis": {
+    "at": "2026-11-13",
+    "from": "2026-10-29",
+    "name": "Acrossocheilus beijiangensis",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"131 mm SL\" omits the \"(5 in SL)\" figure; this is fine as a unit conversion, but SL (standard length) is left unexplained. Write \"panjang piawai (SL)\" or similar.",
+      "Items 1 and 4: \"ikan siprinid\" is non-standard. Use \"ikan kyprinid\" or \"ikan dari famili Cyprinidae\", or the local term \"ikan kap/cyprinid\".",
+      "Item 4: \"bibir tebal berdaging\" for \"fleshy\" is acceptable but slightly stretched. \"Bibir berdaging\" is more precise.",
+      "Item 4: \"jalur sedemikian\" is stiff. \"Jalur sebegitu\" reads more naturally.",
+      "Item 5: the reference list is left in English, which is correct."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "391b2d6ce4a0",
+      "distribution:seriouslyfish": "51f15779dc24",
+      "diet:seriouslyfish": "6e1c25271859",
+      "notes:seriouslyfish": "c26a4863b3b9",
+      "references:seriouslyfish": "ca4da8c44178"
+    }
+  },
+  "acrossocheilus-iridescens": {
+    "at": "2026-11-13",
+    "from": "2026-10-29",
+    "name": "Acrossocheilus iridescens",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "\"siprinid\" is non-standard; prefer \"sipirinid\" or \"ikan dalam famili Cyprinidae (siprinid)\".",
+      "\"terhad di Hainan sahaja\" reads awkwardly; use \"terhad kepada Pulau Hainan sahaja\". The same applies to \"terhad di selatan China\" in item 4; use \"terhad kepada\".",
+      "\"lipatan rostral ada\" is stiff; use \"terdapat lipatan rostral\".",
+      "\"Sungai Mutiara (Zhu Jiang)\" is acceptable, but \"sensu stricto\" is given twice with the same wording; this is fine, though \"dalam erti kata sempit\" could be simplified to \"dalam makna sebenar\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "901c31451c94",
+      "distribution:seriouslyfish": "2f431d78321f",
+      "waterConditions:seriouslyfish": "1726f2b8f564",
+      "notes:seriouslyfish": "2d0d91bb13b6",
+      "references:seriouslyfish": "89d84e334c0f"
+    }
+  },
+  "acrossocheilus-monticola": {
+    "at": "2026-11-13",
+    "from": "2026-10-29",
+    "name": "Acrossocheilus monticola",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"ikan siprinid\" is fine, but \"Lokaliti jenisnya\" is stiff; consider \"lokaliti jenis (type locality)\" for clarity.",
+      "Item 4: \"jejari ringkas terakhir sirip dorsal bertulang\" is stiff; \"jejari keras\" or \"duri\" may be more natural to hobbyists.",
+      "Item 4: \"mulut di bahagian bawah (inferior)\" is fine, but \"sarung bertanduk\" could be \"sarung tanduk\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "443ab89d6f67",
+      "distribution:seriouslyfish": "bbcd2bb9dcfb",
+      "diet:seriouslyfish": "6e1c25271859",
+      "notes:seriouslyfish": "406dc1da2ad4",
+      "references:seriouslyfish": "bf760427ecf2"
+    }
+  },
+  "acrossocheilus-paradoxus": {
+    "at": "2026-11-13",
+    "from": "2026-10-29",
+    "name": "Taiwan Banded Barb",
+    "confidence": "low",
+    "score": 0.95,
+    "notes": [
+      "Item 5: \"aufwuchs\" is left as a German term with no Malay gloss; consider adding \"(alga dan biofilem berlekat)\" or similar for hobbyists."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "95161aed4071",
+      "distribution:seriouslyfish": "ae339b9f58bd",
+      "habitat:seriouslyfish": "cddb7a5a1af6",
+      "aquariumSize:seriouslyfish": "9ae161c30ea2",
+      "maintenance:seriouslyfish": "ccf13dbfd004",
+      "maintenance:glaser": "f01cd84418ae",
+      "waterConditions:seriouslyfish": "cb41aff06c94",
+      "diet:seriouslyfish": "6e1c25271859",
+      "diet:glaser": "32b0d0d5a448",
+      "behaviour:glaser": "ddcc5f119a4b",
+      "dimorphism:glaser": "421f79534e11",
+      "notes:seriouslyfish": "22be7826373a",
+      "references:seriouslyfish": "ce941b1f33f1"
+    }
+  },
+  "acrossocheilus-parallens": {
+    "at": "2026-11-13",
+    "from": "2026-10-29",
+    "name": "Acrossocheilus parallens",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"Saiz maksimum: 160 mm SL\" — the English gives \"6 in SL\"; dropping imperial is fine, but \"SL\" is left unexplained. Consider \"panjang piawai (SL)\" on first use.",
+      "Item 1: \"siprinid\" is non-standard. Prefer \"ikan keluarga Cyprinidae\" or \"sejenis cyprinid\".",
+      "Item 4: \"anak ikan sahaja\" for \"juveniles only\" is acceptable, but \"ikan juvenil\" is the more common hobby term.",
+      "Item 4: \"bibir tebal berisi\" for \"lips fleshy\" is awkward. Use \"bibir berdaging\".",
+      "Item 1: \"Ikan ini perlukan tangki yang besar\" — use \"memerlukan\" for more standard Malay."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "7e6ac0e396c9",
+      "distribution:seriouslyfish": "76d741de0807",
+      "diet:seriouslyfish": "6e1c25271859",
+      "notes:seriouslyfish": "10e6125e08ce",
+      "references:seriouslyfish": "bfb8d8a2b1e6"
+    }
+  },
   "anabas-testudineus": {
     "at": "2026-11-12",
     "from": "2026-11-09",
@@ -795,19 +1011,36 @@
     }
   },
   "datnioides-microlepis": {
-    "at": "2026-11-07",
-    "from": "2026-10-30",
+    "at": "2026-11-13",
+    "from": "2026-11-11",
     "name": "Indo Datnoid",
     "confidence": "medium",
-    "score": 0.7,
+    "score": 0.8,
     "notes": [
-      "Item 5: 'tumbuhan yang menjulur ke atas air' for 'overhanging vegetation or branches' is awkward; 'tumbuhan atau dahan yang menjuntai di atas permukaan air' is more natural.",
-      "Item 5: 'Ikan ini tidak tahan perjalanan jauh' adds 'jauh' (long), which is not in the English 'do not travel well'. Use 'tidak tahan pengangkutan'.",
-      "Item 7: 'ikan beranak (livebearer)' and 'ikan mas kecil' are fine, but 'tidak mempunyai nilai nutrisi yang tinggi' would read better as 'nilai pemakanan yang tinggi'. 'dipelihara dan diberi makan dengan baik' is a slight addition to 'properly conditioned'.",
-      "Item 11: 'Ahli genus ini' for 'Members' is fine, but 'Anabas' / 'Anabantidae' are correctly kept. The sentence 'Coius kini dianggap sinonim bagi genus Anabas' follows the source, so no change is needed there. 'rekod ... sebenarnya merujuk' in item 2 adds 'sebenarnya' (actually), which is not in the source. Remove it.",
-      "Item 11: 'hirisan isi ikan' and 'terancam secara kritikal' are slightly unnatural. Use 'terancam kritikal' or 'sangat terancam'.",
-      "Item 6: 'Kekerasan air (GH): 2–15 dGH' changes the label by adding '(GH)'. This is minor but unnecessary. Use 'Kekerasan: 2–15 dGH'."
-    ]
+      "#10: \"jalur cerah di kepala\" adds a location (\"di kepala\") that the English does not state (\"light blaze\"). Drop it, or use \"tompok/jalur cerah\" without the location.",
+      "#11: \"mungkin terancam oleh spesies...\" – \"terancam\" suggests endangered. For \"intimidated\" use \"mungkin digertak/ditindas oleh\".",
+      "#5: \"hutan yang dinaiki air\" is awkward. Use \"hutan banjir\" or \"hutan yang dibanjiri air\".",
+      "#12: \"tenang\" for \"cool mood\" is acceptable, but \"terganggu\" for \"upset\" is weak. Consider \"resah/tertekan\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "52ded57c82e2",
+      "quickFacts:glaser": "2cd92df19f5d",
+      "distribution:seriouslyfish": "51e7050d3a69",
+      "distribution:glaser": "8ac5e370436e",
+      "habitat:seriouslyfish": "e2a4bf68e2f8",
+      "aquariumSize:seriouslyfish": "8e908dc7c7e0",
+      "maintenance:seriouslyfish": "5f69966879ea",
+      "waterConditions:seriouslyfish": "3de3768bdef5",
+      "diet:seriouslyfish": "9c19cf20b9ac",
+      "diet:glaser": "9335441fc1a0",
+      "behaviour:seriouslyfish": "b81aa834741a",
+      "behaviour:glaser": "bbf3ba7e8662",
+      "dimorphism:seriouslyfish": "f281e3421eeb",
+      "reproduction:seriouslyfish": "397d35e041c5",
+      "notes:seriouslyfish": "f06edce46bc5",
+      "notes:glaser": "bbdf792782c6",
+      "references:seriouslyfish": "d981080a5215"
+    }
   },
   "datnioides-pulcher": {
     "at": "2026-11-07",

@@ -11,6 +11,58 @@
     "brazil",
     "tocantins"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Tocantins"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Areias near the confluence with rio Tocantins, Porto Nacional, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon, Lower Amazon, Tocantins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Tocantins"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10392625,
+      "total": 2,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -50.625,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

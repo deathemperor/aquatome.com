@@ -15,6 +15,211 @@
     "kenya",
     "democratic-republic-of-the-congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EG",
+        "SD",
+        "UG",
+        "RW",
+        "KE",
+        "TZ",
+        "CD"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The dwarf Egyptian mouth-brooder, Pseudocrenilabrus multicolor, is a small cichlid from Egypt, Sudan, Uganda, Rwanda, Kenya and Tanzania.",
+          "countries": [
+            "EG",
+            "SD",
+            "UG",
+            "RW",
+            "KE",
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Egypt, Rwanda, Uganda, Sudan, Tanzania, Kenya and DR Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4285761,
+      "total": 103,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "KE",
+          48
+        ],
+        [
+          "UG",
+          24
+        ],
+        [
+          "BI",
+          11
+        ],
+        [
+          "RW",
+          9
+        ],
+        [
+          "EG",
+          3
+        ],
+        [
+          "TZ",
+          3
+        ],
+        [
+          "CD",
+          2
+        ],
+        [
+          "SD",
+          2
+        ],
+        [
+          "SS",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          -4.21875,
+          10,
+          0
+        ],
+        [
+          29.53125,
+          -2.8125,
+          9,
+          8
+        ],
+        [
+          29.53125,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          29.53125,
+          0,
+          4,
+          4
+        ],
+        [
+          29.53125,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          29.53125,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          30.9375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          30.9375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          30.9375,
+          0,
+          3,
+          3
+        ],
+        [
+          30.9375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          32.34375,
+          0,
+          7,
+          7
+        ],
+        [
+          32.34375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          32.34375,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          32.34375,
+          11.25,
+          2,
+          2
+        ],
+        [
+          33.75,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          33.75,
+          -1.40625,
+          13,
+          13
+        ],
+        [
+          33.75,
+          0,
+          20,
+          20
+        ],
+        [
+          35.15625,
+          -1.40625,
+          7,
+          7
+        ],
+        [
+          35.15625,
+          0,
+          9,
+          9
+        ],
+        [
+          36.5625,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

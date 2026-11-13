@@ -12,6 +12,158 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "VE"
+      ],
+      "regions": [
+        "Orinoco",
+        "Amazon",
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to parts of Brazil and Venezuela.",
+          "countries": [
+            "BR",
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has been collected from the Rio Orinoco (Rio Apure) and Amazon (Rio Negro) basins.",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Amazon",
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2419330,
+      "total": 72,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "BR",
+          50
+        ],
+        [
+          "VE",
+          17
+        ],
+        [
+          "CO",
+          4
+        ],
+        [
+          "GY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          4.21875,
+          8,
+          4
+        ],
+        [
+          -67.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          47,
+          47
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -52.03125,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
