@@ -31,13 +31,13 @@ function github(dir: string, runs: Run[]) {
  * A stand-in for `gh`: the repository's ENGINE_EVERY_MINUTES (`every`), GitHub's runs of engine.yml (github()), whose
  * `-q` filters it runs with jq as gh does, and whether it fails when asked for the setting.
  */
-function gh(dir: string, o: { every: string; ghFails?: boolean }) {
+function gh(dir: string, o: { every: string; ghFails?: boolean; listFails?: boolean }) {
   writeFileSync(join(dir, 'gh'), `#!/bin/sh
 cmd="$1 $2"; url="$2"; q=
 while [ $# -gt 0 ]; do [ "$1" = -q ] || [ "$1" = --jq ] && q="$2"; shift; done
 case "$cmd" in
   "variable list") ${o.ghFails ? 'echo "HTTP 502" >&2; exit 1' : `printf '%s\\n' '${o.every}'`} ;;
-  "run list") jq -r "$q" '${dir}/runs.json' ;;
+  "run list") ${o.listFails ? 'echo "HTTP 502" >&2; exit 1' : `jq -r "$q" '${dir}/runs.json'`} ;;
   api*) id=$(echo "$url" | sed -E 's|.*/runs/([0-9]+)/jobs|\\1|'); jq -r "$q" "${dir}/jobs-$id.json" ;;
   "workflow run") echo started > '${dir}/started' ;;
   *) echo "unexpected: gh $cmd" >&2; exit 2 ;;
@@ -50,7 +50,7 @@ esac
  * after an hourly check that found none due; undefined for none in the last 30 runs) or GitHub's runs as they were
  * (`runs`). Says whether it started a cycle, and what it printed.
  */
-const due = (o: { every: string; minutes?: number; runs?: Run[]; ghFails?: boolean }) => {
+const due = (o: { every: string; minutes?: number; runs?: Run[]; ghFails?: boolean; listFails?: boolean }) => {
   const dir = mkdtempSync(join(tmpdir(), 'aq-due-'))
   github(dir, o.runs ?? [{ id: 3, created: 5, cycle: 'skipped' }, ...(o.minutes === undefined ? [] : [{ id: 2, created: o.minutes, cycle: 'ran' as const }])])
   gh(dir, o)
@@ -91,6 +91,10 @@ test('with no pace to go by, nothing starts: a setting that is not a number, or 
   const down = due({ every: '350', minutes: 9999, ghFails: true })
   expect(down.started).toBe(false)
   expect(down.status).not.toBe(0)
+  // GitHub that won't list the runs isn't a sign that no cycle ran (Astra's read, 13 Nov): nothing starts.
+  const unlisted = due({ every: '350', minutes: 9999, listFails: true })
+  expect(unlisted.started).toBe(false)
+  expect(unlisted.status).not.toBe(0)
 }, SLOW)
 
 test('the starter has no figure of its own for the pace', () => {
@@ -113,8 +117,14 @@ test('a run counts as a cycle only if its cycle job ran: a check that waited in 
   expect(night.out).toContain('(last cycle 417 min ago, every 350 min)')
   // A cycle still running counts, from when its job started; a run waiting in the queue, its jobs not started, doesn't.
   expect(due({ every: '350', runs: [{ id: 9, created: 2, cycle: 'queued' }, { id: 8, created: 120, cycle: 'running' }] }).started).toBe(false)
+  // A run waiting on GitHub makes its own check, so the starter adds none behind it (Astra's read, 13 Nov); one waiting
+  // longer than the pace doesn't hold it.
   const queued = due({ every: '350', runs: [{ id: 9, created: 2, cycle: 'queued' }, { id: 8, created: 400, cycle: 'ran' }] })
-  expect(queued.out).toContain('(last cycle 400 min ago, every 350 min)')
+  expect(queued.started).toBe(false)
+  expect(queued.out).toContain('engine: not started: a run is waiting on GitHub, and its own check decides')
+  const stale = due({ every: '350', runs: [{ id: 9, created: 360, cycle: 'queued' }, { id: 8, created: 400, cycle: 'ran' }] })
+  expect(stale.started).toBe(true)
+  expect(stale.out).toContain('(last cycle 400 min ago, every 350 min)')
 }, SLOW)
 
 test('engine.yml\'s due check goes by the same script, and leaves its own run out', () => {
@@ -125,7 +135,8 @@ test('engine.yml\'s due check goes by the same script, and leaves its own run ou
   const dir = mkdtempSync(join(tmpdir(), 'aq-due-yml-'))
   mkdirSync(join(dir, 'scripts'))
   copyFileSync(join(ROOT, 'scripts/engine-last-cycle.sh'), join(dir, 'scripts/engine-last-cycle.sh'))
-  github(dir, NIGHT)
+  // Its own run counts as a cycle, its cycle job under way, were it not left out.
+  github(dir, [{ id: 43348201066, created: 0, cycle: 'running' }, ...NIGHT.slice(1)])
   gh(dir, { every: '350' })
   const run = (self: number) => {
     writeFileSync(join(dir, 'out'), '')
@@ -134,4 +145,9 @@ test('engine.yml\'s due check goes by the same script, and leaves its own run ou
   }
   // The 08:53 check itself, last night: the cycle was due.
   expect(run(43348201066)).toEqual({ said: 'last cycle started 417 min ago', out: 'run=true' })
+  // Another run's check, while that one is under way: not due.
+  expect(run(1).out).toBe('run=false')
+  // GitHub that won't list the runs: the step fails, and says nothing due.
+  gh(dir, { every: '350', listFails: true })
+  expect(run(43348201066).out).toBe('')
 }, SLOW)

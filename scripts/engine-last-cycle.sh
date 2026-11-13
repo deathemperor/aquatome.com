@@ -9,7 +9,10 @@
 # `engine-last-cycle.sh [<owner/repo>]`; in a run of engine.yml, that run itself is left out.
 set -euo pipefail
 REPO="${1:-${GITHUB_REPOSITORY:-deathemperor/aquatome.com}}"
-for id in $(gh run list -R "$REPO" -w engine.yml -L 30 --json databaseId -q '.[].databaseId'); do
+# Listed first: a listing that fails inside `for … in $(…)` isn't seen by set -e, and an empty list would read as no
+# cycle in 30 runs, which starts one (Astra's read, 13 Nov). Failing, this prints nothing and fails, and nothing starts.
+ids=$(gh run list -R "$REPO" -w engine.yml -L 30 --json databaseId -q '.[].databaseId')
+for id in $ids; do
   [ "$id" != "${GITHUB_RUN_ID:-}" ] || continue
   started=$(gh api "repos/$REPO/actions/runs/$id/jobs" -q '.jobs[] | select(.name == "Content cycle: rewrite" and .conclusion != "skipped" and ((.steps // []) | length) > 0) | .started_at')
   [ -n "$started" ] || continue

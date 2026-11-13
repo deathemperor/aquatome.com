@@ -21,6 +21,11 @@ case "$every" in '' | *[!0-9]*) log "engine: not started: no pace to go by (ENGI
 # Seconds since the last cycle started, as engine.yml's due check reads it (engine-last-cycle.sh); empty when none did in
 # the last 30 runs (30 hours of quick checks), which is overdue too.
 age="$(bash "$(dirname "$0")/engine-last-cycle.sh" "$REPO")"
+# A run already waiting on GitHub, younger than the pace, makes its own check when it starts: one started from here would
+# queue behind it and go as a cycle whatever that check found, a second one off the pace. A waiting run doesn't count as
+# a cycle, though (engine-last-cycle.sh), so the one it is behind sets the pace.
+waiting="$(gh run list -R "$REPO" -w engine.yml -L 10 --json status,createdAt -q "[.[] | select(.status != \"completed\" and (now - (.createdAt | fromdateiso8601)) < $((every * 60)))] | length")"
+if [ "${waiting:-0}" -gt 0 ]; then log "engine: not started: a run is waiting on GitHub, and its own check decides"; exit 0; fi
 if [ -z "$age" ] || [ "$age" -ge $((every * 60)) ]; then
   last="none in 30 runs"
   [ -z "$age" ] || last="$((age / 60)) min ago"
