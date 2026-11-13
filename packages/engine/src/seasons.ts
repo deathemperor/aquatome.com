@@ -1,7 +1,9 @@
 import { LANG, type WrittenLang } from '@aq/schema/langs'
 import { parse } from 'node-html-parser'
+import { LlmError } from './claude'
 import { fitKey, fitText, type FitState } from './fit'
 import type { Page } from './pages'
+import { errorKind } from './state'
 
 /**
  * The seasons a reader's country has, by the languages table's country codes (packages/schema/src/langs.ts). On 13 Nov 2026
@@ -63,9 +65,12 @@ export const REDO_TRIES = 2
  * The copies to write again, in order, up to `limit`. Every try counts against the limit and the copy's REDO_TRIES, one
  * that failed or still names a season too, so a copy its writer can't mend is tried twice and then waits for a person
  * (Astra's read: a failed try counted for neither, and every listed copy could be tried, every run). A usage limit
- * (`stop`) ends the run, and that try isn't counted.
+ * (`stop`, by default the engine's: state.ts errorKind) ends the run, and that try isn't counted; any other failed call is a try like the rest, or a copy whose writer
+ * always fails would stop the list every run, uncounted.
  */
-export async function redoCopies(ids: readonly string[], lang: WrittenLang, redone: Redone, o: { limit: number; write: (id: string) => Promise<object>; save: (r: Redone) => Promise<void>; stop: (e: unknown) => boolean; log?: (line: object) => void; now?: () => Date }): Promise<{ made: number; stopped?: string }> {
+const usageLimit = (e: unknown) => e instanceof LlmError && errorKind(e.message) === 'usage'
+
+export async function redoCopies(ids: readonly string[], lang: WrittenLang, redone: Redone, o: { limit: number; write: (id: string) => Promise<object>; save: (r: Redone) => Promise<void>; stop?: (e: unknown) => boolean; log?: (line: object) => void; now?: () => Date }): Promise<{ made: number; stopped?: string }> {
   let made = 0
   for (const id of ids) {
     if (made >= o.limit) break
@@ -74,7 +79,7 @@ export async function redoCopies(ids: readonly string[], lang: WrittenLang, redo
       r = await o.write(id)
     } catch (e) {
       const message = (e as Error).message.slice(0, 200)
-      if (o.stop(e)) { o.log?.({ id, stopped: message, again: true }); return { made, stopped: message } }
+      if ((o.stop ?? usageLimit)(e)) { o.log?.({ id, stopped: message, again: true }); return { made, stopped: message } }
       r = { id, failed: message }
     }
     o.log?.({ ...r, again: true })

@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
+import { LlmError } from '../src/claude'
 import { CHECKLIST, fitKey, fitText, type FitState } from '../src/fit'
 import { loadPages } from '../src/pages'
 import { copiesToRedo, foreignSeasons, readerCountries, readerSeasons, redoCopies, type Redone } from '../src/seasons'
@@ -91,7 +92,7 @@ test('every try at a copy counts, a failed one too, against the run\'s limit and
   const redone: Redone = {}
   const tried: string[] = []
   const run = (fail: (id: string) => Error | undefined, limit = 1) => redoCopies(['a', 'b', 'c'], 'id', redone, {
-    limit, save: async () => {}, stop: e => (e as Error).message === 'usage limit', now: () => new Date('2026-11-13T09:00:00Z'),
+    limit, save: async () => {}, now: () => new Date('2026-11-13T09:00:00Z'),
     write: async id => { tried.push(id); const e = fail(id); if (e) throw e; return { id } },
   })
   // The writer fails on the first: that try counts, and the run's limit of one is spent on it.
@@ -99,8 +100,13 @@ test('every try at a copy counts, a failed one too, against the run\'s limit and
   expect(tried).toEqual(['a'])
   expect(redone['id/a']).toEqual({ at: '2026-11-13T09:00:00.000Z', n: 1 })
   // A usage limit: the run ends there, and the copy's count stays as it was.
-  expect(await run(() => new Error('usage limit'), 3)).toEqual({ made: 0, stopped: 'usage limit' })
+  const out = 'claude failed: the engine\'s daily limit reached for localize-guides ($4.00 of $4 today)'
+  expect(await run(() => new LlmError(out), 3)).toEqual({ made: 0, stopped: out })
   expect(tried).toEqual(['a', 'a'])
   expect(redone['id/a']!.n).toBe(1)
   expect(redone['id/b']).toBeUndefined()
+  // Any other failed call is a try like the rest: the next copy goes on.
+  expect(await run(id => (id === 'a' ? new LlmError('claude failed (1): the reply was cut off') : undefined), 2)).toEqual({ made: 2 })
+  expect(tried).toEqual(['a', 'a', 'a', 'b'])
+  expect(redone['id/a']!.n).toBe(2)
 })

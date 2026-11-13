@@ -1150,7 +1150,7 @@ if (cmd === 'photo-privacy') {
   const again = values.only ? [] : copiesToRedo(await loadPages(join(ROOT, 'content'), [lang]), lang, fit, redone).filter(id => researched.includes(id))
   const limit = Number(values.limit ?? 20)
   const first = await redoCopies(again, lang, redone, {
-    limit, write: id => localizeTopic(ROOT, claudeCli, id, lang, { redo: true }), stop: e => e instanceof LlmError, log: x => console.log(JSON.stringify(x)),
+    limit, write: id => localizeTopic(ROOT, claudeCli, id, lang, { redo: true }), log: x => console.log(JSON.stringify(x)),
     save: r => writeFile(redoFile, `${JSON.stringify(Object.fromEntries(Object.entries(r).sort(([x], [y]) => x.localeCompare(y))), null, 1)}\n`),
   })
   let made = first.made
