@@ -143,4 +143,11 @@ test('a changed sentence that loses "bị", a pronoun with no noun for it, or pa
   const halfKept = await mendPart(llm([{ n: 1, vi: 'Lưu ý nhiệt độ.' }]), '<p>Cần lưu ý nhiệt độ, giá 5 đô la. Cá sống theo đàn.</p>', price)
   if (typeof halfKept === 'string') throw new Error(halfKept)
   expect(halfKept.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "cần"'])
+  // Astra's read of a43c68867: a word of the sentence before gained elsewhere, and a shorter frame inside a negated one.
+  const elsewhere = await mendPart(llm([{ n: 2, vi: 'Cá thường ăn con.' }]), '<p>Cá thường sống theo đàn. Cá ăn con của chúng, giá 5 đô la.</p>', price)
+  if (typeof elsewhere === 'string') throw new Error(elsewhere)
+  expect(elsewhere.unasked).toEqual(['Left out of sentence 2, and no finding asks for it to go: "chúng"'])
+  const inside = await mendPart(llm([{ n: 1, vi: 'Không cần nhiệt độ cao.' }]), '<p>Không cần lưu ý rằng nhiệt độ cao, giá 5 đô la. Cá sống theo đàn.</p>', price)
+  if (typeof inside === 'string') throw new Error(inside)
+  expect(inside.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "lưu ý"'])
 })

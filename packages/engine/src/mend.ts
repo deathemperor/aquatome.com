@@ -39,15 +39,17 @@ const NO_DROP: readonly FitCheck[] = ['units', 'words']
  */
 const JOINING = new Set('và hoặc thì là mà rằng các những của này đó bạn'.split(' '))
 /**
- * A pronoun may go only for the noun it stood for, once the sentence it pointed to has gone: "Chúng chứa thuốc trừ sâu"
- * written "Cây chứa thuốc trừ sâu" after "Cây giá 5 đô la một bó" went. One that goes with no noun from the sentence
- * before in its place is lost ("Cá ăn con của chúng" written "Cá ăn con", Astra's read).
+ * A pronoun may go only for the noun it stood for, once the sentence it pointed to has gone, and as the sentence's only
+ * change: "Chúng chứa thuốc trừ sâu" written "Cây chứa thuốc trừ sâu" after "Cây giá 5 đô la một bó" went. One that goes
+ * any other way is lost ("Cá ăn con của chúng" written "Cá thường ăn con", though "thường" was in the sentence before:
+ * Astra's read).
  */
 const PRONOUNS = new Set(['chúng', 'nó', 'họ'])
 /**
  * What only frames a sentence or links it to the one before ("Cần lưu ý rằng", "Vì thế"), when it goes whole: not under
  * a negation, and with no two of its words left together ("Không cần lưu ý nhiệt độ" written "Không lưu ý nhiệt độ"
- * lost "cần", Astra's read).
+ * lost "cần", Astra's read). A frame that doesn't go whole is counted whole, a shorter one inside it too ("Không cần lưu
+ * ý rằng" written "Không cần" isn't let off "lưu ý rằng").
  */
 const FRAMES = ['cần lưu ý rằng', 'cần lưu ý', 'lưu ý rằng', 'vì thế', 'vì vậy', 'do đó', 'tuy vậy', 'tuy nhiên', 'ngoài ra', 'cho nên'].map(f => f.split(' '))
 const NEGATIONS = new Set(['không', 'chẳng', 'chả', 'chưa', 'đừng'])
@@ -55,31 +57,35 @@ const words = (s: string) => plain(s).normalize('NFC').toLowerCase().match(/[\p{
 /** A sentence's words less the framing phrases that went whole from it. */
 const unframed = (ws: string[], after: string[]) => {
   const kept = new Set(after.slice(1).map((w, i) => `${after[i]} ${w}`))
-  const whole = (f: string[], i: number) => f.every((w, j) => ws[i + j] === w) && !NEGATIONS.has(ws[i - 1] ?? '') && !f.slice(1).some((w, j) => kept.has(`${f[j]} ${w}`))
   const out: string[] = []
   for (let i = 0; i < ws.length;) {
-    const f = FRAMES.find(f => whole(f, i))
-    if (f) i += f.length
-    else out.push(ws[i++]!)
+    const f = FRAMES.find(f => f.every((w, j) => ws[i + j] === w))
+    if (!f) { out.push(ws[i++]!); continue }
+    if (NEGATIONS.has(ws[i - 1] ?? '') || f.slice(1).some((w, j) => kept.has(`${f[j]} ${w}`))) out.push(...f)
+    i += f.length
   }
   return out
 }
+/** The pronoun `now` puts words of the sentence before in place of, when that is all that changed from `was`. */
+const renamed = (was: string[], now: string[], previous: string[]) => {
+  let a = 0
+  while (a < was.length && a < now.length && was[a] === now[a]) a++
+  let b = 0
+  while (b < was.length - a && b < now.length - a && was.at(-1 - b) === now.at(-1 - b)) b++
+  const out = was.slice(a, was.length - b), into = now.slice(a, now.length - b)
+  return out.length === 1 && PRONOUNS.has(out[0]!) && into.length && into.every(w => previous.includes(w)) ? out[0] : undefined
+}
 /**
  * The words a sentence lost that nothing covers: neither the new sentence, nor `covered` (quotes, listed drops), nor
- * JOINING, a whole frame, or a pronoun whose noun from `previous` (the sentence before, as it was) took its place.
+ * JOINING, a whole frame, or a pronoun put as its noun from `previous` (the sentence before, as it was).
  */
 export function lostWords(before: string, after: string, covered: readonly string[], previous = ''): string[] {
-  const was = words(before), now = words(after)
+  const now = words(after), was = unframed(words(before), now)
   const left = new Map<string, number>()
-  for (const w of unframed(was, now)) left.set(w, (left.get(w) ?? 0) + 1)
+  for (const w of was) left.set(w, (left.get(w) ?? 0) + 1)
   for (const w of [...now, ...covered.flatMap(words)]) if (left.has(w)) left.set(w, left.get(w)! - 1)
-  const had = new Set(was), antecedents = new Set(words(previous))
-  let nouns = new Set(now.filter(w => !had.has(w) && antecedents.has(w))).size
-  return [...left].flatMap(([w, n]) => {
-    if (n <= 0 || JOINING.has(w)) return []
-    if (PRONOUNS.has(w)) { const k = Math.min(n, nouns); nouns -= k; n -= k }
-    return Array<string>(Math.max(0, n)).fill(w)
-  })
+  const swapped = renamed(was, now, words(previous))
+  return [...left].flatMap(([w, n]) => (n > 0 && !JOINING.has(w) ? Array<string>(w === swapped ? n - 1 : n).fill(w) : []))
 }
 
 export type MendFinding = { check: FitCheck; quote: string; note: string }
