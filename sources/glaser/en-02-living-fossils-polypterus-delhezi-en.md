@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/02-living-fossils/polypterus-delhezi-en/
 title: Polypterus delhezi - Aquarium Glaser GmbH
-fetchedAt: 2026-11-11T09:40:38.492Z
+fetchedAt: 2026-11-13T18:40:39.925Z
 hash: 71e0a4735bbda74b892142948c54ea35383f34544f55dfd9e84f9b29c2a87be5
 ---
 

@@ -1,0 +1,25 @@
+{
+  "slug": "tom-cang-macrobrachium-brasiliense",
+  "name": "Tôm càng Macrobrachium brasiliense",
+  "altNames": [
+    "Tôm càng Paraguay"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Xuất xứ: Paraguay. Con lớn nhất dài khoảng 5 cm.</p>",
+    "notes:glaser": "<p>Đây là lần đầu loài tôm này được nhập về từ Paraguay. Rất có thể đây là một quần thể của Macrobrachium brasiliense, loài thỉnh thoảng vẫn được nhập từ Peru. Tôm Paraguay có càng thon hơn tôm Peru, ngoài điểm đó thì hai bên trông y hệt nhau.</p><p>Loài này dễ cho đẻ trong nước ngọt. Có lẽ từ giờ nó sẽ được nuôi rộng rãi hơn trước. Tôm từ hệ sông Paraguay không kén thông số nước như tôm từ hệ sông Amazon và Orinoco, nuôi ở pH trên 7 vẫn rất tốt.</p><p>Nguồn gốc tên gọi: Macrobrachium là tiếng Hy Lạp cổ, nghĩa là \"có cánh tay lớn\". brasiliense nghĩa là \"đến từ Brazil\".</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-14"
+  }
+}

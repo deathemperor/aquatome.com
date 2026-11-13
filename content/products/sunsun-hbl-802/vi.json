@@ -67,6 +67,49 @@
     "HBL-802 (in stock)": "HBL-802 (còn hàng)",
     "HBL-802 (out of stock)": "HBL-802 (hết hàng)"
   },
+  "reviews": {
+    "agree": [],
+    "differ": [],
+    "single": [
+      {
+        "text": "Một bài review nhắc phải đổ đầy nước vào lọc rồi mới cắm điện, vì chạy khô có thể làm hỏng mô tơ.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=SYQOGEtuf5k",
+            "t": 231
+          }
+        ]
+      },
+      {
+        "text": "Một bài review thấy lọc chạy tốt và không rò nước. Các khớp nối khít chứ không lỏng, ống ra nước xoay dễ cho vừa với bể, còn thân lọc treo chắc trên thành bể.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=SYQOGEtuf5k",
+            "t": 261
+          }
+        ]
+      },
+      {
+        "text": "Một bài review cho biết ngăn chứa vật liệu lọc giao về để trống, muốn dùng thì tự cho sứ lọc hay vật liệu riêng vào. Miếng mút kèm theo khá mỏng, bài review đó không ưng lắm.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=SYQOGEtuf5k",
+            "t": 166
+          }
+        ]
+      },
+      {
+        "text": "Một bài review khen cả hai đường hút nước đều có van chỉnh lưu lượng. Có điều mỗi lần vặn van là khí lọt vào lọc, kêu ọc ọc như cống thoát nước, đến khi khí ra hết thì tiếng kêu tự hết.",
+        "cites": [
+          {
+            "url": "https://www.youtube.com/watch?v=SYQOGEtuf5k",
+            "t": 291
+          }
+        ]
+      }
+    ],
+    "measured": []
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

@@ -1,0 +1,73 @@
+{
+  "id": "cryptarius-truncatus",
+  "scientificName": "Cryptarius truncatus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Cryptarius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "chao-phraya",
+    "indonesia",
+    "java",
+    "vietnam",
+    "mekong"
+  ],
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1358",
+      "html": "<ul><li>Scientific name: Cryptarius truncatus (Valenciennes, 1840)</li><li>Type locality: Java, Indonesia.</li><li>Size: 420 mm SL (16.5\")</li><li>IUCN Red List category: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1358",
+      "html": "<p>Western Central Pacific: estuaries and lower courses of rivers from the Chao Phraya to Sumatra and Java, including the lower Mekong.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1358",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1358",
+      "html": "<p>Histoire naturelle des poissons v. 15, pp 64.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "TR9RqveC0Hs",
+      "title": "Cryptarius truncatus",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "CqdJX5dUZNM",
+      "title": "Cryptarius Truncatus catfish",
+      "durationSec": 32,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YDQN6Lc3x_U",
+      "title": "feeding cryptarius truncatus",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XNvrwHJhuNY",
+      "title": "ปลากดคันหลาว Cryptarius truncatus",
+      "durationSec": 12,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-13"
+}

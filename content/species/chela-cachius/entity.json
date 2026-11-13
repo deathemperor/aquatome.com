@@ -15,189 +15,6 @@
     "nepal",
     "myanmar"
   ],
-  "dataCard": {
-    "tempC": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 18,
-          "max": 24
-        }
-      }
-    ],
-    "ph": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 6,
-          "max": 8
-        }
-      }
-    ],
-    "gh": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 2,
-          "max": 12
-        }
-      }
-    ],
-    "sizeCm": [
-      {
-        "source": "seriouslyfish",
-        "value": 5
-      }
-    ],
-    "tankCm": [
-      {
-        "source": "seriouslyfish",
-        "value": 90
-      }
-    ],
-    "difficulty": [
-      {
-        "source": "seriouslyfish",
-        "value": 2
-      }
-    ]
-  },
-  "sections": [
-    {
-      "key": "beforeYouBuy",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
-      "html": "<p>The neon hatchet fish, Chela cachius, is a deep-bodied cyprinid mostly recorded from the Ganges and Brahmaputra systems of India and Bangladesh. Its extremely deep body means it is unlikely to be confused with any related species, and it is the only valid member of the genus. A habitat generalist, it is an active schooling fish that is best kept in a group of at least 8-10 in a tank with a tightly-fitting cover, since it is an accomplished jumper.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
-      "html": "<p>Widespread in Pakistan, India, Nepal, Bangladesh and Myanmar although the majority of records are from the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh. Occurrences in Myanmar, in particular, are possibly erroneous.</p><p>Type locality is 'Ganges River about commencement of the Delta'.</p>"
-    },
-    {
-      "key": "habitat",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
-      "html": "<p>Something of a habitat generalist, this species has been collected from rivers, streams, ponds, oxbows, canals, ditches, beels, and tanks.</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
-      "html": "<p>An active species so even a small group needs an aquarium with minimum base dimensions of 90 × 30 cm (about 81 litres).</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
-      "html": "<p>Choice of décor is not especially critical though it tends to show better colouration in a heavily-planted set-up with a dark substrate.</p><p>The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong given its natural habitat preferences though it does seem to appreciate a degree of water movement, and the aquarium must have a tightly-fitting cover since this species is an accomplished jumper.</p>"
-    },
-    {
-      "key": "waterConditions",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
-      "html": "<ul><li>Temperature: 18–24°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li></ul>"
-    },
-    {
-      "key": "diet",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
-      "html": "<p>Wild fish are likely to feed on aquatic invertebrates and suchlike.</p><p>In the aquarium it's unfussy and will accept just about anything offered. Offer a balanced diet comprising good quality dried products along with small live and frozen foods such as Daphnia, Artemia and bloodworm.</p>"
-    },
-    {
-      "key": "behaviour",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
-      "html": "<p>Not an aggressive fish but may intimidate slow-moving or timid tankmates with its constant activity and vigorous feeding behaviour, meaning it's most appropriate for aquaria containing robust, similarly-sized fishes.</p><p>There are plenty of suitable choices including many cyprinids, loaches, cichlids, catfish and characins, although as always when selecting a compatible community of fish proper research is essential.</p><p>It's a schooling species by nature and ideally should be kept in a group of at least 8-10 specimens which will not only make the fish less nervous but result in a more effective, natural looking display.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
-      "html": "<p>Unrecorded.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
-      "html": "<p>This species is unlikely to be confused with any related species given its extremely deep body, which fits approximately 3.2-4.6 times in the standard length.</p><p>It is currently the only valid member of the genus but it is possible that additional taxa exist, particularly in Myanmar, while a number of former species are currently contained within the related genera of the Laubuca assemblage, to which C. cachius is closely related. Phylogenetic studies suggest the existence of a monophyletic clade consisting of the genera Devario, Chela, Laubuca, Microdevario and Microrasbora plus the genus Betadevario.</p>"
-    },
-    {
-      "key": "references",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
-      "html": "<ul><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches. An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Shrestha, T. K. (2008). Ichthyology of Nepal. A study of fishes of the Himalayan waters. Himalayan Ecosphere, Kathmandu, Nepal., 389 pp., 72 pls.</li></ul>"
-    }
-  ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/a48121cace55ebb1.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/a48121cace55ebb1-480.webp",
-      "width": 600,
-      "height": 381,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
-      "caption": "Male individual in the aquarium.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/fe6283cea126a12d.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/fe6283cea126a12d-480.webp",
-      "width": 650,
-      "height": 366,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
-      "caption": "Female specimen.",
-      "source": "seriouslyfish"
-    }
-  ],
-  "videos": [
-    {
-      "youtubeId": "GGBRYWh6QC8",
-      "title": "ネオンブルーハチェットバルブ　Silver hatchet chela　Chela cachius",
-      "durationSec": 51,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "cuzkBqTWUHI",
-      "title": "Chela cachius from Mahanadi river",
-      "durationSec": 14,
-      "lang": "en"
-    }
-  ],
-  "productSlots": [
-    {
-      "category": "be-ca",
-      "keywords": [
-        "bể cá 90cm"
-      ]
-    },
-    {
-      "category": "loc",
-      "keywords": [
-        "lọc thùng bể 90cm",
-        "máy lọc cho bể cá"
-      ]
-    },
-    {
-      "category": "thuc-an",
-      "keywords": [
-        "thức ăn cá nhỏ",
-        "artemia đông lạnh"
-      ]
-    },
-    {
-      "category": "cay-thuy-sinh",
-      "keywords": [
-        "cây thủy sinh nổi",
-        "cây thủy sinh dễ trồng"
-      ]
-    }
-  ],
-  "updatedAt": "2026-11-06",
   "range": {
     "native": {
       "countries": [
@@ -377,5 +194,239 @@
         ]
       ]
     }
-  }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      },
+      {
+        "source": "glaser",
+        "value": 1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/chela_cachius_en/",
+      "html": "<p>This pretty flying barb is imported only very occasionally. The species attains a length of about 5 cm and is a peaceful schooling fish that swims in the upper layers of the water column.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
+      "html": "<p>The neon hatchet fish, Chela cachius, is a deep-bodied cyprinid mostly recorded from the Ganges and Brahmaputra systems of India and Bangladesh. Its extremely deep body means it is unlikely to be confused with any related species, and it is the only valid member of the genus. A habitat generalist, it is an active schooling fish that is best kept in a group of at least 8-10 in a tank with a tightly-fitting cover, since it is an accomplished jumper.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
+      "html": "<p>Widespread in Pakistan, India, Nepal, Bangladesh and Myanmar although the majority of records are from the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh. Occurrences in Myanmar, in particular, are possibly erroneous.</p><p>Type locality is 'Ganges River about commencement of the Delta'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/chela_cachius_en/",
+      "html": "<p>It originates from the north of India. In the wild it swims along with the Zebrafish (Danio rerio) and the Ruby barb (Pethia conchonius).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
+      "html": "<p>Something of a habitat generalist, this species has been collected from rivers, streams, ponds, oxbows, canals, ditches, beels, and tanks.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
+      "html": "<p>An active species so even a small group needs an aquarium with minimum base dimensions of 90 × 30 cm (about 81 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
+      "html": "<p>Choice of décor is not especially critical though it tends to show better colouration in a heavily-planted set-up with a dark substrate.</p><p>The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong given its natural habitat preferences though it does seem to appreciate a degree of water movement, and the aquarium must have a tightly-fitting cover since this species is an accomplished jumper.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/chela_cachius_en/",
+      "html": "<p>Regarding keeping, the fish is not demanding at all. It can be compared best with the Zebrafish (Danio rerio) or the Ruby barb (Pethia conchonius).</p><p>The coloration is very interesting. If the tank is dimly lit, the fish looks rather drab. If the light comes from the front, the silvery scales shine in all colours of the rainbow. The very special feature of the species is the deep blue colour in the inner layers of the skin. In a properly lit tank, Chela cachius is a real eyecatcher. Depending on the angle of the light the fish shines in many colours or blooms in bright blue.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
+      "html": "<ul><li>Temperature: 18–24°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/chela_cachius_en/",
+      "html": "<p>The water chemistry is of lesser meaning and the temperature may range between 18 and 28°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
+      "html": "<p>Wild fish are likely to feed on aquatic invertebrates and suchlike.</p><p>In the aquarium it's unfussy and will accept just about anything offered. Offer a balanced diet comprising good quality dried products along with small live and frozen foods such as Daphnia, Artemia and bloodworm.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/chela_cachius_en/",
+      "html": "<p>The fish feed readily on any type of usual fish food, but only from the water surface or while it is sinking. Chela cachius do not feed from the bottom of the tank.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
+      "html": "<p>Not an aggressive fish but may intimidate slow-moving or timid tankmates with its constant activity and vigorous feeding behaviour, meaning it's most appropriate for aquaria containing robust, similarly-sized fishes.</p><p>There are plenty of suitable choices including many cyprinids, loaches, cichlids, catfish and characins, although as always when selecting a compatible community of fish proper research is essential.</p><p>It's a schooling species by nature and ideally should be kept in a group of at least 8-10 specimens which will not only make the fish less nervous but result in a more effective, natural looking display.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
+      "html": "<p>This species is unlikely to be confused with any related species given its extremely deep body, which fits approximately 3.2-4.6 times in the standard length.</p><p>It is currently the only valid member of the genus but it is possible that additional taxa exist, particularly in Myanmar, while a number of former species are currently contained within the related genera of the Laubuca assemblage, to which C. cachius is closely related. Phylogenetic studies suggest the existence of a monophyletic clade consisting of the genera Devario, Chela, Laubuca, Microdevario and Microrasbora plus the genus Betadevario.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/chela_cachius_en/",
+      "html": "<p>Lexicon: Chela: after the indigenous name for the genus in Bengal. cachius: after the indigenous name for the species in Bengal.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
+      "html": "<ul><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches. An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Shrestha, T. K. (2008). Ichthyology of Nepal. A study of fishes of the Himalayan waters. Himalayan Ecosphere, Kathmandu, Nepal., 389 pp., 72 pls.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a48121cace55ebb1.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a48121cace55ebb1-480.webp",
+      "width": 600,
+      "height": 381,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
+      "caption": "Male individual in the aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fe6283cea126a12d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fe6283cea126a12d-480.webp",
+      "width": 650,
+      "height": 366,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chela-cachius",
+      "caption": "Female specimen.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "GGBRYWh6QC8",
+      "title": "ネオンブルーハチェットバルブ　Silver hatchet chela　Chela cachius",
+      "durationSec": 51,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cuzkBqTWUHI",
+      "title": "Chela cachius from Mahanadi river",
+      "durationSec": 14,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 90cm",
+        "máy lọc cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nổi",
+        "cây thủy sinh dễ trồng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
 }

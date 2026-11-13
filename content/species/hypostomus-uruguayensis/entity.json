@@ -1,0 +1,64 @@
+{
+  "id": "hypostomus-uruguayensis",
+  "scientificName": "Hypostomus uruguayensis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "uruguay",
+    "uruguay-river",
+    "brazil",
+    "rio-uruguay",
+    "argentina",
+    "parana",
+    "paraguay",
+    "bolivia",
+    "pilcomayo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 26
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1338",
+      "html": "<ul><li>Scientific name: Hypostomus uruguayensis Reis, Weber &amp; Malabarba, 1990</li><li>IUCN Red List: Least Concern (last assessed 2020)</li><li>Breeding: unreported</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1338",
+      "html": "<p>South America: Uruguay River basin. Also recorded in the La Plata basin: Uruguay, Paraná (including Middle Paraná and Bermejo), Paraguay (including Pilcomayo, Upper Pilcomayo, and Upper Paraguay with the Cuiabá and Manso rivers). Type locality: Rio Uruguay at \"Rancho da Amizade,\" São Borja, Rio Grande do Sul, Brazil.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1338",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1338",
+      "html": "<p>Etymology: Greek hypo = under + Greek stoma = mouth. The species name refers to the river in which the type specimen was collected.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1338",
+      "html": "<p>Revue Suisse de Zoologie v. 97 (no. 3), pp 760, Figs. 1, 29-31.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-13"
+}

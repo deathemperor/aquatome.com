@@ -1,0 +1,210 @@
+{
+  "id": "corbicula-fluminea",
+  "scientificName": "Corbicula fluminea",
+  "order": "Venerida",
+  "family": "Cyrenidae",
+  "genus": "Corbicula",
+  "group": "other",
+  "places": [
+    "asia",
+    "china",
+    "japan",
+    "taiwan",
+    "philippines",
+    "south-korea"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 7.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1,
+          "max": 2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/freshwater-clams-care/",
+      "html": "<ul><li>Common names: Freshwater mussels, Basket clams, Asian clams, Asiatic clams</li><li>Scientific name: Corbicula spp.</li><li>Minimum tank: 10 gallons (~40 litres)</li><li>Keeping: Easy-Medium; breeding: Medium</li><li>Nitrate: less than 20 ppm</li><li>Diet: algae eater/omnivore (filter-feeding)</li><li>Temperament: peaceful and solitary</li><li>Colour: golden tan, light or dark brown</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/freshwater-clams-care/",
+      "html": "<p>Freshwater clams are affordable. The average purchase size is typically 1.5–2.5 cm in diameter.</p><p>Look for specimens with thick, ridged shells, free of chips, cracks or holes, in the ideal colour of golden tan, light brown or dark brown. Quite often the shells have white streaks or a little green algae coating.</p><p>Healthy clams close their shells when poked to protect the slight white/pink inner tissue, so checking for shell movement increases the chance of selecting healthy specimens.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/freshwater-clams-care/",
+      "html": "<p>Corbicula species are native to East Asia, occurring in China, Japan, Taiwan, the Philippines and parts of South Korea. As an introduced/invasive species they are present in South America, North America, West and East Europe and North Africa; they can be found on every continent except Antarctica.</p><p>Important: NEVER release freshwater clams into the wild. Corbicula fluminea has become one of the most successful invasive species worldwide and is listed among the “worst invaders” within Europe.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/freshwater-clams-care/",
+      "html": "<p>Corbicula is a genus of freshwater and brackish water clams in the family Corbiculidae (also known as Cyrenidae), order Venerida. They occur in rivers, streams and lakes. Corbicula species can live in fresh and brackish waters.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/freshwater-clams-care/",
+      "html": "<p>A tank of at least 10 gallons (~40 litres) is needed; anything smaller causes problems because of their unique feeding behaviour. Larger tanks help keep the water chemistry stable and allow several clams to be stocked; tanks of more than 20 gallons (80 litres) are preferable.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/freshwater-clams-care/",
+      "html": "<p>Freshwater clams are an obligate filter-feeder and need plenty of particulate matter, phytoplankton and suspended detritus. Opinions on their difficulty are mixed: they are easy if kept in a well-established tank with enough food, but lack of food, poor acclimation or large swings in parameters can kill them, releasing large amounts of ammonia. They should not be treated like snails – drop and forget.</p><p>Test the water regularly to keep ammonia, nitrite and nitrate in check, and carry out partial water changes of at least 20% every two weeks.</p><p>Do not treat the tank with copper-based medications. If necessary, move the clams to a separate tank and return them only when copper has been completely removed by chemical filtration. Proper acclimation before adding them is a must.</p><p>Gently tap the shell from time to time: a live clam moves or closes its shell, a dead one does not respond. A shell slightly ajar is fine, too wide open is a sign of death. A dead clam smells awful (like rotten eggs); remove it quickly, because it causes an ammonia spike.</p><p>Corbicula tolerate desiccation when low temperature and high humidity coincide, but not at high temperatures: 100% mortality was recorded after 48 h at 25 and 30 °C for Corbicula fluminea.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/freshwater-clams-care/",
+      "html": "<p>Temperature: ideal 18–26 °C. They prefer cooler temperatures. Their tolerance is widely perceived to be 2–36 °C, and they have 75% survival when exposed to 0 °C water for up to 4 weeks.</p><p>pH: best at 7.0–8.0. They can tolerate pH 6.5 and lower, but should not be left in acidic water for weeks, as acidic water slowly dissolves the shell. The harder the water, the better for the shell.</p><p>Hardness: 5–20 dKH helps maintain a healthy shell.</p><p>Corbicula can live in fresh and brackish waters with a salinity up to 10–17 ppm.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/freshwater-clams-care/",
+      "html": "<p>Lighting: they do not need high lighting, but it should be bright enough to support the growth of their food, green water algae. Remove any UV sterilizer. LED or T5/T8 lighting can be used, for at least 8 hours daily.</p><p>Substrate: a fine substrate such as sand, in a layer of at least 5 cm so they can burrow.</p><p>Water flow: they appreciate a well-oxygenated tank with moderate flow to filter large amounts of particulate matter and plankton. Low flow and low dissolved oxygen have been linked with high mortality. The current should be neither too slow nor too fast; place them where the water moves steadily.</p><p>Plants: they do not eat healthy plants, but their burrowing can displace some. Floating plants, plants that do not need substrate (Anubias, Java fern, Java moss, Marimo moss balls, Subwassertang) or artificial plants are best.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/freshwater-clams-care/",
+      "html": "<p>The main diet is particulate matter and suspended microalgae filtered from the water column with the paired siphons. Clams do not like tanks that are “too clean”: the water needs plenty of tiny debris, detritus and decaying matter floating in it.</p><p>They can also pedal-feed on organic matter on the bottom, but it is not their favourite way; if they do this regularly, there is not enough current or food in the current.</p><p>They readily accept powdered foods: spirulina powder, zooplankton, Golden Pearls (5–50 micron), phytoplankton, powdered rotifers. In an emergency, finely crush flakes, pellets and algae wafers.</p><p>Feed them 2–3 times a week. If they stop accepting food, check whether a curious or nippy tankmate is bothering them, as they will not feed when agitated. Offer calcium supplements to strengthen the shell.</p><ul><li>Diet type: Omnivore (Ăn tạp)</li><li>Food preference: Algae</li></ul>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/freshwater-clams-care/",
+      "html": "<p>Freshwater clams are peaceful and solitary and will not harm fish and invertebrates. They embed themselves partially or completely in fine sand, spending much of their time in the substrate; at other times they move briefly around the tank or sit on top of the substrate. They filter large amounts of water to feed and breathe, improving water clarity, and there are cases of clams clearing green water within a short time. Growth is slow but steady if they are healthy and well fed.</p><p>Tank mates: they are suitable for any community tank (Bể cộng đồng) with calm, peaceful fish (e.g. Panda Garra, Pygmy Cory, Otocinclus). Do not keep them with puffers, cichlids, loaches and other aggressive fish. Suitable shrimp include Vampire, Bamboo, Amano, Ghost, Cherry, Blue tiger, Snowball, Caridina cf. babaulti, Blue Velvet and Malawa shrimp. Other snails such as Black Devil, Brotia pagodula, Rabbit, Nerite, Mystery, Ramshorn and Malaysian trumpet snails are fine. Keep them away from all crayfish (even Dwarf Mexican crayfish), most freshwater crabs and predatory shrimp such as Macrobrachium, which can be very aggressive to clams.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/freshwater-clams-care/",
+      "html": "<p>Under optimal conditions Corbicula will breed in the aquarium. They are self-fertile simultaneous hermaphrodites, producing sperm that fertilises the eggs internally. Most larval development occurs in the gills and body cavity of adults. Together with early maturation (3–6 months), this contributes to their successful invasion of new habitats. Corbicula can broadcast up to 570 mucoid larvae per day per individual, and more than 68,000 per year. The larvae metamorphose into juveniles and then adults.</p><p>Warning: some clams produce microscopic larvae that attach to fish gills (potentially causing whirling disease) and drop off later. Therefore DO NOT collect freshwater clams from local ponds or rivers, as their larvae can be parasitic. Choose livebearing clams only (like Corbicula fluminalis and Corbicula fluminea). When doing water changes, be careful how you dispose of the tank water and, if possible, do not dump it into drains, since they can be invasive.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/freshwater-clams-care/",
+      "html": "<p>Freshwater clams are bivalve mollusks of the order Venerida, family Corbiculidae, known as basket clams for their concentric-ribbed shells. Corbicula fluminalis and Corbicula fluminea are the most common in aquariums and are often confused. Taxonomy at species level is very difficult, with more than 460 species. C. fluminea has 7–14 ribs per centimetre while C. fluminalis bears 13–28; C. fluminalis is said to be rounder and C. fluminea slightly flatter.</p><p>The shell is about 5–7 cm, golden tan, light or dark brown, sometimes with irregular white streaks, with two equal valves held by a ligament and closed by two adductor muscles. They have a powerful muscular burrowing foot. Depending on the species, lifespan ranges from 1 to 5 years.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/3f57fd41517f2fe4.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/3f57fd41517f2fe4-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/freshwater-clams-care/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "hs0oqwC0kug",
+      "title": "Should You Keep Freshwater Clams in Your Aquarium ?",
+      "durationSec": 659,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pgdnSSCXFSk",
+      "title": "Almeja enterrándose en el sustrato Golden Clam - Corbicula Fluminea",
+      "durationSec": 43,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GGRCmCJqL34",
+      "title": "Corbicula fluminea filter feeding and moving",
+      "durationSec": 145,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HoPX0YwOnO4",
+      "title": "Corbicula fluminea burying  into the sand",
+      "durationSec": 196,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "cát nền bể thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn bột cho hến",
+        "bột spirulina",
+        "thức ăn vi tảo cho tép ốc"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "lọc bể thủy sinh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước amoniac nitrit nitrat",
+        "test KH GH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

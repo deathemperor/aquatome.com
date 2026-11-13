@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/fisharchive/pelvicachromis-kribensis-nyete-formerly-p-taeniatus-nyete/
 title: Pelvicachromis kribensis “Nyété” (formerly P. taeniatus “Nyété”) - Aquarium Glaser GmbH
-fetchedAt: 2026-11-11T09:39:31.661Z
+fetchedAt: 2026-11-13T18:38:57.281Z
 hash: 0e27d340ef5f6134987a950b48203a593fdbb5567ab078035457aabb71c0e26f
 ---
 

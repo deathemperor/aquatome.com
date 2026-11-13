@@ -3,7 +3,10 @@
   "name": "Cá bảy màu",
   "altNames": [
     "Cá khổng tước",
-    "Cá guppy"
+    "Cá guppy",
+    "Cá bảy màu orange line",
+    "Wild guppy Rio Morichal",
+    "Orange line"
   ],
   "sections": {
     "quickFacts:sprucepets": "<ul><li>Tuổi thọ: 2 đến 3 năm</li><li>Nguồn gốc: bản địa Nam Mỹ, cá bán làm cảnh đều là cá nhân giống trong bể</li><li>Tính cách: hiền</li><li>Tầng bơi: tầng mặt và tầng giữa</li><li>Thức ăn: ăn tạp</li><li>Sinh sản: đẻ con</li></ul>",
@@ -32,7 +35,10 @@
     "notes:aquatome": "<p>Bảy màu koi có nhiều biến thể, chẳng hạn tuxedo, red koi, platinum koi và kohaku koi. Đây là dòng khá mới. Không rõ ai lai ra nó và lai từ lúc nào, nhưng có lẽ nó ra đời ở Nhật. Bản albino kohaku koi có mắt đỏ của cá bạch tạng, thân lại ngả vàng nhạt và trắng hơn hẳn các dòng koi thường. Con cái dòng koi có mõm đỏ, người Nhật gọi là <em>kuchi beni</em>, nghĩa là \"son môi\". Cá chép koi mang kiểu hoa văn này cũng được gọi bằng tên đó.</p>",
     "beforeYouBuy:aquatome": "<p>Dòng koi giờ có mặt ở hầu hết các cuộc thi cá bảy màu và cá đẻ con. Tiệm cá cũng hay bán vì màu đẹp, dễ bán. Theo chuẩn thi cho dòng kohaku koi đuôi ngắn, một cặp đẹp cần có:</p><ul><li>Con đực dài 1,8 cm tính từ mõm tới gốc vây đuôi, thân chắc nhưng vẫn thanh.</li><li>Vây đuôi tròn đều thành hình bầu dục. Vây có chỗ bị bằng hay bị lỗi thì mất điểm.</li><li>Vây lưng hình lá cờ, đầu tròn, dài vừa chạm gốc vây đuôi.</li><li>Con cái to hơn con đực, dáng đẹp, cùng màu với con đực và cùng màu mắt. Nếu một con albino mà con kia không thì cặp đó bị trừ điểm.</li><li>Cá phải khỏe, bơi nhanh nhẹn, vì giám khảo chấm cả độ sung sức.</li></ul>",
     "maintenance:aquatome": "<p>Bạch tạng là một dị tật di truyền: con vật mất hết sắc tố. Người ta chọn lọc qua nhiều lứa để giữ dị tật này lại thành dòng albino. Cá albino yếu hơn và khó giữ dòng hơn nhiều. Người mới tập cho cá đẻ thì không nên bắt đầu bằng dòng này, để dành cho người đã có kinh nghiệm.</p>",
-    "dimorphism:aquatome": "<p>Ở dòng kohaku koi, con đực có hoa văn đỏ trên phần lớn thân, kể cả vây lưng và vây đuôi. Ngực và phần bụng phía sau thường màu vàng nhạt. Con đực đẹp nhất thì gần như cả thân vàng nhạt, chỉ có vây, vệt đỏ trên lưng và mõm là đỏ. Dòng này gần với dòng full red, nhưng khác ở chỗ gonopodium không được có màu đỏ. Con cái ít đỏ hơn hẳn, thường chỉ có màu ở vây đuôi, vệt trên lưng và mõm, còn vây lưng và vây hậu môn thường không có màu.</p>"
+    "dimorphism:aquatome": "<p>Ở dòng kohaku koi, con đực có hoa văn đỏ trên phần lớn thân, kể cả vây lưng và vây đuôi. Ngực và phần bụng phía sau thường màu vàng nhạt. Con đực đẹp nhất thì gần như cả thân vàng nhạt, chỉ có vây, vệt đỏ trên lưng và mõm là đỏ. Dòng này gần với dòng full red, nhưng khác ở chỗ gonopodium không được có màu đỏ. Con cái ít đỏ hơn hẳn, thường chỉ có màu ở vây đuôi, vệt trên lưng và mõm, còn vây lưng và vây hậu môn thường không có màu.</p>",
+    "distribution:glaser": "<p>Dòng cá bảy màu hoang dã này có nguồn gốc từ sông Rio Morichal ở Venezuela.</p>",
+    "beforeYouBuy:glaser": "<p>Người chơi chuyên các dòng cá đẻ con hoang dã còn gọi con này là \"orange line\". Nó là một dạng cá bảy màu hoang dã rất nhỏ và thon, không phải dòng đột biến do người lai tạo. Các quần thể cá bảy màu hoang dã khác thường khỏe, còn dòng này thì có tiếng là hơi yếu. Đây là cá nano rất hợp cho người đã chơi lâu năm.</p>",
+    "maintenance:glaser": "<p>Giữ lượng vi khuẩn trong nước càng thấp càng tốt. Đây là nguyên tắc cơ bản, và nếu lơ là thì cá orange line bệnh rất nhanh.</p>"
   },
   "quality": {
     "score": 0.8,
@@ -40,7 +46,8 @@
     "bySource": {
       "sprucepets": 0.93,
       "seriouslyfish": 0.8,
-      "aquatome": 0.82
+      "aquatome": 0.82,
+      "glaser": 0.85
     }
   }
 }

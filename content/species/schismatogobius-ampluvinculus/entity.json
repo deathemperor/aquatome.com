@@ -18,6 +18,12 @@
       "html": "<p>A contrasting black-and-white goby from Taiwan. Every Schismatogobius has an individual coloration: no two specimens look exactly alike, and they can change their colour spectacularly. Available size: 2–5 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/stiphodon-ornatus-copy",
+      "html": "<p>A small rare goby that has an amazing ability to change its color to suit its surroundings. Like many gobies, it enjoys highly oxygenated water and clean cool water.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/schismatogobius_ampluvinculus_en/",
@@ -36,10 +42,22 @@
       "html": "<p>S. ampluvinculus is a subtropical species and should therefore be kept under temperate conditions.</p>"
     },
     {
+      "key": "equipment",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/stiphodon-ornatus-copy",
+      "html": "<p>Housing:</p><ul><li>Large tanks with good water flow</li><li>Clean water</li><li>Sandy substrates</li></ul><p>Having a sandy substrate is quite important as they really like to burrow themselves when stressed.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/schismatogobius_ampluvinculus_en/",
       "html": "<p>Feeding is unproblematic: they readily take frozen and live food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/stiphodon-ornatus-copy",
+      "html": "<p>Very social, should be kept in groups. Beware of keeping them with dwarf shrimps.</p><p>Good with: small nano fish, rice fish, large invertebrates, and other gobies and loaches that do not out-compete it for food, such as Stiphodon.</p>"
     },
     {
       "key": "reproduction",
@@ -48,7 +66,18 @@
       "html": "<p>So far no successful breeding report has appeared for any of the about 10 Schismatogobius species, although they spawn quite readily. The extremely tiny larvae probably develop only in a marine environment.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/1eae6917f2433103.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/1eae6917f2433103-480.webp",
+      "width": 1000,
+      "height": 750,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/stiphodon-ornatus-copy",
+      "source": "bwaquatics"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "XzEIWqr8N9A",
@@ -105,5 +134,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-13"
 }

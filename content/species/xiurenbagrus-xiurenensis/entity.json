@@ -1,0 +1,97 @@
+{
+  "id": "xiurenbagrus-xiurenensis",
+  "scientificName": "Xiurenbagrus xiurenensis",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Xiurenbagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "zhujiang-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
+      "html": "<ul><li>Synonym: Liobagrus xiurenensis</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
+      "html": "<p>Asia: China, Zhujiang River. The species is not well known beyond its type locality, the Xiuren River, Pearl River drainage, Guangxi Province, China.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
+      "html": "<p>There are three species in this genus: X. dorsalis, X. xiurenensis and X. gigas. Dorsal spines (total): 1; dorsal soft rays (total): 6; anal soft rays: 7–8; vertebrae: 41–44. The body is elongated, round in front and gradually flattened towards the back, covered by a membrane. The dorsal fin is short; the eyes are very small and covered by a skin membrane. Colouration: the edges of the dorsal, anal and caudal fins are yellowish; the back is brownish and the belly yellowish.</p><p>Etymology: the specific name xiurenensis has the suffix -ensis, denoting place: Xiuren River, Pearl River drainage, Guangxi Province, China, the type locality.</p><p>IUCN Red List: assessed as Data Deficient as the species is not well known beyond its type locality. Potential threats include overfishing and pollution.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a9a0bce1deab8603.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a9a0bce1deab8603-480.webp",
+      "width": 500,
+      "height": 239,
+      "licence": "dùng với sự cho phép",
+      "author": "Freshwater Fishes of China in Coloured Illustrations / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
+      "caption": "Xiurenbagrus xiurenensis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5d428a7f3780d122.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5d428a7f3780d122-480.webp",
+      "width": 600,
+      "height": 243,
+      "licence": "dùng với sự cho phép",
+      "author": "Zhou Hang / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
+      "caption": "Xiurenbagrus xiurenensis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/6c70835c98f037a1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6c70835c98f037a1-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Drake Shaw / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
+      "caption": "Xiurenbagrus xiurenensis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-13"
+}

@@ -14,7 +14,8 @@
     "thailand",
     "chao-phraya",
     "laos",
-    "mekong"
+    "mekong",
+    "vietnam"
   ],
   "range": {
     "native": {
@@ -217,7 +218,7 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/datnioides_microlepis_en/",
-      "html": "<p>Large predator reaching a maximum length of around 50 cm; a wonderful show fish for large aquaria. Available size: 4–6 cm. Origin: Indonesia.</p>"
+      "html": "<ul><li>Maximum length around 50 cm.</li><li>Large predator, a show fish for large aquaria.</li><li>Origin: Indonesia.</li></ul>"
     },
     {
       "key": "distribution",
@@ -301,7 +302,7 @@
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/datnioides_microlepis_en/",
-      "html": "<p>Lexicon: Datnioides means \"similar to Datnia\"; Datnia is another genus of fish. microlepis means \"with small scales\". pulcher means \"beautiful\".</p>"
+      "html": "<p>Datnioides means \"similar to Datnia\"; Datnia is another genus of fish. microlepis means \"with small scales\". pulcher means \"beautiful\".</p>"
     },
     {
       "key": "references",
@@ -376,5 +377,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11"
+  "updatedAt": "2026-11-13"
 }

@@ -1,0 +1,66 @@
+{
+  "id": "macrobrachium-brasiliense",
+  "scientificName": "Macrobrachium brasiliense",
+  "order": "Decapoda",
+  "family": "Palaemonidae",
+  "genus": "Macrobrachium",
+  "group": "shrimp",
+  "places": [
+    "south-america",
+    "paraguay"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
+      "html": "<p>Origin: Paraguay. Maximum length of the animals is around 5 cm.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium_brasiliense_paraguay_en/",
+      "html": "<p>For the first time this species of shrimp could be imported from Paraguay. Most probably it represents a population of Macrobrachium brasiliense. That species was imported occasionally already from Peru. Compared with the Peruvian specimens those from Paraguay have more slender arms, otherwise they look identical.</p><p>This species can be easily bred in freshwater. Possibly it becomes more spread in aquaria now than before, because animals from the Paraguay system are not so demanding regarding the water chemistry like those from the Amazonia/Orinoco system and can be kept very well at a pH higher than 7.</p><p>Lexicon: Macrobrachium: ancient Greek, means \"with big arm\". brasiliense: means \"coming from Brazil\".</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "TJ9WP1wQAgw",
+      "title": "Macrobrachium brasiliense dd 9-2-2019",
+      "durationSec": 79,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "oVtV4E2TFhk",
+      "title": "Macrobrachium brasiliense",
+      "durationSec": 36,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể tép",
+        "máy lọc nước hồ thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tôm càng",
+        "thức ăn tép"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}

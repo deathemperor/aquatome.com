@@ -3280,10 +3280,323 @@
     "attempts": 0
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1329": {
+    "entityIds": [
+      "species/hypostomus-oculeus"
+    ],
+    "updatedAt": "2026-11-13T18:05:55.223Z",
+    "hash": "5cd5bd47c3cbadeae258c33bb5e38f4bcf784785bf0a3fffff5adcd9190e452c",
+    "processedHash": "5cd5bd47c3cbadeae258c33bb5e38f4bcf784785bf0a3fffff5adcd9190e452c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=133": {
+    "entityIds": [
+      "species/liobagrus-formosanus"
+    ],
+    "updatedAt": "2026-11-13T18:06:45.645Z",
+    "hash": "7c4d7c3838b6d59712b6f9fb112d4077e57010c1ff13c229df2fc62cfddc85e2",
+    "processedHash": "7c4d7c3838b6d59712b6f9fb112d4077e57010c1ff13c229df2fc62cfddc85e2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1330": {
+    "entityIds": [
+      "species/hypostomus-pyrineusi"
+    ],
+    "updatedAt": "2026-11-13T18:08:32.658Z",
+    "hash": "3ecd6e8c4a7bd7586aee55100f0e627670050aa8564c55bc32577c05d0d9a2ae",
+    "processedHash": "3ecd6e8c4a7bd7586aee55100f0e627670050aa8564c55bc32577c05d0d9a2ae",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1331": {
+    "entityIds": [
+      "species/hypostomus-taphorni"
+    ],
+    "updatedAt": "2026-11-13T18:09:10.822Z",
+    "hash": "342998b105212bdc51d515090d8be78315496b20638cd483b1970ce313ac4ea8",
+    "processedHash": "342998b105212bdc51d515090d8be78315496b20638cd483b1970ce313ac4ea8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1332": {
+    "entityIds": [
+      "species/hypostomus-sculpodon"
+    ],
+    "updatedAt": "2026-11-13T18:09:43.067Z",
+    "hash": "3c679bdb3f788bbeee9d9e5e02f438d88d58881bb9124832253287629ee2f2b2",
+    "processedHash": "3c679bdb3f788bbeee9d9e5e02f438d88d58881bb9124832253287629ee2f2b2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1333": {
+    "entityIds": [
+      "species/leptoancistrus-canensis"
+    ],
+    "updatedAt": "2026-11-13T18:10:20.488Z",
+    "hash": "04f2a0f042874cb9d1127b755d9024ce140e501f6112d8349eb140a88529ef2b",
+    "processedHash": "04f2a0f042874cb9d1127b755d9024ce140e501f6112d8349eb140a88529ef2b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1334": {
+    "entityIds": [
+      "species/lithoxus-lithoides"
+    ],
+    "updatedAt": "2026-11-13T18:11:00.821Z",
+    "hash": "4e4b33389d9d928152e2c755ac12f81a157eb2a4155ec503cbf46de9771e8bbe",
+    "processedHash": "4e4b33389d9d928152e2c755ac12f81a157eb2a4155ec503cbf46de9771e8bbe",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1335": {
+    "entityIds": [
+      "species/hypoptopoma-spectabile"
+    ],
+    "updatedAt": "2026-11-13T18:11:51.821Z",
+    "hash": "229c4d809723872626a85a7087c7b3c14d4875f2be5949e93b1417d233dd6779",
+    "processedHash": "229c4d809723872626a85a7087c7b3c14d4875f2be5949e93b1417d233dd6779",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1336": {
+    "entityIds": [
+      "species/neoplecostomus-microps"
+    ],
+    "updatedAt": "2026-11-13T18:13:33.925Z",
+    "hash": "c7af446cf90097cb2b94c81fce26b5aa7b7adf15ca34c259cf7436e6d010e893",
+    "processedHash": "c7af446cf90097cb2b94c81fce26b5aa7b7adf15ca34c259cf7436e6d010e893",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1337": {
+    "entityIds": [
+      "species/hypostomus-roseopunctatus"
+    ],
+    "updatedAt": "2026-11-13T18:14:29.816Z",
+    "hash": "14ce009f20ac3daa8c74a74700b93054532e7d463812e4416657db4f9e308c0a",
+    "processedHash": "14ce009f20ac3daa8c74a74700b93054532e7d463812e4416657db4f9e308c0a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1338": {
+    "entityIds": [
+      "species/hypostomus-uruguayensis"
+    ],
+    "updatedAt": "2026-11-13T18:15:24.153Z",
+    "hash": "47c18cff73d45ed351e6cdb278a81dd1e3ddc54338474cb2f156e78222d48d1e",
+    "processedHash": "47c18cff73d45ed351e6cdb278a81dd1e3ddc54338474cb2f156e78222d48d1e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1339": {
+    "entityIds": [
+      "species/peckoltia-brevis"
+    ],
+    "updatedAt": "2026-11-13T18:16:15.388Z",
+    "hash": "c5bf6b06cd6a5f8b213f78d5d86ff0b9aea301cbf5292d2dfd075e4f3a7907ea",
+    "processedHash": "c5bf6b06cd6a5f8b213f78d5d86ff0b9aea301cbf5292d2dfd075e4f3a7907ea",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=134": {
     "entityIds": [],
-    "updatedAt": "2026-11-10T21:27:46.194Z",
-    "status": "error",
-    "attempts": 0,
-    "error": "no archived copy (HTTP 429)"
+    "updatedAt": "2026-11-13T18:17:11.332Z",
+    "hash": "bb19adaa54a37dbf97efe93a3ea3d9b51dbe34436fd1b45d4e58c4c4140235d6",
+    "processedHash": "bb19adaa54a37dbf97efe93a3ea3d9b51dbe34436fd1b45d4e58c4c4140235d6",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1340": {
+    "entityIds": [
+      "species/pogonopoma-parahybae"
+    ],
+    "updatedAt": "2026-11-13T18:18:08.386Z",
+    "hash": "0cf543c9cdbc54db24f4804f768f1f935342ae46d3587d547cd672d7430ed8da",
+    "processedHash": "0cf543c9cdbc54db24f4804f768f1f935342ae46d3587d547cd672d7430ed8da",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1341": {
+    "entityIds": [
+      "species/pogonopoma-wertheimeri"
+    ],
+    "updatedAt": "2026-11-13T18:18:50.772Z",
+    "hash": "6d93566b17b612bdfcfcf28eab0b3c7107f0aeaba72d142278b35103ea316e06",
+    "processedHash": "6d93566b17b612bdfcfcf28eab0b3c7107f0aeaba72d142278b35103ea316e06",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1342": {
+    "entityIds": [],
+    "updatedAt": "2026-11-13T18:19:32.869Z",
+    "hash": "166310d3341f7d6be5437aad2061600979743a807bd87647eff70f7c9c46db0e",
+    "processedHash": "166310d3341f7d6be5437aad2061600979743a807bd87647eff70f7c9c46db0e",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1343": {
+    "entityIds": [
+      "species/pseudolithoxus-nicoi"
+    ],
+    "updatedAt": "2026-11-13T18:20:07.625Z",
+    "hash": "ce25b377695b180dc6e56c46974f8775b89bfa49b7758e4ac35061d9ee7d4359",
+    "processedHash": "ce25b377695b180dc6e56c46974f8775b89bfa49b7758e4ac35061d9ee7d4359",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1344": {
+    "entityIds": [],
+    "updatedAt": "2026-11-13T18:21:32.936Z",
+    "hash": "832634ab1a507e344f25acdd677a88d88afb5d02baffcb71f272d9cc46239804",
+    "processedHash": "832634ab1a507e344f25acdd677a88d88afb5d02baffcb71f272d9cc46239804",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1345": {
+    "entityIds": [
+      "species/synodontis-leopardus"
+    ],
+    "updatedAt": "2026-11-13T18:22:30.803Z",
+    "hash": "68b82f52b575515c8a23dc4a850932eaa8dcbd6ecf9fa224adbafc6228a5ba9a",
+    "processedHash": "68b82f52b575515c8a23dc4a850932eaa8dcbd6ecf9fa224adbafc6228a5ba9a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1346": {
+    "entityIds": [],
+    "updatedAt": "2026-11-13T18:23:29.354Z",
+    "hash": "9a0049dce72e15c5cdda2c42ea31ef5be68d32b90a8e392774c7a1c169707644",
+    "processedHash": "9a0049dce72e15c5cdda2c42ea31ef5be68d32b90a8e392774c7a1c169707644",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1347": {
+    "entityIds": [
+      "species/euchilichthys-astatodon"
+    ],
+    "updatedAt": "2026-11-13T18:24:11.767Z",
+    "hash": "1c622af350b61b0f0c51d7d7b4301df63a80af8004ebb0af74adc63d864031ac",
+    "processedHash": "1c622af350b61b0f0c51d7d7b4301df63a80af8004ebb0af74adc63d864031ac",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1348": {
+    "entityIds": [
+      "species/pterygoplichthys-etentaculatus"
+    ],
+    "updatedAt": "2026-11-13T18:24:51.772Z",
+    "hash": "fdd00463443fa05b2de1d540a6d820886fe3d6890192544952ab56f765311bd2",
+    "processedHash": "fdd00463443fa05b2de1d540a6d820886fe3d6890192544952ab56f765311bd2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1349": {
+    "entityIds": [
+      "species/pterygoplichthys-zuliaensis"
+    ],
+    "updatedAt": "2026-11-13T18:25:31.910Z",
+    "hash": "adfd6063cfff375648e0d0163a2e52751e56213200c2de09fbaa25817697458a",
+    "processedHash": "adfd6063cfff375648e0d0163a2e52751e56213200c2de09fbaa25817697458a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=135": {
+    "entityIds": [
+      "species/corydoras-fowleri"
+    ],
+    "updatedAt": "2026-11-13T18:26:13.694Z",
+    "hash": "1b8e99d164df9cc4a0855684310922d4cfc8301bf79ddb92302c8b17790558f8",
+    "processedHash": "1b8e99d164df9cc4a0855684310922d4cfc8301bf79ddb92302c8b17790558f8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1350": {
+    "entityIds": [
+      "species/otocinclus-flexilis"
+    ],
+    "updatedAt": "2026-11-13T18:27:11.908Z",
+    "hash": "de59164772c55be6d481e1eedf182e65bdf36dc0899a8a7a3a2c68dd910e6189",
+    "processedHash": "de59164772c55be6d481e1eedf182e65bdf36dc0899a8a7a3a2c68dd910e6189",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1351": {
+    "entityIds": [
+      "species/corydoras-eques"
+    ],
+    "updatedAt": "2026-11-13T18:28:00.384Z",
+    "hash": "c0db742d4428f746d918bc5156679daa50ae05f01d297369e744b355a9ced6b0",
+    "processedHash": "c0db742d4428f746d918bc5156679daa50ae05f01d297369e744b355a9ced6b0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1352": {
+    "entityIds": [
+      "species/pangasius-larnaudii"
+    ],
+    "updatedAt": "2026-11-13T18:28:54.714Z",
+    "hash": "ab983b2cf5b44fb23f1b1d1111fed81b3bad8575a8a17d69c357019a2755fda8",
+    "processedHash": "ab983b2cf5b44fb23f1b1d1111fed81b3bad8575a8a17d69c357019a2755fda8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1353": {
+    "entityIds": [
+      "species/spectracanthicus-murinus"
+    ],
+    "updatedAt": "2026-11-13T18:30:08.584Z",
+    "hash": "7784bfe2254e36682ff579808e72c48b3010b4c5a91b03461135ede2ac1f5616",
+    "processedHash": "7784bfe2254e36682ff579808e72c48b3010b4c5a91b03461135ede2ac1f5616",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1354": {
+    "entityIds": [
+      "species/oligancistrus-punctatissimus"
+    ],
+    "updatedAt": "2026-11-13T18:31:04.525Z",
+    "hash": "621db64a2fab74c5cd55e96249a5fc21fc063302594936c73fe379c74bb0d4ee",
+    "processedHash": "621db64a2fab74c5cd55e96249a5fc21fc063302594936c73fe379c74bb0d4ee",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1355": {
+    "entityIds": [
+      "species/chrysichthys-auratus"
+    ],
+    "updatedAt": "2026-11-13T18:31:50.972Z",
+    "hash": "a86c3e29d97fbb88c6085512243a022bf5185f3785165698aeef627fec283aeb",
+    "processedHash": "a86c3e29d97fbb88c6085512243a022bf5185f3785165698aeef627fec283aeb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1356": {
+    "entityIds": [
+      "species/plotosus-canius"
+    ],
+    "updatedAt": "2026-11-13T18:33:05.095Z",
+    "hash": "2af62a34952fd0fa89f7d9c12c7751d27639d514fe002697d01ffb658394d049",
+    "processedHash": "2af62a34952fd0fa89f7d9c12c7751d27639d514fe002697d01ffb658394d049",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1357": {
+    "entityIds": [],
+    "updatedAt": "2026-11-13T18:33:48.837Z",
+    "hash": "e9a02697014af525ba810ca4eb3167f4fe150dc85c7bd1ed1055633cf4767dfe",
+    "processedHash": "e9a02697014af525ba810ca4eb3167f4fe150dc85c7bd1ed1055633cf4767dfe",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1358": {
+    "entityIds": [
+      "species/cryptarius-truncatus"
+    ],
+    "updatedAt": "2026-11-13T18:33:59.753Z",
+    "hash": "2e69643af67d8ea96423b35bfc2723e449d5ce25991bd669fdd248335ff6a817",
+    "processedHash": "2e69643af67d8ea96423b35bfc2723e449d5ce25991bd669fdd248335ff6a817",
+    "status": "processed",
+    "attempts": 0
   }
 }

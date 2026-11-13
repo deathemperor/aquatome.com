@@ -1,0 +1,25 @@
+{
+  "slug": "ca-tra-mot-dom",
+  "name": "Cá tra một đốm",
+  "altNames": [
+    "One Spot Pangasius",
+    "Plettet Hajmalle"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Pangasius larnaudii Bocourt, 1866</li><li>Tên thường gọi: cá tra một đốm (One Spot Pangasius), Plettet Hajmalle (Đan Mạch)</li><li>Nơi thu mẫu chuẩn: miền bắc Thái Lan.</li><li>Tên đồng nghĩa: Pangasius burgini, Pangasius taeniura, Pangasius taeniurus</li><li>Sách Đỏ IUCN: Ít quan tâm (đánh giá lần cuối năm 2011)</li></ul>",
+    "distribution:planetcatfish": "<p>Châu Á: lưu vực sông Mekong và sông Chao Phraya.</p>",
+    "equipment:planetcatfish": "<p>Loài này cần nhiều khoảng trống để bơi. Nên trồng thêm ít cây cho cá bớt nhát và đỡ hoảng.</p>",
+    "dimorphism:planetcatfish": "<p>Con cái thân tròn đầy hơn con đực.</p>",
+    "reproduction:planetcatfish": "<p>Chưa thấy ai cho loài này đẻ.</p>",
+    "notes:planetcatfish": "<p>Loài này có một đốm sẫm ngay trên vây ngực. Ở những con lớn, đốm này có thể nhạt dần.</p>",
+    "references:planetcatfish": "<p>Nouvelles Archives du Muséum d'Histoire Naturelle, Paris v. 2, pp 15, Pl. 1 (figs. 2, 2a).</p>"
+  },
+  "quality": {
+    "score": 0.88,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.88
+    },
+    "reason": "thin"
+  }
+}

@@ -16,7 +16,8 @@
     "trinidad",
     "french-guiana",
     "antigua-and-barbuda",
-    "netherlands-antilles"
+    "netherlands-antilles",
+    "rio-morichal"
   ],
   "range": {
     "native": {
@@ -3222,6 +3223,12 @@
       ]
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/wild_guppy_rio_morichal_en/",
+      "html": "<p>Among specialists for wild forms of livebearers it is also known as \"orange line\". These fish are a very tiny and slender variety of wild guppy, but not an artificial sport. In contrast to other wild populations of the guppy, this one is known to be a bit sensitive. They are perfect nano fish for experienced hobbyists.</p>"
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/guppy-fish-species-profile-5078901",
@@ -3232,6 +3239,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/poecilia-reticulata",
       "html": "<p>Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.</p><p>Type locality is 'Guayre River, Caracas, Venezuela'.</p><p>Wild examples are relatively rare in the aquarium hobby, most fish being commercially bred.</p><p>Introduced or feral populations also exist in around fifty other countries across the globe, including the UK.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/wild_guppy_rio_morichal_en/",
+      "html": "<p>This wild guppy comes from the Rio Morichal in Venezuela.</p>"
     },
     {
       "key": "habitat",
@@ -3271,6 +3284,12 @@
       "refs": [
         0
       ]
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/wild_guppy_rio_morichal_en/",
+      "html": "<p>Take care that the bacterial content of the water column is as low as possible. Orange lines get sick very fast if this basic rule is neglected.</p>"
     },
     {
       "key": "waterConditions",
@@ -3454,7 +3473,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08",
+  "updatedAt": "2026-11-13",
   "refs": [
     {
       "url": "https://www.youtube.com/watch?v=-Ws7RudcQ4U",

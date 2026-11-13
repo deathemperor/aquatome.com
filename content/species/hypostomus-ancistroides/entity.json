@@ -366,13 +366,6 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "glaser",
-        "value": {
-          "min": 16,
-          "max": 28
-        }
-      },
-      {
         "source": "scotcat",
         "value": {
           "min": 16,
@@ -382,12 +375,12 @@
     ],
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 25
-      },
-      {
         "source": "scotcat",
         "value": 27.5
+      },
+      {
+        "source": "glaser",
+        "value": 25
       }
     ],
     "ph": [
@@ -403,12 +396,6 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_ancistroides_en/",
-      "html": "<p>A slender, very rare Hypostomus imported from Paraguay. The subtropical species tolerates temperatures between 16 and 28°C and attains a maximum length of about 20-25 cm.</p>"
-    },
-    {
-      "key": "quickFacts",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_ancistroides.htm",
       "html": "<ul><li>Conservation status: Least Concern (LC) (IUCN 2022)</li></ul>"
@@ -416,8 +403,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_ancistroides_en/",
-      "html": "<p>Imported from Paraguay.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_ancistroides_en-2/",
+      "html": "<p>Origin: Paraguay.</p>"
     },
     {
       "key": "distribution",
@@ -432,6 +419,12 @@
       "html": "<p>One of the smallest in this genus, it would make a good aquarium inhabitant in a large aquarium. As this genus is in the main messy eaters, good water quality and filtration need to be maintained. A lower water temperature is advised for this species.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_ancistroides_en-2/",
+      "html": "<p>This is a subtropical species and can therefore be kept in an unheated indoor tank.</p>"
+    },
+    {
       "key": "diet",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_ancistroides.htm",
@@ -442,6 +435,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_ancistroides.htm",
       "html": "<p>Description: Body deep; greatest body depth contained 4.2 to 4.7 and caudal peduncle depth 9.8 to 10.0 times in SL. Mouth inferior. Ground colour brown, with dark-brown blotches on the body, especially on the dorsal region. Fins dark brown with black spots.</p><p>Etymology: The specific name ancistroides is Neo-Latin from eidos, form or shape, referring to its resemblance to some species of Ancistrus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_ancistroides_en-2/",
+      "html": "<p>Suggestion of a common name: Whiptail pleco.</p>"
     },
     {
       "key": "references",
@@ -494,5 +493,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-13"
 }

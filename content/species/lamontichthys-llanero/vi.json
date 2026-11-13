@@ -13,13 +13,19 @@
     "behaviour:seriouslyfish": "<p>Cá không dữ, nhưng có lẽ không hợp để thả chung với cá hiền trong bể thường, vì nó đòi hỏi điều kiện nuôi khá riêng. Có thể nuôi chung với cá characin hiền chịu được nước chảy, cá cichlid ưa nước chảy như Retroculus hay Steatocranus ở châu Phi, và các loài cá lau kiếng khác cần điều kiện tương tự. Với đồng loại thì nó cũng đủ hiền, nuôi theo đàn được.</p>",
     "dimorphism:seriouslyfish": "<p>Chưa rõ.</p>",
     "reproduction:seriouslyfish": "<p>Loài này đã đẻ được trong bể, nhưng thông tin chi tiết còn ít. Cá đẻ trứng lên mặt phẳng, có khi đẻ cả lên kính bể.</p>",
-    "notes:seriouslyfish": "<p>Loài này rất ít khi thấy bán.</p>"
+    "notes:seriouslyfish": "<p>Loài này rất ít khi thấy bán.</p>",
+    "quickFacts:glaser": "<ul><li>Xuất xứ: Venezuela</li><li>Kích thước: khoảng 15 cm, chưa tính các tia đuôi kéo dài. Mấy tia này có khi còn dài hơn cả thân.</li></ul>",
+    "beforeYouBuy:glaser": "<p>Cá Lamontichthys rất nhạy cảm và cần nước cực kỳ sạch. Chúng còn hay bỏ ăn, rõ ràng là do tính nhát. Chỉ một động tĩnh tương đối nhỏ cũng đủ làm chúng nhịn ăn hàng giờ liền. Vì thế, loài này nuôi riêng trong bể một loài là tốt nhất.</p>",
+    "distribution:glaser": "<p>Venezuela. Loài này mang tên vùng Llanos ở Venezuela, nơi có nó.</p>",
+    "reproduction:glaser": "<p>Nuôi riêng trong bể một loài thì cá có thể đẻ được. Nói đại khái, cách chúng sinh sản giống chi Sturisoma, một chi họ hàng gần.</p>",
+    "notes:glaser": "<p>Lamontichthys: tên đặt để vinh danh Francesca La Monte (ichthys là tiếng Hy Lạp cổ, nghĩa là \"cá\"). llanero: lấy theo vùng Llanos ở Venezuela, nơi có loài này.</p>"
   },
   "quality": {
     "score": 0.78,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.78
+      "seriouslyfish": 0.78,
+      "glaser": 0.9
     }
   }
 }

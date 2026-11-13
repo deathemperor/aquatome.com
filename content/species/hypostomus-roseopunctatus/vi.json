@@ -1,0 +1,30 @@
+{
+  "slug": "ca-lau-kieng-dom-hong",
+  "name": "Cá lau kiếng đốm hồng",
+  "altNames": [
+    "Cá tỳ bà đốm hồng",
+    "Rose-spotted Pleco"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Hypostomus roseopunctatus Reis, Weber &amp; Malabarba, 1990</li><li>Tên thường gọi: Rose-spotted Pleco (cá lau kiếng đốm hồng)</li><li>Sách Đỏ IUCN: Ít quan tâm (đánh giá gần nhất năm 2020)</li></ul>",
+    "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, trong lưu vực sông Uruguay thuộc hệ thống sông La Plata. Người ta đã gặp nó ở khu vực sông Uruguay, sông Miriñay và thượng nguồn sông Uruguay (sông Pelotas). Mẫu dùng để mô tả loài được thu ở sông Rio Pelotas, chỗ con đường từ Esmeralda đi Anita Garibaldi, bang Rio Grande do Sul, Brazil.</p>",
+    "habitat:planetcatfish": "<p>Nơi sống có ảnh chụp: sông Rio Parana, bang Corrientes, Argentina.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa có tài liệu nào ghi lại việc loài này đẻ.</p>",
+    "notes:planetcatfish": "<p>Nguồn gốc tên: tên chi ghép từ hai chữ Hy Lạp, hypo là bên dưới và stoma là miệng. Tên loài nói tới những đốm màu hồng trên thân cá (roseus là màu hồng, đỏ, còn punctatus là đốm nhỏ). Ở Đan Mạch, loài này còn có tên Rosenplettet Sugemalle.</p>",
+    "references:planetcatfish": "<p>Revue Suisse de Zoologie v. 97 (no. 3), pp 756, Figs. 2, 25-28.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-14"
+  }
+}

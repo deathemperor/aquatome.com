@@ -1,20 +1,27 @@
 {
   "slug": "ca-bong-schismatogobius-ampluvinculus",
   "name": "Cá bống Schismatogobius ampluvinculus",
-  "altNames": [],
+  "altNames": [
+    "Cá bống rồng nhỏ",
+    "Micro Dragon Goby"
+  ],
   "sections": {
     "quickFacts:glaser": "<p>Cá bống Đài Loan có màu đen trắng tương phản. Mỗi con Schismatogobius mang một kiểu màu riêng, không có hai con nào giống hệt nhau, và chúng có thể đổi màu rất ngoạn mục. Cá bán ra thường dài 2–5 cm.</p>",
     "distribution:glaser": "<p>Đài Loan.</p>",
     "habitat:glaser": "<p>Cá Schismatogobius lớn chỉ sống ở nước ngọt. Chúng thường sống thành đàn lớn ở những đoạn nông của suối, sông có nước chảy. Gặp động là chúng uốn mình chui xuống nền rất nhanh. Riêng S. ampluvinculus thì sống ở nơi đáy sỏi cuội.</p>",
     "waterConditions:glaser": "<p>S. ampluvinculus là loài cận nhiệt đới, nên nuôi ở nước mát.</p>",
     "diet:glaser": "<p>Cho ăn không có gì khó. Chúng ăn ngay đồ đông lạnh lẫn đồ tươi sống.</p>",
-    "reproduction:glaser": "<p>Giống Schismatogobius có khoảng 10 loài, chúng đẻ khá dễ, nhưng đến nay chưa có ai báo lại việc nuôi lên được cá con ở loài nào. Cá bột cực nhỏ, có lẽ chỉ lớn được trong nước biển.</p>"
+    "reproduction:glaser": "<p>Giống Schismatogobius có khoảng 10 loài, chúng đẻ khá dễ, nhưng đến nay chưa có ai báo lại việc nuôi lên được cá con ở loài nào. Cá bột cực nhỏ, có lẽ chỉ lớn được trong nước biển.</p>",
+    "quickFacts:bwaquatics": "<p>Đây là một loài cá bống nhỏ và hiếm. Nó đổi màu rất tài để hòa vào nền xung quanh. Giống nhiều loài bống khác, nó thích nước sạch, mát và giàu oxy.</p>",
+    "equipment:bwaquatics": "<p>Bể nuôi:</p><ul><li>Bể lớn, dòng chảy mạnh</li><li>Nước sạch</li><li>Nền cát</li></ul><p>Nền cát khá quan trọng, vì khi bị stress chúng rất thích vùi mình xuống cát.</p>",
+    "behaviour:bwaquatics": "<p>Loài này rất thích sống theo bầy, nên nuôi thành nhóm. Cẩn thận khi thả chung với tép cảnh cỡ nhỏ.</p><p>Nuôi chung hợp với: cá nano nhỏ, cá lúa, tép, ốc cỡ lớn, và các loài bống, chạch khác không giành ăn với nó, chẳng hạn Stiphodon.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.6,
     "indexable": false,
     "bySource": {
-      "glaser": 0.85
+      "glaser": 0.85,
+      "bwaquatics": 0.6
     },
     "reason": "thin"
   }

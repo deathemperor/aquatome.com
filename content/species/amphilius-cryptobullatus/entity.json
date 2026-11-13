@@ -1,0 +1,109 @@
+{
+  "id": "amphilius-cryptobullatus",
+  "scientificName": "Amphilius cryptobullatus",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Amphilius",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "zambia",
+    "luongo-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 13.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_cryptobullatus.htm",
+      "html": "<ul><li>Demersal (bottom-dwelling) species</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_cryptobullatus.htm",
+      "html": "<p>Africa: Luongo River, upper Congo River basin, Zambia. Type locality: Luongo River, Upper Zaire system, above and at Route 74 crossing, 10º11'S, 29º43'E, Zambia.</p><p>Amphilius cryptobullatus is only from the Luongo River, Zambia. The other records from the Luapula region in Zambia are probably A. uranoscopous (Skelton, pers. comm.). This species is thus assumed to be restricted to the Luongo River.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_cryptobullatus.htm",
+      "html": "<p>Can be kept in aquaria with a small grained gravel or sand substrate, and well planted with a slight current to mimic their natural habitat. Provide rockwork and caves. This genus prefers cooler temperatures in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_cryptobullatus.htm",
+      "html": "<p>Mosquito larvae, Tubifex, Cyclops, Daphnia, grindal worms, vegetable food, tablet and flake.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_cryptobullatus.htm",
+      "html": "<p>It differs from all other Amphilius species in the development and extreme large size of the bilateral bony swimbladder capsules (Skelton 1986).</p><p>Etymology: the specific name cryptobullatus: cryptos, hidden; bullatus, bubbled, referring to \"prominent but externally unevident large cup-like swimbladder encapsulations\".</p><p>IUCN Red List: Least Concern, but does need updating (IUCN 2010). Amphilius species are not really targeted.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_cryptobullatus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2015. FishBase. www.fishbase.org (04/2016).</p><p>Moelants, T. 2010. Amphilius cryptobullatus. The IUCN Red List of Threatened Species 2010.</p><p>Skelton, P.H., 1993. A complete guide to the freshwater fishes of southern Africa. Southern Book Publishers. 388 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng cho bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho bể cá",
+        "sỏi nhỏ trang trí bể"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "trùng chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-13"
+}
