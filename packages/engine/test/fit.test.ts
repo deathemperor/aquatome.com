@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { CHECKLIST, doseGroups, fitCounts, fitDue, fitFindings, fitKey, fitOrder, fitPrompt, fitReport, fitRules, fitText, hasDose, keepCautions, keepDoses, keepFit, productOf, readFit, runFit, type FitCheck, type FitDose } from '../src/fit'
+import { CHECKLIST, dealerNotice, doseGroups, fitCounts, fitDue, fitFindings, fitKey, fitOrder, fitPrompt, fitReport, fitRules, fitText, hasDose, keepCautions, keepDoses, keepFit, productOf, readFit, runFit, type FitCheck, type FitDose } from '../src/fit'
 import { LlmError, type Llm } from '../src/claude'
 import type { Page } from '../src/pages'
 import { mkdtemp, readFile } from 'node:fs/promises'
@@ -510,6 +510,10 @@ test('a dealer\'s own current batch or stock is the source check\'s; trade histo
   const dealer = (text: string) => fitRules(page(`<p>${text}</p>`, { kind: 'species' })).filter(f => f.check === 'source' && f.why.startsWith('a dealer'))
   for (const t of news) expect(dealer(t).length, t).toBeGreaterThan(0)
   for (const t of history) expect(dealer(t), t).toEqual([])
+  // Wholly a notice, each sentence one (two of the four such parts on the site on 13 Nov); a notice beside a fact, or a
+  // dated batch, isn't.
+  for (const t of ['<p>Hiện ngoài tiệm có bán cá phượng hoàng bắt ngoài tự nhiên ở Venezuela, con nào cũng đã lớn hẳn.</p>', '<p>Gần đây có một đợt nhập từ Thái Lan về vài con đực có càng to khác thường.</p>', '<p>Lô này chỉ có 7 con.</p><p>Mới đây có một lô lớn Corydoras burgessi về.</p>']) expect(dealerNotice(t), t).toBe(true)
+  for (const t of ['<p>Loài này rất gần với B. brigittae. Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.</p>', `<p>${history[8]}</p>`, '<p>Cá chuột hiền.</p>', '']) expect(dealerNotice(t), t).toBe(false)
   // Its quote is the words that say it, so the rewrite takes only the sentence they're in.
   expect(dealer(news[6]!).map(f => f.quote)).toEqual(['đã có hàng trở lại'])
   // Only Vietnamese, for now.

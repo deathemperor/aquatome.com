@@ -7,6 +7,7 @@ import { loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataC
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
+import { dealerNotice } from './fit'
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
@@ -132,6 +133,10 @@ export type SweepReport = {
   tanks: string[]
   /** A shop's own talk taken off a page, `kind/id: key:source (blocks or the section)`. */
   shop: string[]
+  /** A shop's part that was wholly its notice of a current batch or stock, taken off a page whose heading has another source's text, `kind/id: key:source`. */
+  dealer: string[]
+  /** The same, left because it's its heading's only text: for the chief of staff, `kind/id: key:source`. */
+  dealerOnly: string[]
   /** Pages about one variety taken off a species page, `id: url`; `kept` when it is all the page has. */
   varieties: string[]
   titles: string[]
@@ -273,7 +278,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], unwell: [], heads: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], unwell: [], heads: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -815,6 +820,17 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         report.shop.push(`${kind}/${id}: ${k} (${en ? 'blocks' : 'the section'})`)
         for (const l of has) { if (en) l.t.sections[k] = tr[l.f]!; else delete l.t.sections[k] }
         return en ? [{ ...x, html: en }] : []
+      })
+      // A shop's part that is wholly its notice of a current batch or stock in Vietnamese (fit.ts dealerNotice): off the
+      // page, in every language, when its heading has another source's text; else listed for the chief of staff and left.
+      const vi = langs.find(l => l.f.endsWith('/vi.json'))?.t
+      sections = sections.filter(x => {
+        const k = `${x.key}:${x.source}`
+        if (!isShop(x.source) || x.key === 'references' || !vi?.sections[k] || !dealerNotice(vi.sections[k]!)) return true
+        if (!sections.some(o => o !== x && o.key === x.key && o.html.trim())) { report.dealerOnly.push(`${kind}/${id}: ${k}`); return true }
+        report.dealer.push(`${kind}/${id}: ${k}`)
+        for (const l of langs) delete l.t.sections[k]
+        return false
       })
       e.sections = sections
       if (JSON.stringify(e) !== JSON.stringify(JSON.parse(raw))) {

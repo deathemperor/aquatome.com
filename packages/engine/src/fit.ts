@@ -170,6 +170,25 @@ const DEALER_VI = re([
 const HISTORY_VI = /(?<!\d)(?:1[89]|20)\d\d(?!\d)|mẫu chuẩn|mẫu định danh|holotype|type series/iu
 const CUT = /(?<=[.!?])\s+|\n/
 const history = (text: string, at: number) => HISTORY_VI.test([...text.slice(0, at).split(CUT).slice(-2), text.slice(at).split(CUT)[0]].join(' '))
+
+/**
+ * Whether a Vietnamese part is wholly a dealer's notice: every sentence of it names the dealer's own current batch or
+ * stock (DEALER_VI, history aside). Such a part isn't rewritten: it comes off the page when its heading has another
+ * source's text, and is listed for the chief of staff when it's that heading's only text (13 Nov 2026, sweep.ts). On
+ * 13 Nov four were: the ram's range ("Hiện ngoài tiệm có bán cá phượng hoàng bắt ngoài tự nhiên ở Venezuela") among them.
+ */
+export function dealerNotice(html: string): boolean {
+  const text = render(html)
+  const at = [...text.matchAll(DEALER_VI)].filter(m => !history(text, m.index)).map(m => m.index)
+  // Its sentences, as the history test cuts them: each must hold a notice.
+  const spans: [number, number][] = []
+  let from = 0
+  for (const m of text.matchAll(new RegExp(CUT.source, 'g'))) { spans.push([from, m.index]); from = m.index + m[0].length }
+  spans.push([from, text.length])
+  const said = spans.filter(([a, b]) => /[\p{L}\p{N}]/u.test(text.slice(a, b)))
+  return said.length > 0 && said.every(([a, b]) => at.some(i => i >= a && i < b))
+}
+
 const IMPERIAL = [
   re(WORD(`${AMOUNT}(?:gal|inch(?:es)?|inci|feet|ft|foot|pounds?|lbs?|ounces?|oz|độ F)`)),
   re(`${WORD('gallons?|galon|ga-?\\s?lông')}|แกลลอน|°\\s?F|\\d\\s*นิ้ว`),
