@@ -1,5 +1,5 @@
 {
- "day": "2026-11-13",
+ "day": "2026-11-14",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -58,25 +58,38 @@
  },
  "sample": [
   {
+   "lang": "id",
+   "path": "/id/ikan/rainbow-robber-tetra/",
+   "url": "https://aquatome.com/id/ikan/rainbow-robber-tetra/",
+   "title": "Rainbow Robber Tetra",
+   "wrong": []
+  },
+  {
+   "lang": "th",
+   "path": "/th/fish/alcolapia-grahami/",
+   "url": "https://aquatome.com/th/fish/alcolapia-grahami/",
+   "title": "เกรแฮมส์โซดาซิคลิด",
+   "wrong": []
+  },
+  {
    "lang": "vi",
-   "path": "/vi/ca/ca-tetra-heterocharax-virgulatus/",
-   "url": "https://aquatome.com/ca/ca-tetra-heterocharax-virgulatus/",
-   "title": "Cá tetra Heterocharax virgulatus",
-   "wrong": []
-  },
-  {
-   "lang": "id",
-   "path": "/id/ikan/chalinochromis-brichardi/",
-   "url": "https://aquatome.com/id/ikan/chalinochromis-brichardi/",
-   "title": "Chalinochromis brichardi",
-   "wrong": []
-  },
-  {
-   "lang": "id",
-   "path": "/id/ikan/malabar-baril/",
-   "url": "https://aquatome.com/id/ikan/malabar-baril/",
-   "title": "Malabar Baril",
-   "wrong": []
+   "path": "/vi/ca/ca-tren-bau/",
+   "url": "https://aquatome.com/ca/ca-tren-bau/",
+   "title": "Cá trèn bầu",
+   "wrong": [
+    {
+     "check": "words",
+     "quote": "nhiều khả năng"
+    },
+    {
+     "check": "words",
+     "quote": "ghi nhận"
+    },
+    {
+     "check": "words",
+     "quote": "thức ăn sống"
+    }
+   ]
   }
  ]
 }
