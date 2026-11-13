@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import type { FitCheck } from '../src/fit'
-import { asked, mendPart, type Dropped } from '../src/mend'
+import { asked, lostWords, mendPart, type Dropped } from '../src/mend'
 import { sentences } from '../src/sentences'
 
 /**
@@ -150,4 +150,10 @@ test('a changed sentence that loses "bị", a pronoun with no noun for it, or pa
   const inside = await mendPart(llm([{ n: 1, vi: 'Không cần nhiệt độ cao.' }]), '<p>Không cần lưu ý rằng nhiệt độ cao, giá 5 đô la. Cá sống theo đàn.</p>', price)
   if (typeof inside === 'string') throw new Error(inside)
   expect(inside.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "lưu ý"'])
+  // Astra's read of 9c7538ac8: a negation from the sentence before isn't a noun, and the noun must stand as it stood.
+  expect(lostWords('Chúng chứa thuốc trừ sâu.', 'Không chứa thuốc trừ sâu.', [], 'Cây không được bán ở đây.')).toEqual(['chúng'])
+  expect(lostWords('Chúng chứa thuốc trừ sâu.', 'Cây chứa thuốc trừ sâu.', [], 'Cây không được bán ở đây.')).toEqual([])
+  expect(lostWords('Chúng chứa thuốc trừ sâu.', 'Cây dạng bó chứa thuốc trừ sâu.', [], 'Cây dạng bó không được bán ở đây.')).toEqual([])
+  expect(lostWords('Chúng chứa thuốc trừ sâu.', 'Bó cây chứa thuốc trừ sâu.', [], 'Cây dạng bó không được bán ở đây.')).toEqual(['chúng'])
+  expect(lostWords('Chúng chứa thuốc trừ sâu.', 'Những cây này chứa thuốc trừ sâu.', [], 'Những cây này được bán theo bó.')).toEqual([])
 })

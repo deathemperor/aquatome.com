@@ -66,14 +66,22 @@ const unframed = (ws: string[], after: string[]) => {
   }
   return out
 }
-/** The pronoun `now` puts words of the sentence before in place of, when that is all that changed from `was`. */
+/**
+ * Words that say something about a claim and so never stand for a noun, whatever the sentence before holds: "Chúng chứa
+ * thuốc trừ sâu" written "Không chứa thuốc trừ sâu" after "Cây không được bán ở đây" turns a warning around (Astra's read).
+ */
+const NOT_NOUNS = new Set([...NEGATIONS, ...'có được bị cần nên phải rất khá đã đang sẽ cũng vẫn còn thường hay luôn ít nhiều'.split(' ')])
+/**
+ * The pronoun `now` puts a phrase of the sentence before in place of, when that is all that changed from `was`: the
+ * phrase as it stood there, word for word, and none of it a word that says something (NOT_NOUNS).
+ */
 const renamed = (was: string[], now: string[], previous: string[]) => {
   let a = 0
   while (a < was.length && a < now.length && was[a] === now[a]) a++
   let b = 0
   while (b < was.length - a && b < now.length - a && was.at(-1 - b) === now.at(-1 - b)) b++
   const out = was.slice(a, was.length - b), into = now.slice(a, now.length - b)
-  return out.length === 1 && PRONOUNS.has(out[0]!) && into.length && into.every(w => previous.includes(w)) ? out[0] : undefined
+  return out.length === 1 && PRONOUNS.has(out[0]!) && into.length && !into.some(w => NOT_NOUNS.has(w)) && ` ${previous.join(' ')} `.includes(` ${into.join(' ')} `) ? out[0] : undefined
 }
 /**
  * The words a sentence lost that nothing covers: neither the new sentence, nor `covered` (quotes, listed drops), nor
