@@ -20,7 +20,7 @@ import { plain, quoted, sentences, splice } from './sentences'
  *   images", "for less than $10"). Its reviewer now sees the changed sentences before and after, with the findings, and
  *   lists what is left out with the finding that asks for it, which the code checks. The code also counts every word a
  *   changed sentence loses: each is in a finding's quote there, or in what the reviewer listed under a finding that
- *   asks for it to go, or only joins or frames it (JOINING, FRAMES); a word lost and listed by no one isn't kept (Astra's read: a
+ *   asks for it to go, or only joins or frames it (JOINING, FRAMES, PRONOUNS); a word lost and listed by no one isn't kept (Astra's read: a
  *   writer that also dropped "độc với tép" from a sentence asked only for its price passed when its reviewer said
  *   nothing).
  * The writer's and the reviewer's words are prompts/fit-mend.md and prompts/fit-mend-review.md.
@@ -33,31 +33,53 @@ const NO_DROP: readonly FitCheck[] = ['units', 'words']
 
 /**
  * Words a sentence may lose when it's reworded around a change without losing anything it says: what only joins ("và",
- * "thì", "của"), points ("này", "đó") or stands for a noun ("chúng", which may become the noun once the sentence it
- * pointed to has gone). A word that says something isn't one, however small: "bị" (one that suffers it), "được", "có
- * thể", "rất", "cần", "không", "nữa", "một" (Astra's read: "Tép con bị cá ăn" written "Tép con ăn cá" lost only "bị",
- * and passed).
+ * "thì", "của") or points ("này", "đó"). A word that says something isn't one, however small: "bị" (one that suffers
+ * it), "được", "có thể", "rất", "cần", "không", "nữa", "một" (Astra's read: "Tép con bị cá ăn" written "Tép con ăn cá"
+ * lost only "bị", and passed).
  */
-const JOINING = new Set('và hoặc thì là mà rằng các những của này đó bạn chúng nó họ'.split(' '))
-/** What only frames a sentence or links it to the one before, lost as a whole phrase ("Cần lưu ý rằng", "Vì thế"). */
+const JOINING = new Set('và hoặc thì là mà rằng các những của này đó bạn'.split(' '))
+/**
+ * A pronoun may go only for the noun it stood for, once the sentence it pointed to has gone: "Chúng chứa thuốc trừ sâu"
+ * written "Cây chứa thuốc trừ sâu" after "Cây giá 5 đô la một bó" went. One that goes with no noun from the sentence
+ * before in its place is lost ("Cá ăn con của chúng" written "Cá ăn con", Astra's read).
+ */
+const PRONOUNS = new Set(['chúng', 'nó', 'họ'])
+/**
+ * What only frames a sentence or links it to the one before ("Cần lưu ý rằng", "Vì thế"), when it goes whole: not under
+ * a negation, and with no two of its words left together ("Không cần lưu ý nhiệt độ" written "Không lưu ý nhiệt độ"
+ * lost "cần", Astra's read).
+ */
 const FRAMES = ['cần lưu ý rằng', 'cần lưu ý', 'lưu ý rằng', 'vì thế', 'vì vậy', 'do đó', 'tuy vậy', 'tuy nhiên', 'ngoài ra', 'cho nên'].map(f => f.split(' '))
+const NEGATIONS = new Set(['không', 'chẳng', 'chả', 'chưa', 'đừng'])
 const words = (s: string) => plain(s).normalize('NFC').toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? []
-/** A sentence's words less its framing phrases. */
-const unframed = (ws: string[]) => {
+/** A sentence's words less the framing phrases that went whole from it. */
+const unframed = (ws: string[], after: string[]) => {
+  const kept = new Set(after.slice(1).map((w, i) => `${after[i]} ${w}`))
+  const whole = (f: string[], i: number) => f.every((w, j) => ws[i + j] === w) && !NEGATIONS.has(ws[i - 1] ?? '') && !f.slice(1).some((w, j) => kept.has(`${f[j]} ${w}`))
   const out: string[] = []
   for (let i = 0; i < ws.length;) {
-    const f = FRAMES.find(f => f.every((w, j) => ws[i + j] === w))
+    const f = FRAMES.find(f => whole(f, i))
     if (f) i += f.length
     else out.push(ws[i++]!)
   }
   return out
 }
-/** The words a sentence lost that nothing covers: neither the new sentence, nor `covered` (quotes, listed drops), nor JOINING or FRAMES. */
-export function lostWords(before: string, after: string, covered: readonly string[]): string[] {
+/**
+ * The words a sentence lost that nothing covers: neither the new sentence, nor `covered` (quotes, listed drops), nor
+ * JOINING, a whole frame, or a pronoun whose noun from `previous` (the sentence before, as it was) took its place.
+ */
+export function lostWords(before: string, after: string, covered: readonly string[], previous = ''): string[] {
+  const was = words(before), now = words(after)
   const left = new Map<string, number>()
-  for (const w of unframed(words(before))) left.set(w, (left.get(w) ?? 0) + 1)
-  for (const w of [...words(after), ...covered.flatMap(words)]) if (left.has(w)) left.set(w, left.get(w)! - 1)
-  return [...left].flatMap(([w, n]) => (n > 0 && !JOINING.has(w) ? Array<string>(n).fill(w) : []))
+  for (const w of unframed(was, now)) left.set(w, (left.get(w) ?? 0) + 1)
+  for (const w of [...now, ...covered.flatMap(words)]) if (left.has(w)) left.set(w, left.get(w)! - 1)
+  const had = new Set(was), antecedents = new Set(words(previous))
+  let nouns = new Set(now.filter(w => !had.has(w) && antecedents.has(w))).size
+  return [...left].flatMap(([w, n]) => {
+    if (n <= 0 || JOINING.has(w)) return []
+    if (PRONOUNS.has(w)) { const k = Math.min(n, nouns); nouns -= k; n -= k }
+    return Array<string>(Math.max(0, n)).fill(w)
+  })
 }
 
 export type MendFinding = { check: FitCheck; quote: string; note: string }
@@ -149,7 +171,7 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     ...shown.filter(i => changes.get(i) === '' && !named.some(f => !NO_DROP.includes(f.check) && f.sentences.includes(i + 1))).map(i => `Left out, and no finding asks for it to go: "${plain(texts[i]!)}"`),
     ...shown.flatMap(i => {
       const covered = [...named.filter(f => f.sentences.includes(i + 1)).map(f => f.quote), ...licensed.filter(d => d.sentence === i + 1).map(d => d.text)]
-      const lost = lostWords(texts[i]!, raw.get(i) ?? changes.get(i)!, covered)
+      const lost = lostWords(texts[i]!, raw.get(i) ?? changes.get(i)!, covered, texts[i - 1] ?? '')
       return lost.length ? [`Left out of sentence ${i + 1}, and no finding asks for it to go: "${lost.join(' ')}"`] : []
     }),
     ...dropped.filter(d => !asked(d, named)).map(d => `Left out, and no finding asks for it to go: "${d.text}"`),

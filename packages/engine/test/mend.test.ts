@@ -120,7 +120,7 @@ test('a size the writer kept as it was, then put in metric by the code, is not c
 
 // Astra's read of 42eaea950: a word that says something isn't a joining word, and a neighbour may name what its pronoun
 // stood for once the sentence it pointed to has gone.
-test('a changed sentence that loses "bị" fails; a neighbour that turns "Chúng" into the noun passes', async () => {
+test('a changed sentence that loses "bị", a pronoun with no noun for it, or part of a frame fails; a neighbour that turns "Chúng" into the noun passes', async () => {
   const reviewer = (dropped: Dropped[]) => ({ score: 1, notes: [], dropped, hedges: [] })
   const llm = (sentences: { n: number; vi: string; why?: string }[], dropped: Dropped[] = []) => (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('sentences') ? { sentences } : reviewer(dropped))) as Llm
   const reversed = await mendPart(llm([{ n: 1, vi: 'Tép con ăn cá.' }]), '<p>Tép con bị cá ăn, giá 5 đô la. Tép sống theo đàn.</p>', [{ check: 'price', quote: 'giá 5 đô la', note: 'Bỏ giá nước ngoài.' }])
@@ -132,4 +132,15 @@ test('a changed sentence that loses "bị" fails; a neighbour that turns "Chúng
   expect(named.unasked).toEqual([])
   expect(named.html).toContain('Cây chứa thuốc trừ sâu.')
   expect(named.html).not.toContain('Chúng')
+  // Astra's read of cb1647216: a pronoun dropped with no noun in its place, and a frame half kept under a negation.
+  const price = [{ check: 'price' as const, quote: 'giá 5 đô la', note: 'Bỏ giá nước ngoài.' }]
+  const whose = await mendPart(llm([{ n: 1, vi: 'Cá ăn con.' }]), '<p>Cá ăn con của chúng, giá 5 đô la. Cá sống theo đàn.</p>', price)
+  if (typeof whose === 'string') throw new Error(whose)
+  expect(whose.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "chúng"'])
+  const negated = await mendPart(llm([{ n: 1, vi: 'Không lưu ý nhiệt độ.' }]), '<p>Không cần lưu ý nhiệt độ, giá 5 đô la. Cá sống theo đàn.</p>', price)
+  if (typeof negated === 'string') throw new Error(negated)
+  expect(negated.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "cần"'])
+  const halfKept = await mendPart(llm([{ n: 1, vi: 'Lưu ý nhiệt độ.' }]), '<p>Cần lưu ý nhiệt độ, giá 5 đô la. Cá sống theo đàn.</p>', price)
+  if (typeof halfKept === 'string') throw new Error(halfKept)
+  expect(halfKept.unasked).toEqual(['Left out of sentence 1, and no finding asks for it to go: "cần"'])
 })
