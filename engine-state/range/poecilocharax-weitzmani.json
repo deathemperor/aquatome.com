@@ -1,0 +1,182 @@
+{
+  "id": "poecilocharax-weitzmani",
+  "native": {
+    "input": "29af108eeabf8128",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is found in Colombia, Venezuela, Brazil and Peru.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is found in Colombia, Venezuela, Brazil and Peru.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is found in Colombia, Venezuela, Brazil and Peru.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is found in Colombia, Venezuela, Brazil and Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Quite widely distributed having been recorded from Brazil, Colombia, Peru and Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Quite widely distributed having been recorded from Brazil, Colombia, Peru and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Quite widely distributed having been recorded from Brazil, Colombia, Peru and Venezuela.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Quite widely distributed having been recorded from Brazil, Colombia, Peru and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "P. weitzmani is relatively widespread in the upper Amazon and upper Orinoco.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "P. weitzmani is relatively widespread in the upper Amazon and upper Orinoco.",
+        "ok": true
+      },
+      {
+        "name": "Río Negro",
+        "source": "seriouslyfish",
+        "quote": "It's been collected from the upper parts of several major river drainages including the Río Negro, Río Orinoco (including the Río Inírida and Casiquiare canal) and Río Solimões.",
+        "ok": true
+      },
+      {
+        "name": "Río Orinoco",
+        "source": "seriouslyfish",
+        "quote": "It's been collected from the upper parts of several major river drainages including the Río Negro, Río Orinoco (including the Río Inírida and Casiquiare canal) and Río Solimões.",
+        "ok": true
+      },
+      {
+        "name": "Río Solimões",
+        "source": "seriouslyfish",
+        "quote": "It's been collected from the upper parts of several major river drainages including the Río Negro, Río Orinoco (including the Río Inírida and Casiquiare canal) and Río Solimões.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Poecilocharax weitzmani",
+    "status": "ACCEPTED",
+    "taxonKey": 2352333,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        20
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        19
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        13
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        9
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        6
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        4
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE",
+      "BR",
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

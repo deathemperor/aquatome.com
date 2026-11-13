@@ -1,10 +1,13 @@
 {
   "slug": "bodoquena-plateau",
-  "name": "Bodoquena Plateau",
-  "altNames": [],
+  "name": "cao nguyên Bodoquena",
+  "altNames": [
+    "Bodoquena Plateau"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

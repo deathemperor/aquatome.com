@@ -1960,6 +1960,54 @@
       ]
     }
   ],
+  "ms/guides/aquatome-cho-ca-an-bao-nhieu-va-may-lan-mot-ngay-tranh-cho-an-qua-nhieu": [
+    {
+      "at": "2026-11-12T20:54:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-12T20:54:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"pengeluar makanan ikan menyebut ini antara sebab paling biasa\": the facts only say owners often overfeed from fear of starvation, and call it a common mistake. \"Paling biasa\" overstates this.",
+        "\"Mulakan dengan kuantiti kecil\" as step 1 is a mild extrapolation. The facts say to increase slowly to find the right amount.",
+        "\"Kesilapan biasa\" lists fatty liver under \"Makanan yang kurang sesuai atau rosak\". The facts do not link it to overfeeding or call it a feeding mistake."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.8,
+        0.88,
+        0.88
+      ]
+    }
+  ],
+  "ms/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
+    {
+      "at": "2026-11-12T20:55:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.95,
+        0.95
+      ]
+    }
+  ],
   "th/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": [
     {
       "at": "2026-11-08T14:57:25Z",
@@ -3694,6 +3742,46 @@
       ],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "vi/guides/aquatome-nuoi-ca-rong-be-benh-thuc-an-ca-nuoi-chung": [
+    {
+      "at": "2026-11-12T21:30:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"nước mới cần cùng nhiệt độ với nước trong bể\" is not stated in the facts; it is an added generality inferred from keepers' fear of abrupt changes.",
+        "\"Hằng ngày xem mắt, nắp mang, vảy và bụng cá\" (daily checks) is not in the facts.",
+        "\"tạp chí kể trên cũng nghi ngờ cách này\" attributes the ping-pong doubt to a magazine; the facts say Jay Hemdal questions it, cited in a forum-sourced fact.",
+        "\"Cho ăn ở tầng mặt\" is presented as a set-up step, but the facts only say arowana feed mainly at the surface."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.88,
+        0.88,
+        0.82
+      ]
+    },
+    {
+      "at": "2026-11-12T21:30:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"Con đực ngậm cả trứng lẫn cá bột trong miệng cho tới khi chúng nở và lớn\": the facts only say the male broods eggs and larvae in his mouth. \"Until they hatch and grow\" is an unsupported addition.",
+        "\"Chỉ cá nuôi từ trại có đăng ký mới mua bán được\": the facts say captive-bred fish from registered farms may be traded. They do not say this is the only legal route."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.92,
+        0.9
+      ]
     }
   ],
   "vi/guides/aquatome-reu-hai-trong-be-thuy-sinh-nguyen-nhan-va-cach-loai-bo": [

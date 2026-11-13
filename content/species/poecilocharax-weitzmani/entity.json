@@ -17,6 +17,218 @@
     "inirida",
     "solimoes"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE",
+        "BR",
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Río Negro",
+        "Río Orinoco",
+        "Río Solimões"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It is found in Colombia, Venezuela, Brazil and Peru.",
+          "countries": [
+            "CO",
+            "VE",
+            "BR",
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "P. weitzmani is relatively widespread in the upper Amazon and upper Orinoco.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's been collected from the upper parts of several major river drainages including the Río Negro, Río Orinoco (including the Río Inírida and Casiquiare canal) and Río Solimões.",
+          "countries": [],
+          "regions": [
+            "Río Negro",
+            "Río Orinoco",
+            "Río Solimões"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352333,
+      "total": 89,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "VE",
+          43
+        ],
+        [
+          "BR",
+          40
+        ],
+        [
+          "CO",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          0,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          0,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          -68.90625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          1.40625,
+          11,
+          11
+        ],
+        [
+          -67.5,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -67.5,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          5.625,
+          6,
+          6
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          14,
+          14
+        ],
+        [
+          -66.09375,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          8,
+          8
+        ],
+        [
+          -61.875,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          -61.875,
+          0,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

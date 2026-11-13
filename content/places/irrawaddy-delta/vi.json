@@ -1,10 +1,13 @@
 {
   "slug": "irrawaddy-delta",
-  "name": "Irrawaddy delta",
-  "altNames": [],
+  "name": "đồng bằng sông Irrawaddy",
+  "altNames": [
+    "Irrawaddy delta"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

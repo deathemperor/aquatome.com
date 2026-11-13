@@ -10,6 +10,44 @@
     "india",
     "tamil-nadu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Chembarambakkam Lake"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Pethia sharmai is a small cyprinid known only from a handful of localities around Chennai in Tamil Nadu, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from 'Mogappair, West Annanagar, Madras, Tamil Nadu, India' and currently known only from a handful of localities in the vicinity of Chennai (formerly Madras), including Kunrathur, Chengalpet, and Chembarambakkam Lake.",
+          "countries": [],
+          "regions": [
+            "Chembarambakkam Lake"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8080492,
+      "total": 0,
+      "fetched": "2026-11-12",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

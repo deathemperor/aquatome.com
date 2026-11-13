@@ -10,6 +10,78 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MW"
+      ],
+      "regions": [
+        "Lake Malawi",
+        "Likoma Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi. It occurs around Likoma Island and Mara Point, between Chiwindi and Lumbaulo, from Lumnessi to the Malawian border and down the coast of Malawi to Nekete.",
+          "countries": [
+            "MW"
+          ],
+          "regions": [
+            "Lake Malawi",
+            "Likoma Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372614,
+      "total": 11,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "MW",
+          7
+        ],
+        [
+          "MZ",
+          2
+        ],
+        [
+          "TZ",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          33.75,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          33.75,
+          -12.65625,
+          5,
+          3
+        ],
+        [
+          33.75,
+          -11.25,
+          3,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
