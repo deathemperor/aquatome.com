@@ -11,10 +11,18 @@ import { GALLON, givesDose, keeperFigure, US_TANKS, usTankOf } from './round'
  * - "for each 2,5 cm" of a fish is a source's "per inch": given per cm, 10 gallons an inch 15 lít mỗi cm.
  * The US figure is the facts' own beside the page's figure ("35 US gal (about 132 L)"), else the facts' nearest within a
  * twentieth of it, else the table's for a volume only a gallon conversion gives (usTankOf: 110 lít is 29 gallons). A
- * finding is left to a person (`unitsLeft`) when a litre figure in it has neither, or a dose is given beside it (round.ts
- * givesDose), whose water stays exact. A figure counts only as the whole quantity: 15 lít mỗi cm, not 15 lít mỗi 2,5 cm (`keepsFigures`).
+ * finding is left to a person (`unitsLeft`) when a litre figure in it has neither, or a dose is given near it (round.ts
+ * givesDose), whose water stays exact; and (fit-rewrite.ts) when code works out no figure for it at all: gallons or a
+ * length in it, or a figure already the size keepers say. A figure is read whole, from the paragraph its quote is in: "38
+ * lít" there followed by "mỗi 2,5 cm" is per inch. A rewrite is kept only with the part's litres as they were, each
+ * mended figure in place of its old one and nothing else moved (`keepsFigures`): 15 lít mỗi cm, not 15 lít mỗi 2,5 cm,
+ * and not the same litres left in another paragraph.
  */
-export type BreedFigure = { from: string; to: string; litres: number; why: string; perCm?: true }
+/**
+ * `was` and `is`: the figure as a quantity before and after ("132", "40/2.5cm" → "130", "15/cm"). `at`: where it is in
+ * the text it was read from, so two findings quoting one figure mend it once.
+ */
+export type BreedFigure = { from: string; to: string; litres: number; why: string; was: string; is: string; at: string; perCm?: true }
 
 const EN_N = String.raw`\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?`
 const en = (s: string) => Number(s.replaceAll(',', ''))
@@ -33,8 +41,24 @@ export function factsPairs(facts: string): [gallons: number, litres: number][] {
 const VI_N = String.raw`\d{1,3}(?:\.\d{3})+(?:,\d+)?|\d+(?:,\d+)?`
 const vi = (s: string) => Number(s.replaceAll('.', '').replace(',', '.'))
 const viFigure = (n: number) => (n >= 1000 ? `${Math.floor(n / 1000)}.${String(n % 1000).padStart(3, '0')}` : String(n))
-/** Litres in Vietnamese text: "132 lít", "3.800 lít", "75–115 lít", "40 lít cho mỗi 2,5 cm". */
-const VOLUME = new RegExp(String.raw`(?<![\d.,])(${VI_N})(?:\s*(?:[–-]|đến)\s*(${VI_N}))?\s*(?:lít|L|l)(?![\p{L}\p{N}])(\s*cho mỗi\s*2,5\s*cm)?`, 'giu')
+/** Litres in Vietnamese text: "132 lít", "3.800 lít", "75–115 lít". */
+const VOLUME = new RegExp(String.raw`(?<![\d.,])(${VI_N})(?:\s*(?:[–-]|đến)\s*(${VI_N}))?\s*(?:lít|L|l)(?![\p{L}\p{N}])`, 'giu')
+/** After a volume, a few words and then "mỗi 2,5 cm" (or "cho mỗi", "từng", "trên", "/", "inch"): a source's "per inch". */
+const PER_INCH = /^[^\d.;,\n]{0,20}?(?:mỗi|từng|trên|\/)\s*(?:2,5\s*cm|inch)(?![\p{L}\p{N}])/iu
+/** After a volume, "… cho mỗi cm": a figure per cm of fish. */
+const PER_CM = /^[^\d.;,\n]{0,20}?(?:mỗi|từng|trên|\/)\s*(?:1\s*)?cm(?![\p{L}])/iu
+const flat = (s: string) => s.replace(/\s+/g, ' ').trim()
+const norm = (s: string) => flat(s.normalize('NFC')).toLowerCase()
+/** What a volume is given per, by the words after it. */
+const perOf = (after: string) => (PER_INCH.test(after) ? '/2.5cm' : PER_CM.test(after) ? '/cm' : '')
+
+/**
+ * A concentration, so much in each litre ("oxy hòa tan 2,5 mg/l"): how strong the water is, not an amount put into some
+ * water, so it gives no dose's water to keep exact. Read out of a units finding's section beyond its paragraph and the
+ * ones beside it (fit-rewrite.ts), which are read whole: koi's oxygen, three paragraphs below its tank, leaves the tank.
+ */
+const CONCENTRATION = /(?<![\d.,])\d[\d.,–-]*\s*(?:mg|g|gam|gram|ml|cc)\s*(?:\/|mỗi|trên)\s*(?:1\s*)?(?:l|lít)(?![\p{L}])/giu
+export const withoutConcentrations = (text: string) => text.replace(CONCENTRATION, ' ')
 
 /** The litres a Vietnamese text gives, each end of a range on its own. */
 export const litresIn = (text: string) => [...text.matchAll(VOLUME)].flatMap(m => [vi(m[1]!), ...(m[2] ? [vi(m[2])] : [])])
@@ -46,21 +70,36 @@ function usGallons(l: number, pairs: [number, number][]): number | undefined {
     usTankOf(l)?.[0]
 }
 
-/** What keepers here say for each litre figure a units finding quotes, from the source's US figure. */
-export function breedFigures(quote: string, facts: string): BreedFigure[] {
+/**
+ * What keepers here say for each litre figure a units finding quotes, from the source's US figure. With `block`, the
+ * paragraph the quote is in, each figure is read whole there: "38 lít" followed by "mỗi 2,5 cm" is per inch.
+ */
+export function breedFigures(quote: string, facts: string, block?: string): BreedFigure[] {
   const pairs = factsPairs(facts)
+  const q = norm(quote)
+  const b = block === undefined ? '' : norm(block)
+  const at = q ? b.indexOf(q) : -1
+  // The volumes of the paragraph the quote touches, or of the quote itself when it isn't found there.
+  const [text, from, to] = at >= 0 ? [b, at, at + q.length] : [q, 0, q.length]
   const out: BreedFigure[] = []
-  for (const m of quote.matchAll(VOLUME)) {
-    const perInch = !!m[3]
+  for (const m of text.matchAll(VOLUME)) {
+    const end = m.index + m[0].length
+    if (end <= from || m.index >= to) continue
+    const per = perOf(text.slice(end))
+    // Already given per cm of fish: no US figure is a tank for it.
+    if (per === '/cm') continue
+    const perInch = per === '/2.5cm'
+    const phrase = perInch ? text.slice(m.index, end + PER_INCH.exec(text.slice(end))![0].length) : ''
     for (const s of [m[1]!, ...(m[2] ? [m[2]] : [])]) {
       const l = vi(s)
       const g = usGallons(l, pairs)
       if (g === undefined) continue
       const table = US_TANKS.find(([x]) => x === g)?.[1]
-      const to = perInch ? keeperFigure((g * GALLON) / 2.54) : table ?? keeperFigure(g * GALLON)
+      const litres = perInch ? keeperFigure((g * GALLON) / 2.54) : table ?? keeperFigure(g * GALLON)
       const gal = `${g.toLocaleString('en-US')} US gallon${g === 1 ? '' : 's'}`
-      if (perInch) out.push({ from: `${s} lít cho mỗi 2,5 cm`, to: `${viFigure(to)} lít cho mỗi cm`, litres: to, why: `${gal} per inch`, perCm: true })
-      else if (to !== l) out.push({ from: `${s} lít`, to: `${viFigure(to)} lít`, litres: to, why: gal })
+      const at = `${m.index}:${s}`
+      if (perInch) out.push({ from: phrase, to: `${viFigure(litres)} lít cho mỗi cm`, litres, why: `${gal} per inch`, was: `${l}/2.5cm`, is: `${litres}/cm`, at, perCm: true })
+      else if (litres !== l) out.push({ from: `${s} lít`, to: `${viFigure(litres)} lít`, litres, why: gal, was: `${l}${per}`, is: `${litres}${per}`, at })
     }
   }
   return out
@@ -69,30 +108,38 @@ export function breedFigures(quote: string, facts: string): BreedFigure[] {
 /** The figures as the rewriter and its reviewer are told them. */
 export const figuresSaid = (figures: BreedFigure[]) => figures.map(f => `"${f.from}" → "${f.to}" (${f.why})`).join('; ')
 
-const flat = (s: string) => s.replace(/\s+/g, ' ').trim()
-/** After a volume, "… cho mỗi cm": a figure per cm of fish. */
-const PER_CM = /^[^\d.;,\n]{0,20}?(?:mỗi|trên|\/)\s*(?:1\s*)?cm(?![\p{L}])/iu
-/** A text's litres as whole quantities: "130", "15/cm" per cm of fish, "40/2.5cm" per 2,5 cm. */
-const quantities = (text: string) => new Set([...text.matchAll(VOLUME)].flatMap(m => {
-  const per = m[3] ? '/2.5cm' : PER_CM.test(text.slice(m.index + m[0].length)) ? '/cm' : ''
+/** A text's litres as whole quantities, each as often as it is given: "130", "15/cm" per cm of fish, "40/2.5cm" per inch. */
+const quantities = (text: string) => [...text.matchAll(VOLUME)].flatMap(m => {
+  const per = perOf(text.slice(m.index + m[0].length))
   return [m[1]!, ...(m[2] ? [m[2]] : [])].map(s => `${vi(s)}${per}`)
-}))
+})
+const tally = (xs: string[]) => xs.reduce((t, x) => t.set(x, (t.get(x) ?? 0) + 1), new Map<string, number>())
+const said = (k: string) => `${viFigure(Number(k.split('/')[0]))} lít${k.endsWith('/cm') ? ' cho mỗi cm' : k.endsWith('/2.5cm') ? ' cho mỗi 2,5 cm' : ''}`
 
-/** A rewrite keeps each figure: every one named as its whole quantity, and the quote it mends gone. */
-export function keepsFigures(text: string, quotes: string[], figures: BreedFigure[]): string | undefined {
-  const have = quantities(text)
-  const missing = figures.filter(f => !have.has(`${f.litres}${f.perCm ? '/cm' : ''}`)).map(f => f.to)
+/**
+ * A rewrite keeps each figure: the part's litres as they were (`before`), each mended figure in place of its old one,
+ * and no other moved, so a figure dropped from its paragraph doesn't pass on the same litres given in another; and the
+ * quote it mends gone. Texts are the part's paragraphs, one a line.
+ */
+export function keepsFigures(before: string, after: string, quotes: string[], figures: BreedFigure[]): string | undefined {
+  const want = tally(quantities(before))
+  for (const f of figures) { want.set(f.was, (want.get(f.was) ?? 0) - 1); want.set(f.is, (want.get(f.is) ?? 0) + 1) }
+  const have = tally(quantities(after))
+  const missing = [...new Set(figures.filter(f => (have.get(f.is) ?? 0) < (want.get(f.is) ?? 0)).map(f => f.to))]
   if (missing.length) return `the figures as keepers say them aren't there: ${missing.join(', ')}`
-  const left = quotes.filter(q => q && flat(text).includes(flat(q)))
+  const moved = [...new Set([...want.keys(), ...have.keys()])].filter(k => (want.get(k) ?? 0) !== (have.get(k) ?? 0))
+  if (moved.length) return `another figure changed: ${moved.map(k => `${said(k)} ${(have.get(k) ?? 0) > (want.get(k) ?? 0) ? 'added' : 'gone'}`).join(', ')}`
+  const left = quotes.filter(q => q && flat(after).includes(flat(q)))
   return left.length ? `the figure it mends is still there: ${left.join('; ')}` : undefined
 }
 
 /**
- * Why a breed page's units finding is left to a person: a dose is given beside it (`around`: its paragraph and the ones
- * before and after it, fit-rewrite.ts), so a figure in it may be the water the dose goes into, which stays exact; or a
- * litre figure with no US figure to work from. The paragraphs beside it and not the whole part: a breed page's body is
- * one part of 30 to 40 paragraphs, and a treatment far down it would leave koi's tank (round.ts givesDose: a sentence or
- * a clause is too narrow, a dose's amount and its water can sit in two).
+ * Why a breed page's units finding is left to a person: a dose is given near it (`around`: its paragraph, the ones
+ * before and after it, and the rest of its section, between the headings either side of it, fit-rewrite.ts), so a figure
+ * in it may be the water the dose goes into, which stays exact; or a litre figure with no US figure to work from. Its
+ * section and not the whole part: a breed page's body is one part of 30 to 40 paragraphs under about 7 headings, and a
+ * treatment under its own heading would leave koi's tank (round.ts givesDose: a sentence or a clause is too narrow, a
+ * dose's amount and its water can sit in two paragraphs or three).
  */
 export function unitsLeft(quote: string, facts: string, around = quote): string | undefined {
   const litres = litresIn(quote)

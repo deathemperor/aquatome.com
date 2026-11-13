@@ -1105,10 +1105,14 @@ The layers above still check the result.
     facts (`breed-units.ts`; the chief of staff, 2026-11-12): a US tank in the table its size, another the round figure
     keepers here say, a minimum never more than a twentieth under it (35 gallons 130 lít, 1,000 gallons 4.000, 3
     gallons a fish 12, 10 gallons an inch 15 lít mỗi cm), in its FAQ answers too, and after any other mend of the same
-    part in the same try. Its reviewer is told the same, and a rewrite without those figures, each as its whole quantity
-    (15 lít mỗi cm, not mỗi 2,5 cm), isn't kept. A figure beside a dose (in its paragraph, or the one before or after),
-    whose water stays exact, or a litre figure with no US figure in the facts to work from, is left to a person, and so
-    is a quote another mend reworded past telling which figure it was. Other units,
+    part in the same try. Its reviewer is told the same. A figure is read whole in its quote's paragraph ("38 lít" there
+    followed by "mỗi 2,5 cm" is per inch), and a rewrite is kept only with the part's litres as they were, each figure as
+    keepers say it in place of its old one and no other moved (15 lít mỗi cm, not mỗi 2,5 cm, and not the same litres
+    left in another paragraph). A figure with a dose near it (in its paragraph, the one before or after, or the rest of
+    its section between the headings either side, where an amount per litre such as koi's dissolved oxygen in mg/l
+    isn't a dose), whose water stays exact, or a litre figure with no US figure in the
+    facts to work from, is left to a person, and so is a finding code works out no figure for (gallons or a length in
+    it, or a figure already the size keepers say) and a quote another mend reworded past telling which figure it was. Other units,
     words and a kit are left to the rounding, the phrase list and the gate, and harm on a fish, plant or breed page to the gate and a person. `engine-state/rewritten.json` has each page it rewrote, by its new text's hash; a page
     tried and not kept waits until its text changes (`engine-state/_fit-rewrite.json`), and a title the owner fixed stays
     (`fit-rewrite.test.ts`). It runs in GitHub's rewrite cycle before the gate, from 13 Nov 2026 08:00: the front list

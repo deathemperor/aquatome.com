@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { metricPage, QUALITY_THRESHOLD } from '@aq/schema'
 import { HTMLElement, parse } from 'node-html-parser'
-import { breedFigures, figuresSaid, keepsFigures, moved, unitsLeft, type BreedFigure } from './breed-units'
+import { breedFigures, figuresSaid, keepsFigures, moved, unitsLeft, withoutConcentrations, type BreedFigure } from './breed-units'
 import { LlmError, type Llm } from './claude'
 import { FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
@@ -23,9 +23,11 @@ import { metricFigures, TANK_RULE, US_UNITS } from './round'
  * - A breed page's units, which no English beside it keeps a figure from, as the writing rules say (breed-units.ts: the
  *   source's US figure named as keepers here say, in its body and its FAQ answers), after any other mend of the same
  *   part, in the same try, its quote found again by its litres in the block it was in where that mend reworded it
- *   (the chief of staff, 2026-11-12). One beside a dose (its paragraph, or the one before or after), or with a litre
- *   figure with no US figure to work from, is left to a person (unitsLeft), and so is a reworded quote that can't be
- *   told apart.
+ *   (the chief of staff, 2026-11-12). One with a dose near it (its paragraph, the one before or after, or the rest of its
+ *   section between the headings either side), or with a litre figure with no US figure to work from, is left to a
+ *   person (unitsLeft), and so is one code works out no figure for (gallons or a length in it, or a figure already the
+ *   size keepers say) and a reworded quote that can't be told apart. Kept only with the part's litres as they were,
+ *   each mended figure in place of its old one and no other moved (keepsFigures).
  * Left to others: units on a guide, which its writer rounds; a figure the English gives in metric ("tanks as small as 11
  * litres"), which the check doesn't count (round.ts sourceGives); words, which the phrase list carries; a kit, which no rewording
  * fixes (the gate holds it), advice on a fish, plant or breed page that would hurt (held too, for a person), and the doses
@@ -152,37 +154,58 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
         const units = p.kind === 'breeds' ? fs.filter(f => f.check === 'units') : []
         const others = fs.filter(f => !units.includes(f))
         const passes = units.length && others.some(f => f.check !== 'words') ? [others, units] : [fs]
-        // Each part's blocks' text; a units quote's block before any mend, to find it again in (breed-units.ts moved).
-        const blocksOf = (text: string) => (faq ? [text] : parse(text).childNodes.filter((n): n is HTMLElement => n instanceof HTMLElement).map(e => e.text))
-        const start = blocksOf(read()!)
+        // Each part's blocks, with their tags; a units quote's block before any mend, to find it again in (breed-units.ts moved).
+        const blocksOf = (text: string) => (faq ? [{ tag: 'p', text }] : parse(text).childNodes.filter((n): n is HTMLElement => n instanceof HTMLElement).map(e => ({ tag: e.rawTagName.toLowerCase(), text: e.text })))
+        const textOf = (text: string) => blocksOf(text).map(b => b.text).join('\n')
+        const start = blocksOf(read()!).map(b => b.text)
         const home = new Map(units.map(f => [f, start.findIndex(b => norm(b).includes(norm(f.quote)))]))
         for (const pass of passes) {
           const before = read()!
           const html = faq ? `<p>${before.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>` : before
-          // A breed page's units: a quote the other mend reworded is found again by its litres, in its block; one beside
-          // a dose (its paragraph and the ones next to it), or with a litre figure with no US figure to work from, is
-          // left to a person.
-          const blocks = blocksOf(before)
+          // A breed page's units: a quote the other mend reworded is found again by its litres, in its block; one with a
+          // dose near it (its paragraph, the ones next to it and the rest of its section, between the headings either
+          // side), with a litre figure with no US figure to work from, or with no figure worked out at all, is left to a
+          // person.
+          const els = blocksOf(before)
+          const blocks = els.map(b => b.text)
           const blockOf = (q: string) => blocks.find(b => norm(b).includes(norm(q)))
-          const around = (q: string) => { const i = blocks.findIndex(b => norm(b).includes(norm(q))); return i < 0 ? q : blocks.slice(Math.max(0, i - 1), i + 2).join('\n') }
+          const heading = (j: number) => /^h[1-6]$/.test(els[j]!.tag)
+          const around = (q: string) => {
+            const i = blocks.findIndex(b => norm(b).includes(norm(q)))
+            if (i < 0) return q
+            let a = i
+            while (a > 0 && !heading(a - 1)) a--
+            let z = i
+            while (z < blocks.length - 1 && !heading(z + 1)) z++
+            // Its paragraph and the ones beside it whole; the rest of its section without its concentrations ("2,5 mg/l"
+            // of oxygen), which put nothing into any water.
+            return blocks.map((b, j) => (Math.abs(j - i) <= 1 ? b : j >= a && j <= z ? withoutConcentrations(b) : '')).filter(Boolean).join('\n')
+          }
           const mine: FitFinding[] = []
+          const told = new Map<FitFinding, BreedFigure[]>()
           for (const f of pass.filter(f => units.includes(f))) {
             const was = home.get(f) ?? -1
             const quote = !f.quote || blockOf(f.quote) ? f.quote : blocks.length === start.length && was >= 0 ? moved(f.quote, blocks[was]!) : undefined
-            const left = f.quote && !quote ? 'the other mend reworded it, and its figure can\'t be told apart' : quote ? unitsLeft(quote, facts, around(quote)) : undefined
-            if (left) report.skipped.push(`${key} ${field} units: ${left} ("${f.quote}")`)
-            else mine.push({ ...f, quote: quote ?? f.quote })
+            // Each figure read whole in the quote's paragraph (breed-units.ts breedFigures).
+            const figures = quote ? breedFigures(quote, facts, blockOf(quote)) : []
+            const left = f.quote && !quote ? 'the other mend reworded it, and its figure can\'t be told apart'
+              : (quote ? unitsLeft(quote, facts, around(quote)) : undefined) ?? (figures.length ? undefined : 'code works out no figure for it (gallons or a length in it, or a figure already the size keepers say)')
+            if (left) { report.skipped.push(`${key} ${field} units: ${left} ("${f.quote}")`); continue }
+            const g = { ...f, quote: quote ?? f.quote }
+            mine.push(g)
+            told.set(g, figures)
           }
           const now = [...pass.filter(f => !units.includes(f)), ...mine]
           if (!now.some(f => f.check !== 'words')) continue
-          const told = new Map(mine.map(f => [f, breedFigures(f.quote ?? '', facts)]))
-          const figures = [...told.values()].flat()
+          // Each figure once: the check's own finding on "132 lít" and the model's on its sentence mend one figure.
+          const seen = new Set<string>()
+          const figures = [...told].flatMap(([g, fs]) => fs.filter(x => { const k = `${blocks.findIndex(b => norm(b).includes(norm(g.quote ?? '')))}|${x.at}`; return !seen.has(k) && !!seen.add(k) }))
           const said = figures.length ? `This is a breed page with no English source: its litres are our conversion of a source's US figure, and the editor was told to name these as keepers here say, from the source's own US figure, a minimum never more than a twentieth under it: ${figuresSaid(figures)}. Those changes are correct, not errors.` : undefined
           const r = await rewritePart(d.llm, html, now.map(f => asNote(f, told.get(f))), { en: p.en?.[field], source: source && names[source]?.name, ...(said ? { figures: said } : {}) })
           if (!r) { report.skipped.push(`${key} ${field}: its quotes aren't in one block`); continue }
           const next = faq ? parse(r.html).text.trim() : r.html
           // Kept at the bar, and saying nothing more surely than before (hedges.ts); a breed page's units with each figure.
-          const off = mine.length ? keepsFigures(faq ? next : parse(next).text, mine.map(f => f.quote ?? ''), figures) : undefined
+          const off = mine.length ? keepsFigures(textOf(before), textOf(next), mine.map(f => f.quote ?? ''), figures) : undefined
           if (r.score < QUALITY_THRESHOLD || r.lost.length || off) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${[...(off ? [off] : []), ...r.notes].slice(0, 2).join('; ')})`); continue }
           if (next === before) { report.skipped.push(`${key} ${field}: the rewrite changed nothing`); continue }
           if (faq) t.faq![Number(faq[1])]!.a = next
