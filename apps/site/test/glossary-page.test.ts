@@ -2,7 +2,7 @@ import { existsSync, readdirSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import type { GlossaryEntity, Localized } from '@aq/schema'
 import { getContent } from '../src/lib/content'
-import { glossaryParts, termTitle, USED_IN_SHOWN } from '../src/lib/glossary-page'
+import { glossaryParts, linkedTermPaths, termTitle, USED_IN_SHOWN } from '../src/lib/glossary-page'
 import { DIST, page } from './dist'
 
 // A term's page (pages/thuat-ngu/[slug].astro): its other names, its definition's links, and every page that uses it.
@@ -28,6 +28,11 @@ test('a term\'s other names are shown once each, never its own name; its definit
   expect(p.definition).toContain('<a href="/vi/thuat-ngu/ph/" class="gl"')
   expect(p.definition).not.toContain('/vi/thuat-ngu/gh/')
   expect(p.definition).toContain('GH &lt; 4')
+})
+
+test('a page\'s link to a term is found however it is written: either quote, a #part; never another address', () => {
+  expect(linkedTermPaths('<a href="/vi/thuat-ngu/ph/" class="gl">pH</a> <a href=\'/vi/thuat-ngu/gh/\'>GH</a> <a href="/vi/thuat-ngu/lua/#loai">lũa</a>')).toEqual(['/vi/thuat-ngu/ph/', '/vi/thuat-ngu/gh/', '/vi/thuat-ngu/lua/'])
+  expect(linkedTermPaths('<a href="/vi/thuat-ngu/">Thuật ngữ</a> <a href="/vi/huong-dan/ph/">pH</a> <a href="/vi/thuat-ngu/ph/x/">x</a> data-href="/vi/thuat-ngu/kh/"')).toEqual([])
 })
 
 /** The built pages of one kind (Vietnamese, at the root), each with the terms its text links: [path, slugs]. */
