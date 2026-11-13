@@ -1,0 +1,63 @@
+{
+  "id": "pethia-reval",
+  "native": {
+    "input": "12372f5832b80b99",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to western Sri Lanka where it's known from the Kelani and Maha Oya river systems plus smaller drainages which lie between them such as the Attanagalu and Kalu rivers.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Pethia reval is a small cyprinid endemic to western Sri Lanka, known from the Kelani and Maha Oya river systems and the drainages between them.",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kelani",
+        "source": "seriouslyfish",
+        "quote": "Endemic to western Sri Lanka where it's known from the Kelani and Maha Oya river systems plus smaller drainages which lie between them such as the Attanagalu and Kalu rivers.",
+        "country": "LK",
+        "ok": true
+      },
+      {
+        "name": "Maha Oya",
+        "source": "seriouslyfish",
+        "quote": "Endemic to western Sri Lanka where it's known from the Kelani and Maha Oya river systems plus smaller drainages which lie between them such as the Attanagalu and Kalu rivers.",
+        "country": "LK",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia reval",
+    "status": "ACCEPTED",
+    "taxonKey": 8203702,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        33
+      ]
+    ],
+    "native": [
+      "LK"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

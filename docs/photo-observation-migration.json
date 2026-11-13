@@ -1,5 +1,5 @@
 {
-  "baseCommit": "4c5f665a83d45f16706df311577fa5f336c86d32",
+  "baseCommit": "8b320c9b6745e2223bdce23085634c03d312b0c9",
   "historyRewritten": false,
   "contentOrMediaChanges": 0,
   "version": "photo-observations-v1",
@@ -7,10 +7,10 @@
   "files": [
     {
       "file": "engine-state/_photo-watermarks.json",
-      "beforeHash": "6dde76d95001aecd4138c165612cdfc8afa5b3431d8bbbee6cdbd9232092bbb8",
-      "afterHash": "ad0d335b39a870e5f6a143782851d6c2934874aa8f954a282eadf49a91ecfbbd",
+      "beforeHash": "3ec679d2aafec033546e2a36cb73f26f223eb2b0d2745795c1df04b14d16f3d3",
+      "afterHash": "e7a5be1bd7f30b53329d774ff3753aba24f13f1b786aa9427b9b6ad68a7b0a83",
       "recordsChanged": 10522,
-      "records": 39536,
+      "records": 39540,
       "decisionDifferences": 0,
       "waitingDifferences": 0
     },
@@ -34,10 +34,10 @@
     },
     {
       "file": "engine-state/_photo-subjects.json",
-      "beforeHash": "660fc9cd476cda2fa8bf197f8f6073ff9fb74cca686560a5f315540bdf740bf7",
-      "afterHash": "9d067cd6731588c3b88c329392b886f9125ee6013ddf950a3cde77a5c8c4481b",
-      "recordsChanged": 6106,
-      "records": 6106,
+      "beforeHash": "e8f2f7c91cd4e1e8b12864dfab4f452b2301319955d304b62186a406ee96bf50",
+      "afterHash": "37233e3e0cb1afddcf930f72431818e8eb86366cd1ef187283d7a6080ad6a1fd",
+      "recordsChanged": 6110,
+      "records": 6110,
       "decisionDifferences": 0,
       "waitingDifferences": 0
     },
@@ -79,8 +79,8 @@
     },
     {
       "file": "docs/review/photo-subjects.md",
-      "beforeHash": "4521df5536d29cb72b580cbedf2d59fc347e2c2eab24322c95c01b44a0bd7a20",
-      "afterHash": "eb1bbb15c64ec5aca56c026a09d589a6dc625064bff2781e19b4e3bade5217c7",
+      "beforeHash": "cd239e421e7554a3819cb85af0d6d1a86fd9cd7b09970692338ae8f56fb8c65d",
+      "afterHash": "c06ddc4c26f2d27108d92dffe2d4c369aa1418fcc0d2e5607d8f1de73c107fad",
       "records": 1910,
       "recordsChanged": 1910,
       "decisionDifferences": 0,

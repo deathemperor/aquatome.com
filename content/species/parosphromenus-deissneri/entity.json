@@ -10,6 +10,78 @@
     "indonesia",
     "bangka"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Bangka"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Deissner's liquorice gourami, Parosphromenus deissneri, is endemic to the island of Bangka in Indonesia, mostly in its northern and eastern portions.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the island of Bangka in Bangka-Belitung province, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Bangka"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394190,
+      "total": 9,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "MY",
+          7
+        ],
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          4.21875,
+          3,
+          0
+        ],
+        [
+          101.25,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          1.40625,
+          3,
+          0
+        ],
+        [
+          113.90625,
+          0,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

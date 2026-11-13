@@ -14,6 +14,166 @@
     "india",
     "ganges"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BD",
+        "NP",
+        "IN"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The glass barb, Pethia guganio, is a small cyprinid widespread in the Ganges and Brahmaputra river systems of Bangladesh, Nepal and northern India.",
+          "countries": [
+            "BD",
+            "NP",
+            "IN"
+          ],
+          "regions": [
+            "Ganges",
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7510327,
+      "total": 36,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "NP",
+          18
+        ],
+        [
+          "BD",
+          12
+        ],
+        [
+          "IN",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          77.34375,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          28.125,
+          7,
+          7
+        ],
+        [
+          81.5625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          26.71875,
+          6,
+          6
+        ],
+        [
+          84.375,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          85.78125,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          85.78125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          90,
+          22.5,
+          3,
+          3
+        ],
+        [
+          90,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          91.40625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          26.71875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

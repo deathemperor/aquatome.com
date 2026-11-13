@@ -25,8 +25,20 @@ test('a 4:3 frame of a 3:2 photo: centred, moved onto the fish, or whole', () =>
 
 test('a tile is framed only on a copy that is the same picture', () => {
   const long = { x0: 30, y0: 300, x1: 1470, y1: 700 }
-  expect(tileFrame(photo(long))).toEqual({ whole: true })
+  expect(tileFrame(photo(long))).toEqual({ whole: true, mat: true })
   expect(tileFrame(photo(long, { thumb: 'https://media.aquatome.com/commons/b.webp' })), 'another picture').toEqual({})
+})
+
+test('a whole tile\'s strips under 8% of its side each take the mat, 8% or wider the photo blurred (the Design Lead, 12 Nov)', () => {
+  // The fish edge to edge across a wide photo, or top to bottom down a tall one: whole on the tile either way.
+  const wide = (width: number, height: number) => tileFrame(photo({ x0: 10, y0: 0.3 * height, x1: width - 10, y1: 0.7 * height }, { width, height }))
+  const tall = (width: number, height: number) => tileFrame(photo({ x0: 0.3 * width, y0: 10, x1: 0.7 * width, y1: height - 10 }, { width, height }))
+  expect(wide(1500, 1000), '3:2, strips 5.6% top and bottom').toEqual({ whole: true, mat: true })
+  expect(wide(1000, 640), 'strips 7.3%').toEqual({ whole: true, mat: true })
+  expect(wide(1000, 620), 'strips 8.7%').toEqual({ whole: true })
+  expect(wide(2000, 1000), '2:1, strips 16.7%').toEqual({ whole: true })
+  expect(tall(960, 802), 'the discus\'s shape, strips 5.1% a side').toEqual({ whole: true, mat: true })
+  expect(tall(1000, 1000), 'square, strips 12.5% a side').toEqual({ whole: true })
 })
 
 test('the fish list\'s data file says how each card frames its photo, as SpeciesCard does', async () => {
@@ -41,9 +53,9 @@ test('the fixture\'s boxed heads frame as the rule says, in the fish list\'s dat
   const vi = await getContent('vi')
   const { species, photos } = fishList('vi', vi)
   const items = new Map(speciesItems(species, photos).map(i => [i.slug, i.photo]))
-  // A cherry shrimp longer than the 4:3 tile: whole. A ram on the photo's left edge: the crop moves there. A discus at the
+  // A cherry shrimp longer than the 4:3 tile: whole, on the mat (a 3:2 photo's strips are thin). A ram on the photo's left edge: the crop moves there. A discus at the
   // top of a squarer photo: the crop moves up. An angelfish the tile keeps, and a rasbora where no animal was found: as today.
-  expect(items.get('tep-red-cherry')).toMatchObject({ whole: true })
+  expect(items.get('tep-red-cherry')).toMatchObject({ whole: true, mat: true })
   expect(items.get('ca-phuong-hoang')).toMatchObject({ pos: '0% 50%' })
   expect(items.get('ca-dia')).toMatchObject({ pos: '50% 0%' })
   for (const slug of ['ca-ong-tien', 'ca-boraras-do']) expect([items.get(slug)?.pos, items.get(slug)?.whole], slug).toEqual([undefined, undefined])

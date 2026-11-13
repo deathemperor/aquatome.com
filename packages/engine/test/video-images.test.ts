@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { sections, tileTime, videoImages, type ImageDeps } from '../src/video-images'
+import { WikimediaRefused } from '../src/wikimedia-rest'
 
 test('sections: each h3 with the text under it', () => {
   expect(sections('<p>Mở đầu</p><h3>Vì sao</h3><p>Vì đèn.</p><ul><li>CO2</li></ul><h3>Cách xử lý</h3><p>Thay nước.</p>')).toEqual([
@@ -92,6 +93,15 @@ test("videoImages: on a long video a still's t is the second its picture shows, 
   expect(moments.map((m: { t: number }) => m.t)).toEqual(g.grabs) // the label and the play button say the second the picture shows
   expect(g.grabs).toEqual([960, 970]) // the tiles nearest 959–974 s
   expect(moments.map((m: { url: string }) => m.url)).toEqual(['https://m/video/a1/at960-hd.webp', 'https://m/video/a1/at970-hd.webp'])
+})
+
+test('videoImages: Wikimedia resting stops the run and leaves the guide without pictures, to be done once the rest ends', async () => {
+  for (const over of [{ commons: async () => { throw new WikimediaRefused('2026-11-13T00:30:00.000Z') } }, { get: async (u: string) => { if (u === 'sb0') return solid('#3a6', 64, 36).jpeg().toBuffer(); throw new WikimediaRefused('2026-11-13T00:30:00.000Z') } }]) {
+    const g = await guide(over)
+    const r = await videoImages(g.root, g.d)
+    expect(r).toMatchObject({ done: [], failed: ['youtube-a1: Wikimedia refused this Mac: no request before 2026-11-13T00:30:00.000Z'], stoppedEarly: true })
+    expect(await g.figures()).toBeUndefined()
+  }
 })
 
 test('videoImages: YouTube throttling a frame grab stops the run and leaves the guide without pictures', async () => {

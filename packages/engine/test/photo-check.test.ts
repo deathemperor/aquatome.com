@@ -772,3 +772,29 @@ test.each(['usage limit', 'invalid model answer'])('a species-check failure reta
  expect(JSON.stringify(report)).not.toContain(trip)
  expect(await urls(r,'content/species/danio-rerio/entity.json')).toEqual(['a','b'])
 })
+
+test("a head a person picked stays first though the check can't tell it and passed another photo, so the steps before the sweep see the head a person chose", async () => {
+  const r = await root([{ id: 'channa-maculata', sci: 'Channa maculata', photos: ['night', 'pond'] }])
+  await writeFile(join(r, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/channa-maculata': url('pond') }))
+  const d = model({ night: { typical: true }, pond: { ok: 'unsure', typical: true, note: 'could be C. maculata or C. argus' } })
+  await checkPagePhotos(r, d, { limit: 5 })
+  expect(await urls(r, 'content/species/channa-maculata/entity.json')).toEqual(['pond', 'night'])
+  // With no pick, the photo the check can't tell goes behind the one it passed, as before.
+  const r2 = await root([{ id: 'channa-maculata', sci: 'Channa maculata', photos: ['pond', 'night'] }])
+  await checkPagePhotos(r2, model({ night: { typical: true }, pond: { ok: 'unsure', typical: true } }), { limit: 5 })
+  expect(await urls(r2, 'content/species/channa-maculata/entity.json')).toEqual(['night', 'pond'])
+})
+
+test("a pick that rests on a person's yes lapses with it in the same pass: once the check says anything but \"can't tell\", or the yes doesn't count, the order above holds", async () => {
+  const yes = { proposer: 'Photo Sourcing', approvers: ['the chief of staff', 'Curation'], on: '2026-11-19', lookAlike: 'Channa argus', mark: 'the rows of round dark blotches along the flank' }
+  const page = async (pond: object, y: object = yes) => {
+    const r = await root([{ id: 'channa-maculata', sci: 'Channa maculata', photos: ['night', 'pond'] }])
+    await writeFile(join(r, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/channa-maculata': url('pond') }))
+    await writeFile(join(r, 'engine-state/_photo-person-yes.json'), JSON.stringify({ [url('pond')]: { 'channa-maculata': y } }))
+    await checkPagePhotos(r, model({ night: { typical: true }, pond }), { limit: 5 })
+    return urls(r, 'content/species/channa-maculata/entity.json')
+  }
+  expect(await page({ ok: 'unsure', typical: true })).toEqual(['pond', 'night']) // the yes stands, and its pick with it
+  expect(await page({ typical: false })).toEqual(['night', 'pond']) // the right fish, not typical: the typical one leads
+  expect(await page({ ok: 'unsure', typical: true }, { ...yes, approvers: ['Curation'] })).toEqual(['night', 'pond']) // a yes that doesn't count
+})

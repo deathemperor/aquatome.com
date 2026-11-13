@@ -1,0 +1,99 @@
+{
+  "id": "pareiorhaphis-vestigipinnis",
+  "native": {
+    "input": "e1e55128d37b987e",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: creek tributary of Rio Caveiras at Painel, about 27°55'S, 50°05'W, Lajes, Santa Catarina, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: rio Canoas and its tributaries in Santa Catarina, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "La Plata, Uruguay, Upper Uruguay, Canoas.",
+        "words": "Uruguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Canoas",
+        "source": "planetcatfish",
+        "quote": "South America: rio Canoas and its tributaries in Santa Catarina, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Caveiras",
+        "source": "planetcatfish",
+        "quote": "Type locality: creek tributary of Rio Caveiras at Painel, about 27°55'S, 50°05'W, Lajes, Santa Catarina, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "La Plata",
+        "source": "planetcatfish",
+        "quote": "La Plata, Uruguay, Upper Uruguay, Canoas.",
+        "ok": true
+      },
+      {
+        "name": "Upper Uruguay",
+        "source": "planetcatfish",
+        "quote": "La Plata, Uruguay, Upper Uruguay, Canoas.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "UY"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Pareiorhaphis vestigipinnis",
+    "status": "ACCEPTED",
+    "taxonKey": 2340201,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "UY"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

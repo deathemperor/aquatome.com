@@ -1,0 +1,42 @@
+{
+  "id": "parosphromenus-allani",
+  "native": {
+    "input": "336d9b55af68ab25",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus allani is a liquorice gourami from Sarawak in Borneo, East Malaysia, to which it appears endemic.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus allani is a liquorice gourami from Sarawak in Borneo, East Malaysia, to which it appears endemic.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parosphromenus allani",
+    "status": "ACCEPTED",
+    "taxonKey": 2394175,
+    "datasets": [],
+    "native": [
+      "MY"
+    ],
+    "requests": 2,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

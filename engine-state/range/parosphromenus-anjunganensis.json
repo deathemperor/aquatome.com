@@ -1,0 +1,59 @@
+{
+  "id": "parosphromenus-anjunganensis",
+  "native": {
+    "input": "95bfaaeacbc4a093",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus anjunganensis is a liquorice gourami known only from a handful of localities near Anjungan in Kalimantan Barat, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus anjunganensis is a liquorice gourami known only from a handful of localities near Anjungan in Kalimantan Barat, Indonesian Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parosphromenus anjunganensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2394189,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

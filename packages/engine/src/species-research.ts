@@ -17,6 +17,7 @@ import { sanitizeHtml } from './sanitize'
 import type { VideoMeta } from './youtube'
 import { VI_STYLE as STYLE } from './phrases'
 import { TANK_RULE, withTanks } from './round'
+import { WikimediaRefused } from './wikimedia-rest'
 
 const WRITE = withTanks(readFileSync(new URL('./prompts/species.md', import.meta.url), 'utf8'))
 
@@ -241,7 +242,8 @@ export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o
     await writeFile(join(content, 'places', p.entity.id, 'vi.json'), `${JSON.stringify(TranslationSchema.parse(p.vi), null, 2)}\n`)
   }
   const places = [...new Set(c.places.flatMap(p => [p.continent, p.country, usableRegion(p.region) ? p.region : undefined].filter((x): x is string => !!x).map(placeId)))]
-  const soft = <T>(f: () => Promise<T>, fallback: T) => f().catch(() => fallback)
+  // Wikimedia resting is no "no photo": the page isn't made until the rest ends (wikimedia-rest.ts).
+  const soft = <T>(f: () => Promise<T>, fallback: T) => f().catch(e => { if (e instanceof WikimediaRefused) throw e; return fallback })
   const photos = was?.photos.length ? was.photos : await soft(() => findPhotos(sci, d.http), [])
   const asked = (a.videos ?? []).map(v => pageVideo(v.meta)).filter((v): v is Video => !!v)
   const found = d.findVideos ? await soft(() => d.findVideos!([sci, ...c.enNames]), []) : []

@@ -348,7 +348,11 @@ pnpm engine metric || log "metric: failed"
 # A figure a fish or plant page's English gives in metric itself, which the rounding rounded until 12 Nov 2026 ("60 × 40 ×
 # 30 cm" for Seriously Fish's "60 × 38 × 30 cm"), goes back to the English's: code, no model, at the pace the chief of
 # staff sets (source-figures.ts), the porthole catfish, Ophthalmotilapia and Cichla monoculus first; the gate reads each.
-pnpm engine source-figures --first vi/species/dianema-longibarbis,vi/species/ophthalmotilapia-ventralis,vi/species/cichla-monoculus,id/species/cichla-monoculus || log "source-figures: failed"
+# In the Mac's photos part alone (the chief of staff, 2026-11-12: the Mac only): the Mac's parts overlap, and each would
+# mend the same pages from its own clone and its gate read them again. So a cycle is one batch, and one record of it.
+if part photos; then
+  pnpm engine source-figures --first vi/species/dianema-longibarbis,vi/species/ophthalmotilapia-ventralis,vi/species/cichla-monoculus,id/species/cichla-monoculus || log "source-figures: failed"
+fi
 # The content rules' safe fixes on every page (sweep.ts; the tests fail on a page left with one): the source site's
 # comments and related posts cut, empty headings, repeated paragraphs and labels out of order fixed, photos of another
 # fish or a map taken off their page, card figures out of bounds hidden, titles promising a count their text lacks
@@ -369,6 +373,8 @@ fi
 # and keeps its work on a branch (gate_or_keep).
 gate_or_keep "content: engine $PART" content sources engine-state docs/review apps/site/src/i18n || exit 1
 if part photos; then
+  # What the gate made of each page the source figures mended, recorded once, and the stop when a batch went wrong.
+  pnpm engine source-figures --record || log "source-figures --record: failed"
   # Reports, nothing hidden: pictures (docs/review/content-audit.md: pages without a photo, a card thumb, or pictures
   # inside the text) and every published page, in each language, against the content rules (docs/review/content-rules.md).
   pnpm engine audit || log "audit: failed"
