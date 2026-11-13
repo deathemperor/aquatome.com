@@ -310,7 +310,11 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     review = { score: draft!.score, notes: draft!.notes, broken: draft!.broken }
     await logReviews(root, 'glossary', page, [review], review, { ...(now ? { now } : {}), rewrite: true, acceptedBy: o.accept })
   } else {
-    if (draft) { w = draft.entry; review = { score: draft.score, notes: draft.notes, broken: draft.broken } } else { w = await write(); review = await check(w); tries.push(review) }
+    // A kept draft is read again first: its notes were read against the term's notes as they were then (Lũa's seventh: three
+    // of its four came from the notes file's wording, since fixed).
+    w = draft ? draft.entry : await write()
+    review = await check(w)
+    tries.push(review)
     const from = review
     // A rewrite on the notes, and a second while the best still isn't saved (the chief of staff, 14 Nov 2026: Lũa's fifth
     // left six rule breaks after its one rewrite).
@@ -323,10 +327,10 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     // Kept for a reader to judge (the chief of staff, 14 Nov 2026): the draft that came closest, and why it wasn't saved.
     // A revision that came no closer leaves the draft it revised as it was.
     const keep = !passes(review) && (review !== from || !draft) ? `${JSON.stringify({ score: review.score, broken: review.broken, notes: review.notes, entry: w }, null, 2)}\n` : null
-    // A draft left as it was is logged again with its digest, so the log's last few reviews always hold the kept draft's
-    // (it keeps six: Codex's read, 14 Nov 2026).
+    // A draft left as it was carries its digest on this run's reading of it, so the log's last few reviews always hold the
+    // kept draft's (it keeps six: Codex's read, 14 Nov 2026).
     const still = draft && !passes(review) && !keep
-    await logReviews(root, 'glossary', page, still ? [...tries, from] : tries, passes(review) ? review : undefined, { ...(now ? { now } : {}), ...(draft ? { rewrite: true } : {}), ...(keep ? { draft: { of: review, sha: sha(keep) } } : still ? { draft: { of: from, sha: sha(draftText!) } } : {}) })
+    await logReviews(root, 'glossary', page, tries, passes(review) ? review : undefined, { ...(now ? { now } : {}), ...(draft ? { rewrite: true } : {}), ...(keep ? { draft: { of: review, sha: sha(keep) } } : still ? { draft: { of: from, sha: sha(draftText!) } } : {}) })
     if (!passes(review)) {
       if (keep) await writeFile(draftFile, keep)
       return { id, skipped: review.broken ? `breaks the rules: ${review.broken}` : `under the bar: ${review.score}`, notes: review.notes, draft: `engine-state/glossary/${id}.draft.json`, ...(draft ? { revised: review !== from } : {}) }

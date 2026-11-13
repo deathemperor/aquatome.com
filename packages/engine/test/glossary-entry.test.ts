@@ -373,10 +373,12 @@ test('a revision of the kept draft changes only the sentences its notes quote, a
   }
   const revise = (llm: Llm) => makeGlossaryEntry(root, { research: async () => { throw new Error('no research') }, llm }, 'lua', { kind: 'aquascaping', fromDraft: true })
   // Fewer notes but more on the facts: no closer, and the kept draft stays byte for byte.
-  expect(await revise(reply(['a new fact note', 'another new one'], ['Rule 4: x']))).toMatchObject({ skipped: 'breaks the rules: 3', revised: false })
+  expect(await revise(reply(['a new fact note', 'another new one'], ['Rule 4: x']))).toMatchObject({ skipped: 'breaks the rules: 1', revised: false })
   expect(writes).toHaveLength(2)
   expect(writes[0]).toContain('Sửa bản trước, không viết lại: chỉ sửa, gộp hay bỏ những câu mà ghi chú trích hoặc chỉ tới, và giữ nguyên từng chữ mọi câu khác.')
-  expect(writes[0]).toContain('- Rules 4 and 12: Rot should be covered once.')
+  // On the notes as the checks read the draft now, not those it was kept with.
+  expect(writes[0]).toContain('- Rule 4: x')
+  expect(writes[0]).not.toContain('Rules 4 and 12: Rot should be covered once.')
   expect(writes[0]).toContain(`--- BẢN TRƯỚC ---\n${JSON.stringify(sixth.entry)}`)
   expect(await readFile(draftPath(root), 'utf8')).toBe(kept)
   // As many notes, better grounded: no closer either (Codex, 14 Nov 2026).
@@ -387,11 +389,20 @@ test('a revision of the kept draft changes only the sentences its notes quote, a
   for (let i = 0; i < 3; i++) await revise(reply(['a', 'b'], ['Rule 4: x']))
   const log = JSON.parse(await readFile(join(root, 'engine-state/reviews/glossary.json'), 'utf8'))['vi/glossary/lua']
   expect(log).toHaveLength(6)
-  expect(log[0].draft).toBe(createHash('sha256').update(kept).digest('hex'))
+  expect(log.find((t: { draft?: string }) => t.draft).draft).toBe(createHash('sha256').update(kept).digest('hex'))
   await writeFile(draftPath(root), kept.replace('ngấm đủ nước', 'ngấm nước'))
   expect(await revise(none)).toEqual({ id: 'lua', refused: ['the kept draft is not as the step kept it'] })
   await writeFile(draftPath(root), kept)
+  // Read again at the bar, the kept draft is saved as it is, with no revision.
+  const again = await site()
+  await keptDraft(again, sixth.entry, sixth.notes.slice(0, 1), sixth.notes.slice(1, 4))
+  const before = writes.length
+  expect(await makeGlossaryEntry(again, { research: none, llm: reply([], [], 0.93) }, 'lua', { kind: 'aquascaping', fromDraft: true })).toMatchObject({ id: 'lua', score: 0.93 })
+  expect(writes).toHaveLength(before)
+  expect(JSON.parse(await readFile(join(again, 'content/glossary/lua/vi.json'), 'utf8')).body).toBe(sixth.entry.body)
   // A revision at the bar is saved.
-  expect(await revise(reply([], [], 0.92))).toMatchObject({ id: 'lua', score: 0.92 })
+  let read = 0
+  const passing: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: read++ ? [] : ['Rule 4: x'] } : prompt.startsWith('Below are FACTS') ? { score: 0.92, notes: [] } : { ...sixth.entry, body: '<p>Sửa.</p>' }) as never
+  expect(await revise(passing)).toMatchObject({ id: 'lua', score: 0.92 })
   expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).body).toBe('<p>Sửa.</p>')
 })
