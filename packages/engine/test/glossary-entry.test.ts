@@ -152,8 +152,10 @@ test('the owner\'s asks reach research and writer, our pages\' names reach the w
   const again = await site()
   const before = await readFile(join(again, 'content/glossary/lua/vi.json'), 'utf8')
   const r2 = await makeGlossaryEntry(again, { research: async () => facts as never, llm: llm([['a rule'], ['another rule']]) }, 'lua', { kind: 'aquascaping' })
-  expect(r2).toMatchObject({ id: 'lua', skipped: 'breaks the rules: 1', notes: ['a rule'] })
+  expect(r2).toMatchObject({ id: 'lua', skipped: 'breaks the rules: 1', notes: ['a rule'], draft: 'engine-state/glossary/lua.draft.json' })
   expect(await readFile(join(again, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
+  // The draft that came closest is kept for a reader, with why it wasn't saved.
+  expect(JSON.parse(await readFile(join(again, 'engine-state/glossary/lua.draft.json'), 'utf8'))).toEqual({ score: 0.97, broken: 1, notes: ['a rule'], entry: written })
 })
 
 // Our pages for the animals and plants the facts name: by a whole name, a plural too, or a genus named alone; never by a
@@ -177,5 +179,8 @@ test('our pages for the animals and plants a text names: whole names, plurals, a
     'Cá lau kiếng bristlenose | Ancistrus cirrhosus | Bristlenose pleco',
     'Cá otocinclus thường | Otocinclus vittatus | Cá otto',
     'Cá otocinclus vằn | Otocinclus cocama | Zebra Oto',
+    // The smallest page of the genus too: the first Lũa wrote "cá otto", the common oto's own name, which the list of the
+    // two fullest left out (14 Nov 2026).
+    'Cá oto Affinis | Otocinclus affinis',
   ])
 })
