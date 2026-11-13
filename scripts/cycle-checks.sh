@@ -117,6 +117,7 @@ verify() {
   local step from first name names
   : >"$TEST_LOG"
   TIMED_OUT=
+  if [ -n "${MIGRATE_FAILED:-}" ]; then log "photo records not migrated: not tested, not published"; return 1; fi
   calm
   for step in "$@"; do
     from=$(wc -c <"$TEST_LOG")
@@ -163,6 +164,8 @@ keep_unpublished() {
   when=$(date -u +%Y%m%dT%H%M%S)
   if [ -n "${TIMED_OUT:-}" ]; then
     keep_branch "kept/$1/$when" && log "tests ran out of time: this run's work is kept on kept/$1/$when for the next run"
+  elif [ -n "${MIGRATE_FAILED:-}" ]; then
+    keep_branch "kept/$1/$when" && log "photo records not migrated: this run's work is kept on kept/$1/$when for the next run"
   else
     # Off main at once: a next run that couldn't fetch would carry on from this commit, and could publish it.
     keep_branch "held/$1/$when" && git reset -q --hard origin/main && log "checks failed twice: this run's work is on held/$1/$when, not published"
@@ -213,7 +216,7 @@ publish_kept() {
   fi
   drop_old_held "$1"
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/kept/$1/"); do
-    log "publishing $branch, kept when its tests ran out of time"
+    log "publishing $branch, kept by an earlier run"
     git reset -q --hard "$branch"
     if push_kept "$branch"; then
       git branch -q -D "$branch"
@@ -231,6 +234,8 @@ publish_kept() {
     git reset -q --hard origin/main
   done
   if engine_cloud; then retry_held "$1"; fi
+  # Kept work's failed migration is that work's: the run's own goes on to its own (video-cycle.sh tests with no merge).
+  MIGRATE_FAILED=
 }
 # In the cloud, each held branch of <job> not yet tried again, once main's code (anything but the engine's output and the
 # docs) has changed since the main it was checked on: published as kept work is, or, failing its tests for real again,
@@ -281,7 +286,9 @@ push_kept() {
     if [ -n "$check" ]; then
       sweep_merged
       if ! verify 'pnpm test'; then
-        if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"; else KEPT_FAILED=1; fi
+        if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"
+        elif [ -n "${MIGRATE_FAILED:-}" ]; then KEPT_WHY="its photo records couldn't be migrated"
+        else KEPT_FAILED=1; fi
         return 1
       fi
       check=
@@ -310,7 +317,14 @@ verify_cycle() { verify 'pnpm test'; }
 # Main's changes and this run's meet only at a merge: a card from main and a summary from this run can then disagree, which
 # the sweep fixes and the tests fail on (the sf and pages runs of 2026-11-07 didn't publish over 30 such pages). So it runs
 # again before those tests.
+# Photo records in the format before 13 Nov 2026, which kept lettering read off a photo, fail the privacy test
+# (photo-privacy.ts). A run on older code writes them, and they come in at a merge: on 13 Nov two engine pushes made on
+# older code turned main red. So they're rewritten here first, with no model and no decision changed, before the sweep and
+# the tests see them. A migration that fails publishes nothing, and the work is kept for the next run, which migrates and
+# tests it again, never held for it (MIGRATE_FAILED; the Image Lead and the chief of staff, 13 Nov).
 sweep_merged() {
+  MIGRATE_FAILED=
+  pnpm engine photo-privacy --write || { MIGRATE_FAILED=1; log "photo records: the migration failed, so nothing is published"; }
   pnpm engine sweep || log "sweep: failed"
   git add content sources engine-state docs/review
   git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
@@ -324,7 +338,7 @@ swept_pull() {
   [ "$(git rev-parse '@{u}' 2>/dev/null)" = "$1" ] && return 0
   local head; head=$(git rev-parse HEAD)
   sweep_merged
-  [ "$(git rev-parse HEAD)" = "$head" ]
+  [ -z "${MIGRATE_FAILED:-}" ] && [ "$(git rev-parse HEAD)" = "$head" ]
 }
 # The calendar (content/curation.json) is one plan, not lines to blend. After a clash with a change on main, push()'s
 # line-by-line merge kept some of each plan's days, and named one guide on two days running (the photos part of
