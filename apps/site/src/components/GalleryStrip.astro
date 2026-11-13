@@ -31,6 +31,9 @@ const shown = Astro.props.shown ?? photos.slice(0, GALLERY_STRIP)
     ))}
   </ul>
   {column && href && <a class="all" href={href}>{t('Xem tất cả {n} ảnh →', { n: photos.length })}</a>}
+  {/* The column's height, and so its rows, is final once the page's fonts are in: the text beside it wraps differently
+      in the fallback font. Its further thumbnails show from then on, so none is downloaded for a row the swap takes away. */}
+  {column && more.some(Boolean) && <script is:inline>(function (s) { document.fonts.ready.then(function () { s.setAttribute('data-settled', '') }) })(document.currentScript.parentNode)</script>}
 </section>
 <style>
   .strip { padding-block: var(--space-5); }
@@ -55,7 +58,9 @@ const shown = Astro.props.shown ?? photos.slice(0, GALLERY_STRIP)
      gaps, at 4:3 (--row). Its height is the room it's given, never what it holds (height 0, then flex-grow: Safari sized
      the column, and the page's top, by every thumbnail with contain: size instead), and never less than the strip's own
      rows (--rows). A thumbnail past the last whole row goes to the foot of a row far below the list, which clips it:
-     never cut, never seen, and never downloaded (loading="lazy" loads only what the clip lets through). */
+     never cut, never seen, and never downloaded (loading="lazy" loads only what the clip lets through). The further
+     thumbnails (.more) show once the fonts are in (data-settled): before, the text beside the column wraps in the
+     fallback font, and the column, a row taller or shorter, had its first frames load a row the swap then clipped. */
   @media (min-width: 861px) and (min-height: 50rem) {
     .column { display: flex; flex-direction: column; container-type: inline-size; }
     .column ul {
@@ -65,7 +70,7 @@ const shown = Astro.props.shown ?? photos.slice(0, GALLERY_STRIP)
       grid-template-rows: repeat(auto-fill, var(--row)); grid-auto-rows: calc(4 * var(--row));
     }
     .column li { align-self: end; }
-    .column .more { display: block; }
+    .column[data-settled] .more { display: block; }
   }
   @media (max-width: 640px) { .wrap ul { grid-template-columns: repeat(3, minmax(0, 1fr)); } .wrap li:nth-child(n + 7) { display: none; } }
   /* The fish page's row on a phone: thumbnails 4.5rem high, cut at the screen's edge so it shows they go on, and the
