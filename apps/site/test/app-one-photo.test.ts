@@ -49,11 +49,13 @@ test("a fish whose head the cards refuse, with a later photo that fits: its card
   expect([doc.lead?.src, doc.lead?.box]).toEqual([head.url, WHOLE])
 }, 120_000)
 
-test('a generated picture is never a card\'s photo or a head', async () => {
+test("a generated picture is never a card's photo, and leads its page, labelled, only where the page has no real photo", async () => {
   const neon = (await getContent('vi')).species.find(s => s.id === 'paracheirodon-innesi')!
   const made = { ...cropped(), url: 'https://media.aquatome.com/generated/made.webp', thumb: undefined, altered: undefined, generated: { model: 'x' } } as unknown as Photo
-  const { doc, item } = await withPhotos([made, neon.photos[0]!])
-  expect([item.img, doc.lead?.src]).toEqual([smallSrc(neon.photos[0]!), neon.photos[0]!.url])
+  const both = await withPhotos([made, neon.photos[0]!])
+  expect([both.item.img, both.doc.lead?.src]).toEqual([smallSrc(neon.photos[0]!), neon.photos[0]!.url])
+  const alone = await withPhotos([made])
+  expect([alone.item.img, alone.doc.lead?.src]).toEqual([undefined, made.url])
 }, 120_000)
 
 // A video guide's head before it plays is its card's photo (the Design Lead, 13 Nov), in `video.poster`.
@@ -123,11 +125,11 @@ test("every card in the app index shows its page's head, the same photo with the
       if (i.kind === 'fish' && i.img) expect(i.imgBox, `${lang} ${i.path}`).toBeDefined()
       const d = byPath.get(i.path)
       if (!d) continue
-      const head = d.lead ?? d.video?.poster
-      expect(!!head, `${lang} ${i.kind} ${i.path}: card ${i.img ?? 'none'}, head ${head?.src ?? 'none'}`).toBe(!!i.img)
+      const head = d.lead ?? d.video?.poster, p = head && byUrl.get(head.src)
+      if (head) expect(p, `${lang} ${i.path}: ${head.src}`).toBeDefined()
+      // A page with no real photo may lead with its generated picture, labelled; no card shows one.
+      expect(!!head && !p?.generated, `${lang} ${i.kind} ${i.path}: card ${i.img ?? 'none'}, head ${head?.src ?? 'none'}`).toBe(!!i.img)
       if (!head || !i.img) continue
-      const p = byUrl.get(head.src)
-      expect(p, `${lang} ${i.path}: ${head.src}`).toBeDefined()
       expect(smallSrc(p!), `${lang} ${i.kind} ${i.path}`).toBe(i.img)
       if (i.imgBox) expect(head.box, `${lang} ${i.path}`).toEqual(i.imgBox)
       pictured.set(i.kind, (pictured.get(i.kind) ?? 0) + 1)

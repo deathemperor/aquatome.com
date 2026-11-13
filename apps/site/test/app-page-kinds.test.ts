@@ -3,7 +3,7 @@ import { expect, test } from 'vitest'
 import type { HTMLElement } from 'node-html-parser'
 import type { Content, Photo } from '@aq/schema'
 import { PageDoc, type Block, type Image, type Inline } from '@aq/schema/app-page'
-import { appBreeds, appGlossary, appPlants, appSpecies, pagePhoto } from '../src/lib/app-index'
+import { appBreeds, appGlossary, appPlants, appSpecies, headPhoto } from '../src/lib/app-index'
 import { appPages, breedDoc, fishDoc, glossaryDoc, listedPaths, plantDoc, sectionBlocks } from '../src/lib/app-page'
 import { photoCredit } from '../src/lib/cite'
 import { getContent } from '../src/lib/content'
@@ -172,7 +172,7 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     expect(d.aka, d.path).toBe(dom.querySelector('.alt') ? txt(dom.querySelector('.alt')) : undefined)
     expect(text(d.credit), d.path).toBe(txt(dom.querySelector('.facts > .srcline')).startsWith('Dịch') ? txt(dom.querySelector('.facts > .srcline')) : '')
     // The head is the page's photo, whole where no frame may fill with it (its box), never left out (the Design Lead, 13 Nov).
-    expect(d.lead?.src, d.path).toBe(pagePhoto(s.photos)?.url)
+    expect(d.lead?.src, d.path).toBe(headPhoto(s.photos)?.url)
     if (d.lead) expect(d.lead.src, d.path).toBe(dom.querySelector('.photo img')?.getAttribute('src'))
     expect(d.talk, d.path).toEqual(talk(dom))
     expect(d.talk?.comments && d.talk.photos, d.path).toBeTruthy()

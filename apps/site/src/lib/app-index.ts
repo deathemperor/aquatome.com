@@ -201,6 +201,11 @@ export const appEquipment = (lang: Lang, c: Content) => (served(lang, '/vi/thiet
  * never nothing). Where the fish is in it (photoBox) decides fill or whole by the frames rule (protocols/photo-crop-vectors.json).
  */
 export const pagePhoto = (photos: Photo[]): Photo | undefined => photos.find(p => !p.generated)
+/**
+ * A page's head: its card's photo (pagePhoto), or, where the page has no real photo, its first generated picture, which
+ * the page labels and no card shows (pictures.ts cleanPhoto: generation ships on the page and in its album only).
+ */
+export const headPhoto = (photos: Photo[]): Photo | undefined => pagePhoto(photos) ?? photos[0]
 /** The photo's whole area: in any frame of another shape the frames rule then shows it whole. */
 const WHOLE: Box = { x: 0, y: 0, w: 1, h: 1 }
 /**

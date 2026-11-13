@@ -1,17 +1,20 @@
 import { expect, test } from 'vitest'
-import { boxFractions, CurationSchema, type Content, type Photo } from '@aq/schema'
+import { boxFractions, CurationSchema, photoFitsCard, type Content, type Photo } from '@aq/schema'
 import { appIndex } from '../src/lib/app-index'
 import { appPages, fishDoc, listedPaths } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { groupTiles } from '../src/lib/home'
 import { smallSrc } from '../src/lib/img'
 
-// Where the fish is in a photo (`box`, `imgBox`: protocols/photo-crop-vectors.json) reaches the app only from photos the
-// loader gave a box, which only its switch does (image-geometry.ts SUBJECT_FRAMES): a photo without one, as every photo
-// with the switch off, leaves the app's index and pages as they were. With a box: a fish's page top, its list tile, its group's tile, Hôm nay's day and Khám phá's
+// Where the fish is in a photo (`box`, `imgBox`: protocols/photo-crop-vectors.json) reaches the app from photos the loader
+// gave a box, which only its switch does (image-geometry.ts SUBJECT_FRAMES), and as the whole area from a photo the cards'
+// frames refuse (app-index.ts photoBox): any other photo without one, as with the switch off, leaves the app's index and
+// pages as they were. With a box: a fish's page top, its list tile, its group's tile, Hôm nay's day and Khám phá's
 // top card carry it, and only on copies that are the same picture.
 const BOX_KEYS = new Set(['box', 'imgBox'])
-const boxKeys = (o: unknown) => JSON.stringify(o).match(/"(?:imgBox|box)":/g) ?? []
+/** Every box in the output but the whole area a photo the cards refuse carries. */
+const boxKeys = (o: unknown) => (JSON.stringify(o).match(/"(?:imgBox|box)":\{[^}]*\}/g) ?? []).filter(k => !k.endsWith('{"x":0,"y":0,"w":1,"h":1}'))
+const whole = (b?: { x: number; y: number; w: number; h: number }) => !!b && b.x === 0 && b.y === 0 && b.w === 1 && b.h === 1
 /** The output without its boxes: what it was before. */
 const strip = (o: unknown): unknown => Array.isArray(o) ? o.map(strip)
   : o && typeof o === 'object' ? Object.fromEntries(Object.entries(o).filter(([k]) => !BOX_KEYS.has(k)).map(([k, v]) => [k, strip(v)])) : o
@@ -30,7 +33,9 @@ const subject = (p: Photo) => ({ x0: Math.round(p.width * 0.25), y0: Math.round(
 /** Listed fish with a picture: `fish`, none of them a group's picture; `tile`, a group's tile whose picture is `a`'s. */
 async function listedFish() {
   const vi = unboxed(await getContent('vi'))
-  const listed = appIndex('vi', vi).items.filter(i => i.kind === 'fish' && i.img && i.sub).flatMap(i => vi.species.filter(s => s.id === i.id))
+  // Fish whose head the cards take as it is: one they refuse carries its whole area instead (app-one-photo.test.ts).
+  const fits = (p?: Photo) => !!p && p.headFit !== 'contain' && photoFitsCard(p)
+  const listed = appIndex('vi', vi).items.filter(i => i.kind === 'fish' && i.img && i.sub).flatMap(i => vi.species.filter(s => s.id === i.id && fits(s.photos[0])))
   const tiles = groupTiles('vi', vi).filter(g => g.photo)
   const tile = tiles.find(g => listed.some(s => s.photos.some(p => p.url === g.photo!.url)))!
   const a = listed.find(s => s.photos.some(p => p.url === tile.photo!.url))!
@@ -70,9 +75,9 @@ test('a boxed fish photo carries its box on its page top, tile, group tile, day 
   const calendar = calendarOf([A, B, C].map(s => ({ fish: `species/${s!.id}`, img: s!.photos[0]!.large!.url })), [{ page: `species/${A!.id}`, img: A!.photos[0]!.large!.url }])
   const ix = appIndex('vi', boxed, new Map(), boxed.species, { calendar, today })
   // Adding boxes adds only boxes.
-  expect(strip(ix)).toEqual(appIndex('vi', plain, new Map(), plain.species, { calendar, today }))
+  expect(strip(ix)).toEqual(strip(appIndex('vi', plain, new Map(), plain.species, { calendar, today })))
   // The tiles of a, b and c carry their lead photo's box; d's small copy is another picture: none; no other fish has one.
-  expect(ix.items.filter(i => i.imgBox).map(i => i.id).sort()).toEqual([A!.id, B!.id, C!.id].sort())
+  expect(ix.items.filter(i => i.kind === 'fish' && i.imgBox && !whole(i.imgBox)).map(i => i.id).sort()).toEqual([A!.id, B!.id, C!.id].sort())
   for (const s of [A, B, C]) {
     const i = ix.items.find(x => x.id === s!.id)!
     expect(i.imgBox, s!.id).toEqual(boxFractions(s!.photos.find(p => smallSrc(p) === i.img)!))
@@ -81,11 +86,11 @@ test('a boxed fish photo carries its box on its page top, tile, group tile, day 
   expect(ix.home.days!.map(x => x.imgBox)).toEqual([head(A), head(B), undefined])
   expect(ix.home.hero![0]!.imgBox).toEqual(head(A))
   // a's group tile carries its photo's box, and no other group's does.
-  expect(ix.home.groups.filter(g => g.imgBox)).toEqual([{ id: tile.group, img: smallSrc(tile.photo!), imgBox: boxFractions(A!.photos.find(p => p.url === tile.photo!.url)!) }])
+  expect(ix.home.groups.filter(g => g.imgBox && !whole(g.imgBox))).toEqual([{ id: tile.group, img: smallSrc(tile.photo!), imgBox: boxFractions(A!.photos.find(p => p.url === tile.photo!.url)!) }])
   // The page's top photo; nothing else on the page changes.
   const page = await fishDoc('vi', boxed, A!, listedPaths('vi', boxed))
   expect(page.lead?.box).toEqual(head(A))
-  expect(strip(page)).toEqual(await fishDoc('vi', plain, of(plain, A!.id), listedPaths('vi', plain)))
+  expect(strip(page)).toEqual(strip(await fishDoc('vi', plain, of(plain, A!.id), listedPaths('vi', plain))))
 })
 
 test('an address is a photo\'s own first; one two photos\' copies claim with different boxes carries none', async () => {

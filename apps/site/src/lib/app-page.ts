@@ -1,6 +1,6 @@
 import { resolveDataCard, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo, type PlantEntity, type Range, type Series, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
 import { PAGE_VERSION, pageShard, shardCount, type Block, type Image, type Inline, type PageDoc, type PageShard } from '@aq/schema/app-page'
-import { appBreeds, appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, pagePhoto, photoBox, type AppIndex } from './app-index'
+import { appBreeds, appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, headPhoto, photoBox, type AppIndex } from './app-index'
 import { breedParts } from './breed-page'
 import { BREED_KIND, type Breed } from './breeds'
 import { photoCredit } from './cite'
@@ -46,7 +46,7 @@ const image = (lang: Lang, p: Photo | null | undefined, alt?: string, small = fa
     ? { src: small ? smallSrc(p) : p.url, w: Math.round(p.width), h: Math.round(p.height), ...(alt ? { alt } : {}), credit: photoCredit(lang, p) }
     : undefined
 /**
- * A page's head, the photo its card in the app index shows (pagePhoto, the guide's and the series' card photo), with where
+ * A page's head, the photo its card in the app index shows (headPhoto, the guide's and the series' card photo), with where
  * the fish is (`box`, photoBox): the whole area where the cards' frames refuse the photo, so a reader that knows the box
  * shows it whole by the frames rule, never nothing (the Design Lead, 13 Nov).
  */
@@ -191,7 +191,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
   const { num } = fmt(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const p = await speciesParts(lang, c, s)
-  const lead = headImage(lang, pagePhoto(s.photos), `${s.t.name}, ${s.scientificName}`)
+  const lead = headImage(lang, headPhoto(s.photos), `${s.t.name}, ${s.scientificName}`)
   const sources = [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range }, refs: s.refs })
   // "Nuôi chung" (Companions.astro): the fish to keep with it and away from it; with neither, the tool's link alone.
@@ -257,7 +257,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const p = breedParts(lang, c, b)
-  const lead = headImage(lang, pagePhoto(b.photos), b.t.name)
+  const lead = headImage(lang, headPhoto(b.photos), b.t.name)
   const kind = t(BREED_KIND[b.kind])
   const parents: Block[] = p.parents.length ? [{
     t: 'p', c: [`${t('Lai từ:')} `, ...p.parents.flatMap((x, i): Inline[] => [
@@ -303,7 +303,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
 export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, listed: Set<string>): PageDoc {
   const t = translator(lang)
   const parts = plantParts(lang, c, p)
-  const lead = headImage(lang, pagePhoto(p.photos), `${p.t.name}, ${p.scientificName}`)
+  const lead = headImage(lang, headPhoto(p.photos), `${p.t.name}, ${p.scientificName}`)
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })), co2: p.co2, refs: p.refs })
   return {
     v: PAGE_VERSION,
