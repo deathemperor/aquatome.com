@@ -121,6 +121,14 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
   return out
 }
 
+/** The ids of a kind's folders that hold an entity, whatever their translations say (held, missing). */
+async function kindIds(root: string, dir: string): Promise<string[]> {
+  const ids = await readdir(join(root, dir)).catch(() => [] as string[])
+  const out: string[] = []
+  for (const id of ids) if (await exists(join(root, dir, id, 'entity.json'))) out.push(id)
+  return out
+}
+
 /** The watermark screen's record, in the engine's state beside the content root. */
 export const PHOTO_SCREEN_FILE = '_photo-watermarks.json'
 const screens = new Map<string, { at: string; record: Promise<Record<string, PhotoScreenEntry>> }>()
@@ -361,9 +369,13 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     return { ...m, photos: cleanPhotos(m.photos) }
   }) : []
   const materialSlugs = new Set<string>()
+  // A parent is another material, held back or not (a held parent leaves its kinds standing alone): never a typo that
+  // the page would drop without a word.
+  const materialIds = new Set(lang === 'vi' ? await kindIds(root, 'materials') : [])
   for (const m of materials) {
     if (materialSlugs.has(m.t.slug)) throw new Error(`material ${m.id}: duplicate slug "${m.t.slug}"`)
     materialSlugs.add(m.t.slug)
+    if (m.parent !== undefined && (m.parent === m.id || !materialIds.has(m.parent))) throw new Error(`material ${m.id}: parent "${m.parent}" is not another material`)
   }
 
   const allPlaces = await loadKind(root, 'places', PlaceSchema, lang)

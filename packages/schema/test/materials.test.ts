@@ -62,6 +62,15 @@ test('unknown section keys fail instead of silently losing writing', async () =>
   await expect(load(dir)).rejects.toThrow(/lua-sa-tung.*section/i)
 })
 
+test("a parent that isn't another material stops a build, instead of the page dropping it without a word", async () => {
+  await expect(load(await changed('lua-sa-tung/entity.json', e => { e.parent = 'luaa' }))).rejects.toThrow(/lua-sa-tung.*parent "luaa"/)
+  await expect(load(await changed('lua-sa-tung/entity.json', e => { e.parent = 'lua-sa-tung' }))).rejects.toThrow(/lua-sa-tung.*parent/)
+  // A held parent is still a material: its kinds stand alone, and the build goes on.
+  const held = await changed('lua/vi.json', t => { t.held = { checks: ['fit'], at: '2026-11-13' } })
+  const c = await schema.loadAll({ root: held, lang: 'vi', publicBuild: true, leaveOutHeld: true })
+  expect(c.materials.map(m => [m.id, m.parent])).toEqual([['lua-sa-tung', 'lua']])
+})
+
 test('duplicate material slugs stop a build instead of replacing a page', async () => {
   const dir = await changed('lua-sa-tung/vi.json', t => { t.slug = 'lua' })
   await expect(load(dir)).rejects.toThrow(/material.*slug/i)

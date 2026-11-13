@@ -31,6 +31,13 @@ test('paths: sections and fixed segments, never a slug; query and hash kept', ()
   expect(localizePath('id', '/go/shopee/')).toBe('/go/shopee/')
 })
 
+test("a link to a page another language doesn't have is dropped, root-relative or absolute on this site", () => {
+  // The materials pages are Vietnamese only (the pilot): an Indonesian page keeps the words, not a /id/ address with no page.
+  const html = '<p><a href="/vi/vat-lieu/lua/">Lũa</a> và <a href="https://aquatome.com/vi/vat-lieu/lua-sa-tung/">sa tùng</a></p>'
+  expect(localizeLinks(html, 'id', 'https://aquatome.com')).toBe('<p>Lũa và sa tùng</p>')
+  expect(localizeLinks(html, 'vi', 'https://aquatome.com')).toBe('<p><a href="/vat-lieu/lua/">Lũa</a> và <a href="https://aquatome.com/vat-lieu/lua-sa-tung/">sa tùng</a></p>')
+})
+
 test('links in a rendered page: own site only, language links untouched', () => {
   const html = '<a href="/vi/ca/x/">x</a><link rel="alternate" hreflang="vi" href="https://aquatome.com/vi/ca/y/"><img src="https://i.ytimg.com/vi/abc/hq.jpg">{"item":"https://aquatome.com/vi/cay/"} ["/vi/*"] <a href="https://example.com/vi/a/">e</a>'
   expect(localizeLinks(html, 'id', 'https://aquatome.com')).toBe(

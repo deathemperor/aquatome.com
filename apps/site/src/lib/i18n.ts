@@ -85,12 +85,14 @@ export const appLinks = (html: string, lang: Lang, origin: string) => (lang === 
  * they are, and so is a /vi/ inside some other address (i.ytimg.com/vi/…): it has to start the address.
  */
 export function localizeLinks(html: string, lang: Lang, origin: string | string[]): string {
-  // A link to a page this language doesn't have (yet) is dropped, its text kept.
+  const site = [origin].flat().filter(Boolean).map(o => o.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
+  // A link to a page this language doesn't have (yet) is dropped, its text kept: root-relative or absolute on this site,
+  // as both are rewritten below (an absolute /vi/vat-lieu/ link on an Indonesian page would become a /id/ one with no page).
+  const own = new RegExp(`\\bhref="(?:${site})?(/vi/[^"]*)"`)
   html = html.replace(/<a\b([^>]*)>([\s\S]*?)<\/a>/g, (m, attrs: string, inner: string) => {
-    const href = /\bhref="(\/vi\/[^"]*)"/.exec(attrs)?.[1]
+    const href = own.exec(attrs)?.[1]
     return href && !/\bhreflang=/.test(attrs) && !served(lang, href.replace(/&amp;/g, '&')) ? inner : m
   })
-  const site = [origin].flat().filter(Boolean).map(o => o.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
   const re = new RegExp(`<[^>]*\\bhreflang=[^>]*>|(?<=["'(=,\\s])(${site})?(/vi/[^"'\\s()<>\\\\]*)`, 'g')
   return html.replace(re, (m, o: string | undefined, path: string | undefined) => (path === undefined ? m : (o ?? '') + localizePath(lang, path)))
 }
