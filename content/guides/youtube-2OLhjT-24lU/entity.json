@@ -85,19 +85,6 @@
     ],
     "figures": [
       {
-        "heading": "Làm nền ba lớp thế nào",
-        "moments": [
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/2OLhjT-24lU/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ lớp nền đất và sỏi vào bể thủy sinh trống.",
-            "sharpness": 1541.6
-          }
-        ]
-      },
-      {
         "heading": "Trồng cây thế nào khi không có lũa đá",
         "moments": [
           {
@@ -106,7 +93,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh trồng dày Rotala xanh đỏ, cỏ trải thảm ở tiền cảnh.",
-            "sharpness": 2207.8
+            "sharpness": 2207.8,
+            "person": false
           },
           {
             "t": 1620,
@@ -114,7 +102,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh các bụi Rotala và Hygrophila xanh đỏ mọc dày.",
-            "sharpness": 1402.5
+            "sharpness": 1402.5,
+            "person": false
           }
         ],
         "photo": {
@@ -137,41 +126,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh nền bể trồng cây với bộ lọc nhỏ xíu gắn ở thành bể.",
-            "sharpness": 973.9
-          },
-          {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/2OLhjT-24lU/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể nhỏ có lọc treo gọn gàng ở thành, nước trong và nhiều cây.",
-            "sharpness": 315.4
-          }
-        ]
-      },
-      {
-        "heading": "Pha và lắp CO2 men đường",
-        "moments": [
-          {
-            "t": 670,
-            "url": "https://media.aquatome.com/video/2OLhjT-24lU/at670-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai CO2 men đường có ống dẫn khí, bên cạnh là ca đong để pha.",
-            "sharpness": 817.4
-          }
-        ]
-      },
-      {
-        "heading": "Thay dung dịch CO2 khi men hết",
-        "moments": [
-          {
-            "t": 980,
-            "url": "https://media.aquatome.com/video/2OLhjT-24lU/at980-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai CO2 đang sủi, được cầm lên để kiểm tra nắp.",
-            "sharpness": 599.4
+            "sharpness": 973.9,
+            "person": false
           }
         ]
       },
@@ -179,20 +135,13 @@
         "heading": "Tảo nâu giai đoạn đầu và lần chăm bể đầu tiên",
         "moments": [
           {
-            "t": 770,
-            "url": "https://media.aquatome.com/video/2OLhjT-24lU/at770-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đang chăm bể, dùng dụng cụ thao tác trong bể thủy sinh.",
-            "sharpness": 1595.2
-          },
-          {
             "t": 780,
             "url": "https://media.aquatome.com/video/2OLhjT-24lU/at780-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Thảm cây thủy sinh lên xanh mướt, mọc dày trên nền đất.",
-            "sharpness": 2075.2
+            "sharpness": 2075.2,
+            "person": false
           }
         ]
       },
@@ -205,7 +154,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh toàn cây lên đẹp, cá platy đỏ bơi giữa các bụi cây.",
-            "sharpness": 2419.4
+            "sharpness": 2419.4,
+            "person": false
           },
           {
             "t": 1580,
@@ -213,7 +163,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cá platy đỏ bơi trong thảm cây xanh dày.",
-            "sharpness": 583.9
+            "sharpness": 583.9,
+            "person": false
           }
         ],
         "photo": {

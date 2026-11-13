@@ -68,6 +68,45 @@
       "kept": false
     }
   ],
+  "vi/species/acarichthys-heckelii#Cg5gUTFbSyA": [
+    {
+      "at": "2026-11-13T19:07:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.68,
+      "notes": [
+        "[waterConditions] '23–27 °C, thấp nhất là 23 °C' differs from the page's 24–30 °C, but NEW never says so plainly. The video gives about 74–80°F.",
+        "[maintenance] 'khá khỏe và sống ổn trong nhiều điều kiện' contradicts the page, which says the fish is sensitive to poor water. NEW doesn't point out the difference.",
+        "[maintenance] 'Cá hay xới nền, đào hố' repeats the page, which already says the fish digs all day and, under [diet], that it doesn't sift sand.",
+        "[reproduction] 'Ít người cho loài này đẻ, chủ yếu là do cá trong bể hay đánh nhau tới chết' is the host's guess, but NEW states it as fact. It also repeats the page's point that aggression makes breeding hard.",
+        "[behaviour] 'Cá tetra nhỏ dài trên khoảng 2,5 cm nuôi chung vẫn yên' overlaps the page's statement that the fish doesn't hunt prey larger than a few cm.",
+        "[behaviour] The video says never keep two unless they are bonded. The page's [aquariumSize] says a 150 cm tank is 'chỉ vừa đủ cho một cặp'. NEW doesn't say the video differs.",
+        "[aquariumSize] The litre figures (300, 450, 600, 750) are converted from gallons and rounded. 450 L for 125 gal is a loose conversion, and the '600' figure is not in the video."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-13T19:07:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.5,
+      "notes": [
+        "[notes] \"các vây kéo sợi dài ở vây lưng\": the video only says \"trailers\" and never says they are on the dorsal fin; this location is added.",
+        "[beforeYouBuy] \"thường dài 18–20 cm, có thể tới 23 cm\": the video says 7-8 in up to 9 in. The conversion is rounded and a bit off (7 in is about 18 cm, 9 in about 23 cm). It repeats size info the page already has (sizeCm 20, ~200 mm).",
+        "[beforeYouBuy] \"có người kể cá của mình gần 30 cm\": the video says \"almost a foot long\", which is attributed to others. The text is fine on this, but the \"Con số này chưa tính phần sợi vây\" line is fine too. Main issue is the overlap with the page's size data.",
+        "[aquariumSize] \"ít nhất phải 300 lít\", \"450 lít\", \"750 lít\": the video gives 75, 125/150 and 200 gallons. The conversions are loose (75 gal is about 284 L, 125 gal about 473 L, 200 gal about 757 L). The \"at least 75\" minimum is presented as a rule, not as one keeper's view.",
+        "[waterConditions] \"23–27 °C\": the video says 74–80°F, which is 23–27°C. This overlaps the page's 24–30 range, and the video's range differs from the page (it tops out lower). The text does not say plainly that the page recommends the higher end, so the difference is not stated.",
+        "[behaviour] \"bể 300 lít\": the video says a 75 gallon with smaller specimens. The conversion is loose, and \"chỉ vài giây\" matches. Aggression toward conspecifics repeats what the page already says, but the new details are acceptable.",
+        "[behaviour] \"hay hay rỉa vây\" is a typo or duplicated word, and several phrases read as translation (\"để mắt tới\", \"cá chủ đạo\").",
+        "[waterConditions] \"không cần đẩy nhiệt lên cao\" is not said in the video. It is an inference that contradicts the page without saying so."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/ambastaia-sidthimunki#axPlxg-ortg": [
     {
       "at": "2026-11-11T15:48:54Z",
@@ -203,6 +242,43 @@
         "[maintenance] \"Đèn kiểu Chihiros\" - names a brand from the video; not wrong, but placed under maintenance as a rule about lighting with no keeper attribution, and the page says the fish prefer dim light.",
         "[behaviour] \"Một người từng nuôi loài này chưa bao giờ thấy cá ăn tép con\" - the page already says baby shrimp are easily eaten; the video's uncertainty differs from the page and this is not stated plainly as a difference.",
         "[diet] The keeper-attributed statement repeats the page's claim on Cyclops and colour, and the video's list of live foods is not used; the page already covers diet in detail."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/corydoras-pantanalensis#CVc-EzMdCeY": [
+    {
+      "at": "2026-11-13T19:08:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "[notes] \"đó là lời kể chứ chưa ai đo cho chắc\": the video only says \"I heard they can grow up to 10 centimeters\". It never says nobody has measured it. This is an invented claim.",
+        "[notes] The 10 cm figure differs from the page's sizeCm 8 and \"80 mm SL\". NEW doesn't say plainly that it differs from the page.",
+        "[waterConditions] \"cá chịu được nước ấm tới 27 °C và nước hơi kiềm tới pH 8,0\": the video only recommends a range. It doesn't say what the fish tolerates, so this is an inference.",
+        "[waterConditions] \"Mức thấp thì như nhau\" is a clumsy, translated-sounding way to compare the ranges. It is also vague about the difference from the page, where the upper limits are 26 °C and pH 7,5.",
+        "[distribution] \"sống trong các sông và suối nước trong\": the page already says the water is clear (\"nước trong vắt\") and that the fish lives in the Bolivian part. This partly repeats the page.",
+        "[beforeYouBuy] \"chỉ gặp nó ở tiệm cá chừng một hai lần\": this is one keeper's experience, which is acceptable. \"mấy năm gần đây\" is a loose rendering of \"over the last years\", and \"ít khi có trên thị trường\" is stated as a general fact."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-13T19:08:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "[notes] \"Cá thường lớn tới 7–8 cm\" — the page card already gives sizeCm 8 / 80 mm SL, so the figure is repeated. The video says 7–8 cm (3–4 inch), so this does not really add anything.",
+        "[distribution] \"Ngoài phần thuộc Bolivia\" — the page already says the Bolivian part of Pantanal, so this repeats it. The video's new point is only the clear rivers and creeks, plus a possible presence in Brazil.",
+        "[waterConditions] \"22–27 °C, pH từ 6,5 đến 8,0\" — the page says 22–26 °C and pH 6.5–7.5. The text does not say plainly that the video differs from the page and how (upper limits 27 °C and pH 8.0).",
+        "[waterConditions] \"Một người nuôi loài này khuyên\" — the speaker's advice is framed as a keeper's, which is fine. But the temperature and pH range is one person's recommendation and is not labelled against the page's values.",
+        "[beforeYouBuy] \"Một người chơi lâu năm chỉ gặp nó vài lần trong mấy năm gần đây\" — the video only says the speaker saw them a couple of times in shops. \"lâu năm\" (long-time) is an invented detail, and \"vài lần\" slightly changes \"a couple of times\".",
+        "[notes] \"Đây là một trong những loài cá chuột to nhất\" — this is in the video, but the \"nghe nói có con dài tới 10 cm\" sentence is written in a way that reads like a general fact. It is also close to the card's size figure.",
+        "[behaviour] The sexual dichromatism the video mentions is left out. The page's dimorphism text already covers it, so this is only a small omission. \"giữa bể\" (mid-tank) is slightly more specific than the video's \"open water\"."
       ],
       "attempt": "first",
       "kept": false
@@ -363,6 +439,46 @@
         "maintenance/waterConditions: narrator's personal advice ('I would recommend', 'Nothing I've found indicates') given as flat rules, not attributed to one keeper's experience.",
         "reproduction: 'cá bố mẹ sẽ ăn trứng' is stated as fact; the video only implies eggs should fall where adults cannot immediately eat them.",
         "diet: 'Miệng chúng rất nhỏ' is an inference; the video only says they are tiny tetras."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/ladigesia-roloffi#d10WwCWVOoo": [
+    {
+      "at": "2026-11-13T19:09:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.72,
+      "notes": [
+        "[behaviour] \"Nên nuôi từ 10 con trở lên\" differs from the page's \"ít nhất 8-10 con\", but the text doesn't say it differs.",
+        "[behaviour] \"Đàn cá bơi túm sát nhau\", the peaceful nature and the same-size tank mates mostly repeat what the page already says (nuôi theo đàn, hiền, cỡ tương đương).",
+        "[distribution] \"Có tài liệu cho người nuôi ghi...\" names Liberia, which the page already has (Du basin). The conflict with the page is only vaguely stated. Gbangbaia is also left out.",
+        "[distribution] \"Danh sách này rộng hơn hẳn những nơi đã biết chắc\" is the writer's own comment, not something the video says.",
+        "[maintenance] \"Anubias cũng sống được với đèn yếu, trồng chung với các cây ưa bóng khác đều hợp\" is padded. The video only lists java fern, anubias and cryptocoryne as plants that do well under subdued light.",
+        "[diet] \"Một người nuôi thấy đàn cá của mình rất mê trứng Artemia đã tách vỏ\" is fine as one keeper's experience, but \"trứng Artemia\" is a loose rendering of decapsulated brine shrimp.",
+        "[habitat] \"gỗ, cành cây mục\" slightly rewrites \"decomposing wooden vegetation\".",
+        "[dimorphism] \"kéo chéo ra rõ\" is slightly awkward Vietnamese for the sloping extended anal fin."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-13T19:09:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.5,
+      "notes": [
+        "[distribution] \"Một người nuôi loài này cho biết nó có ở Liberia...\" - the video narrator states the origins as fact, not as a keeper's experience; wrong attribution. Also \"Bờ Biển Ngà\" and Ghana are not on the page, and the video differs from the page (page says range unclear, Kasewe, Guinea) without saying so.",
+        "[distribution] \"sông Ziva\" - the video says Ziva River in Sierra Leone, but the page's Gbangbaia is already there (\"lưu vực sông Gbangbaia\"), so it partly repeats the page.",
+        "[habitat] \"suối nhỏ và sông có nhiều gỗ mục, lá cây mục\" - the video says only decomposing wooden vegetation; \"lá cây mục\" is added. The page's maintenance already covers leaf litter.",
+        "[maintenance] \"Anubias cũng là một loại cây...\" - the video lists java fern, anubias and cryptocoryne. Cryptocoryne is already on the page, so only anubias is new, which is fine. \"xếp thêm vài hòn đá\" is OK.",
+        "[behaviour] \"Đàn cá bơi túm sát nhau\" - the video says tight-knit schooling; fine. But \"tránh những loài tranh ăn giỏi\" is a mild overreach, since the video says they can co-exist as long as the others do not out-compete them for food.",
+        "[diet] \"Một người nuôi thấy đàn cá của mình rất mê trứng Artemia đã tách vỏ\" - that is a keeper experience and is fine. \"trùn chỉ\" for tubifex is fine. The page already has small dry food and live or frozen food, so repetition is minor.",
+        "[dimorphism] \"Cá đực thường hoạt bát hơn cá cái\" - the video says males show higher \"conductivity and vitality\", a garbled transcript, so this is shaky. The page already says male anal fin rays are longer, so the extension is partly repeated; the red colouring and the straight female fin are new.",
+        "Nothing is said plainly about where the video differs from the page, such as the range or the colour of the anal fin."
       ],
       "attempt": "first",
       "kept": false

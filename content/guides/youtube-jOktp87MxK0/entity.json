@@ -97,7 +97,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp cát mịn phủ phẳng phần nền trước, nước dâng gần mực dự tính.",
-            "sharpness": 1586
+            "sharpness": 1586,
+            "person": false
           }
         ],
         "photo": {
@@ -115,20 +116,13 @@
         "heading": "Làm dòng nước rỉ trên tường đá",
         "moments": [
           {
-            "t": 110,
-            "url": "https://media.aquatome.com/video/jOktp87MxK0/at110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng súng bắn keo nến để bịt đầu ống dẫn nước.",
-            "sharpness": 929.1
-          },
-          {
             "t": 145,
             "url": "https://media.aquatome.com/video/jOktp87MxK0/at145-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Rêu đặt trên tường đá và lũa, chỗ nước bắn tới.",
-            "sharpness": 1739.4
+            "sharpness": 1739.4,
+            "person": false
           }
         ]
       },
@@ -136,20 +130,13 @@
         "heading": "Trồng rêu cạn, dương xỉ và dây thường xuân",
         "moments": [
           {
-            "t": 185,
-            "url": "https://media.aquatome.com/video/jOktp87MxK0/at185-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gói gốc dương xỉ đã gỡ bớt đất vào bông lọc.",
-            "sharpness": 1727.6
-          },
-          {
             "t": 210,
             "url": "https://media.aquatome.com/video/jOktp87MxK0/at210-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Rêu gối và dương xỉ bám trên lũa và đá trong bể.",
-            "sharpness": 1267.7
+            "sharpness": 1267.7,
+            "person": false
           }
         ],
         "photo": {
@@ -164,44 +151,16 @@
         }
       },
       {
-        "heading": "Cây thủy sinh mọc từ nước lên cạn",
-        "moments": [
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/jOktp87MxK0/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây thủy sinh và rêu xanh mọc trên lũa, vươn lên khỏi mặt nước.",
-            "sharpness": 1749.1
-          },
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/jOktp87MxK0/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Trồng cây thủy sinh vào lớp phân nền trắng trong bể.",
-            "sharpness": 946.8
-          }
-        ]
-      },
-      {
         "heading": "Trồng cây ngập ở phần nền trước",
         "moments": [
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/jOktp87MxK0/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bucephalandra dán trên đá đặt ở nền cát phía trước bể.",
-            "sharpness": 1219.1
-          },
           {
             "t": 330,
             "url": "https://media.aquatome.com/video/jOktp87MxK0/at330-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Axolotl bơi giữa bể cây ngập nước xanh um, gần kính trước.",
-            "sharpness": 862.6
+            "sharpness": 862.6,
+            "person": false
           }
         ],
         "photo": {
@@ -224,7 +183,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Axolotl trắng bò trên nền cát, phía sau có vài con cá danio bơi.",
-            "sharpness": 207.6
+            "sharpness": 207.6,
+            "person": false
           }
         ],
         "photo": {
@@ -247,15 +207,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể mới bị tảo nâu phủ vàng nâu khắp kính và cát nền.",
-            "sharpness": 2428.5
-          },
-          {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/jOktp87MxK0/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng dụng cụ cạo kính để cạo lớp tảo nâu bám trên kính.",
-            "sharpness": 2548.4
+            "sharpness": 2428.5,
+            "person": false
           }
         ]
       }

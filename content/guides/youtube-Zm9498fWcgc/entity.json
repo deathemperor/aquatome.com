@@ -89,7 +89,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh có đá phủ rêu, thảm cỏ xanh thấp và cá betta.",
-            "sharpness": 2311.5
+            "sharpness": 2311.5,
+            "person": false
           }
         ]
       },
@@ -97,20 +98,13 @@
         "heading": "Pha bộ CO2 men đường",
         "moments": [
           {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/Zm9498fWcgc/at30-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bình phản ứng CO2 nhỏ gắn trên thành hồ thủy sinh.",
-            "sharpness": 444.2
-          },
-          {
             "t": 40,
             "url": "https://media.aquatome.com/video/Zm9498fWcgc/at40-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bình CO2 men đường đặt cạnh hồ thủy sinh.",
-            "sharpness": 608.3
+            "sharpness": 608.3,
+            "person": false
           }
         ]
       },
