@@ -1,4 +1,4 @@
-import { subjectFrame, thumbOf, type Photo } from '@aq/schema'
+import { photoFitsCard, subjectFrame, thumbOf, type Photo } from '@aq/schema'
 
 /** Commons hands back the original file as the "thumb" when it is no wider than the size asked for: its 500px size instead. */
 function commonsThumb(p: Photo) {
@@ -45,10 +45,18 @@ export const BLUR_STRIP = 0.08
 
 /**
  * A fish's 4:3 tile (SpeciesCard, and the cards the fish list's script builds): framed only on a copy that is the same
- * picture. `mat`: the photo whole on the tile's mat, its strips too thin for the blur (BLUR_STRIP).
+ * picture. `mat`: the photo whole on the tile's mat, its strips too thin for the blur (BLUR_STRIP). A photo the large
+ * cards refuse (photoFitsCard: a dealer's mark cropped off too near the fish) is whole: never cut.
  */
 export function tileFrame(p: Photo): { pos?: string; whole?: true; mat?: true } {
-  const f = resizeOf(p, smallSrc(p)) ? fishFrame(p, 4 / 3) : {}
+  const f = !photoFitsCard(p) ? { whole: true as const } : resizeOf(p, smallSrc(p)) ? fishFrame(p, 4 / 3) : {}
   const r = p.width / p.height, strip = (1 - Math.min(r, 4 / 3) / Math.max(r, 4 / 3)) / 2
   return f.whole && strip < BLUR_STRIP ? { ...f, mat: true } : f
 }
+
+/**
+ * What a fish's tile shows of the photo its page chose for it: any real photo, framed by tileFrame; a generated picture
+ * never (a tile has no slot for its label). A photo too small or too tightly cropped for a large card is still fine at
+ * tile size, so a tile never says "no photo yet" while its page shows one (the chief of staff, 13 Nov).
+ */
+export const tilePhoto = (p: Photo | null | undefined): Photo | undefined => (p && !p.generated ? p : undefined)

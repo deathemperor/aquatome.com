@@ -15,6 +15,17 @@ export function photosOf(photos: Photo[]): Photo[] {
   return first ? [first, ...photos.filter(p => p !== first)] : []
 }
 
+/**
+ * A fish tile's photos (SpeciesCard: the fish lists, their data files, a guide's fish cards, the home page's): photosOf,
+ * else, where the large cards refuse every photo (photoFitsCard), the page's head, which the tile shows whole (img.ts
+ * tileFrame). A tile never says "no photo yet" while its page shows one (the chief of staff, 13 Nov). Not for what crops a
+ * photo as it is or places it at its own shape: a fish's round chip on an equipment page, a guide's fish section.
+ */
+export const tilePhotos = (photos: Photo[]): Photo[] => {
+  const tried = photosOf(photos)
+  return tried.length ? tried : photos.filter(p => !p.generated).slice(0, 1)
+}
+
 /** Each item's picture, in order: the first of its photos the page doesn't show yet, else none (null). */
 export const takeEach = <T>(pics: PictureSet, items: T[], photos: (x: T) => (Photo | undefined)[]): (Photo | null)[] =>
   items.map(x => pics.take(photos(x)) ?? null)
@@ -52,7 +63,7 @@ export function morePhotos(pics: PictureSet, gallery: Photo[], strip: (Photo | n
 }
 
 /** A grid of fish cards' pictures, none twice (a fish and its colour form often share a photo): what SpeciesGrid shows. */
-export const gridPhotos = (c: Content, species: { photos: Photo[] }[], pics = pagePictures(c)) => takeEach(pics, species, s => photosOf(s.photos))
+export const gridPhotos = (c: Content, species: { photos: Photo[] }[], pics = pagePictures(c)) => takeEach(pics, species, s => tilePhotos(s.photos))
 
 /** Photos with each picture once (a gallery that kept two files of one photo): the gallery page and its strip alike. */
 export function distinctPhotos<P extends Photo>(c: Content, photos: P[]): P[] {
