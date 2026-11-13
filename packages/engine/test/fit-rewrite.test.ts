@@ -713,6 +713,15 @@ test('a breed page\'s per-inch figure is read whole from its paragraph, in each 
     if (kept) expect(JSON.parse(await readFile(b.file, 'utf8')).body).toContain('<p>Cần khoảng 15 lít cho mỗi cm chiều dài cá.</p>')
     else { expect(r.notKept[0]).toContain('the figures as keepers say them aren\'t there: 15 lít cho mỗi cm'); expect(await readFile(b.file, 'utf8')).toBe(before) }
   }
+  // Astra's read of 60e5e37fd: the figure's words are covered, not the ones between them: "nước sạch" dropped isn't kept.
+  const clean = await breed({ body: '<p>Cần 38 lít nước sạch mỗi 2,5 cm chiều dài cá.</p>' })
+  await writeFile(join(clean.root, 'engine-state/breeds/pigeon-blood-discus.json'), JSON.stringify({ keeping: [facts] }))
+  const before = await readFile(clean.file, 'utf8')
+  const g = { check: 'units' as const, part: part(clean.p, 'body'), quote: '38 lít', why: 'a converted per-inch figure' }
+  const r = await fitRewrite(clean.root, [clean.p], reading(clean.p, [g]), { llm: notesLlm({ figures: () => 'Cần 15 lít cho mỗi cm chiều dài cá.' }).llm, now: () => new Date('2026-11-12T12:00:00Z') }, { limit: 5 })
+  expect(r.rewritten).toEqual([])
+  expect(r.notKept.join(' ')).toMatch(/Left out of sentence \d+, and no finding asks for it to go: "nước sạch"/)
+  expect(await readFile(clean.file, 'utf8')).toBe(before)
 })
 
 test('a breed page\'s units rewrite that names another figure isn\'t kept, and the part\'s other mend stays', async () => {
