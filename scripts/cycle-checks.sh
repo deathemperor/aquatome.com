@@ -27,47 +27,46 @@ clock() {
 # the limit the call is stopped, the log says so (and how long the Mac slept in it), and it fails as a refused fetch or
 # push does: the opening fetch ends the cycle, which frees the next run (finish reports it to GitHub, engine-mac.yml).
 net() {
-  local limit="${GIT_NET_SECONDS:-600}" job dog me status=0 stopped=0 t0 z0 t1 z1 slept why
+  local limit="${GIT_NET_SECONDS:-600}" status=0 t0 z0 t1 z1 slept why
   read -r t0 z0 < <(clock)
-  # In a process group of its own, so the stop reaches what it started too (git pull's fetch, ssh, a merge driver).
-  perl -e 'setpgrp(0, 0); exec { $ARGV[0] } @ARGV or die "$ARGV[0]: $!\n"' "$@" &
-  job=$!
-  # By the clock, not by how many sleeps it took (a Mac asleep or busy stretches them), and with none of the caller's
-  # output, so a sleep it leaves behind holds no pipe open. It ends by itself once nothing of the call is left, so it's
-  # never stopped from here (a stop that fails would end the cycle under set -e). At the limit it sends TERM to the group
-  # and KILL to what's left 10 s on, so a call that exits 0 on TERM is still stopped, children and all, and ends with 124,
-  # which is how the caller learns of the stop. Without set -e, so nothing in it can end it before the stop: a marker
-  # file it once wrote, in a temp folder that was missing, did (Astra's read, 13 Nov).
-  # It looks every tenth of a second, so a call that answers waits no longer than that for it, and reads the clock every
-  # second: looking each second added a second to every call, and a cycle makes dozens.
-  # Until the call's group is made, it watches (and stops) the call by its pid: perl slow to start makes the group late,
-  # and a watchdog that looked for the group alone ended at its first look and left the call with no limit (Astra's
-  # read). Then only while that pid is still a child of the shell that started it (`me`): a call that ended before making
-  # its group is reaped by this shell, its pid may go to another program, and this shell starts nothing while it waits,
-  # so a pid with another parent isn't the call's (Astra's read). Once the group is seen, the group alone.
-  me=$(exec sh -c 'echo $PPID')
-  ( set +e
-    seen=
-    ours() { local p; p=$(ps -o ppid= -p "$job" 2>/dev/null) && [ "${p// /}" = "$me" ]; }
-    alive() { if kill -0 -- -"$job" 2>/dev/null; then seen=1; return 0; fi; [ -z "$seen" ] && ours; }
-    stop() { kill -"$1" -- -"$job" 2>/dev/null || { [ -z "$seen" ] && ours && kill -"$1" "$job" 2>/dev/null; }; }
-    n=0
-    while sleep 0.1; do
-      alive || exit 0
-      n=$((n + 1)); [ $((n % 10)) -eq 0 ] || continue
-      read -r t1 _ < <(clock) || t1=$(date +%s)
-      [ $((${t1:-0} - t0)) -lt "$limit" ] || break
-    done
-    alive || exit 0
-    stop TERM
-    for _ in 1 2 3 4 5 6 7 8 9 10; do sleep 1; alive || exit 124; done
-    stop KILL
-    exit 124 ) </dev/null >/dev/null 2>&1 &
-  dog=$!
-  wait "$job" 2>/dev/null || status=$?
-  wait "$dog" 2>/dev/null || stopped=$?
-  [ "$stopped" -eq 124 ] || return "$status"
+  # The call runs in a process group of its own, so the stop reaches what it started too (git pull's fetch, ssh, a merge
+  # driver), and that group is led by a keeper, not by the call: the keeper makes the group before the call starts, and its
+  # number, which is the group's, stays taken until the supervisor below has sent its last signal and reaped it, so no
+  # other program can have that group and nothing but the call's is ever signalled. A watchdog that found the call by its
+  # number through ps could stop another program that had the number, and a ps that failed left the call with no limit
+  # (Astra's read, 13 Nov). The keeper outlives a TERM and writes how the call ended to the supervisor, which waits for
+  # that word and reads the clock each second, by the clock and not by how many waits it took (a Mac asleep or busy
+  # stretches them). At the limit it sends TERM to the group, and KILL to what's left once the call has ended or 10 s on,
+  # so a call that exits 0 on TERM is still stopped, children and all, and ends with 124. A call that ends in time is let
+  # go at once with its own status; what it left running in its group runs on without the limit, as git's own leftovers
+  # (gc, an ssh master) leave the group anyway. Its input is /dev/null, as a call run in the background had.
+  perl -e '
+    use POSIX ();
+    my ($limit, $t0) = splice @ARGV, 0, 2;
+    pipe my $r, my $w or die "pipe: $!\n";
+    my $keeper = fork // die "fork: $!\n";
+    unless ($keeper) {
+      close $r; setpgrp 0, 0;
+      my $call = fork // die "fork: $!\n";
+      unless ($call) { exec { $ARGV[0] } @ARGV; die "$ARGV[0]: $!\n" }
+      $SIG{TERM} = "IGNORE";
+      waitpid $call, 0;
+      my $s = $? & 127 ? 128 + ($? & 127) : $? >> 8;
+      print $w "$s\n"; exit 0;
+    }
+    close $w; POSIX::setpgid($keeper, $keeper);
+    my $ended = sub { my $in = ""; vec($in, fileno $r, 1) = 1; select($in, undef, undef, shift) > 0 };
+    my $now = sub { my $t = $ENV{AQ_CLOCK} ? (split " ", qx{"$ENV{AQ_CLOCK}"})[0] : time; $t // time };
+    until ($ended->(1)) {
+      next if $now->() - $t0 < $limit;
+      kill TERM => -$keeper; $ended->(10); kill KILL => -$keeper; waitpid $keeper, 0; exit 124;
+    }
+    my $s = <$r>; waitpid $keeper, 0; exit($s // 1);
+  ' -- "$limit" "$t0" "$@" </dev/null || status=$?
+  [ "$status" -eq 124 ] || return "$status"
   read -r t1 z1 < <(clock)
+  # A call that exits 124 itself, inside its limit, wasn't stopped.
+  [ $((t1 - t0)) -ge "$limit" ] || return 124
   slept=$((z1 - z0)); why="$*: no answer from GitHub in $((t1 - t0)) s, stopped"
   [ "$slept" -lt 60 ] || why="$why; the Mac slept $((slept / 60)) min of that, and a connection doesn't outlive a sleep"
   log "$why"; return 124
