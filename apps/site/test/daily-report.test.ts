@@ -2,7 +2,7 @@ import { expect, test, vi } from 'vitest'
 import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { calendar, CHANGES_URL, landedChanges, post, read, reportedToday, summarise } from '../../../scripts/daily-report.mjs'
+import { calendar, CHANGES_URL, landedChanges, noAnimal, post, read, reportedToday, summarise } from '../../../scripts/daily-report.mjs'
 import { parseGitHubSide } from '../worker/daily/github'
 
 // The collector, on GitHub's JSON as its REST API gives it: no network.
@@ -335,4 +335,15 @@ test("the app's next 7 days from the calendar in the checkout: the weeks they to
   expect(c.days.slice(0, 3)).toEqual([{ date: '2026-11-06', fish: 'Cá ông tiên altum', why: 'Fish: Cá ông tiên altum, on this week\'s list.' }, { date: '2026-11-07' }, { date: '2026-11-08', fish: 'breeds/no-such-page' }])
   // The Worker takes it with the rest.
   expect(parseGitHubSide(JSON.stringify({ ...sum(), calendar: c }))?.calendar).toEqual(c)
+})
+
+test('heads with no animal in them, as the sweep lists them: how many, newest first, each by its Vietnamese name; the Worker takes them', () => {
+  const root = mkdtempSync(join(tmpdir(), 'aq-noanimal-'))
+  const write = (path: string, o: unknown) => { mkdirSync(join(root, path, '..'), { recursive: true }); writeFileSync(join(root, path), JSON.stringify(o)) }
+  expect(noAnimal(root)).toBeUndefined()
+  write('content/species/a/vi.json', { name: 'Cá a' })
+  write('engine-state/_photo-no-animal-heads.json', { 'species/a': { url: 'https://media.aquatome.com/x/a.webp', since: '2026-11-01' }, 'breeds/b': { url: 'https://media.aquatome.com/x/b.webp', since: '2026-11-06' } })
+  const heads = noAnimal(root)!
+  expect(heads).toEqual({ total: 2, items: [{ page: 'breeds/b', name: 'breeds/b', since: '2026-11-06' }, { page: 'species/a', name: 'Cá a', since: '2026-11-01' }] })
+  expect(parseGitHubSide(JSON.stringify({ ...sum(), noAnimal: heads }))?.noAnimal).toEqual(heads)
 })
