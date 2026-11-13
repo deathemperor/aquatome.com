@@ -28,7 +28,9 @@ if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pa
 deploy() { gh workflow run deploy.yml -R "${GITHUB_REPOSITORY:-deathemperor/aquatome.com}" --ref main; }
 # Push this part's commit on top of whatever landed during the run (code, the other parts' content).
 push() {
+  local main
   for _ in 1 2 3; do
+    main=$(git rev-parse '@{u}' 2>/dev/null || true)
     if ! git pull -q --rebase; then
       local clash; clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       log "another part changed the same files: $clash"
@@ -42,6 +44,8 @@ push() {
       else
         git rebase --abort 2>/dev/null || true
       fi
+    elif ! swept_pull "$main"; then
+      verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after the sweep on main's changes, not publishing"; return 1; }
     fi
     git push -q && return 0
     sleep 30
@@ -110,6 +114,8 @@ if part pages; then
   pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:---except seriouslyfish}
   # Plants' other scientific names (sources' "previously named …", GBIF, a few hobby names): linked, checked, searched.
   pnpm engine plant-synonyms || log "plant-synonyms: failed"
+  # Fish's older scientific names from GBIF (fish-synonyms.ts), 300 a cycle, each asked once: Commons files some fish under them.
+  pnpm engine fish-synonyms --limit "${FISH_SYNONYMS_LIMIT:-300}" || log "fish-synonyms: failed"
   # What YouTube reviews found, on PRODUCT_REVIEW_LIMIT product pages a cycle (candidates: product-reviews.ts): a vet, an
   # extraction a review and a writing call, on top of a research call and a page for a product with none. So only with time
   # left for that. Not behind SKIP_VIDEOS, which the Mac's parts set for video-cycle.sh's bursts: this is a few requests and
@@ -342,7 +348,11 @@ pnpm engine metric || log "metric: failed"
 # A figure a fish or plant page's English gives in metric itself, which the rounding rounded until 12 Nov 2026 ("60 × 40 ×
 # 30 cm" for Seriously Fish's "60 × 38 × 30 cm"), goes back to the English's: code, no model, at the pace the chief of
 # staff sets (source-figures.ts), the porthole catfish, Ophthalmotilapia and Cichla monoculus first; the gate reads each.
-pnpm engine source-figures --first vi/species/dianema-longibarbis,vi/species/ophthalmotilapia-ventralis,vi/species/cichla-monoculus,id/species/cichla-monoculus || log "source-figures: failed"
+# In the Mac's photos part alone (the chief of staff, 2026-11-12: the Mac only): the Mac's parts overlap, and each would
+# mend the same pages from its own clone and its gate read them again. So a cycle is one batch, and one record of it.
+if part photos; then
+  pnpm engine source-figures --first vi/species/dianema-longibarbis,vi/species/ophthalmotilapia-ventralis,vi/species/cichla-monoculus,id/species/cichla-monoculus || log "source-figures: failed"
+fi
 # The content rules' safe fixes on every page (sweep.ts; the tests fail on a page left with one): the source site's
 # comments and related posts cut, empty headings, repeated paragraphs and labels out of order fixed, photos of another
 # fish or a map taken off their page, card figures out of bounds hidden, titles promising a count their text lacks
@@ -350,14 +360,21 @@ pnpm engine source-figures --first vi/species/dianema-longibarbis,vi/species/oph
 pnpm engine sweep || log "sweep: failed"
 # A page held for units alone: a tank converted from US gallons some other way ("115 lít") becomes the size a keeper here
 # names ("120 lít"), by code with no model, six pages a run; the gate reads each next and lets it out if it passes. It
-# starts on 13 Nov 2026 08:00, the easy-fish guide first (the chief of staff, 2026-11-11; units-mend.ts).
-pnpm engine units-mend --first vi/guides/youtube-mGmIvhtIM9k || log "units-mend: failed"
+# starts on 13 Nov 2026 08:00, the easy-fish guide first (the chief of staff, 2026-11-11; units-mend.ts). In the Mac's
+# photos part alone (the chief of staff, 2026-11-12: the Mac only): a cloud cycle, or another of the Mac's parts, running
+# beside it would mend the same pages from its own clone, and its gate read them again, at twice the cost and with
+# verdicts that can differ.
+if part photos; then
+  pnpm engine units-mend --first vi/guides/youtube-mGmIvhtIM9k || log "units-mend: failed"
+fi
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
 # and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
 # and keeps its work on a branch (gate_or_keep).
 gate_or_keep "content: engine $PART" content sources engine-state docs/review apps/site/src/i18n || exit 1
 if part photos; then
+  # What the gate made of each page the source figures mended, recorded once, and the stop when a batch went wrong.
+  pnpm engine source-figures --record || log "source-figures --record: failed"
   # Reports, nothing hidden: pictures (docs/review/content-audit.md: pages without a photo, a card thumb, or pictures
   # inside the text) and every published page, in each language, against the content rules (docs/review/content-rules.md).
   pnpm engine audit || log "audit: failed"

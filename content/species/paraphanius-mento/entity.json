@@ -19,6 +19,137 @@
     "lebanon",
     "jordan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TR",
+        "IL",
+        "IQ",
+        "IR",
+        "SY",
+        "LB"
+      ],
+      "regions": [
+        "Ceyhan",
+        "Seyhan",
+        "Tigris-Euphrates",
+        "Orontes",
+        "Jordan Rift Valley"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The iridescent toothcarp, Paraphanius mento, occurs in eastern Mediterranean and Middle Eastern countries from Turkey and Israel to Iraq and Iran.",
+          "countries": [
+            "TR",
+            "IL",
+            "IQ",
+            "IR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "To the south it is found around the coastlines of Syria, Lebanon and Israel including the Orontes River drainage and in the Jordan Rift Valley as far south as the Dead Sea basin, where it is reported to hybridise with the Dead Sea Toothcarp (Aphaniops richardsoni) in some springs.",
+          "countries": [
+            "SY",
+            "LB"
+          ],
+          "regions": [
+            "Orontes",
+            "Jordan Rift Valley"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There its range extends eastwards along the Mediterranean coastal region of the country through the provinces of Antalya, Mersin, Adana and Hatay and it can be found throughout the Ceyhan and Seyhan River basins to the southeast.",
+          "countries": [],
+          "regions": [
+            "Ceyhan",
+            "Seyhan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A number of landlocked populations also exist, some of which may have been introduced by humans such as the one inhabiting an artificial pond near the town of Bor. In the Tigris-Euphrates system it occurs in both eastern Turkey and Iraq as far as the confluence of the two rivers into the Shatt al-Arab at the border with Iran.",
+          "countries": [],
+          "regions": [
+            "Tigris-Euphrates"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10675891,
+      "total": 14,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "SY",
+          11
+        ],
+        [
+          "IQ",
+          1
+        ],
+        [
+          "LB",
+          1
+        ],
+        [
+          "TR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          35.15625,
+          32.34375,
+          4,
+          4
+        ],
+        [
+          35.15625,
+          33.75,
+          1,
+          1
+        ],
+        [
+          35.15625,
+          35.15625,
+          3,
+          3
+        ],
+        [
+          36.5625,
+          33.75,
+          2,
+          2
+        ],
+        [
+          36.5625,
+          35.15625,
+          2,
+          2
+        ],
+        [
+          42.1875,
+          35.15625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "water": {
     "kind": "brackish",
     "source": "seriouslyfish",

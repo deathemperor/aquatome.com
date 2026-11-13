@@ -10,6 +10,44 @@
     "india",
     "cauvery"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Chauvery"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This extraordinary barb originates from the South of India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "narayani: dedication name for C. R. Narayan Rao, who donated the collection of fishes from the Chauvery river to the Zoological Survey of India that contained among others this species that was then new to science.",
+          "countries": [],
+          "regions": [
+            "Chauvery"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8138038,
+      "total": 0,
+      "fetched": "2026-11-12",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -2063,17 +2063,29 @@
     ]
   },
   "salvinia-minima": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
+    "at": "2026-11-12",
+    "from": "2026-11-11",
     "name": "Salvinia minima",
-    "confidence": "high",
-    "score": 0.85,
+    "confidence": "medium",
+    "score": 0.8,
     "notes": [
-      "\"Daun yang pucat\": the English \"Light leaves\" means pale/light-coloured leaves. The translation is acceptable but could be clearer, e.g. \"daun berwarna pucat/terang\".",
-      "\"kosmopolitan (tersebar luas di banyak wilayah dunia)\": the added gloss is not in the source. Keep just \"kosmopolitan\" in #1, or drop the gloss.",
-      "\"Berbagai jenis Salvinia\": \"varieties\" is better as \"spesies/varietas Salvinia\".",
-      "\"Tanaman ini membantu mencegah alga ... menyerap nutrisi\": \"using nutrients\" is rendered as \"menyerap\", which is fine. \"paku air apung\" could be the more common \"paku apung\"."
-    ]
+      "Item 2: \"Bisa ditanam emersed\" leaves English \"emersed\" untranslated; use \"Bisa ditanam di atas permukaan air (emersed)\".",
+      "Item 9: \"Light leaves\" in item 8 was translated as \"daun yang pucat\", which is fine, but \"Kekurangan oksigen\" for \"Oxygen depletion\" is okay. The real issue is \"Ghost shrimp, Bamboo shrimp, Vampire shrimp\" mixed with \"udang Amano\": make the naming consistent.",
+      "Item 9: \"Tempat mencari makan: ... ladang biofilm\" is slightly odd for \"buffet of biofilm\"; use \"prasmanan biofilm\" or \"sumber biofilm\".",
+      "Item 9: \"Pelihara dalam jumlah sedikit saja\" is slightly awkward; say \"Pelihara dalam jumlah sedikit agar...\".",
+      "Item 8: \"Tanaman ini cenderung menaungi tanaman di dasar akuarium dari cahaya\" is awkward; use \"menghalangi cahaya ke tanaman di dasar akuarium\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "80039c344aff",
+      "quickFacts:aquariumbreeder": "4b2d572500f9",
+      "distribution:aquariumbreeder": "f69f64b46963",
+      "habitat:aquariumbreeder": "5f817f7b47bd",
+      "aquariumSize:aquariumbreeder": "e0f56a6b4b7b",
+      "maintenance:aquariumbreeder": "acd511749648",
+      "waterConditions:aquariumbreeder": "d24c8ba5ca4f",
+      "notes:tropica": "0272a26d026f",
+      "notes:aquariumbreeder": "243fcddce1a4"
+    }
   },
   "schismatoglottis-prietoi": {
     "at": "2026-11-06",

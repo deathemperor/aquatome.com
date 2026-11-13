@@ -1,14 +1,30 @@
 {
   "id": "hypostomus-soniae",
   "native": {
-    "input": "10f434b24d30b3b4",
-    "at": "2026-11-11T08:59:40.517Z",
+    "input": "30098de27f129ed9",
+    "at": "2026-11-12T13:29:05.219Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "glaser",
         "quote": "Rio Tapajós, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Brazil: Pará, Rio Tapajós (Pimental-Itaituba).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Hypostomus soniae is endemic to Brazil, occurring in the Tapajós River, where it is naturally infrequent and not very abundant.",
         "words": "Brazil",
         "ok": true
       }
@@ -18,6 +34,13 @@
         "name": "Rio Tapajós",
         "source": "glaser",
         "quote": "Rio Tapajós, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Tapajós",
+        "source": "scotcat",
+        "quote": "Brazil: Pará, Rio Tapajós (Pimental-Itaituba).",
         "country": "BR",
         "ok": true
       }

@@ -1,11 +1,12 @@
 import { isOwnerCrop } from '@aq/schema/image-policy'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { addDays, cardShownIn, CardSchema, CurationSchema, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Lang, type Photo, photoFitsCard } from '@aq/schema'
+import { addDays, boxFractions, cardShownIn, CardSchema, CurationSchema, frameOf, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Lang, type Photo, photoFitsCard } from '@aq/schema'
 import { captionFlaw } from './content-rules'
 import { fitKey, type FitState } from './fit'
 import { gateChecks } from './gate'
 import { loadPages, type Page } from './pages'
+import { readPersonYes, type PersonYes } from './person-yes'
 import type { PhotoVerdict } from './photo-check'
 
 /**
@@ -72,8 +73,11 @@ export type Candidate = {
   photo: Partial<Record<Slot, { url: string; px: number }>>
   /** Every checked photo of the page by address, with its pixels across each card shape: what a calendar's `img` may be. */
   checked: Record<string, Record<Slot, number>>
-  /** The page's head photo (its first) when it passes its checks: the address the app loads, and its pixels across each card shape. */
-  head?: { url: string; px: Record<Slot, number> }
+  /**
+   * The page's head photo (its first) when it passes its checks: the address the app loads, and its pixels across each card
+   * shape. `cut`: Hôm nay's card, centred as the app draws it, would cut the fish by more than the rule allows (its box).
+   */
+  head?: { url: string; px: Record<Slot, number>; cut?: true }
   /** Passes the reader-fit gate in Vietnamese. */
   fit: boolean
   /** Why not, when it doesn't. */
@@ -96,7 +100,8 @@ export type Candidate = {
 /** Goldfish and koi lines: cold-water fish whatever their pages' figures say. */
 const COLDWATER_OF = ['carassius-auratus', 'cyprinus-rubrofuscus', 'cyprinus-carpio']
 
-export type Verdicts = { subjects: Record<string, Record<string, PhotoVerdict>>; legacy: Record<string, PhotoVerdict>; rejected: Record<string, string>; faces: Record<string, number> }
+export type Verdicts = { subjects: Record<string, Record<string, PhotoVerdict>>; legacy: Record<string, PhotoVerdict>; rejected: Record<string, string>; faces: Record<string, number>; personYes?: Record<string, Record<string, PersonYes>> }
+
 /** The photo checks' verdicts (engine-state), as cardWorthy reads them. */
 export const readVerdicts = async (root: string): Promise<Verdicts> => {
   const state = join(root, 'engine-state')
@@ -105,6 +110,7 @@ export const readVerdicts = async (root: string): Promise<Verdicts> => {
     legacy: await json(join(state, '_photo-check.json'), {}),
     rejected: await json(join(state, '_photo-rejected.json'), {}),
     faces: await json(join(state, '_photo-faces.json'), {}),
+    personYes: (await readPersonYes(root)).counted,
   }
 }
 
@@ -121,7 +127,9 @@ export function cardWorthy(photo: { url: string; caption?: string }, page: strin
   // A guide's photo is judged against its caption when it names a fish; one with no verdict has passed the face and
   // watermark checks only, so a person looks at it before it leads (the planner lists it).
   if (guide) return !verdict || (!verdict.person && !verdict.logo && verdict.ok !== 'dead')
-  return !!verdict && verdict.ok === 'yes' && verdict.typical && !verdict.person && !verdict.logo
+  // A person's yes (PersonYes) stands for the check's over its own "can't tell" for this page, and nothing else.
+  const yes = !!own && !own.guide && own.ok === 'unsure' && !!v.personYes?.[url]?.[page]
+  return !!verdict && (verdict.ok === 'yes' || yes) && verdict.typical && !verdict.person && !verdict.logo
 }
 
 /** Sites whose own mark on their photos the owner allows (the chief of staff, 2026-11-10: Aquarium Glaser's logo). */
@@ -152,12 +160,23 @@ export function photosFor(photos: Photo[], ok: (p: Photo) => boolean): Pick<Cand
   return { photo, checked }
 }
 
+/**
+ * Hôm nay's card in the app, a name on one line and on two (the Design Lead's frames spec, 12 Nov). The app draws it
+ * centred until it reads the fish's box (`imgBox`), so a head whose centred crop cuts the fish at either shape doesn't go
+ * on a card. Once the owner's app moves the crop onto the fish or shows it whole, TODAY_CARD_CENTRED goes false, and no
+ * head is cut.
+ */
+export const TODAY_CARD = [362 / 319, 362 / 278] as const
+export const TODAY_CARD_CENTRED = true
+
 /** A page's head photo for its cards, when it passes its checks: by its large copy, the address the app loads. */
 export function headOf(own: Photo[], ok: (p: Photo) => boolean): Candidate['head'] {
   const p = own[0]
   if (!p || p.generated || isOwnerCrop(p) || !photoFitsCard(p) || !ok(p)) return undefined
   const big = p.large ?? p
-  return { url: big.url, px: Object.fromEntries(SLOTS.map(slot => [slot, across(big, slot)])) as Record<Slot, number> }
+  const box = boxFractions(p)
+  const cut = TODAY_CARD_CENTRED && !!box && TODAY_CARD.some(r => { const f = frameOf(p.width / p.height, box, r); return f.fit === 'whole' || f.x !== 0.5 || f.y !== 0.5 })
+  return { url: big.url, px: Object.fromEntries(SLOTS.map(slot => [slot, across(big, slot)])) as Record<Slot, number>, ...(cut ? { cut: true as const } : {}) }
 }
 
 const json = async <T>(path: string, fallback: T): Promise<T> => JSON.parse(await readFile(path, 'utf8').catch(() => 'null')) ?? fallback
@@ -187,7 +206,8 @@ export function demandByPath(rows: { keys: string[]; impressions: number }[]): M
 /** Every fish, breed and guide page in Vietnamese, with what the planner needs to know of it. */
 export async function candidates(root: string, o: { demand?: Map<string, number>; avoid?: Record<string, string> } = {}): Promise<Candidate[]> {
   const content = join(root, 'content')
-  const c: Content = await loadAll({ root: content, lang: 'vi', publicBuild: true })
+  // With the fish's boxes whatever the site's switch (SUBJECT_FRAMES): the card's cut rule (headOf) reads them.
+  const c: Content = await loadAll({ root: content, lang: 'vi', publicBuild: true, subjectFrames: true })
   const state = join(root, 'engine-state')
   const v = await readVerdicts(root)
   const fitState = await json<FitState>(join(state, '_fit.json'), {})
@@ -272,14 +292,16 @@ export function problem(c: Candidate | undefined, slot: Slot, img?: string, o: {
 
 /**
  * Why a fish can't be a day's fish: its card shows its page's head photo, which has to pass, fill the card, and keep the
- * whole fish in the card's crop (`todayCut`, curation.json).
+ * whole fish in the card's crop (`todayCut`, curation.json, a person's look; or the fish's box). `chosen`: a day a person
+ * set (`fixed`), which the box alone doesn't move.
  */
-export function fishProblem(c: Candidate | undefined, todayCut: Record<string, string> = {}): string | undefined {
+export function fishProblem(c: Candidate | undefined, todayCut: Record<string, string> = {}, chosen = false): string | undefined {
   if (!c) return 'no such page'
   if (!c.fit) return `reader fit: ${c.fitWhy}`
   if (!c.head) return 'no checked head photo'
   if (c.head.px.square < LARGE_PX) return `head photo ${c.head.px.square} px across, under ${LARGE_PX}`
   if (todayCut[c.head.url]) return `Hôm nay's card cuts its head photo: ${todayCut[c.head.url]}`
+  if (c.head.cut && !chosen) return "Hôm nay's card cuts the fish in its head photo by more than 5% (its box)"
   return undefined
 }
 
@@ -335,7 +357,7 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       const c = ref ? byRef.get(ref) : undefined
       // A guide is kept or replaced by its page; its photo is the guide card's to set or drop (guidePhoto).
       const p = ref
-        ? (slot === 'fish' ? fishProblem(c, cur.todayCut) : problem(c, 'guide', undefined, { photo: false })) ??
+        ? (slot === 'fish' ? fishProblem(c, cur.todayCut, d.fixed) : problem(c, 'guide', undefined, { photo: false })) ??
           (slot === 'fish' && !d.fixed && c && !fitsWeek(c, w) ? `doesn't match this week's tags (${w!.tags.join(', ')})` : undefined)
         : 'empty'
       if (ref && !p) {
@@ -354,20 +376,23 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       const wantsVideo = slot === 'guide' && !!w && w.from <= date && date <= w.to &&
         ![...out.values()].some(o => o.date !== date && w.from <= o.date && o.date <= w.to && video(byRef.get(o.guide ?? '')))
       const bonus = (x: Candidate) => (looped(x) ? LOOP_BONUS : 0) + (wantsVideo && video(x) ? VIDEO_BONUS : 0)
-      const best = cands
+      const open = cands
         .filter(x => kind.includes(x.kind) && !(slot === 'fish' ? fishProblem(x, cur.todayCut) : problem(x, 'guide', undefined, { photo: false })) && !used(x.ref, date))
-        .filter(x => slot !== 'fish' || fitsWeek(x, w))
         // Not the same group of fish, or kind or source of guide, two days running: as the day before, nor as a day after
         // that is already planned.
         .filter(x => around.every(o => { const y = byRef.get(o?.[slot] ?? ''); return (!x.group || x.group !== y?.group) && (!x.source || x.source !== y?.source) }))
-        .map(x => ({ x, s: score(x, w, from, bonus(x)) }))
-        .sort((a, b) => b.s - a.s || a.x.ref.localeCompare(b.x.ref))[0]?.x
+      const pick = (xs: Candidate[]) => xs.map(x => ({ x, s: score(x, w, from, bonus(x)) })).sort((a, b) => b.s - a.s || a.x.ref.localeCompare(b.x.ref))[0]?.x
+      // A fish of the week's tags; when none is left, any fish, so no day goes without one (the chief of staff, 12 Nov).
+      const tagged = pick(open.filter(x => slot !== 'fish' || fitsWeek(x, w)))
+      const best = tagged ?? (slot === 'fish' ? pick(open) : undefined)
+      if (best && !tagged) why.push(`no fish of this week's tags (${w?.tags.join(', ')}) is left`)
       if (!best) { delete d[slot]; report.empty.push(`${date} ${slot}`); continue }
       d[slot] = best.ref
       // The card shows the page's head photo, a guide's only when it is big enough for the card.
       if (slot === 'fish') d.img = best.head!.url
       else { delete d.guideImg; guidePhoto(d, best) }
-      delete d.fixed
+      // A person's day stays theirs until its fish is replaced: filling its guide leaves it set.
+      if (slot === 'fish') delete d.fixed
       report.filled.push(`${date} ${slot}: ${best.ref}`)
       const reasons = [
         ...(pool.includes(best.ref) ? ["on this week's list"] : []),
@@ -500,7 +525,7 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
     if (!d?.guide) out.push(`${date}: no guide`)
   }
   for (const d of cur.days.filter(x => x.date >= from)) {
-    const fish = d.fish && (fishProblem(byRef.get(d.fish), cur.todayCut) ?? (d.img ? notHead(d.img, d.fish) : 'no photo set for the card'))
+    const fish = d.fish && (fishProblem(byRef.get(d.fish), cur.todayCut, d.fixed) ?? (d.img ? notHead(d.img, d.fish) : 'no photo set for the card'))
     if (fish) out.push(`${d.date} fish ${d.fish}: ${fish}`)
     const guide = d.guide && (problem(byRef.get(d.guide), 'guide', d.guideImg, { photo: false }) ?? notHead(d.guideImg, d.guide))
     if (guide) out.push(`${d.date} guide ${d.guide}: ${guide}`)

@@ -1,14 +1,22 @@
 {
   "id": "lamontichthys-llanero",
   "native": {
-    "input": "534790812f5df2e5",
-    "at": "2026-11-09T12:58:06.259Z",
+    "input": "484edabf4e5a7e84",
+    "at": "2026-11-12T13:29:05.219Z",
     "claims": [
       {
         "code": "VE",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Lamontichthys llanero is a suckermouth catfish from the Orinoco basin in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is named after the Llanos in Venezuela, where it occurs.",
         "words": "Venezuela",
         "ok": true
       }
@@ -18,6 +26,13 @@
         "name": "Orinoco",
         "source": "seriouslyfish",
         "quote": "Lamontichthys llanero is a suckermouth catfish from the Orinoco basin in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Llanos",
+        "source": "glaser",
+        "quote": "The species is named after the Llanos in Venezuela, where it occurs.",
         "country": "VE",
         "ok": true
       }

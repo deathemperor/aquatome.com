@@ -2,7 +2,7 @@ import { execFileSync, spawn } from 'node:child_process'
 import { appendFileSync, mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { ceilingMessage, costLog, stepName } from './ceiling'
+import { ceilingMessage, costLog, inPiece, stepName } from './ceiling'
 import { envFor, NotTheAccount, onAccounts, tokenHash } from './claude-accounts'
 import { MARKETPLACE_DOMAINS } from './marketplaces'
 
@@ -42,7 +42,7 @@ export const answeredBy = (usage: unknown): string | undefined =>
   Object.entries((usage ?? {}) as Record<string, { outputTokens?: number }>).sort(([, a], [, b]) => (b.outputTokens ?? 0) - (a.outputTokens ?? 0))[0]?.[0]
 export type Llm = <T>(args: { system: string; prompt: string; schema: object; model?: string }) => Promise<T>
 
-type RunOpts = { tools: string; deny?: string[]; cwd: string; model?: string; timeoutMs?: number }
+type RunOpts = { tools: string; deny?: string[]; cwd: string; model?: string; timeoutMs?: number; privateImage?: boolean }
 
 /**
  * One call on the owner's Claude accounts, the next one when an account is out of its limit or rejected (claude-accounts.ts).
@@ -58,7 +58,7 @@ const run = <T>(system: string, prompt: string, schema: object, opts: RunOpts): 
 function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, token?: string): Promise<T> {
   return new Promise<T>((resolve, reject) => {
     const args = ['-p', '--model', modelOf(opts.model), '--output-format', 'json', '--tools', opts.tools, ...(opts.tools ? ['--allowedTools', opts.tools] : []), ...(opts.deny?.length ? ['--disallowedTools', opts.deny.join(',')] : []),
-      '--setting-sources', '', '--strict-mcp-config', '--system-prompt', system, '--json-schema', JSON.stringify(schema)]
+      '--setting-sources', '', '--strict-mcp-config', ...(opts.privateImage ? ['--no-session-persistence'] : []), '--system-prompt', system, '--json-schema', JSON.stringify(schema)]
     const started = Date.now()
     const child = spawn('claude', args, { cwd: opts.cwd, stdio: ['pipe', 'pipe', 'pipe'], env: envFor(token) })
     let out = ''
@@ -83,7 +83,7 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
         if (log) {
           const u = r.usage ?? {}
           try {
-            appendFileSync(log, `${JSON.stringify({ at: new Date().toISOString(), step: stepName(), account: token ? tokenHash(token) : 'login', model: modelOf(opts.model), ...(ran ? { ran } : {}), ...(cliVersion() ? { cli: cliVersion() } : {}), ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
+            appendFileSync(log, `${JSON.stringify({ at: new Date().toISOString(), step: stepName(), ...(inPiece.getStore() ? { piece: inPiece.getStore() } : {}), account: token ? tokenHash(token) : 'login', model: modelOf(opts.model), ...(ran ? { ran } : {}), ...(cliVersion() ? { cli: cliVersion() } : {}), ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
           } catch (e) {
             console.warn(`ENGINE_COST_LOG: ${(e as Error).message}`) // a log it can't write never fails the call
           }
@@ -103,7 +103,7 @@ export const claudeCli: Llm = <T>({ system, prompt, schema, model }: { system: s
 
 /** Same, but able to look at one image: only the Read tool, run from the image's folder. */
 export const claudeVision = <T>({ system, prompt, schema, file, model }: { system: string; prompt: string; schema: object; file: string; model?: string }) =>
-  run<T>(system, `${prompt}\n\nThe photo: ${file} (open it with the Read tool).`, schema, { tools: 'Read', cwd: dirname(file), model })
+  run<T>(system, `${prompt}\n\nNever transcribe lettering, signatures or personal names from a photo.\nThe photo: ${file} (open it with the Read tool).`, schema, { tools: 'Read', cwd: dirname(file), model, privateImage: true })
 
 /** Same, able to search and read the web (WebSearch, WebFetch; never marketplace pages): product research. Slower, so a longer timeout. */
 export const claudeResearch: Llm = <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) =>

@@ -1,3 +1,4 @@
+import { expectControlledRejections } from './photo-privacy-assertions'
 import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -83,9 +84,9 @@ test('the sweep makes every page pass the rules it fixes, keeps each file\'s ind
   expect(e.updatedAt).toBe('2026-10-01')
   expect((await json(root, 'content/gallery/corydoras-adolfoi.json')).photos).toEqual([])
   expect((await json(root, 'content/species/corydoras-sterbai/entity.json')).photos).toHaveLength(1)
-  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({
-    'https://media.aquatome.com/commons/map.webp': 'a map, not Corydoras adolfoi (species/corydoras-adolfoi)',
-    'https://media.aquatome.com/seriouslyfish/ad.webp': "an ad video's poster, not Corydoras adolfoi (species/corydoras-adolfoi)",
+  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), {
+    'https://media.aquatome.com/commons/map.webp': "rejected",
+    'https://media.aquatome.com/seriouslyfish/ad.webp': "rejected",
   })
 
   // Card: the tank shorter than twice the fish and the upside-down pH hidden, kept with why; the breed's too.
@@ -121,8 +122,8 @@ test("the unplaced photos at its source's read-next card width that end a guide'
   expect(await urls('other-guide')).toEqual(['first.webp', 'small.webp'])
   expect(r.photos.filter(x => x.includes('read-next'))).toHaveLength(2)
   const rejected = await json(root, 'engine-state/_photo-rejected.json')
-  expect(rejected['https://media.aquatome.com/sprucepets/arowana.webp']).toMatch(/^card:/)
-  expect(rejected['https://media.aquatome.com/sprucepets/corydoras.webp']).toMatch(/^card:/)
+  expect(rejected['https://media.aquatome.com/sprucepets/arowana.webp']).toMatch(/^rejected: withheld \[sha256:[a-f0-9]{64}\]$/)
+  expect(rejected['https://media.aquatome.com/sprucepets/corydoras.webp']).toMatch(/^rejected: withheld \[sha256:[a-f0-9]{64}\]$/)
   expect((await sweep(root, {})).photos.filter(x => x.includes('read-next'))).toEqual([])
 })
 
@@ -171,7 +172,7 @@ test("a paper's plate leaves its page and its gallery for good, the page's lead 
   expect((await json(root, 'content/species/clarias-leiacanthus/entity.json')).photos).toEqual([one])
   // Off every page, and the search and the gallery step skip what is on this list.
   expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json')).sort()).toEqual([many.url, plate.url])
-  expect((await json(root, 'engine-state/_photo-rejected.json'))[plate.url]).toBe('not a photo: micrographs, not Hemichromis elongatus (species/hemichromis-elongatus)')
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[plate.url]).toMatch(/^rejected: withheld \[sha256:[a-f0-9]{64}\]$/)
   const pages = await loadPages(c)
   expect(ratcheted(checkPages(pages, RULES.filter(x => x.id in RATCHETED)).findings).filter(f => f.rule === 'caption')).toEqual([])
   expect((await sweep(root)).photos).toEqual([])
@@ -205,9 +206,9 @@ test("a fish its source's caption calls unwell leaves a page that has another ph
   // A page's only photo stays and is listed. It is not on the never-again list, which would take it off every page.
   expect((await json(root, 'content/species/callochromis-macrops/entity.json')).photos).toEqual([thin])
   expect(r.unwell).toEqual([`species/callochromis-macrops: ${thin.url} (skinny; the page's only photo)`])
-  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({
-    [dead.url]: 'unwell: its source\'s caption says "deceased" (species/schistura-spilota)',
-    [torn.url]: 'unwell: its source\'s caption says "damage" (species/schistura-spilota)',
+  expectControlledRejections(await json(root, 'engine-state/_photo-rejected.json'), {
+    [dead.url]: "unwell",
+    [torn.url]: "unwell",
   })
   expect(await unwell()).toBe(0)
   // The photo check, which strips what is on that list, leaves the kept photo where it is.
@@ -717,4 +718,100 @@ test("a picked photo on neither list changes nothing and is reported", async () 
   expect(await readFile(join(root, at), 'utf8')).toBe(before)
   expect(r.heads).toEqual(["species/corydoras-sterbai: picked photo isn't on the page"])
   expect(r.files).toEqual([])
+})
+
+test("a pick that rests on a person's yes lapses with it: once the check says anything but \"can't tell\" there, the page keeps its order and the sweep says so", async () => {
+  const root = await store()
+  await sweep(root)
+  const at = 'content/species/corydoras-sterbai/entity.json'
+  const e = await json(root, at)
+  const picked = photo('https://media.aquatome.com/commons/picked.webp', 'Corydoras sterbai')
+  await writeFile(join(root, at), JSON.stringify({ ...e, photos: [e.photos[0], picked] }))
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/corydoras-sterbai': picked.url }))
+  const yes = { proposer: 'Photo Sourcing', approvers: ['the chief of staff', 'Curation'], on: '2026-11-19', lookAlike: 'Corydoras haraldschultzi', mark: 'the orange spines of the pectoral fins' }
+  await writeFile(join(root, 'engine-state/_photo-person-yes.json'), JSON.stringify({ [picked.url]: { 'corydoras-sterbai': yes } }))
+  const verdict = (ok: string) => writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify({ [picked.url]: { 'corydoras-sterbai': { ok, typical: true, note: '' } } }))
+  await verdict('yes')
+  const r = await sweep(root)
+  expect((await json(root, at)).photos.map((p: { url: string }) => p.url)).toEqual([e.photos[0].url, picked.url])
+  expect(r.heads).toEqual(["species/corydoras-sterbai: pick lapsed with its person's yes"])
+  await verdict('unsure')
+  expect((await sweep(root)).heads).toEqual([`species/corydoras-sterbai: ${e.photos[0].url} -> ${picked.url}`])
+})
+
+test('every photo on the never-again list leaves the pages and albums it is still on, as the photo check takes it off: a merge with main brings one back (2026-11-11)', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const p = (name: string) => photo(`https://media.aquatome.com/inat/${name}.webp`, 'Danio erythromicron')
+  const own = p('own'), poor = p('poor'), other = p('other'), albumKept = p('album-kept'), guideOff = p('guide-off'), guideKept = p('guide-kept'), bred = p('bred'), leaf = p('leaf')
+  // An Aquarium Glaser photo with the shop's own mark, kept (watermarks.ts retainedOwnMark): listed for that mark it
+  // stays, as the photo check leaves it; listed for anything else it goes.
+  const glaser = (name: string) => ({ ...photo(`https://media.aquatome.com/glaser/${name}.webp`, 'Danio erythromicron'), sourceUrl: 'https://www.aquariumglaser.de/x' })
+  const marked = glaser('marked'), held = glaser('held')
+  await put('species/danio-erythromicron/entity.json', species('danio-erythromicron', 'Danio erythromicron', { photos: [own, poor, marked, held] }))
+  await put('species/danio-erythromicron/vi.json', vi('Cá sóc đầu lửa', { 'distribution:seriouslyfish': '<p>Myanmar.</p>' }))
+  // What the photos push of 2026-11-11 brought back: lines its run wrote before the removal reached main.
+  await put('gallery/danio-erythromicron.json', { id: 'danio-erythromicron', photos: [albumKept, other], seen: 2, updatedAt: '2026-10-01' })
+  await put('guides/g/entity.json', { id: 'g', kind: 'care', source: 'aquariumbreeder', sourceUrl: 'https://x/g', html: '', photos: [guideOff, guideKept], mentions: [], updatedAt: '2026-10-01' })
+  await put('breeds/b/entity.json', { id: 'b', kind: 'variety', parents: [], care: {}, photos: [bred], sources: [{ url: 'https://x/a', title: 'A', kind: 'article', at: '2026-10-01' }], updatedAt: '2026-10-01' })
+  await put('plants/l/entity.json', { ...species('l', 'Anubias nana', { photos: [leaf] }) })
+  const list = {
+    [poor.url]: 'too poor to show (the chief of staff, 2026-11-11)',
+    [other.url]: 'not Danio erythromicron: another fish',
+    [guideOff.url]: 'people: a hand holds the fish',
+    [bred.url]: 'dead: a fish on a plate',
+    [leaf.url]: 'drawing: a printed drawing',
+    [marked.url]: 'watermark: the shop\'s logo, bottom left',
+    [held.url]: 'people: a hand',
+    // Listed by its own address: a large copy, and a loop's poster.
+    'https://media.aquatome.com/inat/lg-large.webp': 'people: a hand',
+    'https://media.aquatome.com/loops/bad-fish.webp': 'dead: a fish on a plate',
+  }
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), `${JSON.stringify(list, null, 2)}\n`)
+  const own_ = { retainedOwnMark: { source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/x', owner: 'source' } }
+  await writeFile(join(root, 'engine-state/_photo-watermarks.json'), `${JSON.stringify({ [marked.url]: { ocr: [], ...own_ }, [held.url]: { ocr: [], ...own_ } }, null, 2)}\n`)
+  // The calendar names some of them, the app's large copies too: a day's, a language's own day's, a guide's, a story's
+  // and a week's hero's. Those go and the app shows the page's own; a picture not on the list, or kept, stays. A loop
+  // whose poster is listed goes whole.
+  const large = (u: string) => u.replace(/\.webp$/, '-large.webp')
+  const loop = (id: string) => ({ src: `https://media.aquatome.com/loops/${id}.mp4`, poster: `https://media.aquatome.com/loops/${id}.webp` })
+  await put('curation.json', { version: 1, loops: { 'bad-fish': loop('bad-fish'), 'good-fish': loop('good-fish') }, days: [
+    { date: '2026-11-20', fish: 'species/danio-erythromicron', img: large(poor.url), guide: 'guides/g', guideImg: guideOff.url, by: { id: { fish: 'species/danio-erythromicron', img: held.url } } },
+    { date: '2026-11-21', fish: 'species/danio-erythromicron', img: large(own.url), story: { page: 'guides/g', img: other.url } },
+    { date: '2026-11-22', fish: 'species/danio-erythromicron', img: 'https://media.aquatome.com/inat/lg-large.webp' },
+  ], weeks: [{ from: '2026-11-16', to: '2026-11-22', hero: [{ page: 'breeds/b', img: large(bred.url) }, { page: 'species/danio-erythromicron', img: large(marked.url) }] }] })
+  const r = await sweep(root)
+  expect(await json(root, 'content/curation.json')).toEqual({ version: 1, loops: { 'good-fish': loop('good-fish') }, days: [
+    { date: '2026-11-20', fish: 'species/danio-erythromicron', guide: 'guides/g', by: { id: { fish: 'species/danio-erythromicron' } } },
+    { date: '2026-11-21', fish: 'species/danio-erythromicron', img: large(own.url), story: { page: 'guides/g' } },
+    { date: '2026-11-22', fish: 'species/danio-erythromicron' },
+  ], weeks: [{ from: '2026-11-16', to: '2026-11-22', hero: [{ page: 'breeds/b' }, { page: 'species/danio-erythromicron', img: large(marked.url) }] }] })
+  expect((await json(root, 'content/species/danio-erythromicron/entity.json')).photos).toEqual([own, marked])
+  expect((await json(root, 'content/gallery/danio-erythromicron.json')).photos).toEqual([albumKept])
+  expect((await json(root, 'content/guides/g/entity.json')).photos).toEqual([guideKept])
+  expect((await json(root, 'content/breeds/b/entity.json')).photos).toEqual([])
+  expect((await json(root, 'content/plants/l/entity.json')).photos).toEqual([])
+  expect(r.again.map(x=>x.slice(0,x.indexOf(' ('))).sort()).toEqual([
+    `breeds/b/entity.json: ${bred.url}`,
+    `curation.json 2026-11-20 guideImg: ${guideOff.url}`,
+    `curation.json 2026-11-20 id img: ${held.url}`,
+    `curation.json 2026-11-20 img: ${large(poor.url)}`,
+    `curation.json 2026-11-21 story img: ${other.url}`,
+    'curation.json 2026-11-22 img: https://media.aquatome.com/inat/lg-large.webp',
+    'curation.json loop bad-fish poster: https://media.aquatome.com/loops/bad-fish.webp',
+    `curation.json week 2026-11-16 hero breeds/b img: ${large(bred.url)}`,
+    `gallery/danio-erythromicron.json: ${other.url}`,
+    `guides/g/entity.json: ${guideOff.url}`,
+    `plants/l/entity.json: ${leaf.url}`,
+    `species/danio-erythromicron/entity.json: ${held.url}`,
+    `species/danio-erythromicron/entity.json: ${poor.url}`,
+  ])
+  for(const line of r.again)expect(line).toMatch(/\((?:watermark|people|dead|logo|face|faces|subject|too poor to show|unwell|rejected): withheld \[sha256:[a-f0-9]{64}\]\)$/)
+  // The list itself stays as it was, and a second sweep has nothing to take off.
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual(list)
+  expect((await sweep(root)).again).toEqual([])
 })

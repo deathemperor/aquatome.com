@@ -7,8 +7,8 @@ import { groupTiles } from '../src/lib/home'
 import { smallSrc } from '../src/lib/img'
 
 // Where the fish is in a photo (`box`, `imgBox`: protocols/photo-crop-vectors.json) reaches the app only from photos the
-// loader gave a box, which only its switch does (image-geometry.ts SUBJECT_FRAMES, off): until then the app's index and
-// pages are as they were. With a box: a fish's page top, its list tile, its group's tile, Hôm nay's day and Khám phá's
+// loader gave a box, which only its switch does (image-geometry.ts SUBJECT_FRAMES): a photo without one, as every photo
+// with the switch off, leaves the app's index and pages as they were. With a box: a fish's page top, its list tile, its group's tile, Hôm nay's day and Khám phá's
 // top card carry it, and only on copies that are the same picture.
 const BOX_KEYS = new Set(['box', 'imgBox'])
 const boxKeys = (o: unknown) => JSON.stringify(o).match(/"(?:imgBox|box)":/g) ?? []
@@ -21,10 +21,15 @@ const media = (name: string) => `https://media.aquatome.com/commons/${name}.webp
 const calendarOf = (days: { fish: string; img: string }[], hero: { page: string; img: string }[]) => CurationSchema.parse({
   version: 1, weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: { vi: 'Tuần' }, hero }], days: days.map((d, i) => ({ date: `2026-11-${12 + i}`, ...d })),
 })
+/** The content without the record's boxes (the fixture boxes a few heads for its fish frames: fish-frames.spec.ts). */
+const unboxed = (c: Content): Content => {
+  const bare = (ps: Photo[]) => ps.map(({ subject: _s, ...p }) => p as Photo)
+  return { ...c, species: c.species.map(s => ({ ...s, photos: bare(s.photos) })), breeds: c.breeds.map(b => ({ ...b, photos: bare(b.photos) })), galleries: Object.fromEntries(Object.entries(c.galleries).map(([k, ps]) => [k, bare(ps)])) }
+}
 const subject = (p: Photo) => ({ x0: Math.round(p.width * 0.25), y0: Math.round(p.height * 0.2), x1: Math.round(p.width * 0.75), y1: Math.round(p.height * 0.8) })
 /** Listed fish with a picture: `fish`, none of them a group's picture; `tile`, a group's tile whose picture is `a`'s. */
 async function listedFish() {
-  const vi = await getContent('vi')
+  const vi = unboxed(await getContent('vi'))
   const listed = appIndex('vi', vi).items.filter(i => i.kind === 'fish' && i.img && i.sub).flatMap(i => vi.species.filter(s => s.id === i.id))
   const tiles = groupTiles('vi', vi).filter(g => g.photo)
   const tile = tiles.find(g => listed.some(s => s.photos.some(p => p.url === g.photo!.url)))!
@@ -33,12 +38,11 @@ async function listedFish() {
 }
 
 test('with no photo boxed, as with the switch off, the app\'s index and pages carry no box', async () => {
-  const vi = await getContent('vi')
+  const vi = unboxed(await getContent('vi'))
   const s = vi.species.find(x => x.photos.length)!
   for (const lang of ['vi', 'id'] as const) {
-    const c = await getContent(lang)
+    const c = unboxed(await getContent(lang))
     const calendar = calendarOf([{ fish: `species/${s.id}`, img: media('a') }], [{ page: `species/${s.id}`, img: media('a') }])
-    expect(c.species.flatMap(x => x.photos).some(p => p.subject), 'the fixture has no box').toBe(false)
     expect(boxKeys(appIndex(lang, c, new Map(), vi.species, { calendar, today })), lang).toEqual([])
   }
   expect(boxKeys(await appPages('vi', vi))).toEqual([])

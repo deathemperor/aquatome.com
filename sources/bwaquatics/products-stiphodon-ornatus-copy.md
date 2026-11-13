@@ -1,7 +1,7 @@
 ---
 url: https://bwaquatics.com/products/stiphodon-ornatus-copy
 title: Schismatogobius ampluvinculus (Micro Dragon Goby) – BWAquatics
-fetchedAt: 2026-11-12T08:11:38.092Z
+fetchedAt: 2026-11-12T14:13:28.985Z
 hash: 1fe09a467338423da719df0b76e5a54b9e125c059f6229efd82c8079ebc5a5f8
 ---
 

@@ -34,6 +34,40 @@ test('what the sweep changes after a merge is committed, and no change leaves no
   expect(sh('git status --porcelain').trim()).toBe('')
 })
 
+// The chief of staff, 2026-11-12: a photo taken off on main can come back for a cycle on a page the run also changed,
+// through a pull at the push that doesn't clash (merge-entity.mjs keeps an item one side changed).
+test("a clean pull that brings main's commits in is swept before the push, and the tests run again only when the sweep changed something", () => {
+  expect(script('engine-cycle.sh')).toMatch(/elif ! swept_pull "\$main"; then\n\s*verify_cycle \|\|/)
+  for (const f of ['video-cycle.sh', 'video-recheck.sh']) expect(script(f)).toMatch(/elif ! swept_pull "\$main"; then\n\s*verify 'pnpm test' \|\|/)
+  expect(script('cycle-checks.sh')).toMatch(/\[ "\$\(git rev-parse origin\/main 2>\/dev\/null\)" = "\$main" \] \|\| check=1\n\s*if \[ -n "\$check" \]; then\n\s*sweep_merged/)
+
+  const dir = mkdtempSync(join(tmpdir(), 'aq-pulled-'))
+  mkdirSync(join(dir, 'bin'))
+  writeFileSync(join(dir, 'bin/pnpm'), '#!/bin/sh\necho swept >> ../swept.log\n[ -z "$FIXES" ] || echo fixed > content/b.json\n')
+  chmodSync(join(dir, 'bin/pnpm'), 0o755)
+  const sh = (command: string, cwd = dir, env = {}) => execSync(command, { cwd, shell: '/bin/bash', encoding: 'utf8', env: { ...process.env, ...env, PATH: `${dir}/bin:${process.env.PATH}` } })
+  const repo = join(dir, 'repo'), other = join(dir, 'other')
+  sh('git init -q --bare origin.git && git clone -q origin.git repo 2>/dev/null')
+  sh('git config user.email a@example.com && git config user.name a && mkdir content sources engine-state docs docs/review && touch sources/a engine-state/a docs/review/a && echo a > content/a.json && git add . && git commit -qm main && git push -q origin HEAD 2>/dev/null', repo)
+  sh('git clone -q origin.git other 2>/dev/null && cd other && git config user.email b@example.com && git config user.name b')
+  sh('echo run > content/run.json && git add . && git commit -qm run', repo)
+  const swept = () => { try { return readFileSync(join(dir, 'swept.log'), 'utf8').trim().split('\n').length } catch { return 0 } }
+  const pull = (env = {}) => sh(`log() { :; }; source '${join(ROOT, 'scripts/cycle-checks.sh')}'; main=$(git rev-parse '@{u}'); git pull -q --rebase 2>/dev/null; swept_pull "$main" && echo push || echo test`, repo, env).trim()
+  const onMain = (file: string) => sh(`echo x > content/${file} && git add . && git commit -qm ${file} && git push -q 2>/dev/null`, other)
+
+  expect(pull()).toBe('push') // main didn't move: no sweep
+  expect(swept()).toBe(0)
+  onMain('m1.json')
+  expect(pull()).toBe('push') // main moved, the sweep found nothing: the push goes ahead
+  expect(swept()).toBe(1)
+  expect(sh('git log --format=%s', repo).trim().split('\n')).toEqual(['run', 'm1.json', 'main'])
+  onMain('m2.json')
+  expect(pull({ FIXES: '1' })).toBe('test') // the sweep changed something: committed, and the tests run again
+  expect(swept()).toBe(2)
+  expect(sh('git log --format=%s', repo).trim().split('\n')).toEqual(['content: sweep on main as it is now', 'run', 'm2.json', 'm1.json', 'main'])
+  expect(sh('git status --porcelain', repo).trim()).toBe('')
+})
+
 // The photos part of 2026-11-08: its calendar clashed with an editor's re-plan, and the line-by-line merge named one guide
 // on two days running.
 test("after a clash in the calendar it is main's calendar, planned again, never a blend of two plans", () => {

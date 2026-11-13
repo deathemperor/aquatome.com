@@ -3455,8 +3455,8 @@
   "products": []
  },
  "id/plants/dracaena-sanderiana": {
-  "at": "2026-11-09",
-  "hash": "c72a88f43d2c2c25",
+  "at": "2026-11-12",
+  "hash": "d1c117b567a0b97a",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -4530,10 +4530,10 @@
   "products": []
  },
  "id/plants/salvinia-minima": {
-  "at": "2026-11-08",
-  "hash": "8f9a83251ea2f125",
+  "at": "2026-11-12",
+  "hash": "a679d1de4497a4b8",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -5475,11 +5475,40 @@
   "products": []
  },
  "id/species/altolamprologus-calvus": {
-  "at": "2026-11-08",
-  "hash": "a9aecd6c3b4df6ce",
+  "at": "2026-11-12",
+  "hash": "268d8f885729b63b",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "Ukuran akuarium: 91 × 46 cm",
+    "why": "91 × 46 cm is a converted 36 × 18 inch tank, not a size anyone in Indonesia would give.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "Akuarium berukuran 91 × 46 × 41 cm, sekitar 150 liter",
+    "why": "These are converted imperial tank dimensions (36 × 18 × 16 inch).",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "gunakan akuarium 285 liter atau lebih",
+    "why": "285 litres is a converted 75-gallon tank, not a local tank size.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P5",
+    "quote": "Varian hitam (lihat di bawah)",
+    "why": "This points to the layout of the original source, which this page does not have.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/altolamprologus-compressiceps": {
@@ -5556,30 +5585,37 @@
   ]
  },
  "id/species/ambastaia-sidthimunki": {
-  "at": "2026-11-08",
-  "hash": "d720bed990f00333",
+  "at": "2026-11-12",
+  "hash": "5235504be33643b7",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
+    "check": "units",
+    "part": "P24",
+    "quote": "mereka dipelihara di akuarium 284 liter",
+    "why": "284 litres is a converted 75-gallon tank size, not one an Indonesian keeper would name.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P24",
+    "quote": "Laporan lengkap dari Mark yang mendokumentasikan keberhasilan ini tersedia.",
+    "why": "Points to a report the page does not contain.",
+    "by": "model"
+   },
+   {
     "check": "source",
     "part": "P6",
     "quote": "Terima kasih kepada Kamphol Udomritthiruj.",
-    "why": "The source writer's thanks to a person the reader doesn't know.",
+    "why": "The source article's thanks to a person the reader doesn't know.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P21",
-    "quote": "Laporan lengkap dari Mark yang mendokumentasikan keberhasilan ini tersedia di sini.",
-    "why": "Points to a linked report that isn't on this page.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P23",
-    "quote": "Sistem yang lebih baru dan lebih sederhana inilah yang saat ini diikuti di sini.",
-    "why": "The source site talking about its own policy.",
+    "quote": "(lihat di bawah)",
+    "why": "Points to material from the original article's layout.",
     "by": "model"
    }
   ],
@@ -6077,11 +6113,19 @@
   "products": []
  },
  "id/species/ancistrus-ranunculus": {
-  "at": "2026-11-08",
-  "hash": "98bf3bf9bc2cab0f",
+  "at": "2026-11-12",
+  "hash": "f6b6a5d23f2bd302",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P11",
+    "quote": "Akuarium berukuran sekitar 76 × 30 × 30 cm akan dibutuhkan",
+    "why": "76 × 30 × 30 cm is a 30 × 12 × 12 inch tank converted, not a size anyone in Indonesia would give.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/ancistrus-triradiatus": {
@@ -6859,11 +6903,26 @@
   "products": []
  },
  "id/species/apistogramma-brevis": {
-  "at": "2026-11-08",
-  "hash": "9848ab06d2752fe6",
+  "at": "2026-11-12",
+  "hash": "890bd2aa929d4dad",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "Ukuran akuarium: 45 × 38 cm",
+    "why": "Footprint converted from an 18 × 15 inch tank; not a size a keeper in Indonesia would give.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "Alas akuarium: 45 × 38 cm.",
+    "why": "Footprint converted from an 18 × 15 inch tank; not a size a keeper in Indonesia would give.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/apistogramma-cacatuoides": {
@@ -6883,8 +6942,8 @@
   "products": []
  },
  "id/species/apistogramma-commbrae": {
-  "at": "2026-11-09",
-  "hash": "9854ad9648988cb3",
+  "at": "2026-11-12",
+  "hash": "4e9aa4f44fe020cf",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -6892,21 +6951,28 @@
     "check": "source",
     "part": "P3",
     "quote": "Ikan yang ditawarkan berasal dari Paraguay.",
-    "why": "Refers to the source shop's own stock on offer.",
+    "why": "Refers to the source exporter's own stock on offer, which the reader doesn't know.",
     "by": "model"
    },
    {
-    "check": "elsewhere",
-    "part": "P7",
-    "quote": "usahakan memelihara A. commbrae pada suhu yang lebih sejuk saat musim dingin",
-    "why": "Assumes the reader has a winter season; Indonesia has none.",
+    "check": "source",
+    "part": "P2",
+    "quote": "Ukuran yang tersedia: 3–4 cm.",
+    "why": "The sizes the source shop has in stock, given as if the reader could buy from it.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P14",
     "quote": "(lihat di bawah)",
-    "why": "Points to content below that the page does not contain.",
+    "why": "Points to material below that this page doesn't have.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P7",
+    "quote": "usahakan memelihara A. commbrae pada suhu yang lebih sejuk selama musim dingin",
+    "why": "Assumes the reader has a winter season, but Indonesia's climate is tropical.",
     "by": "model"
    }
   ],
@@ -7040,8 +7106,8 @@
   "products": []
  },
  "id/species/apistogramma-panduro": {
-  "at": "2026-11-10",
-  "hash": "5eb84047a0cd0c66",
+  "at": "2026-11-12",
+  "hash": "229a3a60247ebe4a",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -8381,8 +8447,8 @@
   "products": []
  },
  "id/species/barilius-ardens": {
-  "at": "2026-11-09",
-  "hash": "d305aa56231d92cc",
+  "at": "2026-11-12",
+  "hash": "76547af2dae86dec",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -9128,16 +9194,23 @@
   "products": []
  },
  "id/species/betta-kuehnei": {
-  "at": "2026-11-09",
-  "hash": "d53880364f3e307b",
+  "at": "2026-11-12",
+  "hash": "deb549b73d3a6e78",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
+    "check": "source",
+    "part": "P3",
+    "quote": "Ukuran yang tersedia: 6–8 cm.",
+    "why": "Describes the source shop's own stock on offer, not facts for the reader.",
+    "by": "model"
+   },
+   {
     "check": "elsewhere",
     "part": "P7",
     "quote": "kayu beech atau oak aman dipakai asalkan sudah benar-benar kering dan kulit kayunya dikupas",
-    "why": "Beech and oak are European trees a keeper in Indonesia would not have to hand.",
+    "why": "Beech and oak wood are what a European keeper has at hand, not a keeper in Indonesia.",
     "by": "model"
    }
   ],
@@ -9423,8 +9496,8 @@
   "products": []
  },
  "id/species/betta-pi": {
-  "at": "2026-11-09",
-  "hash": "f9a915f5588890b2",
+  "at": "2026-11-12",
+  "hash": "c2ad9f88361a77c7",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -9765,10 +9838,10 @@
   "products": []
  },
  "id/species/biotodoma-cupido": {
-  "at": "2026-11-08",
+  "at": "2026-11-12",
   "hash": "f8f54dc168be82f6",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -10303,6 +10376,63 @@
   ],
   "products": []
  },
+ "id/species/brochis-multiradiatus": {
+  "at": "2026-11-12",
+  "hash": "e1faa5dd9b778560",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P3",
+    "quote": "Kelompok indukan ikan yang dibahas di sini berasal dari Peru.",
+    "why": "Refers to the source article's own breeding group of fish, which the reader never saw.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P7",
+    "quote": "minimal sekitar 76 × 38 × 30 cm",
+    "why": "Tank dimensions converted from 30 × 15 × 12 inches, not a size anyone in Indonesia would give.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/brycinus-longipinnis": {
+  "at": "2026-11-12",
+  "hash": "5a2afe92ecff5a22",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "Ukuran dasar akuarium: 120 × 38 cm.",
+    "why": "38 cm is a 15-inch side converted from imperial; Indonesian tank sizes would not use it.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "liquifry"
+  ]
+ },
+ "id/species/bunocephalus-coracoideus": {
+  "at": "2026-11-12",
+  "hash": "72ab39fab9fc0ea8",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P5",
+    "quote": "Taburan daun ek atau daun beech kering di atas substrat",
+    "why": "Oak and beech leaves come from temperate countries and aren't easy for a keeper in Indonesia to collect; locally people use ketapang (Indian almond) leaves.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "id/species/butis-amboinensis": {
   "at": "2026-11-08",
   "hash": "99aa45391dc7329f",
@@ -10343,11 +10473,19 @@
   "sourceRead": true
  },
  "id/species/callochromis-macrops": {
-  "at": "2026-11-09",
-  "hash": "ace2740febcced8b",
+  "at": "2026-11-12",
+  "hash": "1dad55623bf1204a",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P10",
+    "quote": "Di akuarium dengan luas dasar kurang dari 183 × 46 cm",
+    "why": "183 × 46 cm is a converted 6 ft × 18 in tank footprint, not a size used in Indonesia.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/camposcia-retusa": {
@@ -10473,6 +10611,14 @@
    "Hikari Vibra Bites"
   ]
  },
+ "id/species/catoprion-mento": {
+  "at": "2026-11-12",
+  "hash": "0e19d1f062190264",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/species/centromochlus-perugiae": {
   "at": "2026-11-09",
   "hash": "cf014c66eb4274e8",
@@ -10561,16 +10707,16 @@
   "products": []
  },
  "id/species/chaca-bankanensis": {
-  "at": "2026-11-08",
-  "hash": "85758b3d9c5ff642",
+  "at": "2026-11-12",
+  "hash": "e3644355def29a6f",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
-    "part": "P5",
+    "part": "P7",
     "quote": "Menambahkan beberapa ranting beech dan daun kering",
-    "why": "Beech is a European tree a keeper abroad finds near home; it doesn't grow wild in Indonesia, where keepers use other twigs or ketapang leaves.",
+    "why": "Beech twigs are a temperate-country hardscape item; beech does not grow in Indonesia.",
     "by": "model"
    }
   ],
@@ -10712,10 +10858,10 @@
   "products": []
  },
  "id/species/channa-andrao": {
-  "at": "2026-11-08",
-  "hash": "474f956b05534d3a",
+  "at": "2026-11-12",
+  "hash": "37c133a931564b98",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -10836,8 +10982,8 @@
   "products": []
  },
  "id/species/channa-maculata": {
-  "at": "2026-11-09",
-  "hash": "40f72459bac21410",
+  "at": "2026-11-12",
+  "hash": "e901aee146af170d",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -11237,18 +11383,32 @@
   "products": []
  },
  "id/species/cichla-monoculus": {
-  "at": "2026-11-09",
-  "hash": "8d5f1ccda38393c4",
+  "at": "2026-11-12",
+  "hash": "94b4c69e15065275",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
+    "check": "units",
+    "part": "P1",
+    "quote": "akuarium berukuran minimal 305 x 91 x 122 cm",
+    "why": "Tank size converted from 10 x 3 x 4 feet; no Indonesian keeper sizes a tank this way.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "akuarium berukuran minimal 305 x 91 x 122 cm (panjang x tinggi x lebar)",
+    "why": "Tank size converted from 10 x 3 x 4 feet.",
+    "by": "model"
+   },
+   {
     "check": "words",
     "part": "P5",
     "quote": "Disarankan memakai kayu bogwood berukuran besar",
-    "why": "\"Bogwood\" is a British hobby term; keepers in Indonesia call it driftwood or akar.",
+    "why": "'Bogwood' is a British hobby term not used by Indonesian keepers.",
     "by": "model",
-    "fix": "kayu driftwood"
+    "fix": "kayu akar / driftwood"
    }
   ],
   "products": []
@@ -11270,11 +11430,26 @@
   "products": []
  },
  "id/species/cichla-orinocensis": {
-  "at": "2026-11-09",
-  "hash": "cddce8528df01fb5",
+  "at": "2026-11-12",
+  "hash": "110054389111a23f",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P2",
+    "quote": "saat dewasa butuh akuarium minimal 244 x 91 x 91 cm",
+    "why": "Tank of 244 x 91 x 91 cm is a converted 8 x 3 x 3 ft size nobody in Indonesia would quote.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P5",
+    "quote": "ikan dewasa butuh akuarium minimal 244 x 91 x 91 cm (p x t x l)",
+    "why": "Converted from an 8 x 3 x 3 ft tank, not a size a keeper in Indonesia would give.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/cichla-temensis": {
@@ -11294,11 +11469,26 @@
   "products": []
  },
  "id/species/cichlasoma-trimaculatum": {
-  "at": "2026-11-10",
-  "hash": "cbd3005b99c6b6d4",
+  "at": "2026-11-12",
+  "hash": "f825b5dc9ce35a1c",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "Ukuran akuarium: 122 × 38 cm",
+    "why": "122 × 38 cm is a converted 48 × 15 inch tank footprint, not a size used in Indonesia.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "Alas akuarium: 122 × 38 cm.",
+    "why": "The same converted 48 × 15 inch footprint; a keeper in Indonesia would say 120 × 40 cm.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/cincelichthys-bocourti": {
@@ -11676,19 +11866,27 @@
   "products": []
  },
  "id/species/copadichromis-borleyi": {
-  "at": "2026-11-10",
-  "hash": "acb3e575652f7340",
+  "at": "2026-11-12",
+  "hash": "01a4bad75eab9d47",
   "model": "opus",
   "checklist": 3,
   "findings": [],
   "products": []
  },
  "id/species/copadichromis-chrysonotus": {
-  "at": "2026-11-10",
-  "hash": "0d6f4fef5baeb215",
+  "at": "2026-11-12",
+  "hash": "02526acdea5a7816",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P10",
+    "quote": "Sediakan ruang sekitar 46 × 46 × 46 cm untuk teritori satu jantan.",
+    "why": "46 cm is 18 inches converted; a keeper in Indonesia would give a round metric figure such as 45 or 50 cm.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/copadichromis-ilesi": {
@@ -12302,8 +12500,8 @@
   "products": []
  },
  "id/species/corydoras-leopardus": {
-  "at": "2026-11-11",
-  "hash": "26dbe5b92af4e6fb",
+  "at": "2026-11-12",
+  "hash": "8ccee47b50d9b7a6",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -12574,11 +12772,19 @@
   "products": []
  },
  "id/species/corydoras-paleatus": {
-  "at": "2026-11-08",
-  "hash": "7ffe9dcecec24385",
+  "at": "2026-11-12",
+  "hash": "58fac73c6e86b79d",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P5",
+    "quote": "Ukuran dasar akuarium: 61 × 38 cm",
+    "why": "Footprint converted from 24 × 15 inches, not a size an Indonesian keeper would name.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/corydoras-panda": {
@@ -12643,6 +12849,45 @@
   "findings": [],
   "products": []
  },
+ "id/species/corydoras-pinheiroi": {
+  "at": "2026-11-12",
+  "hash": "693982b63a2e9ec4",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P10",
+    "quote": "Musim ini terjadi pada waktu yang sama dengan musim dingin di Inggris",
+    "why": "Spawning timing is tied to UK seasons, which an Indonesian reader doesn't have.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/corydoras-polystictus": {
+  "at": "2026-11-12",
+  "hash": "7118bade7a3536f4",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P10",
+    "quote": "Musim ini terjadi pada waktu yang sama dengan musim dingin di Inggris",
+    "why": "Uses UK seasons as the reader's own; Indonesia has no winter to wait for.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P5",
+    "quote": "lagi-lagi daun beech bisa dipakai, atau daun oak juga cocok",
+    "why": "Beech and oak are European materials not readily found in Indonesia, where keepers use ketapang leaves.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "id/species/corydoras-pygmaeus": {
   "at": "2026-11-08",
   "hash": "1ee9f9e39c4a61e9",
@@ -12653,6 +12898,206 @@
    "Repashy",
    "golden pearl"
   ]
+ },
+ "id/species/corydoras-rabauti": {
+  "at": "2026-11-12",
+  "hash": "8df73af143bbcb5f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/corydoras-reticulatus": {
+  "at": "2026-11-12",
+  "hash": "d92179c67e05706b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P12",
+    "quote": "Musim ini bertepatan dengan musim dingin di Inggris",
+    "why": "Seasonal breeding advice is framed around the UK winter, not the Indonesian reader's climate.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/corydoras-reynoldsi": {
+  "at": "2026-11-12",
+  "hash": "47d861d33264c4d4",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/corydoras-robineae": {
+  "at": "2026-11-12",
+  "hash": "7c6b7e759816f236",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P10",
+    "quote": "Musim ini terjadi pada waktu yang sama dengan musim dingin di Inggris",
+    "why": "Breeding-season timing is given by the UK winter, which means nothing to a keeper in Indonesia.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/corydoras-robustus": {
+  "at": "2026-11-12",
+  "hash": "c623862bdf845376",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P15",
+    "quote": "Musim ini jatuh pada waktu yang sama dengan musim dingin di Inggris",
+    "why": "Uses the British winter as the reader's own season; Indonesia has no winter.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P8",
+    "quote": "kayu beech biasa aman dipakai asalkan sudah benar-benar kering dan dikupas kulitnya",
+    "why": "Beech and oak are European trees, not something a keeper in Indonesia can easily collect.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/corydoras-sarareensis": {
+  "at": "2026-11-12",
+  "hash": "00f8526e9d3a74b4",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/corydoras-schwartzi": {
+  "at": "2026-11-12",
+  "hash": "c6552f10c10d0705",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Ukuran yang tersedia: 4–5 cm.",
+    "why": "Lists the sizes the source shop has in stock, a shop the reader doesn't know.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P6",
+    "quote": "Akuarium standar berukuran 60 × 38 × 30 cm (~68 liter)",
+    "why": "A 24 × 15 × 12 inch tank converted to metric; not a size keepers in Indonesia talk about.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P7",
+    "quote": "kayu beech biasa aman dipakai asalkan sudah benar-benar kering dan dikupas kulitnya",
+    "why": "Beech wood and beech or oak leaves come from European trees that don't grow in Indonesia, but the page treats them as easy to find.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P12",
+    "quote": "jika upaya pemijahan di musim panas terus gagal, mungkin ada baiknya menunggu sampai musim dingin",
+    "why": "Uses northern summer and winter as the reader's own seasons; Indonesia has neither.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/corydoras-semiaquilus": {
+  "at": "2026-11-12",
+  "hash": "6886c128da456a51",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P11",
+    "quote": "Memeliharanya pada suhu ruang (18–22 °C)",
+    "why": "A room at 18–22 °C describes a cool-climate home, not a house in Indonesia.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P17",
+    "quote": "Musim ini jatuh pada waktu yang sama dengan musim dingin di Inggris",
+    "why": "Seasonal spawning advice is timed to British seasons, which a reader in Indonesia doesn't have.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P10",
+    "quote": "kayu beech biasa aman dipakai asalkan benar-benar kering dan sudah dikupas kulitnya",
+    "why": "Beech wood and beech or oak leaves are European materials a keeper in Indonesia wouldn't have.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P19",
+    "quote": "Gambar mini kedua dari terakhir menunjukkan spesimen di atas substrat hitam",
+    "why": "Points to a thumbnail picture on the source site that isn't on this page.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/corydoras-septentrionalis": {
+  "at": "2026-11-12",
+  "hash": "1b5fec6c643adb36",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P18",
+    "quote": "Musim ini jatuh pada waktu yang sama dengan musim dingin di Inggris",
+    "why": "Gives British seasons as the reader's own timing for spawning attempts; Indonesia has no winter.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P9",
+    "quote": "Alas akuarium: 60 × 38 cm.",
+    "why": "A footprint converted from 24 × 15 inches, not a tank size sold in Indonesia.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/corydoras-serratus": {
+  "at": "2026-11-12",
+  "hash": "44e65384678581e0",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/corydoras-seussi": {
+  "at": "2026-11-12",
+  "hash": "ef25f81d4c980a4c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P9",
+    "quote": "Musim ini jatuh pada waktu yang sama dengan musim dingin di Inggris",
+    "why": "Spawning timing is tied to the British winter, which does not apply to a reader in Indonesia.",
+    "by": "model"
+   }
+  ],
+  "products": []
  },
  "id/species/corydoras-sterbai": {
   "at": "2026-11-08",
@@ -12870,11 +13315,19 @@
   "products": []
  },
  "id/species/cyrtocara-moorii": {
-  "at": "2026-11-08",
-  "hash": "6d8ff754146007ed",
+  "at": "2026-11-12",
+  "hash": "33311ee15cf36baa",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "150 × 38 × 45 cm, sekitar 257 liter",
+    "why": "Tank dimensions are converted from a 60 × 15 × 18 inch tank; 38 cm is not a size anyone in Indonesia would choose.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/danio-albolineatus": {
@@ -12945,6 +13398,14 @@
   ],
   "products": []
  },
+ "id/species/danio-tinwini": {
+  "at": "2026-11-12",
+  "hash": "e85cdae78fa6dc24",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/species/datnioides-campbelli": {
   "at": "2026-11-08",
   "hash": "a83f5f0eb3d44231",
@@ -12986,8 +13447,8 @@
   "products": []
  },
  "id/species/dermogenys-pusilla": {
-  "at": "2026-11-08",
-  "hash": "08e062bd745225bc",
+  "at": "2026-11-12",
+  "hash": "888f4e8a417325dc",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -13360,16 +13821,30 @@
   "products": []
  },
  "id/species/hasemania-nana": {
-  "at": "2026-11-08",
-  "hash": "476935b58569ea5e",
+  "at": "2026-11-12",
+  "hash": "21f71931a9d2420c",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
+    "check": "units",
+    "part": "P6",
+    "quote": "20 ekor di akuarium 208 liter",
+    "why": "208 litres is a converted 55-gallon tank, not a size used in Indonesia.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P17",
+    "quote": "gunakan akuarium 38 liter yang sudah matang",
+    "why": "38 litres is a converted 10-gallon tank.",
+    "by": "model"
+   },
+   {
     "check": "elsewhere",
     "part": "P8",
-    "quote": "daun ek dan beech sama-sama aman untuk akuarium asalkan sudah benar-benar kering",
-    "why": "Oak and beech are temperate trees whose leaves a keeper in Indonesia would not have; local keepers use ketapang leaves.",
+    "quote": "daun ek dan beech sama-sama aman untuk akuarium",
+    "why": "Oak and beech leaves are temperate-country materials a keeper in Indonesia wouldn't collect.",
     "by": "model"
    }
   ],
@@ -13422,23 +13897,23 @@
   "products": []
  },
  "id/species/hemigrammus-erythrozonus": {
-  "at": "2026-11-08",
-  "hash": "a99e47e708d8fde9",
+  "at": "2026-11-12",
+  "hash": "53e9dd063b60cc04",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "elsewhere",
-    "part": "P5",
-    "quote": "kayu beech biasa aman dipakai asalkan sudah benar-benar kering dan kulitnya dikupas",
-    "why": "Beech branches are something a keeper in Europe can collect themselves; beech trees don't grow in Indonesia.",
+    "check": "units",
+    "part": "P4",
+    "quote": "Akuarium berukuran 60 × 38 × 30 cm, sekitar 68 liter",
+    "why": "Dimensions converted from a 24 × 15 × 12 inch tank; Indonesian keepers use sizes like 60 × 30 × 30 cm.",
     "by": "model"
    },
    {
     "check": "elsewhere",
     "part": "P5",
-    "quote": "bisa daun beech lagi, atau daun oak juga cocok",
-    "why": "Beech and oak leaves are European garden leaves; keepers in Indonesia use local leaves such as ketapang.",
+    "quote": "kayu beech biasa aman dipakai asalkan sudah benar-benar kering dan kulitnya dikupas",
+    "why": "Beech wood and oak leaves are European materials a keeper in Indonesia cannot easily find; locally ketapang leaves are used.",
     "by": "model"
    }
   ],
@@ -13485,11 +13960,19 @@
   "products": []
  },
  "id/species/herichthys-carpintis": {
-  "at": "2026-11-08",
-  "hash": "bcb22a1d35f39434",
+  "at": "2026-11-12",
+  "hash": "7f6bb120acae1323",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "Alas akuarium: 120 × 38 cm",
+    "why": "A 38 cm depth is a conversion of 15 inches (48 × 15 in), not a size a keeper in Indonesia would give.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/heros-severus": {
@@ -13555,19 +14038,11 @@
   "products": []
  },
  "id/species/hyphessobrycon-amandae": {
-  "at": "2026-11-09",
-  "hash": "543b6416565955eb",
+  "at": "2026-11-12",
+  "hash": "51eaec21e3a62cf8",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P14",
-    "quote": "tetapi seperti disebutkan di atas, kelompok ini boleh dicampur dengan spesies lain yang ukurannya serupa",
-    "why": "Refers to an earlier passage of the source article that this page does not have above.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [
    "Easy Fry and Small Fish Food"
   ]
@@ -13577,6 +14052,14 @@
   "hash": "4fdbeab11940c6a1",
   "model": "opus",
   "checklist": 2,
+  "findings": [],
+  "products": []
+ },
+ "id/species/hyphessobrycon-flammeus": {
+  "at": "2026-11-12",
+  "hash": "4d8f05ec975a28f2",
+  "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -13652,8 +14135,8 @@
   "products": []
  },
  "id/species/inpaichthys-kerri": {
-  "at": "2026-11-08",
-  "hash": "39a638a4de1abe8b",
+  "at": "2026-11-12",
+  "hash": "5e1cbff387b5306f",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -13661,7 +14144,7 @@
     "check": "elsewhere",
     "part": "P5",
     "quote": "kayu beech (common beech) aman dipakai asalkan sudah benar-benar kering dan kulitnya dikupas",
-    "why": "Beech wood and oak leaves are European materials that a keeper collects there; in Indonesia keepers use local options such as ketapang leaves.",
+    "why": "Suggests European beech wood and beech/oak leaves, which are local to the source's readers, not available to a keeper in Indonesia (who would use e.g. ketapang leaves).",
     "by": "model"
    }
   ],
@@ -13775,8 +14258,8 @@
   "products": []
  },
  "id/species/labidochromis-caeruleus": {
-  "at": "2026-11-08",
-  "hash": "3e27744ba294d2b1",
+  "at": "2026-11-12",
+  "hash": "3296cc7aac07bb4e",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -14124,11 +14607,19 @@
   "sourceRead": true
  },
  "id/species/marosatherina-ladigesi": {
-  "at": "2026-11-08",
-  "hash": "cc74b4ad943d2e2f",
+  "at": "2026-11-12",
+  "hash": "7cd6b46fa3fbfb3e",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "Ukuran akuarium: 76 × 30 cm",
+    "why": "76 cm is a converted 30-inch tank length that keepers in Indonesia would not use.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/mastacembelus-armatus": {
@@ -14147,8 +14638,8 @@
   "products": []
  },
  "id/species/maylandia-estherae": {
-  "at": "2026-11-08",
-  "hash": "a062c342e8c2060f",
+  "at": "2026-11-12",
+  "hash": "a37216b69d579e19",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -14266,24 +14757,25 @@
   ]
  },
  "id/species/melanotaenia-rubrostriata": {
-  "at": "2026-11-08",
-  "hash": "6183fd948ed92f88",
+  "at": "2026-11-12",
+  "hash": "5387ad4679022957",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "source",
-    "part": "P3",
-    "quote": "Pernah diperoleh spesimen hasil penangkaran di Jerman yang sangat bagus; saat itu panjangnya 5–7 cm.",
-    "why": "This is the source shop's own story about fish it once got in, told as if the reader knew about it.",
+    "check": "units",
+    "part": "P14",
+    "quote": "Akuarium pemijahan sebaiknya minimal 76 cm panjangnya",
+    "why": "76 cm is a converted 30-inch tank length, not a size anyone in Indonesia would give.",
     "by": "model"
    },
    {
-    "check": "units",
-    "part": "P12",
-    "quote": "Akuarium pemijahan sebaiknya minimal sepanjang 76 cm",
-    "why": "76 cm is 30 inches converted to metric, a tank length nobody in Indonesia would give.",
-    "by": "model"
+    "check": "words",
+    "part": "P14",
+    "quote": "Filter udara kecil (air-driven)",
+    "why": "Literal calque of 'air-driven filter'; Indonesian keepers say sponge filter / filter busa.",
+    "by": "model",
+    "fix": "filter busa (sponge filter)"
    }
   ],
   "products": []
@@ -14328,16 +14820,30 @@
   "products": []
  },
  "id/species/moenkhausia-sanctaefilomenae": {
-  "at": "2026-11-08",
-  "hash": "51c202dd4a89e994",
+  "at": "2026-11-12",
+  "hash": "a2233fae1091632c",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
+    "check": "source",
+    "part": "P1",
+    "quote": "Ukuran yang tersedia: 4–5 cm",
+    "why": "This is the source shop's stock note (sizes on offer, wild-caught from Paraguay), not general information for the reader.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P5",
+    "quote": "akuarium minimal 90 × 38 × 30 cm (sekitar 103 liter)",
+    "why": "This is a converted 36×15×12-inch tank. Nobody in Indonesia would give a 38 cm depth like this.",
+    "by": "model"
+   },
+   {
     "check": "elsewhere",
     "part": "P6",
     "quote": "kayu beech biasa aman dipakai asalkan sudah benar-benar kering dan dikupas kulitnya",
-    "why": "Beech wood and beech/oak leaves are European materials a keeper in Indonesia would not have at hand; locally ketapang leaves are used.",
+    "why": "Beech wood and beech or oak leaves are European materials that are not to hand in Indonesia, where keepers use local driftwood and ketapang leaves.",
     "by": "model"
    }
   ],
@@ -14654,6 +15160,14 @@
   ],
   "products": []
  },
+ "id/species/nomorhamphus-rex": {
+  "at": "2026-11-12",
+  "hash": "9cfcc2c217e22605",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/species/notopterus-notopterus": {
   "at": "2026-11-09",
   "hash": "183455f935231780",
@@ -14765,11 +15279,19 @@
   "products": []
  },
  "id/species/osphronemus-goramy": {
-  "at": "2026-11-08",
-  "hash": "32d1e7e793127401",
+  "at": "2026-11-12",
+  "hash": "714c17746f2917c1",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "Alas akuarium: 183 × 61 cm. Volume: ~681 liter.",
+    "why": "A 6 × 2 ft, roughly 180-gallon tank converted to metric; no keeper in Indonesia would give these figures.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/osphronemus-laticlavius": {
@@ -14971,11 +15493,19 @@
   "products": []
  },
  "id/species/parambassis-ranga": {
-  "at": "2026-11-08",
-  "hash": "a2e8a1f223523a8e",
+  "at": "2026-11-12",
+  "hash": "67b563f1f30278a4",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P10",
+    "quote": "berukuran sekitar 76 × 30 × 30 cm",
+    "why": "A 30 × 12 × 12 inch tank converted to centimetres, not a size keepers in Indonesia would name.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/parambassis-siamensis": {
@@ -15240,11 +15770,26 @@
   "products": []
  },
  "id/species/poecilia-latipinna": {
-  "at": "2026-11-08",
-  "hash": "534ddea50a0ece2c",
+  "at": "2026-11-12",
+  "hash": "137e68d5967c99d9",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "Ukuran akuarium: 76 × 38 cm",
+    "why": "76 × 38 cm is a converted 30 × 15 inch tank, not a size anyone in Indonesia would give.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "Alas akuarium 76 × 38 cm. Volume ±87 liter; 76 × 38 × 30 cm.",
+    "why": "Tank dimensions converted from 30 × 15 × 12 inches.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/poecilia-reticulata": {
@@ -15443,6 +15988,37 @@
   ],
   "products": []
  },
+ "id/species/pterophyllum-altum": {
+  "at": "2026-11-12",
+  "hash": "7938b510547dd56c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P16",
+    "quote": "jelas menunjukkan musim pemijahan selama beberapa bulan (pada musim semi)",
+    "why": "Refers to spring as the reader's season, which does not exist in Indonesia's tropical climate.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "doses": [
+   {
+    "treatment": "methylene blue",
+    "strength": "",
+    "amount": 8,
+    "amountMax": 0,
+    "unit": "drop",
+    "per": 19,
+    "perUnit": "litre",
+    "use": "other",
+    "method": "wholeTank",
+    "quote": "meneteskan 8 tetes methylene blue untuk setiap 19 liter air di akuarium pembesaran"
+   }
+  ],
+  "sourceRead": true
+ },
  "id/species/pterophyllum-scalare": {
   "at": "2026-11-08",
   "hash": "869e2de0f6c8d2a9",
@@ -15538,11 +16114,19 @@
   ]
  },
  "id/species/puntius-titteya": {
-  "at": "2026-11-11",
-  "hash": "b53fa228e9679821",
+  "at": "2026-11-12",
+  "hash": "f556d3e5a4e4f38c",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P9",
+    "quote": "Kelompok berisi enam ekor bisa dipelihara di akuarium 38 liter atau lebih besar.",
+    "why": "38 litres is a converted 10-gallon tank size, not a size anyone in Indonesia would name.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/radix-rubiginosa": {
@@ -15776,15 +16360,16 @@
   "products": []
  },
  "id/species/sahyadria-denisonii": {
-  "at": "2026-11-07",
-  "hash": "c241058083061246",
+  "at": "2026-11-12",
+  "hash": "c8370efd1f1d5f1f",
   "model": "opus",
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P11",
-    "quote": "Terlihat jelas bahwa warna tiap individu sangat bervariasi.",
-    "why": "Refers to photos from the source that the page does not have.",
+    "part": "P12",
+    "quote": "Ini adalah impor pertama S. denisonii dari daerah penangkapan baru di India.",
+    "why": "This is the source shop's own news about a shipment it received, written for its customers.",
     "by": "model"
    }
   ],
@@ -16304,11 +16889,19 @@
   "products": []
  },
  "id/species/trigonopoma-gracile": {
-  "at": "2026-11-10",
+  "at": "2026-11-12",
   "hash": "6c3a422a321bd3be",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P5",
+    "quote": "daun beech, oak, atau ketapang semuanya cocok",
+    "why": "Beech and oak leaves are what keepers in Europe or North America use; in Indonesia, where they are hard to get, keepers use ketapang.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/trigonopoma-pauciperforatum": {
@@ -16740,6 +17333,30 @@
  "ms/breeds/koi-angelfish": {
   "at": "2026-11-09",
   "hash": "8cb4ee7523391454",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/breeds/oranda-goldfish": {
+  "at": "2026-11-12",
+  "hash": "a487fbb7b912f4ea",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "ikan kolam di kawasan beriklim sangat sejuk dibawa masuk ke dalam rumah semasa musim sejuk",
+    "why": "Winter advice for very cold climates, written for readers abroad; Malaysia has no winter.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "ms/breeds/plakat-betta": {
+  "at": "2026-11-12",
+  "hash": "136c59cb39541e7d",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -17609,6 +18226,14 @@
   "findings": [],
   "products": []
  },
+ "ms/guides/aquatome-cach-lam-be-thuy-sinh-mini-be-don-gian": {
+  "at": "2026-11-12",
+  "hash": "90d9633de8311159",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "ms/guides/aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh": {
   "at": "2026-11-10",
   "hash": "daf3961d8584a88e",
@@ -17662,6 +18287,66 @@
    }
   ],
   "sourceRead": true
+ },
+ "ms/guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua": {
+  "at": "2026-11-12",
+  "hash": "08edbeb35d28df4b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "Dalam bilik yang sejuk, suhu bilik boleh turun ke 12–14 °C pada waktu malam",
+    "why": "Rooms in Malaysia do not get this cold at night; this was written for a temperate climate.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "penurunan sekitar 3 °C di bawah suhu musim panas masih boleh diterima",
+    "why": "Malaysia has no summer season to measure against.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "Jika cuaca sejuk: tutup penutup tangki dan balut tangki dengan selimut, beg tidur",
+    "why": "Advice for power cuts in a cold winter, which doesn't happen in Malaysia.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "Kepadatannya kira-kira 13 cm panjang ikan bagi setiap gelen (sekitar 3.8 liter) air",
+    "why": "The gallon is used as the reader's unit, carried over from an imperial source.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "(akhir 80-an hingga kira-kira 33 °C)",
+    "why": "'Late 80s' is a Fahrenheit figure left over from the source.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "ms/guides/aquatome-cho-ca-an-bao-nhieu-va-may-lan-mot-ngay-tranh-cho-an-qua-nhieu": {
+  "at": "2026-11-12",
+  "hash": "1b9d9d3e75097c2c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": {
+  "at": "2026-11-12",
+  "hash": "c5ab1001d0e93dd0",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
  },
  "ms/plants/acorus-gramineus": {
   "at": "2026-11-07",
@@ -18081,6 +18766,62 @@
    "Seachem Flourish Excel"
   ]
  },
+ "ms/plants/cardamine-lyrata": {
+  "at": "2026-11-12",
+  "hash": "47a02605da2970b0",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P3",
+    "quote": "Ia juga sesuai untuk kolam taman pada musim panas.",
+    "why": "Malaysia has no summer season; this advice assumes a temperate climate with seasons.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "ms/plants/ceratophyllum-demersum": {
+  "at": "2026-11-12",
+  "hash": "49a43942816fb969",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P6",
+    "quote": "di mana ia selalunya boleh bertahan melalui musim sejuk, bergantung pada iklim",
+    "why": "Assumes the reader's outdoor pond goes through winter, which Malaysia does not have.",
+    "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P11",
+    "quote": "Sedut daun yang gugur dengan penyedut kerikil",
+    "why": "Literal translation of 'gravel vacuum'; Malaysian keepers say sifon or gravel vacuum.",
+    "by": "model",
+    "fix": "sifon"
+   }
+  ],
+  "products": []
+ },
+ "ms/plants/ceratopteris-thalictroides": {
+  "at": "2026-11-12",
+  "hash": "0f8fcb902b92fa5f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/plants/crinum-calamistratum": {
+  "at": "2026-11-12",
+  "hash": "9db392e8d618a0b1",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "ms/species/acanthodoras-cataphractus": {
   "at": "2026-11-09",
   "hash": "f8786a0c45011b4e",
@@ -18310,6 +19051,14 @@
   ],
   "products": []
  },
+ "ms/species/anabas-testudineus": {
+  "at": "2026-11-12",
+  "hash": "6692ad5eacedb251",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "ms/species/ancistrus-dolichopterus": {
   "at": "2026-11-07",
   "hash": "4f0981ec85a025d7",
@@ -18362,6 +19111,27 @@
    }
   ],
   "products": []
+ },
+ "ms/species/axelrodia-riesei": {
+  "at": "2026-11-12",
+  "hash": "6c82052c27e4eee3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P12",
+    "quote": "\"kon\" alder (kawin betina Alnus glutinosa)",
+    "why": "\"Kawin betina\" looks like a machine translation of \"female catkins\" and makes no sense to a Malaysian keeper.",
+    "by": "model",
+    "fix": "kon alder (bunga betina pokok alder)"
+   }
+  ],
+  "products": [
+   "Fluval Bug Bites",
+   "Hikari First Bites",
+   "TetraMin Crisps"
+  ]
  },
  "ms/species/balantiocheilos-melanopterus": {
   "at": "2026-11-07",
@@ -18435,9 +19205,10 @@
   ]
  },
  "ms/species/channa-andrao": {
-  "at": "2026-11-07",
-  "hash": "c8c7f005e7216b6e",
+  "at": "2026-11-12",
+  "hash": "eded76c7ac3c1cb4",
   "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -18551,6 +19322,23 @@
   ],
   "sourceRead": true
  },
+ "ms/species/cyphotilapia-frontosa": {
+  "at": "2026-11-12",
+  "hash": "c44497b062d028ed",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P15",
+    "quote": "sesetengah penternak mengesyorkan penggunaan penapis bawah kelikir",
+    "why": "Dictionary rendering of 'undergravel filter'; local keepers use the English term.",
+    "by": "model",
+    "fix": "undergravel filter (UGF)"
+   }
+  ],
+  "products": []
+ },
  "ms/species/cyprinus-rubrofuscus": {
   "at": "2026-11-08",
   "hash": "2057c15b681343e7",
@@ -18648,6 +19436,14 @@
   ],
   "products": []
  },
+ "ms/species/danio-tinwini": {
+  "at": "2026-11-12",
+  "hash": "04cf03b31180ef00",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "ms/species/datnioides-microlepis": {
   "at": "2026-11-07",
   "hash": "34d7680830582542",
@@ -18742,6 +19538,14 @@
   "findings": [],
   "products": []
  },
+ "ms/species/hyphessobrycon-flammeus": {
+  "at": "2026-11-12",
+  "hash": "eda29ff1553e94d3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "ms/species/hyphessobrycon-herbertaxelrodi": {
   "at": "2026-11-08",
   "hash": "ed0a3c94ca1d8dbb",
@@ -18787,6 +19591,14 @@
     "by": "model"
    }
   ],
+  "products": []
+ },
+ "ms/species/maylandia-estherae": {
+  "at": "2026-11-12",
+  "hash": "78a3bafba7eb5612",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "ms/species/mikrogeophagus-ramirezi": {
@@ -18862,16 +19674,16 @@
   ]
  },
  "ms/species/oryzias-latipes": {
-  "at": "2026-11-10",
-  "hash": "dd9e888555875d1b",
+  "at": "2026-11-12",
+  "hash": "155a8c132ba4bfa5",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
-    "part": "P12",
-    "quote": "di banyak negara/rumah yang bertebat baik, ia paling sesuai dipelihara tanpa pemanas sepanjang tahun",
-    "why": "Assumes a temperate country's cool insulated homes; in Malaysia an unheated tank runs well above 16–22 °C.",
+    "part": "P14",
+    "quote": "di banyak negara atau di rumah yang bertebat baik, ia paling sesuai dipelihara tanpa pemanas sepanjang tahun",
+    "why": "Assumes cool homes in a temperate climate; an unheated tank in Malaysia stays well above the 16–22 °C range given.",
     "by": "model"
    }
   ],
@@ -19083,6 +19895,37 @@
    "Repashy"
   ]
  },
+ "ms/species/pterophyllum-altum": {
+  "at": "2026-11-12",
+  "hash": "ef2c31681ad2d0e4",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P16",
+    "quote": "induk generasi F2 pun masih jelas menunjukkan musim bertelur selama beberapa bulan (pada musim bunga)",
+    "why": "Spring is a temperate-country season; Malaysia has none.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "doses": [
+   {
+    "treatment": "methylene blue",
+    "strength": "",
+    "amount": 8,
+    "amountMax": 0,
+    "unit": "drop",
+    "per": 19,
+    "perUnit": "litre",
+    "use": "other",
+    "method": "wholeTank",
+    "quote": "meletakkan 8 titis methylene blue bagi setiap 19 liter air dalam tangki pembesaran anak ikan"
+   }
+  ],
+  "sourceRead": true
+ },
  "ms/species/pterophyllum-scalare": {
   "at": "2026-11-07",
   "hash": "364a7ea87f5dc8cb",
@@ -19270,6 +20113,29 @@
    "ADA Amazonia aqua soil",
    "Fluval Plant and Shrimp Stratum"
   ]
+ },
+ "ms/species/tropheus-duboisi": {
+  "at": "2026-11-12",
+  "hash": "ceb811e685ef031e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "120 cm x 30 cm x 30 cm – 110 liter untuk seekor ikan sahaja",
+    "why": "110 litres is a converted US 30-gallon figure; the sides give about 108 L.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P4",
+    "quote": "Tangki yang jauh lebih besar diperlukan untuk satu kumpulan (lihat di bawah).",
+    "why": "Points to material further down the original article, which this page doesn't link to.",
+    "by": "model"
+   }
+  ],
+  "products": []
  },
  "ms/species/xiphophorus-hellerii": {
   "at": "2026-11-07",
@@ -22993,16 +23859,16 @@
   "products": []
  },
  "th/plants/dracaena-sanderiana": {
-  "at": "2026-11-09",
-  "hash": "ff799671c58f7cd8",
+  "at": "2026-11-12",
+  "hash": "1e83871263608749",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
     "part": "P5",
-    "quote": "จากนั้นเติมน้ำให้ต่ำกว่าใบชุดล่างสุดประมาณ 2.5 ซม.",
-    "why": "2.5 cm is a straight conversion of 1 inch, not a figure a keeper in Thailand would give.",
+    "quote": "เติมน้ำให้ต่ำกว่าใบชุดล่างสุดประมาณ 2.5 ซม.",
+    "why": "2.5 cm is a converted 1 inch, a figure a Thai keeper would not choose.",
     "by": "model"
    }
   ],
@@ -24143,10 +25009,20 @@
   "products": []
  },
  "th/plants/salvinia-minima": {
-  "at": "2026-11-07",
-  "hash": "3563fe3d940485b9",
+  "at": "2026-11-12",
+  "hash": "28bf2a423af23b30",
   "model": "opus",
-  "findings": [],
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P8",
+    "quote": "ปลาเสือดาว (Scat)",
+    "why": "Scatophagus is not called 'leopard fish' by Thai keepers; this is a literal translation.",
+    "by": "model",
+    "fix": "ปลาตะกรับ"
+   }
+  ],
   "products": []
  },
  "th/plants/schismatoglottis-prietoi": {
@@ -24273,8 +25149,8 @@
   "products": []
  },
  "th/plants/utricularia-graminifolia": {
-  "at": "2026-11-09",
-  "hash": "229192c22d4fc24d",
+  "at": "2026-11-12",
+  "hash": "fdde5cc2d9a30b5a",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -25210,30 +26086,23 @@
   ]
  },
  "th/species/ambastaia-sidthimunki": {
-  "at": "2026-11-08",
-  "hash": "85888bc3ad2f1b51",
+  "at": "2026-11-12",
+  "hash": "4be64aa139393394",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "units",
-    "part": "P21",
+    "part": "P24",
     "quote": "เลี้ยงในตู้ขนาด 284 ลิตร",
-    "why": "284 litres is a converted 75-gallon US tank size, not one a Thai keeper would give.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P6",
-    "quote": "ข้อมูลส่วนนี้ได้รับความอนุเคราะห์จากคุณกำพล อุดมฤทธิรุจ",
-    "why": "A thank-you to a contributor carried over from the source article.",
+    "why": "284 litres is a converted 75-gallon tank, a size nobody in Thailand would quote.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P8",
-    "quote": "ภาพถ่ายจากลุ่มน้ำอัตรันแสดงให้เห็น",
-    "why": "Refers to photographs the page does not have.",
+    "quote": "ภาพจากลุ่มน้ำอัตรันแสดงให้เห็นช่วงต้นน้ำในป่าที่น้ำไหลค่อนข้างช้า",
+    "why": "It describes pictures from the source article that this page doesn't have.",
     "by": "model"
    }
   ],
@@ -28041,11 +28910,20 @@
   "products": []
  },
  "th/species/barilius-ardens": {
-  "at": "2026-11-09",
-  "hash": "fef04b889af9cb73",
+  "at": "2026-11-12",
+  "hash": "17a69da8ce64614c",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "words",
+    "part": "P13",
+    "quote": "ปลาแพะในวงศ์ Loricariidae หลายชนิด",
+    "why": "Thai keepers use ปลาแพะ for Corydoras; Loricariidae are called suckers/plecos.",
+    "by": "model",
+    "fix": "ปลาซักเกอร์ (ปลาเพลโก) ในวงศ์ Loricariidae"
+   }
+  ],
   "products": []
  },
  "th/species/barilius-bakeri": {
@@ -30057,8 +30935,8 @@
   "sourceRead": true
  },
  "th/species/callochromis-macrops": {
-  "at": "2026-11-09",
-  "hash": "330a34581371324a",
+  "at": "2026-11-12",
+  "hash": "e753151e37e30237",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -30251,33 +31129,17 @@
   "products": []
  },
  "th/species/chaca-bankanensis": {
-  "at": "2026-11-07",
-  "hash": "59370e131a92401e",
+  "at": "2026-11-12",
+  "hash": "62b31fba32e2865c",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
-    "part": "P5",
+    "part": "P7",
     "quote": "การใส่กิ่งบีชและใบไม้แห้งลงไปบ้าง",
-    "why": "Beech branches are a European hobby material; beech doesn't grow in Thailand, and keepers there use catappa leaves and local wood.",
+    "why": "Beech branches are a European decor material, not something a keeper in Thailand has to hand; local keepers use Indian almond leaves and local driftwood.",
     "by": "model"
-   },
-   {
-    "check": "words",
-    "part": "P5",
-    "quote": "มอสกำมะหยี่ (java moss)",
-    "why": "This is a literal coinage; Thai keepers don't call java moss by this name.",
-    "by": "model",
-    "fix": "มอสชวา / จาวามอส"
-   },
-   {
-    "check": "words",
-    "part": "P5",
-    "quote": "เฟิร์นใบเข็ม (java fern)",
-    "why": "In Thailand, needle leaf is the name of one narrow-leaved variety; java fern in general is called by another name.",
-    "by": "model",
-    "fix": "เฟิร์นชวา / จาวาเฟิร์น"
    }
   ],
   "products": []
@@ -31405,8 +32267,8 @@
   "products": []
  },
  "th/species/copadichromis-borleyi": {
-  "at": "2026-11-10",
-  "hash": "94b26a52aefe70a9",
+  "at": "2026-11-12",
+  "hash": "82ad68461c7ecc18",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -32375,6 +33237,53 @@
   "findings": [],
   "products": []
  },
+ "th/species/corydoras-pinheiroi": {
+  "at": "2026-11-12",
+  "hash": "3bec2c4c93be76a3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P10",
+    "quote": "ซึ่งตรงกับช่วงฤดูหนาวของสหราชอาณาจักร ดังนั้นหากเพาะในช่วงฤดูร้อนแล้วไม่สำเร็จ อาจลองรอถึงฤดูหนาวแล้วค่อยลองใหม่",
+    "why": "Breeding timing is tied to UK seasons, which do not apply to a keeper in Thailand.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/corydoras-polystictus": {
+  "at": "2026-11-12",
+  "hash": "056fc6e3f808bb62",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P10",
+    "quote": "ซึ่งตรงกับช่วงฤดูหนาวของสหราชอาณาจักร ดังนั้นหากพยายามเพาะในฤดูร้อนแล้วไม่สำเร็จ อาจลองรอจนถึงฤดูหนาว",
+    "why": "Spawning timing is given by UK seasons as if they were the reader's own.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P5",
+    "quote": "ไม้บีชทั่วไปก็ใช้ได้อย่างปลอดภัยหากตากจนแห้งสนิทและลอกเปลือกออกแล้ว",
+    "why": "Collecting local beech wood and beech/oak leaves is a European keeper's habit, not something available in Thailand.",
+    "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P8",
+    "quote": "และปลาแมวชนิดอื่นที่รักสงบ",
+    "why": "Literal calque of 'catfish'; Thai hobbyists say แคทฟิช.",
+    "by": "model",
+    "fix": "ปลาแคทฟิช"
+   }
+  ],
+  "products": []
+ },
  "th/species/corydoras-pygmaeus": {
   "at": "2026-11-08",
   "hash": "ce49aa984bc7442f",
@@ -32393,6 +33302,115 @@
    "Repashy",
    "golden pearls"
   ]
+ },
+ "th/species/corydoras-rabauti": {
+  "at": "2026-11-12",
+  "hash": "6f91d4026951382c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/corydoras-reticulatus": {
+  "at": "2026-11-12",
+  "hash": "3b5323c4bd756f60",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P12",
+    "quote": "ซึ่งตรงกับช่วงฤดูหนาวในซีกโลกเหนือ ดังนั้นหากพยายามเพาะในช่วงฤดูร้อนแล้วไม่สำเร็จ อาจลองรอจนถึงฤดูหนาวแล้วค่อยลองใหม่",
+    "why": "Assumes the reader lives in a northern-hemisphere country with real winters, which Thailand does not have.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/corydoras-reynoldsi": {
+  "at": "2026-11-12",
+  "hash": "65b1f4dab7a80d00",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/corydoras-robineae": {
+  "at": "2026-11-12",
+  "hash": "d691aaeb86e7025b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P10",
+    "quote": "ซึ่งตรงกับช่วงฤดูหนาวของสหราชอาณาจักร ดังนั้นหากเพาะในช่วงฤดูร้อนแล้วไม่สำเร็จ อาจลองรอจนถึงฤดูหนาวแล้วค่อยลองใหม่",
+    "why": "Breeding-season advice is framed around the UK's seasons, given as the reader's own.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/corydoras-robustus": {
+  "at": "2026-11-12",
+  "hash": "c982ffe4891ed3fb",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P15",
+    "quote": "ซึ่งตรงกับช่วงเวลาเดียวกับฤดูหนาวของสหราชอาณาจักร ดังนั้นหากพยายามเพาะในฤดูร้อนแล้วไม่สำเร็จ อาจลองรอจนถึงฤดูหนาว",
+    "why": "The breeding-season advice is timed to UK seasons, which don't match Thailand's climate.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P8",
+    "quote": "สามารถใช้ไม้บีช (common beech) ได้อย่างปลอดภัยหากตากแห้งสนิทและลอกเปลือกออกแล้ว",
+    "why": "It tells the reader to collect beech wood and beech or oak leaves, which grow in European woodland, not in Thailand.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/corydoras-sarareensis": {
+  "at": "2026-11-12",
+  "hash": "95257bcbe75daa1d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/corydoras-schwartzi": {
+  "at": "2026-11-12",
+  "hash": "8926134c47329d6b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "units",
+    "part": "P6",
+    "quote": "ตู้ปลามาตรฐานขนาด 60 × 38 × 30 ซม. (ประมาณ 68 ลิตร)",
+    "why": "A 24 × 15 × 12 inch tank converted to centimetres; not a size sold or named in Thailand.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P7",
+    "quote": "สามารถใช้ไม้บีช (common beech) ได้อย่างปลอดภัยหากตากจนแห้งสนิทและลอกเปลือกออกแล้ว",
+    "why": "Collecting beech wood and beech/oak leaves is advice for a keeper in Europe, not Thailand.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P12",
+    "quote": "ซึ่งตรงกับช่วงฤดูหนาวของซีกโลกเหนือ ดังนั้นหากเพาะในช่วงหน้าร้อนแล้วไม่สำเร็จ อาจลองรอจนถึงหน้าหนาวแล้วค่อยลองใหม่",
+    "why": "Breeding timing based on temperate northern summer and winter, not Thailand's seasons.",
+    "by": "model"
+   }
+  ],
+  "products": []
  },
  "th/species/corydoras-sterbai": {
   "at": "2026-11-08",
@@ -32691,6 +33709,14 @@
  "th/species/danio-rerio": {
   "at": "2026-11-09",
   "hash": "8b5411d55a552a9c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/danio-tinwini": {
+  "at": "2026-11-12",
+  "hash": "59546f6de71a9a15",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -33413,6 +34439,14 @@
   "findings": [],
   "products": []
  },
+ "th/species/hyphessobrycon-flammeus": {
+  "at": "2026-11-12",
+  "hash": "caf493009583e6ae",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "th/species/hyphessobrycon-herbertaxelrodi": {
   "at": "2026-11-08",
   "hash": "ee1f1ad8cfa2bac0",
@@ -33437,9 +34471,10 @@
   "products": []
  },
  "th/species/hyphessobrycon-megalopterus": {
-  "at": "2026-11-07",
-  "hash": "712f010eff60d88b",
+  "at": "2026-11-12",
+  "hash": "d3ac5d3854acd6cf",
   "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -34500,7 +35535,7 @@
   "sourceRead": true
  },
  "th/species/oryzias-latipes": {
-  "at": "2026-11-09",
+  "at": "2026-11-12",
   "hash": "54133f9986eca99c",
   "model": "opus",
   "checklist": 3,
@@ -34509,7 +35544,7 @@
     "check": "elsewhere",
     "part": "P6",
     "quote": "ในหลายประเทศหรือในบ้านที่เก็บความร้อนได้ดี ควรเลี้ยงโดยไม่ใช้ฮีตเตอร์ตลอดทั้งปี",
-    "why": "This assumes a cool-climate home where a heater is optional; in Thailand rooms are well above 16–22 °C, so the real question is cooling.",
+    "why": "This assumes a cool-climate home with indoor heating, where a tank without a heater stays near 16–22 °C. In Thailand the question is how to keep the water cool, not whether to skip a heater.",
     "by": "model"
    }
   ],
@@ -35230,6 +36265,29 @@
   ],
   "products": []
  },
+ "th/species/pterophyllum-altum": {
+  "at": "2026-11-12",
+  "hash": "043d9c79aeda8f34",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "doses": [
+   {
+    "treatment": "methylene blue",
+    "strength": "",
+    "amount": 8,
+    "amountMax": 0,
+    "unit": "drop",
+    "per": 19,
+    "perUnit": "litre",
+    "use": "other",
+    "method": "wholeTank",
+    "quote": "หยดเมทิลีนบลู 8 หยดต่อน้ำทุก 19 ลิตรในตู้อนุบาล"
+   }
+  ],
+  "sourceRead": true
+ },
  "th/species/pterophyllum-scalare": {
   "at": "2026-11-08",
   "hash": "9d058a9e60b73cd9",
@@ -35254,20 +36312,11 @@
   "products": []
  },
  "th/species/pterygoplichthys-joselimaianus": {
-  "at": "2026-11-08",
-  "hash": "e5d12111fa1788e7",
+  "at": "2026-11-12",
+  "hash": "d426abe4fe097f96",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P6",
-    "quote": "ปลาชนิดนี้จึงเป็นปลาแมวที่ดูสง่างามจริง ๆ",
-    "why": "\"ปลาแมว\" is a word-for-word copy of \"catfish\"; in Thai ปลาแมว is a different fish, and keepers say ปลาหนัง or แคทฟิช.",
-    "by": "model",
-    "fix": "ปลาหนัง"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "th/species/pterygoplichthys-pardalis": {
@@ -35524,16 +36573,16 @@
   "products": []
  },
  "th/species/sahyadria-denisonii": {
-  "at": "2026-11-08",
-  "hash": "a7a4ce53f378dd48",
+  "at": "2026-11-12",
+  "hash": "5c0a62fee647c3b5",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P11",
-    "quote": "เห็นได้ชัดว่าปลาแต่ละตัวมีสีสันแตกต่างกันมาก",
-    "why": "Refers to specific fish or photos from the original wholesaler item, which this page doesn't show.",
+    "part": "P12",
+    "quote": "นี่เป็นการนำเข้า S. denisonii ครั้งแรกจากแหล่งจับใหม่ในอินเดีย",
+    "why": "This is the original source's own import news, written as if the reader knew that shop's stock.",
     "by": "model"
    }
   ],
@@ -39111,8 +40160,8 @@
   "products": []
  },
  "vi/guides/aquariumbreeder-paludarium-animals": {
-  "at": "2026-11-11",
-  "hash": "853ed654b7ce38ec",
+  "at": "2026-11-12",
+  "hash": "12851f739df8cf18",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -39120,24 +40169,16 @@
     "check": "source",
     "part": "P1",
     "quote": "Trước đây đã có bài giới thiệu nhiều loại cây hợp với paludarium.",
-    "why": "Points to an unnamed earlier article from the source that the reader doesn't have.",
+    "why": "Refers the reader to an earlier article from the source that the page does not include.",
     "by": "model"
    },
    {
     "check": "words",
     "part": "P1",
-    "quote": "trùn chỉ đỏ (bloodworm)",
-    "why": "Bloodworm is mistranslated; trùn chỉ is tubifex, Vietnamese keepers call bloodworms trùn huyết.",
+    "quote": "như axolotl (cá đi bộ Mexico)",
+    "why": "Literal calque of 'Mexican walking fish'; Vietnamese keepers don't call the axolotl this.",
     "by": "model",
-    "fix": "trùn huyết"
-   },
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "axolotl (cá đi bộ Mexico)",
-    "why": "Calque of 'Mexican walking fish'; Vietnamese keepers call the axolotl khủng long sáu sừng or axolotl.",
-    "by": "model",
-    "fix": "khủng long sáu sừng"
+    "fix": "cá khủng long 6 sừng (axolotl)"
    }
   ],
   "products": []
@@ -41567,17 +42608,25 @@
   ]
  },
  "vi/guides/aquariumcoop-blogs-aquarium-blue-green-algae": {
-  "at": "2026-11-08",
-  "hash": "852f484a835626ad",
+  "at": "2026-11-12",
+  "hash": "23c38dcbb4bf4568",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "harm",
     "part": "P1",
-    "quote": "Tắt lọc để vi sinh không bị ảnh hưởng. Tắt sủi oxy để nước gần như đứng yên.",
-    "why": "Switching off both the filter and the air for several hours, while peroxide sits in still water, can starve fish and shrimp of oxygen and leave the peroxide concentrated around them.",
+    "quote": "3 ml cho mỗi 4 lít nước trong bể, nên bể 40 lít là 30 ml",
+    "why": "About 2.8 ml of 3% peroxide per gallon is roughly three times the usual ~1 ml/gallon spot limit, and with filter and air off it risks burning gills.",
     "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Đừng trông chờ vào đội dọn bể, vì chẳng con nào thích ăn tảo lam.",
+    "why": "Calque of English 'cleanup crew'.",
+    "by": "model",
+    "fix": "cá dọn bể / tép, ốc dọn bể"
    }
   ],
   "products": [],
@@ -48713,6 +49762,14 @@
     "fix": "lé mắt"
    }
   ],
+  "products": []
+ },
+ "vi/guides/aquatome-nuoi-ca-rong-be-benh-thuc-an-ca-nuoi-chung": {
+  "at": "2026-11-12",
+  "hash": "d6fb9fe2bcbb8e0c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/guides/aquatome-nuoi-ca-trong-binh-chau-khong-loc-khong-sui-oxy-loai-nao-song-duoc-va-cach-cham": {
@@ -72231,8 +73288,8 @@
   "products": []
  },
  "vi/guides/youtube-M7UJiUpPX08": {
-  "at": "2026-11-11",
-  "hash": "3b927bb4725c5d90",
+  "at": "2026-11-12",
+  "hash": "33f121b565990f59",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -72240,18 +73297,20 @@
     "check": "source",
     "part": "P1",
     "quote": "Bể ở đây đã thử xanh baby, rồi cạo đi.",
-    "why": "Recounts the source's own tank history as if the reader knew it.",
+    "why": "Recounts the source writer's own tank and paint trials as if the reader knew that tank.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
     "quote": "Nền ở đây tái sử dụng từ các bể cũ.",
-    "why": "Refers to the source author's own old tanks, unknown to the reader.",
+    "why": "Refers to the source writer's own old tanks the reader does not know.",
     "by": "model"
    }
   ],
-  "products": []
+  "products": [
+   "keo 502"
+  ]
  },
  "vi/guides/youtube-M8-oNwl3X4k": {
   "at": "2026-11-10",
@@ -72322,8 +73381,8 @@
   ]
  },
  "vi/guides/youtube-mB3je2t-Bo8": {
-  "at": "2026-11-11",
-  "hash": "16bfaf0b736d0f99",
+  "at": "2026-11-12",
+  "hash": "7587f11e4f5b98e9",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -72331,30 +73390,15 @@
     "check": "price",
     "part": "P1",
     "quote": "mỗi cái khoảng 12 bảng Anh",
-    "why": "Price given in British pounds, meaningless to a reader in Vietnam.",
+    "why": "Price given in British pounds, meaningless to a buyer in Vietnam.",
     "by": "model"
    },
    {
     "check": "elsewhere",
     "part": "P1",
     "quote": "Bể bán cạn đặt trong nhà kho thì mùa hè nhiệt độ vẫn ổn, khi trời lạnh xuống sẽ lắp thêm sưởi.",
-    "why": "A tank kept in an outdoor shed needing heating in a cold season reflects the source's foreign home and climate.",
+    "why": "A tank kept in a garden shed through a cold season reflects a British home and climate, not the reader's.",
     "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Bể này vẫn chạy cả lọc thùng và một lọc trong để nước trong.",
-    "why": "Describes the source author's own discus tank as if the reader knew it.",
-    "by": "model"
-   },
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "cá kim tơ (white cloud)",
-    "why": "Keepers in Vietnam call the white cloud mountain minnow by another name.",
-    "by": "model",
-    "fix": "cá bạch vân"
    }
   ],
   "products": []
@@ -73945,8 +74989,8 @@
   ]
  },
  "vi/guides/youtube-no6VJHlHHgc": {
-  "at": "2026-11-11",
-  "hash": "9575f746b45adf96",
+  "at": "2026-11-12",
+  "hash": "f2a55a27072b0680",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -84972,23 +86016,16 @@
   "products": []
  },
  "vi/plants/dracaena-sanderiana": {
-  "at": "2026-11-09",
-  "hash": "41514acd40d35dfe",
+  "at": "2026-11-12",
+  "hash": "c3a0fb7d1118995c",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "harm",
-    "part": "P5",
-    "quote": "Mỗi tuần thay khoảng 25% nước bằng nước sạch. Chỉ dùng nước RO hoặc nước cất.",
-    "why": "Weekly water changes with only pure RO or distilled water and nothing added back would harm the fish, shrimp and snails living in the tank.",
-    "by": "model"
-   },
-   {
     "check": "units",
     "part": "P5",
-    "quote": "đổ nước tới cách tầng lá thấp nhất khoảng 2,5 cm",
-    "why": "2.5 cm is a converted 1 inch, a figure a keeper here wouldn't use.",
+    "quote": "rồi đổ nước tới cách tầng lá thấp nhất khoảng 2,5 cm",
+    "why": "2.5 cm is a converted one inch, not a figure a Vietnamese keeper would give.",
     "by": "model"
    }
   ],
@@ -93281,25 +94318,24 @@
   "products": []
  },
  "vi/species/biotodoma-cupido": {
-  "at": "2026-11-11",
-  "hash": "f2728aaa25e4d676",
+  "at": "2026-11-12",
+  "hash": "cea38d318fb7cd0e",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
-    "part": "P16",
-    "quote": "ra xa chỗ đẻ tới khoảng 60–90 cm",
-    "why": "A 60–90 cm range is a straight conversion of 2–3 feet, not a figure a keeper here would give.",
+    "part": "P7",
+    "quote": "tương đương thể tích khoảng 304 lít",
+    "why": "304 litres is a converted 80 US gallon tank, not a size anyone in Vietnam would name.",
     "by": "model"
    },
    {
-    "check": "words",
-    "part": "P14",
-    "quote": "dễ bị dân thu mẫu bắt hơn",
-    "why": "'Dân thu mẫu' is a word-for-word calque of 'collectors'; keepers in Vietnam talk about the people who catch fish for export.",
-    "by": "model",
-    "fix": "người bắt cá"
+    "check": "units",
+    "part": "P16",
+    "quote": "ra xa chỗ đẻ tới khoảng 60–90 cm",
+    "why": "60–90 cm is a conversion of 2–3 feet.",
+    "by": "model"
    }
   ],
   "products": []
@@ -95729,11 +96765,26 @@
   "products": []
  },
  "vi/species/cichla-monoculus": {
-  "at": "2026-11-08",
-  "hash": "7d4794b8d599fd83",
+  "at": "2026-11-12",
+  "hash": "2ab45d3632bd0a2c",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "Một con trưởng thành cần bể ít nhất 305 x 91 x 122 cm",
+    "why": "Tank size converted from 10 x 3 x 4 feet; nobody in Vietnam would state these figures.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "một con trưởng thành sẽ cần bể ít nhất 305 x 91 x 122 cm (dài x cao x rộng)",
+    "why": "Tank size converted from 10 x 3 x 4 feet; nobody in Vietnam would state these figures.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "vi/species/cichla-ocellaris": {
@@ -99502,8 +100553,8 @@
   "products": []
  },
  "vi/species/dianema-longibarbis": {
-  "at": "2026-11-08",
-  "hash": "a2388651771dd684",
+  "at": "2026-11-12",
+  "hash": "835f07a5a3589ece",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -99511,7 +100562,7 @@
     "check": "words",
     "part": "P7",
     "quote": "trùn chỉ huyết",
-    "why": "Mixes two different foods: tubifex (trùn chỉ) and bloodworm (trùn huyết); keepers in Vietnam would not say this.",
+    "why": "Not the term Vietnamese keepers use for bloodworms.",
     "by": "model",
     "fix": "trùn huyết"
    }
@@ -99575,20 +100626,11 @@
   "sourceRead": true
  },
  "vi/species/dicrossus-filamentosus": {
-  "at": "2026-11-08",
-  "hash": "7e645f5b13cf5e5f",
+  "at": "2026-11-12",
+  "hash": "a0a6be727b68ee57",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P2",
-    "quote": "Cá checkerboard đuôi đàn lia (Dicrossus filamentosus)",
-    "why": "English common name 'checkerboard' left untranslated; Vietnamese keepers use a local name.",
-    "by": "model",
-    "fix": "cá rô phượng hoàng caro"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/dicrossus-maculatus": {
@@ -99665,20 +100707,11 @@
   "products": []
  },
  "vi/species/distichodus-affinis": {
-  "at": "2026-11-08",
-  "hash": "447cae65b8343d6b",
+  "at": "2026-11-12",
+  "hash": "ad4c9832238dcef3",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P9",
-    "quote": "cá voi châu Phi (họ Mormyridae)",
-    "why": "Literal calque of 'African elephantfish'; Vietnamese keepers call mormyrids 'cá mũi voi'.",
-    "by": "model",
-    "fix": "cá mũi voi"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/distichodus-lusosso": {
@@ -100605,6 +101638,14 @@
     "fix": "vì chúng có thể ăn trứng"
    }
   ],
+  "products": []
+ },
+ "vi/species/exostoma-labiatum": {
+  "at": "2026-11-12",
+  "hash": "b4b1663662dea659",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/farlowella-amazonum": {
@@ -101569,8 +102610,8 @@
   "products": []
  },
  "vi/species/geophagus-harreri": {
-  "at": "2026-11-11",
-  "hash": "f828fb65c39b3423",
+  "at": "2026-11-12",
+  "hash": "b9b7c2f20eb8f9da",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -101578,7 +102619,14 @@
     "check": "source",
     "part": "P2",
     "quote": "Cá bố mẹ có gốc từ sông Tapanahoni ở Suriname.",
-    "why": "It talks about the source breeder's own broodstock as if the reader already knew those fish.",
+    "why": "Refers to the source writer's own breeding stock as if the reader knew those fish.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P8",
+    "quote": "Đến giờ mới thu được nhiều nhất 150 con bột",
+    "why": "Reports the source writer's own breeding results as the page's experience.",
     "by": "model"
    }
   ],
@@ -109179,8 +110227,8 @@
   "products": []
  },
  "vi/species/ophthalmotilapia-ventralis": {
-  "at": "2026-11-09",
-  "hash": "fbb6bb6eb12cff0f",
+  "at": "2026-11-12",
+  "hash": "d327219ea6c54a05",
   "model": "opus",
   "checklist": 3,
   "findings": [],

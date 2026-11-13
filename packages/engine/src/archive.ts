@@ -25,7 +25,20 @@ export const ARCHIVE_REST_MAX_MS = 24 * 3_600_000
 export class ArchiveRefused extends Error {
   constructor(readonly until: string) { super(`the archive refused this Mac: no request before ${until}`) }
 }
-type Rest = { until: string; waitMs: number }
+/**
+ * The wait, and what the request that started it got (`got`: "HTTP 429", or the error's code, as "ECONNRESET (fetch
+ * failed)" or "TimeoutError (…)") and when (`at`), so a dropped connection or a timeout can be told from a refusal (the
+ * chief of staff, 2026-11-12). Each is logged in one line too, and so is the answer that ends a wait.
+ */
+type Rest = { until: string; waitMs: number; got?: string; at?: string }
+/** A failed request's code: the network's (ECONNRESET, ECONNREFUSED, UND_ERR_CONNECT_TIMEOUT…) or a timeout's name. */
+export function errorGot(e: unknown): string {
+  const x = e as { name?: string; message?: string; code?: unknown; cause?: { code?: unknown } }
+  const text = (c: unknown) => (typeof c === 'string' ? c : undefined)
+  // A DOMException's `code` is a number (23 for a timeout): its name says it.
+  const code = (x.name === 'TimeoutError' || x.name === 'AbortError' ? x.name : undefined) ?? text(x.cause?.code) ?? text(x.code)
+  return code ? `${code} (${x.message ?? ''})` : (x.message ?? String(e))
+}
 type Fetch = (url: string, init?: { headers?: Record<string, string>; signal?: AbortSignal }) => Promise<{ ok: boolean; status: number; headers: { get(name: string): string | null }; text(): Promise<string>; arrayBuffer(): Promise<ArrayBuffer> }>
 
 export class ArchiveFetcher {
@@ -35,11 +48,13 @@ export class ArchiveFetcher {
   /** Latest copy: the Wayback Machine serves the capture nearest the stamp, and today is after every capture. */
   private today() { return this.d.now().toISOString().slice(0, 10).replace(/-/g, '') }
 
-  private async refused(rest: Rest | null) {
+  private async refused(rest: Rest | null, got: string) {
     const waitMs = rest ? Math.min(rest.waitMs * 2, ARCHIVE_REST_MAX_MS) : ARCHIVE_REST_MS
+    const at = this.d.now().toISOString()
     const until = new Date(this.d.now().getTime() + waitMs).toISOString()
     await mkdir(dirname(this.d.restFile), { recursive: true })
-    await writeFile(this.d.restFile, `${JSON.stringify({ until, waitMs })}\n`)
+    await writeFile(this.d.restFile, `${JSON.stringify({ until, waitMs, got, at } satisfies Rest)}\n`)
+    console.log(`archive: counted as refused at ${at}, it got ${got}: no request before ${until}`)
     return new ArchiveRefused(until)
   }
 
@@ -52,13 +67,16 @@ export class ArchiveFetcher {
       try {
         r = await this.d.fetch(url, { headers: { 'user-agent': this.d.ua }, signal: AbortSignal.timeout(90_000) })
       } catch (e) {
-        if (rest || (e as { cause?: { code?: string } }).cause?.code === 'ECONNREFUSED') throw await this.refused(rest)
+        if (rest || (e as { cause?: { code?: string } }).cause?.code === 'ECONNREFUSED') throw await this.refused(rest, errorGot(e))
         if (attempt > 0) throw new Error(`the archive isn't answering (${(e as Error).message})`)
         await this.d.sleep(60_000)
         continue
       }
-      if (r.status === 429) throw await this.refused(rest)
-      if (rest) await rm(this.d.restFile, { force: true })
+      if (r.status === 429) throw await this.refused(rest, `HTTP ${r.status}`)
+      if (rest) {
+        console.log(`archive: answered after the wait, at ${this.d.now().toISOString()}, with HTTP ${r.status}: reading carries on`)
+        await rm(this.d.restFile, { force: true })
+      }
       return r
     }
   }

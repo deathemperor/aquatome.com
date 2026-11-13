@@ -349,12 +349,26 @@ test('the tap-water fixes hold: Seachem Prime named at its dose, our note on wat
   // independent read). Whom the advice is for, fish included, is the ruling's, by the label.
   expect(note.refs!.map(i => plant.refs![i]!.url)).toEqual(['https://aquariumbreeder.com/shrimp-keeping-can-i-remineralize-tap-water/'])
   expect(note.html).not.toMatch(tap.en)
+  // Aquarium Breeder's care part says the weekly water change too, RO or distilled water only (the gate's harm read of
+  // 9 Nov quoted it): our note right after it as well, the same ruling, its source and label, so the care part read alone
+  // has it.
+  const label = { vi: 'Ghi chú của AquaTome', id: 'Catatan AquaTome', th: 'หมายเหตุจาก AquaTome' }
+  const careAt = plant.sections.findIndex(s => s.key === 'maintenance' && s.source === 'aquatome')
+  const care = plant.sections[careAt]!
+  expect(plant.sections[careAt - 1]).toMatchObject({ key: 'maintenance', source: 'aquariumbreeder' })
+  expect([care.fixed, care.refs!.map(i => plant.refs![i]!.url)]).toEqual([true, ['https://aquariumbreeder.com/shrimp-keeping-can-i-remineralize-tap-water/']])
+  expect(care.html).toMatch(/^<p><strong>AquaTome's note:<\/strong> For the weekly water change too, /)
+  expect(care.html).toMatch(ruling.en)
+  expect(care.html).not.toMatch(tap.en)
   // What Aquarium Breeder says stays its own, in every language: RO or distilled water, tap water dechlorinated first.
   const says = { vi: [/nước RO hoặc nước cất/, /khử clo trước/], id: [/air RO atau air suling/, /hilangkan klorinnya dulu/], th: [/น้ำ RO หรือน้ำกลั่น/, /ต้องกำจัดคลอรีนก่อน/] }
   for (const lang of ['vi', 'id', 'th'] as const) {
     const t = read<{ sections: Record<string, string> }>(`plants/dracaena-sanderiana/${lang}.json`).sections
     expect(t['waterConditions:aquatome'], lang).toMatch(ours[lang])
     expect(t['waterConditions:aquatome'], lang).not.toMatch(tap[lang])
+    expect(t['maintenance:aquatome'], lang).toMatch(new RegExp(`^<p><strong>${label[lang]}:</strong> `))
+    expect(t['maintenance:aquatome'], lang).toMatch(ruling[lang])
+    expect(t['maintenance:aquatome'], lang).not.toMatch(tap[lang])
     for (const key of ['maintenance', 'waterConditions']) expect(t[`${key}:aquariumbreeder`], `${lang} ${key}`).not.toMatch(ruling[lang])
     expect(t['maintenance:aquariumbreeder'], lang).toMatch(says[lang][0]!)
     expect(t['maintenance:aquariumbreeder'], lang).toMatch(says[lang][1]!)

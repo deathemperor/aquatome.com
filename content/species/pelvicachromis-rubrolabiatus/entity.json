@@ -9,6 +9,46 @@
     "africa",
     "guinea"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Guinea.",
+          "countries": [
+            "GN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372937,
+      "total": 1,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "GN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -11.25,
+          9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

@@ -1,0 +1,126 @@
+{
+  "id": "paraphanius-mento",
+  "native": {
+    "input": "b24ac5f43cb2abbf",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "TR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The iridescent toothcarp, Paraphanius mento, occurs in eastern Mediterranean and Middle Eastern countries from Turkey and Israel to Iraq and Iran.",
+        "words": "Turkey",
+        "ok": true
+      },
+      {
+        "code": "IL",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The iridescent toothcarp, Paraphanius mento, occurs in eastern Mediterranean and Middle Eastern countries from Turkey and Israel to Iraq and Iran.",
+        "words": "Israel",
+        "ok": true
+      },
+      {
+        "code": "IQ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The iridescent toothcarp, Paraphanius mento, occurs in eastern Mediterranean and Middle Eastern countries from Turkey and Israel to Iraq and Iran.",
+        "words": "Iraq",
+        "ok": true
+      },
+      {
+        "code": "IR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The iridescent toothcarp, Paraphanius mento, occurs in eastern Mediterranean and Middle Eastern countries from Turkey and Israel to Iraq and Iran.",
+        "words": "Iran",
+        "ok": true
+      },
+      {
+        "code": "SY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "To the south it is found around the coastlines of Syria, Lebanon and Israel including the Orontes River drainage and in the Jordan Rift Valley as far south as the Dead Sea basin, where it is reported to hybridise with the Dead Sea Toothcarp (Aphaniops richardsoni) in some springs.",
+        "words": "Syria",
+        "ok": true
+      },
+      {
+        "code": "LB",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "To the south it is found around the coastlines of Syria, Lebanon and Israel including the Orontes River drainage and in the Jordan Rift Valley as far south as the Dead Sea basin, where it is reported to hybridise with the Dead Sea Toothcarp (Aphaniops richardsoni) in some springs.",
+        "words": "Lebanon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ceyhan",
+        "source": "seriouslyfish",
+        "quote": "There its range extends eastwards along the Mediterranean coastal region of the country through the provinces of Antalya, Mersin, Adana and Hatay and it can be found throughout the Ceyhan and Seyhan River basins to the southeast.",
+        "ok": true
+      },
+      {
+        "name": "Seyhan",
+        "source": "seriouslyfish",
+        "quote": "There its range extends eastwards along the Mediterranean coastal region of the country through the provinces of Antalya, Mersin, Adana and Hatay and it can be found throughout the Ceyhan and Seyhan River basins to the southeast.",
+        "ok": true
+      },
+      {
+        "name": "Tigris-Euphrates",
+        "source": "seriouslyfish",
+        "quote": "A number of landlocked populations also exist, some of which may have been introduced by humans such as the one inhabiting an artificial pond near the town of Bor. In the Tigris-Euphrates system it occurs in both eastern Turkey and Iraq as far as the confluence of the two rivers into the Shatt al-Arab at the border with Iran.",
+        "ok": true
+      },
+      {
+        "name": "Orontes",
+        "source": "seriouslyfish",
+        "quote": "To the south it is found around the coastlines of Syria, Lebanon and Israel including the Orontes River drainage and in the Jordan Rift Valley as far south as the Dead Sea basin, where it is reported to hybridise with the Dead Sea Toothcarp (Aphaniops richardsoni) in some springs.",
+        "ok": true
+      },
+      {
+        "name": "Jordan Rift Valley",
+        "source": "seriouslyfish",
+        "quote": "To the south it is found around the coastlines of Syria, Lebanon and Israel including the Orontes River drainage and in the Jordan Rift Valley as far south as the Dead Sea basin, where it is reported to hybridise with the Dead Sea Toothcarp (Aphaniops richardsoni) in some springs.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "JO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Paraphanius mento",
+    "status": "ACCEPTED",
+    "taxonKey": 10675891,
+    "datasets": [
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        8
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "250e7bdf-217c-4480-974b-e80b926f3326",
+        1
+      ]
+    ],
+    "native": [
+      "TR",
+      "IL",
+      "IQ",
+      "IR",
+      "SY",
+      "LB"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

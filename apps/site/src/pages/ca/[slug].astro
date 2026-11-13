@@ -84,7 +84,7 @@ const alternates = await alternatesOf('species', s.id)
     {vn && summary && <QuickSummary summary={summary} inside />}
     {s.photos.length > 0 && (
       <div class="side">
-        <div class="photo" id="anh"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} /></div>
+        <div class="photo" id="anh"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} fish phone /></div>
         {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} more={more} href={galleryPath} name={s.t.name} column readers />}
       </div>
     )}
@@ -168,6 +168,5 @@ const alternates = await alternatesOf('species', s.id)
     .facts:has(> .full:not([open])) > .srcline { display: none; }
     .top > :global(.qs) { margin-top: var(--space-3); }
     .photo { margin-top: var(--space-5); }
-    .photo :global(.plate img) { aspect-ratio: 16 / 9; }
   }
 </style>

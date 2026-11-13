@@ -68,10 +68,10 @@ export const SUBJECT_CUT = 0.05
 export const SUBJECT_SLACK = 1e-9
 /**
  * Whether the loader gives each photo its box (`subject`), which every frame reads through subjectFrame. Off: no photo
- * has one, and every frame draws as today. On once the owner has seen the Design Lead's "whole" for the tile, the banner
- * and the card (the chief of staff, 2026-11-12). The loader's `subjectFrames` stands in for it.
+ * has one, and every frame draws as today. On since the chief of staff took the Design Lead's frames board as approved
+ * (2026-11-12): off again is this one line. The loader's `subjectFrames` stands in for it.
  */
-export const SUBJECT_FRAMES = false
+export const SUBJECT_FRAMES = true
 /** How a frame shows a photo: covering it, its window placed at `x`, `y` (CSS object-position, 0–1), or the photo whole. */
 export type SubjectFrame = { fit: 'cover'; x: number; y: number } | { fit: 'whole' }
 /**
