@@ -9,9 +9,12 @@ import { translator, type Lang } from './i18n'
  */
 export const saysSci = (name: string, sci: string) => sciWords(sci).test(name)
 
-/** A scientific name as whole words, in any case (`g`: to count them). */
+/**
+ * A scientific name as whole words, in any case (`g`: to count them): not part of a longer Latin word, though Thai
+ * may run right up to it ("ปลาAbbottina rivularis").
+ */
 export const sciWords = (sci: string, flags = 'iu') =>
-  new RegExp(`(?<![\\p{L}])${sci.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}])`, flags)
+  new RegExp(`(?<![\\p{Script=Latin}])${sci.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{Script=Latin}])`, flags)
 
 /** The name, then its scientific name in brackets, unless the name says it already. */
 export const withSci = (name: string, sci: string) => (saysSci(name, sci) ? name : `${name} (${sci})`)
@@ -28,9 +31,10 @@ const lower = (s: string, lang: Lang, sci: string) =>
  * scientific name once: a name that says it already isn't followed by it again (1,337 fish and plant titles said it twice,
  * 13 November: "Cách trồng bèo tây Nam Mỹ (Limnobium laevigatum) (Limnobium laevigatum)").
  */
+const SCI = '\u0000'
 const named = (lang: Lang, key: string, name: string, sci: string) => {
-  const title = translator(lang)(key, { name: lower(name, lang, sci), sci })
-  return saysSci(name, sci) ? title.replace(` (${sci})`, '') : title
+  const title = translator(lang)(key, { name: lower(name, lang, sci), sci: SCI })
+  return saysSci(name, sci) ? title.replace(` (${SCI})`, '') : title.replace(SCI, sci)
 }
 export const speciesTitle = (lang: Lang, name: string, sci: string) => named(lang, 'Cách nuôi {name} ({sci}): bể, nước, nuôi chung', name, sci)
 export const plantTitle = (lang: Lang, name: string, sci: string) => named(lang, 'Cách trồng {name} ({sci}): ánh sáng, CO₂, vị trí', name, sci)

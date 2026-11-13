@@ -14,6 +14,7 @@ const NAMES = [
   ['Acrossocheilus iridescens', 'Acrossocheilus iridescens'],
   ["Bacopa monnieri 'Compact'", 'Bacopa monnieri'],
   ['Cá chạch Paracanthocobitis rubidipinnis', 'Acanthocobitis rubidipinnis'], // another genus: both said
+  ['ปลาAbbottina rivularis', 'Abbottina rivularis'], // Thai right up to it
   ['Cá neon vua', 'Paracheirodon axelrodi'],
 ] as const
 
