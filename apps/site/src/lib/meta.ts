@@ -1,20 +1,7 @@
 import { resolveDataCard, type SpeciesEntity } from '@aq/schema'
 import { fmt } from './format'
 import { translator, type Lang } from './i18n'
-
-/**
- * Whether a name already says its scientific name, as whole words: "Cá Abbottina rivularis", "Bèo tây Nam Mỹ (Limnobium
- * laevigatum)", or the scientific name alone (a page in a language with no common name for it). "Cá chạch
- * Paracanthocobitis rubidipinnis" doesn't say "Acanthocobitis rubidipinnis".
- */
-export const saysSci = (name: string, sci: string) => sciWords(sci).test(name)
-
-/**
- * A scientific name as whole words, in any case (`g`: to count them): not part of a longer Latin word, though Thai
- * may run right up to it ("ปลาAbbottina rivularis").
- */
-export const sciWords = (sci: string, flags = 'iu') =>
-  new RegExp(`(?<![\\p{Script=Latin}])${sci.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{Script=Latin}])`, flags)
+import { saysSci } from './sci'
 
 /** The name, then its scientific name in brackets, unless the name says it already. */
 export const withSci = (name: string, sci: string) => (saysSci(name, sci) ? name : `${name} (${sci})`)

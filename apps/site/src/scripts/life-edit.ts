@@ -2,6 +2,7 @@ import type { Tank, UnlistedEntry } from '@aq/schema'
 import { ct, siteHref } from './ct'
 import type { Guessed } from './life-photo'
 import { msg } from '../i18n/msg'
+import { sciBeside } from '../lib/sci'
 import { esc, type IndexItem } from './my-tanks'
 import { exactMatch, rankMatches, type MateItem } from './tankmates'
 
@@ -102,7 +103,7 @@ export function initLife(root: HTMLElement, o: {
     shown = q.length >= 2 ? [...hits, 'new'] : hits
     opts.innerHTML = shown.map((s, i) => s === 'new'
       ? `<li role="option" id="mt-opt-${i}" class="new" aria-selected="false">${ct('Thêm “{q}” (chưa có trong cẩm nang)', { q: esc(q) })}</li>`
-      : `<li role="option" id="mt-opt-${i}" aria-selected="false"${has(s.page) ? ' aria-disabled="true"' : ''}><span class="nm"><span>${esc(s.name)}</span>${s.scientificName ? ` <i class="sci">${esc(s.scientificName)}</i>` : ''}</span><span class="tag">${has(s.page) ? ct('Đã có') : kindWord(s.page.kind)}</span></li>`).join('')
+      : `<li role="option" id="mt-opt-${i}" aria-selected="false"${has(s.page) ? ' aria-disabled="true"' : ''}><span class="nm"><span>${esc(s.name)}</span>${sciBeside(s.name, s.scientificName) ? ` <i class="sci">${esc(s.scientificName)}</i>` : ''}</span><span class="tag">${has(s.page) ? ct('Đã có') : kindWord(s.page.kind)}</span></li>`).join('')
     setActive(-1)
     openList(shown.length > 0)
   }
