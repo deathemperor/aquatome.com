@@ -337,7 +337,7 @@ test('kept work is judged by its own migration, not an earlier branch\'s', () =>
 
 // A video job that kept work back for its photo records ends failed and says why on GitHub, as a part's cycle does.
 test('a video job that kept work back for its photo records ends failed, and says why on GitHub', () => {
-  for (const [name, job] of [['video-cycle.sh', 'videos'], ['video-recheck.sh', 'video-recheck']]) {
+  for (const [name, job] of [['video-cycle.sh', 'videos'], ['video-recheck.sh', 'video-recheck']] as const) {
     expect(script(name), name).toContain(`trap 'status=$?; rm -f "$PIDFILE"; fault_exit "$status" ${job}' EXIT`)
   }
   const dir = mkdtempSync(join(tmpdir(), 'aq-fault-'))
