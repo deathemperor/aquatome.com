@@ -200,6 +200,13 @@ export const Video = z.object({
   /** The badge when the video has Vietnamese subtitles (the site's "Phụ đề tiếng Việt"); none when it's in the page's language. */
   subtitles: z.string().optional(),
   chapters: z.array(z.object({ at: z.number().int().nonnegative(), title: z.string() })).optional(),
+  /**
+   * The picture the guide's head shows before the video plays: the same photo as its card in the app index (`img`), at
+   * full size, with where the fish is (`box`) where the photo has one, so a card and the page it opens show one picture
+   * (the Design Lead, 13 Nov). None where the card has no photo: the app draws the page's colour with the play button.
+   * An app that doesn't know it draws the head as before.
+   */
+  poster: Image.optional(),
 })
 
 export const PageDoc = z.object({

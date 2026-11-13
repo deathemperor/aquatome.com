@@ -22,6 +22,8 @@
     {"note": "Cyprichromis leptosoma's head (the owner's report) in a 4:3 tile: whole", "w": 601, "h": 300, "box": {"x": 0.0465, "y": 0.0933, "w": 0.9086, "h": 0.8167}, "ratio": 1.3333333333333333, "frame": {"fit": "whole"}},
     {"note": "Fuelleborn's head in a 4:3 tile: the moved crop mends it", "w": 960, "h": 526, "box": {"x": 0.0302, "y": 0.306, "w": 0.624, "h": 0.4089}, "ratio": 1.3333333333333333, "frame": {"fit": "cover", "x": 0, "y": 0.5}},
     {"note": "Fuelleborn's head on a fish page's square top (the Design Lead's board): whole", "w": 960, "h": 526, "box": {"x": 0.0302, "y": 0.306, "w": 0.624, "h": 0.4089}, "ratio": 1, "frame": {"fit": "whole"}},
-    {"note": "Maingano's head on a fish page's square top (the Design Lead's board): whole", "w": 960, "h": 641, "box": {"x": 0.1, "y": 0.2714, "w": 0.7469, "h": 0.5851}, "ratio": 1, "frame": {"fit": "whole"}}
+    {"note": "Maingano's head on a fish page's square top (the Design Lead's board): whole", "w": 960, "h": 641, "box": {"x": 0.1, "y": 0.2714, "w": 0.7469, "h": 0.5851}, "ratio": 1, "frame": {"fit": "whole"}},
+    {"note": "the swordtail's head, 960 by 349, with no box of its own, sent its whole area (the loader, 13 Nov), in a 3:2 row: whole", "w": 960, "h": 349, "box": {"x": 0, "y": 0, "w": 1, "h": 1}, "ratio": 1.5},
+    {"note": "a 3:2 photo with no box of its own, sent its whole area, in a 3:2 row: centred, as with no box", "w": 960, "h": 640, "box": {"x": 0, "y": 0, "w": 1, "h": 1}, "ratio": 1.5}
   ]
 }

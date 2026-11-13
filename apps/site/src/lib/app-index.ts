@@ -38,12 +38,16 @@ export type AppItem = {
   path: string
   /** A small photo (about 480 px wide). */
   img?: string
-  /** Where the fish is in `img` (a fish's or a breed's), once the site's switch for it is on: protocols/photo-crop-vectors.json. */
+  /**
+   * Where the fish is in `img`, wherever the photo has a box (a fish's, a breed's, and a guide's or a series' card when its
+   * photo is one of a fish), once the site's switch for it is on: protocols/photo-crop-vectors.json.
+   */
   imgBox?: Box
   /**
-   * A fish's or breed's small photo where `img` can't carry it, none of its photos fitting a card (photoFitsCard, or one
-   * the site leads whole): its page's first, for a reader that draws it whole by the one rule for whole frames
-   * (protocols/whole-frame-vectors.json). An app that doesn't know it gets the same item as before. Never with `img`.
+   * A fish's or breed's page head, small, where `img` isn't it: none of its photos fits a card (photoFitsCard, or one the
+   * site leads whole), or `img` is a later photo because the head doesn't. For a reader that shows a card and its page as
+   * one photo, drawn whole by the one rule for whole frames (protocols/whole-frame-vectors.json; the Design Lead, 13 Nov).
+   * An app that doesn't know it gets the same item as before.
    */
   imgWhole?: { src: string; w: number; h: number }
   /** A fish's short silent loop, real footage of it (content/curation.json `loops`): for cards and its page. */
@@ -206,9 +210,12 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const leadOf = (photos: Photo[]) => photos.find(p => !p.generated && p.headFit !== 'contain' && photoFitsCard(p))
+  /** A card photo's box: only where `img` is a resize of the photo itself, which the box's fractions hold for. */
+  const boxOf = (p: Photo | undefined) => (p && resizeOf(p, smallSrc(p)) ? boxFractions(p) : undefined)
   const img = (photos: Photo[]) => { const p = leadOf(photos); return p ? smallSrc(p) : undefined }
-  const imgBox = (photos: Photo[]) => { const p = leadOf(photos); return p && resizeOf(p, smallSrc(p)) ? boxFractions(p) : undefined }
-  const imgWhole = (photos: Photo[]) => { const p = leadOf(photos) ? undefined : photos.find(p => !p.generated); return p && { src: smallSrc(p), w: Math.round(p.width), h: Math.round(p.height) } }
+  const imgBox = (photos: Photo[]) => boxOf(leadOf(photos))
+  // The page's head, where `img` isn't it: none of the photos fits a card, or `img` is a later one.
+  const imgWhole = (photos: Photo[]) => { const p = photos.find(p => !p.generated); return p && p !== leadOf(photos) ? { src: smallSrc(p), w: Math.round(p.width), h: Math.round(p.height) } : undefined }
   const aka = (names: string[]) => (names.length ? names : undefined)
   const items: AppItem[] = []
   const home: AppHome = { groups: [], fish: [], plants: [], guides: [] }
@@ -281,7 +288,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const ph = guideImage(c, g)
       const path = at(`/vi/huong-dan/${g.t.slug}/`)
       guideAt.set(g.id, path)
-      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path, img: ph && smallSrc(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
+      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path, img: ph && smallSrc(ph), imgBox: boxOf(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
     }
     home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
@@ -292,7 +299,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   // A series as its page lists it; the same series the app gets pages of.
   for (const { s, guides } of appSeries(lang, c)) {
     const ph = guideImage(c, guides[0]!)
-    items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && smallSrc(ph), parts: guides.length }))
+    items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && smallSrc(ph), imgBox: boxOf(ph), parts: guides.length }))
   }
   // An equipment category as its page names it; the same categories the app gets pages of.
   for (const u of appEquipment(lang, c)) {
@@ -330,12 +337,12 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     for (const b of appBreeds(lang, c)) refs.set(`breeds/${b.id}`, at(`/vi/ca/${b.t.slug}/`))
     for (const g of appGuides(lang, c)) refs.set(`guides/${g.id}`, at(`/vi/huong-dan/${g.t.slug}/`))
     for (const p of appPlants(lang, c)) refs.set(`plants/${p.id}`, at(`/vi/cay/${p.t.slug}/`))
-    // Where the fish is in each fish and breed photo the calendar can name by address: the photo's own address first, then
+    // Where the fish is in each photo the calendar can name by address (a fish's, a breed's, a guide's): the photo's own address first, then
     // its copies only resized (its small copy, a large copy of the same shape). An address two photos' copies claim with
     // different boxes gets none.
     const own = new Map<string, Box>(), copies = new Map<string, Box | null>()
     const copy = (u: string, box: Box) => copies.set(u, copies.has(u) && JSON.stringify(copies.get(u)) !== JSON.stringify(box) ? null : box)
-    for (const p of [...c.species.flatMap(s => s.photos), ...c.breeds.flatMap(b => b.photos), ...Object.values(c.galleries).flat()]) {
+    for (const p of [...c.species.flatMap(s => s.photos), ...c.breeds.flatMap(b => b.photos), ...Object.values(c.galleries).flat(), ...c.guides.flatMap(g => [...g.photos, ...(g.video?.figures ?? []).flatMap(f => f.photo ?? [])])]) {
       const box = boxFractions(p)
       if (!box) continue
       own.set(p.url, box)

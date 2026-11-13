@@ -17,6 +17,7 @@ import { guideParts } from './guide-page'
 import { cleanPhoto } from './home'
 import { appLinks, appPath, isVietnamese, served, translator, type Lang, type T } from './i18n'
 import { smallSrc } from './img'
+import { guideImage } from './mentions'
 import { htmlBlocks } from './page-blocks'
 import { plantParts } from './plant-page'
 import type { RangeParts } from './range'
@@ -468,6 +469,9 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
     return paths.length ? [{ t: 'pages' as const, title, paths }] : []
   }
   const lead = v ? undefined : image(lang, p.lead)
+  // A video guide's head before it plays: its card's photo (app-index.ts), with its box where it has one.
+  const card = v && guideImage(c, g), shot = card ? image(lang, card, g.t.name) : undefined, box = shot && boxFractions(card!)
+  const poster = shot && box ? { ...shot, box } : shot
   return {
     v: PAGE_VERSION,
     kind: 'guide',
@@ -481,6 +485,7 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
         youtubeId: v.youtubeId, title: v.title, channel: v.channel, durationSec: v.durationSec,
         ...(v.transcribed ? {} : { subtitles: t('Phụ đề tiếng Việt') }),
         ...(guideChapters(v, g.t.chapters).length > 1 ? { chapters: guideChapters(v, g.t.chapters).map(ch => ({ at: ch.start, title: ch.title })) } : {}),
+        ...(poster ? { poster } : {}),
       },
     } : {}),
     talk: { comments: commentsKey(lang, `guide:${g.id}`) },

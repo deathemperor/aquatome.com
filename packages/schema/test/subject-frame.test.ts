@@ -95,8 +95,8 @@ test('the loader gives a photo its box only with the switch on, from the record 
     [album.url]: { x: 0, y: 0.1, w: 1, h: 0.8 },
     ...Object.fromEntries(['figure', 'hero', 'type'].map(n => [`https://media.test/${n}.webp`, { x: 0.1, y: 0.2, w: 0.5, h: 0.6 }])),
   }))
-  const boxes = async (on?: boolean) => {
-    const c = await loadAll({ root: store, lang: 'vi', publicBuild: false, ...(on === undefined ? {} : { subjectFrames: on }) })
+  const boxes = async (on?: boolean, wholeBoxes?: boolean) => {
+    const c = await loadAll({ root: store, lang: 'vi', publicBuild: false, ...(on === undefined ? {} : { subjectFrames: on }), ...(wholeBoxes === undefined ? {} : { wholeBoxes }) })
     const e = c.equipment.find(x => x.category === 'loc')!
     return [...c.species.find(s => s.id === 'alpha')!.photos, ...c.galleries.alpha!, c.guides.find(x => x.id === 'g')!.video!.figures![0]!.photo!, e.hero, e.types[0]!.photo!].map(p => [p.url, p.subject])
   }
@@ -104,12 +104,42 @@ test('the loader gives a photo its box only with the switch on, from the record 
   expect(SUBJECT_FRAMES).toBe(true)
   expect(await boxes()).toEqual(await boxes(true))
   expect((await boxes(false)).every(([, s]) => s === undefined)).toBe(true)
-  // On: the page's and the album's photos in their own pixels; none where it found no animal or hasn't boxed the photo.
-  expect(await boxes(true)).toEqual([
+  expect((await boxes(false, true)).every(([, s]) => s === undefined)).toBe(true)
+  // On, the record's boxes alone (the planner's): the page's and the album's photos in their own pixels; none where it
+  // found no animal or hasn't boxed the photo.
+  expect(await boxes(true, false)).toEqual([
     ['https://x/ok.jpg', { x0: 240, y0: 160, x1: 720, y1: 480 }],
     ['https://media.test/seriouslyfish/a.webp', undefined],
     ['https://media.test/glaser/b.webp', undefined],
     [album.url, { x0: 0, y0: 80, x1: 1200, y1: 720 }],
     ...['figure', 'hero', 'type'].map(n => [`https://media.test/${n}.webp`, { x0: 100, y0: 100, x1: 600, y1: 400 }]),
   ])
+  // By default those two take their whole area, so a frame shows them whole rather than cut a fish it can't place; a
+  // guide's and an equipment page's photos are left as the record has them.
+  const all = { x0: 0, y0: 0, x1: 800, y1: 600 }
+  expect(await boxes()).toEqual((await boxes(true, false)).map(([u, b]) => [u, String(u).startsWith('https://media.test/seriouslyfish/') || String(u).startsWith('https://media.test/glaser/') ? all : b]))
+})
+
+test("a plant's photo taller than it is wide takes its whole area as its box; a square or wide one has none, and fills", async () => {
+  const site = await mkdtemp(join(tmpdir(), 'aq-boxes-'))
+  const store = join(site, 'content')
+  await cp(fixture, store, { recursive: true })
+  const photo = (name: string, width: number, height: number) => ({ url: `https://media.test/commons/${name}.webp`, width, height, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/${name}` })
+  await mkdir(join(store, 'plants', 'p'), { recursive: true })
+  await writeFile(join(store, 'plants', 'p', 'entity.json'), JSON.stringify({
+    id: 'p', scientificName: 'Planta testa', difficulty: 1, light: 'low', co2: 'optional', growth: 'slow', placement: ['midground'],
+    sections: [{ key: 'habitat', source: 'seriouslyfish', sourceUrl: 'https://x/p', html: '<p>x</p>' }],
+    photos: [photo('tall', 600, 900), photo('wide', 900, 600), photo('square', 700, 700)], updatedAt: '2026-11-13',
+  }))
+  await writeFile(join(store, 'plants', 'p', 'vi.json'), JSON.stringify({ slug: 'cay-p', name: 'Cây p', altNames: [], sections: {}, quality: { score: 0.9, indexable: true } }))
+  await mkdir(join(store, 'gallery'))
+  await writeFile(join(store, 'gallery/p.json'), JSON.stringify({ id: 'p', seen: 1, updatedAt: '2026-11-13', photos: [photo('album-tall', 500, 1000)] }))
+  const subjects = async (wholeBoxes?: boolean) => {
+    const c = await loadAll({ root: store, lang: 'vi', publicBuild: false, subjectFrames: true, ...(wholeBoxes === undefined ? {} : { wholeBoxes }) })
+    return Object.fromEntries([...c.plants.find(x => x.id === 'p')!.photos, ...c.galleries.p!].map(p => [p.url.split('/').pop(), p.subject]))
+  }
+  expect(await subjects()).toEqual({
+    'tall.webp': { x0: 0, y0: 0, x1: 600, y1: 900 }, 'wide.webp': undefined, 'square.webp': undefined, 'album-tall.webp': { x0: 0, y0: 0, x1: 500, y1: 1000 },
+  })
+  expect(Object.values(await subjects(false)).every(s => s === undefined)).toBe(true)
 })

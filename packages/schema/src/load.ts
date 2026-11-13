@@ -34,6 +34,13 @@ export type LoadOptions = {
   photoScreen?: Record<string, PhotoScreenEntry> | 'required' | false
   /** Whether photos get their box from the engine's record (`subject`): by default SUBJECT_FRAMES (image-geometry.ts). */
   subjectFrames?: boolean
+  /**
+   * With the boxes on: whether a fish's or breed's photo the record has no box for (not boxed yet, or no animal found),
+   * and a plant's photo taller than it is wide, gets its whole area as its box, so every frame shows it whole wherever its
+   * shape differs from the frame's (the Design Lead, 13 Nov). On by default; the planner, which reads where a fish really
+   * is, reads the record's boxes alone (false).
+   */
+  wholeBoxes?: boolean
 }
 export type Localized<E> = E & { t: Translation }
 export type Content = {
@@ -193,9 +200,11 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // one not translated yet is left off, so the photo's alt text falls back to the page's name.
   const captionsFile = join(root, 'captions', `${lang}.json`)
   const captions = lang !== 'vi' && (await exists(captionsFile)) ? await readJson(captionsFile, CaptionsSchema) : {}
-  // Where the fish is in each photo, from the engine's record alone and behind its switch (SUBJECT_FRAMES): with it off
-  // no photo has a box. A photo the record doesn't know, or where it found no animal, has none.
-  const boxes = (opts.subjectFrames ?? SUBJECT_FRAMES) ? await stateRecord<Record<string, SubjectFractions | null>>(root, PHOTO_BOXES_FILE) : undefined
+  // Where the fish is in each photo, from the engine's record and behind its switch (SUBJECT_FRAMES): with it off no photo
+  // has a box. Here a photo the record doesn't know, or where it found no animal, has none; a page's and an album's take
+  // their whole area below (`wholeBoxes`).
+  const framed = opts.subjectFrames ?? SUBJECT_FRAMES
+  const boxes = framed ? await stateRecord<Record<string, SubjectFractions | null>>(root, PHOTO_BOXES_FILE) : undefined
   const boxed = <P extends Photo>(p: P): P => {
     const { subject: _own, ...rest } = p
     const f = boxes?.[p.url], subject = f && subjectPixels(f, p.width, p.height)
@@ -330,6 +339,16 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (real) page.photos = [real, ...page.photos.filter(p => p.url !== real.url)]
     else if(whole)page.photos=[{...whole,headFit:'contain'}]
     else if(all.some(p=>!p.generated))page.photos=page.photos.filter(p=>!p.generated)
+  }
+  // A fish's or breed's photo with no box, and a plant's taller than it is wide, framed by its whole area (`wholeBoxes`):
+  // no frame cuts a fish whose place in the photo isn't known, or a plant's height. A square or wide plant photo fills.
+  if (framed && opts.wholeBoxes !== false) {
+    const whole = <P extends Photo>(p: P): P => (p.subject ? p : { ...p, subject: { x0: 0, y0: 0, x1: Math.floor(p.width), y1: Math.floor(p.height) } })
+    const tall = <P extends Photo>(p: P): P => (p.height > p.width ? whole(p) : p)
+    for (const x of [...species, ...breeds]) x.photos = x.photos.map(whole)
+    for (const x of plants) x.photos = x.photos.map(tall)
+    const fish = new Set([...species, ...breeds].map(x => x.id)), plant = new Set(plants.map(x => x.id))
+    for (const [id, ps] of Object.entries(galleries)) galleries[id] = fish.has(id) ? ps.map(whole) : plant.has(id) ? ps.map(tall) : ps
   }
   const speciesSlugs = new Set(species.map(s => s.t.slug))
   const breedSlugs = new Set<string>()
