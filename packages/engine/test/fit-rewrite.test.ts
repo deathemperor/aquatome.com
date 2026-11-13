@@ -321,7 +321,7 @@ test('a breed page\'s figures are held to their places, a treatment\'s rate is a
   // A reading of the water is no dose; a treatment's rate, in so many mg a litre too, is.
   expect(withoutConcentrations('Oxy hòa tan nên giữ từ 2,5 mg/l trở lên.')).not.toMatch(/2,5/)
   expect(withoutConcentrations('Giữ nitrat dưới 20 mg/l.')).not.toMatch(/20/)
-  expect(withoutConcentrations('Dùng xanh methylen với liều 2 mg/l.')).toBe('Dùng xanh methylen với liều 2 mg/l.')
+  for (const dose of ['Dùng xanh methylen với liều 2 mg/l.', 'Tắm cá bằng oxy già với liều 1 ml/l.', 'Hydrogen peroxide (oxy già) 1 ml/l.', 'Thêm CO2 với liều 20 mg/l.', 'Bổ sung CO2 20 mg/l.']) expect(withoutConcentrations(dose)).toBe(dose)
   expect(unitsLeft('132 lít', facts, withoutConcentrations('Bể nuôi tối thiểu 132 lít.\nDùng xanh methylen với liều 2 mg/l.'))).toBe('a dose is given beside it, whose water stays exact')
 
   // Per inch, each way: "cho 2,5 cm", "mỗi 2,54 cm", "mỗi 1 inch"; any other length is for a person.

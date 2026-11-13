@@ -60,10 +60,10 @@ const perOf = (after: string) => (PER_INCH.test(after) ? '/2.5cm' : PER_CM.test(
 /**
  * A reading of the water, so much in each litre ("oxy hòa tan 2,5 mg/l", "nitrat dưới 20 mg/l"): how the water is, not an
  * amount put into it, so it gives no dose's water to keep exact. Only a reading named as one: a treatment's rate ("xanh
- * methylen với liều 2 mg/l") is a dose. Read out of a units finding's section beyond its paragraph and the ones beside it
+ * methylen với liều 2 mg/l", "oxy già 1 ml/l", "thêm CO2 với liều 20 mg/l") is a dose. Read out of a units finding's section beyond its paragraph and the ones beside it
  * (fit-rewrite.ts), which are read whole: koi's oxygen, three paragraphs below its tank, leaves the tank.
  */
-const READING = String.raw`(?<![\p{L}])(?:oxy(?:\s+hòa\s+tan)?|amoni(?:ac)?|nitrit|nitrat|nh[34]|no[23]|phốt\s*phát|phosphat|po4|co2)(?![\p{L}])[^\d.;\n]{0,30}?`
+const READING = String.raw`(?<![\p{L}])(?<!(?:thêm|bổ\s+sung|châm|dùng|pha|bơm)\s+)(?:oxy(?!\s+già)(?:\s+hòa\s+tan)?|amoni(?:ac)?|nitrit|nitrat|nh[34]|no[23]|phốt\s*phát|phosphat|po4|co2)(?![\p{L}])(?:(?!liều)[^\d.;\n]){0,30}?`
 const CONCENTRATION = new RegExp(String.raw`(${READING})(?<![\d.,])\d[\d.,–-]*\s*(?:mg|g|gam|gram|ml|cc|ppm)\s*(?:\/|mỗi|trên)\s*(?:1\s*)?(?:l|lít)(?![\p{L}])`, 'giu')
 export const withoutConcentrations = (text: string) => text.replace(CONCENTRATION, '$1 ')
 
