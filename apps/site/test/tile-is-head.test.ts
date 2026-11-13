@@ -7,7 +7,7 @@ import { gridPhotos, tilePhotos } from '../src/lib/pictures'
 // A fish's tile shows its page's head (the owner's reports from their phone, 13 Nov; the Design Lead's ruling, 17:03).
 // Before, a tile took the first photo the large cards like best, so 59 fish whose head is wider than 2.2:1 showed a
 // squarer later photo on their tile while their page led with the strip.
-const photo = (name: string, width: number, height: number) => ({ url: `https://media.aquatome.com/commons/${name}.webp`, thumb: `https://media.aquatome.com/commons/${name}-480.webp`, width, height, author: 'a', licence: 'cc-by-4.0', sourceUrl: 'https://example.org', source: 'commons' }) as Photo
+const photo = (name: string, width: number, height: number) => ({ url: `https://media.aquatome.com/commons/${name}.webp`, thumb: `https://media.aquatome.com/commons/${name}-480.webp`, width, height, author: 'a', licence: 'cc-by-4.0', sourceUrl: 'https://example.org', source: 'commons' }) as unknown as Photo
 
 test("the swordtail's case: a head that is a strip is the tile's photo, shown whole, not the squarer photo after it", () => {
   // The swordtail's head and its box, as the engine records them (13 Nov): the fish runs almost the strip's length.
