@@ -70,7 +70,11 @@ APP_FIRST = ['ReaderPostFlowTests', 'AccountFlowTests', 'AppIconFlowTests', 'Tan
 # Then `app (2)` reached its 75 minutes on #890's run (2026-11-08) with 3,814 s of flows, all passed (ScrollEnd 924,
 # Owner 916, PhotoViewer 752, V2 571, Plug 521, ProfilePicture 129), while the light halves took 37 to 49 minutes on
 # the full runs of 2026-11-07 and 08: Plug and V2 went beside them, about 2,700 s left there.
-WITH_LIGHTS = {'1': ['TankVolumeFlowTests', 'TankLifeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests', 'PlugFlowTests'],
+# Then `app (2)` took 101 minutes on main's full run of 2026-11-13 (43429328886), and the edge swipes' three classes,
+# about 190 s a test (#1171's run on 9fecd66, 2026-11-13), took it past its 120 on #1171's: they go beside the first
+# light half, 58 minutes on that main run.
+WITH_LIGHTS = {'1': ['TankVolumeFlowTests', 'TankLifeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests', 'PlugFlowTests',
+                     'FishPageEdgeSwipeFlowTests', 'GuideEdgeSwipeFlowTests', 'PostEdgeSwipeFlowTests'],
                '2': ['FactsCardFlowTests', 'OfflineFlowTests', 'ViAtRootFlowTests', 'AppLinkFlowTests', 'V2FlowTests']}
 # Run elsewhere: the performance tests by job `perf`, the App Store's screenshots by app-store.yml.
 ELSEWHERE = ['PerformanceTests', 'StoreShotsFlowTests']
