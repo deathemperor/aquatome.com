@@ -233,8 +233,8 @@ export const PHOTO_CAP = 10
  * Photos shown with a credit their source's permission record refuses (content/sources.json `permission.refusedCredits`),
  * url → why, on pages and in albums. The credit is the line the source printed under the photo, read from the saved copy
  * of its page (sources/<source>/): an image line that is the photo's caption followed by a refused credit, compared by
- * letters and digits. A photo with no caption, one the saved copy doesn't show, and one whose caption it shows under
- * another credit too (two photos, one caption) can't be told and stay.
+ * letters and digits. Where one caption sits under several figures, the first decides, as the picker keeps the first
+ * figure of a caption. A photo with no caption, and one the saved copy doesn't show, can't be told and stay.
  */
 async function refusedByCredit(root: string, content: string): Promise<Map<string, string>> {
   const records = JSON.parse(await readFile(join(content, 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, { permission?: { refusedCredits?: string[] } }>
