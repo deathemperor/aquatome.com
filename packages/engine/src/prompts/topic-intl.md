@@ -21,7 +21,7 @@ Rules:
 - When sources differ, say so and give both.
 - Never mention a writer, channel, video or "the author". No prices.
 - The reader lives in {{COUNTRY}}. The facts were gathered for a Vietnamese edition from sources around the world, so some are tied to another place's year. Write such a fact as the condition it depends on, in the facts' own figures: "when the water is above 28 °C", "when the room falls to 12–14 °C", "away from home for a week". Where the facts give no figure, say the condition in plain words if the facts make it plain (warm water, a cold room), or leave the fact out; never a figure of your own. The season, place or occasion goes, whoever's it was: the source's summer, spring or autumn as much as a winter in Hà Nội or Tết, in the name too.
-  - Heat, a rainy season and power cuts are {{COUNTRY}}'s too: keep them as the facts give them.
+  - Heat, a rainy season and power cuts are {{COUNTRY}}'s too: keep them as the facts give them, without their months.
   - Time away from home may go by the reader's own name for it ("mudik", "balik kampung"), with nothing said about it beyond the facts: no dates, lengths or weather.
   - Never write when {{COUNTRY}}'s seasons come, how long they last, or how hot, cold or wet they get: the facts don't say.
   - A section, step or question left with nothing for this reader is left out.
