@@ -354,7 +354,7 @@ describe('plants, guides, glossary, equipment, discovery', () => {
     expect(note.text).toContain('Cá neon vua Super Red')
     expect(html).toContain('"alternateName":[')
     // An old address with no name (another animal's, page-folds.ts) forwards with no note.
-    expect(table['/ca/ca-neon-vua-cu/']).toBe('/ca/ca-neon-vua/?tu=ca-neon-vua-cu')
+    expect(table['/ca/ca-neon-vua-cu/']).toBe('/ca/ca-neon-vua/')
     expect(dom.querySelector('p.redirected[data-from="ca-neon-vua-cu"]')).toBeNull()
   })
   test('discovery lists discovery guides', () => {
