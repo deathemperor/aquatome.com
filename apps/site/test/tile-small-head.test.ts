@@ -2,7 +2,7 @@ import { expect, test } from 'vitest'
 import { photoFitsCard, photoFitsHead, photoFitsWholeHead, type Photo } from '@aq/schema'
 import { tileFrame, tilePhoto } from '../src/lib/img'
 import { speciesItems } from '../src/lib/list-data'
-import { gridPhotos } from '../src/lib/pictures'
+import { gridPhotos, photosOf, tilePhotos } from '../src/lib/pictures'
 import { getContent } from '../src/lib/content'
 
 // A tile never says "no photo yet" while its page shows a photo (the chief of staff, 13 Nov). On 13 Nov 41 fish tiles on
@@ -38,4 +38,20 @@ test('a generated picture still never reaches a tile, and a fish with no photo k
   const bare = { ...vi.species[0]!, photos: [] }
   expect(gridPhotos(vi, [bare])).toEqual([null])
   expect(speciesItems([bare], [null])[0]?.photo).toBeUndefined()
+})
+
+test('a square shot the large cards refuse shows whole on its own blur: its strips are wider than the mat takes', () => {
+  // 800 by 800 kept of 1000 by 1000, the fish near every edge: a 4:3 cover would cut it, and its strips are 12.5%.
+  const square = cropped({ width: 800, height: 800, altered: [{ method: 'mark-crop', crop: { originalWidth: 1000, originalHeight: 1000, window: { x0: 100, y0: 100, x1: 900, y1: 900 }, subject: { x0: 106, y0: 106, x1: 894, y1: 894 }, margin: 6 } }] } as Partial<Photo>)
+  expect(photoFitsCard(square)).toBe(false)
+  expect(tileFrame(square)).toEqual({ whole: true })
+})
+
+test('only a fish tile takes a photo the large cards refuse: a round chip or a guide\'s fish section does not', () => {
+  // An equipment page's 28-pixel chips cover-crop a circle, and a guide's fish section places its photo at its own shape
+  // above that fish's card, which would then have none: both keep to photosOf (Grok's read of #1206).
+  expect(photosOf([cropped()])).toEqual([])
+  expect(tilePhotos([cropped()]).map(p => p.url)).toEqual([cropped().url])
+  const fits = cropped({ url: 'https://media.aquatome.com/processed/fits.webp', altered: undefined })
+  expect(tilePhotos([fits, cropped()])).toEqual(photosOf([fits, cropped()]))
 })

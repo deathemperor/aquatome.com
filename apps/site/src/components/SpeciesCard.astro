@@ -4,7 +4,7 @@ import Difficulty from './Difficulty.astro'
 import RangeBar from './RangeBar.astro'
 import { fmt, isRange, WATER_WORDS } from '../lib/format'
 import { smallSrc, tileFrame, tilePhoto } from '../lib/img'
-import { photosOf } from '../lib/pictures'
+import { tilePhotos } from '../lib/pictures'
 import { i18n } from '../lib/i18n'
 import { BREED_KIND, careCard, type Breed } from '../lib/breeds'
 import { asNum, asRange } from '../lib/species-index'
@@ -21,7 +21,7 @@ const { s, breed, eager = false, template = false, photo } = Astro.props
 // `t` below is the temperature range: the translator is `tr` here.
 const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
-const p = tilePhoto(photo !== undefined ? photo : photosOf(breed ? breed.photos : s.photos)[0])
+const p = tilePhoto(photo !== undefined ? photo : tilePhotos(breed ? breed.photos : s.photos)[0])
 const card = breed ? careCard(breed).card : s.dataCard
 // Where the 4:3 tile would cut the fish: the crop moved onto it, or the photo whole on itself blurred, or on the tile's mat
 // where the strips are too thin for the blur (tileFrame). The template holds the whole tile's two pictures, which the fish

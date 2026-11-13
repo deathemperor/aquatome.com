@@ -7,7 +7,7 @@ import { cleanPhoto, leadGuides, listOrder } from './home'
 import { licenceLabel, type Lang, type T } from './i18n'
 import { smallSrc, tileFrame, tilePhoto } from './img'
 import { guideImages } from './mentions'
-import { listPictures, pagePictures, photosOf, takeEach } from './pictures'
+import { listPictures, pagePictures, photosOf, takeEach, tilePhotos } from './pictures'
 import { PAGE } from '../scripts/filter-list'
 import type { MateItem } from '../scripts/tankmates'
 import { toIndexItem } from './species-index'
@@ -49,7 +49,7 @@ export function fishList(lang: Lang, c: Content) {
   const breeds = [...c.breeds].sort((a, b) => Number(!a.photos.length) - Number(!b.photos.length) || a.t.name.localeCompare(b.t.name, lang))
   const breedPhotos = takeEach(pagePictures(c), breeds, b => b.photos)
   const species = listOrder(lang, c)
-  return { breeds, breedPhotos, species, photos: listPictures(c, 'ca', species, s => photosOf(s.photos), breedPhotos) }
+  return { breeds, breedPhotos, species, photos: listPictures(c, 'ca', species, s => tilePhotos(s.photos), breedPhotos) }
 }
 
 /** Every species in the fish list's order. */
@@ -74,7 +74,7 @@ export function kitPictures(lang: Lang, c: Content, category: string) {
 
 /** The card pictures of one of `speciesLists`, by its address (lib/pictures.ts listPictures), after what its page shows above it. */
 export const speciesListPhotos = (lang: Lang, c: Content, list: string, species: Localized<SpeciesEntity>[]) =>
-  listPictures(c, list, species, s => photosOf(s.photos), list.startsWith('thiet-bi/') ? kitPictures(lang, c, list.slice('thiet-bi/'.length)).above : [])
+  listPictures(c, list, species, s => tilePhotos(s.photos), list.startsWith('thiet-bi/') ? kitPictures(lang, c, list.slice('thiet-bi/'.length)).above : [])
 
 /**
  * The species lists of the group, taxon, origin and equipment pages, by the page's address under /vi/ ("nhom/catfish",
