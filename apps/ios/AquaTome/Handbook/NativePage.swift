@@ -1190,7 +1190,7 @@ private struct PassesBar: ViewModifier {
   let report: ((Bool) -> Void)?
   func body(content: Content) -> some View {
     if let report {
-      content.onGeometryChange(for: Bool.self) { [foot] in $0.frame(in: .scrollView).maxY < foot } action: report
+      content.onGeometryChange(for: Bool.self, of: { [foot] in $0.frame(in: .scrollView).maxY < foot }, action: report)
     } else {
       content
     }
