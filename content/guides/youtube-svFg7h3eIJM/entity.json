@@ -70,7 +70,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Những thanh củi gỗ cứng đã khô, loại dùng được cho bể.",
-            "sharpness": 332
+            "sharpness": 332,
+            "person": false
           },
           {
             "t": 95,
@@ -78,7 +79,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhiều mảnh củi gỗ khô bày cạnh nhau để chọn làm bố cục.",
-            "sharpness": 1212
+            "sharpness": 1212,
+            "person": false
           }
         ],
         "photo": {
@@ -101,7 +103,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Những khúc lũa và củi khô được bày trên bàn.",
-            "sharpness": 453.2
+            "sharpness": 453.2,
+            "person": false
           },
           {
             "t": 60,
@@ -109,7 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh các loại gỗ lũa đã khô dùng cho bể.",
-            "sharpness": 851.1
+            "sharpness": 851.1,
+            "person": false
           }
         ],
         "photo": {
@@ -124,19 +128,6 @@
         }
       },
       {
-        "heading": "Kiểm tra củi trước khi dùng",
-        "moments": [
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/svFg7h3eIJM/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Một thanh gỗ được cắm trên cát để kiểm tra trước khi dùng.",
-            "sharpness": 777.2
-          }
-        ]
-      },
-      {
         "heading": "Xử lý củi cho hết dằm",
         "moments": [
           {
@@ -145,15 +136,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đống củi vụn mảnh mỏng, thô ráp cần chẻ và nhặt bỏ dằm.",
-            "sharpness": 802.2
-          },
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/svFg7h3eIJM/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng máy khoan gắn bàn chải sắt để đánh nhẵn mảnh củi.",
-            "sharpness": 2644.7
+            "sharpness": 802.2,
+            "person": false
           }
         ],
         "photo": {
@@ -171,20 +155,13 @@
         "heading": "Ghép củi thành một khối bố cục",
         "moments": [
           {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/svFg7h3eIJM/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng súng bắn keo nến để đính tạm các khúc củi móng lại với nhau.",
-            "sharpness": 1570.9
-          },
-          {
             "t": 220,
             "url": "https://media.aquatome.com/video/svFg7h3eIJM/at220-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Trét keo bọt nở màu đen vào chỗ nối giữa các khúc củi cho chắc.",
-            "sharpness": 1933.5
+            "sharpness": 1933.5,
+            "person": false
           }
         ],
         "photo": {
@@ -199,46 +176,8 @@
         }
       },
       {
-        "heading": "Giữ khối gỗ nằm chìm",
-        "moments": [
-          {
-            "t": 255,
-            "url": "https://media.aquatome.com/video/svFg7h3eIJM/at255-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khoan lỗ trên tấm đá phiến tại vị trí đã đánh dấu.",
-            "sharpness": 993.8
-          },
-          {
-            "t": 265,
-            "url": "https://media.aquatome.com/video/svFg7h3eIJM/at265-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt khối gỗ gắn trên đá xuống bể có lót tấm lưới egg crate.",
-            "sharpness": 432.1
-          }
-        ]
-      },
-      {
         "heading": "Gắn ống phun và quấn rêu",
-        "moments": [
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/svFg7h3eIJM/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng dây rút siết ống vào khối gỗ rồi buộc dây cước vào đầu ống.",
-            "sharpness": 596.9
-          },
-          {
-            "t": 340,
-            "url": "https://media.aquatome.com/video/svFg7h3eIJM/at340-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rêu sphagnum ẩm được quấn phủ quanh ống phun trên khối gỗ.",
-            "sharpness": 1431
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/svFg7h3eIJM/p6-sbGV5X2JvZy5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/svFg7h3eIJM/p6-sbGV5X2JvZy5qcGc-480.webp",
@@ -259,15 +198,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dương xỉ trồng trên đỉnh khối gỗ, mọc xanh tốt trong rêu sphagnum.",
-            "sharpness": 1973.5
-          },
-          {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/svFg7h3eIJM/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các cây bám lũa nhỏ được gắn vào khe gỗ, tạo điểm xanh.",
-            "sharpness": 1061.4
+            "sharpness": 1973.5,
+            "person": false
           }
         ],
         "photo": {
@@ -290,7 +222,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Gỗ ngâm nước ra màu nâu tannin, mặt nước có lớp cây nổi.",
-            "sharpness": 1072
+            "sharpness": 1072,
+            "person": false
           },
           {
             "t": 480,
@@ -298,7 +231,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể set với gỗ củi lớn và rễ, mặt nước có lớp cây nổi.",
-            "sharpness": 2424.9
+            "sharpness": 2424.9,
+            "person": false
           }
         ]
       }
