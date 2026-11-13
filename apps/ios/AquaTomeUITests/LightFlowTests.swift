@@ -940,6 +940,23 @@ final class LightFlowTests: XCTestCase {
     XCTAssertTrue(app.alerts.buttons["Ghi màu và giờ"].waitForExistence(timeout: 5), "the light never written to wasn't asked for")
   }
 
+  /// The owner's Love Ecology light (13 Nov: "I cant control love exology on app"): its card is the owner's account's
+  /// alone, and off, then a colour, are each broadcast as recorded (the simulator's stand-in keeps what it was given),
+  /// the card saying what was sent.
+  func testTheOwnersLoveEcologyLightTakesOffThenAColour() {
+    let app = launch("-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple")
+    XCTAssertFalse(element(app, "lamp-off").waitForExistence(timeout: 2), "the light's card before the owner signed in")
+    app.openAccount()
+    app.signInWithStandInApple()
+    app.openTab("Đèn")
+    tap(app, "lamp-off")
+    expect(app, "lamp-sent", contains: "off")
+    expect(app, "lamp-status", contains: "Đã gửi “Tắt”")
+    tap(app, "lamp-blue")
+    expect(app, "lamp-sent", contains: "off blue")
+    expect(app, "lamp-status", contains: "Đã gửi “Xanh dương”")
+  }
+
   // MARK: Helpers
 
   /// The Week Aqua screen, its lights found (`-fake-weekaqua`).

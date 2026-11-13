@@ -18,6 +18,7 @@ struct LightsView: View {
     NavigationStack {
       ScrollView {
         VStack(alignment: .leading, spacing: 24) {
+          LoveEcologyCard()
           LightCard()
           ScheduleSection()
           ColourSection().modifier(Panel())

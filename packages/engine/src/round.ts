@@ -28,6 +28,23 @@ const keeperLitres = (n: number): number | undefined => {
   const r = n - near(n) > n * UNDER ? TANK_LITRES.find(x => x >= n)! : near(n)
   return Math.abs(r - n) / n <= WITHIN ? r : undefined
 }
+/** Round litres keepers here say up to 1.000: whole litres under 10, then 12, 15, 20, 25, 30 to 90, then tens. */
+const KEEPER_LADDER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, ...Array.from({ length: 91 }, (_, i) => 100 + i * 10)]
+/**
+ * A volume a breed page's facts give in US units, with no table size (US_TANKS) and no English beside the page to keep
+ * a figure from, named as keepers here say (the chief of staff, 2026-11-12): from the source's own US figure, never from
+ * an earlier conversion, the nearest of KEEPER_LADDER, above 1.000 litres the nearest thousand; never more than a
+ * twentieth under the exact figure (a minimum: a tank, water per fish, per cm), so then the next one up, above 1.000
+ * the hundreds. 35 gallons is 130, 1,000 gallons 4.000, 3 gallons 12, 10 gallons an inch 15 a cm.
+ */
+export function keeperFigure(exact: number): number {
+  if (exact > 1000) {
+    const k = Math.round(exact / 1000) * 1000
+    return exact - k <= exact * UNDER ? k : exact - Math.round(exact / 100) * 100 <= exact * UNDER ? Math.round(exact / 100) * 100 : Math.ceil(exact / 100) * 100
+  }
+  const r = KEEPER_LADDER.reduce((b, x) => (Math.abs(x - exact) < Math.abs(b - exact) || (Math.abs(x - exact) === Math.abs(b - exact) && x > b) ? x : b))
+  return exact - r > exact * UNDER ? KEEPER_LADDER.find(x => x > r)! : r
+}
 export const litres = (n: number) => (CONVERTED_LITRES.includes(n) ? keeperLitres(n) ?? n : n)
 
 /** A US gallon, in litres. */
