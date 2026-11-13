@@ -1142,12 +1142,14 @@ The layers above still check the result.
     keepers here say, a minimum never more than a twentieth under it (35 gallons 130 lít, 1,000 gallons 4.000, 3
     gallons a fish 12, 10 gallons an inch 15 lít mỗi cm), in its FAQ answers too, and after any other mend of the same
     part in the same try. Its reviewer is told the same. A figure is read whole in its quote's paragraph ("38 lít" there
-    followed by "mỗi 2,5 cm", "cho 2,5 cm", "mỗi 2,54 cm" or "mỗi inch" is per inch), and a rewrite is kept only with
+    followed by "mỗi 2,5 cm", "trên mỗi 2,5 cm", "mỗi 2,54 cm", "mỗi inch" or "cho 2,5 cm chiều dài cá" is per inch;
+    a tank "đặt trên 2,5 cm xốp" is not), and a rewrite is kept only with
     each paragraph's litres as they were, in their order, each figure as keepers say it in place of its old one and no
     other moved (15 lít mỗi cm, not mỗi 2,5 cm; not the same litres left in another paragraph; not two figures trading
-    places), and with its paragraphs as many as before. A figure with a dose near it (in its paragraph, the one before
+    places; one of two like figures in a paragraph may be mended alone), and with its paragraphs as many as before. A figure with a dose near it (in its paragraph, the one before
     or after, or the rest of its section between the headings either side, where a reading of the water such as koi's
-    dissolved oxygen in mg/l isn't a dose but a treatment's rate in mg/l is; in an FAQ answer, its question too), whose
+    dissolved oxygen in mg/l (the substance, then only the words a reading is said with) isn't a dose but a treatment's
+    rate in mg/l, or a substance beside its treatment ("khử nitrit bằng muối 1 g/l"), is; in an FAQ answer, its question too), whose
     water stays exact, a figure per another length ("mỗi 5 cm"), or a litre figure with no US figure in the
     facts to work from, is left to a person, and so is a finding code works out no figure for (gallons or a length in
     it, or a figure already the size keepers say) and a quote another mend reworded past telling which figure it was. Other units,
