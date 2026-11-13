@@ -910,6 +910,32 @@
   ],
   "vi/guides/youtube-0SQjE8svImY": [
     {
+      "at": "2026-11-13T18:26:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.5,
+      "notes": [
+        "\"Tốt nhất vẫn là đuổi hết khí trong bình bơm và bơm keo từ từ\": the video only says to make sure there is no air in the syringe and to take your time. It does not rank this as best. Reword as plain advice, e.g. \"nên đuổi hết khí trong bình bơm và bơm từ từ\", with no \"tốt nhất\".",
+        "\"Mica nhẹ hơn kính\": the video never compares acrylic with glass. Remove this claim from the intro.",
+        "\"Bể vuông sâu và hẹp so với bể chữ nhật nên khó bố cục hơn\" and \"nên tính kỹ hình dáng bể trước khi cắt\" (also in the closing list: \"cube đẹp nhưng khó scape hơn bể chữ nhật\"): the video only says the cube was probably the worst choice for the scape he wanted. The reason (deep and narrow), the advice to plan the shape first and the general claim about cubes are invented. Hedge it to one person's …",
+        "The whole section \"Những lỗi hay gặp\" is invented, because the video lists no common mistakes. Examples are cutting panels with no spare, pulling pins too early so the seam doesn't close, and panels not square so the base leaves gaps. Remove the section, or keep only what the video says (no air in the syringe, peel back the tape at the seams).",
+        "\"Đóng vài khung gỗ ép vuông góc…\" and \"Nếu chưa dán mica bao giờ, tập trước trên hai miếng mica vụn\": these preparation tips are not in the video. Remove them from the closing list.",
+        "\"Điều quan trọng nhất là bốn thành phải vuông góc ngay từ đầu, khâu dán đáy sau đó mới dễ\": \"quan trọng nhất\" is a superlative the video doesn't use. The video only says the rest is easy as long as it is put together square and true. Soften it to that.",
+        "\"Hai tấm hông ngắn hơn mặt trước 3,8 cm, tức đúng hai lần độ dày mica\" and \"Hông nằm kẹp giữa mặt trước và mặt sau\": this explanation of the dimensions is the writer's own and isn't in the video. Remove it and keep only that the seams sit on the inside so the front is one continuous panel.",
+        "\"Mép càng phẳng thì mối dán càng trong\" and \"Chà cạnh bo bằng giấy nhám hạt mịn, càng kỹ càng tốt\" (also \"Làm đủ kỹ thì cạnh bo sẽ trong\"): these causal and effort claims are not in the video. The video only says to smooth the edges and to sand as much as possible. Remove or reword to match.",
+        "\"Cỡ này khá phổ biến với người mới chơi bể cây\": the video only says about 30 gallons is \"probably\" the average size of planted tanks starting out. Hedge it (\"có thể\") and don't present it as a firm fact.",
+        "\"khoảng 120 lít\" and \"cỡ hơn 100 lít\": 30 gallons is about 114 litres. Correct it to about 114 lít, or \"khoảng 110 lít\", in all places."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.45
+      ]
+    },
+    {
       "at": "2026-11-08T23:31:42Z",
       "model": "sonnet",
       "score": 0.5,
@@ -1375,6 +1401,29 @@
   ],
   "vi/guides/youtube-1GBH8YUQeTg": [
     {
+      "at": "2026-11-13T18:25:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.5,
+      "notes": [
+        "\"Nhiều người tỉa xong là vứt hết phần cắt.\" The video only poses a hypothetical (\"if you throw them away\"), not a habit of many people. Rewrite as \"Nếu tỉa xong vứt hết phần cắt thì...\".",
+        "\"Nếu dùng nền mới khô, bạn nên rửa hoặc ngâm trước cho bớt bụi.\" The video gives no such advice. Remove the sentence.",
+        "\"Con số này chỉ để tham khảo, bể to hay cây dày hơn thì có thể lâu hơn.\" Invented caveat that is not in the video. Remove it.",
+        "\"Ghi lịch để lần tỉa sau cách khoảng một tháng\" is a step the video doesn't give. Remove this bullet from \"Bắt đầu từ đâu\" (or keep only what the video says about trimming once a month).",
+        "\"Đã chăm bể thì nên rửa luôn ống lily (lily pipe) và skimmer\" turns one person's habit (\"I like to\") into a firm recommendation. Hedge it, e.g. \"nếu thích thì có thể rửa luôn...\".",
+        "\"đổ vào không làm đục bể\" and in the FAQ \"không còn bụi làm đục bể\" / \"là lựa chọn tốt\": the video only says the soil has no debris because it was underwater. Remove the claim about cloudiness and the \"lựa chọn tốt\" ranking.",
+        "\"nhưng sau một thời gian vẫn cần bù thêm nền\" implies the mesh failed after a while, which the video doesn't say. The video says the mesh solved the problem and that soil is added first. Correct the wording."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.5,
+        0.5
+      ]
+    },
+    {
       "at": "2026-11-08T23:31:38Z",
       "model": "sonnet",
       "score": 0.55,
@@ -1472,6 +1521,38 @@
         "\"Khi CO2 không giữ được ổn định, rêu hại bắt đầu xuất hiện\": the creator only said the CO2 trouble \"led to some algae issues\". Hedge it with \"có thể dẫn đến\" and don't present it as a firm cause.",
         "\"Bạn cũng nên ngắm thử từ chỗ mình hay ngồi.\": this was the creator's own habit (he sits by the shelf), written as advice for the reader. Remove it or hedge it as \"nếu thích thì\".",
         "\"Lo ngại duy nhất là cảm biến hỏng\": \"only\" is a stronger quantifier than the video, which just mentions one worry in passing. Soften it to \"một lo ngại là\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-1Qs7sJknL-I": [
+    {
+      "at": "2026-11-13T06:51:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "The section \"Dỡ bể cũ có tép thế nào cho khỏi sót\", together with the shrimp-catching sentences before it (\"Bể nhỏ mà có nhiều đá Seiryu…\", \"Để bắt nốt những con còn sót…\"), is about a different subject from the guide's title, which is building a fast-flowing stream tank for white clouds. Drop it. Also drop the matching step \"dỡ bể cũ có tép\" in the intro paragraph."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T06:51:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Cũng vì vậy mà bể có thể đầy tép hơn mình tưởng\": the video doesn't link the hardness from Seiryu stone to the number of shrimp. Remove this causal link and keep only that the shrimp love the harder water.",
+        "\"Bể cũ có tép đỏ (cherry shrimp) sinh sản dày đặc\": the video never says the shrimp bred. It only says there were a huge number of them. Remove \"sinh sản\".",
+        "\"Đặt nghiêng các tảng đá xuống theo hướng nước để dẫn dòng từ thanh phun\": it was the filter outlet that was angled downwards, not the rocks. Correct this to the outlet, or remove it.",
+        "\"Xếp dày đá ở phía sau cho ra mép suối nhiều đá. Bể chỉ có vài tảng thì nhìn tối giản, chưa ra không khí bờ suối\": the video doesn't advise piling rocks at the back. It only says the sparse first layout was too minimal for the river-edge look. Remove the advice about packing rocks at the back.",
+        "\"nước mưa hứng trong thùng, đã khử clo\": the video only says the water comes from a water butt and has been dechlorinated. It never says rainwater. Remove \"nước mưa\".",
+        "\"Nuôi chúng trong bể cây tốt tươi thì vẫn được\": the video doesn't say this. The creator only says the old planted tank got overgrown and the new scape suits the fish better. Remove or hedge this line.",
+        "\"ở đây cả phòng có sưởi nên các bể cùng nhiệt\", \"bể này vớt suốt khoảng một tiếng\" and similar \"ở đây\" asides: these narrate the video's own setup. Rewrite them as general statements or remove them."
       ],
       "attempt": "first",
       "kept": false
@@ -1976,6 +2057,38 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-2OLhjT-24lU": [
+    {
+      "at": "2026-11-13T07:44:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.75,
+      "notes": [
+        "\"Nền cũ dùng lâu thì gần như hết chất, coi như nền trơ\": the video only says there is \"probably not a lot of nutrients left\" and to treat it as inert if you like. Hedge it, e.g. \"có thể đã hết gần hết chất, nếu thích thì coi như nền trơ\".",
+        "\"thảm tiền cảnh còn lổ đổ\": the word is wrong and reads awkwardly. Use \"lổ chổ\" or \"chưa phủ kín\".",
+        "\"Có CO2 thì bể lên nhanh hơn\" appears twice, in the intro and again in the FAQ answer on hard plants. Remove the repeat so the text isn't padded."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T07:44:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"nhìn qua ai cũng nghĩ không đủ cho cỡ bể này\" speaks for everyone. The speaker only says \"you wouldn't think that's going to work\". Hedge it to something like \"nhìn qua thì khó tin là đủ cho cỡ bể này\", or drop \"ai cũng\".",
+        "\"loại treo rất nhỏ\": the transcript never says the filter is a hang-on type, only that it is a tiny filter. Remove \"treo\" and say \"một cái lọc rất nhỏ\".",
+        "\"nên chỉ cần thả nổi túi khoảng 15 phút rồi cắt túi thả cá ra luôn\" invents a bag-floating step. The fish had been in the bag about 15 minutes, mostly on the journey, and the speaker just cut the bag and released them. Remove the floating, and say they were in the bag about 15 minutes before being released.",
+        "\"phải rửa sạch gel trước khi trồng vì không ai muốn thứ đó rơi vào bể\": \"không ai\" speaks for everyone, and \"cấy mô\" is not in the video. Reword to \"nên rửa sạch gel vì không nên để nó vào bể\", and drop \"cấy mô\".",
+        "\"Có CO2 thì bể nhanh lên hơn hẳn\" is stronger than the video, which only says advanced plants take longer without CO2. Change \"hơn hẳn\" to \"nhanh hơn\". The same line appears in the FAQ."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-2SNoSUs_m-I": [
     {
       "at": "2026-11-09T03:33:38Z",
@@ -2278,6 +2391,45 @@
       ],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-2htJPBhx7Cs": [
+    {
+      "at": "2026-11-13T06:37:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.75,
+      "notes": [
+        "\"Thêm nhiều loại cây như kiếm Amazon, cây cắt cắm, cây to che chân kiếm thì cây vẫn khỏe nhưng bể lại rối\": the sentence is clumsy and unclear (\"cây cắt cắm\" is an odd term). Rewrite it simply: the many plant types, colours and sizes looked chaotic even though the plants were healthy.",
+        "\"Khi bắt cá, vớt bỏ đồ trong bể ra trước để không lẫn theo cá sang bể mới\": \"đồ\" is vague and the video gives no clear reason. Either remove the step or say only that the creator scooped other stuff out so it wouldn't travel over with the fish.",
+        "\"Ít loại cây, cùng kiểu lá (...) trông tự nhiên hơn là trồng mỗi thứ một ít\" (summary bullet) and \"Bỏ bớt đi thì bể có thể trông gọn và đẹp hơn\": the first is the creator's personal taste stated as a firm rule. Hedge it, e.g. \"có thể trông gọn hơn nếu…\" or \"một cách là…\".",
+        "\"Danio bơi không biết mệt, cả lúc mới chuyển bể lẫn về sau\" and \"khó chọn sai với hai loài này\": these are stated too absolutely. Soften to one person's view (\"theo cảm nhận riêng\" or \"có thể\").",
+        "\"Không theo kiểu bố cục chăm chút từng chi tiết, mà cố làm giống những gì thật sự thấy ngoài tự nhiên\": this reads like a translated, note-style clause. Smooth it into natural Vietnamese."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T06:37:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Nhớ lau sạch keo thừa ở chỗ lộ ra trước khi đổ nước\": the video gives no such step. The creator only admits he left glue on the rock and won't remove it now. Delete the sentence and keep only the option of covering it with a plant.",
+        "\"Bỏ bớt là lựa chọn đúng\": this is the creator's own opinion stated as fact. Hedge it, for example \"có thể thấy bể đẹp hơn khi bỏ bớt\", or drop it.",
+        "\"ráy dài phía sau\" and \"Phía sau trồng ráy dài khổng lồ (jungle val)\": Vallisneria is called \"ráy\", but ráy means Anubias, and the guide later uses \"ráy (Anubias)\" for the other plant. Rename the val consistently (for example \"Vallisneria\" or \"lúa nước\") and also fix \"lá ráy nổi lung tung\" and \"rèm ráy\".",
+        "\"Không cần buộc ráy hay dương xỉ kín lũa\": the video only says he usually covers the wood with epiphytes. Ferns are not mentioned, so remove \"dương xỉ\" and write \"cây bám lũa\".",
+        "\"vớt bỏ rác, rêu và lá mục ra trước\": the video only says he took \"all this stuff\" out so it wouldn't go over with the fish and infect the new tank. Moss and rotting leaves are invented, so say only \"vớt bỏ đồ trong bể ra trước\" or drop the detail.",
+        "\"bố cục tự khắc gần với quy tắc một phần ba\": the creator says you \"tend to get\" the rule of thirds anyway. Hedge it to \"thường sẽ\" instead of \"tự khắc\".",
+        "\"Không để cành vượt qua điểm giữa bể, vì mắt nhìn sẽ thấy lạ\": the creator is unsure about this (\"I don't know how the eye likes to perceive things\"). Hedge it with \"có thể trông hơi lạ\".",
+        "\"Ở đây đèn chỉ để khoảng 40%\": \"Ở đây\" points back to the video's own tank. Rewrite it as general advice, such as \"có thể để đèn khoảng 40%\".",
+        "FAQ \"Được, nhưng phải xem kỹ có đá vôi không và rửa thật sạch\": the video does not recommend building-merchant gravel or checking it first. It describes this as his failure. Reword to say only that the gravel had limestone and dust, which hurt the plants and clouded the water.",
+        "\"Trộn sỏi chắc là giúp lớp dưới đáy ít bị bí và sình hơn\" and \"Bể này ... toàn cây ít đòi hỏi nên không lo nhiều rêu\": both are written as firm advice. Hedge them as the creator's expectation (\"có thể\", \"hy vọng\")."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-2zibYpNcE0o": [
@@ -2928,6 +3080,31 @@
     }
   ],
   "vi/guides/youtube-4rLFh3Q_FEA": [
+    {
+      "at": "2026-11-13T18:25:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.55,
+      "notes": [
+        "\"Tự làm thì nhiều người ngại vì không biết hàn mạch, không rành điện\": this turns the creator's own worry into what many people feel. Hedge it to what the video says, e.g. \"không phải ai cũng biết hàn hay rành điện\", or cut the claim about people being reluctant.",
+        "\"Trắng lạnh (cool white): phủ khá rộng dải màu, ánh sáng trong\": \"ánh sáng trong\" is not in the video. Remove it and keep only what the video says about the spectrum.",
+        "\"Keo thường dán được nhưng truyền nhiệt kém, LED sẽ nóng và nhanh xuống cấp\" (FAQ): the video does not give this consequence, and it does not say \"Không nên\" about ordinary glue. Remove the consequence. Say only that the thermal adhesive also transfers heat, which most adhesives do not.",
+        "Table row \"Rải xen kẽ các màu | Màu hòa trộn đều hơn | Đi dây phức tạp hơn\": the pros and cons of scattering the colours are invented. The video says only that strips look a bit fake when close to the water, and that the creator chose strips for simplicity. Remove or rewrite the row. Do the same for the FAQ line about wiring being simpler.",
+        "\"Bật hết các màu rồi hạ xanh xuống một chút cho màu sắc dễ chịu nhất\": this is a superlative, and it presents the creator's one-off preview as a recommended setting. Hedge it, e.g. \"có thể hạ xanh xuống một chút\", and drop \"dễ chịu nhất\".",
+        "\"Chọn màu: ít nhất một hai loại trắng cộng thêm royal blue\": this advice is not in the video. The creator picked all four colours and said people can pick whichever colours they want. Remove \"ít nhất một hai loại trắng\" or turn it into an option, such as \"nếu thích thì có thể chọn ít màu hơn\".",
+        "\"chọn driver cho phép gắn bộ điều khiển riêng nếu muốn hẹn giờ, chỉnh tự động\": \"hẹn giờ\" is not in the video. It says only that the driver lets you connect your own controllers or Apex systems. Remove the timer and automation purpose.",
+        "\"Mua một bộ đèn LED nhiều màu, chỉnh được độ sáng cho bể cá thì tốn tiền\": the video does not say that ready-made lights are costly. Cost is only a factor the creator weighed. Remove it or soften it to the creator's own worry about how much a build would cost.",
+        "\"LED phải dán lên tản nhiệt bằng keo tản nhiệt hai thành phần\" (summary): \"phải\" makes one setup a rule. Change it to what the creator used, e.g. \"ở đây dán bằng keo tản nhiệt hai thành phần\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.5,
+        0.55
+      ]
+    },
     {
       "at": "2026-11-08T23:31:58Z",
       "model": "sonnet",
@@ -3792,6 +3969,32 @@
   ],
   "vi/guides/youtube-6FDUfglurns": [
     {
+      "at": "2026-11-13T18:25:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "\"khoảng 1.100 lít\" (appears in the bullet list, body and FAQ): the video says over 300 gallons. 300 gallons is not in the table, so convert and round to whole litres, about 1.136 lít. Fix it everywhere.",
+        "\"Với bể nhỏ, tiền keo, vít, vật liệu chống thấm và công sức gần như không rẻ hơn mua bể kính\": the video gives no such reason. It only says plywood tanks are not cost effective at smaller sizes. Remove the cause.",
+        "\"để dễ lắp tấm đáy sau cùng\": the video gives no reason for building upside down. It only says this was the writer's best option. Remove the reason and hedge it (\"một cách là dựng úp ngược\").",
+        "\"Lau lúc keo còn ướt chỉ làm lem ra rộng hơn\": invented advice. The video only says to leave the excess glue and sand it later. Delete the sentence.",
+        "\"Mối nối là chỗ yếu nhất, nên khung đè lên đó thì bể mới thật sự chắc\": the cause is invented. The video only says the frame overlaps the seams to add strength and that this is very important. Remove the \"chỗ yếu nhất\" claim.",
+        "\"áp lực nước lên thành rất lớn\": not in the video. The video only says the tank's height and size needed external bracing so it would not bow. Rephrase to that.",
+        "\"vì làm ẩu thì bể đóng chắc đến đâu cũng thấm nước\" and \"gần như là bước quan trọng nhất\": the video only says waterproofing is arguably the most important part. Drop the invented consequence and keep the hedge (\"có thể là\").",
+        "\"tấm kính 180 x 60 cm\": the video gives the glass as 6 ft x 2 ft, which is about 183 x 61 cm. Correct the numbers so they match the 185 x 63,5 cm recess.",
+        "\"sờ không bị cấn tay\" and \"nhìn kém sắc sảo hơn... vẫn dùng tốt\": not in the video, which only says routing gives a softer, more finished look and is optional. Remove the extra claims.",
+        "\"làm bể gỗ có rất nhiều bước phải đợi keo khô\" and \"tổng chi phí sẽ nhẹ đi nhiều\": the video only says waiting is something you get used to, and that buying slowly makes it more affordable. Tone these down to match."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
+    {
       "at": "2026-11-08T23:32:08Z",
       "model": "sonnet",
       "score": 0.5,
@@ -4004,6 +4207,26 @@
     }
   ],
   "vi/guides/youtube-6oVW1-m8Aic": [
+    {
+      "at": "2026-11-13T18:26:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "\"Cách dễ nhất là lấy hộp cám bạn đang cho cá ăn ra đọc bảng thành phần\": the video doesn't call this the easiest way. It only says the ingredients list is where you get ideas. Rewrite as a hedge, e.g. \"Một cách là xem bảng thành phần của loại cám đang dùng để lấy ý tưởng\".",
+        "\"Rửa sạch, thái cá, tôm, sò điệp\": washing the ingredients is not a step the video gives. Remove \"Rửa sạch\".",
+        "\"Bể ít cá thì có thể làm mẻ nhỏ hơn để thử trước\": the video gives no advice to make a small trial batch. Remove this sentence.",
+        "\"Vấn đề là đồ đông lạnh bán sẵn khá đắt nếu nuôi cá lớn\": the video never says store-bought frozen food is expensive. Its price comparison is with the creator's usual bought food at about $100 a month. Remove or reword it to say that buying food costs more."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.6,
+        0.6
+      ]
+    },
     {
       "at": "2026-11-08T23:32:18Z",
       "model": "sonnet",
@@ -5459,6 +5682,32 @@
     }
   ],
   "vi/guides/youtube-9WaC5d14Ij0": [
+    {
+      "at": "2026-11-13T18:26:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.55,
+      "notes": [
+        "\"Nhiều người nghe chữ \\\"sump\\\" là nghĩ tới một bộ lọc phức tạp, đắt tiền\": the video never says this, and it is a claim about many people. Remove the sentence and start from \"sump chỉ là một thùng chứa nước\".",
+        "\"Dân chơi bể nước mặn hay gắn sump cho cả bể nhỏ hơn\": the video only says saltwater systems like to use sumps on much smaller tanks, as one person's remark. Hedge it, e.g. \"bể nước mặn có thể dùng sump cho bể nhỏ hơn nhiều\", and drop \"dân chơi hay\".",
+        "\"Loại mũi này khoan nhựa PET sạch và dễ nhất\": a superlative stronger than the video. Change to \"một trong những cách dễ và gọn nhất\".",
+        "\"từ khoảng 400 lít trở lên, có người dùng từ 190 lít\" (appears in the summary list, the \"Khi nào nên dùng sump\" section and the FAQ): the video says about 100 gallons (400 L) and up for freshwater, and the smaller 50-gallon range goes with saltwater. 50 gallons is 200 L in the table, not 190. Remove \"190 lít\" and, if the smaller size is kept, attach 200 L to saltwater only, as the speaker's own p…",
+        "\"Bể cũ mua lại hoặc bể đợt giảm giá là lựa chọn kinh tế nhất cho sump\": \"nhất\" is stronger than the video, which only says a secondhand tank can cost very little. Change to \"có thể rẻ\" / \"một cách tiết kiệm là\".",
+        "\"do mất điện chẳng hạn\" and \"Làm sao biết sump đủ chỗ khi mất điện?\": the video only says water drains down when the pump shuts off, and never mentions power cuts. Replace with \"khi tắt bơm\".",
+        "\"mỗi cm chứa khoảng 7,4 lít\": 450 ÷ 60 = 7,5. Correct the figure to 7,5, and the result to about 19 litres (the video's own example gives 5 gallons for 120 gallons).",
+        "\"chạy thử trước khi chuyển hẳn lọc\" in \"Bắt đầu từ đâu\": a step the video does not give. Remove it.",
+        "\"chuyển toàn bộ vật liệu lọc cũ sang để giữ vi sinh\": the video only says to transfer the media to the new containers and does not give this reason. Remove \"để giữ vi sinh\".",
+        "\"Sump làm cho bể cỡ nào cũng được\" and \"Sump càng to càng ổn định\": the video only says the sump can be sized to any tank and that a bigger sump adds water volume and dilution. Replace \"ổn định\" with \"thêm thể tích nước và pha loãng\", or hedge it."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.55,
+        0.6
+      ]
+    },
     {
       "at": "2026-11-08T23:32:14Z",
       "model": "sonnet",
@@ -10963,6 +11212,32 @@
   ],
   "vi/guides/youtube-J84ZNH5jfRw": [
     {
+      "at": "2026-11-13T18:27:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.5,
+      "notes": [
+        "\"Ống CPVC phi 21\" (in the summary, the table and the shopping list), \"Cùng ghi 1,27 cm, ống PVC có lòng ống rộng 1,5 cm\" and \"cả cây chỉ to cỡ phi 21\": the video only says half-inch CPVC, sized by outside diameter, and PVC sized by inside diameter. The 21 mm, 1,5 cm and 'bên ngoài to hơn' figures are invented. Say 'ống CPVC cỡ nửa inch (khoảng 1,27 cm)' and drop the phi 21 and 1,5 cm numbers.",
+        "\"Vách ngăn là cách gọn nhất\": this is a superlative the video doesn't give. It only calls a simple divider the best choice for this temporary case. Remove it, or write 'một cách gọn là…'.",
+        "\"lọc và đèn giữ nguyên\" and \"một con quá hung cần cách ly vài tuần\": the video says nothing about the filter or light staying as they are, and it gives no example of an aggressive fish. Remove both.",
+        "\"Con đực thì nằm yên bên kia\": the video doesn't say this. Remove it.",
+        "\"Vì vậy mua cả cuộn cũng không phí, phần thừa còn nhiều việc để dùng\": this is purchase advice the video doesn't give. It only says the creator has other uses for the rest of his roll. Remove it or hedge it as 'nếu có nhiều việc cần dùng lưới thì…'.",
+        "\"bài này chưa thử loại nào khác. Nếu đổi vật liệu, hãy kiểm tra xem nó có làm cá bị thương được không, có cản nước không…\": the video only says many other materials could work, and it gives no checklist. Remove the checklist and the 'chưa thử' remark.",
+        "\"Ống PVC vẫn dùng được nếu bạn thấy tiện, chỉ là khung sẽ to và nặng hơn\": 'nặng hơn' is invented, and the video doesn't suggest using PVC. Remove it, or keep only that CPVC is smaller and cheaper.",
+        "\"Nếu bể có cá rất nhỏ, kiểm tra trước xem cá có lọt qua mắt lưới không\" and the FAQ answer \"Khó dùng được… phải tìm lưới có mắt nhỏ hơn\": the video gives no such step or advice. It only says the mesh holds back all but the smallest fish. Remove the step and the 'find finer mesh' advice, and keep just the limit.",
+        "\"Không dán keo thì sau này tháo ra cũng tiện\" and \"sau này muốn tháo hay chỉnh lại cũng dễ\": the video gives no reason for skipping cement beyond saying it isn't needed. Remove the added benefit.",
+        "\"Bể lớn rất khó tìm được tấm vừa khít\": this is stronger than the video, which says only that store-bought dividers come in limited sizes. Soften it to 'kích cỡ có hạn nên có thể không vừa bể lớn'."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    {
       "at": "2026-11-09T03:26:36Z",
       "model": "sonnet",
       "score": 0.5,
@@ -12455,6 +12730,49 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-LmUGilbUlzY": [
+    {
+      "at": "2026-11-13T07:25:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"kiểm tra bồn không dính nước rửa chén hay chất tẩy, lau khô lại bằng khăn giấy\" and \"lau sạch bồn\": in the video the thing checked and dried with paper towel is the pump, not the sink. Change the wording to the pump.",
+        "\"Không nên rải quá tay, cứ để lộ nhiều cát\": this is one person's preference for a natural look, stated as a rule. Hedge it, e.g. \"nếu thích thì có thể chừa nhiều cát lộ ra\".",
+        "\"Chỉnh vậy thì cá trông đẹp hẳn\": the creator only expects the fish to look good (\"it'll make the fish look amazing\"). Hedge it, e.g. \"có thể giúp cá lên màu đẹp\".",
+        "\"Nước còn hơi mờ trong mấy ngày đầu là chuyện thường\": the video does not say how long the water stays cloudy or that this is normal. Remove \"mấy ngày đầu\" and \"là chuyện thường\".",
+        "\"Ráy coffeefolia lá có gân nổi, đắt và mọc chậm\": the creator only guesses it is expensive because it grows slowly (\"maybe it's cuz it's so slow growing\"). Hedge the link, e.g. \"có thể đắt vì mọc chậm\".",
+        "\"nên kiểu xếp này có thể hợp mắt hơn để cây lớn nằm thấp\": this sentence is garbled and reads like a translation. Rewrite it simply: cây có xu hướng vươn về phía sáng, nên xếp cây lớn ở trên, cây nhỏ quanh rìa thường cho kết quả tốt hơn là để cây lớn nằm thấp.",
+        "\"Xen vào vài chất lá khác nhau\": \"chất lá\" is not natural Vietnamese. Change to \"kết cấu lá\" or \"dạng lá\".",
+        "\"Lọc mới mà pre-filter nghẹt nhanh có phải lọc kém không?\": the video is about reusing an old filter, not a new one. Remove \"mới\" from the question.",
+        "\"Cây trong bể chủ yếu là loại bám lũa, bám đá mọc chậm\" and \"nên trồng xong là bố cục giữ được dáng khá lâu\": the video says the plants hold their shape \"for a long time\" with only a soft \"should do\". Hedge it, e.g. \"nên bố cục có thể giữ dáng khá lâu\". Also drop the repeat of this point in the later section."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T07:25:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Cây lớn đặt hướng lên trên... hợp mắt hơn để cây lớn nằm thấp\" and \"ngoài tự nhiên cũng thấy vậy\": fine in gist, but the line \"Cây vốn mọc về phía ánh sáng\" is stated as firm; hedge it as the creator's view (\"có thể\"), keep it to one person's approach.",
+        "\"Mở sủi hết cỡ thì nhìn đẹp nhưng hơi quá cho cá\": the video only has a joke that the fish may find it a lot (\"Fish will be like...\"); soften to a hedge or remove the claim as fact.",
+        "\"Cá đĩa cần thay nước thường xuyên hơn bể cá thường vì chúng ăn nhiều và thải nhiều\": the video says they poop a lot; \"ăn nhiều\" is invented, remove it.",
+        "\"Sủi làm mặt nước bắn tung nhẹ nên nước bay hơi nhanh hơn\": the video says bubbles make water evaporate faster, with a little splash mentioned separately; do not state splash as the cause, just say evaporation is faster.",
+        "\"Dù vậy cũng đừng coi thường: một khóm bucep từ một chậu nhỏ có thể to ra đáng kể trong một năm\": the video only notes how big the bulbite got in a year from a small pot, but this is presented as a warning/advice it does not give; remove the warning framing.",
+        "\"Chừa khoảng trống thấp (negative space) cũng giúp bố cục thoáng\" and \"để bố cục có chiều sâu\" in the summary: depth is not in the video; remove \"có chiều sâu\" and keep the negative-space remark hedged as one person's taste.",
+        "\"Nếu có thiết bị đặt trên bể... Phía trên có thể đặt thêm một cây lan ý\": the wire was used to hold the pothos root ball in this tank, not a general tip conditional on equipment; the peace lily (lan ý) is an unsure ID by the creator (\"can't remember\"); hedge or remove.",
+        "\"Làm vậy thì có thể thả cá khá sớm, tầm một tuần\" and FAQ \"Bể mới set bao lâu thì thả cá được?\": the video gives about a week for this specific setup with an existing filter, not a general rule; hedge as this setup's case.",
+        "\"Bể dùng toàn cây bám lũa, bám đá\" and \"Toàn cây mọc chậm\": the video also uses pothos, a peace-lily-like plant, trident fern and stems, so \"toàn\" overstates; change to \"phần lớn\".",
+        "\"Nước có ánh hơi xanh và cá lên màu đẹp\", \"Có thể dùng đá nham thạch loại bo tròn... càng khó thấy\": minor drift; the video says lights make fish look amazing and the stones were lava-like and rounded; also \"Giả thuyết này chưa chắc đã được chứng minh\" is fine. Remove the claim that lava stones have many pores as a fact (not stated)."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-LorZ64vB4ss": [
     {
       "at": "2026-11-09T15:10:30Z",
@@ -13372,6 +13690,31 @@
     }
   ],
   "vi/guides/youtube-NJ0a2eaOg5E": [
+    {
+      "at": "2026-11-13T18:28:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.5,
+      "notes": [
+        "Heading \"Vì sao nhiều người không tự đúc phông bằng xi măng\": the speaker gives his own opinion, not what many people think. Rename it neutrally, e.g. \"Tự đúc phông bằng xi măng có đáng không\", and hedge the section as one person's experience.",
+        "\"Phông tự làm bằng xốp trộn xi măng là lựa chọn quen thuộc vì rẻ\": the video says only that it is a popular choice. Delete \"vì rẻ\", which is an invented reason.",
+        "\"Thực tế loại này hay bở và vỡ vụn chỉ sau vài tháng ngâm nước\" (also the first summary bullet and the FAQ answer): this comes from the speaker's own four or five attempts. Hedge it as one person's experience (\"có người làm thử thì thấy…\") instead of stating it as a general fact. The video does not say \"ngâm nước\".",
+        "\"Cách làm áp dụng được cho phần lớn các loại phông xốp đúc sẵn. Mỗi loại phông có thể cần chỉnh một chút, bạn chọn cách nào hợp với tấm của mình\": the video does not say this. Remove both sentences.",
+        "\"Phông mua về hiếm khi vừa khít với bể\" and \"mà tấm dán phông phẳng không làm được\": neither claim is in the video. The video only shows that this particular background was bigger than this particular tank. Remove the generalisation and the comparison with flat posters.",
+        "\"Ba bốn lỗ là đủ cho phần lớn bể\": the speaker only says three holes would be enough for flow in his own tank, and then drills four. Rewrite it as \"với bể này, ba đến bốn lỗ là đủ\" and drop \"phần lớn bể\".",
+        "\"Dùng loại silicone an toàn cho cá, không có chất chống nấm mốc\": the video says nothing about mould inhibitors. The speaker only says he uses one fish-friendly silicone. Remove \"không có chất chống nấm mốc\".",
+        "\"Nhiều bể có thanh giằng ngang giữa miệng không tháo được\": the video says only that some people cannot remove their bracing. Change \"Nhiều bể\" to \"Có bể\" or \"Nếu\".",
+        "\"Ai thích tự tay làm thì vẫn làm được, chỉ cần biết trước cái giá phải trả\": this is advice the video does not give. Remove it."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.4
+      ]
+    },
     {
       "at": "2026-11-09T03:27:17Z",
       "model": "sonnet",
@@ -16264,6 +16607,41 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-SZMCesATJ-8": [
+    {
+      "at": "2026-11-13T06:48:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.75,
+      "notes": [
+        "\"Sai lầm hay gặp là không châm CO2, không thay nước hằng tuần...\": \"hay gặp\" says it is common, but the video only says this is a thing you can do wrong. Change to \"Một sai lầm có thể mắc phải là...\".",
+        "\"Lúc thay, khuấy nhẹ nền và hút bớt chất thải ra\": the video says \"stir everything up\" and takes out the waste if you can. \"nhẹ\" is invented, so remove it and hedge with \"nếu được\".",
+        "\"Có thể dùng nước RO ... nhưng chỉ cần khi nước máy có pH quá cao\": the video only says you might need RO if the water pH is really high. \"chỉ cần khi\" is too exclusive, so soften it to \"có thể cần khi...\".",
+        "\"Đá cuội nhẵn trông rất giống lòng sông\": this is the speaker's own opinion, written as fact. Hedge it, e.g. \"theo cảm nhận riêng thì...\" or \"nếu thích kiểu sông suối thì...\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T06:48:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Nhiều người lo kiểu bể này sẽ thành bãi rêu, nhất là với bể lớn.\" The speaker never says this: remove the sentence.",
+        "\"có cây ai cũng bảo dễ mà trồng mãi không được\" is invented and generalised: the speaker only says people sometimes call a plant hard when it is hard for them, while it grew easily for him. Rewrite as one person's experience with hedging, e.g. \"có cây người ta bảo khó nhưng với mình lại mọc dễ, và ngược lại\".",
+        "\"Cũng không phức tạp như nhiều người tưởng\": the speaker only says that he himself was put off for a long time and found it not that complicated. Change to his own experience (\"có người từng ngại nhưng thấy không phức tạp\") or drop \"nhiều người tưởng\".",
+        "\"cá rồng Nam Mỹ cỡ lớn\": the speaker says big South American-style cichlids, not arowana (cá rồng). Change to \"cá cichlid Nam Mỹ cỡ lớn\".",
+        "\"Ludwigia sp. 'Siamensis 53B'\": the genus is not in the transcript. Write only \"Siamensis 53B\" without Ludwigia.",
+        "Section \"Cá trong bể lớn\" about angelfish, keyhole cichlids and corydoras is off the title's subject (substrate, light, filter, water changes, CO2): drop the section.",
+        "\"thế là nó vừa cấp dinh dưỡng vừa làm chỗ cho vi sinh có lợi sống\" and \"Bể này thay nước rất ít mà cá vẫn ổn, nhưng bể sẽ chạy kém đẹp hơn\" read like translated, note-style Vietnamese: rephrase more naturally."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-SdInuxeH8a8": [
     {
       "at": "2026-11-10T12:07:10Z",
@@ -16375,6 +16753,39 @@
         "Several table cells (\"Lên đều\", \"Lên ổn\") add detail that was not stated. Use only \"không khác biệt đáng kể\" for those plants.",
         "Some phrasing reads like a translation: \"Thủ phạm chính là…\", \"Điều đáng xem là bể rẻ tiền theo kịp đến đâu…\". Rewrite these in natural hobby Vietnamese. \"Xem đồng hồ trên van xem bình\" repeats \"xem\".",
         "The video's closing opinion is missing: the creator is rooting for the low-budget tank, and it's too early to judge. You can add a hedged line that three weeks is too early to draw conclusions."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-SlmXdV5n3Hw": [
+    {
+      "at": "2026-11-13T06:19:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"chủ yếu là do manzanita mới\": the creator only guessed (\"probably the manzanita\"); hedge it with \"có thể là do manzanita\" instead of stating it as fact.",
+        "\"Nước còn hơi đục là do cặn và vi khuẩn từ lũa mới. Thay một lần nước là trong.\": the cause and the result are the creator's expectation (\"that will be just... if I do one water change it will go clear\"); hedge with \"có thể\" / \"thường\".",
+        "\"Sáng ra nước sẽ có màu và vẫn trong\": this is only the creator's hope (\"should be tanned and crystal clear\"); change to \"hy vọng sáng ra nước có màu mà vẫn trong\" or hedge it.",
+        "\"Dòng chảy sẽ đẩy bèo ra phía trước\": the creator only said the flow \"should\" keep the lettuce out in that area and that it would probably lodge in places; hedge it with \"có thể\".",
+        "\"Để cá yên vài tiếng\": the video gives no duration (only \"leave them for a bit\"); remove \"vài tiếng\" and say \"để cá yên một lúc\".",
+        "\"Đá và lũa tốt dùng lại được nhiều lần, nên gom dần thì càng về sau càng dễ làm bể\": the \"càng về sau càng dễ\" claim is not in the video (it only says hardscape can be reused many times); remove that clause.",
+        "\"Thêm một lọc trong nhỏ có bông lọc\": the video doesn't say the internal filter is small; delete \"nhỏ\".",
+        "Style: several sentences read like translated notes (\"Chúng thêm một lớp chi tiết mà không chiếm chỗ bơi\", \"đúng kiểu người ta hình dung về loài này ngoài sông\"); rewrite them in natural Vietnamese, e.g. \"giúp thêm chi tiết mà không chiếm chỗ bơi\", and drop the vague \"người ta hình dung\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T06:19:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Tốt nhất là đưa đầu hút của lọc vào thùng cá.\" The video only says it is \"even better\" to put the filter inlet in with the fish. Change \"Tốt nhất là\" to something weaker, such as \"Tốt hơn nữa là\" or \"Nếu được thì\", so it isn't ranked as the best option."
       ],
       "attempt": "first",
       "kept": false
@@ -16952,6 +17363,32 @@
     }
   ],
   "vi/guides/youtube-ThOjHe6THNg": [
+    {
+      "at": "2026-11-13T18:28:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.5,
+      "notes": [
+        "\"Màu trắng không phải ai cũng thích. Bạn có thể chọn màu hợp với nội thất nhà mình, miễn là chốt màu trước khi mua vật liệu...\": the video only says white \"might not be the best color for everybody\" and that he likes it. Hedge it as \"màu trắng có thể không hợp với mọi người\". Delete the advice to pick a colour to match the interior and to fix the colour before buying materials, because the video …",
+        "\"Nếu chỗ bạn định đặt bể nằm gần một nguồn nhiệt dùng thường xuyên thì nên cẩn thận hơn, vì nhiệt độ nước có thể dao động theo\": invented warning. The video only says the fireplace is rarely used, so the tank beside it is fine. Remove the sentence.",
+        "\"kính thường là lựa chọn thực tế nhất\" and \"Bể cỡ này làm bằng kính là hợp lý nhất\": these are stronger than the video, which calls glass \"the practical choice\" for him. Change to \"một lựa chọn thực tế\" or \"kính khá hợp lý ở cỡ bể này\", with no superlative.",
+        "\"Nhà nào cũng có một góc trống đặt gì vào cũng không hợp\" and \"thường là cách giải quyết gọn nhất\": the creator's own situation is written as universal, and \"gọn nhất\" ranks it. Rewrite as \"Nếu nhà có một góc trống khó bày đồ, một cách là đóng bể theo đúng khoảng trống đó\".",
+        "\"Bạn cân xem chỗ mình mua loại nào tiện, loại nào rẻ. Giá mica và kính mỗi nơi một khác, nên đừng mặc định mica luôn rẻ hơn\": this advice isn't in the video. The video only says acrylic was cheaper for him. Delete it and the same advice in the FAQ (\"chọn theo loại nào mua gần, rẻ và ít phải sơ chế\") and in the \"Bắt đầu từ đâu\" step about asking for prices.",
+        "\"Rẻ hơn khi bể rất lớn, cỡ 750–1.100 lít trở lên\" (also in the FAQ): the video says \"maybe around two, three hundred gallons\". That is about 750 to 1.135 litres, and it is hedged. Write \"có thể từ khoảng 750–1.135 lít trở lên\" and keep the hedge.",
+        "\"bể khoảng 850 lít trước đó\": 225 US gallons is not in the size table, so it converts to about 852 litres. Write 852 litres, or just say \"bể lớn làm trước đó\".",
+        "\"Gắn thêm thì bể chắc chắn hơn\" and \"giúp bể chắc chắn và gọn mắt hơn\": the video says the brace makes the tank more functional and better looking, and says nothing about strength. Remove \"chắc chắn\" and say \"tiện dùng hơn và đẹp hơn\".",
+        "Section \"Bắt đầu từ đâu\" (draw the filter and brace layout before cutting, ask for glass and mica prices, decide early between freshwater and saltwater): this is a step list the video doesn't give. Remove the section or cut it down to what the video says.",
+        "\"Nơi bán ở xa nên mất vài tiếng đi lại\" and \"Silicone khô thì lau sạch phần dư\": the video gives over an hour each way (about two hours round trip), plus one or two hours of prep, and only says he cleaned the brace up after fixing it. Correct the travel time and drop the silicone-drying step."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
     {
       "at": "2026-11-09T03:27:57Z",
       "model": "sonnet",
@@ -18220,6 +18657,32 @@
   ],
   "vi/guides/youtube-Wb9aj3MXwiQ": [
     {
+      "at": "2026-11-13T18:29:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.5,
+      "notes": [
+        "\"Lọc rẻ, hiếm khi hỏng\": the video never says the corner matten filter rarely breaks. Remove \"hiếm khi hỏng\".",
+        "\"Lỗ càng nhiều thì nước chảy qua càng đều và càng lâu bị nghẹt\": the video only says to drill many holes for flow. Remove \"càng lâu bị nghẹt\".",
+        "\"bơm không bị hút cạn\": the video gives no such reason for the lower wall. It only says water can still flow over the wedge if the holes clog. Remove the pump claim.",
+        "\"Không xả bằng nước máy để giữ vi sinh\": this warning is not in the video, which only says to rinse in tank water. Delete the sentence.",
+        "\"Màng dầu protein\": the video says proteins collect on the surface, not an oil film. Change it to \"protein tích tụ trên mặt nước\".",
+        "\"Nếu không chịu được rủi ro này, bạn cứ tìm xô có sẵn màu tối là yên tâm nhất\", \"Muốn chắc ăn nhất thì chọn xô có sẵn màu tối\", and \"nếu được thì chọn màu tối để khỏi phải sơn\": the video never recommends a dark bucket, and \"nhất\" is a superlative it doesn't support. Remove these, or change to \"nếu thích thì có thể tìm xô có sẵn màu hợp bể\".",
+        "\"hợp nhất khi set bể mới\" (summary, closing step and FAQ): this is a superlative and the creator's personal preference. Hedge it, e.g. \"nếu đang set bể mới thì lọc này là một lựa chọn\". \"là lựa chọn rất đáng\" needs the same hedge.",
+        "The section \"Bắt đầu từ đâu\" invents a planning sequence the video doesn't give: measure the tank, choose one or two sets, choose a dark bucket, wait for the next tank reset. Delete the section or cut it back to what the video says.",
+        "\"không cần thêm nẹp giữ\" and \"chặn không cho cá nhảy ra sau\": the video says only that the foam fits snugly and fish can't get behind it. It says nothing about braces or jumping. Remove the brace claim and drop \"nhảy\".",
+        "The title \"kiểu sump trong từ xô nhựa\" is awkward and unclear. Rephrase, e.g. \"Tự làm lọc mút góc kiểu sump nội bộ từ xô nhựa\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.4
+      ]
+    },
+    {
       "at": "2026-11-09T03:28:13Z",
       "model": "sonnet",
       "score": 0.5,
@@ -19153,6 +19616,30 @@
     }
   ],
   "vi/guides/youtube-YFcioRUCa6c": [
+    {
+      "at": "2026-11-13T18:29:07Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.5,
+      "notes": [
+        "\"Sump cho chất lượng lọc tốt hơn, nên nhiều người muốn có nó\": the video never says sump filters better, and it doesn't say many people want one. Remove the quality claim. Keep only that some people who can't put a sump below the tank still want the benefits of sump filtration.",
+        "\"Nhiều người lo sump đầy nước sẽ quá nặng\": the video only says \"you might be worried\". Hedge it to one person's worry, for example \"bạn có thể lo sump đầy nước sẽ nặng\", and drop \"nhiều người\".",
+        "\"Loại có đầu ra cắm thẳng vào ống mềm sẽ tiện nhất\" (also \"sẽ dễ lắp nhất\" in the FAQ): this is a superlative the video doesn't give. The creator only says his MaxiJet's output lets him slide the hose over it. Rewrite as \"loại như vậy cho phép cắm ống thẳng vào đầu ra\", or just state what he did.",
+        "\"Cách đơn giản nhất là chụp lồng bảo vệ sưởi\": the video doesn't rank the options. He used a heater guard, and if you don't have one you can build a cage from leftover diffuser. Remove \"đơn giản nhất\" and present the guard as what he used.",
+        "The section \"Bắt đầu từ đâu\" adds steps the video doesn't give: measuring the tank top to choose the planter, and filling with water to test for leaks before adding media. Remove those steps, or the whole section, since it is also an invented ordering.",
+        "\"không phải đi ống phức tạp\" and \"Bạn chỉ cần bơm nước lên một đoạn ngắn\": the video says nothing about complicated plumbing or a short lift. It only says a small power head is enough and that the pump isn't really designed to pump that high. Remove or reword these claims.",
+        "\"loại tấm nhựa lưới ô vuông\": the video doesn't describe the diffuser as a square-grid plastic panel. Remove this description.",
+        "\"Thành trong của chậu thường có bậc và vát vào trong\": the creator noticed this only in his own planter. Hedge it, for example \"chậu của mình có bậc và vát vào trong\" or \"có thể có bậc\", instead of saying \"thường\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.5,
+        0.5
+      ]
+    },
     {
       "at": "2026-11-09T03:29:02Z",
       "model": "sonnet",
@@ -20175,6 +20662,43 @@
         "\"Các loại phân chai như Tropica Specialised Nutrition\": \"phân chai\" is not in the video. Say only that the creator has used Tropica Specialised Nutrition and APT Complete on the same principle, without calling them liquid fertilisers.",
         "\"nên có thể tìm hiểu thêm các cách mới\": this is the creator's own plan to research, turned into advice to the reader. Remove it or hedge it.",
         "\"Tỉa cây cắt cắm cho gọn\": awkward and unclear wording for trimming stems. Rewrite as \"tỉa các thân cây cho gọn\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-Zm9498fWcgc": [
+    {
+      "at": "2026-11-13T07:06:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.75,
+      "notes": [
+        "\"Bể bên cạnh có nhiều cây cắt cắm lên nhanh\": \"cây cắt cắm\" is not a natural hobby term. Rewrite it as \"nhiều cây thân\" (stem plants) that grow fast.",
+        "\"ở đây dùng loại của Dennerle\": the captions only say \"den denlay substrate powder\", so the brand is a guess. Drop the brand name and write \"một loại bột trộn nền\".",
+        "\"Đổ chậm và đều tay\": the video only says to fill the tank \"nice and steadily\" before the plants dry out. Remove the extra technique wording, or hedge it as \"nên đổ từ từ\".",
+        "\"Một bể khác set trước đó cũng ít phải chăm. Trong một tháng rưỡi, nó chỉ cần tỉa cây vài lần và thay nước đôi lần\": the video says the first tank, running a month and a half, needed only trimming rotala and a couple of water changes. It does not describe a tank \"set trước đó\" as a separate point. Merge this into a single plain sentence and say that it was rotala that got trimmed.",
+        "\"Bộ kit trong bài ghi khoảng 60 ngày\": the video wavers between 6 weeks, 60 days and 8 weeks. Reword it as \"khoảng 6–8 tuần\", or say the figure is not certain."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T07:06:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Nếu không khuấy, phần chất pha loãng nổi lên trên. Sơn lớp đó lên, khô lại sẽ ra màu xám đục\": this was the creator's own guess, and he was unsure of the cause. Hedge it, e.g. \"có thể là do chưa khuấy nên sơn ở trên bị loãng\".",
+        "\"Khi sơn, nhớ quét theo chiều đi xuống để sơn không chảy vào trong bể\": in the video, pushing downwards was about scraping the paint off, not painting. Remove it from the painting steps or move it to the scraping step.",
+        "\"đây cũng là một cái lợi so với dán decal\": the video only says paint scrapes off easily. It does not say paint is better than vinyl tint. Remove the comparison.",
+        "\"Xả bông lọc. Bông lọc chạy lâu sẽ bị nghẹt.\": the cleanup steps for this tank are scraping the glass, scooping the crud and a water change. The filter floss was mentioned for the other tank. Remove this step; the CO2 bottle rinse can stay only as the video gives it.",
+        "\"Nước bể chứa cá và bể mới đã cùng nhiệt độ nên thả thẳng\": the video only says the temperatures already match. It gives no advice on skipping acclimation. Remove \"nên thả thẳng\".",
+        "\"không nhất thiết phải mua bình CO2 áp, van điện và đèn đắt tiền\": the video never says expensive lights are unnecessary. It only calls this light affordable. Remove \"đèn đắt tiền\".",
+        "\"Bể bên cạnh, set theo cùng cách, chỉ cần tỉa cây và thay nước vài lần trong một tháng rưỡi\": the video describes this earlier tank without saying it was set up the same way. Reword it as an earlier tank that needed little care, and drop \"set theo cùng cách\".",
+        "\"thả nhiều quá sẽ rối mắt\": this goes beyond the creator's remark that more fish would take away from the look. Hedge it as one person's taste, e.g. \"theo cảm nhận riêng thì...\"."
       ],
       "attempt": "first",
       "kept": false
@@ -21500,6 +22024,32 @@
   ],
   "vi/guides/youtube-b99AArbBm4E": [
     {
+      "at": "2026-11-13T18:26:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.5,
+      "notes": [
+        "Prep paragraph \"kính cắt đúng kích thước, mài cạnh, lau sạch mép kính trước khi bơm silicon, dùng silicon loại an toàn cho bể cá\": the video gives none of this. It only says to follow the main video. Remove the list of prep steps.",
+        "Steps \"Đặt tấm đáy lên mặt bàn phẳng, kê chắc\" and \"Để silicon khô hẳn rồi mới thử nước\" are not in the video. Remove both steps.",
+        "\"chỉnh lúc silicon còn ướt dễ hơn nhiều so với lúc đã khô\" appears in step 5 and in the last FAQ answer. The video only says to double-check with a square. Remove the silicon-wet reasoning.",
+        "\"To quá thì vách không khép lại được. Nhỏ quá thì hở khe, mối silicon phải gánh phần hở đó\": these consequences are invented. The video only says the bottom panel must be nearly perfect, neither too small nor too big. Remove them.",
+        "\"Hai cách đều ráp ra được bể kín nước\" is not stated in the video. Remove it.",
+        "\"Người mới tự ráp bể kính hay vướng một câu hỏi rất cơ bản\" is invented. The video only says the strength question is a common one. Remove or reword it so it is not a claim about beginners.",
+        "\"Bể dưới khoảng 190 lít nên dùng cách đáy bên trong, bể lớn hơn thì kê vách lên trên đáy\" (also in the table, the \"Bắt đầu từ đâu\" list and the FAQ) states one person's preference as a firm rule. Hedge it, e.g. \"một cách là…\" or \"nếu thích thì…\".",
+        "\"Dù vậy, với bể lớn thì đây vẫn là cách đáng chọn\" and \"Bể lớn chọn kê vách lên đáy là để dễ xử lý sai số\" present a personal preference as the right choice and give a reason the video does not give. Hedge it or remove it.",
+        "\"Không có gì giữ các vách đứng đúng góc, nên bạn phải tự canh từng góc và từng cạnh\" is an invented explanation and instruction. The video only says it is harder to get the corners and sides square. Reduce it to that.",
+        "\"Cạnh dưới của vách tì lên kính đáy, silicon nằm ở mối tiếp xúc đó\" and \"Silicon nằm giữa mép kính đáy và mặt trong của vách\" are detail the video does not give. The video only says to silicone the panels that touch other glass, then push them into position. Remove or reduce to that."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.45,
+        0.55
+      ]
+    },
+    {
       "at": "2026-11-09T03:25:44Z",
       "model": "sonnet",
       "score": 0.5,
@@ -22243,6 +22793,48 @@
       ],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-cbtfHpaUjBQ": [
+    {
+      "at": "2026-11-13T06:58:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Bể cũng có ít rêu len (woolly algae) và rêu sợi\": the video says there is a lot of woolly algae and some thread algae. Change \"ít rêu len\" to \"khá nhiều rêu len\".",
+        "\"Có người nuôi tép Neo ở pH dưới 7 mà tép vẫn khỏe. Cũng có thể có người nói tép Neo đẻ tốt ở pH 7,4, nhưng chắc là ít.\": the creator only imagined viewers objecting and doubted there are many. He did not report real cases. Remove both sentences or turn them into a hedged \"có thể sẽ có người phản bác\".",
+        "\"cá kim tơ\" (twice, for the white cloud mountain minnows) is the wrong name. Use the hobby term \"cá White Cloud\" instead.",
+        "\"Tép jelly xanh nên thả vào bể có nền sáng màu để dễ thấy màu\": the video only says he put them in the lighter-looking tank to see the colours better. \"Nền sáng màu\" is invented and clashes with the next sentence about needing a strange-coloured substrate. Hedge it as one person's choice or drop the \"nền\" detail.",
+        "\"Cách làm hợp lý là cứ thả tép vào tất cả các bể, chờ xem... rồi mới chỉnh\": this is the creator's own plan, written as the sensible way. Hedge it, for example \"một cách là...\".",
+        "\"Ở những bể có lũa, tanin không nhả mãi, thay nước dần thì pH cũng quay về khoảng 7\": the creator only predicted this (\"we'll see\", \"I might be wrong\"). Hedge it with \"có thể\" and \"dự đoán\".",
+        "\"Các bể ở đây\", \"nước máy ở đây\", \"Ở đây chỉ đo hai chỉ số\", \"Phòng bể ở đây có sưởi cả phòng\": these read as a report on the creator's own setup, which points back to the video. Reword them as general statements or as \"nếu nước máy của bạn...\".",
+        "\"Chờ lâu hơn một tuần như vậy lại tốt cho bể\" and \"Lúc đầu định chờ một tuần\": these are note-style, translated-sounding phrases that echo the creator's plans. Rewrite them naturally, for example \"để bể chạy khoảng 3 tuần trước khi thả tép là có lợi\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T06:58:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"mất khoảng 2,5 cm nước do bốc hơi\": the video only says the water dropped about an inch because the tanks weren't topped up. Drop the cause \"do bốc hơi\".",
+        "\"Amoniac được bỏ qua vì bể đã chạy đủ lâu\": the video gives no reason for skipping ammonia. It only says the creator knows there won't be any. Remove the \"vì...\" reason.",
+        "\"Sai lầm hay gặp là mua nhầm loại khoáng\": this was the creator's own one-off mistake. Rewrite it as one case, for example \"có thể mua nhầm\", not a common error.",
+        "\"nên đừng coi mốc nào là tuyệt đối\": this is a calque, and it overstates the video. The creator doubts those claims (\"probably not the case\") and only notes that people say them. Rewrite with a hedge, for example \"có người nói vậy nhưng khả năng này thấp\", or drop the advice.",
+        "\"Nó theo cây mang từ các bể cũ sang\": the creator only says \"I think\". Hedge it with \"có thể\" or \"nhiều khả năng\".",
+        "\"Tép cái mang yên (vệt vàng trên lưng)\": the video gives no yellow streak. Remove the parenthetical and keep only that saddled females have eggs about to move to the belly.",
+        "\"Tép lột xác ngay sau khi thả cũng là chuyện bình thường\": the video only shows molts seen in the tank and doesn't call them normal. Remove it or say only that molts were seen.",
+        "\"Tép hay kẹt ở góc túi\": the video says only to always check the bag, and that the corner is taped. It doesn't say shrimp often get stuck there. Remove the claim.",
+        "\"cá kim tơ\": this is the wrong name for white cloud mountain minnows. Use \"cá white cloud (bạch vân sơn)\" in both places.",
+        "\"Rêu phủ kín bể mới là chuyện đáng lo\": the video says only that a tank taken over by algae is not great. Remove \"mới\" and soften \"đáng lo\"."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-cfBKt5dc_IQ": [
@@ -23130,6 +23722,42 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-ePzGVkEOCrs": [
+    {
+      "at": "2026-11-13T07:11:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"chẳng hạn dương xỉ Java\" and \"cho cá có chỗ núp\": the video doesn't say what plants went in the bucket or why. Remove the Java fern example and the stated purpose. Keep only a hedged \"có thể thả vài nhánh cây\", or drop the step.",
+        "\"Đàn cá này vốn quen có người đi lại quanh bể ở chỗ cũ\": this is about the creator's own fish and refers back to the video. Rewrite it as a general hedged tip, such as cá quen thấy người thì ít giật mình, or remove it."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T07:11:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "\"Cho ăn ngay sau khi thả, nếu bể mới đã chạy ổn định\" / \"Nếu bể mới đã chạy ổn định thì cho cá ăn ngay\": the video says feeding settles fish if you have an established tank; but \"một cách hay\" and the FAQ \"việc đi kiếm mồi khắp bể giúp nó quen chỗ nhanh hơn\" overstate it. Hedge as one person's tip (\"một cách là\") and drop the claim that foraging helps them get used to the tank faster.",
+        "\"Làm vội hay làm ẩu thì cá dễ mất màu, núp một chỗ và bỏ ăn\" and \"Cá phải chịu đủ thứ: bị vợt đuổi, bị xóc trên đường đi\": a general claim about stress that the video doesn't state. Remove or soften it to what the video says (they hoped for less stress).",
+        "\"Gai đầu tiên của vây lưng... hay mắc vào lưới vợt. Khi gỡ ra, cá sẽ giãy\" and \"Con nào nhỏ mà dữ thì thường giãy mạnh hơn\": the video says only that the dorsal fin spike sometimes catches on the net and that the little one is feisty. \"Thường giãy mạnh hơn\" is a generalisation; remove it or keep it to that one fish.",
+        "\"Cá đĩa bị đuổi vài lần là bắt đầu cảnh giác với vợt\": invented; the video says only that they are wary now. Remove \"bị đuổi vài lần\".",
+        "\"Lái xe nhẹ nhàng như lúc chở em bé mới sinh... điều cần lo không phải là nước tràn mà là cá bị nước xô qua lại\": the video says the worry was fish being thrown around, with the water moving with them; the \"bắt buộc giảm tốc thật chậm\" at bends and potholes is the creator's own joking, not advice. Hedge it as what they did, not a rule.",
+        "\"Nước này đang ấm sẵn và đã có oxy từ bể, nên đi đường ngắn thì cá vẫn đủ thở\": the video says the bucket was already being oxygenated, as it was filled with warm water; the source of oxygen is not the tank. Correct to \"nước ấm, đã được sục oxy\".",
+        "\"Cá đĩa nhỏ thì để chung cả đàn trong một xô cũng được. Đi theo nhóm thì cá có thể yên tâm hơn là tách ra hai xô\": this is one person's guess (\"I actually think they'll be more comfortable as a group\"). Keep the hedge and don't present it as general advice.",
+        "\"Nếu có sủi oxy thì có thể chờ cá ổn định hẳn rồi mới bật... Bể có châm CO2 thì sủi sẽ làm thất thoát CO2, nhưng bật từng lúc thì không đáng kể\": the video says they waited to put the bubbles on because they wanted the fish more settled, and that bubbles would affect CO2 but are not on all the time. \"Không đáng kể\" is invented; drop it.",
+        "\"Cá đã quen có người đi lại quanh bể thì ít giật mình. Điều này hợp với bể đặt ở phòng khách\": \"điều này hợp với\" is calque-like and slightly changes the point. Rephrase naturally, tying it to these particular fish that were used to people in the studio.",
+        "FAQ \"Chở cá đĩa đi gần có cần túi bơm oxy không?\": the video never discusses oxygen bags; the question is invented. Remove the question or retitle it around carrying fish in a bucket. Also the summary \"Cá chịu ăn và bơi ra khắp bể là đang quen dần, màu sẽ lên lại\": the video doesn't say colour comes back; remove \"màu sẽ lên lại\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-eSwWIBG7Skg": [
     {
       "at": "2026-11-08T21:28:50Z",
@@ -23557,6 +24185,28 @@
   ],
   "vi/guides/youtube-fR-INyQXdPM": [
     {
+      "at": "2026-11-13T18:26:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "\"được dân chơi thủy sinh ưa chuộng nhất\": the video only says the canister filter is popular with aquarium keepers, with no ranking. Change to \"được nhiều người chơi thủy sinh dùng\" and drop \"nhất\".",
+        "\"Đèn xong thì lọc là món người mới phân vân nhiều nhất\": the video doesn't say this and \"nhiều nhất\" is an invented superlative. Remove it or say only that the filter is an accessory just as important as the light.",
+        "\"Với bể từ 100 đến 150 lít thì không có con số riêng. Bạn có thể dựa vào loại lọc định dùng để chọn mức gần nhất.\": the video gives no such advice. Delete both sentences.",
+        "\"Bộ in, out tặng kèm thường xấu nên phần lớn người chơi mua bộ mới\": this presents one habit as what most people do. Hedge it as \"bộ tặng kèm thường xấu, nếu thích thì có thể cân nhắc mua bộ mới\" and drop \"phần lớn người chơi\".",
+        "\"Lọc treo là lựa chọn hợp nhất\": the video only gives lọc treo as the choice for 30–50 cm tanks and rates it higher than lọc hông as a personal view. Replace \"hợp nhất\" with a hedge such as \"có thể chọn lọc treo, vốn được đánh giá cao hơn\".",
+        "\"dùng chung với một lọc thác sẽ cho kết quả tốt nhất\": this is slightly stronger than the video's \"hiệu quả tối ưu\". Soften to \"kết hợp với lọc thác sẽ hiệu quả hơn\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.6,
+        0.6
+      ]
+    },
+    {
       "at": "2026-11-09T03:25:33Z",
       "model": "sonnet",
       "score": 0.55,
@@ -23805,6 +24455,31 @@
     }
   ],
   "vi/guides/youtube-g6kNBCl1hl0": [
+    {
+      "at": "2026-11-13T18:27:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "\"bố cục ba ngăn cơ bản là điểm khởi đầu dễ nhất\": the video only calls this a basic layout. It never says it is the easiest start. Remove \"dễ nhất\" and say it is a basic layout.",
+        "\"Lúc mất điện, bơm hồi ngừng chạy, nước trong bể chính tiếp tục chảy xuống sump cho đến khi mực nước tụt dưới miệng tràn\": the video gives no such mechanism. Cut it to the fact that some water drains into the sump when the power goes out.",
+        "\"Chênh càng nhiều thì vách chịu lực càng lớn\": invented explanation. The video only says the thickness depends on the difference in water level. Delete this sentence.",
+        "\"Sau đó chỉnh dần theo bể thực tế\" and \"rồi chỉnh dần khi chạy thực tế\": the video gives no advice to adjust the pump flow later. Delete both. Keep only that 6 times the system volume is a starting goal.",
+        "\"Với sump ngập, kính tốt hơn vì ít bị cong\" and the FAQ \"kính ít bị cong hơn\": this is the creator's own preference, stated as fact. Hedge it, e.g. \"có thể chọn kính vì kính ít bị cong hơn\". Drop \"Nhờ vậy\" and say glass makes it easier to build baffles of different heights.",
+        "\"để khe hở dưới các vách đều nhau\": the video uses the movie or game cases as supports so the baffle height is consistent. It says nothing about the gap under the baffles. Correct this to keeping the baffle heights consistent.",
+        "FAQ \"nếu bể chính hay bị bọt li ti do nước hồi về thì nên thêm\": the video does not give this condition. It says the bubble baffle is optional and handy if you don't want the tank full of bubbles. Reword to that.",
+        "\"Loại nào cũng được, miễn giữ được cặn trước khi nước vào ngăn vi sinh\": the added condition is not in the video, which only says to use whatever you prefer. Remove the \"miễn…\" clause.",
+        "\"Nhờ kiểu xếp đó… Nhờ vậy… Vì vậy… Đổi lại\": these connectors read like a translation. Rewrite them in plainer Vietnamese, with shorter sentences and less stacking of causes."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.6,
+        0.6
+      ]
+    },
     {
       "at": "2026-11-09T03:25:51Z",
       "model": "sonnet",
@@ -24331,6 +25006,47 @@
         "\"Đèn UV: gắn trên đường ống lọc\": the video only says \"twin star sterilizer\" connected to the pipework and never says UV. Remove it (it goes with the dropped section).",
         "\"bơm tại chỗ bằng ống tiêm\": the video only says some people spot-treat with glue-type products. A syringe is not mentioned. Change it to \"chấm keo/sản phẩm chuyên dụng tại chỗ\", or remove it.",
         "\"vài tuần sau rêu tóc phủ lũa\": the video gives no timeline for when the algae appeared. Remove \"vài tuần sau\" and say only that the tank now has algae problems."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-gv63IUL4MsQ": [
+    {
+      "at": "2026-11-13T06:14:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"Nếu cá chạy loạn thì mới dỡ đồ ra để bắt khỏi làm cá bị thương\": the video gives no such conditional step. They planned to remove everything, tried the corner first, and the fish stayed calm. Remove the condition, or say only that they tried herding the fish into a corner first and it worked.",
+        "\"có thể châm nước và cho cá vào khá sớm\": the video only says the filter is mature, so they fill the tank and keep it running. It gives no rule that fish can go in early. Remove \"và cho cá vào khá sớm\".",
+        "\"Nghe nói một lần tẩy chỉ diệt giun trưởng thành, trứng vẫn còn\" (also in the FAQ): the video says one dewormer kills the worms but leaves eggs, with no mention of 'adult'. Remove \"trưởng thành\".",
+        "\"buộc cây bám đá (epiphyte) lên trên\": the video only says the islands have epiphytes on them. It never says to tie them on. Remove the tying step and say the rocks carry epiphytes.",
+        "\"Chúng chiếm khu phía sau... rồi đuổi cả đàn ra ngoài\": the video says only that the other fish were kept away from the main refuge area. Soften to \"các con khác bị giữ không vào được khu đó\".",
+        "\"Hẹ nước đặc biệt hợp với nền nghèo dinh dưỡng\" and \"Những cây con mọc từ ngó bò lan thường còn đẹp hơn\": this is the creator's own experience, but the guide writes it as a general rule. Hedge it, e.g. \"theo kinh nghiệm riêng thì...\" or \"có thể\".",
+        "Awkward, translation-like Vietnamese: \"Bệnh là cái giết cá, nhưng stress mới là cái mở đường cho bệnh\" and \"Bởi vậy... xử lý ngay khi cá còn đẹp\". Rewrite more naturally."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T06:14:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"đừng đợi đến lúc cá bỏ ăn hay xuống sắc\": the video never gives cá bỏ ăn or xuống sắc as warning signs. Remove this clause.",
+        "\"chuyển bể đi chỗ khác là cách dứt điểm\": this is stronger than the video, which only says rescaping won't help and moving them back is the right call. Hedge it, e.g. \"có thể chuyển bể\", and drop \"dứt điểm\".",
+        "\"Cặp đẻ thường là hai con to nhất bể\": this is one observation from one tank, written as a general rule. Rewrite it as what happened, e.g. \"có thể là hai con to nhất\".",
+        "\"Ngọc trai (Monte Carlo)\": the Vietnamese name is wrong or confusing, since ngọc trai is pearl weed. Use just \"Monte Carlo\".",
+        "\"hai loài này sống hòa thuận với cá đĩa\": the creator only says \"I think they get along well\". Hedge it to \"có thể hợp với cá đĩa\".",
+        "\"Nếu không có thời gian cho ăn nhiều lần, có thể dùng máy cho ăn tự động\": the video gives no such reason. It only says an auto feeder will be bought because little and often works better. Remove the \"không có thời gian\" condition.",
+        "\"Vớt cả đàn trong một lần lưới ... như vậy đỡ stress hơn\": this is the creator's \"I think\" opinion, stated as fact. Hedge it, e.g. \"có thể đỡ stress hơn\".",
+        "\"Tẩy giun là một việc làm cá đĩa khác hẳn\": this is an awkward, overstated claim. Rephrase it to say that cá lên cân rõ sau khi tẩy giun, without \"khác hẳn\".",
+        "\"Trại ép đẻ thường nuôi một cặp\": \"trại ép đẻ\" is unnatural, and \"thường\" generalises. Use \"người nuôi sinh sản\" with \"có thể\", and make it a single example.",
+        "\"Bể 120 cm mà bày ít thì lượng nước thực có thể còn nhiều hơn một bể to hơn nhưng nhét đầy nền và đá\": the video only says the minimalist setup gives more water volume than before. Remove the comparison with a bigger tank."
       ],
       "attempt": "first",
       "kept": false
@@ -24963,6 +25679,32 @@
     }
   ],
   "vi/guides/youtube-heAjxXHmrF8": [
+    {
+      "at": "2026-11-13T18:27:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.5,
+      "notes": [
+        "Tank and sump volumes: 'khoảng 570 lít', 'khoảng 190 lít', 'khoảng 760 lít' are exact conversions. The 150-gallon tank should be 600 litres, the 50-gallon sump 200 litres, and the 200-gallon total 750 litres. Redo the flow figures from these sizes (e.g. 4–6 turns of 750 litres) and update the 'bơm khoảng 4.500 lít/giờ' example to match.",
+        "'Với sump, nhiều người chọn cho nước quay vòng khoảng 4–6 lần mỗi giờ' appears in the bullet list, in the section 'Cần lọc bao nhiêu nước mỗi giờ' and in the FAQ ('Nhiều người chọn khoảng 4–6 lần'). The speaker only says he himself likes 4–6 turns an hour. Rewrite each as one person's choice ('một cách là...', 'có thể chọn...').",
+        "'Đây là mức hay dùng chứ không phải quy định cứng' is an invented claim about common practice. Remove it.",
+        "'Nhiều người lấy mức gấp đôi' and 'thường là gấp đôi' in the first bullet: the speaker says only that he himself aims for at least double. Hedge it as one person's habit ('có thể nhắm tới gấp đôi') and drop 'thường'.",
+        "'Ống thẳng là kiểu thoát nước hiệu quả nhất' is stated more firmly than the speaker, who says 'probably the most effective'. Hedge it ('có thể là kiểu hiệu quả nhất').",
+        "'Chỗ hay bị quên là nước trong sump' is not in the video. Remove it, or just say the sump water also has to be turned over.",
+        "'Nên khoan trước khi sơn' is advice the video doesn't give. The speaker only says it was hard to judge the hole saw's depth through the black paint. Remove the advice and the claim that the drill 'dễ bị vọt qua'.",
+        "'Bulkhead 4 cm' conflicts with 'Bulkhead 3,8 cm' in the table. Use one size for the 1.5 inch bulkhead.",
+        "'dễ lệch, phải cắt bỏ làm lại' goes beyond the transcript, which only says there might be issues with an improper setup. Soften it to that.",
+        "'ai thay nước nhiều sẽ thấy rất đỡ cực' turns the speaker's own liking for frequent water changes into a general claim. Reword it as 'giúp thay nước dễ hơn' or tie it to the speaker's preference."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
     {
       "at": "2026-11-09T03:26:22Z",
       "model": "sonnet",
@@ -25708,6 +26450,32 @@
     }
   ],
   "vi/guides/youtube-jN4Y9AYuwcQ": [
+    {
+      "at": "2026-11-13T18:27:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.5,
+      "notes": [
+        "\"khoảng 570 lít\" (bể 120 cm): the video calls this a 150-gallon build, so the size should be 600 litres.",
+        "\"bể trên khoảng 1.100 lít\" / \"đến khoảng 1.100 lít\" (summary, intro, section, FAQ): 300 gallons is not in the table, so it should be converted and rounded to 1.136 litres. Fix every occurrence.",
+        "\"Bể dài từ 1,8 m trở lên cần thêm cột đỡ ở giữa\" (summary) and the FAQ \"Bể dài 1,8 m trở lên\": the video says to add middle supports for tanks of 5, 6, 7 or 8 feet, so this should start at about 1,5 m. It also contradicts the body text, which says 1,5 đến 2,4 m.",
+        "\"Thanh đỡ ở góc: phần quan trọng nhất\": the video calls the side braces \"equally important\" with the corner supports. Remove the superlative and use a neutral heading.",
+        "\"Chân mua sẵn thường đắt, ít kích thước để chọn, và không phải cái nào cũng chịu nổi sức nặng đó\": the video does not say bought stands can't hold the weight. Remove that clause.",
+        "\"Bể kính có viền nhựa ở đáy\": the video only says a bottom trim and never says it is plastic. Remove \"nhựa\".",
+        "\"Ván ốp vít thẳng vào khung nên chân sẽ còn cứng thêm\": the video does not say this about the wrapping step. Remove it.",
+        "\"Sàn lệch thì ... bể đặt lên sẽ chịu lực không đều\": the video only says a level floor gives a flat top. Remove the added consequence about uneven load.",
+        "\"khung gỗ 2x4 có cột đỡ ở từng góc thường cứng hơn hẳn chân tủ bán sẵn\": this is stronger than the video, which gives it as the creator's reason. Hedge it as a personal view (\"theo cảm nhận\" or \"có thể\") and drop \"hẳn\" and \"thường\".",
+        "\"Khung này đã đỡ tốt bể khoảng 1.100 lít, nên dưới mức đó cứ yên tâm dùng gỗ 2x4\": this is a firm guarantee. Hedge it to a design that has been used for a 300-gallon tank, and drop the \"cứ yên tâm\" advice."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.45,
+        0.5
+      ]
+    },
     {
       "at": "2026-11-09T03:26:48Z",
       "model": "sonnet",
@@ -28221,6 +28989,31 @@
   ],
   "vi/guides/youtube-o8olS_u-y3o": [
     {
+      "at": "2026-11-13T18:28:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.55,
+      "notes": [
+        "\"Với ván ép, nhiều người quen dùng liquid rubber\": the video only says the creator has used liquid rubber on earlier plywood builds. Make it one person's choice, for example \"có thể dùng liquid rubber\", or drop it. Do not say \"nhiều người quen dùng\".",
+        "\"Kính có kích thước 180 x 190 cm\" and \"Đáy ở đây cần kích thước 180 x 190 cm\": the video gives 72 x 73 inches, which is about 183 x 185 cm. Correct both figures. The 75 x 76 inch outer size is about 190 x 193 cm, so the \"190 x 193\" figure is fine.",
+        "\"Mặt gỗ đẹp thì sau này chà nhám nhanh hơn và sơn bám đều hơn\": the video only says sanding was minimal on the oak-faced plywood. It never says the paint \"bám đều hơn\". Remove that claim.",
+        "\"Nếu phải di chuyển nó thì nên có người phụ\": the video only says 190 lb is heavy to pick up and move. It gives no advice to get a helper. Remove the advice.",
+        "\"Không gia cố mối nối bằng vải sợi thủy tinh. Đây là chỗ dễ thấm nhất\": the video does not say seams are where leaks happen most, and it does not list skipping the cloth as a common mistake. Remove \"Đây là chỗ dễ thấm nhất\" and the bullet's framing as a common error.",
+        "\"Lót sàn kỹ, và lỡ nhỏ giọt thì lau ngay khi sơn còn ướt\" and \"Lót kín sàn và khu vực xung quanh trước khi mở nắp sơn\": the video only says that letting the drip dry was a mistake. It does not give floor-covering or wipe-immediately steps. Remove these or hedge them with \"có thể\".",
+        "\"Một tấm kính nguyên khổ cỡ đó vừa đắt vừa nặng\" and \"giá rẻ hơn kính rất nhiều\": the video gives the stairs problem and says the glass cost was prohibitive for several sheets. It never says the glass is heavy, and it never says plywood is \"rất nhiều\" cheaper. Drop \"nặng\" and \"rất nhiều\".",
+        "\"Dặm lại: Đo lại độ dày và dặm thêm những chỗ còn mỏng\" is written as a required step. The video only says touch-ups are what you typically do, and the creator skipped them because the thickness was already enough. Make it optional, for example \"nếu thấy chỗ nào còn mỏng thì có thể dặm thêm\".",
+        "\"nên nó đóng vai lớp lót\": \"đóng vai\" is a calque and reads like a translation. Rewrite it, for example \"nên lớp này coi như lớp lót\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    {
       "at": "2026-11-09T03:27:26Z",
       "model": "sonnet",
       "score": 0.55,
@@ -28723,6 +29516,42 @@
       ],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-p-4YR3CE3C8": [
+    {
+      "at": "2026-11-13T06:43:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.75,
+      "notes": [
+        "\"Điều quan trọng là thả cá thưa\": the video calls low stocking \"one of the key factors\", not the only one. Change it to \"một yếu tố quan trọng là thả cá thưa\".",
+        "\"thì đó là lúc thay nước\" (the 600 example against a tap of about 100): the creator only says that for his own tap water 600 is not good for plants, and that this shows his range. Hedge it to \"có thể coi đó là ngưỡng của bể mình\" and drop the firm instruction to change water.",
+        "\"Thả sớm chỉ hợp khi đã quen tay\": \"chỉ\" is stronger than the video, where this is one person's own confidence. Change it to \"người đã quen tay có thể thả sớm hơn nếu đo nước mỗi ngày\".",
+        "\"Sau khi set, đèn vẫn quá mạnh nên đã dán băng keo đen\" and \"Bể 60 cm dùng một đèn Superfish\": these retell the creator's own build step by step as a past event. Rewrite as a tip: \"có thể dán băng keo đen che một phần ba số LED nếu đèn quá mạnh\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T06:43:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"dương xỉ lùn sagittaria (dwarf sag)\": sagittaria is not a fern. Remove \"dương xỉ\" and write \"sagittaria lùn\".",
+        "\"Cây cắt cắm cắt ở đâu thì chỗ đó nhú ra hai ngọn mới\": garbled wording. Rewrite as \"cắt thân cây ở chỗ nào thì chỗ đó mọc ra hai ngọn mới\".",
+        "\"cỡ bể hay gặp trong nhà\": the creator only guessed this (\"don't quote me\"). Hedge it, e.g. \"có thể là cỡ bể phổ biến trong nhà\".",
+        "\"bể khoảng 60 cm trở lên nên gắn một bộ hớt váng\" (FAQ): the video gives no size threshold and says the skimmer is not necessary. Make it a hedge such as \"bể càng lớn thì càng dễ có góc nước chết, nên có thể gắn một bộ hớt váng nhỏ\".",
+        "\"Bể thủy sinh có châm CO2 thường cần 50–100 PAR\": the video says only that a high-tech planted tank would get 50–100 PAR and never mentions CO2. Change to \"bể công nghệ cao khoảng 50–100 PAR\".",
+        "\"Đây là cách giảm sáng rẻ tiền mà vẫn hiệu quả\": the video calls it only an old cheap method. Remove \"mà vẫn hiệu quả\".",
+        "\"nhưng chỉ đủ khi thả ít cá\": the video does not say this about plants absorbing ammonia and nitrite. Remove the clause or fold it into the earlier advice about stocking lightly.",
+        "\"Nếu trồng khô trước khi đổ nước thì nhớ xịt ẩm để cây tiền cảnh không bị khô\": this is a firm tip the video barely gives. Hedge it with \"nếu thích thì\" or remove it."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-p-SK90oRxeM": [
@@ -29312,6 +30141,32 @@
   ],
   "vi/guides/youtube-qJAUu-YLvjQ": [
     {
+      "at": "2026-11-13T18:28:23Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "\"Ống PVC phi 69 hoặc 2,5 cm\": wrong size. The video says 3/4 inch (about 2 cm) or 1 inch (about 2,5 cm). Change to \"ống PVC khoảng 2 cm hoặc 2,5 cm\" and drop \"phi 69\".",
+        "Intro \"mua lọc thương mại cho từng bể vừa tốn kém vừa khó quản\": the video never compares with commercial filters. It only says the filters need to be manageable, low-power and cheap because there are many tanks. Remove the commercial-filter claim.",
+        "\"Làm thử một bộ, chỉnh vị trí quả sủi cho vừa ý rồi mới làm hàng loạt\": advice the video doesn't give. Remove this bullet. The other two bullets in \"Bắt đầu từ đâu\" (measure the tank and cut the pipe length) are also steps the video doesn't present as a start-here list, so cut that section back to what the video says.",
+        "FAQ \"Loại 30 ppi ... là hợp nhất ... mà vẫn cho nước đi qua đều\": superlative plus an invented reason. Say it is a very suitable ppi for this filter and has one of the highest bacteria-contact surfaces, and drop \"cho nước đi qua đều\".",
+        "\"phông đen vốn là màu phông được chuộng nhất\": the video says black is \"some of the most popular\". Change to \"một trong những màu phông phổ biến nhất\".",
+        "\"Miệng xả ngang mặt nước sẽ khuấy động bề mặt tốt hơn là xả chìm bên dưới\": this is one person's preference, and the video says it's up to you. Hedge it, e.g. \"nếu muốn khuấy động mặt nước thì để miệng xả sát mặt nước; để chìm bên dưới cũng được\".",
+        "\"Hút nước bể ra một cái xô\": the video only says to have a bucket of tank water beside the tank during a water change, then take out the sponge, squeeze and rinse it there. It never says to siphon water into the bucket. Reword to match.",
+        "\"túi than hoạt tính\": the video only mentions activated carbon in the spare space, not a bag. Change to \"than hoạt tính\".",
+        "\"tấm mút ... chắn ngang một góc bể\": this contradicts the earlier \"chắn ngang bể\" and the video, where the sponge matches the full tank width and sits at one end. Say it spans the whole width of the tank at one end.",
+        "Awkward, translated-sounding Vietnamese: \"một máy như vậy gánh 6 bể\", \"Cái giá phải trả là mất chỗ\", \"đỡ 'tự làm' hẳn\", \"Nếu bể nhỏ mà muốn tận dụng\". Rewrite in natural hobby Vietnamese, e.g. \"chạy được 6 bể\", \"Nhược điểm là chiếm chỗ trong bể\", \"trông bớt vẻ tự chế\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.6,
+        0.6
+      ]
+    },
+    {
       "at": "2026-11-09T03:27:38Z",
       "model": "sonnet",
       "score": 0.55,
@@ -29797,6 +30652,46 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-r0JLyJKhLcc": [
+    {
+      "at": "2026-11-13T07:19:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"chỉ thả khi nhiệt độ hai bên bằng nhau\" (summary) and \"Nhiệt độ hai bên bằng nhau thì thả\": the video only says the temperature was \"bang on\" when the fish went in. It gives no rule to release only when the two sides match. Remove both or turn them into a description of what happened.",
+        "\"cá sóc đầu đỏ (glowlight danio)\": the Vietnamese name looks invented for the glowlight danio. Use \"cá danio glowlight\" or the English name only.",
+        "\"Lọc thô ban đầu dùng mút thưa\": the video never says the first sponges were coarse. It only says the new ones are softer and finer and clog quickly. Remove \"mút thưa\" and say only that the sponges were swapped for softer, finer ones.",
+        "\"Bình để lâu không dùng thì mở ra kiểm tra trước\": this is presented as a step, but the creator only said he should have opened it to check. Hedge it (\"có thể nên mở ra xem\") or remove it.",
+        "\"Mút mịn nghẹt nhanh, nhưng chính vì vậy mới tốt\" and \"Mỗi tuần rửa mút một lần là ổn\": the creator stated this as his own preference (\"I want it to clog quickly\"). Hedge the wording so it stays one person's view, for example \"có thể thích mút nghẹt nhanh vì...\".",
+        "The opening bullet summary repeats the sections below it almost point for point, and the FAQ repeats the CO2, temperature and sponge points. Cut the repetition, in particular the CO2 passage that says \"hơi ít\" and \"chỉ cần một ít\" twice in the same paragraph.",
+        "\"Bình CO2 axit citric có đủ cho bể lớn không?\" (FAQ): the video never calls the tank large. It only says the setup is slightly under-dosed for \"this size tank\". Reword the question to avoid \"bể lớn\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T07:19:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Có thể bên trong vẫn còn CO2, mở từ từ\": the video gives no instruction to open it slowly. It only says he should have opened it to check. Remove \"mở từ từ\".",
+        "\"Cho hóa chất vào bình theo liều của bộ\": this dosing step is not in the video, which only shows adding the powder and 300 ml of water. Remove the \"theo liều của bộ\" wording.",
+        "\"Chuyển lọc sang chạy tiếp ở bể tạm\": the video says the next-door tank already has its own filter running and is already heated. It does not say to move a filter over. Correct or remove this step.",
+        "\"Ai muốn châm thật nhiều CO2 thì nên lắp bình CO2 áp suất\" (appears twice, in the CO2 section and in the FAQ): the video only says \"by all means\" for people who like to hammer CO2. Hedge it, for example \"thì có thể dùng\".",
+        "\"ý ở đây chỉ cần một ít cho cây\": the video does not say the CO2 is for the plants. It only says he wants a little CO2 and nothing crazy. Remove \"cho cây\".",
+        "\"cá cây trao đổi khí tốt hơn\" in the opening bullets: this is a garbled phrase. The video says better gas exchange at the surface. Fix it to \"bể trao đổi khí tốt hơn\".",
+        "\"đủ dùng khoảng một tháng, nên không còn vệt ố quanh mép kính\": the cause is wrong. The month is how long the reservoir lasts. The water line is hidden because the level always stays at the same spot. Fix the bullet or split it into two.",
+        "\"Bọc kín thùng và lái xe chậm vì có cá ở ghế sau\": the video only says not to go fast because there are fish in the back. \"Ghế sau\" and \"bọc kín thùng\" are the writer's own embellishment. Simplify it to a hedged \"đi nhẹ nhàng\".",
+        "Awkward, note-like Vietnamese: \"Đây là điểm an toàn\", \"Chuyện này bình thường ở bể mới\" (repeated), \"Chịu khó vệ sinh\", \"Nước bể vẫn để lại vệt cặn\". Rewrite these as natural flowing sentences."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-r9rJ8JljJC0": [
     {
       "at": "2026-11-08T22:31:47Z",
@@ -29968,6 +30863,38 @@
         "\"Trồng cây chắc chắn làm nước đục\": the video says the water was unexpectedly murky the next day and is likely to get dusty when more plants go into the substrate. It never says planting always clouds the water. Hedge it, for example \"trồng cây có thể làm nước đục\".",
         "\"Thay nước là hết\": the video only says a quick water change could bring the water back up. Hedge it, for example \"có thể thay nước cho trong lại\", rather than stating it as a sure fix.",
         "\"ăn hết dinh dưỡng trong nước\": the video says Limnophila uses up nutrients in the water column quickly and outcompetes algae. Soften \"ăn hết\" to \"hút nhanh dinh dưỡng trong nước\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-rWtfUks1ecs": [
+    {
+      "at": "2026-11-13T06:31:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"Mẹo dễ làm nhất là chọn lũa đá to so với bể\": the video calls oversizing the hardscape one of the main key factors and a great way to make a tank look good easily. It never calls it the easiest tip. Change to something like \"Một mẹo hay là chọn lũa đá to so với bể\" and drop the superlative."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T06:31:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Muốn set bể thủy sinh, người ta thường nghĩ ngay tới một lớp phân nền dày phủ cát lên trên\": this puts one person's habit as what people generally think. Remove it or hedge it, e.g. \"Một cách quen thuộc là...\".",
+        "\"Cát lẫn hạt nhiều màu dễ nhìn hơn cát trắng tinh\": this is the speaker's own taste (he dislikes pure white and likes flecked sand), but it is written as fact. Hedge it, e.g. \"nếu thích thì chọn cát lẫn hạt nhiều màu thay cho cát trắng tinh\".",
+        "\"càng nhiều lũa đá, càng ấn tượng từ đầu càng tốt về lâu dài\": the speaker only says it is \"probably\" better long-term, and calls it a cheat code. Hedge it with \"có lẽ\" and keep it as his view.",
+        "\"Bể không trồng cây mà nhìn đã đẹp thì có cây vào sẽ còn đẹp hơn\": the video only says that if it looks good without plants, it will look good with plants. Remove \"còn đẹp hơn\".",
+        "\"Lấp sau khi lũa đã gắn chắc thì tiện hơn đổ đầy cát trước rồi mới cắm lũa vào\": the speaker calls filling the gaps afterwards a \"backward\" way and says there are multiple ways. Hedge it as one way (\"một cách là\") and drop the claim that it is more convenient.",
+        "\"đợi lọc lọc hết hạt nhỏ\": the doubled \"lọc\" is a typo and reads badly. Rewrite as \"đợi bộ lọc hút hết hạt nhỏ\".",
+        "\"bể cũng không có cây cắt cắm mọc nhanh hay bèo nổi\": \"cây cắt cắm\" is an awkward rendering of \"fast-growing stems\". Use the usual term, e.g. \"cây thân mọc nhanh\"."
       ],
       "attempt": "first",
       "kept": false
@@ -31396,6 +32323,27 @@
   ],
   "vi/guides/youtube-v5nzl93fEXA": [
     {
+      "at": "2026-11-13T18:28:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "\"Mới chơi thì ai cũng hay đập bể làm lại bố cục\": the speaker only gives his own habit (he usually gets bored after about a year, and says new players \"rất hay\" redo their tanks too). Hedge it to one person's experience, e.g. \"mình thường chơi một bố cục chỉ khoảng một năm là chán, nên đổ nhiều tiền vào một bộ nền đắt thì hơi phí\", and drop \"ai cũng\". Do the same for the matching claims in the cố…",
+        "\"Với người mới, đây là lựa chọn hợp lý nhất\": the video never says industrial substrate is the most sensible choice for beginners. Remove the sentence, or soften it to \"có thể dễ dùng hơn cho người mới\".",
+        "\"để độn cho đỡ tốn phân nền\": the video gives no such reason for laying material under the substrate. It says only that people add material underneath for layouts needing a tall substrate in large tanks. Remove the stated purpose.",
+        "\"Ngoài chợ có cả chục loại phân nền với đủ mức giá, người mới nhìn vào rất dễ rối\": the video doesn't say this (no count of products, no claim that beginners get confused). Remove it.",
+        "\"rải một lớp mỏng dưới đáy\": the video doesn't say the cốt nền layer is thin. Remove \"mỏng\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.6,
+        0.6
+      ]
+    },
+    {
       "at": "2026-11-09T03:27:59Z",
       "model": "sonnet",
       "score": 0.55,
@@ -32253,6 +33201,43 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-wXRpHS5A3G4": [
+    {
+      "at": "2026-11-13T07:35:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.75,
+      "notes": [
+        "\"Thả vào bể mới mà nó lao ngay vào bụi cây\": the keyholes were put in a temporary storage tank full of plants, not the new tank. Change \"bể mới\" to \"bể tạm\".",
+        "\"Cá con, tép Amano và mấy con hay trốn ... thì để lại một ít nước, tối đó dùng vợt tép vớt dần\": this mixes up the steps. The fish still left were not caught in the first round. They were taken to the other place and put in a small extra tank, and the creator scooped them out of it through the evening. Rewrite it that way, or cut it down to \"vài con còn sót thì vớt dần bằng vợt tép\".",
+        "\"Thảm cây dưới nền: không tách ra từng khóm mà giữ được, nên bỏ luôn\": this is awkward and hard to follow. Reword it as \"không tách ra từng khóm được nên bỏ luôn\".",
+        "\"Vợt nhỏ chỉ dùng để bắt mấy con trốn trong góc\": the video only says the tiny net can't catch the discus and that a smaller net suits the hiding keyholes. Drop the absolute \"chỉ\" and soften it to \"vợt nhỏ tiện cho mấy con trốn trong góc\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T07:35:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Đàn cá đĩa đã sống chung hơn một năm thì thường ổn định\": this turns one group's experience into a general rule. Hedge it as that one group, or drop \"thường\".",
+        "\"Lúc đó không nên đụng vào bể chỉ vì muốn làm lại cho đẹp\" and \"đừng vội dỡ bể\": the video gives this as the creator's own choice for his own tank. Hedge it (\"có thể chọn không đụng vào…\") instead of stating it as advice for everyone.",
+        "\"khi biết bể sắp phải dỡ, nên làm sớm và chia ra nhiều bước, đừng dồn vào một buổi\": the video never says to start early or to split the work. It says only that he didn't want to rush the process and wanted to take his time. Remove \"làm sớm\" and the rule about not packing it into one session.",
+        "\"Thay vì đóng túi\" and \"Xô chứa nhiều nước hơn túi nên cá thoải mái hơn\": the video never compares a bucket to a bag. It says buckets are better than shrink-wrapping the top and give much more water volume. Remove the bag comparison and the \"thoải mái hơn\" claim.",
+        "\"Cá đĩa có lẽ sẽ thích bể cao hơn\": the video says the new tank is a bit shallower front to back and the discus will appreciate the depth. It does not say the tank is taller. Correct this to the video's wording or remove it.",
+        "\"Muốn cá đĩa nổi bật thì nên làm bể đơn giản hơn\": this is the creator's own plan for his living-room tank, not general advice. Hedge it (\"nếu muốn… thì có thể\").",
+        "\"Nhiệt độ là thứ quyết định cá nào ở lại với cá đĩa\": this is too strong. The video gives temperature as the reason only for keeping the keyhole cichlids out. Soften it or limit it to the keyhole.",
+        "The section \"Hướng bể mới: cá là chính, cây là phụ\" and the closing line about filling the tank before the plants arrive are about designing and building the new tank (island layout, substrate, plant choice). That is off the title's subject of dismantling and moving the fish. Drop or cut the section and the line.",
+        "The phrase \"Nhưng để trong phòng khách thì có thể hơi rối\" and the line \"người chơi thấy đẹp\" present one person's taste as a general view. Hedge them or remove them."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-wfG_EzUX04s": [
     {
       "at": "2026-11-08T19:32:50Z",
@@ -32809,6 +33794,28 @@
   ],
   "vi/guides/youtube-yE1pF9xx0Fc": [
     {
+      "at": "2026-11-13T18:28:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.55,
+      "notes": [
+        "\"Bể đông cá hoặc cho ăn nhiều thì nên tính dư ra một chút.\" is advice the video doesn't give. Remove the sentence.",
+        "The whole section \"Bắt đầu từ đâu\" adds steps the video doesn't give: check that the strainer fits the bottle neck, prepare the wood and a lighter, buy enough floss for several weeks. Remove the section.",
+        "\"không cần keo\" in the ribbed-bottle paragraph and \"không cần keo hay băng dính\" in the FAQ: the video only says the ribs hold firmly, and says nothing about glue or tape. Remove the glue and tape claims.",
+        "\"Lúc này lưới chắn bịt cổ chai nên sứ không rơi ra\" is a reason the video doesn't state. Remove the explanation, or say only that the bottle is turned upside down to add the media.",
+        "\"Trung bình khoảng một tuần là phải thay\" is firmer than \"probably once a week on average\". Hedge it, e.g. \"có thể khoảng một tuần một lần\".",
+        "\"Phần tay chân nhiều nhất chỉ có vậy\" is awkward, translated-sounding Vietnamese. Rewrite it naturally, e.g. \"Đó là phần làm bằng tay chính, còn lại chỉ là lắp ráp\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.5,
+        0.55
+      ]
+    },
+    {
       "at": "2026-11-09T03:28:37Z",
       "model": "sonnet",
       "score": 0.55,
@@ -33257,6 +34264,46 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-zJcimXCpXtY": [
+    {
+      "at": "2026-11-13T06:25:58Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Lọc là một lọc trong nhỏ (Biomaster 250)\": the video never calls it an internal filter. A Biomaster with a pre-filter and inlet/outlet is an external canister filter, so change to \"lọc thùng/lọc ngoài\" or just name the model.",
+        "\"Cá ngân long vàng (gold harlequin)\": \"ngân long\" is the silver arowana, so this Vietnamese name is wrong. Use the English name \"gold harlequin\" or a correct hobby name.",
+        "\"Trong bể không gắn thêm thổi luồng nào\": awkward, calque-like phrasing. Rewrite as \"không có máy thổi dòng\" (no powerhead).",
+        "\"nhúng nước xem trước là biết đá hợp hay không\": the video only says the colours look better when wet. It gives no tip to test rocks by dipping them. Reduce this to \"màu đá hiện ra đẹp hơn khi ướt\".",
+        "\"Khó nhất là kìm được tay, đừng trồng kín bể\": the superlative is stronger than the video, which only says it is hard to hold back. Change to \"Cũng cần kìm tay, đừng trồng kín bể\" or hedge it.",
+        "Table row Spotlight \"Có chiều sâu\": the video does not say spotlights add depth. It says spotlights give a moodier feel, with shimmer and shadows. Remove \"có chiều sâu\" and use \"trầm, có bóng đổ\".",
+        "\"Một bể làm theo kiểu này cho cây lên rất đẹp\": this repeats the one-tank experiment as if it were a general result. Say \"bể thử theo kiểu này thì cây lên rất đẹp\".",
+        "\"Bể còn khô thì khó thấy cây cao tới đâu\" and \"đổ nước đầy bể trước rồi mới trồng\": the transcript only says \"fill it up and then plant\", with the reasons about seeing height and gaps. It does not clearly say to fill the tank with water first. Soften this or drop the \"bể còn khô\" detail."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-13T06:25:58Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Một kiểu bể như vậy cũng hợp với cá sặc. Cá sặc có chỗ để chiếm làm khu riêng, thích trốn một lúc rồi bơi ra\": this is the creator's passing guess (\"kind of screaming out as a gourami tank\"), stated as firm fact. Remove it or hedge it (\"có thể hợp với cá sặc\").",
+        "\"hợp nhất cho bể dày cây\" (strip light): the video only says it is \"probably the best option\", hedged. Change to a hedged wording such as \"có thể hợp với bể dày cây\" and drop the superlative \"nhất\".",
+        "\"Bể thủy sinh không nhất thiết phải có phân nền đắt tiền, CO2 và đèn mạnh\": the video says only that you don't need crazy expensive lighting and substrate systems, and says nothing here about CO2 being unnecessary. Remove \"CO2\" from this list and say \"đèn và phân nền đắt tiền\".",
+        "\"Bể trông giống thiên nhiên hơn thì dễ bắt đầu hơn với người mới\": this is the creator's hope (\"hopefully a lot of people... feel the same way\"), stated as fact. Hedge it with \"có thể dễ bắt đầu hơn\" and keep it as his view.",
+        "\"xịt lên mặt ngoài kính sau\" (appears twice, also in the FAQ): the video doesn't say whether the paint goes outside or inside the glass. Remove \"mặt ngoài\" and say \"kính sau\".",
+        "\"Bể không dùng thổi luồng\" reads like a translation of \"no power head\". Rewrite naturally, e.g. \"bể không gắn máy bơm tạo dòng\".",
+        "\"Cá chọn đàn cá tetra xanh bơi theo bầy\" in the summary list is clumsy, note-style Vietnamese. Rewrite as \"Chọn một đàn cá tetra xanh, loại hay bơi sát nhau thành bầy\".",
+        "\"Cá chột một mắt thường vẫn sống khỏe, có khi còn lanh lợi hơn\": the video says this about the creator's own experience (\"I've seen this plenty of times\"). Hedge it, e.g. \"theo kinh nghiệm của một số người nuôi\", or drop \"thường\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-zSKCf5T45IM": [
     {
       "at": "2026-11-09T08:30:48Z",
@@ -33633,561 +34680,6 @@
       ],
       "attempt": "recheck",
       "kept": true
-    }
-  ],
-  "vi/guides/youtube-1Qs7sJknL-I": [
-    {
-      "at": "2026-11-13T06:51:51Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.7,
-      "notes": [
-        "The section \"Dỡ bể cũ có tép thế nào cho khỏi sót\", together with the shrimp-catching sentences before it (\"Bể nhỏ mà có nhiều đá Seiryu…\", \"Để bắt nốt những con còn sót…\"), is about a different subject from the guide's title, which is building a fast-flowing stream tank for white clouds. Drop it. Also drop the matching step \"dỡ bể cũ có tép\" in the intro paragraph."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T06:51:51Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"Cũng vì vậy mà bể có thể đầy tép hơn mình tưởng\": the video doesn't link the hardness from Seiryu stone to the number of shrimp. Remove this causal link and keep only that the shrimp love the harder water.",
-        "\"Bể cũ có tép đỏ (cherry shrimp) sinh sản dày đặc\": the video never says the shrimp bred. It only says there were a huge number of them. Remove \"sinh sản\".",
-        "\"Đặt nghiêng các tảng đá xuống theo hướng nước để dẫn dòng từ thanh phun\": it was the filter outlet that was angled downwards, not the rocks. Correct this to the outlet, or remove it.",
-        "\"Xếp dày đá ở phía sau cho ra mép suối nhiều đá. Bể chỉ có vài tảng thì nhìn tối giản, chưa ra không khí bờ suối\": the video doesn't advise piling rocks at the back. It only says the sparse first layout was too minimal for the river-edge look. Remove the advice about packing rocks at the back.",
-        "\"nước mưa hứng trong thùng, đã khử clo\": the video only says the water comes from a water butt and has been dechlorinated. It never says rainwater. Remove \"nước mưa\".",
-        "\"Nuôi chúng trong bể cây tốt tươi thì vẫn được\": the video doesn't say this. The creator only says the old planted tank got overgrown and the new scape suits the fish better. Remove or hedge this line.",
-        "\"ở đây cả phòng có sưởi nên các bể cùng nhiệt\", \"bể này vớt suốt khoảng một tiếng\" and similar \"ở đây\" asides: these narrate the video's own setup. Rewrite them as general statements or remove them."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-2OLhjT-24lU": [
-    {
-      "at": "2026-11-13T07:44:32Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.75,
-      "notes": [
-        "\"Nền cũ dùng lâu thì gần như hết chất, coi như nền trơ\": the video only says there is \"probably not a lot of nutrients left\" and to treat it as inert if you like. Hedge it, e.g. \"có thể đã hết gần hết chất, nếu thích thì coi như nền trơ\".",
-        "\"thảm tiền cảnh còn lổ đổ\": the word is wrong and reads awkwardly. Use \"lổ chổ\" or \"chưa phủ kín\".",
-        "\"Có CO2 thì bể lên nhanh hơn\" appears twice, in the intro and again in the FAQ answer on hard plants. Remove the repeat so the text isn't padded."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T07:44:32Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"nhìn qua ai cũng nghĩ không đủ cho cỡ bể này\" speaks for everyone. The speaker only says \"you wouldn't think that's going to work\". Hedge it to something like \"nhìn qua thì khó tin là đủ cho cỡ bể này\", or drop \"ai cũng\".",
-        "\"loại treo rất nhỏ\": the transcript never says the filter is a hang-on type, only that it is a tiny filter. Remove \"treo\" and say \"một cái lọc rất nhỏ\".",
-        "\"nên chỉ cần thả nổi túi khoảng 15 phút rồi cắt túi thả cá ra luôn\" invents a bag-floating step. The fish had been in the bag about 15 minutes, mostly on the journey, and the speaker just cut the bag and released them. Remove the floating, and say they were in the bag about 15 minutes before being released.",
-        "\"phải rửa sạch gel trước khi trồng vì không ai muốn thứ đó rơi vào bể\": \"không ai\" speaks for everyone, and \"cấy mô\" is not in the video. Reword to \"nên rửa sạch gel vì không nên để nó vào bể\", and drop \"cấy mô\".",
-        "\"Có CO2 thì bể nhanh lên hơn hẳn\" is stronger than the video, which only says advanced plants take longer without CO2. Change \"hơn hẳn\" to \"nhanh hơn\". The same line appears in the FAQ."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-2htJPBhx7Cs": [
-    {
-      "at": "2026-11-13T06:37:00Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.75,
-      "notes": [
-        "\"Thêm nhiều loại cây như kiếm Amazon, cây cắt cắm, cây to che chân kiếm thì cây vẫn khỏe nhưng bể lại rối\": the sentence is clumsy and unclear (\"cây cắt cắm\" is an odd term). Rewrite it simply: the many plant types, colours and sizes looked chaotic even though the plants were healthy.",
-        "\"Khi bắt cá, vớt bỏ đồ trong bể ra trước để không lẫn theo cá sang bể mới\": \"đồ\" is vague and the video gives no clear reason. Either remove the step or say only that the creator scooped other stuff out so it wouldn't travel over with the fish.",
-        "\"Ít loại cây, cùng kiểu lá (...) trông tự nhiên hơn là trồng mỗi thứ một ít\" (summary bullet) and \"Bỏ bớt đi thì bể có thể trông gọn và đẹp hơn\": the first is the creator's personal taste stated as a firm rule. Hedge it, e.g. \"có thể trông gọn hơn nếu…\" or \"một cách là…\".",
-        "\"Danio bơi không biết mệt, cả lúc mới chuyển bể lẫn về sau\" and \"khó chọn sai với hai loài này\": these are stated too absolutely. Soften to one person's view (\"theo cảm nhận riêng\" or \"có thể\").",
-        "\"Không theo kiểu bố cục chăm chút từng chi tiết, mà cố làm giống những gì thật sự thấy ngoài tự nhiên\": this reads like a translated, note-style clause. Smooth it into natural Vietnamese."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T06:37:00Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"Nhớ lau sạch keo thừa ở chỗ lộ ra trước khi đổ nước\": the video gives no such step. The creator only admits he left glue on the rock and won't remove it now. Delete the sentence and keep only the option of covering it with a plant.",
-        "\"Bỏ bớt là lựa chọn đúng\": this is the creator's own opinion stated as fact. Hedge it, for example \"có thể thấy bể đẹp hơn khi bỏ bớt\", or drop it.",
-        "\"ráy dài phía sau\" and \"Phía sau trồng ráy dài khổng lồ (jungle val)\": Vallisneria is called \"ráy\", but ráy means Anubias, and the guide later uses \"ráy (Anubias)\" for the other plant. Rename the val consistently (for example \"Vallisneria\" or \"lúa nước\") and also fix \"lá ráy nổi lung tung\" and \"rèm ráy\".",
-        "\"Không cần buộc ráy hay dương xỉ kín lũa\": the video only says he usually covers the wood with epiphytes. Ferns are not mentioned, so remove \"dương xỉ\" and write \"cây bám lũa\".",
-        "\"vớt bỏ rác, rêu và lá mục ra trước\": the video only says he took \"all this stuff\" out so it wouldn't go over with the fish and infect the new tank. Moss and rotting leaves are invented, so say only \"vớt bỏ đồ trong bể ra trước\" or drop the detail.",
-        "\"bố cục tự khắc gần với quy tắc một phần ba\": the creator says you \"tend to get\" the rule of thirds anyway. Hedge it to \"thường sẽ\" instead of \"tự khắc\".",
-        "\"Không để cành vượt qua điểm giữa bể, vì mắt nhìn sẽ thấy lạ\": the creator is unsure about this (\"I don't know how the eye likes to perceive things\"). Hedge it with \"có thể trông hơi lạ\".",
-        "\"Ở đây đèn chỉ để khoảng 40%\": \"Ở đây\" points back to the video's own tank. Rewrite it as general advice, such as \"có thể để đèn khoảng 40%\".",
-        "FAQ \"Được, nhưng phải xem kỹ có đá vôi không và rửa thật sạch\": the video does not recommend building-merchant gravel or checking it first. It describes this as his failure. Reword to say only that the gravel had limestone and dust, which hurt the plants and clouded the water.",
-        "\"Trộn sỏi chắc là giúp lớp dưới đáy ít bị bí và sình hơn\" and \"Bể này ... toàn cây ít đòi hỏi nên không lo nhiều rêu\": both are written as firm advice. Hedge them as the creator's expectation (\"có thể\", \"hy vọng\")."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-LmUGilbUlzY": [
-    {
-      "at": "2026-11-13T07:25:40Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"kiểm tra bồn không dính nước rửa chén hay chất tẩy, lau khô lại bằng khăn giấy\" and \"lau sạch bồn\": in the video the thing checked and dried with paper towel is the pump, not the sink. Change the wording to the pump.",
-        "\"Không nên rải quá tay, cứ để lộ nhiều cát\": this is one person's preference for a natural look, stated as a rule. Hedge it, e.g. \"nếu thích thì có thể chừa nhiều cát lộ ra\".",
-        "\"Chỉnh vậy thì cá trông đẹp hẳn\": the creator only expects the fish to look good (\"it'll make the fish look amazing\"). Hedge it, e.g. \"có thể giúp cá lên màu đẹp\".",
-        "\"Nước còn hơi mờ trong mấy ngày đầu là chuyện thường\": the video does not say how long the water stays cloudy or that this is normal. Remove \"mấy ngày đầu\" and \"là chuyện thường\".",
-        "\"Ráy coffeefolia lá có gân nổi, đắt và mọc chậm\": the creator only guesses it is expensive because it grows slowly (\"maybe it's cuz it's so slow growing\"). Hedge the link, e.g. \"có thể đắt vì mọc chậm\".",
-        "\"nên kiểu xếp này có thể hợp mắt hơn để cây lớn nằm thấp\": this sentence is garbled and reads like a translation. Rewrite it simply: cây có xu hướng vươn về phía sáng, nên xếp cây lớn ở trên, cây nhỏ quanh rìa thường cho kết quả tốt hơn là để cây lớn nằm thấp.",
-        "\"Xen vào vài chất lá khác nhau\": \"chất lá\" is not natural Vietnamese. Change to \"kết cấu lá\" or \"dạng lá\".",
-        "\"Lọc mới mà pre-filter nghẹt nhanh có phải lọc kém không?\": the video is about reusing an old filter, not a new one. Remove \"mới\" from the question.",
-        "\"Cây trong bể chủ yếu là loại bám lũa, bám đá mọc chậm\" and \"nên trồng xong là bố cục giữ được dáng khá lâu\": the video says the plants hold their shape \"for a long time\" with only a soft \"should do\". Hedge it, e.g. \"nên bố cục có thể giữ dáng khá lâu\". Also drop the repeat of this point in the later section."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T07:25:40Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"Cây lớn đặt hướng lên trên... hợp mắt hơn để cây lớn nằm thấp\" and \"ngoài tự nhiên cũng thấy vậy\": fine in gist, but the line \"Cây vốn mọc về phía ánh sáng\" is stated as firm; hedge it as the creator's view (\"có thể\"), keep it to one person's approach.",
-        "\"Mở sủi hết cỡ thì nhìn đẹp nhưng hơi quá cho cá\": the video only has a joke that the fish may find it a lot (\"Fish will be like...\"); soften to a hedge or remove the claim as fact.",
-        "\"Cá đĩa cần thay nước thường xuyên hơn bể cá thường vì chúng ăn nhiều và thải nhiều\": the video says they poop a lot; \"ăn nhiều\" is invented, remove it.",
-        "\"Sủi làm mặt nước bắn tung nhẹ nên nước bay hơi nhanh hơn\": the video says bubbles make water evaporate faster, with a little splash mentioned separately; do not state splash as the cause, just say evaporation is faster.",
-        "\"Dù vậy cũng đừng coi thường: một khóm bucep từ một chậu nhỏ có thể to ra đáng kể trong một năm\": the video only notes how big the bulbite got in a year from a small pot, but this is presented as a warning/advice it does not give; remove the warning framing.",
-        "\"Chừa khoảng trống thấp (negative space) cũng giúp bố cục thoáng\" and \"để bố cục có chiều sâu\" in the summary: depth is not in the video; remove \"có chiều sâu\" and keep the negative-space remark hedged as one person's taste.",
-        "\"Nếu có thiết bị đặt trên bể... Phía trên có thể đặt thêm một cây lan ý\": the wire was used to hold the pothos root ball in this tank, not a general tip conditional on equipment; the peace lily (lan ý) is an unsure ID by the creator (\"can't remember\"); hedge or remove.",
-        "\"Làm vậy thì có thể thả cá khá sớm, tầm một tuần\" and FAQ \"Bể mới set bao lâu thì thả cá được?\": the video gives about a week for this specific setup with an existing filter, not a general rule; hedge as this setup's case.",
-        "\"Bể dùng toàn cây bám lũa, bám đá\" and \"Toàn cây mọc chậm\": the video also uses pothos, a peace-lily-like plant, trident fern and stems, so \"toàn\" overstates; change to \"phần lớn\".",
-        "\"Nước có ánh hơi xanh và cá lên màu đẹp\", \"Có thể dùng đá nham thạch loại bo tròn... càng khó thấy\": minor drift; the video says lights make fish look amazing and the stones were lava-like and rounded; also \"Giả thuyết này chưa chắc đã được chứng minh\" is fine. Remove the claim that lava stones have many pores as a fact (not stated)."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-SZMCesATJ-8": [
-    {
-      "at": "2026-11-13T06:48:01Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.75,
-      "notes": [
-        "\"Sai lầm hay gặp là không châm CO2, không thay nước hằng tuần...\": \"hay gặp\" says it is common, but the video only says this is a thing you can do wrong. Change to \"Một sai lầm có thể mắc phải là...\".",
-        "\"Lúc thay, khuấy nhẹ nền và hút bớt chất thải ra\": the video says \"stir everything up\" and takes out the waste if you can. \"nhẹ\" is invented, so remove it and hedge with \"nếu được\".",
-        "\"Có thể dùng nước RO ... nhưng chỉ cần khi nước máy có pH quá cao\": the video only says you might need RO if the water pH is really high. \"chỉ cần khi\" is too exclusive, so soften it to \"có thể cần khi...\".",
-        "\"Đá cuội nhẵn trông rất giống lòng sông\": this is the speaker's own opinion, written as fact. Hedge it, e.g. \"theo cảm nhận riêng thì...\" or \"nếu thích kiểu sông suối thì...\"."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T06:48:01Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.5,
-      "notes": [
-        "\"Nhiều người lo kiểu bể này sẽ thành bãi rêu, nhất là với bể lớn.\" The speaker never says this: remove the sentence.",
-        "\"có cây ai cũng bảo dễ mà trồng mãi không được\" is invented and generalised: the speaker only says people sometimes call a plant hard when it is hard for them, while it grew easily for him. Rewrite as one person's experience with hedging, e.g. \"có cây người ta bảo khó nhưng với mình lại mọc dễ, và ngược lại\".",
-        "\"Cũng không phức tạp như nhiều người tưởng\": the speaker only says that he himself was put off for a long time and found it not that complicated. Change to his own experience (\"có người từng ngại nhưng thấy không phức tạp\") or drop \"nhiều người tưởng\".",
-        "\"cá rồng Nam Mỹ cỡ lớn\": the speaker says big South American-style cichlids, not arowana (cá rồng). Change to \"cá cichlid Nam Mỹ cỡ lớn\".",
-        "\"Ludwigia sp. 'Siamensis 53B'\": the genus is not in the transcript. Write only \"Siamensis 53B\" without Ludwigia.",
-        "Section \"Cá trong bể lớn\" about angelfish, keyhole cichlids and corydoras is off the title's subject (substrate, light, filter, water changes, CO2): drop the section.",
-        "\"thế là nó vừa cấp dinh dưỡng vừa làm chỗ cho vi sinh có lợi sống\" and \"Bể này thay nước rất ít mà cá vẫn ổn, nhưng bể sẽ chạy kém đẹp hơn\" read like translated, note-style Vietnamese: rephrase more naturally."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-SlmXdV5n3Hw": [
-    {
-      "at": "2026-11-13T06:19:49Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.7,
-      "notes": [
-        "\"chủ yếu là do manzanita mới\": the creator only guessed (\"probably the manzanita\"); hedge it with \"có thể là do manzanita\" instead of stating it as fact.",
-        "\"Nước còn hơi đục là do cặn và vi khuẩn từ lũa mới. Thay một lần nước là trong.\": the cause and the result are the creator's expectation (\"that will be just... if I do one water change it will go clear\"); hedge with \"có thể\" / \"thường\".",
-        "\"Sáng ra nước sẽ có màu và vẫn trong\": this is only the creator's hope (\"should be tanned and crystal clear\"); change to \"hy vọng sáng ra nước có màu mà vẫn trong\" or hedge it.",
-        "\"Dòng chảy sẽ đẩy bèo ra phía trước\": the creator only said the flow \"should\" keep the lettuce out in that area and that it would probably lodge in places; hedge it with \"có thể\".",
-        "\"Để cá yên vài tiếng\": the video gives no duration (only \"leave them for a bit\"); remove \"vài tiếng\" and say \"để cá yên một lúc\".",
-        "\"Đá và lũa tốt dùng lại được nhiều lần, nên gom dần thì càng về sau càng dễ làm bể\": the \"càng về sau càng dễ\" claim is not in the video (it only says hardscape can be reused many times); remove that clause.",
-        "\"Thêm một lọc trong nhỏ có bông lọc\": the video doesn't say the internal filter is small; delete \"nhỏ\".",
-        "Style: several sentences read like translated notes (\"Chúng thêm một lớp chi tiết mà không chiếm chỗ bơi\", \"đúng kiểu người ta hình dung về loài này ngoài sông\"); rewrite them in natural Vietnamese, e.g. \"giúp thêm chi tiết mà không chiếm chỗ bơi\", and drop the vague \"người ta hình dung\"."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T06:19:49Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"Tốt nhất là đưa đầu hút của lọc vào thùng cá.\" The video only says it is \"even better\" to put the filter inlet in with the fish. Change \"Tốt nhất là\" to something weaker, such as \"Tốt hơn nữa là\" or \"Nếu được thì\", so it isn't ranked as the best option."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-Zm9498fWcgc": [
-    {
-      "at": "2026-11-13T07:06:14Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.75,
-      "notes": [
-        "\"Bể bên cạnh có nhiều cây cắt cắm lên nhanh\": \"cây cắt cắm\" is not a natural hobby term. Rewrite it as \"nhiều cây thân\" (stem plants) that grow fast.",
-        "\"ở đây dùng loại của Dennerle\": the captions only say \"den denlay substrate powder\", so the brand is a guess. Drop the brand name and write \"một loại bột trộn nền\".",
-        "\"Đổ chậm và đều tay\": the video only says to fill the tank \"nice and steadily\" before the plants dry out. Remove the extra technique wording, or hedge it as \"nên đổ từ từ\".",
-        "\"Một bể khác set trước đó cũng ít phải chăm. Trong một tháng rưỡi, nó chỉ cần tỉa cây vài lần và thay nước đôi lần\": the video says the first tank, running a month and a half, needed only trimming rotala and a couple of water changes. It does not describe a tank \"set trước đó\" as a separate point. Merge this into a single plain sentence and say that it was rotala that got trimmed.",
-        "\"Bộ kit trong bài ghi khoảng 60 ngày\": the video wavers between 6 weeks, 60 days and 8 weeks. Reword it as \"khoảng 6–8 tuần\", or say the figure is not certain."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T07:06:14Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"Nếu không khuấy, phần chất pha loãng nổi lên trên. Sơn lớp đó lên, khô lại sẽ ra màu xám đục\": this was the creator's own guess, and he was unsure of the cause. Hedge it, e.g. \"có thể là do chưa khuấy nên sơn ở trên bị loãng\".",
-        "\"Khi sơn, nhớ quét theo chiều đi xuống để sơn không chảy vào trong bể\": in the video, pushing downwards was about scraping the paint off, not painting. Remove it from the painting steps or move it to the scraping step.",
-        "\"đây cũng là một cái lợi so với dán decal\": the video only says paint scrapes off easily. It does not say paint is better than vinyl tint. Remove the comparison.",
-        "\"Xả bông lọc. Bông lọc chạy lâu sẽ bị nghẹt.\": the cleanup steps for this tank are scraping the glass, scooping the crud and a water change. The filter floss was mentioned for the other tank. Remove this step; the CO2 bottle rinse can stay only as the video gives it.",
-        "\"Nước bể chứa cá và bể mới đã cùng nhiệt độ nên thả thẳng\": the video only says the temperatures already match. It gives no advice on skipping acclimation. Remove \"nên thả thẳng\".",
-        "\"không nhất thiết phải mua bình CO2 áp, van điện và đèn đắt tiền\": the video never says expensive lights are unnecessary. It only calls this light affordable. Remove \"đèn đắt tiền\".",
-        "\"Bể bên cạnh, set theo cùng cách, chỉ cần tỉa cây và thay nước vài lần trong một tháng rưỡi\": the video describes this earlier tank without saying it was set up the same way. Reword it as an earlier tank that needed little care, and drop \"set theo cùng cách\".",
-        "\"thả nhiều quá sẽ rối mắt\": this goes beyond the creator's remark that more fish would take away from the look. Hedge it as one person's taste, e.g. \"theo cảm nhận riêng thì...\"."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-cbtfHpaUjBQ": [
-    {
-      "at": "2026-11-13T06:58:45Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"Bể cũng có ít rêu len (woolly algae) và rêu sợi\": the video says there is a lot of woolly algae and some thread algae. Change \"ít rêu len\" to \"khá nhiều rêu len\".",
-        "\"Có người nuôi tép Neo ở pH dưới 7 mà tép vẫn khỏe. Cũng có thể có người nói tép Neo đẻ tốt ở pH 7,4, nhưng chắc là ít.\": the creator only imagined viewers objecting and doubted there are many. He did not report real cases. Remove both sentences or turn them into a hedged \"có thể sẽ có người phản bác\".",
-        "\"cá kim tơ\" (twice, for the white cloud mountain minnows) is the wrong name. Use the hobby term \"cá White Cloud\" instead.",
-        "\"Tép jelly xanh nên thả vào bể có nền sáng màu để dễ thấy màu\": the video only says he put them in the lighter-looking tank to see the colours better. \"Nền sáng màu\" is invented and clashes with the next sentence about needing a strange-coloured substrate. Hedge it as one person's choice or drop the \"nền\" detail.",
-        "\"Cách làm hợp lý là cứ thả tép vào tất cả các bể, chờ xem... rồi mới chỉnh\": this is the creator's own plan, written as the sensible way. Hedge it, for example \"một cách là...\".",
-        "\"Ở những bể có lũa, tanin không nhả mãi, thay nước dần thì pH cũng quay về khoảng 7\": the creator only predicted this (\"we'll see\", \"I might be wrong\"). Hedge it with \"có thể\" and \"dự đoán\".",
-        "\"Các bể ở đây\", \"nước máy ở đây\", \"Ở đây chỉ đo hai chỉ số\", \"Phòng bể ở đây có sưởi cả phòng\": these read as a report on the creator's own setup, which points back to the video. Reword them as general statements or as \"nếu nước máy của bạn...\".",
-        "\"Chờ lâu hơn một tuần như vậy lại tốt cho bể\" and \"Lúc đầu định chờ một tuần\": these are note-style, translated-sounding phrases that echo the creator's plans. Rewrite them naturally, for example \"để bể chạy khoảng 3 tuần trước khi thả tép là có lợi\"."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T06:58:45Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"mất khoảng 2,5 cm nước do bốc hơi\": the video only says the water dropped about an inch because the tanks weren't topped up. Drop the cause \"do bốc hơi\".",
-        "\"Amoniac được bỏ qua vì bể đã chạy đủ lâu\": the video gives no reason for skipping ammonia. It only says the creator knows there won't be any. Remove the \"vì...\" reason.",
-        "\"Sai lầm hay gặp là mua nhầm loại khoáng\": this was the creator's own one-off mistake. Rewrite it as one case, for example \"có thể mua nhầm\", not a common error.",
-        "\"nên đừng coi mốc nào là tuyệt đối\": this is a calque, and it overstates the video. The creator doubts those claims (\"probably not the case\") and only notes that people say them. Rewrite with a hedge, for example \"có người nói vậy nhưng khả năng này thấp\", or drop the advice.",
-        "\"Nó theo cây mang từ các bể cũ sang\": the creator only says \"I think\". Hedge it with \"có thể\" or \"nhiều khả năng\".",
-        "\"Tép cái mang yên (vệt vàng trên lưng)\": the video gives no yellow streak. Remove the parenthetical and keep only that saddled females have eggs about to move to the belly.",
-        "\"Tép lột xác ngay sau khi thả cũng là chuyện bình thường\": the video only shows molts seen in the tank and doesn't call them normal. Remove it or say only that molts were seen.",
-        "\"Tép hay kẹt ở góc túi\": the video says only to always check the bag, and that the corner is taped. It doesn't say shrimp often get stuck there. Remove the claim.",
-        "\"cá kim tơ\": this is the wrong name for white cloud mountain minnows. Use \"cá white cloud (bạch vân sơn)\" in both places.",
-        "\"Rêu phủ kín bể mới là chuyện đáng lo\": the video says only that a tank taken over by algae is not great. Remove \"mới\" and soften \"đáng lo\"."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-ePzGVkEOCrs": [
-    {
-      "at": "2026-11-13T07:11:17Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.7,
-      "notes": [
-        "\"chẳng hạn dương xỉ Java\" and \"cho cá có chỗ núp\": the video doesn't say what plants went in the bucket or why. Remove the Java fern example and the stated purpose. Keep only a hedged \"có thể thả vài nhánh cây\", or drop the step.",
-        "\"Đàn cá này vốn quen có người đi lại quanh bể ở chỗ cũ\": this is about the creator's own fish and refers back to the video. Rewrite it as a general hedged tip, such as cá quen thấy người thì ít giật mình, or remove it."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T07:11:17Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.5,
-      "notes": [
-        "\"Cho ăn ngay sau khi thả, nếu bể mới đã chạy ổn định\" / \"Nếu bể mới đã chạy ổn định thì cho cá ăn ngay\": the video says feeding settles fish if you have an established tank; but \"một cách hay\" and the FAQ \"việc đi kiếm mồi khắp bể giúp nó quen chỗ nhanh hơn\" overstate it. Hedge as one person's tip (\"một cách là\") and drop the claim that foraging helps them get used to the tank faster.",
-        "\"Làm vội hay làm ẩu thì cá dễ mất màu, núp một chỗ và bỏ ăn\" and \"Cá phải chịu đủ thứ: bị vợt đuổi, bị xóc trên đường đi\": a general claim about stress that the video doesn't state. Remove or soften it to what the video says (they hoped for less stress).",
-        "\"Gai đầu tiên của vây lưng... hay mắc vào lưới vợt. Khi gỡ ra, cá sẽ giãy\" and \"Con nào nhỏ mà dữ thì thường giãy mạnh hơn\": the video says only that the dorsal fin spike sometimes catches on the net and that the little one is feisty. \"Thường giãy mạnh hơn\" is a generalisation; remove it or keep it to that one fish.",
-        "\"Cá đĩa bị đuổi vài lần là bắt đầu cảnh giác với vợt\": invented; the video says only that they are wary now. Remove \"bị đuổi vài lần\".",
-        "\"Lái xe nhẹ nhàng như lúc chở em bé mới sinh... điều cần lo không phải là nước tràn mà là cá bị nước xô qua lại\": the video says the worry was fish being thrown around, with the water moving with them; the \"bắt buộc giảm tốc thật chậm\" at bends and potholes is the creator's own joking, not advice. Hedge it as what they did, not a rule.",
-        "\"Nước này đang ấm sẵn và đã có oxy từ bể, nên đi đường ngắn thì cá vẫn đủ thở\": the video says the bucket was already being oxygenated, as it was filled with warm water; the source of oxygen is not the tank. Correct to \"nước ấm, đã được sục oxy\".",
-        "\"Cá đĩa nhỏ thì để chung cả đàn trong một xô cũng được. Đi theo nhóm thì cá có thể yên tâm hơn là tách ra hai xô\": this is one person's guess (\"I actually think they'll be more comfortable as a group\"). Keep the hedge and don't present it as general advice.",
-        "\"Nếu có sủi oxy thì có thể chờ cá ổn định hẳn rồi mới bật... Bể có châm CO2 thì sủi sẽ làm thất thoát CO2, nhưng bật từng lúc thì không đáng kể\": the video says they waited to put the bubbles on because they wanted the fish more settled, and that bubbles would affect CO2 but are not on all the time. \"Không đáng kể\" is invented; drop it.",
-        "\"Cá đã quen có người đi lại quanh bể thì ít giật mình. Điều này hợp với bể đặt ở phòng khách\": \"điều này hợp với\" is calque-like and slightly changes the point. Rephrase naturally, tying it to these particular fish that were used to people in the studio.",
-        "FAQ \"Chở cá đĩa đi gần có cần túi bơm oxy không?\": the video never discusses oxygen bags; the question is invented. Remove the question or retitle it around carrying fish in a bucket. Also the summary \"Cá chịu ăn và bơi ra khắp bể là đang quen dần, màu sẽ lên lại\": the video doesn't say colour comes back; remove \"màu sẽ lên lại\"."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-gv63IUL4MsQ": [
-    {
-      "at": "2026-11-13T06:14:37Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.7,
-      "notes": [
-        "\"Nếu cá chạy loạn thì mới dỡ đồ ra để bắt khỏi làm cá bị thương\": the video gives no such conditional step. They planned to remove everything, tried the corner first, and the fish stayed calm. Remove the condition, or say only that they tried herding the fish into a corner first and it worked.",
-        "\"có thể châm nước và cho cá vào khá sớm\": the video only says the filter is mature, so they fill the tank and keep it running. It gives no rule that fish can go in early. Remove \"và cho cá vào khá sớm\".",
-        "\"Nghe nói một lần tẩy chỉ diệt giun trưởng thành, trứng vẫn còn\" (also in the FAQ): the video says one dewormer kills the worms but leaves eggs, with no mention of 'adult'. Remove \"trưởng thành\".",
-        "\"buộc cây bám đá (epiphyte) lên trên\": the video only says the islands have epiphytes on them. It never says to tie them on. Remove the tying step and say the rocks carry epiphytes.",
-        "\"Chúng chiếm khu phía sau... rồi đuổi cả đàn ra ngoài\": the video says only that the other fish were kept away from the main refuge area. Soften to \"các con khác bị giữ không vào được khu đó\".",
-        "\"Hẹ nước đặc biệt hợp với nền nghèo dinh dưỡng\" and \"Những cây con mọc từ ngó bò lan thường còn đẹp hơn\": this is the creator's own experience, but the guide writes it as a general rule. Hedge it, e.g. \"theo kinh nghiệm riêng thì...\" or \"có thể\".",
-        "Awkward, translation-like Vietnamese: \"Bệnh là cái giết cá, nhưng stress mới là cái mở đường cho bệnh\" and \"Bởi vậy... xử lý ngay khi cá còn đẹp\". Rewrite more naturally."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T06:14:37Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"đừng đợi đến lúc cá bỏ ăn hay xuống sắc\": the video never gives cá bỏ ăn or xuống sắc as warning signs. Remove this clause.",
-        "\"chuyển bể đi chỗ khác là cách dứt điểm\": this is stronger than the video, which only says rescaping won't help and moving them back is the right call. Hedge it, e.g. \"có thể chuyển bể\", and drop \"dứt điểm\".",
-        "\"Cặp đẻ thường là hai con to nhất bể\": this is one observation from one tank, written as a general rule. Rewrite it as what happened, e.g. \"có thể là hai con to nhất\".",
-        "\"Ngọc trai (Monte Carlo)\": the Vietnamese name is wrong or confusing, since ngọc trai is pearl weed. Use just \"Monte Carlo\".",
-        "\"hai loài này sống hòa thuận với cá đĩa\": the creator only says \"I think they get along well\". Hedge it to \"có thể hợp với cá đĩa\".",
-        "\"Nếu không có thời gian cho ăn nhiều lần, có thể dùng máy cho ăn tự động\": the video gives no such reason. It only says an auto feeder will be bought because little and often works better. Remove the \"không có thời gian\" condition.",
-        "\"Vớt cả đàn trong một lần lưới ... như vậy đỡ stress hơn\": this is the creator's \"I think\" opinion, stated as fact. Hedge it, e.g. \"có thể đỡ stress hơn\".",
-        "\"Tẩy giun là một việc làm cá đĩa khác hẳn\": this is an awkward, overstated claim. Rephrase it to say that cá lên cân rõ sau khi tẩy giun, without \"khác hẳn\".",
-        "\"Trại ép đẻ thường nuôi một cặp\": \"trại ép đẻ\" is unnatural, and \"thường\" generalises. Use \"người nuôi sinh sản\" with \"có thể\", and make it a single example.",
-        "\"Bể 120 cm mà bày ít thì lượng nước thực có thể còn nhiều hơn một bể to hơn nhưng nhét đầy nền và đá\": the video only says the minimalist setup gives more water volume than before. Remove the comparison with a bigger tank."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-p-4YR3CE3C8": [
-    {
-      "at": "2026-11-13T06:43:08Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.75,
-      "notes": [
-        "\"Điều quan trọng là thả cá thưa\": the video calls low stocking \"one of the key factors\", not the only one. Change it to \"một yếu tố quan trọng là thả cá thưa\".",
-        "\"thì đó là lúc thay nước\" (the 600 example against a tap of about 100): the creator only says that for his own tap water 600 is not good for plants, and that this shows his range. Hedge it to \"có thể coi đó là ngưỡng của bể mình\" and drop the firm instruction to change water.",
-        "\"Thả sớm chỉ hợp khi đã quen tay\": \"chỉ\" is stronger than the video, where this is one person's own confidence. Change it to \"người đã quen tay có thể thả sớm hơn nếu đo nước mỗi ngày\".",
-        "\"Sau khi set, đèn vẫn quá mạnh nên đã dán băng keo đen\" and \"Bể 60 cm dùng một đèn Superfish\": these retell the creator's own build step by step as a past event. Rewrite as a tip: \"có thể dán băng keo đen che một phần ba số LED nếu đèn quá mạnh\"."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T06:43:08Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.7,
-      "notes": [
-        "\"dương xỉ lùn sagittaria (dwarf sag)\": sagittaria is not a fern. Remove \"dương xỉ\" and write \"sagittaria lùn\".",
-        "\"Cây cắt cắm cắt ở đâu thì chỗ đó nhú ra hai ngọn mới\": garbled wording. Rewrite as \"cắt thân cây ở chỗ nào thì chỗ đó mọc ra hai ngọn mới\".",
-        "\"cỡ bể hay gặp trong nhà\": the creator only guessed this (\"don't quote me\"). Hedge it, e.g. \"có thể là cỡ bể phổ biến trong nhà\".",
-        "\"bể khoảng 60 cm trở lên nên gắn một bộ hớt váng\" (FAQ): the video gives no size threshold and says the skimmer is not necessary. Make it a hedge such as \"bể càng lớn thì càng dễ có góc nước chết, nên có thể gắn một bộ hớt váng nhỏ\".",
-        "\"Bể thủy sinh có châm CO2 thường cần 50–100 PAR\": the video says only that a high-tech planted tank would get 50–100 PAR and never mentions CO2. Change to \"bể công nghệ cao khoảng 50–100 PAR\".",
-        "\"Đây là cách giảm sáng rẻ tiền mà vẫn hiệu quả\": the video calls it only an old cheap method. Remove \"mà vẫn hiệu quả\".",
-        "\"nhưng chỉ đủ khi thả ít cá\": the video does not say this about plants absorbing ammonia and nitrite. Remove the clause or fold it into the earlier advice about stocking lightly.",
-        "\"Nếu trồng khô trước khi đổ nước thì nhớ xịt ẩm để cây tiền cảnh không bị khô\": this is a firm tip the video barely gives. Hedge it with \"nếu thích thì\" or remove it."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-r0JLyJKhLcc": [
-    {
-      "at": "2026-11-13T07:19:03Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.7,
-      "notes": [
-        "\"chỉ thả khi nhiệt độ hai bên bằng nhau\" (summary) and \"Nhiệt độ hai bên bằng nhau thì thả\": the video only says the temperature was \"bang on\" when the fish went in. It gives no rule to release only when the two sides match. Remove both or turn them into a description of what happened.",
-        "\"cá sóc đầu đỏ (glowlight danio)\": the Vietnamese name looks invented for the glowlight danio. Use \"cá danio glowlight\" or the English name only.",
-        "\"Lọc thô ban đầu dùng mút thưa\": the video never says the first sponges were coarse. It only says the new ones are softer and finer and clog quickly. Remove \"mút thưa\" and say only that the sponges were swapped for softer, finer ones.",
-        "\"Bình để lâu không dùng thì mở ra kiểm tra trước\": this is presented as a step, but the creator only said he should have opened it to check. Hedge it (\"có thể nên mở ra xem\") or remove it.",
-        "\"Mút mịn nghẹt nhanh, nhưng chính vì vậy mới tốt\" and \"Mỗi tuần rửa mút một lần là ổn\": the creator stated this as his own preference (\"I want it to clog quickly\"). Hedge the wording so it stays one person's view, for example \"có thể thích mút nghẹt nhanh vì...\".",
-        "The opening bullet summary repeats the sections below it almost point for point, and the FAQ repeats the CO2, temperature and sponge points. Cut the repetition, in particular the CO2 passage that says \"hơi ít\" and \"chỉ cần một ít\" twice in the same paragraph.",
-        "\"Bình CO2 axit citric có đủ cho bể lớn không?\" (FAQ): the video never calls the tank large. It only says the setup is slightly under-dosed for \"this size tank\". Reword the question to avoid \"bể lớn\"."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T07:19:03Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"Có thể bên trong vẫn còn CO2, mở từ từ\": the video gives no instruction to open it slowly. It only says he should have opened it to check. Remove \"mở từ từ\".",
-        "\"Cho hóa chất vào bình theo liều của bộ\": this dosing step is not in the video, which only shows adding the powder and 300 ml of water. Remove the \"theo liều của bộ\" wording.",
-        "\"Chuyển lọc sang chạy tiếp ở bể tạm\": the video says the next-door tank already has its own filter running and is already heated. It does not say to move a filter over. Correct or remove this step.",
-        "\"Ai muốn châm thật nhiều CO2 thì nên lắp bình CO2 áp suất\" (appears twice, in the CO2 section and in the FAQ): the video only says \"by all means\" for people who like to hammer CO2. Hedge it, for example \"thì có thể dùng\".",
-        "\"ý ở đây chỉ cần một ít cho cây\": the video does not say the CO2 is for the plants. It only says he wants a little CO2 and nothing crazy. Remove \"cho cây\".",
-        "\"cá cây trao đổi khí tốt hơn\" in the opening bullets: this is a garbled phrase. The video says better gas exchange at the surface. Fix it to \"bể trao đổi khí tốt hơn\".",
-        "\"đủ dùng khoảng một tháng, nên không còn vệt ố quanh mép kính\": the cause is wrong. The month is how long the reservoir lasts. The water line is hidden because the level always stays at the same spot. Fix the bullet or split it into two.",
-        "\"Bọc kín thùng và lái xe chậm vì có cá ở ghế sau\": the video only says not to go fast because there are fish in the back. \"Ghế sau\" and \"bọc kín thùng\" are the writer's own embellishment. Simplify it to a hedged \"đi nhẹ nhàng\".",
-        "Awkward, note-like Vietnamese: \"Đây là điểm an toàn\", \"Chuyện này bình thường ở bể mới\" (repeated), \"Chịu khó vệ sinh\", \"Nước bể vẫn để lại vệt cặn\". Rewrite these as natural flowing sentences."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-rWtfUks1ecs": [
-    {
-      "at": "2026-11-13T06:31:59Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.7,
-      "notes": [
-        "\"Mẹo dễ làm nhất là chọn lũa đá to so với bể\": the video calls oversizing the hardscape one of the main key factors and a great way to make a tank look good easily. It never calls it the easiest tip. Change to something like \"Một mẹo hay là chọn lũa đá to so với bể\" and drop the superlative."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T06:31:59Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"Muốn set bể thủy sinh, người ta thường nghĩ ngay tới một lớp phân nền dày phủ cát lên trên\": this puts one person's habit as what people generally think. Remove it or hedge it, e.g. \"Một cách quen thuộc là...\".",
-        "\"Cát lẫn hạt nhiều màu dễ nhìn hơn cát trắng tinh\": this is the speaker's own taste (he dislikes pure white and likes flecked sand), but it is written as fact. Hedge it, e.g. \"nếu thích thì chọn cát lẫn hạt nhiều màu thay cho cát trắng tinh\".",
-        "\"càng nhiều lũa đá, càng ấn tượng từ đầu càng tốt về lâu dài\": the speaker only says it is \"probably\" better long-term, and calls it a cheat code. Hedge it with \"có lẽ\" and keep it as his view.",
-        "\"Bể không trồng cây mà nhìn đã đẹp thì có cây vào sẽ còn đẹp hơn\": the video only says that if it looks good without plants, it will look good with plants. Remove \"còn đẹp hơn\".",
-        "\"Lấp sau khi lũa đã gắn chắc thì tiện hơn đổ đầy cát trước rồi mới cắm lũa vào\": the speaker calls filling the gaps afterwards a \"backward\" way and says there are multiple ways. Hedge it as one way (\"một cách là\") and drop the claim that it is more convenient.",
-        "\"đợi lọc lọc hết hạt nhỏ\": the doubled \"lọc\" is a typo and reads badly. Rewrite as \"đợi bộ lọc hút hết hạt nhỏ\".",
-        "\"bể cũng không có cây cắt cắm mọc nhanh hay bèo nổi\": \"cây cắt cắm\" is an awkward rendering of \"fast-growing stems\". Use the usual term, e.g. \"cây thân mọc nhanh\"."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-wXRpHS5A3G4": [
-    {
-      "at": "2026-11-13T07:35:36Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.75,
-      "notes": [
-        "\"Thả vào bể mới mà nó lao ngay vào bụi cây\": the keyholes were put in a temporary storage tank full of plants, not the new tank. Change \"bể mới\" to \"bể tạm\".",
-        "\"Cá con, tép Amano và mấy con hay trốn ... thì để lại một ít nước, tối đó dùng vợt tép vớt dần\": this mixes up the steps. The fish still left were not caught in the first round. They were taken to the other place and put in a small extra tank, and the creator scooped them out of it through the evening. Rewrite it that way, or cut it down to \"vài con còn sót thì vớt dần bằng vợt tép\".",
-        "\"Thảm cây dưới nền: không tách ra từng khóm mà giữ được, nên bỏ luôn\": this is awkward and hard to follow. Reword it as \"không tách ra từng khóm được nên bỏ luôn\".",
-        "\"Vợt nhỏ chỉ dùng để bắt mấy con trốn trong góc\": the video only says the tiny net can't catch the discus and that a smaller net suits the hiding keyholes. Drop the absolute \"chỉ\" and soften it to \"vợt nhỏ tiện cho mấy con trốn trong góc\"."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T07:35:36Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"Đàn cá đĩa đã sống chung hơn một năm thì thường ổn định\": this turns one group's experience into a general rule. Hedge it as that one group, or drop \"thường\".",
-        "\"Lúc đó không nên đụng vào bể chỉ vì muốn làm lại cho đẹp\" and \"đừng vội dỡ bể\": the video gives this as the creator's own choice for his own tank. Hedge it (\"có thể chọn không đụng vào…\") instead of stating it as advice for everyone.",
-        "\"khi biết bể sắp phải dỡ, nên làm sớm và chia ra nhiều bước, đừng dồn vào một buổi\": the video never says to start early or to split the work. It says only that he didn't want to rush the process and wanted to take his time. Remove \"làm sớm\" and the rule about not packing it into one session.",
-        "\"Thay vì đóng túi\" and \"Xô chứa nhiều nước hơn túi nên cá thoải mái hơn\": the video never compares a bucket to a bag. It says buckets are better than shrink-wrapping the top and give much more water volume. Remove the bag comparison and the \"thoải mái hơn\" claim.",
-        "\"Cá đĩa có lẽ sẽ thích bể cao hơn\": the video says the new tank is a bit shallower front to back and the discus will appreciate the depth. It does not say the tank is taller. Correct this to the video's wording or remove it.",
-        "\"Muốn cá đĩa nổi bật thì nên làm bể đơn giản hơn\": this is the creator's own plan for his living-room tank, not general advice. Hedge it (\"nếu muốn… thì có thể\").",
-        "\"Nhiệt độ là thứ quyết định cá nào ở lại với cá đĩa\": this is too strong. The video gives temperature as the reason only for keeping the keyhole cichlids out. Soften it or limit it to the keyhole.",
-        "The section \"Hướng bể mới: cá là chính, cây là phụ\" and the closing line about filling the tank before the plants arrive are about designing and building the new tank (island layout, substrate, plant choice). That is off the title's subject of dismantling and moving the fish. Drop or cut the section and the line.",
-        "The phrase \"Nhưng để trong phòng khách thì có thể hơi rối\" and the line \"người chơi thấy đẹp\" present one person's taste as a general view. Hedge them or remove them."
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-zJcimXCpXtY": [
-    {
-      "at": "2026-11-13T06:25:58Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"Lọc là một lọc trong nhỏ (Biomaster 250)\": the video never calls it an internal filter. A Biomaster with a pre-filter and inlet/outlet is an external canister filter, so change to \"lọc thùng/lọc ngoài\" or just name the model.",
-        "\"Cá ngân long vàng (gold harlequin)\": \"ngân long\" is the silver arowana, so this Vietnamese name is wrong. Use the English name \"gold harlequin\" or a correct hobby name.",
-        "\"Trong bể không gắn thêm thổi luồng nào\": awkward, calque-like phrasing. Rewrite as \"không có máy thổi dòng\" (no powerhead).",
-        "\"nhúng nước xem trước là biết đá hợp hay không\": the video only says the colours look better when wet. It gives no tip to test rocks by dipping them. Reduce this to \"màu đá hiện ra đẹp hơn khi ướt\".",
-        "\"Khó nhất là kìm được tay, đừng trồng kín bể\": the superlative is stronger than the video, which only says it is hard to hold back. Change to \"Cũng cần kìm tay, đừng trồng kín bể\" or hedge it.",
-        "Table row Spotlight \"Có chiều sâu\": the video does not say spotlights add depth. It says spotlights give a moodier feel, with shimmer and shadows. Remove \"có chiều sâu\" and use \"trầm, có bóng đổ\".",
-        "\"Một bể làm theo kiểu này cho cây lên rất đẹp\": this repeats the one-tank experiment as if it were a general result. Say \"bể thử theo kiểu này thì cây lên rất đẹp\".",
-        "\"Bể còn khô thì khó thấy cây cao tới đâu\" and \"đổ nước đầy bể trước rồi mới trồng\": the transcript only says \"fill it up and then plant\", with the reasons about seeing height and gaps. It does not clearly say to fill the tank with water first. Soften this or drop the \"bể còn khô\" detail."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-13T06:25:58Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.6,
-      "notes": [
-        "\"Một kiểu bể như vậy cũng hợp với cá sặc. Cá sặc có chỗ để chiếm làm khu riêng, thích trốn một lúc rồi bơi ra\": this is the creator's passing guess (\"kind of screaming out as a gourami tank\"), stated as firm fact. Remove it or hedge it (\"có thể hợp với cá sặc\").",
-        "\"hợp nhất cho bể dày cây\" (strip light): the video only says it is \"probably the best option\", hedged. Change to a hedged wording such as \"có thể hợp với bể dày cây\" and drop the superlative \"nhất\".",
-        "\"Bể thủy sinh không nhất thiết phải có phân nền đắt tiền, CO2 và đèn mạnh\": the video says only that you don't need crazy expensive lighting and substrate systems, and says nothing here about CO2 being unnecessary. Remove \"CO2\" from this list and say \"đèn và phân nền đắt tiền\".",
-        "\"Bể trông giống thiên nhiên hơn thì dễ bắt đầu hơn với người mới\": this is the creator's hope (\"hopefully a lot of people... feel the same way\"), stated as fact. Hedge it with \"có thể dễ bắt đầu hơn\" and keep it as his view.",
-        "\"xịt lên mặt ngoài kính sau\" (appears twice, also in the FAQ): the video doesn't say whether the paint goes outside or inside the glass. Remove \"mặt ngoài\" and say \"kính sau\".",
-        "\"Bể không dùng thổi luồng\" reads like a translation of \"no power head\". Rewrite naturally, e.g. \"bể không gắn máy bơm tạo dòng\".",
-        "\"Cá chọn đàn cá tetra xanh bơi theo bầy\" in the summary list is clumsy, note-style Vietnamese. Rewrite as \"Chọn một đàn cá tetra xanh, loại hay bơi sát nhau thành bầy\".",
-        "\"Cá chột một mắt thường vẫn sống khỏe, có khi còn lanh lợi hơn\": the video says this about the creator's own experience (\"I've seen this plenty of times\"). Hedge it, e.g. \"theo kinh nghiệm của một số người nuôi\", or drop \"thường\"."
-      ],
-      "attempt": "first",
-      "kept": false
     }
   ]
 }
