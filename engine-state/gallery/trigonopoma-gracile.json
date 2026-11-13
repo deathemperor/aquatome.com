@@ -3,10 +3,27 @@
  "judged": [
   "File:Rasbora einthovenii lampung.jpg",
   "File:LK-ซิวแถบทอง11.jpg",
-  "File:Blue-lined Rasbora, Selangor, MY iNaturalist.jpg"
+  "File:Blue-lined Rasbora, Selangor, MY iNaturalist.jpg",
+  "inat:250802503",
+  "inat:445274365",
+  "inat:445274367",
+  "inat:445274455"
  ],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/727a50104f4a77a8.webp": "fa389e0f2751868c"
+  "https://media.aquatome.com/seriouslyfish/727a50104f4a77a8.webp": "fa389e0f2751868c",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/445274367/large.jpeg": "0f0f0758f063def0"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 613745,
+  "pass": "done",
+  "after": {
+   "research": 249129446,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 5962670,
+  "next": null
+ }
 }

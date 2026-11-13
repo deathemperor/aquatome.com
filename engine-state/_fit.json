@@ -16605,8 +16605,8 @@
     "products": []
   },
   "id/species/prionobrama-filigera": {
-    "at": "2026-11-08",
-    "hash": "4ab96226728a2d29",
+    "at": "2026-11-13",
+    "hash": "26044c62ad791801",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -16614,14 +16614,21 @@
         "check": "source",
         "part": "P3",
         "quote": "Spesimen yang ada di foto, misalnya, adalah hasil penangkaran di Hong Kong.",
-        "why": "Refers to a photo from the source article that the page does not have.",
+        "why": "Refers to a photo from the source that the page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "Akuarium berukuran 60 × 38 × 30 cm, sekitar 68 liter",
+        "why": "Tank dimensions converted from 24 × 15 × 12 inches; not a size a keeper in Indonesia would name.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P8",
         "quote": "ranting beech dan oak yang sudah dikupas juga boleh",
-        "why": "Beech and oak twigs are local materials for a European reader and hard to find in Indonesia.",
+        "why": "Beech and oak twigs are a temperate-country resource, not something an Indonesian keeper collects.",
         "by": "model"
       }
     ],
@@ -17046,11 +17053,27 @@
     "products": []
   },
   "id/species/rasbora-sarawakensis": {
-    "at": "2026-11-08",
-    "hash": "ccc61ee3b72f8945",
+    "at": "2026-11-13",
+    "hash": "bec1ee0ac203f5f5",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P6",
+        "quote": "Akuarium berukuran 60 × 38 × 30 cm (sekitar 68 liter)",
+        "why": "A 24 × 15 × 12 inch tank converted to cm; the 38 cm depth is not a size used in Indonesia.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P13",
+        "quote": "filter internal bermotor",
+        "why": "Calque of the English 'power filter'; keepers in Indonesia don't say it this way.",
+        "by": "model",
+        "fix": "filter celup"
+      }
+    ],
     "products": []
   },
   "id/species/rasbora-tornieri": {
@@ -17070,32 +17093,25 @@
     "products": []
   },
   "id/species/rasbora-vulcanus": {
-    "at": "2026-11-08",
-    "hash": "fba7d79e5868b9c1",
+    "at": "2026-11-13",
+    "hash": "e58ffeb63a25fde5",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P10",
-        "quote": "Membuat komunitas berisi ikan-ikan asli Sumatra bagian barat lebih sulit, karena ekspor dari wilayah itu paling-paling hanya sesekali.",
-        "why": "Written for a reader in an importing country; a keeper in Indonesia does not depend on exports from Sumatra.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P11",
-        "quote": "Betina bisa sulit dicari di pasaran karena sering kali hanya jantan yang lebih berwarna, dan lebih laku, yang diekspor.",
-        "why": "Treats the reader's market as one supplied by exports, which is the view of a foreign buyer.",
+        "check": "units",
+        "part": "P6",
+        "quote": "Akuarium berukuran 60 × 38 × 30 cm (~68 liter)",
+        "why": "38 cm depth is a converted 24×15×12-inch tank size, not one sold in Indonesia.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P12",
         "quote": "Filter listrik kecil bisa dipasang di awal",
-        "why": "A word-for-word translation of the English 'power filter'; keepers in Indonesia don't say it.",
+        "why": "Calque of English 'power filter'; Indonesian keepers don't say 'filter listrik'.",
         "by": "model",
-        "fix": "filter mesin"
+        "fix": "filter mesin / filter internal"
       }
     ],
     "products": []
@@ -17551,8 +17567,8 @@
     "products": []
   },
   "id/species/thayeria-boehlkei": {
-    "at": "2026-11-08",
-    "hash": "c94f6b338374d73f",
+    "at": "2026-11-13",
+    "hash": "4cce999030e36caf",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -17560,7 +17576,7 @@
         "check": "elsewhere",
         "part": "P5",
         "quote": "kayu beech biasa aman dipakai asalkan sudah benar-benar kering dan dikupas kulitnya",
-        "why": "Collecting beech wood (and beech or oak leaves) is advice for European keepers; these trees don't grow in Indonesia.",
+        "why": "Beech wood, and beech or oak leaves, come from temperate European woodland and are not available to a keeper in Indonesia.",
         "by": "model"
       }
     ],
@@ -20374,11 +20390,19 @@
     "products": []
   },
   "ms/species/corydoras-paleatus": {
-    "at": "2026-11-08",
-    "hash": "cf005f59d862dee7",
+    "at": "2026-11-13",
+    "hash": "63767f20001d27c5",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "Tapak akuarium: 61 × 38 cm. Isi padu: ~70 liter (61 × 38 × 30 cm).",
+        "why": "These tank sides were converted from 24 × 15 × 12 inches. No keeper in Malaysia would give a tank in these figures.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "ms/species/corydoras-panda": {
@@ -20614,8 +20638,8 @@
     "products": []
   },
   "ms/species/hemigrammus-erythrozonus": {
-    "at": "2026-11-08",
-    "hash": "9b49bff34416c699",
+    "at": "2026-11-13",
+    "hash": "4a5fdae61a88704f",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -20623,14 +20647,28 @@
         "check": "elsewhere",
         "part": "P5",
         "quote": "kayu beech biasa selamat digunakan jika dikeringkan sepenuhnya dan dibuang kulitnya",
-        "why": "Beech wood is a European material a Malaysian keeper would not have at hand.",
+        "why": "Beech wood is a European tree, not something a Malaysian keeper can collect.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P5",
-        "quote": "sekali lagi daun beech boleh digunakan, atau daun oak juga sesuai",
-        "why": "Beech and oak leaves are what a European keeper collects; in Malaysia keepers use ketapang leaves.",
+        "quote": "daun beech boleh digunakan, atau daun oak juga sesuai",
+        "why": "Beech and oak leaves are European; Malaysian keepers use local leaves like ketapang.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Tangki bersaiz 60 × 38 × 30 cm, kira-kira 68 liter",
+        "why": "Dimensions converted from a 24 × 15 × 12 inch tank, not a size used in Malaysia.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Saiz akuarium: 60 × 38 cm",
+        "why": "Footprint converted from 24 × 15 inches.",
         "by": "model"
       }
     ],
@@ -20675,8 +20713,8 @@
     "products": []
   },
   "ms/species/labidochromis-caeruleus": {
-    "at": "2026-11-08",
-    "hash": "473847b56f48f686",
+    "at": "2026-11-13",
+    "hash": "7635862df3505995",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -20946,11 +20984,26 @@
     "products": []
   },
   "ms/species/poecilia-latipinna": {
-    "at": "2026-11-08",
-    "hash": "d55824537fe1da7e",
+    "at": "2026-11-13",
+    "hash": "cc2639d992559892",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Saiz akuarium: 76 × 38 cm",
+        "why": "A 30 × 15 inch tank footprint converted to cm; not a size anyone in Malaysia would give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Isi padu ~87 liter; 76 × 38 × 30 cm.",
+        "why": "Tank dimensions converted from 30 × 15 × 12 inches, not a local tank size.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "ms/species/poecilia-reticulata": {
@@ -27120,16 +27173,30 @@
     "products": []
   },
   "th/species/altolamprologus-calvus": {
-    "at": "2026-11-08",
-    "hash": "6fa50d87333b99e3",
+    "at": "2026-11-13",
+    "hash": "07e29f525d55a848",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P1",
+        "quote": "ขนาดตู้ปลา: 91 × 46 ซม.",
+        "why": "Tank size converted from 36 × 18 inches; not a size Thai keepers use.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "ตู้ขนาด 91 × 46 × 41 ซม. หรือประมาณ 150 ลิตร",
+        "why": "Tank dimensions converted from inches (36 × 18 × 16).",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P4",
         "quote": "ควรใช้ตู้ขนาด 285 ลิตรขึ้นไป",
-        "why": "285 litres is a converted 75-gallon tank size, not a size anyone in Thailand would name.",
+        "why": "285 litres is a converted 75 US gallon tank.",
         "by": "model"
       }
     ],
@@ -27679,11 +27746,19 @@
     "products": []
   },
   "th/species/ancistrus-ranunculus": {
-    "at": "2026-11-08",
-    "hash": "7af58d84fb4ad8ae",
+    "at": "2026-11-13",
+    "hash": "42ac441dcf97db0c",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P11",
+        "quote": "ต้องใช้ตู้ขนาดประมาณ 76 × 30 × 30 ซม.",
+        "why": "76 × 30 × 30 cm is a 30 × 12 × 12 inch tank converted to metric, not a size anyone in Thailand would give.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/ancistrus-triradiatus": {
@@ -28437,8 +28512,8 @@
     "products": []
   },
   "th/species/apistogramma-brevis": {
-    "at": "2026-11-08",
-    "hash": "1e2fec3d669c9878",
+    "at": "2026-11-13",
+    "hash": "d1baf3d6fd4b147a",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -32055,11 +32130,19 @@
     "sourceRead": true
   },
   "th/species/callochromis-macrops": {
-    "at": "2026-11-12",
-    "hash": "e753151e37e30237",
+    "at": "2026-11-13",
+    "hash": "4e4c526654a93072",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "ในตู้ที่มีขนาดฐานตู้เล็กกว่า 183 × 46 ซม. ควรเลี้ยงตัวผู้เพียงตัวเดียว",
+        "why": "183 × 46 cm is a 72 × 18 inch tank base converted to metric, not a size anyone in Thailand would give.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/camposcia-retusa": {
@@ -33007,11 +33090,19 @@
     "products": []
   },
   "th/species/cichlasoma-trimaculatum": {
-    "at": "2026-11-10",
-    "hash": "dc339582d95fbf37",
+    "at": "2026-11-13",
+    "hash": "d6dd0ae2164486c7",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "ขนาดตู้ปลา: 122 × 38 ซม.",
+        "why": "Tank footprint converted from 48 × 15 inches; a Thai keeper would say 120 × 40 cm (a 48-inch tank).",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/cincelichthys-bocourti": {
@@ -33395,11 +33486,19 @@
     "products": []
   },
   "th/species/copadichromis-chrysonotus": {
-    "at": "2026-11-10",
-    "hash": "e6b8335b6637eac2",
+    "at": "2026-11-13",
+    "hash": "c945aa6a39a3642f",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "ควรเผื่อพื้นที่ประมาณ 46 × 46 × 46 ซม. ต่ออาณาเขตของตัวผู้ 1 ตัว",
+        "why": "46 cm is 18 inches converted; no keeper in Thailand would give a territory size as 46 cm.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/copadichromis-ilesi": {
@@ -34044,8 +34143,8 @@
     "products": []
   },
   "th/species/corydoras-leopardus": {
-    "at": "2026-11-11",
-    "hash": "06b3ec3bc6fa78c8",
+    "at": "2026-11-13",
+    "hash": "2e0c9f2685499b70",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -34068,19 +34167,36 @@
     "products": []
   },
   "th/species/corydoras-loretoensis": {
-    "at": "2026-11-11",
-    "hash": "055981d11920839f",
+    "at": "2026-11-13",
+    "hash": "f53f7b6563d20fbc",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P9",
+        "quote": "ซึ่งตรงกับช่วงฤดูหนาวของซีกโลกเหนือ ดังนั้นหากพยายามเพาะในฤดูร้อนแล้วไม่สำเร็จ อาจลองรอจนถึงฤดูหนาวแล้วค่อยลองใหม่",
+        "why": "The advice to wait for winter assumes a reader with northern temperate seasons, which Thailand doesn't have.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/corydoras-loxozonus": {
-    "at": "2026-11-11",
-    "hash": "67edf7a6adcea02a",
+    "at": "2026-11-13",
+    "hash": "5c02f69c5b0636c6",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P13",
+        "quote": "และใส่ไม้น้ำเป็นกอ ๆ เช่น มอสส์ชวา",
+        "why": "Dictionary-style transliteration of Java moss; Thai keepers say จาวามอส.",
+        "by": "model",
+        "fix": "จาวามอส"
+      }
+    ],
     "products": []
   },
   "th/species/corydoras-melanistius": {
@@ -34293,11 +34409,19 @@
     "products": []
   },
   "th/species/corydoras-paleatus": {
-    "at": "2026-11-08",
-    "hash": "127a7556cf8a2ee2",
+    "at": "2026-11-13",
+    "hash": "fe48893a45cf9431",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "ขนาดพื้นตู้: 61 × 38 ซม. ปริมาตร: ประมาณ 70 ลิตร (61 × 38 × 30 ซม.)",
+        "why": "A 61 × 38 × 30 cm tank is a 24 × 15 × 12 inch tank converted to centimetres; Thai keepers would give a round metric size such as 60 × 35 or 60 × 40 cm.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/corydoras-panda": {
@@ -35347,11 +35471,20 @@
     "products": []
   },
   "th/species/cyrtocara-moorii": {
-    "at": "2026-11-08",
-    "hash": "0e923b02fea1e92f",
+    "at": "2026-11-13",
+    "hash": "8885dadb887e5aee",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "ปลาแมวกลุ่ม Synodontis จากทะเลสาบริฟต์",
+        "why": "\"ปลาแมว\" is a word-for-word translation of \"catfish\". In Thai, ปลาแมว is the name of a different fish, so hobbyists don't use it for catfish.",
+        "by": "model",
+        "fix": "ปลาแคทฟิช"
+      }
+    ],
     "products": []
   },
   "th/species/danio-albolineatus": {
@@ -35482,8 +35615,8 @@
     "products": []
   },
   "th/species/dermogenys-pusilla": {
-    "at": "2026-11-08",
-    "hash": "d3df8a31f9d97d30",
+    "at": "2026-11-13",
+    "hash": "2e8a52a6bdd6fdbf",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -35930,23 +36063,30 @@
     "products": []
   },
   "th/species/hasemania-nana": {
-    "at": "2026-11-08",
-    "hash": "ae7c24ab5f513048",
+    "at": "2026-11-13",
+    "hash": "cc9ed8cf96803421",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P6",
+        "quote": "ถ้าเลี้ยงฝูงใหญ่ 20 ตัวในตู้ 208 ลิตร",
+        "why": "208 litres is a converted 55-gallon tank size nobody in Thailand would use.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P17",
         "quote": "ให้ใช้ตู้ขนาด 38 ลิตรที่เซ็ตมานานแล้ว",
-        "why": "38 litres is a converted 10-gallon tank, not a size a keeper in Thailand would name.",
+        "why": "38 litres is a converted 10-gallon tank size.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P8",
         "quote": "ใบโอ๊กและใบบีชปลอดภัยสำหรับตู้ปลาเมื่อตากแห้งสนิทแล้ว",
-        "why": "Oak and beech leaves are temperate-country leaf litter, not something a keeper in Thailand can pick up; they use Indian almond leaves.",
+        "why": "Oak and beech leaves are offered as the reader's own option, but these trees grow in cooler countries and are hard to get in Thailand.",
         "by": "model"
       }
     ],
@@ -35991,32 +36131,32 @@
     "products": []
   },
   "th/species/hemigrammus-erythrozonus": {
-    "at": "2026-11-08",
-    "hash": "1cb058fb1e977806",
+    "at": "2026-11-13",
+    "hash": "c7aae043f720f057",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "words",
+        "part": "P8",
+        "quote": "ปลาหมูอารีย์ (คอรีดอรัส)",
+        "why": "In Thai hobby usage ปลาหมูอารีย์ is a loach, not Corydoras; Thai keepers call corydoras ปลาแพะ.",
+        "by": "model",
+        "fix": "ปลาแพะ (คอรี่)"
+      },
+      {
         "check": "elsewhere",
         "part": "P5",
         "quote": "สามารถใช้ไม้บีช (common beech) ได้อย่างปลอดภัย หากตากให้แห้งสนิทและลอกเปลือกออกหมดแล้ว",
-        "why": "Collecting European beech wood is advice for a reader in Europe; it doesn't grow wild in Thailand.",
+        "why": "Collecting European beech wood is advice for a reader in Europe, not one in Thailand.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P5",
         "quote": "ใช้ใบบีชได้เช่นกัน หรือใบโอ๊กก็เหมาะสม",
-        "why": "Beech and oak leaves are what a European keeper collects; keepers in Thailand use Indian almond leaves.",
+        "why": "Beech and oak leaves are temperate European leaf litter that a keeper in Thailand can't collect locally.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P8",
-        "quote": "ปลาหมูอารีย์ (คอรีดอรัส)",
-        "why": "Thai keepers use ปลาหมูอารีย์ for a botiid loach, not for Corydoras, so this name points to the wrong fish.",
-        "by": "model",
-        "fix": "ปลาแพะ (คอรีดอรัส)"
       }
     ],
     "products": []
@@ -36062,8 +36202,8 @@
     "products": []
   },
   "th/species/herichthys-carpintis": {
-    "at": "2026-11-08",
-    "hash": "8614406469372144",
+    "at": "2026-11-13",
+    "hash": "8034d6451410fb1e",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -36241,23 +36381,30 @@
     "products": []
   },
   "th/species/inpaichthys-kerri": {
-    "at": "2026-11-08",
-    "hash": "47ffbda6724d140c",
+    "at": "2026-11-13",
+    "hash": "4ba81d76035bfd0f",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P4",
+        "quote": "ต้องใช้ตู้ขนาดประมาณ 60 × 38 × 30 ซม.",
+        "why": "A 60 × 38 cm tank is converted from 24 × 15 inches; Thai keepers don't use a 38 cm width.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P5",
         "quote": "สามารถใช้ไม้บีช (common beech) ได้อย่างปลอดภัยหากตากให้แห้งสนิทและลอกเปลือกออกแล้ว",
-        "why": "Collecting European beech wood is advice for a reader in Europe; it is not available to a keeper in Thailand.",
+        "why": "Beech is a European tree. It's given as the reader's easy stand-in for driftwood, which Thai keepers can buy anyway.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P5",
         "quote": "ใช้ใบบีชได้เช่นกัน หรือใบโอ๊กก็เหมาะ",
-        "why": "Beech and oak leaves are temperate-country leaf litter; Thai keepers use Indian almond leaves (ใบหูกวาง).",
+        "why": "Beech and oak leaves are what European keepers collect. Thai keepers use Indian almond leaves (ใบหูกวาง).",
         "by": "model"
       }
     ],
@@ -36373,8 +36520,8 @@
     "products": []
   },
   "th/species/labidochromis-caeruleus": {
-    "at": "2026-11-08",
-    "hash": "09f5980c209154cd",
+    "at": "2026-11-13",
+    "hash": "63c9fa199701bbdd",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -36695,11 +36842,26 @@
     "sourceRead": true
   },
   "th/species/marosatherina-ladigesi": {
-    "at": "2026-11-08",
-    "hash": "23510a53daa7c0b1",
+    "at": "2026-11-13",
+    "hash": "b616da218f01f412",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "ขนาดพื้นตู้ 76 × 30 ซม.",
+        "why": "A 30 × 12 inch tank converted to cm, not a size a Thai keeper would give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "ขนาดตู้ปลา: 76 × 30 ซม.",
+        "why": "A 30 × 12 inch tank converted to cm, not a size a Thai keeper would give.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/mastacembelus-armatus": {
@@ -36718,8 +36880,8 @@
     "products": []
   },
   "th/species/maylandia-estherae": {
-    "at": "2026-11-08",
-    "hash": "19bda81d55989e96",
+    "at": "2026-11-13",
+    "hash": "d22d08e45babd1a0",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -37284,11 +37446,19 @@
     "products": []
   },
   "th/species/osphronemus-goramy": {
-    "at": "2026-11-08",
-    "hash": "8cbd007d25c70260",
+    "at": "2026-11-13",
+    "hash": "bf9b3b304518bde4",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "ขนาดพื้นตู้: 183 × 61 ซม. ปริมาตร: ประมาณ 681 ลิตร",
+        "why": "These are converted from 6 × 2 feet and 180 US gallons. Nobody in Thailand would give a tank size this way.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/osphronemus-laticlavius": {
@@ -37500,11 +37670,19 @@
     "products": []
   },
   "th/species/parambassis-ranga": {
-    "at": "2026-11-08",
-    "hash": "c25245adb461be36",
+    "at": "2026-11-13",
+    "hash": "25929faedd4f113c",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "ให้เตรียมตู้ขนาดประมาณ 76 × 30 × 30 ซม.",
+        "why": "76 cm is a 30-inch tank converted from imperial; Thai keepers would say a 75 or 80 cm tank.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/parambassis-siamensis": {
@@ -37785,11 +37963,26 @@
     "products": []
   },
   "th/species/poecilia-latipinna": {
-    "at": "2026-11-08",
-    "hash": "54684d0766d3e35b",
+    "at": "2026-11-13",
+    "hash": "deb97f78d13ce24d",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "ขนาดตู้ปลา: 76 × 38 ซม.",
+        "why": "A 30 × 15 inch tank footprint converted to cm; Thai keepers use round sizes such as a 30-inch/75 cm tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "ตู้ 76 × 38 × 30 ซม.",
+        "why": "Tank dimensions converted from inches (30 × 15 × 12 in), not a size a Thai keeper would use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/poecilia-reticulata": {
@@ -37857,8 +38050,8 @@
     "products": []
   },
   "th/species/prionobrama-filigera": {
-    "at": "2026-11-08",
-    "hash": "26b43ce54b7b4674",
+    "at": "2026-11-13",
+    "hash": "df571a278f8751c4",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -37866,14 +38059,14 @@
         "check": "source",
         "part": "P3",
         "quote": "ปลาในภาพถ่ายเป็นปลาที่เพาะพันธุ์ในฮ่องกง",
-        "why": "It refers to a photo from the source article, and this page has no photo.",
+        "why": "Refers to the source's photo, which the page does not have.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P8",
         "quote": "กิ่งบีชและโอ๊กที่ลอกเปลือกแล้วก็ใช้ได้",
-        "why": "Beech and oak branches are what a European keeper collects; they are not trees a keeper in Thailand has to hand.",
+        "why": "Beech and oak branches are collected from European woodland, not something a Thai keeper can easily gather.",
         "by": "model"
       }
     ],
@@ -38251,8 +38444,8 @@
     "products": []
   },
   "th/species/rasbora-sarawakensis": {
-    "at": "2026-11-08",
-    "hash": "2891ccc4bd7b4053",
+    "at": "2026-11-13",
+    "hash": "eb2404903b8dcdac",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -38275,11 +38468,19 @@
     "products": []
   },
   "th/species/rasbora-vulcanus": {
-    "at": "2026-11-08",
-    "hash": "6870ce9fde832d7e",
+    "at": "2026-11-13",
+    "hash": "2f299bf25881fa70",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P12",
+        "quote": "ขนาดประมาณ 60 × 20 × 20 ซม. (39 ลิตร)",
+        "why": "39 litres is a converted 10-gallon tank and doesn't match the 24 litres these sides give.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/rocio-octofasciata": {
@@ -38711,16 +38912,23 @@
     "products": []
   },
   "th/species/thayeria-boehlkei": {
-    "at": "2026-11-08",
-    "hash": "1571056efe522697",
+    "at": "2026-11-13",
+    "hash": "22ebd6ce2780358d",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P4",
+        "quote": "ตู้ขนาด 60 × 38 × 30 ซม. (ประมาณ 68 ลิตร)",
+        "why": "A 24 × 15 × 12 inch tank converted to cm; keepers in Thailand don't use a 38 cm depth.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P5",
         "quote": "สามารถใช้ไม้บีช (beech) ได้อย่างปลอดภัยหากตากให้แห้งสนิทและลอกเปลือกออกแล้ว",
-        "why": "Collecting and drying beech wood is advice for European keepers; beech does not grow in Thailand.",
+        "why": "Collecting beech wood (and beech or oak leaves) assumes a European or North American reader; these trees aren't found in Thailand.",
         "by": "model"
       }
     ],
@@ -59013,27 +59221,11 @@
     ]
   },
   "vi/guides/youtube-0MzfLrSqfXY": {
-    "at": "2026-11-09",
-    "hash": "1644399f9f7c2469",
+    "at": "2026-11-13",
+    "hash": "cfb2b3dbf8e4054e",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "units",
-        "part": "TITLE",
-        "quote": "Loài cá hợp nuôi trong bể 38 lít (10 gallon)",
-        "why": "A 10-gallon US tank converted to 38 litres; the body itself uses 40 litres.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P2",
-        "quote": "Cá chì đuôi nâu có dáng bơi đặc trưng là mũi luôn chĩa lên mặt nước.",
-        "why": "Literal rendering of brown-tailed pencilfish; Vietnamese keepers call pencilfish cá bút chì.",
-        "by": "model",
-        "fix": "cá bút chì đuôi nâu"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-0ozJmYMk914": {
@@ -70486,20 +70678,29 @@
     "products": []
   },
   "vi/guides/youtube-hPicG4pgGmI": {
-    "at": "2026-11-09",
-    "hash": "86125c1379371a9d",
+    "at": "2026-11-13",
+    "hash": "7022d48a49428447",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P1",
-        "quote": "một bể dáng cao khoảng 680 lít",
-        "why": "680 litres is a converted 180-gallon tank, a size nobody in Vietnam would name.",
+        "quote": "kính dày 1,9 cm",
+        "why": "1.9 cm is a converted 3/4 inch glass thickness, not a figure a Vietnamese keeper would give.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này nặng gần 180 kg, một người không thể tự chuyển.",
+        "why": "Refers to the source author's own tank as if the reader knew it.",
         "by": "model"
       }
     ],
-    "products": []
+    "products": [
+      "keo 502"
+    ]
   },
   "vi/guides/youtube-hpTFD_30N8M": {
     "at": "2026-11-09",
@@ -71741,26 +71942,11 @@
     ]
   },
   "vi/guides/youtube-iMdL-mkSSJY": {
-    "at": "2026-11-09",
-    "hash": "273e53c2d1e8b481",
+    "at": "2026-11-13",
+    "hash": "1bde68516bcfd2a9",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "một con riêng lẻ cần bể khoảng 110 lít trở lên",
-        "why": "110 litres is a converted 30-gallon tank size, not a size keepers in Vietnam use.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "L13",
-        "quote": "nuôi một con thì khoảng 110 lít trở lên",
-        "why": "110 litres is a converted 30-gallon tank size, not a size keepers in Vietnam use.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-ipTDkQsT6HQ": {
@@ -75726,19 +75912,11 @@
     "products": []
   },
   "vi/guides/youtube-mGmIvhtIM9k": {
-    "at": "2026-11-09",
-    "hash": "4168424a9c707264",
+    "at": "2026-11-13",
+    "hash": "7ef492ec44dcd3a3",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Mỗi con cần ít nhất khoảng 115 lít nước",
-        "why": "115 litres is a conversion of 30 US gallons, not a volume a Vietnamese keeper would give.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-MhBjnxcrRMg": {
@@ -79411,19 +79589,11 @@
     "products": []
   },
   "vi/guides/youtube-QhPgAnEku_o": {
-    "at": "2026-11-09",
-    "hash": "445ce2a53258a8b8",
+    "at": "2026-11-13",
+    "hash": "6a0070a40d47a629",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "bể nước đen riparium khoảng 110 lít",
-        "why": "110 litres is a converted 29–30 gallon tank size that nobody in Vietnam would use.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": [
       "Shark Pro"
     ]
@@ -91120,18 +91290,31 @@
     "products": []
   },
   "vi/species/altolamprologus-calvus": {
-    "at": "2026-11-08",
-    "hash": "89b6fe2788c06628",
+    "at": "2026-11-13",
+    "hash": "aaadf94ba279f627",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "words",
-        "part": "P10",
-        "quote": "giun vi mô (microworm)",
-        "why": "A literal translation of 'microworm' that Vietnamese keepers don't use.",
-        "by": "model",
-        "fix": "vi giun / giun vi sinh"
+        "check": "units",
+        "part": "P1",
+        "quote": "Kích thước bể: 91 × 46 cm",
+        "why": "Tank footprint converted from 36 × 18 inches; not a size anyone in Vietnam would give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Bể 91 × 46 × 41 cm, tức khoảng 150 lít",
+        "why": "A US 40-gallon tank (36 × 18 × 16 in) converted to metric.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "cần bể từ 285 lít trở lên",
+        "why": "285 litres is a converted US 75-gallon tank.",
+        "by": "model"
       }
     ],
     "products": []
@@ -91904,18 +92087,25 @@
     "products": []
   },
   "vi/species/ancistrus-ranunculus": {
-    "at": "2026-11-08",
-    "hash": "65823cd8a0daa723",
+    "at": "2026-11-13",
+    "hash": "ec07f98b5154754b",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P11",
+        "quote": "Bể cần khoảng 76 × 30 × 30 cm để các con đực có chỗ chia lãnh thổ.",
+        "why": "76 × 30 × 30 cm is a converted 30 × 12 × 12 inch tank, not a size a keeper in Vietnam would give.",
+        "by": "model"
+      },
+      {
         "check": "words",
         "part": "P10",
         "quote": "Chỉ cá đực mới mọc đầy đủ bộ xúc tu rậm phủ kín đầu.",
-        "why": "\"Xúc tu\" (tentacles) is a calque; keepers call the Ancistrus head bristles a beard.",
+        "why": "\"Xúc tu\" is a dictionary rendering of \"tentacles\"; Vietnamese keepers call the bristlenose's head growths \"râu\".",
         "by": "model",
-        "fix": "bộ râu rậm"
+        "fix": "bộ râu"
       }
     ],
     "products": []
@@ -92944,8 +93134,8 @@
     "products": []
   },
   "vi/species/apistogramma-brevis": {
-    "at": "2026-11-08",
-    "hash": "a2259e6b364dc8bb",
+    "at": "2026-11-13",
+    "hash": "882cf8dc87d94977",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -97733,16 +97923,16 @@
     "products": []
   },
   "vi/species/brochis-multiradiatus": {
-    "at": "2026-11-08",
-    "hash": "f7c39d247d5c6b3e",
+    "at": "2026-11-13",
+    "hash": "09e7994a752bda24",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P3",
-        "quote": "Đàn cá bố mẹ của loài nói đến ở đây có nguồn gốc từ Peru.",
-        "why": "Refers to the source writer's own broodstock as if the reader knew it.",
+        "check": "units",
+        "part": "P7",
+        "quote": "bể nên có kích thước tối thiểu khoảng 76 x 38 x 30 cm",
+        "why": "A 30 × 15 × 12 inch tank converted to cm; not a size anyone in Vietnam would give.",
         "by": "model"
       }
     ],
@@ -97765,11 +97955,19 @@
     "products": []
   },
   "vi/species/brycinus-longipinnis": {
-    "at": "2026-11-08",
-    "hash": "80822d46b4710840",
+    "at": "2026-11-13",
+    "hash": "2a991089768a7f9b",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Một bể tiêu chuẩn 120 × 38 × 30 cm (khoảng 137 lít)",
+        "why": "A US 4 ft × 15 in × 12 in tank converted to centimetres and called standard, which it isn't in Vietnam.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/brycon-cephalus": {
@@ -97828,25 +98026,24 @@
     "products": []
   },
   "vi/species/bunocephalus-coracoideus": {
-    "at": "2026-11-08",
-    "hash": "065bbf8cdb6b8fd8",
+    "at": "2026-11-13",
+    "hash": "ce8c5ab088c6e937",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P5",
-        "quote": "Rải thêm ít lá sồi hay lá dẻ gai khô lên mặt nền",
-        "why": "Oak and beech leaves are what European keepers have to hand; in Vietnam keepers use Indian almond (bàng) leaves.",
+        "check": "units",
+        "part": "P4",
+        "quote": "Bể 60 × 38 × 30 cm, khoảng 68 lít, là đủ.",
+        "why": "60 × 38 cm is a converted 24 × 15 inch tank footprint, not a size used in Vietnam.",
         "by": "model"
       },
       {
-        "check": "words",
-        "part": "P10",
-        "quote": "giun vi tế (microworm)",
-        "why": "This is a coined literal term; Vietnamese keepers call microworms vi trùn.",
-        "by": "model",
-        "fix": "vi trùn"
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "Rải thêm ít lá sồi hay lá dẻ gai khô lên mặt nền",
+        "why": "Oak and beech leaves are what temperate-country keepers gather; a keeper in Vietnam would use local dried leaves such as lá bàng.",
+        "by": "model"
       }
     ],
     "products": []
@@ -97925,11 +98122,19 @@
     "products": []
   },
   "vi/species/callochromis-macrops": {
-    "at": "2026-11-09",
-    "hash": "94e2de386a22856c",
+    "at": "2026-11-13",
+    "hash": "32f5b0a384ac8f66",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "Bể có diện tích đáy dưới 183 × 46 cm thì chỉ nên nuôi một con đực.",
+        "why": "183 × 46 cm is a converted 6 ft × 18 in footprint that no keeper in Vietnam would give.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/cambarellus-diminutus": {
@@ -98262,11 +98467,19 @@
     "products": []
   },
   "vi/species/catoprion-mento": {
-    "at": "2026-11-08",
-    "hash": "37c4cb409ffe5224",
+    "at": "2026-11-13",
+    "hash": "4093ce220b4fc7cb",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Một bể tiêu chuẩn 120 × 38 × 30 cm, khoảng 137 lít",
+        "why": "A 48 × 15 × 12 inch tank converted to cm; no tank sold in Vietnam comes in this size.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/centrochir-crocodili": {
@@ -98923,23 +99136,23 @@
     "products": []
   },
   "vi/species/charax-condei": {
-    "at": "2026-11-08",
-    "hash": "949f50fae8e205d2",
+    "at": "2026-11-13",
+    "hash": "f04150bc1ca1af27",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P5",
-        "quote": "Lá dẻ gai hay lá sồi đều dùng được.",
-        "why": "Beech and oak leaves are what a European keeper collects locally; in Vietnam keepers use Indian almond leaves (lá bàng).",
+        "check": "units",
+        "part": "P4",
+        "quote": "Bể 60 × 38 × 30 cm (khoảng 68 lít)",
+        "why": "Tank size converted from inches/US gallons (24 × 15 × 12 in, ~18 gal), not a size sold in Vietnam.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P5",
         "quote": "bạn có thể dùng gỗ dẻ gai, miễn là gỗ đã phơi thật khô và bóc sạch vỏ",
-        "why": "Collecting beech wood assumes European woodland that a hobbyist in Vietnam doesn't have.",
+        "why": "Beech wood and beech/oak leaves are what a European keeper picks up locally, not something a keeper in Vietnam can easily find.",
         "by": "model"
       }
     ],
@@ -99256,16 +99469,30 @@
     "products": []
   },
   "vi/species/cichla-orinocensis": {
-    "at": "2026-11-08",
-    "hash": "327330d097a0b5a4",
+    "at": "2026-11-13",
+    "hash": "b8e82a8c09d9625b",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P2",
+        "quote": "Cá trưởng thành cần bể ít nhất 244 x 91 x 91 cm.",
+        "why": "Tank size converted from 8 x 3 x 3 feet; not a size anyone in Vietnam would give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "một con trưởng thành cần bể ít nhất 244 x 91 x 91 cm (dài x cao x rộng)",
+        "why": "Tank size converted from 8 x 3 x 3 feet; not a size anyone in Vietnam would give.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P9",
         "quote": "cá lancefish, cá whitebait và các loại cá thịt trắng khác",
-        "why": "Lancefish and whitebait are frozen feeder foods sold in shops abroad (UK/Europe), offered as the reader's own options.",
+        "why": "Lancefish and whitebait are frozen foods from Western shops, not foods a keeper in Vietnam buys.",
         "by": "model"
       }
     ],
@@ -99312,17 +99539,39 @@
     "products": []
   },
   "vi/species/cichlasoma-trimaculatum": {
-    "at": "2026-11-08",
-    "hash": "55249f702ed3c7de",
+    "at": "2026-11-13",
+    "hash": "73d2d3e0189c25fc",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P1",
+        "quote": "Kích thước bể: 122 × 38 cm",
+        "why": "Tank footprint converted from 48 × 15 inches; nobody in Vietnam sizes a tank like this.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Đáy bể: 122 × 38 cm.",
+        "why": "Tank base converted from 48 × 15 inches, an imperial tank size.",
+        "by": "model"
+      },
+      {
         "check": "source",
         "part": "P11",
         "quote": "Chúng tôi thích loài này ở dạng tự nhiên hơn.",
-        "why": "The source writer's own voice and preference, from someone the reader doesn't know.",
+        "why": "The source writers' own voice ('we') speaks to the reader.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P11",
+        "quote": "Nên dùng ống phun (spraybar)",
+        "why": "Calque with the English term in brackets; local keepers call this a rain bar.",
+        "by": "model",
+        "fix": "ống phun mưa"
       }
     ],
     "products": []
@@ -99792,16 +100041,23 @@
     "products": []
   },
   "vi/species/copadichromis-chrysonotus": {
-    "at": "2026-11-08",
-    "hash": "57e80b6e01d8c5a4",
+    "at": "2026-11-13",
+    "hash": "2fad83420575d628",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P10",
+        "quote": "Mỗi con đực cần khoảng 46 × 46 × 46 cm làm lãnh thổ.",
+        "why": "46 cm is a converted 18 inches, not a size a Vietnamese keeper would use.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P11",
-        "quote": "(đọc là \"ooh-taw-kuh\")",
-        "why": "This pronunciation guide is spelled for English speakers and doesn't help a Vietnamese reader say the word.",
+        "quote": "thường gọi là \"Utaka\" (đọc là \"ooh-taw-kuh\")",
+        "why": "An English-spelling pronunciation guide is written for English readers, not Vietnamese ones.",
         "by": "model"
       }
     ],
@@ -100307,8 +100563,8 @@
     "products": []
   },
   "vi/species/corydoras-geryi": {
-    "at": "2026-11-08",
-    "hash": "95fbbfd298e81a79",
+    "at": "2026-11-13",
+    "hash": "d5a8c4283d1a6e17",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -100316,8 +100572,23 @@
         "check": "elsewhere",
         "part": "P9",
         "quote": "Mùa mưa ở đó rơi vào cùng thời điểm với mùa đông ở Anh.",
-        "why": "Uses the UK winter as the reader's own seasonal reference for timing spawning.",
+        "why": "Breeding timing is tied to the British winter, the original reader's seasons, not Vietnam's.",
         "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P3",
+        "quote": "Đáy bể cần tối thiểu 60 × 38 cm.",
+        "why": "38 cm is a conversion of 15 inches; a Vietnamese keeper would say 60 × 40 cm.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P9",
+        "quote": "Bạn nên dùng lọc bọt biển chạy sủi hoặc lọc hộp",
+        "why": "Calque of 'box filter'; in Vietnam 'lọc hộp' means a canister filter, which can suck in fry.",
+        "by": "model",
+        "fix": "lọc góc chạy sủi"
       }
     ],
     "products": []
@@ -100464,11 +100735,20 @@
     "products": []
   },
   "vi/species/corydoras-leopardus": {
-    "at": "2026-11-08",
-    "hash": "851804d7f7837544",
+    "at": "2026-11-13",
+    "hash": "8e5ffd160cc5870b",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "tetra nhỏ, cá chì, cichlid lùn",
+        "why": "Pencilfish are called cá bút chì by Vietnamese keepers, not cá chì.",
+        "by": "model",
+        "fix": "cá bút chì"
+      }
+    ],
     "products": []
   },
   "vi/species/corydoras-leucomelas": {
@@ -100496,16 +100776,16 @@
     "products": []
   },
   "vi/species/corydoras-loxozonus": {
-    "at": "2026-11-08",
-    "hash": "6c76c951604f9afe",
+    "at": "2026-11-13",
+    "hash": "c3a8f81c97beeffe",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P13",
-        "quote": "Mùa này trùng với mùa đông ở Anh.",
-        "why": "Seasonal breeding advice is timed to UK seasons, not the reader's climate in Vietnam.",
+        "quote": "Mùa này trùng với mùa đông ở Anh. Nếu cho đẻ vào mùa hè mãi không được, bạn có thể đợi đến mùa đông",
+        "why": "The breeding season advice uses British seasons, which don't fit Vietnam's climate.",
         "by": "model"
       }
     ],
@@ -100681,16 +100961,24 @@
     "products": []
   },
   "vi/species/corydoras-oiapoquensis": {
-    "at": "2026-11-08",
-    "hash": "dfb19196569c4e71",
+    "at": "2026-11-13",
+    "hash": "b197bd7451742590",
     "model": "opus",
-    "checklist": 2,
-    "findings": [],
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P18",
+        "quote": "Mùa mưa đó rơi vào cùng thời điểm với mùa đông ở Anh.",
+        "why": "The breeding season advice is tied to the British winter and summer, which don't match Vietnam's seasons.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/corydoras-ornatus": {
-    "at": "2026-11-08",
-    "hash": "25b557e4a3316974",
+    "at": "2026-11-13",
+    "hash": "f287f13dff3d409f",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -100698,41 +100986,62 @@
         "check": "elsewhere",
         "part": "P10",
         "quote": "Mùa mưa đó trùng với mùa đông ở Anh.",
-        "why": "The breeding-season advice is tied to the British winter, which means nothing to a keeper in Vietnam's climate.",
+        "why": "Uses UK seasons as the reader's own timing for spawning attempts.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "60 × 38 × 30 cm, khoảng 68 lít.",
+        "why": "38 cm reflects a conversion from a 15-inch dimension, not a size keepers in Vietnam use.",
         "by": "model"
       }
     ],
     "products": []
   },
   "vi/species/corydoras-ourastigma": {
-    "at": "2026-11-08",
-    "hash": "9e138edf2fdd18c0",
+    "at": "2026-11-13",
+    "hash": "b183519bda38c647",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P10",
-        "quote": "Ở quê nhà, chúng sinh sản vào mùa mưa, trùng với thời điểm mùa đông ở Anh.",
-        "why": "Breeding timing is given in terms of the UK seasons, assuming a British reader, and the page then says to wait for winter after a failed summer spawning.",
+        "quote": "trùng với thời điểm mùa đông ở Anh. Vì vậy nếu thử cho đẻ vào mùa hè mà không thành",
+        "why": "Spawning advice is timed to British seasons, which don't apply to a keeper in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Kích thước bể: 60 × 38 cm",
+        "why": "The tank footprint looks converted from 24 × 15 inches, not a size anyone in Vietnam would give.",
         "by": "model"
       }
     ],
     "products": []
   },
   "vi/species/corydoras-paleatus": {
-    "at": "2026-11-08",
-    "hash": "b26e8f059ff80401",
+    "at": "2026-11-13",
+    "hash": "ade78e324f18b7c6",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P5",
+        "quote": "Đáy bể: 61 × 38 cm.",
+        "why": "Tank footprint is a 24 × 15 inch tank converted to centimetres, not a size keepers in Vietnam use.",
+        "by": "model"
+      },
+      {
         "check": "words",
         "part": "P11",
         "quote": "thức ăn thật nhỏ như vi giun (microworm)",
-        "why": "\"Vi giun\" is a literal rendering; Vietnamese keepers call microworm by another name.",
+        "why": "'Vi giun' is a literal rendering of 'microworm', not the term keepers in Vietnam use.",
         "by": "model",
-        "fix": "giun vi sinh (trùn vi sinh)"
+        "fix": "trùn vi sinh"
       }
     ],
     "products": []
@@ -100792,8 +101101,8 @@
     "products": []
   },
   "vi/species/corydoras-pinheiroi": {
-    "at": "2026-11-08",
-    "hash": "6513e92dcb07db77",
+    "at": "2026-11-13",
+    "hash": "41bf7a5b914f3119",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -100801,16 +101110,8 @@
         "check": "elsewhere",
         "part": "P10",
         "quote": "Mùa mưa ấy rơi vào cùng thời điểm với mùa đông ở Anh.",
-        "why": "Times breeding by the seasons in the UK, the source reader's home, not Vietnam's.",
+        "why": "Assumes the reader lives in Britain and times breeding by British seasons.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P8",
-        "quote": "cá chép nhỏ",
-        "why": "Calque of 'small cyprinids'; in Vietnamese it reads as small carp.",
-        "by": "model",
-        "fix": "các loài cá họ chép nhỏ"
       }
     ],
     "products": []
@@ -100864,8 +101165,8 @@
     "products": []
   },
   "vi/species/corydoras-reticulatus": {
-    "at": "2026-11-08",
-    "hash": "96a3f0b4dc835bfb",
+    "at": "2026-11-13",
+    "hash": "8bd99a1f20af75a2",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -100873,7 +101174,7 @@
         "check": "elsewhere",
         "part": "P12",
         "quote": "Mùa này rơi vào cùng thời điểm với mùa đông ở Anh.",
-        "why": "Ties spawning timing to the British winter as if it were the reader's own seasons.",
+        "why": "Breeding timing is given by British seasons, which don't match Vietnam's climate or rainy season.",
         "by": "model"
       }
     ],
@@ -112014,17 +112315,18 @@
     "products": []
   },
   "vi/species/neolamprologus-caudopunctatus": {
-    "at": "2026-11-09",
-    "hash": "d945e3ae4a5be3f8",
+    "at": "2026-11-13",
+    "hash": "e4622705ffcf692b",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "units",
-        "part": "P4",
-        "quote": "tối thiểu phải có bể tiêu chuẩn 75 lít",
-        "why": "A 'standard 75-litre tank' is the US standard 20-gallon tank converted; tanks in Vietnam aren't sold by that standard size.",
-        "by": "model"
+        "check": "words",
+        "part": "P11",
+        "quote": "Trong bể lớn nuôi chung nhiều loài, chúng thường làm cá mồi.",
+        "why": "'Cá mồi' means feeder or bait fish in Vietnamese, but the English source meant dither fish, fish that make shy tankmates feel safe.",
+        "by": "model",
+        "fix": "cá dẫn"
       }
     ],
     "products": []
@@ -122006,6 +122308,86 @@
     "model": "opus",
     "checklist": 3,
     "findings": [],
+    "products": []
+  },
+  "th/species/brochis-multiradiatus": {
+    "at": "2026-11-13",
+    "hash": "2bc26be1eee5b0cd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "แนะนำให้ใช้ตู้ปลาขนาดอย่างน้อยประมาณ 76 x 38 x 30 ซม.",
+        "why": "Tank size converted from inches (30 × 15 × 12 in), not a size sold in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "กลุ่มพ่อแม่พันธุ์ของปลาที่กล่าวถึงในที่นี้มีต้นกำเนิดจากเปรู",
+        "why": "Refers to the source article's own broodstock as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/brycinus-longipinnis": {
+    "at": "2026-11-13",
+    "hash": "0070b2f18cb085f1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "liquifry"
+    ]
+  },
+  "th/species/bunocephalus-coracoideus": {
+    "at": "2026-11-13",
+    "hash": "77f4158fb94b6d44",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "ตู้ปลาขนาด 60 × 38 × 30 ซม. หรือประมาณ 68 ลิตร",
+        "why": "A tank of 24 × 15 × 12 inches (18 gallons) converted to metric; not a size anyone in Thailand would use.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "การโรยใบโอ๊กหรือใบบีชแห้งไว้บนพื้นตู้",
+        "why": "Dried oak and beech leaves are what temperate-country keepers collect; keepers in Thailand would use local leaves such as Indian almond (ketapang) leaves.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/catoprion-mento": {
+    "at": "2026-11-13",
+    "hash": "f53de6b1d825a74d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/corydoras-loretoensis": {
+    "at": "2026-11-13",
+    "hash": "57f4a466a9150c01",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P9",
+        "quote": "Mùa này rơi vào cùng thời điểm với mùa đông ở Anh",
+        "why": "Ties the breeding season to the UK winter, as if the reader lived in Britain.",
+        "by": "model"
+      }
+    ],
     "products": []
   }
 }

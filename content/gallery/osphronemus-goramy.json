@@ -14,6 +14,45 @@
       "kind": "juvenile"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/625527862.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/625527862-480.webp",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/625527862",
+      "caption": "Cá tai tượng màu xanh nhạt trong bể trưng bày",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/8601477507.webp",
+      "thumb": "https://media.aquatome.com/flickr/8601477507-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC0 1.0",
+      "author": "Vladislav Litvinov",
+      "sourceUrl": "https://www.flickr.com/photos/59724445@N07/8601477507",
+      "caption": "Cá tai tượng trưởng thành màu nâu vàng bơi trong bể",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/84269f998b85e0fd.webp",
+      "thumb": "https://media.aquatome.com/commons/84269f998b85e0fd-480.webp",
+      "width": 600,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Emőke Dénes",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hal_-_Osphronemus_goramy_-_1.jpg",
+      "caption": "Cá tai tượng cận cảnh đầu và mắt trong bể kính",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/29089fdf32d82090.webp",
       "thumb": "https://media.aquatome.com/commons/29089fdf32d82090-480.webp",
       "width": 1200,
@@ -584,6 +623,45 @@
       "caption": "Cá tai tượng lớn màu xám bơi trong bể kính"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/345957183.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/345957183-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Анна Митрошенкова",
+      "sourceUrl": "https://www.inaturalist.org/photos/345957183",
+      "caption": "Hai cá tai tượng bơi cạnh nhau trong hồ có rong",
+      "best": false,
+      "kind": "pair",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/49886628163.webp",
+      "thumb": "https://media.aquatome.com/flickr/49886628163-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-SA 2.0",
+      "author": "Paul Korecky",
+      "sourceUrl": "https://www.flickr.com/photos/158438800@N02/49886628163",
+      "caption": "Cá tai tượng lớn bơi gần mặt kính trong hồ",
+      "best": false,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/244238476.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/244238476-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "mrdace",
+      "sourceUrl": "https://www.inaturalist.org/photos/244238476",
+      "caption": "Cá tai tượng nhìn chính diện, môi dày trong bể",
+      "best": false,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/53544577.webp",
       "thumb": "https://media.aquatome.com/inaturalist/53544577-480.webp",
       "width": 768,
@@ -596,7 +674,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 191,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 211,
+  "updatedAt": "2026-11-13",
+  "builtAt": "2026-11-13"
 }

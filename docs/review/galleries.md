@@ -1,16 +1,16 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-12). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-13). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
-| shop | 60 | 131 | 80 | 24 | 30 | 205 |
+| shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 584 | 30 | 9 | 18 | 605 |
-| rest | 20 | 1688 | 74 | 0 | 51 | 1711 |
+| covered | 30 | 584 | 30 | 9 | 20 | 603 |
+| rest | 20 | 1688 | 74 | 0 | 53 | 1709 |
 
-## Short of target: every source read (297)
+## Short of target: every source read (309)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -217,7 +217,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/mastacembelus-erythrotaenia | shop | 6 | 60 |
 | species/macrognathus-siamensis | shop | 5 | 60 |
 | species/mastacembelus-armatus | shop | 1 | 60 |
-| species/trichopodus-trichopterus | shop | 52 | 60 |
+| species/trichopodus-trichopterus | shop | 50 | 60 |
 | species/trichopodus-leerii | shop | 19 | 60 |
 | species/botia-kubotai | shop | 2 | 60 |
 | species/yasuhikotakia-modesta | shop | 2 | 60 |
@@ -285,6 +285,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/megalancistrus-parananus | covered | 1 | 30 |
 | species/moenkhausia-oligolepis | covered | 2 | 30 |
 | species/myloplus-schomburgkii | covered | 2 | 30 |
+| species/nothobranchius-rachovii | covered | 4 | 30 |
 | species/pterophyllum-altum | covered | 13 | 30 |
 | species/sphaerichthys-osphromenoides | covered | 1 | 30 |
 | species/sphaerichthys-vaillanti | covered | 3 | 30 |
@@ -311,5 +312,16 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/akysis-varius | covered | 0 | 30 |
 | species/amaralia-hypsiura | covered | 0 | 30 |
 | species/ambastaia-nigrolineata | covered | 1 | 30 |
+| species/anabas-testudineus | covered | 8 | 30 |
 | species/anadoras-grypus | covered | 0 | 30 |
+| species/ancharius-fuscus | covered | 0 | 30 |
+| species/ancistrus-macrophthalmus | covered | 0 | 30 |
+| species/ancistrus-ranunculus | covered | 0 | 30 |
+| species/annamia-normani | covered | 0 | 30 |
+| species/anostomus-ternetzi | covered | 0 | 30 |
+| species/aphyosemion-gabunense | covered | 1 | 30 |
+| species/apistogramma-agassizii | covered | 4 | 30 |
+| species/apistogramma-baenschi | covered | 0 | 30 |
+| species/apistogramma-borellii | covered | 19 | 30 |
+| species/apistogramma-cacatuoides | covered | 22 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |

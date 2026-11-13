@@ -78267,5 +78267,27 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/video/jOktp87MxK0/at40-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "guide photo; person",
+    "noteHash": "d8f9a09cb5dfedabd30ea361a052c25ab721c9a850ad9444f4ca99cbaf5cbc15",
+    "hints": {
+      "dead": false,
+      "people": true
+    }
+  },
+  "https://media.aquatome.com/video/jOktp87MxK0/at85-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "guide photo",
+    "noteHash": "f1ff0924f3b3c9cafe6551b61bd048ace3a8dbf2d81750484c5e4982b4ad9830",
+    "hints": {
+      "dead": false,
+      "people": false
+    }
   }
 }

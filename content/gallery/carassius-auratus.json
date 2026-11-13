@@ -2,6 +2,23 @@
   "id": "carassius-auratus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/24297827.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/24297827-480.webp",
+      "width": 1024,
+      "height": 768,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/24297827-large.webp",
+        "width": 1601,
+        "height": 1200
+      },
+      "licence": "CC BY",
+      "author": "CK2AZ",
+      "sourceUrl": "https://www.inaturalist.org/photos/24297827",
+      "caption": "Cá vàng màu cam đỏ bơi trong nước có cỏ thủy sinh",
+      "best": true,
+      "kind": "form"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/73215815.webp",
       "thumb": "https://media.aquatome.com/inaturalist/73215815-480.webp",
       "width": 768,
@@ -18,17 +35,29 @@
       "thumb": "https://media.aquatome.com/inaturalist/182580601-480.webp",
       "width": 1024,
       "height": 768,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/182580601-large.webp",
+        "width": 1600,
+        "height": 1200
+      },
       "licence": "CC0",
       "author": "nmacelko2",
       "sourceUrl": "https://www.inaturalist.org/photos/182580601",
       "caption": "Cá giống cá vàng nhỏ bơi trong bể kính",
       "best": true,
-      "kind": "juvenile",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/182580601-large.webp",
-        "width": 1600,
-        "height": 1200
-      }
+      "kind": "juvenile"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/221208716.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/221208716-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Cilla Moerman",
+      "sourceUrl": "https://www.inaturalist.org/photos/221208716",
+      "caption": "Nhóm cá vàng cam và vàng nhạt bơi trong ao có rong",
+      "best": true,
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/232992959.webp",
@@ -47,145 +76,15 @@
       "thumb": "https://media.aquatome.com/inaturalist/68322296-480.webp",
       "width": 1024,
       "height": 890,
-      "licence": "CC BY",
-      "author": "Tim",
-      "sourceUrl": "https://www.inaturalist.org/photos/68322296",
-      "caption": "Cá vàng màu cam đỏ bơi trong nước ao",
-      "best": true,
-      "kind": "other",
       "large": {
         "url": "https://media.aquatome.com/inaturalist/68322296-large.webp",
         "width": 1381,
         "height": 1200
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/24297827.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/24297827-480.webp",
-      "width": 1024,
-      "height": 768,
+      },
       "licence": "CC BY",
-      "author": "CK2AZ",
-      "sourceUrl": "https://www.inaturalist.org/photos/24297827",
-      "caption": "Cá vàng màu cam đỏ bơi trong nước có cỏ thủy sinh",
-      "best": true,
-      "kind": "form",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/24297827-large.webp",
-        "width": 1601,
-        "height": 1200
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/130685817.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/130685817-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Mohammad Amin Ghaffari",
-      "sourceUrl": "https://www.inaturalist.org/photos/130685817",
-      "caption": "Hai cá vàng màu cam trên nền sỏi trong nước nông",
-      "best": true,
-      "kind": "pair",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/130685817-large.webp",
-        "width": 1799,
-        "height": 1200
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/89354300.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/89354300-480.webp",
-      "width": 1024,
-      "height": 676,
-      "licence": "CC BY-SA",
-      "author": "Zinogre",
-      "sourceUrl": "https://www.inaturalist.org/photos/89354300",
-      "caption": "Cá vàng non màu bạc ánh vàng trong bể thủy sinh",
-      "best": true,
-      "kind": "juvenile"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/221208716.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/221208716-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Cilla Moerman",
-      "sourceUrl": "https://www.inaturalist.org/photos/221208716",
-      "caption": "Nhóm cá vàng cam và vàng nhạt bơi trong ao có rong",
-      "best": true,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/113933698.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/113933698-480.webp",
-      "width": 1007,
-      "height": 1015,
-      "licence": "CC0",
-      "author": "Kizzie",
-      "sourceUrl": "https://www.inaturalist.org/photos/113933698",
-      "caption": "Cá vàng màu đỏ cam bơi trong ao nước trong",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/58252857.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/58252857-480.webp",
-      "width": 1024,
-      "height": 681,
-      "licence": "CC BY",
-      "author": "Lek Khauv",
-      "sourceUrl": "https://www.inaturalist.org/photos/58252857",
-      "caption": "Cá vàng màu hoang dã bơi trong bể kính",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/89354898.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/89354898-480.webp",
-      "width": 951,
-      "height": 722,
-      "licence": "CC BY-SA",
-      "author": "Zinogre",
-      "sourceUrl": "https://www.inaturalist.org/photos/89354898",
-      "caption": "Cá vàng non nhìn chính diện trong bể cây thủy sinh",
-      "best": true,
-      "kind": "juvenile"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/254606979.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/254606979-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY-SA",
-      "author": "Daniel Dias",
-      "sourceUrl": "https://www.inaturalist.org/photos/254606979",
-      "caption": "Đàn cá vàng cam và trắng bơi trong ao",
-      "best": true,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/278136253.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/278136253-480.webp",
-      "width": 1024,
-      "height": 771,
-      "licence": "CC BY",
-      "author": "William C. McKnight",
-      "sourceUrl": "https://www.inaturalist.org/photos/278136253",
-      "caption": "Cá vàng màu cam đỏ bơi gần lá súng trong ao",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/58252859.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/58252859-480.webp",
-      "width": 1024,
-      "height": 681,
-      "licence": "CC BY",
-      "author": "Lek Khauv",
-      "sourceUrl": "https://www.inaturalist.org/photos/58252859",
-      "caption": "Cá vàng màu nâu bơi trong bể có cây thủy sinh",
+      "author": "Tim",
+      "sourceUrl": "https://www.inaturalist.org/photos/68322296",
+      "caption": "Cá vàng màu cam đỏ bơi trong nước ao",
       "best": true,
       "kind": "other"
     },
@@ -202,14 +101,92 @@
       "kind": "form"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/1348267.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/1348267-480.webp",
-      "width": 831,
-      "height": 555,
+      "url": "https://media.aquatome.com/inaturalist/130685817.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/130685817-480.webp",
+      "width": 1024,
+      "height": 683,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/130685817-large.webp",
+        "width": 1799,
+        "height": 1200
+      },
+      "licence": "CC BY",
+      "author": "Mohammad Amin Ghaffari",
+      "sourceUrl": "https://www.inaturalist.org/photos/130685817",
+      "caption": "Hai cá vàng màu cam trên nền sỏi trong nước nông",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/89354300.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/89354300-480.webp",
+      "width": 1024,
+      "height": 676,
       "licence": "CC BY-SA",
-      "author": "Ian Dickie",
-      "sourceUrl": "https://www.inaturalist.org/photos/1348267",
-      "caption": "Cá vàng non màu nâu vàng bơi sát mặt nước trong bể",
+      "author": "Zinogre",
+      "sourceUrl": "https://www.inaturalist.org/photos/89354300",
+      "caption": "Cá vàng non màu bạc ánh vàng trong bể thủy sinh",
+      "best": true,
+      "kind": "juvenile"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/254606979.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/254606979-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "Daniel Dias",
+      "sourceUrl": "https://www.inaturalist.org/photos/254606979",
+      "caption": "Đàn cá vàng cam và trắng bơi trong ao",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/113933698.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/113933698-480.webp",
+      "width": 1007,
+      "height": 1015,
+      "licence": "CC0",
+      "author": "Kizzie",
+      "sourceUrl": "https://www.inaturalist.org/photos/113933698",
+      "caption": "Cá vàng màu đỏ cam bơi trong ao nước trong",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/296296878.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/296296878-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/296296878",
+      "caption": "Cá vàng dạng hoang màu bạc trong bể chụp ảnh nhỏ",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/46320155.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/46320155-480.webp",
+      "width": 1024,
+      "height": 468,
+      "licence": "CC BY",
+      "author": "Connie Taylor",
+      "sourceUrl": "https://www.inaturalist.org/photos/46320155",
+      "caption": "Cá vàng màu cam sáng bơi dưới nước, cận cảnh",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/89354898.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/89354898-480.webp",
+      "width": 951,
+      "height": 722,
+      "licence": "CC BY-SA",
+      "author": "Zinogre",
+      "sourceUrl": "https://www.inaturalist.org/photos/89354898",
+      "caption": "Cá vàng non nhìn chính diện trong bể cây thủy sinh",
       "best": true,
       "kind": "juvenile"
     },
@@ -226,6 +203,42 @@
       "kind": "group"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/278136253.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/278136253-480.webp",
+      "width": 1024,
+      "height": 771,
+      "licence": "CC BY",
+      "author": "William C. McKnight",
+      "sourceUrl": "https://www.inaturalist.org/photos/278136253",
+      "caption": "Cá vàng màu cam đỏ bơi gần lá súng trong ao",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/58252857.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/58252857-480.webp",
+      "width": 1024,
+      "height": 681,
+      "licence": "CC BY",
+      "author": "Lek Khauv",
+      "sourceUrl": "https://www.inaturalist.org/photos/58252857",
+      "caption": "Cá vàng màu hoang dã bơi trong bể kính",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/1348267.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/1348267-480.webp",
+      "width": 831,
+      "height": 555,
+      "licence": "CC BY-SA",
+      "author": "Ian Dickie",
+      "sourceUrl": "https://www.inaturalist.org/photos/1348267",
+      "caption": "Cá vàng non màu nâu vàng bơi sát mặt nước trong bể",
+      "best": true,
+      "kind": "juvenile"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/3292612.webp",
       "thumb": "https://media.aquatome.com/inaturalist/3292612-480.webp",
       "width": 1024,
@@ -238,16 +251,16 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/46320155.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/46320155-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/58252859.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/58252859-480.webp",
       "width": 1024,
-      "height": 468,
+      "height": 681,
       "licence": "CC BY",
-      "author": "Connie Taylor",
-      "sourceUrl": "https://www.inaturalist.org/photos/46320155",
-      "caption": "Cá vàng màu cam sáng bơi dưới nước, cận cảnh",
+      "author": "Lek Khauv",
+      "sourceUrl": "https://www.inaturalist.org/photos/58252859",
+      "caption": "Cá vàng màu nâu bơi trong bể có cây thủy sinh",
       "best": true,
-      "kind": "form"
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/278136276.webp",
@@ -274,16 +287,17 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/114616760.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/114616760-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/286694238.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/286694238-480.webp",
       "width": 1024,
-      "height": 658,
-      "licence": "CC BY-SA",
-      "author": "Zinogre",
-      "sourceUrl": "https://www.inaturalist.org/photos/114616760",
-      "caption": "Hai con cá vàng đỏ cam bơi trong ao",
+      "height": 681,
+      "licence": "CC0",
+      "author": "Diane Clark",
+      "sourceUrl": "https://www.inaturalist.org/photos/286694238",
+      "caption": "Đàn cá vàng cam bơi giữa lá súng trong ao",
       "best": true,
-      "kind": "group"
+      "kind": "group",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/34429359.webp",
@@ -298,14 +312,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/129789569.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/129789569-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/114616760.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/114616760-480.webp",
       "width": 1024,
-      "height": 633,
-      "licence": "CC BY",
-      "author": "Victor Heng",
-      "sourceUrl": "https://www.inaturalist.org/photos/129789569",
-      "caption": "Đàn cá vàng màu cam bơi trong ao",
+      "height": 658,
+      "licence": "CC BY-SA",
+      "author": "Zinogre",
+      "sourceUrl": "https://www.inaturalist.org/photos/114616760",
+      "caption": "Hai con cá vàng đỏ cam bơi trong ao",
       "best": true,
       "kind": "group"
     },
@@ -322,14 +336,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/67554761.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/67554761-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "哈爸",
-      "sourceUrl": "https://www.inaturalist.org/photos/67554761",
-      "caption": "Đàn cá vàng màu cam bơi cạnh lá sen trong ao",
+      "url": "https://media.aquatome.com/inaturalist/129789569.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/129789569-480.webp",
+      "width": 1024,
+      "height": 633,
+      "licence": "CC BY",
+      "author": "Victor Heng",
+      "sourceUrl": "https://www.inaturalist.org/photos/129789569",
+      "caption": "Đàn cá vàng màu cam bơi trong ao",
       "best": true,
       "kind": "group"
     },
@@ -346,6 +360,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/67554761.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/67554761-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "哈爸",
+      "sourceUrl": "https://www.inaturalist.org/photos/67554761",
+      "caption": "Đàn cá vàng màu cam bơi cạnh lá sen trong ao",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/200190802.webp",
       "thumb": "https://media.aquatome.com/inaturalist/200190802-480.webp",
       "width": 768,
@@ -356,6 +382,19 @@
       "caption": "Cá vàng màu đỏ cam bơi trong ao nước xanh",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/287074289.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/287074289-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Nathan Oldridge",
+      "sourceUrl": "https://www.inaturalist.org/photos/287074289",
+      "caption": "Cá vàng màu cam bơi gần mặt nước ao",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/123392102.webp",
@@ -502,6 +541,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/235629310.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/235629310-480.webp",
+      "width": 1024,
+      "height": 799,
+      "licence": "CC0",
+      "author": "August Frisk",
+      "sourceUrl": "https://www.inaturalist.org/photos/235629310",
+      "caption": "Cá vàng đốm cam đỏ bơi trong ao phản chiếu cây",
+      "best": false,
+      "kind": "form"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/4202767.webp",
       "thumb": "https://media.aquatome.com/inaturalist/4202767-480.webp",
       "width": 1024,
@@ -526,14 +577,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/235629310.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/235629310-480.webp",
-      "width": 1024,
-      "height": 799,
-      "licence": "CC0",
-      "author": "August Frisk",
-      "sourceUrl": "https://www.inaturalist.org/photos/235629310",
-      "caption": "Cá vàng đốm cam đỏ bơi trong ao phản chiếu cây",
+      "url": "https://media.aquatome.com/inaturalist/24094771.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/24094771-480.webp",
+      "width": 683,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Said Jimenez",
+      "sourceUrl": "https://www.inaturalist.org/photos/24094771",
+      "caption": "Cá vàng cam đuôi dài bơi trong ao nước đục",
       "best": false,
       "kind": "form"
     },
@@ -562,16 +613,16 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/24094771.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/24094771-480.webp",
-      "width": 683,
-      "height": 1024,
+      "url": "https://media.aquatome.com/inaturalist/153260186.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/153260186-480.webp",
+      "width": 1024,
+      "height": 683,
       "licence": "CC BY",
-      "author": "Said Jimenez",
-      "sourceUrl": "https://www.inaturalist.org/photos/24094771",
-      "caption": "Cá vàng cam đuôi dài bơi trong ao nước đục",
+      "author": "Luca Napelo",
+      "sourceUrl": "https://www.inaturalist.org/photos/153260186",
+      "caption": "Đàn cá vàng cam bơi gần mặt nước ao",
       "best": false,
-      "kind": "form"
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/15031184.webp",
@@ -608,6 +659,19 @@
       "caption": "Cá vàng cam nhỏ bơi giữa cỏ lau trong ao",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/296758501.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/296758501-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Jensyn Scott",
+      "sourceUrl": "https://www.inaturalist.org/photos/296758501",
+      "caption": "Cá vàng màu cam bơi trong ao nước xanh",
+      "best": false,
+      "kind": "habitat",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/128650771.webp",
@@ -718,7 +782,7 @@
       "kind": "group"
     }
   ],
-  "seen": 300,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 320,
+  "updatedAt": "2026-11-13",
+  "builtAt": "2026-11-13"
 }

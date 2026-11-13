@@ -1,142 +1,31 @@
 {
- "queue": [
-  {
-   "key": "inat:107511638",
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/107511638/large.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/107511638/medium.jpg",
-   "width": 1024,
-   "height": 576,
-   "licence": "CC BY",
-   "author": "João D'Andretta",
-   "sourceUrl": "https://www.inaturalist.org/photos/107511638"
-  },
-  {
-   "key": "inat:107511709",
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/107511709/large.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/107511709/medium.jpg",
-   "width": 1024,
-   "height": 576,
-   "licence": "CC BY",
-   "author": "João D'Andretta",
-   "sourceUrl": "https://www.inaturalist.org/photos/107511709"
-  },
-  {
-   "key": "inat:107511710",
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/107511710/large.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/107511710/medium.jpg",
-   "width": 1024,
-   "height": 576,
-   "licence": "CC BY",
-   "author": "João D'Andretta",
-   "sourceUrl": "https://www.inaturalist.org/photos/107511710"
-  },
-  {
-   "key": "inat:467226043",
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/467226043/large.png",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/467226043/medium.png",
-   "width": 1024,
-   "height": 771,
-   "licence": "CC BY",
-   "author": "Zakqary Roy",
-   "sourceUrl": "https://www.inaturalist.org/photos/467226043"
-  },
-  {
-   "key": "inat:650966879",
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/650966879/large.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/650966879/medium.jpg",
-   "width": 1024,
-   "height": 576,
-   "licence": "CC BY",
-   "author": "Nicola Crockford",
-   "sourceUrl": "https://www.inaturalist.org/photos/650966879"
-  },
-  {
-   "key": "inat:650966893",
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/650966893/large.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/650966893/medium.jpg",
-   "width": 1024,
-   "height": 576,
-   "licence": "CC BY",
-   "author": "Nicola Crockford",
-   "sourceUrl": "https://www.inaturalist.org/photos/650966893"
-  },
-  {
-   "key": "inat:650966918",
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/650966918/large.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/650966918/medium.jpg",
-   "width": 1024,
-   "height": 576,
-   "licence": "CC BY",
-   "author": "Nicola Crockford",
-   "sourceUrl": "https://www.inaturalist.org/photos/650966918"
-  },
-  {
-   "key": "inat:650966900",
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/650966900/large.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/650966900/medium.jpg",
-   "width": 1024,
-   "height": 576,
-   "licence": "CC BY",
-   "author": "Nicola Crockford",
-   "sourceUrl": "https://www.inaturalist.org/photos/650966900"
-  },
-  {
-   "key": "inat:650966936",
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/650966936/large.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/650966936/medium.jpg",
-   "width": 1024,
-   "height": 576,
-   "licence": "CC BY",
-   "author": "Nicola Crockford",
-   "sourceUrl": "https://www.inaturalist.org/photos/650966936"
-  },
-  {
-   "key": "inat:650966935",
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/650966935/large.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/650966935/medium.jpg",
-   "width": 1024,
-   "height": 576,
-   "licence": "CC BY",
-   "author": "Nicola Crockford",
-   "sourceUrl": "https://www.inaturalist.org/photos/650966935"
-  },
-  {
-   "key": "inat:650966958",
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/650966958/large.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/650966958/medium.jpg",
-   "width": 1024,
-   "height": 576,
-   "licence": "CC BY",
-   "author": "Nicola Crockford",
-   "sourceUrl": "https://www.inaturalist.org/photos/650966958"
-  },
-  {
-   "key": "inat:650973480",
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/650973480/large.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/650973480/medium.jpg",
-   "width": 1024,
-   "height": 576,
-   "licence": "CC BY",
-   "author": "Nicola Crockford",
-   "sourceUrl": "https://www.inaturalist.org/photos/650973480"
-  },
-  {
-   "key": "File:Schokoladen-Harnischwels (Tierpark Hellabrunn).jpg",
-   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Schokoladen-Harnischwels_%28Tierpark_Hellabrunn%29.jpg/1280px-Schokoladen-Harnischwels_%28Tierpark_Hellabrunn%29.jpg",
-   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Schokoladen-Harnischwels_%28Tierpark_Hellabrunn%29.jpg/500px-Schokoladen-Harnischwels_%28Tierpark_Hellabrunn%29.jpg",
-   "width": 1280,
-   "height": 960,
-   "licence": "CC BY-SA 4.0",
-   "author": "Fiver, der Hellseher",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Schokoladen-Harnischwels_(Tierpark_Hellabrunn).jpg"
-  }
+ "queue": [],
+ "judged": [
+  "inat:107511638",
+  "inat:107511709",
+  "inat:107511710",
+  "inat:467226043",
+  "inat:650966879",
+  "inat:650966893",
+  "inat:650966918",
+  "inat:650966900",
+  "inat:650966936",
+  "inat:650966935",
+  "inat:650966958",
+  "inat:650973480",
+  "File:Schokoladen-Harnischwels (Tierpark Hellabrunn).jpg"
  ],
- "judged": [],
  "hashes": {
   "https://media.aquatome.com/scotcat/4f1d236064e77bfd.webp": "ec74d85341c4eb39",
   "https://media.aquatome.com/scotcat/f0b38e42230af35a.webp": "658ad9cb5b0a8c80",
-  "https://media.aquatome.com/scotcat/057ff78886c759c3.webp": "776e56ccccce9ece",
-  "https://media.aquatome.com/scotcat/1e0fa0e2ad0b15c8.webp": "7478703836377356"
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/107511638/large.jpg": "1bcbcaece9e1c119",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/107511710/large.jpg": "50d0b0b09a529145",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/650966879/large.jpg": "c36164e5c1e03838",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/650966918/large.jpg": "b7b3e0707c6e9c9c",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/650966936/large.jpg": "3af573d2e76d68fa",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/650966935/large.jpg": "958809232b399a36",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/650966958/large.jpg": "149d9ec8d3c260e3",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Schokoladen-Harnischwels_%28Tierpark_Hellabrunn%29.jpg/1280px-Schokoladen-Harnischwels_%28Tierpark_Hellabrunn%29.jpg": "9e0e0b637067ffd2"
  },
  "inat": {
   "taxon": 616428,

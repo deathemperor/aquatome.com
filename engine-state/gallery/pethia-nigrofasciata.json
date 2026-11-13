@@ -8,12 +8,23 @@
   "inat:612365720",
   "inat:612365723",
   "File:Cyprinidae Pethia nigrofasciata 1.jpg",
-  "File:Black Ruby Barb 700.jpg"
+  "File:Black Ruby Barb 700.jpg",
+  "inat:32538843",
+  "inat:32538848"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/ef4e492a1b67a13b.webp": "f4e18b398a8ac6c6",
   "https://media.aquatome.com/commons/95260b4c0ddaa570.webp": "26274b9370b3baae",
-  "https://media.aquatome.com/commons/9aebbf52454c96c6.webp": "e4e8da0c159cc8e2"
+  "https://media.aquatome.com/commons/9aebbf52454c96c6.webp": "e4e8da0c159cc8e2",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/32538843/large.jpg": "73e2eba94b6fd3e3"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 613365,
+  "pass": "done",
+  "after": {
+   "research": 339018033,
+   "agree": 336922624
+  }
+ }
 }
