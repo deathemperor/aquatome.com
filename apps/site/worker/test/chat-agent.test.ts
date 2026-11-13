@@ -789,11 +789,31 @@ test('a chat opened from a saved tank says so first, with the tank as every hand
   expect(first.indexOf('The reader asks:')).toBeLessThan(first.indexOf('id t1: what they ask is about that tank'))
 })
 
-test('asked whether their tank is all right, the chat reviews it with the tank-mates check on that tank, says what to fix first, and asks for the readings it lacks', () => {
-  expect(SYSTEM).toContain('whether it is all right ("bể này ổn không"), review that tank: check_tank_mates with its id')
-  expect(SYSTEM).toContain('and no fish to add')
-  expect(SYSTEM).toContain('Open with the check\'s verdict, then what to fix first and why')
-  expect(SYSTEM).toContain('Its saved facts hold no water readings, so end by asking for the one to three')
+test('asked whether their tank is all right, the chat reviews it with the tank-mates check on that tank, says what to fix first, and asks for the readings it lacks', async () => {
+  expect(SYSTEM).toContain('whether it is all right ("bể này ổn không"), review that tank. With fish in it: check_tank_mates with its id')
+  expect(SYSTEM).toContain('and no fish to add, once')
+  expect(SYSTEM).toContain('Open with the check\'s verdict, or, with one kind of fish, when it gives none, with how full the tank is and its notes')
+  expect(SYSTEM).toContain('With no fish in it there is nothing to check: don\'t call it.')
+  expect(SYSTEM).toContain('end by asking for the one to three they haven\'t given that would change your advice')
+  // What the prompt leans on, from the check itself: a verdict with two kinds or more; with one, none, but how full the
+  // tank is and its notes; with none, an error (the review, 13 Nov).
+  const h = await hb()
+  const dims = { l: 60, w: 30, h: 36 }
+  const tanks: Tank[] = [
+    { id: 'two', name: 'Bể 1', dims, species: [{ id: 'paracheirodon-innesi', count: 6 }, { id: 'pigeon-blood-discus', count: 2 }], unlisted: [] },
+    { id: 'one', name: 'Bể 2', dims, species: [{ id: 'paracheirodon-innesi', count: 3 }], unlisted: [] },
+    { id: 'none', name: 'Bể 3', dims, species: [], unlisted: [{ name: 'Rong lạ', kind: 'plant' }] },
+  ]
+  const tool = chatTools({ handbook: h, tanks: async () => tanks }).find(t => t.name === 'check_tank_mates')!
+  const review = async (tankId: string) => JSON.parse(await tool.run({ fish: [], tank: null, tankId }, { photosLeft: 0 }) as string) as MatesCheck
+  const two = await review('two')
+  expect(two.answer?.head).toEqual(expect.any(String))
+  expect(two.verdict).toBeDefined()
+  const one = await review('one')
+  expect(one.answer).toBeUndefined()
+  expect(one.verdict).toBeUndefined()
+  expect(one.stocking?.notes.length).toBeGreaterThan(0)
+  await expect(review('none')).rejects.toThrow('That tank has no fish')
 })
 
 test('the first message says where the chat started, what fish ID named, the earlier turns and what they showed, then the question', async () => {
