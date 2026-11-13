@@ -443,6 +443,8 @@ test('a shop\'s part that is wholly its notice of a batch or stock comes off whe
     // Two shops' notices alone under one heading: neither is the text that stays (Astra's read).
     { key: 'diet', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>This batch has only 7 fish.</p>' },
     { key: 'diet', source: 'bwaquatics', sourceUrl: 'https://bw/x', html: '<p>This batch has only 8 fish.</p>' },
+    // A notice with a fact after a comma, beside another source's text: it stays, its fact with it (Astra's read).
+    { key: 'habitat', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>This batch has only 7 fish, the species needs soft water.</p>' },
   )
   await writeFile(file('entity.json'), JSON.stringify(e, null, 1))
   const vi = JSON.parse(await readFile(file('vi.json'), 'utf8'))
@@ -452,6 +454,7 @@ test('a shop\'s part that is wholly its notice of a batch or stock comes off whe
     'notes:glaser': '<p>Cá chuột hiền. Gần đây có một đợt nhập từ Peru về.</p>',
     'diet:glaser': '<p>Lô này chỉ có 7 con.</p>',
     'diet:bwaquatics': '<p>Lô này chỉ có 8 con.</p>',
+    'habitat:glaser': '<p>Lô này chỉ có 7 con, loài này cần nước mềm.</p>',
   })
   await writeFile(file('vi.json'), JSON.stringify(vi, null, 1))
   await writeFile(file('th.json'), JSON.stringify({ ...vi, sections: { 'distribution:glaser': '<p>มีขาย</p>', 'notes:glaser': '<p>ปลาสงบ</p>' } }, null, 2))
@@ -460,8 +463,8 @@ test('a shop\'s part that is wholly its notice of a batch or stock comes off whe
   expect(r.dealer).toEqual(['species/corydoras-adolfoi: distribution:glaser'])
   expect(r.dealerOnly).toEqual(['species/corydoras-adolfoi: beforeYouBuy:glaser', 'species/corydoras-adolfoi: diet:glaser', 'species/corydoras-adolfoi: diet:bwaquatics'])
   const keys = (x: { sections: { key: string; source: string }[] }) => x.sections.map(s => `${s.key}:${s.source}`)
-  expect(keys(JSON.parse(await readFile(file('entity.json'), 'utf8')))).toEqual(['distribution:seriouslyfish', 'habitat:seriouslyfish', 'beforeYouBuy:glaser', 'notes:glaser', 'diet:glaser', 'diet:bwaquatics'])
-  expect(Object.keys(JSON.parse(await readFile(file('vi.json'), 'utf8')).sections).filter(k => k.endsWith(':glaser')).sort()).toEqual(['beforeYouBuy:glaser', 'diet:glaser', 'notes:glaser'])
+  expect(keys(JSON.parse(await readFile(file('entity.json'), 'utf8')))).toEqual(['distribution:seriouslyfish', 'habitat:seriouslyfish', 'beforeYouBuy:glaser', 'notes:glaser', 'diet:glaser', 'diet:bwaquatics', 'habitat:glaser'])
+  expect(Object.keys(JSON.parse(await readFile(file('vi.json'), 'utf8')).sections).filter(k => k.endsWith(':glaser')).sort()).toEqual(['beforeYouBuy:glaser', 'diet:glaser', 'habitat:glaser', 'notes:glaser'])
   expect(JSON.parse(await readFile(file('th.json'), 'utf8')).sections).toEqual({ 'notes:glaser': '<p>ปลาสงบ</p>' })
   // Again: nothing to change, and the one left is listed each run.
   const again = await sweep(root)

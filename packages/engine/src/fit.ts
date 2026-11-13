@@ -175,10 +175,11 @@ const HISTORY_VI = /(?<!\d)(?:1[89]|20)\d\d(?!\d)|mẫu chuẩn|mẫu định da
 //   quote or bracket after it) ends a sentence only before a capital or a figure, and never after a lone initial ("ông
 //   A. Werner", "P. dolloi"). Unsure, it reads more, so a dated batch is less often taken for news.
 // - EVERY_STOP, for whether a part is wholly a notice (dealerNotice), which takes the part off the page: every stop and
-//   every semicolon ends one. Unsure, a fact stands apart from the notice ("Lô này chỉ có 7 con. pH phù hợp là 6–7.", "Lô
-//   này chỉ có 7 con; loài này cần nước mềm") and the part stays.
+//   every semicolon ends one, and a comma before the species as a new subject ("…, loài này cần nước mềm"). Unsure, a fact
+//   stands apart from the notice ("Lô này chỉ có 7 con. pH phù hợp là 6–7.", "Lô này chỉ có 7 con; loài này cần nước
+//   mềm") and the part stays. Not every comma: "…ở Venezuela, con nào cũng đã lớn hẳn" goes on about the batch.
 const CUT = /(?<=[.!?…]["'”’»)]*)(?<!(?:^|[^\p{L}])\p{L}\.["'”’»)]*)\s+(?=["'“‘(«]*[\p{Lu}\p{N}])|\n/u
-const EVERY_STOP = /(?<=[.!?…]["'”’»)]*)\s+|;\s*|\n/gu
+const EVERY_STOP = /(?<=[.!?…]["'”’»)]*)\s+|;\s*|,\s*(?=(?:loài|giống)(?: cá| cây)? này(?![\p{L}\p{N}]))|\n/giu
 const history = (text: string, at: number) => HISTORY_VI.test([...text.slice(0, at).split(CUT).slice(-2), text.slice(at).split(CUT)[0]].join(' '))
 /**
  * A bare "lô này" in a sentence about plants is a keeper's own plants, not a dealer's batch: a video's "Cây ở lô này nằm
