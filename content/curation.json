@@ -749,5 +749,277 @@
    "discus",
    "penapis"
   ]
- }
+ },
+ "chips": [
+  {
+   "id": "ali",
+   "names": {
+    "vi": "Ali"
+   },
+   "match": {
+    "group": [
+     "cichlids"
+    ],
+    "places": [
+     "africa"
+    ]
+   }
+  },
+  {
+   "id": "cichlid-chau-my",
+   "names": {
+    "vi": "Cichlid châu Mỹ"
+   },
+   "match": {
+    "group": [
+     "cichlids"
+    ],
+    "places": [
+     "south-america",
+     "central-america",
+     "north-america"
+    ]
+   }
+  },
+  {
+   "id": "lau-kieng",
+   "names": {
+    "vi": "Lau kiếng",
+    "id": "Sapu-sapu",
+    "th": "ซัคเกอร์"
+   },
+   "match": {
+    "family": [
+     "Loricariidae"
+    ]
+   }
+  },
+  {
+   "id": "tep",
+   "names": {
+    "vi": "Tép",
+    "id": "Udang hias",
+    "th": "กุ้ง"
+   },
+   "match": {
+    "group": [
+     "shrimp"
+    ],
+    "except": [
+     "cambarellus-puer",
+     "cambarellus-shufeldtii",
+     "cambarus-bartonii",
+     "cherax-holthuisi",
+     "lysmata-amboinensis",
+     "lysmata-debelius",
+     "periclimenes-yucatanicus",
+     "saron-marmoratus",
+     "gnathophyllum-americanum",
+     "urocaridella-antonbruunii",
+     "macrobrachium-brasiliense",
+     "macrobrachium-dayanum"
+    ]
+   }
+  },
+  {
+   "id": "dia",
+   "names": {
+    "vi": "Dĩa",
+    "id": "Discus"
+   },
+   "match": {
+    "genus": [
+     "Symphysodon"
+    ]
+   }
+  },
+  {
+   "id": "ong-tien",
+   "names": {
+    "vi": "Ông tiên",
+    "id": "Manfish",
+    "th": "ปลาเทวดา"
+   },
+   "match": {
+    "genus": [
+     "Pterophyllum"
+    ]
+   }
+  },
+  {
+   "id": "la-han",
+   "names": {
+    "vi": "La hán",
+    "id": "Louhan"
+   },
+   "match": {
+    "breeds": [
+     "flowerhorn-cichlid"
+    ]
+   }
+  },
+  {
+   "id": "betta",
+   "names": {
+    "vi": "Betta",
+    "id": "Cupang",
+    "th": "ปลากัด"
+   },
+   "match": {
+    "genus": [
+     "Betta"
+    ]
+   }
+  },
+  {
+   "id": "ca-sac",
+   "names": {
+    "vi": "Cá sặc",
+    "th": "ปลากระดี่"
+   },
+   "match": {
+    "genus": [
+     "Trichogaster",
+     "Trichopodus",
+     "Sphaerichthys",
+     "Parosphromenus",
+     "Helostoma",
+     "Osphronemus",
+     "Trichopsis",
+     "Belontia",
+     "Parasphaerichthys",
+     "Ctenops"
+    ]
+   }
+  },
+  {
+   "id": "bay-mau",
+   "names": {
+    "vi": "Bảy màu",
+    "id": "Guppy",
+    "th": "ปลาหางนกยูง"
+   },
+   "match": {
+    "species": [
+     "poecilia-reticulata",
+     "poecilia-wingei"
+    ]
+   }
+  },
+  {
+   "id": "ca-vang",
+   "names": {
+    "vi": "Cá vàng",
+    "id": "Koki",
+    "th": "ปลาทอง"
+   },
+   "match": {
+    "species": [
+     "carassius-auratus"
+    ]
+   }
+  },
+  {
+   "id": "ca-rong",
+   "names": {
+    "vi": "Cá rồng",
+    "id": "Arwana",
+    "th": "อะโรวาน่า"
+   },
+   "match": {
+    "family": [
+     "Osteoglossidae"
+    ]
+   }
+  },
+  {
+   "id": "koi",
+   "names": {
+    "vi": "Koi",
+    "id": "Koi"
+   },
+   "match": {
+    "genus": [
+     "Cyprinus"
+    ],
+    "breeds": [
+     "butterfly-koi"
+    ]
+   }
+  },
+  {
+   "id": "tetra",
+   "names": {
+    "vi": "Tetra",
+    "id": "Tetra",
+    "th": "เตตร้า"
+   },
+   "match": {
+    "group": [
+     "tetras"
+    ]
+   }
+  },
+  {
+   "id": "chach",
+   "names": {
+    "vi": "Chạch",
+    "th": "ปลาหมู"
+   },
+   "match": {
+    "group": [
+     "loaches"
+    ]
+   }
+  },
+  {
+   "id": "ca-chuot",
+   "names": {
+    "vi": "Cá chuột",
+    "id": "Corydoras",
+    "th": "ปลาแพะ"
+   },
+   "match": {
+    "family": [
+     "Callichthyidae"
+    ]
+   }
+  },
+  {
+   "id": "killi",
+   "names": {
+    "vi": "Killi"
+   },
+   "match": {
+    "group": [
+     "killifish"
+    ]
+   }
+  },
+  {
+   "id": "long-tong",
+   "names": {
+    "vi": "Lòng tong",
+    "id": "Rasbora",
+    "th": "ปลาซิว"
+   },
+   "match": {
+    "group": [
+     "rasboras"
+    ]
+   }
+  },
+  {
+   "id": "oc",
+   "names": {
+    "vi": "Ốc",
+    "th": "หอย"
+   },
+   "match": {
+    "group": [
+     "snails"
+    ]
+   }
+  }
+ ]
 }
