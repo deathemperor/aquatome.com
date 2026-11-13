@@ -26,7 +26,7 @@ test.each(['seriouslyfish','scotcat'] as const)('%s accepts the same credited co
 test('the recorded-author label still requires a matched real author and never admits foreign, business or unknown ownership',()=>{
  const owns=(p:Photo,m:MarkEvidence)=>ownsMark(p,source,m)
  expect(owns(photo,{...mark,ownership:{...mark.ownership!,matchesRecordedAuthor:false}})).toBe(false)
- for(const author of ['',source.name,source.name+' / '])expect(owns({...photo,author},mark)).toBe(false)
+ for(const author of ['',source.name,source.name+' / ',source.name.toUpperCase(),source.name.toLowerCase()+' / '+source.name])expect(owns({...photo,author},mark)).toBe(false)
  for(const owner of ['unknown','third-party'] as const)expect(owns(photo,{...mark,owner})).toBe(false)
  for(const basis of ['foreign-mark','uncertain','source-logo'] as const)expect(owns(photo,{...mark,ownership:{...mark.ownership!,basis}})).toBe(false)
  expect(owns(photo,{...mark,credit:''})).toBe(false)
