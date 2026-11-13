@@ -40,7 +40,7 @@ test("the tests that failed every Mac run on 13 Nov pass with a live run's setti
     env: { ...outside, ...LIVE, NO_COLOR: '1' },
     timeout: slow(90_000),
   })
-  expect(r.status, r.stdout + r.stderr).toBe(0)
+  expect(r.status, `${r.error ?? ''}\n${r.stdout}${r.stderr}`).toBe(0)
   // All three ran: a renamed one would leave the pattern matching nothing, and vitest would pass on skips.
   expect(r.stdout).toMatch(/Tests\s+3 passed/)
 }, slow(120_000))
@@ -64,7 +64,7 @@ test('every setting a live run sets for the tests it runs is on the list', () =>
       for (const m of line.matchAll(/\b([A-Za-z_]\w*)=\S*\s+checks\b/g)) set.add(m[1]!)
     }
   }
-  const schedule = /<key>EnvironmentVariables<\/key><dict>([\s\S]*?)<\/dict>/.exec(read('install-engine-schedule.sh'))?.[1]
+  const schedule = /<key>EnvironmentVariables<\/key>\s*<dict>([\s\S]*?)<\/dict>/.exec(read('install-engine-schedule.sh'))?.[1]
   expect(schedule, "the schedule's environment").toBeTruthy()
   for (const m of schedule!.matchAll(/<key>([A-Za-z_]\w*)<\/key>/g)) set.add(m[1]!)
   // PATH: the run's node. AQ_TEST_TIME_SCALE: the tests' own limits, and verify sets it again for each step it checks.
