@@ -1,3 +1,4 @@
+import { denied } from './piece-admission'
 import { mkdtemp, mkdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -335,4 +336,17 @@ test('the answer\'s source is one of the species\' own sources, by name', async 
   await speciesRanges(s.root, deps(async <T>(a: { prompt: string; schema: object }) => { schema = a.schema as typeof schema; prompt = a.prompt; return BETTA as T }), { limit: 1, records: 0 })
   expect(schema!.properties.countries.items.properties.source.enum).toEqual(['seriouslyfish', 'sprucepets'])
   expect(prompt).toContain('=== source: seriouslyfish; section: distribution ===')
+})
+
+test('item admission stops without model calls or content changes', async () => {
+  const s = await site([entity()])
+  await denied('range', s.root, async () => {
+    let calls = 0
+    const r = await speciesRanges(s.root, deps(async () => { calls++; throw new Error('called') }), { limit: 5, records: 5 })
+    expect(r.stopped).toContain('not started')
+    expect(r.native.calls).toBe(0)
+    expect(r.native.failed).toEqual([])
+    expect(calls).toBe(0)
+    await expect(s.audit('betta-splendens')).rejects.toThrow()
+  })
 })

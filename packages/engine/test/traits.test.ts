@@ -1,3 +1,4 @@
+import { denied } from './piece-admission'
 import { readFileSync } from 'node:fs'
 import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -122,4 +123,13 @@ test("the card never goes below the minimum another source on the page tells the
   expect(cardSchool([sfSays, { key: 'behaviour', source: 'aquariumcoop', html: '<p>Keep at least 6 fish, ideally in groups of 12 or more.</p>' }], all)).toBe(8)
   expect(cardSchool([sfSays, { key: 'habitat', source: 'glaser', html: '<p>It lives in schools of 30 fish in slow streams.</p>' }], all)).toBe(8)
   expect(cardSchool([{ key: 'habitat', source: 'seriouslyfish', html: '<p>Large shoals of at least 30 specimens gather in pools.</p>' }], all)).toBeNull()
+})
+
+test('item admission stops without model calls or content changes', async () => {
+  const c = await content()
+  await denied('traits', join(c, '..'), async () => {
+    const r = await extractTraits(c, async () => { throw new Error('called') }, { limit: 5, now, publicBuild: false })
+    expect(r.stopped).toContain('not started')
+    expect(r.failed).toEqual([])
+  })
 })

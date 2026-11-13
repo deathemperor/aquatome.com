@@ -19,6 +19,23 @@
       "kept": true
     }
   ],
+  "id/places/aegean-islands": [
+    {
+      "at": "2026-11-13T11:01:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.4
+      ]
+    }
+  ],
   "id/places/aek-garoga": [
     {
       "at": "2026-11-11T01:41:42Z",
@@ -669,6 +686,23 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "id/places/balkans": [
+    {
+      "at": "2026-11-13T11:01:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.4
+      ]
     }
   ],
   "id/places/ban-pakong": [
@@ -6096,6 +6130,23 @@
       "kept": true
     }
   ],
+  "id/places/longjin-river": [
+    {
+      "at": "2026-11-13T11:01:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.4
+      ]
+    }
+  ],
   "id/places/lorentz-river": [
     {
       "at": "2026-11-08T05:20:54Z",
@@ -9554,6 +9605,23 @@
       "kept": true
     }
   ],
+  "id/places/rio-fresco": [
+    {
+      "at": "2026-11-13T11:01:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.4
+      ]
+    }
+  ],
   "id/places/rio-grande-do-sul": [
     {
       "at": "2026-11-09T07:33:46Z",
@@ -9656,6 +9724,23 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "id/places/rio-itacaiunas": [
+    {
+      "at": "2026-11-13T11:01:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.4
+      ]
     }
   ],
   "id/places/rio-itaya": [
@@ -10751,6 +10836,23 @@
       "kept": true
     }
   ],
+  "id/places/river-cross": [
+    {
+      "at": "2026-11-13T11:01:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.4
+      ]
+    }
+  ],
   "id/places/river-guasaule": [
     {
       "at": "2026-11-09T00:08:05Z",
@@ -11537,6 +11639,23 @@
       "kept": true
     }
   ],
+  "id/places/siak-river": [
+    {
+      "at": "2026-11-13T11:01:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.4
+      ]
+    }
+  ],
   "id/places/siberia": [
     {
       "at": "2026-11-10T15:00:16Z",
@@ -11597,6 +11716,23 @@
       "notes": [],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "id/places/sinai-peninsula": [
+    {
+      "at": "2026-11-13T11:01:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.4
+      ]
     }
   ],
   "id/places/singen-river": [
@@ -13254,6 +13390,23 @@
       "kept": true
     }
   ],
+  "id/places/xe-banghiang": [
+    {
+      "at": "2026-11-13T11:01:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.4
+      ]
+    }
+  ],
   "id/places/xe-kaman": [
     {
       "at": "2026-11-08T05:22:00Z",
@@ -13607,6 +13760,18 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/aegean-islands": [
+    {
+      "at": "2026-11-13T11:12:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -14661,6 +14826,18 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/balkans": [
+    {
+      "at": "2026-11-13T11:12:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -20791,6 +20968,20 @@
       "kept": true
     }
   ],
+  "ms/places/longjin-river": [
+    {
+      "at": "2026-11-13T11:12:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Longjin: sungai tanpa \"Sungai\"; sepatutnya \"Sungai Longjin\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/lorentz-river": [
     {
       "at": "2026-11-08T12:45:10Z",
@@ -24406,6 +24597,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-fresco": [
+    {
+      "at": "2026-11-13T11:12:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Fresco: sepatutnya \"Sungai Fresco\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-grande": [
     {
       "at": "2026-11-08T03:37:07Z",
@@ -24542,6 +24747,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-itacaiunas": [
+    {
+      "at": "2026-11-13T11:12:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Itacaiúnas: sepatutnya \"Sungai Itacaiúnas\""
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -25834,6 +26053,20 @@
       "kept": true
     }
   ],
+  "ms/places/river-cross": [
+    {
+      "at": "2026-11-13T11:12:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Cross: sepatutnya \"Sungai Cross\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/river-guasaule": [
     {
       "at": "2026-11-09T00:52:35Z",
@@ -26654,6 +26887,20 @@
       "kept": true
     }
   ],
+  "ms/places/siak-river": [
+    {
+      "at": "2026-11-13T11:12:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Siak: sepatutnya \"Sungai Siak\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/siberia": [
     {
       "at": "2026-11-12T13:20:45Z",
@@ -26697,6 +26944,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/sinai-peninsula": [
+    {
+      "at": "2026-11-13T11:12:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -28624,6 +28883,20 @@
       "kept": true
     }
   ],
+  "ms/places/xe-banghiang": [
+    {
+      "at": "2026-11-13T11:12:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Xe Banghiang: sepatutnya \"Sungai Xe Banghiang\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/xe-kaman": [
     {
       "at": "2026-11-08T12:46:46Z",
@@ -29059,6 +29332,18 @@
         "Abunã → อาบูนัง (should be อาบูนา)"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/aegean-islands": [
+    {
+      "at": "2026-11-13T11:02:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -29754,6 +30039,18 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/balkans": [
+    {
+      "at": "2026-11-13T11:02:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -35430,6 +35727,18 @@
       "kept": true
     }
   ],
+  "th/places/longjin-river": [
+    {
+      "at": "2026-11-13T11:02:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/lorentz-river": [
     {
       "at": "2026-11-08T05:28:39Z",
@@ -39035,6 +39344,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-fresco": [
+    {
+      "at": "2026-11-13T11:02:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-grande-do-sul": [
     {
       "at": "2026-11-09T07:46:38Z",
@@ -39156,6 +39477,18 @@
       "at": "2026-11-08T05:29:24Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-itacaiunas": [
+    {
+      "at": "2026-11-13T11:02:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -40312,6 +40645,18 @@
       "kept": true
     }
   ],
+  "th/places/river-cross": [
+    {
+      "at": "2026-11-13T11:02:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/river-guasaule": [
     {
       "at": "2026-11-09T00:10:26Z",
@@ -41150,6 +41495,18 @@
       "kept": true
     }
   ],
+  "th/places/siak-river": [
+    {
+      "at": "2026-11-13T11:02:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/siberia": [
     {
       "at": "2026-11-10T15:01:53Z",
@@ -41209,6 +41566,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/sinai-peninsula": [
+    {
+      "at": "2026-11-13T11:02:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -42945,6 +43314,18 @@
       "kept": true
     }
   ],
+  "th/places/xe-banghiang": [
+    {
+      "at": "2026-11-13T11:02:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/xe-kaman": [
     {
       "at": "2026-11-08T05:30:03Z",
@@ -43288,6 +43669,20 @@
       "score": 0.93,
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/aegean-islands": [
+    {
+      "at": "2026-11-13T11:01:31Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 11 names point to the right place, and none is flagged as wrong.",
+        "'quần đảo Aegea', 'Balkan', 'vùng Caribe' and 'bán đảo Sinai' are the names Vietnamese readers normally use."
       ],
       "attempt": "first",
       "kept": true
@@ -44343,6 +44738,20 @@
       "score": 0.93,
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/balkans": [
+    {
+      "at": "2026-11-13T11:01:31Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 11 names point to the right place, and none is flagged as wrong.",
+        "'quần đảo Aegea', 'Balkan', 'vùng Caribe' and 'bán đảo Sinai' are the names Vietnamese readers normally use."
       ],
       "attempt": "first",
       "kept": true
@@ -45720,6 +46129,20 @@
       "score": 0.9,
       "notes": [
         "Not flagged: \"sông East Rapti\" and \"đảo Thumbi West\" keep the directional words as part of the proper name, which is acceptable. \"Río de la Plata\", \"Río Muni\" and \"Caribe\" match common Vietnamese usage."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/caribbean-basin": [
+    {
+      "at": "2026-11-13T11:01:31Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 11 names point to the right place, and none is flagged as wrong.",
+        "'quần đảo Aegea', 'Balkan', 'vùng Caribe' and 'bán đảo Sinai' are the names Vietnamese readers normally use."
       ],
       "attempt": "first",
       "kept": true
@@ -51635,6 +52058,20 @@
       "kept": true
     }
   ],
+  "vi/places/longjin-river": [
+    {
+      "at": "2026-11-13T11:01:31Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 11 names point to the right place, and none is flagged as wrong.",
+        "'sông Longjin', 'sông Fresco', 'sông Itacaiunas', 'sông Cross' and 'sông Siak' each keep the source's proper name and put the generic word in Vietnamese ('sông'), with Rio/River dropped. This is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lorentz-river": [
     {
       "at": "2026-11-07T20:35:59Z",
@@ -56355,6 +56792,20 @@
       "kept": true
     }
   ],
+  "vi/places/rio-fresco": [
+    {
+      "at": "2026-11-13T11:01:31Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 11 names point to the right place, and none is flagged as wrong.",
+        "'sông Longjin', 'sông Fresco', 'sông Itacaiunas', 'sông Cross' and 'sông Siak' each keep the source's proper name and put the generic word in Vietnamese ('sông'), with Rio/River dropped. This is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-grande": [
     {
       "at": "2026-11-07T20:38:47Z",
@@ -56498,6 +56949,20 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-itacaiunas": [
+    {
+      "at": "2026-11-13T11:01:31Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 11 names point to the right place, and none is flagged as wrong.",
+        "'sông Longjin', 'sông Fresco', 'sông Itacaiunas', 'sông Cross' and 'sông Siak' each keep the source's proper name and put the generic word in Vietnamese ('sông'), with Rio/River dropped. This is acceptable."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -57861,6 +58326,20 @@
       "kept": true
     }
   ],
+  "vi/places/river-cross": [
+    {
+      "at": "2026-11-13T11:01:31Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 11 names point to the right place, and none is flagged as wrong.",
+        "'sông Longjin', 'sông Fresco', 'sông Itacaiunas', 'sông Cross' and 'sông Siak' each keep the source's proper name and put the generic word in Vietnamese ('sông'), with Rio/River dropped. This is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/river-guasaule": [
     {
       "at": "2026-11-09T00:06:31Z",
@@ -58995,6 +59474,20 @@
       "kept": true
     }
   ],
+  "vi/places/siak-river": [
+    {
+      "at": "2026-11-13T11:01:31Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 11 names point to the right place, and none is flagged as wrong.",
+        "'sông Longjin', 'sông Fresco', 'sông Itacaiunas', 'sông Cross' and 'sông Siak' each keep the source's proper name and put the generic word in Vietnamese ('sông'), with Rio/River dropped. This is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/siberia": [
     {
       "at": "2026-11-10T14:59:55Z",
@@ -59069,6 +59562,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/sinai-peninsula": [
+    {
+      "at": "2026-11-13T11:01:31Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 11 names point to the right place, and none is flagged as wrong.",
+        "'quần đảo Aegea', 'Balkan', 'vùng Caribe' and 'bán đảo Sinai' are the names Vietnamese readers normally use."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -60338,6 +60845,20 @@
       "kept": true
     }
   ],
+  "vi/places/thumbi-island-west": [
+    {
+      "at": "2026-11-13T11:01:31Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 11 names point to the right place, and none is flagged as wrong.",
+        "'đảo Thumbi West' keeps 'West' as part of the source's proper name. That is allowed, but it is the weakest entry: 'đảo Thumbi Tây' would read more naturally."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/thumbi-west-island": [
     {
       "at": "2026-11-08T05:15:07Z",
@@ -61285,6 +61806,20 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/xe-banghiang": [
+    {
+      "at": "2026-11-13T11:01:31Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 11 names point to the right place, and none is flagged as wrong.",
+        "'sông Xê Băng Hiêng' is the usual Vietnamese spelling of this river in Laos. The entry is tagged as a region, but the name it refers to is the river, so the 'sông' label fits."
+      ],
       "attempt": "first",
       "kept": true
     }

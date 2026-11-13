@@ -10,6 +10,50 @@
     "cameroon",
     "lake-barombi-mbo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [
+        "Lake Barombi Mbo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Pungu maclareni is a maternally mouthbrooding cichlid endemic to Lake Barombi Mbo, a small volcanic crater lake in Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": [
+            "Lake Barombi Mbo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372475,
+      "total": 16,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "CM",
+          16
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          4.21875,
+          16,
+          16
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

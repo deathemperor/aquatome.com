@@ -1,3 +1,4 @@
+import { piece, PieceAdmissionError } from './pieces'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { GuideSchema, mayPublish, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
@@ -10,6 +11,7 @@ import { deeperPages, depthReport, popularityOrder, readSearchCache, runOrder, s
 import { discover } from './discover'
 import { ChallengeError, type ChromeFetcher } from './fetch'
 import { gbifMatch, pageTaxon, type Taxon } from './gbif'
+import { GROUP_PAGES } from './page-folds'
 import { ensurePlaces, guideId, mergePlant, mergeSpecies, writeGuide } from './merge'
 import { METRIC_KINDS } from './metric'
 import { htmlToOutline, isChallenge, type PageImage } from './outline'
@@ -20,7 +22,7 @@ import { readVarietyPages, recordVarietyPage } from './species-sources'
 import { rewriteVi, VI_WRITE } from './vi-rewrite'
 import { QUALITY_THRESHOLD, gate, reviewTranslation, steadyRead, WRITER_BAND } from './quality'
 import { logReviews, type Review } from './review-log'
-import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
+import { linkedPhotos, mayTake, pickSourcePhotos, storeSourcePhotos, type CreditTerms, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
 import { ARCHIVE_POLITE, ArchiveRefused } from './archive'
 import { SOURCES, sourceById, type SourceConfig } from './sources'
@@ -48,7 +50,7 @@ export type Deps = {
   readersWanted?: () => Promise<ReaderWant[]>
 }
 type Counts = { discovered: number; fetched: number; processed: number; skipped: number; blocked: number; errors: number }
-export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; movedToArchive: SourceId[]; changed: ChangelogEntry[]; errors: string[]; depth?: DepthReport }
+export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; movedToArchive: SourceId[]; changed: ChangelogEntry[]; errors: string[]; depth?: DepthReport; stopped?: string }
 
 type Kind = 'species' | 'plants' | 'guides' | 'places' | 'glossary' | 'breeds'
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
@@ -184,7 +186,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const contentRoot = join(root, 'content')
   const s = store(contentRoot)
   const glossary = await glossaryTerms(s)
-  const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean | 'photos'; permission?: { refusedCredits?: string[] } }>>>(join(contentRoot, 'sources.json'))) ?? {}
+  const sourceNames = (await readJson<Partial<Record<SourceId, { name: string; publish?: boolean | 'photos'; permission?: CreditTerms }>>>(join(contentRoot, 'sources.json'))) ?? {}
   const gbifCache: Record<string, Taxon | null> = {}
   const blocked = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))) ?? {}
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
@@ -258,14 +260,19 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   async function apply(source: SourceId, url: string, page: ProcessedPage, score: number, images: PageImage[], bytes: Deps['fetcher']['bytes']): Promise<string[] | null> {
     const now = today()
     const minWidth = sourceById(source).minPhotoWidth
+    const sourceName = sourceNames[source]?.name ?? source
+    const terms = sourceNames[source]?.permission
+    const photoDeps = { bytes, media: deps.media, blocked, refusedCredits: terms?.refusedCredits, coveredCredits: terms?.coveredCredits }
     const sourcePhotos = (names: string[], existing: Photo[], max?: number) =>
-      storeSourcePhotos(source, sourceNames[source]?.name ?? source, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth), { bytes, media: deps.media, blocked, refusedCredits: sourceNames[source]?.permission?.refusedCredits }, existing, max ?? 4)
+      storeSourcePhotos(source, sourceName, url, pickSourcePhotos(images, url, names, max, page.kind === 'guide' ? 'guide' : 'subject', minWidth, mayTake(source, sourceName, photoDeps, existing)), photoDeps, existing, max ?? 4)
     const log = (kind: ChangelogEntry['kind'], id: string, existed: boolean) => {
       const e: ChangelogEntry = { date: now, kind, id, source, action: existed ? 'updated' : 'new' }
       report.changed.push(e)
       return e
     }
     if (page.kind === 'species') {
+      // A source page about several species is no one species' page (page-folds.ts).
+      if (GROUP_PAGES.includes(url)) return null
       // A name newer than GBIF (the 2024 Corydoras split: Hoplisoma sterbai) is found under a synonym the page gives.
       const taxon = await pageTaxon([page.scientificName!, ...page.synonyms], page.group, n => gbifMatch(n, http, gbifCache))
       if (!taxon) return null
@@ -440,24 +447,27 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
           await save({ ...rest, ...base, hash, status: prev.entityIds.length ? 'processed' : 'skipped', attempts: 0 })
           continue
         }
-        const { page, score, tries } = await translate({ source: id, url, title: o.title, outline: o.outline, glossary })
-        const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images
-        const entityIds = await apply(id, url, page, score, images, bytes)
-        // The last translation reviewed is the page's, unless another source outranks this one there; a page is reviewed per source.
-        for (const e of entityIds ?? []) {
-          const on = (await readJson<Translation>(join(contentRoot, e, 'vi.json')))?.quality?.bySource?.[id] === score
-          await logReviews(root, 'translation', { id: e, lang: 'vi', part: id }, tries, on ? tries.at(-1) : undefined, { now: deps.now() })
-        }
-        if (entityIds) counts.processed++
-        else counts.skipped++
-        await save({ ...base, hash, processedHash: hash, status: entityIds ? 'processed' : 'skipped', entityIds: entityIds ?? [], attempts: 0 })
-        llmFailures = 0
+        await piece(url, async () => {
+          const { page, score, tries } = await translate({ source: id, url, title: o.title, outline: o.outline, glossary })
+          const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images
+          const entityIds = await apply(id, url, page, score, images, bytes)
+          // The last translation reviewed is the page's, unless another source outranks this one there; a page is reviewed per source.
+          for (const e of entityIds ?? []) {
+            const on = (await readJson<Translation>(join(contentRoot, e, 'vi.json')))?.quality?.bySource?.[id] === score
+            await logReviews(root, 'translation', { id: e, lang: 'vi', part: id }, tries, on ? tries.at(-1) : undefined, { now: deps.now() })
+          }
+          if (entityIds) counts.processed++
+          else counts.skipped++
+          await save({ ...base, hash, processedHash: hash, status: entityIds ? 'processed' : 'skipped', entityIds: entityIds ?? [], attempts: 0 })
+          llmFailures = 0
+        })
       } catch (e) {
         // Nothing is wrong with the page, so nothing is marked on it, and the source waits with the archive.
         if (e instanceof ArchiveRefused) { report.errors.push(`${id}: not read: ${e.message}`); break }
         // Wikimedia resting: the page waits, unmarked and with its attempts, and the source goes on.
         if (e instanceof WikimediaRefused) { report.errors.push(`${url}: waits for Wikimedia: ${e.message}`); continue }
         const message = (e as Error).message
+        if (e instanceof PieceAdmissionError) { report.stopped = message; break sources }
         counts.errors++
         report.errors.push(`${url}: ${message}`)
         // A usage limit uses no attempt; a transient failure (browser, network, usage limit) runs first next time (state.ts, depth.ts).

@@ -43,7 +43,8 @@ test("a clean pull that brings main's commits in is swept before the push, and t
 
   const dir = mkdtempSync(join(tmpdir(), 'aq-pulled-'))
   mkdirSync(join(dir, 'bin'))
-  writeFileSync(join(dir, 'bin/pnpm'), '#!/bin/sh\necho swept >> ../swept.log\n[ -z "$FIXES" ] || echo fixed > content/b.json\n')
+  // The sweep alone: the photo records' migration before it (sweep_merged) has nothing to do here.
+  writeFileSync(join(dir, 'bin/pnpm'), '#!/bin/sh\n[ "$2" = sweep ] || exit 0\necho swept >> ../swept.log\n[ -z "$FIXES" ] || echo fixed > content/b.json\n')
   chmodSync(join(dir, 'bin/pnpm'), 0o755)
   const sh = (command: string, cwd = dir, env = {}) => execSync(command, { cwd, shell: '/bin/bash', encoding: 'utf8', env: { ...process.env, ...env, PATH: `${dir}/bin:${process.env.PATH}` } })
   const repo = join(dir, 'repo'), other = join(dir, 'other')

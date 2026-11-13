@@ -1,3 +1,4 @@
+import { denied } from './piece-admission'
 import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -8,6 +9,7 @@ import { LlmError } from '../src/claude'
 import { mirrorPlan } from '../src/mirror-photos'
 import { WikimediaRefused } from '../src/wikimedia-rest'
 import { breedNames, commonsCandidates, dhash, galleries, rankGallery, screenTagged, type GalleryDeps, type GalleryPhoto, type Vet } from '../src/gallery'
+import { slow } from '@aq/schema/test-time'
 
 const meta = (licence: string, artist = '<a href="x">Ann</a>, [[User:Bo K|Bo]]') => ({ LicenseShortName: { value: licence }, Artist: { value: artist } })
 const info = (title: string, licence: string, width = 2000) => ({
@@ -291,7 +293,7 @@ test('gallery: the sheet budget stops the run; the next run continues from the q
   expect(g.photos.length).toBeGreaterThanOrEqual(30)
   // iNaturalist was read from its cursor, not from the start.
   expect(pages.filter(p => p === '0').length).toBe(2) // research and agree passes, once each
-}, 30_000)
+}, slow(30_000))
 
 test('gallery: a page short of target is read again only after 30 days; then iNaturalist continues past its cursor', async () => {
   const r = await root()
@@ -545,4 +547,15 @@ test('a breed\'s gallery as the step writes it is the one the site loads for tha
   const after = await loadAll({ root: join(r, 'content'), lang: 'vi', publicBuild: false })
   expect(after.galleries['balloon-molly']!.map(p => p.sourceUrl)).toEqual(urls(written))
   expect(after.galleries['balloon-molly']).toHaveLength(4)
+})
+
+test('last item cost refuses admission without calls or content writes', async () => {
+  const r = await root()
+  let calls = 0
+  await denied('gallery', r, async () => {
+    const report = await galleries(r, deps({ look: async () => { calls++; throw new Error('must not call') } }), { sheets: 5 })
+    expect(report.stopped).toContain('not started')
+    expect(report.failed).toEqual([])
+    expect(calls).toBe(0)
+  })
 })

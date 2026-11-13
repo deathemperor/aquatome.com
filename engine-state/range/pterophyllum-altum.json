@@ -1,0 +1,120 @@
+{
+  "id": "pterophyllum-altum",
+  "native": {
+    "input": "52a68734f4b9cf0d",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The altum angel, Pterophyllum altum, is a cichlid from Colombia and Venezuela, native to the upper Rio Negro and tributaries of the upper Rio Orinoco.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The altum angel, Pterophyllum altum, is a cichlid from Colombia and Venezuela, native to the upper Rio Negro and tributaries of the upper Rio Orinoco.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Colombia, Venezuela, Orinoco.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Colombia, Venezuela, Orinoco.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Native to Colombia and Venezuela, where it occurs in the upper Rio Negro and tributaries of the upper Rio Orinoco including the Rio Inírida and Rio Atabapo.",
+        "ok": true
+      },
+      {
+        "name": "Rio Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Native to Colombia and Venezuela, where it occurs in the upper Rio Negro and tributaries of the upper Rio Orinoco including the Rio Inírida and Rio Atabapo.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "Colombia, Venezuela, Orinoco.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pterophyllum altum",
+    "status": "ACCEPTED",
+    "taxonKey": 5208522,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        13
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

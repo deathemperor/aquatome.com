@@ -1,3 +1,4 @@
+import { piece } from './pieces'
 import { compactVerdict, photoHints, photoReason, deadNote, peopleNote, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { writeImageCache } from './image-cache-write'
@@ -494,7 +495,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       try {
         const sheet = join(dir, `sheet-${i}.jpg`)
         await writeFile(sheet, await contactSheet(ok.map(x => x.b), 640, 480, 2, 'contain'))
-        const v = await d.look(sheet, subjectPrompt(s, captions))
+        const v = await piece(s.id, () => d.look(sheet, subjectPrompt(s, captions)))
         report.sheets++
         for (const p of v.photos ?? []) {
           const x = ok[p.n - 1]

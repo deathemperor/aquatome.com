@@ -10,6 +10,332 @@
     "australia",
     "cape-york-peninsula"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AU"
+      ],
+      "regions": [
+        "Cape York Peninsula",
+        "Torres Strait",
+        "Embley",
+        "Mission",
+        "Herbert River",
+        "Ross River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Pacific blue-eye, Pseudomugil signifer, is the most widely-distributed blue-eye in Australia, found along most of the eastern coastline.",
+          "countries": [
+            "AU"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its range extends along the majority of the country's eastern coastline, southwards from the Cape York Peninsula in northern Queensland state to Merimbula Lake in southern New South Wales, near the border with Victoria state.",
+          "countries": [],
+          "regions": [
+            "Cape York Peninsula"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There exist populations on some offshore islands, including those in the Torres Strait, while it's also known from the western side of the Cape York Peninsula in the Embley and Mission river systems.",
+          "countries": [],
+          "regions": [
+            "Torres Strait",
+            "Embley",
+            "Mission"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Those from northern and southern localities have been considered distinct by various authors, for example, and in Queensland forms originating north and south of the Herbert River also appear dissimilar, with an intermediate form apparently native to the area around Townsville (Ross River).",
+          "countries": [],
+          "regions": [
+            "Herbert River",
+            "Ross River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411752,
+      "total": 2421,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "AU",
+          2421
+        ]
+      ],
+      "cells": [
+        [
+          132.1875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          133.59375,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          140.625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -14.0625,
+          22,
+          22
+        ],
+        [
+          140.625,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          142.03125,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          142.03125,
+          -11.25,
+          23,
+          23
+        ],
+        [
+          143.4375,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          143.4375,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          144.84375,
+          -19.6875,
+          30,
+          30
+        ],
+        [
+          144.84375,
+          -18.28125,
+          372,
+          372
+        ],
+        [
+          144.84375,
+          -16.875,
+          185,
+          185
+        ],
+        [
+          144.84375,
+          -15.46875,
+          48,
+          48
+        ],
+        [
+          146.25,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          146.25,
+          -21.09375,
+          4,
+          4
+        ],
+        [
+          146.25,
+          -19.6875,
+          41,
+          41
+        ],
+        [
+          146.25,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          147.65625,
+          -23.90625,
+          3,
+          3
+        ],
+        [
+          147.65625,
+          -22.5,
+          77,
+          77
+        ],
+        [
+          147.65625,
+          -21.09375,
+          135,
+          135
+        ],
+        [
+          149.0625,
+          -37.96875,
+          2,
+          2
+        ],
+        [
+          149.0625,
+          -36.5625,
+          53,
+          53
+        ],
+        [
+          149.0625,
+          -35.15625,
+          2,
+          2
+        ],
+        [
+          149.0625,
+          -26.71875,
+          13,
+          13
+        ],
+        [
+          149.0625,
+          -25.3125,
+          12,
+          12
+        ],
+        [
+          149.0625,
+          -23.90625,
+          10,
+          10
+        ],
+        [
+          149.0625,
+          -22.5,
+          65,
+          65
+        ],
+        [
+          150.46875,
+          -36.5625,
+          7,
+          7
+        ],
+        [
+          150.46875,
+          -35.15625,
+          84,
+          84
+        ],
+        [
+          150.46875,
+          -33.75,
+          37,
+          37
+        ],
+        [
+          150.46875,
+          -32.34375,
+          2,
+          2
+        ],
+        [
+          150.46875,
+          -26.71875,
+          15,
+          15
+        ],
+        [
+          150.46875,
+          -25.3125,
+          56,
+          56
+        ],
+        [
+          150.46875,
+          -23.90625,
+          17,
+          17
+        ],
+        [
+          151.875,
+          -33.75,
+          39,
+          39
+        ],
+        [
+          151.875,
+          -32.34375,
+          27,
+          27
+        ],
+        [
+          151.875,
+          -30.9375,
+          104,
+          104
+        ],
+        [
+          151.875,
+          -29.53125,
+          106,
+          106
+        ],
+        [
+          151.875,
+          -28.125,
+          476,
+          476
+        ],
+        [
+          151.875,
+          -26.71875,
+          142,
+          142
+        ],
+        [
+          151.875,
+          -25.3125,
+          65,
+          65
+        ],
+        [
+          153.28125,
+          -29.53125,
+          89,
+          89
+        ],
+        [
+          153.28125,
+          -28.125,
+          40,
+          40
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

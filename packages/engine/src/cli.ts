@@ -1,3 +1,4 @@
+import { videoBudgetStopped } from './youtube'
 import { appendFileSync, readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile, rename } from 'node:fs/promises'
 import { get as httpsGet } from 'node:https'
@@ -26,6 +27,7 @@ import { auditPictures } from './audit'
 import { metricPages } from './metric'
 import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
+import { copiesToRedo, redoCopies, type Redone } from './seasons'
 import { FIT_KINDS, fitDue, fitKey, fitReport, runFit, type FitState } from './fit'
 import { gate, writeFitSummary } from './gate'
 import { restingFetch } from './wikimedia-rest'
@@ -59,7 +61,7 @@ import { ARCHIVE_AFTER_BLOCKS, runEngine } from './run'
 import { cardGaps } from './card-fill'
 import { depthReport, popularityOrder, thinSpecies, type DepthReport } from './depth'
 import { SOURCES } from './sources'
-import { loadState, setSourceBlock, sourceBlockedSince } from './state'
+import { errorKind, loadState, setSourceBlock, sourceBlockedSince } from './state'
 import { collect } from './facebook/collect'
 import { chromeFb } from './facebook/chrome'
 import { FB } from './facebook/config'
@@ -215,9 +217,10 @@ async function covers(o: { redo?: boolean; limit?: number }) {
     get: async u => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     look: (file, prompt) => claudeVision<{ candidates: string[]; cover: string }>({ system: 'You write short Vietnamese labels for video thumbnails. Reply only with JSON.', prompt, schema: COVER_SCHEMA, file, model: process.env.COVER_MODEL ?? 'opus' }),
   }, o)
-  console.log(`covers: ${cv.done.length} done, ${cv.failed.length} failed`)
+  console.log(`covers: ${cv.done.length} done, ${cv.failed.length} failed${cv.stopped ? ` (stopped: ${cv.stopped})` : ''}`)
   for (const d of cv.done) console.log(`cover: ${d}`)
   for (const f of cv.failed) console.log(`cover failed: ${f}`)
+  return cv
 }
 
 if (cmd === 'photo-privacy') {
@@ -249,6 +252,7 @@ if (cmd === 'photo-privacy') {
       await writeFile(join(ROOT, 'engine-state/last-run.json'), `${JSON.stringify({ startedAt, finishedAt: new Date().toISOString(), ...report }, null, 2)}\n`)
     }
     console.table(report.perSource)
+    if (report.stopped) console.log(`stopped: ${report.stopped}`)
     if (report.needsHuman.length) console.log(`needs-human: ${report.needsHuman.join(', ')} — pass the browser check in the engine Chrome profile, then: pnpm engine run --sources <id> --retry-blocked`)
     if (report.movedToArchive.length) console.log(`moved to the Internet Archive: ${report.movedToArchive.join(', ')} (browser checks on ${ARCHIVE_AFTER_BLOCKS} runs within a week)`)
     for (const e of report.errors) console.log(`error: ${e}`)
@@ -565,7 +569,7 @@ if (cmd === 'photo-privacy') {
   if (r.refused.length || r.refusedHeld.length || r.refusedPicked.length) console.log(`sweep: ${r.refused.length} refused photos kept off; ${r.refusedHeld.length} pages held; ${r.refusedPicked.length} picked heads the check calls "none" (photo-check.ts refusedOn)`)
   for (const x of [...r.refusedHeld.map(x => `refused held: ${x}`), ...r.refusedPicked.map(x => `picked head the check calls none: ${x}`), ...r.refused.map(x => `refused off: ${x}`)]) console.log(x)
   if (r.held.length) console.log(`sweep: ${r.held.length} photos would leave every page for good, more than a run may with nobody looking: none taken off. Look at them, then run: pnpm engine sweep --titles 0 --photo-cap ${r.held.length}`)
-  for (const x of [...r.held.map(x => `photo held: ${x}`), ...r.unwell.map(x => `photo of an unwell fish kept: ${x}`), ...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.again.map(x => `never-again off: ${x}`), ...r.videos.map(x => `video off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.schools.map(x => `school size: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`), ...r.unplaced.map(x => `photo under no heading: ${x}`)]) console.log(x)
+  for (const x of [...r.held.map(x => `photo held: ${x}`), ...r.unwell.map(x => `photo of an unwell fish kept: ${x}`), ...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.again.map(x => `never-again off: ${x}`), ...r.videos.map(x => `video off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.schools.map(x => `school size: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`), ...r.unplaced.map(x => `photo under no heading: ${x}`), ...r.folds.map(x => `page folded: ${x}`)]) console.log(x)
   // After the sweep's own fixes, so a fix a reader sees dates its page (page-dates.ts).
   const dated = await updatePageDates(join(ROOT, 'content'))
   console.log(`page dates: ${dated.files} files, ${dated.changed} changed`)
@@ -766,7 +770,7 @@ if (cmd === 'photo-privacy') {
   // Temperament / fin-nipping / school size from each page's text, for the tank-mates checker: new or changed pages, then
   // those read with an older prompt; --only id,id reads those again whatever their state.
   const r = await extractTraits(join(ROOT, 'content'), claudeCli, { limit: Number(values.limit ?? 100), now: () => new Date(), only: values.only?.split(',').map(x => x.trim()).filter(Boolean) })
-  console.log(`traits: ${r.done.length} done, ${r.failed.length} failed${r.failed.length ? ` (${r.failed.join(', ')})` : ''}`)
+  console.log(`traits: ${r.done.length} done, ${r.failed.length} failed${r.stopped ? ' (stopped: ' + r.stopped + ')' : ''}${r.failed.length ? ` (${r.failed.join(', ')})` : ''}`)
   // The school size Seriously Fish gives replaces the model's reading in the sweep, which every part runs (sweep.ts).
 } else if (cmd === 'range') {
   // Where each species lives in the wild (range.ts): its sources' countries and regions, --limit model calls (species
@@ -849,20 +853,22 @@ if (cmd === 'photo-privacy') {
       ...(since ? { rechecked: since, rank: await guideRank(ROOT, popularityOrder(await popularFirst(ROOT))), parallel: Number(values.parallel ?? 1) } : {}),
     },
   )
-  console.log(`videos: ${r.written.length} written, ${r.skipped.length} skipped, ${r.errors.length} errors${r.stoppedEarly ? ' (stopped early)' : ''}`)
+  console.log(`videos: ${r.written.length} written, ${r.skipped.length} skipped, ${r.errors.length} errors${r.stoppedEarly ? ` (stopped: ${r.stopped ?? 'early'})` : ''}`)
   for (const w of r.written) console.log(`written: ${w}`)
   for (const s of r.skipped) console.log(`skipped: ${s}`)
   for (const e of r.errors) console.log(`error: ${e}`)
-  await covers({})
-  // Pictures per section: video stills (picked on storyboard tiles, then the video's own frames) + an open-licence Commons photo, picked by Claude, no faces.
-  const get = async (u: string) => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
-  const im = await videoImages(join(ROOT, 'content'), {
-    llm: claudeCli, faces: visionFaces, frames: ytFrames, grab: ytGrab, transcript: async (id, lang) => (await ytDlp.transcript(id, lang)) ?? (await ytDlp.transcribe!(id, lang)), commons: q => searchCommons(q, http, 6), get, media: media(),
-    look: (file, prompt, schema) => claudeVision({ system: 'You pick pictures for an aquarium guide. Reply only with JSON.', prompt, schema, file }),
-  }, { limit: Number(process.env.VIDEO_IMAGES_LIMIT ?? 40) })
-  console.log(`images: ${im.done.length} guides, ${im.failed.length} failed`)
-  for (const x of im.done) console.log(`images: ${x}`)
-  for (const f of im.failed) console.log(`images failed: ${f}`)
+  // Covers, then pictures, only while the day's line covers them: a stop in either ends the step's model work.
+  if (!videoBudgetStopped(r) && !(await covers({})).stopped) {
+    // Pictures per section: video stills (picked on storyboard tiles, then the video's own frames) + an open-licence Commons photo, picked by Claude, no faces.
+    const get = async (u: string) => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
+    const im = await videoImages(join(ROOT, 'content'), {
+      llm: claudeCli, faces: visionFaces, frames: ytFrames, grab: ytGrab, transcript: async (id, lang) => (await ytDlp.transcript(id, lang)) ?? (await ytDlp.transcribe!(id, lang)), commons: q => searchCommons(q, http, 6), get, media: media(),
+      look: (file, prompt, schema) => claudeVision({ system: 'You pick pictures for an aquarium guide. Reply only with JSON.', prompt, schema, file }),
+    }, { limit: Number(process.env.VIDEO_IMAGES_LIMIT ?? 40) })
+    console.log(`images: ${im.done.length} guides, ${im.failed.length} failed${im.stoppedEarly ? ' (stopped early)' : ''}`)
+    for (const x of im.done) console.log(`images: ${x}`)
+    for (const f of im.failed) console.log(`images failed: ${f}`)
+  }
 } else if (cmd === 'product') {
   // A product page from web research (facts only, prices checked on the shop's page): pnpm engine product <brand> <model> --category loc [--type treo]
   // --redo: rewrite the page from the research already kept (engine-state/products), no new searching.
@@ -1142,10 +1148,22 @@ if (cmd === 'photo-privacy') {
   if (!(lang in TARGETS)) throw new Error(`usage: pnpm engine localize-guides --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only id,id] [--limit N] [--redo]`)
   const researched = (await readdir(join(ROOT, 'engine-state/topics')).catch(() => [] as string[])).map(f => f.replace(/\.json$/, '')).sort()
   const ids = values.only?.split(',').map(s => s.trim()).filter(Boolean) ?? researched
-  let made = 0
+  // First the copies to write again (seasons.ts copiesToRedo): one naming a season its readers don't have, or read as
+  // advice for a reader elsewhere, each at most twice, its tries kept in engine-state/_guide-copy-redo.json.
+  const redoFile = join(ROOT, 'engine-state/_guide-copy-redo.json')
+  const redone = JSON.parse(await readFile(redoFile, 'utf8').catch(() => '{}')) as Redone
+  const fit = JSON.parse(await readFile(join(ROOT, 'engine-state/_fit.json'), 'utf8').catch(() => '{}')) as FitState
+  const again = values.only ? [] : copiesToRedo(await loadPages(join(ROOT, 'content'), [lang]), lang, fit, redone).filter(id => researched.includes(id))
+  const limit = Number(values.limit ?? 20)
+  const first = await redoCopies(again, lang, redone, {
+    limit, write: id => localizeTopic(ROOT, claudeCli, id, lang, { redo: true }), log: x => console.log(JSON.stringify(x)),
+    save: r => writeFile(redoFile, `${JSON.stringify(Object.fromEntries(Object.entries(r).sort(([x], [y]) => x.localeCompare(y))), null, 1)}\n`),
+  })
+  let made = first.made
   for (const id of ids) {
-    if (made >= Number(values.limit ?? 20)) break
-    const r = await localizeTopic(ROOT, claudeCli, id, lang, { redo: values.redo }).catch(e => ({ id, failed: (e as Error).message.slice(0, 200) }))
+    if (first.stopped || made >= limit) break
+    const r = await localizeTopic(ROOT, claudeCli, id, lang, { redo: values.redo }).catch(e => (e instanceof LlmError && errorKind(e.message) === 'usage' ? { id, stopped: e.message } : { id, failed: (e as Error).message.slice(0, 200) }))
+    if ('stopped' in r) { console.log(JSON.stringify(r)); break }
     if (!('skipped' in r)) made++
     console.log(JSON.stringify(r))
   }
