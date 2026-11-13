@@ -94,11 +94,13 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
     ranked.push({ img: picked, score: score - (hint ? 0 : 0.25) })
   }
   // Judged once every copy of a photo is known: a photo held back under any of its addresses holds no place, and one the
-  // page shows that we'd take no more keeps its own, so the places left go to the rest in rank order.
+  // page shows that we'd take no more keeps its own, even one the page lays out small, so the places left go to the rest
+  // in rank order.
   const ordered = ranked.map((r, i) => ({ ...r, i })).sort((a, b) => b.score - a.score || a.i - b.i).map(r => ({ img: r.img, t: take?.(r.img) ?? 'yes' })).filter(r => r.t !== 'no')
-  const normal = ordered.filter(r => !r.img.extra)
+  const placed = (r: { img: Picked; t: Take }) => !r.img.extra || r.t === 'shown'
+  const normal = ordered.filter(placed)
   let free = max - normal.filter(r => r.t === 'shown').length
-  return [...normal.filter(r => r.t === 'shown' || free-- > 0), ...ordered.filter(r => r.img.extra)].map(r => r.img)
+  return [...normal.filter(r => r.t === 'shown' || free-- > 0), ...ordered.filter(r => !placed(r))].map(r => r.img)
 }
 
 /**
@@ -198,14 +200,14 @@ export async function storeSourcePhotos(
   // keeps only as it shows it.
   const groups = picked.map(first => {
     const t = take(first), images = [first, ...(first.alternatives ?? [])]
-    return { images: t === 'shown' ? images.filter(shows) : images, done: t === 'no' }
+    return { images: t === 'shown' ? images.filter(shows) : images, done: t === 'no', shown: t === 'shown' }
   })
   // All normal requests finish first. Fallbacks and newly eligible photos share the extra turn and its budget.
   for (const extraTurn of [false, true]) for (const group of groups) {
     if (group.done) continue
     for (const [i, img] of group.images.entries()) {
       if (out.length >= max) return out
-      const extraRequest = !!img.extra || i > 0
+      const extraRequest = !group.shown && (!!img.extra || i > 0) // a shown photo needs no request, and takes its place first
       if (extraRequest !== extraTurn) continue
       const key = keyFor(img.src)
       if (deps.blocked?.[deps.media.urlFor(key)]) { group.done = true; break }

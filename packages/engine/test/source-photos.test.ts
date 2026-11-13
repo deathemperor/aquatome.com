@@ -506,3 +506,18 @@ test('a photo the page shows under a credit we take no more keeps its place when
   expect(out.map(p => p.url)).toContain(shown.url)
   expect(fetched).toEqual([1, 2, 3].map(n => `https://x.test/f${n}.jpg`))
 })
+
+test('a shown photo the page lays out small keeps its place too, and its rank among the photos', async () => {
+  const fetched: string[] = []
+  const media = { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 800, height: 600 }) }
+  const deps = { bytes: async (u: string) => (fetched.push(u), jpeg()), media }
+  // Its caption names the fish and theirs don't, so it ranks first.
+  const fig = (n: number, credit: string) => ({ src: `https://x.test/f${n}.jpg`, alt: `View ${n}.`, width: 800, height: 600, credit })
+  const small = { src: 'https://x.test/f5.jpg', alt: 'Example fish, view 5.', displayWidth: 400, displayHeight: 300, credit: 'Example Aquatics' }
+  const images = [fig(1, 'Imaginary Person'), fig(2, 'Another Person'), fig(3, 'Third Person'), fig(4, 'Fourth Person'), small]
+  const shown = { url: `https://media.test/${photoKey('glaser', small.src)}`, width: 800, height: 600, licence: 'x', author: 'Example Aquatics / Aquarium Glaser', sourceUrl: 'https://x.test/p' }
+  const picked = pickSourcePhotos(images, 'https://x.test/p', ['Example fish'], 4, 'subject', undefined, mayTake('glaser', 'Aquarium Glaser', deps, [shown]))
+  const out = await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', picked, deps, [shown], 4)
+  expect(out.map(p => p.url)).toEqual([shown.url, ...[1, 2, 3].map(n => `https://media.test/${photoKey('glaser', `https://x.test/f${n}.jpg`)}`)])
+  expect(fetched).toEqual([1, 2, 3].map(n => `https://x.test/f${n}.jpg`))
+})
