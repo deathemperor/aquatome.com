@@ -2,7 +2,7 @@ import { existsSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import type { APIRequestContext } from '@playwright/test'
 import { DIST, LIVE, recheckPages, samplePages, sourcePages } from './pages'
-import { VIETNAMESE, VIETNAMESE_ALLOWED, expect, photosMissing, shownWhole, sideways, test } from './fixtures'
+import { VIETNAMESE, VIETNAMESE_ALLOWED, columnSpill, expect, photosMissing, shownWhole, sideways, test } from './fixtures'
 import { checkPage, loadFacts } from '../scripts/page-check'
 import { isViPage } from '../worker/paths'
 import { prefixedLang } from '@aq/schema/langs'
@@ -76,6 +76,11 @@ for (const path of pages) {
     }
 
     expect(errors, 'script errors').toEqual([])
+
+    // A fish's photo column on a computer, pinned beside the facts, never drawn past the page's top onto what follows: the
+    // owner's fault of 13 November, a tall photo's two rows of thumbnails over the jump chips (photo-column.spec.ts). After
+    // the errors, as it scrolls the page.
+    expect(await columnSpill(page), 'the photo column outside the page top').toBeNull()
 
     // Nor when its photos don't load: each shows its alt text in its place, which mustn't widen the page either. Checked on
     // the live site, which loads no photo here (the media host is another origin, fixtures.ts), the Malay Bucephalandra
