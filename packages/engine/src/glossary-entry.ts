@@ -6,7 +6,7 @@ import { GlossarySchema, metricPage, QUALITY_THRESHOLD, TranslationSchema, type 
 import type { Llm } from './claude'
 import { VI_STYLE as STYLE } from './phrases'
 import { isMarketplace } from './marketplaces'
-import { loggedNotes, logReviews, readReviews } from './review-log'
+import { logReviews, readReviews } from './review-log'
 import { withTanks } from './round'
 import { sanitizeHtml, unescapePlain } from './sanitize'
 import { checkGuide, FACTS_SCHEMA, researchPrompt, viFacts, type TopicFacts, type Written } from './topics'
@@ -87,6 +87,12 @@ export function refusals(d: Draft): string[] {
 }
 
 const sha = (text: string) => createHash('sha256').update(text).digest('hex')
+
+/**
+ * Drafts kept before the review log recorded a draft's SHA-256, by the SHA-256 of a copy made when the step wrote each:
+ * Lũa's sixth, kept at 03:44 on 14 Nov 2026 and copied at once, which the chief of staff read and accepted.
+ */
+export const LEGACY_DRAFTS: Record<string, string> = { lua: '809b5af3033a45a64c928a9d091f64abcdd6f2ce3aa48dfc9589a958be459fd0' }
 
 /** Words as a reader counts them: a Vietnamese syllable is one, as the 1,527 and 2,917 of Lũa's drafts were counted. */
 const words = (html: string) => unescapePlain(html.replace(/<[^>]+>/g, ' ')).split(/\s+/).filter(Boolean).length
@@ -217,16 +223,14 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const saved = await read<TopicFacts>(factsFile).catch(() => null)
   const draftFile = join(root, 'engine-state/glossary', `${id}.draft.json`)
   // A kept draft, revised or accepted, goes with the research it was written from, and only as the step kept it: the file
-  // the SHA-256 the review log has for it (Codex's read, 14 Nov 2026). One kept before the log had them (Lũa's sixth) is
-  // the step's when an unsaved try in the log has its score and notes.
+  // the SHA-256 the review log has for it (Codex's read, 14 Nov 2026), or one kept before the log had them, by its own.
   const draftText = o.fromDraft || o.accept ? await readFile(draftFile, 'utf8').catch(() => null) : null
   const draft = draftText === null ? null : JSON.parse(draftText) as Draft
   if ((o.fromDraft || o.accept) && (!draft || !saved)) return { id, refused: [`no kept draft${saved ? '' : ' or research'} to ${o.accept ? 'accept' : 'revise'}`] }
   if (draft) {
     const traces = (await readReviews(root, 'glossary'))[`vi/glossary/${id}`] ?? []
-    const recorded = traces.find(t => t.draft)?.draft
-    const asTried = traces.some(t => !t.kept && t.score === Math.round(draft.score * 1000) / 1000 && JSON.stringify(t.notes) === JSON.stringify(loggedNotes(draft.notes)))
-    if (recorded ? recorded !== sha(draftText!) : !asTried) return { id, refused: ['the kept draft is not as the step kept it'] }
+    const recorded = traces.find(t => t.draft)?.draft ?? LEGACY_DRAFTS[id]
+    if (recorded !== sha(draftText!)) return { id, refused: ['the kept draft is not as the step kept it'] }
   }
   if (o.accept && refusals(draft!).length) return { id, refused: refusals(draft!) }
   const kept = o.reuse || draft ? saved : null
@@ -319,7 +323,10 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     // Kept for a reader to judge (the chief of staff, 14 Nov 2026): the draft that came closest, and why it wasn't saved.
     // A revision that came no closer leaves the draft it revised as it was.
     const keep = !passes(review) && (review !== from || !draft) ? `${JSON.stringify({ score: review.score, broken: review.broken, notes: review.notes, entry: w }, null, 2)}\n` : null
-    await logReviews(root, 'glossary', page, tries, passes(review) ? review : undefined, { ...(now ? { now } : {}), ...(draft ? { rewrite: true } : {}), ...(keep ? { draft: { of: review, sha: sha(keep) } } : {}) })
+    // A draft left as it was is logged again with its digest, so the log's last few reviews always hold the kept draft's
+    // (it keeps six: Codex's read, 14 Nov 2026).
+    const still = draft && !passes(review) && !keep
+    await logReviews(root, 'glossary', page, still ? [...tries, from] : tries, passes(review) ? review : undefined, { ...(now ? { now } : {}), ...(draft ? { rewrite: true } : {}), ...(keep ? { draft: { of: review, sha: sha(keep) } } : still ? { draft: { of: from, sha: sha(draftText!) } } : {}) })
     if (!passes(review)) {
       if (keep) await writeFile(draftFile, keep)
       return { id, skipped: review.broken ? `breaks the rules: ${review.broken}` : `under the bar: ${review.score}`, notes: review.notes, draft: `engine-state/glossary/${id}.draft.json`, ...(draft ? { revised: review !== from } : {}) }

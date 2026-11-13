@@ -1,9 +1,10 @@
+import { createHash } from 'node:crypto'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { lengthNotes, makeGlossaryEntry, offLimits, pageNames, refusals, ruleNumbers, sfGlossaryUrl, type Draft } from '../src/glossary-entry'
+import { LEGACY_DRAFTS, lengthNotes, makeGlossaryEntry, offLimits, pageNames, refusals, ruleNumbers, sfGlossaryUrl, type Draft } from '../src/glossary-entry'
 import { logReviews } from '../src/review-log'
 import type { TopicFacts } from '../src/topics'
 
@@ -341,15 +342,22 @@ test('an accepted draft is saved as the step kept it, logged with who accepted i
   expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toEqual({ id: 'lua', refused: ['no kept draft to accept'] })
 })
 
-// Lũa's sixth was kept before the log had a draft's digest: it is the step's when an unsaved try has its score and notes.
-test('a draft kept before digests is the step\'s when the log has its try', async () => {
+// Lũa's sixth was kept before the log had a draft's digest: it is the step's by the digest of the copy made when it was
+// kept, and no other draft without one is.
+test('a draft kept before digests is accepted only by its own recorded digest', async () => {
   const root = await site()
   await mkdir(join(root, 'engine-state/glossary'), { recursive: true })
   await writeFile(join(root, 'engine-state/glossary/lua.json'), JSON.stringify(facts))
-  await writeFile(draftPath(root), JSON.stringify(sixth))
-  expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toEqual({ id: 'lua', refused: ['the kept draft is not as the step kept it'] })
+  const text = JSON.stringify(sixth)
+  await writeFile(draftPath(root), text)
+  // Its score and notes in the log are not enough.
   await logReviews(root, 'glossary', { id: 'glossary/lua', lang: 'vi' }, [{ score: 0.9, notes: sixth.notes }], undefined)
-  expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toMatchObject({ id: 'lua', score: 0.9, acceptedBy: 'the chief of staff' })
+  expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toEqual({ id: 'lua', refused: ['the kept draft is not as the step kept it'] })
+  const real = LEGACY_DRAFTS.lua!
+  LEGACY_DRAFTS.lua = createHash('sha256').update(text).digest('hex')
+  try {
+    expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toMatchObject({ id: 'lua', score: 0.9, acceptedBy: 'the chief of staff' })
+  } finally { LEGACY_DRAFTS.lua = real }
 })
 
 test('a revision of the kept draft changes only the sentences its notes quote, and is kept only if it comes closer', async () => {
@@ -374,6 +382,15 @@ test('a revision of the kept draft changes only the sentences its notes quote, a
   // As many notes, better grounded: no closer either (Codex, 14 Nov 2026).
   expect(await revise(reply(['one fact note'], ['Rule 4: x', 'Rule 4: y', 'Rule 7: z'], 0.97))).toMatchObject({ revised: false })
   expect(await readFile(draftPath(root), 'utf8')).toBe(kept)
+  // However many revisions come no closer, the kept draft stays the step's: its digest is logged again each time, though the
+  // log keeps six reviews (Codex, 14 Nov 2026); an edit to it is still refused.
+  for (let i = 0; i < 3; i++) await revise(reply(['a', 'b'], ['Rule 4: x']))
+  const log = JSON.parse(await readFile(join(root, 'engine-state/reviews/glossary.json'), 'utf8'))['vi/glossary/lua']
+  expect(log).toHaveLength(6)
+  expect(log[0].draft).toBe(createHash('sha256').update(kept).digest('hex'))
+  await writeFile(draftPath(root), kept.replace('ngấm đủ nước', 'ngấm nước'))
+  expect(await revise(none)).toEqual({ id: 'lua', refused: ['the kept draft is not as the step kept it'] })
+  await writeFile(draftPath(root), kept)
   // A revision at the bar is saved.
   expect(await revise(reply([], [], 0.92))).toMatchObject({ id: 'lua', score: 0.92 })
   expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).body).toBe('<p>Sửa.</p>')

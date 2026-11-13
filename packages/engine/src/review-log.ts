@@ -68,7 +68,7 @@ const NOTES = 10
 const NOTE_CHARS = 400
 
 /** A review's notes as the log keeps them. */
-export const loggedNotes = (notes: string[]) => notes.slice(0, NOTES).map(n => (n.length > NOTE_CHARS ? `${n.slice(0, NOTE_CHARS - 1)}…` : n))
+const loggedNotes = (notes: string[]) => notes.slice(0, NOTES).map(n => (n.length > NOTE_CHARS ? `${n.slice(0, NOTE_CHARS - 1)}…` : n))
 
 export const reviewFile = (root: string, kind: ReviewKind) => join(root, 'engine-state', 'reviews', `${kind}.json`)
 export const reviewKey = (p: PageRef) => `${p.lang}/${p.id}${p.part ? `#${p.part}` : ''}`
