@@ -16,6 +16,7 @@ const windows = [
   { width: 1440, height: 900, tight: true },
   { width: 1707, height: 833, tight: true },
   { width: 1707, height: 1300, roomy: true },
+  { width: 1707, height: 1300, roomy: true, own: true }, // the page's own head, 4:3: more room left for the thumbnails
 ]
 
 // The rule the column had: held to its room (the window under its pinned top, or the facts), whatever it holds.
@@ -27,6 +28,10 @@ const column = (page: Page) => page.evaluate(() => {
   const items = [...list.querySelectorAll('li')], thumbs = items.map(li => li.getBoundingClientRect()).filter(r => r.height && r.top < l.bottom)
   const row = thumbs[0]!.height, gap = thumbs[4] ? thumbs[4].top - thumbs[0]!.bottom : 0
   return {
+    row, gap,
+    // Room the column leaves under its last row of thumbnails.
+    under: side.getBoundingClientRect().bottom - Math.max(...thumbs.map(r => r.bottom)),
+    left: items.length - thumbs.length, // the gallery's photos it could still show
     past: side.scrollHeight - side.clientHeight, // what it holds past its own box
     height: side.getBoundingClientRect().height,
     // Its room: the window under its pinned top, or its grid area (the page's top less its padding) when that ends first.
@@ -37,13 +42,13 @@ const column = (page: Page) => page.evaluate(() => {
   }
 })
 
-for (const { width, height, tight, roomy } of windows) test(`a tall photo's column stays inside the page's top: ${width}×${height}`, async ({ page }, info) => {
+for (const { width, height, tight, roomy, own } of windows) test(`${own ? "the page's own photo" : 'a tall photo'}: the column stays inside the page's top, ${width}×${height}`, async ({ page }, info) => {
   test.skip(info.project.name === 'phone', "a computer's photo column")
   test.skip(LIVE, 'reads a fixture page')
   await page.setViewportSize({ width, height })
   await page.goto('/ca/ca-neon-vua/')
   await expect(page.locator('.side .strip li:not(.more)'), 'two rows of thumbnails').toHaveCount(8)
-  await page.locator('.side .plate img').evaluate(img => {
+  if (!own) await page.locator('.side .plate img').evaluate(img => {
     img.dataset.fit = 'contain'
     img.setAttribute('width', '720')
     img.setAttribute('height', '960')
@@ -62,9 +67,12 @@ for (const { width, height, tight, roomy } of windows) test(`a tall photo's colu
     expect(await columnSpill(page), 'the fault, with the column held to its room').not.toBeNull()
   }
   if (roomy) {
-    // Room to spare: the column still fills it, in whole rows of the gallery's next photos, as many as fit.
+    // Room to spare: the column still fills it, in whole rows of the gallery's next photos, as many as fit, with less
+    // than a row's room left under the last (species.spec.ts holds the same in Chromium on its own windows).
     const c = await column(page)
     expect(Math.abs(c.height - c.room), 'the column as tall as its room').toBeLessThanOrEqual(1)
+    expect(c.left, "photos left that the column could show").toBeGreaterThan(0)
+    expect(c.under, 'less than a row of room under the last row').toBeLessThan(c.row + c.gap)
     expect(c.shown, 'whole rows, as many as fit').toBe(c.fit)
     expect(c.cut, 'no thumbnail cut').toBe(0)
   }
