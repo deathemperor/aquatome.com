@@ -1,0 +1,98 @@
+{
+  "id": "pterophyllum-leopoldi",
+  "native": {
+    "input": "61ef61d060260b9b",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Roman Nose Angelfish is native to the lower Rio Negro at the Solimoes confluence of Brazil and the Rupununi and Essequibo basins of Guyana.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Roman Nose Angelfish is native to the lower Rio Negro at the Solimoes confluence of Brazil and the Rupununi and Essequibo basins of Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Peru.",
+        "words": "Peru",
+        "ok": false,
+        "why": "no sentence"
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The \"real\" P. leopoldi originates from Brazil and is in truth what is called P. dumerilii in the hobby, whereas the \"real\" P. dumerilii from Brazil is currently regarded as a synonym of P. scalare.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "The Roman Nose Angelfish is native to the lower Rio Negro at the Solimoes confluence of Brazil and the Rupununi and Essequibo basins of Guyana.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "The Roman Nose Angelfish is native to the lower Rio Negro at the Solimoes confluence of Brazil and the Rupununi and Essequibo basins of Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Rupununi",
+        "source": "seriouslyfish",
+        "quote": "The Roman Nose Angelfish is native to the lower Rio Negro at the Solimoes confluence of Brazil and the Rupununi and Essequibo basins of Guyana.",
+        "country": "GY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pterophyllum leopoldi",
+    "status": "ACCEPTED",
+    "taxonKey": 5208523,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

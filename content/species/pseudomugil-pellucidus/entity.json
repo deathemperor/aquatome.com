@@ -6,6 +6,26 @@
   "genus": "Pseudomugil",
   "group": "rainbowfish",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2411753,
+      "total": 1,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          136.40625,
+          -5.625,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

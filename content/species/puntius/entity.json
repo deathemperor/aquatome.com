@@ -10,6 +10,27 @@
     "taiwan",
     "china"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Rigyokutsu, Nanto, Taiwan' and this species is distributed in central and northern Taiwan, being replaced by the closely-related 'P.' semifasciolatus in the south of the island.",
+          "countries": [
+            "TW"
+          ],
+          "regions": []
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

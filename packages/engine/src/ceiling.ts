@@ -147,6 +147,22 @@ export function leftToday(step: string, log: string, ceilings: Ceilings = CEILIN
   return Math.max(0, Math.min(cap - (spent.by.get(step) ?? 0), place.backstop - spent.total))
 }
 
+/**
+ * What `leftToday` gives a step that yields to the others: its own line, or the backstop less what every other named
+ * step still has of its line today and less `spare`, the room kept for the gate and moderation, which have none. So the
+ * backstop never stops another step on its account. The chat's board yields so (the chief of staff, 13 Nov 2026).
+ */
+export function leftYielding(step: string, log: string, spare: number, ceilings: Ceilings = CEILINGS, now = new Date(), where: Machine = machine()): number | null {
+  const place = tableInForce(ceilings.tables, now)?.[where] ?? NOTHING
+  const cap = capOf(place, step)
+  if (cap == null) return null
+  const spent = spentToday(log, now)
+  if (spent.unlogged) return 0
+  let theirs = 0
+  for (const [other, line] of Object.entries(place.steps)) if (other !== step && line != null) theirs += Math.max(0, line - (spent.by.get(other) ?? 0))
+  return Math.max(0, Math.min(cap - (spent.by.get(step) ?? 0), place.backstop - spent.total - theirs - spare))
+}
+
 /** The piece a call is made for (pieces.ts): its cost line carries it, so a piece's cost is its own calls' alone. */
 export const inPiece = new AsyncLocalStorage<string>()
 

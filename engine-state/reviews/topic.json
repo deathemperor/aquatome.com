@@ -2083,6 +2083,47 @@
       ]
     }
   ],
+  "ms/guides/aquatome-cho-ca-sinh-san-giao-phoi-va-cham-ca-con": [
+    {
+      "at": "2026-11-13T11:14:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"jadi jangan masukkan terlalu banyak ikan\" is advice the facts don't give. They only say cannibalism rises when guppies are crowded.",
+        "The opening line \"sediakan makanan anak ikan yang kecil dan bergerak, seperti microworm, sebelum telur menetas atau anak dilahirkan\" is a general preparation instruction. The facts don't say when to prepare the food."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.92,
+        0.92,
+        0.93
+      ]
+    },
+    {
+      "at": "2026-11-13T11:14:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"Kedua-duanya bersetuju tentang jalur di badan\" - an inference not stated in the facts (one says vertical breeding bars, the other dark bars on flanks)",
+        "\"Guppy ... betina yang sudah mengawan boleh melahirkan anak lagi walaupun tanpa jantan\" - the facts say sperm storage gives several broods, but they do not say anything about the male being absent",
+        "\"Ini kerana lendir induk mengandungi antibodi, protein dan mikroorganisma yang berguna\" with the answer \"Boleh\" - the facts do not say discus fry can be raised without parents; the causal framing is extrapolated",
+        "\"Menurut laporan berita\" is OK (source 5 is news), but \"jarang lagi menggigit badan induk\" is fine. \"Satu laman rujukan\" for the university-sourced microworm claims is correctly named as a university, so this is not a problem. The claim \"jantan menjaga sarang seorang diri\" is attributed to 'another reference site', which is correct.",
+        "\"sepanjang empat minggu pertama\" - supported. \"Campurkan oat\" - the facts say oatmeal, a small generalisation"
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.8,
+        0.72,
+        0.8
+      ]
+    }
+  ],
   "th/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": [
     {
       "at": "2026-11-08T14:57:25Z",

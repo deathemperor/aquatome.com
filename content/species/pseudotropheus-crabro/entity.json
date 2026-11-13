@@ -9,6 +9,26 @@
     "africa",
     "lake-malawi"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2373078,
+      "total": 1,
+      "fetched": "2026-11-13",
+      "countries": [
+        [
+          "MW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -14.0625,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

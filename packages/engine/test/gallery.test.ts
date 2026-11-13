@@ -8,6 +8,7 @@ import { LlmError } from '../src/claude'
 import { mirrorPlan } from '../src/mirror-photos'
 import { WikimediaRefused } from '../src/wikimedia-rest'
 import { breedNames, commonsCandidates, dhash, galleries, rankGallery, screenTagged, type GalleryDeps, type GalleryPhoto, type Vet } from '../src/gallery'
+import { slow } from '@aq/schema/test-time'
 
 const meta = (licence: string, artist = '<a href="x">Ann</a>, [[User:Bo K|Bo]]') => ({ LicenseShortName: { value: licence }, Artist: { value: artist } })
 const info = (title: string, licence: string, width = 2000) => ({
@@ -291,7 +292,7 @@ test('gallery: the sheet budget stops the run; the next run continues from the q
   expect(g.photos.length).toBeGreaterThanOrEqual(30)
   // iNaturalist was read from its cursor, not from the start.
   expect(pages.filter(p => p === '0').length).toBe(2) // research and agree passes, once each
-}, 30_000)
+}, slow(30_000))
 
 test('gallery: a page short of target is read again only after 30 days; then iNaturalist continues past its cursor', async () => {
   const r = await root()

@@ -1,0 +1,92 @@
+{
+  "id": "puntius-sahyadriensis",
+  "native": {
+    "input": "fa81301c206f7e30",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The Khavlibarb originates from the Yenna River in Satara district in the Indian state of Maharashtra.",
+        "words": "Indian",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The maharaja barb, Puntius sahyadriensis, is a cyprinid endemic to the northern and central Western Ghats mountains of India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yenna",
+        "source": "seriouslyfish",
+        "quote": "Described from streams of the Yenna river basin, close to the city of Mahabaleshwar, in the Western Ghats mountain range, Satara district, Maharashtra state, India, and endemic to northern and central parts of the Western Ghats mountains.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Described from streams of the Yenna river basin, close to the city of Mahabaleshwar, in the Western Ghats mountain range, Satara district, Maharashtra state, India, and endemic to northern and central parts of the Western Ghats mountains.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Krishna",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from the Yenna, Koyana, Krishna, Sharavati, Tunga, Bhadra, Aghanashini, Bedti, and Sita drainages.",
+        "ok": true
+      },
+      {
+        "name": "Sharavati",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from the Yenna, Koyana, Krishna, Sharavati, Tunga, Bhadra, Aghanashini, Bedti, and Sita drainages.",
+        "ok": true
+      },
+      {
+        "name": "Aghanashini",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from the Yenna, Koyana, Krishna, Sharavati, Tunga, Bhadra, Aghanashini, Bedti, and Sita drainages.",
+        "ok": true
+      },
+      {
+        "name": "Yenna River",
+        "source": "glaser",
+        "quote": "The Khavlibarb originates from the Yenna River in Satara district in the Indian state of Maharashtra.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Puntius sahyadriensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2363903,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        17
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        15
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

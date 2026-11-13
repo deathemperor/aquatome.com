@@ -17,6 +17,7 @@ import { mendPart } from '../src/source-figures'
 import { fishThaiLai, wordingSlips } from '../src/sanitize'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
 import { cardSchool, readTraits } from '../src/traits'
+import { slow } from '@aq/schema/test-time'
 
 // The real content/, not the test store, as a public build shows it. Each class of defect here has a fix the engine
 // makes on every page each cycle, before the build (`pnpm engine sweep`, sweep.ts; `pnpm engine metric` for units), so a
@@ -31,7 +32,7 @@ test('no page has a defect the sweep fixes', async () => {
   const held = ratcheted(findings)
   const left = Object.fromEntries(Object.keys(RATCHETED).map(id => [id, held.filter(f => f.rule === id).map(f => `${f.page.path}: ${f.detail}`)]))
   expect(left, 'run pnpm engine sweep').toEqual(Object.fromEntries(Object.keys(RATCHETED).map(id => [id, []])))
-}, 300_000) // every page of the real content, in three languages: about 100 s on 2,599 pages
+}, slow(300_000)) // every page of the real content, in three languages: about 100 s on 2,599 pages
 
 // The owner's names of 2026-11-07. The sweep writes each when the sentence says which fish it is (renameSwapped), so what
 // fails here is a sentence it left, the fish unclear: a page that keeps one is written again.
@@ -40,7 +41,7 @@ test('no page calls a fish by the name it no longer has', async () => {
   const { findings, errors } = checkPages(pages, RULES.filter(r => r.id === 'swapped-name'))
   expect(errors).toEqual([])
   expect(findings.map(f => `${f.page.path}: ${f.detail}`)).toEqual([])
-}, 300_000)
+}, slow(300_000))
 
 // The owner, 2026-11-11: "Cá thài lài doesn't exist in Vietnamese". The sweep writes the fish it named by their names
 // (sanitize.ts WORDING); what fails here is a "thài lài" it left ("họ thài lài"): the page is written again.
@@ -51,7 +52,7 @@ test('no page, fish summary or caption calls a fish "thài lài"', async () => {
   const files = [...(await readdir(join(content, 'summaries'))).map(f => `summaries/${f}`), ...readdirSync(join(content, 'captions')).map(f => `captions/${f}`)]
   const left = (await Promise.all(files.map(async f => fishThaiLai(await readFile(join(content, f), 'utf8')).map(q => `${f}: ${q}`)))).flat()
   expect([...findings.map(f => `${f.page.path}: ${f.detail}`), ...left]).toEqual([])
-}, 300_000)
+}, slow(300_000))
 
 // The owner's names of 2026-11-11, each guarded (nameFixed) so a later source read keeps it: the eartheaters the trade
 // calls Hải Hồ (Geophagus, Satanoperca, Acarichthys heckelii; not Biotodoma or Gymnogeophagus, which no source calls so),
@@ -207,7 +208,7 @@ test('no approved summary states a figure its card doesn\'t show', async () => {
   const cards = new Map((await loadAll({ root, lang: 'vi', publicBuild: true })).species.map(s => [s.id, cardOf(s)]))
   const left = (await readSummaries(root)).filter(s => s.review === 'approved' && cards.has(s.id)).flatMap(s => cardProblems(s, cards.get(s.id)!).map(p => `${s.id}: ${p}`))
   expect(left, 'run pnpm engine sweep').toEqual([])
-}, 300_000) // the real content loaded once: about 60 s on a loaded machine
+}, slow(300_000)) // the real content loaded once: about 60 s on a loaded machine
 
 // Every place, not the one a reader complained of: the sweep puts a generic word in Vietnamese each cycle, and the
 // place-names step gives the name readers use (place-names.ts). 147 of 816 places on 2026-11-08, before them.
@@ -234,7 +235,7 @@ test('a Vietnamese page that doses 35% oxy già says it isn\'t the pharmacy\'s 3
   const told = /không phải[^.!?]{0,40}3\s*%[^.!?]{0,40}nhà thuốc/i
   const text = (p: (typeof pages)[number]) => [...p.fields.map(f => f.html), ...p.lines.map(l => l.text)].join(' ').replace(/<[^>]+>/g, ' ')
   expect(pages.filter(p => strong.test(text(p)) && !told.test(text(p))).map(p => p.path)).toEqual([])
-}, 300_000)
+}, slow(300_000))
 
 // Two independent sources agreed against Seriously Fish on an adult size, far apart (Glaser, and FishBase from the checklist
 // of South American fishes): the figure they agree on is the page's, on the card and in the text, whatever a re-read writes.
@@ -250,7 +251,7 @@ test('a size two independent sources overrule is gone from the card and the text
     expect(shownText(fish), id).not.toMatch(old)
     expect(shownText(fish), id).toContain(`không ghi kích thước bể cho cá dài tới ${size} cm`)
   }
-}, 120_000)
+}, slow(120_000))
 
 // Seriously Fish's keeping range for it contradicts the wild reading on its own page; BW Aquatics sides with the reading.
 test('a hardness against its source\'s own measured reading gives way to the source that sides with the reading, in every language', async () => {
@@ -260,7 +261,7 @@ test('a hardness against its source\'s own measured reading gives way to the sou
     expect(resolveDataCard(fish.dataCard.gh!, 'gh'), lang).toMatchObject({ value: { min: 4, max: 12 }, sources: ['bwaquatics'] })
     expect(shownText(fish), lang).not.toMatch(/15\s*[–-]\s*30/)
   }
-}, 240_000)
+}, slow(240_000))
 
 // A shop search carries the words a page's text uses: the sweep writes them the readers' way (sanitize.ts viSearchWords),
 // so one the writers' rules would change can't sit where the wording rule doesn't look (the reader of #1135, 2026-11-12).
@@ -287,7 +288,7 @@ test('the Altum page speaks with one voice about water, its own figures first', 
   const water = fish.t.sections['waterConditions:aquatome']!
   expect(water.indexOf('4,8 đến 6,2')).toBeGreaterThan(-1)
   expect(water.indexOf('4,8 đến 6,2')).toBeLessThan(water.indexOf('Có tài liệu khác lại ghi là'))
-}, 120_000)
+}, slow(120_000))
 
 test('a heading whose sources could not both be true speaks with one voice', async () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
@@ -296,7 +297,7 @@ test('a heading whose sources could not both be true speaks with one voice', asy
   const { species } = await loadAll({ root, lang: 'vi', publicBuild: true })
   const heard = (id: string, key: string) => species.find(s => s.id === id)?.sections.filter(x => x.key === key).map(x => x.source)
   for (const [id, keep] of Object.entries(voices)) for (const [key, source] of Object.entries(keep)) expect(heard(id, key), `${id} ${key}`).toEqual([source])
-}, 120_000)
+}, slow(120_000))
 
 // The neon tetra's blue stripe: The Spruce Pets said it starts at the tip of the nose, photos start it at the eye, and no
 // other source says where it starts (2026-11-11). The page keeps what the sources agree on: it runs to the adipose fin.
@@ -338,7 +339,7 @@ test('no two guides in a language share a title, and none is only a name', async
   const { findings, errors } = checkPages(guides, RULES.filter(r => r.id === 'guide-title'))
   expect(errors).toEqual([])
   expect(findings.map(f => `${f.page.lang}/${f.page.id}: ${f.detail}`)).toEqual([])
-}, 300_000)
+}, slow(300_000))
 
 // The chief of staff's rulings of 2026-11-12 on the tap-water report. Each is a hand fix the engine keeps: a guide's body
 // marked bodyFixed, a page's part marked fixed (in English and in each language beside it), a note of ours in localNote.

@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 // @ts-expect-error a plain script
 import { archiveNamed, archiveWorktree, expireArchive, simVerdict, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
+import { slow } from '@aq/schema/test-time'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 
@@ -129,7 +130,7 @@ test('an archived worktree can be brought back: its commits, its changes, its un
   // Thirty days later it goes, and nothing younger does.
   expect(expireArchive(`${dir}/archive`, Date.parse('2026-12-07T00:00:00Z'))).toEqual([])
   expect(expireArchive(`${dir}/archive`, Date.parse('2026-12-09T00:00:00Z'))).toEqual(['2026-11-08-wt', '2026-11-08-wt-2'])
-}, 60_000)
+}, slow(60_000))
 
 test('--archive saves and removes a worktree its caller names, only says so with --dry-run, and leaves one whose thread is live', () => {
   const dir = realpathSync(home()) // as git and lsof write a path
@@ -165,7 +166,7 @@ test('--archive saves and removes a worktree its caller names, only says so with
   // And when lsof can't say who is working where, nothing goes, named again or not.
   expect(run(['--archive', at('busy'), '--though-live', at('busy')], new Set(), null)).toEqual([`kept ${at('busy')}: couldn't read whether a process is working in it`])
   expect(existsSync(at('busy'))).toBe(true)
-}, 60_000)
+}, slow(60_000))
 
 test('a reading of the Mac: the small job, the queues, and load only as background', () => {
   const dir = home()
@@ -174,7 +175,7 @@ test('a reading of the Mac: the small job, the queues, and load only as backgrou
   if (process.platform !== 'darwin') return
   expect(r.status, r.stderr).toBe(0)
   expect(JSON.parse(readFileSync(`${dir}/.cache/aquatome/machine-metrics.jsonl`, 'utf8'))).toMatchObject({ small_job_s: expect.any(Number), waiting_checks: expect.any(Number), waiting_sim: expect.any(Number), swap_gb: expect.any(Number), thermal: expect.any(Number), cores: expect.any(Number) })
-}, 60_000)
+}, slow(60_000))
 
 // 2026-11-08: signing on the own Mac took the owner's keychains off their list for minutes (gh's and git's sign-in among
 // them). Uploads there now run as AquaTome CI, on a runner of their own, and never touch the owner's keychains.

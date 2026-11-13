@@ -5,6 +5,7 @@ import { appPages, fishDoc, listedPaths } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { groupTiles } from '../src/lib/home'
 import { smallSrc } from '../src/lib/img'
+import { slow } from '@aq/schema/test-time'
 
 // Where the fish is in a photo (`box`, `imgBox`: protocols/photo-crop-vectors.json) reaches the app only from photos the
 // loader gave a box, which only its switch does (image-geometry.ts SUBJECT_FRAMES): a photo without one, as every photo
@@ -46,7 +47,7 @@ test('with no photo boxed, as with the switch off, the app\'s index and pages ca
     expect(boxKeys(appIndex(lang, c, new Map(), vi.species, { calendar, today })), lang).toEqual([])
   }
   expect(boxKeys(await appPages('vi', vi))).toEqual([])
-}, 120_000)
+}, slow(120_000))
 
 test('a boxed fish photo carries its box on its page top, tile, group tile, day and top card, and on no copy of another framing; nothing else changes', async () => {
   const { vi, tile, a, fish } = await listedFish()

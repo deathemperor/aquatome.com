@@ -1,0 +1,66 @@
+{
+  "id": "puntius-kamalika",
+  "native": {
+    "input": "42d3bb7a0816b060",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Sri Lanka where it is widely distributed in the southwestern 'wet zone' of the island, between and including the Kelani and Gin river basins.",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kelani",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Sri Lanka where it is widely distributed in the southwestern 'wet zone' of the island, between and including the Kelani and Gin river basins.",
+        "country": "LK",
+        "ok": true
+      },
+      {
+        "name": "Gin",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Sri Lanka where it is widely distributed in the southwestern 'wet zone' of the island, between and including the Kelani and Gin river basins.",
+        "country": "LK",
+        "ok": true
+      },
+      {
+        "name": "Kalu River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kalu River at Walandure near Kuruwita, 6°46'N, 80°23'E, Sri Lanka, elevation 120 meters'.",
+        "country": "LK",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Puntius kamalika",
+    "status": "ACCEPTED",
+    "taxonKey": 2364237,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        1
+      ]
+    ],
+    "native": [
+      "LK"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

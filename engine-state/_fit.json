@@ -12073,8 +12073,8 @@
   "products": []
  },
  "id/species/corydoras-arcuatus": {
-  "at": "2026-11-10",
-  "hash": "5a10997ae6e542a8",
+  "at": "2026-11-13",
+  "hash": "e30e9951c2e68f2a",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -13465,6 +13465,133 @@
   ],
   "products": []
  },
+ "id/species/crenicichla-lugubris": {
+  "at": "2026-11-13",
+  "hash": "714457d0c1fb9d0e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Saat ini spesimen yang ada berukuran 20–25 cm.",
+    "why": "This is the source shop talking about the fish it currently has in stock, which the reader has never seen.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/crenicichla-marmorata": {
+  "at": "2026-11-13",
+  "hash": "0318b60b10db8c82",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P2",
+    "quote": "Ada dua ekor yang didatangkan, saat ini panjangnya 20–25 cm.",
+    "why": "This is the source shop's news about its own stock, which the reader in Indonesia has never seen.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/crenicichla-notophthalmus": {
+  "at": "2026-11-13",
+  "hash": "1629774f4b97b3f0",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P2",
+    "quote": "saat memesan C. notophthalmus, yang datang hampir selalu C. regani",
+    "why": "This is the importing source's own experience of ordering stock from Manaus, presented as if it were the reader's.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/crenicichla-proteus": {
+  "at": "2026-11-13",
+  "hash": "a223a40df946ccd8",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/crenicichla-regani": {
+  "at": "2026-11-13",
+  "hash": "fe023a1bf5bc6176",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/crenicichla-semifasciata": {
+  "at": "2026-11-13",
+  "hash": "5edd5cc6dacd53cb",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/crenicichla-strigata": {
+  "at": "2026-11-13",
+  "hash": "3eba37bd7b463251",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "Ikan ini termasuk pike cichlid yang cukup sering dijual di Inggris",
+    "why": "The warning about buyers is framed around the UK market, written for a UK reader rather than one in Indonesia.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P11",
+    "quote": "Termasuk pike cichlid yang cukup sering dijual di Inggris",
+    "why": "It again presents the UK trade as the reader's own market context.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/crenicichla-tigrina": {
+  "at": "2026-11-13",
+  "hash": "67e882def13f9362",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/crenicichla-zebrina": {
+  "at": "2026-11-13",
+  "hash": "624d1f419754fca3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/crenuchus-spilurus": {
+  "at": "2026-11-13",
+  "hash": "d979f9474257c68f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/crossocheilus-atrilimes": {
+  "at": "2026-11-13",
+  "hash": "555fd044138e1fe6",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/species/crossocheilus-burmanicus": {
   "at": "2026-11-07",
   "hash": "6594e71c0bf3f2e1",
@@ -13496,11 +13623,35 @@
   ],
   "products": []
  },
+ "id/species/crossocheilus-elegans": {
+  "at": "2026-11-13",
+  "hash": "627444e5cedbdd55",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P6",
+    "quote": "pada setup seperti yang dijelaskan di atas sering terlihat merumput lapisan biofilm",
+    "why": "Refers to a setup description from the source article that this page does not contain.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "id/species/crossocheilus-langei": {
   "at": "2026-11-08",
   "hash": "48f530aed9a44a9a",
   "model": "opus",
   "checklist": 2,
+  "findings": [],
+  "products": []
+ },
+ "id/species/crossocheilus-latius": {
+  "at": "2026-11-13",
+  "hash": "71dc215ca2505b96",
+  "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -13511,12 +13662,83 @@
   "findings": [],
   "products": []
  },
+ "id/species/crossocheilus-reticulatus": {
+  "at": "2026-11-13",
+  "hash": "72b9cb888827a941",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cryptoheros-cutteri": {
+  "at": "2026-11-13",
+  "hash": "9b8c2a211ea0e1ef",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/ctenochromis-polli": {
+  "at": "2026-11-13",
+  "hash": "ec599d1895e5f719",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/species/ctenolucius-hujeta": {
   "at": "2026-11-08",
   "hash": "606bb7a7049f0a09",
   "model": "opus",
   "checklist": 2,
   "findings": [],
+  "products": []
+ },
+ "id/species/ctenopharyngodon-idella": {
+  "at": "2026-11-13",
+  "hash": "0018a9af9206a261",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/ctenopoma-acutirostre": {
+  "at": "2026-11-13",
+  "hash": "d36f9040a6d6bef0",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P10",
+    "quote": "Kiriman impor terbaru dari R. D. Kongo juga berisi beberapa leopard bushfish tangkapan alam.",
+    "why": "This is the source shop's news about its own import shipment, which the reader doesn't know about.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P10",
+    "quote": "Hanya tersedia dalam jumlah terbatas.",
+    "why": "This is about the source shop's stock, not something the reader can buy.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/ctenopoma-kingsleyae": {
+  "at": "2026-11-13",
+  "hash": "4991594b672d317a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P15",
+    "quote": "yang sebaiknya dicoba pada musim dingin",
+    "why": "Advises spawning in winter, a season Indonesia does not have; written for a temperate-climate reader.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/cyclocheilichthys-apogon": {
@@ -18723,6 +18945,22 @@
   ],
   "products": []
  },
+ "ms/guides/aquatome-cho-ca-sinh-san-giao-phoi-va-cham-ca-con": {
+  "at": "2026-11-13",
+  "hash": "237720773494478b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "ikan laga dibiakkan dalam bekas bersaiz 3.78–18.90 liter",
+    "why": "These volumes are 1–5 US gallons converted to litres, which no keeper in Malaysia would say.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "ms/plants/acorus-gramineus": {
   "at": "2026-11-07",
   "hash": "e69dfc118c7dbe49",
@@ -19246,6 +19484,53 @@
   ],
   "products": []
  },
+ "ms/plants/cryptocoryne-nurii": {
+  "at": "2026-11-13",
+  "hash": "81efd9584ff4eeda",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "purata ketinggian selepas dua bulan dalam tangki",
+    "why": "\"Tangki\" is a dictionary rendering of \"tank\"; Malaysian hobbyists say akuarium or tank.",
+    "by": "model",
+    "fix": "akuarium"
+   }
+  ],
+  "products": []
+ },
+ "ms/plants/cryptocoryne-parva": {
+  "at": "2026-11-13",
+  "hash": "a0f8d578801376f9",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Nutrition Capsules",
+   "ADA Amazonia aqua soil",
+   "CaribSea Eco-Complete",
+   "Seachem Flourite Black Sand",
+   "Easy Green"
+  ]
+ },
+ "ms/plants/cryptocoryne-spiralis": {
+  "at": "2026-11-13",
+  "hash": "ba2497a8c58048ac",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/plants/cryptocoryne-undulata": {
+  "at": "2026-11-13",
+  "hash": "21f614071c7856f1",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "ms/species/acanthodoras-cataphractus": {
   "at": "2026-11-09",
   "hash": "f8786a0c45011b4e",
@@ -19569,6 +19854,125 @@
  "ms/species/acrossocheilus-parallens": {
   "at": "2026-11-13",
   "hash": "f17b76f903817bc1",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/adontosternarchus-clarkae": {
+  "at": "2026-11-13",
+  "hash": "3e74eda9c2b4bffe",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P2",
+    "quote": "hanya beberapa ekor sahaja yang dapat diperoleh. Saiz yang ada: 8–10 cm.",
+    "why": "This is the source importer's stock news, not something that applies to the reader.",
+    "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P5",
+    "quote": "paling aktif pada waktu fajar",
+    "why": "Mistranslation of twilight; knifefish are active at dusk and night, and keepers say senja/malam.",
+    "by": "model",
+    "fix": "waktu senja dan malam"
+   }
+  ],
+  "products": []
+ },
+ "ms/species/adontosternarchus-nebulosus": {
+  "at": "2026-11-13",
+  "hash": "f8a27aa5058e481e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/aequidens-patricki": {
+  "at": "2026-11-13",
+  "hash": "493da8d784f456cd",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P2",
+    "quote": "Spesimen yang diperoleh baru-baru ini daripada salah satu import yang sangat jarang dari Peru",
+    "why": "Describes the source shop's own recent stock as if the reader knew it.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P7",
+    "quote": "Spesies ini pernah diperkenalkan dalam Newsletter Extra Minggu Kalendar 23 (3), 2013",
+    "why": "Refers to the source shop's own newsletter, unknown to the reader.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "ms/species/aequidens-tetramerus": {
+  "at": "2026-11-13",
+  "hash": "5f584348fb49ac56",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/agamyxis-pectinifrons": {
+  "at": "2026-11-13",
+  "hash": "b61f43cb650c5c0a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/ageneiosus-inermis": {
+  "at": "2026-11-13",
+  "hash": "c0c75f3c624558f3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/ageneiosus-magoi": {
+  "at": "2026-11-13",
+  "hash": "bef63a35a2bc3039",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P6",
+    "quote": "A. magoi yang aktif secara seksual kini dapat diimport dari Venezuela. Ikan-ikan ini sekarang berukuran kira-kira 15 cm.",
+    "why": "This is the source shop's news about fish it had in stock, which the reader doesn't know about.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "ms/species/ageneiosus-marmoratus": {
+  "at": "2026-11-13",
+  "hash": "2deb67f23af674c7",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/ageneiosus-ucayalensis": {
+  "at": "2026-11-13",
+  "hash": "b960bdda2d92cf16",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/ageneiosus-vittatus": {
+  "at": "2026-11-13",
+  "hash": "52defc05fbdb1b5d",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -33007,20 +33411,11 @@
   "products": []
  },
  "th/species/corydoras-arcuatus": {
-  "at": "2026-11-10",
-  "hash": "3b8dcda5783b5cd0",
+  "at": "2026-11-13",
+  "hash": "c015c0ee9ebd1831",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P5",
-    "quote": "ปลาซิวเมฆขาว",
-    "why": "Literal translation of 'White Cloud Mountain minnow'; Thai keepers use the trade name.",
-    "by": "model",
-    "fix": "ปลาไวท์คลาวด์ (ปลาคาร์ดินัลจีน)"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "th/species/corydoras-armatus": {
@@ -34308,6 +34703,165 @@
   "findings": [],
   "products": []
  },
+ "th/species/crenicichla-albopunctata": {
+  "at": "2026-11-13",
+  "hash": "b8eaa81c274dbc6e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/crenicichla-compressiceps": {
+  "at": "2026-11-13",
+  "hash": "40e6d2c2f4b0a74c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/crenicichla-johanna": {
+  "at": "2026-11-13",
+  "hash": "02b1e65a9798241f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/crenicichla-lepidota": {
+  "at": "2026-11-13",
+  "hash": "eb5cbe026a5317a7",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "ปลาที่นำเข้ามาตรงกับรูปแบบที่ระบุเป็น Crenicichla cf. edithae",
+    "why": "Refers to the source importer's own shipment of fish as if the reader knew about it.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/crenicichla-lugubris": {
+  "at": "2026-11-13",
+  "hash": "ce985a1e5382067f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "ปัจจุบันปลาที่มีอยู่มีความยาว 20-25 ซม.",
+    "why": "Describes the source exporter's current stock, which the reader doesn't know.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/crenicichla-marmorata": {
+  "at": "2026-11-13",
+  "hash": "64d34b18a69baaeb",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "นี่เป็นครั้งแรกที่ได้รับ Crenicichla marmorata จากทะเลสาบแห่งนี้",
+    "why": "This is the source shop's own news about getting new stock in, which the reader knows nothing about.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P2",
+    "quote": "ได้รับมา 2 ตัว ปัจจุบันมีขนาด 20–25 ซม.",
+    "why": "This describes the source shop's own stock (two fish it received) as if the reader knew about it.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/crenicichla-notophthalmus": {
+  "at": "2026-11-13",
+  "hash": "03479342a0517014",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/crenicichla-proteus": {
+  "at": "2026-11-13",
+  "hash": "2d407f92432bb7b3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/crenicichla-regani": {
+  "at": "2026-11-13",
+  "hash": "245f0b4f275ba66a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/crenicichla-semifasciata": {
+  "at": "2026-11-13",
+  "hash": "5a1856364ba1011c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/crenicichla-strigata": {
+  "at": "2026-11-13",
+  "hash": "de71d7a8fba70f36",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "เป็นไพค์ซิคลิดชนิดหนึ่งที่หาซื้อได้ค่อนข้างง่ายในสหราชอาณาจักร",
+    "why": "Availability in UK shops is given as the reader's own market, written for British hobbyists.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/crenicichla-tigrina": {
+  "at": "2026-11-13",
+  "hash": "5716c69deec17a0f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/crenicichla-zebrina": {
+  "at": "2026-11-13",
+  "hash": "39fc4218aeee7135",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/crenuchus-spilurus": {
+  "at": "2026-11-13",
+  "hash": "66f3d6ff07ed6401",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/crossocheilus-atrilimes": {
+  "at": "2026-11-13",
+  "hash": "acb66dc2dee4d21f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "th/species/crossocheilus-burmanicus": {
   "at": "2026-11-07",
   "hash": "e4e71c51470bd4bf",
@@ -34323,6 +34877,14 @@
   "findings": [],
   "products": []
  },
+ "th/species/crossocheilus-elegans": {
+  "at": "2026-11-13",
+  "hash": "9b197ec792d68bf3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "th/species/crossocheilus-langei": {
   "at": "2026-11-08",
   "hash": "cf535b6e4ff72057",
@@ -34331,11 +34893,43 @@
   "findings": [],
   "products": []
  },
+ "th/species/crossocheilus-latius": {
+  "at": "2026-11-13",
+  "hash": "eccbc248c8fc4341",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "th/species/crossocheilus-nigriloba": {
   "at": "2026-11-08",
   "hash": "f07a8de50b000c47",
   "model": "opus",
   "checklist": 2,
+  "findings": [],
+  "products": []
+ },
+ "th/species/crossocheilus-reticulatus": {
+  "at": "2026-11-13",
+  "hash": "b0723a47b89f932e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P8",
+    "quote": "ตัวเลือกที่ส่งออกจากประเทศไทยเช่นกัน ได้แก่ ปลาหมูและปลาในวงศ์ปลาตะเพียนหลายชนิด",
+    "why": "Choosing tankmates by what is exported from Thailand only makes sense to a reader buying imported fish abroad.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/cryptoheros-cutteri": {
+  "at": "2026-11-13",
+  "hash": "20b47177f2a5ddaf",
+  "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -79137,32 +79731,31 @@
   ]
  },
  "vi/guides/youtube-rWaSv_jw6Rs": {
-  "at": "2026-11-11",
-  "hash": "377137f454f557ab",
+  "at": "2026-11-13",
+  "hash": "2d701716005fb731",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P8",
+    "part": "P1",
+    "quote": "Bài này set trên một bể nhỏ 45 cm, khoảng 40–50 lít",
+    "why": "Refers to the source article's own tank build as if the reader knew it.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
     "quote": "Ở đây lọc mút được ngâm và chạy liên tục trong một bể khác suốt thời gian set",
-    "why": "Describes the source writer's own setup and tanks as if the reader knew them.",
+    "why": "Narrates the original author's own setup story.",
     "by": "model"
    },
    {
     "check": "elsewhere",
-    "part": "P8",
+    "part": "P1",
     "quote": "Nhiệt độ nước hai bể cũng bằng nhau vì phòng có sưởi",
-    "why": "A heated room points to a colder country; in Vietnam, room heating isn't what keeps two tanks at the same temperature.",
+    "why": "Assumes a heated room, typical of homes abroad rather than in Vietnam.",
     "by": "model"
-   },
-   {
-    "check": "words",
-    "part": "P6",
-    "quote": "Cách trồng rau mác không bị nhũn",
-    "why": "Vietnamese keepers call crypt melt 'chảy', not 'nhũn'.",
-    "by": "model",
-    "fix": "rau mác không bị chảy"
    }
   ],
   "products": [
@@ -103473,9 +104066,10 @@
   "products": []
  },
  "vi/species/geophagus-brachybranchus": {
-  "at": "2026-11-07",
-  "hash": "de81c61ce59d2701",
+  "at": "2026-11-13",
+  "hash": "7ce23c2da5b3fca5",
   "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -104036,20 +104630,11 @@
   "products": []
  },
  "vi/species/gymnothorax-tile": {
-  "at": "2026-11-08",
-  "hash": "76ae8007c6036cdf",
+  "at": "2026-11-13",
+  "hash": "eb08d630ebcc5681",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P7",
-    "quote": "Đây là loài săn mồi bắt buộc.",
-    "why": "Calque of the English 'obligate predator'; Vietnamese keepers don't phrase it this way.",
-    "by": "model",
-    "fix": "Đây là loài chuyên ăn thịt."
-   }
-  ],
+  "findings": [],
   "products": [],
   "doses": [
    {
@@ -104062,7 +104647,7 @@
     "perUnit": "litre",
     "use": "water",
     "method": "wholeTank",
-    "quote": "Mức pha khoảng 15 g/l là được"
+    "quote": "Pha khoảng 15 g/l là được, không cần đong thật chính xác."
    }
   ],
   "sourceRead": true
@@ -104100,16 +104685,16 @@
   "products": []
  },
  "vi/species/haludaria-fasciata": {
-  "at": "2026-11-08",
-  "hash": "6699a4a0870d17e6",
+  "at": "2026-11-13",
+  "hash": "fd6fc9c52778d1de",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P16",
     "quote": "Cảm ơn Rahul Kumar.",
-    "why": "Thanks a person from the source article whom the reader doesn't know.",
+    "why": "Thanks a person from the original article whom the reader doesn't know.",
     "by": "model"
    }
   ],
@@ -104285,20 +104870,11 @@
   "products": []
  },
  "vi/species/helostoma-temminckii": {
-  "at": "2026-11-07",
-  "hash": "946f4f35144f3075",
+  "at": "2026-11-13",
+  "hash": "3926431ee79901b1",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P2",
-    "quote": "Cá hôn là loài cá ăn thịt phổ biến và đã được đưa sang nhiều nước để nuôi lấy thịt.",
-    "why": "Mistranslation of 'food fish': 'cá ăn thịt' means a carnivorous fish, not a fish raised to be eaten.",
-    "by": "model",
-    "fix": "cá thực phẩm phổ biến"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/hemiancistrus-guahiborum": {
@@ -104438,8 +105014,8 @@
   "products": []
  },
  "vi/species/hemibarbus-longirostris": {
-  "at": "2026-11-08",
-  "hash": "a940cb2c2545f8a3",
+  "at": "2026-11-13",
+  "hash": "be3ba68e32c77f75",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -104807,25 +105383,24 @@
   "products": []
  },
  "vi/species/hemigrammus-rhodostomus": {
-  "at": "2026-11-08",
-  "hash": "9066555cf31109bb",
+  "at": "2026-11-13",
+  "hash": "73da81e11c1e249b",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
     "part": "P9",
-    "quote": "bạn có thể dùng gỗ dẻ gai châu Âu (beech), miễn là gỗ đã phơi thật khô và bóc sạch vỏ",
-    "why": "European beech wood and beech or oak leaves are things a European reader collects. A keeper in Vietnam would not have them to hand.",
+    "quote": "có thể dùng cành dẻ gai (beech), miễn là gỗ đã phơi thật khô và bóc sạch vỏ",
+    "why": "Beech wood and beech/oak leaves are what a keeper in temperate Europe or America collects, not something at hand in Vietnam.",
     "by": "model"
    },
    {
-    "check": "words",
-    "part": "P15",
-    "quote": "\"chim hoàng yến trong mỏ than\" của bể cá",
-    "why": "This is a word-for-word calque of the English idiom 'canary in the coal mine', which keepers in Vietnam do not use.",
-    "by": "model",
-    "fix": "cá báo hiệu nước có vấn đề"
+    "check": "units",
+    "part": "P20",
+    "quote": "Bể cỡ khoảng 46 x 25 x 25 cm là được.",
+    "why": "An 18 x 10 x 10 inch tank converted to cm; not a size anyone in Vietnam would give.",
+    "by": "model"
    }
   ],
   "products": []

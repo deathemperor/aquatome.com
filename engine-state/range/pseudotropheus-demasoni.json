@@ -1,0 +1,66 @@
+{
+  "id": "pseudotropheus-demasoni",
+  "native": {
+    "input": "f43d1adfb18b5e0f",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Chindongo demasoni is a dwarf mbuna endemic to Lake Malawi, where it occurs around Pombo Rocks off the Tanzanian coast.",
+        "words": "Tanzanian",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It occurs around Pombo Rocks off the Tanzanian coast.",
+        "words": "Tanzanian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi.",
+        "ok": true
+      },
+      {
+        "name": "Pombo Rocks",
+        "source": "seriouslyfish",
+        "quote": "It occurs around Pombo Rocks off the Tanzanian coast.",
+        "country": "TZ",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudotropheus demasoni",
+    "status": "ACCEPTED",
+    "taxonKey": 2373063,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "TZ"
+    ],
+    "requests": 11,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}
