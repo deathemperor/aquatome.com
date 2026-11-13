@@ -1,0 +1,190 @@
+{
+  "id": "pseudopimelodus-bufonius",
+  "native": {
+    "input": "1d44c4fbe2131576",
+    "at": "2026-11-13T11:20:11.221Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Distributed throughout northeastern South America from the Lake Maracaibo basin in Venezuela to eastern Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Distributed throughout northeastern South America from the Lake Maracaibo basin in Venezuela to eastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is uncertain but probably Cayenne, French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Maracaibo",
+        "source": "seriouslyfish",
+        "quote": "Distributed throughout northeastern South America from the Lake Maracaibo basin in Venezuela to eastern Brazil.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CO",
+        "GY",
+        "SR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudopimelodus bufonius",
+    "status": "ACCEPTED",
+    "taxonKey": 2338771,
+    "datasets": [
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        107
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        31
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        22
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        21
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        17
+      ],
+      [
+        "cf679f54-a82a-4892-b581-23b61b1e78bb",
+        13
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        11
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        10
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        8
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        6
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        6
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        5
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        4
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "2196fd54-22a3-406e-8480-cbee25349024",
+        1
+      ],
+      [
+        "3b8f8089-0261-4ec1-829c-1f17828fbd96",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "BR",
+      "GF"
+    ],
+    "requests": 12,
+    "at": "2026-11-13T11:20:11.221Z"
+  }
+}

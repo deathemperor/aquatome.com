@@ -4,7 +4,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test, vi } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -120,6 +120,22 @@ test('the prompt answers about the fish: the card wins, no talk of pages disagre
   expect(SYSTEM).toContain('say plainly you don\'t have it, and say what to ask for or look for')
   expect(SYSTEM).toContain('Never point at your earlier answers')
   expect(ANSWER_SCHEMA.required).toContain('clashes')
+})
+
+test('a problem\'s steps each carry a figure, with no cap of five, and the answer asks last for the readings that would decide the cause', () => {
+  expect(SYSTEM).not.toContain('at most five')
+  expect(SYSTEM).toContain('as many as the problem needs')
+  expect(SYSTEM).toContain('each one action for their tank with its figure')
+  expect(SYSTEM).toContain('ask for the one to three readings that decide it')
+  expect(SYSTEM).toContain('Ask only for what would change your answer, never for what they told you')
+  // The forced last call writes most answers (the board, 13 Nov 2026: 184 of 225), so it says the same.
+  expect(LAST_WORD).toContain('each with its figure')
+  expect(LAST_WORD).toContain('the readings that would decide the cause')
+  expect(ANSWER_SCHEMA.properties.text.description).toContain('each with its figure')
+  expect(ANSWER_SCHEMA.properties.text.description).toContain('and last the readings that would decide the cause when the reader hasn\'t given them')
+  // A safe reading is none on the kit: "under 0.25 mg/l" mixes total ammonia with the free ammonia that harms fish (the review, 13 Nov).
+  expect(SYSTEM).toContain('amoniac và nitrit về 0 trên bộ test')
+  expect(SYSTEM).not.toContain('0,25 mg/l')
 })
 
 test('read_tanks reads the reader\'s tanks with their ids, says when there are none, and is an error when they can\'t be read', async () => {
@@ -747,6 +763,57 @@ test('a turn: Claude reads the handbook, then answers; the steps are shown as th
   // A refusal, or an answer cut short, is no answer: no blocks.
   expect(readAnswer(message([{ type: 'text', text: '{"text":' }], 'max_tokens'))).toBeUndefined()
   expect(readAnswer(message([], 'refusal'))).toBeUndefined()
+})
+
+test('a chat opened from a saved tank says so first, with the tank as every handed tank is, without its name; a tank the reader doesn\'t hold says nothing', async () => {
+  const h = await hb()
+  const tank: Tank = { id: 't1', name: 'Bể phòng khách', dims: { l: 60, w: 30, h: 36 }, species: [{ id: 'paracheirodon-innesi', count: 10 }], unlisted: [] }
+  const tanks = async () => [tank]
+  const line = await openedTank({ from: 'tank', tank: 't1' }, tanks, h, false)
+  expect(line).toContain('They opened the chat from one of their saved tanks, id t1: what they ask is about that tank unless they say otherwise.')
+  expect(line).toContain('"count":10')
+  expect(line).not.toContain('Bể phòng khách')
+  // With every tank handed over already, the line alone.
+  expect(await openedTank({ from: 'tank', tank: 't1' }, tanks, h, true)).toBe('They opened the chat from one of their saved tanks, id t1: what they ask is about that tank unless they say otherwise.')
+  // Not synced yet, deleted, or the tanks unreadable: answered as if no tank was named.
+  expect(await openedTank({ from: 'tank', tank: 'gone' }, tanks, h, false)).toBeUndefined()
+  expect(await openedTank({ from: 'tank', tank: 't1' }, async () => null, h, false)).toBeUndefined()
+  expect(await openedTank({ from: 'species', about: 'paracheirodon-innesi' }, tanks, h, false)).toBeUndefined()
+  // The run's first call carries it after the question.
+  const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
+  await answerQuestion({
+    send: async b => { bodies.push(b); return message([{ type: 'text', text: JSON.stringify(answer([])) }]) },
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Bể này ổn không?', earlier: [], start: { from: 'tank', tank: 't1' }, handbook: h, tanks,
+  })
+  const first = JSON.stringify(bodies[0]!.messages[0]!.content)
+  expect(first.indexOf('The reader asks:')).toBeLessThan(first.indexOf('id t1: what they ask is about that tank'))
+})
+
+test('asked whether their tank is all right, the chat reviews it with the tank-mates check on that tank, says what to fix first, and asks for the readings it lacks', async () => {
+  expect(SYSTEM).toContain('whether it is all right ("bể này ổn không"), review that tank. With fish in it: check_tank_mates with its id')
+  expect(SYSTEM).toContain('and no fish to add, once')
+  expect(SYSTEM).toContain('Open with the check\'s verdict, or, with one kind of fish, when it gives none, with how full the tank is and its notes')
+  expect(SYSTEM).toContain('With no fish in it there is nothing to check: don\'t call it.')
+  expect(SYSTEM).toContain('end by asking for the one to three they haven\'t given that would change your advice')
+  // What the prompt leans on, from the check itself: a verdict with two kinds or more; with one, none, but how full the
+  // tank is and its notes; with none, an error (the review, 13 Nov).
+  const h = await hb()
+  const dims = { l: 60, w: 30, h: 36 }
+  const tanks: Tank[] = [
+    { id: 'two', name: 'Bể 1', dims, species: [{ id: 'paracheirodon-innesi', count: 6 }, { id: 'pigeon-blood-discus', count: 2 }], unlisted: [] },
+    { id: 'one', name: 'Bể 2', dims, species: [{ id: 'paracheirodon-innesi', count: 3 }], unlisted: [] },
+    { id: 'none', name: 'Bể 3', dims, species: [], unlisted: [{ name: 'Rong lạ', kind: 'plant' }] },
+  ]
+  const tool = chatTools({ handbook: h, tanks: async () => tanks }).find(t => t.name === 'check_tank_mates')!
+  const review = async (tankId: string) => JSON.parse(await tool.run({ fish: [], tank: null, tankId }, { photosLeft: 0 }) as string) as MatesCheck
+  const two = await review('two')
+  expect(two.answer?.head).toEqual(expect.any(String))
+  expect(two.verdict).toBeDefined()
+  const one = await review('one')
+  expect(one.answer).toBeUndefined()
+  expect(one.verdict).toBeUndefined()
+  expect(one.stocking?.notes.length).toBeGreaterThan(0)
+  await expect(review('none')).rejects.toThrow('That tank has no fish')
 })
 
 test('the first message says where the chat started, what fish ID named, the earlier turns and what they showed, then the question', async () => {

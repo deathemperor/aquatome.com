@@ -5,6 +5,7 @@ import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { lowVideoGuides, reviewBackfill } from '../src/review-backfill'
 import { NEAR_BAR, steadyRead, WRITER_BAND } from '../src/quality'
+import { applySourceRechecks } from '../src/recheck-score'
 import { logReviews, readReviews } from '../src/review-log'
 import type { YouTube } from '../src/youtube'
 
@@ -128,6 +129,42 @@ test('a species translation is reviewed again per source under the bar, against 
   expect(prompts[1]).toContain('(left out)') // the glaser part has no Indonesian
   expect((await readReviews(root, 'translation'))['vi/species/x#seriouslyfish']).toMatchObject([{ attempt: 'recheck', kept: true, notes: ['Omits the live food.'] }])
   expect(Object.keys(await readReviews(root, 'localize'))).toEqual(['id/species/x'])
+})
+
+test('a source whose text has left the page, or has no Vietnamese, isn\'t listed: nothing to check, and no failure every run', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'rb-'))
+  const sec = (key: string, source: string) => ({ key, source, sourceUrl: 'u', html: `<p>${key} from ${source}</p>` })
+  await put(root, 'content/sources.json', { seriouslyfish: { permission: { scope: ['translation'] } }, glaser: { permission: { scope: ['translation'] } } })
+  // Its Glaser part is gone from the page, its score still on record under the bar.
+  await put(root, 'content/species/x/entity.json', { id: 'x', sections: [sec('diet', 'seriouslyfish')] })
+  await put(root, 'content/species/x/vi.json', { slug: 'x', name: 'X', sections: { 'diet:seriouslyfish': '<p>ăn gì</p>' }, quality: { score: 0.6, indexable: false, bySource: { seriouslyfish: 0.6, glaser: 0.7 } } })
+  // Its Glaser part still on the page in English, but with no Vietnamese to check (Astra's read).
+  await put(root, 'content/species/y/entity.json', { id: 'y', sections: [sec('diet', 'seriouslyfish'), sec('diet', 'glaser')] })
+  await put(root, 'content/species/y/vi.json', { slug: 'y', name: 'Y', sections: { 'diet:seriouslyfish': '<p>ăn gì</p>', 'diet:glaser': '' }, quality: { score: 0.9, indexable: true, bySource: { seriouslyfish: 0.9, glaser: 0.6 } } })
+  const prompts: string[] = []
+  const llm: Llm = async <T,>(a: { prompt: string }) => { prompts.push(a.prompt); return { score: 0.8, notes: [] } as T }
+  const r = await reviewBackfill({ root, llm, now: () => new Date('2026-11-13T10:00:00Z') }, { kinds: ['translation'], limit: 5 })
+  expect(r.checked).toEqual(['translation vi/species/x#seriouslyfish: 0.80 (was 0.60), 0 notes'])
+  expect(r.failed).toEqual([])
+  expect(r.left).toEqual({ translation: 0 })
+  expect(prompts).toHaveLength(1)
+})
+
+// Astra's read of 4907cad1e: the check read a source's parts with text, the score's update every part, so a passing
+// check of a source with one empty part never reached the page.
+test('a source with one part empty is checked on the rest, and a passing check reaches the page\'s score', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'rb-'))
+  const sec = (key: string) => ({ key, source: 'glaser', sourceUrl: 'u', html: `<p>${key} in English</p>` })
+  await put(root, 'content/sources.json', { glaser: { permission: { scope: ['translation'] } } })
+  await put(root, 'content/species/x/entity.json', { id: 'x', sections: [sec('diet'), sec('habitat')] })
+  await put(root, 'content/species/x/vi.json', { slug: 'x', name: 'X', sections: { 'diet:glaser': '<p>ăn gì</p>', 'habitat:glaser': '' }, quality: { score: 0.6, indexable: false, bySource: { glaser: 0.6 } } })
+  const prompts: string[] = []
+  const llm: Llm = async <T,>(a: { prompt: string }) => { prompts.push(a.prompt); return { score: 0.8, notes: [] } as T }
+  const r = await reviewBackfill({ root, llm, now: () => new Date('2026-11-13T10:00:00Z') }, { kinds: ['translation'], limit: 5 })
+  expect(r.checked).toEqual(['translation vi/species/x#glaser: 0.80 (was 0.60), 0 notes'])
+  expect(prompts.join('\n')).not.toContain('habitat in English')
+  expect(await applySourceRechecks(root)).toEqual(['species/x'])
+  expect(JSON.parse(await readFile(join(root, 'content/species/x/vi.json'), 'utf8')).quality).toMatchObject({ score: 0.8, bySource: { glaser: 0.8 } })
 })
 
 test('a guide AquaTome wrote is checked again as it is, against the facts its writer had, and the check\'s score is the page\'s', async () => {
