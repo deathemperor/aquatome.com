@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -9,7 +10,7 @@ import { ocrHit, screenWatermarks, type TextLine, type WatermarkDeps } from '../
 const line = (t: string, c = 1): TextLine => ({ t, c, x: 0.1, y: 0.9, w: 0.3, h: 0.03 })
 
 test('text worth a look: a credit, a web address or a clear word; not the stray letters scales and stems read as', () => {
-  expect(ocrHit([line('© Hristo Hristov')])).toBe(true)
+  expect(ocrHit([line('© TEST_ONLY_CREDIT')])).toBe(true)
   expect(ocrHit([line('planetcatfish.com', 0.3)])).toBe(true)
   expect(ocrHit([line('AQUARIUM GLASER')])).toBe(true)
   expect(ocrHit([line('female')])).toBe(true)
@@ -55,8 +56,8 @@ function deps() {
     look: async (_sheet, prompt) => {
       const photos = [...prompt.matchAll(/^(\d+): (.*)$/gm)].map(([, n, text]) => {
         calls.looked.push(text!)
-        const mark = /GLASER|©|www\.|no text found/.test(text!)
-        return { n: Number(n), watermark: mark, kind: mark ? ('logo' as const) : ('none' as const), what: mark ? 'added text' : 'product box label' }
+        const mark = !text!.includes(createHash('sha256').update(TEXT.box![0]!).digest('hex'))
+        return { n: Number(n), watermark: mark, kind: mark ? ('logo' as const) : ('none' as const), locations: ['bottom left'] }
       })
       return { photos }
     },
@@ -75,17 +76,19 @@ test('watermarked photos leave every page, gallery, video still and equipment he
   // The four photos with text went to the model, and the logo source's photo without any; the product's own label is
   // scene, not a watermark. Photos with no text from other sources are never sent.
   expect(out).toMatchObject({ read: 9, hits: 5, judged: 5, failed: [], stopped: '' })
-  expect(calls.looked.sort()).toEqual(['"AQUARIUM GLASER" (bottom left)', '"SERA flore" (bottom left)', '"www.shop.example" (bottom left)', '"© Tank Channel" (bottom left)', 'no text found'])
+  expect(calls.looked).toHaveLength(5)
+  for(const words of Object.values(TEXT).flat())expect(calls.looked.join(' ')).not.toContain(words)
   expect((await read(r, 'content/species/a/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([url('fish'), url('box')])
   expect((await read(r, 'content/gallery/a.json')).photos.map((p: { url: string }) => p.url)).toEqual([url('fish2')])
   // A section whose only still had a credit goes; the other keeps its still and loses its photo.
   expect((await read(r, 'content/guides/g/entity.json')).video.figures).toEqual([{ heading: 'Đèn', moments: [{ t: 9, url: url('still-ok'), width: 160, height: 90, caption: 'x' }] }])
   // An equipment page needs a hero: the first type photo takes its place, in every language's copy.
   for (const p of ['content/equipment/den.json', 'content/equipment/id/den.json']) expect((await read(r, p)).hero.url).toBe(url('type-ok'))
-  expect(await read(r, 'engine-state/_photo-rejected.json')).toEqual({
-    [url('old')]: 'hand', [url('glaser')]: 'watermark: added text', [url('glaser/logo-only')]: 'watermark: added text', [url('hero-credit')]: 'watermark: added text', [url('still-credit')]: 'watermark: added text',
-  })
-  expect((await read(r, 'engine-state/_photo-watermarks.json'))[url('box')]).toEqual({ ocr: [{ t: 'SERA flore', c: 1, at: 'bottom left' }], watermark: false, kind: 'none', what: 'product box label' })
+  const refusals=await read(r,'engine-state/_photo-rejected.json')
+  expect(Object.keys(refusals).sort()).toEqual(['old','glaser','glaser/logo-only','hero-credit','still-credit'].map(url).sort())
+  expect(refusals[url('old')].startsWith('watermark:')).toBe(false)
+  for(const n of ['glaser','glaser/logo-only','hero-credit','still-credit'])expect(refusals[url(n)]).toMatch(/^watermark: withheld \[sha256:[a-f0-9]{64}\]$/)
+  expect((await read(r, 'engine-state/_photo-watermarks.json'))[url('box')]).toEqual({ocr:[{c:1,at:'bottom left',alnum:9,mark:false,hash:createHash('sha256').update(TEXT.box![0]!).digest('hex')}],watermark:false,kind:'none',locations:['bottom left']})
 
   // Next cycle: a source re-read puts the Glaser photo back; it goes again with no download and no model call.
   await writeFile(join(r, 'content/species/a/entity.json'), JSON.stringify({ id: 'a', photos: ['glaser', 'fish'].map(photo) }))

@@ -1,3 +1,5 @@
+import { expectControlledRejections } from './photo-privacy-assertions'
+import { assertPhotoPrivacy } from '../src/photo-privacy'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -47,8 +49,8 @@ async function site(over: Partial<StillDeps> = {}) {
     },
     get: async u => grey(shade(Number(u.match(/t(\d+)\.webp$/)![1])), 320, 180).webp().toBuffer(),
     faces: async files => files.map(f => (f.endsWith('-60.png') ? 1 : 0)), // t54's frame
-    read: async files => files.map(f => (f.endsWith('-30.png') ? [line('SERA flore')] : f.endsWith('-40.png') ? [line('© Tank Channel')] : [])), // t27's and t36's
-    look: async () => { calls.looks++; return { photos: [{ n: 1, watermark: true, kind: 'credit', what: '© Tank Channel, bottom' }] } },
+    read: async files => files.map(f => (f.endsWith('-30.png') ? [line('SERA flore')] : f.endsWith('-40.png') ? [line('TEST_ONLY_CHANNEL')] : [])), // t27's and t36's
+    look: async () => { calls.looks++; return { photos: [{ n: 1, watermark: true, kind: 'credit', what: 'TEST_ONLY_CHANNEL, bottom' }] } },
     judge: async () => ({ photos: [1, 2, 3, 4, 5, 6].map(n => ({ n, person: false, mark: false, brand: false, note: 'a tank' })) }),
     media: { urlFor: k => `https://m/${k}`, put: async k => { calls.puts.push(k); return { url: `https://m/${k}`, width: 1200, height: 675 } } },
     now: () => new Date('2026-11-06T12:00:00Z'),
@@ -64,9 +66,9 @@ test("video-stills: each still's t becomes the second its tile shows, and each t
   const r = await videoStills(s.root, s.d)
   expect(s.calls.grabs).toEqual([20, 30, 40, 50, 60, 70]) // not t72: the owner rejected it
   expect(r.done).toEqual(['youtube-b1: 7 retimed, 2 sharp, 2 dropped, 2 kept as tiles, 1 for next run'])
-  expect(r.dropped).toEqual(['youtube-b1 t60: a face in the frame', 'youtube-b1 t40: watermark (© Tank Channel, bottom)'])
+  expect(r.dropped).toEqual(['youtube-b1 t60: a face in the frame', 'youtube-b1 t40: watermark (credit)'])
   expect(r.kept).toEqual(['youtube-b1 t50'])
-  expect(r.failed).toEqual(['youtube-b1 t70: ffmpeg: Server returned 403 Forbidden (access denied)'])
+  expect(r.failed).toEqual([expect.stringMatching(/^youtube-b1 t70: photo operation unavailable \[sha256:[a-f0-9]{64}\]$/)])
   const figs = (await s.read('content/guides/youtube-b1/entity.json')).video.figures
   expect(figs).toEqual([
     { heading: 'Đá', moments: [{ t: 20, url: 'https://m/video/b1/at20-hd.webp', width: 1200, height: 675, caption: 'Một', sharpness: 0, person: false }, { t: 30, url: 'https://m/video/b1/at30-hd.webp', width: 1200, height: 675, caption: 'Hai', sharpness: 0, person: false }] },
@@ -78,10 +80,11 @@ test("video-stills: each still's t becomes the second its tile shows, and each t
   expect(s.calls.looks).toBe(1)
   const marks = await s.read('engine-state/_photo-watermarks.json')
   expect(marks['https://m/video/b1/at20-hd.webp']).toEqual({ ocr: [] })
-  expect(marks['https://m/video/b1/at30-hd.webp']).toEqual({ ocr: [{ t: 'SERA flore', c: 1, at: 'bottom left' }], watermark: false, kind: 'none', what: 'product label' })
-  expect(await s.read('engine-state/_photo-rejected.json')).toEqual({ [old(72)]: 'owner: hands', [old(36)]: 'watermark: © Tank Channel, bottom' })
+  expect(marks['https://m/video/b1/at30-hd.webp']).toMatchObject({ ocr: [{ c: 1, at: 'bottom left', alnum: 9, mark: false, hash: expect.stringMatching(/^[a-f0-9]{64}$/) }], watermark: false, kind: 'none', observationHash: expect.stringMatching(/^[a-f0-9]{64}$/) })
+  expect(marks['https://m/video/b1/at30-hd.webp']).not.toHaveProperty('what')
+  expectControlledRejections(await s.read('engine-state/_photo-rejected.json'), { [old(72)]: 'rejected', [old(36)]: 'watermark' })
   expect(Object.keys(await s.read('content/picture-hashes.json'))).toEqual(['https://m/video/b1/at20-hd.webp', 'https://m/video/b1/at30-hd.webp'])
-  expect(await s.read('engine-state/_video-stills.json')).toEqual({ 'youtube-b1': { at: '2026-11-06', timed: true, kept: { 50: "the frame at 50 s isn't the tile's moment", 80: 'rejected' } } })
+  expect(await s.read('engine-state/_video-stills.json')).toEqual({ 'youtube-b1': { at: '2026-11-06', timed: true, kept: { 50: expect.stringMatching(/^photo operation unavailable \[sha256:[a-f0-9]{64}\]$/), 80: 'rejected' } } })
 
   // The next run takes the still whose grab failed, and only it.
   s.calls.grabs.length = 0
@@ -124,7 +127,7 @@ test("video-stills: stills that are already the video's frames get the second th
     { heading: 'Lọc', moments: [{ ...hd(954, 'Một'), t: 970 }, { ...hd(964, 'Hai'), t: 980 }] },
     { heading: 'Đèn', moments: [{ ...tile, t: 50 }] },
   ])
-  expect((await s.read('engine-state/_video-stills.json'))['youtube-c1']).toEqual({ at: '2026-11-06', timed: true, kept: { 50: "the frame at 50 s isn't the tile's moment" } })
+  expect((await s.read('engine-state/_video-stills.json'))['youtube-c1']).toEqual({ at: '2026-11-06', timed: true, kept: { 50: expect.stringMatching(/^photo operation unavailable \[sha256:[a-f0-9]{64}\]$/) } })
 
   // Without the mark the times come from the addresses again: the same seconds, not corrected twice.
   const after = await entity()
@@ -191,14 +194,14 @@ test('video-stills: a frame with hands or an added mark is dropped before upload
   const passes = { person: false, mark: false, brand: false, note: 'a tank' }
   const hands = await site({ judge: async () => ({ photos: [{ n: 1, ...passes, person: true, note: 'hands planting' }, { n: 2, ...passes }] }) })
   const r = await videoStills(hands.root, hands.d)
-  expect(r.dropped).toContain('youtube-b1 t20: people: hands planting')
+  expect(r.dropped).toContain('youtube-b1 t20: people: guide photo; person')
   expect(hands.calls.puts).toEqual(['video/b1/at30-hd.webp'])
-  expect((await hands.read('engine-state/_photo-rejected.json'))[old(18)]).toBe('people: hands planting')
-  expect(await hands.read('engine-state/_photo-guides.json')).toEqual({ 'https://m/video/b1/at30-hd.webp': passes })
+  expect((await hands.read('engine-state/_photo-rejected.json'))[old(18)]).toMatch(/^people: withheld \[sha256:[a-f0-9]{64}\]$/)
+  expect(await hands.read('engine-state/_photo-guides.json')).toMatchObject({ 'https://m/video/b1/at30-hd.webp': {person:false,mark:false,brand:false,note:'guide photo',noteHash:expect.stringMatching(/^[a-f0-9]{64}$/)} })
   expect((await hands.read('content/guides/youtube-b1/entity.json')).video.figures[0].moments.map((m: { url: string; person?: boolean }) => [m.url, m.person])).toEqual([['https://m/video/b1/at30-hd.webp', false]])
 
   const marked = await site({ judge: async () => ({ photos: [{ n: 1, ...passes }, { n: 2, ...passes, mark: true, note: 'channel mark, corner' }] }) })
-  expect((await videoStills(marked.root, marked.d)).dropped).toContain('youtube-b1 t30: watermark: channel mark, corner')
+  expect((await videoStills(marked.root, marked.d)).dropped).toContain('youtube-b1 t30: watermark: guide photo; mark')
   expect(marked.calls.puts).toEqual(['video/b1/at20-hd.webp'])
 
   const silent = await site({ judge: async () => ({ photos: [{ n: 2, ...passes }] }) })
@@ -214,4 +217,14 @@ test('video-stills: three grabs failing in a row stop the run', async () => {
   expect(r.stopped).toBe('three frame grabs failed in a row')
   expect(r.done).toEqual([])
   expect(s.calls.puts).toEqual([])
+})
+
+
+test('video-still OCR and both model replies never persist or report their synthetic lettering',async()=>{
+ const trip=['PRIVACY','STILL','TEST','ONLY'].join('_')
+ const s=await site({read:async files=>files.map(()=>[line(trip)]),look:async(_f,p)=>{expect(p).not.toContain(trip);return {photos:[1,2,3,4,5,6].map(n=>({n,watermark:false,kind:'none' as const,locations:[],what:trip}))}},judge:async()=>({photos:[1,2,3,4,5,6].map(n=>({n,person:false,mark:false,brand:false,note:trip}))})})
+ const report=await videoStills(s.root,s.d)
+ expect(s.calls.puts.length).toBeGreaterThan(0);expect(JSON.stringify(report)).not.toContain(trip)
+ for(const file of ['_photo-watermarks.json','_photo-rejected.json','_photo-guides.json','_video-stills.json'])expect(await readFile(join(s.root,'engine-state',file),'utf8')).not.toContain(trip)
+ await assertPhotoPrivacy(s.root)
 })
