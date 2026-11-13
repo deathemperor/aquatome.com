@@ -13,6 +13,7 @@ import type { Finder, Found } from './video-discovery'
 import { throttled, type YouTube } from './youtube'
 import { VI_STYLE as STYLE } from './phrases'
 import { withTanks } from './round'
+import { WikimediaRefused } from './wikimedia-rest'
 
 const WRITE = withTanks(readFileSync(new URL('./prompts/species-video.md', import.meta.url), 'utf8'))
 
@@ -236,7 +237,7 @@ export async function speciesVideos(root: string, d: SpeciesVideosDeps, o: { cha
       if (r.done === 'skipped') report.skipped.push(line); else report.done.push(line)
     } catch (e) {
       const m = (e as Error).message
-      if (e instanceof LlmError || throttled(e)) { report.stopped = `${id}: ${m.slice(0, 200)}`; break }
+      if (e instanceof LlmError || throttled(e) || e instanceof WikimediaRefused) { report.stopped = `${id}: ${m.slice(0, 200)}`; break }
       state[id] = { ...(state[id] ?? { title: '', channel: '', kind: 'profile' }), at: today, done: 'failed', reason: m.slice(0, 200) }
       report.failed.push(`${id}: ${m.slice(0, 200)}`)
     } finally {

@@ -1,3 +1,5 @@
+import { compactRejection } from './photo-observations'
+import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { parse } from 'node-html-parser'
@@ -6,6 +8,8 @@ import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, typ
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
 import { withLNumber } from './l-numbers'
+import { pickStands, readPersonYes } from './person-yes'
+import type { PhotoVerdict } from './photo-check'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { sweepPlaceNames } from './place-names'
@@ -47,7 +51,8 @@ import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
  *   page and every album, as the photo check takes it off (an Aquarium Glaser photo with the shop's own mark kept stays).
  *   So one that the cycle's catch-up with main or a clash at its push brings back leaves again before its tests
  * - a head photo a person picked (engine-state/_photo-head-picks.json, page → photo, from its own photos or its gallery):
- *   first on its page, the old head second. The steps before the sweep may reorder a page's photos; this has the last word
+ *   first on its page, the old head second. The steps before the sweep may reorder a page's photos; this has the last word.
+ *   A pick that rests on a person's yes lapses with it (person-yes.ts)
  * - a rejected video (engine-state/_video-rejected.json): off every species and plant page
  * - a card figure out of bounds, upside down, or a tank shorter than twice the fish: hidden (`hidden`: why), not deleted;
  *   worked out again each run, so a figure whose reason went (a corrected size) shows again. The species' approved
@@ -107,7 +112,7 @@ export type SweepReport = {
   held: string[]
   /** A page's only photo that its source's caption calls unwell: left on the page, off every card, `kind/id: url (word; …)`. */
   unwell: string[]
-  /** Heads a person picked (engine-state/_photo-head-picks.json) put first, `kind/id: old -> new`, or picks not found on the page. */
+  /** Heads a person picked (engine-state/_photo-head-picks.json) put first, `kind/id: old -> new`, picks not found on the page, or picks that lapsed with their person's yes. */
   heads: string[]
   /** Heads with no animal in them and no "yes" from the photo check, `kind/id: url (since day)`. */
   noAnimal: string[]
@@ -456,8 +461,12 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // so an unwell photo beside it is not kept as the page's only one and left for the next sweep (the cycle tests after
   // one). No later step puts another photo ahead of the pick. One can still take the picked photo off its page, as it
   // could before: a caption that names another fish, a map or a plate, or a variety's source.
+  // A pick that rests on a person's yes lapses with it (person-yes.ts pickStands): it is reported, and the page keeps its order.
   const headPicks = JSON.parse(await readFile(join(root, 'engine-state', '_photo-head-picks.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+  const yes = await readPersonYes(root)
+  const subjects = JSON.parse(await readFile(join(root, 'engine-state', '_photo-subjects.json'), 'utf8').catch(() => '{}')) as Record<string, Record<string, PhotoVerdict>>
   for (const [ref, url] of Object.entries(headPicks)) {
+    if (!pickStands(ref, url, subjects, yes)) { report.heads.push(`${ref}: pick lapsed with its person's yes`); continue }
     const file = join(content, ref, 'entity.json')
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
@@ -593,7 +602,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
     const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
     for (const [url, why] of maps) if (!rejected[url]) { rejected[url] = why; report.rejected++ }
-    if (report.rejected) await writeFile(rejectedFile, `${JSON.stringify(rejected, null, 2)}\n`)
+    if (report.rejected) await writePhotoState(rejectedFile, rejected)
   }
   // Every photo on the never-again list leaves the pages and albums the photo check strips, by the check's own rule (an
   // Aquarium Glaser photo with the shop's own mark kept stays: watermarks.ts keptOwnMark). The check strips them only
@@ -613,7 +622,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const removed: string[] = []
     stripPhotos(data, listed, removed, [])
     if (!removed.length) continue
-    for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${rejected[url]})`)
+    for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(rejected[url]!)})`)
     await write(file, raw, data)
     changed(file.slice(content.length + 1))
   }
@@ -637,7 +646,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         if (!page) continue
         delete o![k]
         off++
-        report.again.push(`curation.json ${date}${where} ${k}: ${url} (${rejected[page]})`)
+        report.again.push(`curation.json ${date}${where} ${k}: ${url} (${compactRejection(rejected[page]!)})`)
       }
     }
     for (const d of cal.days ?? []) {
@@ -652,7 +661,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       if (!page) continue
       delete cal.loops![id]
       off++
-      report.again.push(`curation.json loop ${id} poster: ${loop.poster} (${rejected[page]})`)
+      report.again.push(`curation.json loop ${id} poster: ${loop.poster} (${compactRejection(rejected[page]!)})`)
     }
     if (off) { await write(calFile, calRaw, cal); changed('curation.json') }
   }

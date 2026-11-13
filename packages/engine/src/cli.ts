@@ -28,12 +28,13 @@ import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
 import { FIT_KINDS, fitDue, fitKey, fitReport, runFit, type FitState } from './fit'
 import { gate, writeFitSummary } from './gate'
+import { restingFetch } from './wikimedia-rest'
 import { fitRewrite } from './fit-rewrite'
 import { unitsMend } from './units-mend'
 import { recordSourceFigures, sourceFigures } from './source-figures'
 import fitFront from './fit-front.json'
 import { firstRun, frontEarly, frontHeld, orderFront, type FirstRun } from './fit-front'
-import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, writeCalendar } from './curation'
+import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, readVerdicts, writeCalendar } from './curation'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
 import { updatePageDates } from './page-dates'
@@ -119,6 +120,8 @@ import { abNamespace, listReaderWants } from './readers-wanted'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
+// Every Wikimedia read in this process asks as the engine and rests after a refusal (wikimedia-rest.ts).
+globalThis.fetch = restingFetch(globalThis.fetch, { restFile: join(homedir(), '.cache/aquatome/wikimedia-rest.json'), now: () => new Date(), ua: UA })
 const http = async (url: string) => {
   const r = await fetch(url, { headers: { 'user-agent': UA, accept: 'application/json' } })
   if (!r.ok) throw new Error(`HTTP ${r.status} for ${new URL(url).host}`)
@@ -677,8 +680,9 @@ if (cmd === 'run' || cmd === 'card-fill') {
   if (!r.waiting) console.log(`units-mend: ${r.mended.length} mended, ${r.left.length} left held`)
 } else if (cmd === 'source-figures') {
   // A figure a fish or plant page's English gives in metric itself, which the rounding rounded until 12 Nov 2026, goes
-  // back to the English's (source-figures.ts): code, no model, so no ceiling line; the gate reads it after. At the pace
-  // the chief of staff sets (SOURCE_FIGURES_PACE).
+  // back to the English's (source-figures.ts): code, no model; the gate reads it after. At the pace the chief of staff
+  // sets (SOURCE_FIGURES_PACE). Before it mends, one short question on the gate's model: no answer (the accounts out),
+  // and it mends nothing, as the gate couldn't read what it mended.
   // pnpm engine source-figures [--limit N: language pages, in place of the pace] [--first vi/species/<id>,…] [--dry-run: old beside new]
   // pnpm engine source-figures --record [--dry-run]: right after the gate, what it made of each page mended (the batches, the stop).
   if (values.record) {
@@ -686,8 +690,15 @@ if (cmd === 'run' || cmd === 'card-fill') {
     for (const x of r.recorded) console.log(`${values['dry-run'] ? 'would record' : 'recorded'}: ${x}`)
     if (r.stopped) console.log(`source-figures: stopped, waiting for the chief of staff's word: ${r.stopped}`)
   } else {
-    const r = await sourceFigures(ROOT, { ...(values.limit ? { limit: Number(values.limit) } : {}), ...(values.first ? { first: values.first.split(',') } : {}), dryRun: !!values['dry-run'] })
+    const reader = async () => {
+      try {
+        await claudeCli({ system: 'Reply only with JSON.', prompt: 'Reply {"ok": true}.', schema: { type: 'object', additionalProperties: false, required: ['ok'], properties: { ok: { type: 'boolean' } } }, model: process.env.FIT_MODEL ?? 'opus' })
+        return undefined
+      } catch (e) { return `the gate's model gave no answer: ${(e as Error).message.slice(0, 200)}` }
+    }
+    const r = await sourceFigures(ROOT, { ...(values.limit ? { limit: Number(values.limit) } : {}), ...(values.first ? { first: values.first.split(',') } : {}), dryRun: !!values['dry-run'], reader })
     if (r.noMain) console.log(`source-figures: mending nothing: ${r.noMain}`)
+    if (r.noReader) console.log(`source-figures: mending nothing: ${r.noReader}`)
     for (const m of r.mended) {
       console.log(`${values['dry-run'] ? 'would mend' : 'mended'}: ${m.key} ${m.figures.join(', ')}`)
       if (values['dry-run']) for (const c of m.changes) console.log(`  ${c.field}: ${c.old}\n  → ${c.now}`)
@@ -736,6 +747,13 @@ if (cmd === 'run' || cmd === 'card-fill') {
     for (const x of r.heroes) console.log(`  hero ${x}`)
     const left = checkCalendar(calendar, cands, today, days, cards)
     for (const x of left) console.log(`  still wrong: ${x}`)
+    // Every card from today that rests on a person's yes (curation.ts PersonYes), each run, for the daily report.
+    const yes = (await readVerdicts(ROOT)).personYes ?? {}
+    for (const d of calendar.days.filter(d => d.date >= today && d.fish)) {
+      const c = cands.find(x => x.ref === d.fish)
+      const y = c?.head && yes[c.head.url]?.[c.id]
+      if (y) console.log(`  on a person's yes: ${d.date} ${d.fish} ${c!.head!.url} (yes by ${y.approvers.join(' and ')}, proposed by ${y.proposer}, ${y.on}; ${y.lookAlike} ruled out by ${y.mark})`)
+    }
     console.log(`curate: ${r.kept.length} kept, ${r.filled.length} filled, ${r.replaced.length} replaced, ${r.empty.length} left empty, ${r.heroes.length} heroes on their head; ${left.length} problems`)
   }
 } else if (cmd === 'traits') {

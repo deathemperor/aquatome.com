@@ -10,6 +10,61 @@
     "indonesia",
     "kalimantan-tengah"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Arut",
+        "Benipah"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "The Opal Licorice Gourami is endemic to Central Kalimantan in Indonesian Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Parosphromenus opallios is a liquorice gourami endemic to Central Kalimantan province in Indonesian Borneo, in the Arut and Benipah river systems.",
+          "countries": [],
+          "regions": [
+            "Borneo",
+            "Arut",
+            "Benipah"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394181,
+      "total": 1,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

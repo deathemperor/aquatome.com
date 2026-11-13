@@ -7,12 +7,12 @@ import { PassThrough } from 'node:stream'
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 
 // A `claude` that answers at once with what the CLI prints: the structured output, its cost and tokens.
-const spawned = vi.hoisted(() => [] as { cwd: string; env?: NodeJS.ProcessEnv }[])
+const spawned = vi.hoisted(() => [] as { cwd: string; env?: NodeJS.ProcessEnv; args?:string[] }[])
 // What the next `claude` prints instead, as the pipe hands it over: in these chunks.
 const printed = vi.hoisted(() => ({ chunks: undefined as Buffer[] | undefined }))
 vi.mock('node:child_process', () => ({
   spawn: (_cmd: string, _args: string[], opts: { cwd: string; env?: NodeJS.ProcessEnv }) => {
-    spawned.push(opts)
+    spawned.push({...opts,args:_args})
     const child = Object.assign(new EventEmitter(), { stdout: new PassThrough(), stderr: new PassThrough(), stdin: new PassThrough(), kill: () => true })
     child.stdin.on('finish', () => {
       const chunks = printed.chunks
@@ -24,7 +24,7 @@ vi.mock('node:child_process', () => ({
     return child
   },
 }))
-const { LlmError, claudeCli, claudeResearch } = await import('../src/claude')
+const { LlmError, claudeCli, claudeResearch, claudeVision } = await import('../src/claude')
 const { accountReport, resetAccounts, tokenHash } = await import('../src/claude-accounts')
 const { errorKind } = await import('../src/state')
 const call = () => claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {}, model: 'opus' })
@@ -84,6 +84,17 @@ test('ENGINE_COST_LOG gets a line a call; a log it cannot write never fails the 
   process.env.ENGINE_COST_LOG = join(log, 'not-a-folder', 'cost.jsonl')
   vi.spyOn(console, 'warn').mockImplementation(() => {})
   expect(await call()).toEqual({ ok: true })
+})
+
+test('a call made for a piece names it in its cost line, so a piece\'s cost is its own calls\' (pieces.ts)', async () => {
+  const { inPiece } = await import('../src/ceiling')
+  const log = join(await mkdtemp(join(tmpdir(), 'cost-')), 'cost.jsonl')
+  process.env.ENGINE_COST_LOG = log
+  await inPiece.run('guide-a 2026-11-13T05:00:00.000Z', call)
+  await call()
+  const [inside, outside] = (await readFile(log, 'utf8')).trim().split('\n').map(l => JSON.parse(l))
+  expect(inside).toMatchObject({ step: 'gate', piece: 'guide-a 2026-11-13T05:00:00.000Z', usd: 0.12 })
+  expect(outside).not.toHaveProperty('piece')
 })
 
 // The chief of staff, 2026-11-11: scores on file and today's differed by up to 0.35 on 8 of 14 pages, and nothing said
@@ -206,4 +217,11 @@ test('under its ceiling the call is made; at the ceiling no claude is spawned an
     delete process.env.CLAUDE_CODE_OAUTH_TOKENS
     resetAccounts()
   }
+})
+
+
+test('image judgments use the native ephemeral flag; ordinary text calls keep their prior command',async()=>{
+ await claudeVision({system:'s',prompt:'p',schema:{},file:join(tmpdir(),'fixture.png')})
+ expect(spawned.at(-1)?.args).toContain('--no-session-persistence')
+ await call();expect(spawned.at(-1)?.args).not.toContain('--no-session-persistence')
 })

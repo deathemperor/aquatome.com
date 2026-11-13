@@ -11,6 +11,65 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Río Orinoco",
+        "Ventuari"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Peckoltia wernekei, also known as L243 and LDA086, is a suckermouth catfish known only from parts of the upper Río Orinoco drainage in Amazonas state, southern Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from parts of the Río Orinoco drainage in Amazonas state, southern Venezuela.",
+          "countries": [],
+          "regions": [
+            "Río Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Armbruster and Lujan described it in 2016 from the Ventuari drainage.",
+          "countries": [],
+          "regions": [
+            "Ventuari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8840842,
+      "total": 5,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "VE",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          4.21875,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

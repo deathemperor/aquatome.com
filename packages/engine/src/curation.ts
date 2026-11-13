@@ -6,6 +6,7 @@ import { captionFlaw } from './content-rules'
 import { fitKey, type FitState } from './fit'
 import { gateChecks } from './gate'
 import { loadPages, type Page } from './pages'
+import { readPersonYes, type PersonYes } from './person-yes'
 import type { PhotoVerdict } from './photo-check'
 
 /**
@@ -99,7 +100,8 @@ export type Candidate = {
 /** Goldfish and koi lines: cold-water fish whatever their pages' figures say. */
 const COLDWATER_OF = ['carassius-auratus', 'cyprinus-rubrofuscus', 'cyprinus-carpio']
 
-export type Verdicts = { subjects: Record<string, Record<string, PhotoVerdict>>; legacy: Record<string, PhotoVerdict>; rejected: Record<string, string>; faces: Record<string, number> }
+export type Verdicts = { subjects: Record<string, Record<string, PhotoVerdict>>; legacy: Record<string, PhotoVerdict>; rejected: Record<string, string>; faces: Record<string, number>; personYes?: Record<string, Record<string, PersonYes>> }
+
 /** The photo checks' verdicts (engine-state), as cardWorthy reads them. */
 export const readVerdicts = async (root: string): Promise<Verdicts> => {
   const state = join(root, 'engine-state')
@@ -108,6 +110,7 @@ export const readVerdicts = async (root: string): Promise<Verdicts> => {
     legacy: await json(join(state, '_photo-check.json'), {}),
     rejected: await json(join(state, '_photo-rejected.json'), {}),
     faces: await json(join(state, '_photo-faces.json'), {}),
+    personYes: (await readPersonYes(root)).counted,
   }
 }
 
@@ -124,7 +127,9 @@ export function cardWorthy(photo: { url: string; caption?: string }, page: strin
   // A guide's photo is judged against its caption when it names a fish; one with no verdict has passed the face and
   // watermark checks only, so a person looks at it before it leads (the planner lists it).
   if (guide) return !verdict || (!verdict.person && !verdict.logo && verdict.ok !== 'dead')
-  return !!verdict && verdict.ok === 'yes' && verdict.typical && !verdict.person && !verdict.logo
+  // A person's yes (PersonYes) stands for the check's over its own "can't tell" for this page, and nothing else.
+  const yes = !!own && !own.guide && own.ok === 'unsure' && !!v.personYes?.[url]?.[page]
+  return !!verdict && (verdict.ok === 'yes' || yes) && verdict.typical && !verdict.person && !verdict.logo
 }
 
 /** Sites whose own mark on their photos the owner allows (the chief of staff, 2026-11-10: Aquarium Glaser's logo). */

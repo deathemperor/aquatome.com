@@ -1,3 +1,4 @@
+import { expectControlledRejections } from './photo-privacy-assertions'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -76,12 +77,7 @@ test('hands or a person on a guide\'s photos, a mark on a video section\'s photo
   const e = await json(root, 'content/equipment/test-nuoc.json')
   expect([name(e.hero.url), ...e.types.map((t: { photo: { url: string } }) => name(t.photo.url))]).toEqual(['kit', 'kit', 'strips'])
   // The blocklist: a person or a mark everywhere; a brand only where no equipment guide shows the photo (the strips are on one).
-  expect(Object.fromEntries(Object.entries(await json(root, 'engine-state/_photo-rejected.json')).map(([u, w]) => [name(u), w]))).toEqual({
-    hands: 'people: hands planting a sword plant in gravel',
-    siphon: 'people: a person siphoning the tank, from behind',
-    signed: 'watermark: faint signature, bottom right',
-    stamped: 'watermark: round logo, top left',
-  })
+  expectControlledRejections(Object.fromEntries(Object.entries(await json(root, 'engine-state/_photo-rejected.json')).map(([u,w])=>[name(u),w])), {hands:'people',siphon:'people',signed:'watermark',stamped:'watermark'})
   // Each photo is judged once: a second run asks nothing and changes nothing.
   const before = await json(root, 'engine-state/_photo-guides.json')
   expect(Object.keys(before)).toHaveLength(8)
@@ -163,10 +159,7 @@ test('a video still with hands, a person or a mark leaves its guide for good, an
     { heading: 'Hút', moments: ['t50'] },
     { heading: 'Bố cục', moments: [], photo: 'scape' },
   ])
-  expect(Object.fromEntries(Object.entries(await json(root, 'engine-state/_photo-rejected.json')).map(([u, w]) => [name(u), w]))).toEqual({
-    'at20-hd': 'people: hands planting a stem plant',
-    'at60-hd': 'watermark: channel logo, bottom right',
-  })
+  expectControlledRejections(Object.fromEntries(Object.entries(await json(root, 'engine-state/_photo-rejected.json')).map(([u,w])=>[name(u),w])), {'at20-hd':'people','at60-hd':'watermark'})
 
   // video-stills turns the waiting tile into the video's frame, and leaves the stills taken off out.
   const grey = (w: number, h: number) => sharp({ create: { width: w, height: h, channels: 3, background: { r: 110, g: 110, b: 110 } } })
@@ -270,7 +263,7 @@ test('a guide about one fish: in the same call as the people check, a picture of
   expect(seen[0]!.prompt).not.toContain('- Photo 2 ')
   expect(urls((await json(root, `content/guides/${id}/entity.json`)).photos)).toEqual(['platy', 'html-gone'])
   expect(urls((await json(root, 'content/guides/aquariumcoop-blogs-setup-a-tank/entity.json')).photos)).toEqual(['neon'])
-  expect(r.subject).toEqual([`content/guides/${id}/entity.json: ${url('arowana')}: two silver arowana`])
+  expect(r.subject).toEqual([`content/guides/${id}/entity.json: ${url('arowana')}: guide photo`])
   expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
   expect((await json(root, 'engine-state/_photo-guides.json'))[url('arowana')].other).toEqual({ platy: true })
 
@@ -309,7 +302,8 @@ test('a photo judged before the subject was asked is asked once, ahead of photos
   expect(seen[0]!.prompt).toContain('- Photo 1 (platy): ')
   expect(seen[0]!.prompt).not.toContain('- Photo 2 ')
   const after = await json(root, 'engine-state/_photo-guides.json')
-  expect(after[url('old')]).toEqual({ ...verdict, other: { platy: false } })
+  expect(after[url('old')]).toMatchObject({ person: false, mark: false, brand: false, note: 'guide photo', noteHash: expect.stringMatching(/^[a-f0-9]{64}$/), other: { platy: false } })
+  expect(after[url('old')].note).not.toBe('a new note')
   expect(urls((await json(root, `content/guides/${id}/entity.json`)).photos)).toEqual(['lead', 'old'])
   expect((await screenGuidePhotos(root, d, { limit: 1 })).judged).toBe(0)
   expect(seen).toHaveLength(1)

@@ -1,0 +1,66 @@
+{
+  "id": "pethia-erythromycter",
+  "native": {
+    "input": "a742b9abc7a28614",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This unique dwarf barb (max. 4 cm total length) from Burma has a red “moustache”.",
+        "words": "Burma",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "To date known only from the upper Ayeyarwady River basin in northern Myanmar with type locality 'Hap Lap Chaung just south of Yuzana Myaing village, 8 kilometers left from Myitkyina-Myitzon road kilometer 11, Ayeyarwaddy River drainage, Kachin State, Myanmar'.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ayeyarwady",
+        "source": "seriouslyfish",
+        "quote": "To date known only from the upper Ayeyarwady River basin in northern Myanmar with type locality 'Hap Lap Chaung just south of Yuzana Myaing village, 8 kilometers left from Myitkyina-Myitzon road kilometer 11, Ayeyarwaddy River drainage, Kachin State, Myanmar'.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Lake Indawgyi",
+        "source": "seriouslyfish",
+        "quote": "It's been collected from small streams and tributaries close to the city of Myitkyina in Kachin State as well as in nearby Lake Indawgyi, the largest inland lake in Southeast Asia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia erythromycter",
+    "status": "ACCEPTED",
+    "taxonKey": 8127406,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        17
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

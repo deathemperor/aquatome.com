@@ -100,6 +100,29 @@ test('the backstop: once everything logged that day reaches it, every step with 
   expect(msg('moderate')).toBeUndefined()
 })
 
+test('a day whose spend can\'t be counted stops every step with a ceiling until it ends, whatever table is in force; the gate and moderation go on', async () => {
+  // scripts/cost-log-restore.mjs writes this line when an earlier cloud run that day kept no cost log: no dollar figure
+  // is known, so none is invented, and a later table with a higher backstop can't let the day spend again.
+  const why = 'run 43171489553 ran the cycle today and kept no cost log'
+  const dir = await logs({ 'aquatome-cost-rewrite.jsonl': [{ at: TODAY_FIRST, unlogged: why }, { at: TODAY, step: 'run', usd: 1 }] })
+  const log = join(dir, 'aquatome-cost-rewrite.jsonl')
+  const later: Ceilings = { clock: 'test', tables: [{ from: '2026-11-12T00:00:00+07:00', mac: place({}), github: place({ run: 30 }, { backstop: 40 }) }, { from: '2026-11-12T08:00:00+07:00', mac: place({}), github: place({ run: 60 }, { backstop: 400 }) }] }
+  for (const step of ['run', 'localize', 'write-ideas']) {
+    const m = ceilingMessage(step, log, later, NOW, 'github')
+    expect(m).toBe(`claude failed: the engine's daily limit reached for every step (today's spend can't be counted: ${why})`)
+    expect(errorKind(m)).toBe('usage')
+    expect(accountsOut(new LlmError(m!))).toBe(true)
+  }
+  expect(ceilingMessage('gate', log, later, NOW, 'github')).toBeUndefined()
+  expect(ceilingMessage('moderate', log, later, NOW, 'github')).toBeUndefined()
+  expect(spentToday(log, NOW)).toMatchObject({ total: 1, unlogged: why })
+  // The next day counts again: the line is the day's alone.
+  expect(ceilingMessage('run', log, later, new Date(TOMORROW), 'github')).toBeUndefined()
+  // A line from yesterday, or one that isn't a reason, stops nothing.
+  const other = await logs({ 'aquatome-cost-rewrite.jsonl': [{ at: YESTERDAY, unlogged: why }, { at: TODAY, unlogged: 5 }, { at: TODAY, step: 'run', usd: 1 }] })
+  expect(ceilingMessage('run', join(other, 'aquatome-cost-rewrite.jsonl'), later, NOW, 'github')).toBeUndefined()
+})
+
 test('each machine has its own share, and before the first table nothing calls but the gate and moderation', async () => {
   const table = one(place({ run: 30 }), place({ localize: 25 }, { default: 0 }))
   const dir = await logs({ 'aquatome-cost-a.jsonl': [] })
@@ -201,9 +224,9 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
   // The ceilings follow the sign-ins that are back (the owner and the chief of staff, 11 Nov 2026): the third on
   // 12 Nov 13:00, the first on 13 Nov 08:00, the second on 14 Nov 08:00. `steps` is every named ceiling added up.
   const periods = [
-    { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 139, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1 },
-    { from: '2026-11-13T08:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 269, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 6, crops: 4 },
-    { from: '2026-11-14T08:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 380, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 9, crops: 1 },
+    { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 142, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1 },
+    { from: '2026-11-13T08:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 272, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 6, crops: 4 },
+    { from: '2026-11-14T08:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 383, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 9, crops: 1 },
   ]
   for (const p of periods) for (const when of [p.from, p.to]) {
     const t = tableInForce(CEILINGS.tables, new Date(when))!
@@ -221,10 +244,11 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     expect(cap(when, 'mac', 'review-backfill-97')).toBe(10)
     // The card crops: $4 for their first day, 13 Nov, then $1.
     expect(cap(when, 'mac', 'card-crops')).toBe(p.crops)
-    // The ideas step is off: on 12 Nov its $1 line stopped it part way through its first guide, which costs about $1.30
-    // (9 calls), and it wrote nothing. $0 makes no call until a step stops before a piece it can't finish (the chief of
-    // staff, 12 Nov 2026).
-    for (const where of ['mac', 'github'] as const) expect(cap(when, where, 'write-ideas')).toBe(0)
+    // The ideas step: on 12 Nov its $1 line stopped it part way through its first guide, which costs about $1.30 (9
+    // calls), and it wrote nothing. Now a guide starts only when its line covers one (pieces.ts), and the line is $3, two
+    // guides, in the cloud, where the step runs; the Mac's is $0 (the chief of staff, 12 Nov 2026).
+    expect(cap(when, 'github', 'write-ideas')).toBe(3)
+    expect(cap(when, 'mac', 'write-ideas')).toBe(0)
     // A step that runs on the other machine, or a new one, has the small ceiling, never none.
     expect(cap(when, 'github', 'run')).toBe(p.small)
     expect(cap(when, 'mac', 'anything-new')).toBe(p.small)

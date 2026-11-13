@@ -1,10 +1,11 @@
-import { readFileSync } from 'node:fs'
+import { readdirSync, readFileSync } from 'node:fs'
 import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { CurationSchema, LANGS, type Curation } from '@aq/schema'
-import { across, candidates, cardsOf, cardWorthy, checkCalendar, fishProblem as problemOf, HERO_COUNT, LARGE_PX, plan, problem, TAGS, type Candidate } from '../src/curation'
+import { across, candidates, cardsOf, cardWorthy, checkCalendar, fishProblem as problemOf, HERO_COUNT, LARGE_PX, plan, problem, readVerdicts, TAGS, type Candidate } from '../src/curation'
+import { countedYes, pickStands, readPersonYes, YES_PER_WEEK } from '../src/person-yes'
 
 const big = (n: number) => `https://media.aquatome.com/commons/${n.toString(16).padStart(16, '0')}.webp`
 const fish = (id: string, o: Partial<Candidate> & { px?: number } = {}): Candidate => {
@@ -488,4 +489,111 @@ test('Tìm\'s suggested searches are eight a language, or none, and the planner 
   for (const bad of [eight.slice(1), [...eight.slice(0, 7), 'Betta'], [...eight.slice(1), ' ']])
     expect(CurationSchema.safeParse({ version: 1, weeks: [], days: [], searches: { vi: bad } }).success, JSON.stringify(bad)).toBe(false)
   expect(empty.searches).toEqual({})
+})
+
+test("a person's yes stands for the check's over its \"can't tell\" only, from two who may say yes, neither of them its proposer, naming the look-alike and a mark on the fish's body, five a week at most", async () => {
+  const yes = { proposer: 'Photo Sourcing', approvers: ['the chief of staff', 'Curation'], on: '2026-11-19', lookAlike: 'Channa argus', mark: 'the rows of round dark blotches along the flank' }
+  const counted = countedYes({
+    [big(1)]: { a: yes },
+    [big(2)]: { a: { ...yes, proposer: 'Curation' } }, // the proposer is one of the two
+    [big(3)]: { a: { ...yes, approvers: ['the chief of staff', 'a reader'] } }, // one who may not say yes
+    [big(4)]: { a: { ...yes, mark: ' ' } }, // no mark
+    [big(5)]: { a: { ...yes, lookAlike: undefined } }, // no look-alike
+    [big(6)]: { a: { ...yes, on: 'soon' } }, // no day
+    [big(7)]: { a: { ...yes, approvers: ['Curation', 'Curation'] } }, // one person twice
+    [big(8)]: { a: { ...yes, approvers: ['Curation'] } }, // one yes
+    [big(9)]: { a: { ...yes, mark: 'the lettering in the corner' } }, // a mark that isn't on the fish
+    [big(10)]: { a: { ...yes, mark: 'the "X" on its side' } }, // a quoted word
+  })
+  expect(Object.keys(counted)).toEqual([big(1)])
+  // Five a week, Monday to Sunday, earliest first; the next week counts afresh.
+  const week = Object.fromEntries([...Array(7)].map((_, i) => [big(20 + i), { a: { ...yes, on: `2026-11-${16 + i}` } }]))
+  week[big(30)] = { a: { ...yes, on: '2026-11-23' } }
+  expect(Object.keys(countedYes(week)).sort()).toEqual([...[0, 1, 2, 3, 4].map(i => big(20 + i)), big(30)].sort())
+  expect(YES_PER_WEEK).toBe(5)
+
+  const v = (ok: string, x: object = {}) => ({ subjects: { [big(1)]: { a: { ok, typical: true, note: '', ...x } as never } }, legacy: {}, rejected: {}, faces: {}, personYes: counted })
+  expect(cardWorthy({ url: big(1) }, 'a', v('unsure'), {})).toBe(true)
+  expect(cardWorthy({ url: big(1) }, 'a', { ...v('unsure'), personYes: {} }, {})).toBe(false)
+  // A firm no stands: another fish, no fish, dead; and so do the check's own typical, person and logo answers.
+  for (const ok of ['other', 'none', 'dead']) expect(cardWorthy({ url: big(1) }, 'a', v(ok), {})).toBe(false)
+  expect(cardWorthy({ url: big(1) }, 'a', v('unsure', { typical: false }), {})).toBe(false)
+  expect(cardWorthy({ url: big(1) }, 'a', v('unsure', { person: true }), {})).toBe(false)
+  expect(cardWorthy({ url: big(1) }, 'a', v('unsure', { logo: true }), {})).toBe(false)
+  // For its own page only, and not a verdict against a guide's caption.
+  const other = { subjects: { [big(1)]: { b: { ok: 'unsure', typical: true, note: '' } as never } }, legacy: {}, rejected: {}, faces: {}, personYes: counted }
+  expect(cardWorthy({ url: big(1) }, 'b', other, {})).toBe(false)
+  expect(cardWorthy({ url: big(1) }, 'a', v('unsure', { guide: true }), {})).toBe(false)
+  // A "can't tell" against a guide's caption is not the page's own: the older verdict it falls back to stands.
+  expect(cardWorthy({ url: big(1) }, 'a', { ...v('unsure', { guide: true }), legacy: { [big(1)]: { ok: 'other', typical: true, note: '' } as never } }, {})).toBe(false)
+  // Avoided, rejected or a face: no yes overrides those.
+  expect(cardWorthy({ url: big(1) }, 'a', v('unsure'), { [big(1)]: 'head outside the crop' })).toBe(false)
+
+  // The engine reads it from engine-state and keeps only what counts.
+  const root = await mkdtemp(join(tmpdir(), 'aq-yes-'))
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'engine-state/_photo-person-yes.json'), JSON.stringify({ [big(1)]: { a: yes }, [big(2)]: { a: { ...yes, proposer: 'Curation' } } }))
+  expect(Object.keys((await readVerdicts(root)).personYes!)).toEqual([big(1)])
+})
+
+test("a person's yes names people as they are, on a real day; the owner's alone counts; a malformed record stops nothing", async () => {
+  const yes = { proposer: 'Photo Sourcing', approvers: ['the chief of staff', 'Curation'], on: '2026-11-19', lookAlike: 'Channa argus', mark: 'the rows of round dark blotches along the flank' }
+  const counted = countedYes({
+    [big(1)]: { a: yes },
+    [big(2)]: { a: { ...yes, proposer: 'Curation ' } }, // the proposer, with a space after
+    [big(3)]: { a: { ...yes, proposer: 'curation' } }, // the proposer, in small letters
+    [big(4)]: { a: { ...yes, approvers: ['Curation', ' curation'] } }, // one person twice
+    [big(5)]: { a: { ...yes, approvers: [' The chief of staff', 'CURATION'] } }, // the two, written loosely: counts
+    [big(6)]: { a: { ...yes, approvers: ['the owner'] } }, // the owner alone: counts
+    [big(7)]: { a: { ...yes, proposer: 'the owner', approvers: ['The owner'] } }, // the owner may always
+    [big(8)]: { a: { ...yes, approvers: ['the owner', 'a reader'] } }, // one who may not say yes, beside the owner
+    [big(9)]: { a: { ...yes, on: '2026-02-30' } }, // no such day
+    [big(10)]: { a: { ...yes, on: '2026-11-31' } },
+    [big(11)]: { a: { ...yes, on: '2026-13-01' } },
+    [big(12)]: { a: { ...yes, on: '2026-11-19T00:00' } },
+    [big(13)]: { a: null }, // malformed: none of these count, and the rest still do
+    [big(14)]: { a: 'yes' },
+    [big(15)]: null,
+    [big(16)]: ['a'],
+    [big(17)]: { a: { ...yes, approvers: 'the chief of staff, Curation' } },
+    [big(18)]: { a: { ...yes, approvers: [1, 2] } },
+    [big(19)]: { a: { ...yes, proposer: 7 } },
+  })
+  expect(Object.keys(counted).sort()).toEqual([big(1), big(5), big(6), big(7)].sort())
+  for (const bad of [null, [], 'x', 3]) expect(countedYes(bad)).toEqual({})
+  // A week crosses a month's end: Monday 30 Nov to Sunday 6 Dec is one week.
+  const days = ['2026-11-29', '2026-11-30', '2026-12-01', '2026-12-02', '2026-12-03', '2026-12-04', '2026-12-06']
+  const turn = Object.fromEntries(days.map((on, i) => [big(40 + i), { a: { ...yes, on } }]))
+  expect(Object.keys(countedYes(turn)).sort()).toEqual([0, 1, 2, 3, 4, 5].map(i => big(40 + i)).sort())
+
+  // Read from engine-state: a malformed entry doesn't stop the reader, and a pick on a photo with a yes written for its
+  // page lapses unless that yes counts.
+  const root = await mkdtemp(join(tmpdir(), 'aq-yes-'))
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'engine-state/_photo-person-yes.json'), JSON.stringify({ [big(1)]: { a: yes, b: null }, [big(15)]: null, [big(16)]: ['a'] }))
+  const read = await readPersonYes(root)
+  expect(Object.keys(read.counted)).toEqual([big(1)])
+  const unsure = { [big(1)]: { a: { ok: 'unsure', typical: true, note: '' }, b: { ok: 'unsure', typical: true, note: '' } } } as never
+  expect(pickStands('species/a', big(1), unsure, read)).toBe(true)
+  expect(pickStands('species/b', big(1), unsure, read)).toBe(false)
+  expect(pickStands('species/c', big(16), unsure, read)).toBe(true)
+  expect(Object.keys((await readVerdicts(root)).personYes!)).toEqual([big(1)])
+  await writeFile(join(root, 'engine-state/_photo-person-yes.json'), '[]')
+  expect(await readPersonYes(root)).toEqual({ raw: {}, counted: {} })
+  // A key named "__proto__", at either level, is a key like any other: no reader throws, and no object gains a field.
+  await writeFile(join(root, 'engine-state/_photo-person-yes.json'), `{"__proto__":{"__proto__":${JSON.stringify({ ...yes, approvers: ['the owner'] })}}}`)
+  const odd = await readPersonYes(root)
+  expect(Object.keys(odd.counted)).toEqual(['__proto__'])
+  expect(Object.keys(odd.counted['__proto__']!)).toEqual(['__proto__'])
+  expect(pickStands('species/__proto__', '__proto__', {}, odd)).toBe(false)
+  expect(({} as Record<string, unknown>).proposer).toBeUndefined()
+  expect(Object.keys((await readVerdicts(root)).personYes!)).toEqual(['__proto__'])
+})
+
+test("no engine step writes the person's-yes record: a pull request changes it", () => {
+  const dir = new URL('../src/', import.meta.url)
+  const files = readdirSync(dir).filter(f => f.endsWith('.ts'))
+  const naming = files.filter(f => readFileSync(new URL(f, dir), 'utf8').includes('_photo-person-yes.json'))
+  expect(naming).toEqual(['person-yes.ts'])
+  expect(readFileSync(new URL('person-yes.ts', dir), 'utf8')).not.toMatch(/writeFile\(|appendFile\(|rename\(/)
 })

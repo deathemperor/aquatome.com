@@ -1,5 +1,5 @@
 {
- "day": "2026-11-12",
+ "day": "2026-11-13",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4076,
-   "read": 3502,
-   "wrong": 1574,
+   "pages": 4077,
+   "read": 3509,
+   "wrong": 1577,
    "pct": 44,
-   "held": 406
+   "held": 405
   },
   "id": {
-   "pages": 1287,
-   "read": 1102,
-   "wrong": 316,
+   "pages": 1304,
+   "read": 1134,
+   "wrong": 332,
    "pct": 29,
-   "held": 61
+   "held": 70
   },
   "th": {
-   "pages": 1281,
-   "read": 1077,
-   "wrong": 292,
+   "pages": 1293,
+   "read": 1094,
+   "wrong": 299,
    "pct": 27,
-   "held": 61
+   "held": 66
   },
   "ms": {
-   "pages": 180,
-   "read": 134,
-   "wrong": 48,
+   "pages": 198,
+   "read": 153,
+   "wrong": 55,
    "pct": 37,
-   "held": 12
+   "held": 18
   }
  },
  "labels": {
@@ -58,51 +58,25 @@
  },
  "sample": [
   {
-   "lang": "th",
-   "path": "/th/plants/ammannia-crassicaulis/",
-   "url": "https://aquatome.com/th/plants/ammannia-crassicaulis/",
-   "title": "แอมมาเนีย คราสซิคอลิส",
+   "lang": "vi",
+   "path": "/vi/ca/ca-tetra-heterocharax-virgulatus/",
+   "url": "https://aquatome.com/ca/ca-tetra-heterocharax-virgulatus/",
+   "title": "Cá tetra Heterocharax virgulatus",
    "wrong": []
   },
   {
-   "lang": "vi",
-   "path": "/vi/huong-dan/cach-lam-ca-betta-vui-khoe-voi-5-y-tuong-lam-phong-phu-moi/",
-   "url": "https://aquatome.com/huong-dan/cach-lam-ca-betta-vui-khoe-voi-5-y-tuong-lam-phong-phu-moi/",
-   "title": "Cách làm cá betta vui khỏe với 5 ý tưởng làm phong phú môi trường sống",
-   "wrong": [
-    {
-     "check": "source",
-     "quote": "lắp đủ thiết bị theo hướng dẫn set bể betta"
-    },
-    {
-     "check": "source",
-     "quote": "bạn có thể đọc bài về 10 loại cây hợp nhất cho bể betta"
-    },
-    {
-     "check": "source",
-     "quote": "bạn có thể tìm đọc bài về 5 loài nuôi chung hợp nhất với cá betta"
-    }
-   ]
+   "lang": "id",
+   "path": "/id/ikan/chalinochromis-brichardi/",
+   "url": "https://aquatome.com/id/ikan/chalinochromis-brichardi/",
+   "title": "Chalinochromis brichardi",
+   "wrong": []
   },
   {
-   "lang": "vi",
-   "path": "/vi/ca/ca-mui-do-hemigrammus/",
-   "url": "https://aquatome.com/ca/ca-mui-do-hemigrammus/",
-   "title": "Cá mũi đỏ",
-   "wrong": [
-    {
-     "check": "elsewhere",
-     "quote": "bạn có thể dùng gỗ dẻ gai châu Âu (beech), miễn là gỗ đã phơi thật khô và bóc sạch vỏ"
-    },
-    {
-     "check": "words",
-     "quote": "Phần lớn"
-    },
-    {
-     "check": "words",
-     "quote": "Bạn nên"
-    }
-   ]
+   "lang": "id",
+   "path": "/id/ikan/malabar-baril/",
+   "url": "https://aquatome.com/id/ikan/malabar-baril/",
+   "title": "Malabar Baril",
+   "wrong": []
   }
  ]
 }

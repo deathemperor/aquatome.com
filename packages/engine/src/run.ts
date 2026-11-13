@@ -29,6 +29,7 @@ import { findVideos, readVideoRejected } from './videos'
 import { popularFirst } from './shops'
 import { acceptedNames, addSourceNames, candidates, resolveWanted, wantedFirst, wantedIn, withPopular, type Wanted } from './wanted'
 import { addReaders, readersReport, type ReaderRow, type ReaderWant } from './readers-wanted'
+import { WikimediaRefused } from './wikimedia-rest'
 
 /** How a source is read. `capturedAt`: the date of the archive's copy, for a source read through it. */
 type Reader = Pick<ChromeFetcher, 'text' | 'links' | 'bytes'> & { get(url: string): Promise<{ status: number; html: string; finalUrl: string; capturedAt?: string }> }
@@ -166,9 +167,12 @@ function combineQuality(prev: Translation['quality'] | undefined, source: Source
 const outranked = (sections: Section[] | undefined, source: SourceId, url: string, incoming: number) =>
   (sections ?? []).filter(x => x.source === source && x.sourceUrl !== url).length > incoming
 
-/** Optional enrichment never fails a page. */
-async function soft<T>(what: string, f: () => Promise<T>, fallback: T): Promise<T> {
-  try { return await f() } catch (e) { if (e instanceof ArchiveRefused) throw e; console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
+/**
+ * Optional enrichment never fails a page. A refusal is not "nothing found": the archive's stops the source, and
+ * Wikimedia's leaves the page unmarked, to be read again once the rest ends (wikimedia-rest.ts).
+ */
+export async function soft<T>(what: string, f: () => Promise<T>, fallback: T): Promise<T> {
+  try { return await f() } catch (e) { if (e instanceof ArchiveRefused || e instanceof WikimediaRefused) throw e; console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
 }
 
 /**
@@ -451,6 +455,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       } catch (e) {
         // Nothing is wrong with the page, so nothing is marked on it, and the source waits with the archive.
         if (e instanceof ArchiveRefused) { report.errors.push(`${id}: not read: ${e.message}`); break }
+        // Wikimedia resting: the page waits, unmarked and with its attempts, and the source goes on.
+        if (e instanceof WikimediaRefused) { report.errors.push(`${url}: waits for Wikimedia: ${e.message}`); continue }
         const message = (e as Error).message
         counts.errors++
         report.errors.push(`${url}: ${message}`)

@@ -606,5 +606,77 @@
       "Section 10: \"Jenis alga lain boleh mengatasi Red algae\" is fine, but \"Sebaik sahaja ia stabil dalam tangki\" should read \"sebaik sahaja ia sebati/mantap\"; minor.",
       "Section 7: \"Aquarium berlampu malap\" for \"low-light\" is fine, but \"CO2 ... tahap tinggi sangat berbahaya\" is OK; no change."
     ]
+  },
+  "cardamine-lyrata": {
+    "at": "2026-11-12",
+    "from": "2026-10-30",
+    "name": "Cardamine lyrata",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 3: \"musim panas\" is non-standard for Malaysia (no summer); use e.g. \"pada musim panas (di kawasan beriklim sederhana)\" or rephrase as \"semasa cuaca panas\".",
+      "Item 3: \"tumbuhan akuarium yang biasa dikenali\" is awkward for \"familiar aquarium plant\"; use \"tumbuhan akuarium yang popular/lazim digunakan\".",
+      "Item 2: \"batangnya memanjang dengan daun yang jarang\" is a wordy rendering of \"leggy\"; use \"batang menjadi kurus dan panjang (leggy)\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3fc7341254d1",
+      "maintenance:tropica": "952a804a3ecd",
+      "notes:tropica": "97dd7f0d3f6c"
+    }
+  },
+  "ceratophyllum-demersum": {
+    "at": "2026-11-12",
+    "from": "2026-11-09",
+    "name": "Hornwort",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "a48f285c68d0",
+      "quickFacts:aquariumcoop": "80122459c043",
+      "beforeYouBuy:aquatome": "7710d868a536",
+      "distribution:aquariumcoop": "82c4325510a5",
+      "distribution:aquatome": "f66b1cc75a70",
+      "maintenance:aquariumcoop": "937ae8fafd03",
+      "maintenance:aquatome": "580107f491b5",
+      "waterConditions:aquatome": "6b37e0505175",
+      "behaviour:aquariumcoop": "c9efacc463c7",
+      "reproduction:aquariumcoop": "2b84acb04f4d",
+      "notes:tropica": "d1be9a60d3a2",
+      "notes:aquariumcoop": "d3f61e600264"
+    }
+  },
+  "ceratopteris-thalictroides": {
+    "at": "2026-11-12",
+    "from": "2026-11-09",
+    "name": "Water Sprite",
+    "confidence": "high",
+    "score": 0.88,
+    "notes": [
+      "Item 4: \"sangat menghias\" is awkward; use \"sangat menarik sebagai hiasan\" or \"sangat dekoratif\".",
+      "Item 2: \"daun darat\" is slightly literal; \"daun emersed\" or \"daun darat (emersed)\" would be clearer to hobbyists."
+    ],
+    "parts": {
+      "quickFacts:tropica": "f489002efa37",
+      "maintenance:aquatome": "11b63104daa9",
+      "maintenance:tropica": "8e549720f0e5",
+      "notes:tropica": "1b56a594359a"
+    }
+  },
+  "crinum-calamistratum": {
+    "at": "2026-11-12",
+    "from": "2026-11-07",
+    "name": "Crinum calamistratum",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 2: the source text is Vietnamese, not English. The Malay follows it faithfully, but the source should be checked.",
+      "Item 3: \"memerlukan kurang cahaya\" is slightly awkward. \"memerlukan cahaya yang lebih sedikit\" or \"keperluan cahayanya lebih rendah\" reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:tropica": "274e52fe7977",
+      "maintenance:aquatome": "a3554148c926",
+      "notes:tropica": "7ad93da15bc2"
+    }
   }
 }

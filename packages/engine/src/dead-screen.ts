@@ -1,3 +1,5 @@
+import { compactVerdict, photoFailure, photoModelStop } from './photo-observations'
+import { writePhotoState } from './photo-state'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -61,7 +63,8 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
 export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: number; parallel?: number; backCheck?: boolean }) {
   const content = join(root, 'content')
   const state = (f: string) => join(root, 'engine-state', f)
-  const cache = (await readJson<Record<string, DeadVerdict>>(state('_dead-screen.json'))) ?? {}
+  const oldCache = (await readJson<Record<string, DeadVerdict>>(state('_dead-screen.json'))) ?? {}
+  const cache=Object.fromEntries(Object.entries(oldCache).map(([u,v])=>[u,compactVerdict(v)]))
   const videoRejected = (await readJson<Record<string, string>>(state('_video-rejected.json'))) ?? {}
   const photoRejected = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}
   const asked = new Set<string>() // photos a photo-check verdict judged for dead fish (it has `logo`)
@@ -111,7 +114,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
           const more: Buffer[] = []
           for (const u of videoFrames(it.video).slice(1)) { try { more.push(Buffer.from(await d.get(u))) } catch { /* not published */ } }
           ok.push({ it, b: await videoTile([first, ...more]), frames: more.length > 0 })
-        } catch (err) { report.failed.push(`${it.key}: ${(err as Error).message.slice(0, 120)}`) }
+        } catch (err) { report.failed.push(`${it.key}: ${photoFailure(err)}`) }
       }
       if (!ok.length) return
       try {
@@ -122,13 +125,13 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         for (const t of v.tiles ?? []) {
           const x = ok[t.n - 1]
           if (!x || typeof t.dead !== 'boolean') continue
-          cache[x.it.key] = { dead: t.dead, note: String(t.note ?? '').slice(0, 120), ...(x.frames ? { frames: true } : {}) }
+          cache[x.it.key] = compactVerdict({ dead: t.dead, note: String(t.note ?? '').slice(0, 120), ...(x.frames ? { frames: true } : {}) })
           report.judged++
           if (t.dead) off.push(x.it)
         }
       } catch (err) {
-        if (err instanceof LlmError) report.stopped ||= err.message
-        else report.failed.push(`sheet ${i}: ${(err as Error).message.slice(0, 120)}`)
+        if (err instanceof LlmError) report.stopped ||= photoModelStop(err)
+        else report.failed.push(`sheet ${i}: ${photoFailure(err)}`)
       }
     })
   } finally {
@@ -148,7 +151,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       await writeFile(file, `${JSON.stringify(next, null, indentOf(raw))}\n`)
     }
   }
-  const save = (f: string, data: object) => writeFile(state(f), `${JSON.stringify(data, null, 2)}\n`)
+  const save = (f: string, data: object) => writePhotoState(state(f), data)
   if (report.judged) await save('_dead-screen.json', cache)
   if (off.some(x => x.video)) await save('_video-rejected.json', videoRejected)
   if (off.some(x => !x.video)) await save('_photo-rejected.json', photoRejected)

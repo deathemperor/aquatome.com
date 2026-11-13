@@ -10,6 +10,64 @@
     "myanmar",
     "ayeyarwady"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ayeyarwady",
+        "Lake Indawgyi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The type series was collected from various localities within the Ayeyarwady River drainage in the vicinity of Lake Indawgyi and city of Myitkyina, Kachin State, northern Myanmar, and the species appears to be endemic to the area.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Ayeyarwady",
+            "Lake Indawgyi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8203210,
+      "total": 16,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "MM",
+          16
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          95.625,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          25.3125,
+          13,
+          13
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

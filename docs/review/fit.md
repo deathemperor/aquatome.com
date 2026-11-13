@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4101 | 3519 | 1580 | 77 | 48 | 210 | 41 | 1087 | 390 | 2621 | 479 | 9 | 14 | 0 | 3 | 4 | 3 | 0 |
-| Indonesian | 1296 | 1111 | 316 | 21 | 7 | 3 | 5 | 158 | 28 | 51 | 150 | 0 | 1 | 0 | 3 | 2 | 0 | 0 |
-| Thai | 1290 | 1086 | 292 | 17 | 4 | 4 | 4 | 143 | 34 | 71 | 135 | 0 | 1 | 0 | 1 | 2 | 0 | 0 |
-| Malay | 189 | 143 | 48 | 5 | 1 | 0 | 0 | 24 | 8 | 6 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Vietnamese | 4102 | 3526 | 1583 | 77 | 48 | 210 | 41 | 1088 | 390 | 2624 | 479 | 9 | 15 | 0 | 3 | 4 | 3 | 0 |
+| Indonesian | 1313 | 1143 | 332 | 21 | 7 | 3 | 5 | 165 | 28 | 52 | 164 | 0 | 1 | 0 | 3 | 2 | 0 | 0 |
+| Thai | 1302 | 1103 | 299 | 17 | 4 | 4 | 4 | 144 | 34 | 73 | 141 | 0 | 1 | 0 | 1 | 2 | 0 | 0 |
+| Malay | 207 | 162 | 55 | 5 | 1 | 0 | 0 | 25 | 9 | 9 | 24 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 9 of 138, Indonesian 2 of 54, Thai 2 of 53, Malay 1 of 16.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 9 of 139, Indonesian 2 of 55, Thai 2 of 54, Malay 1 of 17.
 
 ## Doses on more than one page
 
@@ -31,6 +31,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - alum: snails, dip: 3.947–11.842 ml/l, 10–15 ml/l (3 pages); disinfecting, dip: 15 ml/l (1 pages)
 - bottled bacteria: other, wholeTank: 0.125 ml/l, 0.063 ml/l, 0.013 ฝา/l, 3.132 ml/l, 1.579 ml/l (1 pages)
 - clove oil: other, bath: 2–4 drop/l (3 pages); unsaid, unsaid: 1.25–2.5 drop/l, 20 drop/l (1 pages)
+- methylene blue: other, wholeTank: 0.421 drop/l (4 pages); parasites, dip: 2.241 ml/l (1 pages)
 - water conditioner: water, wholeTank: 0.025 ml/l, 0.063–0.125 ml/l (4 pages); water, unsaid: 0.025 ml/l (1 pages)
 - aquarium salt: other, other: 15 ml/l (3 pages); unsaid, unsaid: 0.5 ml/l (1 pages)
 - crushed coral: water, other: 0.013 kg/l, 11.842 g/l, 11.25 g/l (4 pages)
@@ -47,7 +48,6 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - easy iron: plants, wholeTank: 0.025 ml/l, 0.526 drop/l (1 pages)
 - fritzzyme 7: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
 - fritzzyme 7 freshwater: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
-- methylene blue: other, wholeTank: 0.421 drop/l (1 pages); parasites, dip: 2.241 ml/l (1 pages)
 - metronidazole and praziquantel: quarantine, wholeTank: 0.027 packet/l (1 pages); parasites, wholeTank: 0.03 packet/l (1 pages)
 - seachem flourish: plants, wholeTank: 0.022 ml/l, 0.017 ml/l (1 pages)
 - seachem prime: water, other: 0.026 ml/l (1 pages); water, unsaid: 0.025 ml/l (1 pages)
@@ -75,7 +75,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - repashy: 48
 - panacur: 33
 - ada: 23
-- keo 502: 20
+- keo 502: 21
 - fluval stratum: 17
 - tropica: 17
 - ada amazonia: 16

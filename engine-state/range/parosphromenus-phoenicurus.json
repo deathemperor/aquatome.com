@@ -1,0 +1,43 @@
+{
+  "id": "parosphromenus-phoenicurus",
+  "native": {
+    "input": "49953a57d2262f3e",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Found only in the blackwater swamps near Kota Kerincikiri, on the Indonesian island of Sumatra.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "bwaquatics",
+        "quote": "Found only in the blackwater swamps near Kota Kerincikiri, on the Indonesian island of Sumatra.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parosphromenus phoenicurus",
+    "status": "ACCEPTED",
+    "taxonKey": 8243786,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

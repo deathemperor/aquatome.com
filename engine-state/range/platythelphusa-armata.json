@@ -1,0 +1,48 @@
+{
+  "id": "platythelphusa-armata",
+  "native": {
+    "input": "fd8419a6a6d3fb3c",
+    "at": "2026-11-12T21:02:28.514Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "glaser",
+        "quote": "Lake Tanganyika, Africa.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Platythelphusa armata",
+    "status": "ACCEPTED",
+    "taxonKey": 5790708,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        4
+      ],
+      [
+        "4ed1f109-0bf2-45c1-94ee-88078dc512dd",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "9668b676-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-12T21:02:28.514Z"
+  }
+}

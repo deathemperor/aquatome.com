@@ -10,6 +10,65 @@
     "myanmar",
     "ayeyarwady"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ayeyarwady",
+        "Lake Indawgyi"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This extremely rarely imported species originates from Burma.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The eyespot gourami, Parasphaerichthys ocellatus, is a small anabantoid from the upper Ayeyarwady basin in northern Myanmar, including Lake Indawgyi.",
+          "countries": [],
+          "regions": [
+            "Ayeyarwady",
+            "Lake Indawgyi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393953,
+      "total": 8,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "MM",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          23.90625,
+          4,
+          4
+        ],
+        [
+          97.03125,
+          25.3125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

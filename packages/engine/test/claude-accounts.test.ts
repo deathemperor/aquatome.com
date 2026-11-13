@@ -41,9 +41,13 @@ const setTokens = (list?: string, one?: string) => {
   else process.env.CLAUDE_CODE_OAUTH_TOKEN = one
 }
 let logs: string[] = []
+// A starting position set in the shell that runs the tests would move every default-order case (the cycles set it as
+// a repository variable): none here but a test's own.
+const savedFirst = process.env.CLAUDE_FIRST_ACCOUNT
 beforeEach(() => {
   // A stand-in call must not be written to a real cost log (vitest.config.ts): `off` is no log.
   process.env.ENGINE_COST_LOG = 'off'
+  delete process.env.CLAUDE_FIRST_ACCOUNT
   spawned.length = 0
   logs = []
   resetAccounts()
@@ -51,6 +55,8 @@ beforeEach(() => {
 })
 afterEach(() => {
   setTokens(saved.list, saved.one)
+  if (savedFirst === undefined) delete process.env.CLAUDE_FIRST_ACCOUNT
+  else process.env.CLAUDE_FIRST_ACCOUNT = savedFirst
   vi.restoreAllMocks()
 })
 

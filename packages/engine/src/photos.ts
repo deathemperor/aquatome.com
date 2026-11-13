@@ -11,7 +11,8 @@ const text = (html = '') => html.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').
  * Words saying a picture is art, not a photo: a drawing, painting, engraving, plate or stamp. Not "painted" or "drawn",
  * which common names and fins use ("Painted betta", "drawn-out fins").
  */
-export const ARTWORK = /(?<!\p{L})(?:in art|artworks?|drawings?|illustrations?|illustrated|engravings?|engraved|lithographs?|lithography|paintings?|watercolou?rs?|sketch(?:es)?|line art|clip ?art|cartoons?|iconographia|stamps?|postage|plates? [ivxlc\d]+|pl\. ?[ivxlc\d]+)(?!\p{L})/iu
+import { ARTWORK } from './photo-artwork'
+export { ARTWORK } from './photo-artwork'
 const word = (w: string) => new RegExp(`(?<!\\p{L})(?:${w})(?!\\p{L})`, 'iu')
 /**
  * A Commons file's words that say it is no photo of a living fish or plant, each where it says so: some words name one in

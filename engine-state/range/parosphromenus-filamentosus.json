@@ -1,0 +1,54 @@
+{
+  "id": "parosphromenus-filamentosus",
+  "native": {
+    "input": "52fab8684f9244ee",
+    "at": "2026-11-12T13:29:05.219Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Occurs in Kalimantan Tengah (Borneo, Indonesia) in jungle river systems near Banjarmasin.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Occurs in Kalimantan Tengah (Borneo, Indonesia) in jungle river systems near Banjarmasin.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "This species originates from Borneo (southeast Kalimantan), where it can be found between Ampah and Muarateweh.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parosphromenus filamentosus",
+    "status": "ACCEPTED",
+    "taxonKey": 2394184,
+    "datasets": [
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-12T13:29:05.219Z"
+  }
+}

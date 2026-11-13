@@ -10,6 +10,70 @@
     "india",
     "goa"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Western Ghats",
+        "Cauvery",
+        "Tunga",
+        "Hemavathi",
+        "Kumaradhara"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Narayan barb, Pethia setnai, is a small cyprinid common in rivers draining the Western Ghats of India, described from Sanguem in Goa.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Sanguem, Goa, western coast of India', but current knowledge suggests that this species is common throughout most rivers draining the Western Ghats mountains including the Tunga, Hemavathi, Cauvery, Kumaradhara, etc.",
+          "countries": [],
+          "regions": [
+            "Western Ghats",
+            "Cauvery",
+            "Tunga",
+            "Hemavathi",
+            "Kumaradhara"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7393947,
+      "total": 22,
+      "fetched": "2026-11-12",
+      "countries": [
+        [
+          "IN",
+          22
+        ]
+      ],
+      "cells": [
+        [
+          73.125,
+          14.0625,
+          7,
+          7
+        ],
+        [
+          73.125,
+          15.46875,
+          15,
+          15
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
