@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { lengthNotes, makeGlossaryEntry, offLimits, pageNames, sfGlossaryUrl } from '../src/glossary-entry'
+import { lengthNotes, makeGlossaryEntry, offLimits, pageNames, refusals, ruleNumbers, sfGlossaryUrl, type Draft } from '../src/glossary-entry'
 import type { TopicFacts } from '../src/topics'
 
 // The owner, 10 Nov 2026, of the Lũa term: "lũa sa tùng là gì, I had very hard time to get to know them". The fuller
@@ -273,4 +273,84 @@ test('a draft past its length or breaking a rule is rewritten from itself, twice
   const always: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : prompt.startsWith('Below are FACTS') ? { score: 0.97, notes: [] } : long) as never
   expect(await makeGlossaryEntry(again, { research: async () => facts as never, llm: always }, 'lua', { kind: 'aquascaping' })).toMatchObject({ skipped: 'breaks the rules: 3' })
   expect(await readFile(join(again, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
+})
+
+// Lũa's sixth (14 Nov 2026) was the page the owner asked for, kept below the bar on repetition, order and length notes: the
+// chief of staff accepted it as it stands, and asked that a revision change only the sentences a note quotes. A draft is
+// accepted only as the step kept it, never with a contradiction, a naming break or a fact score under the bar.
+const sixth: Draft = {
+  score: 0.9,
+  broken: 4,
+  notes: [
+    'Mopani "hợp Apistogramma, Betta": the facts say wild Betta.',
+    'Rules 4 and 12: Rot should be covered once.',
+    'Rule 4: Floating wood is covered in two places.',
+    'Rule 7: In the "Lũa săn đá" item, the use comes before what it does to the water.',
+    'The entry is 2007 words: hold it to about 1500, about 60 a kind, and leave what is left out to the pages that use the term.',
+  ],
+  entry: { definition: 'Lũa là gỗ hoặc rễ cây khô đã làm sạch.', altNames: ['gỗ lũa'], body: '<h3>Trong bể của bạn</h3><p>Lũa khô nổi cho tới khi ngấm đủ nước.</p>', related: ['tanin'] },
+}
+
+test('a kept draft may be accepted with repetition, order and length notes only, and a fact score at the bar', () => {
+  expect(ruleNumbers('Rules 4 and 12: x')).toEqual([4, 12])
+  expect(ruleNumbers('Rule 7: x')).toEqual([7])
+  expect(ruleNumbers('Mopani "hợp Betta"')).toEqual([])
+  expect(refusals(sixth)).toEqual([])
+  const with_ = (note: string, o: Partial<Draft> = {}) => refusals({ ...sixth, notes: [...sixth.notes, note], broken: sixth.broken + 1, ...o })
+  expect(with_('Rule 1: "không mục" beside "đang mục"')).toEqual(['a note that is not repetition, order or length: Rule 1: "không mục" beside "đang mục"'])
+  expect(with_('Rules 4 and 6: "pencilfish" is not our page\'s name')).toHaveLength(1)
+  expect(with_('Rule 12: the peroxide line is still there')).toHaveLength(1)
+  expect(with_('The entry repeats itself')).toHaveLength(1)
+  expect(refusals({ ...sixth, score: 0.7 })).toEqual(['its fact score 0.7 is under the bar, 0.75'])
+})
+
+test('an accepted draft is saved as the step kept it, logged with who accepted it and every note; a refused one changes nothing', async () => {
+  const root = await site()
+  await mkdir(join(root, 'engine-state/glossary'), { recursive: true })
+  await writeFile(join(root, 'engine-state/glossary/lua.json'), JSON.stringify(facts))
+  const none: Llm = async () => { throw new Error('no model call') }
+  // Refused: a contradiction.
+  const bad = { ...sixth, notes: [...sixth.notes.slice(0, 1), 'Rule 1: two statements contradict', ...sixth.notes.slice(1)], broken: 5 }
+  await writeFile(join(root, 'engine-state/glossary/lua.draft.json'), JSON.stringify(bad))
+  const before = await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')
+  expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toMatchObject({ refused: ['a note that is not repetition, order or length: Rule 1: two statements contradict'] })
+  expect(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
+  // Accepted: saved, with no model call, the draft gone.
+  await writeFile(join(root, 'engine-state/glossary/lua.draft.json'), JSON.stringify(sixth))
+  const r = await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff', now: () => new Date('2026-11-14T00:00:00Z') })
+  expect(r).toMatchObject({ id: 'lua', score: 0.9, acceptedBy: 'the chief of staff', refs: 3 })
+  const vi = JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8'))
+  expect(vi).toMatchObject({ definition: sixth.entry.definition, body: sixth.entry.body, altNames: ['lũa gỗ', 'gỗ lũa'], quality: { score: 0.9, indexable: true } })
+  const log = JSON.parse(await readFile(join(root, 'engine-state/reviews/glossary.json'), 'utf8'))['vi/glossary/lua']
+  expect(log[0]).toMatchObject({ at: '2026-11-14T00:00:00Z', score: 0.9, notes: sixth.notes, kept: true, acceptedBy: 'the chief of staff' })
+  await expect(readFile(join(root, 'engine-state/glossary/lua.draft.json'), 'utf8')).rejects.toThrow()
+  // Nothing kept: nothing to accept.
+  expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toEqual({ id: 'lua', refused: ['no kept draft to accept'] })
+})
+
+test('a revision of the kept draft changes only the sentences its notes quote, and is kept only if it comes closer', async () => {
+  const root = await site()
+  await mkdir(join(root, 'engine-state/glossary'), { recursive: true })
+  await writeFile(join(root, 'engine-state/glossary/lua.json'), JSON.stringify(facts))
+  const kept = `${JSON.stringify(sixth, null, 2)}\n`
+  await writeFile(join(root, 'engine-state/glossary/lua.draft.json'), kept)
+  const writes: string[] = []
+  const reply = (rules: string[], score = 0.9): Llm => async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: rules } as never
+    if (prompt.startsWith('Below are FACTS')) return { score, notes: ['a new fact note', 'another new one'] } as never
+    writes.push(prompt)
+    return { ...sixth.entry, body: '<p>Sửa.</p>' } as never
+  }
+  // Each revision has fewer notes but more on the facts: no closer, and the kept draft stays byte for byte.
+  const r = await makeGlossaryEntry(root, { research: async () => { throw new Error('no research') }, llm: reply(['Rule 4: x']) }, 'lua', { kind: 'aquascaping', fromDraft: true })
+  expect(r).toMatchObject({ skipped: 'breaks the rules: 4', revised: false })
+  expect(writes).toHaveLength(2)
+  expect(writes[0]).toContain('Sửa bản trước, không viết lại: chỉ sửa, gộp hay bỏ những câu mà ghi chú trích hoặc chỉ tới, và giữ nguyên từng chữ mọi câu khác.')
+  expect(writes[0]).toContain('- Rules 4 and 12: Rot should be covered once.')
+  expect(writes[0]).toContain(`--- BẢN TRƯỚC ---\n${JSON.stringify(sixth.entry)}`)
+  expect(await readFile(join(root, 'engine-state/glossary/lua.draft.json'), 'utf8')).toBe(kept)
+  // A revision at the bar is saved.
+  const passing: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : prompt.startsWith('Below are FACTS') ? { score: 0.92, notes: [] } : { ...sixth.entry, body: '<p>Sửa.</p>' }) as never
+  expect(await makeGlossaryEntry(root, { research: async () => { throw new Error('no research') }, llm: passing }, 'lua', { kind: 'aquascaping', fromDraft: true })).toMatchObject({ id: 'lua', score: 0.92 })
+  expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).body).toBe('<p>Sửa.</p>')
 })

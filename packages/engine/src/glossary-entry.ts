@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs'
-import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { GlossarySchema, metricPage, QUALITY_THRESHOLD, TranslationSchema, type GlossaryEntity, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
@@ -59,8 +59,31 @@ const RULES = `GLOSSARY RULES. Below are a Vietnamese glossary ENTRY about a fis
 10. A comparison the FACTS don't make ("it lowers pH more than other woods").
 11. "Rêu" (moss) is used for algae, which is "tảo", as the TERMS have it.
 12. A line under THIS TERM is not followed.
-Reply {"notes": [...]}, empty if the entry keeps every rule.`
+Start each note with the number of the rule it breaks, as "Rule 4: …" or "Rules 4 and 12: …". Reply {"notes": [...]}, empty if the entry keeps every rule.`
 const RULES_SCHEMA = { type: 'object', required: ['notes'], properties: { notes: { type: 'array', items: { type: 'string' } } } }
+
+/** The house rules a note says the entry breaks ("Rule 4: …", "Rules 4 and 12: …"); none for a fact or length note. */
+export const ruleNumbers = (note: string) => [...(/^Rules?\s+(\d+(?:\s*(?:,|and|&)\s*\d+)*)\s*:/i.exec(note)?.[1] ?? '').matchAll(/\d+/g)].map(m => Number(m[0]))
+const isLength = (note: string) => /^(The entry is|An item is) \d+ words/.test(note)
+
+/** A draft the step kept, unsaved: its fact score, its notes (the fact check's first, then the rules', then length's), how many of them stop a save. */
+export type Draft = { score: number; broken: number; notes: string[]; entry: Entry }
+
+/**
+ * Why a kept draft may not be accepted as the entry on a reader's word: a fact score under the bar, or a note other than
+ * a thing said twice (rule 4), an item's order (rule 7), a term's own note beside one of those (12) or the length. A
+ * contradiction, a name, a chemical, a brand, a remark on safety: never (the chief of staff, 14 Nov 2026, accepting
+ * Lũa's sixth with its repetition, order and length notes). Empty when it may be.
+ */
+export function refusals(d: Draft): string[] {
+  const out = d.score < QUALITY_THRESHOLD ? [`its fact score ${d.score} is under the bar, ${QUALITY_THRESHOLD}`] : []
+  for (const n of d.notes.slice(d.notes.length - d.broken)) {
+    if (isLength(n)) continue
+    const r = ruleNumbers(n)
+    if (!r.length || !r.every(x => [4, 7, 12].includes(x)) || r.every(x => x === 12)) out.push(`a note that is not repetition, order or length: ${n.slice(0, 160)}`)
+  }
+  return out
+}
 
 /** Words as a reader counts them: a Vietnamese syllable is one, as the 1,527 and 2,917 of Lũa's drafts were counted. */
 const words = (html: string) => unescapePlain(html.replace(/<[^>]+>/g, ' ')).split(/\s+/).filter(Boolean).length
@@ -172,19 +195,29 @@ export function addResearch(a: TopicFacts, b: TopicFacts): TopicFacts {
  * (meaning, other names, what it means in a tank and what to do, related terms), checked against them and the house rules,
  * rewritten on the notes, and again while it still isn't saved. `sf`: the term's slug in Seriously Fish's glossary, read first and cited.
  *
+ * Below the bar, the draft that came closest is kept (engine-state/glossary/<id>.draft.json). `fromDraft` revises that
+ * draft on its notes, sentence by sentence, from the same research, and keeps a revision only if it is better. `accept`
+ * (who accepts it) saves that draft as it is, on a reader's word, when it breaks nothing but `refusals` allows, and logs
+ * who did and with what notes.
+ *
  * The entry replaces the old one only at the bar: below it, the term keeps the entry it has, and the report says why.
  * Other names are added only as a source writes them: word for word in the research's facts, never one the writer
  * translated (the Writing Lead, 13 Nov 2026, after the owner found a fern under a translated name). And only when the
  * site can link them safely, as the translations' (localize.ts): several words or an abbreviation, and no other term's.
  */
-export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: Llm }, id: string, o: { kind: GuideEntity['kind']; sf?: string; reuse?: boolean; fresh?: boolean; researchModel?: string; writeModel?: string; now?: () => Date }) {
+export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: Llm }, id: string, o: { kind: GuideEntity['kind']; sf?: string; reuse?: boolean; fresh?: boolean; fromDraft?: boolean; accept?: string; researchModel?: string; writeModel?: string; now?: () => Date }) {
   const dir = join(root, 'content/glossary')
   const read = async <T>(f: string) => JSON.parse(await readFile(f, 'utf8')) as T
   const entity = GlossarySchema.parse(await read(join(dir, id, 'entity.json')))
   const vi = TranslationSchema.parse(await read(join(dir, id, 'vi.json')))
   const factsFile = join(root, 'engine-state/glossary', `${id}.json`)
   const saved = await read<TopicFacts>(factsFile).catch(() => null)
-  const kept = o.reuse ? saved : null
+  const draftFile = join(root, 'engine-state/glossary', `${id}.draft.json`)
+  // A kept draft, revised or accepted, goes with the research it was written from.
+  const draft = o.fromDraft || o.accept ? await read<Draft>(draftFile).catch(() => null) : null
+  if ((o.fromDraft || o.accept) && (!draft || !saved)) return { id, refused: [`no kept draft${saved ? '' : ' or research'} to ${o.accept ? 'accept' : 'revise'}`] }
+  if (o.accept && refusals(draft!).length) return { id, refused: refusals(draft!) }
+  const kept = o.reuse || draft ? saved : null
   // The owner, 13 Nov, of driftwood: "all kinds and names named per language", "lũa sa tùng là gì", "full details". A term
   // that comes in kinds is researched kind by kind, each by the name shops here write and its English name.
   const asks = ASKS[id] ?? {}
@@ -229,10 +262,11 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     asks.asked?.length ? `--- NGƯỜI ĐỌC ĐÃ HỎI ---\n${asks.asked.join('\n')}` : '',
     asks.write?.length ? `--- CHO MỤC NÀY ---\n${asks.write.join('\n')}` : '',
   ].filter(Boolean).map(x => `\n\n${x}`).join('')
-  // A rewrite starts from the draft before it, so what the notes don't touch stays as it was.
+  // A rewrite edits the draft before it: only the sentences a note quotes or points to change, every other one stays word
+  // for word (the chief of staff, 14 Nov 2026: Lũa's three whole rewrites each brought fresh notes and didn't converge).
   const write = (notes?: string[], before?: Entry) => d.llm<Entry>({
     system: 'You write Vietnamese aquarium glossary entries from facts. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: ENTRY_SCHEMA,
-    prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện, phạm quy tắc hoặc quá dài. Viết lại từ bản trước: sửa theo các ghi chú sau, giữ những chỗ không bị ghi chú, chỉ viết điều dữ kiện có:\n${notes.map(n => `- ${n}`).join('\n')}${before ? `\n\n--- BẢN TRƯỚC ---\n${JSON.stringify(before)}` : ''}` : ''}${kinds}\n\n--- TRANG CỦA AQUATOME (tên trang | tên khác) ---\n${pages.join('\n')}\n\n--- CÁC THUẬT NGỮ KHÁC (id: tên: định nghĩa) ---\n${terms}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter)}`,
+    prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện, phạm quy tắc hoặc quá dài. Sửa bản trước, không viết lại: chỉ sửa, gộp hay bỏ những câu mà ghi chú trích hoặc chỉ tới, và giữ nguyên từng chữ mọi câu khác. Quá dài thì bỏ hoặc rút gọn câu, không viết lại câu khác. Chỉ thêm câu khi ghi chú nói thiếu, và chỉ viết điều dữ kiện có. Các ghi chú:\n${notes.map(n => `- ${n}`).join('\n')}${before ? `\n\n--- BẢN TRƯỚC ---\n${JSON.stringify(before)}` : ''}` : ''}${kinds}\n\n--- TRANG CỦA AQUATOME (tên trang | tên khác) ---\n${pages.join('\n')}\n\n--- CÁC THUẬT NGỮ KHÁC (id: tên: định nghĩa) ---\n${terms}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter)}`,
   })
   const asGuide = (e: Entry): Written => ({ name: vi.name, summary: [e.definition], body: e.body, faq: [] })
   const rules = async (e: Entry) => (await d.llm<{ notes?: string[] }>({
@@ -244,25 +278,39 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     const long = lengthNotes(e.body)
     return { score: g.score, notes: [...g.notes, ...r, ...long], broken: r.length + long.length }
   }
-  const passes = (r: { score: number; broken: number }) => r.score >= QUALITY_THRESHOLD && !r.broken
-  let w = await write()
-  let review = await check(w)
-  const tries = [review]
-  // A rewrite on the notes, and a second while the best still isn't saved (the chief of staff, 14 Nov 2026: Lũa's fifth
-  // left six rule breaks after its one rewrite).
-  for (let i = 0; i < 2 && (!passes(review) || (i === 0 && review.notes.length)); i++) {
-    const again = await write(review.notes, w)
-    const r = await check(again)
-    tries.push(r)
-    // The one that keeps more of the rules, then the better grounded.
-    if (r.broken < review.broken || (r.broken === review.broken && r.score > review.score)) { w = again; review = r }
-  }
+  type Checked = { score: number; notes: string[]; broken: number }
+  const passes = (r: Checked) => r.score >= QUALITY_THRESHOLD && !r.broken
+  const factNotes = (r: Checked) => r.notes.length - r.broken
+  // Saved beats unsaved; then fewer notes with none more on the facts (the chief of staff, 14 Nov 2026), then the better
+  // grounded.
+  const better = (r: Checked, b: Checked) => (passes(r) !== passes(b) ? passes(r) : factNotes(r) <= factNotes(b) && (r.notes.length < b.notes.length || (r.notes.length === b.notes.length && r.score > b.score)))
   const now = o.now?.()
-  await logReviews(root, 'glossary', { id: `glossary/${id}`, lang: 'vi' }, tries, passes(review) ? review : undefined, now ? { now } : {})
-  if (!passes(review)) {
-    // Kept for a reader to judge (the chief of staff, 14 Nov 2026): the draft that came closest, and why it wasn't saved.
-    await writeFile(join(root, 'engine-state/glossary', `${id}.draft.json`), `${JSON.stringify({ score: review.score, broken: review.broken, notes: review.notes, entry: w }, null, 2)}\n`)
-    return { id, skipped: review.broken ? `breaks the rules: ${review.broken}` : `under the bar: ${review.score}`, notes: review.notes, draft: `engine-state/glossary/${id}.draft.json` }
+  const page = { id: `glossary/${id}`, lang: 'vi' }
+  let w: Entry
+  let review: Checked
+  const tries: Checked[] = []
+  if (o.accept) {
+    w = draft!.entry
+    review = { score: draft!.score, notes: draft!.notes, broken: draft!.broken }
+    await logReviews(root, 'glossary', page, [review], review, { ...(now ? { now } : {}), rewrite: true, acceptedBy: o.accept })
+  } else {
+    if (draft) { w = draft.entry; review = { score: draft.score, notes: draft.notes, broken: draft.broken } } else { w = await write(); review = await check(w); tries.push(review) }
+    const from = review
+    // A rewrite on the notes, and a second while the best still isn't saved (the chief of staff, 14 Nov 2026: Lũa's fifth
+    // left six rule breaks after its one rewrite).
+    for (let i = 0; i < 2 && (!passes(review) || (i === 0 && !draft && review.notes.length)); i++) {
+      const again = await write(review.notes, w)
+      const r = await check(again)
+      tries.push(r)
+      if (better(r, review)) { w = again; review = r }
+    }
+    await logReviews(root, 'glossary', page, tries, passes(review) ? review : undefined, { ...(now ? { now } : {}), ...(draft ? { rewrite: true } : {}) })
+    if (!passes(review)) {
+      // Kept for a reader to judge (the chief of staff, 14 Nov 2026): the draft that came closest, and why it wasn't saved.
+      // A revision that came no closer leaves the draft it revised as it was.
+      if (review !== from || !draft) await writeFile(draftFile, `${JSON.stringify({ score: review.score, broken: review.broken, notes: review.notes, entry: w }, null, 2)}\n`)
+      return { id, skipped: review.broken ? `breaks the rules: ${review.broken}` : `under the bar: ${review.score}`, notes: review.notes, draft: `engine-state/glossary/${id}.draft.json`, ...(draft ? { revised: review !== from } : {}) }
+    }
   }
 
   const taken = new Set(others.flatMap(x => [x.name, ...x.altNames]).map(n => n.toLowerCase()))
@@ -282,5 +330,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   }, 'vi'))
   await writeFile(join(dir, id, 'entity.json'), `${JSON.stringify(next, null, 2)}\n`)
   await writeFile(join(dir, id, 'vi.json'), `${JSON.stringify(t, null, 2)}\n`)
-  return { id, score: review.score, notes: review.notes, refs: refs.length, altNames: altNames.length - vi.altNames.length, related: next.related ?? [] }
+  // A kept draft is the entry's now, or older than it.
+  await rm(draftFile, { force: true })
+  return { id, score: review.score, notes: review.notes, ...(o.accept ? { acceptedBy: o.accept } : {}), refs: refs.length, altNames: altNames.length - vi.altNames.length, related: next.related ?? [] }
 }
